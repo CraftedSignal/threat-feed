@@ -213,38 +213,19 @@ func Compile(briefs []Brief, maxAge time.Duration) *BundleContent {
 			if r.Tests != nil {
 				br.Tests = &BundleTestSuite{}
 				for _, tc := range r.Tests.Positive {
-					br.Tests.Positive = append(br.Tests.Positive, BundleTestCase{
-						Name:        tc.Name,
-						Description: tc.Description,
-						Data:        tc.Data,
-					})
+					br.Tests.Positive = append(br.Tests.Positive, BundleTestCase(tc))
 				}
 				for _, tc := range r.Tests.Negative {
-					br.Tests.Negative = append(br.Tests.Negative, BundleTestCase{
-						Name:        tc.Name,
-						Description: tc.Description,
-						Data:        tc.Data,
-					})
+					br.Tests.Negative = append(br.Tests.Negative, BundleTestCase(tc))
 				}
 			}
 			bb.Rules = append(bb.Rules, br)
 		}
 		for _, ioc := range b.IOCs {
-			bb.IOCs = append(bb.IOCs, BundleIOC{
-				Type:    ioc.Type,
-				Value:   ioc.Value,
-				Context: ioc.Context,
-			})
+			bb.IOCs = append(bb.IOCs, BundleIOC(ioc))
 		}
 		for _, ttp := range b.TTPs {
-			bb.TTPs = append(bb.TTPs, BundleTTP{
-				TacticID:         ttp.TacticID,
-				TacticName:       ttp.TacticName,
-				TechniqueID:      ttp.TechniqueID,
-				TechniqueName:    ttp.TechniqueName,
-				SubtechniqueID:   ttp.SubtechniqueID,
-				SubtechniqueName: ttp.SubtechniqueName,
-			})
+			bb.TTPs = append(bb.TTPs, BundleTTP(ttp))
 		}
 		content.Briefs = append(content.Briefs, bb)
 	}

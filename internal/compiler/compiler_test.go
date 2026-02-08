@@ -167,7 +167,7 @@ func TestDeriveKey(t *testing.T) {
 }
 
 func TestCompile_MaxAgeCutoff(t *testing.T) {
-	recent := time.Now().Add(-30 * 24 * time.Hour).Format(time.RFC3339)  // 30 days ago
+	recent := time.Now().Add(-30 * 24 * time.Hour).Format(time.RFC3339)   // 30 days ago
 	old := time.Now().Add(-6 * 365 * 24 * time.Hour).Format(time.RFC3339) // 6 years ago
 
 	briefs := []Brief{
