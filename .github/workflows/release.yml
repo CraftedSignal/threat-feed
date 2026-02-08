@@ -23,8 +23,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMIT_SHA: ${{ github.sha }}
         run: |
-          gh release create "$COMMIT_SHA" \
+          TAG="v$(date -u +%Y.%m.%d)-${COMMIT_SHA:0:7}"
+          gh release create "$TAG" \
             output/bundle.json \
-            --title "Feed ${COMMIT_SHA:0:8}" \
+            --title "Feed $TAG" \
             --notes "Bundle updated from commit $COMMIT_SHA" \
             --latest
