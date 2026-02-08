@@ -1,43 +1,30 @@
-name: Build and Release Feed Bundle
+name: Release Feed Bundle
 
 on:
   push:
     branches: [main]
     paths:
-      - 'briefs/**'
-      - 'internal/**'
-      - 'cmd/**'
+      - 'output/bundle.json'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  release:
+    name: Publish Bundle
     runs-on: ubuntu-latest
-    env:
-      COMMIT_SHA: ${{ github.sha }}
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-go@v5
-        with:
-          go-version: '1.23'
-
-      - name: Build feedgen
-        run: go build -o feedgen ./cmd/feedgen
-
-      - name: Generate bundle
-        env:
-          PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
-        run: ./feedgen -briefs briefs -out output/bundle.json -version "$COMMIT_SHA"
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Create Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_SHA: ${{ github.sha }}
         run: |
           gh release create "$COMMIT_SHA" \
             output/bundle.json \
             --title "Feed ${COMMIT_SHA:0:8}" \
-            --notes "Bundle built from commit $COMMIT_SHA" \
+            --notes "Bundle updated from commit $COMMIT_SHA" \
             --latest
