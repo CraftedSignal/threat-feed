@@ -1,0 +1,114 @@
+id: brief-2023-10-12-lateral-movement-ml-rdp
+slug: 2023-10-lateral-movement-ml-rdp
+title: Lateral Movement Detection via ML Anomalies in RDP Session Duration
+summary: A detection rule for identifying anomalous Remote Desktop Protocol (RDP) session durations using machine learning algorithms.
+severity: high
+published_at: "2023-10-12T17:04:40Z"
+content: |
+    ## Overview
+
+    This detection rule leverages machine learning techniques to identify anomalies in Remote Desktop Protocol (RDP) session durations. The goal is to detect potential lateral movement within an organization by spotting irregular patterns that may indicate malicious activity.
+
+    ## Attack Chain
+
+    1. **Initial Access**: An attacker gains access to a system through various means such as phishing, credential theft, or exploiting vulnerabilities.
+    2. **Establishing RDP Session**: The attacker uses valid credentials to establish an RDP session with the compromised machine.
+    3. **Monitoring RDP Sessions**: The attacker continuously monitors RDP sessions to identify patterns that deviate from normal behavior.
+    4. **Detecting Anomalies**: The detection rule identifies anomalies in RDP session durations using machine learning algorithms.
+    5. **Exploiting Weaknesses**: If an anomaly is detected, the attacker exploits it to move laterally within the network.
+    6. **Persistence Mechanisms**: The attacker establishes persistence mechanisms to maintain access and continue lateral movement.
+
+    ## Impact
+
+    Successful detection of anomalous RDP session durations can prevent attackers from establishing persistent presence within the network, thereby mitigating potential data breaches and lateral movement.
+tags:
+    - lateral-movement
+    - rdp
+    - machine-learning
+    - anomaly-detection
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_variance_rdp_session_duration.toml
+rules:
+    - title: Detect High Variance in RDP Session Durations
+      description: Identifies RDP sessions with unusually high variance in session durations.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-TerminalServices-LocalSessionManager/Operational" EventID=4624
+        | stats count by Computer, User, DURATION
+        | where DURATION > 300 AND count < 5
+      platform: spl
+      severity: high
+      tactics:
+        - lateral-movement
+      techniques: []
+      data_sources:
+        - windows_event_logs
+      tests:
+        positive:
+            - name: RDP session with high variance
+              data:
+                - Computer: WORKSTATION01
+                  DURATION: 900
+                  EventID: 4624
+                  User: DOMAIN\user
+        negative:
+            - name: Normal RDP session duration
+              data:
+                - Computer: WORKSTATION02
+                  DURATION: 180
+                  EventID: 4624
+                  User: DOMAIN\admin
+    - title: Detect Unusually Short RDP Sessions
+      description: Identifies RDP sessions that are unusually short, potentially indicative of exfiltration attempts.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-TerminalServices-LocalSessionManager/Operational" EventID=4624
+        | stats count by Computer, User, DURATION
+        | where DURATION < 60 AND count > 5
+      platform: spl
+      severity: high
+      tactics:
+        - exfiltration
+      techniques: []
+      data_sources:
+        - windows_event_logs
+      tests:
+        positive:
+            - name: RDP session with short duration
+              data:
+                - Computer: WORKSTATION03
+                  DURATION: 50
+                  EventID: 4624
+                  User: DOMAIN\user
+        negative:
+            - name: Normal RDP session duration
+              data:
+                - Computer: WORKSTATION04
+                  DURATION: 300
+                  EventID: 4624
+                  User: DOMAIN\admin
+    - title: Detect Uncommon RDP Connections to External IPs
+      description: Identifies RDP connections to external IP addresses that are not commonly used within the organization.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-TerminalServices-LocalSessionManager/Operational" EventID=4624
+        | where DestinationIp !~ "^(10|172\\.16|192\\.168)\\..*"
+      platform: spl
+      severity: medium
+      tactics:
+        - exfiltration
+      techniques: []
+      data_sources:
+        - windows_event_logs
+      tests:
+        positive:
+            - name: RDP connection to external IP
+              data:
+                - Computer: WORKSTATION05
+                  DestinationIp: 185.220.101.45
+                  EventID: 4624
+                  User: DOMAIN\user
+        negative:
+            - name: RDP connection to internal IP
+              data:
+                - Computer: WORKSTATION06
+                  DestinationIp: 192.168.1.100
+                  EventID: 4624
+                  User: DOMAIN\admin
