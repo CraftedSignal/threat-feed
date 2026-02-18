@@ -1,0 +1,106 @@
+id: brief-2026-02-18-lateral-movement-ml
+slug: 2026-02-lateral-movement-ml
+title: Lateral Movement via Uncommon Remote File Extensions Detection Rule
+summary: Elastic's detection rule identifies lateral movement using uncommon remote file extensions, which may indicate malicious activity.
+severity: high
+published_at: "2026-02-18T17:04:40Z"
+content: |
+    ## Overview
+
+    Elastic has published a detection rule that focuses on identifying lateral movement via the use of uncommon remote file extensions. The rule leverages machine learning to detect unusual file types being transferred over a network, which may indicate potential malicious activity by attackers aiming to move laterally within an organization's network.
+
+    This threat brief provides details on how such an attack might unfold and includes detection rules to help identify similar behavior in your environment.
+
+    ## Attack Chain
+
+    1. **Initial Access**: An attacker gains initial access to a system through phishing, exploiting vulnerabilities, or other methods.
+    2. **Command Execution**: The attacker executes commands that initiate file transfers over the network.
+    3. **File Transfer**: Uncommon remote file extensions are used in the file transfer process, which is flagged by the detection rule.
+    4. **Lateral Movement**: The transferred files are executed on the target system, allowing attackers to move laterally within the network.
+    5. **Persistence and Privilege Escalation**: Attackers establish persistence mechanisms and escalate privileges to maintain access and further their objectives.
+    6. **Exfiltration or Data Manipulation**: Attackers either exfiltrate sensitive data or manipulate data on compromised systems.
+
+    ## Impact
+
+    Successful lateral movement using uncommon file extensions can lead to significant damage, including unauthorized access to sensitive information, disruption of operations, and potential financial losses. The affected sectors could include healthcare, finance, manufacturing, and government agencies.
+tags:
+    - lateral-movement
+    - machine-learning
+    - remote-file-transfers
+    - uncommon-extensions
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_rare_remote_file_extension.toml
+rules:
+    - title: Detect Uncommon Remote File Extensions During Lateral Movement
+      description: Identifies file transfers with uncommon extensions that may indicate lateral movement.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=3
+        NOT DestinationIp IN ("10.*", "172.16.*", "192.168.*", "127.*")
+        | stats count by Image, DestinationIp, DestinationPort, CommandLine, FileExtension
+        | where FileExtension !~ "(?i)^(exe|dll|bat|sh)$" AND count > 5
+      platform: spl
+      severity: high
+      tactics:
+        - Tactic0004
+      techniques:
+        - T1560
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: Uncommon file extension during transfer
+              data:
+                - CommandLine: RemoteTool.exe --transfer file.xyz
+                  DestinationIp: 185.220.101.45
+                  DestinationPort: 443
+                  EventCode: 3
+                  FileExtension: xyz
+                  Image: C:\Program Files\RemoteTool.exe
+        negative:
+            - name: Common file extension during transfer
+              data:
+                - CommandLine: scp.exe -r file.txt user@remotehost:/path/
+                  DestinationIp: 185.220.101.45
+                  DestinationPort: 443
+                  EventCode: 3
+                  FileExtension: txt
+                  Image: C:\Program Files\scp.exe
+    - title: Detect Suspicious Network Activity with Uncommon Extensions
+      description: Monitors network activity for unusual remote file extensions that may indicate lateral movement.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=3
+        NOT DestinationIp IN ("10.*", "172.16.*", "192.168.*", "127.*")
+        | stats count by Image, DestinationIp, DestinationPort, CommandLine, FileExtension
+        | where FileExtension !~ "(?i)^(exe|dll|bat|sh)$" AND count > 5
+      platform: spl
+      severity: high
+      tactics:
+        - Tactic0004
+      techniques:
+        - T1560
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: Uncommon file extension during transfer
+              data:
+                - CommandLine: RemoteTool.exe --transfer file.xyz
+                  DestinationIp: 185.220.101.45
+                  DestinationPort: 443
+                  EventCode: 3
+                  FileExtension: xyz
+                  Image: C:\Program Files\RemoteTool.exe
+        negative:
+            - name: Common file extension during transfer
+              data:
+                - CommandLine: scp.exe -r file.txt user@remotehost:/path/
+                  DestinationIp: 185.220.101.45
+                  DestinationPort: 443
+                  EventCode: 3
+                  FileExtension: txt
+                  Image: C:\Program Files\scp.exe
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Lateral Movement
+      technique_id: T1560
+      technique_name: Uncommon Communication Protocols
