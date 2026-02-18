@@ -1,0 +1,136 @@
+id: brief-2026-02-18-lateral-movement-alerts
+slug: 2026-02-lateral-movement-alerts
+title: Cross-Platform Lateral Movement Detection with New Source IPs
+summary: Detection rule for identifying cross-platform lateral movement activities based on new source IP addresses.
+severity: high
+published_at: "2026-02-18T17:04:40Z"
+content: |
+    ## Overview
+
+    This detection rule focuses on identifying suspicious lateral movement across different platforms by monitoring network connections that originate from new or unusual source IP addresses. The Elastic Detection Rules repository provides this rule to help defenders quickly identify potential intruder activities that may indicate a breach attempting to move laterally within the network.
+
+    ## Attack Chain
+
+    1. **Initial Infection**: An attacker gains initial access through phishing, exploiting a vulnerability (CVE), or other means.
+    2. **Command and Control**: The compromised host communicates with an external command-and-control server to receive further instructions.
+    3. **Lateral Movement**: The attacker uses tools like PsExec, WinRM, SSH, or RDP to move laterally within the network.
+    4. **New Source IP Detection**: As the attacker moves from one host to another, new source IP addresses are observed in the network logs.
+    5. **Persistence Mechanism**: The attacker establishes persistence on the newly compromised hosts using techniques like scheduled tasks or modifying registry keys.
+    6. **Data Exfiltration**: Finally, the attacker exfiltrates sensitive data from the network.
+
+    ## Impact
+
+    If left unchecked, this lateral movement can lead to a full compromise of an organization's network infrastructure, resulting in data loss, financial damage, and potential reputational harm. The attack can target any sector but is particularly damaging in industries handling sensitive information such as finance, healthcare, and government.
+tags:
+    - lateral-movement
+    - cross-platform
+    - new-source-ip
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/lateral_movement_multi_alerts_new_srcip.toml
+rules:
+    - title: Detect Lateral Movement via New Source IPs (Sysmon)
+      description: Identifies network connections originating from new or unusual source IP addresses.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=3
+        NOT DestinationIp IN ("10.*", "172.16.*", "192.168.*", "127.*")
+        | stats count by Image, DestinationIp, DestinationPort, User
+        | where count < 3
+      platform: spl
+      severity: high
+      tactics:
+        - lateral-movement
+      techniques:
+        - T1041
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: Uncommon process connecting to external IP
+              data:
+                - DestinationIp: 185.220.101.45
+                  DestinationPort: 443
+                  EventCode: 3
+                  Image: C:\Users\Public\beacon.exe
+                  User: DOMAIN\user
+        negative:
+            - name: Browser connecting to known CDN
+              data:
+                - DestinationIp: 142.250.80.46
+                  DestinationPort: 443
+                  EventCode: 3
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+                  User: DOMAIN\user
+    - title: Detect Cross-Platform Lateral Movement with PsExec (Sysmon)
+      description: Identifies the use of PsExec for lateral movement across different platforms.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
+        Image="*\\psexec.exe"
+        | stats count by CommandLine, ParentImage, User
+      platform: spl
+      severity: high
+      tactics:
+        - lateral-movement
+      techniques:
+        - T1078.003
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: PsExec used for lateral movement
+              data:
+                - CommandLine: psexec \RemoteHost cmd.exe
+                  EventCode: 1
+                  Image: C:\Windows\System32\psexec.exe
+                  ParentImage: C:\Windows\explorer.exe
+                  User: DOMAIN\admin
+        negative:
+            - name: Normal PsExec usage for administrative tasks
+              data:
+                - CommandLine: psexec /accepteula \\RemoteHost -u admin -p P@ssw0rd cmd.exe
+                  EventCode: 1
+                  Image: C:\Windows\System32\psexec.exe
+                  ParentImage: C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\pskill.exe
+                  User: DOMAIN\admin
+    - title: Detect Suspicious New Source IPs in Network Connections (Sysmon)
+      description: Detects network connections with source IPs not seen before.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=3
+        | stats count by DestinationIp
+        | where count == 1
+      platform: spl
+      severity: high
+      tactics:
+        - lateral-movement
+      techniques:
+        - T1048
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: New source IP in network connections
+              data:
+                - DestinationIp: 192.168.1.200
+                  DestinationPort: 443
+                  EventCode: 3
+                  User: DOMAIN\user
+        negative:
+            - name: Known source IP in network connections
+              data:
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: 80
+                  EventCode: 3
+                  User: DOMAIN\user
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Lateral Movement
+      technique_id: T1041
+      technique_name: Exfiltration
+    - tactic_id: TA0007
+      tactic_name: Lateral Movement
+      technique_id: T1078.003
+      technique_name: Remote Services
+      subtechnique_name: PsExec
+    - tactic_id: TA0007
+      tactic_name: Lateral Movement
+      technique_id: T1048
+      technique_name: Exploitation of Remote Services
