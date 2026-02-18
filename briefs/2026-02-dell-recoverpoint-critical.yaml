@@ -1,0 +1,154 @@
+id: brief-2026-02-18-dell-recoverpoint-vulnerability
+slug: 2026-02-dell-recoverpoint-critical
+title: Critical Vulnerability in Dell RecoverPoint for Virtual Machines Exploited by UNC6201
+summary: Dell has disclosed a critical vulnerability (CVE-2026-22769) affecting Dell RecoverPoint for Virtual Machines versions prior to 6.0.3.1 HF1, allowing unauthenticated remote attackers to gain full system access.
+severity: critical
+threat_actor: UNC6201
+published_at: "2026-02-18T14:40:08Z"
+content: |
+    ## Overview
+
+    The Centre for Cybersecurity Belgium (CCB) has issued an advisory warning of a critical vulnerability in Dell RecoverPoint for Virtual Machines versions prior to 6.0.3.1 HF1. This vulnerability, identified as CVE-2026-22769, is classified as a Remote Code Execution (RCE) flaw with a CVSS v3.1 base score of 10.0 (Critical). The vulnerability arises from the presence of a hardcoded credential within the software, enabling unauthenticated remote attackers to gain unauthorized access.
+
+    Mandiant and Google Threat Intelligence Group (GTIG) have reported that threat actor UNC6201 is actively exploiting this vulnerability for lateral movement and persistent access within targeted environments. UNC6201 has been observed deploying malware such as BRICKSTORM, SLAYSTYLE, and GRIMBOLT backdoor to establish a foothold in compromised systems.
+
+    The advisory also notes that the actor employs novel tactics to pivot into VMware virtual infrastructure, including the creation of "Ghost NICs" for stealthy network pivoting and the use of iptables for Single Packet Authorization (SPA). Successful exploitation may lead to unauthorized access to the underlying operating system, root-level persistence, and full compromise of confidentiality, integrity, and availability.
+
+    The vulnerability affects multiple 5.3 and 6.0 service pack releases prior to version 6.0.3.1 HF1. Organizations are advised to upgrade to version 6.0.3.1 HF1 or apply the vendor-provided remediation script (DSA-2026-079). Systems running older 5.3 versions should first upgrade to a supported release before applying the remediation steps.
+
+    Urgent patching is recommended to mitigate the risk of exploitation, and organizations are encouraged to enhance monitoring and detection capabilities to identify any related suspicious activity promptly.
+
+    ## Attack Chain
+
+    1. **Initial Access**: An unauthenticated attacker exploits CVE-2026-22769 by sending a crafted HTTP request containing the hardcoded credential to the Dell RecoverPoint for Virtual Machines service.
+    2. **Remote Code Execution (RCE)**: The vulnerability allows the attacker to execute arbitrary commands on the target system, leading to full control of the appliance.
+    3. **Persistence**: The attacker establishes persistence by deploying malware such as GRIMBOLT backdoor, ensuring continued access to the compromised system.
+    4. **Lateral Movement**: Using the established foothold, the attacker pivots into other systems within the network using techniques like "Ghost NICs" for stealthy network activity and iptables for Single Packet Authorization (SPA).
+    5. **Compromise of VMware Infrastructure**: The attacker targets VMware virtual infrastructure to expand the scope of the intrusion.
+    6. **Exfiltration/Impact**: Depending on the actor's objectives, the compromised systems may be used to exfiltrate sensitive data or disrupt services.
+
+    ## Impact
+
+    Successful exploitation of CVE-2026-22769 can lead to significant damage, including unauthorized access to critical infrastructure, data exfiltration, and operational downtime. The threat actor UNC6201 has been observed targeting multiple sectors, potentially impacting various organizations' operations.
+tags:
+    - dell-recoverpoint
+    - cve-2026-22769
+    - unc6201
+    - rce
+    - critical-vulnerability
+references:
+    - https://ccb.belgium.be/advisories/warning-critical-vulnerability-dell-recoverpoint-virtual-machines-patch-immediately
+    - https://www.dell.com/support/kbdoc/en-us/000426773/dsa-2026-079
+    - https://nvd.nist.gov/vuln/detail/CVE-2026-22769
+    - https://cloud.google.com/blog/topics/threat-intelligence/unc6201-exploiting-dell-recoverpoint-zero-day
+rules:
+    - title: Detect Unauthorized Access to Dell RecoverPoint via CVE-2026-22769
+      description: Detects potential exploitation of the CVE-2026-22769 vulnerability in Dell RecoverPoint for Virtual Machines.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
+        Image="*\\DellRecoverPoint.exe"
+        CommandLine="*hardcoded_credential*"
+        | stats count by Computer, User, ParentImage, CommandLine
+      platform: spl
+      severity: critical
+      tactics:
+        - Initial Access
+      techniques:
+        - T1566.001
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: Dell RecoverPoint with hardcoded credential in command line
+              data:
+                - CommandLine: DellRecoverPoint.exe --credential=hardcoded_credential
+                  Computer: RECOVERPOINT01
+                  EventCode: 1
+                  Image: C:\Program Files\Dell\RecoverPoint\DellRecoverPoint.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+                  User: DOMAIN\admin
+        negative:
+            - name: Normal Dell RecoverPoint command without hardcoded credential
+              data:
+                - CommandLine: DellRecoverPoint.exe --start-replication
+                  Computer: RECOVERPOINT02
+                  EventCode: 1
+                  Image: C:\Program Files\Dell\RecoverPoint\DellRecoverPoint.exe
+                  ParentImage: C:\Windows\explorer.exe
+                  User: DOMAIN\user
+    - title: Detect Malware Deployment by UNC6201 in Dell RecoverPoint Environments
+      description: Detects the deployment of known malware (e.g., GRIMBOLT) within environments affected by CVE-2026-22769.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
+        Image="*\\GRIMBOLT.exe"
+        CommandLine="*deploy*"
+        | stats count by Computer, User, ParentImage, CommandLine
+      platform: spl
+      severity: high
+      tactics:
+        - Execution
+      techniques:
+        - T1059.003
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: GRIMBOLT backdoor deployed via command line
+              data:
+                - CommandLine: GRIMBOLT.exe --deploy
+                  Computer: RECOVERPOINT01
+                  EventCode: 1
+                  Image: C:\ProgramData\GRIMBOLT.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+                  User: DOMAIN\admin
+        negative:
+            - name: Normal system process without GRIMBOLT deployment
+              data:
+                - CommandLine: notepad++.exe C:\Reports\report.txt
+                  Computer: RECOVERPOINT02
+                  EventCode: 1
+                  Image: C:\Program Files\Notepad++\notepad++.exe
+                  ParentImage: C:\Windows\explorer.exe
+                  User: DOMAIN\user
+    - title: Detect Network Pivoting Activities via 'Ghost NICs'
+      description: Detects network pivoting activities using the creation of 'Ghost NICs' for stealthy movement.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=7
+        Image="*\\netsh.exe"
+        CommandLine="*interface* *add* *name=*GhostNIC*"
+        | stats count by Computer, User, ParentImage, CommandLine
+      platform: spl
+      severity: medium
+      tactics:
+        - Lateral Movement
+      techniques: []
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: Creation of 'Ghost NIC' for network pivoting
+              data:
+                - CommandLine: netsh interface add name=GhostNIC01
+                  Computer: RECOVERPOINT01
+                  EventCode: 7
+                  Image: C:\Windows\System32\netsh.exe
+                  ParentImage: C:\Program Files\GRIMBOLT\pivottool.exe
+                  User: DOMAIN\admin
+        negative:
+            - name: Normal network configuration without Ghost NIC creation
+              data:
+                - CommandLine: netsh interface set interface name="Ethernet" admin=disable
+                  Computer: RECOVERPOINT02
+                  EventCode: 7
+                  Image: C:\Windows\System32\netsh.exe
+                  ParentImage: C:\Windows\explorer.exe
+                  User: DOMAIN\user
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1566.001
+      technique_name: Spearphishing Attachment
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.003
+      technique_name: Windows Command Shell
