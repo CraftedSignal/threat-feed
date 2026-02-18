@@ -1,0 +1,123 @@
+id: brief-2026-02-17-gitlab-ccee-vulns
+slug: 2026-02-gitlab-ccee-vulns
+title: Multiple High-Criticality Vulnerabilities in GitLab CE/EE
+summary: GitLab has disclosed five high criticality vulnerabilities (CVE-2025-7659, CVE-2025-8099, CVE-2025-14560, CVE-2025-0595, CVE-2025-0958) in GitLab CE/EE versions 18.2 before 18.6.6, 18.7 before 18.7.4, and 18.8 before 18.8.4. Exploiting these vulnerabilities can lead to data theft, unauthorized actions, denial of service, or adding unauthorized email addresses.
+severity: critical
+published_at: "2026-02-17T07:25:16Z"
+content: |
+    ## Overview
+
+    The Centre for Cybersecurity Belgium (CCB) has issued an advisory warning about multiple high criticality vulnerabilities in GitLab Community Edition (CE) and Enterprise Edition (EE). These vulnerabilities affect versions 18.2 before 18.6.6, 18.7 before 18.7.4, and 18.8 before 18.8.4. The CCB advises immediate patching to mitigate potential exploitation that could lead to data theft, unauthorized actions, denial of service, or adding unauthorized email addresses.
+
+    ## Attack Chain
+
+    1. **Initial Access via Vulnerable Versions**: An attacker exploits a vulnerability in the GitLab instance running an affected version.
+    2. **Token Theft (CVE-2025-7659)**: A remote attacker without privileges uses the origin validation error to steal tokens and access private repositories through the Web IDE.
+    3. **Denial of Service (DoS) (CVE-2025-8099)**: An unprivileged attacker sends repeated GraphQL queries, causing system disruption.
+    4. **Unauthorized Actions (CVE-2025-14560)**: A low-privilege attacker injects malicious content into vulnerability code flow to perform unauthorized actions on behalf of another user.
+    5. **Add Unauthorized Email Addresses (CVE-2025-0595)**: A low-privilege attacker adds unauthorized email addresses to victim accounts through HTML injection in test case titles.
+    6. **Memory/CPU Exhaustion (CVE-2025-0958)**: An unprivileged attacker bypasses JSON validation middleware limits to cause denial of service.
+
+    ## Impact
+
+    Successful exploitation of these vulnerabilities can lead to data theft, unauthorized actions, denial of service, or adding unauthorized email addresses. The impact could result in sensitive information being exposed, system availability issues, and compromised user accounts.
+tags:
+    - GitLab
+    - vulnerability
+    - high-severity
+    - CVE-2025-7659
+    - CVE-2025-8099
+    - CVE-2025-14560
+    - CVE-2025-0595
+    - CVE-2025-0958
+references:
+    - https://ccb.belgium.be/advisories/warning-multiple-high-criticality-vulnerabilities-gitlab-ccee-patch-immediately
+rules:
+    - title: Detect Unauthorized Actions via GitLab GraphQL Queries
+      description: Detects unauthorized actions performed through repeated GraphQL queries exploiting CVE-2025-8099.
+      query: "index=main sourcetype=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=3\nImage=\"*\\\\gitlab-rails.service\"\nDestinationIp=\"known-vulnerable-ip-range\" \n| stats count by Image, DestinationIp, DestinationPort, User\n| where count > 100\n"
+      platform: spl
+      severity: high
+      tactics:
+        - Execution
+      techniques: []
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: Unauthorized actions via GraphQL queries
+              data:
+                - DestinationIp: 192.168.1.50
+                  DestinationPort: 443
+                  EventCode: 3
+                  Image: /usr/sbin/gitlab-rails.service
+                  User: gitlab-user
+        negative:
+            - name: Normal user activity via GraphQL queries
+              data:
+                - DestinationIp: 192.168.1.50
+                  DestinationPort: 443
+                  EventCode: 3
+                  Image: /usr/sbin/gitlab-rails.service
+                  User: normal-user
+    - title: Detect Unauthorized Email Additions in GitLab Test Cases
+      description: Detects unauthorized email additions to user accounts through HTML injection exploiting CVE-2025-0595.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
+        Image="*\\gitlab-rails.service"
+        CommandLine="*add-email-to-user-account*"
+        | stats count by Computer, User, ParentImage, CommandLine
+      platform: spl
+      severity: medium
+      tactics:
+        - Persistence
+      techniques:
+        - T1098.003
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: Unauthorized email addition to user account
+              data:
+                - CommandLine: 'gitlab-rails runner ''User.find(1).emails.create(email: "attacker@example.com")'''
+                  Computer: SERVER01
+                  EventCode: 1
+                  Image: /usr/sbin/gitlab-rails.service
+                  ParentImage: bash
+                  User: attacker
+        negative:
+            - name: Normal user activity via GitLab API
+              data:
+                - CommandLine: 'gitlab-rails runner ''User.find(2).update(name: "Jane Doe")'''
+                  Computer: SERVER01
+                  EventCode: 1
+                  Image: /usr/sbin/gitlab-rails.service
+                  ParentImage: bash
+                  User: normal-user
+    - title: Detect Unauthorized Token Access via GitLab Web IDE
+      description: Detects unauthorized access to private repositories through the Web IDE exploiting CVE-2025-7659.
+      query: "index=main sourcetype=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=3\nImage=\"*\\\\gitlab-rails.service\"\nDestinationIp=\"known-vulnerable-ip-range\" \n| stats count by Image, DestinationIp, DestinationPort, User\n| where count > 50\n"
+      platform: spl
+      severity: high
+      tactics:
+        - Credential Access
+      techniques: []
+      data_sources:
+        - sysmon
+      tests:
+        positive:
+            - name: Unauthorized token access via Web IDE
+              data:
+                - DestinationIp: 192.168.1.50
+                  DestinationPort: 443
+                  EventCode: 3
+                  Image: /usr/sbin/gitlab-rails.service
+                  User: gitlab-user
+        negative:
+            - name: Normal user activity via Web IDE
+              data:
+                - DestinationIp: 192.168.1.50
+                  DestinationPort: 443
+                  EventCode: 3
+                  Image: /usr/sbin/gitlab-rails.service
+                  User: normal-user
