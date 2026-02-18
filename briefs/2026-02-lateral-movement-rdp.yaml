@@ -1,0 +1,71 @@
+id: brief-2026-02-18-lateral-movement-rdp
+slug: 2026-02-lateral-movement-rdp
+title: Lateral Movement via High Mean RDP Session Duration
+summary: Elastic's detection rule identifies abnormal RDP session durations indicative of potential lateral movement.
+severity: high
+published_at: "2026-02-18T17:04:40Z"
+content: |
+    ## Overview
+
+    This threat brief describes a detection rule from Elastic that monitors for high mean Remote Desktop Protocol (RDP) session durations, which may indicate lateral movement within an organization's network. The rule leverages machine learning to identify deviations from normal RDP session behavior.
+
+    ## Attack Chain
+
+    1. **Initial Access**: An attacker gains initial access through various means such as phishing emails or exploiting vulnerabilities.
+    2. **Establishing a foothold**: The attacker establishes a foothold on an internal system using stolen credentials or malware.
+    3. **Lateral Movement**: Using RDP, the attacker moves laterally across the network to other systems.
+    4. **Persistence**: The attacker may establish persistence mechanisms such as scheduled tasks or service installations.
+    5. **Privilege Escalation**: The attacker escalates privileges to gain administrative access on targeted systems.
+    6. **Data Exfiltration**: The attacker exfiltrates sensitive data from the network.
+
+    ## Impact
+
+    Successful lateral movement via RDP can lead to complete compromise of an organization's internal network, resulting in data breaches, financial losses, and potential reputational damage.
+tags:
+    - lateral-movement
+    - rdp
+    - machine-learning
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_session_duration.toml
+rules:
+    - title: Detect High Mean RDP Session Duration via Machine Learning
+      description: Detects abnormal RDP session durations that may indicate lateral movement.
+      query: |
+        index=main sourcetype="WinEventLog:Microsoft-Windows-TerminalServices-LocalSessionManager/Operational" EventCode=4624
+        | stats avg(SessionDuration) as MeanDuration by User, Computer
+        | where MeanDuration > 3600
+      platform: spl
+      severity: high
+      tactics:
+        - TA0008
+      techniques:
+        - T1021.003
+      data_sources:
+        - security_event_logs
+      tests:
+        positive:
+            - name: High mean RDP session duration
+              data:
+                - Computer: WORKSTATION01
+                  EventCode: 4624
+                  SessionDuration: 7200
+                  User: DOMAIN\user
+            - name: Another high mean RDP session duration
+              data:
+                - Computer: SERVER01
+                  EventCode: 4624
+                  SessionDuration: 9000
+                  User: DOMAIN\admin
+        negative:
+            - name: Normal RDP session duration
+              data:
+                - Computer: WORKSTATION02
+                  EventCode: 4624
+                  SessionDuration: 300
+                  User: DOMAIN\user
+            - name: Another normal RDP session duration
+              data:
+                - Computer: SERVER02
+                  EventCode: 4624
+                  SessionDuration: 1800
+                  User: DOMAIN\admin
