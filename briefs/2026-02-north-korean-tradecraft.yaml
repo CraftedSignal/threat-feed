@@ -1,0 +1,153 @@
+id: brief-2026-02-19-north-korean-tradecraft
+slug: 2026-02-north-korean-tradecraft
+title: GitLab Threat Intelligence Reveals North Korean Tradecraft
+summary: GitLab's Threat Intelligence team has published findings on North Korean cyber operations, detailing their tactics, techniques, and procedures.
+severity: medium
+threat_actor: North Korean APT
+published_at: "2026-02-19T22:47:35Z"
+content: |
+    ## Overview
+
+    GitLab's Threat Intelligence team has released a report detailing observed tradecraft used by North Korean threat actors. While the specific details of the report are not included in this summary, the announcement suggests the report covers various aspects of North Korean cyber operations. Defenders should leverage the full report to understand the tools, techniques, and procedures employed by these actors in order to better defend against potential attacks. The report likely contains information about malware, network infrastructure, and targeting patterns used in past campaigns.
+
+    ## Attack Chain
+
+    1.  Reconnaissance: The actors likely gather open-source intelligence about their targets, including employee information and network infrastructure details, using tools like Shodan or Recon-ng.
+    2.  Initial Access: Spear-phishing emails containing malicious attachments or links are sent to employees of targeted organizations, leveraging social engineering to entice victims to click.
+    3.  Execution: Upon opening the malicious attachment, a macro or script executes, downloading and running a first-stage downloader like Meterpreter or Cobalt Strike stager.
+    4.  Persistence: The downloader establishes persistence by creating a scheduled task or modifying registry keys to ensure the malware runs automatically on system startup using tools like Regsvr32.
+    5.  Privilege Escalation: The actors attempt to escalate privileges using known Windows exploits or by exploiting misconfigurations, potentially using tools like Metasploit's local exploit suggester or PowerUp.
+    6.  Lateral Movement: With elevated privileges, the actors move laterally within the network using tools like PsExec, WMI, or SMB, accessing other systems and resources.
+    7.  Data Exfiltration: Sensitive data is gathered, compressed, and exfiltrated to attacker-controlled servers via protocols like HTTP, HTTPS, or FTP, utilizing tools like WinRAR or 7-Zip for archiving.
+    8.  Maintain Access: Backdoors are deployed to maintain long-term access to the compromised network, using web shells or reverse shells for persistent command and control.
+
+    ## Impact
+
+    Successful North Korean cyber operations can result in significant financial losses, theft of sensitive information, and disruption of critical infrastructure. Targeted sectors often include defense, finance, and critical manufacturing. The impact could include theft of intellectual property, disruption of services, or espionage activities. The scale of damage depends on the sophistication of the attack and the security posture of the targeted organization.
+tags:
+    - north-korea
+    - apt
+    - cyber-espionage
+references:
+    - https://about.gitlab.com/blog/gitlab-threat-intelligence-reveals-north-korean-tradecraft/
+rules:
+    - title: Detect Suspicious Process Creation via PsExec
+      description: Detects the use of PsExec for lateral movement, which is often used by attackers to execute commands on remote systems.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - \\127.0.0.1
+                - -accepteula
+            Image|endswith: \PsExec.exe
+      level: high
+      tags:
+        - attack.lateral_movement
+        - attack.t1021.002
+      tests:
+        positive:
+            - name: PsExec execution on localhost
+              data:
+                - Image: C:\tools\PsExec.exe
+                - CommandLine: PsExec.exe \\127.0.0.1 -accepteula -s cmd.exe
+                - ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Legitimate PsExec Usage on Remote Host
+              data:
+                - Image: C:\Program Files\Sysinternals Suite\PsExec.exe
+                - CommandLine: PsExec.exe \\RemoteHost -u Admin -p Password cmd.exe
+                - ParentImage: C:\Windows\System32\cmd.exe
+    - title: Detect Suspicious File Compression via Command Line
+      description: Detects archiving tools like WinRAR or 7-Zip being executed via command line, which is a potential indicator of data exfiltration.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: 'a '
+            Image|endswith:
+                - \winrar.exe
+                - \7z.exe
+      level: medium
+      tags:
+        - attack.exfiltration
+        - attack.t1567.002
+      tests:
+        positive:
+            - name: WinRAR command line archiving
+              data:
+                - Image: C:\Program Files\WinRAR\winrar.exe
+                - CommandLine: WinRAR.exe a archive.rar *.txt
+                - ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Legitimate WinRAR GUI usage
+              data:
+                - Image: C:\Program Files\WinRAR\winrar.exe
+                - CommandLine: C:\Program Files\WinRAR\WinRAR.exe
+                - ParentImage: C:\Windows\explorer.exe
+    - title: Detect Registry Modification for Persistence
+      description: Detects modifications to the Run key in the registry, used for persistence.
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Details|contains:
+                - .exe
+                - .dll
+            TargetObject|contains: \CurrentVersion\Run
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1547.001
+      tests:
+        positive:
+            - name: Adding new run key for persistence
+              data:
+                - TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\EvilApp
+                - Details: C:\Users\Public\evil.exe
+        negative:
+            - name: Legitimate software installation
+              data:
+                - TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\OneDrive
+                - Details: C:\Users\User\AppData\Local\Microsoft\OneDrive\OneDrive.exe
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1566
+      technique_name: Phishing
+      subtechnique_id: T1566.001
+      subtechnique_name: Spearphishing Attachment
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059
+      technique_name: Command and Scripting Interpreter
+      subtechnique_id: T1059.001
+      subtechnique_name: PowerShell
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
+      subtechnique_id: T1547.001
+      subtechnique_name: Registry Run Keys / Startup Folder
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021
+      technique_name: Remote Services
+      subtechnique_id: T1021.002
+      subtechnique_name: SMB/Windows Admin Shares
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1567
+      technique_name: Exfiltration Over Web Service
+      subtechnique_id: T1567.002
+      subtechnique_name: Exfiltration to Cloud Storage
