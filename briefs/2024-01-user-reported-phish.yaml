@@ -1,0 +1,142 @@
+id: brief-2024-01-23-user-reported-phish
+slug: 2024-01-user-reported-phish
+title: O365 User Reported Phishing/Malware Detection
+summary: This detection identifies potential phishing or malware incidents based on user reports within Microsoft 365 Security & Compliance.
+severity: medium
+published_at: "2024-01-23T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection leverages user-reported phishing or malware incidents within Microsoft 365. When a user flags an email as suspicious via the "Report Message" feature, this event generates a log entry within the Security & Compliance center. While the specific actors and campaigns are unknown, this rule aims to detect and surface potential threats that may have bypassed traditional security filters. Early detection of user-reported phish can prevent further compromise. Defenders can use this alert to investigate potentially malicious emails, identify affected users, and remediate the threat before significant damage occurs.
+
+    ## Attack Chain
+
+    1. An attacker sends a phishing email to a user's Microsoft 365 inbox.
+    2. The user identifies the email as suspicious and uses the "Report Message" feature in Outlook or a similar client.
+    3. This action generates an event log within the Microsoft 365 Security & Compliance center.
+    4. The event log records details about the reported email, including sender, recipient, subject, and report type (phish or malware).
+    5. This detection rule identifies these specific events within the logs.
+    6. Security analysts review the flagged email details.
+    7. The analysts perform further investigation (e.g., detonation, reputation checks, URL analysis).
+    8. Based on the investigation outcome, appropriate remediation steps are taken (e.g., email deletion, user training, incident response).
+
+    ## Impact
+
+    A successful phishing attack can lead to credential compromise, data theft, and malware infection. User reporting provides an early warning system; failure to detect and respond to these reports can result in widespread compromise within the organization. The number of users potentially affected depends on the scale of the phishing campaign and the effectiveness of initial security controls.
+tags:
+    - phishing
+    - malware
+    - o365
+    - user-report
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_security_compliance_user_reported_phish_malware.toml
+rules:
+    - title: O365 User Reported Phish/Malware
+      description: Detects user-reported phishing or malware incidents in O365 Security & Compliance logs.
+      logsource:
+        category: email
+        product: o365
+      detection:
+        condition: selection
+        selection:
+            event.dataset: o365.security
+            o365.security.Operation: Reported message
+            o365.security.ReportType: ("Phish", "Malware")
+            o365.security.Workload: Exchange
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1566
+      tests:
+        positive:
+            - name: User reports a phishing email
+              data:
+                - event.dataset: o365.security
+                  o365.security.ClientIP: 192.168.1.1
+                  o365.security.Operation: Reported message
+                  o365.security.ReportType: Phish
+                  o365.security.UserId: user@example.com
+                  o365.security.Workload: Exchange
+        negative:
+            - name: User deletes an email
+              data:
+                - event.dataset: o365.security
+                  o365.security.ClientIP: 192.168.1.1
+                  o365.security.Operation: Remove message
+                  o365.security.UserId: user@example.com
+                  o365.security.Workload: Exchange
+    - title: O365 User Reported Phish - High Volume from Single User
+      description: Detects a high volume of user-reported phishing emails from a single user within a short timeframe, potentially indicating a compromised account or targeted campaign.
+      logsource:
+        category: email
+        product: o365
+      detection:
+        aggregation:
+            UserId: o365.security.UserId
+            count: count()
+        condition: selection | group by UserId having count > 5
+        selection:
+            event.dataset: o365.security
+            o365.security.Operation: Reported message
+            o365.security.ReportType: ("Phish", "Malware")
+            o365.security.Workload: Exchange
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1566
+      tests:
+        positive:
+            - name: User reports multiple phishing emails in a short time
+              data:
+                - event.dataset: o365.security
+                  o365.security.ClientIP: 192.168.1.1
+                  o365.security.Operation: Reported message
+                  o365.security.ReportType: Phish
+                  o365.security.UserId: user@example.com
+                  o365.security.Workload: Exchange
+                - event.dataset: o365.security
+                  o365.security.ClientIP: 192.168.1.1
+                  o365.security.Operation: Reported message
+                  o365.security.ReportType: Phish
+                  o365.security.UserId: user@example.com
+                  o365.security.Workload: Exchange
+                - event.dataset: o365.security
+                  o365.security.ClientIP: 192.168.1.1
+                  o365.security.Operation: Reported message
+                  o365.security.ReportType: Phish
+                  o365.security.UserId: user@example.com
+                  o365.security.Workload: Exchange
+                - event.dataset: o365.security
+                  o365.security.ClientIP: 192.168.1.1
+                  o365.security.Operation: Reported message
+                  o365.security.ReportType: Phish
+                  o365.security.UserId: user@example.com
+                  o365.security.Workload: Exchange
+                - event.dataset: o365.security
+                  o365.security.ClientIP: 192.168.1.1
+                  o365.security.Operation: Reported message
+                  o365.security.ReportType: Phish
+                  o365.security.UserId: user@example.com
+                  o365.security.Workload: Exchange
+                - event.dataset: o365.security
+                  o365.security.ClientIP: 192.168.1.1
+                  o365.security.Operation: Reported message
+                  o365.security.ReportType: Phish
+                  o365.security.UserId: user@example.com
+                  o365.security.Workload: Exchange
+        negative:
+            - name: User reports a single phishing email
+              data:
+                - event.dataset: o365.security
+                  o365.security.ClientIP: 192.168.1.1
+                  o365.security.Operation: Reported message
+                  o365.security.ReportType: Phish
+                  o365.security.UserId: user@example.com
+                  o365.security.Workload: Exchange
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1566
+      technique_name: Phishing
+      subtechnique_id: T1566.001
+      subtechnique_name: Spearphishing Attachment
