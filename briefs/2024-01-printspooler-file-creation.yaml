@@ -1,0 +1,122 @@
+id: brief-2024-01-28-printspooler-file-creation
+slug: 2024-01-printspooler-file-creation
+title: Print Spooler Service Suspicious File Creation
+summary: The Print Spooler service is abused to create suspicious files, potentially leading to privilege escalation.
+severity: high
+published_at: "2026-02-20T17:11:35Z"
+content: |
+    ## Overview
+
+    The Print Spooler service, a legitimate Windows component, is a known target for exploitation and abuse. Attackers can leverage the service to perform various malicious activities, including creating files in arbitrary locations with elevated privileges. While the provided source lacks specific details on a particular campaign or actor, the detection rule focuses on identifying suspicious file creation events originating from the Print Spooler service, indicating a potential attempt to escalate privileges or execute malicious code. This activity is particularly concerning because the Print Spooler service often runs with SYSTEM privileges.
+
+    ## Attack Chain
+
+    1. An attacker gains initial access to the system (e.g., via phishing or exploiting a vulnerability).
+    2. The attacker leverages a vulnerability or misconfiguration within the Print Spooler service.
+    3. The Print Spooler service (spoolsv.exe) is manipulated to write a file to a protected directory.
+    4. The created file is often an executable or script (e.g., a DLL or PowerShell script).
+    5. The attacker executes the newly created file, which now runs with SYSTEM privileges.
+    6. The malicious script or executable performs actions such as installing malware, creating new user accounts, or exfiltrating data.
+    7. The attacker achieves persistence by establishing a foothold within the system.
+
+    ## Impact
+
+    Successful exploitation of the Print Spooler service can lead to complete system compromise. Attackers can gain SYSTEM-level privileges, allowing them to perform any action on the affected machine. This includes installing malware, stealing sensitive data, and creating new administrative accounts. Given the widespread use of the Print Spooler service, a successful exploit can potentially impact a large number of systems within an organization.
+tags:
+    - privilege-escalation
+    - print-spooler
+    - windows
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/privilege_escalation_printspooler_service_suspicious_file.toml
+rules:
+    - title: Print Spooler Creating Executables
+      description: Detects the Print Spooler service creating executable files in suspicious locations.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image: C:\Windows\System32\spoolsv.exe
+            TargetFilename|contains:
+                - \AppData\
+                - \Temp\
+            TargetFilename|endswith:
+                - .exe
+                - .dll
+                - .ps1
+      level: high
+      tags:
+        - attack.privilege_escalation
+        - attack.t1068
+      tests:
+        positive:
+            - name: Print Spooler creates exe in Temp directory
+              data:
+                - Image: C:\Windows\System32\spoolsv.exe
+                  TargetFilename: C:\Windows\Temp\evil.exe
+        negative:
+            - name: Legitimate file creation by spoolsv.exe
+              data:
+                - Image: C:\Windows\System32\spoolsv.exe
+                  TargetFilename: C:\Windows\System32\spool\PRINTERS\test.SHD
+    - title: Print Spooler Service Writing to Startup Folder
+      description: Detects the Print Spooler service writing files to the Startup folder, which could be used for persistence.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image: C:\Windows\System32\spoolsv.exe
+            TargetFilename|contains: \Microsoft\Windows\Start Menu\Programs\Startup\
+      level: critical
+      tags:
+        - attack.persistence
+        - attack.t1547.001
+      tests:
+        positive:
+            - name: Print Spooler writing to Startup
+              data:
+                - Image: C:\Windows\System32\spoolsv.exe
+                  TargetFilename: C:\Users\Public\Start Menu\Programs\Startup\evil.bat
+        negative:
+            - name: User writing to Startup
+              data:
+                - Image: C:\Windows\explorer.exe
+                  TargetFilename: C:\Users\Public\Start Menu\Programs\Startup\legit.lnk
+    - title: Print Spooler Service Writing to System32
+      description: Detects the Print Spooler service writing files to the System32 folder, often used for DLL hijacking.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image: C:\Windows\System32\spoolsv.exe
+            TargetFilename|contains: \Windows\System32\
+            TargetFilename|endswith: .dll
+      level: critical
+      tags:
+        - attack.privilege_escalation
+        - attack.t1574.001
+      tests:
+        positive:
+            - name: Print Spooler writing to System32
+              data:
+                - Image: C:\Windows\System32\spoolsv.exe
+                  TargetFilename: C:\Windows\System32\evil.dll
+        negative:
+            - name: Trusted Installer writing to System32
+              data:
+                - Image: C:\Windows\servicing\TrustedInstaller.exe
+                  TargetFilename: C:\Windows\System32\good.dll
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547.001
+      technique_name: Boot or Logon Autostart Execution
