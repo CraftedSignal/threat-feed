@@ -1,0 +1,434 @@
+id: brief-2024-01-21-o365-file-deletion
+slug: 2024-01-o365-file-deletion
+title: Unusual Volume of File Deletion in Microsoft 365
+summary: An attacker compromises a Microsoft 365 account and deletes a large number of files to disrupt operations or cover their tracks.
+severity: high
+published_at: "2024-01-21T12:00:00Z"
+content: |
+    ## Overview
+
+    This activity focuses on the potential for a compromised Microsoft 365 account to perform mass file deletions. While the specific actor and initial access vector are unknown, the core threat revolves around the intentional or unintentional removal of a large number of files within a short timeframe. This could be indicative of a malicious actor attempting to disrupt business operations, destroy evidence of their activities, or prepare for a ransomware attack by deleting backups and critical files stored in OneDrive or SharePoint. Defenders should monitor for anomalous file deletion activity that deviates from normal user behavior to quickly identify and respond to potential breaches.
+
+    ## Attack Chain
+
+    1.  **Account Compromise:** The attacker gains unauthorized access to a legitimate Microsoft 365 account, possibly through phishing, credential stuffing, or password spraying.
+    2.  **Privilege Escalation (Optional):** If the initial account lacks sufficient permissions, the attacker may attempt to escalate privileges within the Microsoft 365 environment.
+    3.  **Discovery:** The attacker explores the victim's OneDrive and SharePoint files to identify valuable data for deletion.
+    4.  **File Deletion:** The attacker initiates the deletion of a large volume of files using the Microsoft 365 web interface, PowerShell, or the Microsoft Graph API.
+    5.  **Bypass Auditing (Optional):** The attacker may attempt to disable or tamper with audit logs to conceal their actions.
+    6.  **Data Destruction:** The deleted files are moved to the recycle bin, but the attacker may permanently delete them from the recycle bin to ensure complete data loss.
+    7.  **Covering Tracks:** The attacker may delete audit logs related to the deletion activity.
+
+    ## Impact
+
+    A successful mass file deletion attack can lead to significant data loss, business disruption, and reputational damage. Depending on the scope of the deletion, critical business documents, customer data, and other essential files may be permanently lost, leading to operational downtime and financial losses. This can affect organizations of any size, but those heavily reliant on Microsoft 365 for data storage and collaboration are at greater risk. The impact can range from several hours of downtime for a small business to weeks of recovery for a large enterprise.
+tags:
+    - o365
+    - file-deletion
+    - data-destruction
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/impact_security_compliance_unusual_volume_of_file_deletion.toml
+rules:
+    - title: Detect Unusual Volume of File Deletion Events in O365
+      description: Detects a user deleting an unusually high number of files within a short period in Microsoft 365, which may indicate malicious activity.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection and threshold
+        selection:
+            Operation: FileDeleted
+        threshold:
+            event.count: 100
+            timeframe: 600
+      level: high
+      tags:
+        - attack.impact
+        - attack.t1485
+      tests:
+        positive:
+            - name: High volume of file deletions
+              data:
+                - FileName: document1.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document2.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document3.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document4.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document5.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document6.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document7.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document8.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document9.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document10.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document11.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document12.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document13.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document14.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document15.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document16.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document17.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document18.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document19.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document20.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document21.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document22.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document23.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document24.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document25.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document26.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document27.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document28.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document29.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document30.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document31.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document32.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document33.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document34.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document35.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document36.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document37.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document38.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document39.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document40.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document41.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document42.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document43.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document44.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document45.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document46.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document47.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document48.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document49.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document50.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document51.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document52.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document53.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document54.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document55.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document56.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document57.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document58.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document59.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document60.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document61.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document62.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document63.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document64.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document65.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document66.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document67.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document68.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document69.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document70.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document71.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document72.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document73.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document74.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document75.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document76.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document77.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document78.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document79.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document80.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document81.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document82.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document83.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document84.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document85.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document86.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document87.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document88.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document89.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document90.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document91.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document92.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document93.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document94.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document95.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document96.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document97.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document98.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document99.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document100.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+        negative:
+            - name: Normal file deletion activity
+              data:
+                - FileName: document1.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document2.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document3.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document4.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+                - FileName: document5.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+    - title: Detect O365 File Deletion via Unusual Client Application
+      description: Detects file deletion events originating from uncommon client applications within Microsoft 365, potentially indicating the use of malicious tools or scripts.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            ClientApp: SharePoint Online
+        selection:
+            Operation: FileDeleted
+      level: medium
+      tags:
+        - attack.impact
+        - attack.t1485
+      tests:
+        positive:
+            - name: File deletion from unusual client application
+              data:
+                - ClientApp: Rclone
+                  FileName: document1.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+        negative:
+            - name: File deletion from standard client application
+              data:
+                - ClientApp: SharePoint Online
+                  FileName: document1.docx
+                  Operation: FileDeleted
+                  User: testuser@example.com
+    - title: Detect Permanent Deletion of Files from Recycle Bin
+      description: Detects events related to permanent deletion of files from the recycle bin in Microsoft 365, a possible attempt to remove traces of malicious activity.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Operation: PurgeRecycleBin
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1070.001
+      tests:
+        positive:
+            - name: Recycle bin purge
+              data:
+                - Operation: PurgeRecycleBin
+                  User: testuser@example.com
+        negative:
+            - name: Normal file deletion
+              data:
+                - Operation: FileDeleted
+                  User: testuser@example.com
+ttps:
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1485
+      technique_name: Data Destruction
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1070
+      technique_name: Indicator Removal on Host
+      subtechnique_id: T1070.001
+      subtechnique_name: Clear Windows Event Logs
