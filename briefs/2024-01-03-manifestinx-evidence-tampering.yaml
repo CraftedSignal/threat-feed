@@ -1,0 +1,96 @@
+id: brief-2024-01-03-manifestinx-evidence-tampering
+slug: 2024-01-03-manifestinx-evidence-tampering
+title: Manifest-InX Evidence Bundle Tampering Detection
+summary: The Manifest-InX project provides a specification and tool (manifestinx-verify) to detect tampering with offline 'evidence bundles' through integrity verification and deterministic reporting, allowing for the identification of unauthorized modifications to artifacts.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    The Manifest-InX project, released in February 2026, introduces a specification and offline verifier (`manifestinx-verify`) for tamper-evident "evidence bundles." The core functionality focuses on verifying the integrity of these bundles, ensuring that any unauthorized modifications to artifacts are detectable. The project aims to provide a reliable method for verifying evidence integrity in offline environments, where network access for real-time validation may not be available. The provided toolset includes an Evidence Bundle Spec, an offline verifier emitting deterministic reports, and proof kit with CI gate templates, which facilitates the integration of integrity checks into continuous integration pipelines. The scope is limited to verification and does not include evidence capture/emission runtimes.
+
+    ## Attack Chain
+
+    1. An attacker gains access to an existing, valid evidence bundle created using the Manifest-InX specification.
+    2. The attacker modifies one or more artifacts within the evidence bundle without updating the associated hashes in the manifest file. This could involve altering log files, configuration settings, or other relevant data.
+    3. The attacker attempts to pass the tampered evidence bundle as legitimate.
+    4. The defender utilizes the `manifestinx-verify` tool to validate the integrity of the bundle.
+    5. The `manifestinx-verify` tool detects the hash mismatch between the modified artifact and its recorded hash in the manifest.
+    6. The tool outputs a deterministic report indicating the presence of tampering.
+    7. The `manifestinx-verify` tool exits with a code of 2, signifying that a tamper event was detected.
+    8. The defender utilizes the exit code and report to identify and respond to the evidence tampering attempt.
+
+    ## Impact
+
+    Successful evidence tampering can lead to misrepresentation of events during investigations, potentially resulting in incorrect conclusions or legal challenges. While the number of potential victims and specific sectors targeted are currently unknown, the impact of undetected evidence manipulation could be severe, especially in legal, forensic, and incident response contexts. Failure to detect tampering could lead to compromised investigations, flawed analysis, and erosion of trust in the integrity of collected evidence.
+tags:
+    - evidence-tampering
+    - integrity-check
+    - offline-verification
+references:
+    - https://www.reddit.com/r/cybersecurity/comments/1ra6uiy/show_how_do_you_detect_tampered_evidence_offline/
+    - https://github.com/OneInX/Manifest-InX-EBS
+rules:
+    - title: Detect Manifest-InX Verification Failure (Exit Code 2)
+      description: Detects when the manifestinx-verify tool exits with code 2, indicating a tamper event.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and tamper_exit
+        selection:
+            CommandLine|contains: verify
+            Image|endswith: /manifestinx-verify
+        tamper_exit:
+            ExitCode: 2
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1562
+      tests:
+        positive:
+            - name: manifestinx-verify detects tampering
+              data:
+                - CommandLine: manifestinx-verify verify bundle.ebs
+                  ExitCode: 2
+                  Image: /opt/manifestinx/manifestinx-verify
+        negative:
+            - name: manifestinx-verify passes verification
+              data:
+                - CommandLine: manifestinx-verify verify bundle.ebs
+                  ExitCode: 0
+                  Image: /opt/manifestinx/manifestinx-verify
+    - title: Detect Manifest-InX Verification Error (Exit Code 1)
+      description: Detects when the manifestinx-verify tool exits with code 1, indicating an error condition.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and error_exit
+        error_exit:
+            ExitCode: 1
+        selection:
+            CommandLine|contains: verify
+            Image|endswith: /manifestinx-verify
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562
+      tests:
+        positive:
+            - name: manifestinx-verify encounters error
+              data:
+                - CommandLine: manifestinx-verify verify bundle.ebs
+                  ExitCode: 1
+                  Image: /opt/manifestinx/manifestinx-verify
+        negative:
+            - name: manifestinx-verify passes verification
+              data:
+                - CommandLine: manifestinx-verify verify bundle.ebs
+                  ExitCode: 0
+                  Image: /opt/manifestinx/manifestinx-verify
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
