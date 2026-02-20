@@ -1,0 +1,151 @@
+id: brief-2026-02-21-ivanti-epmm-vulns
+slug: 2026-02-ivanti-epmm-vulns
+title: Exploitation of Critical Vulnerabilities in Ivanti EPMM
+summary: Observed exploitation of critical vulnerabilities CVE-2026-1281 and CVE-2026-1340 in Ivanti EPMM allows for remote code execution and unauthorized access.
+severity: critical
+published_at: "2026-02-20T05:07:10Z"
+content: |
+    ## Overview
+
+    Multiple sources indicate active exploitation of critical vulnerabilities in Ivanti Endpoint Manager Mobile (EPMM). Specifically, CVE-2026-1281 and CVE-2026-1340 are being targeted by threat actors. While specific actor details remain limited, the exploitation of these vulnerabilities allows for unauthenticated remote code execution. Palo Alto Networks Unit 42 has published details on the vulnerabilities. Given the potential for complete system compromise and data exfiltration, organizations using affected versions of Ivanti EPMM are at high risk.
+
+    ## Attack Chain
+
+    1. Initial access is gained by sending a specially crafted HTTP request to the Ivanti EPMM server, exploiting CVE-2026-1281, allowing unauthenticated access.
+    2. The attacker bypasses authentication controls due to the vulnerability in the EPMM server software.
+    3. Remote code execution is achieved via CVE-2026-1340 by leveraging the initial unauthorized access.
+    4. The attacker executes arbitrary commands on the EPMM server, gaining a shell.
+    5. The attacker uses the shell to perform reconnaissance, identifying sensitive files and network configurations.
+    6. The attacker moves laterally within the network, exploiting other vulnerabilities or using stolen credentials.
+    7. Data exfiltration begins, with sensitive data being staged and transferred to an external server.
+    8. The attacker maintains persistence through backdoors or new administrative accounts.
+
+    ## Impact
+
+    Successful exploitation of these vulnerabilities can lead to full compromise of the Ivanti EPMM server and the data it manages. This includes sensitive mobile device management data, user credentials, and potentially access to connected corporate networks. Organizations in all sectors using affected Ivanti EPMM versions are at risk. Consequences include data breaches, financial loss, and reputational damage.
+tags:
+    - ivanti
+    - epmm
+    - vulnerability
+    - rce
+references:
+    - https://unit42.paloaltonetworks.com/ivanti-cve-2026-1281-cve-2026-1340/
+rules:
+    - title: Detect Suspicious Process Creation from Ivanti EPMM Web Server
+      description: Detects process creation events originating from the Ivanti EPMM web server process that are indicative of command execution.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|startswith:
+                - C:\Program Files\Ivanti\EPMM\tomcat\bin\
+        selection:
+            ParentImage|endswith: tomcat9.exe
+      level: high
+      tags:
+        - attack.execution
+        - attack.t1059.004
+      tests:
+        positive:
+            - name: Command Execution from Tomcat
+              data:
+                - CommandLine: /c whoami
+                  Image: C:\Windows\System32\cmd.exe
+                  ParentImage: C:\Program Files\Ivanti\EPMM\tomcat\bin\tomcat9.exe
+        negative:
+            - name: Normal Tomcat Activity
+              data:
+                - CommandLine: java.exe -Djava.util.logging.config.file=...
+                  Image: C:\Program Files\Ivanti\EPMM\tomcat\bin\tomcat9.exe
+                  ParentImage: C:\Windows\System32\services.exe
+    - title: Detect Unauthorized Access Attempts to Ivanti EPMM
+      description: Detects access attempts to specific Ivanti EPMM URLs that may indicate exploitation attempts.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        selection:
+            DestinationIp: 192.168.1.100
+            DestinationPort: 443
+            Image|endswith: tomcat9.exe
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: Suspicious Access to EPMM URL
+              data:
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: 443
+                  Image: C:\Program Files\Ivanti\EPMM\tomcat\bin\tomcat9.exe
+        negative:
+            - name: Legitimate Access to EPMM
+              data:
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: 80
+                  Image: C:\Program Files\Ivanti\EPMM\tomcat\bin\tomcat9.exe
+    - title: Detect Web Shell Creation in EPMM Web Directory
+      description: Detects creation of suspicious files within the Ivanti EPMM web directory, potentially indicating web shell deployment.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|endswith: tomcat9.exe
+            TargetFilename|contains: \Program Files\Ivanti\EPMM\tomcat\webapps\
+            TargetFilename|endswith:
+                - .jsp
+                - .jspx
+                - .php
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1505.003
+      tests:
+        positive:
+            - name: Web shell creation
+              data:
+                - Image: C:\Program Files\Ivanti\EPMM\tomcat\bin\tomcat9.exe
+                  TargetFilename: C:\Program Files\Ivanti\EPMM\tomcat\webapps\shell.jsp
+        negative:
+            - name: Legitimate file modification
+              data:
+                - Image: C:\Program Files\Ivanti\EPMM\tomcat\bin\tomcat9.exe
+                  TargetFilename: C:\Program Files\Ivanti\EPMM\tomcat\webapps\index.html
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.004
+      technique_name: 'Command and Scripting Interpreter: Unix Shell'
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1505.003
+      technique_name: 'Server Software Component: Web Shell'
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1003
+      technique_name: OS Credential Dumping
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1083
+      technique_name: File and Directory Discovery
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1114
+      technique_name: Email Collection
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1041
+      technique_name: Exfiltration Over C2 Channel
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021.001
+      technique_name: 'Remote Services: RDP'
