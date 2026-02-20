@@ -1,0 +1,102 @@
+id: brief-2026-02-21-promptspy-android-threat
+slug: 2026-02-promptspy-android-threat
+title: PromptSpy Ushers in Era of Android Threats Using GenAI
+summary: PromptSpy marks the emergence of Android malware leveraging GenAI for malicious purposes, representing a novel threat landscape.
+severity: medium
+published_at: "2026-02-21T00:00:00Z"
+content: |
+    ## Overview
+
+    PromptSpy is a newly discovered form of Android malware that signals the increasing integration of Generative AI (GenAI) into malicious campaigns. This malware represents a significant shift in the threat landscape, highlighting the potential for AI to enhance the sophistication and effectiveness of attacks targeting mobile platforms. The emergence of PromptSpy emphasizes the need for defenders to adapt their strategies to address evolving threats. The malware's capabilities and specific targets remain under investigation, but the initial reports suggest a focus on leveraging GenAI for information theft and potentially other malicious activities.
+
+    ## Attack Chain
+
+    1.  User downloads a seemingly benign Android application from a third-party app store or a compromised website.
+    2.  The application requests excessive permissions, including access to SMS messages, contacts, and internet connectivity.
+    3.  Upon installation, the application silently collects sensitive data, such as SMS messages, contact lists, and device information.
+    4.  The collected data is processed and formatted using a GenAI model embedded within the application.
+    5.  The GenAI model extracts specific information from the collected data based on attacker-defined criteria.
+    6.  The extracted information is encrypted and transmitted to a command-and-control (C2) server controlled by the attacker.
+    7.  The attacker analyzes the exfiltrated data to identify potential victims for further targeting, such as phishing attacks or identity theft.
+
+    ## Impact
+
+    The emergence of PromptSpy indicates a growing trend of malware leveraging GenAI to enhance its capabilities, increasing the potential for data theft, financial fraud, and other malicious activities. Successful attacks could lead to significant financial losses for victims, as well as reputational damage for organizations that fail to protect their users from these evolving threats.
+tags:
+    - android
+    - malware
+    - genai
+    - promptspy
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1r9me8q/promptspy_ushers_in_the_era_of_android_threats/
+    - https://www.welivesecurity.com/en/eset-research/promptspy-ushers-in-era-android-threats-using-genai/
+rules:
+    - title: Detect Suspicious Android App Requesting Excessive Permissions
+      description: Detects Android applications requesting a combination of SMS, Contacts, and Internet permissions, which is often indicative of malicious behavior.
+      logsource:
+        category: file_event
+        product: android
+      detection:
+        condition: selection
+        selection:
+            Permissions|contains:
+                - android.permission.READ_SMS
+                - android.permission.READ_CONTACTS
+                - android.permission.INTERNET
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1566
+      tests:
+        positive:
+            - name: Android app requests SMS, Contacts, and Internet permissions
+              data:
+                - Permissions: android.permission.READ_SMS, android.permission.READ_CONTACTS, android.permission.INTERNET
+        negative:
+            - name: Android app requests only Internet permissions
+              data:
+                - Permissions: android.permission.INTERNET
+    - title: Detect Network Connection from Newly Installed Android App
+      description: Detects network connections initiated by recently installed Android applications. Newly installed apps initiating outbound connections could be a sign of data exfiltration.
+      logsource:
+        category: network_connection
+        product: android
+      detection:
+        condition: selection
+        selection:
+            ApplicationInstallTime|range:
+                - now-1h
+                - now
+            Initiated: "true"
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071
+      tests:
+        positive:
+            - name: Network connection from newly installed app
+              data:
+                - ApplicationInstallTime: "2026-02-20T23:30:00Z"
+                - Initiated: "true"
+                - DestinationIp: 1.2.3.4
+        negative:
+            - name: Network connection from system process
+              data:
+                - ApplicationInstallTime: "2025-01-01T00:00:00Z"
+                - Initiated: "true"
+                - DestinationIp: 8.8.8.8
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1566
+      technique_name: Phishing
+      subtechnique_id: T1566.001
+      subtechnique_name: Spearphishing Attachment
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1005
+      technique_name: Data From Local System
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1041
+      technique_name: Exfiltration Over C2 Channel
