@@ -1,0 +1,126 @@
+id: brief-2024-01-03-llm-compromised-user
+slug: 2024-01-llm-compromised-user
+title: Multiple Alerts Suggesting LLM Compromised User Triage
+summary: Multiple alerts correlating to a single user suggest potential compromise via a Large Language Model (LLM) application, necessitating immediate investigation and triage.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief addresses the scenario where multiple security alerts are triggered and associated with a single user account, specifically in the context of applications leveraging Large Language Models (LLMs). The aggregation of alerts could indicate that the user's account or the LLM application itself has been compromised, leading to malicious activities being performed under the guise of legitimate user behavior. Defenders need to correlate seemingly disparate alerts to identify potential LLM-related compromises and quickly respond to prevent further damage. Identifying a cluster of alerts for a single user is a key indicator for potential security compromise within LLM applications.
+
+    ## Attack Chain
+
+    1. **Initial Access:** User interacts with a web application that uses an LLM, such as providing input to a chatbot or using a code generation tool.
+    2. **Prompt Injection:** An attacker crafts a malicious prompt designed to manipulate the LLM's behavior, potentially bypassing security controls.
+    3. **Code Generation/Execution:** The LLM, influenced by the prompt injection, generates malicious code or instructions that are then executed within the application environment.
+    4. **Privilege Escalation:** The executed code attempts to escalate privileges within the compromised system, leveraging vulnerabilities to gain higher access levels.
+    5. **Lateral Movement:** With elevated privileges, the attacker attempts to move laterally to other systems or applications within the network.
+    6. **Data Exfiltration:** The attacker identifies and exfiltrates sensitive data from compromised systems, potentially including user credentials, intellectual property, or financial information.
+
+    ## Impact
+
+    A successful attack targeting LLM applications can result in significant damage, including unauthorized access to sensitive data, disruption of services, and reputational harm. If a user account is compromised, attackers could leverage that access to perform malicious actions across the organization. The impact could range from minor data breaches to large-scale system compromises, depending on the scope and sophistication of the attack. The consequences of LLM compromise include financial losses, legal liabilities, and loss of customer trust.
+tags:
+    - llm
+    - compromised-user
+    - alert-correlation
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_llm_compromised_user_triage.toml
+rules:
+    - title: Detect Multiple Alerts for Single User Within Short Timeframe
+      description: This rule detects if a user triggers multiple alerts within a short period, indicating potential account compromise related to LLM abuse.
+      logsource:
+        category: authentication
+        product: generic
+      detection:
+        aggregation:
+            count: 3
+            group_by: user.name
+            interval: 5m
+        condition: selection | aggregation
+        selection:
+            user.name: '*'
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1110
+      tests:
+        positive:
+            - name: Multiple login failures followed by successful login
+              data:
+                - event.type: authentication_failure
+                  user.name: testuser
+                - event.type: authentication_failure
+                  user.name: testuser
+                - event.type: authentication_success
+                  user.name: testuser
+        negative:
+            - name: Single login failure
+              data:
+                - event.type: authentication_failure
+                  user.name: testuser
+    - title: Detect Suspicious LLM API Usage by User
+      description: Detects abnormal usage patterns of LLM APIs by a specific user, potentially indicating a compromised account or malicious activity.
+      logsource:
+        category: network_connection
+        product: generic
+      detection:
+        aggregation:
+            count: 5
+            group_by: user.name
+            interval: 10m
+        condition: selection | aggregation
+        selection:
+            url.path|contains: /llm/api
+            user.name: '*'
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: High volume of LLM API requests from a single user
+              data:
+                - http.response.status_code: 200
+                  url.path: /llm/api/generate
+                  user.name: testuser
+                - http.response.status_code: 200
+                  url.path: /llm/api/generate
+                  user.name: testuser
+                - http.response.status_code: 200
+                  url.path: /llm/api/generate
+                  user.name: testuser
+                - http.response.status_code: 200
+                  url.path: /llm/api/generate
+                  user.name: testuser
+                - http.response.status_code: 200
+                  url.path: /llm/api/generate
+                  user.name: testuser
+        negative:
+            - name: Normal LLM API usage
+              data:
+                - http.response.status_code: 200
+                  url.path: /llm/api/generate
+                  user.name: normaluser
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1110
+      technique_name: Brute Force
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1087
+      technique_name: Account Discovery
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1114
+      technique_name: Email Collection
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1041
+      technique_name: Exfiltration Over C2 Channel
