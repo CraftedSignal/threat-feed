@@ -1,0 +1,103 @@
+id: brief-2024-05-17-tpm-sniffing-luks
+slug: 2024-05-tpm-sniffing-luks
+title: 'CVE-2026-0714: TPM Sniffing LUKS Keys on an Embedded Device'
+summary: CVE-2026-0714 describes a vulnerability where LUKS encryption keys can be sniffed from the TPM on an embedded device, potentially leading to unauthorized data access.
+severity: critical
+published_at: "2026-02-20T09:54:02Z"
+content: |
+    ## Overview
+
+    A vulnerability, CVE-2026-0714, has been identified that affects the security of LUKS encryption keys stored within the Trusted Platform Module (TPM) of certain embedded devices. An attacker with physical access and the ability to conduct hardware-level sniffing can potentially intercept the LUKS key as it's being processed by the TPM. The vulnerability stems from inadequate protection of the communication channel between the CPU and the TPM, allowing for the extraction of sensitive encryption keys. The reported research, originating from Cyloq, highlights the risk of unauthorized access to encrypted data residing on these embedded systems. This is particularly relevant where the devices are deployed in environments with limited physical security.
+
+    ## Attack Chain
+
+    1. The attacker gains physical access to the target embedded device.
+    2. The attacker attaches hardware sniffing equipment to the communication bus between the CPU and the TPM.
+    3. The device is powered on, triggering the LUKS decryption process.
+    4. The LUKS key is requested from the TPM for disk decryption.
+    5. The unencrypted LUKS key is transmitted over the bus.
+    6. The attacker intercepts and captures the LUKS key using the sniffing equipment.
+    7. The attacker uses the captured LUKS key to decrypt the LUKS-encrypted storage volume.
+    8. The attacker gains unauthorized access to the sensitive data stored on the device.
+
+    ## Impact
+
+    Successful exploitation of CVE-2026-0714 allows an attacker with physical access to bypass LUKS encryption and gain complete access to the data stored on the embedded device. This could lead to the exposure of sensitive information, intellectual property theft, or compromise of critical infrastructure depending on the device's function. The number of potentially affected devices is substantial, given the widespread use of embedded systems utilizing LUKS encryption and TPMs. The specific sectors impacted are dependent on the embedded devices being targeted, which could range from industrial control systems to consumer electronics.
+tags:
+    - tpm
+    - luks
+    - encryption
+    - hardware-attack
+references:
+    - https://www.reddit.com/r/cybersecurity/comments/1r9r9jy/cve20260714_tpmsniffing_luks_keys_on_an_embedded/
+    - https://www.cyloq.se/en/research/cve-2026-0714-tpm-sniffing-luks-keys-on-an-embedded-device
+rules:
+    - title: Detect Attempts to Access TPM Device Files
+      description: Detects processes attempting to directly access TPM device files, which can be a precursor to key extraction or other malicious activities.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            file|startswith: /dev/tpm
+            process_path|contains: suspicious_process
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1078
+      tests:
+        positive:
+            - name: Process accessing TPM device file
+              data:
+                - file: /dev/tpm0
+                  process_path: /usr/bin/suspicious_process
+        negative:
+            - name: Legitimate TPM access by system service
+              data:
+                - file: /dev/tpm0
+                  process_path: /usr/sbin/tpm2d
+    - title: Detect Suspicious Kernel Module Loading Related to TPM
+      description: Detects suspicious kernel module loading events that might indicate an attempt to manipulate or bypass TPM functionality for key extraction.
+      logsource:
+        category: image_load
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            Image|contains: tpm
+            Image|endswith: .ko
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1027
+      tests:
+        positive:
+            - name: Suspicious TPM kernel module loading
+              data:
+                - Image: /lib/modules/5.15.0-100-generic/kernel/drivers/char/tpm/tpm_tis.ko
+        negative:
+            - name: Normal TPM kernel module loading during system boot
+              data:
+                - Image: /lib/modules/5.15.0-97-generic/kernel/drivers/char/tpm/tpm_tis.ko
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1005
+      technique_name: Data from Local System
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1005
+      technique_name: Data from Local System
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021.002
+      technique_name: SMB/Windows Admin Shares
