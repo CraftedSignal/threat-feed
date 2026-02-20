@@ -1,0 +1,86 @@
+id: brief-2026-02-21-crowdstrike-workflow-automation
+slug: 2026-02-crowdstrike-workflow-automation
+title: CrowdStrike Workflow Automation via Claude Code Skills
+summary: The eth0izzle actor has released open-source tools that allow automated creation, testing, and deployment of CrowdStrike Fusion workflows via Claude Code or other SKILLS.md compatible editors, potentially enabling rapid deployment of malicious playbooks.
+severity: medium
+threat_actor: eth0izzle
+published_at: "2026-02-21T12:00:00Z"
+content: |
+    ## Overview
+
+    The threat lies in the ability to automate the creation and deployment of CrowdStrike Fusion workflows using the open-source "security-skills" toolset developed by eth0izzle. This toolset integrates with Claude Code or any SKILLS.md compatible editor, enabling users to define and deploy complex workflows in YAML format. The tool leverages the CrowdStrike API to fetch tenant-specific configurations, integrations, and actions, reducing the complexity of workflow creation. By simplifying and automating playbook deployment, this development lowers the barrier to entry for adversaries seeking to rapidly implement malicious security automation within compromised CrowdStrike environments. The initial release was announced on Reddit on February 20, 2026, and is available on GitHub.
+
+    ## Attack Chain
+
+    1.  Attacker gains access to a CrowdStrike tenant (via compromised credentials or other means).
+    2.  Attacker installs the `security-skills` plugin into their Claude Code environment using the command `/plugin marketplace add https://github.com/eth0izzle/security-skills.git`.
+    3.  The attacker installs the fusion-workflows skill using the command `/plugin install fusion-workflows@security-skills`.
+    4.  Attacker authenticates the plugin to the CrowdStrike API using stolen credentials.
+    5.  Attacker crafts a malicious workflow definition in YAML, potentially targeting sensitive data or systems.
+    6.  The attacker uses Claude Code to test the workflow against their CrowdStrike tenant.
+    7.  The attacker deploys the malicious workflow into the CrowdStrike environment using Claude Code, fully automating a malicious playbook.
+    8. The workflow executes on schedule, performing unauthorized actions or exfiltrating data.
+
+    ## Impact
+
+    Successful exploitation can lead to unauthorized access to sensitive data, system compromise, and the disruption of security operations. By automating malicious playbooks, attackers can significantly amplify the impact of their attacks and evade detection. If the CrowdStrike tenant is used across an enterprise, the attacker could pivot between systems and potentially access hundreds of machines.
+tags:
+    - crowdstrike
+    - workflow
+    - automation
+    - security-skills
+    - playbook
+references:
+    - https://www.reddit.com/r/netsec/comments/1r9s0ah/building_crowdstrike_workflows_with_claude_code/
+    - https://github.com/eth0izzle/security-skills
+    - https://darkport.co.uk/blog/building-crowdstrike-workflows-with-claude-code-skills/
+rules:
+    - title: Detect Security Skills Plugin Installation
+      description: Detects the installation of the security-skills plugin, which enables automated CrowdStrike workflow creation.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: /plugin marketplace add https://github.com/eth0izzle/security-skills.git
+      level: informational
+      tags:
+        - attack.defense_evasion
+        - attack.t1562
+      tests:
+        positive:
+            - name: Security Skills plugin installation
+              data:
+                - CommandLine: claude /plugin marketplace add https://github.com/eth0izzle/security-skills.git
+        negative:
+            - name: Legitimate plugin installation
+              data:
+                - CommandLine: claude /plugin marketplace add https://github.com/example/legitimate-plugin.git
+    - title: Detect Security Skills Workflow Installation
+      description: Detects the installation of the fusion-workflows skill from the security-skills repository.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: /plugin install fusion-workflows@security-skills
+      level: informational
+      tags:
+        - attack.defense_evasion
+        - attack.t1562
+      tests:
+        positive:
+            - name: Security Skills workflow installation
+              data:
+                - CommandLine: claude /plugin install fusion-workflows@security-skills
+        negative:
+            - name: Legitimate workflow installation
+              data:
+                - CommandLine: claude /plugin install some-other-workflow@legitimate-repo
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
