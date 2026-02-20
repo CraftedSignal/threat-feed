@@ -1,0 +1,116 @@
+id: brief-2026-02-21-laptop-farm-scheme
+slug: 2026-02-laptop-farm-scheme
+title: North Korean IT Workers' Laptop Farm Scheme
+summary: A Ukrainian national was sentenced for participating in a 'laptop farm' scheme that generated income for North Korean IT workers, potentially violating sanctions.
+severity: medium
+threat_actor: North Korean IT Workers
+published_at: "2026-02-21T00:00:00Z"
+content: |
+    ## Overview
+
+    A Ukrainian national was sentenced in a US court for their involvement in a "laptop farm" scheme designed to generate revenue for North Korean IT workers. The scheme circumvented sanctions against North Korea by using a network of laptops to perform tasks that generated income, which was then funneled back to North Korean entities. While the specific details of the tasks performed are not outlined, the scheme highlights a method used by North Korean actors to generate revenue and bypass international sanctions using various online income-generating activities. The sentencing indicates ongoing efforts to disrupt North Korean cyber operations and sanction evasion tactics, although the scale and precise impact of this specific operation remain unclear.
+
+    ## Attack Chain
+
+    1.  North Korean IT workers establish a scheme to generate income online, bypassing international sanctions.
+    2.  A Ukrainian national is recruited or contracted to manage and operate a "laptop farm."
+    3.  The laptop farm consists of multiple computers, potentially located in Ukraine or other regions outside North Korea.
+    4.  The laptops are used to perform online tasks that generate revenue, such as completing surveys, clicking ads, or other similar activities.
+    5.  The generated income is transferred through various online payment platforms and accounts.
+    6.  The funds are then laundered or routed through intermediaries to obfuscate the origin of the income.
+    7.  The laundered funds are ultimately transferred to North Korean entities, providing them with a source of revenue.
+
+    ## Impact
+
+    The "laptop farm" scheme enabled North Korean IT workers to generate income, potentially in violation of international sanctions. The specific financial impact of this scheme remains unclear, but such operations contribute to North Korea's ability to fund its weapons programs and other activities. The scheme highlights the ongoing challenge of enforcing sanctions against North Korea and the diverse methods used to circumvent them.
+tags:
+    - sanction-evasion
+    - north-korea
+    - laptop-farm
+references:
+    - https://www.justice.gov/usao-dc/pr/ukrainian-national-sentenced-laptop-farm-scheme-generated-income-north-korean-it-workers
+rules:
+    - title: Detect Multiple Processes Launched from the Same Directory
+      description: Detects a large number of processes being launched from the same directory, which may indicate a 'laptop farm' setup.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        aggregation:
+            Image: ParentImage
+            count: count
+        condition: selection AND count > 5
+        selection:
+            ParentImage|endswith: \cmd.exe
+      level: medium
+      tags:
+        - attack.resource_development
+      tests:
+        positive:
+            - name: Multiple processes launched from the same directory
+              data:
+                - Image: C:\Windows\System32\notepad.exe
+                  ParentImage: C:\Users\user\Desktop\laptop_farm\cmd.exe
+                - Image: C:\Windows\System32\calc.exe
+                  ParentImage: C:\Users\user\Desktop\laptop_farm\cmd.exe
+                - Image: C:\Windows\System32\mspaint.exe
+                  ParentImage: C:\Users\user\Desktop\laptop_farm\cmd.exe
+                - Image: C:\Windows\System32\wordpad.exe
+                  ParentImage: C:\Users\user\Desktop\laptop_farm\cmd.exe
+                - Image: C:\Windows\System32\write.exe
+                  ParentImage: C:\Users\user\Desktop\laptop_farm\cmd.exe
+                - Image: C:\Windows\System32\regedit.exe
+                  ParentImage: C:\Users\user\Desktop\laptop_farm\cmd.exe
+        negative:
+            - name: Normal process launch from different directories
+              data:
+                - Image: C:\Windows\System32\notepad.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+                - Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+                  ParentImage: C:\Program Files\Google\Chrome\cmd.exe
+    - title: Detect Suspicious Network Activity from Unusual Processes
+      description: Detects unusual network activity from processes commonly associated with desktop activities, which may be indicative of a 'laptop farm' performing automated tasks.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|endswith:
+                - \notepad.exe
+                - \calc.exe
+                - \mspaint.exe
+                - \write.exe
+      level: low
+      tags:
+        - attack.command_and_control
+      tests:
+        positive:
+            - name: Network connection from notepad.exe
+              data:
+                - DestinationIp: 1.2.3.4
+                  DestinationPort: "80"
+                  Image: C:\Windows\System32\notepad.exe
+        negative:
+            - name: No network activity from processes listed.
+              data:
+                - DestinationIp: 1.2.3.4
+                  DestinationPort: "80"
+                  Image: C:\Program Files\AVAST Software\Avast\AvastUI.exe
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1583
+      technique_name: Obtain Capabilities
+      subtechnique_id: T1583.006
+      subtechnique_name: Compromise Accounts
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1555
+      technique_name: Credentials from Password Stores
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
+      subtechnique_id: T1071.001
+      subtechnique_name: Web Protocols
