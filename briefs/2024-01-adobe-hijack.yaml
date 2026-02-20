@@ -1,0 +1,98 @@
+id: brief-2024-01-03-adobe-hijack
+slug: 2024-01-adobe-hijack
+title: Potential Adobe Hijack Persistence Mechanism
+summary: This brief outlines a potential persistence mechanism involving hijacking Adobe-related processes, potentially leading to arbitrary code execution.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This brief addresses a potential persistence technique related to hijacking Adobe processes on Windows systems. While the provided source lacks specific details about active campaigns or threat actors exploiting this technique, the focus is on detecting registry modifications that could lead to malicious code execution through legitimate Adobe applications. This type of persistence aims to evade detection by masquerading as a trusted process. It is crucial to monitor for unauthorized modifications to registry keys associated with Adobe applications to identify and prevent potential exploitation.
+
+    ## Attack Chain
+
+    1.  Attacker gains initial access (details unspecified, potentially phishing or exploit).
+    2.  The attacker identifies a legitimate Adobe process suitable for hijacking (e.g., Acrobat Update Service).
+    3.  Attacker modifies a registry key associated with the targeted Adobe process. This could involve modifying the ImagePath, AppInit_DLLs, or other relevant registry values.
+    4.  The modified registry key now points to a malicious DLL or executable.
+    5.  The legitimate Adobe process is launched, either automatically or by the user.
+    6.  The malicious DLL/executable specified in the modified registry key is loaded by the Adobe process.
+    7.  The attacker's code executes within the context of the trusted Adobe process, bypassing certain security measures.
+    8.  The attacker establishes persistence on the system, allowing for continued access and execution of malicious activities.
+
+    ## Impact
+
+    Successful exploitation of this persistence mechanism could lead to arbitrary code execution within the context of a trusted Adobe application. This could allow the attacker to perform various malicious activities, including data theft, installation of additional malware, or privilege escalation. The impact is magnified by the trust associated with Adobe applications, potentially allowing the attacker to bypass application whitelisting and other security controls. The lack of concrete victim data or specific sectors targeted makes it difficult to quantify the overall impact, but the potential for widespread compromise exists given the prevalence of Adobe software.
+tags:
+    - persistence
+    - adobe
+    - registry-modification
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_adobe_hijack_persistence.toml
+rules:
+    - title: Detect Adobe Hijack via Registry Modification
+      description: Detects modification of registry keys related to Adobe products that could lead to process hijacking.
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Details|contains:
+                - .dll
+                - .exe
+            TargetObject|contains:
+                - \Adobe\
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1547.001
+      tests:
+        positive:
+            - name: Registry key modified to point to a malicious DLL
+              data:
+                - Details: C:\evil.dll
+                  TargetObject: HKLM\SOFTWARE\Adobe\Acrobat\10.0\AdobeCollabSync\LocalStore\AdobeSynchronizer
+        negative:
+            - name: Legitimate Adobe registry modification
+              data:
+                - Details: C:\Program Files\Adobe\Acrobat\Synchronizer.exe
+                  TargetObject: HKLM\SOFTWARE\Adobe\Acrobat\10.0\AdobeCollabSync\LocalStore\AdobeSynchronizer
+    - title: Detect Adobe Process Loading Unusual DLL
+      description: Detects Adobe processes loading DLLs from unusual or suspicious locations.
+      logsource:
+        category: image_load
+        product: windows
+      detection:
+        condition: selection_img and selection_proc and not filter
+        filter:
+            ImageLoaded|startswith:
+                - C:\Program Files\Adobe\
+                - C:\Windows\System32\
+        selection_img:
+            ImageLoaded|endswith: .dll
+        selection_proc:
+            Image|contains:
+                - AcroRd32.exe
+                - Acrobat.exe
+      level: medium
+      tags:
+        - attack.defense_evasion
+      tests:
+        positive:
+            - name: Adobe process loading DLL from a temp folder
+              data:
+                - Image: C:\Program Files\Adobe\Acrobat DC\Acrobat\AcroRd32.exe
+                  ImageLoaded: C:\Users\Public\Temp\evil.dll
+        negative:
+            - name: Adobe process loading legitimate DLL
+              data:
+                - Image: C:\Program Files\Adobe\Acrobat DC\Acrobat\AcroRd32.exe
+                  ImageLoaded: C:\Program Files\Adobe\Acrobat DC\Acrobat\plug_ins\pi_pdf.dll
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
+      subtechnique_id: T1547.001
+      subtechnique_name: Registry Run Keys / Startup Folder
