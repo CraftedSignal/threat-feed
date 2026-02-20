@@ -1,0 +1,122 @@
+id: brief-2024-01-31-o365-email-restriction
+slug: 2024-01-o365-email-restriction
+title: O365 User Restricted from Sending Email Anomaly
+summary: Detects when an O365 user account is restricted from sending email, potentially indicating account compromise or policy violation.
+severity: medium
+published_at: "2024-01-31T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection identifies instances where a user account within an Office 365 environment has been restricted from sending emails. This restriction could arise from a variety of reasons, including but not limited to: detection of suspicious activity indicative of account compromise, violation of organizational email policies, or administrative actions taken in response to security incidents. While not inherently malicious, this event warrants investigation as it can be an early indicator of an attacker attempting to leverage a compromised account for malicious purposes such as phishing or spam campaigns. Furthermore, legitimate users may be restricted due to unintentional policy breaches, requiring prompt resolution. Defenders should correlate this event with other user activity to determine the root cause and potential impact.
+
+    ## Attack Chain
+
+    1. Initial Access: An attacker gains unauthorized access to a user's O365 account, possibly through credential phishing or password brute-forcing (not directly observed in this data).
+    2. Anomaly Detection: Microsoft's security systems detect unusual email sending patterns or other suspicious activities associated with the compromised account.
+    3. Restriction Action: Based on the detected anomalies, the system automatically restricts the user's ability to send emails to prevent further potential damage.
+    4. Notification: An event is logged indicating that the user has been restricted from sending emails.
+    5. Investigation (Defender): Security personnel investigate the event to determine the root cause of the restriction.
+    6. Remediation: Depending on the findings, remediation steps may include resetting the user's password, revoking access tokens, or performing malware scans.
+
+    ## Impact
+
+    The restriction of a user's email sending capability can disrupt business operations if the user is legitimate. In the case of a compromised account, it can prevent further damage from spam or phishing attacks originating from the account. Depending on security policies, multiple users may be impacted. This can lead to lost productivity and potential reputational damage if malicious emails were sent before the restriction was applied.
+tags:
+    - o365
+    - email
+    - account-compromise
+    - initial-access
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_security_compliance_user_restricted_from_sending_email.toml
+rules:
+    - title: O365 User Email Sending Restriction
+      description: Detects when an O365 user is restricted from sending email, indicating potential compromise or policy violation.
+      logsource:
+        category: web
+        product: o365
+      detection:
+        condition: selection
+        selection:
+            event.dataset: o365.audit
+            o365.audit.Operation: Restrict user's ability to send email
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: User email sending restriction event
+              data:
+                - event.dataset: o365.audit
+                  o365.audit.Operation: Restrict user's ability to send email
+                  o365.audit.UserPrincipalName: testuser@example.com
+        negative:
+            - name: Normal user login event
+              data:
+                - event.dataset: o365.audit
+                  o365.audit.Operation: UserLogin
+                  o365.audit.UserPrincipalName: normaluser@example.com
+    - title: O365 Security Compliance Alert - User Restricted
+      description: Detects security compliance alerts related to a user being restricted from sending emails within Office 365.
+      logsource:
+        category: web
+        product: o365
+      detection:
+        condition: selection
+        selection:
+            event.dataset: o365.security_compliance
+            o365.security_compliance.AlertType: User restricted
+            o365.security_compliance.Description: User has been restricted from sending email
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: Security compliance alert for user restricted event
+              data:
+                - event.dataset: o365.security_compliance
+                  o365.security_compliance.AlertType: User restricted
+                  o365.security_compliance.Description: User has been restricted from sending email
+                  o365.security_compliance.User: testuser@example.com
+        negative:
+            - name: Security compliance alert for password change
+              data:
+                - event.dataset: o365.security_compliance
+                  o365.security_compliance.AlertType: Password changed
+                  o365.security_compliance.User: normaluser@example.com
+    - title: O365 Admin Audit Log - Email Restriction
+      description: Detects when an administrator manually restricts a user from sending emails, possibly after detecting suspicious activity.
+      logsource:
+        category: web
+        product: o365
+      detection:
+        condition: selection
+        selection:
+            event.dataset: o365.audit
+            o365.audit.Operation: Set-Mailbox
+            o365.audit.Parameters|contains: ProhibitSendReceive
+      level: low
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: Set-Mailbox with ProhibitSendReceive parameter
+              data:
+                - event.dataset: o365.audit
+                  o365.audit.Operation: Set-Mailbox
+                  o365.audit.Parameters: 'ProhibitSendReceive: True'
+                  o365.audit.UserPrincipalName: adminuser@example.com
+        negative:
+            - name: Set-Mailbox without email restriction parameter
+              data:
+                - event.dataset: o365.audit
+                  o365.audit.Operation: Set-Mailbox
+                  o365.audit.Parameters: 'DisplayName: New User'
+                  o365.audit.UserPrincipalName: adminuser@example.com
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
