@@ -1,0 +1,90 @@
+id: brief-2024-01-03-console-history-clearing
+slug: 2024-01-03-console-history-clearing
+title: Clearing Windows Console History for Defense Evasion
+summary: Adversaries may clear Windows console history to remove evidence of their commands and actions, hindering forensic analysis and detection efforts.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    Adversaries can use various techniques to evade detection and hide their activity on compromised systems. Clearing the console history is one such method. While not directly attributed to a specific threat actor in this context, this technique is commonly used post-exploitation to remove traces of commands executed during the attack. This can significantly hinder incident responders trying to reconstruct the attacker's actions and understand the scope of the compromise. The tactic is generally employed after the attacker has achieved their initial objectives.
+
+    ## Attack Chain
+
+    1.  The attacker gains initial access to the system through an unspecified method (e.g., exploitation, phishing).
+    2.  The attacker executes commands within the Windows command-line interpreter (cmd.exe) or PowerShell.
+    3.  The attacker identifies the mechanism for clearing console history. This often involves manipulating registry keys or using specific commands.
+    4.  The attacker uses the `Clear-History` cmdlet in PowerShell to erase the command history for the current session.
+    5.  Alternatively, the attacker may modify the registry key `HKCU:\Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe` and set the `HistoryBufferSize` to 0.
+    6.  The attacker closes and reopens the console window, or starts a new PowerShell session, to ensure the changes take effect.
+    7.  The console history is now cleared, removing a potential source of forensic evidence for investigators.
+
+    ## Impact
+
+    Successful clearing of console history makes it more difficult for security analysts to understand what actions the attacker performed on the compromised system. This can delay incident response, prolong the duration of the intrusion, and potentially increase the damage caused by the attacker. While the specific impact depends on the attacker's objectives, the lack of historical data can lead to incomplete remediation and persistent threats.
+tags:
+    - defense-evasion
+    - anti-forensic
+    - windows
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_clearing_windows_console_history.toml
+rules:
+    - title: Detect PowerShell Clear-History Cmdlet Usage
+      description: Detects the use of the Clear-History cmdlet in PowerShell, which can be used to erase command history.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: Clear-History
+            Image|endswith: \powershell.exe
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1070.001
+      tests:
+        positive:
+            - name: PowerShell Clear-History usage
+              data:
+                - Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                - CommandLine: powershell.exe Clear-History
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Normal PowerShell usage without Clear-History
+              data:
+                - Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                - CommandLine: powershell.exe -File script.ps1
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect Registry Modification of PowerShell History Buffer Size
+      description: Detects modification of the PowerShell HistoryBufferSize registry value, which can be set to 0 to disable history logging.
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Details: "0"
+            TargetObject|contains: \Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe\HistoryBufferSize
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1070.001
+      tests:
+        positive:
+            - name: HistoryBufferSize set to 0
+              data:
+                - TargetObject: HKCU:\Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe\HistoryBufferSize
+                - Details: "0"
+        negative:
+            - name: Legitimate registry modification
+              data:
+                - TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\SecurityHealth
+                - Details: C:\Windows\System32\SecurityHealthSystray.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1070
+      technique_name: Indicator Removal on Host
+      subtechnique_id: T1070.001
+      subtechnique_name: Clear Windows Event Logs
