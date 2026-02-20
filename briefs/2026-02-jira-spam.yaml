@@ -1,0 +1,150 @@
+id: brief-2026-02-21-jira-spam
+slug: 2026-02-jira-spam
+title: Spam Campaign Abuses Atlassian Jira, Targets Government and Corporate Entities
+summary: A spam campaign abuses Atlassian Jira instances to deliver malicious content to government and corporate entities.
+severity: medium
+published_at: "2026-02-20T05:03:26Z"
+content: |
+    ## Overview
+
+    A spam campaign has been observed abusing Atlassian Jira instances. Attackers are leveraging publicly accessible or compromised Jira instances to inject malicious links and content into issue descriptions, comments, and other fields. The campaign targets both government and corporate entities, potentially aiming to deliver phishing links, malware, or other malicious payloads. This abuse of legitimate platforms can bypass traditional email-based security measures and makes it harder for users to distinguish malicious content from legitimate notifications. Defenders should monitor Jira activity for unusual patterns, external links, and suspicious content originating from both internal and external Jira instances. The specific version of Jira being exploited and the exact nature of the malicious payloads are not specified in the provided source.
+
+    ## Attack Chain
+
+    1. Attackers identify vulnerable or compromised Atlassian Jira instances, potentially through Shodan or similar tools.
+    2. Attackers gain access to Jira instances, either through stolen credentials or by exploiting publicly accessible features.
+    3. Attackers inject malicious content, such as phishing links or links to malware downloads, into Jira issue descriptions or comments.
+    4. Jira sends out email notifications to users who are subscribed to the affected issues, containing the malicious links.
+    5. Users receive email notifications appearing to be legitimate Jira updates, enticing them to click on the malicious links.
+    6. Users click on the links, leading them to phishing sites or triggering malware downloads.
+    7. If the user falls for the phishing attack, their credentials may be stolen.
+    8. If malware is downloaded, it executes on the user's system, potentially leading to data theft or system compromise.
+
+    ## Impact
+
+    Successful exploitation can lead to credential theft, malware infections, and further compromise of internal systems. Given the targeting of government and corporate entities, a successful campaign could result in significant data breaches, financial losses, and reputational damage. The number of victims and specific sectors targeted remain unspecified. The abuse of Jira can bypass traditional email security measures, increasing the likelihood of successful attacks.
+tags:
+    - spam
+    - jira
+    - phishing
+    - malware
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1r9mdfe/spam_campaign_abuses_atlassian_jira_targets/
+    - https://www.trendmicro.com/en_us/research/26/b/spam-campaign-abuses-atlassian-jira.html
+rules:
+    - title: Detect Jira Notifications with Suspicious URLs
+      description: Detects Jira email notifications containing suspicious URLs often associated with phishing or malware distribution.
+      logsource:
+        category: email
+        product: mail_server
+      detection:
+        condition: selection and not filter
+        filter:
+            Body|contains:
+                - atlassian.net
+                - jira.com
+        selection:
+            Body|contains:
+                - http://
+                - https://
+            Subject|contains: Jira
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1566.001
+      tests:
+        positive:
+            - name: Jira notification with suspicious URL
+              data:
+                - Body: 'An issue has been updated. Click here: http://evil.example.com/phishing'
+                  Subject: 'Jira: Issue has been updated'
+        negative:
+            - name: Legitimate Jira notification
+              data:
+                - Body: 'An issue has been updated. Click here: https://company.atlassian.net/browse/PROJECT-123'
+                  Subject: 'Jira: Issue has been updated'
+    - title: Detect Access to Jira from Unusual Geolocation
+      description: Detects access to Atlassian Jira instances from unusual geographic locations.
+      logsource:
+        category: network_connection
+        product: atlassian_jira
+      detection:
+        condition: selection
+        selection:
+            GeoCountry: CN|RU|IR|KP
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1078
+      tests:
+        positive:
+            - name: Access from China
+              data:
+                - GeoCountry: CN
+                - SourceIp: 202.96.134.133
+                - DestinationPort: "443"
+        negative:
+            - name: Access from US
+              data:
+                - GeoCountry: US
+                - SourceIp: 192.0.2.1
+                - DestinationPort: "443"
+    - title: Detect Creation of Multiple Jira Issues from Single Account
+      description: Detects creation of unusually high numbers of Jira issues from a single account within a short timeframe, indicating potential automated spam activity.
+      logsource:
+        category: application
+        product: atlassian_jira
+      detection:
+        aggregation:
+            account: user_account
+            limit: 50
+            timeframe: 30m
+        condition: selection | count(account) by event_type > limit
+        selection:
+            event_type: issue_created
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: Rapid issue creation from single account
+              data:
+                - event_type: issue_created
+                  timestamp: "2026-02-20T00:05:00Z"
+                  user_account: attacker_account
+                - event_type: issue_created
+                  timestamp: "2026-02-20T00:10:00Z"
+                  user_account: attacker_account
+                - event_type: issue_created
+                  timestamp: "2026-02-20T00:15:00Z"
+                  user_account: attacker_account
+                - event_type: issue_created
+                  timestamp: "2026-02-20T00:20:00Z"
+                  user_account: attacker_account
+                - event_type: issue_created
+                  timestamp: "2026-02-20T00:25:00Z"
+                  user_account: attacker_account
+                - event_type: issue_created
+                  timestamp: "2026-02-20T00:29:00Z"
+                  user_account: attacker_account
+        negative:
+            - name: Normal issue creation activity
+              data:
+                - event_type: issue_created
+                  timestamp: "2026-02-20T00:05:00Z"
+                  user_account: normal_user
+                - event_type: issue_created
+                  timestamp: "2026-02-20T01:05:00Z"
+                  user_account: normal_user
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1566
+      technique_name: Phishing
+      subtechnique_id: T1566.001
+      subtechnique_name: Spearphishing Attachment
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1199
+      technique_name: Drive-by Compromise
