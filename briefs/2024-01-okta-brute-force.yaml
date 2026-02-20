@@ -1,0 +1,168 @@
+id: brief-2024-01-31-okta-brute-force
+slug: 2024-01-okta-brute-force
+title: Okta Device Token Rotation Brute Force Attempt
+summary: The rule detects potential brute force attempts to rotate Okta device tokens, indicating unauthorized access attempts or credential compromise.
+severity: high
+published_at: "2024-01-31T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection rule is designed to identify potential brute force attacks targeting Okta device token rotation. While the specific actor remains unknown, the activity suggests an attempt to compromise user accounts by repeatedly trying to generate valid device tokens. This could be indicative of an attacker attempting to bypass multi-factor authentication or gain unauthorized access to Okta-protected resources. Defenders should monitor for unusual patterns of device token rotation events, particularly from the same IP address or user agent, within a short timeframe. The rule's effectiveness depends on the completeness and accuracy of Okta logs.
+
+    ## Attack Chain
+
+    1. **Initial Access:** Attacker gains initial access through compromised credentials or other means.
+    2. **Device Enrollment Attempt:** Attacker attempts to enroll a new device with a compromised or generated user account.
+    3. **Token Request:** Attacker sends a request to Okta to initiate device token rotation.
+    4. **Brute Force Rotation Attempts:** Attacker repeatedly sends token rotation requests with different parameters or from different IP addresses/user agents in a short period.
+    5. **MFA Bypass (Potential):** If successful, attacker might bypass MFA if the new device is trusted.
+    6. **Session Establishment:** With a valid device token, the attacker establishes a session within the Okta environment.
+    7. **Privilege Escalation (Potential):** Attacker attempts to escalate privileges within the Okta environment, based on compromised account permissions.
+    8. **Data Access/Exfiltration (Potential):** The attacker accesses sensitive data or initiates data exfiltration activities after gaining access.
+
+    ## Impact
+
+    Successful brute force attacks on Okta device token rotation can lead to unauthorized access to sensitive applications and data. Depending on the compromised account's privileges, attackers could escalate their access and exfiltrate valuable information. This can result in financial loss, reputational damage, and regulatory fines. The number of affected users and the severity of the impact depend on the organization's Okta configuration and the scope of the attacker's access.
+tags:
+    - okta
+    - brute-force
+    - credential-access
+    - device-token
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_okta_brute_force_device_token_rotation.toml
+rules:
+    - title: Okta Excessive Device Token Rotation Attempts
+      description: Detects a high number of Okta device token rotation attempts within a short timeframe from the same source IP or user.
+      logsource:
+        category: network_connection
+        product: okta
+      detection:
+        aggregation:
+            ip_count: count(source.ip) by user.id, source.ip, event.timeframe
+        condition: selection and ip_count > 10
+        selection:
+            event.dataset: okta.system
+            event.module: okta
+            okta.event_type: system.device.token.rotation
+      level: high
+      tags:
+        - attack.credential_access
+        - attack.t1110
+      tests:
+        positive:
+            - name: Multiple token rotation events from same IP
+              data:
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:00Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:05Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:10Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:15Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:20Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:25Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:30Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:35Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:40Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:45Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:50Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+        negative:
+            - name: Normal token rotation activity
+              data:
+                - event.dataset: okta.system
+                  event.module: okta
+                  event.timeframe: "2024-01-30T10:00:00Z"
+                  okta.event_type: system.device.token.rotation
+                  source.ip: 192.168.1.100
+                  user.id: user123
+    - title: Okta Device Token Rotation with Unusual User Agent
+      description: Detects device token rotation attempts with a user agent that is not commonly associated with the user.
+      logsource:
+        category: network_connection
+        product: okta
+      detection:
+        condition: selection and not filter
+        filter:
+            user_agent.original: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+        selection:
+            event.dataset: okta.system
+            event.module: okta
+            okta.event_type: system.device.token.rotation
+      level: medium
+      tags:
+        - attack.credential_access
+        - attack.t1110
+      tests:
+        positive:
+            - name: Token rotation with unusual user agent
+              data:
+                - event.dataset: okta.system
+                  event.module: okta
+                  okta.event_type: system.device.token.rotation
+                  user.id: user123
+                  user_agent.original: curl/7.79.1
+        negative:
+            - name: Token rotation with normal user agent
+              data:
+                - event.dataset: okta.system
+                  event.module: okta
+                  okta.event_type: system.device.token.rotation
+                  user.id: user123
+                  user_agent.original: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+ttps:
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1110
+      technique_name: Brute Force
