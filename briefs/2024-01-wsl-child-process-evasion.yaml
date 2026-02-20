@@ -1,0 +1,102 @@
+id: brief-2024-01-08-wsl-child-process-evasion
+slug: 2024-01-wsl-child-process-evasion
+title: Suspicious Child Processes Spawned from WSL
+summary: Detects potentially malicious child processes spawned from the Windows Subsystem for Linux (WSL), indicating a possible defense evasion or exploitation attempt.
+severity: medium
+published_at: "2024-01-08T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert detects suspicious child processes initiated from the Windows Subsystem for Linux (WSL). While WSL provides a legitimate environment for running Linux binaries on Windows, attackers can leverage it to evade traditional Windows-based security measures. By executing malicious code within the WSL environment and spawning further processes, attackers can bypass monitoring tools that primarily focus on native Windows executables. This technique allows for the execution of potentially harmful payloads while blending in with normal WSL activity. This is especially relevant where organizations have not fully incorporated WSL activity into their threat detection and monitoring strategies.
+
+    ## Attack Chain
+
+    1.  Attacker gains initial access to the Windows system (e.g., through phishing or exploiting a vulnerability).
+    2.  Attacker enables or utilizes an existing WSL instance on the compromised system.
+    3.  Attacker transfers or downloads malicious Linux binaries or scripts into the WSL environment.
+    4.  Attacker executes the malicious binary or script within WSL, potentially using tools like `bash` or `python`.
+    5.  The malicious process within WSL spawns a child process, such as a reverse shell or a tool for lateral movement. The child process could be a native Linux executable or a Windows executable called via WSL interop.
+    6.  The child process establishes a connection to an external command and control server.
+    7.  Attacker uses the established connection to perform further actions, such as data exfiltration or privilege escalation.
+
+    ## Impact
+
+    Successful exploitation can lead to a variety of outcomes, including data theft, system compromise, and lateral movement within the network. If successful, the attacker can bypass conventional Windows security controls. Given the increasing adoption of WSL in development and testing environments, it's crucial to monitor for anomalous processes originating from WSL to mitigate potential threats.
+tags:
+    - wsl
+    - defense_evasion
+    - child_process
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_wsl_child_process.toml
+rules:
+    - title: Suspicious WSL Child Process Creation
+      description: Detects potentially malicious child processes spawned from WSL.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|startswith:
+                - C:\Windows\System32\wsl.exe
+                - C:\Windows\WinSxS\
+        selection:
+            ParentImage|contains: wsl.exe
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1027
+      tests:
+        positive:
+            - name: WSL spawning uncommon process
+              data:
+                - CommandLine: bash /usr/bin/evil_script.sh
+                  Image: /usr/bin/evil_script.sh
+                  ParentImage: C:\Windows\System32\wsl.exe
+        negative:
+            - name: WSL launching bash
+              data:
+                - CommandLine: wsl.exe bash
+                  Image: C:\Windows\System32\wsl.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+    - title: WSL Network Connection by Uncommon Process
+      description: Detects network connections initiated by processes spawned from WSL that are not typical WSL utilities.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|startswith:
+                - C:\Windows\System32\wsl.exe
+                - C:\Windows\WinSxS\
+        selection:
+            ParentImage|contains: wsl.exe
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071
+      tests:
+        positive:
+            - name: Uncommon process in WSL connecting to the internet
+              data:
+                - DestinationIp: 1.2.3.4
+                  DestinationPort: "443"
+                  Image: /usr/bin/malicious_tool
+                  ParentImage: C:\Windows\System32\wsl.exe
+        negative:
+            - name: WSL process connecting to a local address
+              data:
+                - Image: C:\Windows\System32\wsl.exe
+                - DestinationIp: 127.0.0.1
+                  DestinationPort: "53"
+                  ParentImage: C:\Windows\System32\cmd.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
