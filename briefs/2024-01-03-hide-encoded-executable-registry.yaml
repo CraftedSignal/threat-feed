@@ -1,0 +1,105 @@
+id: brief-2024-01-03-hide-encoded-executable-registry
+slug: 2024-01-03-hide-encoded-executable-registry
+title: Detection of Hidden Encoded Executables via Registry Modification
+summary: Adversaries can hide and execute malicious code by storing encoded executables within the Windows Registry and using native tools to decode and run them, evading traditional file-based detection mechanisms.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    Attackers may attempt to hide malicious executables by encoding them and storing them within the Windows Registry. This technique allows them to bypass traditional file-based antivirus solutions and application whitelisting. Upon execution, native Windows tools like `powershell.exe` or `cmd.exe` can decode and execute the payload directly from the registry, resulting in arbitrary code execution. This approach is particularly effective in environments where PowerShell execution is not heavily monitored or restricted. This method increases the difficulty of detection and analysis for incident responders.
+
+    ## Attack Chain
+
+    1.  The attacker gains initial access to the system (e.g., via phishing or exploitation of a vulnerability).
+    2.  The attacker encodes a malicious executable (e.g., using Base64).
+    3.  The attacker uses `reg.exe` or PowerShell to create a new registry key or modify an existing one to store the encoded executable. The key is typically placed in a location where it will be automatically executed upon system startup or user login (e.g., `HKCU\Software\Microsoft\Windows\CurrentVersion\Run`).
+    4.  The attacker sets the value of the registry key to the encoded malicious payload.
+    5.  The attacker configures the system to execute the encoded payload using a command-line interpreter like `cmd.exe` or PowerShell. This might involve creating another registry key or scheduled task.
+    6.  When the system starts or the user logs in, the encoded payload is read from the registry.
+    7.  The encoded payload is decoded using `powershell.exe` or `cmd.exe` with appropriate parameters (e.g., `powershell.exe -EncodedCommand`).
+    8.  The decoded executable is executed in memory, achieving the attacker's objective, such as installing malware, establishing persistence, or exfiltrating data.
+
+    ## Impact
+
+    Successful exploitation leads to arbitrary code execution on the targeted system. This can result in data theft, installation of ransomware, or complete system compromise. The use of registry-based persistence mechanisms ensures that the malicious code is executed automatically upon system reboot, maintaining long-term access for the attacker. Without proper detection mechanisms, this technique can be difficult to identify and remediate, leading to significant damage and data loss.
+tags:
+    - registry
+    - encoded-executable
+    - persistence
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_hide_encoded_executable_registry.toml
+rules:
+    - title: Detect Encoded Executable Stored in Registry Run Key
+      description: Detects the creation or modification of registry keys in the CurrentVersion\Run key with values containing encoded PowerShell or cmd.exe commands, indicating a persistence attempt with a hidden executable.
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection and filter
+        filter:
+            Details|contains:
+                - powershell -encodedcommand
+                - cmd /c echo
+        selection:
+            TargetObject|contains: \CurrentVersion\Run
+      level: high
+      tags:
+        - attack.persistence
+        - attack.defense_evasion
+        - attack.t1547.001
+        - attack.t1140
+      tests:
+        positive:
+            - name: Encoded PowerShell in Run key
+              data:
+                - Details: powershell -encodedcommand JABzAD0AIAAoAE4AZQ
+                  TargetObject: HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Evil
+        negative:
+            - name: Legitimate Run key entry
+              data:
+                - Details: C:\Program Files\MyProgram\MyProgram.exe
+                  TargetObject: HKCU\Software\Microsoft\Windows\CurrentVersion\Run\MyProgram
+    - title: Detect Registry Modification with Suspicious Encoded Command
+      description: Detects modifications to the Windows Registry where the 'Details' field contains suspicious encoded commands commonly used for hiding malicious payloads.
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Details|contains:
+                - -EncodedCommand
+                - /c echo
+                - FromBase64String
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1140
+        - attack.t1027
+      tests:
+        positive:
+            - name: Registry modification with Base64 encoded PowerShell
+              data:
+                - Details: powershell -EncodedCommand JABzAD0AIAAoAE4AZQ
+                  TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AppInit_DLLs
+        negative:
+            - name: Benign registry change
+              data:
+                - Details: C:\Windows\System32\SomeDLL.dll
+                  TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AppInit_DLLs
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
+      subtechnique_id: T1547.001
+      subtechnique_name: Registry Run Keys / Startup Folder
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1140
+      technique_name: Deobfuscate/Decode Files or Information
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
