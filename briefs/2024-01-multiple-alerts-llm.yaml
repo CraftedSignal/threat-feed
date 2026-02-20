@@ -1,0 +1,145 @@
+id: brief-2024-01-27-multiple-alerts-llm
+slug: 2024-01-multiple-alerts-llm
+title: Multiple Alerts Triggered by LLM Activity for a Single User
+summary: This alert detects an abnormal number of alerts triggered by activity related to Large Language Models (LLMs) associated with a single user, potentially indicating malicious use or compromise.
+severity: medium
+published_at: "2024-01-27T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection identifies scenarios where a user account generates an unusually high volume of security alerts related to Large Language Model (LLM) activity. While the provided source material does not describe a specific attack or campaign, the detection logic implies a concern that LLMs could be abused. This could involve a compromised account leveraging LLMs for malicious purposes (e.g., generating phishing content, creating disinformation, or probing for vulnerabilities), or a legitimate user engaging in risky or policy-violating behavior with LLMs. The specific alerts being aggregated are not defined in the source, requiring detection engineers to tailor this to their environment and LLM usage policies. This generic detection is meant to highlight unusual activity patterns associated with users that should be investigated.
+
+    ## Attack Chain
+
+    1. User authenticates to a system or service where LLMs are accessible.
+    2. User interacts with LLMs, potentially through a web interface, API calls, or other access methods.
+    3. The LLM generates content or performs actions based on the user's input.
+    4. Security monitoring systems detect suspicious behavior related to the LLM interaction (e.g., unusual API calls, access to sensitive data, generation of malicious code).
+    5. Multiple security alerts are triggered within a short timeframe, all associated with the same user account.
+    6. The aggregation rule detects the high volume of alerts for the user, signaling a potential security incident.
+
+    ## Impact
+
+    If a user account is compromised and used to abuse LLMs, this could lead to various negative consequences, including the generation of malicious content, data exfiltration, and damage to the organization's reputation. The scope of the impact depends on the capabilities of the LLM and the access privileges of the compromised account. The high volume of alerts suggests an automated or rapid series of actions, potentially amplifying the damage. Successful exploitation could lead to significant resource consumption, service disruption, and legal repercussions if sensitive data is leaked.
+tags:
+    - llm
+    - anomaly-detection
+    - user-activity
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_llm_by_user_entity.toml
+rules:
+    - title: Multiple LLM Related Alerts by User in Short Timeframe
+      description: Detects a user generating multiple LLM-related alerts within a defined timeframe, indicating potentially malicious activity.
+      logsource:
+        category: alert
+        product: security_alerts
+      detection:
+        aggregation:
+            count: 5
+            field: user.id
+            interval: 5m
+        condition: selection AND aggregation
+        selection:
+            alert.category: llm
+            user.id: '*'
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1070
+      tests:
+        positive:
+            - name: User triggering multiple LLM alerts
+              data:
+                - alert.category: llm
+                  alert.name: Suspicious LLM API Call
+                  timestamp: "2024-01-27T11:55:00Z"
+                  user.id: user123
+                - alert.category: llm
+                  alert.name: LLM Data Access Violation
+                  timestamp: "2024-01-27T11:56:00Z"
+                  user.id: user123
+                - alert.category: llm
+                  alert.name: LLM Code Generation Attempt
+                  timestamp: "2024-01-27T11:57:00Z"
+                  user.id: user123
+                - alert.category: llm
+                  alert.name: Suspicious LLM API Call
+                  timestamp: "2024-01-27T11:58:00Z"
+                  user.id: user123
+                - alert.category: llm
+                  alert.name: LLM Data Access Violation
+                  timestamp: "2024-01-27T11:59:00Z"
+                  user.id: user123
+        negative:
+            - name: User triggering only a few LLM alerts
+              data:
+                - alert.category: llm
+                  alert.name: Suspicious LLM API Call
+                  timestamp: "2024-01-27T11:55:00Z"
+                  user.id: user456
+                - alert.category: llm
+                  alert.name: LLM Data Access Violation
+                  timestamp: "2024-01-27T11:56:00Z"
+                  user.id: user456
+    - title: LLM Related Alerts by Source IP
+      description: Detects if a source IP is generating multiple alerts related to the use of LLMs.
+      logsource:
+        category: alert
+        product: security_alerts
+      detection:
+        aggregation:
+            count: 5
+            field: source.ip
+            interval: 5m
+        condition: selection AND aggregation
+        selection:
+            alert.category: llm
+            source.ip: '*'
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1070
+      tests:
+        positive:
+            - name: IP triggering multiple LLM alerts
+              data:
+                - alert.category: llm
+                  alert.name: Suspicious LLM API Call
+                  source.ip: 192.168.1.100
+                  timestamp: "2024-01-27T11:55:00Z"
+                - alert.category: llm
+                  alert.name: LLM Data Access Violation
+                  source.ip: 192.168.1.100
+                  timestamp: "2024-01-27T11:56:00Z"
+                - alert.category: llm
+                  alert.name: LLM Code Generation Attempt
+                  source.ip: 192.168.1.100
+                  timestamp: "2024-01-27T11:57:00Z"
+                - alert.category: llm
+                  alert.name: Suspicious LLM API Call
+                  source.ip: 192.168.1.100
+                  timestamp: "2024-01-27T11:58:00Z"
+                - alert.category: llm
+                  alert.name: LLM Data Access Violation
+                  source.ip: 192.168.1.100
+                  timestamp: "2024-01-27T11:59:00Z"
+        negative:
+            - name: IP triggering only a few LLM alerts
+              data:
+                - alert.category: llm
+                  alert.name: Suspicious LLM API Call
+                  source.ip: 192.168.1.101
+                  timestamp: "2024-01-27T11:55:00Z"
+                - alert.category: llm
+                  alert.name: LLM Data Access Violation
+                  source.ip: 192.168.1.101
+                  timestamp: "2024-01-27T11:56:00Z"
+ttps:
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1499
+      technique_name: Endpoint Resource Hijacking
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
