@@ -1,0 +1,144 @@
+id: brief-2024-01-03-okta-brute-force
+slug: 2024-01-03-okta-brute-force
+title: Okta Brute-Force Attack Detection
+summary: Detection of Okta brute-force attacks targeting user credentials, potentially leading to account compromise and unauthorized access.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This brief focuses on detecting brute-force attacks against Okta user accounts. While the specific actor and campaign details are unavailable from the provided source, the core concern is the systematic attempt to guess user passwords. The attack aims to gain unauthorized access to Okta-protected resources. Successful brute-force attempts can bypass multi-factor authentication (MFA) if weak passwords are used. Defenders must implement strong password policies, MFA enforcement, and robust detection mechanisms to mitigate this threat. This detection strategy focuses on identifying patterns indicative of brute-force attempts within Okta logs.
+
+    ## Attack Chain
+
+    1.  The attacker identifies a target Okta instance and user accounts.
+    2.  The attacker initiates login attempts using a list of common or previously exposed passwords.
+    3.  Okta logs record failed authentication attempts with associated usernames and IP addresses.
+    4.  The attacker may utilize proxy servers or VPNs to rotate IP addresses and evade rate limiting.
+    5.  After multiple failed attempts, the attacker may succeed in guessing a valid password.
+    6.  Upon successful authentication, the attacker gains access to the Okta account and associated applications.
+    7.  The attacker may then attempt to escalate privileges or access sensitive data within the compromised applications.
+
+    ## Impact
+
+    A successful Okta brute-force attack can lead to widespread account compromise, data breaches, and financial loss. Depending on the scope of access granted through Okta, attackers could gain control of critical infrastructure, access sensitive customer data, or disrupt business operations. The number of potential victims depends on the number of accounts actively targeted and the effectiveness of the brute-force attempt. The targeted sectors are broad, as Okta is used by organizations across various industries.
+tags:
+    - okta
+    - brute-force
+    - credential-access
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_okta_brute_force_multi_source.toml
+rules:
+    - title: Okta Multiple Failed Login Attempts from Single IP
+      description: Detects multiple failed Okta login attempts from the same IP address within a short time frame, indicative of a brute-force attack.
+      logsource:
+        category: authentication
+        product: okta
+      detection:
+        aggregation:
+            by: source.address, user.name
+            count(): event.id
+            timeframe: 5m
+        condition: selection AND count() > 5
+        selection:
+            event.outcome: failure
+            user.name: '*'
+      level: high
+      tags:
+        - attack.credential_access
+        - attack.t1110.001
+      tests:
+        positive:
+            - name: Multiple failed logins from same IP
+              data:
+                - event.id: evt1
+                  event.outcome: failure
+                  source.address: 192.168.1.1
+                  user.name: testuser
+                - event.id: evt2
+                  event.outcome: failure
+                  source.address: 192.168.1.1
+                  user.name: testuser
+                - event.id: evt3
+                  event.outcome: failure
+                  source.address: 192.168.1.1
+                  user.name: testuser
+                - event.id: evt4
+                  event.outcome: failure
+                  source.address: 192.168.1.1
+                  user.name: testuser
+                - event.id: evt5
+                  event.outcome: failure
+                  source.address: 192.168.1.1
+                  user.name: testuser
+                - event.id: evt6
+                  event.outcome: failure
+                  source.address: 192.168.1.1
+                  user.name: testuser
+        negative:
+            - name: Single failed login
+              data:
+                - event.id: evt1
+                  event.outcome: failure
+                  source.address: 192.168.1.1
+                  user.name: testuser
+    - title: Okta Multiple Failed Login Attempts for Single User
+      description: Detects multiple failed Okta login attempts for the same user from different IP addresses within a short time frame, indicative of a distributed brute-force attack.
+      logsource:
+        category: authentication
+        product: okta
+      detection:
+        aggregation:
+            by: user.name
+            count(): event.id
+            timeframe: 5m
+        condition: selection AND count() > 5
+        selection:
+            event.outcome: failure
+            user.name: '*'
+      level: high
+      tags:
+        - attack.credential_access
+        - attack.t1110.001
+      tests:
+        positive:
+            - name: Multiple failed logins for same user from different IPs
+              data:
+                - event.id: evt1
+                  event.outcome: failure
+                  source.address: 192.168.1.1
+                  user.name: testuser
+                - event.id: evt2
+                  event.outcome: failure
+                  source.address: 192.168.1.2
+                  user.name: testuser
+                - event.id: evt3
+                  event.outcome: failure
+                  source.address: 192.168.1.3
+                  user.name: testuser
+                - event.id: evt4
+                  event.outcome: failure
+                  source.address: 192.168.1.4
+                  user.name: testuser
+                - event.id: evt5
+                  event.outcome: failure
+                  source.address: 192.168.1.5
+                  user.name: testuser
+                - event.id: evt6
+                  event.outcome: failure
+                  source.address: 192.168.1.6
+                  user.name: testuser
+        negative:
+            - name: Single failed login
+              data:
+                - event.id: evt1
+                  event.outcome: failure
+                  source.address: 192.168.1.1
+                  user.name: testuser
+ttps:
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1110
+      technique_name: Brute Force
+      subtechnique_id: T1110.001
+      subtechnique_name: Password Guessing
