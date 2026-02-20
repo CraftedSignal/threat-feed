@@ -1,0 +1,95 @@
+id: brief-2024-01-24-o365-dlp-evasion
+slug: 2024-01-o365-dlp-evasion
+title: O365 Data Loss Prevention (DLP) Policy Removal
+summary: An adversary removes or disables an Exchange Online Data Loss Prevention (DLP) policy to facilitate data exfiltration or other malicious activities.
+severity: high
+published_at: "2024-01-24T12:00:00Z"
+content: |
+    ## Overview
+
+    Attackers with sufficient privileges within an Office 365 environment may attempt to disable or remove Data Loss Prevention (DLP) policies in Exchange Online. This is a defense evasion technique used to bypass controls designed to prevent sensitive data from leaving the organization. By removing these policies, adversaries can exfiltrate data without triggering alerts or blocks. The activity can occur at any time but is often seen prior to large-scale data exfiltration attempts. Organizations should monitor changes to DLP policies and investigate any unauthorized modifications.
+
+    ## Attack Chain
+
+    1.  The attacker compromises an account with sufficient privileges to manage Exchange Online DLP policies, such as a Global Administrator or Compliance Administrator.
+    2.  The attacker authenticates to the Exchange Online PowerShell module using the compromised account (e.g., `Connect-ExchangeOnline`).
+    3.  The attacker discovers existing DLP policies using commands like `Get-DlpCompliancePolicy`.
+    4.  The attacker identifies a target DLP policy that restricts the type of data they intend to exfiltrate (e.g., policies blocking the sharing of credit card numbers).
+    5.  The attacker removes the DLP policy using the `Remove-DlpCompliancePolicy` cmdlet, specifying the Identity of the policy.  Alternatively, the attacker might disable the policy using `Set-DlpCompliancePolicy -Identity "PolicyName" -Enabled $false`.
+    6.  The attacker verifies the policy has been removed or disabled using `Get-DlpCompliancePolicy`.
+    7.  The attacker initiates data exfiltration activities, such as sending sensitive data via email or sharing files containing sensitive information externally.
+    8.  The attacker attempts to cover their tracks by deleting audit logs related to the policy modification activities.
+
+    ## Impact
+
+    Successful removal or disabling of DLP policies can lead to significant data breaches, compliance violations, and reputational damage. The impact depends on the sensitivity of the data that the DLP policy was designed to protect. Organizations may face regulatory fines, legal action, and loss of customer trust. The number of affected individuals and the cost of remediation can be substantial.
+tags:
+    - o365
+    - dlp
+    - defense-evasion
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/defense_evasion_exchange_dlp_policy_removed.toml
+rules:
+    - title: Detect DLP Policy Removal via Exchange Online PowerShell
+      description: Detects the removal of a DLP policy using the Remove-DlpCompliancePolicy cmdlet in Exchange Online PowerShell.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: Remove-DlpCompliancePolicy
+            Image|endswith: \powershell.exe
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: DLP Policy Removal
+              data:
+                - CommandLine: Remove-DlpCompliancePolicy -Identity "Credit Card Policy" -Confirm:$false
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Normal PowerShell Activity
+              data:
+                - CommandLine: Get-Mailbox
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect DLP Policy Modification via Exchange Online PowerShell
+      description: Detects the modification of a DLP policy using the Set-DlpCompliancePolicy cmdlet in Exchange Online PowerShell.  This includes disabling the policy.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and selection_disable
+        selection:
+            CommandLine|contains: Set-DlpCompliancePolicy
+            Image|endswith: \powershell.exe
+        selection_disable:
+            CommandLine|contains: -Enabled `$false
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: DLP Policy Modification (Disable)
+              data:
+                - CommandLine: Set-DlpCompliancePolicy -Identity "Credit Card Policy" -Enabled `$false
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Normal PowerShell Activity
+              data:
+                - CommandLine: Get-Mailbox
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.001
+      subtechnique_name: Disable or Modify Tools
