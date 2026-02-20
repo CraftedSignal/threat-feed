@@ -1,0 +1,111 @@
+id: brief-2024-01-08-s3-ransom-keyword
+slug: 2024-01-08-s3-ransom-keyword
+title: Suspicious S3 Bucket Object Upload with Ransom Keyword
+summary: An AWS S3 bucket object upload containing a keyword associated with ransomware is detected, potentially indicating malicious activity or data compromise.
+severity: high
+published_at: "2024-01-08T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert focuses on detecting the potential early stages of a ransomware attack or data breach involving AWS S3 buckets. While the Elastic detection rule doesn't specify a particular actor or campaign, it highlights a critical security concern: the presence of ransomware-related keywords within objects being uploaded to S3 buckets. This activity could be indicative of an attacker attempting to stage ransomware payloads, exfiltrate sensitive data with ransom notes, or disrupt cloud-based services. Defenders need to investigate these alerts promptly, as successful exploitation could lead to significant data loss, service disruption, and reputational damage.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** An attacker gains access to AWS credentials through compromised accounts, exposed keys, or exploiting misconfigured IAM roles.
+    2.  **Privilege Escalation (Optional):** The attacker may attempt to escalate privileges within the AWS environment to gain broader access to S3 buckets.
+    3.  **Bucket Discovery:** The attacker enumerates available S3 buckets within the compromised AWS account.
+    4.  **Object Upload:** The attacker uploads a malicious object containing a ransomware-related keyword to a target S3 bucket. This object could be a ransomware executable, a data file with a ransom note, or a script designed to trigger further malicious actions.
+    5.  **Persistence (Optional):** The attacker might create or modify S3 bucket policies or IAM roles to maintain persistent access to the environment.
+    6.  **Lateral Movement (Optional):** The attacker could use the compromised S3 bucket as a staging ground to move laterally to other resources within the AWS environment or to other connected systems.
+    7.  **Data Encryption/Exfiltration:** Depending on the object uploaded, the attacker may attempt to encrypt data within the S3 bucket or exfiltrate sensitive information.
+    8.  **Impact:** The successful attack results in data compromise, potential encryption of data within S3 buckets, and the possibility of a ransomware demand.
+
+    ## Impact
+
+    The impact of a successful attack can range from data breaches and service disruptions to full-blown ransomware incidents. The number of victims and the sectors targeted would depend on the scope of the compromised AWS environment and the attacker's objectives. If successful, the attacker could encrypt or exfiltrate critical data stored in S3 buckets, leading to significant financial losses, reputational damage, and regulatory penalties.
+tags:
+    - aws
+    - s3
+    - ransomware
+    - data-exfiltration
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_s3_bucket_object_uploaded_with_ransom_keyword.toml
+rules:
+    - title: Detect S3 Object Upload with Ransom Keyword
+      description: Detects an S3 object upload event where the object name or content contains keywords associated with ransomware.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: PutObject
+            eventSource: s3.amazonaws.com
+            requestParameters.key|contains:
+                - ransom
+                - crypt
+                - locky
+                - wannacry
+      level: high
+      tags:
+        - attack.impact
+        - attack.t1485
+      tests:
+        positive:
+            - name: S3 object upload with 'ransom' in the object key
+              data:
+                - eventName: PutObject
+                  eventSource: s3.amazonaws.com
+                  requestParameters.key: ransomware_note.txt
+            - name: S3 object upload with 'crypt' in the object key
+              data:
+                - eventName: PutObject
+                  eventSource: s3.amazonaws.com
+                  requestParameters.key: encrypted_data.crypt
+        negative:
+            - name: Normal S3 object upload
+              data:
+                - eventName: PutObject
+                  eventSource: s3.amazonaws.com
+                  requestParameters.key: legitimate_file.txt
+    - title: Detect S3 Object ACL Modification with Ransom Keyword
+      description: Detects a modification of S3 Object ACL where the object name contains keywords associated with ransomware, potentially indicating malicious access control changes to ransomwared files.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: PutObjectAcl
+            eventSource: s3.amazonaws.com
+            requestParameters.key|contains:
+                - ransom
+                - crypt
+                - locky
+                - wannacry
+      level: medium
+      tags:
+        - attack.impact
+        - attack.t1530
+      tests:
+        positive:
+            - name: S3 object acl modified with 'ransom' in the object key
+              data:
+                - eventName: PutObjectAcl
+                  eventSource: s3.amazonaws.com
+                  requestParameters.key: ransomware_note.txt
+        negative:
+            - name: Normal S3 object acl modification
+              data:
+                - eventName: PutObjectAcl
+                  eventSource: s3.amazonaws.com
+                  requestParameters.key: legitimate_file.txt
+ttps:
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1485
+      technique_name: Data Encryption for Impact
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1530
+      technique_name: Data Encrypted for Impact
