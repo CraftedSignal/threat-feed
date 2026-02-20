@@ -1,0 +1,133 @@
+id: brief-2024-01-09-masquerading-trusted-directory
+slug: 2024-01-09-masquerading-trusted-directory
+title: Masquerading Executables in Trusted Directories
+summary: Adversaries may attempt to masquerade malicious executables by placing them in trusted directories to evade detection and blend in with legitimate system activity.
+severity: medium
+published_at: "2024-01-09T12:00:00Z"
+content: |
+    ## Overview
+
+    Adversaries often attempt to evade detection by masquerading malicious files or processes. One technique involves placing malicious executables within directories commonly associated with legitimate software or system operations. This tactic can make it more difficult for security tools and analysts to distinguish between benign and malicious activity, as the executables reside in locations that are typically trusted. The success of this technique depends on the specific security configurations and monitoring practices in place within an organization.
+
+    ## Attack Chain
+
+    1. The attacker gains initial access to the system (e.g., through exploitation or social engineering).
+    2. The attacker identifies a trusted directory (e.g., `C:\Program Files\`, `C:\Windows\System32\`).
+    3. The attacker copies or moves a malicious executable to the trusted directory.
+    4. The attacker renames the malicious executable to resemble a legitimate system file (e.g., `svchost.exe`, `explorer.exe`).
+    5. The attacker executes the renamed malicious executable.
+    6. The malicious executable performs its intended actions (e.g., establishing persistence, executing commands, or exfiltrating data).
+    7. The attacker may further attempt to hide the malicious process by modifying timestamps or attributes.
+
+    ## Impact
+
+    Successful masquerading can allow attackers to execute malicious code undetected, leading to data breaches, system compromise, or other adverse outcomes. The impact depends on the specific actions performed by the malicious executable, but it could range from minor disruption to complete system takeover. The number of victims and affected sectors will vary depending on the scope of the attacker's campaign.
+tags:
+    - defense-evasion
+    - masquerading
+    - trusted-directory
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_masquerading_trusted_directory.toml
+rules:
+    - title: Executable Masquerading in Program Files
+      description: Detects executables running from the 'Program Files' directory that do not match known good paths, indicating potential masquerading.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|startswith:
+                - C:\Program Files\WindowsApps\
+                - C:\Program Files\Microsoft\
+                - C:\Program Files\Common Files\
+        selection:
+            Image|startswith: C:\Program Files\
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1036.005
+      tests:
+        positive:
+            - name: Executable in Program Files not matching known good paths
+              data:
+                - Image: C:\Program Files\SuspiciousApp\malware.exe
+                - CommandLine: C:\Program Files\SuspiciousApp\malware.exe --evil
+        negative:
+            - name: Legitimate application in Program Files
+              data:
+                - Image: C:\Program Files\Microsoft\Edge\Application\msedge.exe
+                - CommandLine: C:\Program Files\Microsoft\Edge\Application\msedge.exe
+    - title: Suspicious Process Name in System32
+      description: Detects processes running from System32 with names that are uncommon or indicative of masquerading.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|endswith:
+                - \svchost.exe
+                - \lsass.exe
+                - \csrss.exe
+                - \wininit.exe
+                - \smss.exe
+                - \services.exe
+                - \winlogon.exe
+        selection:
+            Image|startswith: C:\Windows\System32\
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1036.005
+      tests:
+        positive:
+            - name: Malicious executable masquerading as System32 process
+              data:
+                - Image: C:\Windows\System32\evil_process.exe
+                - CommandLine: C:\Windows\System32\evil_process.exe -arg
+        negative:
+            - name: Legitimate System32 process
+              data:
+                - Image: C:\Windows\System32\svchost.exe
+                - CommandLine: C:\Windows\System32\svchost.exe -k netsvcs
+    - title: Uncommon Process Execution from System32
+      description: Detects uncommon executables running directly from System32, which might indicate masquerading or suspicious activity.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|endswith:
+                - \cmd.exe
+                - \powershell.exe
+                - \wscript.exe
+                - \cscript.exe
+        selection:
+            Image|startswith: C:\Windows\System32\
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.execution
+        - attack.t1036.005
+      tests:
+        positive:
+            - name: Uncommon executable running directly from System32
+              data:
+                - Image: C:\Windows\System32\uncommon.exe
+                - CommandLine: C:\Windows\System32\uncommon.exe -arg1 -arg2
+                - ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: Cmd.exe running from System32
+              data:
+                - Image: C:\Windows\System32\cmd.exe
+                - CommandLine: C:\Windows\System32\cmd.exe /c whoami
+                - ParentImage: C:\Windows\explorer.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1036
+      technique_name: Masquerading
+      subtechnique_id: T1036.005
+      subtechnique_name: Match Legitimate Name or Location
