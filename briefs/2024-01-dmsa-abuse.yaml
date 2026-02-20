@@ -1,0 +1,121 @@
+id: brief-2024-01-29-dmsa-abuse
+slug: 2024-01-dmsa-abuse
+title: Potential Abuse of Delegated Managed Service Accounts (DMSA)
+summary: This brief covers potential privilege escalation attempts by abusing Delegated Managed Service Accounts (DMSA) within a Windows environment, potentially allowing attackers to gain elevated privileges.
+severity: high
+published_at: "2024-01-29T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief addresses a potential privilege escalation vulnerability related to the improper configuration or abuse of Delegated Managed Service Accounts (DMSAs) in Windows environments. DMSAs are designed to simplify password management for service accounts, but misconfigurations can lead to significant security risks. Attackers exploiting this vulnerability can potentially gain control over sensitive resources or escalate their privileges to domain administrator. While the specific exploitation methods are not detailed in the provided source, the general concept of abusing DMSA configurations to achieve privilege escalation is well-documented and poses a tangible risk to Windows environments. It's crucial to monitor for unusual activity related to DMSA accounts and ensure proper configuration and security policies are in place.
+
+    ## Attack Chain
+
+    1.  **Initial Compromise:** The attacker gains initial access to a low-privileged account within the domain (e.g., through phishing or credential theft).
+    2.  **DMSA Discovery:** The attacker enumerates available DMSAs within the environment using tools like PowerShell or built-in Windows utilities (e.g., `Get-ADServiceAccount -Filter *`).
+    3.  **Identify Misconfigured DMSA:** The attacker identifies a DMSA that is misconfigured or has overly permissive permissions, allowing unintended access to resources or the ability to modify the account's configuration.
+    4.  **Abuse BadSuccessor Attribute:** The attacker manipulates the `msDS-ManagedPasswordID` or `badPwdCount` attribute via the `Set-ADObject` cmdlet on the vulnerable DMSA. This attribute controls the password management settings for the DMSA.
+    5.  **Password Reset:** The attacker triggers a password reset for the DMSA, potentially gaining control over the account if the reset mechanism is flawed or lacks proper authorization checks.
+    6.  **Service Impersonation:** The attacker uses the compromised DMSA credentials to impersonate the service associated with the account, gaining access to resources and privileges normally associated with that service.
+    7.  **Privilege Escalation:** By impersonating a service with elevated privileges, the attacker escalates their own privileges, gaining the ability to perform actions they were not previously authorized to do.
+    8.  **Lateral Movement/Data Exfiltration:** The attacker leverages their elevated privileges to move laterally within the network, access sensitive data, and potentially exfiltrate it from the organization.
+
+    ## Impact
+
+    Successful exploitation of DMSA vulnerabilities can lead to complete domain compromise. Attackers can gain control over critical servers, access sensitive data, disrupt business operations, and deploy ransomware. The impact depends on the scope of the misconfigured DMSA and the privileges associated with the services it controls. The number of potential victims depends on the size and complexity of the affected Windows environment. Even a single compromised DMSA can provide a foothold for attackers to escalate privileges and move laterally, causing widespread damage.
+tags:
+    - privilege-escalation
+    - dmsa
+    - windows
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/privilege_escalation_badsuccessor_dmsa_abuse.toml
+rules:
+    - title: Detect Modification of msDS-ManagedPasswordID Attribute
+      description: Detects attempts to modify the `msDS-ManagedPasswordID` attribute of a Managed Service Account (MSA) or Delegated Managed Service Account (DMSA), potentially indicating an attempt to manipulate password management settings.
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Details|contains: Set-ADObject
+            TargetObject|contains: msDS-ManagedPasswordID
+      level: high
+      tags:
+        - attack.privilege_escalation
+        - attack.t1484.001
+      tests:
+        positive:
+            - name: Modification of msDS-ManagedPasswordID attribute
+              data:
+                - TargetObject: CN=testdmsa,OU=Managed Service Accounts,DC=test,DC=local
+                - Details: Set-ADObject 'CN=testdmsa,OU=Managed Service Accounts,DC=test,DC=local' -Set @{'msDS-ManagedPasswordID'=$null}
+        negative:
+            - name: Legitimate modification of a different attribute
+              data:
+                - TargetObject: CN=testdmsa,OU=Managed Service Accounts,DC=test,DC=local
+                - Details: Set-ADObject 'CN=testdmsa,OU=Managed Service Accounts,DC=test,DC=local' -Set @{'Description'=$null}
+    - title: Detect Get-ADServiceAccount Activity
+      description: Detects the use of Get-ADServiceAccount which can be used to enumerate DMSAs and identify potential targets.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: Get-ADServiceAccount
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1087.002
+      tests:
+        positive:
+            - name: Get-ADServiceAccount execution
+              data:
+                - CommandLine: Get-ADServiceAccount -Filter *
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Other AD cmdlets
+              data:
+                - CommandLine: Get-ADUser -Filter *
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect Bad Pwd Count Modification on DMSA
+      description: Detects modification to badPwdCount on a DMSA which could be used to trigger a password reset.
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Details|contains: Set-ADObject
+            TargetObject|contains: badPwdCount
+      level: high
+      tags:
+        - attack.privilege_escalation
+        - attack.t1484.001
+      tests:
+        positive:
+            - name: badPwdCount modification
+              data:
+                - TargetObject: CN=testdmsa,OU=Managed Service Accounts,DC=test,DC=local
+                - Details: Set-ADObject 'CN=testdmsa,OU=Managed Service Accounts,DC=test,DC=local' -Set @{'badPwdCount'=$null}
+        negative:
+            - name: Other AD cmdlets
+              data:
+                - TargetObject: CN=testdmsa,OU=Managed Service Accounts,DC=test,DC=local
+                - Details: Set-ADObject 'CN=testdmsa,OU=Managed Service Accounts,DC=test,DC=local' -Set @{'Description'=$null}
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1484
+      technique_name: Domain Policy Modification
+      subtechnique_id: T1484.001
+      subtechnique_name: Group Membership Modification
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1087
+      technique_name: Account Discovery
+      subtechnique_id: T1087.002
+      subtechnique_name: Domain Account
