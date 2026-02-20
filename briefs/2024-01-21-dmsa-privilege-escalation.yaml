@@ -1,0 +1,91 @@
+id: brief-2024-01-21-dmsa-privilege-escalation
+slug: 2024-01-21-dmsa-privilege-escalation
+title: Suspicious DMSA Creation by Unusual User
+summary: An unusual user account is creating a Distributed Management Service Account (DMSA), potentially indicating privilege escalation activity.
+severity: high
+published_at: "2024-01-21T12:00:00Z"
+content: |
+    ## Overview
+
+    The creation of a Distributed Management Service Account (DMSA) is typically performed by administrators or automated systems with elevated privileges. When an unusual user account, not typically associated with administrative tasks, creates a DMSA, it raises suspicion of potential privilege escalation. This could be indicative of an attacker attempting to gain higher-level access within the system or to establish persistence using a compromised account. This activity is especially concerning on systems where DMSAs are not commonly used or when the creating user lacks a legitimate reason for this action. Identifying and investigating such events promptly is critical to prevent further unauthorized activities.
+
+    ## Attack Chain
+
+    1. Initial Access: An attacker gains initial access to a system, possibly through credential theft or exploitation of a vulnerability.
+    2. Reconnaissance: The attacker performs reconnaissance to identify potential targets for privilege escalation, including existing accounts and system configurations.
+    3. Privilege Escalation Attempt: The attacker attempts to create a DMSA using an unusual user account, potentially leveraging built-in tools or scripts.
+    4. DMSA Creation: The attacker successfully creates a DMSA, granting them elevated privileges within the domain.
+    5. Lateral Movement: Using the newly acquired privileges, the attacker moves laterally to other systems within the network.
+    6. Data Exfiltration/Impact: The attacker achieves their final objective, which could include data exfiltration, system compromise, or deployment of malware.
+
+    ## Impact
+
+    Successful creation of a DMSA by an unauthorized user can lead to significant privilege escalation, potentially granting the attacker control over critical systems and data within the network. This can result in data breaches, financial losses, and reputational damage. The scope of the impact depends on the privileges granted to the DMSA and the extent of the attacker's access.
+tags:
+    - privilege-escalation
+    - dmsa
+    - windows
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/privilege_escalation_dmsa_creation_by_unusual_user.toml
+rules:
+    - title: Detect DMSA Creation by Unusual User
+      description: Detects the creation of a DMSA by a user account that is not typically associated with administrative tasks.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            User|startswith: NT AUTHORITY
+        selection:
+            CommandLine|contains: dmsa
+            Image|endswith: \dsadd.exe
+      level: high
+      tags:
+        - attack.privilege_escalation
+        - attack.t1068
+      tests:
+        positive:
+            - name: DMSA creation by standard user
+              data:
+                - CommandLine: dsadd dmsa cn=testdmsa,dc=example,dc=com -samid testdmsa$
+                  Image: C:\Windows\System32\dsadd.exe
+                  User: EXAMPLE\standard_user
+        negative:
+            - name: DMSA creation by SYSTEM account
+              data:
+                - CommandLine: dsadd dmsa cn=testdmsa,dc=example,dc=com -samid testdmsa$
+                  Image: C:\Windows\System32\dsadd.exe
+                  User: NT AUTHORITY\SYSTEM
+    - title: Detect DMSA Creation via PowerShell
+      description: Detects the creation of a DMSA using PowerShell cmdlets which is less common.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - New-ADServiceAccount
+                - New-ADObject
+            Image|endswith: \powershell.exe
+      level: medium
+      tags:
+        - attack.privilege_escalation
+        - attack.t1068
+      tests:
+        positive:
+            - name: DMSA creation using New-ADServiceAccount
+              data:
+                - CommandLine: New-ADServiceAccount -Name 'TestDMSA' -DNSHostName 'TestDMSA.example.com' -PrincipalsAllowedToRetrieveManagedPassword 'EXAMPLE\Administrator'
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        negative:
+            - name: Regular PowerShell script execution
+              data:
+                - CommandLine: Get-Process
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
