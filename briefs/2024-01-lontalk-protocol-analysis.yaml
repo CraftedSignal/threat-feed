@@ -1,0 +1,110 @@
+id: brief-2024-01-30-lontalk-protocol-analysis
+slug: 2024-01-lontalk-protocol-analysis
+title: Analysis of Legacy LonTalk Protocol in Building Management Systems
+summary: Team82 researchers published an analysis of the LonTalk networking protocol, commonly used in building management systems, detailing its architecture and evolution for defenders and asset owners.
+severity: medium
+published_at: "2024-01-30T12:00:00Z"
+content: |
+    ## Overview
+
+    Team82 has released an analysis of the LonTalk networking protocol, a legacy protocol still prevalent in building management and automation systems (BMS). The research breaks down the core architecture of LonTalk, its operational characteristics within control environments, and its transition from serial communication to IP-based deployments. The analysis targets security practitioners and asset owners aiming to enhance visibility into legacy BMS protocols active in contemporary networks. This includes understanding how these systems communicate, potential vulnerabilities arising from their design, and methods for monitoring and securing them within modern IT/OT environments. Defenders can leverage this knowledge to better identify and mitigate potential security risks associated with LonTalk deployments.
+
+    ## Attack Chain
+
+    1.  **Initial Reconnaissance:** Attackers begin by scanning the network to identify devices using the LonTalk protocol, often through port scanning and service version detection on standard LonTalk ports (if IP-enabled).
+    2.  **Vulnerability Exploitation:** Attackers target known vulnerabilities in LonTalk implementations or devices utilizing the protocol. This might involve exploiting default credentials or unpatched firmware flaws.
+    3.  **Lateral Movement:** After compromising an initial LonTalk device, attackers leverage the protocol's communication capabilities to move laterally within the BMS network, targeting other controllers and devices.
+    4.  **Command Injection:** Attackers inject malicious commands into LonTalk messages, manipulating building systems like HVAC, lighting, and access control. This could involve altering temperature settings, disabling security systems, or opening doors.
+    5.  **Data Exfiltration:** Sensitive data, such as building blueprints, security configurations, and employee access logs, is exfiltrated from compromised BMS servers or controllers.
+    6.  **Denial of Service:** Attackers flood the LonTalk network with malicious traffic, disrupting communication between devices and causing a denial of service affecting building operations.
+    7.  **System Manipulation:** Attackers gain complete control over the BMS, manipulating critical building functions to cause physical damage, disrupt operations, or create safety hazards.
+    8.  **Persistence:** Attackers establish persistent access to the LonTalk network by installing backdoors or modifying device firmware, allowing them to maintain control even after system resets or security updates.
+
+    ## Impact
+
+    Compromise of LonTalk-based BMS systems can lead to significant disruption and damage. Successful attacks could result in physical damage to building infrastructure (e.g., frozen pipes due to HVAC manipulation), denial of service impacting critical building functions (e.g., lighting, security), theft of sensitive building data, and potential safety hazards for occupants. While the exact number of affected systems globally is unknown, the widespread use of LonTalk in commercial buildings, industrial facilities, and critical infrastructure means a successful attack could impact a large number of organizations across multiple sectors.
+tags:
+    - building-management-system
+    - lontalk
+    - protocol-analysis
+references:
+    - https://claroty.com/team82/research/examining-the-legacy-bms-lontalk-protocol
+    - https://www.reddit.com/r/cybersecurity/comments/1ra68z5/examining_the_legacy_bms_lontalk_protocol/
+rules:
+    - title: Detect Potential LonTalk Traffic via Common Ports
+      description: Detects network connections using common ports associated with LonTalk traffic, which may indicate reconnaissance or exploitation attempts.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            DestinationPort:
+                - 1628
+                - 80
+                - 443
+      level: low
+      tags:
+        - attack.reconnaissance
+        - attack.t1046
+      tests:
+        positive:
+            - name: Connection to LonTalk port 1628
+              data:
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: 1628
+                  Image: C:\Windows\System32\svchost.exe
+        negative:
+            - name: Legitimate web browsing traffic
+              data:
+                - DestinationIp: 8.8.8.8
+                  DestinationPort: 443
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+    - title: Detect Suspicious Processes Connecting to LonTalk Ports
+      description: Detects processes that are not typically associated with LonTalk communication initiating connections to LonTalk ports.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|startswith:
+                - C:\Program Files\
+                - C:\Windows\
+        selection:
+            DestinationPort:
+                - 1628
+                - 80
+                - 443
+            Image|endswith:
+                - .exe
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Uncommon process connecting to LonTalk port
+              data:
+                - DestinationPort: 1628
+                - DestinationIp: 192.168.1.100
+                - Image: C:\Users\Public\suspicious.exe
+        negative:
+            - name: Legitimate system process connecting to a common port
+              data:
+                - DestinationPort: 80
+                - DestinationIp: 10.0.0.1
+                - Image: C:\Windows\System32\svchost.exe
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1046
+      technique_name: Network Service Scanning
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021.001
+      technique_name: 'Remote Services: RDP'
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1070.001
+      technique_name: 'Indicator Removal on Host: Clear Windows Event Logs'
