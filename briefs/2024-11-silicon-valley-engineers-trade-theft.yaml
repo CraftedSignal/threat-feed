@@ -1,0 +1,144 @@
+id: brief-2024-11-02-silicon-valley-engineers-trade-theft
+slug: 2024-11-silicon-valley-engineers-trade-theft
+title: Silicon Valley Engineers Stealing Trade Secrets for Transfer to Iran
+summary: Three engineers from San Jose are accused of stealing trade secrets, specifically processor security data, from Silicon Valley companies, and attempting to transfer the information to Iran.
+severity: high
+published_at: "2026-02-20T15:52:45Z"
+content: |
+    ## Overview
+
+    Three engineers working in Silicon Valley, based out of San Jose, have been indicted on charges of stealing trade secrets from multiple leading technology companies. The focus of the theft was on processor security-related data, with the intent to transfer or store the data improperly, reportedly including sending it to Iran. The engineers allegedly copied hundreds of files containing sensitive intellectual property. Additionally, the individuals are accused of attempting to cover their tracks by deleting evidence and providing false statements during the investigation. The legal proceedings could result in significant prison sentences if they are convicted on the federal charges. The activity highlights insider threats involving potential state-sponsored technology transfer.
+
+    ## Attack Chain
+
+    1. **Initial Access:** The engineers, already employed at the victim technology companies, leveraged their legitimate access to internal systems and networks.
+    2. **Reconnaissance:** The engineers identified and located sensitive files containing trade secrets related to processor security within the company's data repositories.
+    3. **Data Collection:** Hundreds of files were copied from internal servers and storage locations using standard file system tools (e.g., `cp` on Linux/macOS, `Copy-Item` on Windows).
+    4. **Data Exfiltration Preparation:** The stolen files were staged for exfiltration, potentially compressed and/or archived using tools like `zip`, `tar`, or similar utilities.
+    5. **Data Exfiltration:** The data was transferred to external locations, including, reportedly, to Iran, using methods such as secure file transfer protocol (SFTP), encrypted email, or cloud storage services.
+    6. **Evidence Destruction:** Attempts were made to delete logs, file access records, and other forensic artifacts that could reveal the theft.
+    7. **Obfuscation:** The engineers provided false statements to investigators to further conceal their activities and involvement.
+    8. **Objective:** The ultimate goal was to transfer valuable processor security technology and intellectual property to Iran, potentially benefiting Iranian entities.
+
+    ## Impact
+
+    The theft of trade secrets from Silicon Valley technology companies could result in significant financial losses, competitive disadvantage, and damage to their reputation. The transfer of processor security technology to Iran may aid in the development of their domestic capabilities in this area, which could have national security implications. The number of companies affected and the exact monetary value of the stolen data is currently unknown, but the indictment suggests the impact is substantial given the sensitive nature of the stolen information. If successful, the receiving party could leverage these trade secrets to create competing products or services, undermining the original companies' market position.
+tags:
+    - insider-threat
+    - trade-secret-theft
+    - data-exfiltration
+    - iran
+references:
+    - https://www.justice.gov/usao-ndca/pr/silicon-valley-engineers-charged-stealing-trade-secrets-leading-tech-companies-and
+    - https://www.reddit.com/r/cybersecurity/comments/1r9z08d/three_silicon_valley_engineers_indicted_for/
+rules:
+    - title: Detect Archive Creation Before Potential Exfiltration
+      description: Detects creation of archive files (zip, tar, etc) in user directories, which might indicate data staging for exfiltration.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            ParentImage|contains:
+                - \Windows\System32\
+        selection:
+            CommandLine|contains:
+                - 'a '
+            Image|endswith:
+                - \zip.exe
+                - \tar.exe
+                - \7z.exe
+      level: medium
+      tags:
+        - attack.exfiltration
+        - attack.t1020
+      tests:
+        positive:
+            - name: 7zip creating archive in user directory
+              data:
+                - CommandLine: 7z a archive.zip important_files
+                  Image: C:\Program Files\7-Zip\7z.exe
+                  ParentImage: C:\Users\user1\Documents\script.exe
+        negative:
+            - name: Legitimate archiving by system process
+              data:
+                - CommandLine: 7z a archive.zip important_files
+                  Image: C:\Program Files\7-Zip\7z.exe
+                  ParentImage: C:\Windows\System32\services.exe
+    - title: Detect Suspicious File Copying to Removable Media
+      description: Detects file copying operations to removable media, such as USB drives, which might indicate unauthorized data exfiltration by insiders.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Operation: CopyFile
+            TargetFilename|contains:
+                - D:\
+                - E:\
+                - F:\
+      level: medium
+      tags:
+        - attack.exfiltration
+        - attack.t1020
+      tests:
+        positive:
+            - name: Copying file to USB drive
+              data:
+                - Operation: CopyFile
+                - SourceFilename: C:\Users\user1\Documents\sensitive_data.txt
+                - TargetFilename: E:\sensitive_data.txt
+        negative:
+            - name: Copying file within the same drive
+              data:
+                - Operation: CopyFile
+                - SourceFilename: C:\Users\user1\Documents\file.txt
+                - TargetFilename: C:\Users\user1\backup\file.txt
+    - title: Detect Deletion of Shadow Copies via vssadmin.exe
+      description: Detects the execution of vssadmin.exe to delete shadow copies, which is a common technique used to remove backup data and hinder recovery after data theft.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: delete shadows
+            Image|endswith: \vssadmin.exe
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1489
+      tests:
+        positive:
+            - name: vssadmin deletes shadow copies
+              data:
+                - Image: C:\Windows\System32\vssadmin.exe
+                - CommandLine: vssadmin.exe delete shadows /all /quiet
+                - ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: vssadmin lists shadow copies
+              data:
+                - Image: C:\Windows\System32\vssadmin.exe
+                - CommandLine: vssadmin.exe list shadows
+                - ParentImage: C:\Windows\System32\cmd.exe
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1070
+      technique_name: Indicator Removal on Host
+      subtechnique_id: T1070.001
+      subtechnique_name: Clear Windows Event Logs
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1020
+      technique_name: Automated Exfiltration
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1119
+      technique_name: Automated Collection
