@@ -1,0 +1,112 @@
+id: brief-2024-01-03-multiple-elastic-defend-behavior
+slug: 2024-01-multiple-elastic-defend-behavior
+title: Multiple Elastic Defend Behavior Rules Triggered on Same Host
+summary: This detection identifies hosts triggering multiple Elastic Defend behavior rules, potentially indicating a compromised system exhibiting various malicious activities.
+severity: medium
+published_at: "2024-01-03T10:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying hosts within an environment that trigger a high number of Elastic Defend behavior rules. While individual rule triggers can be legitimate, a cluster of triggers on a single host is a strong indicator of compromise. This could signify malware execution, lateral movement attempts, or other malicious activities evading singular detection logic. The timeframe for aggregating these triggers is not specified in the source, highlighting the need for tuning and baselining to avoid excessive false positives. Defenders should prioritize investigation of hosts exceeding a defined threshold of rule triggers within a set period.
+
+    ## Attack Chain
+
+    1.  Initial Access: An attacker gains initial access to a host (method unspecified in source).
+    2.  Malware Execution: The attacker executes malware on the compromised host (details unspecified).
+    3.  Privilege Escalation: The malware attempts to escalate privileges to gain higher-level access.
+    4.  Credential Access: The attacker attempts to steal credentials stored on the system.
+    5.  Lateral Movement: Using the compromised host, the attacker attempts to move to other systems on the network.
+    6.  Command and Control: The malware establishes a command and control channel to communicate with the attacker.
+    7.  Data Exfiltration: The attacker begins exfiltrating sensitive data from the compromised host.
+    8.  Impact: The attacker achieves their objective, such as data theft, system disruption, or ransomware deployment.
+
+    ## Impact
+
+    A successful attack resulting in multiple Elastic Defend behavior rule triggers can lead to significant damage, including data breaches, financial loss, and reputational damage. The number of victims and specific sectors targeted depends on the attacker's goals and the compromised environment. Failure to detect and respond to this activity can result in widespread system compromise and long-term operational disruption.
+tags:
+    - host-based-detection
+    - behavioral-analysis
+    - multiple-alerts
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_elastic_defend_behavior_rules_same_host_prevalence.toml
+rules:
+    - title: Multiple Elastic Defend Behavior Rule Triggers on Host
+      description: Detects a host triggering multiple Elastic Defend behavior rules within a defined timeframe, indicating potential compromise.
+      logsource:
+        category: alert
+        product: elastic
+      detection:
+        aggregation:
+            host.hostname:
+                - count() by host.hostname
+                - interval = 5m
+        condition: count() by host.hostname > 3
+        selection:
+            signal.rule.namespace: Elastic Defend
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1018
+      tests:
+        positive:
+            - name: Host triggering multiple Elastic Defend rules
+              data:
+                - host.hostname: workstation01
+                  signal.rule.namespace: Elastic Defend
+                - host.hostname: workstation01
+                  signal.rule.namespace: Elastic Defend
+                - host.hostname: workstation01
+                  signal.rule.namespace: Elastic Defend
+                - host.hostname: workstation01
+                  signal.rule.namespace: Elastic Defend
+        negative:
+            - name: Host triggering fewer than the threshold of Elastic Defend rules
+              data:
+                - host.hostname: workstation02
+                  signal.rule.namespace: Elastic Defend
+                - host.hostname: workstation02
+                  signal.rule.namespace: Elastic Defend
+    - title: Multiple Elastic Defend Rules - Different Categories
+      description: Detects a host triggering Elastic Defend rules across different categories, potentially indicating a more sophisticated attack.
+      logsource:
+        category: alert
+        product: elastic
+      detection:
+        aggregation:
+            host.hostname:
+                - distinct count(signal.rule.category) by host.hostname
+                - interval = 5m
+        condition: distinct count(signal.rule.category) by host.hostname > 2
+        selection:
+            signal.rule.namespace: Elastic Defend
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1018
+      tests:
+        positive:
+            - name: Host triggering multiple Elastic Defend rules across different categories
+              data:
+                - host.hostname: server01
+                  signal.rule.category: malware
+                  signal.rule.namespace: Elastic Defend
+                - host.hostname: server01
+                  signal.rule.category: privilege_escalation
+                  signal.rule.namespace: Elastic Defend
+                - host.hostname: server01
+                  signal.rule.category: lateral_movement
+                  signal.rule.namespace: Elastic Defend
+        negative:
+            - name: Host triggering rules in only one or two categories
+              data:
+                - host.hostname: server02
+                  signal.rule.category: malware
+                  signal.rule.namespace: Elastic Defend
+                - host.hostname: server02
+                  signal.rule.category: malware
+                  signal.rule.namespace: Elastic Defend
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
