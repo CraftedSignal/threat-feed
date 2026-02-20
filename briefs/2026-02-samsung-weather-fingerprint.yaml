@@ -1,0 +1,110 @@
+id: brief-2026-02-21-samsung-weather-fingerprint
+slug: 2026-02-samsung-weather-fingerprint
+title: Samsung Weather App Exposes User Location Data via Persistent Fingerprinting
+summary: The pre-installed Samsung Weather app generates a persistent, unique device fingerprint from saved locations by transmitting hashed location data (placeid) to The Weather Company (IBM), enabling cross-session tracking that bypasses traditional privacy controls.
+severity: medium
+published_at: "2026-02-21T12:00:00Z"
+content: |
+    ## Overview
+
+    A recent analysis of the Samsung Weather application, pre-installed on millions of devices, revealed a privacy vulnerability that allows for persistent device tracking. The app, which polls api.weather.com for weather updates, transmits a 64-character hexadecimal string (placeid), consistent with a SHA-256 hash, representing each saved location. By aggregating these placeid values, The Weather Company (IBM) can create a fingerprint unique to each device. This fingerprint persists across IP address changes, VPN usage, and network roaming, effectively circumventing typical privacy measures. The app also uses hardcoded API keys, allowing anyone to resolve a placeid to a physical location. This issue highlights the potential for pre-installed apps to track users in unexpected ways, even without explicit location permissions.
+
+    ## Attack Chain
+
+    1. Samsung device user saves multiple locations within the pre-installed Samsung Weather app.
+    2. The weather app generates a SHA-256 hash (placeid) for each saved location.
+    3. The app, using hardcoded API keys, sends HTTPS requests to api.weather.com for each saved location on a recurring schedule.
+    4. Each request includes the placeid parameter, along with potentially redundant GPS coordinates.
+    5. The Weather Company (IBM) receives these requests server-side.
+    6. The Weather Company aggregates placeid values associated with a device, creating a unique fingerprint.
+    7. This fingerprint acts as a natural join key, allowing The Weather Company to track the device's request history across different IP addresses and network types.
+    8. The Weather Company can use this data for targeted advertising, analysis, or sale to third parties.
+
+    ## Impact
+
+    This vulnerability affects the privacy of millions of Samsung device users. As the weather app is pre-installed and active by default, users are unknowingly transmitting location data. The fingerprinting mechanism bypasses traditional privacy controls like VPNs and location permission denials. The collected data can be used for targeted advertising, sold to third parties for analysis (as demonstrated by previous lawsuits against The Weather Company), or potentially used to deanonymize users. One identified user generated over 2,000 requests in a five-day period, highlighting the scale of potential data collection.
+tags:
+    - privacy
+    - tracking
+    - mobile
+    - android
+references:
+    - https://www.reddit.com/r/netsec/comments/1ra30yn/your_samsung_weather_app_is_a_fingerprint_how/
+    - https://www.buchodi.com/your-samsung-weather-app-is-a-fingerprint/
+rules:
+    - title: Detect Network Connection to Weather API with placeid Parameter
+      description: Detects network connections to api.weather.com with the 'placeid' parameter in the URI, indicating potential data exfiltration for tracking.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            DestinationHostname: api.weather.com
+            Query|contains: placeid=
+      level: low
+      tags:
+        - attack.discovery
+        - attack.t1595.002
+      tests:
+        positive:
+            - name: Connection to weather API with placeid
+              data:
+                - DestinationHostname: api.weather.com
+                  DestinationPort: 443
+                  Query: /v3/weather/forecast/daily/15day?geocode=34.0522,-118.2437&placeid=ChIJCzYq5IS6j4ARkRwK9Byw5c&format=json
+        negative:
+            - name: Connection to weather API without placeid
+              data:
+                - DestinationHostname: api.weather.com
+                  DestinationPort: 443
+                  Query: /v3/weather/now/current?geocode=34.0522,-118.2437&format=json
+    - title: Detect Application Accessing Weather API with Hardcoded Key
+      description: Detects processes accessing the weather API with known hardcoded keys, which may indicate unauthorized access or data exfiltration.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - api.weather.com
+                - apiKey=HARDCODED_API_KEY
+      level: medium
+      tags:
+        - attack.credential_access
+        - attack.t1555.003
+      tests:
+        positive:
+            - name: Process accessing Weather API with hardcoded API key
+              data:
+                - CommandLine: WeatherApp.exe --url=https://api.weather.com/v3/weather/forecast/daily/15day?geocode=34.0522,-118.2437&apiKey=HARDCODED_API_KEY
+                  Image: C:\Program Files\Samsung\WeatherApp\WeatherApp.exe
+        negative:
+            - name: Legitimate process accessing a different API
+              data:
+                - CommandLine: LegitimateApp.exe --url=https://api.example.com/data
+                  Image: C:\Program Files\LegitimateApp\LegitimateApp.exe
+ttps:
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1589
+      technique_name: Gather Victim Identity Information
+      subtechnique_id: T1589.002
+      subtechnique_name: Email Addresses
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1589
+      technique_name: Gather Victim Identity Information
+      subtechnique_id: T1589.003
+      subtechnique_name: Employee Names
+    - tactic_id: TA0042
+      tactic_name: Resource Development
+      technique_id: T1587
+      technique_name: Obtain Capabilities
+      subtechnique_id: T1587.001
+      subtechnique_name: Malware
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1005
+      technique_name: Data From Local System
