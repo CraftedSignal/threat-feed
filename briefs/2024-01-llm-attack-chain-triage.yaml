@@ -1,0 +1,122 @@
+id: brief-2024-01-09-llm-attack-chain-triage
+slug: 2024-01-llm-attack-chain-triage
+title: LLM Attack Chain Triage via Multiple Alert Correlation
+summary: This brief describes a method for triaging potential attack chains targeting systems that incorporate Large Language Models (LLMs) by correlating multiple security alerts on a single host to identify potential compromises.
+severity: medium
+published_at: "2024-01-09T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection strategy focuses on correlating multiple security alerts originating from a single host to identify potential attack chains targeting systems incorporating LLMs. The approach leverages the premise that successful attacks often involve a series of actions, each potentially triggering a separate security alert. By aggregating and analyzing these alerts, security teams can more effectively triage and prioritize incidents, particularly those indicative of a more complex or sophisticated attack targeting LLM infrastructure. This is crucial as LLM systems become increasingly integrated into various applications, making them attractive targets for malicious actors. Identifying patterns of malicious activity allows for earlier intervention and prevention of further damage.
+
+    ## Attack Chain
+
+    1.  **Initial Compromise:** An attacker gains initial access to a system hosting or interacting with an LLM, potentially through a vulnerability in a web application or a compromised credential.
+    2.  **Privilege Escalation:** The attacker attempts to escalate privileges on the compromised system, potentially using exploits or misconfigurations.
+    3.  **Discovery:** The attacker performs reconnaissance on the system and network to identify valuable data, including LLM models, configurations, or API keys.
+    4.  **Lateral Movement:** Using the compromised system as a foothold, the attacker attempts to move laterally to other systems within the network, potentially targeting other LLM-related infrastructure.
+    5.  **Data Exfiltration:** The attacker attempts to exfiltrate sensitive data, such as LLM models, training data, or user data, to an external location.
+    6.  **Model Poisoning:** The attacker attempts to poison the LLM by injecting malicious data into the training set or manipulating the model's parameters.
+    7.  **Service Disruption:** The attacker disrupts the availability or performance of the LLM service, potentially causing denial-of-service or data corruption.
+
+    ## Impact
+
+    A successful attack on an LLM system can have significant consequences, including data breaches, service disruptions, and reputational damage. The compromise of LLM models or training data can lead to the exposure of sensitive information, while model poisoning can result in the generation of biased or harmful outputs. Furthermore, disruptions to LLM services can impact various applications and business processes that rely on these models. The number of victims and sectors targeted would depend on the specific LLM system and its integration into other applications.
+tags:
+    - llm
+    - attack-chain
+    - triage
+    - alert-correlation
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_llm_attack_chain_triage_by_host.toml
+rules:
+    - title: Multiple Alerts from Same Host within Short Timeframe
+      description: Detects a high number of alerts originating from the same host within a short timeframe, potentially indicating a compromised system.
+      logsource:
+        category: alert
+        product: security_alerts
+      detection:
+        condition: count(hostname) by hostname > 5
+        selection:
+            hostname: '*'
+        timeframe: 60s
+      level: medium
+    - title: Process Creation Followed by Network Connection
+      description: Detects a process creation event quickly followed by a network connection from the same process, which may indicate malicious activity.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection_proc
+        selection_proc:
+            Image|endswith: .exe
+        timeframe: 5s
+      level: high
+      tags:
+        - attack.execution
+        - attack.command_and_control
+      tests:
+        positive:
+            - name: Executable creates process then network connection
+              data:
+                - Image: C:\Users\user\AppData\Local\Temp\malicious.exe
+                - Image: C:\Users\user\AppData\Local\Temp\malicious.exe
+        negative:
+            - name: Legitimate process creation
+              data:
+                - Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+    - title: Suspicious File Downloads followed by Execution
+      description: Detects file downloads followed by execution of the downloaded file, which may indicate malware installation.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection_file
+        selection_file:
+            file_name|endswith: .exe
+            file_path|contains:
+                - Downloads
+                - Temp
+        timeframe: 10s
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.execution
+      tests:
+        positive:
+            - name: Downloaded exe executed
+              data:
+                - file_name: malware.exe
+                  file_path: C:\Users\user\Downloads
+                - file_name: malware.exe
+                  file_path: C:\Users\user\Downloads
+        negative:
+            - name: Downloaded document not executed
+              data:
+                - file_name: document.pdf
+                  file_path: C:\Users\user\Downloads
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1189
+      technique_name: Drive-by Compromise
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1083
+      technique_name: File and Directory Discovery
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021.001
+      technique_name: 'Remote Services: Remote Desktop Protocol'
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1041
+      technique_name: Exfiltration Over C2 Channel
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1499.004
+      technique_name: 'Endpoint Denial of Service: Application Exhaustion'
