@@ -1,0 +1,164 @@
+id: brief-2024-02-22-arkanix-stealer
+slug: 2024-02-arkanix-stealer
+title: Arkanix Stealer Targets Diverse Data, Features MaaS Referral Program
+summary: The Arkanix stealer is a malware offering Stealer-as-a-Service (SaaS) that targets a variety of data types and includes a referral program.
+severity: high
+published_at: "2026-02-21T15:06:02Z"
+content: |
+    ## Overview
+
+    The Arkanix stealer is a malware distributed through a Stealer-as-a-Service (SaaS) model. This model includes a referral program, likely to expand its user base and distribution network. The stealer is designed to target a broad range of data, implying capabilities to extract sensitive information from various sources on infected systems. While the specific versions and campaign identifiers are not detailed, the breadth of its targeting and SaaS delivery make it a significant threat. Defenders should prioritize detecting and preventing its execution to protect against data theft.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** The specific initial access vector is not detailed in the provided source, however, common stealer distribution methods include malicious attachments, drive-by downloads, or exploitation of software vulnerabilities.
+    2.  **Execution:** The stealer binary executes on the target system. The execution method may involve techniques to bypass User Account Control (UAC) or other security mechanisms.
+    3.  **Persistence:** Arkanix establishes persistence to ensure it runs even after a system reboot. This could involve creating scheduled tasks, modifying registry keys (e.g., Run keys), or placing files in the startup folder.
+    4.  **Data Collection:** The stealer begins collecting data from various sources. This includes web browser data (cookies, history, saved credentials), cryptocurrency wallets, system information, and potentially files of interest.
+    5.  **Data Staging:** The collected data is staged in a temporary location on the infected system, preparing it for exfiltration.
+    6.  **Data Exfiltration:** Arkanix exfiltrates the collected data to a command-and-control (C2) server controlled by the attacker. This exfiltration may occur over HTTP/HTTPS or other network protocols.
+    7.  **Command and Control:** The stealer communicates with its C2 server to receive instructions, update its configuration, and report its status.
+    8.  **Impact:** The stolen data is used for malicious purposes, such as identity theft, financial fraud, or further compromise of the victim's accounts and systems.
+
+    ## Impact
+
+    Successful Arkanix stealer infections can lead to significant data breaches, potentially affecting numerous individuals and organizations. The lack of specific victim counts prevents a precise assessment, but the wide range of targeted data suggests the potential for severe financial and reputational damage. The theft of credentials can lead to unauthorized access to sensitive systems and services, while stolen cryptocurrency wallets can result in direct financial losses for victims. The MaaS model can scale the attack significantly.
+tags:
+    - stealer
+    - malware
+    - saas
+    - data-theft
+references:
+    - https://securelist.com/arkanix-stealer/119006/
+rules:
+    - title: Detect Suspicious Process Making Outbound Connection to Non-Standard Port
+      description: Detects a process making an outbound connection to a non-standard port, which is often used by malware to evade detection.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection and not filter and not filter_ports
+        filter:
+            Image|startswith:
+                - C:\Windows\System32\
+                - C:\Program Files\
+        filter_ports:
+            DestinationPort:
+                - 80
+                - 443
+                - 21
+                - 22
+                - 25
+        selection:
+            Initiated: "true"
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Suspicious process connecting outbound to non-standard port
+              data:
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: 6666
+                  Image: C:\Users\Public\malware.exe
+                  Initiated: "true"
+        negative:
+            - name: Legitimate process connecting outbound to standard port
+              data:
+                - DestinationIp: 192.168.1.1
+                  DestinationPort: 443
+                  Image: C:\Windows\System32\svchost.exe
+                  Initiated: "true"
+    - title: Detect Modification of Run Key with Unusual Arguments
+      description: Detects registry modifications to the Run key that include suspicious arguments or commands.
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection and filter_arguments
+        filter_arguments:
+            Details|contains:
+                - powershell
+                - cmd.exe
+                - mshta
+        selection:
+            TargetObject|contains: \CurrentVersion\Run
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1547.001
+      tests:
+        positive:
+            - name: Run key set with PowerShell and encoded command
+              data:
+                - Details: powershell.exe -enc SQBFAFgA...
+                  TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Updater
+        negative:
+            - name: Legitimate Run key entry
+              data:
+                - Details: C:\Windows\System32\SecurityHealthSystray.exe
+                  TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\SecurityHealth
+    - title: Detect Creation of Scheduled Task with Suspicious Command Line
+      description: Detects the creation of a scheduled task that contains suspicious command lines often used by malware for persistence.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and filter_commands
+        filter_commands:
+            CommandLine|contains:
+                - powershell
+                - cmd.exe
+                - mshta
+        selection:
+            CommandLine|contains:
+                - /create
+                - /sc
+                - /tn
+                - /tr
+            Image|endswith: \schtasks.exe
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1053.005
+      tests:
+        positive:
+            - name: Schtasks create with powershell
+              data:
+                - CommandLine: schtasks /create /tn "Malware Task" /tr "powershell.exe -enc ..." /sc minute /mo 1
+                  Image: C:\Windows\System32\schtasks.exe
+        negative:
+            - name: Legitimate scheduled task creation
+              data:
+                - CommandLine: schtasks /create /tn "Regular Task" /tr "C:\Program Files\App\app.exe" /sc daily /st 09:00
+                  Image: C:\Windows\System32\schtasks.exe
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
+      subtechnique_id: T1547.001
+      subtechnique_name: Registry Run Keys / Startup Folder
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1003
+      technique_name: OS Credential Dumping
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1082
+      technique_name: System Information Discovery
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1119
+      technique_name: Automated Collection
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1041
+      technique_name: Exfiltration Over C2 Channel
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
+      subtechnique_id: T1071.001
+      subtechnique_name: Web Protocols
