@@ -1,0 +1,122 @@
+id: brief-2026-02-23-sage-adr
+slug: 2026-02-sage-adr
+title: Lightweight Agent Detection & Response (ADR) Layer for AI Agents
+summary: Sage is a lightweight Agent Detection & Response (ADR) layer designed to guard AI agents by monitoring commands, file access, and web requests.
+severity: low
+published_at: "2026-02-21T17:39:03Z"
+content: |
+    ## Overview
+
+    Sage is a newly released, open-source Agent Detection & Response (ADR) layer specifically designed to enhance the security of AI agents. Developed by Avast, Sage functions as a lightweight security measure, focusing on monitoring and controlling the actions of AI agents to prevent malicious or unintended behavior. It aims to provide visibility into agent activities, including command execution, file system interactions, and web requests. This is particularly important as AI agents become more prevalent and are entrusted with sensitive tasks, mitigating the risk of exploitation or misuse. Defenders can use Sage to establish guardrails and enforce security policies for their AI agents, reducing the attack surface and preventing unauthorized activities.
+
+    ## Attack Chain
+
+    1. An AI agent receives a command to access a sensitive file.
+    2. Sage intercepts the file access request made by the AI agent.
+    3. Sage evaluates the request against pre-defined security policies (e.g., access control lists, allowed file types).
+    4. If the request violates a policy, Sage blocks the file access attempt.
+    5. Sage logs the blocked attempt, including details about the AI agent, the requested file, and the policy violation.
+    6. An alert is triggered based on the logged event, notifying security personnel.
+    7. Security personnel review the alert and take appropriate action, such as updating security policies or investigating the AI agent's behavior.
+
+    ## Impact
+
+    The successful deployment of Sage can significantly reduce the attack surface associated with AI agents. Without such a system, compromised or malicious AI agents could potentially exfiltrate sensitive data, execute unauthorized commands, or disrupt critical systems. Sage's monitoring and enforcement capabilities limit the potential damage from such incidents, preventing data breaches, system compromise, and reputational damage. The impact is primarily preventative, reducing the likelihood and severity of security incidents involving AI agents.
+tags:
+    - AI
+    - agent-detection
+    - security-tool
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rax9xi/sage_lightweight_agent_detection_response_adr/
+    - https://github.com/avast/sage
+rules:
+    - title: Detect Sage Configuration File Modification
+      description: Detects modification to the Sage configuration file, potentially indicating tampering or unauthorized changes.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            event.type: change
+            file.path|endswith: /opt/sage/config.yml
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: Sage config file modification
+              data:
+                - event.type: change
+                  file.path: /opt/sage/config.yml
+                  user.name: root
+        negative:
+            - name: Normal file creation within /tmp
+              data:
+                - event.type: creation
+                  file.path: /tmp/temp_file.txt
+                  user.name: user1
+    - title: Detect Sage Process Termination
+      description: Detects termination of the Sage process, which could indicate an attempt to disable or bypass the security tool.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: kill
+            Image|endswith: /opt/sage/sage
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: Sage process being killed
+              data:
+                - CommandLine: kill -9 1234
+                  Image: /opt/sage/sage
+                  user.name: root
+        negative:
+            - name: Legitimate process termination
+              data:
+                - CommandLine: firefox
+                  Image: /usr/bin/firefox
+                  user.name: user1
+    - title: Detect Outbound Network Connection from Sage
+      description: Detects outbound network connections from the Sage application, which should be monitored for unexpected communications.
+      logsource:
+        category: network_connection
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            Image|endswith: /opt/sage/sage
+            Initiated: "true"
+      level: low
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Sage initiating a network connection
+              data:
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: "8080"
+                  Image: /opt/sage/sage
+                  Initiated: "true"
+        negative:
+            - name: Systemd initiating a network connection
+              data:
+                - DestinationIp: 8.8.8.8
+                  DestinationPort: "53"
+                  Image: /usr/lib/systemd/systemd-networkd
+                  Initiated: "true"
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.001
+      subtechnique_name: Disable or Modify Tools
