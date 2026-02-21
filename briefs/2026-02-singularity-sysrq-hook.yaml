@@ -1,0 +1,105 @@
+id: brief-2026-02-22-singularity-sysrq-hook
+slug: 2026-02-singularity-sysrq-hook
+title: Singularity SysRq Hook for Defense Evasion
+summary: Adversaries are leveraging the Singularity containerization platform to intercept and disable SysRq commands, preventing responders from using the 'panic button' to halt malicious processes.
+severity: medium
+published_at: "2026-02-22T12:00:00Z"
+content: |
+    ## Overview
+
+    A novel defense evasion technique has emerged involving the Singularity containerization platform. Attackers are utilizing Singularity's ability to hook into system calls to intercept and neutralize SysRq (System Request) commands. SysRq is a kernel feature often used by incident responders to trigger a system crash or reboot in emergency situations, effectively halting malicious processes. By deploying malicious payloads within Singularity containers configured to intercept SysRq calls, attackers can prevent responders from using this critical tool. The specific version of Singularity being exploited is not explicitly mentioned, but the technique leverages the container's ability to interact with the host kernel via syscall interception. This technique poses a significant challenge to incident response, especially in environments where containerization is prevalent.
+
+    ## Attack Chain
+
+    1.  The attacker gains initial access to a system, potentially through exploiting a vulnerability or through compromised credentials.
+    2.  The attacker deploys a Singularity container image onto the targeted system.
+    3.  The Singularity container is configured with a custom syscall handler designed to intercept `sysrq` calls (likely via `ptrace` or similar).
+    4.  The malicious payload is executed within the Singularity container. This payload could be anything from cryptominers to data exfiltration tools.
+    5.  When a responder attempts to use SysRq (e.g., Alt+SysRq+b for reboot or Alt+SysRq+s for sync), the container's hook intercepts the call.
+    6.  The container either drops the SysRq call entirely, preventing the system from responding, or it may perform a benign action instead of the intended system command.
+    7.  The malicious payload continues to execute unimpeded, allowing the attacker to maintain persistence or complete their objectives.
+
+    ## Impact
+
+    Successful exploitation of this technique allows malicious actors to operate within a compromised system without the fear of a quick shutdown via SysRq. This can lead to prolonged data exfiltration, ransomware deployment, or other disruptive activities. The impact is amplified in environments heavily reliant on containerization, as the technique can be easily replicated across multiple hosts. Without the ability to reliably use SysRq, incident responders face delays in containing the breach, resulting in increased damage and recovery costs. The number of potential victims is currently unknown, but any organization utilizing Singularity containers is potentially at risk.
+tags:
+    - singularity
+    - sysrq
+    - defense-evasion
+    - containerization
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1raoqkc/hiding_from_the_panic_button_singularity_sysrq/
+    - https://blog.kyntra.io/Hiding-from-the-Panic-Button-Singularity-SysRq-Hook
+rules:
+    - title: Detect Singularity Container Creation with Syscall Hooking
+      description: Detects the creation of Singularity containers that may be configured to hook system calls, potentially for malicious purposes such as intercepting SysRq.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and hooking
+        hooking:
+            CommandLine|contains:
+                - ptrace
+                - syscall
+        selection:
+            CommandLine|contains:
+                - create
+                - build
+            Image|endswith: /bin/singularity
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1070
+      tests:
+        positive:
+            - name: Singularity container creation with ptrace
+              data:
+                - CommandLine: singularity create --name malicious_container image.sif && singularity exec malicious_container ptrace -s /bin/bash
+                  Image: /usr/bin/singularity
+                - CommandLine: singularity build --sandbox malicious_container/ Dockerfile && singularity exec malicious_container ptrace -s /bin/bash
+                  Image: /usr/bin/singularity
+        negative:
+            - name: Normal Singularity container creation
+              data:
+                - CommandLine: singularity create --name normal_container image.sif
+                  Image: /usr/bin/singularity
+    - title: Detect SysRq Usage
+      description: Detects the usage of SysRq key combinations, potentially indicating incident response activity or attempts to trigger a system panic, which may be targeted by the Singularity hook.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: sysrq
+      level: informational
+      tags:
+        - attack.discovery
+        - attack.t1016
+      tests:
+        positive:
+            - name: SysRq command execution
+              data:
+                - CommandLine: sudo echo 1 > /proc/sysrq-trigger
+                  Image: /usr/bin/sudo
+            - name: SysRq command with specific key
+              data:
+                - CommandLine: echo b > /proc/sysrq-trigger
+                  Image: /bin/bash
+        negative:
+            - name: Normal process creation
+              data:
+                - CommandLine: ls -l
+                  Image: /usr/bin/ls
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1070
+      technique_name: Indicator Removal on Host
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.001
+      subtechnique_name: Disable or Modify Tools
