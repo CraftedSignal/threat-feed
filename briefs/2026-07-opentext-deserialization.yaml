@@ -1,0 +1,97 @@
+id: brief-2026-07-03-opentext-deserialization
+slug: 2026-07-opentext-deserialization
+title: OpenText Directory Services Java Deserialization via Broken Crypto
+summary: A Java deserialization vulnerability in OpenText Directory Services, stemming from broken cryptography, potentially allows for remote code execution.
+severity: high
+published_at: "2026-07-03T12:00:00Z"
+content: |
+    ## Overview
+
+    A vulnerability exists within OpenText Directory Services related to Java deserialization. The root cause appears to be the utilization of broken cryptography which, when exploited, enables an attacker to inject malicious serialized Java objects. This can lead to arbitrary code execution on the affected server. While the specific version(s) of OpenText Directory Services affected are not explicitly mentioned, the vulnerability's presence suggests a potential issue across multiple installations. Defenders should prioritize identifying and patching instances of OpenText Directory Services within their environments to mitigate this risk. Further investigation into the specifics of the broken cryptography and the attack vector is warranted.
+
+    ## Attack Chain
+
+    1.  Attacker identifies an OpenText Directory Services instance with a vulnerable endpoint.
+    2.  Attacker crafts a malicious serialized Java object containing a payload for remote code execution.
+    3.  Attacker leverages the broken cryptography to encrypt (or obfuscate) the malicious serialized Java object.
+    4.  Attacker sends the crafted payload to the vulnerable endpoint of the OpenText Directory Services application.
+    5.  The application uses the flawed cryptographic routine to decrypt the incoming data.
+    6.  The application deserializes the Java object.
+    7.  The malicious code embedded in the deserialized object is executed.
+    8.  Attacker achieves remote code execution on the server hosting OpenText Directory Services.
+
+    ## Impact
+
+    Successful exploitation of this vulnerability allows attackers to execute arbitrary code on the server hosting OpenText Directory Services. This could lead to complete system compromise, data breaches, and denial of service. The impact is significant, especially if the directory service is responsible for managing critical user authentication or authorization information. The number of potential victims is unknown, but it depends on the number of exposed and unpatched OpenText Directory Services instances.
+tags:
+    - java-deserialization
+    - rce
+    - opentext
+references:
+    - https://slcyber.io/research-center/almost-impossible-java-deserialization-through-broken-crypto-in-opentext-directory-services/
+    - https://www.reddit.com/r/blueteamsec/comments/1raucoi/almost_impossible_java_deserialization_through/
+rules:
+    - title: Detect Java Deserialization Attempt via Network Traffic
+      description: Detects suspicious network traffic potentially indicative of a Java deserialization attempt by looking for common Java serialization headers.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Payload|contains: rO0AB
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: Java deserialization traffic detected
+              data:
+                - Payload: ACED000573720011...
+        negative:
+            - name: Normal HTTP traffic
+              data:
+                - Payload: GET /index.html HTTP/1.1
+    - title: Detect Suspicious Process Creation from Java
+      description: Detects suspicious process creation events originating from Java-related processes, which could indicate successful exploitation.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|contains:
+                - cmd.exe
+                - powershell.exe
+                - wscript.exe
+                - cscript.exe
+            ParentImage|endswith:
+                - java.exe
+                - javaw.exe
+      level: medium
+      tags:
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: Java spawns cmd.exe
+              data:
+                - ParentImage: C:\Program Files\Java\jre1.8.0_201\bin\java.exe
+                - Image: C:\Windows\System32\cmd.exe
+                - CommandLine: cmd.exe /c whoami
+        negative:
+            - name: Java application execution
+              data:
+                - ParentImage: C:\Program Files\Java\jre1.8.0_201\bin\java.exe
+                - Image: C:\Program Files\MyApp\app.jar
+                - CommandLine: -jar app.jar
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.001
+      technique_name: 'Command and Scripting Interpreter: PowerShell'
