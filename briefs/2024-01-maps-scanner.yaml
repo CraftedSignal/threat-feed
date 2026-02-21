@@ -1,0 +1,87 @@
+id: brief-2024-01-27-maps-scanner
+slug: 2024-01-maps-scanner
+title: MAPS Cloud Scanner Tool Detection
+summary: The maps_scanner tool, developed for Microsoft Defender research, can be used by red teams or attackers to identify vulnerabilities or misconfigurations in Defender's cloud-based scanning infrastructure, potentially leading to evasion or exploitation.
+severity: medium
+published_at: "2024-01-27T12:00:00Z"
+content: |
+    ## Overview
+
+    The `maps_scanner` tool, as mentioned in a Reddit post on r/blueteamsec on February 21, 2026, and hosted on GitHub, is designed for interacting with Microsoft Defender's cloud scanning infrastructure (MAPS). While intended for research purposes, this tool could be leveraged by malicious actors to probe the defenses of Microsoft Defender. Attackers could potentially use it to identify weaknesses, bypass scanning mechanisms, or discover vulnerabilities in the cloud service. This information could be used to craft payloads that evade detection or to gain a deeper understanding of Defender's internal workings, leading to more sophisticated attacks against systems protected by Microsoft Defender.
+
+    ## Attack Chain
+
+    1.  Attacker gains access to the `maps_scanner` tool from the GitHub repository.
+    2.  Attacker configures the tool with target parameters relevant to a victim environment.
+    3.  The tool sends crafted requests to the Microsoft Defender cloud infrastructure (MAPS).
+    4.  MAPS processes the requests and sends responses containing scan results or other information.
+    5.  The tool parses the responses to identify potential vulnerabilities or weaknesses.
+    6.  Attacker analyzes identified weaknesses to craft undetectable malware.
+
+    ## Impact
+
+    While the `maps_scanner` tool itself is not directly malicious, its use by attackers could severely degrade the effectiveness of Microsoft Defender. Successful exploitation of identified vulnerabilities could lead to widespread malware infections, data breaches, and system compromises across organizations relying on Microsoft Defender for endpoint protection. The specific impact depends on the nature of the identified vulnerabilities and the attacker's skill in exploiting them.
+tags:
+    - cloud-security
+    - defender
+    - scanning
+    - evasion
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rat8i1/maps_scanner_maps_cloud_scanner_and_response/
+    - https://github.com/HackingLZ/maps_scanner
+rules:
+    - title: Detect maps_scanner tool execution
+      description: Detects execution of the maps_scanner tool based on process name
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|endswith: \maps_scanner.exe
+      level: high
+      tags:
+        - attack.discovery
+        - attack.t1068
+      tests:
+        positive:
+            - name: maps_scanner execution
+              data:
+                - Image: C:\Users\test\Downloads\maps_scanner.exe
+                - CommandLine: maps_scanner.exe -target 1.2.3.4
+        negative:
+            - name: Legitimate software execution
+              data:
+                - Image: C:\Program Files\LegitApp\legit.exe
+                - CommandLine: legit.exe /option
+    - title: Detect maps_scanner Tool Download
+      description: Detects the download of the maps_scanner tool from GitHub based on User-Agent.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            DestinationIp: 140.82.0.0/14
+            UserAgent|contains: GitHub-maps_scanner
+      level: medium
+      tags:
+        - attack.resource_development
+      tests:
+        positive:
+            - name: maps_scanner download from Github
+              data:
+                - DestinationIp: 140.82.121.4
+                - DestinationPort: "443"
+                - UserAgent: GitHub-maps_scanner
+        negative:
+            - name: normal Github traffic
+              data:
+                - DestinationIp: 140.82.112.3
+                - DestinationPort: "443"
+                - UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1068
+      technique_name: Software Discovery
