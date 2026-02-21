@@ -1,0 +1,104 @@
+id: brief-2026-03-01-atm-jackpotting
+slug: 2026-03-atm-jackpotting
+title: International ATM Jackpotting Scheme
+summary: An international ATM jackpotting scheme involving multiple defendants is under investigation by law enforcement.
+severity: medium
+published_at: "2026-02-21T15:21:15Z"
+content: |
+    ## Overview
+
+    An international ATM jackpotting scheme has led to charges against six more defendants. The specifics of the scheme, including the timeline, delivery mechanism, and specific targets, are not detailed in this report. However, ATM jackpotting typically involves gaining unauthorized access to ATMs and forcing them to dispense cash. The lack of technical details makes it difficult to determine the exact methods used by the threat actors but warrants further investigation into potential vulnerabilities exploited in ATM systems. Defenders should review ATM security configurations and monitor for suspicious activity related to ATM network traffic and system logs.
+
+    ## Attack Chain
+
+    1. **Physical Access:** Attackers gain physical access to the ATM, potentially by tampering with the machine or exploiting physical security weaknesses.
+    2. **Network Access:** The attackers connect to the ATM's internal network, either through physical ports or by compromising wireless communication.
+    3. **Malware Installation:** Malicious software is installed on the ATM's computer system, often via USB or network injection.
+    4. **Command and Control:** The malware establishes a connection with a command-and-control server, allowing attackers to remotely control the ATM.
+    5. **Cash Dispensing Manipulation:** Attackers use the malware to manipulate the ATM's cash dispensing mechanisms.
+    6. **Forced Dispensing:** The ATM is forced to dispense large amounts of cash ("jackpotting").
+    7. **Cash Collection:** The attackers collect the dispensed cash.
+    8. **Evasion:** The attackers attempt to remove or disable the malware to cover their tracks.
+
+    ## Impact
+
+    The impact of ATM jackpotting schemes can be significant, leading to substantial financial losses for banks and ATM operators. The number of affected ATMs and the total amount of stolen funds are not specified in the provided source, but such schemes can result in losses ranging from tens of thousands to millions of dollars, depending on the scale and sophistication of the attack. The attacks can also damage the reputation of financial institutions and erode public trust in the security of ATMs.
+tags:
+    - atm
+    - jackpotting
+    - financial-crime
+references:
+    - https://www.justice.gov/opa/pr/six-more-defendants-charged-international-atm-jackpotting-scheme
+rules:
+    - title: Detect Suspicious Processes Accessing ATM Network
+      description: Detects processes not normally associated with ATM operations making network connections to ATM network segments.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|startswith:
+                - C:\Windows\System32\
+                - C:\Program Files\ATM_Software\
+        selection:
+            DestinationIp|startswith: 192.168.10.
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Rogue process connecting to ATM network
+              data:
+                - DestinationIp: 192.168.10.5
+                  DestinationPort: "80"
+                  Image: C:\Users\Public\suspicious.exe
+        negative:
+            - name: Legitimate ATM software connecting to network
+              data:
+                - DestinationIp: 192.168.10.2
+                  DestinationPort: "443"
+                  Image: C:\Program Files\ATM_Software\atm_main.exe
+    - title: Detect Creation of Executables in ATM Software Directory
+      description: Detects the creation of executable files in the ATM software directory, which could indicate malware installation.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            TargetFilename|endswith: .exe
+            TargetFilename|startswith: C:\Program Files\ATM_Software\
+      level: high
+      tags:
+        - attack.installation
+        - attack.t1574.002
+      tests:
+        positive:
+            - name: Executable created in ATM directory
+              data:
+                - TargetFilename: C:\Program Files\ATM_Software\malware.exe
+                - Action: Creation
+        negative:
+            - name: Text file created in ATM directory
+              data:
+                - TargetFilename: C:\Program Files\ATM_Software\log.txt
+                - Action: Creation
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1199
+      technique_name: Drive-by Compromise
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.001
+      technique_name: 'Command and Scripting Interpreter: PowerShell'
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1070.001
+      technique_name: 'Indicator Removal on Host: Clear Windows Event Logs'
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1485
+      technique_name: Data Destruction
