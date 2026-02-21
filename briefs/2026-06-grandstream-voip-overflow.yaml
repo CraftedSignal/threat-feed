@@ -1,0 +1,97 @@
+id: brief-2026-06-19-grandstream-voip-overflow
+slug: 2026-06-grandstream-voip-overflow
+title: 'CVE-2026-2329: Unauthenticated Stack Buffer Overflow in Grandstream GXP1600 VoIP Phones'
+summary: CVE-2026-2329 describes a critical unauthenticated stack buffer overflow vulnerability in Grandstream GXP1600 series VoIP phones, potentially allowing remote code execution.
+severity: critical
+published_at: "2026-06-19T12:00:00Z"
+content: |
+    ## Overview
+
+    A critical vulnerability, CVE-2026-2329, affects Grandstream GXP1600 series VoIP phones. This is an unauthenticated stack buffer overflow. Successful exploitation could allow an attacker to execute arbitrary code on the affected device. The vulnerability is present due to insufficient bounds checking when handling network requests. While a patch is available, unpatched devices remain at risk. Organizations using these phones should prioritize patching or implement compensating network controls to mitigate potential exploitation. The vulnerability was disclosed publicly in February 2026, increasing the risk of exploitation attempts.
+
+    ## Attack Chain
+
+    1. An attacker sends a specially crafted network request to the vulnerable Grandstream GXP1600 VoIP phone.
+    2. The phone's firmware receives the request and processes it without proper bounds checking.
+    3. A stack buffer overflow occurs due to the excessive size of the data in the crafted request.
+    4. The attacker overwrites adjacent memory on the stack, including the return address.
+    5. When the vulnerable function returns, control is transferred to the attacker-controlled address.
+    6. The attacker executes arbitrary code on the phone.
+    7. The attacker gains control of the VoIP phone's system.
+    8. The attacker uses the compromised phone for malicious purposes, such as eavesdropping, making unauthorized calls, or as a foothold for further network penetration.
+
+    ## Impact
+
+    Successful exploitation of CVE-2026-2329 could lead to complete compromise of the affected Grandstream GXP1600 VoIP phone. This could allow attackers to eavesdrop on conversations, make fraudulent calls, and potentially gain a foothold in the organization's network. Given the widespread use of VoIP phones in businesses of all sizes, a successful attack could have significant consequences. There is potential for mass exploitation if attackers create automated tools to target vulnerable devices. The vulnerability has been patched, so the number of victims will depend on how quickly organizations apply the update.
+tags:
+    - voip
+    - buffer-overflow
+    - cve-2026-2329
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rau0q9/cve20262329_critical_unauthenticated_stack_buffer/
+    - https://www.rapid7.com/blog/post/ve-cve-2026-2329-critical-unauthenticated-stack-buffer-overflow-in-grandstream-gxp1600-voip-phones-fixed/
+rules:
+    - title: Detect Suspicious Network Traffic to VoIP Devices
+      description: Detects network connections to VoIP devices on unusual ports, potentially indicating exploitation attempts.
+      logsource:
+        category: network_connection
+        product: zeek
+      detection:
+        condition: selection and not filter
+        filter:
+            id.resp_p:
+                - 5060
+                - 5061
+        selection:
+            dst_port:
+                - 5060
+                - 5061
+            proto: tcp
+      level: low
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: Suspicious traffic to SIP port
+              data:
+                - dst_port: 5060
+                  proto: tcp
+        negative:
+            - name: Legitimate SIP traffic
+              data:
+                - dst_port: 5060
+                  proto: udp
+    - title: Detect Large UDP Packets to Port 5060
+      description: Detects unusually large UDP packets being sent to SIP port 5060, potentially indicative of buffer overflow attempts.
+      logsource:
+        category: network_connection
+        product: zeek
+      detection:
+        condition: selection
+        selection:
+            dst_port: 5060
+            orig_bytes: 1500
+            proto: udp
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: Large UDP packet to SIP port
+              data:
+                - dst_port: 5060
+                  orig_bytes: 2000
+                  proto: udp
+        negative:
+            - name: Normal-sized UDP packet to SIP port
+              data:
+                - dst_port: 5060
+                  orig_bytes: 500
+                  proto: udp
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
