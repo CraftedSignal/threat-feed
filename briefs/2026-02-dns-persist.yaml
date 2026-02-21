@@ -1,0 +1,102 @@
+id: brief-2026-02-22-dns-persist
+slug: 2026-02-dns-persist
+title: DNS-based Persistence via Challenge Validation Manipulation
+summary: Attackers are exploiting a new model for DNS-based challenge validation (DNS-PERSIST-01) to establish persistent access by manipulating DNS records.
+severity: high
+published_at: "2026-02-22T12:00:00Z"
+content: |
+    ## Overview
+
+    A novel persistence mechanism, dubbed DNS-PERSIST-01, has been identified, leveraging DNS-based challenge validation, particularly in the context of services like Let's Encrypt. This technique allows attackers to maintain access to systems even after credentials have been rotated or other traditional persistence mechanisms are removed. The core concept involves manipulating DNS records to perpetually validate challenges, thereby bypassing security controls. This is especially concerning for organizations heavily reliant on automated certificate management and DNS infrastructure for authentication and authorization. This technique was initially disclosed on February 18, 2026, and is now being discussed in security communities.
+
+    ## Attack Chain
+
+    1.  **Initial Compromise:** The attacker gains initial access to a system or network through typical means (e.g., phishing, vulnerability exploitation).
+    2.  **Access DNS Management:** The attacker compromises or gains access to the organization's DNS management interface, either through stolen credentials or exploiting vulnerabilities in the DNS management system.
+    3.  **Identify Challenge Validation Process:** The attacker identifies services utilizing DNS-based challenge validation, such as Let's Encrypt for SSL certificate issuance or renewal.
+    4.  **Modify DNS Records:** The attacker modifies the DNS records associated with the target domain to always resolve to a pre-determined value that satisfies the challenge validation requirements. This typically involves creating or altering TXT records.
+    5.  **Automated Validation Bypass:** The automated challenge validation process, upon checking the DNS records, always receives a valid response, effectively bypassing the intended security check.
+    6.  **Establish Persistent Access:** With the challenge validation perpetually successful, the attacker can maintain access to resources and services associated with the validated domain, even if other security measures are implemented.
+    7.  **Maintain Access:** The attacker uses this persistent access to conduct further malicious activities, such as data exfiltration, lateral movement, or deploying ransomware.
+
+    ## Impact
+
+    Successful exploitation of DNS-PERSIST-01 can lead to persistent and stealthy access to critical systems and data. Organizations utilizing DNS-based challenge validation are particularly vulnerable. The impact includes unauthorized access to web applications, data breaches, and potential disruption of services relying on compromised certificates. The number of victims is currently unknown, but the widespread use of DNS-based challenge mechanisms makes this a potentially high-impact threat across various sectors.
+tags:
+    - DNS
+    - persistence
+    - certificate management
+    - challenge validation
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rat059/dnspersist01_a_new_model_for_dnsbased_challenge/
+    - https://letsencrypt.org/2026/02/18/dns-persist-01
+rules:
+    - title: Detect Suspicious DNS TXT Record Modifications
+      description: Detects modifications to DNS TXT records that could be indicative of DNS-PERSIST-01 exploitation.
+      logsource:
+        category: dns_query
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            QueryName|contains: _acme-challenge.
+            RecordType: TXT
+            ResultCode: "0"
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1555.004
+      tests:
+        positive:
+            - name: TXT record query for acme challenge
+              data:
+                - Answer: auth_token
+                  QueryName: _acme-challenge.example.com
+                  RecordType: TXT
+                  ResultCode: "0"
+        negative:
+            - name: Normal A record query
+              data:
+                - Answer: 192.0.2.1
+                  QueryName: example.com
+                  RecordType: A
+                  ResultCode: "0"
+    - title: Detect Unauthorized DNS Zone Transfers
+      description: Detects unauthorized DNS zone transfers, which could be used to gather information for DNS-PERSIST-01 or modify DNS records.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            ApplicationProtocol: dns
+            DestinationPort: "53"
+            QueryName|contains: AXFR
+      level: high
+      tags:
+        - attack.discovery
+        - attack.t1018
+      tests:
+        positive:
+            - name: AXFR DNS Zone Transfer Request
+              data:
+                - DestinationPort: "53"
+                - ApplicationProtocol: dns
+                - QueryName: example.com AXFR
+        negative:
+            - name: Normal DNS A Record Query
+              data:
+                - DestinationPort: "53"
+                - ApplicationProtocol: dns
+                - QueryName: example.com A
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1555
+      technique_name: Credentials from Password Stores
+      subtechnique_id: T1555.004
+      subtechnique_name: Web Service
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1018
+      technique_name: Remote System Discovery
