@@ -1,0 +1,114 @@
+id: brief-2026-02-22-openclaw-telegram-bot-inject
+slug: 2026-02-openclaw-telegram-bot-inject
+title: OpenClaw Configuration Hijack via Clipboard Injection of Telegram Bot
+summary: A PowerShell script injected via the clipboard hijacks OpenClaw configurations to inject a Telegram bot for unauthorized control.
+severity: high
+published_at: "2026-02-22T12:00:00Z"
+content: |
+    ## Overview
+
+    Observed on February 21, 2026, a PowerShell script has been identified that targets OpenClaw configurations. The script is designed to be delivered via clipboard injection, a technique where the malicious script is copied to the clipboard and then pasted into a vulnerable application or terminal. Upon execution, the script modifies the OpenClaw configuration files to inject a Telegram bot. This allows an attacker to remotely control the compromised system through Telegram, potentially exfiltrating data or performing other malicious activities. This attack is significant because it leverages a legitimate application's configuration for persistence and covert communication.
+
+    ## Attack Chain
+
+    1.  Attacker delivers malicious PowerShell script to the victim's clipboard.
+    2.  Victim unknowingly pastes the script into a PowerShell console or another application that executes PowerShell.
+    3.  The PowerShell script executes, locating the OpenClaw configuration file.
+    4.  The script modifies the OpenClaw configuration file to include the attacker's Telegram bot configuration.
+    5.  OpenClaw loads the modified configuration, initializing the Telegram bot.
+    6.  The Telegram bot connects to the attacker's Telegram channel.
+    7.  The attacker issues commands to the bot via Telegram, controlling the compromised system.
+    8.  The attacker performs malicious actions such as data exfiltration or further exploitation.
+
+    ## Impact
+
+    Successful exploitation leads to the compromise of the OpenClaw application and the underlying system. The injected Telegram bot grants the attacker remote control, potentially enabling data theft, further malware deployment, or other unauthorized activities. The specific number of victims and targeted sectors remains unknown, but the use of a popular application like OpenClaw suggests a broad potential impact across various user types. The damage includes potential data breaches, system instability, and reputational harm.
+tags:
+    - clipboard-injection
+    - telegram-bot
+    - openclaw
+    - powershell
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1raotw7/observed_a_clipboard_payload_that_injects_a/
+    - https://github.com/avast/ioc/blob/master/AI%20Agents/extras/openclaw_config_hijack.ps1
+rules:
+    - title: Detect PowerShell Clipboard Injection
+      description: Detects PowerShell execution where the command line is unusually long, suggesting clipboard injection.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|startswith: powershell
+            CommandLine|strlen: 1000
+            Image|endswith: \powershell.exe
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1566.001
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: PowerShell executed with a very long command line.
+              data:
+                - CommandLine: powershell -nop -exec bypass -c [Very long base64 encoded or obfuscated script]
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: PowerShell executed with a normal command line.
+              data:
+                - CommandLine: powershell -File C:\scripts\legitimate_script.ps1
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect OpenClaw Configuration Modification with Telegram Bot Keywords
+      description: Detects modification of OpenClaw configuration files containing keywords associated with Telegram bots.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Operation: created|modified
+            TargetFilename|endswith: openclaw.config
+            file_content|contains:
+                - telegram
+                - bot.token
+                - chat_id
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1547.001
+        - attack.command_and_control
+        - attack.t1105
+      tests:
+        positive:
+            - name: OpenClaw configuration file modified with Telegram bot configuration.
+              data:
+                - Operation: modified
+                  TargetFilename: C:\Users\user\AppData\Roaming\OpenClaw\openclaw.config
+                  file_content: 'bot.token: ''YOUR_TELEGRAM_BOT_TOKEN'', chat_id: ''YOUR_CHAT_ID'''
+        negative:
+            - name: OpenClaw configuration file modified with legitimate changes.
+              data:
+                - Operation: modified
+                  TargetFilename: C:\Users\user\AppData\Roaming\OpenClaw\openclaw.config
+                  file_content: <setting name="Theme" serializeAs="String">
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1189
+      technique_name: Drive-by Compromise
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547.001
+      technique_name: 'Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder'
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1105
+      technique_name: Remote File Copy
