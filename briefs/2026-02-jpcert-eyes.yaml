@@ -1,0 +1,82 @@
+id: brief-2026-02-21-jpcert-eyes
+slug: 2026-02-jpcert-eyes
+title: JPCERT/CC Eyes Report Threat Brief
+summary: This threat brief summarizes a JPCERT/CC report shared on Reddit, highlighting the need for further investigation into potential threats identified by JPCERT/CC.
+severity: informational
+published_at: "2026-02-21T11:11:28Z"
+content: |
+    ## Overview
+
+    This threat brief is based on a Reddit post linking to a JPCERT/CC report from February 2026. The original report, titled "JSAC2026 -Day 1- - JPCERT/CC Eyes," is hosted on the JPCERT/CC blog. Due to the limited information available in the provided source, further investigation is needed to understand the specific threats and vulnerabilities discussed in the original JPCERT/CC report. Defenders should review the linked report for detailed analysis and recommended mitigations. The lack of specifics necessitates a proactive approach to identify and address potential risks.
+
+    ## Attack Chain
+
+    Given the limited information, a generic attack chain is outlined below as a potential scenario based on typical attacker behavior. Further investigation is needed to confirm the relevance of this chain to the JPCERT/CC report.
+
+    1.  **Initial Access:** The attacker gains initial access through an unspecified method (e.g., phishing, exploiting a vulnerability).
+    2.  **Execution:** The attacker executes malicious code on the compromised system, potentially using PowerShell or other scripting languages.
+    3.  **Persistence:** The attacker establishes persistence to maintain access to the system, potentially by creating scheduled tasks or modifying registry keys.
+    4.  **Privilege Escalation:** The attacker attempts to escalate privileges to gain higher-level access to the system.
+    5.  **Lateral Movement:** The attacker moves laterally to other systems on the network.
+    6.  **Data Exfiltration:** The attacker exfiltrates sensitive data from the compromised network.
+    7.  **Impact:** The attacker achieves their objectives, such as data theft, system disruption, or financial gain.
+
+    ## Impact
+
+    The impact of this threat is currently unknown due to the lack of specifics in the provided source. Potential impacts could range from minor data breaches to significant disruptions of critical infrastructure, depending on the nature of the threats identified in the original JPCERT/CC report. Further analysis is needed to determine the specific potential consequences.
+tags:
+    - jpcert
+    - threat-report
+references:
+    - https://blogs.jpcert.or.jp/en/2026/02/jsac2026day1.html
+rules:
+    - title: Generic PowerShell Execution
+      description: Detects generic powershell execution. Requires further tuning.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        selection:
+            Image|endswith: \powershell.exe
+      level: low
+      tags:
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: PowerShell execution
+              data:
+                - CommandLine: powershell.exe -File script.ps1
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: PowerShell execution without script.
+              data:
+                - CommandLine: powershell.exe
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Generic Command Line Execution
+      description: Detects command line execution. Requires further tuning.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        selection:
+            Image|endswith: \cmd.exe
+      level: low
+      tags:
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: Command Line execution
+              data:
+                - CommandLine: cmd.exe /c dir
+                  Image: C:\Windows\System32\cmd.exe
+                  ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: Command Line execution without command
+              data:
+                - CommandLine: cmd.exe
+                  Image: C:\Windows\System32\cmd.exe
+                  ParentImage: C:\Windows\explorer.exe
