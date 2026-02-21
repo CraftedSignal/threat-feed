@@ -1,0 +1,126 @@
+id: brief-2026-02-22-ai-c2-proxy
+slug: 2026-02-ai-c2-proxy
+title: 'AI-in-the-Middle: Web-Based AI Services as C2 Proxies'
+summary: Adversaries are abusing web-based AI services to proxy command and control (C2) traffic, obfuscating malicious activity and blending it with legitimate AI service usage.
+severity: high
+published_at: "2026-02-22T12:00:00Z"
+content: |
+    ## Overview
+
+    A novel attack vector, dubbed "AI-in-the-Middle," leverages the infrastructure of web-based AI services like large language models (LLMs) to proxy command and control (C2) communications. This technique allows threat actors to mask malicious network traffic as benign interactions with AI platforms, significantly complicating detection and attribution efforts. This research, published in February 2026 by Checkpoint, highlights the potential for sophisticated obfuscation and evasion using readily available AI services. The use of AI as a proxy adds a layer of complexity that traditional security measures may struggle to identify, necessitating adaptive detection strategies. The scope of this threat is broad, potentially affecting any organization that relies on network-based security monitoring without specific AI traffic analysis.
+
+    ## Attack Chain
+
+    1.  The attacker compromises a target system via initial access (e.g., exploiting a vulnerability or social engineering).
+    2.  Malware is deployed on the compromised system, configured to use a web-based AI service as a proxy.
+    3.  The malware sends encrypted C2 commands to the AI service via standard HTTPS requests, blending with normal user traffic.
+    4.  The AI service, acting as a relay, forwards the encrypted commands to the attacker's C2 server.
+    5.  The C2 server processes the commands and sends encrypted responses back to the AI service.
+    6.  The AI service forwards the encrypted responses to the compromised system, again masking the communication as legitimate AI usage.
+    7.  The malware decrypts and executes the received commands, enabling the attacker to perform actions such as data exfiltration, lateral movement, or system compromise.
+    8.  The attacker maintains persistent access and control through the AI-proxied C2 channel, making detection and remediation challenging.
+
+    ## Impact
+
+    Successful "AI-in-the-Middle" attacks can lead to significant data breaches, system compromise, and financial losses. The obfuscation provided by AI service proxying makes it difficult to detect malicious activity, potentially allowing attackers to operate undetected for extended periods. The use of legitimate AI services complicates incident response, requiring careful analysis to distinguish between normal AI usage and malicious C2 traffic. Widespread adoption of this technique could overwhelm traditional security measures and necessitate the development of AI-aware security solutions.
+tags:
+    - ai
+    - c2
+    - proxy
+    - obfuscation
+references:
+    - https://research.checkpoint.com/2026/ai-in-the-middle-turning-web-based-ai-services-into-c2-proxies-the-future-of-ai-driven-attacks/
+rules:
+    - title: Detect Outbound Connections to Known AI Service Domains
+      description: Detects processes making outbound connections to known AI service domains, which could indicate C2 traffic proxying.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            DestinationHostname|endswith:
+                - openai.com
+                - bard.google.com
+                - perplexity.ai
+      level: low
+      tags:
+        - attack.command_and_control
+        - attack.t1573.002
+      tests:
+        positive:
+            - name: Connection to OpenAI
+              data:
+                - DestinationHostname: api.openai.com
+                  DestinationPort: "443"
+                  Image: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Legitimate Browser Connection to Google
+              data:
+                - DestinationHostname: www.google.com
+                  DestinationPort: "443"
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+    - title: Detect Processes Spawning Network Connections After Interacting With AI Services
+      description: Detects processes initiating network connections shortly after interacting with an AI service, potentially indicating AI-in-the-Middle activity.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection_ai and selection_net
+        selection_ai:
+            CommandLine|contains:
+                - openai.com
+                - bard.google.com
+                - perplexity.ai
+            ParentImage|endswith:
+                - chrome.exe
+                - msedge.exe
+        selection_net:
+            Image|endswith: .exe
+            Initiated: "true"
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Process spawns network connection after browser activity to OpenAI
+              data:
+                - CommandLine: www.openai.com
+                  ParentImage: C:\Program Files\Google\Chrome\Application\chrome.exe
+                - DestinationIp: 1.2.3.4
+                  Image: C:\Users\Public\malware.exe
+                  Initiated: "true"
+        negative:
+            - name: Legitimate Process spawns network connection after browser activity to Google
+              data:
+                - CommandLine: www.google.com
+                  ParentImage: C:\Program Files\Google\Chrome\Application\chrome.exe
+                - DestinationIp: 8.8.8.8
+                  Image: C:\Windows\System32\svchost.exe
+                  Initiated: "true"
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1566
+      technique_name: Phishing
+      subtechnique_id: T1566.001
+      subtechnique_name: Spearphishing Attachment
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
+      subtechnique_id: T1071.001
+      subtechnique_name: Web Protocols
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1573
+      technique_name: Encrypted Channel
+      subtechnique_id: T1573.002
+      subtechnique_name: Asymmetric Cryptography
+    - tactic_id: TA0042
+      tactic_name: Resource Development
+      technique_id: T1588
+      technique_name: Obtain Capabilities
+      subtechnique_id: T1588.006
+      subtechnique_name: Compromise Accounts
