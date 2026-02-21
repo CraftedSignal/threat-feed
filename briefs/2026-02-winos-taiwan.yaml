@@ -1,0 +1,76 @@
+id: brief-2026-02-22-winos-taiwan
+slug: 2026-02-winos-taiwan
+title: Massive Winos 4.0 Campaigns Targeting Taiwan
+summary: The Winos 4.0 campaign is actively targeting Taiwan using unknown techniques and tactics to achieve unspecified objectives.
+severity: medium
+published_at: "2026-02-22T12:00:00Z"
+content: |
+    ## Overview
+
+    Based on a report from Fortinet, the "Winos 4.0" campaign is currently targeting organizations in Taiwan. The specifics of the actor behind this campaign, their motives, and the exact nature of the attacks are currently unknown. Without further details, it's difficult to ascertain the precise scope or impact. Defenders should be aware of this campaign and monitor their networks for any suspicious activity that may align with the Winos 4.0 threat. More information is needed to fully characterize the threat.
+
+    ## Attack Chain
+
+    1.  Due to lack of information, the attack chain cannot be detailed.
+    2.  More information is needed to reconstruct the attack.
+    3.  Without source content, there is no way to describe the steps involved.
+    4.  The attack chain cannot be summarized without more source data.
+    5.  The delivery mechanisms are not known, so no specifics can be included.
+    6.  The objective of the threat actors is also not known.
+
+    ## Impact
+
+    The specific impact of the Winos 4.0 campaign on Taiwanese organizations is currently unknown. Without details on the attacker's techniques or objectives, it is impossible to determine the extent of potential damage, data breaches, or operational disruptions. Further investigation is needed to assess the campaign's consequences and potential for widespread harm.
+tags:
+    - taiwan
+    - campaign
+    - threat-campaign
+references:
+    - https://www.fortinet.com/blog/threat-research/massive-winos-40-campaigns-target-taiwan
+rules:
+    - title: Placeholder Detection Rule - Investigate Network Connections to Taiwan
+      description: This rule detects network connections to Taiwan and prompts investigation given the Winos 4.0 activity in Taiwan.  This is a very broad rule intended to give visibility.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            DestinationCountry: TW
+      level: informational
+      tags:
+        - network.recon
+      tests:
+        positive:
+            - name: Connection to IP in Taiwan
+              data:
+                - DestinationCountry: TW
+                  DestinationIp: 101.10.101.10
+        negative:
+            - name: Connection to US IP
+              data:
+                - DestinationIp: 8.8.8.8
+                - DestinationCountry: US
+    - title: Placeholder Detection Rule - Investigate Processes Initiating Network Connections
+      description: This rule detects any process initiating a network connection and prompts an investigation given the Winos 4.0 activity.  This is a very broad rule intended to give visibility.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Initiated: "true"
+      level: informational
+      tags:
+        - network.recon
+      tests:
+        positive:
+            - name: Process initiated a connection
+              data:
+                - Initiated: "true"
+                - DestinationIp: 101.10.101.10
+        negative:
+            - name: Process did not initiate a connection
+              data:
+                - Initiated: "false"
+                - DestinationIp: 8.8.8.8
