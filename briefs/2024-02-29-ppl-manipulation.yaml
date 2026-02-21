@@ -1,0 +1,100 @@
+id: brief-2024-02-29-ppl-manipulation
+slug: 2024-02-29-ppl-manipulation
+title: Windows Defender Evasion via Protected Process Light (PPL) Manipulation
+summary: An attacker can potentially evade Windows Defender by manipulating Protected Process Light (PPL) attributes.
+severity: high
+published_at: "2026-02-21T14:56:46Z"
+content: |
+    ## Overview
+
+    The referenced article discusses a method for potentially evading Windows Defender by manipulating Protected Process Light (PPL) attributes. While the specifics of the manipulation are not detailed in the provided source, the core idea revolves around abusing the trust placed in PPL processes by the operating system. By altering or impersonating a PPL, an attacker might be able to execute malicious code without triggering standard Windows Defender detections. This technique could be leveraged by various threat actors, from ransomware groups to nation-state adversaries, seeking to bypass endpoint security measures. This is particularly relevant as Defender increasingly relies on process attributes for behavioral analysis and trust decisions. Further research is necessary to understand the exact methods employed.
+
+    ## Attack Chain
+
+    1.  Attacker gains initial access to the system (e.g., through phishing or exploiting a vulnerability).
+    2.  Attacker elevates privileges to gain necessary permissions for PPL manipulation (e.g., SeDebugPrivilege).
+    3.  Attacker identifies a target PPL process to manipulate.
+    4.  Attacker modifies the PPL attributes of a process, potentially impersonating a legitimate PPL process. This step likely involves direct memory manipulation or API calls.
+    5.  Attacker injects malicious code into the manipulated PPL process. This code could be shellcode or a more complex payload.
+    6.  The injected code executes within the context of the manipulated PPL, potentially bypassing Windows Defender's heuristics.
+    7.  The malicious code performs its intended actions, such as downloading further payloads, establishing persistence, or exfiltrating data.
+    8.  Attacker achieves their objective, such as data theft or system compromise.
+
+    ## Impact
+
+    Successful PPL manipulation can lead to a significant breach of endpoint security, allowing attackers to execute arbitrary code undetected. This can result in data theft, ransomware deployment, or complete system compromise. Given that Windows Defender is a primary line of defense for many organizations, its evasion can have widespread consequences. The number of potential victims is substantial, encompassing any organization relying on default Windows security configurations. Successful exploitation could allow attackers to move laterally within the network, compromising additional systems and escalating the damage.
+tags:
+    - windows
+    - evasion
+    - ppl
+    - windows-defender
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rat4id/demonstrating_windows_defender_evasion_via_ppl/
+    - https://medium.com/@s12deff/demonstrating-windows-defender-evasion-via-ppl-manipulation-8767f1ee7ad9
+rules:
+    - title: Detect Process Creation with Suspicious Parent and PPL Attributes
+      description: Detects process creation where the parent process lacks expected characteristics for spawning child processes with PPL attributes.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection_img and selection_ppl
+        selection_img:
+            ParentImage|endswith:
+                - \cmd.exe
+                - \powershell.exe
+                - \wscript.exe
+                - \cscript.exe
+        selection_ppl:
+            Protected: "true"
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1027
+      tests:
+        positive:
+            - name: Suspicious process creation with PPL attributes
+              data:
+                - Image: C:\Windows\System32\svchost.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+                  Protected: "true"
+        negative:
+            - name: Legitimate process creation
+              data:
+                - Image: C:\Windows\System32\svchost.exe
+                  ParentImage: C:\Windows\System32\services.exe
+                  Protected: "true"
+    - title: Detect Modification of Process Protection Attributes
+      description: Detects the use of specific API calls commonly used to modify process protection attributes, indicating potential PPL manipulation attempts.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - Set-ProcessMitigation
+                - RtlSetProcessPreferredUILanguages
+            Image|endswith:
+                - \powershell.exe
+                - \cmd.exe
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1027
+      tests:
+        positive:
+            - name: PowerShell using Set-ProcessMitigation
+              data:
+                - CommandLine: powershell.exe Set-ProcessMitigation -Policy DEP -Enable
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        negative:
+            - name: Legitimate powershell usage
+              data:
+                - CommandLine: powershell.exe -File script.ps1
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
