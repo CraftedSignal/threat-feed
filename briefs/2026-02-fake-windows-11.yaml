@@ -1,0 +1,144 @@
+id: brief-2026-02-22-fake-windows-11
+slug: 2026-02-fake-windows-11
+title: Facebook Ads Spreading Fake Windows 11 Downloads Leading to Credential and Cryptocurrency Theft
+summary: A malvertising campaign on Facebook is distributing fake Windows 11 installers containing malware designed to steal passwords and cryptocurrency wallets.
+severity: high
+published_at: "2026-02-22T12:00:00Z"
+content: |
+    ## Overview
+
+    A malvertising campaign observed in February 2026 is leveraging Facebook ads to distribute malicious Windows 11 installers. Unsuspecting users are lured into downloading what they believe to be a legitimate Windows 11 upgrade or installation package. However, these installers contain malware designed to steal sensitive information, specifically targeting stored passwords and cryptocurrency wallets. The attackers are exploiting the trust associated with the Windows brand to deceive victims and compromise their systems. This campaign poses a significant threat to individuals who may be looking to upgrade to Windows 11 or reinstall their operating system. Defenders need to be aware of this ongoing campaign to protect users from falling victim to this sophisticated social engineering attack.
+
+    ## Attack Chain
+
+    1.  The attack begins with malicious advertisements displayed on Facebook, masquerading as legitimate Windows 11 download links.
+    2.  Users click on the ad and are redirected to a website that appears to be an official Microsoft download page.
+    3.  The user downloads a fake Windows 11 installer package (likely an ISO or executable file).
+    4.  Upon execution, the installer appears to run a normal Windows 11 installation process to deceive the user.
+    5.  In the background, the malware is silently installed, likely utilizing techniques to evade detection.
+    6.  The malware begins harvesting stored passwords from web browsers, password managers, and other applications.
+    7.  The malware searches for and exfiltrates cryptocurrency wallet files and private keys.
+    8.  The stolen credentials and cryptocurrency are then transferred to the attacker's control, resulting in financial loss for the victim.
+
+    ## Impact
+
+    This malvertising campaign can lead to significant financial losses for victims. Stolen passwords can be used to compromise online accounts, including email, social media, and banking. The theft of cryptocurrency wallets can result in the complete loss of cryptocurrency holdings. The campaign has the potential to affect a large number of users due to the widespread use of Facebook and the desire to upgrade to the latest operating system. The specific number of victims is currently unknown, but the potential impact is substantial.
+tags:
+    - malvertising
+    - password-stealing
+    - crypto-theft
+    - windows
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rattmh/facebook-ads-spread-fake-windows-11-downloads/
+    - https://www.malwarebytes.com/blog/scams/2026/02/facebook-ads-spread-fake-windows-11-downloads-that-steal-passwords-and-crypto-wallets
+rules:
+    - title: Detect Execution of Suspicious Installer from Downloads Folder
+      description: Detects execution of an executable from the downloads folder which is a common location for downloaded installers.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|endswith: .exe
+            ParentImage|contains: \Downloads\
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1566.001
+        - attack.execution
+        - attack.t1204.002
+      tests:
+        positive:
+            - name: Executable running from Downloads folder
+              data:
+                - Image: C:\Users\JohnDoe\Downloads\Windows11Installer.exe
+                  ParentImage: C:\Users\JohnDoe\explorer.exe
+        negative:
+            - name: Legitimate software running from Program Files
+              data:
+                - Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+                - ParentImage: C:\Windows\explorer.exe
+    - title: Detect Suspicious Network Connection by Newly Created Executable
+      description: Detects a newly created executable making an outbound network connection shortly after creation, which can be indicative of malware beaconing or data exfiltration.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        selection:
+            Image|endswith: .exe
+            Initiated: "true"
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Newly installed executable connecting to external IP
+              data:
+                - DestinationIp: 192.168.1.100
+                  Image: C:\Users\Public\temp\suspicious.exe
+                  Initiated: "true"
+        negative:
+            - name: Chrome browser connecting to the internet
+              data:
+                - DestinationIp: 8.8.8.8
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+                  Initiated: "true"
+    - title: Detect Password Harvesting Tools Execution
+      description: Detects execution of common password harvesting tools.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|endswith:
+                - \mimikatz.exe
+                - \LaZagne.exe
+      level: high
+      tags:
+        - attack.credential_access
+        - attack.t1003
+      tests:
+        positive:
+            - name: Mimikatz Execution
+              data:
+                - CommandLine: ""
+                  Image: C:\Users\JohnDoe\Downloads\mimikatz.exe
+        negative:
+            - name: Legitimate process execution
+              data:
+                - CommandLine: C:\Windows\System32\notepad.exe
+                  Image: C:\Windows\System32\notepad.exe
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1566
+      technique_name: Phishing
+      subtechnique_id: T1566.003
+      subtechnique_name: Spearphishing via Service
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1204
+      technique_name: User Execution
+      subtechnique_id: T1204.002
+      subtechnique_name: Malicious File
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1003
+      technique_name: OS Credential Dumping
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
+      subtechnique_id: T1071.001
+      subtechnique_name: Web Protocols
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1485
+      technique_name: Data Destruction
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1489
+      technique_name: Service Stop
