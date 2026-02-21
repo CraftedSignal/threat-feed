@@ -1,0 +1,110 @@
+id: brief-2026-02-22-fortigate-access
+slug: 2026-02-fortigate-access
+title: AI-Augmented Threat Actor Accesses FortiGate Devices
+summary: An AI-augmented threat actor is targeting FortiGate devices at scale, potentially exploiting vulnerabilities for unauthorized access and control.
+severity: high
+published_at: "2026-02-22T00:00:00Z"
+content: |
+    ## Overview
+
+    An AI-augmented threat actor is reportedly targeting FortiGate devices on a large scale. The specifics of the initial access vector are currently unknown, but the use of AI suggests automated vulnerability scanning and exploitation. The actor's goals may include gaining unauthorized access to networks protected by the firewalls, data exfiltration, or deploying malicious payloads. Defenders should prioritize patching known FortiGate vulnerabilities, monitoring for suspicious login activity, and reviewing firewall configurations for anomalies. Given the scale and automation implied by AI augmentation, this campaign poses a significant risk to organizations using FortiGate appliances. The exact scope of targeting and the attacker's ultimate objectives are still under investigation.
+
+    ## Attack Chain
+
+    1. The attacker uses AI-driven scanning to identify FortiGate devices with known vulnerabilities.
+    2. The AI automatically attempts to exploit identified vulnerabilities (e.g., CVE-2023-27997, CVE-2018-13379) to gain initial access.
+    3. Upon successful exploitation, the attacker establishes a reverse shell or utilizes existing management interfaces for command execution.
+    4. The attacker attempts to escalate privileges on the FortiGate device to gain full control.
+    5. The attacker modifies firewall rules to allow unauthorized access to internal networks.
+    6. The attacker deploys custom scripts or binaries to maintain persistence and evade detection.
+    7. The attacker uses the compromised FortiGate device as a pivot point to access and compromise internal systems.
+    8. The attacker exfiltrates sensitive data or deploys ransomware on the compromised network.
+
+    ## Impact
+
+    Compromised FortiGate devices can provide attackers with unrestricted access to internal networks, leading to data breaches, ransomware attacks, and other malicious activities. The scale of this AI-augmented attack suggests a large number of potential victims across various sectors. Successful attacks could result in significant financial losses, reputational damage, and disruption of critical services. Organizations failing to patch their FortiGate devices and monitor for suspicious activity are at high risk of compromise.
+tags:
+    - fortigate
+    - vulnerability
+    - ai
+    - network security
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1raog77/aiaugmented_threat_actor_accesses_fortigate/
+    - https://aws.amazon.com/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/
+rules:
+    - title: Detect FortiGate Configuration Changes via CLI
+      description: Detects suspicious FortiGate configuration changes made via the command line interface, which could indicate unauthorized access or malicious activity.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and not filter
+        filter:
+            User: admin
+        selection:
+            CommandLine|contains: cli
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1547.001
+      tests:
+        positive:
+            - name: CLI config changes
+              data:
+                - CommandLine: execute ping 8.8.8.8
+                - User: testuser
+        negative:
+            - name: Legitimate ping from admin
+              data:
+                - CommandLine: execute ping 8.8.8.8
+                - User: admin
+    - title: Detect Failed Login Attempts to FortiGate
+      description: Detects multiple failed login attempts to a FortiGate device, potentially indicating brute-force attacks or unauthorized access attempts.
+      logsource:
+        category: network_connection
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            event_src.category: authentication
+            event_src.vendor: fortinet
+            status: failure
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1110.001
+      tests:
+        positive:
+            - name: Failed Login Attempt
+              data:
+                - event_src.category: authentication
+                - event_src.vendor: fortinet
+                - status: failure
+                - user: testuser
+        negative:
+            - name: Successful Login Attempt
+              data:
+                - event_src.category: authentication
+                - event_src.vendor: fortinet
+                - status: success
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
+      subtechnique_id: T1547.001
+      subtechnique_name: Registry Run Keys / Startup Folder
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1110
+      technique_name: Brute Force
+      subtechnique_id: T1110.001
+      subtechnique_name: Password Guessing
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021
+      technique_name: Remote Services
