@@ -1,0 +1,100 @@
+id: brief-2026-02-23-lsawhisper-bof
+slug: 2026-02-lsawhisper-bof
+title: 'LSAWhisper BOF: Direct Authentication Package Interaction'
+summary: LSAWhisper is a Beacon Object File (BOF) that interacts directly with Windows authentication packages via the LSA interface, bypassing LSASS memory access for credential theft.
+severity: high
+published_at: "2026-02-22T08:24:22Z"
+content: |
+    ## Overview
+
+    LSAWhisper is a custom Beacon Object File (BOF) designed for Cobalt Strike. It enables direct interaction with Windows authentication packages through the Local Security Authority (LSA) untrusted/trusted client interface. The key feature of LSAWhisper is its ability to bypass direct memory access to the LSASS process, making it potentially stealthier than traditional credential theft methods. This tool has emerged in early 2026. Defenders should be aware of BOFs being used to interact with critical Windows authentication processes.
+
+    ## Attack Chain
+
+    1.  The attacker gains initial access to the target system (e.g., via phishing or exploitation of a vulnerability).
+    2.  The attacker deploys Cobalt Strike beacon on the target system.
+    3.  The attacker loads LSAWhisper BOF into the Cobalt Strike beacon.
+    4.  LSAWhisper utilizes the LSA untrusted/trusted client interface.
+    5.  LSAWhisper interacts directly with authentication packages.
+    6.  LSAWhisper retrieves credential information without directly accessing LSASS memory.
+    7.  The attacker exfiltrates the stolen credentials.
+    8.  The attacker uses the credentials for lateral movement or privilege escalation.
+
+    ## Impact
+
+    Successful deployment of LSAWhisper can lead to the theft of sensitive credentials, potentially compromising the entire domain. Since it interacts directly with authentication packages through the LSA interface, traditional memory scanning techniques might not detect it. The impact would be widespread lateral movement, privilege escalation, and data exfiltration.
+tags:
+    - credential-theft
+    - beacon-object-file
+    - lsa
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rbghfy/lsawhisperbof_a_beacon_object_file_bof_that_talks/
+    - https://github.com/dazzyddos/lsawhisper-bof
+rules:
+    - title: Detect LSA Interaction from Unusual Process
+      description: Detects processes interacting with the LSA (Local Security Authority) that are not normally associated with authentication processes, potentially indicating malicious activity like LSAWhisper.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|startswith:
+                - C:\Windows\System32\
+                - C:\Program Files\
+                - C:\Program Files (x86)\
+        selection:
+            Image|endswith: .exe
+      level: high
+      tags:
+        - attack.credential_access
+        - attack.t1187
+      tests:
+        positive:
+            - name: Suspicious process creating lsass.exe
+              data:
+                - CommandLine: C:\Users\Public\suspicious.exe
+                  Image: C:\Users\Public\suspicious.exe
+        negative:
+            - name: Legitimate System process creating lsass.exe
+              data:
+                - Image: C:\Windows\System32\services.exe
+                - CommandLine: C:\Windows\System32\services.exe
+    - title: Detecting Suspicious Module Load into LSASS
+      description: This rule detects the loading of unusual or unsigned modules into the LSASS process, which could indicate attempts to inject malicious code for credential theft or other malicious activities.
+      logsource:
+        category: image_load
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Signature: Authenticode
+        selection:
+            Image: C:\Windows\System32\lsass.exe
+            ImageLoaded|endswith: .dll
+      level: medium
+      tags:
+        - attack.credential_access
+        - attack.t1187
+      tests:
+        positive:
+            - name: Unsigned DLL loaded into LSASS
+              data:
+                - Image: C:\Windows\System32\lsass.exe
+                  ImageLoaded: C:\Users\Public\evil.dll
+                  Signature: None
+        negative:
+            - name: Signed Microsoft DLL loaded into LSASS
+              data:
+                - Image: C:\Windows\System32\lsass.exe
+                  ImageLoaded: C:\Windows\System32\ntdll.dll
+                  Signature: Authenticode
+ttps:
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1187
+      technique_name: Forced Authentication
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021
+      technique_name: Remote Services
