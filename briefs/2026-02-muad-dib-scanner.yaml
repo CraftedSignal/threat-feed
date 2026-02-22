@@ -1,0 +1,154 @@
+id: brief-2026-02-23-muad-dib-scanner
+slug: 2026-02-muad-dib-scanner
+title: MUAD'DIB Supply Chain Security Scanner for npm and PyPI
+summary: A security researcher has developed an open-source supply chain scanner, MUAD'DIB, targeting npm and PyPI packages, employing static, dynamic, and temporal analysis techniques to detect malicious packages with a reported 91.8% true positive rate on real-world malware.
+severity: medium
+threat_actor: Individual Developer
+published_at: "2026-02-23T12:00:00Z"
+content: |
+    ## Overview
+
+    A security researcher, under the handle DNSZLSK, has developed MUAD'DIB, an open-source supply chain security scanner for npm and PyPI packages. This tool aims to identify potentially malicious packages through a combination of static, dynamic, and temporal analysis. The static analysis component leverages 14 scanners, including those focused on AST analysis, dataflow tracking, obfuscation detection, entropy analysis, shell command identification, and GitHub Actions scrutiny. Dynamic analysis is performed within a Docker sandbox environment, utilizing canary tokens to detect unauthorized behavior. Temporal analysis focuses on lifecycle script diffs, maintainer changes, and publish anomalies. The scanner reportedly has a database of 225K+ IOCs and uses 94 detection rules. While not enterprise-grade, MUAD'DIB demonstrates a proactive approach to addressing software supply chain risks.
+
+    ## Attack Chain
+
+    1.  **Package Upload:** A malicious actor uploads a crafted package to either npm or PyPI, potentially containing obfuscated code or malicious dependencies.
+    2.  **Initial Installation:** A developer unknowingly installs the compromised package as a dependency in their project.
+    3.  **Lifecycle Script Execution:** Upon installation, a lifecycle script (e.g., `postinstall`) within the malicious package executes automatically, initiating the malicious activity.
+    4.  **Obfuscated Code Deobfuscation:** The script deobfuscates a payload using techniques like string manipulation or custom encoding.
+    5.  **Canary Token Trigger:** The deobfuscated code interacts with a pre-defined canary token (e.g., a URL or file path), alerting the attacker to a successful installation.
+    6.  **Data Exfiltration:** The malicious code exfiltrates sensitive data (e.g., environment variables, API keys) to an attacker-controlled server.
+    7.  **Persistence Mechanism:** The compromised package establishes a persistence mechanism, such as a scheduled task or a modification to system startup scripts, to maintain access.
+    8.  **Lateral Movement:** The attacker pivots from the compromised developer environment to other systems on the network, leveraging stolen credentials or vulnerabilities in other applications.
+
+    ## Impact
+
+    Successful exploitation of this attack chain can lead to the compromise of developer environments, theft of sensitive data, and potentially, the introduction of malicious code into production systems. This can result in significant financial losses, reputational damage, and legal liabilities. While the precise number of potential victims is unknown, the widespread use of npm and PyPI makes this a significant concern for organizations that rely on these package managers. Supply chain attacks are difficult to detect and can have a wide-ranging impact.
+tags:
+    - supply-chain
+    - npm
+    - pypi
+    - malware
+references:
+    - https://www.reddit.com/r/cybersecurity/comments/1rbp4k0/built_an_opensource_npmpypi_supply_chain_scanner/
+    - https://github.com/DNSZLSK/muad-dib
+rules:
+    - title: Detect Suspicious Postinstall Script in Node.js Package
+      description: Detects the execution of a suspicious postinstall script in a Node.js package, which is a common technique used by malicious packages to execute code upon installation.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: postinstall
+            Image|endswith: \node.exe
+      level: high
+      tags:
+        - attack.execution
+        - attack.t1059.004
+      tests:
+        positive:
+            - name: Node.js executing postinstall script
+              data:
+                - CommandLine: npm install --prefix ./package postinstall
+                  Image: C:\Program Files\nodejs\node.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Node.js executing a benign script
+              data:
+                - CommandLine: node server.js
+                  Image: C:\Program Files\nodejs\node.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect Suspicious File Modification by Python
+      description: Detects suspicious file modifications performed by the Python interpreter, potentially indicating malicious activity from a compromised PyPI package.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|endswith: \python.exe
+            TargetFilename|contains:
+                - \AppData\Local\Temp\
+                - \tmp\
+      level: medium
+      tags:
+        - attack.execution
+        - attack.t1059.006
+      tests:
+        positive:
+            - name: Python modifying a file in the temp directory
+              data:
+                - EventType: Create
+                  Image: C:\Python39\python.exe
+                  TargetFilename: C:\Users\user\AppData\Local\Temp\malicious_script.py
+        negative:
+            - name: Python creating a file in a normal directory
+              data:
+                - EventType: Create
+                  Image: C:\Python39\python.exe
+                  TargetFilename: C:\Users\user\Documents\my_script.py
+    - title: Detect Network Connection from Suspicious Node.js Script
+      description: Detects network connections initiated by Node.js scripts running from unusual locations, potentially indicating a malicious package.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|startswith:
+                - C:\Program Files\
+                - C:\Program Files (x86)\
+        selection:
+            Image|endswith: \node.exe
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Node.js script connecting from AppData
+              data:
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: "8080"
+                  Image: C:\Users\user\AppData\Roaming\npm\node_modules\malicious_package\index.js
+        negative:
+            - name: Node.js connecting from Program Files
+              data:
+                - DestinationIp: 142.250.180.206
+                  DestinationPort: "443"
+                  Image: C:\Program Files\nodejs\node.exe
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1199
+      technique_name: Supply Chain Compromise
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.004
+      technique_name: 'Command and Scripting Interpreter: JavaScript'
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1082
+      technique_name: System Information Discovery
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1083
+      technique_name: File and Directory Discovery
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071.001
+      technique_name: 'Application Layer Protocol: Web Protocols'
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1114.001
+      technique_name: 'Email Collection: Local Email Collection'
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1499.004
+      technique_name: 'Endpoint Denial of Service: Resource Exhaustion'
