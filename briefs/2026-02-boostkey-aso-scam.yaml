@@ -1,0 +1,139 @@
+id: brief-2026-02-23-boostkey-aso-scam
+slug: 2026-02-boostkey-aso-scam
+title: Malicious Chrome Extension Targets Apple App Store Connect Developers via Fake ASO Service
+summary: A coordinated operation using a malicious Chrome extension (mimplmibgdodhkjnclacjofjbgmhogce) posing as an ASO service at boostkey.app steals Apple App Store Connect session cookies to hijack developer accounts.
+severity: high
+published_at: "2026-02-23T14:00:00Z"
+content: |
+    ## Overview
+
+    A malicious Chrome extension, identified as `mimplmibgdodhkjnclacjofjbgmhogce`, was discovered on its first day of deployment. This extension is part of a coordinated operation by threat actors operating the website `boostkey.app`, which masquerades as a legitimate App Store Optimization (ASO) service. The attackers charge developers $150 in cryptocurrency and then guide them through a five-step onboarding process. This process culminates in the developer unwittingly handing over their sensitive Apple App Store Connect session cookies (`myacinfo` and `itctx`) to the attackers. The extension ID is hardcoded in the boostkey.app platform's source code, confirming the same actor developed both. The attackers require the developer to provide a proxy through their own IP address, likely to evade Apple's anomaly detection systems when the stolen session cookies are replayed.
+
+    ## Attack Chain
+
+    1.  Developers are lured to `boostkey.app` through advertising or social engineering.
+    2.  Developers pay $150 in cryptocurrency to subscribe to the fake ASO service.
+    3.  Victims are instructed to install the malicious Chrome extension `mimplmibgdodhkjnclacjofjbgmhogce`.
+    4.  The extension prompts the user to log into their Apple App Store Connect account.
+    5.  The extension harvests the `myacinfo` and `itctx` session cookies from the developer's browser.
+    6.  Developers are instructed to configure a proxy server using their own IP address.
+    7.  The stolen session cookies and the developer-provided proxy are used to bypass Apple's security measures.
+    8.  The attackers replay the stolen session to access and control the victim's Apple App Store Connect account, potentially leading to app manipulation, financial fraud, or intellectual property theft.
+
+    ## Impact
+
+    Successful exploitation leads to the compromise of Apple App Store Connect developer accounts. Attackers gain the ability to manipulate apps, potentially inserting malware, stealing intellectual property, or committing financial fraud. The use of developer-provided proxies makes detection significantly more challenging. The exact number of affected developers is currently unknown. The targeted sector is primarily software development, specifically those creating and managing apps in the Apple App Store.
+tags:
+    - chrome-extension
+    - app-store-connect
+    - session-hijacking
+    - aso
+references:
+    - https://www.reddit.com/r/netsec/comments/1rbzbyv/malicious_chrome_extension_targeting_apple_app/
+    - https://blog.toborrm.com/findings/boostkey.html
+rules:
+    - title: Detect Malicious Chrome Extension Installation (boostkey ASO Scam)
+      description: Detects the installation of the malicious Chrome extension associated with the boostkey.app ASO scam.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            EventType: created
+            TargetFilename|contains: \Google\Chrome\User Data\Default\Extensions\mimplmibgdodhkjnclacjofjbgmhogce\
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1608
+        - attack.t1189
+      tests:
+        positive:
+            - name: Chrome extension directory creation
+              data:
+                - EventType: created
+                  TargetFilename: C:\Users\test\AppData\Local\Google\Chrome\User Data\Default\Extensions\mimplmibgdodhkjnclacjofjbgmhogce\1.0_0
+        negative:
+            - name: Creation of a benign chrome extension directory
+              data:
+                - EventType: created
+                  TargetFilename: C:\Users\test\AppData\Local\Google\Chrome\User Data\Default\Extensions\abcdefghijklmnopabcdefghijklmnop\1.0_0
+    - title: Detect Network Connection to boostkey.app
+      description: Detects network connections to the boostkey.app domain, potentially indicating interaction with the malicious ASO service.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            DestinationHostname: boostkey.app
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Connection to boostkey.app
+              data:
+                - DestinationHostname: boostkey.app
+                - DestinationIp: 1.2.3.4
+        negative:
+            - name: Connection to a benign website
+              data:
+                - DestinationHostname: google.com
+                - DestinationIp: 8.8.8.8
+    - title: Detect Cookie Access with suspicious Chrome Extension ID
+      description: Detects suspicious process accessing cookies where the extension ID matches the identified malicious one.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Details|contains: mimplmibgdodhkjnclacjofjbgmhogce
+            Image|contains: Google\Chrome
+            Image|endswith: chrome.exe
+            TargetFilename|contains: \Google\Chrome\User Data\Default\Cookies
+      level: high
+      tags:
+        - attack.credential_access
+        - attack.t1539
+      tests:
+        positive:
+            - name: Chrome accessing Cookies file with extension ID
+              data:
+                - Details: mimplmibgdodhkjnclacjofjbgmhogce
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+                  TargetFilename: C:\Users\test\AppData\Local\Google\Chrome\User Data\Default\Cookies
+        negative:
+            - name: Legitimate Chrome cookie access
+              data:
+                - Details: abcdefghijklmnopabcdefghijklmnop
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+                  TargetFilename: C:\Users\test\AppData\Local\Google\Chrome\User Data\Default\Cookies
+iocs:
+    - type: domain
+      value: boostkey.app
+      context: Associated with the malicious ASO service
+    - type: hash_md5
+      value: mimplmibgdodhkjnclacjofjbgmhogce
+      context: Malicious Chrome extension ID
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1189
+      technique_name: Drive-by Compromise
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1539
+      technique_name: Steal Web Session Cookie
+    - tactic_id: TA0042
+      tactic_name: Resource Development
+      technique_id: T1588
+      technique_name: Obtain Capabilities
+      subtechnique_id: T1588.004
+      subtechnique_name: Digital Certificates
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1119
+      technique_name: Automated Collection
