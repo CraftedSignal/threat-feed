@@ -1,0 +1,121 @@
+id: brief-2024-01-03-ad-recon-detection
+slug: 2024-01-ad-recon-detection
+title: Detecting Pre-Ransomware Discovery Activity
+summary: This brief focuses on detecting common Active Directory reconnaissance commands used by attackers prior to ransomware deployment, emphasizing the importance of identifying bursts of activity involving tools like nltest, whoami, and net.exe.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    Attackers commonly perform reconnaissance within an Active Directory environment before deploying ransomware. This stage involves gathering information about users, groups, and domain structure to identify valuable targets and plan their attack. This discovery phase often involves a series of commands that, when viewed individually, may appear benign. However, a rapid succession of these commands, such as `nltest`, `whoami /groups`, and `net.exe group` checks, can indicate malicious activity. Detecting this "burst" of reconnaissance is crucial for early intervention and preventing ransomware deployment. The focus is on identifying specific command patterns that are indicative of attacker activity within the network environment.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** The attacker gains initial access to a compromised host within the target network (e.g., via phishing or exploiting a vulnerability).
+    2.  **Privilege Escalation (if needed):** The attacker attempts to escalate privileges on the compromised host to gain higher-level access within the system.
+    3.  **Account Discovery:** The attacker uses `whoami /groups` to enumerate the groups to which the current user belongs, identifying potential administrative privileges.
+    4.  **Domain Reconnaissance:** The attacker executes `nltest /domain_trusts` to discover domain trusts and map the domain structure.
+    5.  **Group Enumeration:** The attacker uses `net.exe group /domain` to list all domain groups and identify potential targets for lateral movement.
+    6.  **User Enumeration:** The attacker uses `net.exe user /domain` to identify domain user accounts.
+    7.  **Lateral Movement:** Based on the gathered information, the attacker attempts to move laterally to other systems within the network, potentially targeting systems with higher privileges or access to sensitive data.
+    8.  **Ransomware Deployment:** After gaining sufficient access and control, the attacker deploys ransomware across the network, encrypting critical data and demanding a ransom for its decryption.
+
+    ## Impact
+
+    Successful execution of this attack chain can result in widespread data encryption, system downtime, and significant financial losses for the targeted organization. Ransomware attacks can disrupt business operations, damage reputation, and lead to the compromise of sensitive data, impacting both the organization and its customers. The reconnaissance phase described above is often a precursor to a full-scale ransomware attack, and early detection can prevent significant damage.
+tags:
+    - active-directory
+    - reconnaissance
+    - ransomware
+references:
+    - https://www.reddit.com/r/cybersecurity/comments/1rb9il6/preransomware_discovery_detection_with_sigma/
+rules:
+    - title: Detect Suspicious AD Recon with nltest
+      description: Detects the use of nltest.exe to discover domain trusts, which is common in AD reconnaissance.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        selection:
+            CommandLine|contains: /domain_trusts
+            Image|endswith: \nltest.exe
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1018
+      tests:
+        positive:
+            - name: nltest domain trusts command
+              data:
+                - CommandLine: nltest /domain_trusts
+                  Image: C:\Windows\System32\nltest.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Normal nltest usage
+              data:
+                - CommandLine: nltest /sc_query:domain.com
+                  Image: C:\Windows\System32\nltest.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect Suspicious whoami Usage for Group Enumeration
+      description: Detects the use of whoami.exe with the /groups flag for group enumeration.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        selection:
+            CommandLine|contains: /groups
+            Image|endswith: \whoami.exe
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1069.001
+      tests:
+        positive:
+            - name: whoami /groups command
+              data:
+                - CommandLine: whoami /groups
+                  Image: C:\Windows\System32\whoami.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Normal whoami usage
+              data:
+                - CommandLine: whoami /user
+                  Image: C:\Windows\System32\whoami.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Detect Suspicious net.exe Group Enumeration
+      description: Detects the use of net.exe to enumerate domain groups, a common AD reconnaissance technique.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        selection:
+            CommandLine|contains: group /domain
+            Image|endswith: \net.exe
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1069.001
+      tests:
+        positive:
+            - name: net group /domain command
+              data:
+                - CommandLine: net group /domain
+                  Image: C:\Windows\System32\net.exe
+                  ParentImage: C:\Windows\System32\cmd.exe
+        negative:
+            - name: Normal net usage
+              data:
+                - CommandLine: 'net use z: \\server\share'
+                  Image: C:\Windows\System32\net.exe
+                  ParentImage: C:\Windows\explorer.exe
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1018
+      technique_name: Remote System Discovery
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1069
+      technique_name: Standard Permissions Groups Discovery
+      subtechnique_id: T1069.001
+      subtechnique_name: Local Groups
