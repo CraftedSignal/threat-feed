@@ -1,0 +1,110 @@
+id: brief-2024-01-09-purecoder-rat
+slug: 2024-01-purecoder-rat
+title: PureCoder RAT Infection Analysis
+summary: An analyst identified a previously unreported PureCoder RAT used in a six-month breach, featuring significant encryption and obfuscation with unique C2 infrastructure.
+severity: high
+published_at: "2024-01-09T12:00:00Z"
+content: |
+    ## Overview
+
+    A security analyst identified a previously unknown PureCoder RAT during incident response, which had been active within a network for six months. The RAT exhibits significant encryption and obfuscation techniques, and its command-and-control (C2) infrastructure was previously unreported on VirusTotal or other threat intelligence platforms. The analyst performed an initial breakdown of the RAT, highlighting its capabilities and providing insights into the early stages of the infection chain. This activity is noteworthy due to the RAT's persistence, evasion techniques, and the potential for data exfiltration or further malicious activities within the compromised network. The analysis aims to uncover the full scope of the breach and identify additional indicators of compromise.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** The initial access vector is currently unknown, but it is suspected the attacker used phishing.
+    2.  **Execution:** The PureCoder RAT executable is launched on the system, potentially through user interaction or exploitation of a vulnerability.
+    3.  **Persistence:** The RAT establishes persistence on the compromised host to ensure continued access, likely through registry keys or scheduled tasks.
+    4.  **Command and Control:** The RAT connects to its unreported command-and-control (C2) server to receive instructions and exfiltrate data.
+    5.  **Data Collection:** The RAT gathers sensitive information from the compromised system, including credentials, documents, and other valuable data.
+    6.  **Lateral Movement:** Based on C2 instructions, the attacker uses stolen credentials or exploits vulnerabilities to move laterally to other systems on the network.
+    7.  **Data Exfiltration:** The collected data is exfiltrated to the C2 server over an encrypted channel to avoid detection.
+    8.  **Maintain Foothold:** The attackers maintain their foothold within the network, potentially deploying additional malware or conducting further reconnaissance.
+
+    ## Impact
+
+    A six-month breach using a sophisticated, previously unreported RAT suggests a highly targeted and persistent attack. The potential impact includes data theft, financial loss, reputational damage, and disruption of operations. Given the extended dwell time, the attacker likely gained access to significant amounts of sensitive data and may have compromised critical systems. The number of affected systems is not specified. However, the attacker's ability to operate undetected for such a long period underscores the need for enhanced threat detection and incident response capabilities.
+tags:
+    - rat
+    - malware
+    - purecoder
+    - c2
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rbm2a7/working_through_a_purecoder_6_month_breach_on_a/
+    - https://www.derp.ca/plog-rat-analysis/
+rules:
+    - title: Detect Registry Persistence via Suspicious Executable
+      description: Detects suspicious executables adding persistence entries in the registry
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Details|contains:
+                - System32\spoolsv.exe
+                - Program Files\Common Files
+        selection:
+            TargetObject|contains: \CurrentVersion\Run
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1547.001
+      tests:
+        positive:
+            - name: Suspicious executable setting run key
+              data:
+                - Details: C:\Users\Public\evil.exe
+                  TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\EvilApp
+        negative:
+            - name: Legitimate spoolsv setting run key
+              data:
+                - Details: C:\Windows\System32\spoolsv.exe
+                  TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\SplService
+    - title: Detect Suspicious Process Connecting to Uncommon Ports
+      description: Detects a process initiating a network connection on uncommon ports, potentially indicating C2 activity.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            DestinationPort:
+                - "80"
+                - "443"
+                - "53"
+        selection:
+            Initiated: "true"
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Executable connecting to uncommon port
+              data:
+                - DestinationPort: "6666"
+                  Image: C:\Users\Public\evil.exe
+                  Initiated: "true"
+        negative:
+            - name: Chrome connecting to common port
+              data:
+                - DestinationPort: "443"
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+                  Initiated: "true"
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
+      subtechnique_id: T1071.001
+      subtechnique_name: Web Protocols
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
+      subtechnique_id: T1547.001
+      subtechnique_name: Registry Run Keys / Startup Folder
