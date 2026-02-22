@@ -1,0 +1,146 @@
+id: brief-2024-01-30-ad-discovery-burst
+slug: 2024-01-30-ad-discovery-burst
+title: Pre-Ransomware Active Directory Discovery Burst
+summary: Attackers use a burst of discovery commands on a compromised Windows host to enumerate the Active Directory environment prior to ransomware deployment.
+severity: high
+published_at: "2024-01-30T12:00:00Z"
+content: |
+    ## Overview
+
+    This activity focuses on the detection of a "discovery burst" preceding ransomware deployment. Attackers, after gaining initial access to a Windows host, execute a series of commands to enumerate the Active Directory environment. This reconnaissance phase helps them map out the network, identify valuable targets, and plan their lateral movement strategy. The commands observed include `systeminfo`, `nltest`, `net.exe`, and `whoami`. Detecting this burst of activity early is crucial to disrupting the attack before the ransomware payload is executed and significant damage is inflicted. This behavior is often indicative of pre-ransomware staging and can be a reliable indicator of compromise.
+
+    ## Attack Chain
+
+    1.  Initial Access: The attacker gains initial access to a Windows host through an unconfirmed vector.
+    2.  Privilege Escalation (if needed): The attacker may attempt to escalate privileges to gain higher-level access on the compromised host.
+    3.  Discovery Phase: The attacker executes `systeminfo` to gather detailed information about the host's operating system, hardware, and software configuration.
+    4.  AD Enumeration (nltest): The attacker uses `nltest /domain_trusts` to discover domain trusts and identify potential pathways for lateral movement.
+    5.  Network Reconnaissance (net.exe): The attacker utilizes `net.exe` commands (e.g., `net user /domain`, `net group /domain`) to enumerate users, groups, and network resources within the Active Directory domain.
+    6.  User Context Identification (whoami): The attacker runs `whoami /all` to determine the current user's privileges and group memberships, further aiding in privilege escalation and lateral movement planning.
+    7.  Lateral Movement: Based on the gathered information, the attacker moves laterally to other systems within the network, potentially targeting critical assets.
+    8.  Ransomware Deployment: The attacker deploys ransomware across the network, encrypting files and demanding a ransom payment.
+
+    ## Impact
+
+    Successful execution of this attack chain leads to widespread data encryption and significant operational disruption. Organizations can experience complete business interruption, data loss, financial losses due to ransom payments and recovery costs, and reputational damage. Victims in past attacks have ranged from small businesses to large enterprises, across various sectors, with recovery times spanning days to weeks. Early detection and response are critical to minimizing the impact of these attacks.
+tags:
+    - active-directory
+    - discovery
+    - ransomware
+    - windows
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rb8vmb/preransomware_ad_discovery_burst_detection_in/
+rules:
+    - title: Detect Multiple Discovery Commands in Short Timeframe
+      description: Detects a burst of discovery commands commonly used in pre-ransomware activity by monitoring process creation events.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: 3 of selection_* within 60s
+        selection_net:
+            CommandLine|contains:
+                - ' user '
+                - ' group '
+            Image|endswith: \net.exe
+        selection_nltest:
+            CommandLine|contains: /domain_trusts
+            Image|endswith: \nltest.exe
+        selection_systeminfo:
+            Image|endswith: \systeminfo.exe
+        selection_whoami:
+            CommandLine|contains: /all
+            Image|endswith: \whoami.exe
+      level: high
+      tags:
+        - attack.discovery
+        - attack.t1018
+      tests:
+        positive:
+            - name: Multiple discovery commands executed within 60 seconds
+              data:
+                - CommandLine: ""
+                  Image: C:\Windows\System32\systeminfo.exe
+                  ProcessId: "1234"
+                - CommandLine: nltest /domain_trusts
+                  Image: C:\Windows\System32\nltest.exe
+                  ProcessId: "1235"
+                - CommandLine: net user /domain
+                  Image: C:\Windows\System32\net.exe
+                  ProcessId: "1236"
+        negative:
+            - name: Single discovery command executed
+              data:
+                - CommandLine: ""
+                  Image: C:\Windows\System32\systeminfo.exe
+                  ProcessId: "1234"
+    - title: Detect nltest Usage for Domain Trust Discovery
+      description: Detects the use of nltest.exe with the /domain_trusts flag, which is commonly used by attackers to map out domain trusts.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: /domain_trusts
+            Image|endswith: \nltest.exe
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1482
+      tests:
+        positive:
+            - name: nltest used to discover domain trusts
+              data:
+                - CommandLine: nltest /domain_trusts
+                  Image: C:\Windows\System32\nltest.exe
+                  ProcessId: "4567"
+        negative:
+            - name: nltest used with different arguments
+              data:
+                - CommandLine: nltest /sc_query:domain
+                  Image: C:\Windows\System32\nltest.exe
+                  ProcessId: "4568"
+    - title: Detect net.exe User or Group Enumeration
+      description: Detects net.exe commands used to enumerate users or groups within the Active Directory domain.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - ' user '
+                - ' group '
+            Image|endswith: \net.exe
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1069.002
+      tests:
+        positive:
+            - name: net.exe used to list domain users
+              data:
+                - CommandLine: net user /domain
+                  Image: C:\Windows\System32\net.exe
+                  ProcessId: "7890"
+        negative:
+            - name: net.exe used for legitimate share management
+              data:
+                - CommandLine: net share
+                  Image: C:\Windows\System32\net.exe
+                  ProcessId: "7891"
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1018
+      technique_name: Remote System Discovery
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1069.002
+      technique_name: Permission Groups Discovery
+      subtechnique_name: Domain Groups
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1482
+      technique_name: Domain Trust Discovery
