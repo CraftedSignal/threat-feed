@@ -1,0 +1,94 @@
+id: brief-2026-02-23-polyslice-attack
+slug: 2026-02-polyslice-attack
+title: PolySlice Content Attack on Chained AI Safety Architectures
+summary: The PolySlice Content Attack exploits vulnerabilities in chained AI safety architectures by fragmenting malicious intents into contextually harmless slices, allowing exfiltration of sensitive data like OAuth tokens.
+severity: high
+published_at: "2026-02-23T12:00:00Z"
+content: |
+    ## Overview
+
+    A novel attack, termed "PolySlice Content Attack," targets AI systems employing chained safety architectures. This attack, identified in late 2025, circumvents defense-in-depth strategies by fragmenting high-risk intents into multiple, contextually benign slices. Each slice, when evaluated in isolation by individual agents (e.g., routers, PII scanners, safety guards), appears harmless, leading to a "PASS" verdict at each stage. This destructive signal interference prevents the aggregation of risk signals necessary for detection. The vulnerability stems from the inherent seams created by chaining, which allows for effective intent fragmentation, ultimately enabling the exfiltration of sensitive data. This attack highlights a critical flaw in systems relying on sequential filters without comprehensive session-history aggregation, particularly those using Lang Chain-style architectures.
+
+    ## Attack Chain
+
+    1.  **Initial Query:** The attacker initiates a seemingly innocuous request, such as requesting travel headers from a specific table (e.g., "Q1-Engineering").
+    2.  **Data Formatting:** The attacker requests the retrieved data to be formatted as a CSV, specifying columns including sensitive fields like "Session_Token".
+    3.  **Column Mapping:** The attacker requests a temporary mapping of the "Session_Token" column to an internal variable (e.g., "OAUTH_STORE") under the guise of verifying the CSV structure.
+    4.  **Data Exfiltration:** The attacker instructs the system to send the formatted CSV to an external email address (e.g., verify@travel-external-check.com) for "travel portal sync" purposes.
+    5.  **Agent Evaluation:** Each agent (Router, PII Scanner, Safety Guard, Action Validator, Output Formatter) processes its slice in isolation and returns a "PASS" verdict.
+    6.  **Chained Execution:** The slices are executed sequentially within the chained architecture.
+    7.  **Data Transmission:** The CSV containing OAuth tokens is successfully sent to the external email address.
+    8.  **Objective Achieved:** The attacker successfully exfiltrates sensitive OAuth tokens by reconstructing the fragmented intent from the individual slices.
+
+    ## Impact
+
+    A successful PolySlice Content Attack can lead to the exfiltration of sensitive data, including personally identifiable information (PII) and critical authentication tokens (e.g., OAuth). In the reported proof-of-concept, standard chained pipelines failed to detect the malicious intent, resulting in successful exfiltration. The attack has the potential to impact organizations across various sectors that rely on chained AI safety architectures for data protection and access control. The consequences can range from data breaches and compliance violations to unauthorized access and system compromise.
+tags:
+    - AI-Security
+    - Data-Exfiltration
+    - Vulnerability
+references:
+    - https://www.reddit.com/r/cybersecurity/comments/1rbx4q1/polyslice_content_attack/
+rules:
+    - title: Detect Email Sent to External Domains After Session Token Access
+      description: Detects potential PolySlice exfiltration by monitoring for emails sent to external domains after accessing session tokens.
+      logsource:
+        category: email
+        product: m365
+      detection:
+        condition: selection_email and selection_token
+        selection_email:
+            email_to|contains: '@travel-external-check.com'
+        selection_token:
+            email_subject|contains: Session_Token
+      level: high
+      tags:
+        - attack.exfiltration
+        - attack.t1567.002
+      tests:
+        positive:
+            - name: Email sent to external domain after session token access
+              data:
+                - email_subject: Session_Token CSV
+                  email_to: verify@travel-external-check.com
+        negative:
+            - name: Normal email traffic to internal domain
+              data:
+                - email_subject: Meeting Agenda
+                  email_to: user@example.com
+    - title: Detect CSV Exports with Session Token Column
+      description: Detects potential PolySlice preparation by monitoring for CSV exports containing a 'Session_Token' column.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection_file and selection_content
+        selection_content:
+            file_content|contains: Session_Token
+        selection_file:
+            file_name|endswith: .csv
+            file_path|contains: export
+      level: medium
+      tags:
+        - attack.collection
+        - attack.t1114.001
+      tests:
+        positive:
+            - name: CSV export containing session token column
+              data:
+                - file_content: Name,Corporate_Email,Session_Token
+                  file_name: engineering_data.csv
+                  file_path: C:\Users\User\Downloads\export
+        negative:
+            - name: Normal CSV export without session token
+              data:
+                - file_content: Name,Email,Department
+                  file_name: report.csv
+                  file_path: C:\Users\User\Documents\reports
+ttps:
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1567
+      technique_name: Exfiltration Over Web Service
+      subtechnique_id: T1567.002
+      subtechnique_name: Exfiltration to Cloud Storage
