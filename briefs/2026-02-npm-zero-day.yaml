@@ -1,0 +1,119 @@
+id: brief-2026-02-23-npm-zero-day
+slug: 2026-02-npm-zero-day
+title: Detection of Zero-Day Malware Patterns in npm Packages
+summary: Analysis of 11,356 npm packages reveals that zero-day supply chain malware relies on combinations of malicious behaviors, evading traditional CVE-based scanners.
+severity: high
+published_at: "2026-02-23T12:00:00Z"
+content: |
+    ## Overview
+
+    A recent analysis of 11,356 npm packages has highlighted the ineffectiveness of CVE-based scanners in detecting zero-day supply chain malware. The study, conducted in 2026, focused on behavioral signals within published tarballs rather than relying on known vulnerabilities. The research found that attackers are using combinations of suspicious behaviors that, while individually benign, become indicative of malicious intent when correlated. This includes secret file access combined with outbound network calls, install hooks invoking shell commands along with obfuscation patterns, and typosquat naming paired with fresh publishes and unexpected binary addons. These techniques allowed malware to bypass traditional dependency scanners, highlighting a critical gap in software supply chain security.
+
+    ## Attack Chain
+
+    1. **Initial Compromise:** An attacker creates a malicious npm package, often using a typosquatting technique to mimic a legitimate package name.
+    2. **Package Publishing:** The attacker publishes the malicious package to the npm registry. This package may be freshly published to avoid prior scrutiny.
+    3. **Install Hook Execution:** The package's `install` hook is designed to execute shell commands upon installation, potentially without user awareness.
+    4. **Obfuscation:** The malicious code within the install hook or other scripts is obfuscated to hinder static analysis and detection.
+    5. **Secret File Access:** The malicious script accesses sensitive files, such as `.env` files or other configuration files containing credentials or API keys.
+    6. **Outbound Network Connection:** The script establishes an outbound network connection to a command-and-control server controlled by the attacker.
+    7. **Data Exfiltration:** The script exfiltrates stolen credentials, API keys, or other sensitive data to the attacker's server.
+    8. **Persistence (Optional):** The script may attempt to establish persistence on the compromised system, ensuring continued access even after the initial installation.
+
+    ## Impact
+
+    Successful exploitation can lead to the compromise of developer systems and applications that depend on the malicious package. This can result in the theft of sensitive data, such as API keys, credentials, and source code. The lack of CVEs associated with these attacks means that organizations relying solely on traditional vulnerability scanners are vulnerable. The potential impact includes supply chain compromise, data breaches, and reputational damage. The study reported a 99.95% precision and 99.44% recall rate in detecting these patterns, indicating a significant risk.
+tags:
+    - npm
+    - supply-chain
+    - malware
+    - zero-day
+    - typosquatting
+references:
+    - https://www.reddit.com/r/cybersecurity/comments/1rbbozd/we_analyzed_11356_npm_packages_cvebased_scanners/
+rules:
+    - title: Detect npm Install Hooks Invoking Shell Commands with Obfuscation
+      description: Detects npm packages using install hooks to execute shell commands combined with obfuscation techniques, potentially indicating malicious behavior.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection_npm and selection_shell and selection_obfuscation
+        selection_npm:
+            CommandLine|contains: npm install
+            Image|endswith: /node
+        selection_obfuscation:
+            CommandLine|contains:
+                - base64
+                - eval
+                - exec
+        selection_shell:
+            CommandLine|contains:
+                - bash
+                - sh
+                - python
+      level: high
+      tags:
+        - attack.execution
+        - attack.t1059.004
+      tests:
+        positive:
+            - name: npm install with obfuscated shell command
+              data:
+                - CommandLine: npm install malicious-package && bash -c 'eval $(echo dXNlci9iaW4vYmFzaCAgIC1jICAnbm9kZSAgLWUgc3VzcGljaG91c2NvZGUuanMn | base64 -d)'
+                  Image: /usr/bin/node
+        negative:
+            - name: Legitimate npm install
+              data:
+                - CommandLine: npm install lodash
+                  Image: /usr/bin/node
+    - title: Detect Outbound Network Connections from Suspicious npm Packages
+      description: Detects network connections initiated from unusual locations after an npm install, indicating potential data exfiltration.
+      logsource:
+        category: network_connection
+        product: linux
+      detection:
+        condition: selection_npm and selection_network
+        selection_network:
+            DestinationPort: 80
+        selection_npm:
+            Image|endswith: /node
+            ParentImage|contains: /tmp/npm-
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Outbound connection after npm install
+              data:
+                - DestinationIp: 1.2.3.4
+                  DestinationPort: 80
+                  Image: /usr/bin/node
+                  ParentImage: /tmp/npm-12345/package/index.js
+        negative:
+            - name: Outbound connection from legitimate node process
+              data:
+                - DestinationIp: 8.8.8.8
+                  DestinationPort: 53
+                  Image: /usr/bin/node
+                  ParentImage: /opt/app/server.js
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1195
+      technique_name: Supply Chain Compromise
+      subtechnique_id: T1195.002
+      subtechnique_name: Compromise Software Supply Chain
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.004
+      technique_name: 'Command and Scripting Interpreter: Unix Shell'
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1041
+      technique_name: Exfiltration Over C2 Channel
