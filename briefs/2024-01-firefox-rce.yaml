@@ -1,0 +1,120 @@
+id: brief-2024-01-31-firefox-rce
+slug: 2024-01-firefox-rce
+title: Firefox Remote Code Execution via Typo
+summary: A single typo in Firefox's code led to a remote code execution vulnerability, potentially allowing attackers to execute arbitrary code on a victim's machine.
+severity: critical
+published_at: "2026-02-22T11:19:49Z"
+content: |
+    ## Overview
+
+    A vulnerability in Firefox was discovered due to a typographical error in the codebase. While the specifics of the typo and the vulnerable code are not detailed in the provided context, the root cause being a simple typo highlights the potential for significant security flaws arising from seemingly minor errors. The impact of this RCE vulnerability is severe, as it could allow attackers to gain control of affected systems by executing malicious code remotely. The affected Firefox version and specific code location are not specified, limiting detailed analysis and remediation steps. This vulnerability serves as a reminder of the need for rigorous code review and testing procedures to identify and address potential vulnerabilities before they can be exploited.
+
+    ## Attack Chain
+
+    1.  The attacker identifies the specific code location with the typographical error that leads to the RCE. (Technique: Vulnerability Research)
+    2.  The attacker crafts a malicious web page or injects malicious code into a legitimate website. (Technique: Drive-by Compromise)
+    3.  A user visits the malicious or compromised website using a vulnerable version of Firefox. (Technique: User Interaction)
+    4.  The crafted malicious code triggers the vulnerability in Firefox, exploiting the typographical error. (Technique: Exploit Public-Facing Application)
+    5.  The vulnerability allows the attacker to execute arbitrary code within the context of the Firefox process. (Technique: Code Injection)
+    6.  The attacker leverages the initial code execution to escalate privileges or gain further access to the system. (Technique: Privilege Escalation)
+    7.  The attacker installs malware, such as a backdoor or ransomware, on the compromised system. (Technique: Malware Installation)
+    8.  The attacker achieves their final objective, such as data exfiltration, system disruption, or financial gain. (Technique: Impact)
+
+    ## Impact
+
+    Successful exploitation of this RCE vulnerability could allow an attacker to execute arbitrary code on a victim's machine. This could lead to data theft, malware installation, complete system compromise, and potential lateral movement within a network. The number of potential victims depends on the prevalence of the vulnerable Firefox version. Sectors particularly at risk include those relying heavily on web applications and browsing, such as financial institutions, healthcare providers, and government agencies.
+tags:
+    - firefox
+    - rce
+    - vulnerability
+references:
+    - https://www.reddit.com/r/netsec/comments/1rbjdso/how_a_single_typo_led_to_rce_in_firefox/
+    - https://kqx.io/post/firefox0day/
+rules:
+    - title: Detect Firefox Process Launching Suspicious Child Process
+      description: Detects when Firefox spawns a child process that is typically associated with malicious activity, indicating potential exploitation.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter and suspicious_process
+        filter:
+            Image|endswith:
+                - firefox.exe
+                - chrome.exe
+        selection:
+            ParentImage|endswith: firefox.exe
+        suspicious_process:
+            Image|endswith:
+                - cmd.exe
+                - powershell.exe
+                - wscript.exe
+                - cscript.exe
+      level: high
+      tags:
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: Firefox spawning cmd.exe
+              data:
+                - CommandLine: cmd.exe /c whoami
+                  Image: C:\Windows\System32\cmd.exe
+                  ParentImage: C:\Program Files\Mozilla Firefox\firefox.exe
+        negative:
+            - name: Firefox spawning a helper process
+              data:
+                - CommandLine: plugin-container.exe -greomni ...
+                  Image: C:\Program Files\Mozilla Firefox\plugin-container.exe
+                  ParentImage: C:\Program Files\Mozilla Firefox\firefox.exe
+    - title: Detect Network Connections from Unusual Firefox Executables
+      description: Detects network connections initiated by Firefox executables located in unusual directories, which may indicate a compromised Firefox installation.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection and not location_filter
+        location_filter:
+            Image|startswith:
+                - C:\Program Files\Mozilla Firefox\
+                - C:\Program Files (x86)\Mozilla Firefox\
+        selection:
+            Image|endswith: firefox.exe
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Firefox connecting from a temp directory
+              data:
+                - DestinationIp: 8.8.8.8
+                  DestinationPort: "53"
+                  Image: C:\Users\Public\Temp\firefox.exe
+        negative:
+            - name: Firefox connecting from a standard installation path
+              data:
+                - DestinationIp: 1.1.1.1
+                  DestinationPort: "443"
+                  Image: C:\Program Files\Mozilla Firefox\firefox.exe
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1189
+      technique_name: Drive-by Compromise
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.001
+      technique_name: 'Command and Scripting Interpreter: PowerShell'
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071.001
+      technique_name: 'Application Layer Protocol: Web Protocols'
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1499.004
+      technique_name: 'Endpoint Denial of Service: Application Exhaustion'
