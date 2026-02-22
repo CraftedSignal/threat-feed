@@ -1,0 +1,97 @@
+id: brief-2026-02-23-llm-fortigate
+slug: 2026-02-llm-fortigate
+title: LLMs Used in Custom MCP Targeting FortiGate Devices
+summary: A custom malicious code platform (MCP) leverages large language models (LLMs) to target FortiGate devices across multiple continents.
+severity: high
+published_at: "2026-02-23T12:00:00Z"
+content: |
+    ## Overview
+
+    A recent report highlights the use of large language models (LLMs) in a custom malicious code platform (MCP) designed to target FortiGate devices. This campaign, observed starting in late January 2026, uses sophisticated methods to identify and exploit vulnerabilities in FortiGate firewalls across several continents. The attackers are leveraging LLMs to dynamically adapt their exploits and evade detection, indicating a significant shift in the sophistication of network-based attacks. This adaptive capability allows for targeted exploitation, increasing the likelihood of successful breaches and potentially expanding the attack surface. Defenders must be aware of this emerging threat vector and implement proactive defenses.
+
+    ## Attack Chain
+
+    1. **Reconnaissance:** The attacker identifies vulnerable FortiGate devices through internet-wide scans, likely using Shodan or similar tools, focusing on specific firmware versions.
+    2. **Vulnerability Exploitation:** The attacker exploits known vulnerabilities in FortiGate devices, potentially including CVE-2023-27997 or similar remote code execution flaws.
+    3. **MCP Deployment:** Upon successful exploitation, the attacker deploys a custom malicious code platform (MCP) onto the compromised FortiGate device.
+    4. **LLM Integration:** The MCP leverages embedded LLMs to analyze the compromised system's configuration and network environment.
+    5. **Dynamic Payload Generation:** Based on the LLM analysis, the MCP dynamically generates payloads tailored to the specific FortiGate instance, optimizing for evasion and effectiveness.
+    6. **Lateral Movement:** The attacker uses the compromised FortiGate device as a pivot point to move laterally within the network, targeting internal systems and resources.
+    7. **Data Exfiltration:** The attacker exfiltrates sensitive data from the compromised network, potentially using encrypted channels to avoid detection.
+    8. **Persistence:** The attacker establishes persistent access to the compromised network, ensuring continued access even after the initial vulnerability is patched.
+
+    ## Impact
+
+    Successful exploitation of FortiGate devices can lead to significant data breaches, disruption of network services, and financial losses. Given the widespread use of FortiGate firewalls, this campaign has the potential to impact numerous organizations across various sectors. The use of LLMs in the attack chain makes detection and mitigation more challenging, as the attacker can dynamically adapt their tactics to evade security measures. A successful attack can result in the compromise of sensitive data, including customer information, financial records, and intellectual property.
+tags:
+    - fortigate
+    - llm
+    - exploit
+    - mcp
+references:
+    - https://cyberandramen.net/2026/02/21/llms-in-the-kill-chain-inside-a-custom-mcp-targeting-fortigate-devices-across-continents/
+rules:
+    - title: Detect FortiGate Exploitation Attempt via User-Agent
+      description: Detects suspicious HTTP requests with a User-Agent indicative of FortiGate exploitation attempts.
+      logsource:
+        category: network_connection
+        product: fortigate
+      detection:
+        condition: selection
+        selection:
+            http.user_agent|contains: attack-string
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: Exploitation attempt with known attack string in user-agent
+              data:
+                - http.user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36 attack-string
+        negative:
+            - name: Legitimate browser traffic
+              data:
+                - http.user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36
+    - title: Detect Outbound Connection from FortiGate to Unusual Ports
+      description: Detects outbound connections from FortiGate devices to unusual ports, potentially indicating command and control activity.
+      logsource:
+        category: network_connection
+        product: fortigate
+      detection:
+        condition: selection
+        selection:
+            dst_port|gte: 49152
+            src_ip: fortigate_ip
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Outbound connection to high port
+              data:
+                - dst_port: 50000
+                  src_ip: 192.168.1.1
+        negative:
+            - name: Outbound connection to standard HTTP port
+              data:
+                - dst_port: 80
+                  src_ip: 192.168.1.1
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1003
+      technique_name: OS Credential Dumping
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1041
+      technique_name: Exfiltration Over C2 Channel
