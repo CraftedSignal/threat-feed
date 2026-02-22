@@ -1,0 +1,93 @@
+id: brief-2026-02-23-calendar-phishing
+slug: 2026-02-calendar-phishing
+title: Emergence of Calendar Phishing Attacks
+summary: Attackers are increasingly leveraging calendar invitations to deliver phishing links and malicious content, bypassing traditional email security filters.
+severity: medium
+published_at: "2026-02-23T10:00:00Z"
+content: |
+    ## Overview
+
+    Calendar phishing is an emerging threat where attackers send malicious links and phishing attempts via calendar invitations. This method leverages the fact that calendar applications often automatically add invitations to users' calendars and provide prominent notifications, bypassing typical email security measures. The rise in calendar phishing can be attributed to the increasing sophistication of attackers seeking alternative delivery methods, exploiting user trust in calendar applications, and limitations in current security solutions to adequately scan and filter calendar invites. This technique has gained traction in early 2026 as attackers look to circumvent increasingly robust email security filters.
+
+    ## Attack Chain
+
+    1.  The attacker crafts a calendar invitation containing a malicious link or text designed to lure the recipient.
+    2.  The invitation is sent to the target's email address, which is automatically processed by their calendar application (e.g., Google Calendar, Outlook Calendar).
+    3.  The calendar application automatically adds the event to the user's calendar, often triggering a notification.
+    4.  The user sees the notification or views the event in their calendar, encountering the malicious link or message.
+    5.  The user clicks on the link, leading them to a phishing website designed to steal credentials or install malware.
+    6.  The user enters their credentials on the phishing site, unknowingly providing them to the attacker.
+    7.  Alternatively, the user may be prompted to download a malicious file disguised as a calendar attachment or document.
+    8.  The attacker gains access to the user's account or system, enabling further malicious activities like data theft or lateral movement.
+
+    ## Impact
+
+    Successful calendar phishing attacks can result in credential compromise, malware infection, and data breaches. Organizations are vulnerable due to the widespread use of calendar applications and the inherent trust users place in these platforms. The impact can range from individual account takeovers to broader network compromise, potentially affecting thousands of users within an organization. Sectors heavily reliant on scheduling and communication, such as professional services, healthcare, and education, are particularly at risk.
+tags:
+    - calendar-phishing
+    - phishing
+    - social-engineering
+references:
+    - https://cofense.com/blog/invitation-to-trouble-the-rise-of-calendar-phishing-attacks
+    - https://www.reddit.com/r/blueteamsec/comments/1rbfmus/invitation_to_trouble_the_rise_of_calendar/
+rules:
+    - title: Detect Calendar Invitations with Suspicious URLs
+      description: Detects calendar invites containing URLs to known malicious domains or newly registered domains.
+      logsource:
+        category: email
+        product: google_workspace
+      detection:
+        condition: selection
+        selection:
+            body|contains: .ru
+            subject|contains: Invitation
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1566.002
+      tests:
+        positive:
+            - name: Calendar invite with a .ru domain
+              data:
+                - body: 'Join the meeting: hxxps://evil.ru/meeting'
+                  subject: 'Invitation: Meeting with potential client'
+        negative:
+            - name: Legitimate calendar invite
+              data:
+                - body: 'Join the meeting: hxxps://company.com/meeting'
+                  subject: 'Invitation: Team meeting'
+    - title: Detect Calendar Invite Modification with Suspicious Content
+      description: Detects modification of calendar invites with links to credential harvesting sites.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            file_change_type: modified
+            file_content|contains: hxxp://login.
+            file_path|contains: .ics
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1566.002
+      tests:
+        positive:
+            - name: ICS file modified with credential harvesting link
+              data:
+                - file_change_type: modified
+                  file_content: URL:hxxp://login.microsoft.example.com/owa/auth/logon.aspx?replace=suspicious
+                  file_path: C:\Users\user\Downloads\meeting.ics
+        negative:
+            - name: ICS file created with normal URL
+              data:
+                - file_change_type: created
+                  file_content: URL:hxxps://company.com/meeting
+                  file_path: C:\Users\user\Downloads\meeting.ics
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1566
+      technique_name: Phishing
+      subtechnique_id: T1566.002
+      subtechnique_name: Spearphishing Link
