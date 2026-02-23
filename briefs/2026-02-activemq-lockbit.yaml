@@ -1,0 +1,110 @@
+id: brief-2026-02-24-activemq-lockbit
+slug: 2026-02-activemq-lockbit
+title: LockBit Ransomware Exploiting Apache ActiveMQ Vulnerability
+summary: LockBit ransomware is being deployed following exploitation of an Apache ActiveMQ vulnerability.
+severity: critical
+threat_actor: LockBit
+published_at: "2026-02-24T12:00:00Z"
+content: |
+    ## Overview
+
+    A recent report indicates that the LockBit ransomware group is actively exploiting a vulnerability in Apache ActiveMQ. While specific details about the vulnerability and exploitation method are not provided in this summary, the report highlights a direct link between the ActiveMQ exploit and subsequent LockBit ransomware deployment. This suggests a potential remote code execution vulnerability is being leveraged for initial access and privilege escalation, ultimately leading to the encryption of systems and data exfiltration. Defenders should prioritize patching ActiveMQ instances and monitoring for suspicious activity indicative of ransomware deployment.
+
+    ## Attack Chain
+
+    1.  Initial Access: An attacker exploits an unpatched vulnerability in Apache ActiveMQ to gain unauthorized access to the system. This likely involves sending a malicious payload to a vulnerable endpoint.
+    2.  Code Execution: The attacker successfully executes arbitrary code on the ActiveMQ server, potentially leveraging a deserialization vulnerability or similar flaw.
+    3.  Privilege Escalation: The attacker escalates privileges to gain SYSTEM or root access, allowing them to perform administrative tasks.
+    4.  Persistence: The attacker establishes persistence on the compromised system to ensure continued access, potentially through creating new user accounts or modifying system services.
+    5.  Lateral Movement: The attacker moves laterally within the network, using the compromised ActiveMQ server as a pivot point to access other systems and resources.
+    6.  Credential Access: The attacker attempts to harvest credentials from the compromised systems, potentially using tools like Mimikatz or similar credential dumping utilities.
+    7.  Data Exfiltration: The attacker exfiltrates sensitive data from the compromised network to a remote server under their control.
+    8.  Ransomware Deployment: The attacker deploys the LockBit ransomware across the network, encrypting files and demanding a ransom payment for their decryption.
+
+    ## Impact
+
+    Successful exploitation of Apache ActiveMQ leads to widespread LockBit ransomware deployment, resulting in significant disruption of business operations, data loss, and financial costs associated with incident response and recovery. Affected organizations may experience complete system downtime, reputational damage, and potential legal liabilities. The number of victims and specific sectors targeted are currently unknown but could span various industries relying on ActiveMQ for messaging services.
+tags:
+    - ransomware
+    - lockbit
+    - activemq
+references:
+    - https://thedfirreport.com/2026/02/23/apache-activemq-exploit-leads-to-lockbit-ransomware/
+rules:
+    - title: Detect Suspicious Process Launching from ActiveMQ Directory
+      description: Detects processes spawned from the ActiveMQ installation directory, which could indicate exploitation or malicious activity.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|endswith:
+                - java.exe
+                - ActiveMQ.exe
+        selection:
+            ParentImage|contains: Apache\ActiveMQ
+      level: high
+      tags:
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: Suspicious process spawned from ActiveMQ directory
+              data:
+                - CommandLine: cmd.exe /c whoami
+                  Image: C:\Windows\System32\cmd.exe
+                  ParentImage: C:\Program Files\Apache\ActiveMQ\bin\ActiveMQ.exe
+        negative:
+            - name: Legitimate ActiveMQ process
+              data:
+                - CommandLine: java.exe -jar ...
+                  Image: C:\Program Files\Apache\ActiveMQ\bin\java.exe
+                  ParentImage: C:\Program Files\Apache\ActiveMQ\bin\ActiveMQ.exe
+    - title: Detect Creation of Suspicious Files in ActiveMQ Directory
+      description: Detects the creation of suspicious files, such as executables or scripts, within the ActiveMQ installation directory.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            EventType: create
+            TargetFilename|contains: Apache\ActiveMQ
+            TargetFilename|endswith:
+                - .exe
+                - .dll
+                - .ps1
+                - .bat
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1547.001
+      tests:
+        positive:
+            - name: Malicious executable created in ActiveMQ directory
+              data:
+                - EventType: create
+                  TargetFilename: C:\Program Files\Apache\ActiveMQ\bin\evil.exe
+        negative:
+            - name: Legitimate log file creation
+              data:
+                - EventType: create
+                  TargetFilename: C:\Program Files\Apache\ActiveMQ\data\activemq.log
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1018
+      technique_name: Remote System Discovery
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1486
+      technique_name: Data Encrypted for Impact
