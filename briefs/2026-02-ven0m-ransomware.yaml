@@ -1,0 +1,105 @@
+id: brief-2026-02-24-ven0m-ransomware
+slug: 2026-02-ven0m-ransomware
+title: VEN0m Ransomware Employing Driver-Based EDR Evasion
+summary: VEN0m ransomware uses a vulnerable kernel driver to corrupt AV/EDR files on disk to evade detection before deploying the ransomware.
+severity: high
+threat_actor: 'Suspicious-Angel666 (GitHub: xM0kht4r)'
+published_at: "2026-02-24T12:00:00Z"
+content: |
+    ## Overview
+
+    VEN0m ransomware, released by xM0kht4r on GitHub, employs a unique EDR evasion technique by corrupting AV/EDR files on disk. This approach circumvents traditional methods that target running processes or memory patching, which can be more easily detected. The ransomware installs a vulnerable kernel driver with disk wiping capabilities to corrupt the files associated with security products, effectively disabling them before the ransomware payload is executed. The released project on GitHub (VEN0m-Ransomware) includes features like UAC bypass, driver extraction and loading, persistence mechanisms, file enumeration with filtered extensions, double extortion via file encryption and exfiltration using Telegram, ransom note creation (GUI and wallpaper change), and a decryption tool. This highlights the actor's intent to create a fully functional ransomware with built-in evasion and recovery capabilities.
+
+    ## Attack Chain
+
+    1. **Initial Access:** User executes the VEN0m ransomware binary.
+    2. **UAC Bypass:** The ransomware bypasses User Account Control (UAC) to gain elevated privileges.
+    3. **Driver Extraction:** The ransomware extracts a vulnerable kernel driver from its resources.
+    4. **Driver Loading:** The extracted driver is loaded into the system kernel.
+    5. **File Corruption:** The driver is used to corrupt files associated with AV/EDR solutions on disk.
+    6. **Persistence:** The ransomware establishes persistence on the system for future execution.
+    7. **File Encryption:** The ransomware enumerates files based on filtered extensions and encrypts them.
+    8. **Data Exfiltration:** Encrypted files are exfiltrated via Telegram for double extortion.
+    9. **Ransom Note:** A ransom note is displayed to the user with instructions for payment.
+
+    ## Impact
+
+    Successful execution of VEN0m ransomware leads to data encryption, potential data exfiltration, and system disruption. The use of driver-based corruption can render endpoint detection and response (EDR) and antivirus (AV) solutions ineffective, allowing the ransomware to operate unimpeded. The threat actor aims for financial gain through ransom demands, employing double extortion tactics by exfiltrating data. The number of potential victims is broad, with no specific sectors targeted, but any organization relying on standard AV/EDR solutions is at risk.
+tags:
+    - ransomware
+    - edr-evasion
+    - kernel-driver
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rcits3/a_different_taste_of_edr_evasion/
+    - https://github.com/xM0kht4r/VEN0m-Ransomware
+rules:
+    - title: Detect Driver Load from Suspicious Process
+      description: Detects the loading of a driver by a suspicious process, which could indicate a ransomware attempting to install a vulnerable driver.
+      logsource:
+        category: image_load
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|startswith:
+                - C:\Windows\System32\
+                - C:\Program Files\
+        selection:
+            ImageLoaded|endswith: .sys
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: Driver loaded by a non-system process
+              data:
+                - Image: C:\Users\Public\malicious.exe
+                  ImageLoaded: C:\Windows\System32\drivers\evil.sys
+        negative:
+            - name: Legitimate system driver load
+              data:
+                - Image: C:\Windows\System32\services.exe
+                  ImageLoaded: C:\Windows\System32\drivers\tcpip.sys
+    - title: Detect Telegram CLI Usage for Data Exfiltration
+      description: Detects command-line usage of Telegram, which could indicate data exfiltration activities.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        selection:
+            CommandLine|contains: telegram-cli
+      level: medium
+      tags:
+        - attack.exfiltration
+        - attack.t1020
+      tests:
+        positive:
+            - name: Telegram CLI used with arguments
+              data:
+                - CommandLine: telegram-cli -k pubkey -W
+                  Image: C:\Users\Public\malicious.exe
+        negative:
+            - name: Legitimate use of another command-line tool
+              data:
+                - CommandLine: ping 127.0.0.1
+                  Image: C:\Windows\System32\cmd.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.001
+      subtechnique_name: Disable or Modify Tools
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1486
+      technique_name: Data Encrypted for Impact
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1020
+      technique_name: Automated Exfiltration
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
