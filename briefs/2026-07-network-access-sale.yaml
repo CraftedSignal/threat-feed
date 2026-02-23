@@ -1,0 +1,113 @@
+id: brief-2026-07-03-network-access-sale
+slug: 2026-07-network-access-sale
+title: Romanian National Pleads Guilty to Selling Network Access
+summary: A Romanian national pleaded guilty to selling unauthorized access to the networks of an Oregon state government office and other U.S. victims, potentially leading to data breaches or further malicious activity.
+severity: high
+published_at: "2026-02-23T05:36:31Z"
+content: |
+    ## Overview
+
+    A Romanian national has pleaded guilty to charges related to the unauthorized sale of network access credentials. The individual gained access to multiple networks, including that of an Oregon state government office, and then sold this access to other parties. The specific methods used to initially compromise these networks remain undisclosed in the provided source, but the impact of such activity could be significant, potentially enabling data theft, ransomware deployment, or espionage. This activity highlights the ongoing threat posed by individuals who specialize in breaching networks and then monetizing that access.
+
+    ## Attack Chain
+
+    1. Initial Compromise: The attacker gains initial access to the victim network through an undisclosed method.
+    2. Credential Harvesting: The attacker uses tools to harvest credentials from the compromised system.
+    3. Lateral Movement: The attacker moves laterally within the network using the stolen credentials.
+    4. Privilege Escalation: The attacker escalates privileges to gain administrative access.
+    5. Network Mapping: The attacker maps the network to identify valuable assets.
+    6. Access Sale: The attacker packages and sells the network access on underground forums.
+    7. Secondary Exploitation: The buyer utilizes the purchased access for malicious activities.
+    8. Impact: Potential data breach, ransomware deployment, or espionage.
+
+    ## Impact
+
+    The sale of network access can have significant consequences for victim organizations. A successful attack stemming from purchased access could lead to the compromise of sensitive data, including personal information, financial records, and intellectual property. This can result in financial losses, reputational damage, and legal liabilities. The Oregon state government office and other U.S. victims face potential data breaches and system compromise.
+tags:
+    - network-access
+    - credential-theft
+    - initial-access
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rc92ho/romanian_national_pleads_guilty_to_selling_access/
+    - https://www.justice.gov/opa/pr/romanian-national-pleads-guilty-selling-access-networks-oregon-state-government-office-and
+rules:
+    - title: Detect Suspicious Process Launching Network Connections
+      description: Detects unusual processes initiating network connections, which may indicate compromised systems or lateral movement after the sale of network access.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Image|startswith:
+                - C:\Windows\System32
+                - C:\Program Files
+        selection:
+            Initiated: "true"
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Uncommon process connecting outbound
+              data:
+                - DestinationIp: 1.2.3.4
+                  Image: C:\Users\Public\suspicious.exe
+                  Initiated: "true"
+        negative:
+            - name: Browser connecting outbound
+              data:
+                - DestinationIp: 8.8.8.8
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+                  Initiated: "true"
+    - title: Detect Suspicious Registry Modifications in Run Keys
+      description: Detects modifications to the Run keys in the registry, which is a common persistence mechanism used by attackers after gaining access to a system.
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            Details|contains:
+                - C:\Windows\System32\SecurityHealthSystray.exe
+        selection:
+            TargetObject|contains: \CurrentVersion\Run
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1547.001
+      tests:
+        positive:
+            - name: Registry Run key set with suspicious executable
+              data:
+                - Details: C:\Users\Public\suspicious.exe
+                  TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Malicious
+        negative:
+            - name: Legitimate SecurityHealthSystray Run key entry
+              data:
+                - Details: C:\Windows\System32\SecurityHealthSystray.exe
+                  TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\SecurityHealth
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public Fasing Application
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1003
+      technique_name: OS Credential Dumping
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1016
+      technique_name: System Network Configuration Discovery
+    - tactic_id: TA0009
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
+      subtechnique_id: T1547.001
+      subtechnique_name: Registry Run Keys / Startup Folder
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1486
+      technique_name: Data Encrypted for Impact
