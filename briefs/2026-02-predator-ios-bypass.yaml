@@ -1,0 +1,94 @@
+id: brief-2026-02-24-predator-ios-bypass
+slug: 2026-02-predator-ios-bypass
+title: Predator Spyware Bypasses iOS Recording Indicators
+summary: Predator spyware is capable of bypassing iOS recording indicators, allowing it to secretly record audio and video without alerting the user.
+severity: critical
+published_at: "2026-02-24T00:00:00Z"
+content: |
+    ## Overview
+
+    A recent analysis reveals that Predator spyware has the ability to bypass iOS recording indicators. This allows the spyware to secretly record audio and video without the user's knowledge or consent, even when the operating system's built-in privacy features are enabled. The specifics of the campaign, including initial infection vectors and targeted victims, remain unclear. However, the sophistication of the bypass suggests a highly skilled and well-resourced actor. This capability poses a significant threat to individuals and organizations that rely on iOS devices for secure communication and data storage.
+
+    ## Attack Chain
+
+    1.  The user's iOS device is compromised via an unknown initial access vector.
+    2.  Predator spyware is installed on the device, potentially leveraging an exploit or vulnerability.
+    3.  The spyware hooks into system frameworks responsible for managing recording indicators.
+    4.  It identifies active audio or video recording sessions initiated by the spyware itself.
+    5.  The spyware suppresses the display of the recording indicator in the iOS user interface.
+    6.  Audio and video data is recorded and stored locally or transmitted to a remote server.
+    7.  The spyware maintains persistence on the device to continue monitoring and recording activities.
+
+    ## Impact
+
+    Successful exploitation allows attackers to surreptitiously monitor victims through their iOS devices' microphones and cameras. The Predator spyware's ability to bypass iOS recording indicators allows for covert surveillance, enabling threat actors to gather sensitive information, intellectual property, and personal data without the user's knowledge. This could lead to financial losses, reputational damage, or compromise of national security interests.
+tags:
+    - spyware
+    - ios
+    - privacy-bypass
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rc93mg/how_predator_spyware_defeats_ios_recording/
+    - https://www.jamf.com/blog/predator-spyware-ios-recording-indicator-bypass-analysis/
+rules:
+    - title: Detect Suspicious Process Accessing Camera or Microphone
+      description: Detects processes not normally associated with camera or microphone access.
+      logsource:
+        category: process_creation
+        product: macos
+      detection:
+        filter:
+            Image|startswith:
+                - /Applications/FaceTime.app/
+                - /Applications/Photo Booth.app/
+        selection:
+            CommandLine|contains:
+                - AVCaptureDevice
+                - AVAudioRecorder
+            Image|endswith: /executable
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: Suspicious executable accessing camera
+              data:
+                - CommandLine: /tmp/suspicious_app/executable -useCamera
+                  Image: /tmp/suspicious_app/executable
+        negative:
+            - name: FaceTime using camera
+              data:
+                - CommandLine: /Applications/FaceTime.app/Contents/MacOS/FaceTime
+                  Image: /Applications/FaceTime.app/Contents/MacOS/FaceTime
+    - title: Detect Modified System Libraries Related to AVFoundation
+      description: Detects modification of system libraries potentially related to AVFoundation framework used for media capture.
+      logsource:
+        category: file_event
+        product: macos
+      detection:
+        condition: selection
+        selection:
+            EventType: modified
+            TargetFilename|contains: /System/Library/Frameworks/AVFoundation.framework/
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: Modified AVFoundation library
+              data:
+                - EventType: modified
+                  TargetFilename: /System/Library/Frameworks/AVFoundation.framework/AVCaptureDevice.dylib
+        negative:
+            - name: Legitimate access to AVFoundation
+              data:
+                - EventType: access
+                  TargetFilename: /System/Library/Frameworks/AVFoundation.framework/AVCaptureDevice.dylib
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.001
+      subtechnique_name: Disable or Modify Tools
