@@ -1,0 +1,92 @@
+id: brief-2024-01-22-new-suricata-alert
+slug: 2024-01-22-new-suricata-alert
+title: Newly Observed Suricata Alert
+summary: This brief covers the deployment of a new Suricata rule, focusing on detecting potentially malicious network activity as identified by the Elastic detection-rules repository, emphasizing the importance of up-to-date threat detection capabilities.
+severity: medium
+published_at: "2024-01-22T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief is based on the observation of a new Suricata alert rule being added to the Elastic detection-rules repository. While the specific details of the alert are not present in the provided content, the update signifies the ongoing efforts to enhance network security monitoring through the incorporation of new threat intelligence. Defenders should prioritize incorporating these updates into their security infrastructure to maintain effective detection capabilities. Keeping Suricata rulesets current is crucial for identifying emerging threats and preventing potential breaches. The focus is on proactive threat detection by staying abreast of the latest rule updates.
+
+    ## Attack Chain
+
+    Due to the lack of specific attack details, a generic attack chain is presented to highlight the importance of network monitoring and detection capabilities that Suricata provides. This is based on the assumption the Suricata rule is designed to detect network-based threats.
+
+    1.  **Initial Access:** An attacker gains initial access to a network via phishing, exploitation of a vulnerability, or other means.
+    2.  **Command and Control:** The attacker establishes a command and control (C2) channel to communicate with compromised systems inside the network.
+    3.  **Lateral Movement:** Using techniques like pass-the-hash or exploiting trust relationships, the attacker moves laterally to other systems within the network.
+    4.  **Privilege Escalation:** The attacker escalates privileges to gain higher levels of access, often targeting domain administrator accounts.
+    5.  **Data Exfiltration:** Sensitive data is identified and prepared for exfiltration.
+    6.  **Exfiltration:** The attacker exfiltrates the data outside the network using protocols like FTP, HTTP, or DNS.
+    7.  **Impact:** The attacker achieves their objective, such as data theft, system disruption, or financial gain.
+
+    ## Impact
+
+    The impact of not having up-to-date Suricata rules can be significant. Organizations may miss critical alerts related to emerging threats, leading to potential data breaches, system compromise, and financial losses. The absence of specific details makes it impossible to quantify the exact number of victims or sectors targeted. However, the risk is universal, affecting any organization that relies on network security monitoring. The primary concern is the failure to detect and respond to malicious activity, resulting in potentially severe consequences.
+tags:
+    - suricata
+    - network-security
+    - threat-detection
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/newly_observed_suricata_alert.toml
+rules:
+    - title: Detect Outbound Connection to Newly Observed Domain
+      description: Detects outbound network connections to a newly observed domain, potentially indicating command and control activity or data exfiltration.
+      logsource:
+        category: network_connection
+        product: suricata
+      detection:
+        condition: selection
+        selection:
+            event_type: dns
+            query: '*'
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Connection to newly observed domain
+              data:
+                - event_type: dns
+                  query: newdomain.com
+        negative:
+            - name: Connection to known good domain
+              data:
+                - event_type: dns
+                  query: google.com
+    - title: Detect Suricata Alert - High Severity
+      description: This rule detects Suricata alerts with a high severity level, indicating a potentially critical security event.
+      logsource:
+        category: network_connection
+        product: suricata
+      detection:
+        condition: selection
+        selection:
+            alert.severity: high
+      level: high
+      tags:
+        - attack.detection_evasion
+      tests:
+        positive:
+            - name: High severity Suricata alert
+              data:
+                - alert.severity: high
+                  alert.signature: MALWARE-CNC Zeus botnet activity
+        negative:
+            - name: Low severity Suricata alert
+              data:
+                - alert.severity: low
+                  alert.signature: WEB-MISC Likely web application scan
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
+      subtechnique_id: T1071.001
+      subtechnique_name: Web Protocols
