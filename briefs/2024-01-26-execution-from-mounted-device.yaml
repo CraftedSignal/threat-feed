@@ -1,0 +1,167 @@
+id: brief-2024-01-26-execution-from-mounted-device
+slug: 2024-01-26-execution-from-mounted-device
+title: Suspicious Execution from Mounted Device
+summary: This rule detects potentially malicious execution of files from mounted devices, often used as a defense evasion tactic by attackers.
+severity: high
+published_at: "2024-01-26T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying suspicious processes being launched from mounted devices, such as USB drives or network shares. Attackers often utilize these locations to store and execute malware, as it can bypass certain security controls that primarily focus on local disk activity. This technique is used for defense evasion by blending malicious activities with legitimate usage patterns of removable media. Detecting execution from these locations can help uncover potential malware infections or unauthorized software deployments. This is particularly relevant in environments where users frequently use external storage devices or access network shares.
+
+    ## Attack Chain
+
+    1.  An attacker gains initial access (e.g., through social engineering) and drops a malicious executable onto a USB drive or network share.
+    2.  The user connects the USB drive or accesses the network share on their system.
+    3.  The attacker convinces the user (or automatically executes, if possible) the malicious executable from the mounted device (e.g., via autorun, shortcut file, or user interaction).
+    4.  The executable runs, bypassing standard file system monitoring that is focused on the main system drive.
+    5.  The malicious process establishes persistence on the system (e.g., through registry modification or scheduled tasks).
+    6.  The malware attempts to elevate privileges (e.g., through exploiting system vulnerabilities).
+    7.  The attacker performs lateral movement within the network, leveraging the compromised host as a pivot point.
+    8.  The attacker achieves their objective, such as data exfiltration or deploying ransomware.
+
+    ## Impact
+
+    Successful execution from mounted devices can lead to a complete system compromise, allowing attackers to install malware, steal sensitive data, or disrupt operations. The impact can range from individual workstation infections to widespread network breaches, depending on the attacker's objectives and the extent of lateral movement. The specific damage includes data loss, financial losses, reputational damage, and operational downtime.
+tags:
+    - defense-evasion
+    - execution
+    - mounted-device
+    - malware
+    - persistence
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_suspicious_execution_from_mounted_device.toml
+rules:
+    - title: Execution from Removable Media
+      description: Detects process execution directly from removable media.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|startswith:
+                - E:\
+                - F:\
+                - G:\
+                - H:\
+                - I:\
+                - J:\
+                - K:\
+                - L:\
+                - M:\
+                - N:\
+                - O:\
+                - P:\
+                - Q:\
+                - R:\
+                - S:\
+                - T:\
+                - U:\
+                - V:\
+                - W:\
+                - X:\
+                - Y:\
+                - Z:\
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.execution
+        - attack.t1027
+      tests:
+        positive:
+            - name: Executable running from USB drive
+              data:
+                - Image: E:\malware.exe
+                - CommandLine: E:\malware.exe
+                - ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: Executable running from local disk
+              data:
+                - Image: C:\Program Files\LegitApp\legit.exe
+                - CommandLine: C:\Program Files\LegitApp\legit.exe
+                - ParentImage: C:\Windows\explorer.exe
+    - title: Execution from Network Share
+      description: Detects process execution directly from a network share.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|startswith:
+                - \\Share\
+                - //Share/
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.execution
+        - attack.t1027
+      tests:
+        positive:
+            - name: Executable running from network share
+              data:
+                - Image: \\Share\malware.exe
+                - CommandLine: \\Share\malware.exe
+                - ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: Executable running from local disk
+              data:
+                - Image: C:\Program Files\LegitApp\legit.exe
+                - CommandLine: C:\Program Files\LegitApp\legit.exe
+                - ParentImage: C:\Windows\explorer.exe
+    - title: Suspicious File Creation on Mounted Device
+      description: Detects creation of executable files (e.g., .exe, .dll) on mounted devices, which can be indicative of malware being dropped onto removable media.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            TargetFilename|endswith:
+                - .exe
+                - .dll
+            TargetFilename|startswith:
+                - E:\
+                - F:\
+                - G:\
+                - H:\
+                - I:\
+                - J:\
+                - K:\
+                - L:\
+                - M:\
+                - N:\
+                - O:\
+                - P:\
+                - Q:\
+                - R:\
+                - S:\
+                - T:\
+                - U:\
+                - V:\
+                - W:\
+                - X:\
+                - Y:\
+                - Z:\
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.installation
+        - attack.t1027
+      tests:
+        positive:
+            - name: Executable file created on USB drive
+              data:
+                - TargetFilename: E:\malware.exe
+                - CreationUtcTime: "2024-01-26T11:00:00Z"
+        negative:
+            - name: Text file created on USB drive
+              data:
+                - TargetFilename: E:\document.txt
+                - CreationUtcTime: "2024-01-26T10:00:00Z"
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
