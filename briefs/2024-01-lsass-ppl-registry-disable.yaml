@@ -1,0 +1,101 @@
+id: brief-2024-01-03-lsass-ppl-registry-disable
+slug: 2024-01-lsass-ppl-registry-disable
+title: LSASS Protected Process Light (PPL) Disabled via Registry Modification
+summary: Attackers disable LSASS PPL protection by modifying the registry, allowing for credential dumping and further compromise.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    Attackers may attempt to disable the Protected Process Light (PPL) status of the Local Security Authority Subsystem Service (LSASS) process. This is typically achieved by modifying specific registry keys. LSASS PPL is a security mechanism designed to prevent unauthorized access to LSASS memory, making it more difficult to extract credentials. Disabling PPL weakens the system's security posture and simplifies credential dumping attacks. While the provided source material does not specify a particular threat actor or campaign, detecting these registry modifications is crucial for identifying potential credential harvesting attempts. This is a common post-exploitation technique used to gain further access within a compromised environment.
+
+    ## Attack Chain
+
+    1.  The attacker gains initial access to the system, likely through phishing, exploitation of a vulnerability, or compromised credentials (not explicitly described in source).
+    2.  The attacker elevates privileges to Administrator or SYSTEM, required for modifying the registry keys related to LSASS PPL.
+    3.  The attacker uses a tool such as `reg.exe` or PowerShell to modify the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\ProtectionMode`.
+    4.  The attacker sets the `ProtectionMode` value to 0, which disables PPL for LSASS.
+    5.  The attacker may reboot the system for the changes to take effect. Alternatively, they might attempt to restart the LSASS service, although this is more likely to cause system instability.
+    6.  The attacker utilizes credential dumping tools like `mimikatz` to extract plaintext passwords, NTLM hashes, and Kerberos tickets from the LSASS process memory.
+    7.  The attacker uses the acquired credentials to move laterally within the network, accessing other systems and resources.
+
+    ## Impact
+
+    Successful disabling of LSASS PPL and credential dumping can lead to widespread compromise of an organization's network. Attackers can obtain sensitive credentials, allowing them to move laterally, access critical systems, and potentially exfiltrate sensitive data. The lack of LSASS protection significantly increases the risk of successful credential theft and subsequent data breaches. This attack can impact any Windows environment where credential protection is a concern.
+tags:
+    - defense-evasion
+    - credential-access
+    - windows
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_lsass_ppl_disabled_registry.toml
+rules:
+    - title: LSASS PPL Disabled via Registry Modification
+      description: Detects attempts to disable LSASS PPL by modifying the ProtectionMode registry value.
+      logsource:
+        category: registry_set
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Details: "0x00000000"
+            TargetObject|contains: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\ProtectionMode
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.credential_access
+        - attack.t1562.001
+        - attack.t1003.001
+      tests:
+        positive:
+            - name: LSASS ProtectionMode set to 0
+              data:
+                - Details: "0x00000000"
+                  TargetObject: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\ProtectionMode
+        negative:
+            - name: LSASS ProtectionMode set to 1
+              data:
+                - Details: "0x00000001"
+                  TargetObject: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\ProtectionMode
+    - title: Process Modifying LSASS PPL Registry
+      description: Detects the process that is modifying LSASS ProtectionMode in the Registry.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and filter
+        filter:
+            Image|startswith:
+                - C:\Windows\System32\reg.exe
+                - C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        selection:
+            CommandLine|contains: ProtectionMode
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.credential_access
+        - attack.t1562.001
+        - attack.t1003.001
+      tests:
+        positive:
+            - name: LSASS ProtectionMode set to 0 with reg.exe
+              data:
+                - Image: C:\Windows\System32\reg.exe
+                - CommandLine: reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa /v ProtectionMode /t REG_DWORD /d 0 /f
+        negative:
+            - name: LSASS ProtectionMode set to 1 with reg.exe
+              data:
+                - Image: C:\Windows\System32\reg.exe
+                - CommandLine: reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa /v ProtectionMode /t REG_DWORD /d 1 /f
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.001
+      subtechnique_name: Disable or Modify Tools
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1003
+      technique_name: OS Credential Dumping
+      subtechnique_id: T1003.001
+      subtechnique_name: LSASS Memory
