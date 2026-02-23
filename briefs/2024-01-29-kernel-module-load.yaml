@@ -1,0 +1,93 @@
+id: brief-2024-01-29-kernel-module-load
+slug: 2024-01-29-kernel-module-load
+title: Suspicious Kernel Module Loading via insmod
+summary: Attackers may load malicious kernel modules using insmod to gain persistence and elevated privileges on Linux systems.
+severity: high
+published_at: "2024-01-29T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief covers the potential misuse of the `insmod` command on Linux systems to load malicious kernel modules. While the original source material provides only a title related to detection, we will extrapolate a potential attack scenario involving this technique. Attackers with root privileges can load custom-built or compromised kernel modules to achieve persistence, hide malicious activity, or directly manipulate system behavior. This is a privileged operation and requires root access or specific capabilities. The loading of unsigned or untrusted modules should be considered suspicious and investigated promptly. The `insmod` command does not perform dependency resolution, which can lead to system instability if used incorrectly. This technique is effective because kernel modules run with the highest privileges and can bypass many user-space security measures.
+
+    ## Attack Chain
+
+    1. **Initial Access:** The attacker gains initial root access through exploitation of a vulnerability, stolen credentials, or social engineering.
+    2. **Privilege Escalation (if needed):** If initial access is not root, the attacker attempts to escalate privileges using known exploits or misconfigurations.
+    3. **Module Transfer:** The attacker transfers a malicious kernel module (.ko file) to the target system. This could be done via `scp`, `wget`, or other file transfer mechanisms.
+    4. **Disable Security Measures (Optional):** The attacker may attempt to disable security features like Secure Boot or module signing verification to allow loading of unsigned modules.
+    5. **Module Loading:** The attacker uses the `insmod` command to load the malicious kernel module. For example: `insmod /tmp/evil.ko`.
+    6. **Persistence:** The attacker configures the system to automatically load the malicious module at boot time, typically by modifying init scripts or using systemd services.
+    7. **Malicious Activity:** The loaded kernel module performs its intended malicious actions, such as installing a rootkit, intercepting system calls, or exfiltrating data.
+    8. **Concealment:** The attacker attempts to hide the presence of the loaded module by removing traces from command history, logs, or modifying the output of `lsmod`.
+
+    ## Impact
+
+    Successful loading of a malicious kernel module can lead to complete system compromise. The attacker gains persistent, root-level access, enabling them to steal sensitive data, install backdoors, or disrupt system operations. The kernel module can bypass user-space security measures, making detection difficult. Organizations in any sector are vulnerable if their Linux systems are not properly secured and monitored. A compromised kernel can be extremely difficult to detect and remediate, often requiring a full system reinstall.
+tags:
+    - persistence
+    - privilege_escalation
+    - kernel_module
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_insmod_kernel_module_load.toml
+rules:
+    - title: Detect Kernel Module Loading via insmod
+      description: Detects the use of the `insmod` command to load kernel modules, which can be indicative of malicious activity.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: insmod
+      level: high
+      tags:
+        - attack.persistence
+        - attack.privilege_escalation
+        - attack.t1547.005
+      tests:
+        positive:
+            - name: insmod command execution
+              data:
+                - CommandLine: insmod /tmp/evil.ko
+                - Image: /usr/bin/insmod
+        negative:
+            - name: help option
+              data:
+                - CommandLine: insmod -h
+                - Image: /usr/bin/insmod
+    - title: Detect Kernel Module Loading from /tmp
+      description: Detects the loading of kernel modules from the /tmp directory, which is often used for temporary storage and can indicate suspicious activity.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: insmod /tmp/
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.privilege_escalation
+        - attack.t1547.005
+      tests:
+        positive:
+            - name: insmod loading from tmp
+              data:
+                - CommandLine: insmod /tmp/suspicious_module.ko
+                - Image: /usr/bin/insmod
+        negative:
+            - name: insmod loading from a standard modules path
+              data:
+                - CommandLine: insmod /lib/modules/5.15.0-91-generic/kernel/drivers/net/dummy.ko
+                - Image: /usr/bin/insmod
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
+      subtechnique_id: T1547.005
+      subtechnique_name: Kernel Modules
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
