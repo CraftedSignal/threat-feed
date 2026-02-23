@@ -1,0 +1,93 @@
+id: brief-2024-01-08-linux-bpf-persistence
+slug: 2024-01-linux-bpf-persistence
+title: Linux BPF Program or Map Load for Persistence
+summary: Attackers may abuse Linux BPF (Berkeley Packet Filter) programs or maps to achieve persistence on a compromised system by loading malicious code or data into the kernel.
+severity: high
+published_at: "2024-01-08T12:00:00Z"
+content: |
+    ## Overview
+
+    This brief addresses the potential abuse of Linux's Berkeley Packet Filter (BPF) functionality for persistence. BPF, a powerful in-kernel virtual machine, allows userspace programs to attach custom code to various kernel events. While legitimate uses include network monitoring and performance analysis, attackers can exploit BPF to load malicious programs or maps into the kernel, achieving persistence that is difficult to detect. This technique allows the execution of code at a low level within the operating system, bypassing traditional security measures. This technique is difficult to detect using conventional userland monitoring tools, making it an attractive option for advanced threat actors targeting Linux systems. This persistence mechanism could be implemented post-exploitation for privileged users.
+
+    ## Attack Chain
+
+    1. **Initial Access:** The attacker gains initial access to the target system via an exploit (e.g., vulnerability in a service or application).
+    2. **Privilege Escalation:** The attacker escalates privileges to root, potentially using kernel exploits or misconfigurations.
+    3. **BPF Program Creation:** The attacker crafts a malicious BPF program designed to execute arbitrary code or manipulate kernel data structures. This program can be written in C and compiled into BPF bytecode.
+    4. **BPF Map Creation:** The attacker creates a BPF map, which acts as a storage area within the kernel that can be used to store persistent data or configuration information for the BPF program.
+    5. **BPF Program Loading:** The attacker uses the `bpf()` system call (or a wrapper library) to load the malicious BPF program into the kernel.
+    6. **BPF Program Attachment:** The attacker attaches the BPF program to a specific kernel event (e.g., system call, network interface) using `bpf()` or related utilities. This ensures the program is executed when the event occurs.
+    7. **Persistence:** The BPF program and map remain loaded in the kernel across reboots (if properly configured, potentially through systemd services or init scripts that automatically load them).
+    8. **Execution and Impact:** The malicious BPF program executes its intended function (e.g., backdooring the system, exfiltrating data, or performing other malicious activities) whenever the attached kernel event occurs.
+
+    ## Impact
+
+    Successful exploitation via malicious BPF programs and maps enables attackers to maintain persistent, low-level control over compromised Linux systems. This can lead to data theft, system disruption, and the installation of backdoors that are difficult to detect with traditional security tools. The kernel-level nature of this attack makes it particularly dangerous, as it can bypass many userland security measures. The exact scope of impact depends on the attacker's objectives and the capabilities of the BPF program they deploy.
+tags:
+    - linux
+    - persistence
+    - bpf
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_bpf_program_or_map_load.toml
+rules:
+    - title: Detect BPF Program Load via bpf() syscall
+      description: Detects the use of the bpf() syscall to load a new BPF program, which could indicate malicious BPF-based persistence.
+      logsource:
+        category: syscall
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            bpf.cmd: BPF_PROG_LOAD
+            event.name: bpf
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1543.002
+      tests:
+        positive:
+            - name: BPF program load syscall
+              data:
+                - bpf.cmd: BPF_PROG_LOAD
+                  event.name: bpf
+                  process.name: malicious_program
+        negative:
+            - name: BPF map creation syscall
+              data:
+                - bpf.cmd: BPF_MAP_CREATE
+                  event.name: bpf
+                  process.name: legitimate_program
+    - title: Detect BPF Map Creation via bpf() syscall
+      description: Detects the creation of a BPF map, which can be used for persistence by storing data accessible to malicious BPF programs.
+      logsource:
+        category: syscall
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            bpf.cmd: BPF_MAP_CREATE
+            event.name: bpf
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1543.002
+      tests:
+        positive:
+            - name: BPF map creation syscall
+              data:
+                - bpf.cmd: BPF_MAP_CREATE
+                  event.name: bpf
+                  process.name: suspicious_program
+        negative:
+            - name: BPF program load syscall
+              data:
+                - bpf.cmd: BPF_PROG_LOAD
+                  event.name: bpf
+                  process.name: systemd
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1543
+      technique_name: Create or Modify System Process
+      subtechnique_id: T1543.002
+      subtechnique_name: Systemd Service
