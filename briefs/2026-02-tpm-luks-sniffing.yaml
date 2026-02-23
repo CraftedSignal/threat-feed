@@ -1,0 +1,87 @@
+id: brief-2026-02-24-tpm-luks-sniffing
+slug: 2026-02-tpm-luks-sniffing
+title: TPM Sniffing of LUKS Keys on Embedded Devices (CVE-2026-0714)
+summary: CVE-2026-0714 describes a vulnerability allowing an attacker to sniff LUKS encryption keys from the TPM of a compromised embedded device.
+severity: high
+published_at: "2026-02-24T12:00:00Z"
+content: |
+    ## Overview
+
+    A vulnerability, CVE-2026-0714, has been identified that enables an attacker to sniff LUKS (Linux Unified Key Setup) encryption keys directly from the Trusted Platform Module (TPM) of a compromised embedded device. The research, published by Cyloq, details the potential for an attacker with physical access to an embedded system to intercept the communication between the CPU and the TPM during the LUKS unlocking process. This vulnerability specifically targets the mechanism by which LUKS keys are handled within the TPM during system boot or disk decryption, allowing for unauthorized access to encrypted data. Successful exploitation grants the attacker complete access to the decrypted file system.
+
+    ## Attack Chain
+
+    1. **Physical Access:** The attacker gains physical access to the target embedded device.
+    2. **Hardware Interface Identification:** The attacker identifies the communication interface between the CPU and the TPM (e.g., LPC, SPI).
+    3. **Sniffing Setup:** The attacker connects a hardware sniffer to the identified interface to intercept data transmissions.
+    4. **Boot Process Monitoring:** The attacker monitors the data transmitted during the device's boot process, specifically focusing on the LUKS unlocking sequence.
+    5. **Key Capture:** The attacker captures the LUKS key as it's transmitted from the TPM to the CPU for disk decryption.
+    6. **Offline Decryption:** The attacker uses the captured LUKS key to decrypt the disk image offline.
+    7. **Data Exfiltration:** Once decrypted, the attacker can access sensitive data stored on the device and exfiltrate it.
+
+    ## Impact
+
+    Successful exploitation of CVE-2026-0714 allows an attacker to bypass LUKS encryption and gain unauthorized access to sensitive data stored on the compromised embedded device. This could result in complete data loss, intellectual property theft, or the compromise of sensitive operational data. The scope of impact is limited to embedded devices utilizing LUKS and TPM for disk encryption and requiring physical access.
+tags:
+    - tpm
+    - luks
+    - encryption
+    - embedded device
+    - cve-2026-0714
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rcshys/cve20260714_tpmsniffing_luks_keys_on_an_embedded/
+    - https://www.cyloq.se/en/research/cve-2026-0714-tpm-sniffing-luks-keys-on-an-embedded/
+rules:
+    - title: Detect Attempts to Access TPM Device Files
+      description: Detects processes attempting to directly access TPM device files, potentially indicating an attempt to interact with the TPM for malicious purposes.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            file.path|startswith: /dev/tpm
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.009
+      tests:
+        positive:
+            - name: Accessing TPM device file
+              data:
+                - file.path: /dev/tpm0
+                  process.name: suspicious_process
+        negative:
+            - name: Legitimate TPM access by systemd
+              data:
+                - file.path: /dev/tpm0
+                  process.name: systemd
+    - title: Detect Monitoring tools for LPC
+      description: Detects processes running that are known to sniff LPC (Low Pin Count) buses.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            process.name|contains: lpc
+      level: high
+      tags:
+        - attack.discovery
+        - attack.t1068
+      tests:
+        positive:
+            - name: LPC sniffer
+              data:
+                - process.command_line: ./lpc_sniffer -i lpc0
+                  process.name: lpc_sniffer
+        negative:
+            - name: normal shell
+              data:
+                - process.command_line: bash
+                  process.name: bash
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1548
+      technique_name: Abuse Elevation Control Mechanism
