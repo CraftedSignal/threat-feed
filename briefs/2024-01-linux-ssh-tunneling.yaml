@@ -1,0 +1,110 @@
+id: brief-2024-01-27-linux-ssh-tunneling
+slug: 2024-01-linux-ssh-tunneling
+title: Potential SSH Tunneling via SSH Options
+summary: Detection of SSH tunneling can indicate command and control activity.
+severity: medium
+published_at: "2024-01-27T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying potential command and control (C2) activity through the use of SSH tunneling on Linux systems. Attackers may use SSH tunneling to create covert communication channels, bypass firewalls, or forward traffic to internal resources. This is a common technique used to maintain persistent access to compromised systems or exfiltrate sensitive data. While SSH is a legitimate tool, its misuse for tunneling warrants close monitoring, as it can mask malicious traffic within normal network activity. This detection aims to identify suspicious usage patterns of SSH options indicative of tunneling attempts.
+
+    ## Attack Chain
+
+    1.  Attacker gains initial access to a Linux system through an exploit or compromised credentials (not covered by this detection).
+    2.  Attacker establishes an SSH connection to the compromised host.
+    3.  Attacker uses the `-L` option with SSH to create a local port forwarding tunnel. This allows the attacker to forward traffic from a local port on the compromised host to a remote host and port.
+    4.  Attacker uses the `-R` option with SSH to create a remote port forwarding tunnel. This allows the attacker to forward traffic from a remote port to a local port on the compromised host.
+    5.  Attacker uses the `-D` option with SSH to create a dynamic application-level port forwarding (SOCKS proxy).
+    6.  Attacker uses the created tunnel to communicate with a C2 server, potentially bypassing network security controls.
+    7.  Attacker uses the tunnel to exfiltrate sensitive data from the compromised host.
+    8. Attacker maintains persistent access by leaving the SSH tunnel active or establishing new tunnels as needed.
+
+    ## Impact
+
+    Successful SSH tunneling can allow attackers to establish persistent command and control over compromised systems. This can lead to data exfiltration, further exploitation of internal resources, and potentially a full compromise of the network. Depending on the compromised system's role, the impact can range from loss of sensitive data and intellectual property to disruption of critical services. This technique allows attackers to bypass traditional network security controls, making detection more challenging.
+tags:
+    - command-and-control
+    - ssh
+    - tunneling
+    - linux
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/command_and_control_linux_tunneling_via_ssh_option.toml
+rules:
+    - title: Detect SSH Tunneling via -L Option
+      description: Detects SSH commands using the -L option for local port forwarding, which is often used for tunneling.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and option
+        option:
+            CommandLine|contains: -L
+        selection:
+            CommandLine|contains: ssh
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: SSH Tunneling with -L
+              data:
+                - CommandLine: ssh -L 8080:localhost:80 user@example.com
+        negative:
+            - name: Normal SSH Connection
+              data:
+                - CommandLine: ssh user@example.com
+    - title: Detect SSH Tunneling via -R Option
+      description: Detects SSH commands using the -R option for remote port forwarding, often used for tunneling.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and option
+        option:
+            CommandLine|contains: -R
+        selection:
+            CommandLine|contains: ssh
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: SSH Tunneling with -R
+              data:
+                - CommandLine: ssh -R 8080:localhost:80 user@example.com
+        negative:
+            - name: Normal SSH Connection
+              data:
+                - CommandLine: ssh user@example.com
+    - title: Detect SSH Tunneling via -D Option (SOCKS Proxy)
+      description: Detects SSH commands using the -D option for creating a SOCKS proxy.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and option
+        option:
+            CommandLine|contains: -D
+        selection:
+            CommandLine|contains: ssh
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: SSH Tunneling with -D
+              data:
+                - CommandLine: ssh -D 1080 user@example.com
+        negative:
+            - name: Normal SSH Connection
+              data:
+                - CommandLine: ssh user@example.com
+ttps:
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1572
+      technique_name: Protocol Tunneling
