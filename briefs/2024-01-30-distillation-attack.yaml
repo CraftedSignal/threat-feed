@@ -1,0 +1,120 @@
+id: brief-2024-01-30-distillation-attack
+slug: 2024-01-30-distillation-attack
+title: Detection and Prevention of Model Distillation Attacks
+summary: Model distillation attacks involve an adversary attempting to extract knowledge from a target model by training a substitute model on its predictions, potentially revealing sensitive information or intellectual property.
+severity: medium
+published_at: "2024-01-30T12:00:00Z"
+content: |
+    ## Overview
+
+    Model distillation attacks pose a threat to organizations that deploy machine learning models, especially those containing sensitive data or proprietary algorithms. The adversary's goal is to create a substitute model that mimics the behavior of the target model, effectively stealing its knowledge. This can be achieved by querying the target model with carefully crafted inputs and using the corresponding outputs to train the substitute model. While the linked article from Anthropic discusses methods for *detecting* and *preventing* such attacks, the techniques themselves are not detailed in the Reddit post. Defenders need to be aware of this threat because successful distillation can lead to exposure of sensitive data, algorithm theft, and unfair competitive advantages for malicious actors. Since the source material lacks specific details on tooling, versions, or target scope, general detection strategies are crucial.
+
+    ## Attack Chain
+
+    1. **Reconnaissance:** The attacker identifies a target model of interest, often one providing a valuable service or containing sensitive information.
+    2. **Querying the Target Model:** The attacker begins sending a large number of diverse queries to the target model to observe its outputs. These queries are designed to explore the model's decision boundaries.
+    3. **Data Collection:** The attacker collects pairs of input queries and corresponding output predictions from the target model.
+    4. **Substitute Model Training:** The attacker uses the collected data to train a separate machine learning model, aiming to replicate the behavior and accuracy of the target model.
+    5. **Model Evaluation:** The attacker evaluates the performance of the substitute model, comparing its predictions to those of the target model on a separate dataset.
+    6. **Refinement:** The attacker iteratively refines the substitute model by adjusting its architecture, hyperparameters, or training data.
+    7. **Exploitation:** The attacker uses the distilled (substitute) model to make predictions without needing to access the original model, potentially bypassing access controls or extracting sensitive insights.
+
+    ## Impact
+
+    Successful model distillation attacks can result in significant financial and reputational damage for organizations. If the target model contains sensitive data, such as customer information or financial records, the distilled model can expose this information to unauthorized parties. Furthermore, if the target model represents a valuable intellectual property asset, the distilled model can enable competitors to replicate its functionality without investing in original research and development. The number of affected victims and sectors is broad, as any organization deploying machine learning models is potentially vulnerable.
+tags:
+    - model-distillation
+    - machine-learning
+    - data-exfiltration
+references:
+    - https://www.reddit.com/r/cybersecurity/comments/1rcrra0/detecting_and_preventing_distillation_attacks/
+    - https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks
+rules:
+    - title: Detect High Volume of Unique Queries to a Specific Service
+      description: This rule detects a potential model distillation attack by identifying a host generating an unusually large number of unique queries to a specific service within a short period of time.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection | count(SourceIp) by DestinationIp, DestinationPort > 100
+        selection:
+            DestinationIp: 192.168.1.100
+            DestinationPort: "443"
+        timeframe: 60s
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1595.002
+      tests:
+        positive:
+            - name: High volume of unique queries to a service
+              data:
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: "443"
+                  SourceIp: 10.0.0.1
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: "443"
+                  SourceIp: 10.0.0.2
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: "443"
+                  SourceIp: 10.0.0.3
+        negative:
+            - name: Normal traffic volume to a service
+              data:
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: "443"
+                  SourceIp: 10.0.0.1
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: "443"
+                  SourceIp: 10.0.0.1
+                - DestinationIp: 192.168.1.100
+                  DestinationPort: "443"
+                  SourceIp: 10.0.0.2
+    - title: Detect Process Making Excessive External API Calls
+      description: Detects processes that are making a large number of external API calls, which could indicate an attempt to query a model for distillation.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection | count(DestinationIp) by Image > 500
+        selection:
+            DestinationIp|startswith:
+                - "10."
+                - 172.16.
+                - 192.168.
+            DestinationPort: 443
+            Image|endswith: .exe
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1071
+      tests:
+        positive:
+            - name: Process making many API calls
+              data:
+                - DestinationIp: 1.2.3.4
+                  DestinationPort: 443
+                  Image: C:\Users\test\AppData\Local\Temp\suspicious.exe
+                - DestinationIp: 5.6.7.8
+                  DestinationPort: 443
+                  Image: C:\Users\test\AppData\Local\Temp\suspicious.exe
+        negative:
+            - name: Legitimate process making normal API calls
+              data:
+                - DestinationIp: 8.8.8.8
+                  DestinationPort: 443
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+                - DestinationIp: 9.9.9.9
+                  DestinationPort: 443
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1595
+      technique_name: Active Scanning
+      subtechnique_id: T1595.002
+      subtechnique_name: Vulnerability Scanning
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
