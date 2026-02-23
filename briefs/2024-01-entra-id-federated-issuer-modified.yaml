@@ -1,37 +1,39 @@
 id: brief-2024-01-03-entra-id-federated-issuer-modified
 slug: 2024-01-entra-id-federated-issuer-modified
 title: Entra ID Service Principal Federated Issuer Modification
-summary: Attackers modify federated issuers of Entra ID service principals to establish persistence within the target environment.
+summary: Modification of a federated issuer associated with an Entra ID service principal can allow an attacker to hijack the service principal and gain unauthorized access to resources.
 severity: high
 published_at: "2024-01-03T12:00:00Z"
 content: |
     ## Overview
 
-    Attackers are targeting Entra ID environments by modifying the federated issuer settings of service principals. This allows them to maintain persistent access even if the initial access method is revoked. This technique involves manipulating the trust relationship between Entra ID and external identity providers. By compromising or creating malicious federated issuers, attackers can authenticate as service principals and gain unauthorized access to resources within the Azure environment. This is a critical persistence mechanism that can be difficult to detect without proper monitoring. The scope of targeting is currently unknown, but any organization leveraging federated identity in Entra ID should be considered at risk.
+    Entra ID (formerly Azure AD) service principals are identities used by applications and services to access resources. Federated identity allows these service principals to trust external identity providers (IdPs). If an attacker can modify the federated issuer configuration of a service principal, they can effectively hijack the identity. This involves changing the trusted issuer to one controlled by the attacker. Once the service principal trusts the attacker's IdP, they can forge tokens and authenticate as the service principal, gaining unauthorized access to resources normally protected by the service principal. The scope of impact depends on the permissions and roles assigned to the compromised service principal, but can range from read-only access to full administrative control over Azure resources.
 
     ## Attack Chain
 
-    1. Initial Access: Attacker gains initial access to an Azure tenant with sufficient privileges to modify service principal federated issuer settings.
-    2. Discovery: The attacker enumerates existing service principals and their associated federated identity credentials to identify potential targets.
-    3. Federated Issuer Creation/Compromise: The attacker either compromises an existing federated issuer or creates a new malicious one under their control.
-    4. Modification: The attacker modifies the service principal's federated identity credential to trust the compromised or malicious federated issuer. This involves updating the `federatedIssuerName` property to point to the attacker-controlled issuer.
-    5. Authentication: Using the compromised or malicious federated issuer, the attacker authenticates as the service principal.
-    6. Privilege Escalation: The attacker leverages the service principal's permissions to access sensitive data or perform privileged actions within the Azure environment.
-    7. Persistence: Even if the initial access used to modify the federated issuer is revoked, the attacker maintains persistent access through the compromised service principal.
-    8. Lateral Movement: The attacker can use the compromised service principal to move laterally within the Azure environment, accessing other resources and services.
+    1. An attacker gains initial access to an Azure account with sufficient privileges to manage Entra ID service principals and their federated identity credentials.
+    2. The attacker identifies a target service principal with valuable permissions.
+    3. The attacker modifies the `federated_identity_credentials` property of the service principal, specifically the `issuer` field, to point to an identity provider controlled by the attacker.
+    4. The attacker configures their malicious IdP to issue tokens with the appropriate claims to impersonate the targeted service principal.
+    5. The attacker crafts a malicious token using their IdP, asserting the identity of the service principal.
+    6. The attacker uses the forged token to authenticate to Azure resources that rely on the service principal for authorization.
+    7. The attacker performs actions within Azure using the compromised service principal's permissions.
+    8. The attacker maintains persistence by ensuring the malicious federated identity configuration remains in place.
 
     ## Impact
 
-    A successful attack can lead to persistent unauthorized access to critical Azure resources. The potential impact includes data breaches, service disruptions, and financial losses. Since the number of victims and specific sectors targeted are unknown, it is crucial for organizations using Entra ID with federated identity to implement robust monitoring and detection mechanisms to identify and prevent this type of attack.
+    Successful modification of a federated issuer allows attackers to impersonate legitimate service principals. Depending on the privileges assigned to the hijacked service principal, this could lead to unauthorized data access, resource modification, or even complete compromise of the Azure environment. The impact is highly dependent on the specific service principal targeted. Without proper monitoring, this type of attack can go undetected for extended periods, allowing attackers to maintain persistent access and escalate their privileges.
 tags:
     - azure
+    - entra_id
+    - service_principal
+    - federated_identity
     - persistence
-    - entra-id
 references:
     - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_service_principal_federated_issuer_modified.toml
 rules:
     - title: Detect Federated Issuer Modification on Service Principal
-      description: Detects modifications to the federated issuer of an Entra ID service principal, which could indicate an attacker establishing persistence.
+      description: Detects changes to the federated issuer of an Entra ID service principal.
       logsource:
         category: audit
         product: azure
@@ -39,24 +41,29 @@ rules:
         condition: selection
         selection:
             operationName: Update servicePrincipal
-            properties.keyNames: federatedIdentityCredentials
+            properties:
+                key: federatedIdentityCredentials
+                newValue|contains: issuer
       level: high
       tags:
         - attack.persistence
-        - attack.t1556.006
       tests:
         positive:
-            - name: Service principal federated identity credential updated
+            - name: Service principal federated identity modified
               data:
                 - operationName: Update servicePrincipal
-                  properties.keyNames: federatedIdentityCredentials
+                  properties:
+                    key: federatedIdentityCredentials
+                    newValue: '[{"id":"cred1","issuer":"https://attackers-idp.com","subject":"spn:..."}]'
         negative:
             - name: Normal service principal update
               data:
                 - operationName: Update servicePrincipal
-                  properties.keyNames: accountEnabled
-    - title: Detect Creation of New Federated Identity Credential on Service Principal
-      description: Detects the creation of a new federated identity credential on a service principal, potentially indicating malicious persistence activity.
+                  properties:
+                    key: displayName
+                    newValue: New Display Name
+    - title: Detect Creation of Federated Identity Credential with Suspicious Issuer
+      description: Detects the creation of federated identity credentials with issuers that are unusual or suspicious.
       logsource:
         category: audit
         product: azure
@@ -64,45 +71,25 @@ rules:
         condition: selection
         selection:
             operationName: Create federatedIdentityCredentials
-      level: high
-      tags:
-        - attack.persistence
-        - attack.t1556.006
-      tests:
-        positive:
-            - name: Federated identity credential creation event
-              data:
-                - operationName: Create federatedIdentityCredentials
-        negative:
-            - name: Other Azure create events
-              data:
-                - operationName: Create networkInterface
-    - title: Detect Modification of Existing Federated Identity Credential on Service Principal
-      description: Detects modifications to existing federated identity credentials on a service principal.
-      logsource:
-        category: audit
-        product: azure
-      detection:
-        condition: selection
-        selection:
-            operationName: Update federatedIdentityCredentials
+            properties:
+                issuer|contains:
+                    - attackers-idp.com
+                    - suspicious-domain.net
       level: medium
       tags:
         - attack.persistence
-        - attack.t1556.006
       tests:
         positive:
-            - name: Federated identity credential updated
+            - name: Federated credential creation with attacker's IdP
               data:
-                - operationName: Update federatedIdentityCredentials
+                - operationName: Create federatedIdentityCredentials
+                  properties:
+                    issuer: https://attackers-idp.com
+                    subject: spn:...
         negative:
-            - name: Other azure update events
+            - name: Federated credential creation with legitimate IdP
               data:
-                - operationName: Update networkInterface
-ttps:
-    - tactic_id: TA0003
-      tactic_name: Persistence
-      technique_id: T1556
-      technique_name: Modify Authentication Process
-      subtechnique_id: T1556.006
-      subtechnique_name: Domain Federation
+                - operationName: Create federatedIdentityCredentials
+                  properties:
+                    issuer: https://sts.windows.net/legitimate-tenant-id/
+                    subject: spn:...
