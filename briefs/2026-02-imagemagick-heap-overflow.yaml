@@ -1,0 +1,117 @@
+id: brief-2026-02-23-imagemagick-heap-overflow
+slug: 2026-02-imagemagick-heap-overflow
+title: ImageMagick Heap Buffer Overflow Vulnerability (CVE-2026-23876)
+summary: A heap-based buffer overflow vulnerability (CVE-2026-23876) in ImageMagick versions greater than 7.1.2-13 and 6.9.13-38 allows remote attackers to potentially execute arbitrary code by sending a specially crafted image, leading to confidentiality, integrity, and availability impact.
+severity: high
+published_at: "2026-02-23T14:14:31Z"
+content: |
+    ## Overview
+
+    A heap buffer overflow vulnerability, CVE-2026-23876, affects ImageMagick versions greater than 7.1.2-13 and 6.9.13-38. This flaw resides in the XBM image decoder (ReadXBMImage function). Due to improper bounds checking when parsing image data within XBM files, a crafted image file with manipulated headers or dimensions can cause the decoder to write past the allocated buffer. ImageMagick's widespread use in web applications and automated image processing pipelines makes it a significant target. A proof-of-concept (PoC) exploit is publicly available, increasing the risk of exploitation.
+
+    ## Attack Chain
+
+    1.  An attacker crafts a malicious XBM image file with oversized dimensions or manipulated headers.
+    2.  The attacker uploads the crafted image to a web application that uses ImageMagick for image processing.
+    3.  The web application passes the image to ImageMagick for processing, specifically using the `ReadXBMImage` function.
+    4.  Due to the vulnerability in the `ReadXBMImage` function, ImageMagick attempts to allocate a buffer based on the image dimensions specified in the header.
+    5.  The malicious image is designed so the `ReadXBMImage` function calculates an insufficient buffer size for the image data.
+    6.  As ImageMagick processes the image data, it writes beyond the allocated buffer, causing a heap overflow.
+    7.  The heap overflow overwrites adjacent memory regions, potentially corrupting program data or injecting malicious code.
+    8.  If malicious code is successfully injected and executed, the attacker can gain arbitrary code execution on the server.
+
+    ## Impact
+
+    Successful exploitation of CVE-2026-23876 can lead to arbitrary code execution with the privileges of the ImageMagick process. Given ImageMagick's prevalent use in web applications, this vulnerability poses a significant risk. An attacker could potentially gain access to sensitive data, modify website content, or compromise the entire server. The CCB rates this as high severity (CVSS 8.1).
+tags:
+    - vulnerability
+    - image-processing
+    - heap-overflow
+references:
+    - https://ccb.belgium.be/advisories/warning-heap-buffer-overflow-imagemagick-can-be-exploited-corrupt-memory-and-potentially
+    - https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-r49w-jqq3-3gx8
+    - https://nvd.nist.gov/vuln/detail/CVE-2026-23876
+rules:
+    - title: Detect ImageMagick Processing Malicious XBM File
+      description: Detects ImageMagick processing an XBM file with a large width or height, potentially indicating an attempt to trigger CVE-2026-23876.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and (large_width or large_height)
+        large_height:
+            CommandLine|contains: -define xbm:height=10000
+        large_width:
+            CommandLine|contains: -define xbm:width=10000
+        selection:
+            CommandLine|contains: .xbm
+            Image|endswith: convert
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1202
+      tests:
+        positive:
+            - name: ImageMagick processing XBM with large width
+              data:
+                - CommandLine: convert input.xbm -define xbm:width=10000 output.png
+                  Image: /usr/bin/convert
+            - name: ImageMagick processing XBM with large height
+              data:
+                - CommandLine: convert input.xbm -define xbm:height=10000 output.png
+                  Image: /usr/bin/convert
+        negative:
+            - name: ImageMagick processing normal XBM file
+              data:
+                - CommandLine: convert normal.xbm output.png
+                  Image: /usr/bin/convert
+    - title: Detect ImageMagick Crash Signals
+      description: Detects abnormal termination of ImageMagick processes, potentially indicating a crash due to CVE-2026-23876.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and crash_signal
+        crash_signal:
+            - CommandLine|contains: Segmentation fault
+            - CommandLine|contains: Process terminated
+        selection:
+            Image|endswith: convert
+      level: medium
+      tags:
+        - attack.availability
+        - attack.t1498
+      tests:
+        positive:
+            - name: ImageMagick crashing
+              data:
+                - CommandLine: convert crash.xbm output.png Segmentation fault
+                  Image: /usr/bin/convert
+            - name: ImageMagick process terminated
+              data:
+                - CommandLine: convert crash.xbm output.png Process terminated
+                  Image: /usr/bin/convert
+        negative:
+            - name: ImageMagick normal termination
+              data:
+                - CommandLine: convert normal.xbm output.png
+                  Image: /usr/bin/convert
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1189
+      technique_name: Drive-by Compromise
+    - tactic_id: TA0006
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1204
+      technique_name: User Execution
+      subtechnique_id: T1204.002
+      subtechnique_name: Malicious File
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1499
+      technique_name: Endpoint Denial of Service
