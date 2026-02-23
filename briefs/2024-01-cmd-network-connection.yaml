@@ -1,0 +1,104 @@
+id: brief-2024-01-03-cmd-network-connection
+slug: 2024-01-cmd-network-connection
+title: Command Prompt Initiating Network Connections
+summary: Adversaries may use command prompt (cmd.exe) to execute commands that establish network connections for various purposes, including downloading malicious payloads, exfiltrating data, or communicating with command and control servers.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    Attackers frequently leverage the command prompt (`cmd.exe`) within Windows environments to perform various malicious activities. While `cmd.exe` is a legitimate system utility, its versatility makes it a popular tool for adversaries. This activity, command prompt initiating network connections, can indicate command and control activity, data exfiltration, or the download of malicious payloads. Defenders should monitor command prompt processes initiating network connections, especially when combined with other suspicious command-line arguments or parent processes. The source material focuses on detecting this specific behavior using generic process and network monitoring, rather than attributing it to a specific actor or campaign.
+
+    ## Attack Chain
+
+    1.  Initial Access: An attacker gains initial access to a system, potentially through phishing, exploiting a vulnerability, or compromised credentials.
+    2.  Execution: The attacker executes `cmd.exe` either directly or through another process.
+    3.  Command Construction: The attacker crafts a command using `cmd.exe` to initiate a network connection. This often involves tools like `curl`, `powershell`, or `bitsadmin` called from within `cmd.exe`.
+    4.  Connection Attempt: `cmd.exe` attempts to establish a network connection to an external IP address or domain.
+    5.  Payload Download/Upload: The attacker may download a malicious payload (e.g., malware, scripts) from a remote server, or upload sensitive data to an attacker-controlled server.
+    6.  Command and Control: The established network connection may be used for ongoing communication with a command and control (C2) server, allowing the attacker to issue further commands and maintain persistence.
+    7.  Lateral Movement: The attacker may use `cmd.exe` to spread to other systems on the network, using techniques like PsExec or WMI.
+
+    ## Impact
+
+    Successful exploitation can lead to a range of consequences, including data theft, system compromise, and ransomware deployment. While specific numbers are unavailable, command prompt network connections are commonly observed across various sectors, making detection crucial. Undetected malicious command prompt network activity can allow an attacker to establish a foothold within the network and progress through the attack lifecycle.
+tags:
+    - execution
+    - network_connection
+    - command_prompt
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_command_prompt_connecting_to_the_internet.toml
+rules:
+    - title: Command Prompt Network Connection - Generic
+      description: Detects command prompt initiating network connections.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|endswith: \cmd.exe
+            Initiated: "true"
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: cmd.exe initiating connection
+              data:
+                - DestinationIp: 8.8.8.8
+                  Image: C:\Windows\System32\cmd.exe
+                  Initiated: "true"
+        negative:
+            - name: Legitimate process connecting outbound
+              data:
+                - DestinationIp: 142.250.80.46
+                  Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+                  Initiated: "true"
+    - title: Command Prompt Network Connection - Suspicious Parent
+      description: Detects command prompt initiating network connections with a suspicious parent process.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|endswith: \cmd.exe
+            Initiated: "true"
+            ParentImage|endswith:
+                - \winword.exe
+                - \excel.exe
+                - \outlook.exe
+      level: high
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: cmd.exe from Word connecting outbound
+              data:
+                - DestinationIp: 8.8.8.8
+                  Image: C:\Windows\System32\cmd.exe
+                  Initiated: "true"
+                  ParentImage: C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE
+        negative:
+            - name: cmd.exe from Explorer
+              data:
+                - DestinationIp: 142.250.80.46
+                  Image: C:\Windows\System32\cmd.exe
+                  Initiated: "true"
+                  ParentImage: C:\Windows\explorer.exe
+ttps:
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.003
+      technique_name: Command and Scripting Interpreter
+      subtechnique_id: T1059.003
+      subtechnique_name: Windows Command Shell
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071.001
+      technique_name: Application Layer Protocol
+      subtechnique_id: T1071.001
+      subtechnique_name: Web Protocols
