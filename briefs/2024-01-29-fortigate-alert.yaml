@@ -1,0 +1,89 @@
+id: brief-2024-01-29-fortigate-alert
+slug: 2024-01-29-fortigate-alert
+title: Newly Observed FortiGate Alert
+summary: This alert detects potentially suspicious activity involving FortiGate devices, indicating possible reconnaissance or exploitation attempts.
+severity: medium
+published_at: "2024-01-29T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert focuses on detecting newly observed alerts originating from FortiGate devices within a network. While the specific nature of the threat isn't detailed in the provided source, the detection logic aims to identify unusual or anomalous patterns in FortiGate logs that could signify early stages of an attack. These patterns may include unauthorized access attempts, vulnerability scanning, or policy violations. It is crucial for defenders to correlate these alerts with other security events to understand the full context and potential impact. The alert aims to provide an early warning, allowing security teams to investigate and mitigate potential threats before they escalate. Given the widespread use of FortiGate firewalls, any suspicious activity targeting these devices warrants immediate attention.
+
+    ## Attack Chain
+
+    1. **Initial Reconnaissance:** An attacker attempts to gather information about the FortiGate device, such as its version and configuration, possibly through unauthenticated requests.
+    2. **Vulnerability Scanning:** The attacker probes the FortiGate device for known vulnerabilities using automated scanning tools.
+    3. **Exploitation Attempt:** The attacker attempts to exploit a identified vulnerability, such as remote code execution, by sending malicious requests to the FortiGate device.
+    4. **Privilege Escalation:** Post successful exploitation, the attacker attempts to escalate privileges within the FortiGate system.
+    5. **Lateral Movement:** The attacker uses the compromised FortiGate device as a pivot point to move laterally within the network.
+    6. **Data Exfiltration:** The attacker attempts to exfiltrate sensitive data from the internal network through the compromised FortiGate device.
+
+    ## Impact
+
+    A successful attack targeting a FortiGate device can lead to severe consequences, including unauthorized access to the internal network, data breaches, and service disruption. As a firewall, the FortiGate device acts as the primary security gateway. A compromised device can expose the entire network to external threats, potentially impacting hundreds or thousands of users. The impact can range from data theft to ransomware deployment across the network.
+tags:
+    - fortigate
+    - firewall
+    - alert
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/newly_observed_fortigate_alert.toml
+rules:
+    - title: Detect FortiGate Configuration Changes
+      description: Detects changes to FortiGate configuration files, potentially indicating unauthorized modifications.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            event.type: change
+            file.path|endswith: /conf/fortigate.conf
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1547.001
+      tests:
+        positive:
+            - name: FortiGate config file changed
+              data:
+                - event.type: change
+                  file.path: /var/log/fortigate/conf/fortigate.conf
+        negative:
+            - name: Normal file modification
+              data:
+                - event.type: change
+                  file.path: /var/log/system.log
+    - title: Detect New FortiGate Admin Login
+      description: Detects a new admin login to FortiGate device.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            process.args|contains: admin
+            process.name: sshd
+      level: medium
+      tags:
+        - attack.credential_access
+        - attack.t1078
+      tests:
+        positive:
+            - name: Admin login
+              data:
+                - process.name: sshd
+                - process.args: admin
+        negative:
+            - name: User login
+              data:
+                - process.name: sshd
+                - process.args: user1
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1068
+      technique_name: Exploitation for Information Discovery
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
