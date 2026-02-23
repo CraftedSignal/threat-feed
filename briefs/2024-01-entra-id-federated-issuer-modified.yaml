@@ -1,0 +1,108 @@
+id: brief-2024-01-03-entra-id-federated-issuer-modified
+slug: 2024-01-entra-id-federated-issuer-modified
+title: Entra ID Service Principal Federated Issuer Modification
+summary: Attackers modify federated issuers of Entra ID service principals to establish persistence within the target environment.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    Attackers are targeting Entra ID environments by modifying the federated issuer settings of service principals. This allows them to maintain persistent access even if the initial access method is revoked. This technique involves manipulating the trust relationship between Entra ID and external identity providers. By compromising or creating malicious federated issuers, attackers can authenticate as service principals and gain unauthorized access to resources within the Azure environment. This is a critical persistence mechanism that can be difficult to detect without proper monitoring. The scope of targeting is currently unknown, but any organization leveraging federated identity in Entra ID should be considered at risk.
+
+    ## Attack Chain
+
+    1. Initial Access: Attacker gains initial access to an Azure tenant with sufficient privileges to modify service principal federated issuer settings.
+    2. Discovery: The attacker enumerates existing service principals and their associated federated identity credentials to identify potential targets.
+    3. Federated Issuer Creation/Compromise: The attacker either compromises an existing federated issuer or creates a new malicious one under their control.
+    4. Modification: The attacker modifies the service principal's federated identity credential to trust the compromised or malicious federated issuer. This involves updating the `federatedIssuerName` property to point to the attacker-controlled issuer.
+    5. Authentication: Using the compromised or malicious federated issuer, the attacker authenticates as the service principal.
+    6. Privilege Escalation: The attacker leverages the service principal's permissions to access sensitive data or perform privileged actions within the Azure environment.
+    7. Persistence: Even if the initial access used to modify the federated issuer is revoked, the attacker maintains persistent access through the compromised service principal.
+    8. Lateral Movement: The attacker can use the compromised service principal to move laterally within the Azure environment, accessing other resources and services.
+
+    ## Impact
+
+    A successful attack can lead to persistent unauthorized access to critical Azure resources. The potential impact includes data breaches, service disruptions, and financial losses. Since the number of victims and specific sectors targeted are unknown, it is crucial for organizations using Entra ID with federated identity to implement robust monitoring and detection mechanisms to identify and prevent this type of attack.
+tags:
+    - azure
+    - persistence
+    - entra-id
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_service_principal_federated_issuer_modified.toml
+rules:
+    - title: Detect Federated Issuer Modification on Service Principal
+      description: Detects modifications to the federated issuer of an Entra ID service principal, which could indicate an attacker establishing persistence.
+      logsource:
+        category: audit
+        product: azure
+      detection:
+        condition: selection
+        selection:
+            operationName: Update servicePrincipal
+            properties.keyNames: federatedIdentityCredentials
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1556.006
+      tests:
+        positive:
+            - name: Service principal federated identity credential updated
+              data:
+                - operationName: Update servicePrincipal
+                  properties.keyNames: federatedIdentityCredentials
+        negative:
+            - name: Normal service principal update
+              data:
+                - operationName: Update servicePrincipal
+                  properties.keyNames: accountEnabled
+    - title: Detect Creation of New Federated Identity Credential on Service Principal
+      description: Detects the creation of a new federated identity credential on a service principal, potentially indicating malicious persistence activity.
+      logsource:
+        category: audit
+        product: azure
+      detection:
+        condition: selection
+        selection:
+            operationName: Create federatedIdentityCredentials
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1556.006
+      tests:
+        positive:
+            - name: Federated identity credential creation event
+              data:
+                - operationName: Create federatedIdentityCredentials
+        negative:
+            - name: Other Azure create events
+              data:
+                - operationName: Create networkInterface
+    - title: Detect Modification of Existing Federated Identity Credential on Service Principal
+      description: Detects modifications to existing federated identity credentials on a service principal.
+      logsource:
+        category: audit
+        product: azure
+      detection:
+        condition: selection
+        selection:
+            operationName: Update federatedIdentityCredentials
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1556.006
+      tests:
+        positive:
+            - name: Federated identity credential updated
+              data:
+                - operationName: Update federatedIdentityCredentials
+        negative:
+            - name: Other azure update events
+              data:
+                - operationName: Update networkInterface
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1556
+      technique_name: Modify Authentication Process
+      subtechnique_id: T1556.006
+      subtechnique_name: Domain Federation
