@@ -1,0 +1,142 @@
+id: brief-2026-02-24-aisafe-cli-bypass
+slug: 2026-02-aisafe-cli-bypass
+title: Potential Bypasses of Earl AI-Safe CLI Security Controls
+summary: An attacker may attempt to bypass security controls implemented in the Earl AI-Safe CLI, such as template-driven commands, egress controls, SSRF protections, and sandboxing, to execute arbitrary commands, exfiltrate secrets, or access restricted network resources, potentially leading to data breaches or system compromise.
+severity: high
+published_at: "2026-02-24T12:00:00Z"
+content: |
+    ## Overview
+
+    The Earl CLI is designed as a constrained execution environment for AI agents, aiming to mitigate risks associated with unrestricted command execution. It incorporates several security features, including template-driven commands, secret management, egress controls, SSRF protections, and sandboxing. However, like any security tool, Earl is susceptible to bypass attempts. An attacker might try to exploit vulnerabilities in the template parsing, manipulate network allow lists, circumvent SSRF protections by finding alternative IP ranges, or break out of the Bash/JS/SQL sandboxes. Successful bypass could allow attackers to execute arbitrary commands, access sensitive data stored in the OS keychain, and make unauthorized network connections. This poses a risk to systems and data under the control of AI agents using the Earl CLI.
+
+    ## Attack Chain
+
+    1. **Initial Access:** The attacker gains initial access to a system where an AI agent is using the Earl CLI. This might be through compromising the AI agent itself or gaining access to the underlying system.
+    2. **Reconnaissance:** The attacker identifies the version of Earl CLI and its configuration to understand existing security controls like network allow lists and command templates.
+    3. **Template Manipulation:** The attacker attempts to manipulate existing command templates to inject arbitrary commands. Example: Modifying a `provider.command` template to include malicious code.
+    4. **Egress Control Bypass:** The attacker probes for weaknesses in the egress control rules by attempting connections to various IP addresses and ports outside the allowed range. The attacker may attempt to identify allowed IPs that redirect to disallowed IPs.
+    5. **SSRF Bypass:** The attacker tries to bypass SSRF protections by identifying alternative IP ranges or services not covered by the blocklist. This could involve exploiting DNS rebinding or other techniques.
+    6. **Sandbox Escape:** The attacker attempts to escape the Bash/JS/SQL sandbox by exploiting vulnerabilities in the sandbox implementation, e.g., using command injection techniques within the sandboxed environment.
+    7. **Privilege Escalation:** Post sandbox escape, the attacker attempts to leverage the compromised process to escalate privileges within the system to gain full control.
+    8. **Data Exfiltration:** Once they have bypassed the controls, the attacker attempts to access and exfiltrate sensitive data, such as secrets stored in the OS keychain or other sensitive information managed by the AI agent.
+
+    ## Impact
+
+    Successful bypass of Earl CLI security controls can lead to significant consequences. An attacker could gain unauthorized access to sensitive data, execute arbitrary commands on the host system, and pivot to other systems on the network. This could result in data breaches, system compromise, and reputational damage. Organizations relying on Earl for AI agent security should be aware of the potential for bypass attacks and implement additional layers of defense. The number of affected systems would depend on the deployment scope of AI agents using the CLI.
+tags:
+    - ai-security
+    - cli
+    - bypass
+    - sandbox-escape
+    - ssrf
+    - egress-control
+references:
+    - https://www.reddit.com/r/blueteamsec/comments/1rcrex1/the_aisafe_cli_for_ai_agents/
+    - https://github.com/brwse/earl
+rules:
+    - title: Detect Suspicious Earl CLI Command Execution
+      description: Detects attempts to execute Earl CLI commands with suspicious or unexpected arguments, potentially indicating a bypass attempt.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and not filter
+        filter:
+            CommandLine|contains:
+                - provider.command
+        selection:
+            CommandLine|contains: earl call
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1027
+      tests:
+        positive:
+            - name: Earl CLI called with suspicious arguments
+              data:
+                - CommandLine: earl call 'evil.command'
+                - Image: /usr/bin/earl
+        negative:
+            - name: Normal Earl CLI usage
+              data:
+                - CommandLine: earl call provider.command --arg1 value1
+                - Image: /usr/bin/earl
+    - title: Detect Suspicious Network Connections from Earl CLI
+      description: Detects network connections from the Earl CLI process to potentially unauthorized IP ranges or ports, indicating an egress control bypass.
+      logsource:
+        category: network_connection
+        product: linux
+      detection:
+        condition: selection and not filter
+        filter:
+            DestinationIp: 127.0.0.1
+        selection:
+            Image: /usr/bin/earl
+      level: high
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Earl CLI connecting to external IP
+              data:
+                - Image: /usr/bin/earl
+                - DestinationIp: 8.8.8.8
+                - DestinationPort: "53"
+        negative:
+            - name: Earl CLI connecting to localhost
+              data:
+                - Image: /usr/bin/earl
+                - DestinationIp: 127.0.0.1
+                - DestinationPort: "8080"
+    - title: Detect Earl CLI Executing Shell Commands
+      description: Detects the execution of shell commands from within the Earl CLI environment, which may indicate command injection or sandbox escape attempts.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and filter
+        filter:
+            Image|startswith:
+                - /bin/bash
+                - /bin/sh
+        selection:
+            ParentImage: /usr/bin/earl
+      level: medium
+      tags:
+        - attack.execution
+        - attack.t1059.004
+      tests:
+        positive:
+            - name: Earl spawns bash
+              data:
+                - ParentImage: /usr/bin/earl
+                - Image: /bin/bash
+                - CommandLine: /bin/bash -c whoami
+        negative:
+            - name: User spawns bash
+              data:
+                - ParentImage: /home/user/terminal
+                - Image: /bin/bash
+                - CommandLine: /bin/bash
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1082
+      technique_name: System Information Discovery
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1027
+      technique_name: Obfuscated Files or Information
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071.001
+      technique_name: 'Application Layer Protocol: Web Protocols'
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.004
+      technique_name: 'Command and Scripting Interpreter: Unix Shell'
