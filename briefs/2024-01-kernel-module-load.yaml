@@ -1,0 +1,88 @@
+id: brief-2024-01-03-kernel-module-load
+slug: 2024-01-kernel-module-load
+title: Kernel Module Loading from Unusual Location
+summary: This detection identifies the loading of Linux kernel modules from non-standard directories, potentially indicating malicious persistence mechanisms.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying suspicious loading of Linux kernel modules (kmods) from unusual locations. Kernel modules are typically loaded from specific system directories. Loading from other locations may indicate an attempt to hide malicious code or bypass security restrictions. This can be an indicator of rootkit activity or other persistence mechanisms employed by attackers. Detecting these events can provide early warning of potential system compromise. The unusual loading activity can indicate a compromised system.
+
+    ## Attack Chain
+
+    1.  Attacker gains initial access to the system via an exploit or compromised credentials.
+    2.  Attacker escalates privileges to root, potentially using a privilege escalation exploit.
+    3.  Attacker drops a malicious kernel module to an unusual directory such as /tmp/ or /var/tmp/.
+    4.  Attacker uses `insmod` or `modprobe` to load the malicious kernel module.
+    5.  The malicious kernel module gains kernel-level privileges and can perform various malicious actions.
+    6.  The module establishes persistence by hooking system calls or creating a hidden process.
+    7.  The attacker maintains control over the system through the installed rootkit.
+
+    ## Impact
+
+    Successful loading of a malicious kernel module can lead to complete system compromise. Attackers can use this technique to hide files, processes, and network connections, making detection extremely difficult. They can also intercept sensitive data, modify system behavior, and establish persistent access. This can affect all users and applications on the system, resulting in data loss, system instability, and potential reputational damage.
+tags:
+    - kernel-module
+    - linux
+    - persistence
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_kernel_module_load_from_unusual_location.toml
+rules:
+    - title: Detect Kernel Module Load from /tmp
+      description: Detects loading of kernel modules from the /tmp directory.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: /tmp/
+            Image: /usr/sbin/insmod
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1547.005
+      tests:
+        positive:
+            - name: Kernel module loaded from /tmp
+              data:
+                - CommandLine: insmod /tmp/evil.ko
+                  Image: /usr/sbin/insmod
+        negative:
+            - name: Kernel module loaded from /lib/modules
+              data:
+                - CommandLine: insmod /lib/modules/5.15.0-88-generic/kernel/drivers/net/wireless/realtek/rtw88/rtw88_core.ko
+                  Image: /usr/sbin/insmod
+    - title: Detect Kernel Module Load from /var/tmp
+      description: Detects loading of kernel modules from the /var/tmp directory.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: /var/tmp/
+            Image: /usr/sbin/insmod
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1547.005
+      tests:
+        positive:
+            - name: Kernel module loaded from /var/tmp
+              data:
+                - CommandLine: insmod /var/tmp/evil.ko
+                  Image: /usr/sbin/insmod
+        negative:
+            - name: Kernel module loaded from /lib/modules
+              data:
+                - CommandLine: insmod /lib/modules/5.15.0-88-generic/kernel/drivers/gpu/drm/i915/i915.ko
+                  Image: /usr/sbin/insmod
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1547
+      technique_name: Boot or Logon Autostart Execution
+      subtechnique_id: T1547.005
+      subtechnique_name: Kernel Modules and Extensions
