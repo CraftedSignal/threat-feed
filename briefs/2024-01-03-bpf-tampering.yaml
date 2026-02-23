@@ -1,0 +1,119 @@
+id: brief-2024-01-03-bpf-tampering
+slug: 2024-01-03-bpf-tampering
+title: BPF Program Tampering for Defense Evasion
+summary: BPF program tampering can be used by attackers to evade security monitoring and detection mechanisms on Linux systems by manipulating network traffic or system calls.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    BPF (Berkeley Packet Filter) is a powerful technology in the Linux kernel that allows user-space programs to execute custom code in a safe and efficient manner. While BPF has legitimate uses in networking and performance monitoring, it can be abused by attackers for malicious purposes, specifically defense evasion. By loading specially crafted BPF programs, attackers can intercept and modify system calls, filter network traffic to hide malicious communications, or disable security tools that rely on BPF for their functionality. This activity is difficult to detect because it operates within the kernel and leaves minimal traces in user space. Successful BPF tampering can lead to prolonged undetected presence and significant compromise of the system.
+
+    ## Attack Chain
+
+    1. **Initial Access (Hypothetical):** The attacker gains initial access to the system, possibly through exploiting a vulnerability or using stolen credentials.
+    2. **Privilege Escalation (Hypothetical):** If necessary, the attacker escalates privileges to root, which is typically required to load BPF programs. This might involve exploiting a kernel vulnerability.
+    3. **BPF Program Creation:** The attacker crafts a malicious BPF program designed to evade detection or disrupt security tools. This program could filter network traffic, modify system call arguments, or disable tracing.
+    4. **BPF Program Loading:** The attacker uses tools like `bpftool` or custom code to load the malicious BPF program into the kernel. This requires appropriate permissions.
+    5. **Traffic/Syscall Manipulation:** Once loaded, the BPF program actively manipulates network traffic or system calls. For instance, it might drop packets associated with C2 communications, or modify system calls related to file access to prevent detection of malware installation.
+    6. **Evasion of Detection:** The attacker's malicious activities are effectively hidden from security tools that rely on monitoring network traffic or system calls. This includes intrusion detection systems (IDS), endpoint detection and response (EDR) agents, and auditing tools.
+    7. **Persistence (Hypothetical):** The attacker may attempt to establish persistence by automatically loading the BPF program at boot time, ensuring continued evasion after system restarts. This can involve modifying system startup scripts or using other persistence mechanisms.
+    8. **Lateral Movement/Data Exfiltration (Hypothetical):** With detection mechanisms disabled, the attacker is free to move laterally within the network, exfiltrate sensitive data, or perform other malicious activities without being detected.
+
+    ## Impact
+
+    Successful BPF program tampering can have severe consequences. Attackers can effectively blind security tools, allowing them to operate undetected for extended periods. This can lead to data breaches, financial losses, and reputational damage. While the exact number of victims and targeted sectors is unknown without specific campaign data, the potential impact is high, especially in environments where BPF is used extensively for security monitoring. The manipulation of system calls or network traffic provides a powerful means of concealing malicious activity.
+tags:
+    - bpf
+    - defense_evasion
+    - linux
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/defense_evasion_bpf_program_tampering.toml
+rules:
+    - title: Detect BPF Program Loading with bpftool
+      description: Detects the use of `bpftool` to load BPF programs, which could indicate malicious BPF tampering.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: load
+            Image|endswith: /bpftool
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: bpftool loading a BPF program
+              data:
+                - CommandLine: bpftool prog load /tmp/evil.o /sys/fs/bpf/evil
+                  Image: /usr/sbin/bpftool
+                  User: root
+        negative:
+            - name: bpftool showing help
+              data:
+                - CommandLine: bpftool help
+                  Image: /usr/sbin/bpftool
+                  User: root
+    - title: Detect Suspicious System Calls Related to BPF
+      description: Detects system calls related to BPF program loading and management. High volume or unusual users may indicate suspicious activity.
+      logsource:
+        category: system
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            Syscall: bpf
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: BPF syscall detected
+              data:
+                - ProcessName: evil_program
+                  Syscall: bpf
+                  User: root
+        negative:
+            - name: Normal system activity
+              data:
+                - ProcessName: legitimate_program
+                  Syscall: open
+                  User: user
+    - title: Detect Unexpected File Modifications in /sys/fs/bpf
+      description: This rule detects writes to the BPF filesystem, which might indicate an attempt to load or modify BPF programs.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            Action: write
+            Path|startswith: /sys/fs/bpf/
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: Writing to the BPF filesystem
+              data:
+                - Action: write
+                  Path: /sys/fs/bpf/my_bpf_program
+                  User: root
+        negative:
+            - name: Reading from the BPF filesystem
+              data:
+                - Action: read
+                  Path: /sys/fs/bpf/my_bpf_program
+                  User: user
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.001
+      subtechnique_name: Disable or Modify Tools
