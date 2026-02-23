@@ -1,0 +1,93 @@
+id: brief-2024-01-29-linux-tunneling
+slug: 2024-01-29-linux-tunneling
+title: Linux Tunneling and Port Forwarding Detection
+summary: Detection of command and control activity on Linux systems involving tunneling and port forwarding, potentially indicating unauthorized access and lateral movement.
+severity: medium
+published_at: "2024-01-29T12:00:00Z"
+content: |
+    ## Overview
+
+    This brief focuses on detecting command and control activities on Linux systems through the use of tunneling and port forwarding techniques. Attackers commonly use these methods to bypass network security controls, establish covert communication channels, and facilitate lateral movement within a compromised network. This activity is often associated with post-exploitation phases, where the attacker has already gained initial access and is attempting to deepen their foothold. While the specific tools and techniques may vary, the underlying principle involves redirecting network traffic through established tunnels or forwarding ports to access services and resources that would otherwise be inaccessible. Defenders need to monitor for the use of common tunneling tools and unusual network configurations to identify and mitigate such attacks.
+
+    ## Attack Chain
+
+    1. Initial access is gained through an exploit or compromised credentials.
+    2. The attacker establishes a foothold on the compromised system.
+    3. The attacker uses tools like `ssh`, `socat`, or `ngrok` to create a tunnel to a remote server.
+    4. Port forwarding is configured to redirect traffic from a local port to a remote service or port.  For example, using `ssh -L 1337:127.0.0.1:3389 user@remotehost`.
+    5. The attacker uses the established tunnel to access internal resources, such as databases or other servers.
+    6. The attacker performs lateral movement by exploiting vulnerabilities or using stolen credentials to access other systems through the tunnel.
+    7. Data exfiltration is performed over the established tunnel to avoid detection.
+    8. The attacker maintains persistence by setting up automated scripts or cron jobs to re-establish the tunnel if it is disrupted.
+
+    ## Impact
+
+    Successful exploitation of tunneling and port forwarding can lead to significant data breaches, system compromise, and lateral movement within the network. Attackers can gain unauthorized access to sensitive information, escalate privileges, and establish persistent backdoors. Depending on the attacker's objectives, this could result in financial loss, reputational damage, or disruption of critical services. The number of affected systems and the extent of damage depend on the attacker's skill and the level of access they can achieve.
+tags:
+    - tunneling
+    - port-forwarding
+    - command-and-control
+    - linux
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/command_and_control_linux_tunneling_and_port_forwarding.toml
+rules:
+    - title: Detect SSH Tunneling with Port Forwarding
+      description: Detects SSH commands that establish tunnels with port forwarding using the -L, -R, or -D options.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - ssh
+                - -L
+                - -R
+                - -D
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: SSH tunneling with local port forwarding
+              data:
+                - CommandLine: ssh -L 1337:127.0.0.1:3389 user@remotehost
+            - name: SSH tunneling with remote port forwarding
+              data:
+                - CommandLine: ssh -R 8080:127.0.0.1:80 user@remotehost
+        negative:
+            - name: Normal SSH login
+              data:
+                - CommandLine: ssh user@remotehost
+    - title: Detect socat Port Forwarding
+      description: Detects usage of socat for establishing port forwarding tunnels.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and not filter
+        filter:
+            CommandLine|contains:
+                - -h
+                - --help
+        selection:
+            CommandLine|contains: socat
+      level: medium
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: socat port forwarding
+              data:
+                - CommandLine: socat TCP-LISTEN:4444,reuseaddr,fork TCP:127.0.0.1:8080
+        negative:
+            - name: socat help command
+              data:
+                - CommandLine: socat --help
+ttps:
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1572
+      technique_name: Protocol Tunneling
