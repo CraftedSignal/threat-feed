@@ -1,0 +1,85 @@
+id: brief-2024-01-26-kernel-instrumentation-discovery
+slug: 2024-01-26-kernel-instrumentation-discovery
+title: Discovery of Kernel Instrumentation via Kprobes and Tracefs
+summary: Adversaries may attempt to discover kernel instrumentation tools, such as Kprobes and Tracefs, potentially indicating attempts to detect or evade security measures.
+severity: low
+published_at: "2024-01-26T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief focuses on the discovery of kernel instrumentation tools, specifically Kprobes and Tracefs, within a Linux environment. While the provided source does not describe a specific threat actor or campaign, the detection rule from Elastic highlights a reconnaissance activity. Adversaries may check for the presence and configuration of these tools to understand the kernel's state, identify potential vulnerabilities in security measures, or plan for more sophisticated attacks. This kind of discovery is relevant for defenders because it can precede attempts to bypass security controls, hide malicious activity, or directly manipulate the kernel. Understanding when and how these tools are being enumerated can provide an early warning signal of malicious intentions.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** The attack chain begins with the attacker gaining initial access to the Linux system through a vulnerability exploit or compromised credentials.
+    2.  **Privilege Escalation (Optional):** Depending on the initial access level, the attacker may need to escalate privileges to gain sufficient permissions for kernel-level operations.
+    3.  **Tool Deployment (If Necessary):** The attacker might deploy custom tools or scripts to interact with the kernel and perform discovery tasks.
+    4.  **Kprobes/Tracefs Existence Check:** The attacker executes commands to check for the existence of Kprobes or Tracefs. This could involve checking for specific files or directories associated with these tools, such as `/sys/kernel/debug/tracing` for Tracefs.
+    5.  **Configuration Enumeration:** The attacker attempts to read configuration files or use commands to gather information about the Kprobes or Tracefs setup. This could involve listing available tracepoints or checking enabled probes.
+    6.  **Analysis of Collected Data:** The attacker analyzes the collected data to identify potential vulnerabilities in the kernel or security tools.
+    7.  **Evasion/Exploitation:** Based on the information gathered, the attacker might attempt to evade detection by disabling probes, manipulating trace data, or exploiting kernel vulnerabilities.
+
+    ## Impact
+
+    The successful discovery of kernel instrumentation tools can provide an attacker with valuable insights into the system's security posture, potentially leading to successful evasion of security controls or the exploitation of kernel vulnerabilities. While the direct impact might not be immediately visible, this reconnaissance activity can serve as a crucial stepping stone for more damaging attacks, including rootkit installation, data exfiltration, or system compromise. The lack of specific victim information or sector targeting in the source material makes a quantitative assessment challenging. However, any successful discovery should be considered a sign of further malicious activity.
+tags:
+    - kernel-instrumentation
+    - discovery
+    - kprobes
+    - tracefs
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/discovery_kernel_instrumentation_discovery_via_kprobes_and_tracefs.toml
+rules:
+    - title: Detect Discovery of Tracefs Mount Point
+      description: Detects attempts to access the Tracefs mount point, which can be used to discover kernel tracing capabilities.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            file.path|startswith: /sys/kernel/debug/tracing
+      level: low
+      tags:
+        - attack.discovery
+        - attack.t1068
+      tests:
+        positive:
+            - name: Accessing Tracefs directory
+              data:
+                - file.path: /sys/kernel/debug/tracing/events/sched/sched_switch/enable
+                  process.name: cat
+        negative:
+            - name: Accessing a regular file
+              data:
+                - file.path: /etc/passwd
+                  process.name: cat
+    - title: Detect Probing for Kprobes Directory
+      description: Detects attempts to check the existence of the kprobes directory, indicating potential interest in kernel probing capabilities.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            file.path: /sys/kernel/debug/kprobes/
+      level: low
+      tags:
+        - attack.discovery
+        - attack.t1068
+      tests:
+        positive:
+            - name: Listing files in kprobes directory
+              data:
+                - file.path: /sys/kernel/debug/kprobes/
+                  process.name: ls
+        negative:
+            - name: Accessing system configuration files
+              data:
+                - file.path: /etc/shadow
+                  process.name: cat
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1068
+      technique_name: Exploitation for Information Discovery
