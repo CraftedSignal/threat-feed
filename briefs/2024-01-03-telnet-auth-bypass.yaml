@@ -1,0 +1,169 @@
+id: brief-2024-01-03-telnet-auth-bypass
+slug: 2024-01-03-telnet-auth-bypass
+title: Telnet Authentication Bypass via USER Environment Variable
+summary: An attacker can potentially bypass Telnet authentication by manipulating the USER environment variable, leading to unauthorized system access.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief addresses a potential vulnerability in Telnet implementations that can lead to authentication bypass. While specific campaigns exploiting this are currently unknown, the nature of the vulnerability allows an attacker to potentially gain unauthorized access to systems running vulnerable Telnet servers. The attack involves manipulating the `USER` environment variable during the Telnet negotiation process. This vulnerability's impact is significant as successful exploitation grants the attacker direct access to the targeted system, potentially leading to further malicious activities.
+
+    ## Attack Chain
+
+    1.  Attacker initiates a Telnet connection to the target server.
+    2.  The Telnet server requests the `USER` environment variable from the client.
+    3.  Attacker provides a crafted `USER` environment variable containing malicious data or commands.
+    4.  The Telnet server improperly processes the supplied `USER` environment variable, potentially executing injected commands or bypassing authentication checks.
+    5.  If successful, the attacker gains an initial shell with the privileges associated with the bypassed account.
+    6.  The attacker performs reconnaissance to gather information about the system and network.
+    7.  Attacker escalates privileges using known exploits or misconfigurations.
+    8.  The attacker installs persistence mechanisms (e.g., backdoors) to maintain access.
+
+    ## Impact
+
+    Successful exploitation of this Telnet authentication bypass vulnerability could grant attackers unauthorized access to targeted systems. This could lead to data breaches, system compromise, and further malicious activities such as installing malware, exfiltrating sensitive data, or using the compromised system as a launchpad for attacks against other targets. The specific impact depends on the privileges granted to the bypassed account and the attacker's subsequent actions.
+tags:
+    - telnet
+    - authentication-bypass
+    - initial-access
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/initial_access_telnet_auth_bypass_via_user_envar.toml
+rules:
+    - title: Detect Telnet Connections with Suspicious USER Env Variable
+      description: Detects Telnet connections where the USER environment variable contains potentially malicious characters or commands.
+      logsource:
+        category: network_connection
+        product: linux
+      detection:
+        condition: selection and not filter
+        filter:
+            SourceBytes|contains:
+                - USER root
+                - USER bin
+                - USER daemon
+                - USER adm
+                - USER lp
+                - USER sync
+                - USER shutdown
+                - USER halt
+                - USER mail
+                - USER news
+                - USER uucp
+                - USER operator
+                - USER games
+                - USER nobody
+        selection:
+            ApplicationProtocol: telnet
+            DestinationPort: 23
+            Protocol: tcp
+            SourceBytes: '*'
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: Telnet connection with suspicious USER variable
+              data:
+                - ApplicationProtocol: telnet
+                  DestinationPort: 23
+                  Protocol: tcp
+                  SourceBytes: |-
+                    IAC WILL SUPPRESS GO Aiac DO ECHO
+                    IAC WILL TERMINAL TYPE
+                    IAC SB TERMINAL TYPE vt100 IAC SE
+                    IAC WILL WINDOW SIZE
+                    IAC DO TERMINAL SPEED
+                    IAC WILL REMOTE FLOW CONTROL
+                    IAC DO LINEMODE
+                    IAC DO NEW-ENVIRON
+                    IAC WILL NEW-ENVIRON
+                    IAC SB NEW-ENVIRON SEND ESC IAC SE
+                    USER evil`rm -rf /tmp/*`
+                    PASS test
+        negative:
+            - name: Normal Telnet connection
+              data:
+                - ApplicationProtocol: telnet
+                  DestinationPort: 23
+                  Protocol: tcp
+                  SourceBytes: |-
+                    IAC WILL SUPPRESS GO Aiac DO ECHO
+                    IAC WILL TERMINAL TYPE
+                    IAC SB TERMINAL TYPE vt100 IAC SE
+                    IAC WILL WINDOW SIZE
+                    IAC DO TERMINAL SPEED
+                    IAC WILL REMOTE FLOW CONTROL
+                    IAC DO LINEMODE
+                    IAC DO NEW-ENVIRON
+                    IAC WILL NEW-ENVIRON
+                    IAC SB NEW-ENVIRON SEND ESC IAC SE
+                    USER test
+                    PASS test
+    - title: Detect Telnet Connections to Common Root Accounts
+      description: Detects Telnet connection attempts to default admin accounts
+      logsource:
+        category: network_connection
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            ApplicationProtocol: telnet
+            DestinationPort: 23
+            Protocol: tcp
+            SourceBytes|contains: USER root
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1078
+      tests:
+        positive:
+            - name: Telnet connection attempt to root account
+              data:
+                - ApplicationProtocol: telnet
+                  DestinationPort: 23
+                  Protocol: tcp
+                  SourceBytes: |-
+                    IAC WILL SUPPRESS GO
+                    IAC DO ECHO
+                    IAC WILL TERMINAL TYPE
+                    IAC SB TERMINAL TYPE VT100 IAC SE
+                    IAC WILL WINDOW SIZE
+                    IAC DO TERMINAL SPEED
+                    IAC DO REMOTE FLOW CONTROL
+                    IAC DO LINEMODE
+                    IAC DO NEW-ENVIRON
+                    IAC WILL NEW-ENVIRON
+                    IAC SB NEW-ENVIRON SEND ESC IAC SE
+                    USER root
+                    PASS password123
+        negative:
+            - name: Telnet connection to standard account
+              data:
+                - ApplicationProtocol: telnet
+                  DestinationPort: 23
+                  Protocol: tcp
+                  SourceBytes: |-
+                    IAC WILL SUPPRESS GO
+                    IAC DO ECHO
+                    IAC WILL TERMINAL TYPE
+                    IAC SB TERMINAL TYPE VT100 IAC SE
+                    IAC WILL WINDOW SIZE
+                    IAC DO TERMINAL SPEED
+                    IAC DO REMOTE FLOW CONTROL
+                    IAC DO LINEMODE
+                    IAC DO NEW-ENVIRON
+                    IAC WILL NEW-ENVIRON
+                    IAC SB NEW-ENVIRON SEND ESC IAC SE
+                    USER testuser
+                    PASS password123
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
+    - tactic_id: TA0006
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
