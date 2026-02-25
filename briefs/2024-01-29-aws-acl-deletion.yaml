@@ -1,0 +1,100 @@
+id: brief-2024-01-29-aws-acl-deletion
+slug: 2024-01-29-aws-acl-deletion
+title: AWS Network Access Control List Deletion
+summary: An adversary may delete an AWS Network Access Control List (ACL) to disrupt network traffic filtering and potentially gain unauthorized access to resources within a Virtual Private Cloud (VPC).
+severity: medium
+published_at: "2024-01-29T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief focuses on the potential abuse of AWS API calls to delete Network Access Control Lists (ACLs). ACLs act as a firewall at the subnet level within an AWS Virtual Private Cloud (VPC), controlling inbound and outbound traffic. Deleting an ACL can disable these security controls, potentially exposing resources to unauthorized access or network attacks. While the provided source material lacks specific attacker details or observed campaigns, the potential impact of this action warrants attention from defenders monitoring their AWS environments. The risk lies in both accidental misconfiguration and malicious attempts to bypass security measures.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** The attacker gains access to AWS credentials with sufficient permissions to manage VPC resources. This could be achieved through compromised IAM roles, leaked access keys, or other credential theft techniques.
+    2.  **Authentication:** The attacker uses the obtained AWS credentials to authenticate to the AWS API.
+    3.  **Discovery:** The attacker may use AWS CLI or API calls such as `DescribeNetworkAcls` to identify the target Network ACLs within the VPC.
+    4.  **Disable Logging (Optional):** The attacker may attempt to disable CloudTrail logging to evade detection.
+    5.  **ACL Deletion:** The attacker executes the `DeleteNetworkAcl` API call, specifying the ID of the target Network ACL to remove it.
+    6.  **Verification:** The attacker verifies the successful deletion of the Network ACL, potentially using the `DescribeNetworkAcls` API call to confirm its absence.
+    7.  **Lateral Movement / Data Exfiltration:** With the ACL removed, the attacker can now move laterally within the VPC and exfiltrate data without the previously configured network restrictions.
+    8.  **Impact:** The attacker successfully disables network traffic filtering, potentially gaining unauthorized access to resources or disrupting services within the VPC.
+
+    ## Impact
+
+    Deleting a Network ACL can have significant consequences. It removes a layer of security controls, potentially exposing internal systems to external threats. Depending on the configuration of the VPC, this could lead to data breaches, service disruptions, or unauthorized resource access. The impact is particularly severe if the deleted ACL was the primary means of segmenting network traffic within the VPC. The number of affected resources depends on the scope of the deleted ACL and the architecture of the VPC.
+tags:
+    - aws
+    - cloud
+    - network-acl
+    - deletion
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_network_access_control_list_deleted.yml
+rules:
+    - title: Detect AWS Network ACL Deletion via CloudTrail
+      description: Detects the deletion of an AWS Network ACL based on CloudTrail logs.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: DeleteNetworkAcl
+            eventSource: ec2.amazonaws.com
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.004
+      tests:
+        positive:
+            - name: Network ACL deletion event
+              data:
+                - awsRegion: us-west-2
+                  eventName: DeleteNetworkAcl
+                  eventSource: ec2.amazonaws.com
+                  sourceIPAddress: 192.0.2.0
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    type: IAMUser
+        negative:
+            - name: Other EC2 events
+              data:
+                - awsRegion: us-west-2
+                  eventName: CreateNetworkAcl
+                  eventSource: ec2.amazonaws.com
+                  sourceIPAddress: 192.0.2.0
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    type: IAMUser
+    - title: Detect AWS CLI Usage for Network ACL Deletion
+      description: Detects the use of the AWS CLI to delete a Network ACL by monitoring process creation events.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: ec2 delete-network-acl
+            Image|endswith: \aws.exe
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.004
+      tests:
+        positive:
+            - name: AWS CLI Delete Network ACL
+              data:
+                - CommandLine: aws ec2 delete-network-acl --network-acl-id acl-1234567890abcdef0
+                  Image: C:\Program Files\Amazon\AWSCLIV2\aws.exe
+        negative:
+            - name: AWS CLI other command
+              data:
+                - CommandLine: aws s3 ls
+                  Image: C:\Program Files\Amazon\AWSCLIV2\aws.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.004
+      subtechnique_name: Disable or Modify System Policy
