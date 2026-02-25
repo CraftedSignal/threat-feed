@@ -1,0 +1,118 @@
+id: brief-2024-01-31-aws-iam-failure
+slug: 2024-01-31-aws-iam-failure
+title: AWS IAM Group Deletion Failure Detection
+summary: This brief focuses on detecting failed attempts to delete IAM groups within AWS, indicating potential misconfiguration, permission issues, or malicious activity.
+severity: medium
+published_at: "2024-01-31T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief addresses the detection of failed AWS IAM group deletion attempts. While the provided source material lacks detailed threat actor information or specific attack campaigns, the ability to detect failed IAM actions is crucial for maintaining a secure AWS environment. Unauthorized or unintended deletion attempts could be indicative of misconfigured permissions, insider threats, or external attackers attempting to disrupt or compromise AWS resources. Monitoring these failures provides an opportunity to investigate and remediate potential security weaknesses, ensuring proper IAM governance and preventing unintended access disruptions. It's important to note that this detection focuses solely on the *failure* of a group deletion, and further investigation is needed to determine the root cause and potential impact.
+
+    ## Attack Chain
+
+    Given the nature of the provided source, the following attack chain is inferred based on potential scenarios leading to a failed group deletion attempt:
+
+    1. An attacker (or misconfigured process) attempts to delete an IAM group using AWS CLI, API calls, or the AWS Management Console.
+    2. The request is sent to the AWS IAM service.
+    3. AWS IAM service evaluates the request against the caller's permissions and applicable policies.
+    4. If the caller lacks the necessary permissions (iam:DeleteGroup and potentially related permissions), the request is denied.
+    5. The AWS IAM service logs a CloudTrail event indicating a failed DeleteGroup attempt, including details about the caller, resource, and error.
+    6. The attacker may attempt to circumvent the permission restrictions through privilege escalation or credential compromise, potentially leading to further failed attempts.
+    7. Defenders detect the failed deletion attempts and trigger an investigation.
+    8. Remediation steps are taken to correct permissions or address the underlying security issue.
+
+    ## Impact
+
+    The immediate impact of a *failed* IAM group deletion is minimal, as the group and its associated permissions remain intact. However, repeated failed attempts can indicate malicious intent, misconfigured automation, or a misunderstanding of IAM policies. If an attacker eventually succeeds in deleting an IAM group, the consequences can be significant, leading to loss of access for affected users, disruption of services, and potential data breaches. Monitoring failed deletion attempts allows for early detection and prevention of more severe incidents. The number of victims depends on the size and scope of the deleted IAM group.
+tags:
+    - aws
+    - iam
+    - cloudtrail
+    - identity
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_iam_failure_group_deletion.yml
+rules:
+    - title: Detect Failed AWS IAM Group Deletion Attempts
+      description: Detects events where an attempt to delete an IAM group fails, indicating potential permission issues or malicious activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            errorCode: '*'
+            eventName: DeleteGroup
+            eventSource: iam.amazonaws.com
+            responseElements: null
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562
+      tests:
+        positive:
+            - name: Failed DeleteGroup attempt
+              data:
+                - errorCode: AccessDenied
+                  eventName: DeleteGroup
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    groupName: test-group
+                  responseElements: null
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    type: IAMUser
+        negative:
+            - name: Successful DeleteGroup attempt
+              data:
+                - eventName: DeleteGroup
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    groupName: test-group
+                  responseElements: '{"groupId": "AGPA1234567890EXAMPLE"}'
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    type: IAMUser
+    - title: Detect Failed AWS IAM Group Deletion Attempts - Specific Error
+      description: Detects events where an attempt to delete an IAM group fails with a specific error code (e.g., AccessDenied), indicating permission issues.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            errorCode: AccessDenied
+            eventName: DeleteGroup
+            eventSource: iam.amazonaws.com
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562
+      tests:
+        positive:
+            - name: Failed DeleteGroup attempt with AccessDenied
+              data:
+                - errorCode: AccessDenied
+                  eventName: DeleteGroup
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    groupName: test-group
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    type: IAMUser
+        negative:
+            - name: Failed DeleteGroup attempt with a different error (e.g., NoSuchEntity)
+              data:
+                - errorCode: NoSuchEntity
+                  eventName: DeleteGroup
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    groupName: test-group
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    type: IAMUser
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
