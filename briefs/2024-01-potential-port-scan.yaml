@@ -1,0 +1,125 @@
+id: brief-2024-01-01-potential-port-scan
+slug: 2024-01-potential-port-scan
+title: Potential Port Scan Detected
+summary: A potential port scan is detected by monitoring network traffic for a high number of connection attempts to different ports on a target system, indicating reconnaissance activity.
+severity: medium
+published_at: "2024-01-01T00:00:00Z"
+content: |
+    ## Overview
+
+    This alert focuses on detecting potential port scanning activity, a common reconnaissance technique used by attackers to identify open ports and services on a target system. While the source material doesn't provide specific attacker details or campaign information, the core concept is detecting a high volume of connection attempts. This activity, if successful, allows attackers to map out the target's network, identify potential vulnerabilities, and plan further exploitation. Defenders should monitor for this behavior to identify early-stage reconnaissance and prevent subsequent attacks. The absence of further details in the source restricts the analysis to the generic port scan detection.
+
+    ## Attack Chain
+
+    1.  Attacker initiates a network scan targeting a specific IP range or a single target system.
+    2.  The scanning tool sends TCP SYN packets to a range of ports on the target system.
+    3.  The target system responds with SYN-ACK (if the port is open) or RST (if the port is closed).
+    4.  The attacker analyzes the responses to identify open ports.
+    5.  The attacker may send other types of probes (e.g., UDP packets, FIN packets) to gather more information about the target system.
+    6.  The attacker maps out the open ports and services running on the target.
+    7.  The attacker identifies potential vulnerabilities associated with the discovered services.
+    8.  The attacker exploits identified vulnerabilities for initial access or further reconnaissance.
+
+    ## Impact
+
+    Successful port scanning enables attackers to map the target's network and identify vulnerable services. This information can be used to plan further attacks, such as exploiting identified vulnerabilities for initial access, conducting lateral movement within the network, or exfiltrating sensitive data. Even without a successful breach, the detection of port scanning indicates a potential threat actor is actively probing the network, warranting further investigation.
+tags:
+    - network-scan
+    - reconnaissance
+    - network-traffic
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/network/discovery_potential_port_scan_detected.toml
+rules:
+    - title: Detect High Volume of Connection Attempts to Different Ports
+      description: Detects a high number of connection attempts from a single source IP to multiple destination ports within a short timeframe, indicating a potential port scan.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection AND destination_port
+        destination_port:
+            - 1
+            - 21
+            - 22
+            - 23
+            - 25
+            - 53
+            - 80
+            - 110
+            - 111
+            - 135
+            - 139
+            - 143
+            - 443
+            - 445
+            - 993
+            - 995
+            - 1433
+            - 3306
+            - 3389
+            - 5900
+            - 8080
+        selection:
+            SourceIp: '*'
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1046
+      tests:
+        positive:
+            - name: Multiple connections to different ports
+              data:
+                - DestinationPort: "80"
+                  SourceIp: 192.168.1.100
+                - DestinationPort: "443"
+                  SourceIp: 192.168.1.100
+                - DestinationPort: "3389"
+                  SourceIp: 192.168.1.100
+        negative:
+            - name: Single connection to one port
+              data:
+                - DestinationPort: "80"
+                  SourceIp: 192.168.1.100
+    - title: Detect Outbound Connection to Uncommon Ports
+      description: Detects connections to ports that are typically not used for legitimate communication, which could indicate port scanning or C2 activity.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            DestinationPort:
+                - 6666
+                - 6667
+                - 6668
+                - 6669
+                - 7000
+                - 8000
+                - 8081
+                - 9000
+                - 9001
+                - 9090
+            Initiated: "true"
+      level: low
+      tags:
+        - attack.discovery
+        - attack.command_and_control
+        - attack.t1046
+      tests:
+        positive:
+            - name: Connection to uncommon port
+              data:
+                - DestinationPort: "6667"
+                  Initiated: "true"
+                  SourceIp: 192.168.1.100
+        negative:
+            - name: Connection to standard web port
+              data:
+                - DestinationPort: "443"
+                  Initiated: "true"
+                  SourceIp: 192.168.1.100
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1046
+      technique_name: Network Service Scanning
