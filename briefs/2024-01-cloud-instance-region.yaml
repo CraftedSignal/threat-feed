@@ -1,0 +1,100 @@
+id: brief-2024-01-04-cloud-instance-region
+slug: 2024-01-cloud-instance-region
+title: Cloud Compute Instance Created in Previously Unused Region
+summary: Creation of a cloud compute instance in a previously unused region can indicate lateral movement, infrastructure expansion by a threat actor, or unauthorized resource deployment.
+severity: medium
+published_at: "2024-01-04T12:00:00Z"
+content: |
+    ## Overview
+
+    The creation of a cloud compute instance in a region where no previous activity has been observed can be a significant indicator of malicious activity within a cloud environment. This behavior can be indicative of several threats including lateral movement by an attacker who has already compromised an initial instance, unauthorized expansion of infrastructure for malicious purposes such as cryptocurrency mining, or the deployment of resources by an attacker attempting to blend in with legitimate activity after initial access. Defenders should monitor for these events in order to detect unauthorized activity, ensure compliance with cloud usage policies, and respond to potential compromises.
+
+    ## Attack Chain
+
+    1. An attacker gains initial access to a cloud environment through compromised credentials or exploiting a vulnerability in a cloud service.
+    2. The attacker enumerates existing cloud resources and identifies available regions.
+    3. The attacker determines a previously unused region for compute instance deployment.
+    4. The attacker leverages cloud APIs or the cloud management console to create a new compute instance in the target region.
+    5. The attacker configures the newly created instance with necessary software, potentially including malware or tools for lateral movement.
+    6. The attacker uses the new instance to perform reconnaissance or further attacks within the cloud environment.
+    7. The attacker establishes persistence by configuring the instance to automatically start or by creating new user accounts with elevated privileges.
+
+    ## Impact
+
+    A successful attack involving the creation of unauthorized cloud compute instances can result in significant financial costs due to resource consumption. The attack can lead to data breaches, denial of service, or use of compromised infrastructure for malicious purposes such as cryptocurrency mining or botnet operations. Organizations may also face compliance violations and reputational damage.
+tags:
+    - cloud
+    - instance_creation
+    - lateral_movement
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/cloud_compute_instance_created_in_previously_unused_region.yml
+rules:
+    - title: Cloud Compute Instance Created in New Region
+      description: Detects the creation of a cloud compute instance in a region where no instances previously existed.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            awsRegion:
+                - '!us-east-1'
+                - '!us-west-2'
+            eventName: RunInstances
+            eventSource: ec2.amazonaws.com
+      level: medium
+      tags:
+        - attack.lateral_movement
+        - attack.t1021.006
+      tests:
+        positive:
+            - name: Instance created in new region
+              data:
+                - awsRegion: eu-central-1
+                  eventName: RunInstances
+                  eventSource: ec2.amazonaws.com
+        negative:
+            - name: Instance created in existing region
+              data:
+                - awsRegion: us-east-1
+                  eventName: RunInstances
+                  eventSource: ec2.amazonaws.com
+    - title: GCP Compute Instance Creation in New Region
+      description: Detects compute instance creation in a new GCP region
+      logsource:
+        category: audit
+        product: gcp
+      detection:
+        condition: selection
+        selection:
+            protoPayload.methodName: beta.compute.instances.insert
+            resource.labels.zone|startswith:
+                - us-
+                - europe-
+                - asia-
+      level: medium
+      tags:
+        - attack.lateral_movement
+        - attack.t1021.006
+      tests:
+        positive:
+            - name: GCP instance creation in asia-southeast1
+              data:
+                - protoPayload.methodName: beta.compute.instances.insert
+                  resource.labels.zone: asia-southeast1-a
+            - name: GCP instance creation in europe-west4
+              data:
+                - protoPayload.methodName: beta.compute.instances.insert
+                  resource.labels.zone: europe-west4-b
+        negative:
+            - name: GCP network creation
+              data:
+                - protoPayload.methodName: compute.networks.insert
+                  resource.labels.zone: us-central1-a
+ttps:
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021
+      technique_name: Remote Services
+      subtechnique_id: T1021.006
+      subtechnique_name: Cloud Services
