@@ -1,0 +1,92 @@
+id: brief-2024-01-03-circleci-security-bypass
+slug: 2024-01-circleci-security-bypass
+title: CircleCI Security Step Disabled
+summary: Attackers can disable security steps in CircleCI configurations to bypass security controls during CI/CD pipelines.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    The ability to disable security steps within CircleCI configurations presents a significant risk. Attackers who gain unauthorized access to a CircleCI project's configuration can modify the `.circleci/config.yml` file to remove or bypass security checks, such as SAST or DAST tools, vulnerability scanners, or compliance checks. This can lead to the deployment of vulnerable or malicious code into production environments, undermining the security posture of the entire software development lifecycle. While specific campaigns are not detailed, the potential impact extends to any organization using CircleCI for continuous integration and deployment.
+
+    ## Attack Chain
+
+    1. **Initial Access:** The attacker gains unauthorized access to the CircleCI project, potentially through compromised credentials, exposed API keys, or vulnerabilities in the CircleCI platform itself.
+    2. **Configuration File Modification:** The attacker modifies the `.circleci/config.yml` file, which defines the CI/CD pipeline.
+    3. **Security Step Removal:** The attacker removes or comments out security-related steps within the configuration file. This could include steps that run vulnerability scans, static analysis, or other security checks.
+    4. **Code Commit and Trigger:** The attacker commits the modified configuration file to the project's repository, triggering a new CI/CD pipeline build.
+    5. **Bypassed Security Checks:** The pipeline executes without the previously enabled security checks, allowing vulnerable or malicious code to proceed through the deployment process.
+    6. **Deployment to Production:** The code is deployed to production environments without proper security validation.
+    7. **Exploitation:** The deployed vulnerable code is exploited by external attackers, leading to data breaches, system compromise, or other security incidents.
+
+    ## Impact
+
+    Successful circumvention of CircleCI security steps can lead to the deployment of vulnerable or malicious code, resulting in data breaches, system compromise, or financial losses. The number of victims depends on the scope of the compromised application and the sensitivity of the data it handles. Sectors heavily reliant on CI/CD pipelines, such as software development, finance, and e-commerce, are particularly vulnerable. This bypass can have severe consequences for organizations that rely on automated security checks within their CI/CD workflows.
+tags:
+    - ci/cd
+    - security-bypass
+    - supply-chain
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/circle_ci_disable_security_step.yml
+rules:
+    - title: CircleCI Config - Security Step Removal
+      description: Detects modification of CircleCI configuration files to remove security-related steps.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection and not filter
+        filter:
+            user: circleci
+        selection:
+            file_modification_time: now-1d..now
+            file_path|contains: .circleci/config.yml
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: Modified config.yml
+              data:
+                - file_modification_time: "2024-01-02T10:00:00Z"
+                  file_path: /home/user/project/.circleci/config.yml
+                  user: user
+        negative:
+            - name: config.yml modified by CircleCI
+              data:
+                - file_modification_time: "2024-01-02T10:00:00Z"
+                  file_path: /home/user/project/.circleci/config.yml
+                  user: circleci
+    - title: CircleCI Config - Disabled Security Step via Comment
+      description: Detects commenting out of security-related steps in CircleCI configuration files.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            file_content|contains: '# security-scan'
+            file_path|contains: .circleci/config.yml
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: config.yml with commented out security
+              data:
+                - file_content: '  # security-scan: run-vulnerability-scan'
+                  file_path: /home/user/project/.circleci/config.yml
+        negative:
+            - name: config.yml with no comments
+              data:
+                - file_content: '  security-scan: run-vulnerability-scan'
+                  file_path: /home/user/project/.circleci/config.yml
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.001
+      subtechnique_name: Disable or Modify Tools
