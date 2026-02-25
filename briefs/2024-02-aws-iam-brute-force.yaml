@@ -1,0 +1,340 @@
+id: brief-2024-02-29-aws-iam-brute-force
+slug: 2024-02-aws-iam-brute-force
+title: AWS IAM Assume Role Policy Brute Force Attempt
+summary: An attacker attempts to brute force the AWS IAM Assume Role policy, potentially gaining unauthorized access to resources.
+severity: high
+published_at: "2024-02-29T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief addresses a potential brute force attack against the AWS IAM Assume Role policy. The attacker's goal is to discover a valid combination of parameters that allows them to assume a role, thereby gaining unauthorized access to AWS resources. This is done by repeatedly attempting to assume a role with different principal ARNs and external IDs, hoping to bypass existing security controls. While the provided source material doesn't specify a campaign or actor, such attacks are a concern for any organization leveraging AWS IAM roles for cross-account access or privilege escalation. Successful exploitation can lead to significant data breaches, service disruption, and financial loss. Defenders should implement robust monitoring and alerting to detect and respond to such brute force attempts.
+
+    ## Attack Chain
+
+    1.  **Initial Access Attempt:** The attacker initiates the attack by making an `AssumeRole` API call to AWS STS (Security Token Service).
+    2.  **Principal ARN Variation:** The attacker iterates through a list of potential Principal ARNs, modifying the ARN in each `AssumeRole` request.
+    3.  **External ID Brute-Forcing:** For each Principal ARN, the attacker attempts to brute-force the External ID, sending multiple `AssumeRole` requests with different External ID values.
+    4.  **API Request Flood:** The attacker rapidly sends a large number of `AssumeRole` requests in a short period, attempting to overwhelm rate-limiting or detection mechanisms.
+    5.  **Credential Acquisition:** If a successful `AssumeRole` request is made (correct Principal ARN and External ID), AWS STS returns temporary security credentials (access key ID, secret access key, and session token).
+    6.  **Resource Access:** The attacker uses the acquired temporary credentials to access AWS resources associated with the assumed role.
+    7.  **Privilege Escalation:** The attacker leverages the assumed role's permissions to escalate privileges within the AWS environment.
+    8.  **Data Exfiltration / Damage:** With escalated privileges, the attacker exfiltrates sensitive data or causes damage to AWS resources.
+
+    ## Impact
+
+    A successful brute force attack on the Assume Role policy can result in unauthorized access to sensitive AWS resources. This could lead to data breaches, service disruption, or financial loss. The scale of the impact depends on the permissions associated with the compromised role. Organizations across all sectors are potentially vulnerable, especially those relying heavily on AWS IAM roles for cross-account access and internal privilege management. The reputational damage and potential regulatory fines could be substantial.
+tags:
+    - aws
+    - iam
+    - assume-role
+    - brute-force
+    - cloud
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_iam_assume_role_policy_brute_force.yml
+rules:
+    - title: AWS IAM Excessive Assume Role Attempts
+      description: Detects an excessive number of AssumeRole API calls from a single source IP address, indicating a potential brute force attempt.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection | count(clientip) by clientip > 100
+        selection:
+            eventname: AssumeRole
+        timeframe: 5m
+      level: high
+      tags:
+        - attack.credential_access
+        - attack.t1556.006
+      tests:
+        positive:
+            - name: Excessive AssumeRole calls
+              data:
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+                - clientip: 192.0.2.1
+                  eventname: AssumeRole
+        negative:
+            - name: Normal number of AssumeRole calls
+              data:
+                - clientip: 192.0.2.2
+                  eventname: AssumeRole
+    - title: AWS IAM Assume Role From Unusual Source IP
+      description: Detects AssumeRole API calls originating from an IP address not typically associated with IAM operations.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            clientip|cidr:
+                - 10.0.0.0/8
+                - 172.16.0.0/12
+                - 192.168.0.0/16
+            eventname: AssumeRole
+      level: medium
+      tags:
+        - attack.credential_access
+        - attack.t1556.006
+      tests:
+        positive:
+            - name: AssumeRole from external IP
+              data:
+                - clientip: 8.8.8.8
+                  eventname: AssumeRole
+        negative:
+            - name: AssumeRole from internal IP
+              data:
+                - clientip: 10.0.0.5
+                  eventname: AssumeRole
+ttps:
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1556
+      technique_name: Impair Accounts
+      subtechnique_id: T1556.006
+      subtechnique_name: Brute Force
