@@ -1,89 +1,104 @@
-id: brief-2024-01-31-open-s3-buckets
+id: brief-2024-01-03-open-s3-buckets
 slug: 2024-01-open-s3-buckets
-title: Detection of Newly Created Open S3 Buckets
-summary: Newly created, publicly accessible Amazon S3 buckets can expose sensitive data and provide an entry point for unauthorized access, necessitating prompt detection and remediation.
+title: Detection of New Open S3 Buckets Created via AWS CLI
+summary: Newly created Amazon S3 buckets configured with overly permissive access policies are detected through the analysis of AWS CLI command execution.
 severity: high
-published_at: "2024-01-31T12:00:00Z"
+published_at: "2024-01-03T12:00:00Z"
 content: |
     ## Overview
 
-    The creation of publicly accessible Amazon S3 buckets poses a significant security risk. While the provided source material lacks specific details about actors or campaigns, the potential for data exposure and unauthorized access makes this a critical issue. This threat brief focuses on detecting the initial creation of these open buckets, allowing for rapid response and mitigation. Successful exploitation can lead to significant data breaches, compliance violations, and reputational damage. The absence of actor-specific information necessitates a focus on technical detection and generic mitigation strategies. Defenders should prioritize monitoring cloud infrastructure logs for S3 bucket creation events and access control changes.
+    This detection focuses on identifying the creation of publicly accessible Amazon S3 buckets through the AWS Command Line Interface (CLI). While the specific actor remains unknown, the activity itself poses a significant risk. The creation of open S3 buckets, particularly by unauthorized or compromised users, exposes sensitive data to potential theft or manipulation. The threat lies not in a particular campaign or tool version, but in the misconfiguration of cloud storage resources. This is a common cloud security issue that impacts organizations of all sizes leveraging AWS.
 
     ## Attack Chain
 
-    1.  An attacker gains access to a cloud account through compromised credentials, weak authentication, or exploiting a misconfiguration in IAM policies.
-    2.  The attacker uses the AWS Management Console, CLI, or SDK to create a new S3 bucket within the compromised account.
-    3.  The attacker modifies the S3 bucket's access control lists (ACLs) or bucket policies to grant public read and/or write access. This may involve setting the ACL to "public-read" or "public-read-write", or configuring a bucket policy that allows access from any principal ("*").
-    4.  The attacker uploads sensitive data into the newly created, publicly accessible S3 bucket. This data may include customer information, internal documents, API keys, or other confidential materials.
-    5.  The attacker tests the public accessibility of the bucket by accessing it from an unauthenticated IP address or using a web browser.
-    6.  The attacker leverages the publicly accessible bucket to host malicious content, such as phishing pages or malware, for distribution to unsuspecting victims.
-    7.  External parties discover the open S3 bucket through search engines or vulnerability scans, potentially leading to widespread data exposure.
+    1.  An attacker gains access to a system with AWS CLI configured and valid AWS credentials.
+    2.  The attacker executes the `aws s3api create-bucket` command using the AWS CLI.
+    3.  The attacker utilizes the `aws s3api put-bucket-acl` command to set the Access Control List (ACL) of the newly created bucket to 'public-read' or 'public-read-write'. Alternatively, the `aws s3api put-bucket-policy` is used to define a bucket policy that allows public access.
+    4.  The attacker then uses `aws s3 cp` or `aws s3 sync` to upload sensitive data into the newly created open bucket.
+    5.  The attacker may enumerate and validate the bucket's public accessibility using `aws s3 ls s3://<bucket-name>`.
+    6.  The data within the bucket becomes exposed to unauthorized access from the internet.
 
     ## Impact
 
-    The impact of publicly accessible S3 buckets can be severe. Data breaches can expose sensitive information belonging to customers, employees, or the organization itself, leading to financial losses, legal liabilities, and reputational damage. Organizations in regulated industries may face significant fines for non-compliance. Publicly accessible buckets can also be exploited to host and distribute malware or phishing attacks, further amplifying the damage. The absence of access controls allows anyone to read, modify, or delete data within the bucket.
+    Successful exploitation can lead to the exposure of sensitive data stored within the S3 bucket. This could include customer data, financial records, intellectual property, or other confidential information. The impact can range from reputational damage and legal liabilities to financial losses and competitive disadvantages. The scale of impact depends on the volume and sensitivity of data stored in the exposed S3 bucket.
 tags:
     - cloud
+    - aws
     - s3
     - misconfiguration
-    - data-exfiltration
 references:
-    - https://github.com/splunk/security_content/blob/main/detections/cloud/detect_new_open_s3_buckets.yml
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/detect_new_open_s3_buckets_over_aws_cli.yml
 rules:
-    - title: Detect S3 Bucket Created with Public Read ACL
-      description: Detects the creation of an S3 bucket with a public read access control list (ACL), indicating a potential misconfiguration leading to data exposure.
+    - title: Detect S3 Bucket Creation with Public ACL via AWS CLI
+      description: Detects the creation of an S3 bucket followed by setting a public ACL using the AWS CLI.
       logsource:
-        category: cloudtrail
-        product: aws
+        category: process_creation
+        product: linux
       detection:
-        condition: selection
-        selection:
-            eventname: CreateBucket
-            requestparameters.acl: public-read
+        condition: selection_aws and selection_s3 and selection_create and selection_acl and selection_public
+        selection_acl:
+            CommandLine|contains: put-bucket-acl
+        selection_aws:
+            CommandLine|contains: aws
+        selection_create:
+            CommandLine|contains: create-bucket
+        selection_public:
+            CommandLine|contains:
+                - public-read
+                - public-read-write
+                - public-write
+        selection_s3:
+            CommandLine|contains: s3api
       level: high
       tags:
-        - attack.credential_access
-        - attack.t1530
+        - attack.defense_evasion
+        - attack.t1562.008
       tests:
         positive:
-            - name: S3 Bucket Created with Public Read ACL
+            - name: S3 bucket created and ACL set to public-read
               data:
-                - eventname: CreateBucket
-                  requestparameters.acl: public-read
-                  requestparameters.bucketname: test-bucket-public-read
+                - CommandLine: aws s3api create-bucket --bucket my-new-bucket --region us-west-2
+                - CommandLine: aws s3api put-bucket-acl --bucket my-new-bucket --acl public-read
         negative:
-            - name: S3 Bucket Created with Private ACL
+            - name: S3 bucket created with default private ACL
               data:
-                - eventname: CreateBucket
-                  requestparameters.acl: private
-                  requestparameters.bucketname: test-bucket-private
-    - title: Detect S3 Bucket Policy Allowing Public Access
-      description: 'Detects the creation or modification of an S3 bucket policy that grants public access (Principal: ''*''), potentially exposing sensitive data.'
+                - CommandLine: aws s3api create-bucket --bucket my-private-bucket --region us-west-2
+                - CommandLine: aws s3api put-bucket-acl --bucket my-private-bucket --acl private
+    - title: Detect S3 Bucket Creation with Public Policy via AWS CLI
+      description: Detects the creation of an S3 bucket followed by setting a public bucket policy using the AWS CLI.
       logsource:
-        category: cloudtrail
-        product: aws
+        category: process_creation
+        product: linux
       detection:
-        condition: selection
-        selection:
-            eventname: PutBucketPolicy
-            requestparameters.bucketpolicy|contains: '{"Principal":"*"}'
-      level: critical
+        selection_aws:
+            CommandLine|contains: aws
+        selection_create:
+            CommandLine|contains: create-bucket
+        selection_policy:
+            CommandLine|contains: put-bucket-policy
+        selection_public:
+            CommandLine|contains: '"Principal": "*"'
+        selection_s3:
+            CommandLine|contains: s3api
+      level: high
       tags:
-        - attack.credential_access
-        - attack.t1530
+        - attack.defense_evasion
+        - attack.t1562.008
       tests:
         positive:
-            - name: S3 Bucket Policy Allowing Public Access
+            - name: S3 bucket created and Policy set to public
               data:
-                - eventname: PutBucketPolicy
-                  requestparameters.bucketpolicy: '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":"*","Action":"s3:GetObject","Resource":"arn:aws:s3:::examplebucket/*"}]}'
+                - CommandLine: aws s3api create-bucket --bucket my-new-bucket --region us-west-2
+                - CommandLine: aws s3api put-bucket-policy --bucket my-new-bucket --policy '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":"*","Action":"s3:GetObject","Resource":"arn:aws:s3:::my-new-bucket/*"}]}'
         negative:
-            - name: S3 Bucket Policy Restricting Access
+            - name: S3 bucket created with restrictive Policy
               data:
-                - eventname: PutBucketPolicy
-                  requestparameters.bucketpolicy: '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:user/John"},"Action":"s3:GetObject","Resource":"arn:aws:s3:::examplebucket/*"}]}'
+                - CommandLine: aws s3api create-bucket --bucket my-private-bucket --region us-west-2
+                - CommandLine: aws s3api put-bucket-policy --bucket my-private-bucket --policy '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:user/MyUser"},"Action":"s3:GetObject","Resource":"arn:aws:s3:::my-private-bucket/*"}]}'
 ttps:
-    - tactic_id: TA0003
-      tactic_name: Persistence
-      technique_id: T1530
-      technique_name: Data from Cloud Storage Object
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.008
+      subtechnique_name: Disable Cloud Logs
