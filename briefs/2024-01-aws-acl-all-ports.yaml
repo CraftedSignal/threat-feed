@@ -1,0 +1,129 @@
+id: brief-2024-01-09-aws-acl-all-ports
+slug: 2024-01-aws-acl-all-ports
+title: AWS Network ACL Created with All Ports Open
+summary: An AWS Network Access Control List (ACL) is created with all ports open, potentially allowing unrestricted network traffic flow, which can be exploited by threat actors to compromise resources.
+severity: high
+published_at: "2024-01-09T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection identifies when an AWS Network Access Control List (ACL) is created with all ports open. Network ACLs act as a firewall for controlling traffic in and out of one or more subnets. When an ACL is configured to allow all ports (0-65535) for both inbound and outbound traffic, it effectively disables the security benefits of the ACL. While not directly attributed to a specific threat actor, this misconfiguration can be exploited by various actors to gain unauthorized access, move laterally within the network, and exfiltrate sensitive data. The impact is particularly significant in environments where ACLs are the primary or sole means of network segmentation.
+
+    ## Attack Chain
+
+    1. **Initial Access:** A compromised EC2 instance, or an attacker with valid AWS credentials, gains access to the AWS environment.
+    2. **Reconnaissance:** The attacker identifies the existing network infrastructure, including VPCs, subnets, and existing ACL configurations.
+    3. **ACL Creation:** The attacker creates a new Network ACL with rules that allow all inbound and outbound traffic on all ports (0-65535).
+    4. **Subnet Association:** The attacker associates the newly created, permissive ACL with one or more subnets containing target resources.
+    5. **Lateral Movement:** With unrestricted traffic flow, the attacker can move laterally within the affected subnets to access other systems and data.
+    6. **Data Exfiltration:** The attacker can exfiltrate sensitive data from the compromised resources through the open ports.
+    7. **Persistence:** The attacker may establish persistence mechanisms within the compromised systems to maintain access even if the initial access vector is remediated.
+
+    ## Impact
+
+    The creation of an AWS Network ACL with all ports open significantly weakens the security posture of the affected subnets. This allows attackers to bypass network segmentation controls, potentially leading to unauthorized access to sensitive data, lateral movement within the network, and data exfiltration. The severity of the impact depends on the resources within the affected subnets, but can range from minor data leakage to a full-scale breach affecting numerous systems and sensitive information.
+tags:
+    - cloud
+    - aws
+    - network-acl
+    - misconfiguration
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_network_access_control_list_created_with_all_open_ports.yml
+rules:
+    - title: Detect AWS Network ACL Creation with All Ports Open
+      description: Detects the creation of an AWS Network ACL with rules that allow all inbound and outbound traffic on all ports (0-65535).
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: CreateNetworkAcl
+            requestParameters.egressSet.items[*].portRange.from: "0"
+            requestParameters.egressSet.items[*].portRange.to: "65535"
+            requestParameters.ingressSet.items[*].portRange.from: "0"
+            requestParameters.ingressSet.items[*].portRange.to: "65535"
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.008
+      tests:
+        positive:
+            - name: Network ACL created allowing all ports
+              data:
+                - eventname: CreateNetworkAcl
+                  requestParameters.egressSet.items:
+                    - cidrBlock: 0.0.0.0/0
+                      portRange:
+                        from: "0"
+                        to: "65535"
+                      protocol: "-1"
+                      ruleAction: allow
+                  requestParameters.ingressSet.items:
+                    - cidrBlock: 0.0.0.0/0
+                      portRange:
+                        from: "0"
+                        to: "65535"
+                      protocol: "-1"
+                      ruleAction: allow
+        negative:
+            - name: Network ACL created with restricted ports
+              data:
+                - eventname: CreateNetworkAcl
+                  requestParameters.egressSet.items:
+                    - cidrBlock: 0.0.0.0/0
+                      portRange:
+                        from: "80"
+                        to: "80"
+                      protocol: "6"
+                      ruleAction: allow
+                  requestParameters.ingressSet.items:
+                    - cidrBlock: 0.0.0.0/0
+                      portRange:
+                        from: "443"
+                        to: "443"
+                      protocol: "6"
+                      ruleAction: allow
+    - title: Detect AWS Network ACL Modified to Open All Ports
+      description: Detects when an existing AWS Network ACL is modified to allow all inbound and outbound traffic on all ports (0-65535).
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: ReplaceNetworkAclEntry
+            requestParameters.portRange.from: "0"
+            requestParameters.portRange.to: "65535"
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.008
+      tests:
+        positive:
+            - name: Network ACL Entry modified to allow all ports
+              data:
+                - eventname: ReplaceNetworkAclEntry
+                  requestParameters.cidrBlock: 0.0.0.0/0
+                  requestParameters.portRange:
+                    from: "0"
+                    to: "65535"
+                  requestParameters.protocol: "-1"
+                  requestParameters.ruleAction: allow
+        negative:
+            - name: Network ACL Entry modified with restricted ports
+              data:
+                - eventname: ReplaceNetworkAclEntry
+                  requestParameters.cidrBlock: 0.0.0.0/0
+                  requestParameters.portRange:
+                    from: "80"
+                    to: "80"
+                  requestParameters.protocol: "6"
+                  requestParameters.ruleAction: allow
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.008
+      subtechnique_name: Disable or Modify Tools
