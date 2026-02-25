@@ -1,0 +1,117 @@
+id: brief-2024-01-03-aws-console-login-new-region
+slug: 2024-01-aws-console-login-new-region
+title: AWS Console Login by User from New Region
+summary: An adversary gains initial access to an AWS environment by compromising user credentials and logging into the AWS console from a previously unseen geographic region.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat involves an attacker gaining unauthorized access to an Amazon Web Services (AWS) environment by compromising user credentials. After obtaining valid credentials, the attacker logs into the AWS Management Console from a geographic region that is not typically associated with the user account. This unusual login location serves as an indicator of potential malicious activity. Successful compromise can lead to data exfiltration, resource hijacking, or service disruption. Defenders should implement monitoring to detect console logins from unfamiliar regions and enforce multi-factor authentication to mitigate credential compromise.
+
+    ## Attack Chain
+
+    1.  An attacker obtains valid AWS user credentials through phishing, credential stuffing, or other means.
+    2.  The attacker logs into the AWS Management Console using the compromised credentials.
+    3.  The login originates from an IP address associated with a geographic region that is not typical for the user account.
+    4.  Upon successful login, the attacker enumerates AWS resources and services within the compromised account.
+    5.  The attacker modifies IAM policies to elevate privileges or create new administrative accounts.
+    6.  The attacker launches EC2 instances in new regions for cryptomining or other malicious purposes.
+    7.  The attacker accesses and exfiltrates sensitive data stored in S3 buckets.
+    8.  The attacker deletes logs and other evidence of their activity to evade detection.
+
+    ## Impact
+
+    A successful attack can lead to unauthorized access to sensitive data, including customer information, financial records, and intellectual property. This can result in financial losses, reputational damage, and legal liabilities. The attacker could also disrupt critical services, leading to downtime and business interruption. Organizations in all sectors are at risk, particularly those with weak password policies or inadequate multi-factor authentication.
+tags:
+    - cloud
+    - aws
+    - credential-access
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/detect_aws_console_login_by_user_from_new_region.yml
+rules:
+    - title: Detect AWS Console Login From New Region
+      description: Detects AWS console logins from a previously unseen geographic location for a given user.
+      logsource:
+        category: network_connection
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: ConsoleLogin
+            eventSource: signin.amazonaws.com
+            sourceIPAddress: null
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1078
+      tests:
+        positive:
+            - name: AWS Console Login from New Region
+              data:
+                - eventName: ConsoleLogin
+                  eventSource: signin.amazonaws.com
+                  sourceIPAddress: 203.0.113.45
+                  userIdentity.principalId: AIDACKCEVSQ6C2EXAMPLE
+        negative:
+            - name: AWS Console Login from Known Region
+              data:
+                - eventName: ConsoleLogin
+                  eventSource: signin.amazonaws.com
+                  sourceIPAddress: 192.0.2.10
+                  userIdentity.principalId: AIDACKCEVSQ6C2EXAMPLE
+    - title: Detect High-Risk AWS API Calls After Console Login
+      description: Detects suspicious API calls related to IAM or CloudTrail after a console login, indicating potential privilege escalation or log tampering.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection_login and selection_api
+        selection_api:
+            eventName:
+                - CreateUser
+                - CreatePolicy
+                - AttachRolePolicy
+                - DeleteTrail
+                - UpdateTrail
+            eventSource:
+                - iam.amazonaws.com
+                - cloudtrail.amazonaws.com
+        selection_login:
+            eventName: ConsoleLogin
+            eventSource: signin.amazonaws.com
+      level: medium
+      tags:
+        - attack.privilege_escalation
+        - attack.t1068
+        - attack.defense_evasion
+        - attack.t1070.001
+      tests:
+        positive:
+            - name: IAM Policy Creation After Console Login
+              data:
+                - eventName: ConsoleLogin
+                  eventSource: signin.amazonaws.com
+                  userIdentity.principalId: AIDACKCEVSQ6C2EXAMPLE
+                - eventName: CreatePolicy
+                  eventSource: iam.amazonaws.com
+                  userIdentity.principalId: AIDACKCEVSQ6C2EXAMPLE
+        negative:
+            - name: Legitimate EC2 Instance Creation
+              data:
+                - eventName: RunInstances
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.principalId: AIDACKCEVSQ6C2EXAMPLE
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1078
+      technique_name: Valid Accounts
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1484
+      technique_name: Domain Policy Modification
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1070.001
+      technique_name: Indicator Removal on Host
