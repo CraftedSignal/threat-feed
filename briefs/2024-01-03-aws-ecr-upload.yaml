@@ -1,0 +1,98 @@
+id: brief-2024-01-03-aws-ecr-upload
+slug: 2024-01-03-aws-ecr-upload
+title: Suspicious AWS ECR Container Upload Outside Business Hours
+summary: An attacker may upload a malicious container image to AWS Elastic Container Registry (ECR) outside of normal business hours to evade detection.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This activity involves the upload of container images to Amazon Elastic Container Registry (ECR) outside of established business hours. While not inherently malicious, this behavior can indicate an attacker attempting to introduce malicious code into the container build and deployment pipeline. The unauthorized image could contain malware, backdoors, or other vulnerabilities that could compromise the applications running within the containers. The risk is elevated if this activity is performed by an account not typically associated with ECR image uploads. The lack of specific version numbers or tool names in the provided source limits the scope of this analysis to the general behavior of ECR uploads. Defenders should monitor for unexpected or unauthorized ECR activity, especially outside of normal working hours.
+
+    ## Attack Chain
+
+    1. An attacker gains unauthorized access to an AWS account with permissions to interact with ECR.
+    2. The attacker authenticates to AWS using stolen or compromised credentials, typically using the AWS CLI or SDK.
+    3. The attacker builds a malicious container image containing malware or backdoors.
+    4. The attacker uses `docker push` or similar commands to upload the image to a designated ECR repository.
+    5. The uploaded image is tagged and stored in the ECR repository, potentially overwriting or replacing a legitimate image.
+    6. The compromised image is then deployed as part of a CI/CD pipeline or through manual deployment processes.
+    7. The deployed container executes the malicious code within the compromised image.
+
+    ## Impact
+
+    Successful execution of this attack can lead to a variety of adverse outcomes, including data exfiltration, service disruption, and privilege escalation within the containerized environment. The compromised container could be used as a launchpad for further attacks within the AWS environment. The lack of specific victim data prevents quantifying the scope of potential impact, but the threat applies to any organization utilizing AWS ECR for container image storage and deployment.
+tags:
+    - cloud
+    - aws
+    - container
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_ecr_container_upload_outside_business_hours.yml
+rules:
+    - title: AWS ECR Container Upload Outside Business Hours
+      description: Detects ECR container uploads performed outside of defined business hours.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection and time_filter
+        selection:
+            eventName: PutImage
+            eventSource: ecr.amazonaws.com
+        time_filter:
+            timestamp|hour: 0,1,2,3,4,5,6,7,18,19,20,21,22,23
+            timestamp|weekday: Mon,Tue,Wed,Thu,Fri
+      level: medium
+      tags:
+        - attack.resource_development
+        - attack.t1587.001
+      tests:
+        positive:
+            - name: ECR PutImage outside business hours
+              data:
+                - eventName: PutImage
+                  eventSource: ecr.amazonaws.com
+                  timestamp: "2024-01-02T02:00:00Z"
+        negative:
+            - name: ECR PutImage during business hours
+              data:
+                - eventName: PutImage
+                  eventSource: ecr.amazonaws.com
+                  timestamp: "2024-01-02T10:00:00Z"
+    - title: AWS ECR Image Upload by Uncommon User Agent
+      description: Detects ECR image uploads from uncommon user agents, potentially indicating malicious activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection and not filter
+        filter:
+            userAgent: aws-cli*
+        selection:
+            eventName: PutImage
+            eventSource: ecr.amazonaws.com
+            userAgent: '*docker*'
+      level: low
+      tags:
+        - attack.resource_development
+        - attack.t1587.001
+      tests:
+        positive:
+            - name: ECR PutImage from uncommon user agent
+              data:
+                - eventName: PutImage
+                  eventSource: ecr.amazonaws.com
+                  userAgent: Malicious-Docker-Client
+        negative:
+            - name: ECR PutImage from AWS CLI
+              data:
+                - eventName: PutImage
+                  eventSource: ecr.amazonaws.com
+                  userAgent: aws-cli/2.13.26 Python/3.11.5 Darwin/23.1.0 exe/x86_64 prompt/off command/ecr.put-image
+ttps:
+    - tactic_id: TA0042
+      tactic_name: Resource Development
+      technique_id: T1587
+      technique_name: Develop Capabilities
+      subtechnique_id: T1587.001
+      subtechnique_name: Malware
