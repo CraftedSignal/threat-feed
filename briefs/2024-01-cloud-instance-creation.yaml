@@ -1,0 +1,107 @@
+id: brief-2024-01-03-cloud-instance-creation
+slug: 2024-01-cloud-instance-creation
+title: Cloud Compute Instance Created by Previously Unseen User
+summary: A cloud compute instance was created by a user not previously observed, potentially indicating compromised credentials or an insider threat.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert focuses on detecting the creation of cloud compute instances by users who have not previously been observed performing this action. The absence of prior activity suggests a potential anomaly, which could stem from compromised credentials, insider threats, or newly created rogue accounts. While the specific cloud platform isn't specified, the general principle applies across various providers like AWS, Azure, and GCP. This activity warrants investigation as it could be an early indicator of unauthorized resource provisioning, lateral movement, or data exfiltration within the cloud environment. The impact of such an event can range from resource abuse and unexpected costs to more severe security breaches.
+
+    ## Attack Chain
+
+    1. Initial Access: An attacker gains access to a cloud account through compromised credentials or other means.
+    2. Privilege Escalation (optional): The attacker may attempt to escalate privileges within the cloud account to gain broader access.
+    3. Discovery: The attacker enumerates existing cloud resources and permissions to identify potential targets.
+    4. Lateral Movement: The attacker uses the compromised account to create a new compute instance.
+    5. Resource Provisioning: The attacker configures the new compute instance with specific roles, network access, and storage.
+    6. Payload Delivery: The attacker deploys malware or other malicious tools onto the newly created compute instance.
+    7. Command and Control: The attacker establishes a command and control channel with the deployed malware.
+    8. Impact: The attacker uses the compromised instance to perform malicious activities such as data exfiltration, cryptomining, or launching attacks against other systems.
+
+    ## Impact
+
+    Successful exploitation could lead to unauthorized resource consumption, data breaches, and disruption of cloud services. Depending on the permissions granted to the created compute instance, the attacker could potentially access sensitive data, compromise other cloud resources, or use the instance as a staging ground for further attacks. The cost of such an attack can be significant, including financial losses, reputational damage, and regulatory penalties. The number of affected systems and the scale of the impact will depend on the extent of the attacker's access and the sensitivity of the data compromised.
+tags:
+    - cloud
+    - compute_instance
+    - anomaly_detection
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/cloud_compute_instance_created_by_previously_unseen_user.yml
+rules:
+    - title: Cloud Instance Created by Unseen User - Process Creation
+      description: Detects a process running on a newly created cloud instance that has not been observed before from that user.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            image: /path/to/cloud/instance/process
+            user: unseen_user
+      level: high
+      tags:
+        - attack.resource_development
+        - attack.t1583
+      tests:
+        positive:
+            - name: Unseen user creates a cloud instance and runs a process
+              data:
+                - image: /opt/malware/evil_script.sh
+                  user: new_attacker
+        negative:
+            - name: Known user creates a cloud instance and runs a process
+              data:
+                - image: /usr/bin/normal_app
+                  user: admin_user
+    - title: Cloud Instance Created by Unseen User - Network Connection
+      description: Detects a network connection from a newly created cloud instance to an external IP, from a user that has not been observed before.
+      logsource:
+        category: network_connection
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            destination_ip: 192.168.1.100
+            user: unseen_user
+      level: high
+      tags:
+        - attack.command_and_control
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: Unseen user creates a cloud instance and connects to an external IP
+              data:
+                - destination_ip: 8.8.8.8
+                  user: new_attacker
+        negative:
+            - name: Known user creates a cloud instance and connects to an external IP
+              data:
+                - destination_ip: 10.0.0.1
+                  user: admin_user
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1078
+      technique_name: Valid Accounts
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1087
+      technique_name: Account Discovery
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1543
+      technique_name: Create or Modify System Process
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1070
+      technique_name: Indicator Removal on Host
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1071
+      technique_name: Application Layer Protocol
