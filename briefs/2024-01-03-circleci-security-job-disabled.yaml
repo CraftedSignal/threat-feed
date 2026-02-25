@@ -1,0 +1,110 @@
+id: brief-2024-01-03-circleci-security-job-disabled
+slug: 2024-01-03-circleci-security-job-disabled
+title: CircleCI Security Job Disabled
+summary: An attacker disables a CircleCI security job to bypass security checks and deploy malicious code.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This brief describes a potential attack on CircleCI, a popular continuous integration and continuous delivery (CI/CD) platform. The attack focuses on disabling security jobs within the CircleCI environment. While specific threat actors and campaigns are not identified in the provided source, the technique of disabling security checks is a common tactic used to introduce malicious code into software supply chains. A successful attack could lead to the deployment of compromised applications, supply chain attacks, and significant reputational damage.
+
+    ## Attack Chain
+
+    1. An attacker gains unauthorized access to a CircleCI project with sufficient privileges.
+    2. The attacker modifies the CircleCI configuration file (.circleci/config.yml).
+    3. The attacker comments out or removes the section responsible for running security scans (e.g., linters, static analysis tools, vulnerability scanners).
+    4. The attacker commits and pushes the modified configuration file to the repository.
+    5. CircleCI detects the changes in the configuration and updates the build pipeline.
+    6. Subsequent builds are executed without the security scans, effectively bypassing security controls.
+    7. The attacker introduces malicious code into the codebase.
+    8. The malicious code is built, tested (potentially with some automated tests still running), and deployed to production environments.
+
+    ## Impact
+
+    A successful attack could result in the deployment of vulnerable or malicious applications. This can lead to data breaches, system compromise, and reputational damage. The lack of security checks allows attackers to inject malicious code undetected, potentially affecting thousands of users if the deployed application is widely used.
+tags:
+    - circleci
+    - cicd
+    - security-bypass
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/circle_ci_disable_security_job.yml
+rules:
+    - title: CircleCI Config Modified to Remove Security Jobs
+      description: Detects modifications to the CircleCI configuration file that remove or comment out security-related jobs.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: not selection
+        selection:
+            file.content|contains:
+                - 'run: security_scan.sh'
+                - docker scan
+            file.path|contains: .circleci/config.yml
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: Modified CircleCI config removing security scan
+              data:
+                - file.content: |
+                    version: 2.1
+                    jobs:
+                      build:
+                        docker:
+                          - image: circleci/node:12
+                        steps:
+                          - checkout
+                          # - run: security_scan.sh # Removed security scan
+                          - run: npm install
+                          - run: npm test
+                  file.path: /home/user/project/.circleci/config.yml
+        negative:
+            - name: Clean CircleCI config with security scan
+              data:
+                - file.content: |
+                    version: 2.1
+                    jobs:
+                      build:
+                        docker:
+                          - image: circleci/node:12
+                        steps:
+                          - checkout
+                          - run: security_scan.sh
+                          - run: npm install
+                          - run: npm test
+                  file.path: /home/user/project/.circleci/config.yml
+    - title: CircleCI API Request to Disable Job
+      description: Detects API requests made to CircleCI to disable specific jobs. Requires CircleCI audit logging.
+      logsource:
+        category: network_connection
+        product: circleci
+      detection:
+        selection:
+            http_method: POST
+            url|contains: /api/v2/project/:project_slug/job/:job_number/disable
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: API request to disable a job
+              data:
+                - http_method: POST
+                  url: https://circleci.com/api/v2/project/gh/myorg/myrepo/job/123/disable
+        negative:
+            - name: API request to trigger a build
+              data:
+                - http_method: POST
+                  url: https://circleci.com/api/v2/project/gh/myorg/myrepo/build
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.001
+      subtechnique_name: Disable or Modify Tools
