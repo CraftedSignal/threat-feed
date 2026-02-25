@@ -1,0 +1,132 @@
+id: brief-2024-01-03-aws-console-login-new-user
+slug: 2024-01-aws-console-login-new-user
+title: AWS Console Login by New User
+summary: Detects an AWS console login by a newly created user, potentially indicating malicious user creation and unauthorized access.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying instances where a newly created user logs into the AWS Management Console. While not inherently malicious, this activity can indicate unauthorized access or account compromise if the user creation was not expected. The rule aims to identify console logins shortly after a user account is created, providing an opportunity to investigate potentially suspicious behavior. This is particularly relevant in environments where user provisioning follows strict procedures. Early detection allows security teams to investigate and prevent further malicious activity.
+
+    ## Attack Chain
+
+    1.  An attacker gains initial access to an AWS account through compromised credentials or by exploiting a misconfiguration.
+    2.  The attacker creates a new user account within the AWS environment using Identity and Access Management (IAM).
+    3.  The attacker assigns privileges to the newly created user, possibly granting elevated permissions for broader access.
+    4.  The attacker uses the newly created user's credentials to log into the AWS Management Console.
+    5.  Upon successful login, the attacker begins enumerating AWS resources, identifying potential targets for data exfiltration or service disruption.
+    6.  The attacker leverages the console access to modify IAM policies, further escalating privileges or creating backdoors for persistent access.
+    7.  The attacker may then proceed to launch EC2 instances, modify security groups, or tamper with other AWS services to achieve their objectives.
+
+    ## Impact
+
+    Successful exploitation can lead to unauthorized access to sensitive data stored within AWS resources, such as databases and S3 buckets. Attackers may leverage compromised accounts to disrupt critical business operations by terminating instances or modifying configurations. Financial losses can occur due to resource consumption by attacker-controlled instances or through data exfiltration and subsequent misuse. The number of affected users and the extent of the damage depends on the permissions granted to the compromised account and the scope of the attacker's activities.
+tags:
+    - aws
+    - cloud
+    - iam
+    - initial_access
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/detect_aws_console_login_by_new_user.yml
+rules:
+    - title: Detect AWS Console Login by New User
+      description: Detects an AWS console login event shortly after the user account was created.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection_create and selection_login and time_window
+        selection_create:
+            eventname: CreateUser
+        selection_login:
+            eventname: ConsoleLogin
+            useridentity.type: IAMUser
+        time_window:
+            timeframe: 3600
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1535
+      tests:
+        positive:
+            - name: User created and logged in shortly after
+              data:
+                - eventname: CreateUser
+                  eventtime: "2024-01-01T10:00:00Z"
+                  useridentity.type: IAMUser
+                - eventname: ConsoleLogin
+                  eventtime: "2024-01-01T10:30:00Z"
+                  useridentity.type: IAMUser
+        negative:
+            - name: User created long before login
+              data:
+                - eventname: CreateUser
+                  eventtime: "2024-01-01T00:00:00Z"
+                  useridentity.type: IAMUser
+                - eventname: ConsoleLogin
+                  eventtime: "2024-01-01T12:00:00Z"
+                  useridentity.type: IAMUser
+    - title: Detect Brute Force Attempts to AWS Console Login
+      description: Detects multiple failed AWS Console Login attempts, indicating a possible brute force attack.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: ConsoleLogin
+            responseelements: '{"ConsoleLogin":"Failure"}'
+      level: low
+      tags:
+        - attack.initial_access
+        - attack.t1110
+      tests:
+        positive:
+            - name: Brute force attempt to AWS Console Login
+              data:
+                - eventname: ConsoleLogin
+                  responseelements: '{"ConsoleLogin":"Failure"}'
+        negative:
+            - name: Successful AWS Console Login
+              data:
+                - eventname: ConsoleLogin
+                  responseelements: '{"ConsoleLogin":"Success"}'
+    - title: Detect AWS Console Login Without MFA
+      description: Detects AWS Console Login events where Multi-Factor Authentication (MFA) was not used.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: ConsoleLogin
+            mfaused: "No"
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1199
+      tests:
+        positive:
+            - name: AWS Console Login without MFA
+              data:
+                - eventname: ConsoleLogin
+                  mfaused: "No"
+        negative:
+            - name: AWS Console Login with MFA
+              data:
+                - eventname: ConsoleLogin
+                  mfaused: "Yes"
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1535
+      technique_name: Access Token Manipulation
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1110
+      technique_name: Brute Force
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1199
+      technique_name: Trusted Relationship
