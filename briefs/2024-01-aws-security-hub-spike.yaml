@@ -1,0 +1,174 @@
+id: brief-2024-01-30-aws-security-hub-spike
+slug: 2024-01-aws-security-hub-spike
+title: Potential Spike in AWS Security Hub Alerts for EC2 Instance
+summary: This brief covers detection of a potential spike in AWS Security Hub alerts related to an EC2 instance, which could indicate ongoing malicious activity or a misconfiguration requiring immediate investigation.
+severity: medium
+published_at: "2024-01-30T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert focuses on detecting anomalies within AWS Security Hub, specifically a sudden increase in alerts associated with a single EC2 instance. While the source material doesn't provide specific actor information or observed campaigns, a rapid increase in security alerts often indicates an ongoing attack, a compromised system, or a significant misconfiguration change. Timely detection can help identify and contain potential breaches, misconfigured cloud assets, or the successful exploitation of a vulnerability. The absence of detailed threat actor or campaign data means defenders must focus on rapid investigation and response protocols to mitigate the potential damage.
+
+    ## Attack Chain
+
+    Given the nature of detecting a spike in Security Hub alerts, the attack chain reconstruction is based on potential causes leading to this event:
+
+    1.  **Initial Access:** An attacker gains initial access to an EC2 instance through methods like exploiting a vulnerable application, compromised credentials, or misconfigured network settings.
+    2.  **Privilege Escalation:** Once inside, the attacker attempts to escalate privileges to gain broader control of the system, potentially using known exploits or misconfigurations.
+    3.  **Lateral Movement:** The attacker uses the compromised EC2 instance to move laterally within the AWS environment, targeting other resources or data stores.
+    4.  **Malware Installation:** The attacker installs malware, such as a backdoor or remote access tool (RAT), on the compromised EC2 instance.
+    5.  **Data Exfiltration:** The attacker begins exfiltrating sensitive data from the compromised EC2 instance or other accessed resources.
+    6.  **Resource Abuse:** The attacker leverages the compromised EC2 instance for malicious activities like cryptocurrency mining or launching DDoS attacks.
+    7.  **Security Hub Alert Trigger:** Each of these malicious activities triggers various AWS Security Hub alerts based on predefined security rules and findings.
+    8.  **Spike Detection:** A sudden increase in the number and severity of Security Hub alerts associated with the specific EC2 instance signals a potential compromise or misconfiguration.
+
+    ## Impact
+
+    A successful attack leading to a spike in Security Hub alerts can have significant consequences. A compromised EC2 instance can lead to data breaches, service disruption, resource abuse, and reputational damage. Depending on the instance's role and the attacker's objectives, the impact could range from minor data leakage to a complete shutdown of critical services. Without timely detection and response, an attacker can pivot to other AWS resources, expanding the scope of the breach. Detecting the spike allows for immediate containment and remediation, minimizing potential damages.
+tags:
+    - aws
+    - securityhub
+    - ec2
+    - cloud
+    - alert-spike
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/detect_spike_in_aws_security_hub_alerts_for_ec2_instance.yml
+rules:
+    - title: Detect Spike in AWS Security Hub Alerts for EC2 Instance
+      description: Detects a significant increase in the number of Security Hub alerts related to a specific EC2 instance within a defined timeframe, indicating potential compromise or misconfiguration.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: count() by resourceId > 10
+        selection:
+            eventName: securityhub.amazonaws.com
+            eventSource: securityhub.amazonaws.com
+            resourceType: AWS::EC2::Instance
+        timeframe: 5m
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1589
+      tests:
+        positive:
+            - name: Simulated spike in Security Hub alerts
+              data:
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+        negative:
+            - name: Normal activity - fewer than 10 alerts in 5 minutes
+              data:
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+                - eventName: securityhub.amazonaws.com
+                  eventSource: securityhub.amazonaws.com
+                  resourceId: i-0abcdef1234567890
+                  resourceType: AWS::EC2::Instance
+                  userIdentity:
+                    accountId: "123456789012"
+    - title: Detect EC2 Instance Role Enumeration via Security Hub
+      description: Detects attempts to enumerate EC2 instance roles using AWS Security Hub, which could be indicative of reconnaissance activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: BatchGetSecurityControls
+            eventSource: securityhub.amazonaws.com
+            requestParameters|contains: IamInstanceProfile.Arn
+      level: informational
+      tags:
+        - attack.discovery
+        - attack.t1068
+      tests:
+        positive:
+            - name: EC2 Role Enumeration Detected
+              data:
+                - eventName: BatchGetSecurityControls
+                  eventSource: securityhub.amazonaws.com
+                  requestParameters: '{"Filters": {"ComplianceStatus": ["FAILED"], "FindingProviderFields.Types": ["Software and Patch Vulnerability Checks"], "Resources.Type": ["AwsEc2Instance"], "Resources.Details.AwsEc2Instance.IamInstanceProfile.Arn": ["arn:aws:iam::123456789012:instance-profile/ExampleInstanceProfile"]}}'
+        negative:
+            - name: Normal Security Hub activity
+              data:
+                - eventName: ListEnabledProductsForImport
+                  eventSource: securityhub.amazonaws.com
+                  requestParameters: {}
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1589
+      technique_name: Gather Victim Identity Information
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
