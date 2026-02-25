@@ -1,0 +1,96 @@
+id: brief-2024-01-03-unseen-cloud-image
+slug: 2024-01-03-unseen-cloud-image
+title: Cloud Compute Instance Created with Previously Unseen Image
+summary: An attacker creates a new cloud compute instance using an image that has not been previously observed within the environment, potentially indicating unauthorized or malicious activity.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert focuses on identifying the creation of cloud compute instances that utilize previously unseen images. The creation of a compute instance with an unfamiliar image could signal various security concerns, including the deployment of compromised systems, the launch of unauthorized workloads, or the execution of malicious code. While the specific attacker and their motives are unknown, the technique is valuable for identifying potentially rogue activities within cloud environments. This type of activity can serve as an early warning sign of more significant attacks and requires immediate investigation to determine its legitimacy and potential impact.
+
+    ## Attack Chain
+
+    1. **Initial Access:** An attacker gains access to a cloud account or service through compromised credentials or exploitation of vulnerabilities.
+    2. **Privilege Escalation (Optional):** The attacker escalates privileges within the cloud environment to gain sufficient permissions to create compute instances.
+    3. **Image Selection:** The attacker chooses a custom or public cloud image to use for the new instance. This image has not been previously observed in the organization's cloud environment.
+    4. **Instance Creation:** The attacker uses cloud provider APIs or management consoles to provision a new compute instance based on the selected image.
+    5. **Execution:** The newly created instance boots up and executes the code contained within the image. This code could be benign, malicious, or a mixture of both.
+    6. **Lateral Movement (Optional):** If the image contains malware, it may attempt to spread to other systems within the cloud network.
+    7. **Data Exfiltration/Impact (Optional):** Depending on the attacker's goals and the image's contents, the instance may be used to exfiltrate sensitive data or disrupt services.
+
+    ## Impact
+
+    Successful exploitation can lead to the deployment of compromised systems within the cloud environment, potentially resulting in data breaches, service disruptions, and financial losses. The creation of unauthorized compute instances can also lead to increased cloud costs and resource consumption. Depending on the image's contents, the attacker could gain a foothold within the cloud network and use it for further malicious activities. The number of affected organizations can vary widely, but even a single successful instance can have significant consequences.
+tags:
+    - cloud
+    - compute-instance
+    - image
+    - unauthorized-access
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/cloud_compute_instance_created_with_previously_unseen_image.yml
+rules:
+    - title: Cloud Compute Instance Created with New Image - Generic
+      description: Detects the creation of a cloud compute instance using an image ID that has not been seen before based on historical logs.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection and first_time
+        first_time: first_time(imageId, lookback)
+        lookback: 24h
+        selection:
+            eventname: RunInstances
+            imageId: '*'
+      level: medium
+      tags:
+        - attack.resource_development
+        - attack.t1587.001
+      tests:
+        positive:
+            - name: First time cloud instance creation with new image
+              data:
+                - eventname: RunInstances
+                  imageId: ami-0c55b89442f123456
+        negative:
+            - name: Subsequent cloud instance creation with known image
+              data:
+                - eventname: RunInstances
+                  imageId: ami-0c55b89442f123456
+    - title: Cloud Compute Instance Created with Public Image - Suspicious Region
+      description: Detects the creation of a cloud compute instance in a suspicious region using a publicly available image.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: RunInstances
+            imageId: ami-*
+            region:
+                - us-west-1
+                - eu-central-1
+      level: low
+      tags:
+        - attack.resource_development
+        - attack.t1587.001
+      tests:
+        positive:
+            - name: Cloud instance created with ami in suspicious region
+              data:
+                - eventname: RunInstances
+                  imageId: ami-0c55b89442f123456
+                  region: us-west-1
+        negative:
+            - name: Cloud instance created with ami in known region
+              data:
+                - eventname: RunInstances
+                  imageId: ami-0c55b89442f123456
+                  region: us-east-1
+ttps:
+    - tactic_id: TA0042
+      tactic_name: Resource Development
+      technique_id: T1587
+      technique_name: Develop Capabilities
+      subtechnique_id: T1587.001
+      subtechnique_name: Acquire Infrastructure
