@@ -1,0 +1,119 @@
+id: brief-2024-01-03-network-sweep
+slug: 2024-01-network-sweep
+title: Potential Network Sweep Detection
+summary: This brief covers detection of potential network sweeping activity, indicative of reconnaissance by an attacker attempting to map internal networks.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This brief focuses on detecting network sweeping, a reconnaissance technique used by attackers to identify active hosts and services within a network. While the provided source material doesn't detail a specific actor or campaign, the act of network sweeping is a common precursor to more advanced attacks. Network sweeps can be performed using various tools, including Nmap, masscan, and custom scripts. Identifying and responding to network sweeps can help defenders proactively mitigate potential threats before they escalate. Detecting this activity relies on analyzing network connection logs for patterns indicative of host discovery.
+
+    ## Attack Chain
+
+    1. **Initial Access:** (Assumed) The attacker gains initial access to a host within the network, possibly through phishing or exploiting a vulnerability (not specified in source).
+    2. **Internal Reconnaissance:** The attacker begins mapping the internal network to identify potential targets.
+    3. **Network Sweep:** The attacker utilizes a network scanning tool like Nmap or a custom script to send ICMP (ping) requests or TCP/UDP probes to a range of IP addresses.
+    4. **Host Discovery:** The attacker analyzes the responses to identify live hosts on the network.
+    5. **Port Scanning (Optional):** If hosts are discovered, the attacker may perform port scanning to identify open ports and running services.
+    6. **Service Fingerprinting (Optional):** The attacker attempts to identify the versions of services running on open ports to identify potential vulnerabilities.
+    7. **Lateral Movement (If Vulnerabilities Found):** The attacker uses discovered vulnerabilities to move laterally to other systems.
+    8. **Objective:** (Assumed) The attacker aims to compromise critical systems, steal sensitive data, or deploy malware (not specified in source).
+
+    ## Impact
+
+    Successful network sweeping allows attackers to gain a comprehensive understanding of the network infrastructure, identifying vulnerable systems and potential pathways for lateral movement. This reconnaissance significantly increases the likelihood of a successful attack, potentially leading to data breaches, system compromise, and financial losses. Even if the sweep is unsuccessful, its detection can indicate a potential threat actor probing the network, warranting further investigation.
+tags:
+    - network-sweep
+    - reconnaissance
+    - network-scanning
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/network/discovery_potential_network_sweep_detected.toml
+rules:
+    - title: Detect High Volume of ICMP Requests
+      description: Detects a host sending a high volume of ICMP requests to multiple destinations, indicating a potential network sweep using ping.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        selection:
+            Protocol: icmp
+        threshold:
+            SourceIp: 100
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1018
+      tests:
+        positive:
+            - name: High volume of ICMP requests from a single host
+              data:
+                - DestinationIp: 192.168.1.1
+                  Protocol: icmp
+                  SourceIp: 192.168.1.100
+                - DestinationIp: 192.168.1.2
+                  Protocol: icmp
+                  SourceIp: 192.168.1.100
+                - DestinationIp: 192.168.1.3
+                  Protocol: icmp
+                  SourceIp: 192.168.1.100
+                - DestinationIp: 192.168.1.100
+                  Protocol: icmp
+                  SourceIp: 192.168.1.100
+        negative:
+            - name: Normal ICMP traffic
+              data:
+                - DestinationIp: 8.8.8.8
+                  Protocol: icmp
+                  SourceIp: 192.168.1.101
+    - title: Detect TCP SYN Scan
+      description: Detects a host attempting to connect to multiple distinct ports on different hosts, characteristic of a TCP SYN scan.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        selection:
+            Flags: SYN
+            Protocol: tcp
+        threshold:
+            SourceIp: 50
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1046
+      tests:
+        positive:
+            - name: TCP SYN scan detected
+              data:
+                - DestinationIp: 10.0.0.1
+                  DestinationPort: 80
+                  Flags: SYN
+                  Protocol: tcp
+                  SourceIp: 10.0.0.5
+                - DestinationIp: 10.0.0.2
+                  DestinationPort: 443
+                  Flags: SYN
+                  Protocol: tcp
+                  SourceIp: 10.0.0.5
+                - DestinationIp: 10.0.0.50
+                  DestinationPort: 22
+                  Flags: SYN
+                  Protocol: tcp
+                  SourceIp: 10.0.0.5
+        negative:
+            - name: Normal TCP connections
+              data:
+                - DestinationIp: 8.8.8.8
+                  DestinationPort: 53
+                  Flags: SYN,ACK
+                  Protocol: tcp
+                  SourceIp: 10.0.0.10
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1018
+      technique_name: Remote System Discovery
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1046
+      technique_name: Network Service Scanning
