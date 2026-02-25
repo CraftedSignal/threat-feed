@@ -1,0 +1,115 @@
+id: brief-2024-01-31-aws-ecr-upload
+slug: 2024-01-31-aws-ecr-upload
+title: Suspicious AWS ECR Container Upload by Unknown User
+summary: An unknown or unauthorized user is uploading a container image to an AWS Elastic Container Registry (ECR), potentially indicating malicious activity such as malware deployment or data exfiltration.
+severity: high
+published_at: "2024-01-31T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert focuses on identifying suspicious container image uploads to Amazon Elastic Container Registry (ECR) by users or roles that are not typically associated with such activity. The unauthorized upload could stem from compromised credentials, insider threats, or misconfigured IAM policies. The goal of this detection is to identify potentially malicious container images being introduced into the environment. This could lead to compromised applications and data. Defenders should investigate the source of the upload and the contents of the container image to determine the scope and impact of the activity.
+
+    ## Attack Chain
+
+    1. An attacker gains unauthorized access to AWS credentials through methods such as phishing or credential stuffing.
+    2. The attacker authenticates to the AWS environment using the compromised credentials.
+    3. The attacker uses the AWS CLI or API to interact with ECR.
+    4. The attacker pushes a malicious container image to a specified ECR repository. The image may contain malware or tools for further exploitation.
+    5. The ECR repository stores the uploaded container image.
+    6. If the container image is deployed, the attacker can gain a foothold on the infrastructure.
+    7. The deployed container executes malicious code, potentially leading to data exfiltration, ransomware deployment, or other malicious activities.
+
+    ## Impact
+
+    Compromised AWS ECR instances can lead to severe consequences, including the deployment of malicious containers within the victim's environment. This can result in data breaches, service disruptions, and reputational damage. Successful attacks could affect any organization relying on AWS ECR for container image storage and deployment, potentially impacting thousands of containers and associated services. The financial impact can be substantial due to incident response costs, recovery efforts, and potential regulatory fines.
+tags:
+    - aws
+    - ecr
+    - container
+    - cloud
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_ecr_container_upload_unknown_user.yml
+rules:
+    - title: Detect AWS ECR Container Image Upload by Unknown User
+      description: Detects when a user that is not in a trusted group uploads an image to ECR
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection and not filter
+        filter:
+            userIdentity.arn|contains:
+                - admin
+                - sre
+        selection:
+            awsAccountId: '*'
+            eventName: BatchCheckLayerAvailability
+            eventSource: ecr.amazonaws.com
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1566
+      tests:
+        positive:
+            - name: ECR upload event by unknown user
+              data:
+                - awsAccountId: "123456789012"
+                  eventName: BatchCheckLayerAvailability
+                  eventSource: ecr.amazonaws.com
+                  userIdentity.arn: arn:aws:iam::123456789012:user/suspicious-user
+        negative:
+            - name: ECR upload event by trusted user
+              data:
+                - awsAccountId: "123456789012"
+                  eventName: BatchCheckLayerAvailability
+                  eventSource: ecr.amazonaws.com
+                  userIdentity.arn: arn:aws:iam::123456789012:user/admin-user
+    - title: ECR Image Upload from Unusual IP Address
+      description: Alert when an ECR image is uploaded from an IP address not usually associated with ECR uploads.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection and not filter
+        filter:
+            sourceIPAddress:
+                - 192.0.2.0/24
+                - 10.0.0.0/16
+        selection:
+            eventName: BatchCheckLayerAvailability
+            eventSource: ecr.amazonaws.com
+            sourceIPAddress: '*'
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1078
+      tests:
+        positive:
+            - name: Image upload from an unknown IP
+              data:
+                - awsAccountId: "123456789012"
+                  eventName: BatchCheckLayerAvailability
+                  eventSource: ecr.amazonaws.com
+                  sourceIPAddress: 203.0.113.5
+        negative:
+            - name: Image upload from a known IP range
+              data:
+                - awsAccountId: "123456789012"
+                  eventName: BatchCheckLayerAvailability
+                  eventSource: ecr.amazonaws.com
+                  sourceIPAddress: 192.0.2.10
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1566
+      technique_name: Phishing
+      subtechnique_id: T1566.001
+      subtechnique_name: Spearphishing Attachment
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1078
+      technique_name: Valid Accounts
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1499
+      technique_name: Endpoint Denial of Service
