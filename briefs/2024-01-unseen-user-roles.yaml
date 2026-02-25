@@ -1,0 +1,96 @@
+id: brief-2024-01-03-unseen-user-roles
+slug: 2024-01-unseen-user-roles
+title: Cloud API Calls from Previously Unseen User Roles
+summary: Detects cloud API calls originating from user roles that have not been previously observed, potentially indicating account compromise or privilege escalation.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection identifies anomalous cloud API activity based on user roles. It focuses on the principle that user roles typically exhibit consistent behavior over time. An unexpected API call from a previously unseen user role within a cloud environment suggests a potential security incident. This could stem from compromised credentials, insider threats, or misconfigured permissions. By monitoring for these deviations, security teams can proactively identify and respond to potential breaches or unauthorized activities within their cloud infrastructure. This detection is crucial for organizations heavily reliant on cloud services, as it provides an early warning system against various attack vectors targeting cloud accounts and resources.
+
+    ## Attack Chain
+
+    1.  An attacker gains initial access to a cloud environment, possibly through compromised credentials or exploiting a misconfiguration.
+    2.  The attacker attempts to assume a user role within the cloud environment.
+    3.  The attacker uses the assumed user role to make API calls to cloud services.
+    4.  The API calls originate from a user role that has not been previously observed making such requests.
+    5.  The cloud platform logs the API call event, including the user role, API endpoint, and source IP address.
+    6.  The detection rule identifies the unusual API call based on the previously unseen user role.
+    7.  Security analysts investigate the alert to determine the cause of the anomalous activity.
+    8.  If malicious, the attacker's access is revoked, and affected resources are remediated.
+
+    ## Impact
+
+    A successful attack exploiting this vulnerability could lead to unauthorized access to sensitive data, modification of critical configurations, or even denial of service. The number of affected victims depends on the scope of the compromised account and the permissions associated with the newly assumed role. The potential damage ranges from data breaches to financial losses and reputational damage, particularly impacting organizations in sectors that handle sensitive information such as finance, healthcare, and government.
+tags:
+    - cloud
+    - api
+    - user-role
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/cloud_api_calls_from_previously_unseen_user_roles.yml
+rules:
+    - title: Detect Cloud API Calls From Previously Unseen User Roles
+      description: Detects cloud API calls originating from user roles not previously observed.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            user_role|startswith: 'arn:aws:iam::'
+      level: medium
+      tags:
+        - attack.privilege_escalation
+        - attack.t1078
+      tests:
+        positive:
+            - name: API call from new user role
+              data:
+                - api_call: DescribeInstances
+                  user_role: arn:aws:iam::123456789012:role/NewRole
+        negative:
+            - name: API call from existing user role
+              data:
+                - api_call: DescribeInstances
+                  user_role: arn:aws:iam::123456789012:role/ExistingRole
+    - title: Detect Abnormal Cloud API Activity by User Role
+      description: Flags unusual API calls based on historical activity for a specific user role.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection and not filter
+        filter:
+            eventName:
+                - DescribeInstances
+                - GetBucketLocation
+        selection:
+            eventName|contains: ApiCall
+            userIdentity.sessionContext.sessionIssuer.arn|contains: role/
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1087.004
+      tests:
+        positive:
+            - name: Abnormal API Call detected
+              data:
+                - eventName: CreateUser
+                  userIdentity.sessionContext.sessionIssuer.arn: arn:aws:iam::123456789012:role/Developer
+        negative:
+            - name: Normal API call
+              data:
+                - eventName: DescribeInstances
+                  userIdentity.sessionContext.sessionIssuer.arn: arn:aws:iam::123456789012:role/Developer
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1078
+      technique_name: Valid Accounts
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1087
+      technique_name: Account Discovery
+      subtechnique_id: T1087.004
+      subtechnique_name: Cloud Account
