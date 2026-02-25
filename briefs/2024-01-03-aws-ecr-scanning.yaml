@@ -1,0 +1,98 @@
+id: brief-2024-01-03-aws-ecr-scanning
+slug: 2024-01-03-aws-ecr-scanning
+title: AWS ECR Container Scanning Findings
+summary: This brief covers potential security findings identified through AWS Elastic Container Registry (ECR) container image scanning, highlighting potential vulnerabilities within container images.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief focuses on addressing security concerns related to container images stored within AWS Elastic Container Registry (ECR). While the provided source material lacks specific details of a particular attack or campaign, it highlights the importance of leveraging AWS ECR's container scanning capabilities to identify potential vulnerabilities. Neglecting container scanning can lead to the deployment of images containing known security flaws, which could be exploited by adversaries to compromise the containerized application and potentially the underlying infrastructure. Regular scanning and remediation of identified vulnerabilities are essential for maintaining a secure container environment.
+
+    ## Attack Chain
+
+    1.  **Initial Build:** A developer builds a container image using a base image or incorporating third-party libraries potentially containing vulnerabilities.
+    2.  **Image Push:** The built image is pushed to the AWS ECR repository without prior scanning for vulnerabilities.
+    3.  **ECR Scan (Post-Push):** AWS ECR's built-in scanning functionality is triggered (either manually or automatically) on the newly pushed image.
+    4.  **Vulnerability Detection:** The ECR scanner identifies vulnerabilities within the container image, such as outdated libraries or misconfigurations.
+    5.  **Image Deployment:** The vulnerable container image is deployed to a container orchestration platform like Kubernetes or ECS, potentially due to a lack of policy enforcement blocking vulnerable images.
+    6.  **Exploitation:** An attacker identifies and exploits a vulnerability within the running container, gaining unauthorized access.
+    7.  **Lateral Movement:** The attacker uses the compromised container as a pivot point to move laterally within the container environment or the broader network.
+
+    ## Impact
+
+    The impact of failing to address container scanning findings in AWS ECR can range from minor service disruptions to complete system compromise. Unpatched vulnerabilities within container images can provide attackers with an entry point to sensitive data and systems. Successful exploitation could lead to data breaches, denial-of-service attacks, or the deployment of malware within the container environment. The lack of concrete victim numbers or specific sector targeting from the provided source makes it difficult to quantify the exact scope, but the potential impact is significant for organizations utilizing containerized applications in AWS.
+tags:
+    - aws
+    - ecr
+    - container
+    - vulnerability
+    - scanning
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_ecr_container_scanning_findings_medium.yml
+rules:
+    - title: Detect High Severity AWS ECR Container Scanning Findings
+      description: Detects when AWS ECR container scanning identifies high severity vulnerabilities.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: DescribeImageScanFindings
+            eventSource: ecr.amazonaws.com
+            severity: HIGH
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: ECR Scan Finding - High Severity
+              data:
+                - eventName: DescribeImageScanFindings
+                  eventSource: ecr.amazonaws.com
+                  findingName: CVE-2023-12345
+                  severity: HIGH
+        negative:
+            - name: ECR Scan Finding - Informational Severity
+              data:
+                - eventName: DescribeImageScanFindings
+                  eventSource: ecr.amazonaws.com
+                  findingName: CVE-2023-54321
+                  severity: INFORMATIONAL
+    - title: Detect Critical Severity AWS ECR Container Scanning Findings
+      description: Detects when AWS ECR container scanning identifies critical severity vulnerabilities.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: DescribeImageScanFindings
+            eventSource: ecr.amazonaws.com
+            severity: CRITICAL
+      level: critical
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: ECR Scan Finding - Critical Severity
+              data:
+                - eventName: DescribeImageScanFindings
+                  eventSource: ecr.amazonaws.com
+                  findingName: CVE-2023-67890
+                  severity: CRITICAL
+        negative:
+            - name: ECR Scan Finding - Medium Severity
+              data:
+                - eventName: DescribeImageScanFindings
+                  eventSource: ecr.amazonaws.com
+                  findingName: CVE-2023-09876
+                  severity: MEDIUM
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
