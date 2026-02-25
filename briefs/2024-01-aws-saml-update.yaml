@@ -1,0 +1,100 @@
+id: brief-2024-01-23-aws-saml-update
+slug: 2024-01-aws-saml-update
+title: AWS SAML Identity Provider Update
+summary: An adversary may modify the AWS Security Assertion Markup Language (SAML) identity provider configuration, potentially to establish or maintain persistent access to AWS resources.
+severity: medium
+published_at: "2024-01-23T12:00:00Z"
+content: |
+    ## Overview
+
+    An adversary who has gained sufficient privileges within an Amazon Web Services (AWS) environment might attempt to modify the SAML identity provider configuration. This could involve altering the metadata document URL or other settings to redirect authentication requests to a malicious endpoint under the attacker's control. While the provided source doesn't describe a specific campaign or actor, understanding this potential attack vector is crucial for defenders. Successfully compromising the SAML configuration allows the attacker to bypass normal authentication procedures and gain unauthorized access to cloud resources. The modification of the SAML identity provider is a potential persistence mechanism.
+
+    ## Attack Chain
+
+    1.  Initial Access: The adversary gains initial access to an AWS account with sufficient privileges to modify the SAML identity provider. This could be through compromised credentials or exploiting a vulnerability in an application with IAM permissions.
+    2.  Privilege Escalation (If Necessary): If the initial access doesn't provide sufficient privileges, the attacker attempts to escalate privileges within the AWS environment to obtain the necessary permissions (e.g., `iam:UpdateSAMLProvider`).
+    3.  Discovery: The attacker uses AWS CLI or API calls to discover the existing SAML identity providers configured in the AWS account using `iam:ListSAMLProviders`.
+    4.  Identify Target: The adversary selects a target SAML identity provider to modify.
+    5.  Modify SAML Provider: The attacker uses AWS CLI or API calls to update the SAML identity provider configuration using `iam:UpdateSAMLProvider`. This might involve changing the metadata URL to point to an attacker-controlled server.
+    6.  Persistence: By controlling the SAML metadata, the attacker can now forge SAML assertions, allowing them to authenticate as any user within the AWS environment and bypass multi-factor authentication.
+    7.  Lateral Movement: The attacker uses the forged SAML assertions to move laterally within the AWS environment, accessing resources and services they were not originally authorized to access.
+    8.  Impact: The attacker gains unauthorized access to sensitive data, modifies configurations, or disrupts services within the AWS environment.
+
+    ## Impact
+
+    Successful modification of the SAML identity provider configuration can lead to a complete compromise of the AWS environment. An attacker can gain persistent access, bypass multi-factor authentication, and impersonate any user. This can result in data breaches, service disruptions, and significant financial losses. The scope of the impact depends on the permissions associated with the roles assumed via SAML and the sensitivity of the data stored within the AWS environment.
+tags:
+    - aws
+    - saml
+    - identityprovider
+    - cloud
+    - persistence
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_saml_update_identity_provider.yml
+rules:
+    - title: AWS SAML Provider Update Detection
+      description: Detects updates to the AWS SAML identity provider configuration using CloudTrail logs.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: UpdateSAMLProvider
+            eventSource: iam.amazonaws.com
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1550.004
+      tests:
+        positive:
+            - name: SAML Provider Updated
+              data:
+                - eventName: UpdateSAMLProvider
+                  eventSource: iam.amazonaws.com
+                  userIdentity.principalId: AIDAAAAAAAAAAAAAAAAAA
+        negative:
+            - name: Role Created
+              data:
+                - eventName: CreateRole
+                  eventSource: iam.amazonaws.com
+                  userIdentity.principalId: AIDAAAAAAAAAAAAAAAAAA
+    - title: AWS SAML Provider Modified Metadata URL
+      description: Detects changes to the SAML provider metadata URL which could indicate malicious activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection and not filter
+        filter:
+            requestParameters.samlMetadataDocument: accounts.amazonaws.com
+        selection:
+            eventName: UpdateSAMLProvider
+            eventSource: iam.amazonaws.com
+            requestParameters.samlMetadataDocument: '*.amazonaws.com'
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1550.004
+      tests:
+        positive:
+            - name: SAML Metadata document URL updated to attacker domain
+              data:
+                - eventName: UpdateSAMLProvider
+                  eventSource: iam.amazonaws.com
+                  requestParameters.samlMetadataDocument: http://attackerserver.com/saml.xml
+                  userIdentity.principalId: AIDAAAAAAAAAAAAAAAAAA
+        negative:
+            - name: SAML Metadata document URL updated to AWS domain
+              data:
+                - eventName: UpdateSAMLProvider
+                  eventSource: iam.amazonaws.com
+                  requestParameters.samlMetadataDocument: https://accounts.amazonaws.com/123456789012/saml-metadata.xml
+                  userIdentity.principalId: AIDAAAAAAAAAAAAAAAAAA
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1550
+      technique_name: Use Alternate Authentication Material
+      subtechnique_id: T1550.004
+      subtechnique_name: SAML Certificates
