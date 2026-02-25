@@ -1,0 +1,98 @@
+id: brief-2024-01-29-aws-iam-group-deletion
+slug: 2024-01-29-aws-iam-group-deletion
+title: Successful AWS IAM Group Deletion
+summary: This brief covers the successful deletion of an AWS IAM group, a potential indicator of malicious activity or insider threat.
+severity: medium
+published_at: "2024-01-29T12:00:00Z"
+content: |
+    ## Overview
+
+    This activity focuses on the successful deletion of an AWS Identity and Access Management (IAM) group. While legitimate group deletion occurs as part of routine administration, unauthorized or unexpected deletions can signal malicious activity. An adversary or disgruntled insider might delete groups to disrupt access control, escalate privileges, or cover their tracks. It is critical to monitor and alert on IAM group deletions to ensure prompt investigation and mitigation. Defenders should correlate these events with other suspicious activities within the AWS environment for comprehensive threat detection.
+
+    ## Attack Chain
+
+    1.  **Initial Access (Potentially Compromised Credentials):** An attacker gains access to the AWS environment, potentially through compromised IAM user credentials or an exposed access key.
+    2.  **Privilege Escalation (If Necessary):** If the compromised identity lacks sufficient permissions, the attacker attempts to escalate privileges, potentially by exploiting misconfigured IAM roles or policies.
+    3.  **Discovery:** The attacker enumerates IAM groups to identify potential targets for deletion. This could involve using AWS CLI commands like `aws iam list-groups`.
+    4.  **Impact: IAM Group Deletion:** The attacker executes the `aws iam delete-group` command to delete a specific IAM group. The attacker may target groups containing critical user roles or permissions to disrupt operations.
+    5.  **Covering Tracks (Optional):** The attacker might attempt to delete CloudTrail logs or disable CloudTrail logging to conceal their activity.
+    6.  **Persistence (Optional):** If the attacker intends to maintain long-term access, they might create new IAM users or roles with similar privileges to the deleted group.
+
+    ## Impact
+
+    Successful deletion of an AWS IAM group can lead to significant disruption of services and potential data breaches. If the deleted group contained users with access to critical resources, those users will lose access, potentially halting operations. In targeted attacks, adversaries might delete groups to remove specific security controls or to make it harder for defenders to track their activities. The impact ranges from operational downtime to potential data exfiltration depending on the roles and permissions associated with the deleted group.
+tags:
+    - aws
+    - iam
+    - cloudtrail
+    - group-deletion
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_iam_successful_group_deletion.yml
+rules:
+    - title: Detect AWS IAM Group Deletion via CloudTrail
+      description: Detects successful deletion of an AWS IAM group by monitoring CloudTrail logs.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: DeleteGroup
+            eventSource: iam.amazonaws.com
+            requestParameters.groupName: '*'
+      level: medium
+      tags:
+        - attack.impact
+        - attack.t1485
+      tests:
+        positive:
+            - name: Successful group deletion
+              data:
+                - eventName: DeleteGroup
+                  eventSource: iam.amazonaws.com
+                  requestParameters.groupName: test-group
+        negative:
+            - name: User creation event
+              data:
+                - eventName: CreateUser
+                  eventSource: iam.amazonaws.com
+                  requestParameters.userName: test-user
+    - title: Detect AWS IAM Group Deletion Without MFA
+      description: Detects successful deletion of an AWS IAM group when MFA is not used, indicating a potential compromise.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            additionalEventData.MFAUsed: "false"
+            eventName: DeleteGroup
+            eventSource: iam.amazonaws.com
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1556.006
+      tests:
+        positive:
+            - name: Group deletion without MFA
+              data:
+                - additionalEventData.MFAUsed: "false"
+                  eventName: DeleteGroup
+                  eventSource: iam.amazonaws.com
+        negative:
+            - name: Group deletion with MFA
+              data:
+                - additionalEventData.MFAUsed: "true"
+                  eventName: DeleteGroup
+                  eventSource: iam.amazonaws.com
+ttps:
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1485
+      technique_name: Data Destruction
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1556
+      technique_name: Impair Defenses
+      subtechnique_id: T1556.006
+      subtechnique_name: Disable or Modify Cloud Logs
