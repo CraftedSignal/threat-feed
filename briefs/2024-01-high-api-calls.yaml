@@ -1,0 +1,101 @@
+id: brief-2024-01-03-high-api-calls
+slug: 2024-01-high-api-calls
+title: Abnormally High Number of Cloud Infrastructure API Calls
+summary: This detection identifies potentially malicious activity through the observation of an abnormally high number of cloud infrastructure API calls, which could indicate unauthorized access, reconnaissance, or abuse of cloud resources.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying potentially malicious behavior within cloud environments by monitoring the volume of API calls made to cloud infrastructure services. An abnormally high number of API calls from a single source, or within a short timeframe, can indicate various malicious activities. These activities range from unauthorized reconnaissance attempts to the exploitation of misconfigured resources or compromised credentials. While the specific source does not provide details on targeted sectors or historical campaigns, the detection aims to identify anomalous API activity regardless of the attacker's specific goals, allowing for timely investigation and mitigation.
+
+    ## Attack Chain
+
+    1. Initial Access: An attacker gains initial access to a cloud environment, potentially through compromised credentials or exploiting a misconfigured service.
+    2. Enumeration: The attacker begins enumerating available resources within the cloud environment by making a series of API calls to identify accessible services, storage buckets, and virtual machines.
+    3. Credential Harvesting: The attacker attempts to harvest additional credentials by accessing metadata services or exploiting vulnerable applications within the cloud environment.
+    4. Lateral Movement: Using the harvested credentials, the attacker moves laterally to other resources within the cloud environment, expanding their access and control.
+    5. Data Exfiltration: The attacker accesses sensitive data stored in cloud storage buckets or databases and initiates a data exfiltration process.
+    6. Resource Abuse: The attacker leverages compromised cloud resources for malicious purposes, such as cryptocurrency mining or launching distributed denial-of-service (DDoS) attacks.
+
+    ## Impact
+
+    A successful attack involving an abnormally high number of API calls can lead to significant data breaches, financial losses due to resource abuse, and reputational damage. The impact depends on the attacker's objectives and the sensitivity of the data or resources compromised. While specific victim counts and sector targeting aren't provided in the source, the potential consequences necessitate proactive monitoring and detection of unusual API activity.
+tags:
+    - cloud
+    - api
+    - reconnaissance
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/abnormally_high_number_of_cloud_infrastructure_api_calls.yml
+rules:
+    - title: Detect High Number of AWS API Calls from Single Source
+      description: Detects an abnormally high number of AWS API calls originating from a single source IP within a short timeframe, indicating potential reconnaissance or abuse.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: count_api_calls > 100
+        count_api_calls:
+            userIDentity.principalId: '*'
+        selection:
+            eventSource: ec2.amazonaws.com
+        timeframe: 60s
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1580
+      tests:
+        positive:
+            - name: High API call volume from single source
+              data:
+                - eventName: RunInstances
+                  eventSource: ec2.amazonaws.com
+                  sourceIPAddress: 192.0.2.1
+                  userIDentity.principalId: AIDACKCEVSQ6C2EXAMPLE
+                - eventName: DescribeInstances
+                  eventSource: ec2.amazonaws.com
+                  sourceIPAddress: 192.0.2.1
+                  userIDentity.principalId: AIDACKCEVSQ6C2EXAMPLE
+        negative:
+            - name: Normal API call volume
+              data:
+                - eventName: RunInstances
+                  eventSource: ec2.amazonaws.com
+                  sourceIPAddress: 192.0.2.1
+                  userIDentity.principalId: AIDACKCEVSQ6C2EXAMPLE
+    - title: Detect GCP API calls for Enumeration
+      description: Detects a high number of Google Cloud Platform API calls, potentially indicating enumeration.
+      logsource:
+        category: audit
+        product: gcp
+      detection:
+        condition: count_calls > 50
+        count_calls:
+            protoPayload.authenticationInfo.principalEmail: '*'
+        selection:
+            protoPayload.methodName: google.cloud.compute.instances.list
+        timeframe: 60s
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1068
+      tests:
+        positive:
+            - name: High number of GCP API calls to list instances
+              data:
+                - protoPayload.authenticationInfo.principalEmail: test@example.com
+                  protoPayload.methodName: google.cloud.compute.instances.list
+        negative:
+            - name: Normal amount of GCP API calls
+              data:
+                - protoPayload.authenticationInfo.principalEmail: test@example.com
+                  protoPayload.methodName: google.cloud.compute.instances.list
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1580
+      technique_name: Cloud Accounts
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1068
+      technique_name: Software Discovery
