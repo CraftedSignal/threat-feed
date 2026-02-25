@@ -1,0 +1,96 @@
+id: brief-2024-01-03-unseen-instance-type
+slug: 2024-01-unseen-instance-type
+title: Cloud Compute Instance Created with Previously Unseen Instance Type
+summary: A cloud compute instance is created with an instance type not previously observed in the environment, potentially indicating malicious activity or unauthorized resource deployment.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    The creation of a cloud compute instance with an instance type that has not been previously observed within an organization's cloud environment can indicate a number of security concerns. This could be a sign of an attacker attempting to blend in after gaining initial access, or an insider threat. It may also be an attacker attempting to provision resources for crypto mining or other illicit activities. Detecting unusual instance types allows for early identification of potential threats and prevents further unauthorized activities. It can also indicate misconfigurations or policy violations.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** An attacker gains access to a cloud account through compromised credentials or exploitation of a vulnerability in the cloud infrastructure.
+    2.  **Privilege Escalation:** The attacker escalates privileges within the compromised account to gain the ability to create new compute instances.
+    3.  **Resource Provisioning:** The attacker uses the compromised account to provision a new cloud compute instance.
+    4.  **Instance Type Selection:** The attacker selects an instance type that is not commonly used or previously seen in the environment to avoid immediate detection.
+    5.  **Malware Deployment:** The attacker deploys malware or other malicious tools onto the newly created instance.
+    6.  **Lateral Movement:** The attacker uses the compromised instance to move laterally within the cloud environment and access sensitive data or systems.
+    7.  **Data Exfiltration/Malicious Activity:** The attacker uses the compromised instance to exfiltrate sensitive data or perform other malicious activities, such as cryptocurrency mining or launching attacks against other systems.
+
+    ## Impact
+
+    Successful exploitation can result in unauthorized access to sensitive data, financial losses due to resource consumption, and reputational damage. The scope of the impact depends on the extent of the attacker's access and the resources they are able to compromise. If an attacker successfully provisions a high-powered compute instance, the cloud bill for the organization can increase significantly, and the attacker can leverage the instance for further malicious activity.
+tags:
+    - cloud
+    - compute instance
+    - resource provisioning
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/cloud_compute_instance_created_with_previously_unseen_instance_type.yml
+rules:
+    - title: Detect Cloud Compute Instance Created with Previously Unseen Instance Type
+      description: Detects the creation of a cloud compute instance with an instance type that has not been previously observed in the environment.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: RunInstances
+            requestparameters.instancetype|endswith: _new_instance_type_
+      level: medium
+      tags:
+        - attack.resource_development
+        - attack.t1583.001
+      tests:
+        positive:
+            - name: EC2 instance launched with previously unseen instance type
+              data:
+                - eventname: RunInstances
+                  requestparameters.instancetype: m5.xlarge_new_instance_type_
+        negative:
+            - name: EC2 instance launched with known instance type
+              data:
+                - eventname: RunInstances
+                  requestparameters.instancetype: m5.xlarge
+    - title: GCP Compute Instance Creation with Uncommon Machine Type
+      description: Detects creation of GCP compute instances with machine types rarely seen in the environment, potentially indicating malicious resource deployment.
+      logsource:
+        category: cloudtrail
+        product: gcp
+      detection:
+        condition: selection
+        selection:
+            protoPayload.methodName: beta.compute.instances.insert
+            protoPayload.request.machineType|contains: _uncommon_machine_type_
+      level: medium
+      tags:
+        - attack.resource_development
+        - attack.t1583.001
+      tests:
+        positive:
+            - name: GCP instance created with uncommon machine type
+              data:
+                - protoPayload.methodName: beta.compute.instances.insert
+                  protoPayload.request.machineType: projects/my-project/zones/us-central1-a/machineTypes/n1-highmem-32_uncommon_machine_type_
+        negative:
+            - name: GCP instance created with common machine type
+              data:
+                - protoPayload.methodName: beta.compute.instances.insert
+                  protoPayload.request.machineType: projects/my-project/zones/us-central1-a/machineTypes/n1-standard-1
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1078
+      technique_name: Valid Accounts
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0042
+      tactic_name: Resource Development
+      technique_id: T1583
+      technique_name: Acquire Infrastructure
+      subtechnique_id: T1583.001
+      subtechnique_name: Servers
