@@ -1,0 +1,129 @@
+id: brief-2024-01-25-aws-update-login-profile
+slug: 2024-01-aws-update-login-profile
+title: AWS UpdateLoginProfile Activity
+summary: This brief covers potential malicious activity associated with the AWS UpdateLoginProfile API call, which could indicate account compromise or privilege escalation attempts within an AWS environment.
+severity: medium
+published_at: "2024-01-25T12:00:00Z"
+content: |
+    ## Overview
+
+    The AWS `UpdateLoginProfile` API call is used to manage passwords for IAM users, specifically setting, resetting, or disabling passwords. While legitimate use includes routine password management, adversaries can abuse this functionality to gain control over IAM user accounts. This activity could be part of a larger attack involving initial access, privilege escalation, or persistence within an AWS environment. Defenders should monitor this activity for anomalous behavior, such as unexpected users modifying login profiles or modifications outside of established maintenance windows. Identifying unusual `UpdateLoginProfile` calls can help detect potential insider threats or compromised accounts being used to further infiltrate the AWS infrastructure.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** An attacker gains initial access to an AWS account, possibly through compromised credentials or exploiting a misconfigured IAM role.
+    2.  **Identify Target User:** The attacker identifies a target IAM user account to compromise, potentially using reconnaissance techniques.
+    3.  **Attempt Password Reset:** The attacker calls the `UpdateLoginProfile` API to reset the password of the target user, potentially disabling MFA if enabled on the account.
+    4.  **Gain Account Control:** Using the newly reset password, the attacker logs into the AWS console or uses the AWS CLI with the target user's credentials.
+    5.  **Privilege Escalation (Optional):** If the compromised user has sufficient privileges or can be used to assume other roles, the attacker attempts to escalate their privileges within the AWS environment.
+    6.  **Lateral Movement (Optional):** The attacker moves laterally to other AWS resources or services, leveraging the compromised user's access.
+    7.  **Data Exfiltration/Destruction (Optional):** The attacker may exfiltrate sensitive data stored in AWS services like S3 or RDS, or they may attempt to disrupt operations by destroying resources.
+
+    ## Impact
+
+    A successful attack leveraging the `UpdateLoginProfile` API can lead to complete account takeover of IAM users within the AWS environment. This can result in data breaches, service disruptions, and significant financial losses. The lack of visibility and monitoring around these API calls can allow attackers to operate undetected for extended periods, increasing the potential for damage.
+tags:
+    - cloud
+    - aws
+    - iam
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_updateloginprofile.yml
+rules:
+    - title: Detect AWS UpdateLoginProfile Activity from Unusual Source IP
+      description: Detects UpdateLoginProfile API calls originating from IP addresses not commonly associated with AWS management activities.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: UpdateLoginProfile
+            sourceIPAddress|startswith:
+                - 192.168.
+                - "10."
+                - 172.16.
+      level: medium
+      tags:
+        - attack.credential_access
+        - attack.t1555
+      tests:
+        positive:
+            - name: UpdateLoginProfile from suspicious IP
+              data:
+                - eventname: UpdateLoginProfile
+                  sourceIPAddress: 192.168.1.100
+                  userIdentity.type: IAMUser
+        negative:
+            - name: Legitimate UpdateLoginProfile from corporate IP
+              data:
+                - eventname: UpdateLoginProfile
+                  sourceIPAddress: 203.0.113.45
+                  userIdentity.type: IAMUser
+    - title: Detect AWS UpdateLoginProfile Followed by Console Login from Same IP
+      description: Detects instances where an UpdateLoginProfile API call is followed by a console login event from the same source IP address, which could indicate account takeover.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection_updateloginprofile and selection_consolelogin and sameIP
+        selection_consolelogin:
+            eventname: ConsoleLogin
+        selection_updateloginprofile:
+            eventname: UpdateLoginProfile
+      level: high
+      tags:
+        - attack.credential_access
+        - attack.t1555
+      tests:
+        positive:
+            - name: UpdateLoginProfile and ConsoleLogin from same IP
+              data:
+                - eventname: UpdateLoginProfile
+                  sourceIPAddress: 10.0.0.5
+                  userIdentity.type: IAMUser
+                - eventname: ConsoleLogin
+                  sourceIPAddress: 10.0.0.5
+                  userIdentity.type: IAMUser
+        negative:
+            - name: UpdateLoginProfile and ConsoleLogin from different IPs
+              data:
+                - eventname: UpdateLoginProfile
+                  sourceIPAddress: 10.0.0.5
+                  userIdentity.type: IAMUser
+                - eventname: ConsoleLogin
+                  sourceIPAddress: 203.0.113.45
+                  userIdentity.type: IAMUser
+    - title: Detect UpdateLoginProfile Called by an Unusual User Agent
+      description: Detects UpdateLoginProfile API calls made with user agents that are not typically associated with legitimate AWS management activities, indicating potential unauthorized tool usage.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: UpdateLoginProfile
+            userAgent|contains:
+                - curl
+                - wget
+      level: medium
+      tags:
+        - attack.credential_access
+        - attack.t1555
+      tests:
+        positive:
+            - name: UpdateLoginProfile called via curl
+              data:
+                - eventname: UpdateLoginProfile
+                  userAgent: curl/7.64.1
+                  userIdentity.type: IAMUser
+        negative:
+            - name: UpdateLoginProfile called via AWS Console
+              data:
+                - eventname: UpdateLoginProfile
+                  userAgent: console.amazonaws.com
+                  userIdentity.type: IAMUser
+ttps:
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1555
+      technique_name: Credentials from Password Stores
