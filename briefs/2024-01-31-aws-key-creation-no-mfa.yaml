@@ -1,0 +1,88 @@
+id: brief-2024-01-31-aws-key-creation-no-mfa
+slug: 2024-01-31-aws-key-creation-no-mfa
+title: AWS User Creation of Encryption Keys Without MFA
+summary: An adversary might attempt to create AWS encryption keys without multi-factor authentication enabled, potentially indicating compromised credentials or an insider threat weakening security controls.
+severity: medium
+published_at: "2024-01-31T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying instances where AWS users create encryption keys without utilizing multi-factor authentication (MFA). While the specific actor behind this activity remains unknown, the potential consequences include weakened encryption practices and unauthorized access to sensitive data. The risk stems from scenarios where compromised credentials or malicious insiders bypass MFA requirements during key creation. By monitoring for this behavior, security teams can identify and address potential vulnerabilities in their AWS environment.
+
+    ## Attack Chain
+
+    1.  Compromised AWS Credentials: An attacker gains access to valid AWS credentials, either through phishing, credential stuffing, or other means.
+    2.  Bypass MFA Check: The attacker leverages a method to bypass or circumvent multi-factor authentication, such as exploiting a misconfigured IAM role or a vulnerability in the authentication process.
+    3.  Assume IAM Role: The attacker uses the compromised credentials to assume an IAM role that has permissions to create encryption keys.
+    4.  Create Encryption Key: The attacker executes an AWS API call (e.g., `CreateKey`) to generate a new encryption key within the AWS environment.  This occurs without triggering an MFA challenge.
+    5.  Configure Key Policy: The attacker configures a policy for the newly created key that grants unauthorized access or weakens security controls.
+    6.  Encrypt Data: The attacker uses the newly created key to encrypt sensitive data, potentially making it inaccessible or exfiltrating it after encryption.
+    7.  Maintain Persistence: The attacker may create additional keys or modify existing ones to maintain persistent access to the environment.
+
+    ## Impact
+
+    Successful exploitation could lead to the compromise of sensitive data stored in AWS. The lack of MFA during key creation weakens the security posture, allowing unauthorized individuals to encrypt or decrypt data, potentially leading to data breaches or service disruptions. The impact includes potential financial loss, reputational damage, and legal repercussions. The number of affected resources depends on the scope of the attacker's access and the sensitivity of the data protected by the compromised keys.
+tags:
+    - aws
+    - cloud
+    - iam
+    - key-management
+    - mfa
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_detect_users_creating_keys_with_encrypt_policy_without_mfa.yml
+rules:
+    - title: Detect AWS Key Creation Without MFA
+      description: Detects instances where an AWS user creates an encryption key without MFA being enforced.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: CreateKey
+            useridentity.sessioncontext.attributes.mfaauthenticated: "false"
+      level: medium
+      tags:
+        - attack.credential_access
+        - attack.t1555
+      tests:
+        positive:
+            - name: Key creation without MFA
+              data:
+                - eventname: CreateKey
+                  useridentity.sessioncontext.attributes.mfaauthenticated: "false"
+        negative:
+            - name: Key creation with MFA
+              data:
+                - eventname: CreateKey
+                  useridentity.sessioncontext.attributes.mfaauthenticated: "true"
+    - title: Detect AWS Key Policy Modification Without MFA
+      description: Detects instances where an AWS user modifies an encryption key policy without MFA being enforced.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: PutKeyPolicy
+            useridentity.sessioncontext.attributes.mfaauthenticated: "false"
+      level: medium
+      tags:
+        - attack.credential_access
+        - attack.t1555
+      tests:
+        positive:
+            - name: Key policy modification without MFA
+              data:
+                - eventname: PutKeyPolicy
+                  useridentity.sessioncontext.attributes.mfaauthenticated: "false"
+        negative:
+            - name: Key policy modification with MFA
+              data:
+                - eventname: PutKeyPolicy
+                  useridentity.sessioncontext.attributes.mfaauthenticated: "true"
+ttps:
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1555
+      technique_name: Credentials from Password Stores
