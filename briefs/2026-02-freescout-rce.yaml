@@ -1,0 +1,109 @@
+id: brief-2026-02-26-freescout-rce
+slug: 2026-02-freescout-rce
+title: Critical Vulnerabilities in FreeScout Help Desk Allow Remote Code Execution
+summary: Two critical vulnerabilities in FreeScout Help Desk (CVE-2026-27636 and CVE-2026-27637) can be exploited to achieve remote code execution, potentially leading to full account takeover and server compromise.
+severity: critical
+published_at: "2026-02-26T12:00:00Z"
+content: |
+    ## Overview
+
+    In February 2026, critical vulnerabilities were disclosed in FreeScout Help Desk, a popular customer support solution. These vulnerabilities, CVE-2026-27636 and CVE-2026-27637, allow for remote code execution (RCE). CVE-2026-27636 involves unrestricted file uploads (.htaccess, .user.ini) on Apache servers, while CVE-2026-27637 stems from predictable authentication tokens, potentially leading to complete account takeover. FreeScout is a popular help desk solution which often contains valuable customer data and connects to internal applications, increasing the severity. Successful exploitation could lead to data exfiltration, lateral movement, and complete system compromise. There is no indication of active exploitation as of February 25, 2026.
+
+    ## Attack Chain
+
+    1.  **Initial Access (CVE-2026-27637):** An attacker gains access to the `APP_KEY` through common Laravel misconfigurations.
+    2.  **Credential Access (CVE-2026-27637):** The attacker uses the `APP_KEY` to compute valid authentication tokens for any user, including administrators, due to the predictable token generation in the "TokenAuth" middleware.
+    3.  **Account Takeover (CVE-2026-27637):** The attacker uses the generated token to authenticate as an administrator, gaining full control of the FreeScout account.
+    4.  **File Upload (CVE-2026-27636):** The attacker, now authenticated, uploads a malicious `.htaccess` file (or `.user.ini`) to a directory accessible by the FreeScout application on an Apache server with `AllowOverride All` enabled.
+    5.  **Configuration Override (CVE-2026-27636):** The uploaded `.htaccess` file redefines how files are processed by the web server.
+    6.  **Code Execution (CVE-2026-27636):** The attacker triggers the execution of arbitrary code by accessing a file processed according to the rules defined in the malicious `.htaccess` file (e.g., a PHP file).
+    7.  **Privilege Escalation:** Executes system commands to gain higher privileges on the host.
+    8.  **System Compromise:** The attacker gains full control of the FreeScout server, enabling data exfiltration, lateral movement, and further exploitation of internal networks.
+
+    ## Impact
+
+    Successful exploitation of these vulnerabilities allows attackers to execute arbitrary code on the FreeScout server, gain unauthorized access to sensitive customer data and internal system information. This could lead to significant data breaches, financial losses, and reputational damage. Given FreeScout's role in managing customer interactions, a successful attack could compromise the confidentiality and integrity of a large number of customer records. An attacker with admin access could also modify settings, create new admin accounts, and pivot to other services and internal networks, as well as exfiltrate any data including database credentials.
+tags:
+    - freescout
+    - rce
+    - vulnerability
+references:
+    - https://ccb.belgium.be/advisories/warning-critical-vulnerabilities-freescout-could-be-exploited-achieve-remote-code
+    - https://github.com/freescout-help-desk/freescout/security/advisories/GHSA-mw88-x7j3-74vc
+    - https://github.com/freescout-help-desk/freescout/security/advisories/GHSA-6gcm-v8xf-j9v9
+rules:
+    - title: Detect .htaccess Uploads to Web Directories
+      description: Detects the creation or modification of .htaccess files within web server directories, which can be indicative of CVE-2026-27636 exploitation.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            TargetFilename|contains: www
+            TargetFilename|endswith: .htaccess
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1562.004
+      tests:
+        positive:
+            - name: .htaccess file creation in wwwroot
+              data:
+                - TargetFilename: C:\inetpub\wwwroot\.htaccess
+                - Image: C:\Windows\System32\notepad.exe
+        negative:
+            - name: .htaccess file creation in temp directory
+              data:
+                - TargetFilename: C:\temp\.htaccess
+                - Image: C:\Windows\System32\notepad.exe
+    - title: Detect .user.ini Uploads to Web Directories
+      description: Detects the creation or modification of .user.ini files within web server directories, which can be indicative of CVE-2026-27636 exploitation.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            TargetFilename|contains: www
+            TargetFilename|endswith: .user.ini
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1562.004
+      tests:
+        positive:
+            - name: .user.ini file creation in wwwroot
+              data:
+                - TargetFilename: C:\inetpub\wwwroot\.user.ini
+                - Image: C:\Windows\System32\notepad.exe
+        negative:
+            - name: .user.ini file creation in temp directory
+              data:
+                - TargetFilename: C:\temp\.user.ini
+                - Image: C:\Windows\System32\notepad.exe
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1185
+      technique_name: Collect Credentials
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.004
+      technique_name: 'Command and Scripting Interpreter: PHP'
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1119
+      technique_name: Automated Collection
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1041
+      technique_name: Exfiltration Over C2 Channel
