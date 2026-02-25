@@ -1,0 +1,111 @@
+id: brief-2024-01-29-aws-setdefaultpolicyversion
+slug: 2024-01-29-aws-setdefaultpolicyversion
+title: AWS IAM Default Policy Version Modification
+summary: An attacker may modify the default version of an AWS IAM policy, potentially reverting permissions or disrupting access control mechanisms within an AWS environment.
+severity: medium
+published_at: "2024-01-29T12:00:00Z"
+content: |
+    ## Overview
+
+    The modification of an AWS IAM policy's default version can be a critical security concern. While the provided source material lacks specific campaign details or threat actor attribution, the action itself can be leveraged by malicious actors to degrade security posture. This action could revert policies to less secure versions, effectively granting unintended or overly permissive access. Defenders must monitor for unexpected changes to IAM policies to identify potentially malicious activity.
+
+    ## Attack Chain
+
+    1.  Attacker gains unauthorized access to an AWS account, potentially through compromised credentials or a vulnerability in an application with IAM roles.
+    2.  The attacker identifies the target IAM policy for modification using AWS CLI or API calls (e.g., `aws iam list-policies`).
+    3.  The attacker retrieves the versions of the IAM policy (`aws iam list-policy-versions --policy-arn <policy-arn>`).
+    4.  The attacker selects a specific policy version (potentially an older, less restrictive version) to be set as the default.
+    5.  The attacker uses the `aws iam set-default-policy-version` command to change the default version of the IAM policy to the selected version.
+    6.  This change could inadvertently grant broader permissions, allowing the attacker to perform unauthorized actions within the AWS environment.
+    7.  The attacker leverages the expanded permissions to access sensitive resources, modify data, or escalate privileges further.
+    8.  The attacker covers their tracks by deleting logs or making further configuration changes to maintain persistence.
+
+    ## Impact
+
+    Successful modification of an IAM policy's default version can lead to privilege escalation, data breaches, and service disruption. The severity depends on the scope and permissions granted by the modified policy version. For example, if a policy associated with critical infrastructure is downgraded to a version with broader permissions, an attacker could gain control over those resources, potentially impacting operations and sensitive data. This activity can go unnoticed until the expanded permissions are abused, leading to significant damage.
+tags:
+    - aws
+    - iam
+    - policy
+    - privilege-escalation
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_setdefaultpolicyversion.yml
+rules:
+    - title: Detect AWS IAM Set Default Policy Version
+      description: Detects the use of the `SetDefaultPolicyVersion` API call, which modifies the default version of an IAM policy.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: SetDefaultPolicyVersion
+            eventSource: iam.amazonaws.com
+      level: medium
+      tags:
+        - attack.privilege_escalation
+        - attack.t1555
+      tests:
+        positive:
+            - name: SetDefaultPolicyVersion event
+              data:
+                - eventName: SetDefaultPolicyVersion
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    policyArn: arn:aws:iam::123456789012:policy/MyPolicy
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/Alice
+                    type: IAMUser
+        negative:
+            - name: Other IAM events
+              data:
+                - eventName: CreatePolicy
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    policyName: MyPolicy
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/Alice
+                    type: IAMUser
+    - title: Detect IAM Policy Version Set to Older Version
+      description: Detects when an IAM policy is set to an older version than the current one, potentially indicating a downgrade.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: SetDefaultPolicyVersion
+            eventSource: iam.amazonaws.com
+        version_check:
+            requestParameters.policyArn: '*'
+      level: low
+      tags:
+        - attack.privilege_escalation
+        - attack.t1098
+      tests:
+        positive:
+            - name: Policy version set to a lower version
+              data:
+                - eventName: SetDefaultPolicyVersion
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    policyArn: arn:aws:iam::123456789012:policy/MyPolicy
+                    versionId: v2
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/Alice
+                    type: IAMUser
+        negative:
+            - name: Policy creation event
+              data:
+                - eventName: CreatePolicy
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    policyName: MyPolicy
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/Alice
+                    type: IAMUser
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1555
+      technique_name: Credentials
