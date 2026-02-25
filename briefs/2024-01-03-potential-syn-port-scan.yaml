@@ -1,0 +1,666 @@
+id: brief-2024-01-03-potential-syn-port-scan
+slug: 2024-01-03-potential-syn-port-scan
+title: Potential SYN Port Scan Detected
+summary: A potential SYN port scan is detected, indicating network reconnaissance activity used to identify open ports and services on a target system.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert signifies the detection of a potential SYN port scan, a common network reconnaissance technique. While the specific actor is unknown, this activity usually precedes more targeted attacks. Port scanning is used to enumerate open ports and services on a target machine or network. Attackers leverage this information to identify potential vulnerabilities or misconfigurations they can exploit. A SYN scan is a type of port scan where the attacker sends SYN packets to each port, and analyzes the response to determine if the port is open, closed, or filtered. This type of scan is faster and stealthier compared to a full TCP connect scan. Defenders should investigate the source of the scan, the scope of the scan, and the targeted ports to determine the intent and potential impact.
+
+    ## Attack Chain
+
+    1. **Initial Scan:** The attacker initiates a SYN scan by sending SYN packets to a range of ports on the target system.
+    2. **Port Response Analysis:** The attacker analyzes the responses from the target system. A SYN-ACK response indicates an open port, an RST response indicates a closed port, and no response may indicate a filtered port.
+    3. **Service Enumeration (Hypothetical):** Based on the open ports, the attacker infers the services running on the target system (e.g., port 80 for HTTP, port 443 for HTTPS, port 22 for SSH).
+    4. **Vulnerability Identification (Hypothetical):** The attacker researches known vulnerabilities for the identified services and their versions.
+    5. **Exploitation Attempt (Hypothetical):** The attacker attempts to exploit identified vulnerabilities to gain unauthorized access to the system.
+    6. **Lateral Movement (Hypothetical):** If the attacker successfully exploits a vulnerability, they may attempt to move laterally to other systems on the network.
+    7. **Data Exfiltration/Damage (Hypothetical):** The attacker may attempt to exfiltrate sensitive data or cause damage to the compromised system.
+
+    ## Impact
+
+    A successful port scan allows attackers to identify potential vulnerabilities and misconfigurations in a network. This information can be used to plan and execute more targeted attacks, such as exploiting vulnerable services to gain unauthorized access to systems. The impact of a successful attack can range from data breaches and system compromise to denial-of-service attacks and ransomware deployment. Continuous monitoring for and mitigation of port scanning activities is essential for maintaining network security. The absence of immediate exploitation following a port scan does not negate the risk, as the information gathered can be used in future attacks.
+tags:
+    - network-scan
+    - reconnaissance
+    - port-scan
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/network/discovery_potential_syn_port_scan_detected.toml
+rules:
+    - title: Detect Potential SYN Port Scan
+      description: Detects a high number of SYN packets sent from a single source IP to multiple destination ports within a short time frame, indicative of a potential SYN port scan.
+      logsource:
+        category: network_connection
+        product: zeek
+      detection:
+        aggregate:
+            - src_ip by dst_port
+        condition: count(aggregate) by src_ip > 100 and duration < 60
+        selection:
+            flags: S
+            proto: tcp
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1046
+      tests:
+        positive:
+            - name: High number of SYN packets to multiple ports
+              data:
+                - dst_port: 80
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 443
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 21
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 22
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 23
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 25
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 53
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 110
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 135
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 139
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 445
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 593
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 1433
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 3306
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 3389
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 8080
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 8443
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 9000
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 5060
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 5061
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 5900
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 6000
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 7070
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 8000
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 9090
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 8888
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 10000
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49152
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49153
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49154
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49155
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49156
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49157
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49158
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49159
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49160
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49161
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49162
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49163
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49164
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49165
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49166
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49167
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49168
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49169
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49170
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49171
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49172
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49173
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49174
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49175
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49176
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49177
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49178
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49179
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49180
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49181
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49182
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49183
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49184
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49185
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49186
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49187
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49188
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49189
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49190
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49191
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49192
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49193
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49194
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49195
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49196
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49197
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49198
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49199
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49200
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49201
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49202
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49203
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49204
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49205
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49206
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49207
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49208
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49209
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49210
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49211
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49212
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49213
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49214
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49215
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49216
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49217
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49218
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49219
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49220
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49221
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49222
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49223
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49224
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49225
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49226
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49227
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49228
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49229
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49230
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49231
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49232
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49233
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49234
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49235
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49236
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49237
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49238
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49239
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+                - dst_port: 49240
+                  duration: 55
+                  flags: S
+                  proto: tcp
+                  src_ip: 192.168.1.100
+        negative:
+            - name: Normal TCP traffic
+              data:
+                - dst_port: 80
+                  duration: 120
+                  flags: SA
+                  proto: tcp
+                  src_ip: 192.168.1.100
+    - title: Detect Nmap User-Agent
+      description: Detects Nmap's default User-Agent string, commonly used during network scans.
+      logsource:
+        category: network_connection
+        product: suricata
+      detection:
+        condition: selection
+        selection:
+            http.http_user_agent: Nmap NSE
+      level: low
+      tags:
+        - attack.discovery
+        - attack.t1046
+      tests:
+        positive:
+            - name: Nmap user agent detected
+              data:
+                - http.http_user_agent: Nmap NSE
+        negative:
+            - name: Normal web browser user agent
+              data:
+                - http.http_user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1046
+      technique_name: Network Service Scanning
