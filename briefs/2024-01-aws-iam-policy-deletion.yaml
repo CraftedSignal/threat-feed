@@ -1,0 +1,99 @@
+id: brief-2024-01-30-aws-iam-policy-deletion
+slug: 2024-01-aws-iam-policy-deletion
+title: AWS IAM Policy Deletion Activity
+summary: Detection of AWS IAM policy deletion, potentially indicating malicious activity or privilege escalation attempts by threat actors targeting cloud infrastructure.
+severity: medium
+published_at: "2024-01-30T12:00:00Z"
+content: |
+    ## Overview
+
+    This activity detects the deletion of AWS IAM (Identity and Access Management) policies. While legitimate administrators may occasionally delete policies as part of routine maintenance or access control updates, unauthorized or malicious deletion of IAM policies can severely compromise an AWS environment. An attacker may delete policies to disrupt security controls, escalate privileges, or remove audit trails. Detecting this activity is crucial for maintaining the integrity and security of AWS environments.
+
+    ## Attack Chain
+
+    1.  An attacker gains initial access to an AWS account, potentially through compromised credentials or a misconfigured IAM role (T1078, T1098).
+    2.  The attacker enumerates existing IAM policies within the target AWS account to identify policies suitable for deletion.
+    3.  The attacker uses the AWS CLI, API calls, or the AWS Management Console to issue a `DeletePolicy` request (T1530).
+    4.  AWS validates the request against the attacker's assumed identity and permissions.
+    5.  If the attacker has sufficient privileges, the targeted IAM policy is deleted from the AWS account.
+    6.  The deletion event is logged in AWS CloudTrail, providing an audit record of the action.
+    7.  The attacker repeats the policy deletion process to further weaken the security posture of the AWS environment.
+    8.  The attacker leverages the weakened state to achieve objectives, such as data exfiltration or service disruption.
+
+    ## Impact
+
+    Successful deletion of IAM policies can lead to significant security breaches. By removing policies that enforce access controls, attackers can gain unauthorized access to sensitive resources, escalate privileges, and disrupt critical services. The impact can range from data breaches and financial losses to complete system compromise. The deletion of audit policies could also hide the attacker's activities, making incident response more challenging.
+tags:
+    - cloud
+    - aws
+    - iam
+    - policy
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_iam_delete_policy.yml
+rules:
+    - title: Detect AWS IAM Policy Deletion via CloudTrail
+      description: Detects AWS IAM policy deletion events logged in CloudTrail, indicating a potential attempt to weaken security controls or escalate privileges.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: DeletePolicy
+            eventSource: iam.amazonaws.com
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.008
+      tests:
+        positive:
+            - name: IAM Policy Deletion
+              data:
+                - eventName: DeletePolicy
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    policyName: ExamplePolicy
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    type: IAMUser
+        negative:
+            - name: IAM User Creation
+              data:
+                - eventName: CreateUser
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    userName: new-user
+                  userIdentity:
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    type: IAMUser
+    - title: Detect AWS IAM Policy Deletion via AWS CLI
+      description: Detects AWS IAM policy deletion events initiated via AWS CLI
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - aws iam delete-policy
+                - aws iam deletepolicy
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.008
+      tests:
+        positive:
+            - name: IAM Policy Deletion via AWS CLI
+              data:
+                - CommandLine: aws iam delete-policy --policy-arn arn:aws:iam::123456789012:policy/ExamplePolicy
+        negative:
+            - name: AWS CLI List users
+              data:
+                - CommandLine: aws iam list-users
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.008
+      subtechnique_name: Disable Cloud Logs
