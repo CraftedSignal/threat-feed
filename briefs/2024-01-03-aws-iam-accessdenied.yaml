@@ -1,0 +1,95 @@
+id: brief-2024-01-03-aws-iam-accessdenied
+slug: 2024-01-03-aws-iam-accessdenied
+title: AWS IAM Access Denied Discovery Events
+summary: Detection of AWS IAM Access Denied events can indicate misconfigurations, policy violations, or potential malicious attempts to access resources without proper authorization.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    Monitoring AWS IAM Access Denied events is crucial for identifying potential security issues within an AWS environment. These events signify that a user or service attempted to perform an action without the necessary permissions. While not inherently malicious, frequent or unusual Access Denied events can point to misconfigured IAM policies, accidental privilege escalation attempts, or even reconnaissance activities by malicious actors. Proactive detection and investigation of these events are essential for maintaining a secure and well-governed AWS infrastructure. By identifying the source and target of these events, security teams can quickly remediate misconfigurations and prevent potential breaches.
+
+    ## Attack Chain
+
+    1.  **Initial Access Attempt:** An attacker attempts to access an AWS resource or service, such as an S3 bucket or EC2 instance, using compromised credentials or a service role with insufficient permissions.
+    2.  **IAM Policy Check:** AWS IAM evaluates the request against the relevant IAM policies to determine if the principal (user or service) is authorized to perform the requested action on the specified resource.
+    3.  **Access Denied Event:** If the IAM policies do not grant the necessary permissions, AWS denies the request and generates an Access Denied event. This event is logged in CloudTrail or other AWS logging services.
+    4.  **Log Collection:** The Access Denied event is collected by a security monitoring tool such as Splunk for analysis.
+    5.  **Detection and Alerting:** A detection rule identifies the Access Denied event based on specific criteria, such as the user, resource, or action involved. An alert is triggered to notify security personnel.
+    6.  **Investigation:** Security personnel investigate the Access Denied event to determine the cause. This may involve reviewing IAM policies, examining user activity, and assessing the potential impact.
+    7.  **Remediation:** Based on the investigation, security personnel take corrective actions, such as modifying IAM policies, revoking compromised credentials, or implementing additional security controls.
+
+    ## Impact
+
+    Failure to monitor and respond to AWS IAM Access Denied events can lead to several negative consequences. Misconfigured IAM policies can grant excessive privileges to users or services, increasing the risk of data breaches and unauthorized resource access. Unresolved Access Denied events may indicate failed attempts to escalate privileges or explore the AWS environment, potentially revealing valuable information to attackers. By proactively addressing these events, organizations can reduce their attack surface and improve their overall security posture within AWS.
+tags:
+    - aws
+    - iam
+    - accessdenied
+    - cloudtrail
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_iam_accessdenied_discovery_events.yml
+rules:
+    - title: AWS IAM Access Denied Event
+      description: Detects AWS IAM Access Denied events indicating potential misconfigurations or unauthorized access attempts.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: AccessDenied
+            eventSource: iam.amazonaws.com
+      level: medium
+      tags:
+        - attack.privilege_escalation
+        - attack.t1548
+      tests:
+        positive:
+            - name: Access Denied Event Example
+              data:
+                - eventName: AccessDenied
+                  eventSource: iam.amazonaws.com
+                  requestParameters.policyName: test-policy
+                  userIdentity.arn: arn:aws:iam::123456789012:user/test-user
+        negative:
+            - name: Successful IAM login
+              data:
+                - eventName: ConsoleLogin
+                  eventSource: signin.amazonaws.com
+                  userIdentity.arn: arn:aws:iam::123456789012:user/test-user
+    - title: AWS IAM Access Denied - Specific Resource
+      description: Detects IAM Access Denied events related to a specific resource (e.g., S3 bucket).
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: AccessDenied
+            eventSource: s3.amazonaws.com
+            resource.ARN|contains: arn:aws:s3:::example-bucket
+      level: high
+      tags:
+        - attack.discovery
+        - attack.t1069
+      tests:
+        positive:
+            - name: S3 Access Denied
+              data:
+                - eventName: AccessDenied
+                  eventSource: s3.amazonaws.com
+                  resource.ARN: arn:aws:s3:::example-bucket/sensitive-data.txt
+                  userIdentity.arn: arn:aws:iam::123456789012:user/test-user
+        negative:
+            - name: Successful S3 Upload
+              data:
+                - eventName: PutObject
+                  eventSource: s3.amazonaws.com
+                  resource.ARN: arn:aws:s3:::example-bucket/public-data.txt
+                  userIdentity.arn: arn:aws:iam::123456789012:user/test-user
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1548
+      technique_name: Abuse Elevation Control Mechanism
