@@ -1,0 +1,100 @@
+id: brief-2024-01-09-aws-console-login-new-country
+slug: 2024-01-aws-console-login-new-country
+title: AWS Console Login from New Country
+summary: Detects AWS console logins by a user originating from a country that is new for that specific user, potentially indicating account compromise or unauthorized access.
+severity: medium
+published_at: "2024-01-09T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection identifies AWS console logins originating from a country that is previously unseen for a specific user. The logic behind this detection relies on the assumption that users typically access AWS resources from a consistent set of geographic locations. A sudden login from a new country could signify a compromised account being accessed remotely, or an insider threat attempting to access resources from an unauthorized location. While not definitive evidence of malicious activity, this anomaly warrants further investigation to confirm the legitimacy of the login. This detection focuses on console logins, which are typically interactive and therefore more easily attributable to a specific user.
+
+    ## Attack Chain
+
+    1. **Initial Access:** An attacker gains access to valid AWS user credentials, possibly through phishing, credential stuffing, or purchasing stolen credentials.
+    2. **Console Login:** The attacker uses the stolen credentials to log into the AWS Management Console from a country not previously associated with the user.
+    3. **Enumeration:** The attacker begins to enumerate AWS resources, identifying potential targets and vulnerabilities. This may involve listing EC2 instances, S3 buckets, IAM roles, and other services.
+    4. **Privilege Escalation:** If the initial user account has limited privileges, the attacker attempts to escalate privileges. This may involve exploiting misconfigured IAM roles or policies to gain access to more sensitive resources.
+    5. **Data Exfiltration/Resource Manipulation:** With sufficient privileges, the attacker may exfiltrate sensitive data from S3 buckets, databases, or other storage services. Alternatively, they may modify or delete resources to disrupt services or cause damage.
+    6. **Persistence:** The attacker may create new IAM users or roles with elevated privileges to maintain persistent access to the AWS environment, even if the compromised account is disabled.
+
+    ## Impact
+
+    Successful exploitation can lead to unauthorized access to sensitive data, financial losses due to resource abuse, and disruption of critical services. Depending on the level of access gained, attackers could exfiltrate confidential information, modify critical infrastructure, or deploy malicious code within the AWS environment. This type of attack can impact organizations of all sizes and across various sectors that rely on AWS for their operations. The number of affected users depends on how successful the initial compromise was.
+tags:
+    - aws
+    - cloud
+    - identity-and-access-management
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/detect_aws_console_login_by_user_from_new_country.yml
+rules:
+    - title: AWS Console Login from New Country
+      description: Detects AWS console logins by a user from a new country.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: ConsoleLogin
+            eventSource: signin.amazonaws.com
+            sourceIPAddress: null
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1078
+      tests:
+        positive:
+            - name: Console login from new country
+              data:
+                - eventName: ConsoleLogin
+                  eventSource: signin.amazonaws.com
+                  sourceIPAddress: 203.0.113.45
+                  userIdentity.principalId: AROAEXAMPLEPUFGE7ZDOEXAMPLE:test-user
+        negative:
+            - name: Console login from known country
+              data:
+                - eventName: ConsoleLogin
+                  eventSource: signin.amazonaws.com
+                  sourceIPAddress: 192.0.2.1
+                  userIdentity.principalId: AROAEXAMPLEPUFGE7ZDOEXAMPLE:test-user
+    - title: AWS Console Login without MFA from New Country
+      description: Detects AWS console logins without MFA by a user from a new country.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: ConsoleLogin
+            eventSource: signin.amazonaws.com
+            mfaUsed: "No"
+            sourceIPAddress: null
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1078
+        - attack.defense_evasion
+        - attack.t1562
+      tests:
+        positive:
+            - name: Console login without MFA from a new country
+              data:
+                - eventName: ConsoleLogin
+                  eventSource: signin.amazonaws.com
+                  mfaUsed: "No"
+                  sourceIPAddress: 203.0.113.45
+                  userIdentity.principalId: AROAEXAMPLEPUFGE7ZDOEXAMPLE:test-user
+        negative:
+            - name: Console login with MFA
+              data:
+                - eventName: ConsoleLogin
+                  eventSource: signin.amazonaws.com
+                  mfaUsed: "Yes"
+                  sourceIPAddress: 192.0.2.1
+                  userIdentity.principalId: AROAEXAMPLEPUFGE7ZDOEXAMPLE:test-user
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1078
+      technique_name: Valid Accounts
