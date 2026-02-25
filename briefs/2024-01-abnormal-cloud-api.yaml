@@ -1,0 +1,165 @@
+id: brief-2024-01-03-abnormal-cloud-api
+slug: 2024-01-abnormal-cloud-api
+title: Abnormally High Number of Cloud Security Group API Calls
+summary: Detects a potentially malicious actor generating an abnormally high number of cloud security group API calls, potentially indicating reconnaissance, privilege escalation, or lateral movement within a cloud environment.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection identifies instances of an abnormally high number of API calls related to cloud security groups. While the specific campaign details are unavailable, the alert focuses on anomalous API activity. An adversary might perform reconnaissance on security group configurations, attempt to modify security group rules for privilege escalation or lateral movement, or enumerate security groups as part of a larger attack. The detection is valuable for defenders as it provides a signal of potential malicious activity within cloud environments, allowing for further investigation and mitigation before significant damage occurs. The detection logic triggers based on sudden spikes in API call volume targeting security group resources.
+
+    ## Attack Chain
+
+    1.  Attacker gains initial access to a cloud environment via compromised credentials or a misconfigured service.
+    2.  The attacker enumerates existing security groups to understand network segmentation and access control rules.
+    3.  The attacker analyzes security group configurations to identify potential weaknesses or misconfigurations.
+    4.  The attacker attempts to modify security group rules to allow unauthorized access to sensitive resources.
+    5.  The attacker creates new security groups with overly permissive rules to facilitate lateral movement.
+    6.  The attacker uses the modified or new security groups to gain access to previously restricted resources.
+    7.  The attacker escalates privileges by granting themselves additional permissions through security group modifications.
+    8.  The attacker exfiltrates sensitive data from newly accessible resources.
+
+    ## Impact
+
+    A successful attack involving the manipulation of cloud security groups can lead to significant data breaches, service disruptions, and financial losses. By modifying security group rules, attackers can bypass network segmentation and gain unauthorized access to critical systems and data. The impact can range from a limited breach affecting a single application to a widespread compromise of the entire cloud environment, depending on the scope of the attack and the attacker's objectives.
+tags:
+    - cloud
+    - security-group
+    - api-abuse
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/abnormally_high_number_of_cloud_security_group_api_calls.yml
+rules:
+    - title: Abnormal Number of Security Group API Calls - AWS
+      description: Detects an abnormally high number of AWS Security Group API calls, indicating potential reconnaissance or malicious activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection | count > 10
+        selection:
+            eventName|startswith:
+                - AuthorizeSecurityGroup
+                - CreateSecurityGroup
+                - DeleteSecurityGroup
+                - ModifySecurityGroup
+            eventSource: ec2.amazonaws.com
+            userIdentity.type: IAMUser
+        timeframe: 5m
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1087.004
+      tests:
+        positive:
+            - name: High number of security group API calls in a short timeframe
+              data:
+                - eventName: AuthorizeSecurityGroupIngress
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: AuthorizeSecurityGroupEgress
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: CreateSecurityGroup
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: DeleteSecurityGroup
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: ModifySecurityGroupAttribute
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: AuthorizeSecurityGroupIngress
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: AuthorizeSecurityGroupEgress
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: CreateSecurityGroup
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: DeleteSecurityGroup
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: ModifySecurityGroupAttribute
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: AuthorizeSecurityGroupIngress
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+        negative:
+            - name: Normal number of security group API calls
+              data:
+                - eventName: AuthorizeSecurityGroupIngress
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: AuthorizeSecurityGroupEgress
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+                - eventName: CreateSecurityGroup
+                  eventSource: ec2.amazonaws.com
+                  userIdentity.type: IAMUser
+    - title: Abnormal Number of Security Group API Calls - Azure
+      description: Detects an abnormally high number of Azure Network Security Group API calls, indicating potential reconnaissance or malicious activity.
+      logsource:
+        category: azure_activity
+        product: azure
+      detection:
+        condition: selection | count > 10
+        selection:
+            categoryValue: Administrative
+            operationNameValue|startswith:
+                - Microsoft.Network/networkSecurityGroups/write
+                - Microsoft.Network/networkSecurityGroups/read
+                - Microsoft.Network/networkSecurityGroups/delete
+        timeframe: 5m
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1087.004
+      tests:
+        positive:
+            - name: High number of Azure Network Security Group API calls in a short timeframe
+              data:
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/write
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/read
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/delete
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/write
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/read
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/delete
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/write
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/read
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/delete
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/write
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/read
+        negative:
+            - name: Normal number of Azure Network Security Group API calls
+              data:
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/write
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/read
+                - categoryValue: Administrative
+                  operationNameValue: Microsoft.Network/networkSecurityGroups/delete
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1087
+      technique_name: Account Discovery
+      subtechnique_id: T1087.004
+      subtechnique_name: Cloud Account
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1550
+      technique_name: Use Alternate Authentication Material
