@@ -1,0 +1,139 @@
+id: brief-2024-01-27-excessive-aws-scanning
+slug: 2024-01-excessive-aws-scanning
+title: Potential Excessive AWS Security Scanning Activity
+summary: This brief covers detection of potentially excessive security scanning activity within AWS environments, which could indicate reconnaissance or malicious probing by an attacker.
+severity: medium
+published_at: "2024-01-27T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying potentially excessive security scanning activity within an Amazon Web Services (AWS) environment. While legitimate security assessments are common and necessary, a sudden spike in scanning events or unusual patterns could indicate malicious reconnaissance efforts by an attacker attempting to identify vulnerabilities or misconfigurations. This activity might precede more targeted attacks or data breaches. The detection logic is based on identifying a high volume of API calls related to security auditing or information gathering within a defined timeframe. Defenders should investigate any alerts triggered by this detection to determine the legitimacy of the scanning activity and identify any potential malicious intent.
+
+    ## Attack Chain
+
+    1.  **Initial Access (Potentially Preceding):** An attacker gains initial access to the AWS environment (not directly covered by this detection but a prerequisite).
+    2.  **Enumeration:** The attacker begins enumerating resources within the AWS environment using AWS APIs such as `DescribeInstances`, `ListBuckets`, `GetAccountSummary`, and `GetCallerIdentity`.
+    3.  **Security Group Analysis:** The attacker examines security group configurations using `DescribeSecurityGroups` to identify potential misconfigurations or overly permissive rules.
+    4.  **IAM Policy Analysis:** The attacker analyzes IAM policies with `GetRolePolicy`, `GetUserPolicy`, and `ListAttachedRolePolicies` to identify potential privilege escalation paths or exposed credentials.
+    5.  **Vulnerability Scanning (Hypothetical):** The attacker leverages gathered information to conduct vulnerability scans against identified resources, using tools like `Nmap` or cloud-specific assessment tools (this specific activity is not detailed in the source).
+    6.  **Lateral Movement (Hypothetical):** If vulnerabilities are identified, the attacker attempts lateral movement within the AWS environment.
+    7.  **Data Exfiltration/Impact (Hypothetical):** The attacker aims to exfiltrate sensitive data or cause disruption within the AWS environment.
+
+    ## Impact
+
+    Successful excessive security scanning can provide attackers with valuable insights into the AWS environment's architecture, security posture, and potential vulnerabilities. This information enables them to plan and execute more targeted attacks, potentially leading to data breaches, service disruptions, or unauthorized access to sensitive resources. The scale of the impact depends on the attacker's objectives and the extent of their access.
+tags:
+    - aws
+    - cloud
+    - enumeration
+    - reconnaissance
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_excessive_security_scanning.yml
+rules:
+    - title: Excessive AWS Describe Instances Activity
+      description: Detects a high volume of DescribeInstances API calls, potentially indicating reconnaissance activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection | count(AccountID) by UserIdentity.Arn > 10
+        selection:
+            eventname: DescribeInstances
+        timeframe: 5m
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1580
+      tests:
+        positive:
+            - name: Multiple DescribeInstances calls from the same ARN
+              data:
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+        negative:
+            - name: Few DescribeInstances calls
+              data:
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: DescribeInstances
+    - title: Excessive AWS List Buckets Activity
+      description: Detects a high volume of ListBuckets API calls, potentially indicating reconnaissance activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection | count(AccountID) by UserIdentity.Arn > 5
+        selection:
+            eventname: ListBuckets
+        timeframe: 5m
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1580
+      tests:
+        positive:
+            - name: Multiple ListBuckets calls from the same ARN
+              data:
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: ListBuckets
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: ListBuckets
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: ListBuckets
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: ListBuckets
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: ListBuckets
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: ListBuckets
+        negative:
+            - name: Few ListBuckets calls
+              data:
+                - AccountID: "123456789012"
+                  UserIdentity.Arn: arn:aws:iam::123456789012:user/test-user
+                  eventname: ListBuckets
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1580
+      technique_name: Cloud Infrastructure Discovery
