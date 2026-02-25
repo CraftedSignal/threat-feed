@@ -1,0 +1,100 @@
+id: brief-2024-01-03-aws-kms-encryption-s3
+slug: 2024-01-03-aws-kms-encryption-s3
+title: AWS KMS Key Usage for S3 Encryption
+summary: This detection identifies AWS users with KMS keys performing encryption operations on S3 buckets, which can be indicative of data exfiltration or unauthorized access.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying potentially malicious activity within AWS environments involving the use of Key Management Service (KMS) keys for encrypting data in Simple Storage Service (S3) buckets. While legitimate use cases for KMS-based S3 encryption exist, anomalous patterns, such as encryption by unusual users, of unusually large amounts of data, or encryption during off-hours, can signify data compromise. The detection aims to highlight these deviations to security teams for further investigation, particularly looking for usage patterns that suggest data exfiltration or attempts to conceal unauthorized access to sensitive data stored in S3. The specific version of AWS being used is not specified, but the detection logic applies to common AWS configurations.
+
+    ## Attack Chain
+
+    1.  An attacker gains unauthorized access to an AWS account through compromised credentials or an exploited vulnerability.
+    2.  The attacker leverages the compromised AWS credentials to assume an IAM role with permissions to use specific KMS keys and S3 buckets.
+    3.  The attacker initiates an S3 encryption operation using a KMS key. This might involve uploading new, encrypted objects or re-encrypting existing objects.
+    4.  The attacker modifies S3 bucket policies or ACLs to grant themselves or external accounts access to the encrypted objects.
+    5.  The attacker downloads the encrypted objects from S3 to a local machine or another cloud environment.
+    6.  The attacker uses the KMS key to decrypt the exfiltrated data outside of the intended AWS environment.
+
+    ## Impact
+
+    A successful attack can lead to the unauthorized exfiltration of sensitive data stored in S3 buckets. This can result in significant financial loss, reputational damage, and legal repercussions for the affected organization. The impact depends on the sensitivity of the data stored in the targeted S3 buckets, but the exfiltration of intellectual property, customer data, or financial records can have severe consequences.
+tags:
+    - aws
+    - kms
+    - s3
+    - data-exfiltration
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_detect_users_with_kms_keys_performing_encryption_s3.yml
+rules:
+    - title: Detect S3 Encryption with KMS by Unusual User
+      description: Detects S3 encryption operations using KMS keys performed by unusual users based on historical activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection and not filter
+        filter:
+            useridentity.arn|endswith:
+                - :assumed-role/AdminRole
+                - :assumed-role/ReadOnlyRole
+        selection:
+            eventname: PutObject
+            requestparameters.serverSideEncryption: aws:kms
+            resources.type: AWS::S3::Object
+      level: medium
+      tags:
+        - attack.impact
+        - attack.t1530
+      tests:
+        positive:
+            - name: S3 encryption by unusual IAM user
+              data:
+                - eventname: PutObject
+                  requestparameters.serverSideEncryption: aws:kms
+                  resources.type: AWS::S3::Object
+                  useridentity.arn: arn:aws:iam::123456789012:user/suspicious-user
+        negative:
+            - name: S3 encryption by known IAM role
+              data:
+                - eventname: PutObject
+                  requestparameters.serverSideEncryption: aws:kms
+                  resources.type: AWS::S3::Object
+                  useridentity.arn: arn:aws:sts::123456789012:assumed-role/AdminRole/i-0abcdef1234567890
+    - title: Detect S3 Encryption Activity Outside Business Hours
+      description: Detects S3 bucket encryption activity using KMS keys outside of normal business hours.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventname: PutObject
+            requestparameters.serverSideEncryption: aws:kms
+            resources.type: AWS::S3::Object
+      level: low
+      tags:
+        - attack.impact
+        - attack.t1530
+      tests:
+        positive:
+            - name: S3 encryption outside of business hours
+              data:
+                - eventname: PutObject
+                  eventtime: "2024-01-01T02:00:00Z"
+                  requestparameters.serverSideEncryption: aws:kms
+                  resources.type: AWS::S3::Object
+        negative:
+            - name: S3 encryption during business hours
+              data:
+                - eventname: PutObject
+                  eventtime: "2024-01-02T10:00:00Z"
+                  requestparameters.serverSideEncryption: aws:kms
+                  resources.type: AWS::S3::Object
+ttps:
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1530
+      technique_name: Data Destruction
