@@ -1,0 +1,99 @@
+id: brief-2024-01-03-aws-policy-all-resources
+slug: 2024-01-aws-policy-all-resources
+title: AWS IAM Policy Version Allowing All Resources Created
+summary: An AWS IAM policy version is created that grants broad permissions to all resources, potentially indicating privilege escalation or malicious actor activity.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    The creation of an AWS IAM policy version that grants overly permissive access to all resources (*) is a significant security risk. This activity can be indicative of a malicious actor attempting to escalate privileges within the AWS environment, or an insider threat misconfiguring permissions. This type of policy allows the user or role to perform any action on any AWS resource, effectively bypassing access controls. While the provided source material does not contain specific details regarding attacker campaigns or tools, the potential for abuse is substantial, warranting a high-priority alert.
+
+    ## Attack Chain
+
+    1. An attacker gains initial access to an AWS account through compromised credentials or by exploiting a vulnerability.
+    2. The attacker identifies existing IAM policies.
+    3. The attacker creates a new version of an existing IAM policy or creates a new IAM policy.
+    4. The policy version is configured to allow all actions ("Action": "*") on all resources ("Resource": "*").
+    5. The attacker attaches the overly permissive policy to an IAM user, role, or group, granting them broad access.
+    6. The attacker uses the newly acquired permissions to perform unauthorized actions within the AWS environment.
+    7. The attacker might exfiltrate sensitive data, modify critical configurations, or deploy malicious resources.
+
+    ## Impact
+
+    The creation of an IAM policy version that allows all resources can lead to complete compromise of the AWS environment. An attacker with these permissions can access and exfiltrate sensitive data, disrupt services, and deploy malicious infrastructure. Depending on the scope of the AWS environment, this could impact hundreds or thousands of users and systems. The financial repercussions can be substantial, including data breach costs, compliance penalties, and reputational damage.
+tags:
+    - aws
+    - iam
+    - policy
+    - privilege-escalation
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_create_policy_version_to_allow_all_resources.yml
+rules:
+    - title: Detect AWS IAM Policy Version Created Allowing All Resources
+      description: Detects the creation of an AWS IAM policy version that allows all actions on all resources, which can indicate privilege escalation or malicious activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: CreatePolicyVersion
+            eventSource: iam.amazonaws.com
+            requestParameters.policyDocument|contains:
+                - '"Effect": "Allow"'
+                - '"Action": "*"'
+                - '"Resource": "*"'
+      level: high
+      tags:
+        - attack.privilege_escalation
+        - attack.t1068
+      tests:
+        positive:
+            - name: Policy version created with all permissions
+              data:
+                - eventName: CreatePolicyVersion
+                  eventSource: iam.amazonaws.com
+                  requestParameters.policyDocument: '{"Statement": [{"Effect": "Allow", "Action": "*", "Resource": "*"}]}'
+        negative:
+            - name: Policy version created with limited permissions
+              data:
+                - eventName: CreatePolicyVersion
+                  eventSource: iam.amazonaws.com
+                  requestParameters.policyDocument: '{"Statement": [{"Effect": "Allow", "Action": "s3:GetObject", "Resource": "arn:aws:s3:::examplebucket/*"}]}'
+    - title: Detect AWS IAM Policy Created Allowing All Resources
+      description: Detects the creation of an AWS IAM policy that allows all actions on all resources, which can indicate privilege escalation or malicious activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: CreatePolicy
+            eventSource: iam.amazonaws.com
+            requestParameters.policyDocument|contains:
+                - '"Effect": "Allow"'
+                - '"Action": "*"'
+                - '"Resource": "*"'
+      level: high
+      tags:
+        - attack.privilege_escalation
+        - attack.t1068
+      tests:
+        positive:
+            - name: Policy created with all permissions
+              data:
+                - eventName: CreatePolicy
+                  eventSource: iam.amazonaws.com
+                  requestParameters.policyDocument: '{"Statement": [{"Effect": "Allow", "Action": "*", "Resource": "*"}]}'
+        negative:
+            - name: Policy created with limited permissions
+              data:
+                - eventName: CreatePolicy
+                  eventSource: iam.amazonaws.com
+                  requestParameters.policyDocument: '{"Statement": [{"Effect": "Allow", "Action": "s3:GetObject", "Resource": "arn:aws:s3:::examplebucket/*"}]}'
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
