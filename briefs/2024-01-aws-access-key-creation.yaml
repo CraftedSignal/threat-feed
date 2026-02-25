@@ -1,0 +1,108 @@
+id: brief-2024-01-03-aws-access-key-creation
+slug: 2024-01-aws-access-key-creation
+title: Detect AWS Access Key Creation
+summary: This alert detects the creation of new AWS access keys, which can indicate potential account compromise or malicious activity.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    The creation of new AWS access keys is a critical event that should be monitored closely. While legitimate users may create access keys for various purposes, malicious actors can also create them after gaining unauthorized access to an AWS account. These keys can then be used to perform further malicious actions within the AWS environment, such as creating new resources, modifying existing configurations, or exfiltrating data. This detection focuses on identifying the creation of access keys, allowing security teams to investigate and respond to potentially malicious activity promptly.
+
+    ## Attack Chain
+
+    1. An attacker gains initial access to an AWS account, potentially through compromised credentials or exploiting a misconfiguration.
+    2. The attacker authenticates to the AWS Management Console or uses the AWS CLI.
+    3. The attacker uses the IAM service to create a new access key for an existing user or a newly created IAM user.
+    4. The attacker uses the created access key to perform reconnaissance, such as listing EC2 instances, S3 buckets, or IAM roles.
+    5. The attacker escalates privileges by assuming IAM roles or exploiting vulnerabilities in AWS services.
+    6. The attacker performs malicious actions, such as creating new EC2 instances for cryptocurrency mining or deploying malicious code to Lambda functions.
+    7. The attacker exfiltrates sensitive data stored in S3 buckets or other AWS services.
+
+    ## Impact
+
+    A successful attack involving the creation of rogue AWS access keys can lead to significant data breaches, financial losses due to unauthorized resource usage, and reputational damage. The attacker can gain persistent access to the AWS environment, allowing them to perform a wide range of malicious activities. Organizations in all sectors that rely on AWS are vulnerable. The number of potential victims is vast, as AWS is a leading cloud provider.
+tags:
+    - aws
+    - cloud
+    - iam
+    - access_key
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_createaccesskey.yml
+rules:
+    - title: Detect AWS Access Key Creation via CloudTrail
+      description: Detects the creation of AWS access keys based on CloudTrail logs. This rule identifies IAM CreateAccessKey events.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: CreateAccessKey
+            eventSource: iam.amazonaws.com
+      level: medium
+      tags:
+        - attack.credential_access
+        - attack.t1552.006
+      tests:
+        positive:
+            - name: AWS Access Key Creation Event
+              data:
+                - eventName: CreateAccessKey
+                  eventSource: iam.amazonaws.com
+                  requestParameters: {}
+                  responseElements:
+                    accessKey:
+                        accessKeyId: AKIAIOSFODNN7EXAMPLE
+                    user:
+                        userName: test-user
+                  sourceIPAddress: 192.0.2.0
+                  userAgent: aws-cli/1.16.279 Python/3.7.4 Linux/4.14.133-113.105.amzn2.x86_64 botocore/1.13.29
+        negative:
+            - name: Other AWS IAM Events
+              data:
+                - eventName: UpdateUser
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    userName: test-user
+                  responseElements: {}
+                  sourceIPAddress: 192.0.2.0
+                  userAgent: aws-cli/1.16.279 Python/3.7.4 Linux/4.14.133-113.105.amzn2.x86_64 botocore/1.13.29
+    - title: Detect AWS Access Key Creation by Uncommon Source IP
+      description: Detects AWS access key creation events originating from unusual source IP addresses, potentially indicating compromised credentials.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection and not filter
+        filter:
+            sourceIPAddress|startswith:
+                - 192.168.
+                - "10."
+        selection:
+            eventName: CreateAccessKey
+            eventSource: iam.amazonaws.com
+      level: low
+      tags:
+        - attack.credential_access
+        - attack.t1552.006
+      tests:
+        positive:
+            - name: Access Key Creation from Public IP
+              data:
+                - eventName: CreateAccessKey
+                  eventSource: iam.amazonaws.com
+                  sourceIPAddress: 203.0.113.45
+        negative:
+            - name: Access Key Creation from Internal IP
+              data:
+                - eventName: CreateAccessKey
+                  eventSource: iam.amazonaws.com
+                  sourceIPAddress: 192.168.1.10
+ttps:
+    - tactic_id: TA0006
+      tactic_name: Credential Access
+      technique_id: T1552
+      technique_name: Unsecured Credentials
+      subtechnique_id: T1552.006
+      subtechnique_name: Cloud Instance Metadata API
