@@ -1,0 +1,124 @@
+id: brief-2024-01-09-aws-create-login-profile
+slug: 2024-01-09-aws-create-login-profile
+title: AWS Create Login Profile Activity
+summary: Monitoring AWS CloudTrail logs for the creation of new user login profiles can identify potentially malicious user or role creation within an AWS environment.
+severity: medium
+published_at: "2024-01-09T12:00:00Z"
+content: |
+    ## Overview
+
+    The creation of new login profiles in AWS Identity and Access Management (IAM) can be a critical event to monitor, especially in large or sensitive environments. While legitimate user provisioning occurs regularly, malicious actors may create new IAM users or roles to establish persistence, escalate privileges, or move laterally within a compromised AWS account. This activity can be indicative of unauthorized access or insider threats. Defenders need to closely monitor these events, correlate them with other activities, and validate their legitimacy. Detecting this activity early can prevent significant damage.
+
+    ## Attack Chain
+
+    1.  An attacker gains initial access to an AWS account through compromised credentials, a vulnerable EC2 instance, or a misconfigured IAM role.
+    2.  The attacker authenticates to the AWS API using the compromised credentials or the assumed role.
+    3.  The attacker calls the `CreateLoginProfile` API to create a new IAM user login profile. This allows the attacker to set a password for the new user.
+    4.  The attacker then uses the `AttachUserPolicy` API to grant administrator privileges to the newly created user.
+    5.  The attacker logs in with the newly created user, bypassing existing security controls and monitoring.
+    6.  The attacker leverages the new administrative access to further compromise the AWS environment, potentially accessing sensitive data or deploying malicious resources.
+
+    ## Impact
+
+    Compromising an AWS environment can lead to severe data breaches, service disruptions, and financial losses. A successful attacker might exfiltrate sensitive data, deploy ransomware, or use the compromised infrastructure for malicious purposes like cryptomining or launching attacks against other targets. The impact can range from regulatory fines and reputational damage to complete business shutdown.
+tags:
+    - cloud
+    - aws
+    - iam
+    - privilege-escalation
+references:
+    - https://github.com/splunk/security_content/blob/main/detections/cloud/aws_createloginprofile.yml
+rules:
+    - title: Detect AWS CreateLoginProfile API Call
+      description: Detects calls to the CreateLoginProfile API which may indicate new IAM user creation.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: CreateLoginProfile
+            eventSource: iam.amazonaws.com
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1098
+      tests:
+        positive:
+            - name: CreateLoginProfile event
+              data:
+                - eventName: CreateLoginProfile
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    userName: test-user
+                  userIdentity:
+                    accountId: "123456789012"
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    principalId: AIDAXXXXXXXXXXXXXXX
+                    type: IAMUser
+        negative:
+            - name: Normal event
+              data:
+                - eventName: RunInstances
+                  eventSource: ec2.amazonaws.com
+                  userIdentity:
+                    accountId: "123456789012"
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    principalId: AIDAXXXXXXXXXXXXXXX
+                    type: IAMUser
+    - title: Detect AWS User Creation Followed by Login Profile Creation
+      description: Detects the creation of a new IAM user shortly followed by the creation of a login profile, which could indicate malicious user provisioning.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection_user and selection_login
+        selection_login:
+            eventName: CreateLoginProfile
+            eventSource: iam.amazonaws.com
+        selection_user:
+            eventName: CreateUser
+            eventSource: iam.amazonaws.com
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1098
+      tests:
+        positive:
+            - name: User and Login Profile created
+              data:
+                - eventName: CreateUser
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    userName: test-user
+                  userIdentity:
+                    accountId: "123456789012"
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    principalId: AIDAXXXXXXXXXXXXXXX
+                    type: IAMUser
+                - eventName: CreateLoginProfile
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    userName: test-user
+                  userIdentity:
+                    accountId: "123456789012"
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    principalId: AIDAXXXXXXXXXXXXXXX
+                    type: IAMUser
+        negative:
+            - name: Only User creation
+              data:
+                - eventName: CreateUser
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    userName: test-user
+                  userIdentity:
+                    accountId: "123456789012"
+                    arn: arn:aws:iam::123456789012:user/test-user
+                    principalId: AIDAXXXXXXXXXXXXXXX
+                    type: IAMUser
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1098
+      technique_name: Account Manipulation
