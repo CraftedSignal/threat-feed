@@ -1,0 +1,111 @@
+id: brief-2024-01-29-mfa-notification-deletion
+slug: 2024-01-mfa-notification-deletion
+title: MFA Notification Email Deletion for Defense Evasion
+summary: Attackers may delete multi-factor authentication (MFA) notification emails from compromised Microsoft 365 accounts to evade detection and maintain unauthorized access.
+severity: medium
+published_at: "2024-01-29T12:00:00Z"
+content: |
+    ## Overview
+
+    Attackers targeting Microsoft 365 environments may attempt to delete MFA notification emails after successfully compromising an account. By removing these notifications, the attacker aims to prevent the legitimate user from becoming aware of the unauthorized access and potentially triggering a password reset or security investigation. This tactic is a form of defense evasion, allowing the attacker to maintain persistence and carry out further malicious activities within the compromised environment. Defenders should monitor for suspicious email deletion activity, especially when coupled with other indicators of compromise. The referenced detection rule in the Elastic repository highlights the importance of detecting this activity within O365 environments.
+
+    ## Attack Chain
+
+    1. **Account Compromise:** The attacker gains initial access to a user's Microsoft 365 account, likely through phishing or credential stuffing.
+    2. **MFA Trigger:** The attacker attempts to access sensitive resources or perform privileged actions, triggering an MFA request.
+    3. **MFA Bypass/Compromise:** The attacker bypasses MFA using techniques such as MFA fatigue, SIM swapping, or exploiting vulnerabilities in the MFA implementation.
+    4. **Successful Authentication:** The attacker successfully authenticates to the compromised account.
+    5. **Notification Email Generation:** Microsoft 365 generates an email notification alerting the legitimate user about the successful MFA authentication.
+    6. **Email Deletion:** The attacker accesses the user's mailbox and deletes the MFA notification email to prevent the user from discovering the compromise.
+    7. **Privilege Escalation/Lateral Movement:** With continued access, the attacker performs actions such as escalating privileges or moving laterally within the organization.
+    8. **Data Exfiltration/Impact:** The attacker achieves their final objective, such as exfiltrating sensitive data or deploying ransomware.
+
+    ## Impact
+
+    Successful deletion of MFA notification emails allows attackers to maintain a persistent presence within compromised Microsoft 365 environments. This can lead to significant data breaches, financial losses, and reputational damage. The number of affected users and the extent of the damage depend on the attacker's objectives and the duration of their access. Organizations across all sectors are vulnerable to this type of attack.
+tags:
+    - mfa
+    - defense-evasion
+    - o365
+    - email
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/defense_evasion_mfa_notification_email_deleted.toml
+rules:
+    - title: Detect MFA Notification Email Deletion in O365
+      description: Detects the deletion of emails related to multi-factor authentication (MFA) within Microsoft 365, indicating a potential defense evasion attempt.
+      logsource:
+        category: email
+        product: o365
+      detection:
+        condition: selection
+        selection:
+            ItemType: IPM.Note
+            Operation: DeleteItem
+            Subject|contains: Microsoft account unusual sign-in activity
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1070.001
+      tests:
+        positive:
+            - name: MFA notification email deleted
+              data:
+                - ClientIPAddress: 192.168.1.100
+                  ItemType: IPM.Note
+                  Operation: DeleteItem
+                  Subject: Microsoft account unusual sign-in activity
+        negative:
+            - name: Normal email deletion
+              data:
+                - ClientIPAddress: 10.0.0.5
+                  ItemType: IPM.Note
+                  Operation: DeleteItem
+                  Subject: Meeting invitation
+    - title: Detect User Mailbox Access Followed by Email Deletion
+      description: Detects access to a user mailbox followed by deletion of emails within a short timeframe, which could indicate an attacker attempting to hide their tracks.
+      logsource:
+        category: email
+        product: o365
+      detection:
+        condition: selection_access and selection_delete
+        selection_access:
+            Operation: MailboxLogin
+        selection_delete:
+            ItemType: IPM.Note
+            Operation: DeleteItem
+      level: low
+      tags:
+        - attack.defense_evasion
+        - attack.t1070.001
+      tests:
+        positive:
+            - name: Mailbox login followed by deletion of MFA email
+              data:
+                - ClientIPAddress: 192.168.1.100
+                  Operation: MailboxLogin
+                  UserPrincipalName: testuser@example.com
+                - ClientIPAddress: 192.168.1.100
+                  ItemType: IPM.Note
+                  Operation: DeleteItem
+                  Subject: Your Verification Code
+                  UserPrincipalName: testuser@example.com
+        negative:
+            - name: Legitimate mailbox login
+              data:
+                - ClientIPAddress: 10.0.0.5
+                  Operation: MailboxLogin
+                  UserPrincipalName: user@example.com
+            - name: Normal email deletion
+              data:
+                - ClientIPAddress: 10.0.0.5
+                  ItemType: IPM.Note
+                  Operation: DeleteItem
+                  Subject: Expense Report
+                  UserPrincipalName: user@example.com
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1070
+      technique_name: Indicator Removal on Host
+      subtechnique_id: T1070.001
+      subtechnique_name: Clear Windows Event Logs
