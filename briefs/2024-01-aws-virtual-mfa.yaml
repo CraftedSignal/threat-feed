@@ -1,0 +1,98 @@
+id: brief-2024-01-03-aws-virtual-mfa
+slug: 2024-01-aws-virtual-mfa
+title: AWS Virtual MFA Device Registration Attempt
+summary: An adversary attempts to register a virtual MFA device, which could lead to account takeover and persistence within an AWS environment.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert detects attempts to register a virtual Multi-Factor Authentication (MFA) device within an Amazon Web Services (AWS) environment. While the source material provides limited context, the registration of a virtual MFA device by a malicious actor can be a significant indicator of account compromise or an attempt to establish persistent access. An attacker might attempt this to bypass existing security controls, gain unauthorized access to sensitive resources, and potentially escalate privileges within the AWS infrastructure. This activity is particularly concerning if it originates from an unusual location, user agent, or involves an account that does not typically manage MFA configurations.
+
+    ## Attack Chain
+
+    1. An attacker gains initial access to an AWS account, potentially through compromised credentials or successful exploitation of a vulnerability.
+    2. The attacker navigates to the AWS IAM (Identity and Access Management) console or uses the AWS CLI/API.
+    3. The attacker initiates the process of creating a new virtual MFA device within the target AWS account.
+    4. The attacker associates the newly created virtual MFA device with a user account they intend to compromise.
+    5. The attacker completes the MFA device registration process, often involving scanning a QR code or entering a secret key.
+    6. The attacker can now use the newly registered MFA device to authenticate as the compromised user.
+    7. The attacker escalates privileges by assuming roles or modifying IAM policies.
+    8. The attacker maintains persistence and exfiltrates sensitive data.
+
+    ## Impact
+
+    A successful registration of a virtual MFA device by an attacker can lead to a full account takeover. This allows the attacker to access and control AWS resources, potentially leading to data breaches, service disruptions, and financial losses. The impact could affect a large number of resources and services within the compromised AWS account, potentially impacting thousands of users and applications relying on that infrastructure.
+tags:
+    - aws
+    - persistence
+    - mfa
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_aws_attempt_to_register_virtual_mfa_device.toml
+rules:
+    - title: AWS MFA Device Registration Activity
+      description: Detects attempts to register a virtual MFA device in AWS, which can indicate malicious activity.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: CreateVirtualMFADevice
+            eventSource: iam.amazonaws.com
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1556.006
+      tests:
+        positive:
+            - name: MFA device created
+              data:
+                - eventName: CreateVirtualMFADevice
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    virtualMFADeviceName: evil-mfa-device
+        negative:
+            - name: Legitimate role assumption
+              data:
+                - eventName: AssumeRole
+                  eventSource: sts.amazonaws.com
+                  requestParameters:
+                    roleArn: arn:aws:iam::123456789012:role/Admin
+    - title: AWS MFA Device Association with User
+      description: Detects attempts to associate a virtual MFA device with an IAM user, which could indicate malicious MFA enrollment.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: EnableMFADevice
+            eventSource: iam.amazonaws.com
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1556.006
+      tests:
+        positive:
+            - name: MFA device associated with user
+              data:
+                - eventName: EnableMFADevice
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    serialNumber: arn:aws:iam::123456789012:mfa/evil-mfa-device
+                    userName: compromised-user
+        negative:
+            - name: Password change for user
+              data:
+                - eventName: ChangePassword
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    userName: legitimate-user
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1556
+      technique_name: Impair Defenses
+      subtechnique_id: T1556.006
+      subtechnique_name: Multi-Factor Authentication Request Generation
