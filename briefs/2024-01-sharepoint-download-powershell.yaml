@@ -1,0 +1,98 @@
+id: brief-2024-01-03-sharepoint-download-powershell
+slug: 2024-01-sharepoint-download-powershell
+title: SharePoint File Download via PowerShell
+summary: Detection of SharePoint file downloads performed via PowerShell, potentially indicating unauthorized data exfiltration or reconnaissance activity.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This brief focuses on detecting suspicious SharePoint file downloads initiated through PowerShell. While the specific threat actor and campaign are unknown, the use of PowerShell to interact with SharePoint can bypass traditional web-based access controls and logging mechanisms. Attackers may leverage this technique to download sensitive files for exfiltration or to gather information about the organization's SharePoint structure. Defenders should monitor PowerShell activity for interactions with SharePoint Online cmdlets and unusual file access patterns.
+
+    ## Attack Chain
+
+    1.  Attacker gains initial access to a compromised account or leverages existing credentials with SharePoint access.
+    2.  PowerShell is launched, either interactively or through a script, to interact with the SharePoint Online Management Shell.
+    3.  The attacker authenticates to SharePoint Online using `Connect-SPOService` with stolen credentials.
+    4.  Cmdlets such as `Get-SPOSite` or `Get-SPOList` are used to enumerate available SharePoint sites and lists, mapping out potential targets.
+    5.  The attacker uses `Get-SPOFile` to identify files of interest based on name, metadata, or location.
+    6.  `Save-SPOFile` or similar cmdlets are employed to download the identified files to a local directory on the compromised machine.
+    7.  Downloaded files may be staged in a temporary location before being compressed or archived.
+    8.  The attacker exfiltrates the downloaded files via command and control or another channel.
+
+    ## Impact
+
+    Successful execution of this attack chain could lead to the unauthorized exfiltration of sensitive data stored within SharePoint. This could include intellectual property, financial records, customer data, or other confidential information. The impact varies based on the data accessed, potentially leading to reputational damage, financial losses, legal liabilities, and regulatory fines. The lack of precise numbers on impacted organizations or specific sectors highlights the need for proactive detection measures.
+tags:
+    - sharepoint
+    - powershell
+    - data-exfiltration
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_sharepoint_file_download_via_powershell.toml
+rules:
+    - title: Detect SharePoint File Download via PowerShell
+      description: Detects PowerShell commands used to download files from SharePoint, indicating potential data exfiltration.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and selection_command
+        selection:
+            Image|endswith: \powershell.exe
+        selection_command:
+            CommandLine|contains:
+                - Save-SPOFile
+                - Get-SPOFile
+      level: high
+      tags:
+        - attack.exfiltration
+        - attack.t1020
+      tests:
+        positive:
+            - name: PowerShell downloading SharePoint file
+              data:
+                - CommandLine: powershell.exe -Command Save-SPOFile -ServerRelativeUrl '/sites/mysite/Shared Documents/file.docx' -OutPath 'C:\temp\file.docx'
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        negative:
+            - name: Normal PowerShell usage
+              data:
+                - CommandLine: powershell.exe -File script.ps1
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+    - title: Detect Suspicious SharePoint Online Cmdlets in PowerShell
+      description: Detects the use of SharePoint Online cmdlets within PowerShell, which might indicate malicious activity.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and selection_cmdlets
+        selection:
+            Image|endswith: \powershell.exe
+        selection_cmdlets:
+            CommandLine|contains:
+                - Connect-SPOService
+                - Get-SPOSite
+                - Get-SPOList
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1082
+      tests:
+        positive:
+            - name: PowerShell connecting to SharePoint Online
+              data:
+                - CommandLine: powershell.exe -Command Connect-SPOService -Url https://mysite.sharepoint.com -Credential $credential
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+        negative:
+            - name: Legitimate PowerShell usage
+              data:
+                - CommandLine: powershell.exe Get-Process
+                  Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1082
+      technique_name: System Information Discovery
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1020
+      technique_name: Automated Exfiltration
