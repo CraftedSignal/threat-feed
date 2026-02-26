@@ -1,0 +1,137 @@
+id: brief-2024-01-03-aws-iam-session-token-abuse
+slug: 2024-01-aws-iam-session-token-abuse
+title: AWS IAM API Calls via User Session Token for Persistence
+summary: An adversary leverages compromised AWS user session tokens to make IAM API calls, creating or modifying users, roles, and policies to establish persistence within the AWS environment.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This activity focuses on the misuse of AWS IAM API calls made with compromised user session tokens to establish persistence. While the specific campaign and actor are unknown, the technique involves an attacker gaining access to valid, but illegitimate, AWS credentials - specifically user session tokens - and then using those tokens to perform actions within the IAM service. These actions can include creating new IAM users with elevated privileges, modifying existing roles to grant additional permissions, or crafting new policies that provide persistent backdoor access. This type of attack can be initiated immediately upon token compromise and may go unnoticed if not specifically monitored. Defenders need to monitor closely for IAM API calls originating from unusual locations or patterns.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** The attacker gains access to valid AWS user session tokens, possibly through credential harvesting, phishing, or compromised systems with stored credentials.
+    2.  **Authentication:** The attacker uses the stolen session tokens to authenticate to the AWS environment via the AWS CLI or API.
+    3.  **Reconnaissance:** The attacker performs reconnaissance activities to identify existing IAM users, roles, and policies that can be manipulated. This is often done using API calls like `ListUsers`, `GetRole`, and `ListPolicies`.
+    4.  **Privilege Escalation (User Creation):** The attacker creates new IAM users with elevated privileges (e.g., AdministratorAccess) using API calls like `CreateUser` and `AttachUserPolicy`.
+    5.  **Privilege Escalation (Role Modification):** The attacker modifies existing IAM roles to grant additional permissions or assume roles using API calls like `UpdateRole` or `AttachRolePolicy`.
+    6.  **Policy Creation/Modification:** The attacker creates new IAM policies or modifies existing ones to allow persistent backdoor access, using API calls like `CreatePolicy` or `UpdatePolicy`.
+    7.  **Persistence:** The attacker maintains persistent access to the AWS environment using the newly created or modified IAM users, roles, and policies.
+    8.  **Lateral Movement:** The attacker leverages the elevated privileges to move laterally within the AWS environment, accessing sensitive data or resources.
+
+    ## Impact
+
+    A successful attack can lead to full compromise of the AWS environment. The attacker gains persistent, privileged access, enabling them to steal data, disrupt services, or deploy malicious infrastructure. The damage includes data breaches, financial losses, reputational damage, and legal liabilities. The number of potential victims is vast, as it depends on the scope of the compromised AWS environment. Sectors at risk are any organizations utilizing AWS for their infrastructure.
+tags:
+    - aws
+    - iam
+    - persistence
+    - cloud
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_iam_api_calls_via_user_session_token.toml
+rules:
+    - title: Detect IAM User Creation with Unusual Source IP
+      description: Detects the creation of new IAM users from source IPs not typically associated with administrative tasks, potentially indicating compromised credentials.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection and not filter
+        filter:
+            sourceIPAddress|startswith:
+                - "10."
+                - 192.168.
+                - 172.16.
+        selection:
+            eventName: CreateUser
+            eventSource: iam.amazonaws.com
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1098
+      tests:
+        positive:
+            - name: IAM User Created from Public IP
+              data:
+                - eventName: CreateUser
+                  eventSource: iam.amazonaws.com
+                  sourceIPAddress: 203.0.113.45
+        negative:
+            - name: IAM User Created from Internal IP
+              data:
+                - eventName: CreateUser
+                  eventSource: iam.amazonaws.com
+                  sourceIPAddress: 10.0.0.5
+    - title: Detect IAM Role Modification with Broad Permissions
+      description: Detects modifications to IAM roles where a new policy is attached that grants broad permissions, such as AdministratorAccess.
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            PolicyArn|contains: AdministratorAccess
+            eventName: AttachRolePolicy
+            eventSource: iam.amazonaws.com
+      level: high
+      tags:
+        - attack.privilege_escalation
+        - attack.t1068
+      tests:
+        positive:
+            - name: AdministratorAccess Policy Attached to Role
+              data:
+                - PolicyArn: arn:aws:iam::aws:policy/AdministratorAccess
+                  eventName: AttachRolePolicy
+                  eventSource: iam.amazonaws.com
+                  roleName: test-role
+        negative:
+            - name: ReadOnlyAccess Policy Attached to Role
+              data:
+                - PolicyArn: arn:aws:iam::aws:policy/ReadOnlyAccess
+                  eventName: AttachRolePolicy
+                  eventSource: iam.amazonaws.com
+                  roleName: test-role
+    - title: Detect IAM Policy Creation
+      description: Detects the creation of an IAM Policy
+      logsource:
+        category: cloudtrail
+        product: aws
+      detection:
+        condition: selection
+        selection:
+            eventName: CreatePolicy
+            eventSource: iam.amazonaws.com
+      level: low
+      tags:
+        - attack.persistence
+        - attack.t1543.004
+      tests:
+        positive:
+            - name: IAM Policy Created
+              data:
+                - eventName: CreatePolicy
+                  eventSource: iam.amazonaws.com
+                  requestParameters:
+                    policyName: evilpol
+        negative:
+            - name: Non Policy event
+              data:
+                - eventSource: s3.amazonaws.com
+                - eventName: GetObject
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1098
+      technique_name: Account Manipulation
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1543
+      technique_name: Create or Modify System Process
+      subtechnique_id: T1543.004
+      subtechnique_name: Cloud Service Dashboard
