@@ -1,0 +1,95 @@
+id: brief-2024-01-03-okta-suspicious-activity
+slug: 2024-01-03-okta-suspicious-activity
+title: Okta Suspicious Activity After Proxy Authentication
+summary: This detection identifies suspicious activity within Okta following authentication through a proxy, potentially indicating initial access by an attacker attempting to bypass security controls.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert focuses on detecting potentially malicious activity within Okta environments after a user authenticates through a proxy. While the specific threat actor is unknown, the behavior suggests an attempt to bypass standard security measures, potentially for initial access or privilege escalation. The alert is triggered by unusual actions performed after proxy authentication, which can be an indicator of compromised credentials or malicious intent. The exact scope of targeting is unknown, but organizations using Okta for identity and access management are potentially at risk. Defenders should investigate any triggered alerts to determine the nature and scope of the suspicious activity.
+
+    ## Attack Chain
+
+    1. User authenticates to Okta through a proxy server.
+    2. After successful authentication, the user's account is used to access sensitive applications within Okta.
+    3. The user attempts to change MFA settings or disable MFA for other users.
+    4. The user downloads a large number of reports or logs from Okta.
+    5. The user creates new Okta API tokens with broad permissions.
+    6. The user adds new users to privileged Okta groups (e.g., Global Administrator).
+
+    ## Impact
+
+    A successful attack could lead to unauthorized access to critical systems and data, privilege escalation, and data exfiltration. The impact can range from minor data breaches to complete compromise of the Okta environment, potentially affecting all connected applications and services. If attackers successfully add themselves to admin groups, they can further compromise connected systems.
+tags:
+    - okta
+    - initial-access
+    - proxy
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_okta_suspicious_activity_after_proxy_authentication.toml
+rules:
+    - title: Okta - API Token Creation After Proxy Authentication
+      description: Detects the creation of new Okta API tokens immediately following a user's successful authentication through a proxy, which could indicate malicious activity.
+      logsource:
+        category: web
+        product: okta
+      detection:
+        condition: selection
+        selection:
+            actor.ip: proxy
+            event_type: system.api_token.create
+      level: high
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: API token created after proxy auth
+              data:
+                - actor.ip: proxy
+                  event_type: system.api_token.create
+                  user.login: testuser@example.com
+        negative:
+            - name: API token created without proxy
+              data:
+                - actor.ip: 192.168.1.10
+                  event_type: system.api_token.create
+                  user.login: testuser@example.com
+    - title: Okta - MFA Changes After Proxy Authentication
+      description: Detects changes to MFA settings (e.g., disabling MFA) following a user's successful authentication through a proxy, indicating potential account compromise.
+      logsource:
+        category: web
+        product: okta
+      detection:
+        condition: selection
+        selection:
+            actor.ip: proxy
+            event_type: user.mfa.factor.deactivate
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.003
+      tests:
+        positive:
+            - name: MFA deactivated after proxy auth
+              data:
+                - actor.ip: proxy
+                  event_type: user.mfa.factor.deactivate
+                  user.login: testuser@example.com
+        negative:
+            - name: MFA deactivated without proxy
+              data:
+                - actor.ip: 192.168.1.10
+                  event_type: user.mfa.factor.deactivate
+                  user.login: testuser@example.com
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.003
+      subtechnique_name: Disable or Modify System Policy
