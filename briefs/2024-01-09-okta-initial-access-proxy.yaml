@@ -1,0 +1,92 @@
+id: brief-2024-01-09-okta-initial-access-proxy
+slug: 2024-01-09-okta-initial-access-proxy
+title: Okta Initial Access via Proxy - First Occurrence
+summary: This analytic detects the first time a user establishes an Okta session through a proxy, which may indicate suspicious initial access or account compromise.
+severity: medium
+published_at: "2024-01-09T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection analytic identifies the first instance of a user establishing an Okta session through a proxy server. While not inherently malicious, the first use of a proxy, especially from an unexpected geographic location or user agent, can signal potential account compromise or unauthorized access. This analytic focuses on Okta events, specifically looking for session starts where a proxy is involved for the first time for a given user. This approach helps security teams to identify potentially risky access patterns that might otherwise be missed in routine monitoring. The alert can be refined by incorporating geolocation data, known bad IP addresses, and unusual user-agent strings.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** An attacker gains initial access to a user's Okta account. The method could be credential stuffing, phishing, or other means.
+    2.  **Proxy Usage:** The attacker configures a proxy server to mask their true location and IP address. This is done to evade geo-fencing restrictions and other security controls.
+    3.  **Session Initiation:** The attacker initiates a new Okta session through the configured proxy. This event is logged by Okta, recording the proxy IP address and other session details.
+    4.  **Authentication:** The attacker authenticates to Okta, potentially bypassing multi-factor authentication (MFA) if it is not properly configured or has been compromised.
+    5.  **Privilege Escalation (Potential):** Once authenticated, the attacker may attempt to escalate their privileges within the Okta environment to gain broader access.
+    6.  **Lateral Movement (Potential):** The attacker may use the compromised Okta account to move laterally within the organization's network, accessing other applications and systems.
+
+    ## Impact
+
+    A successful attack could lead to unauthorized access to sensitive data, applications, and systems protected by Okta. The attacker could use the compromised account to perform malicious activities, such as data exfiltration, financial fraud, or disruption of services. The severity depends on the level of access granted to the compromised account and the attacker's objectives. Early detection of proxy usage can prevent further damage.
+tags:
+    - okta
+    - initial_access
+    - proxy
+    - account_compromise
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_first_occurrence_user_session_started_via_proxy.toml
+rules:
+    - title: Okta First Session via Proxy
+      description: Detects the first time a user starts a session via a proxy server in Okta.
+      logsource:
+        category: web
+        product: okta
+      detection:
+        condition: selection
+        selection:
+            client.address: '*'
+            event.action: user.session.start
+            event.dataset: okta.system
+      level: medium
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: User Session Start with Proxy
+              data:
+                - client.address: 192.168.1.100
+                  event.action: user.session.start
+                  event.dataset: okta.system
+        negative:
+            - name: User Session Start without Proxy
+              data:
+                - client.address: direct
+                  event.action: user.session.start
+                  event.dataset: okta.system
+    - title: Okta Geolocation Anomaly on Session Start
+      description: Detects a user starting a session from a new or unusual geographic location.
+      logsource:
+        category: web
+        product: okta
+      detection:
+        condition: selection
+        selection:
+            event.action: user.session.start
+            event.dataset: okta.system
+            geo.country_iso_code: '*'
+      level: low
+      tags:
+        - attack.initial_access
+        - attack.t1190
+      tests:
+        positive:
+            - name: Session Started from New Country
+              data:
+                - event.action: user.session.start
+                  event.dataset: okta.system
+                  geo.country_iso_code: CN
+        negative:
+            - name: Session Started from Usual Country
+              data:
+                - event.action: user.session.start
+                  event.dataset: okta.system
+                  geo.country_iso_code: US
+ttps:
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1190
+      technique_name: Exploit Public-Facing Application
