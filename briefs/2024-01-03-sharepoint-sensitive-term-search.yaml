@@ -1,0 +1,126 @@
+id: brief-2024-01-03-sharepoint-sensitive-term-search
+slug: 2024-01-03-sharepoint-sensitive-term-search
+title: Detection of Sensitive Term Searches in SharePoint (Hypothetical)
+summary: This brief outlines a hypothetical attack scenario involving an attacker leveraging SharePoint search functionality to discover sensitive information within an organization's documents.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This brief addresses the potential threat of attackers leveraging SharePoint's search capabilities to identify and access sensitive information. While no specific campaign or actor is identified in the provided source, the rule "discovery_sharepoint_sensitive_term_search.toml" from Elastic's detection-rules repository highlights the risk of information discovery through search functionality. This could be used by insiders or external attackers who have gained access to a SharePoint environment. The attacker's goal would be to identify documents containing sensitive data such as financial records, PII (Personally Identifiable Information), or trade secrets, which could then be exfiltrated or used for further malicious activities.
+
+    ## Attack Chain
+
+    1. **Initial Access (Compromise Account):** The attacker gains access to a legitimate user's SharePoint account through phishing, credential stuffing, or other methods.
+    2. **Reconnaissance (SharePoint Discovery):** The attacker explores the SharePoint environment to understand the site structure, document libraries, and search functionalities.
+    3. **Sensitive Term Identification:** The attacker identifies keywords or terms likely to appear in sensitive documents (e.g., "salary", "credit card", "confidential").
+    4. **Targeted Search Queries:** The attacker crafts specific search queries using the identified keywords to locate relevant documents within SharePoint.
+    5. **Document Access:** The attacker accesses the documents returned by the search queries, reviewing their content for sensitive information.
+    6. **Privilege Escalation (Optional):** If the attacker's initial account has limited access, they may attempt to exploit vulnerabilities or misconfigurations to escalate privileges and access more restricted documents.
+    7. **Data Exfiltration:** The attacker downloads or copies sensitive documents from SharePoint to a compromised system or external storage.
+    8. **Covering Tracks (Log Manipulation):** The attacker attempts to delete or modify SharePoint audit logs to conceal their activities (though less common due to audit logging).
+
+    ## Impact
+
+    Successful exploitation of this attack chain could lead to significant data breaches, resulting in financial loss, reputational damage, legal liabilities, and regulatory fines. The number of affected individuals or organizations depends on the scope of the attacker's access and the amount of sensitive information stored within the SharePoint environment. Sectors that heavily rely on SharePoint for document management, such as finance, healthcare, and government, are particularly vulnerable.
+tags:
+    - sharepoint
+    - data-exfiltration
+    - information-disclosure
+    - sensitive-data
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/discovery_sharepoint_sensitive_term_search.toml
+rules:
+    - title: Detect SharePoint Search for Sensitive Terms
+      description: Detects SharePoint search activity for keywords associated with sensitive information.
+      logsource:
+        category: web
+        product: o365
+      detection:
+        condition: selection
+        selection:
+            event.dataset: o365.audit
+            o365.audit.Operation: SearchQuery
+            o365.audit.Query:
+                - '*credit card*'
+                - '*social security number*'
+                - '*confidential*'
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1583.001
+      tests:
+        positive:
+            - name: SharePoint search for credit card
+              data:
+                - event.dataset: o365.audit
+                  o365.audit.Operation: SearchQuery
+                  o365.audit.Query: credit card
+                  o365.audit.UserAgent: Mozilla/5.0
+        negative:
+            - name: SharePoint search for public information
+              data:
+                - event.dataset: o365.audit
+                  o365.audit.Operation: SearchQuery
+                  o365.audit.Query: company holiday schedule
+                  o365.audit.UserAgent: Mozilla/5.0
+    - title: Detect Multiple Failed SharePoint Logins Followed by Successful Search
+      description: Detects a pattern of failed logins to SharePoint followed by a successful login and a search for sensitive terms, potentially indicating a brute-force attack followed by information discovery.
+      logsource:
+        category: authentication
+        product: o365
+      detection:
+        condition: selection_failed and selection_success and selection_search and selection_failed.o365.audit.UserId == selection_success.o365.audit.UserId and selection_success.o365.audit.UserId == selection_search.o365.audit.UserId
+        selection_failed:
+            event.dataset: o365.audit
+            o365.audit.Operation: UserLoginFailed
+            o365.audit.UserId: '*'
+        selection_search:
+            event.dataset: o365.audit
+            o365.audit.Operation: SearchQuery
+            o365.audit.Query:
+                - '*credit card*'
+                - '*social security number*'
+                - '*confidential*'
+            o365.audit.UserId: '*'
+        selection_success:
+            event.dataset: o365.audit
+            o365.audit.Operation: UserLoginSucceeded
+            o365.audit.UserId: '*'
+      level: high
+      tags:
+        - attack.discovery
+        - attack.t1583.001
+        - attack.credential_access
+        - attack.t1110
+      tests:
+        positive:
+            - name: Failed login, successful login, then sensitive search
+              data:
+                - event.dataset: o365.audit
+                  o365.audit.Operation: UserLoginFailed
+                  o365.audit.UserId: testuser@example.com
+                - event.dataset: o365.audit
+                  o365.audit.Operation: UserLoginSucceeded
+                  o365.audit.UserId: testuser@example.com
+                - event.dataset: o365.audit
+                  o365.audit.Operation: SearchQuery
+                  o365.audit.Query: credit card numbers
+                  o365.audit.UserId: testuser@example.com
+        negative:
+            - name: Successful login then normal search
+              data:
+                - event.dataset: o365.audit
+                  o365.audit.Operation: UserLoginSucceeded
+                  o365.audit.UserId: testuser@example.com
+                - event.dataset: o365.audit
+                  o365.audit.Operation: SearchQuery
+                  o365.audit.Query: project status
+                  o365.audit.UserId: testuser@example.com
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1583
+      technique_name: Obtain Capabilities
+      subtechnique_id: T1583.001
+      subtechnique_name: Steal or Buy Infrastructure
