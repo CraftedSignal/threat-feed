@@ -1,0 +1,122 @@
+id: brief-2024-01-03-excessive-onedrive-downloads
+slug: 2024-01-excessive-onedrive-downloads
+title: Excessive OneDrive File Downloads Indicating Potential Data Exfiltration
+summary: Detection of unusual high-volume file downloads from OneDrive, potentially indicating data exfiltration by a malicious insider or compromised account.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert focuses on detecting anomalous file download activity from Microsoft OneDrive. While the provided source material lacks specific details on threat actors or campaigns, the rule itself suggests a concern for data exfiltration. It's important to monitor for unusual spikes in download activity, especially by users who do not typically download large numbers of files or by accounts that may have been compromised. This behavior can indicate malicious insiders copying sensitive data, or external actors exfiltrating data after gaining unauthorized access. Early detection can prevent significant data loss and reputational damage.
+
+    ## Attack Chain
+
+    1. **Account Compromise/Insider Threat:** An attacker compromises a legitimate user account or a malicious insider gains access to OneDrive.
+    2. **Discovery:** The attacker explores the victim's OneDrive account to identify valuable files and folders.
+    3. **Staging:** The attacker stages the target files for download.
+    4. **Download Initiation:** The attacker initiates the download of a large number of files from OneDrive.
+    5. **Data Exfiltration:** The files are downloaded to the attacker's machine or external storage.
+    6. **Cleanup (Optional):** The attacker may attempt to delete logs or files to cover their tracks.
+
+    ## Impact
+
+    Successful exfiltration of data from OneDrive can lead to significant financial and reputational damage. Sensitive business documents, customer data, and intellectual property could be leaked, sold, or used for extortion. The number of affected individuals and organizations is dependent on the scope of the compromised OneDrive accounts, but breaches of this nature often result in legal action, regulatory fines, and loss of customer trust.
+tags:
+    - data-exfiltration
+    - onedrive
+    - cloud
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_onedrive_excessive_file_downloads.toml
+rules:
+    - title: Detect Excessive OneDrive File Downloads
+      description: Detects a single user downloading an unusually large number of files from OneDrive within a short time period.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection and count_files > 100
+        count_files:
+            FileName|endswith: .xlsx
+        selection:
+            DestinationPort: 443
+            Protocol: TCP
+            UserAgent|contains: OneDrive
+      level: medium
+      tags:
+        - attack.exfiltration
+        - attack.t1020
+      tests:
+        positive:
+            - name: User downloading many excel files
+              data:
+                - DestinationIp: 13.107.42.16
+                  DestinationPort: 443
+                  FileName: report1.xlsx
+                  Protocol: TCP
+                  UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 OneDrive/21.140.0711.0005
+                - DestinationIp: 13.107.42.16
+                  DestinationPort: 443
+                  FileName: report2.xlsx
+                  Protocol: TCP
+                  UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 OneDrive/21.140.0711.0005
+                - DestinationIp: 13.107.42.16
+                  DestinationPort: 443
+                  FileName: report3.xlsx
+                  Protocol: TCP
+                  UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 OneDrive/21.140.0711.0005
+                - DestinationIp: 13.107.42.16
+                  DestinationPort: 443
+                  FileName: report4.xlsx
+                  Protocol: TCP
+                  UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 OneDrive/21.140.0711.0005
+                - DestinationIp: 13.107.42.16
+                  DestinationPort: 443
+                  FileName: report101.xlsx
+                  Protocol: TCP
+                  UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 OneDrive/21.140.0711.0005
+        negative:
+            - name: Normal onedrive sync
+              data:
+                - DestinationIp: 13.107.42.16
+                  DestinationPort: 443
+                  FileName: report1.xlsx
+                  Protocol: TCP
+                  UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 OneDrive/21.140.0711.0005
+    - title: Detect OneDrive Download via Uncommon User Agent
+      description: Detects downloads from OneDrive using a User-Agent string that is not typically associated with the OneDrive application.
+      logsource:
+        category: network_connection
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            UserAgent|contains: OneDrive
+        selection:
+            DestinationPort: 443
+            Protocol: TCP
+      level: low
+      tags:
+        - attack.exfiltration
+        - attack.t1071.001
+      tests:
+        positive:
+            - name: OneDrive download via curl
+              data:
+                - DestinationIp: 13.107.42.16
+                  DestinationPort: 443
+                  FileName: data.zip
+                  Protocol: TCP
+                  UserAgent: curl/7.79.1
+        negative:
+            - name: Normal onedrive sync
+              data:
+                - DestinationIp: 13.107.42.16
+                  DestinationPort: 443
+                  FileName: report1.xlsx
+                  Protocol: TCP
+                  UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 OneDrive/21.140.0711.0005
+ttps:
+    - tactic_id: TA0010
+      tactic_name: Exfiltration
+      technique_id: T1020
+      technique_name: Data Exfiltration
