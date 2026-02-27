@@ -1,0 +1,89 @@
+id: brief-2024-01-03-cpu-spike-alerts
+slug: 2024-01-03-cpu-spike-alerts
+title: Impact Alerts on Host with CPU Spike
+summary: This alert detects potential impact on a host due to a CPU spike, indicating possible resource exhaustion or malicious activity.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying situations where a host experiences a significant CPU spike, potentially leading to performance degradation or service disruption. While the specific cause of the CPU spike isn't determined by this detection alone, it serves as an indicator of a potential issue that warrants further investigation. This could be due to resource exhaustion from legitimate applications, a misconfiguration, or, in some cases, the execution of malicious code or processes consuming excessive CPU resources. Understanding the context surrounding these CPU spikes is crucial for identifying and mitigating potential security incidents or performance bottlenecks.
+
+    ## Attack Chain
+
+    1.  A user or process initiates an action that consumes significant CPU resources. This could be a legitimate application performing intensive computations or a malicious script executing code.
+    2.  The CPU usage on the host spikes significantly, exceeding a predefined threshold. This threshold can vary depending on the normal operating conditions of the host.
+    3.  Monitoring tools detect the CPU spike and trigger an alert based on predefined rules or thresholds.
+    4.  Security or operations teams receive the alert and investigate the cause of the CPU spike.
+    5.  Analysts correlate the CPU spike with other events on the host, such as process creation, network connections, or file modifications, to identify the root cause.
+    6.  If the CPU spike is determined to be malicious, incident response procedures are initiated to contain and remediate the threat.
+    7.  If the CPU spike is due to a legitimate application or misconfiguration, steps are taken to optimize resource usage or correct the configuration.
+
+    ## Impact
+
+    A sustained CPU spike can lead to a variety of negative impacts, including degraded application performance, service disruptions, and system instability. In severe cases, it can cause the host to become unresponsive or crash, resulting in data loss or downtime. Identifying and addressing CPU spikes promptly is essential for maintaining system availability and preventing performance issues.
+tags:
+    - cpu-spike
+    - performance
+    - impact
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/impact_alerts_on_host_with_cpu_spike.toml
+rules:
+    - title: High CPU Usage Detected
+      description: Detects when a process exceeds a CPU usage threshold.
+      logsource:
+        category: process_metrics
+        product: osquery
+      detection:
+        condition: selection
+        selection:
+            cpu_percent|gt: 90
+      level: medium
+      tags:
+        - attack.impact
+        - attack.t1499
+      tests:
+        positive:
+            - name: Process using high CPU
+              data:
+                - cpu_percent: 95
+                  memory_percent: 5
+                  name: bad_process.exe
+                  pid: 1234
+        negative:
+            - name: Normal CPU usage
+              data:
+                - cpu_percent: 10
+                  memory_percent: 2
+                  name: good_process.exe
+                  pid: 5678
+    - title: System CPU Utilization Above Threshold
+      description: Alert when overall system CPU utilization is high.
+      logsource:
+        category: metrics
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            metricset.name: cpu
+            system.cpu.total.norm.pct|gt: 0.95
+      level: medium
+      tags:
+        - attack.impact
+        - attack.t1499
+      tests:
+        positive:
+            - name: System under high CPU load
+              data:
+                - metricset.name: cpu
+                  system.cpu.total.norm.pct: 0.96
+        negative:
+            - name: System with normal CPU load
+              data:
+                - metricset.name: cpu
+                  system.cpu.total.norm.pct: 0.2
+ttps:
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1499
+      technique_name: Endpoint Denial of Service
