@@ -1,0 +1,132 @@
+id: brief-2024-03-08-cpl-sideloading
+slug: 2024-03-cpl-sideloading
+title: Detection of Control Panel Side-Loading from Non-System Locations
+summary: Attackers may side-load control panel items from non-system locations to evade defenses, persist on a system, or escalate privileges by masquerading as legitimate system tools such as fondue.exe, fsquirt.exe, or hdwwiz.exe.
+severity: high
+published_at: "2024-03-08T15:30:00Z"
+content: |
+    ## Overview
+
+    Attackers are increasingly utilizing DLL side-loading techniques involving control panel items (.cpl files) to execute malicious code. This involves placing a malicious .cpl file in a location where a legitimate system executable (such as fondue.exe, fsquirt.exe, or hdwwiz.exe) will load it instead of the legitimate system .cpl file. By placing the malicious .cpl in an uncommon location and ensuring that the vulnerable application loads from there, attackers can bypass standard security measures that rely on trusted paths. This technique, observed in campaigns such as those attributed to Sidewinder APT, allows for defense evasion, persistence, and potential privilege escalation, making it a critical threat to detect. The increased use of these techniques was highlighted by Hexacorn in early 2024.
+
+    ## Attack Chain
+
+    1. An attacker gains initial access to the system through an as-yet-unknown vector (e.g., exploitation of a vulnerability or social engineering).
+    2. The attacker drops a malicious .cpl file (e.g., a modified appwiz.cpl, bthprops.cpl, or hdwwiz.cpl) into a non-standard directory outside of `C:\Windows\System32`, `C:\Windows\SysWOW64`, or `C:\Windows\WinSxS`.
+    3. The attacker identifies a legitimate Windows executable vulnerable to DLL side-loading, such as `fondue.exe` for `appwiz.cpl`, `fsquirt.exe` for `bthprops.cpl`, or `hdwwiz.exe` for `hdwwiz.cpl`.
+    4. The attacker ensures the current working directory or DLL search order favors the malicious .cpl location, potentially by modifying environment variables or executing the vulnerable program from the malicious .cpl's directory.
+    5. The attacker executes the legitimate Windows executable (e.g., `fondue.exe`) which then loads the malicious .cpl file due to side-loading vulnerability.
+    6. The malicious .cpl executes arbitrary code, granting the attacker control within the context of the legitimate process.
+    7. The attacker uses this foothold to establish persistence (e.g., creating scheduled tasks or modifying registry keys).
+    8. The attacker proceeds with lateral movement and data exfiltration, or other malicious activities.
+
+    ## Impact
+
+    Successful exploitation via CPL side-loading can lead to complete system compromise. Attackers can bypass application control and execute arbitrary code with the privileges of the side-loading executable. This can facilitate persistence, lateral movement, data theft, and the deployment of ransomware. The technique is difficult to detect with traditional methods, allowing attackers to maintain a stealthy presence on compromised systems. While the total number of victims remains unclear, the potential impact on targeted organizations is significant, particularly given the technique's ability to bypass common security controls.
+tags:
+    - defense-evasion
+    - persistence
+    - privilege-escalation
+    - dll-sideloading
+references:
+    - https://www.hexacorn.com/blog/2024/01/06/1-little-known-secret-of-fondue-exe/
+    - https://www.hexacorn.com/blog/2024/01/01/1-little-known-secret-of-hdwwiz-exe/
+    - https://github.com/mhaskar/FsquirtCPLPoC
+    - https://securelist.com/sidewinder-apt/114089/
+rules:
+    - title: Control Panel Item Loaded From Uncommon Location
+      description: Detects image load events of system control panel items (.cpl) from uncommon or non-system locations that may indicate DLL sideloading or other abuse techniques.
+      logsource:
+        category: image_load
+        product: windows
+      detection:
+        condition: selection and not 1 of filter_main_*
+        filter_main_legit_location:
+            ImageLoaded|startswith:
+                - C:\Windows\Prefetch\
+                - C:\Windows\System32\
+                - C:\Windows\SysWOW64\
+                - C:\Windows\WinSxS\
+        selection:
+            ImageLoaded|endswith:
+                - \appwiz.cpl
+                - \bthprops.cpl
+                - \hdwwiz.cpl
+      level: high
+      tags:
+        - attack.defense-evasion
+        - attack.persistence
+        - attack.privilege-escalation
+        - attack.t1574.001
+      tests:
+        positive:
+            - name: CPL loaded from user profile directory
+              data:
+                - ImageLoaded: C:\Users\Public\appwiz.cpl
+            - name: CPL loaded from temp directory
+              data:
+                - ImageLoaded: C:\Windows\Temp\bthprops.cpl
+        negative:
+            - name: CPL loaded from System32
+              data:
+                - ImageLoaded: C:\Windows\System32\appwiz.cpl
+            - name: CPL loaded from WinSxS
+              data:
+                - ImageLoaded: C:\Windows\WinSxS\hdwwiz.cpl
+    - title: Suspicious Process Loading CPL from Non-Standard Path
+      description: Detects processes (fondue.exe, hdwwiz.exe, fsquirt.exe) loading CPL files from unusual locations.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection_img and selection_cpl and not filter_path
+        filter_path:
+            CommandLine|contains:
+                - C:\Windows\System32\
+                - C:\Windows\SysWOW64\
+                - C:\Windows\WinSxS\
+        selection_cpl:
+            CommandLine|contains: .cpl
+        selection_img:
+            Image|endswith:
+                - \fondue.exe
+                - \hdwwiz.exe
+                - \fsquirt.exe
+      level: medium
+      tags:
+        - attack.defense-evasion
+        - attack.t1574.001
+      tests:
+        positive:
+            - name: fondue.exe loading appwiz.cpl from User Profile
+              data:
+                - Image: C:\Windows\System32\fondue.exe
+                - CommandLine: fondue.exe /C:C:\Users\Public\appwiz.cpl
+            - name: hdwwiz.exe loading hdwwiz.cpl from Temp
+              data:
+                - Image: C:\Windows\System32\hdwwiz.exe
+                - CommandLine: hdwwiz.exe C:\Windows\Temp\hdwwiz.cpl
+        negative:
+            - name: fondue.exe loading appwiz.cpl from System32
+              data:
+                - Image: C:\Windows\System32\fondue.exe
+                - CommandLine: fondue.exe /C:C:\Windows\System32\appwiz.cpl
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1574
+      technique_name: Hijack Execution Flow
+      subtechnique_id: T1574.001
+      subtechnique_name: DLL Search Order Hijacking
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1574
+      technique_name: Hijack Execution Flow
+      subtechnique_id: T1574.001
+      subtechnique_name: DLL Search Order Hijacking
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1574
+      technique_name: Hijack Execution Flow
+      subtechnique_id: T1574.001
+      subtechnique_name: DLL Search Order Hijacking
