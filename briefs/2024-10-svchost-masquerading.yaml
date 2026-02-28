@@ -1,0 +1,94 @@
+id: brief-2024-10-26-svchost-masquerading
+slug: 2024-10-svchost-masquerading
+title: Suspicious Process Masquerading as SvcHost.exe
+summary: Adversaries are known to masquerade malicious processes as the legitimate 'svchost.exe' by naming their binary 'svchost.exe' and executing it from unusual locations, to evade detection.
+severity: high
+published_at: "2024-10-26T12:00:00Z"
+content: |
+    ## Overview
+
+    Attackers often attempt to evade detection by disguising malicious processes as legitimate system processes. One common technique involves naming a malicious binary "svchost.exe" to mimic the legitimate Windows service host process. By placing this renamed binary in an uncommon location, attackers can further obscure their activity. This activity is concerning because svchost.exe is a critical Windows system process, and any deviation from its expected behavior can indicate malicious intent. Red Canary has previously reported on process masquerading as a common technique used in various attacks, highlighting the importance of detecting these anomalies. The tria.ge link provided in the references identifies potentially malicious behavior associated with svchost.exe execution.
+
+    ## Attack Chain
+
+    1.  An attacker gains initial access to the system, likely through methods not described in the provided source, such as phishing or exploiting a vulnerability.
+    2.  The attacker uploads or creates a malicious executable named "svchost.exe" on the compromised system. This file is placed in a directory other than `C:\Windows\System32\` or `C:\Windows\SysWOW64\`.
+    3.  The attacker executes the malicious "svchost.exe" process.
+    4.  The masqueraded process executes malicious code, potentially downloading additional payloads or establishing a command and control connection.
+    5.  The attacker leverages the masqueraded process to perform actions with elevated privileges or bypass security controls.
+    6.  The masqueraded process may attempt to inject code into other legitimate processes to further hide its activity.
+    7.  The attacker uses the compromised host to move laterally within the network, targeting other systems.
+    8.  The final objective could include data theft, system disruption, or ransomware deployment.
+
+    ## Impact
+
+    Successful masquerading can lead to prolonged periods of undetected malicious activity. Attackers can leverage compromised systems for data exfiltration, lateral movement, and deployment of ransomware. The impact ranges from data breaches and financial losses to complete system compromise and operational disruption. Organizations in all sectors are vulnerable, but those with weak endpoint detection capabilities are at higher risk. A successful attack of this nature can affect hundreds or thousands of systems within a network.
+tags:
+    - process-masquerading
+    - defense-evasion
+    - svchost
+references:
+    - https://tria.ge/240731-jh4crsycnb/behavioral2
+    - https://redcanary.com/blog/threat-detection/process-masquerading/
+rules:
+    - title: Suspicious Svchost.exe Execution from Non-Standard Location
+      description: Detects svchost.exe executing from a location other than the standard Windows system directories.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter_main
+        filter_main:
+            Image|startswith:
+                - C:\Windows\System32\svchost.exe
+                - C:\Windows\SysWOW64\svchost.exe
+        selection:
+            Image|endswith: \svchost.exe
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1036.005
+      tests:
+        positive:
+            - name: Svchost.exe executed from the user profile directory
+              data:
+                - Image: C:\Users\Public\svchost.exe
+                - OriginalFileName: svchost.exe
+        negative:
+            - name: Legitimate svchost.exe execution
+              data:
+                - Image: C:\Windows\System32\svchost.exe
+                - OriginalFileName: svchost.exe
+    - title: Svchost.exe with Incorrect Original Filename
+      description: Detects svchost.exe with an original filename other than svchost.exe
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter_main
+        filter_main:
+            OriginalFileName: svchost.exe
+        selection:
+            Image|endswith: \svchost.exe
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.t1036.005
+      tests:
+        positive:
+            - name: Svchost.exe masquerading with incorrect original filename
+              data:
+                - Image: C:\Users\Public\svchost.exe
+                - OriginalFileName: evil.exe
+        negative:
+            - name: Legitimate svchost.exe execution
+              data:
+                - Image: C:\Windows\System32\svchost.exe
+                - OriginalFileName: svchost.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1036
+      technique_name: Masquerading
+      subtechnique_id: T1036.005
+      subtechnique_name: Match Legitimate Name or Location
