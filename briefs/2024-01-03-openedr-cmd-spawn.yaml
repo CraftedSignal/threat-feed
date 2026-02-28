@@ -1,0 +1,127 @@
+id: brief-2024-01-03-openedr-cmd-spawn
+slug: 2024-01-03-openedr-cmd-spawn
+title: OpenEDR ssh-shellhost.exe Spawning Command Shell
+summary: OpenEDR's ssh-shellhost.exe spawning a command shell (cmd.exe) or PowerShell with PTY capabilities may indicate remote command execution used for lateral movement or command-and-control.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    The OpenEDR (Endpoint Detection and Response) platform includes a feature that allows for remote command execution on managed endpoints. This is facilitated by the `ssh-shellhost.exe` process. While legitimate administrators may use this functionality for remote management, threat actors can abuse it to gain unauthorized access and control over compromised systems. The spawning of command shells like `cmd.exe`, `PowerShell`, or `bash` by `ssh-shellhost.exe`, especially when using PTY (pseudo-terminal) capabilities, is a strong indicator of potential abuse. This activity can be used for lateral movement, command and control, and further exploitation of the network. Defenders should monitor for this behavior and correlate it with other suspicious activities to determine the legitimacy of the remote command execution.
+
+    ## Attack Chain
+
+    1.  Initial Access: An attacker compromises a system with OpenEDR installed, potentially through exploiting a vulnerability, using stolen credentials, or social engineering.
+    2.  Remote Shell Initiation: The attacker leverages OpenEDR's remote management features to initiate a remote shell session using `ssh-shellhost.exe`.
+    3.  PTY Allocation: The attacker specifies the `--pty` argument when initiating the remote shell, enabling interactive command execution and pseudo-terminal capabilities.
+    4.  Command Shell Spawning: The `ssh-shellhost.exe` process spawns a command shell (`cmd.exe`, `powershell.exe`, `pwsh.exe` or `bash`).
+    5.  Command Execution: The attacker executes commands through the spawned shell, potentially including reconnaissance, privilege escalation, or lateral movement commands.
+    6.  Lateral Movement: The attacker uses the compromised system as a pivot point to move laterally within the network, accessing other systems and resources.
+    7.  Persistence: The attacker establishes persistence on the compromised system to maintain access, potentially through creating new accounts or modifying existing ones.
+    8.  Command and Control: The attacker uses the compromised system to establish a command and control channel with an external server, allowing for remote control and data exfiltration.
+
+    ## Impact
+
+    A successful attack leveraging OpenEDR's remote shell capabilities can result in unauthorized access to sensitive data, system compromise, and lateral movement within the network. This can lead to data breaches, financial loss, and reputational damage. While the number of victims and sectors targeted are not specified in the provided source, the potential impact is significant given the widespread adoption of EDR solutions and the criticality of the systems they protect. The successful abuse of this feature gives attackers the ability to remotely execute commands as if they were a local administrator.
+tags:
+    - remote-access-tool
+    - lateral-movement
+    - command-execution
+references:
+    - https://kostas-ts.medium.com/detecting-abuse-of-openedrs-permissive-edr-trial-a-security-researcher-s-perspective-fc55bf53972c
+    - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_comodo_ssh_shellhost_cmd_spawn.yml
+rules:
+    - title: OpenEDR ssh-shellhost Spawning Shell with PTY
+      description: Detects OpenEDR ssh-shellhost.exe spawning a command shell (cmd.exe, powershell.exe) with PTY capabilities, indicating potential remote command execution abuse.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: all of selection_*
+        selection_cli_shell:
+            CommandLine|contains:
+                - bash
+                - cmd
+                - powershell
+                - pwsh
+        selection_img:
+            CommandLine|contains: --pty
+            Image|endswith: \ssh-shellhost.exe
+            ParentImage|endswith: \ITSMService.exe
+      level: medium
+      tags:
+        - attack.execution
+        - attack.t1059.003
+        - attack.lateral-movement
+        - attack.t1021.004
+        - attack.command-and-control
+        - attack.t1219
+      tests:
+        positive:
+            - name: OpenEDR ssh-shellhost spawning PowerShell with PTY
+              data:
+                - CommandLine: ssh-shellhost.exe --pty powershell.exe
+                  Image: C:\Program Files\Comodo\OpenEDR\ssh-shellhost.exe
+                  ParentImage: C:\Program Files\Comodo\OpenEDR\ITSMService.exe
+        negative:
+            - name: Legitimate ITSMService execution
+              data:
+                - CommandLine: legitimate.exe --normal-operation
+                  Image: C:\Program Files\Comodo\OpenEDR\legitimate.exe
+                  ParentImage: C:\Program Files\Comodo\OpenEDR\ITSMService.exe
+    - title: OpenEDR ssh-shellhost Spawning Suspicious Processes
+      description: Detects OpenEDR ssh-shellhost.exe spawning a command shell without PTY but with suspicious parameters.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: all of selection_* and not filter_pty
+        filter_pty:
+            CommandLine|contains: --pty
+        selection_cli_shell:
+            CommandLine|contains:
+                - bash
+                - cmd
+                - powershell
+                - pwsh
+        selection_img:
+            Image|endswith: \ssh-shellhost.exe
+            ParentImage|endswith: \ITSMService.exe
+      level: low
+      tags:
+        - attack.execution
+        - attack.t1059.003
+        - attack.lateral-movement
+        - attack.t1021.004
+        - attack.command-and-control
+        - attack.t1219
+      tests:
+        positive:
+            - name: OpenEDR ssh-shellhost spawning cmd without PTY
+              data:
+                - CommandLine: ssh-shellhost.exe cmd.exe /c whoami
+                  Image: C:\Program Files\Comodo\OpenEDR\ssh-shellhost.exe
+                  ParentImage: C:\Program Files\Comodo\OpenEDR\ITSMService.exe
+        negative:
+            - name: OpenEDR ssh-shellhost spawning PowerShell with PTY
+              data:
+                - CommandLine: ssh-shellhost.exe --pty powershell.exe
+                  Image: C:\Program Files\Comodo\OpenEDR\ssh-shellhost.exe
+                  ParentImage: C:\Program Files\Comodo\OpenEDR\ITSMService.exe
+ttps:
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059
+      technique_name: Command and Scripting Interpreter
+      subtechnique_id: T1059.003
+      subtechnique_name: Windows Command Shell
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021
+      technique_name: Remote Services
+      subtechnique_id: T1021.004
+      subtechnique_name: SSH
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1219
+      technique_name: Remote Access Software
