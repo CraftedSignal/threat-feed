@@ -1,0 +1,175 @@
+id: brief-2024-01-30-system-file-execution-anomaly
+slug: 2024-01-30-system-file-execution-anomaly
+title: System File Execution Location Anomaly
+summary: This detection identifies the execution of a Windows system binary, typically located in the system directory, from an unusual or unexpected location, potentially indicating malicious activity or defense evasion.
+severity: high
+published_at: "2024-01-30T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection identifies suspicious execution of Windows system binaries from non-standard locations. Attackers often move or copy system executables to bypass application control or evade detection. This behavior is frequently observed in post-exploitation scenarios where attackers are attempting to blend in with legitimate system processes. The detection focuses on identifying common system binaries (e.g., atbroker.exe, audiodg.exe, powershell.exe, wscript.exe) being executed from locations outside their typical system directories (e.g., C:\Windows\System32, C:\Windows\SysWOW64). This anomaly-based approach can reveal malicious activities, even if the specific executable is not inherently malicious. The rule was last modified on 2026-02-12 and references observed behavior from groups like Lazarus and Sidewinder APT.
+
+    ## Attack Chain
+
+    1.  An attacker gains initial access to a system, possibly through exploiting a vulnerability or using compromised credentials.
+    2.  The attacker copies a legitimate Windows system binary (e.g., `powershell.exe`, `wscript.exe`) from its standard location (e.g., `C:\Windows\System32\`) to a temporary or user-writable directory (e.g., `C:\Users\<user>\AppData\Local\Temp\`).
+    3.  The attacker executes the copied system binary (e.g., `C:\Users\<user>\AppData\Local\Temp\powershell.exe`) to bypass application control policies that might be in place for the original system directory.
+    4.  The attacker leverages the copied system binary to download and execute a malicious payload from a remote server. This may involve using `powershell.exe` to execute an encoded command or `wscript.exe` to run a malicious VBScript.
+    5.  The malicious payload executes, establishing persistence through registry modifications (e.g., adding a Run key) or creating scheduled tasks.
+    6.  The attacker uses the persistent access to perform lateral movement within the network, escalating privileges and compromising additional systems.
+    7.  The attacker collects sensitive data and exfiltrates it to a command-and-control server.
+    8.  The attacker achieves their final objective, which may include data theft, system disruption, or ransomware deployment.
+
+    ## Impact
+
+    Successful exploitation allows attackers to bypass security controls, execute malicious code, and potentially compromise the entire system. This can lead to data theft, system disruption, or ransomware deployment. The impact is especially significant as it undermines the trust placed in legitimate system binaries, requiring more sophisticated detection methods. Lazarus group and Sidewinder APT have been observed utilizing this technique.
+tags:
+    - attack.defense-evasion
+    - attack.t1036
+references:
+    - https://twitter.com/GelosSnake/status/934900723426439170
+    - https://asec.ahnlab.com/en/39828/
+    - https://www.splunk.com/en_us/blog/security/inno-setup-malware-redline-stealer-campaign.html
+    - https://securelist.com/sidewinder-apt/114089/
+rules:
+    - title: System File Execution from Non-Standard Location
+      description: Detects execution of system binaries from locations outside their default system directories, indicating potential defense evasion.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter_main
+        filter_main:
+            Image|startswith:
+                - C:\Windows\System32\
+                - C:\Windows\SysWOW64\
+        selection:
+            Image|endswith:
+                - \atbroker.exe
+                - \audiodg.exe
+                - \bcdedit.exe
+                - \bitsadmin.exe
+                - \certreq.exe
+                - \certutil.exe
+                - \cmstp.exe
+                - \conhost.exe
+                - \consent.exe
+                - \cscript.exe
+                - \csrss.exe
+                - \dashost.exe
+                - \defrag.exe
+                - \dfrgui.exe
+                - \dism.exe
+                - \dllhost.exe
+                - \dllhst3g.exe
+                - \dwm.exe
+                - \eventvwr.exe
+                - \fsquirt.exe
+                - \finger.exe
+                - \logonui.exe
+                - \LsaIso.exe
+                - \lsass.exe
+                - \lsm.exe
+                - \msiexec.exe
+                - \ntoskrnl.exe
+                - \powershell_ise.exe
+                - \powershell.exe
+                - \pwsh.exe
+                - \regsvr32.exe
+                - \rundll32.exe
+                - \runonce.exe
+                - \RuntimeBroker.exe
+                - \schtasks.exe
+                - \services.exe
+                - \sihost.exe
+                - \smartscreen.exe
+                - \smss.exe
+                - \spoolsv.exe
+                - \svchost.exe
+                - \taskhost.exe
+                - \taskhostw.exe
+                - \Taskmgr.exe
+                - \userinit.exe
+                - \werfault.exe
+                - \werfaultsecure.exe
+                - \wininit.exe
+                - \winlogon.exe
+                - \winver.exe
+                - \wlanext.exe
+                - \wscript.exe
+                - \wsl.exe
+                - \wsmprovhost.exe
+      level: high
+      tags:
+        - attack.defense-evasion
+        - attack.t1036
+      tests:
+        positive:
+            - name: PowerShell executed from Temp directory
+              data:
+                - Image: C:\Users\user\AppData\Local\Temp\powershell.exe
+                - ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: PowerShell executed from System32
+              data:
+                - Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                - ParentImage: C:\Windows\explorer.exe
+    - title: Suspicious WSL Execution from AppData
+      description: Detects WSL execution from user AppData, which is not typical and may indicate malicious activity.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|contains: \AppData\Local\Microsoft\WindowsApps\
+            Image|endswith: \wsl.exe
+            Image|startswith: C:\Users\
+      level: medium
+      tags:
+        - attack.defense-evasion
+        - attack.t1036
+      tests:
+        positive:
+            - name: WSL executed from AppData
+              data:
+                - Image: C:\Users\test\AppData\Local\Microsoft\WindowsApps\wsl.exe
+                - ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: WSL executed from Program Files
+              data:
+                - Image: C:\Program Files\WSL\wsl.exe
+                - ParentImage: C:\Windows\explorer.exe
+    - title: CertUtil Executed Outside System Directories
+      description: Detects execution of certutil.exe from non-standard locations.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter_main
+        filter_main:
+            Image|startswith:
+                - C:\Windows\System32\
+                - C:\Windows\SysWOW64\
+        selection:
+            Image|endswith: \certutil.exe
+      level: medium
+      tags:
+        - attack.defense-evasion
+        - attack.t1036
+      tests:
+        positive:
+            - name: CertUtil executed from user profile
+              data:
+                - Image: C:\Users\test\Downloads\certutil.exe
+                - ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: CertUtil executed from system32
+              data:
+                - Image: C:\Windows\System32\certutil.exe
+                - ParentImage: C:\Windows\explorer.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1036
+      technique_name: Masquerading
