@@ -1,0 +1,267 @@
+id: brief-2024-01-25-system-process-name-file-creation
+slug: 2024-01-25-system-process-name-file-creation
+title: System Process Executables Created in Suspicious Locations
+summary: An attacker may attempt to masquerade malicious executables by naming them after legitimate system processes and placing them in unusual directories to evade detection and execute arbitrary code.
+severity: medium
+published_at: "2024-01-25T18:22:00Z"
+content: |
+    ## Overview
+
+    Attackers often attempt to hide malicious executables by naming them after legitimate Windows system processes, such as 'explorer.exe' or 'powershell.exe'. This tactic, known as process masquerading, allows them to blend in with normal system activity. This detection focuses on identifying instances where these system process-named executables are created in directories where they are not typically found. Such activity could indicate a compromised system where an attacker is attempting to execute malware while bypassing standard security measures. Initial baselining of your environment is crucial to reduce false positives. The Sidewinder APT has been known to use 'fsquirt.exe' in their attacks.
+
+    ## Attack Chain
+
+    1.  An attacker gains initial access to a system (e.g., through phishing or exploiting a vulnerability).
+    2.  The attacker drops a malicious executable onto the compromised system. This executable is named after a legitimate system process (e.g., 'explorer.exe', 'powershell.exe').
+    3.  The malicious executable is placed in a non-standard directory, such as 'C:\Users\Public\' or 'C:\Temp\', to avoid detection based on file path.
+    4.  The attacker uses a separate execution method (e.g., scheduled task, WMI event subscription, or user interaction) to launch the masqueraded executable.
+    5.  The masqueraded process executes malicious code, potentially downloading additional payloads or establishing command and control (C2) communication.
+    6.  The attacker performs actions on the compromised system, such as credential theft, lateral movement, or data exfiltration.
+    7.  The attacker leverages the masqueraded process to maintain persistence on the system.
+
+    ## Impact
+
+    Successful execution of this attack can lead to a full system compromise, data theft, or deployment of ransomware.  The masqueraded process gains the same privileges as the user account under which it is executed, potentially leading to privilege escalation if the user is an administrator.  This can affect any Windows environment, and the number of victims is only limited by the attacker's scope.
+tags:
+    - process-masquerading
+    - defense-evasion
+    - file-creation
+references:
+    - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_creation_system_file.yml
+    - https://securelist.com/sidewinder-apt/114089/
+rules:
+    - title: Detect System Process Executable Creation in Suspicious Folder
+      description: Detects the creation of an executable with a system process name in folders other than the system ones (System32, SysWOW64, etc.).
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection and not filter_main
+        filter_main:
+            TargetFilename|contains:
+                - C:\Windows\System32\
+                - C:\Windows\SysWOW64\
+                - C:\Windows\WinSxS\
+        selection:
+            TargetFilename|endswith:
+                - \AtBroker.exe
+                - \audiodg.exe
+                - \backgroundTaskHost.exe
+                - \bcdedit.exe
+                - \bitsadmin.exe
+                - \cmdl32.exe
+                - \cmstp.exe
+                - \conhost.exe
+                - \csrss.exe
+                - \dasHost.exe
+                - \dfrgui.exe
+                - \dllhost.exe
+                - \dwm.exe
+                - \eventcreate.exe
+                - \eventvwr.exe
+                - \explorer.exe
+                - \extrac32.exe
+                - \fontdrvhost.exe
+                - \fsquirt.exe
+                - \ipconfig.exe
+                - \iscsicli.exe
+                - \iscsicpl.exe
+                - \logman.exe
+                - \LogonUI.exe
+                - \LsaIso.exe
+                - \lsass.exe
+                - \lsm.exe
+                - \msiexec.exe
+                - \msinfo32.exe
+                - \mstsc.exe
+                - \nbtstat.exe
+                - \odbcconf.exe
+                - \powershell.exe
+                - \pwsh.exe
+                - \regini.exe
+                - \regsvr32.exe
+                - \rundll32.exe
+                - \RuntimeBroker.exe
+                - \schtasks.exe
+                - \SearchFilterHost.exe
+                - \SearchIndexer.exe
+                - \SearchProtocolHost.exe
+                - \SecurityHealthService.exe
+                - \SecurityHealthSystray.exe
+                - \services.exe
+                - \ShellAppRuntime.exe
+                - \sihost.exe
+                - \smartscreen.exe
+                - \smss.exe
+                - \spoolsv.exe
+                - \svchost.exe
+                - \SystemSettingsBroker.exe
+                - \taskhost.exe
+                - \taskhostw.exe
+                - \Taskmgr.exe
+                - \TiWorker.exe
+                - \vssadmin.exe
+                - \w32tm.exe
+                - \WerFault.exe
+                - \WerFaultSecure.exe
+                - \wermgr.exe
+                - \wevtutil.exe
+                - \wininit.exe
+                - \winlogon.exe
+                - \winrshost.exe
+                - \WinRTNetMUAHostServer.exe
+                - \wlanext.exe
+                - \wlrmdr.exe
+                - \WmiPrvSE.exe
+                - \wslhost.exe
+                - \WSReset.exe
+                - \WUDFHost.exe
+                - \WWAHost.exe
+      level: medium
+      tags:
+        - attack.defense-evasion
+        - attack.t1036.005
+      tests:
+        positive:
+            - name: System process executable created in a suspicious folder
+              data:
+                - TargetFilename: C:\Users\Public\explorer.exe
+        negative:
+            - name: System process executable created in System32
+              data:
+                - TargetFilename: C:\Windows\System32\explorer.exe
+    - title: Detect System Process Creation with Uncommon Parent Process
+      description: Detects the creation of a system process (e.g., explorer.exe, cmd.exe) with an uncommon parent process, indicating potential masquerading.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter_parent
+        filter_parent:
+            ParentImage|endswith:
+                - \explorer.exe
+                - \svchost.exe
+                - \services.exe
+                - \winlogon.exe
+                - \lsass.exe
+        selection:
+            Image|endswith:
+                - \AtBroker.exe
+                - \audiodg.exe
+                - \backgroundTaskHost.exe
+                - \bcdedit.exe
+                - \bitsadmin.exe
+                - \cmdl32.exe
+                - \cmstp.exe
+                - \conhost.exe
+                - \csrss.exe
+                - \dasHost.exe
+                - \dfrgui.exe
+                - \dllhost.exe
+                - \dwm.exe
+                - \eventcreate.exe
+                - \eventvwr.exe
+                - \explorer.exe
+                - \extrac32.exe
+                - \fontdrvhost.exe
+                - \fsquirt.exe
+                - \ipconfig.exe
+                - \iscsicli.exe
+                - \iscsicpl.exe
+                - \logman.exe
+                - \LogonUI.exe
+                - \LsaIso.exe
+                - \lsass.exe
+                - \lsm.exe
+                - \msiexec.exe
+                - \msinfo32.exe
+                - \mstsc.exe
+                - \nbtstat.exe
+                - \odbcconf.exe
+                - \powershell.exe
+                - \pwsh.exe
+                - \regini.exe
+                - \regsvr32.exe
+                - \rundll32.exe
+                - \RuntimeBroker.exe
+                - \schtasks.exe
+                - \SearchFilterHost.exe
+                - \SearchIndexer.exe
+                - \SearchProtocolHost.exe
+                - \SecurityHealthService.exe
+                - \SecurityHealthSystray.exe
+                - \services.exe
+                - \ShellAppRuntime.exe
+                - \sihost.exe
+                - \smartscreen.exe
+                - \smss.exe
+                - \spoolsv.exe
+                - \svchost.exe
+                - \SystemSettingsBroker.exe
+                - \taskhost.exe
+                - \taskhostw.exe
+                - \Taskmgr.exe
+                - \TiWorker.exe
+                - \vssadmin.exe
+                - \w32tm.exe
+                - \WerFault.exe
+                - \WerFaultSecure.exe
+                - \wermgr.exe
+                - \wevtutil.exe
+                - \wininit.exe
+                - \winlogon.exe
+                - \winrshost.exe
+                - \WinRTNetMUAHostServer.exe
+                - \wlanext.exe
+                - \wlrmdr.exe
+                - \WmiPrvSE.exe
+                - \wslhost.exe
+                - \WSReset.exe
+                - \WUDFHost.exe
+                - \WWAHost.exe
+      level: low
+      tags:
+        - attack.defense-evasion
+        - attack.t1036.005
+      tests:
+        positive:
+            - name: Powershell spawned by a suspicious parent process
+              data:
+                - Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Users\Public\evil.exe
+        negative:
+            - name: Powershell spawned by legitimate explorer.exe
+              data:
+                - Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  ParentImage: C:\Windows\explorer.exe
+    - title: Fsquirt.exe Created Outside System Directory
+      description: Detects creation of fsquirt.exe outside of the system directory, potentially indicating Sidewinder APT activity.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            TargetFilename|contains: C:\Windows\System32\
+        selection:
+            TargetFilename|endswith: \fsquirt.exe
+      level: high
+      tags:
+        - attack.defense-evasion
+        - attack.t1036.005
+      tests:
+        positive:
+            - name: Fsquirt.exe created in user profile directory
+              data:
+                - TargetFilename: C:\Users\Public\fsquirt.exe
+        negative:
+            - name: Fsquirt.exe created in system32 directory
+              data:
+                - TargetFilename: C:\Windows\System32\fsquirt.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1036
+      technique_name: Masquerading
+      subtechnique_id: T1036.005
+      subtechnique_name: Match Legitimate Name or Location
