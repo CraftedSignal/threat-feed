@@ -1,0 +1,116 @@
+id: brief-2024-01-03-openedr-suspicious-file-creation
+slug: 2024-01-03-openedr-suspicious-file-creation
+title: OpenEDR ITSMService Suspicious File Creation
+summary: OpenEDR's ITSMService process, used for remote management, is being abused to create suspicious files with executable or script extensions, potentially indicating unauthorized file uploads, data staging, or malicious file deployment.
+severity: medium
+published_at: "2024-01-03T15:00:00Z"
+content: |
+    ## Overview
+
+    The OpenEDR (Endpoint Detection and Response) solution includes an ITSMService.exe component responsible for remote management tasks. This service, while legitimate for IT operations, can be abused by adversaries. The core issue stems from its capability to create files on the system, a feature commonly used through its Process Explorer or file management functionalities. When the ITSMService is observed creating executable files (e.g., .exe, .dll, .com) or script files (e.g., .bat, .ps1, .vbs), it can signal malicious activity. This behavior may represent unauthorized file uploads, staging of malicious payloads, or the actual deployment of malware onto the system. Defenders need to monitor file creation events originating from the ITSMService process, as it can be an indicator of compromise or misuse of the OpenEDR platform.
+
+    ## Attack Chain
+
+    1.  Attacker gains unauthorized access to an OpenEDR console or utilizes compromised credentials.
+    2.  Attacker leverages the ITSMService.exe functionality within OpenEDR.
+    3.  The attacker uses the file management capabilities of ITSMService to upload a malicious file.
+    4.  ITSMService.exe creates a file with a suspicious extension (e.g., .exe, .ps1, .vbs) on the target system.
+    5.  The attacker uses remote execution capabilities (potentially through ITSMService) to execute the uploaded file.
+    6.  The executed file performs malicious actions, such as establishing persistence or downloading additional payloads.
+    7.  Attacker leverages the initially compromised system for lateral movement within the network.
+    8.  The attacker achieves their final objective, such as data exfiltration or ransomware deployment.
+
+    ## Impact
+
+    Successful exploitation via OpenEDR's ITSMService could lead to a range of detrimental outcomes. An attacker could establish persistence, move laterally through the network, exfiltrate sensitive data, or deploy ransomware. The number of victims would depend on the scope of the attacker's access and the organization's network architecture. The targeted sectors would likely align with the attacker's objectives. The damage can range from data loss and service disruption to significant financial losses and reputational harm.
+tags:
+    - openedr
+    - itsmservice
+    - file-creation
+    - lateral-movement
+references:
+    - https://kostas-ts.medium.com/detecting-abuse-of-openedrs-permissive-edr-trial-a-security-researcher-s-perspective-fc55bf53972c
+    - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_comodo_itsm_potentially_suspicious_file_creation.yml
+rules:
+    - title: OpenEDR ITSMService Creating Executable Files
+      description: Detects the creation of executable files by OpenEDR's ITSMService process, which could indicate malicious activity.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: all of selection_*
+        selection_extension:
+            TargetFilename|endswith:
+                - .exe
+                - .dll
+                - .com
+                - .scr
+        selection_process:
+            Image|endswith: \COMODO\Endpoint Manager\ITSMService.exe
+      level: medium
+      tags:
+        - attack.lateral-movement
+        - attack.t1570
+      tests:
+        positive:
+            - name: ITSMService creates a .exe file
+              data:
+                - EventType: Create
+                  Image: C:\Program Files\COMODO\Endpoint Manager\ITSMService.exe
+                  TargetFilename: C:\Windows\Temp\malware.exe
+        negative:
+            - name: ITSMService creates a text file
+              data:
+                - EventType: Create
+                  Image: C:\Program Files\COMODO\Endpoint Manager\ITSMService.exe
+                  TargetFilename: C:\Windows\Temp\log.txt
+    - title: OpenEDR ITSMService Creating Script Files
+      description: Detects the creation of script files by OpenEDR's ITSMService process, which could indicate malicious activity.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: all of selection_*
+        selection_extension:
+            TargetFilename|endswith:
+                - .bat
+                - .ps1
+                - .vbs
+                - .js
+                - .hta
+        selection_process:
+            Image|endswith: \COMODO\Endpoint Manager\ITSMService.exe
+      level: medium
+      tags:
+        - attack.command-and-control
+        - attack.t1105
+      tests:
+        positive:
+            - name: ITSMService creates a PowerShell script
+              data:
+                - EventType: Create
+                  Image: C:\Program Files\COMODO\Endpoint Manager\ITSMService.exe
+                  TargetFilename: C:\Windows\Temp\evil.ps1
+        negative:
+            - name: ITSMService creates a config file
+              data:
+                - EventType: Create
+                  Image: C:\Program Files\COMODO\Endpoint Manager\ITSMService.exe
+                  TargetFilename: C:\ProgramData\COMODO\config.xml
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1087
+      technique_name: Account Discovery
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1570
+      technique_name: Lateral Tool Transfer
+    - tactic_id: TA0011
+      tactic_name: Command and Control
+      technique_id: T1105
+      technique_name: Remote File Copy
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1219
+      technique_name: Remote Access Software
