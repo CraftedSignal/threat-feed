@@ -1,0 +1,141 @@
+id: brief-2024-01-02-code-integrity-signing-level
+slug: 2024-01-code-integrity-signing-level
+title: Code Integrity - Unmet Signing Level Requirements
+summary: An attempted file load event that did not meet the signing level requirements can indicate revoked signatures or expired Lifetime Signing EKUs, potentially signaling malicious activity or compromised software.
+severity: medium
+published_at: "2024-01-02T14:35:00Z"
+content: |
+    ## Overview
+
+    Windows Code Integrity is a feature designed to improve the security of the operating system by validating the integrity of code before it is allowed to execute. When a file fails to meet the required signing level, it could indicate a variety of issues, including a revoked signature, an expired Extended Key Usage (EKU) for lifetime signing, or an attempt to load unsigned or improperly signed code. These events, logged under Event IDs 3033 and 3034, can be triggered by legitimate software updates, antivirus products, or, more concerningly, by malware attempting to bypass security controls. While common in environments with strict application control policies, frequent occurrences warrant investigation, especially when correlated with Event ID 3089 for deeper insights into the validation failure.
+
+    ## Attack Chain
+
+    1. A process attempts to load a DLL or other executable file. (T1566 Initial Access)
+    2. Windows Code Integrity evaluates the digital signature of the file using configured policies.
+    3. The signature validation fails because the file does not meet the configured signing level requirements. This can be due to revocation, expiry, or an invalid signature.
+    4. Windows logs Event ID 3033 or 3034 in the Code Integrity operational log, indicating the file load failure.
+    5. (Optional) Code Integrity auditing policy may allow the image to load despite the validation failure, as indicated by Event ID 3034.
+    6. An attacker might try to exploit this by loading unsigned or improperly signed code into a trusted process.
+    7. If the file is allowed to load (due to auditing policy or misconfiguration), the attacker can potentially execute arbitrary code.
+    8. The attacker achieves persistence, elevates privileges, or performs other malicious actions based on the loaded code. (TA0004 Privilege Escalation)
+
+    ## Impact
+
+    Failure to meet signing level requirements can indicate attempts to load malicious or compromised code. If auditing policies are too permissive, attackers could bypass code integrity checks, leading to potential code execution and system compromise. Depending on the loaded code, this could result in data theft, ransomware deployment, or other malicious activities. While many events might be false positives from AV software or other common programs, the lack of proper signing could also indicate the presence of malware.
+tags:
+    - code-integrity
+    - windows-defender-application-control
+    - dll-loading
+references:
+    - https://twitter.com/SBousseaden/status/1483810148602814466
+    - https://github.com/MicrosoftDocs/windows-itpro-docs/blob/40fe118976734578f83e5e839b9c63ae7a4af82d/windows/security/threat-protection/windows-defender-application-control/event-id-explanations.md#windows-codeintegrity-operational-log
+    - https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/operations/event-tag-explanations
+    - https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/operations/event-id-explanations
+rules:
+    - title: Detect Code Integrity Failure - Unmet Signing Requirements
+      description: Detects file load events that did not meet the signing level requirements, potentially indicating malicious activity.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            EventID:
+                - 3033
+                - 3034
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: Code Integrity failure event
+              data:
+                - EventID: 3033
+                  FileNameBuffer: C:\Windows\System32\evil.dll
+                  ProcessNameBuffer: C:\Program Files\LegitApp\legit.exe
+        negative:
+            - name: Benign file operation
+              data:
+                - EventID: 11
+                  FileName: C:\Windows\System32\kernel32.dll
+                  ProcessName: C:\Program Files\LegitApp\legit.exe
+    - title: Detect Code Integrity Failure - DTrace DLL Load
+      description: Detects Code Integrity failures when loading dtrace.dll, based on known false positives.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            EventID:
+                - 3033
+                - 3034
+            FileNameBuffer|endswith: \Program Files\DTrace\dtrace.dll
+            ProcessNameBuffer|endswith: \Windows\System32\svchost.exe
+            RequestedPolicy: 12
+      level: low
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: DTrace DLL Load Failure
+              data:
+                - EventID: 3033
+                  FileNameBuffer: C:\Program Files\DTrace\dtrace.dll
+                  ProcessNameBuffer: C:\Windows\System32\svchost.exe
+                  RequestedPolicy: 12
+        negative:
+            - name: Different process and DLL
+              data:
+                - EventID: 3033
+                  FileNameBuffer: C:\Windows\System32\someother.dll
+                  ProcessNameBuffer: C:\Program Files\LegitApp\legit.exe
+                  RequestedPolicy: 8
+    - title: Detect Code Integrity Failure - nvspcap64.dll Load in Slack
+      description: Detects Code Integrity failures when loading nvspcap64.dll in Slack.
+      logsource:
+        category: file_event
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            EventID:
+                - 3033
+                - 3034
+            FileNameBuffer|endswith: \Windows\System32\nvspcap64.dll
+            ProcessNameBuffer|contains: \AppData\Local\slack\app-
+            ProcessNameBuffer|endswith: \slack.exe
+            RequestedPolicy: 8
+      level: low
+      tags:
+        - attack.defense_evasion
+        - attack.t1562.001
+      tests:
+        positive:
+            - name: Slack nvspcap64.dll load failure
+              data:
+                - EventID: 3033
+                  FileNameBuffer: C:\Windows\System32\nvspcap64.dll
+                  ProcessNameBuffer: C:\Users\user\AppData\Local\slack\app-5.0.0\slack.exe
+                  RequestedPolicy: 8
+        negative:
+            - name: Different process and DLL
+              data:
+                - EventID: 3033
+                  FileNameBuffer: C:\Windows\System32\someother.dll
+                  ProcessNameBuffer: C:\Program Files\LegitApp\legit.exe
+                  RequestedPolicy: 8
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1562
+      technique_name: Impair Defenses
+      subtechnique_id: T1562.001
+      subtechnique_name: Disable or Modify Tools
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
