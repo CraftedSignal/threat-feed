@@ -1,0 +1,102 @@
+id: brief-2024-01-23-system-language-discovery-regexe
+slug: 2024-01-23-system-language-discovery-regexe
+title: System Language Discovery via Reg.Exe
+summary: Adversaries use reg.exe to query system language settings, potentially to determine geographic location of victims, customize payloads, or evade detection by avoiding specific locales.
+severity: medium
+published_at: "2024-01-23T12:00:00Z"
+content: |
+    ## Overview
+
+    Attackers may leverage the `reg.exe` utility, a built-in Windows command-line tool, to discover system language settings. This information can be used to determine the geographic location of victims, customize payloads for specific regions, or avoid targeting certain locales to evade detection. Identifying the system language allows adversaries to tailor their attacks, increasing the likelihood of success and reducing the chances of being detected. This activity is often seen in post-compromise scenarios where attackers are gathering information about the compromised environment. The discovery of system language settings through `reg.exe` is a component of broader reconnaissance efforts, and defenders should monitor for its usage, especially when combined with other suspicious activities.
+
+    ## Attack Chain
+
+    1. Initial access is gained through an existing vulnerability or compromised credentials.
+    2. The attacker executes `reg.exe` via command line.
+    3. The `reg.exe` command queries the registry key `Control\Nls\Language`.
+    4. The system language information is retrieved.
+    5. The attacker analyzes the retrieved language data to determine the system's locale.
+    6. Based on the locale, the attacker modifies their attack strategy, such as selecting a specific payload version.
+    7. The attacker proceeds with lateral movement or data exfiltration.
+
+    ## Impact
+
+    Successful exploitation allows attackers to gather information about the target system's locale. This information can be used to tailor attacks, increasing the likelihood of success and reducing the chances of detection. Knowing the system's language can help attackers choose the right language for phishing campaigns or avoid regions where they are more likely to be detected. This ultimately facilitates further compromise of the system and the network it resides on.
+tags:
+    - discovery
+    - reg.exe
+    - system language
+references:
+    - https://scythe.io/threat-thursday/threatthursday-darkside-ransomware
+    - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_reg_system_language_discovery.yml
+rules:
+    - title: System Language Discovery via Reg.Exe
+      description: Detects the usage of Reg.Exe to query system language settings.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: all of selection_*
+        selection_cli:
+            CommandLine|contains|all:
+                - query
+                - Control\Nls\Language
+        selection_img:
+            - Image|endswith: \reg.exe
+            - OriginalFileName: reg.exe
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1614.001
+      tests:
+        positive:
+            - name: Reg.exe querying language settings
+              data:
+                - CommandLine: reg query "HKCU\Control Panel\International" /v LocaleName
+                  Image: C:\Windows\System32\reg.exe
+                  OriginalFileName: reg.exe
+        negative:
+            - name: Reg.exe querying a different registry key
+              data:
+                - CommandLine: reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v ProductName
+                  Image: C:\Windows\System32\reg.exe
+                  OriginalFileName: reg.exe
+    - title: System Language Discovery via Reg.Exe (Alternate)
+      description: Detects an alternate method of querying language information using Reg.Exe
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: all of selection_*
+        selection_cli:
+            CommandLine|contains|all:
+                - query
+                - Control\Nls\Language
+                - Default
+        selection_img:
+            - Image|endswith: \reg.exe
+            - OriginalFileName: reg.exe
+      level: medium
+      tags:
+        - attack.discovery
+        - attack.t1614.001
+      tests:
+        positive:
+            - name: Reg.exe querying default language settings
+              data:
+                - CommandLine: reg query "HKCU\Control Panel\International\Default" /v LocaleName
+                  Image: C:\Windows\System32\reg.exe
+                  OriginalFileName: reg.exe
+        negative:
+            - name: Reg.exe querying different registry key
+              data:
+                - CommandLine: reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v RegisteredOrganization
+                  Image: C:\Windows\System32\reg.exe
+                  OriginalFileName: reg.exe
+ttps:
+    - tactic_id: TA0007
+      tactic_name: Discovery
+      technique_id: T1614
+      technique_name: System Location Discovery
+      subtechnique_id: T1614.001
+      subtechnique_name: System Language
