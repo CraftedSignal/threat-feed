@@ -1,0 +1,109 @@
+id: brief-2024-01-23-non-interactive-powershell
+slug: 2024-01-non-interactive-powershell
+title: Detection of Non-Interactive PowerShell Execution
+summary: This detection identifies PowerShell execution spawned by non-user GUI processes like explorer.exe, potentially indicating malicious activity.
+severity: medium
+published_at: "2024-01-23T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection focuses on identifying instances where PowerShell is executed in a non-interactive manner, specifically when the parent process is a GUI-based application such as Explorer. This behavior can be indicative of malicious scripts or tools leveraging PowerShell for execution without direct user interaction. While legitimate administrative scripts may also trigger this detection, it serves as a valuable starting point for hunting and investigating anomalous PowerShell activity. This rule is based on research and threat hunting methodologies aimed at identifying suspicious parent-child process relationships involving PowerShell.
+
+    ## Attack Chain
+
+    1.  User interacts with a malicious document or application (e.g., clicking a link in an email or opening a compromised file).
+    2.  The malicious document or application executes a script or command that initiates PowerShell.
+    3.  `explorer.exe` or another GUI process (e.g., `CompatTelRunner.exe`) spawns a PowerShell process (`powershell.exe` or `pwsh.exe`).
+    4.  PowerShell executes commands, potentially downloading and executing additional payloads.
+    5.  PowerShell script performs reconnaissance activities (e.g., gathering system information).
+    6.  PowerShell script attempts to escalate privileges (e.g., using bypass techniques or exploiting vulnerabilities).
+    7.  PowerShell script establishes persistence (e.g., creating scheduled tasks or modifying registry keys).
+    8.  Achieve the attacker's objectives, such as data exfiltration, lateral movement, or system compromise.
+
+    ## Impact
+
+    Successful exploitation via non-interactive PowerShell can lead to a range of damaging outcomes, including system compromise, data theft, and further propagation of malware within the network. While the scope of impact depends on the specific actions carried out by the PowerShell script, the initial non-interactive execution serves as a critical indicator of potentially malicious activity. This activity, if undetected, can result in significant operational disruption and financial losses, as well as reputational damage.
+tags:
+    - powershell
+    - execution
+    - process_creation
+references:
+    - https://web.archive.org/web/20200925032237/https://threathunterplaybook.com/notebooks/windows/02_execution/WIN-190410151110.html
+rules:
+    - title: Detect Non Interactive PowerShell Process Spawned by Explorer
+      description: Detects PowerShell spawned by explorer.exe, which is often a sign of malicious activity.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection and not filter
+        filter:
+            ParentImage|contains:
+                - :\Program Files\WindowsApps\Microsoft.WindowsTerminal_
+            ParentImage|endswith: \WindowsTerminal.exe
+        selection:
+            Image|endswith:
+                - \powershell.exe
+                - \pwsh.exe
+            OriginalFileName:
+                - PowerShell.EXE
+                - pwsh.dll
+            ParentImage|endswith:
+                - :\Windows\explorer.exe
+                - :\Windows\SysWOW64\explorer.exe
+      level: medium
+      tags:
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: PowerShell spawned by Explorer
+              data:
+                - Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  OriginalFileName: PowerShell.EXE
+                  ParentImage: C:\Windows\explorer.exe
+        negative:
+            - name: PowerShell spawned by legitimate terminal
+              data:
+                - Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  OriginalFileName: PowerShell.EXE
+                  ParentImage: C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.16.10261.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe
+    - title: Detect Non Interactive PowerShell Process Spawned by CompatTelRunner
+      description: Detects PowerShell spawned by CompatTelRunner.exe, which is often a sign of malicious activity.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection
+        selection:
+            Image|endswith:
+                - \powershell.exe
+                - \pwsh.exe
+            OriginalFileName:
+                - PowerShell.EXE
+                - pwsh.dll
+            ParentImage|endswith: :\Windows\System32\CompatTelRunner.exe
+      level: medium
+      tags:
+        - attack.execution
+        - attack.t1059.001
+      tests:
+        positive:
+            - name: PowerShell spawned by CompatTelRunner
+              data:
+                - Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+                  OriginalFileName: PowerShell.EXE
+                  ParentImage: C:\Windows\System32\CompatTelRunner.exe
+        negative:
+            - name: Legitimate process creation
+              data:
+                - Image: C:\Program Files\SomeApplication\app.exe
+                  OriginalFileName: app.exe
+                  ParentImage: C:\Windows\explorer.exe
+ttps:
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059
+      technique_name: Command and Scripting Interpreter
+      subtechnique_id: T1059.001
+      subtechnique_name: PowerShell
