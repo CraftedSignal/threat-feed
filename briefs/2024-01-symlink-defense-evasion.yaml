@@ -1,0 +1,104 @@
+id: brief-2024-01-03-symlink-defense-evasion
+slug: 2024-01-symlink-defense-evasion
+title: Defense Evasion via Symbolic Link Creation in Writable Directories
+summary: Attackers can create symbolic links to legitimate binaries in writable directories to execute malicious code while evading security controls.
+severity: medium
+published_at: "2024-01-03T14:30:00Z"
+content: |
+    ## Overview
+
+    Attackers may leverage symbolic links (symlinks) to masquerade malicious executables as legitimate system binaries. This technique involves creating a symlink in a directory where the attacker has write access, pointing to a legitimate binary like `bash`, `python`, or other commonly used tools. When a user or automated script executes the symlink, the linked binary is executed, potentially running attacker-controlled code if the binary's behavior can be manipulated through command-line arguments, environment variables, or configuration files. This form of defense evasion makes it difficult for security tools relying on filename or path-based whitelisting to detect malicious activity.
+
+    ## Attack Chain
+
+    1.  Attacker gains write access to a directory, such as `/tmp` or a user's home directory.
+    2.  Attacker identifies a legitimate binary (e.g., `/usr/bin/python3`) that can be used to execute code.
+    3.  Attacker creates a symbolic link (e.g., `ln -s /usr/bin/python3 /tmp/my_legit_program`) in the writable directory, pointing to the legitimate binary.
+    4.  Attacker modifies or creates a Python script (`/tmp/evil.py`) containing malicious code.
+    5.  Attacker executes the symbolic link with arguments to run the malicious code (e.g., `/tmp/my_legit_program /tmp/evil.py`).
+    6.  The linked binary (python3) executes the malicious code within the context of a seemingly legitimate process.
+    7.  The malicious code performs its intended actions, such as establishing a reverse shell or exfiltrating data.
+
+    ## Impact
+
+    Successful exploitation allows attackers to execute arbitrary code with the privileges of the user running the symlink, bypassing security controls based on path or filename reputation. This can lead to privilege escalation, data theft, or system compromise. The technique is effective at evading detection, particularly in environments with inadequate monitoring of symlink creation and execution.
+tags:
+    - defense-evasion
+    - symlink
+    - linux
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/defense_evasion_symlink_binary_to_writable_dir.toml
+rules:
+    - title: Detect Suspicious Symlink Creation to Binaries in Writable Directories
+      description: Detects the creation of symbolic links in common writable directories that point to known executable binaries.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection_dir and selection_target
+        selection_dir:
+            TargetFilename|startswith:
+                - /tmp/
+                - /var/tmp/
+                - /dev/shm/
+        selection_target:
+            SymlinkTarget|startswith:
+                - /bin/
+                - /usr/bin/
+                - /usr/sbin/
+                - /sbin/
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1036
+      tests:
+        positive:
+            - name: Symlink created in /tmp pointing to /usr/bin/python3
+              data:
+                - EventType: Symlink Created
+                  SymlinkTarget: /usr/bin/python3
+                  TargetFilename: /tmp/backdoor
+        negative:
+            - name: Symlink created in /home/user pointing to a text file
+              data:
+                - EventType: Symlink Created
+                  SymlinkTarget: /home/user/document.txt
+                  TargetFilename: /home/user/link_to_file
+    - title: Detect Execution of Legitimate Binaries via Symlinks in Writable Directories
+      description: Detects execution of processes where the executed file is a symbolic link located in a writable directory, potentially indicating defense evasion.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection_img and selection_flags
+        selection_flags:
+            Image|contains: ->
+        selection_img:
+            Image|startswith:
+                - /tmp/
+                - /var/tmp/
+                - /dev/shm/
+      level: high
+      tags:
+        - attack.defense_evasion
+        - attack.execution
+        - attack.t1036
+        - attack.t1059
+      tests:
+        positive:
+            - name: Execution of symlink in /tmp pointing to /usr/bin/bash
+              data:
+                - CommandLine: /tmp/myshell -i
+                  Image: /tmp/myshell -> /usr/bin/bash
+                  User: attacker
+        negative:
+            - name: Normal execution of /usr/bin/bash
+              data:
+                - CommandLine: /usr/bin/bash -c 'ls -l'
+                  Image: /usr/bin/bash
+                  User: user
+ttps:
+    - tactic_id: TA0005
+      tactic_name: Defense Evasion
+      technique_id: T1036
+      technique_name: Masquerading
