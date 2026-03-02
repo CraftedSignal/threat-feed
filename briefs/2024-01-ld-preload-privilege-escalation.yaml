@@ -1,0 +1,122 @@
+id: brief-2024-01-03-ld-preload-privilege-escalation
+slug: 2024-01-ld-preload-privilege-escalation
+title: LD_PRELOAD Shared Object Modification for Privilege Escalation
+summary: Attackers can exploit the LD_PRELOAD environment variable to load malicious shared objects, potentially escalating privileges by hijacking the execution of privileged programs.
+severity: high
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    The `LD_PRELOAD` environment variable in Linux allows users to specify shared libraries that should be loaded before others when a program is executed. This functionality, while intended for debugging and customization, can be abused by attackers to inject malicious code into privileged processes. By crafting a malicious shared object and setting `LD_PRELOAD`, an attacker can hijack the execution flow of a program run with elevated privileges (e.g., via sudo) and potentially gain root access. While the provided source doesn't detail specific campaigns or actors, this technique is a well-known method for privilege escalation on Linux systems, affecting a wide range of applications that rely on shared libraries and are executed with elevated permissions.
+
+    ## Attack Chain
+
+    1.  The attacker gains initial access to the system with limited privileges (e.g., through SSH or exploiting a vulnerability in a service).
+    2.  The attacker identifies a SUID/GUID binary or a service that runs with elevated privileges and utilizes shared libraries.
+    3.  The attacker creates a malicious shared object (e.g., `evil.so`) containing code to execute with the privileges of the target process. This often involves overwriting or hooking existing functions used by the target application.
+    4.  The attacker sets the `LD_PRELOAD` environment variable to point to the malicious shared object (e.g., `LD_PRELOAD=/tmp/evil.so`).
+    5.  The attacker executes the SUID/GUID binary or triggers the service to execute, causing the malicious shared object to be loaded first.
+    6.  The injected code within `evil.so` executes with the privileges of the target process (e.g., root).
+    7.  The attacker uses the elevated privileges to create a new user, modify system files, or execute arbitrary commands, achieving persistence and control over the system.
+
+    ## Impact
+
+    Successful exploitation of `LD_PRELOAD` can lead to complete system compromise. An attacker can gain root privileges, allowing them to install backdoors, steal sensitive data, or disrupt system operations. The impact is particularly severe in environments where services run with elevated privileges, such as web servers or database servers. The number of potential victims is vast, affecting any Linux system where users have the ability to set environment variables and execute privileged programs.
+tags:
+    - privilege_escalation
+    - linux
+    - ld_preload
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/privilege_escalation_ld_preload_shared_object_modif.toml
+rules:
+    - title: Detect LD_PRELOAD Environment Variable Modification
+      description: Detects the setting of the LD_PRELOAD environment variable, which can be indicative of privilege escalation attempts.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            env|contains: LD_PRELOAD=
+      level: medium
+      tags:
+        - attack.privilege_escalation
+        - attack.t1068
+      tests:
+        positive:
+            - name: LD_PRELOAD set in environment
+              data:
+                - env: LD_PRELOAD=/tmp/evil.so
+                - cmdline: /usr/bin/sudo ls
+        negative:
+            - name: Normal environment variables
+              data:
+                - env: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+                - cmdline: /usr/bin/ls
+    - title: Detect Creation of Shared Objects in /tmp
+      description: Detects the creation of shared objects (.so files) in the /tmp directory, which is a common location for attackers to place malicious libraries for LD_PRELOAD exploitation.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            event.type: creation
+            file.name|endswith: .so
+            file.path|startswith: /tmp/
+      level: low
+      tags:
+        - attack.privilege_escalation
+        - attack.t1068
+        - attack.t1546.004
+      tests:
+        positive:
+            - name: Shared object created in /tmp
+              data:
+                - file.path: /tmp/evil.so
+                - event.type: creation
+        negative:
+            - name: Text file created in /tmp
+              data:
+                - file.path: /tmp/temp.txt
+                - event.type: creation
+    - title: Detect Execution of SUID/GUID binaries with LD_PRELOAD Set
+      description: Detects execution of SUID/GUID binaries when LD_PRELOAD environment variable is also set, a strong indicator of privilege escalation attempt.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection_ldpreload and selection_suid
+        selection_ldpreload:
+            env|contains: LD_PRELOAD=
+        selection_suid:
+            file.attributes: SUID
+      level: high
+      tags:
+        - attack.privilege_escalation
+        - attack.t1068
+        - attack.t1548.001
+      tests:
+        positive:
+            - name: SUID binary executed with LD_PRELOAD
+              data:
+                - env: LD_PRELOAD=/tmp/evil.so
+                - cmdline: /usr/bin/sudo ls
+                - file.attributes: SUID
+        negative:
+            - name: Normal binary execution with LD_PRELOAD
+              data:
+                - env: LD_PRELOAD=/tmp/evil.so
+                - cmdline: /usr/bin/ls
+                - file.attributes: ""
+ttps:
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1068
+      technique_name: Exploitation for Privilege Escalation
+    - tactic_id: TA0004
+      tactic_name: Privilege Escalation
+      technique_id: T1548
+      technique_name: Abuse Elevation Control Mechanism
+      subtechnique_id: T1548.001
+      subtechnique_name: Setuid and Setgid
