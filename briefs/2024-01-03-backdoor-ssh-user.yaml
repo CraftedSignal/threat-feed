@@ -1,0 +1,132 @@
+id: brief-2024-01-03-backdoor-ssh-user
+slug: 2024-01-03-backdoor-ssh-user
+title: Potential SSH Backdoor via System User Modification
+summary: An adversary may attempt to establish persistence on a Linux system by backdooring a system user account, potentially allowing unauthorized remote access via SSH.
+severity: high
+published_at: "2024-01-03T15:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief addresses the potential for attackers to gain persistent access to Linux systems by compromising system user accounts and configuring them for unauthorized SSH access. While specific campaigns and actor details are absent, the focus is on the technique itself. Defenders should be aware of the risk posed by backdoored system users, as it bypasses traditional account management and audit controls. The absence of specific tool names or campaign identifiers underscores the need for broad-spectrum detection and prevention strategies centered on monitoring user account modifications and SSH login activity.
+
+    ## Attack Chain
+
+    1.  **Initial Access:** An attacker gains initial access to the Linux system through an unspecified method (e.g., exploiting a vulnerability, phishing, or gaining access via stolen credentials).
+    2.  **Privilege Escalation:** The attacker escalates privileges to root or an equivalent administrative account.
+    3.  **User Account Identification:** The attacker identifies a system user account that is not regularly monitored or has weak security practices.
+    4.  **Account Modification:** The attacker modifies the system user account (e.g., changes the password, adds SSH keys to `~/.ssh/authorized_keys`).
+    5.  **SSH Configuration:** The attacker ensures SSH is enabled and configured to allow login for the modified user account.
+    6.  **Persistence:** The attacker establishes a persistent backdoor by maintaining control of the modified system user account.
+    7.  **Remote Access:** The attacker uses SSH to remotely access the compromised system via the backdoored user account.
+
+    ## Impact
+
+    Successful exploitation allows the attacker to maintain persistent, unauthorized access to the compromised Linux system. This can lead to data theft, system disruption, or use of the compromised system as a staging point for further attacks. The impact is highly dependent on the privileges of the backdoored user account and the attacker's objectives. If the attacker obtains root access through this method, they can gain full control over the system.
+tags:
+    - persistence
+    - ssh
+    - linux
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_ssh_via_backdoored_system_user.toml
+rules:
+    - title: Detect Modification of authorized_keys File
+      description: Detects changes to the authorized_keys file, which could indicate a backdoored SSH user.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            event.type: change
+            file.path|endswith: /.ssh/authorized_keys
+      level: high
+      tags:
+        - attack.persistence
+        - attack.t1098.004
+      tests:
+        positive:
+            - name: Modification of authorized_keys
+              data:
+                - event.type: change
+                  file.path: /home/user1/.ssh/authorized_keys
+                  user.name: user1
+        negative:
+            - name: Normal file creation
+              data:
+                - event.type: creation
+                  file.path: /home/user1/normal_file.txt
+                  user.name: user1
+    - title: Detect Useradd with Root Privileges
+      description: Detects suspicious user creation events with root privileges, which can be used for creating backdoor accounts.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            process.args|contains: -u 0
+            process.name: useradd
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1136.001
+      tests:
+        positive:
+            - name: Useradd with uid 0
+              data:
+                - process.args: -u 0 backdooruser
+                  process.name: useradd
+                  user.name: root
+        negative:
+            - name: Normal Useradd
+              data:
+                - process.args: normaluser
+                  process.name: useradd
+                  user.name: root
+    - title: Detect Direct SSH Login as System User
+      description: Detects successful SSH logins as a system user (UID < 1000) which may indicate an attacker is using a backdoored account.
+      logsource:
+        category: authentication
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            authentication.outcome: success
+            authentication.type: ssh
+            user.id|lt: 1000
+      level: medium
+      tags:
+        - attack.persistence
+        - attack.t1078
+      tests:
+        positive:
+            - name: Successful SSH login as system user
+              data:
+                - authentication.outcome: success
+                  authentication.type: ssh
+                  user.id: "500"
+                  user.name: systemuser
+        negative:
+            - name: Successful SSH login as normal user
+              data:
+                - authentication.outcome: success
+                  authentication.type: ssh
+                  user.id: "1000"
+                  user.name: normaluser
+ttps:
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1098
+      technique_name: Account Manipulation
+      subtechnique_id: T1098.004
+      subtechnique_name: SSH Authorized Keys
+    - tactic_id: TA0003
+      tactic_name: Persistence
+      technique_id: T1136
+      technique_name: Create Account
+      subtechnique_id: T1136.001
+      subtechnique_name: Local Account
+    - tactic_id: TA0001
+      tactic_name: Initial Access
+      technique_id: T1078
+      technique_name: Valid Accounts
