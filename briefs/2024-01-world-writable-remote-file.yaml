@@ -1,0 +1,99 @@
+id: brief-2024-01-03-world-writable-remote-file
+slug: 2024-01-world-writable-remote-file
+title: Remote File Creation in World-Writable Directory
+summary: An attacker leverages a world-writable directory on a remote Linux system to create files, potentially leading to lateral movement and code execution.
+severity: high
+published_at: "2024-01-03T15:30:00Z"
+content: |
+    ## Overview
+
+    This threat brief addresses the potential for malicious actors to exploit world-writable directories on remote Linux systems. While the specific exploit mechanism is not detailed, the risk stems from the ability to create files in these directories without proper authentication or authorization. The creation of arbitrary files in such locations can lead to several attack scenarios, including the deployment of backdoors, the modification of system configurations, and the execution of malicious code. This is particularly dangerous in shared hosting environments or systems with misconfigured permissions. This activity might start with an attacker gaining initial access through other means (e.g., exploiting a web application vulnerability) and subsequently using the world-writable directory for lateral movement. The overall impact can vary from system compromise to data exfiltration.
+
+    ## Attack Chain
+
+    1. The attacker gains initial access to a system on the network (e.g., via compromised credentials or vulnerability exploit).
+    2. The attacker performs reconnaissance to identify world-writable directories on other systems, such as `/tmp`, `/var/tmp`, or user-created directories with overly permissive permissions (e.g., using `find / -type d -perm -0002`).
+    3. The attacker uses a tool like `scp`, `rsync`, or `wget` to transfer a malicious payload (e.g., a reverse shell executable) to the world-writable directory on the target system.
+    4. The attacker modifies the file permissions of the uploaded payload to make it executable (e.g., using `chmod +x /tmp/malicious_script.sh`).
+    5. The attacker uses SSH or other remote execution methods to execute the payload on the remote system. This could involve using a cron job, systemd timer, or simply directly executing the script.
+    6. The malicious payload executes, establishing a reverse shell or performing other malicious actions, such as adding a user account with elevated privileges.
+    7. The attacker uses the newly gained access to move laterally to other systems within the network, escalating privileges as needed.
+    8. The attacker achieves their final objective, such as data exfiltration or system disruption.
+
+    ## Impact
+
+    Successful exploitation of world-writable directories can lead to complete system compromise. The number of victims can range from a single system to multiple servers within a network, depending on the scope of the attacker's reconnaissance and lateral movement capabilities. Targeted sectors are broad, as this vulnerability can exist in any organization utilizing Linux systems. If successful, the attacker can achieve persistent access, exfiltrate sensitive data, install ransomware, or cause significant operational disruption. The severity of the impact depends on the privileges gained and the attacker's ultimate objectives.
+tags:
+    - lateral-movement
+    - linux
+    - file-creation
+    - world-writable
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/lateral_movement_remote_file_creation_world_writeable_dir.toml
+rules:
+    - title: Detect File Creation in World-Writable Directories
+      description: Detects the creation of new files in common world-writable directories like /tmp and /var/tmp.
+      logsource:
+        category: file_event
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            event.type: creation
+            file.path|startswith:
+                - /tmp/
+                - /var/tmp/
+      level: medium
+      tags:
+        - attack.lateral_movement
+        - attack.t1021.004
+      tests:
+        positive:
+            - name: File creation in /tmp
+              data:
+                - event.type: creation
+                  file.path: /tmp/evil.sh
+        negative:
+            - name: File creation in user home directory
+              data:
+                - event.type: creation
+                  file.path: /home/user/document.txt
+    - title: Detect Execution of Files from World-Writable Directories
+      description: Detects execution of binaries directly from /tmp or /var/tmp. This is often indicative of malicious activity.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            image|startswith:
+                - /tmp/
+                - /var/tmp/
+      level: high
+      tags:
+        - attack.execution
+        - attack.t1059.004
+      tests:
+        positive:
+            - name: Execution from /tmp
+              data:
+                - image: /tmp/evil.sh
+                  user.name: attacker
+        negative:
+            - name: Normal execution from /usr/bin
+              data:
+                - image: /usr/bin/ls
+                  user.name: normaluser
+ttps:
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021
+      technique_name: Remote Services
+      subtechnique_id: T1021.004
+      subtechnique_name: SSH
+    - tactic_id: TA0002
+      tactic_name: Execution
+      technique_id: T1059
+      technique_name: Command and Scripting Interpreter
+      subtechnique_id: T1059.004
+      subtechnique_name: Unix Shell
