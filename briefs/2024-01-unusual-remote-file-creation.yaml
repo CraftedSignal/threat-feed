@@ -1,0 +1,120 @@
+id: brief-2024-01-03-unusual-remote-file-creation
+slug: 2024-01-unusual-remote-file-creation
+title: Unusual Remote File Creation via Linux System Tools
+summary: Adversaries may leverage common Linux tools like `scp`, `rsync`, or `dd` over SSH to create files on remote systems, potentially indicating lateral movement or data staging activities.
+severity: medium
+published_at: "2024-01-03T15:00:00Z"
+content: |
+    ## Overview
+
+    Attackers frequently utilize built-in system administration tools for malicious purposes due to their widespread availability and legitimate use cases, which can make detection challenging. This activity focuses on the abuse of common Linux tools such as `scp`, `rsync`, and `dd` used over SSH connections to create or modify files on remote systems. While these tools are essential for system administrators, their misuse can indicate lateral movement, data exfiltration preparation, or unauthorized software installation. Defenders should monitor for unusual patterns of these tools being used to write files to remote hosts, especially when originating from non-standard user accounts or targeting sensitive directories. Understanding the normal usage patterns of these tools within an organization is crucial for identifying potentially malicious deviations.
+
+    ## Attack Chain
+
+    1.  The attacker gains initial access to a compromised system.
+    2.  The attacker identifies a target remote system through network reconnaissance.
+    3.  The attacker uses `ssh` to authenticate to the target remote system.
+    4.  The attacker uses `scp` to copy a malicious script or binary to the remote system using a command like `scp attacker_script.sh user@remote_host:/tmp/`.
+    5.  Alternatively, the attacker might use `rsync` to synchronize a directory containing malicious files to the remote system.
+    6.  The attacker may use `dd` over ssh to write directly to a file on a remote system `ssh user@remote_host "dd of=/path/to/target/file" < local_file`.
+    7.  The attacker then executes the transferred file on the remote system via `ssh` (e.g., `ssh user@remote_host "bash /tmp/attacker_script.sh"`).
+    8.  The attacker achieves code execution and potentially escalates privileges on the remote system.
+
+    ## Impact
+
+    Successful exploitation allows an attacker to achieve lateral movement within a network, potentially gaining access to sensitive data or critical systems. This can lead to data breaches, system compromise, and disruption of services. The impact depends on the privileges of the account used and the nature of the transferred and executed files. The number of victims will vary depending on the scale of the attacker's operation and the scope of the compromised environment.
+tags:
+    - lateral-movement
+    - linux
+    - file-creation
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/lateral_movement_unusual_remote_file_creation.toml
+rules:
+    - title: Detect Remote File Creation via SCP
+      description: Detects the use of scp to transfer files to a remote host which may indicate lateral movement.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: '@'
+            Image|endswith: /scp
+      level: medium
+      tags:
+        - attack.lateral_movement
+        - attack.t1021.004
+      tests:
+        positive:
+            - name: SCP file transfer to remote host
+              data:
+                - CommandLine: scp /tmp/important_file.txt user@remote_host:/home/user/
+                  Image: /usr/bin/scp
+                  User: attacker
+        negative:
+            - name: SCP file transfer to local directory
+              data:
+                - CommandLine: scp /tmp/important_file.txt /home/user/
+                  Image: /usr/bin/scp
+                  User: user
+    - title: Detect Remote File Creation via RSYNC over SSH
+      description: Detects the use of rsync over ssh to synchronize files to a remote host which may indicate lateral movement.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - -e ssh
+                - --rsh=ssh
+            Image|endswith: /rsync
+      level: medium
+      tags:
+        - attack.lateral_movement
+        - attack.t1021.004
+      tests:
+        positive:
+            - name: Rsync file synchronization to remote host via SSH
+              data:
+                - CommandLine: rsync -avz -e ssh /tmp/important_dir user@remote_host:/home/user/
+                  Image: /usr/bin/rsync
+                  User: attacker
+        negative:
+            - name: Rsync file synchronization to local directory
+              data:
+                - CommandLine: rsync -avz /tmp/important_dir /home/user/
+                  Image: /usr/bin/rsync
+                  User: user
+    - title: Detect Remote File Creation via DD over SSH
+      description: Detects the use of dd over ssh to write to a file on a remote host which may indicate lateral movement.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: dd of=
+            Image|endswith: /ssh
+      level: high
+      tags:
+        - attack.lateral_movement
+        - attack.t1021.004
+      tests:
+        positive:
+            - name: DD write to remote file via SSH
+              data:
+                - CommandLine: ssh user@remote_host "dd of=/path/to/target/file"
+                  Image: /usr/bin/ssh
+                  User: attacker
+        negative:
+            - name: Normal SSH connection
+              data:
+                - CommandLine: ssh user@remote_host
+                  Image: /usr/bin/ssh
+                  User: user
+ttps:
+    - tactic_id: TA0008
+      tactic_name: Lateral Movement
+      technique_id: T1021.004
+      technique_name: 'Remote Services: SSH'
