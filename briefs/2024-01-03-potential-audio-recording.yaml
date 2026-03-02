@@ -1,0 +1,87 @@
+id: brief-2024-01-03-potential-audio-recording
+slug: 2024-01-03-potential-audio-recording
+title: Potential Audio Recording Activity on Linux
+summary: This brief covers potential audio recording activity on Linux systems, focusing on the execution of audio recording utilities, often employed for malicious purposes such as eavesdropping or gathering sensitive information.
+severity: medium
+published_at: "2024-01-03T15:00:00Z"
+content: |
+    ## Overview
+
+    This threat brief focuses on detecting suspicious audio recording activity on Linux systems. While legitimate audio recording has valid purposes, adversaries can abuse these tools for malicious activities, including eavesdropping, gathering sensitive conversations, or capturing audio for later analysis. The tools involved are standard Linux utilities, making detection challenging and dependent on context. Defenders should be aware of unusual processes invoking audio recording utilities and correlate this activity with other suspicious behaviors. This detection strategy aims to identify instances where standard audio tools are used in a manner inconsistent with normal system or user behavior. The scope of targeting is broad, as any Linux system with audio input capabilities is potentially vulnerable.
+
+    ## Attack Chain
+
+    1.  Initial Access: The attacker gains access to a compromised Linux system through methods such as exploiting vulnerabilities, using stolen credentials, or social engineering.
+    2.  Privilege Escalation (Optional): If necessary, the attacker escalates privileges to gain root or other high-level access using techniques like exploiting kernel vulnerabilities or misconfigured SUID/GUID binaries.
+    3.  Tool Deployment: The attacker deploys or utilizes existing audio recording utilities such as `arecord`, `ffmpeg`, or `ecasound` on the compromised system.
+    4.  Configuration: The attacker configures the audio recording utility with specific parameters like sample rate, channel, duration, and output file format.
+    5.  Execution: The attacker executes the audio recording command, initiating the recording process. For example, `arecord -D hw:1,0 -f cd -t wav -d 60 recording.wav`.
+    6.  Data Storage: The recorded audio data is stored in a file on the compromised system.
+    7.  Exfiltration: The attacker exfiltrates the recorded audio file to a remote server using tools like `scp`, `rsync`, or `curl`.
+    8.  Cleanup: The attacker removes traces of their activity, such as deleting the recorded audio file or modifying logs to evade detection.
+
+    ## Impact
+
+    Successful exploitation can lead to the compromise of sensitive information discussed near the affected system. This can include private conversations, confidential business meetings, or proprietary data. The impact can range from reputational damage to financial loss or intellectual property theft. Affected sectors include any organization using Linux systems with audio input capabilities, such as call centers, government agencies, and businesses with remote workers.
+tags:
+    - audio-recording
+    - linux
+    - data-collection
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/collection_potential_audio_recording_activity.toml
+rules:
+    - title: Detect Arecord Execution
+      description: Detects the execution of `arecord`, a command-line sound recorder for Linux, which may indicate potential audio recording activity.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            Image|endswith: /arecord
+      level: medium
+      tags:
+        - attack.collection
+        - attack.t1560
+      tests:
+        positive:
+            - name: Arecord execution
+              data:
+                - Image: /usr/bin/arecord
+                - CommandLine: arecord -D hw:1,0 -f cd -t wav -d 60 recording.wav
+        negative:
+            - name: Bash execution
+              data:
+                - Image: /bin/bash
+                - CommandLine: bash -c ls -l
+    - title: Detect FFmpeg Audio Recording
+      description: Detects the execution of `ffmpeg` with audio input device parameters, indicating potential audio recording activity.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and filter
+        filter:
+            CommandLine|contains: -f alsa
+        selection:
+            Image|endswith: /ffmpeg
+      level: medium
+      tags:
+        - attack.collection
+        - attack.t1560
+      tests:
+        positive:
+            - name: FFmpeg audio recording
+              data:
+                - Image: /usr/bin/ffmpeg
+                - CommandLine: ffmpeg -f alsa -ac 2 -i pulse -acodec pcm_s16le -t 10 recording.wav
+        negative:
+            - name: FFmpeg video conversion
+              data:
+                - Image: /usr/bin/ffmpeg
+                - CommandLine: ffmpeg -i input.mp4 -c:v libx264 output.mp4
+ttps:
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1560
+      technique_name: Archive Collected Data
