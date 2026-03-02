@@ -1,0 +1,112 @@
+id: brief-2024-01-02-linux-clipboard-activity
+slug: 2024-01-02-linux-clipboard-activity
+title: Linux Clipboard Activity Monitoring
+summary: Monitoring clipboard activity on Linux systems is crucial for detecting potential data exfiltration attempts by malicious actors or compromised processes.
+severity: medium
+published_at: "2024-01-02T15:00:00Z"
+content: |
+    ## Overview
+
+    Clipboard activity monitoring on Linux systems provides a valuable insight into user actions and potential data handling. While not inherently malicious, excessive or unauthorized clipboard use can be indicative of data theft or malicious software attempting to gather sensitive information. Attackers may leverage clipboard access to steal credentials, sensitive documents, or other confidential data copied by users. Defenders need to monitor clipboard activity in conjunction with other security measures to detect and prevent data breaches. This type of monitoring does not target a specific group or campaign but aims to improve overall visibility into data handling practices on Linux systems.
+
+    ## Attack Chain
+
+    1. User copies sensitive data (e.g., credentials, API keys, financial data) to the clipboard. This could be through normal workflow or unknowingly through a compromised application.
+    2. A malicious process, either through exploitation or as a rogue application, gains access to the user's X server.
+    3. The malicious process queries the X server for the contents of the clipboard. This usually involves using tools like `xclip` or `xsel`.
+    4. The captured clipboard data is stored locally within a hidden file or directory controlled by the attacker.
+    5. The malicious process establishes a network connection to an external server controlled by the attacker.
+    6. The stolen data is exfiltrated to the attacker's server over the established network connection, typically using protocols like HTTP/HTTPS or SSH.
+    7. The attacker analyzes the exfiltrated data for valuable information, such as credentials or financial details.
+
+    ## Impact
+
+    Successful exploitation of clipboard data can lead to significant data breaches, potentially impacting financial information, intellectual property, and other sensitive data. The number of affected users depends on the scope of the attacker's access and the frequency with which users copy sensitive information to the clipboard. Industries handling highly sensitive data, such as finance, healthcare, and government, are at greater risk. The compromise can result in financial loss, reputational damage, and legal repercussions.
+tags:
+    - clipboard
+    - linux
+    - datatheft
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/collection_linux_clipboard_activity.toml
+rules:
+    - title: Detect Clipboard Access via xclip
+      description: Detects processes using xclip to access the clipboard on Linux systems.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: xclip
+      level: medium
+      tags:
+        - attack.collection
+        - attack.t1115
+      tests:
+        positive:
+            - name: xclip accessing clipboard
+              data:
+                - CommandLine: xclip -selection clipboard -o
+                  Image: /usr/bin/xclip
+        negative:
+            - name: xclip help message
+              data:
+                - CommandLine: xclip -help
+                  Image: /usr/bin/xclip
+    - title: Detect Clipboard Access via xsel
+      description: Detects processes using xsel to access the clipboard on Linux systems.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains: xsel
+      level: medium
+      tags:
+        - attack.collection
+        - attack.t1115
+      tests:
+        positive:
+            - name: xsel accessing clipboard
+              data:
+                - CommandLine: xsel -b -o
+                  Image: /usr/bin/xsel
+        negative:
+            - name: xsel version check
+              data:
+                - CommandLine: xsel --version
+                  Image: /usr/bin/xsel
+    - title: Detect Pipe to Clipboard Tools
+      description: Detects commands piping data directly into clipboard tools, which might indicate exfiltration.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        clip:
+            CommandLine|contains:
+                - xclip
+                - xsel
+        condition: selection and clip
+        selection:
+            CommandLine|contains: ' | '
+      level: high
+      tags:
+        - attack.collection
+        - attack.t1115
+      tests:
+        positive:
+            - name: Command piping to xclip
+              data:
+                - CommandLine: cat /etc/passwd | xclip -selection clipboard
+                  Image: /bin/bash
+        negative:
+            - name: Benign pipe operation
+              data:
+                - CommandLine: ls -l | grep .txt
+                  Image: /bin/bash
+ttps:
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1115
+      technique_name: Clipboard Data
