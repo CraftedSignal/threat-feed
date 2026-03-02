@@ -1,0 +1,281 @@
+id: brief-2024-01-03-process-kill-threshold
+slug: 2024-01-03-process-kill-threshold
+title: High Number of Process Terminations Detected
+summary: Detection of an unusually high number of process terminations on a Linux system, potentially indicating malicious activity such as a denial-of-service attempt or ransomware activity.
+severity: medium
+published_at: "2024-01-03T12:00:00Z"
+content: |
+    ## Overview
+
+    This alert focuses on detecting an unusual surge in process termination events on Linux systems. While normal system operation involves process creation and termination, a sudden spike in the number of killed processes can signal malicious activity. This could be indicative of a denial-of-service (DoS) attack attempting to cripple the system by terminating critical processes, or ransomware attempting to stop security software before encryption. Defenders should investigate any such events to understand the root cause and prevent further damage. The rule aims to catch abnormal activity, not specific malware families.
+
+    ## Attack Chain
+
+    1.  An attacker gains initial access to the system through an exploit or compromised credentials (details not specified in source).
+    2.  The attacker executes a script or program designed to terminate processes.
+    3.  The malicious script iterates through a list of process names or PIDs.
+    4.  The `kill` command or a similar system call is used to terminate each targeted process.
+    5.  The system logs each process termination event.
+    6.  The detection rule triggers when the number of process termination events exceeds a defined threshold within a specific time window.
+    7.  If successful, critical system processes or security software are terminated.
+    8.  This leads to system instability, data encryption (in the case of ransomware), or denial of service.
+
+    ## Impact
+
+    A successful attack leading to a high number of process terminations can have several critical consequences. It can lead to a denial-of-service condition, making the system unavailable to legitimate users. In the context of ransomware attacks, terminating security software can allow the ransomware to encrypt data unimpeded, leading to data loss and potential financial repercussions. The number of affected systems and the severity of the impact will depend on the scope of the initial compromise and the attacker's objectives.
+tags:
+    - process-termination
+    - denial-of-service
+    - linux
+references: []
+rules:
+    - title: High Process Termination Count
+      description: Detects a high number of process termination events within a short timeframe, potentially indicating malicious activity.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        count: 10
+        selection:
+            name: kill
+        timeframe: 60
+      level: medium
+      tags:
+        - attack.impact
+        - attack.t1489
+      tests:
+        positive:
+            - name: Multiple kill commands executed
+              data:
+                - end_time: "2024-01-01T00:00:05Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1234"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:00Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:06Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1235"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:01Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:07Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1236"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:02Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:08Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1237"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:03Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:09Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1238"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:04Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:10Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1239"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:05Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:11Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1240"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:06Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:12Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1241"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:07Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:13Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1242"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:08Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:14Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1243"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:09Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:15Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1244"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:10Z"
+                  uid: "1000"
+        negative:
+            - name: Normal system operation with a few process terminations
+              data:
+                - end_time: "2024-01-01T00:00:05Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1234"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:00Z"
+                  uid: "1000"
+                - end_time: "2024-01-01T00:00:06Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1235"
+                  ppid: "5678"
+                  signal: SIGTERM
+                  start_time: "2024-01-01T00:00:01Z"
+                  uid: "1000"
+    - title: Process Termination of Critical System Processes
+      description: Detects process termination events targeting critical system processes.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            CommandLine|contains:
+                - systemd
+                - init
+                - sshd
+            name: kill
+      level: high
+      tags:
+        - attack.impact
+        - attack.t1489
+      tests:
+        positive:
+            - name: Kill command targeting systemd
+              data:
+                - CommandLine: kill -9 1
+                  end_time: "2024-01-01T00:00:05Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "0"
+                  name: kill
+                  pid: "1234"
+                  ppid: "5678"
+                  signal: SIGKILL
+                  start_time: "2024-01-01T00:00:00Z"
+                  uid: "0"
+        negative:
+            - name: Kill command targeting a user process
+              data:
+                - CommandLine: kill -9 2345
+                  end_time: "2024-01-01T00:00:05Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1234"
+                  ppid: "5678"
+                  signal: SIGKILL
+                  start_time: "2024-01-01T00:00:00Z"
+                  uid: "1000"
+    - title: Process Termination by Suspicious Parent Process
+      description: Detects kill commands initiated by unusual or unexpected parent processes.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection and not filter
+        filter:
+            ParentImage|startswith:
+                - /usr/bin
+                - /bin
+                - /sbin
+                - /opt
+        selection:
+            name: kill
+      level: medium
+      tags:
+        - attack.defense_evasion
+        - attack.t1070
+      tests:
+        positive:
+            - name: Kill command by /tmp/script.sh
+              data:
+                - ParentImage: /tmp/script.sh
+                  end_time: "2024-01-01T00:00:05Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "0"
+                  name: kill
+                  pid: "1234"
+                  ppid: "5678"
+                  signal: SIGKILL
+                  start_time: "2024-01-01T00:00:00Z"
+                  uid: "0"
+        negative:
+            - name: Kill command from /bin/bash
+              data:
+                - ParentImage: /bin/bash
+                  end_time: "2024-01-01T00:00:05Z"
+                  executable: /bin/kill
+                  exit_code: "0"
+                  gid: "1000"
+                  name: kill
+                  pid: "1234"
+                  ppid: "5678"
+                  signal: SIGKILL
+                  start_time: "2024-01-01T00:00:00Z"
+                  uid: "1000"
+ttps:
+    - tactic_id: TA0040
+      tactic_name: Impact
+      technique_id: T1489
+      technique_name: Service Stop
