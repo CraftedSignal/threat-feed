@@ -1,0 +1,118 @@
+id: brief-2024-01-30-potential-video-recording
+slug: 2024-01-potential-video-recording
+title: Potential Video Recording or Screenshot Activity on Linux
+summary: This rule detects potential video recording or screenshot activity on Linux systems by monitoring process execution events associated with common screen capture tools, potentially indicating unauthorized data collection or surveillance.
+severity: medium
+published_at: "2024-01-30T12:00:00Z"
+content: |
+    ## Overview
+
+    This detection rule, originally published by Elastic, focuses on identifying potential screen capture or video recording activity on Linux systems. While the original source provides limited context, the rule's focus suggests a concern for insider threats, data exfiltration, or unauthorized surveillance within an organization. The rule aims to detect the execution of common screen capture utilities like `gnome-screenshot`, `maim`, `scrot`, and video recording tools like `ffmpeg` or `vlc` when used to record the screen. The underlying assumption is that legitimate use of these tools is rare or controlled within the target environment, and their execution could indicate malicious activity. Defenders should investigate any triggered alerts to determine the context and legitimacy of the activity.
+
+    ## Attack Chain
+
+    1.  A user (potentially an insider or an attacker with compromised credentials) gains access to a Linux system.
+    2.  The user executes a screen capture tool such as `gnome-screenshot` or `scrot`.
+    3.  The tool captures an image of the current screen.
+    4.  Alternatively, the user executes a video recording tool like `ffmpeg` to record screen activity.
+    5.  The captured screenshot or video is saved to a file on the local system.
+    6.  The attacker may rename the file to disguise its contents.
+    7.  The attacker may compress or archive the file to further obfuscate it.
+    8.  The captured data is exfiltrated from the system using methods like SCP, SFTP, or cloud storage upload, achieving data theft or espionage.
+
+    ## Impact
+
+    Successful exploitation could lead to the compromise of sensitive information displayed on the screen, including credentials, financial data, or confidential business documents. The impact ranges from minor data leakage to significant financial or reputational damage, depending on the sensitivity of the captured data. Organizations in sectors handling sensitive data, such as finance, healthcare, and government, are particularly vulnerable. A successful attack could also enable further unauthorized access or lateral movement within the network. The number of potential victims is difficult to quantify without specific campaign data, but the prevalence of Linux systems in enterprise environments suggests a broad potential impact.
+tags:
+    - screen-capture
+    - video-recording
+    - linux
+references:
+    - https://github.com/elastic/detection-rules/blob/main/rules/linux/collection_potential_video_recording_or_screenshot_activity.toml
+rules:
+    - title: Detect Screen Capture via gnome-screenshot
+      description: Detects execution of gnome-screenshot, a common screen capture utility on Linux.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            process_name: gnome-screenshot
+      level: medium
+      tags:
+        - attack.collection
+        - attack.t1113
+      tests:
+        positive:
+            - name: gnome-screenshot execution
+              data:
+                - process_name: gnome-screenshot
+                  process_path: /usr/bin/gnome-screenshot
+                  user: testuser
+        negative:
+            - name: Other gnome processes
+              data:
+                - process_name: gnome-terminal
+                  process_path: /usr/bin/gnome-terminal
+                  user: testuser
+    - title: Detect Screen Capture via scrot
+      description: Detects execution of scrot, a command-line screen capture utility on Linux.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            process_name: scrot
+      level: medium
+      tags:
+        - attack.collection
+        - attack.t1113
+      tests:
+        positive:
+            - name: scrot execution
+              data:
+                - process_name: scrot
+                  process_path: /usr/bin/scrot
+                  user: testuser
+        negative:
+            - name: Other sc programs
+              data:
+                - process_name: scp
+                  process_path: /usr/bin/scp
+                  user: testuser
+    - title: Detect Screen Recording via ffmpeg
+      description: Detects execution of ffmpeg with parameters indicative of screen recording.
+      logsource:
+        category: process_creation
+        product: linux
+      detection:
+        condition: selection
+        selection:
+            command_line|contains: :0.0
+            process_name: ffmpeg
+      level: medium
+      tags:
+        - attack.collection
+        - attack.t1113
+      tests:
+        positive:
+            - name: ffmpeg screen recording execution
+              data:
+                - command_line: ffmpeg -f x11grab -r 25 -i :0.0 -qscale 0 output.mpg
+                  process_name: ffmpeg
+                  process_path: /usr/bin/ffmpeg
+                  user: testuser
+        negative:
+            - name: ffmpeg other usage
+              data:
+                - command_line: ffmpeg -i input.mp4 -codec copy output.mp4
+                  process_name: ffmpeg
+                  process_path: /usr/bin/ffmpeg
+                  user: testuser
+ttps:
+    - tactic_id: TA0009
+      tactic_name: Collection
+      technique_id: T1113
+      technique_name: Screen Capture
