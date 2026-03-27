@@ -33,7 +33,21 @@ type BundleManifest struct {
 
 // BundleContent is the decrypted payload (matches backend BundleContent).
 type BundleContent struct {
-	Briefs []BundleBrief `json:"briefs"`
+	Briefs  []BundleBrief  `json:"briefs"`
+	Digests []BundleDigest `json:"digests,omitempty"`
+}
+
+// BundleDigest is a periodic digest (daily or weekly) summarising recent briefs.
+type BundleDigest struct {
+	ID            string `json:"id"`
+	Type          string `json:"type"`           // "daily_digest" or "weekly_digest"
+	Title         string `json:"title"`
+	Summary       string `json:"summary"`
+	Content       string `json:"content"`        // Markdown
+	Period        string `json:"period"`
+	LookbackHours int    `json:"lookback_hours"`
+	TotalBriefs   int    `json:"total_briefs"`
+	PublishedAt   string `json:"published_at"`
 }
 
 // BundleBrief matches the backend bundle format exactly.
@@ -243,6 +257,46 @@ func DeriveKey(publicKeyHex string) ([]byte, error) {
 	h.Write(pubKey)
 	h.Write([]byte("craftedsignal-threat-feed-v1"))
 	return h.Sum(nil), nil // 32 bytes = AES-256
+}
+
+// EncryptDigest encrypts a single BundleDigest into a BundleManifest using AES-256-GCM.
+func EncryptDigest(digest *BundleDigest, publishedAt, publicKeyHex string) (*BundleManifest, error) {
+	key, err := DeriveKey(publicKeyHex)
+	if err != nil {
+		return nil, err
+	}
+
+	plaintext, err := json.Marshal(digest)
+	if err != nil {
+		return nil, fmt.Errorf("marshaling digest: %w", err)
+	}
+
+	hash := sha256.Sum256(plaintext)
+	checksum := hex.EncodeToString(hash[:])
+
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		return nil, fmt.Errorf("creating cipher: %w", err)
+	}
+
+	gcm, err := cipher.NewGCM(block)
+	if err != nil {
+		return nil, fmt.Errorf("creating GCM: %w", err)
+	}
+
+	nonce := make([]byte, gcm.NonceSize())
+	if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
+		return nil, fmt.Errorf("generating nonce: %w", err)
+	}
+
+	ciphertext := gcm.Seal(nonce, nonce, plaintext, nil)
+
+	return &BundleManifest{
+		Version:     "1.0",
+		PublishedAt: publishedAt,
+		Checksum:    checksum,
+		Content:     base64.StdEncoding.EncodeToString(ciphertext),
+	}, nil
 }
 
 // Encrypt produces an encrypted BundleManifest from content using a key derived from the Ed25519 public key.
