@@ -40,10 +40,10 @@ type BundleContent struct {
 // BundleDigest is a periodic digest (daily or weekly) summarising recent briefs.
 type BundleDigest struct {
 	ID            string `json:"id"`
-	Type          string `json:"type"`           // "daily_digest" or "weekly_digest"
+	Type          string `json:"type"` // "daily_digest" or "weekly_digest"
 	Title         string `json:"title"`
 	Summary       string `json:"summary"`
-	Content       string `json:"content"`        // Markdown
+	Content       string `json:"content"` // Markdown
 	Period        string `json:"period"`
 	LookbackHours int    `json:"lookback_hours"`
 	TotalBriefs   int    `json:"total_briefs"`
