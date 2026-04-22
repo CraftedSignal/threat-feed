@@ -1,0 +1,76 @@
+name: Plaintext Brief Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'output/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'output/**'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: No Plaintext Briefs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Verify output files are encrypted
+        run: |
+          # manifest.json and changelog.json are intentionally plain JSON (index files).
+          # Every other JSON under output/ must be an encrypted BundleManifest:
+          #   { "version": "...", "published_at": "...", "checksum": "...", "content": "<base64>" }
+          # Plaintext brief fields that must never appear at the top level.
+          PLAINTEXT_FIELDS='iocs cve_refs mitre_techniques tlp_level briefs title summary period'
+
+          fail=0
+          while IFS= read -r -d '' f; do
+            # Skip known plain-JSON index files.
+            base=$(basename "$f")
+            if [ "$base" = "manifest.json" ] || [ "$base" = "changelog.json" ]; then
+              continue
+            fi
+
+            for field in $PLAINTEXT_FIELDS; do
+              if python3 -c "
+import json, sys
+try:
+    data = json.load(open('$f'))
+except Exception:
+    sys.exit(0)  # not JSON -- skip
+if '$field' in data:
+    print('FAIL: $f contains plaintext field: $field')
+    sys.exit(1)
+"; then
+                :
+              else
+                fail=1
+              fi
+            done
+
+            # Encrypted files must have a base64 'content' field.
+            python3 -c "
+import json, base64, sys
+try:
+    data = json.load(open('$f'))
+except Exception:
+    sys.exit(0)
+if 'content' not in data:
+    print('FAIL: $f is missing encrypted content field')
+    sys.exit(1)
+try:
+    base64.b64decode(data['content'], validate=True)
+except Exception:
+    print('FAIL: $f content field is not valid base64 (may be plaintext)')
+    sys.exit(1)
+" || fail=1
+
+          done < <(find output -name '*.json' -print0)
+
+          exit $fail

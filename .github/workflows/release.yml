@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'output/bundle.json'
+      - 'output/manifest.json'
   workflow_dispatch:
 
 permissions:
@@ -24,8 +24,12 @@ jobs:
           COMMIT_SHA: ${{ github.sha }}
         run: |
           TAG="v$(date -u +%Y.%m.%d)-${COMMIT_SHA:0:7}"
+          ASSETS="output/manifest.json"
+          if ls output/briefs/*.json 2>/dev/null; then
+            ASSETS="$ASSETS $(ls output/briefs/*.json)"
+          fi
           gh release create "$TAG" \
-            output/bundle.json \
+            $ASSETS \
             --title "Feed $TAG" \
             --notes "Bundle updated from commit $COMMIT_SHA" \
             --latest

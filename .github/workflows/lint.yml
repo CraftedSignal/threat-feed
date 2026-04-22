@@ -3,8 +3,12 @@ name: Lint
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'output/**'
   pull_request:
     branches: [main]
+    paths-ignore:
+      - 'output/**'
 
 permissions:
   contents: read
