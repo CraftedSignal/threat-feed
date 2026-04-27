@@ -1,43 +1,43 @@
 ---
-title: Grafana Remote Code Execution and Denial-of-Service Vulnerabilities
+title: Grafana Enterprise Plugin SQL Expression RCE via CVE-2026-27876
 slug: 2026-03-grafana-rce
-description: Critical CVE-2026-27876 allows remote code execution in Grafana instances with the sqlExpressions feature enabled, while high severity CVE-2026-27880 can trigger out-of-memory crashes via the OpenFeature endpoint, requiring immediate patching to prevent compromise and service disruption.
-date: "2026-03-30T19:10:23Z"
+description: A chained attack leveraging SQL Expressions and a Grafana Enterprise plugin, tracked as CVE-2026-27876, can lead to remote arbitrary code execution on vulnerable Grafana instances with the sqlExpressions feature enabled.
+date: "2026-03-27T15:16:50Z"
 severities:
   - critical
 tags:
   - grafana
   - rce
-  - dos
-  - vulnerability
+  - sqlexpression
 mitre_ttps:
-  - tactic_id: TA0006
+  - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-  - tactic_id: TA0040
-    tactic_name: Impact
-    technique_id: T1499.004
-    technique_name: Endpoint Denial of Service
+    technique_id: T1202
+    technique_name: Indirect Command Execution
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1505
+    technique_name: Server-Side Component
 references:
-  - https://ccb.belgium.be/advisories/warning-remote-code-execution-injection-vulnerabilities-grafana-patch-immediately
-  - https://grafana.com/blog/grafana-security-release-critical-and-high-severity-security-fixes-for-cve-2026-27876-and-cve-2026-27880/
-  - https://grafana.com/security/security-advisories/cve-2026-27876/
-  - https://grafana.com/security/security-advisories/cve-2026-27880/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-27876
+  - https://grafana.com/security/security-advisories/cve-2026-27876
+ioc_counts:
+  email: 1
+  url: 1
 rules:
-  - title: Detect Grafana OpenFeature Endpoint DoS Attempt
-    description: Detects potential attempts to exploit CVE-2026-27880 by monitoring requests to the OpenFeature feature-toggle evaluation endpoint with unusually large request bodies.
+  - title: Detect Suspicious Grafana SQL Expression Usage
+    description: Detects potential exploitation attempts leveraging SQL Expressions in Grafana by identifying unusual SQL queries within Grafana logs.
     platform: sigma
     severity: high
     tactics:
-      - availability
+      - execution
     techniques:
-      - T1499.004
+      - T1202
     data_sources:
       - webserver
       - linux
-  - title: Detect Grafana SQL Expression Injection Attempt
-    description: Detects suspicious POST requests indicative of SQL injection attempts in Grafana by monitoring for SQL keywords in the query parameters of API endpoints related to SQL Expressions.
+  - title: Detect Grafana Enterprise Plugin SQL Injection Attempts
+    description: Detects potential SQL injection attempts targeting Grafana Enterprise plugins by monitoring for suspicious SQL syntax in HTTP requests.
     platform: sigma
     severity: critical
     tactics:
@@ -50,4 +50,4 @@ rules:
 rules_count: 2
 ---
 
-A critical security vulnerability, CVE-2026-27876, has been identified in Grafana, a widely-used monitoring and observability platform. This vulnerability allows for remote arbitrary code execution when chained with SQL Expressions and a Grafana Enterprise plugin. The vulnerability affects instances where the sqlExpressions feature toggle is enabled, and has a CVSS score of 9.1. A separate, high severity vulnerability, CVE-2026-27880, exists in Grafana's OpenFeature feature-toggle evaluation…
+CVE-2026-27876 describes a critical vulnerability in Grafana that allows for remote arbitrary code execution (RCE). The vulnerability stems from a chained attack involving SQL Expressions and a Grafana Enterprise plugin. Successful exploitation requires the `sqlExpressions` feature toggle to be enabled on the Grafana instance. Grafana Labs strongly recommends that all users update their Grafana instances to the latest version to mitigate the risk of exploitation, even if the `sqlExpressions`…
