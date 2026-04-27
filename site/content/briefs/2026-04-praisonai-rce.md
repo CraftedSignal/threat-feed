@@ -1,51 +1,56 @@
 ---
-title: PraisonAI Subprocess Sandbox Escape Vulnerability (CVE-2026-34955)
+title: PraisonAI Unsanitized CLI Argument Leads to OS Command Injection (CVE-2026-34935)
 slug: 2026-04-praisonai-rce
-description: PraisonAI versions prior to 4.5.97 are vulnerable to OS Command Injection (CVE-2026-34955) due to insufficient input validation in the SubprocessSandbox, allowing for trivial sandbox escapes.
-date: "2026-04-04T00:16:19Z"
+description: PraisonAI versions 4.5.15 to before 4.5.69 are vulnerable to OS Command Injection via the --mcp CLI argument, which is passed unsanitized to shlex.split() and anyio.open_process(), allowing arbitrary OS command execution as the process user; version 4.5.69 addresses this vulnerability.
+date: "2026-04-03T23:17:05Z"
 severities:
   - critical
 tags:
-  - cve
+  - cve-2026-34935
+  - os command injection
   - rce
-  - sandbox-escape
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1569
-    technique_name: System Services
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1213
+    technique_name: Data from Information Repositories
 cves:
-  - id: CVE-2026-34955
-    cvss: 8.8
+  - id: CVE-2026-34935
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-34955
-  - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-r4f2-3m54-pp7q
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-34935
+  - https://github.com/MervinPraison/PraisonAI/commit/47bff65413beaa3c21bf633c1fae4e684348368c
+  - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-9gm9-c8mq-vq7m
 rules:
-  - title: Detect PraisonAI Sandbox Escape via sh or bash
-    description: Detects attempts to escape the PraisonAI SubprocessSandbox by executing commands through `sh` or `bash`.
+  - title: Detect PraisonAI OS Command Injection Attempt via --mcp Argument
+    description: Detects attempts to exploit the PraisonAI OS command injection vulnerability (CVE-2026-34935) by monitoring for suspicious command-line arguments passed to the PraisonAI process.
     platform: sigma
     severity: critical
     tactics:
-      - defense_evasion
       - execution
     techniques:
-      - T1569.002
+      - T1059.004
+      - T1213
     data_sources:
       - process_creation
       - linux
-  - title: Detect PraisonAI Process Spawning Shell
-    description: Detects PraisonAI processes spawning a shell, which may indicate a sandbox escape attempt.
+  - title: Detect PraisonAI Child Processes
+    description: Detect unusual child processes spawned by PraisonAI, indicative of command injection.
     platform: sigma
     severity: high
     tactics:
-      - defense_evasion
       - execution
     techniques:
-      - T1569.002
+      - T1059.004
+      - T1213
     data_sources:
       - process_creation
       - linux
 rules_count: 2
 ---
 
-PraisonAI, a multi-agent teams system, contains a critical vulnerability (CVE-2026-34955) in versions prior to 4.5.97. The vulnerability lies within the SubprocessSandbox, which is responsible for executing subprocesses in a controlled environment. The SubprocessSandbox, regardless of its configured mode (BASIC, STRICT, NETWORK_ISOLATED), uses `subprocess.run()` with `shell=True`. This approach, coupled with a reliance on simple string-pattern matching for command blocking, creates an…
+PraisonAI, a multi-agent teams system, is susceptible to an OS command injection vulnerability (CVE-2026-34935) affecting versions 4.5.15 to before 4.5.69. The vulnerability stems from the `--mcp` CLI argument being passed directly to `shlex.split()` and subsequently to `anyio.open_process()` without any form of validation, allowlisting, or sanitization. This lack of input sanitization enables an attacker to inject and execute arbitrary operating system commands as the user running the…
