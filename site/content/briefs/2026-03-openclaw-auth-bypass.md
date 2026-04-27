@@ -1,56 +1,47 @@
 ---
-title: OpenClaw Authorization Bypass Vulnerability (CVE-2026-32916)
+title: OpenClaw Feishu Webhook Authentication Bypass (CVE-2026-32974)
 slug: 2026-03-openclaw-auth-bypass
-description: OpenClaw versions 2026.3.7 before 2026.3.11 contain an authorization bypass vulnerability allowing unauthenticated remote requests to execute privileged gateway actions via plugin subagent routes.
-date: "2026-03-31T12:16:28Z"
+description: OpenClaw before 2026.3.12 is vulnerable to an authentication bypass in Feishu webhook mode when only verificationToken is configured without encryptKey, allowing unauthenticated network attackers to inject forged Feishu events and trigger downstream tool execution.
+date: "2026-03-29T13:17:01Z"
 severities:
-  - critical
+  - high
 tags:
-  - authorization-bypass
-  - cve-2026-32916
-  - openclaw
+  - authentication-bypass
+  - webhook
+  - cve-2026-32974
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0008
-    tactic_name: Impact
-    technique_id: T1489
-    technique_name: Service Denial
-cves:
-  - id: CVE-2026-32916
-    cvss: 7.7
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-32916
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-xw77-45gv-p728
-  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-in-plugin-subagent-routes-via-synthetic-admin-scopes
-ioc_counts:
-  email: 1
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-32974
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-g353-mgv3-8pcj
+  - https://www.vulncheck.com/advisories/openclaw-forged-event-injection-via-feishu-webhook-verification-token
 rules:
-  - title: Detect OpenClaw Runtime Subagent Invocation
-    description: Detects attempts to invoke the runtime.subagent method in OpenClaw, potentially indicating exploitation of CVE-2026-32916.
-    platform: sigma
-    severity: critical
-    tactics:
-      - privilege_escalation
-    techniques:
-      - T1068
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect OpenClaw Session Deletion Attempt
-    description: Detects attempts to delete sessions in OpenClaw, a possible action performed after exploiting CVE-2026-32916.
+  - title: Detect Forged Feishu Webhook Events
+    description: Detects suspicious POST requests to the Feishu webhook endpoint indicative of CVE-2026-32974 exploitation.
     platform: sigma
     severity: high
     tactics:
-      - impact
+      - initial_access
     techniques:
-      - T1489
+      - T1190
     data_sources:
       - webserver
+      - linux
+  - title: Detect Suspicious Processes Spawned by OpenClaw
+    description: Detects unusual child processes spawned by the OpenClaw process, potentially triggered by forged events.
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+    techniques:
+      - T1059.004
+    data_sources:
+      - process_creation
       - linux
 rules_count: 2
 ---
 
-OpenClaw versions 2026.3.7 through 2026.3.10 are susceptible to an authorization bypass vulnerability (CVE-2026-32916). This flaw stems from plugin subagent routes executing gateway methods through a synthetic operator client that possesses overly broad administrative scopes. An attacker can leverage this vulnerability by sending unauthenticated remote requests to plugin-owned routes. These requests can then invoke the `runtime.subagent` method, leading to the execution of privileged gateway…
+OpenClaw before version 2026.3.12 is susceptible to an authentication bypass vulnerability (CVE-2026-32974) affecting Feishu webhook integrations. This vulnerability arises when the `verificationToken` is configured without the `encryptKey`. This configuration flaw enables unauthenticated attackers to forge Feishu events and send them to the webhook endpoint. Successful exploitation allows attackers to trigger arbitrary downstream tool execution within the OpenClaw environment. This is a…
