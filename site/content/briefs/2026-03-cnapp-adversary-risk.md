@@ -1,52 +1,55 @@
 ---
-title: CrowdStrike CNAPP Enhanced with Adversary-Informed Risk Prioritization
+title: CrowdStrike Falcon Cloud Security CNAPP with Adversary-Informed Risk Prioritization
 slug: 2026-03-cnapp-adversary-risk
-description: CrowdStrike enhances its CNAPP by incorporating adversary-informed risk prioritization, including application-layer analysis and correlation of cloud risks with threat actor profiles like LABYRINTH CHOLLIMA and SCATTERED SPIDER, to enable better risk understanding and remediation.
-date: "2026-03-30T06:24:43Z"
+description: CrowdStrike Falcon Cloud Security enhances CNAPP capabilities with application-layer visibility and adversary-informed risk prioritization, enabling security teams to focus on attacker-aligned risks and known threat actors.
+date: "2026-03-28T09:35:23Z"
 severities:
   - medium
 actors:
   - LABYRINTH CHOLLIMA, SCATTERED SPIDER
 tags:
   - cloud-security
-  - cnapp
+  - cnaap
   - risk-prioritization
-  - threat-intelligence
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+    technique_name: Exploit Public Fasing Application
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1556
     technique_name: Modify Authentication Process
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 references:
   - https://www.crowdstrike.com/en-us/blog/crowdstrike-advances-cnapp-with-industry-first-adversary-informed-risk-prioritization/
 rules:
-  - title: Detect Cloud Resource Access by Uncommon Process
-    description: Detects processes not normally associated with cloud resource access attempting to connect to cloud storage or compute services, indicating potential lateral movement or privilege escalation
+  - title: Detect Potential Cloud Account Compromise via Unusual Region
+    description: Detects cloud account activity originating from a geographic region that is not typical for the user, potentially indicating account compromise.
     platform: sigma
     severity: medium
     tactics:
-      - lateral_movement
+      - initial_access
     techniques:
-      - T1021.007
+      - T1078
     data_sources:
-      - network_connection
-      - windows|linux|macos
-  - title: Detect Cloud Instance Metadata API Access Attempt
-    description: Detects attempts to access cloud instance metadata API from outside the instance, which could indicate credential harvesting or lateral movement.
+      - cloudtrail
+      - aws
+  - title: Detect Cloud Resource with Overly Permissive Access
+    description: Detects cloud storage resources with overly permissive access, potentially indicating a misconfiguration that could lead to data exposure.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - credential_access
     techniques:
-      - T1552.005
+      - T1530
     data_sources:
-      - network_connection
-      - windows|linux|macos
+      - cloudtrail
+      - aws
 rules_count: 2
 ---
 
-CrowdStrike has announced advancements to its Cloud-Native Application Protection Platform (CNAPP) with the introduction of adversary-informed risk prioritization. This enhancement addresses limitations in current CNAPP solutions, which often lack visibility into business applications, ignore adversary behavior, and result in endless triage. The new capabilities in CrowdStrike Falcon Cloud Security include Application Explorer, which unifies application-layer visibility with cloud…
+CrowdStrike has enhanced its Falcon Cloud Security CNAPP (Cloud-Native Application Protection Platform) with new features aimed at improving risk assessment and prioritization. These advancements address limitations in current CNAPP solutions, which often lack visibility into business applications, ignore adversary behavior, and result in endless triage. The new capabilities provide security teams with the context needed to understand cloud risk, prioritize remediation, and accelerate response…
