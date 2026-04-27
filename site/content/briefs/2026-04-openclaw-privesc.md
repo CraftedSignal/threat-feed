@@ -1,44 +1,59 @@
 ---
-title: OpenClaw Privilege Escalation via Backend Reconnect
+title: OpenClaw Privilege Escalation via Telegram Configuration and Cron Persistence Settings
 slug: 2026-04-openclaw-privesc
-description: A critical privilege escalation vulnerability in OpenClaw allows non-admin operators to self-claim admin privileges by exploiting a flaw in gateway backend reconnect handling.
-date: "2026-03-27T22:48:49Z"
+description: OpenClaw before 2026.3.28 contains a privilege escalation vulnerability that allows authenticated operators with write permissions to access and modify admin-class Telegram configuration and cron persistence settings via the send endpoint.
+date: "2026-04-24T12:00:00Z"
 severities:
-  - critical
+  - high
 tags:
   - privilege-escalation
-  - openclaw
+  - persistence
+  - cve-2026-41359
+vendors:
+  - OpenClaw
+products:
+  - OpenClaw
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1053.003
+    technique_name: 'Scheduled Task/Job: Cron'
+cves:
+  - id: CVE-2026-41359
+    cvss: 7.1
 references:
-  - https://github.com/advisories/GHSA-9hjh-fr4f-gxc4
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41359
+  - https://github.com/openclaw/openclaw/commit/b7d70ade3b9900dbe97bd73be9c02e924ff3c986
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-767m-xrhc-fxm7
+  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-operator-write-to-admin-class-telegram-config-and-cron-persistence
 rules:
-  - title: Detect OpenClaw Backend Reconnect Requesting Admin Scope
-    description: Detects attempts to reconnect to OpenClaw backend requesting operator.admin scope which is indicative of potential privilege escalation attempt in vulnerable versions.
-    platform: sigma
-    severity: critical
-    tactics:
-      - privilege_escalation
-    techniques:
-      - T1068
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect OpenClaw Elevated Privileges Granted to Backend
-    description: Detects events where a backend is granted elevated privileges in OpenClaw, which could be a sign of successful exploitation of the privilege escalation vulnerability.
+  - title: Detect OpenClaw Cron Persistence Modification
+    description: Detects unauthorized modification of cron jobs, potentially indicating privilege escalation via CVE-2026-41359.
     platform: sigma
     severity: high
     tactics:
+      - persistence
       - privilege_escalation
     techniques:
-      - T1068
+      - T1053.003
     data_sources:
-      - webserver
+      - file_event
+      - linux
+  - title: Detect OpenClaw Telegram Configuration Modification
+    description: Detects unauthorized modification of telegram configuration, potentially indicating privilege escalation via CVE-2026-41359.
+    platform: sigma
+    severity: high
+    tactics:
+      - persistence
+      - privilege_escalation
+    data_sources:
+      - file_event
       - linux
 rules_count: 2
 ---
 
-OpenClaw versions 2026.3.24 and earlier contain a critical vulnerability that allows a non-admin operator to escalate their privileges to that of an administrator. This is achieved through a flaw in the gateway backend reconnect process, where backend-labeled reconnects can self-request broader scopes, specifically `operator.admin`, effectively bypassing the intended pairing mechanism. This allows an attacker with limited operator privileges to gain full administrative control over the OpenClaw…
+OpenClaw, in versions prior to 2026.3.28, is vulnerable to a privilege escalation. An authenticated operator with `operator.write` credentials can leverage this vulnerability to access sensitive administrative functions. Specifically, the flaw resides in the `send` endpoint where insufficient access controls allow unauthorized modification of Telegram configurations and cron persistence settings, which are typically restricted to admin-level users. Successful exploitation allows an attacker to…
