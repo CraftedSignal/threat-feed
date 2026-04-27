@@ -1,45 +1,32 @@
 ---
-title: CrowdStrike Enhancements to Secure AI Agents and Govern Shadow AI
+title: CrowdStrike Falcon Enhancements for Securing AI Agents and Shadow AI
 slug: 2026-03-crowdstrike-ai-security
-description: CrowdStrike is releasing new capabilities to extend AI detection and response (AIDR) across endpoints, SaaS, and cloud environments to address the growing attack surface presented by AI agents and shadow AI adoption, including techniques like 'Living Off The AI Land' (LOTAIL).
-date: "2026-03-23T09:00:00Z"
+description: CrowdStrike is enhancing its Falcon platform with new AI Detection and Response (AIDR) capabilities to secure AI agent adoption and development across endpoints, SaaS, and cloud environments, addressing threats like prompt injection, data leaks, and policy violations.
+date: "2026-03-23T07:11:28Z"
 severities:
   - medium
 tags:
   - AI-security
-  - shadow-ai
-  - LOTAIL
+  - shadow-AI
+  - endpoint-security
+  - saas-security
+  - cloud-security
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1082
     technique_name: System Information Discovery
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1199
-    technique_name: Trusted Relationship
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1189
-    technique_name: Drive-by Compromise
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1041
+    technique_name: Exfiltration Over C2 Channel
 references:
   - https://www.crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/
 rules:
-  - title: Detect Suspicious AI Application Process Creation
-    description: Detects the creation of processes associated with AI applications like ChatGPT, Gemini, and Microsoft Copilot, which could indicate malicious activity or unauthorized usage.
+  - title: Detect Suspicious AI Application Usage
+    description: Detects the execution of AI-related applications on endpoints, potentially indicating unauthorized usage or shadow AI.
     platform: sigma
     severity: medium
-    tactics:
-      - defense_evasion
-    techniques:
-      - T1199
-    data_sources:
-      - process_creation
-      - windows
-  - title: Detect AI Agent Discovery Activity
-    description: Detects potential AI agent discovery attempts based on command-line arguments
-    platform: sigma
-    severity: low
     tactics:
       - discovery
     techniques:
@@ -47,7 +34,18 @@ rules:
     data_sources:
       - process_creation
       - windows
+  - title: Detect Network Connection from AI Related Processes
+    description: Detects network connections from AI related processes which may indicate data exfiltration.
+    platform: sigma
+    severity: medium
+    tactics:
+      - exfiltration
+    techniques:
+      - T1041
+    data_sources:
+      - network_connection
+      - windows
 rules_count: 2
 ---
 
-CrowdStrike is enhancing its Falcon platform to address the emerging threats associated with the increasing adoption of AI agents and shadow AI within organizations. This update focuses on securing AI workforce adoption and development across endpoints, SaaS environments, and cloud infrastructures. With the rise of personal AI agents, a new attack surface is created, leading to techniques like "Living Off The AI Land" (LOTAIL), where adversaries exploit AI agents for malicious purposes. The…
+CrowdStrike is introducing new capabilities within its Falcon platform to address the emerging security challenges presented by the increasing adoption of AI tools and agents within organizations. The focus is on mitigating risks associated with "shadow AI" (AI tools used without proper oversight) and securing AI agents against novel threats like indirect prompt injection and agentic tool chain attacks. These enhancements aim to provide visibility, governance, and runtime protection for AI…
