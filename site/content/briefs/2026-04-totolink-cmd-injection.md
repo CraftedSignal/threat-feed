@@ -1,14 +1,14 @@
 ---
-title: Totolink A7100RU OS Command Injection Vulnerability (CVE-2026-6115)
+title: Totolink A7100RU OS Command Injection Vulnerability (CVE-2026-5851)
 slug: 2026-04-totolink-cmd-injection
-description: A remote attacker can exploit CVE-2026-6115 in Totolink A7100RU version 7.4cu.2313_b20191024 to inject OS commands by manipulating the 'enable' argument of the setAppCfg function in /cgi-bin/cstecgi.cgi, potentially leading to full system compromise.
-date: "2026-04-12T05:16:00Z"
+description: A remote command injection vulnerability (CVE-2026-5851) exists in the Totolink A7100RU router version 7.4cu.2313_b20191024 via manipulation of the 'enable' argument in the setUPnPCfg function within the /cgi-bin/cstecgi.cgi CGI handler, potentially leading to arbitrary code execution.
+date: "2026-04-09T06:16:23Z"
 severities:
   - critical
 tags:
-  - cve-2026-6115
+  - cve-2026-5851
+  - command-injection
   - totolink
-  - command injection
   - router
 mitre_ttps:
   - tactic_id: TA0002
@@ -16,16 +16,19 @@ mitre_ttps:
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-6115
+  - id: CVE-2026-5851
     cvss: 9.8
     epss: 0.01254
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-6115
-  - https://github.com/Litengzheng/vuldb_new/blob/main/A7100RU/vul_180/README.md
-  - https://vuldb.com/vuln/356975
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-5851
+  - https://github.com/Litengzheng/vuldb_new/blob/main/A7100RU/vul_157/README.md
+  - https://vuldb.com/submit/791271
+  - https://vuldb.com/vuln/356377
+  - https://vuldb.com/vuln/356377/cti
+  - https://www.totolink.net/
 rules:
-  - title: Detect OS Command Injection Attempt via cstecgi.cgi
-    description: Detects potential OS command injection attempts targeting the cstecgi.cgi endpoint by looking for shell command syntax.
+  - title: Detect Suspicious Totolink CGI Requests
+    description: Detects requests to the cstecgi.cgi endpoint with suspicious parameters indicative of command injection attempts targeting CVE-2026-5851
     platform: sigma
     severity: critical
     tactics:
@@ -35,16 +38,18 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect cstecgi.cgi access with suspicious User-Agent
-    description: Detects access to cstecgi.cgi with unusual User-Agent strings, potentially indicating automated exploitation attempts.
+  - title: Detect Totolink Reboot Command
+    description: Detects reboot commands executed by the webserver, potentially indicating exploitation of CVE-2026-5851
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - initial_access
+      - execution
+    techniques:
+      - T1059.004
     data_sources:
-      - webserver
+      - process_creation
       - linux
 rules_count: 2
 ---
 
-CVE-2026-6115 is a critical OS command injection vulnerability affecting Totolink A7100RU routers running firmware version 7.4cu.2313_b20191024. The vulnerability resides in the `setAppCfg` function within the `/cgi-bin/cstecgi.cgi` CGI handler. An unauthenticated, remote attacker can exploit this vulnerability by crafting a malicious request that injects OS commands into the `enable` argument. This allows the attacker to execute arbitrary commands on the underlying operating system of the…
+A critical security vulnerability, CVE-2026-5851, has been identified in the Totolink A7100RU router, specifically version 7.4cu.2313_b20191024. This flaw resides within the CGI handler component, affecting the `setUPnPCfg` function within the `/cgi-bin/cstecgi.cgi` file. The vulnerability allows for OS command injection through manipulation of the `enable` argument. Given that the exploit has been publicly released, it poses a significant risk to unpatched devices, potentially leading to…
