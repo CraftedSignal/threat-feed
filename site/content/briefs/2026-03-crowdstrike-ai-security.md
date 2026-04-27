@@ -1,51 +1,53 @@
 ---
-title: CrowdStrike Falcon Enhancements for Securing AI Agents and Shadow AI
+title: CrowdStrike Falcon Enhancements for Securing AI Environments
 slug: 2026-03-crowdstrike-ai-security
-description: CrowdStrike is enhancing its Falcon platform with new AI Detection and Response (AIDR) capabilities to secure AI agent adoption and development across endpoints, SaaS, and cloud environments, addressing threats like prompt injection, data leaks, and policy violations.
-date: "2026-03-23T07:11:28Z"
+description: CrowdStrike is enhancing its Falcon platform with new features focusing on AI Detection and Response (AIDR) capabilities across endpoints, SaaS, and cloud environments to mitigate risks such as prompt injection attacks, data leaks, and policy violations related to AI agents and shadow AI.
+date: "2026-03-28T09:35:50Z"
 severities:
   - medium
 tags:
-  - AI-security
-  - shadow-AI
-  - endpoint-security
-  - saas-security
-  - cloud-security
+  - ai
+  - security
+  - falcon
+  - agentic-soc
+  - prompt-injection
 mitre_ttps:
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1082
-    technique_name: System Information Discovery
-  - tactic_id: TA0010
-    tactic_name: Exfiltration
-    technique_id: T1041
-    technique_name: Exfiltration Over C2 Channel
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1202
+    technique_name: Exploitation for Defense Evasion
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public Fasing Application
 references:
-  - https://www.crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/
+  - https://crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/
 rules:
-  - title: Detect Suspicious AI Application Usage
-    description: Detects the execution of AI-related applications on endpoints, potentially indicating unauthorized usage or shadow AI.
+  - title: Detect Suspicious Execution from AI Desktop Applications
+    description: Detects suspicious execution of commands or scripts initiated from known AI desktop applications such as ChatGPT, Gemini, or Microsoft Copilot, which could indicate prompt injection or other malicious activity.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - discovery
+      - defense_evasion
+      - execution
     techniques:
-      - T1082
+      - T1059.001
     data_sources:
       - process_creation
       - windows
-  - title: Detect Network Connection from AI Related Processes
-    description: Detects network connections from AI related processes which may indicate data exfiltration.
+  - title: Detect AI related processes
+    description: Detects execution of AI related processes such as MCP Servers
     platform: sigma
     severity: medium
     tactics:
-      - exfiltration
+      - defense_evasion
+      - execution
     techniques:
-      - T1041
+      - T1059.001
     data_sources:
-      - network_connection
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-CrowdStrike is introducing new capabilities within its Falcon platform to address the emerging security challenges presented by the increasing adoption of AI tools and agents within organizations. The focus is on mitigating risks associated with "shadow AI" (AI tools used without proper oversight) and securing AI agents against novel threats like indirect prompt injection and agentic tool chain attacks. These enhancements aim to provide visibility, governance, and runtime protection for AI…
+CrowdStrike is addressing the emerging threats associated with the rapid adoption of AI tools and AI-powered software by enhancing its Falcon platform. These enhancements focus on providing AI Detection and Response (AIDR) capabilities across endpoints, SaaS environments, and cloud environments. The core issue being addressed is the increasing attack surface created by novel threats, such as indirect prompt injection and agentic tool chain attacks, alongside the widespread adoption of shadow…
