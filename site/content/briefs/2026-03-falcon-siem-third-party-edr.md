@@ -1,51 +1,40 @@
 ---
-title: CrowdStrike Falcon Next-Gen SIEM Integrates with Third-Party EDR Solutions
+title: CrowdStrike Falcon Next-Gen SIEM Supports Third-Party EDR Tools
 slug: 2026-03-falcon-siem-third-party-edr
-description: CrowdStrike is expanding Falcon Next-Gen SIEM to support third-party EDR solutions like Microsoft Defender, enabling organizations to modernize their SOC operations by unifying detection, investigation, and response across heterogeneous environments.
-date: "2026-03-29T06:58:32Z"
+description: CrowdStrike Falcon Next-Gen SIEM is expanding to support third-party EDR solutions, starting with Microsoft Defender, enabling organizations to extend their AI-native SOC across their ecosystem by unifying detection, investigation, and response.
+date: "2026-03-28T09:13:21Z"
 severities:
   - medium
 tags:
   - SIEM
   - EDR
-  - threat-intelligence
-mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1016
-    technique_name: System Network Configuration Discovery
+  - Microsoft Defender
 references:
   - https://www.crowdstrike.com/en-us/blog/falcon-next-gen-siem-supports-third-party-edr-tools-starting-with-microsoft-defender/
 rules:
-  - title: Detect PowerShell Use with Encoded Command and Network Connection
-    description: Detects PowerShell usage with encoded commands and a subsequent network connection, which is often indicative of malicious activity.
+  - title: Detecting ExtraHop Data Source
+    description: Detects the presence of ExtraHop as a data source within a SIEM environment, which can be indicative of advanced network monitoring and potential threat hunting activities.
     platform: sigma
-    severity: high
+    severity: informational
     tactics:
-      - command_and_control
-      - execution
+      - discovery
     techniques:
-      - T1059.001
-      - T1071.001
+      - T1592
     data_sources:
-      - process_creation
-      - windows
-  - title: Detect Suspicious Scheduled Task Creation
-    description: Detects the creation of scheduled tasks by unusual processes, potentially indicating persistence mechanisms.
+      - webserver
+      - linux
+  - title: Detecting Amazon S3 Athena Data Source
+    description: Detects the presence of Amazon S3 Athena as a data source within a SIEM environment, which can be indicative of cloud log analysis.
     platform: sigma
-    severity: medium
+    severity: informational
     tactics:
-      - persistence
+      - discovery
     techniques:
-      - T1053.005
+      - T1592
     data_sources:
-      - process_creation
-      - windows
+      - webserver
+      - linux
 rules_count: 2
 ---
 
-CrowdStrike is enhancing its Falcon Next-Gen SIEM to incorporate support for third-party Endpoint Detection and Response (EDR) solutions, initially focusing on Microsoft Defender. This integration aims to streamline Security Operations Center (SOC) workflows by providing a unified platform for detection, investigation, and response across diverse environments. The goal is to reduce the reliance on fragmented systems, which often leads to slower detection and delayed response times. The new…
+On March 23, 2026, CrowdStrike announced that its Falcon Next-Gen SIEM will support third-party EDR solutions, starting with Microsoft Defender. This enhancement allows organizations to modernize their SOC without replacing existing endpoint agents. The integration aims to address the challenges posed by adversaries exploiting cross-domain gaps across endpoint, identity, network, and cloud environments. Legacy SIEMs often impose a "data tax" for full ingestion, while siloed tools create blind…
