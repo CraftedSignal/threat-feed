@@ -1,42 +1,45 @@
 ---
-title: Adobe Acrobat Reader Prototype Pollution Vulnerability (CVE-2026-34622)
+title: Adobe Acrobat Reader Prototype Pollution Vulnerability (CVE-2026-34621)
 slug: 2026-04-acrobat-prototype-pollution
-description: A prototype pollution vulnerability in Adobe Acrobat Reader versions 26.001.21411, 24.001.30360, 24.001.30362 and earlier (CVE-2026-34622) allows for arbitrary code execution when a user opens a specially crafted malicious file.
-date: "2026-04-15T12:00:00Z"
+description: A prototype pollution vulnerability, identified as CVE-2026-34621, exists in Adobe Acrobat Reader versions 24.001.30356, 26.001.21367 and earlier, potentially leading to arbitrary code execution when a user opens a malicious file.
+date: "2026-04-11T07:17:00Z"
 severities:
-  - high
+  - critical
 tags:
-  - cve-2026-34622
-  - adobe-acrobat
-  - prototype-pollution
-  - code-execution
+  - cve-2026-34621
+  - acrobat reader
+  - prototype pollution
+  - arbitrary code execution
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1204
     technique_name: User Execution
 cves:
-  - id: CVE-2026-34622
-    cvss: 8.6
+  - id: CVE-2026-34621
+    cvss: 9.6
+    epss: 0.07596
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-34622
-  - https://helpx.adobe.com/security/products/acrobat/apsb26-44.html
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-34621
+  - https://helpx.adobe.com/security/products/acrobat/apsb26-43.html
+ioc_counts:
+  email: 1
 rules:
-  - title: AcrobatReaderSuspiciousFileOpen
-    description: Detects suspicious file opens in Acrobat Reader that could be indicative of exploit attempts.
+  - title: Detect Acrobat Reader Suspicious Child Process
+    description: Detects suspicious child processes spawned by Adobe Acrobat Reader, potentially indicating exploitation.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - execution
     techniques:
-      - T1204.002
+      - T1566.001
     data_sources:
       - process_creation
       - windows
-  - title: AcrobatReaderOutboundConnection
-    description: Detects suspicious outbound network connections from Acrobat Reader, potentially indicating exploitation.
+  - title: Detect Acrobat Reader Network Connection to Non-Standard Ports
+    description: Detects suspicious network connections initiated by Adobe Acrobat Reader to non-standard ports.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
       - command_and_control
     techniques:
@@ -47,4 +50,4 @@ rules:
 rules_count: 2
 ---
 
-On April 14, 2026, CVE-2026-34622 was published, detailing a prototype pollution vulnerability affecting Adobe Acrobat Reader. The vulnerability impacts versions 26.001.21411, 24.001.30360, 24.001.30362 and earlier. Successful exploitation of this vulnerability could allow an attacker to execute arbitrary code in the context of the current user. The attack requires user interaction, specifically the opening of a malicious PDF file within the vulnerable Acrobat Reader application. This can lead…
+CVE-2026-34621 describes a critical vulnerability affecting Adobe Acrobat Reader versions 24.001.30356, 26.001.21367, and earlier. This vulnerability is classified as an Improperly Controlled Modification of Object Prototype Attributes, also known as 'Prototype Pollution'. The vulnerability's exploitation could lead to arbitrary code execution within the context of the current user. The attack requires user interaction, specifically the opening of a specially crafted malicious file by the…
