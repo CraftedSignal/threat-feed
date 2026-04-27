@@ -1,0 +1,29 @@
+{
+  "name": "craftedsignal-threat-feed-site",
+  "version": "1.0.0",
+  "description": "Public threat feed site for CraftedSignal - Hugo + Tailwind CSS",
+  "type": "module",
+  "scripts": {
+    "dev": "hugo server --buildDrafts --buildFuture",
+    "build": "hugo --minify && pagefind --site public",
+    "clean": "rm -rf public resources"
+  },
+  "keywords": [
+    "hugo",
+    "tailwindcss",
+    "threat-intelligence",
+    "detection-engineering"
+  ],
+  "author": "CraftedSignal",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/space-grotesk": "^5.2.10",
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.20",
+    "pagefind": "^1.4.0",
+    "postcss": "^8.5.12",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.19"
+  }
+}

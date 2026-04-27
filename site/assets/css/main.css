@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------- */
+/* Theme tokens. Exposed as CSS variables so Tailwind utilities (rgb(var))
+   resolve based on the active theme. Light is default; .dark on <html>
+   switches to the dark palette. */
+/* ---------------------------------------------------------------------- */
+
+:root {
+  /* Light theme — calm, professional, high contrast for long reading sessions. */
+  --color-base:     247 249 252;   /* #f7f9fc page background */
+  --color-panel:    255 255 255;   /* card/panel surface */
+  --color-panel-2:  241 245 249;   /* subtle alt panel */
+  --color-stroke:   209 218 232;   /* hairlines / borders */
+  --color-accent:    37  99 235;   /* #2563eb primary blue */
+  --color-accent2:   13 148 136;   /* teal */
+  --color-muted:     71  85 105;   /* secondary text */
+  --color-text:      15  23  42;   /* primary text */
+
+  /* Severity scale — tuned for light backgrounds */
+  --color-sev-critical: 220  38  38;  /* red-600 */
+  --color-sev-high:     234  88  12;  /* orange-600 */
+  --color-sev-medium:   202 138   4;  /* yellow-600 */
+  --color-sev-low:       22 163  74;  /* green-600 */
+  --color-sev-rumour:   100 116 139;  /* slate-500 — unconfirmed/low-confidence */
+
+  --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.06);
+  color-scheme: light;
+}
+
+.dark {
+  /* Dark theme — mirrors craftedsignal.io palette. */
+  --color-base:       7  11  18;    /* #070b12 */
+  --color-panel:     14  20  33;    /* #0e1421 */
+  --color-panel-2:   18  26  43;
+  --color-stroke:    38  50  72;
+  --color-accent:    61 142 212;    /* #3d8ed4 */
+  --color-accent2:  126 208 192;    /* #7ed0c0 */
+  --color-muted:    155 170 192;
+  --color-text:     228 234 245;
+
+  /* Severity — slightly brighter on dark */
+  --color-sev-critical: 248 113 113;  /* red-400 */
+  --color-sev-high:     251 146  60;  /* orange-400 */
+  --color-sev-medium:   250 204  21;  /* yellow-400 */
+  --color-sev-low:       74 222 128;  /* green-400 */
+  --color-sev-rumour:   148 163 184;  /* slate-400 — unconfirmed/low-confidence */
+
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.28);
+  color-scheme: dark;
+}
+
+/* Pre-paint: the inline script in <head> sets data-theme-loaded on <html>
+   before the first paint. We only enable transitions afterwards so the
+   initial render doesn't flash. */
+html[data-theme-loaded] body,
+html[data-theme-loaded] *::before,
+html[data-theme-loaded] *::after {
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Fonts */
+/* ---------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter-latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-latin-700-normal.woff2') format('woff2');
+}
+
+/* ---------------------------------------------------------------------- */
+/* Base */
+/* ---------------------------------------------------------------------- */
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: rgb(var(--color-base));
+  color: rgb(var(--color-text));
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(61, 142, 212, 0.05), transparent 25%),
+    radial-gradient(circle at 80% 10%, rgba(126, 208, 192, 0.05), transparent 22%);
+}
+
+.dark body {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(90, 176, 255, 0.08), transparent 25%),
+    radial-gradient(circle at 80% 10%, rgba(126, 208, 192, 0.08), transparent 22%);
+}
+
+/* Styled scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--color-muted) / 0.25) transparent;
+}
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-muted) / 0.25);
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-muted) / 0.4);
+}
+
+/* Selection */
+::selection {
+  background: rgb(var(--color-accent) / 0.25);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Severity badges */
+/* ---------------------------------------------------------------------- */
+
+.sev-badge {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono font-semibold uppercase tracking-wide;
+}
+.sev-critical { background: rgb(var(--color-sev-critical) / 0.12); color: rgb(var(--color-sev-critical)); }
+.sev-high     { background: rgb(var(--color-sev-high)     / 0.12); color: rgb(var(--color-sev-high)); }
+.sev-medium   { background: rgb(var(--color-sev-medium)   / 0.12); color: rgb(var(--color-sev-medium)); }
+.sev-low      { background: rgb(var(--color-sev-low)      / 0.12); color: rgb(var(--color-sev-low)); }
+.sev-rumour   { background: rgb(var(--color-sev-rumour)   / 0.12); color: rgb(var(--color-sev-rumour)); }
+
+/* Exploited-in-wild — distinct from severity; outlined "warning" pill. */
+.exploited-badge {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono font-semibold uppercase tracking-wide;
+  background: rgb(var(--color-sev-critical) / 0.08);
+  color: rgb(var(--color-sev-critical));
+  border: 1px solid rgb(var(--color-sev-critical) / 0.4);
+}
+.exploited-badge::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgb(var(--color-sev-critical));
+  box-shadow: 0 0 0 0 rgb(var(--color-sev-critical) / 0.6);
+  animation: exploited-pulse 2s infinite;
+}
+@keyframes exploited-pulse {
+  0%   { box-shadow: 0 0 0 0 rgb(var(--color-sev-critical) / 0.5); }
+  70%  { box-shadow: 0 0 0 6px rgb(var(--color-sev-critical) / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(var(--color-sev-critical) / 0); }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Theme toggle — show only the icon matching the stored mode */
+/* ---------------------------------------------------------------------- */
+
+.theme-toggle .theme-icon-auto,
+.theme-toggle .theme-icon-light,
+.theme-toggle .theme-icon-dark { display: none; }
+
+.theme-toggle[data-theme-state="auto"]  .theme-icon-auto  { display: inline; }
+.theme-toggle[data-theme-state="light"] .theme-icon-light { display: inline; }
+.theme-toggle[data-theme-state="dark"]  .theme-icon-dark  { display: inline; }
+
+/* ---------------------------------------------------------------------- */
+/* Pagefind UI overrides — match site theme */
+/* ---------------------------------------------------------------------- */
+
+:root,
+.pagefind-ui {
+  --pagefind-ui-scale: 0.85;
+  --pagefind-ui-primary: rgb(var(--color-accent));
+  --pagefind-ui-text: rgb(var(--color-text));
+  --pagefind-ui-background: rgb(var(--color-panel));
+  --pagefind-ui-border: rgb(var(--color-stroke));
+  --pagefind-ui-tag: rgb(var(--color-panel-2));
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 12px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: 'Inter', system-ui, sans-serif;
+}
+
+/* Force the input + result tiles to pick up our theme — Pagefind's defaults
+   sometimes win on specificity. */
+.pagefind-ui form .pagefind-ui__search-input {
+  background: rgb(var(--color-panel-2));
+  color: rgb(var(--color-text));
+  border-color: rgb(var(--color-stroke));
+}
+.pagefind-ui form .pagefind-ui__search-input::placeholder {
+  color: rgb(var(--color-muted));
+}
+.pagefind-ui .pagefind-ui__search-clear,
+.pagefind-ui .pagefind-ui__button {
+  color: rgb(var(--color-muted));
+}
+.pagefind-ui .pagefind-ui__result {
+  border-color: rgb(var(--color-stroke));
+}
+.pagefind-ui .pagefind-ui__result-title a {
+  color: rgb(var(--color-text));
+}
+.pagefind-ui .pagefind-ui__result-title a:hover {
+  color: rgb(var(--color-accent));
+}
+.pagefind-ui .pagefind-ui__result-excerpt {
+  color: rgb(var(--color-muted));
+}
+.pagefind-ui mark {
+  background: rgb(var(--color-accent) / 0.2);
+  color: inherit;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Prose — Hugo's rendered Markdown */
+/* ---------------------------------------------------------------------- */
+
+.prose-feed {
+  @apply prose max-w-none;
+  --tw-prose-body:        rgb(var(--color-text));
+  --tw-prose-headings:    rgb(var(--color-text));
+  --tw-prose-links:       rgb(var(--color-accent));
+  --tw-prose-bold:        rgb(var(--color-text));
+  --tw-prose-bullets:     rgb(var(--color-muted));
+  --tw-prose-quotes:      rgb(var(--color-muted));
+  --tw-prose-code:        rgb(var(--color-text));
+  --tw-prose-hr:          rgb(var(--color-stroke));
+  --tw-prose-th-borders:  rgb(var(--color-stroke));
+  --tw-prose-td-borders:  rgb(var(--color-stroke));
+}

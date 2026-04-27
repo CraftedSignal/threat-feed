@@ -1,0 +1,71 @@
+baseURL = 'https://feed.craftedsignal.io/'
+languageCode = 'en'
+title = 'CraftedSignal Threat Feed'
+defaultContentLanguage = 'en'
+enableRobotsTXT = true
+enableMissingTranslationPlaceholders = false
+
+# Briefs are the only top-level content section.
+mainSections = ['briefs']
+
+[params]
+  description = "Trending threats, MITRE ATT&CK coverage, and detection metadata — refreshed continuously."
+  tagline = "Threat intelligence feed for SOC and IR teams"
+  email = "hello@craftedsignal.io"
+  appURL = "https://app.craftedsignal.io/"
+  marketingURL = "https://craftedsignal.io/"
+  githubURL = "https://github.com/craftedsignal"
+
+[taxonomies]
+  tag = "tags"
+  severity = "severities"
+  actor = "actors"
+  vendor = "vendors"
+  product = "products"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+
+[build]
+  [build.buildStats]
+    enable = true
+
+[minify]
+  minifyOutput = true
+
+# RSS on home, section listing, and every taxonomy term.
+# (Hugo emits HTML + RSS for all of these by default; listing here for clarity.)
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[outputFormats]
+  [outputFormats.RSS]
+    mediatype = "application/rss+xml"
+    baseName = "feed"
+
+[mediaTypes]
+  [mediaTypes."application/rss+xml"]
+    suffixes = ["xml"]
+
+[sitemap]
+  changeFreq = "hourly"
+  priority = 0.7
+  filename = "sitemap.xml"
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.x]
+    disable = true
+  [privacy.youtube]
+    disable = true

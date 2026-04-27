@@ -22,6 +22,30 @@ Each YAML file in `briefs/` is a self-contained threat brief:
 - **TTPs**: MITRE ATT&CK tactic/technique mappings
 - **IOCs**: indicators of compromise (IPs, domains, hashes)
 
+## Outputs
+
+Each brief is the source for two artifacts:
+
+1. **Encrypted bundle** — the full brief, AES-256-GCM encrypted, consumed by the CraftedSignal platform.
+2. **Public summary** (planned) — a metadata-only derivative consumed by craftedsignal.io for browsing, RSS, and search.
+
+### Public summary fields
+
+The public summary includes:
+
+- `slug`, `title`, `summary`, `severity`, `threat_actor`, `published_at`
+- `tags`, `references`
+- MITRE ATT&CK mappings (`ttps[]`)
+- CVE references (`cves[]`: id, EPSS, CVSS, KEV)
+- Affected vendors / products / operating systems
+- The first paragraph of `content` (~500 characters)
+- Per-rule metadata: title, description, platform, severity, MITRE tactics/techniques, data sources
+- IOC counts by type
+
+Detection rule queries, rule tests, IOC values, and the full body of `content` are not included in the public summary.
+
+Brief authors should write `summary` and the opening of `content` assuming they will be publicly indexed.
+
 ## Build
 
 Compile briefs into an encrypted bundle:
