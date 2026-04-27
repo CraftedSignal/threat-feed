@@ -1,45 +1,55 @@
 ---
-title: SiYuan Publish Reader Path Traversal via removeUnusedAttributeView
+title: SiYuan Path Traversal via Double URL Encoding in `/export/` Endpoint
 slug: 2026-04-siyuan-path-traversal
-description: A path traversal vulnerability exists in SiYuan's publish service via the `/api/av/removeUnusedAttributeView` endpoint, allowing a publish-service Reader to delete arbitrary `.json` files under the workspace path reachable from `data/storage/av/` using traversal payloads.
-date: "2026-04-11T12:00:00Z"
+description: SiYuan is vulnerable to path traversal via double URL encoding in the `/export/` endpoint, bypassing an incomplete fix for CVE-2026-30869; an authenticated attacker can exploit this vulnerability to traverse directories and read arbitrary workspace files, including the SQLite database (`siyuan.db`), kernel log, and user documents due to a redundant `url.PathUnescape()` call in `serveExport()`.
+date: "2026-04-22T20:55:31Z"
 severities:
   - high
 tags:
   - path-traversal
+  - web-application
+  - siYuan
+vendors:
   - siyuan
-  - file-deletion
+products:
+  - siyuan
 mitre_ttps:
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1555
-    technique_name: Credentials from Password Stores
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+cves:
+  - id: CVE-2026-30869
+    cvss: 9.3
+    epss: 0.00677
 references:
-  - https://github.com/advisories/GHSA-vw86-c94w-v3x4
+  - https://github.com/advisories/GHSA-hjh7-r5w8-5872
+ioc_counts:
+  url: 1
 rules:
-  - title: SiYuan Path Traversal Attempt
-    description: Detects attempts to exploit the path traversal vulnerability in SiYuan's removeUnusedAttributeView endpoint by identifying requests with path traversal sequences in the 'id' parameter.
+  - title: Detect SiYuan Path Traversal Attempt
+    description: Detects attempts to exploit the SiYuan path traversal vulnerability by monitoring for double URL encoded characters in requests to the `/export/` endpoint.
     platform: sigma
     severity: high
     tactics:
-      - persistence
+      - initial_access
     techniques:
-      - T1555
+      - T1189
     data_sources:
       - webserver
       - linux
-  - title: SiYuan Config File Deletion Attempt
-    description: Detects attempts to delete the SiYuan configuration file (conf/conf.json) via the removeUnusedAttributeView endpoint path traversal vulnerability.
+  - title: Detect SiYuan Database File Access via Export
+    description: Detects attempts to access the SiYuan database file via the /export/ endpoint.
     platform: sigma
-    severity: critical
+    severity: medium
     tactics:
-      - persistence
+      - initial_access
     techniques:
-      - T1555
+      - T1189
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-SiYuan, a note-taking application, is vulnerable to a path traversal attack through its publish service. The vulnerability lies in the `/api/av/removeUnusedAttributeView` endpoint, which can be accessed by users with `RoleReader` permissions. Publish requests are forwarded upstream with a valid JWT, bypassing intended access controls.  The `removeUnusedAttributeView` handler accepts an attacker-controlled `id` parameter without proper validation and uses it in a file system delete operation…
+SiYuan is vulnerable to a path traversal vulnerability (CVE-2026-30869) due to a redundant `url.PathUnescape()` call within the `serveExport()` function. The vulnerability exists in versions prior to 3.6.5. This flaw allows an authenticated attacker, including low-privilege users with Publish/Reader roles, to bypass intended security restrictions and access sensitive files stored within the SiYuan workspace. The initial fix attempted with `IsSensitivePath()` proved insufficient as it did not…
