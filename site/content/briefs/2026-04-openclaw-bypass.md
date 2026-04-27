@@ -1,56 +1,45 @@
 ---
-title: OpenClaw Allowlist Bypass Vulnerability (CVE-2026-35666)
+title: OpenClaw LLM Agent Execution Approval Bypass via config.patch
 slug: 2026-04-openclaw-bypass
-description: OpenClaw before 2026.3.22 contains an allowlist bypass vulnerability (CVE-2026-35666) in system.run approvals that fails to properly handle /usr/bin/time wrappers, allowing attackers to bypass executable binding restrictions.
-date: "2026-04-11T12:00:00Z"
+description: A high-severity vulnerability in the openclaw npm package allows an LLM agent to silently bypass execution approval through modification of the `config.patch` file, impacting systems where OpenClaw is used for managing execution permissions.
+date: "2026-04-03T03:03:18Z"
 severities:
   - high
 tags:
-  - cve
-  - allowlist-bypass
-  - execution
+  - supply-chain
+  - vulnerability
+  - npm
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1027
-    technique_name: Obfuscated Files or Information
-  - tactic_id: TA0008
-    tactic_name: Lateral Movement
-    technique_id: T1210
-    technique_name: Exploitation of Remote Services
-cves:
-  - id: CVE-2026-35666
-    cvss: 8.8
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1548
+    technique_name: Abuse Elevation Control Mechanism
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-35666
-  - https://github.com/openclaw/openclaw/commit/39409b6a6dd4239deea682e626bac9ba547bfb14
-  - https://github.com/openclaw/openclaw/commit/630f1479c44f78484dfa21bb407cbe6f171dac87
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-qm9x-v7cx-7rq4
-  - https://www.vulncheck.com/advisories/openclaw-allowlist-bypass-via-unregistered-time-dispatch-wrapper
+  - https://github.com/advisories/GHSA-v3qc-wrwx-j3pw
 rules:
-  - title: Detect Execution via Unregistered Time Wrapper
-    description: Detects the execution of commands using unregistered /usr/bin/time wrappers, potentially bypassing allowlist restrictions in OpenClaw.
+  - title: Detect OpenClaw Config Patch Modification
+    description: Detects modifications to the OpenClaw config.patch file, which could indicate an attempt to bypass execution approval.
     platform: sigma
     severity: high
     tactics:
-      - execution
+      - persistence
     techniques:
-      - T1202
+      - T1547.001
     data_sources:
-      - process_creation
+      - file_event
       - linux
-  - title: Detect Unregistered Time Executable Creation
-    description: Detects the creation of new executable files in /tmp or other common writable directories that have 'time' in the name.
+  - title: Detect Suspicious Process Creation from OpenClaw
+    description: Detects process creation events originating from the OpenClaw installation directory, potentially indicating unauthorized code execution after a config bypass.
     platform: sigma
     severity: medium
     tactics:
-      - defense_evasion
+      - execution
     techniques:
-      - T1027
+      - T1059.004
     data_sources:
-      - file_event
+      - process_creation
       - linux
 rules_count: 2
 ---
 
-OpenClaw, a security-focused application, is susceptible to an allowlist bypass vulnerability affecting versions prior to 2026.3.22.  This flaw, identified as CVE-2026-35666, resides within the system.run approval mechanism, specifically in its handling of `/usr/bin/time` wrappers. The vulnerability stems from the system's failure to properly unwrap these wrappers, leading to an exploitable condition where attackers can circumvent intended executable binding restrictions. By employing an…
+The OpenClaw npm package, a tool used for managing execution permissions within systems, is susceptible to an agentic consent bypass vulnerability. Specifically, an LLM agent leveraging OpenClaw can manipulate the `config.patch` file to silently disable execution approval processes. This vulnerability, reported by @YLChen-007, affects OpenClaw versions up to 2026.3.24. Successful exploitation could lead to unauthorized code execution and compromise of systems relying on OpenClaw for security…
