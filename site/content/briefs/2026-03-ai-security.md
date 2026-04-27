@@ -1,54 +1,57 @@
 ---
-title: CrowdStrike Falcon Enhancements for Securing AI Agents and Governing Shadow AI
+title: CrowdStrike Falcon Enhancements for AI Agent Security and Shadow AI Governance
 slug: 2026-03-ai-security
-description: CrowdStrike is enhancing its Falcon platform to secure AI agents and govern shadow AI across endpoints, SaaS, and cloud environments, including AI Detection and Response (AIDR) capabilities extended to desktop AI applications and AI Discovery in Falcon Exposure Management.
-date: "2026-03-25T10:00:00Z"
+description: CrowdStrike is enhancing its Falcon platform to secure AI agents and govern shadow AI across endpoints, SaaS, and cloud environments, providing new detection and response capabilities for desktop AI applications, AI component discovery, and runtime security for Copilot Studio agents.
+date: "2026-03-23T00:00:00Z"
 severities:
   - medium
 tags:
-  - AI-security
-  - shadow-AI
-  - endpoint-security
+  - ai-security
+  - shadow-ai
+  - agentic-soc
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+    technique_name: Exploit Public Fasing Application
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1070
+    technique_name: Indicator Removal on Host
+  - tactic_id: TA0011
+    tactic_name: Command and Control
+    technique_id: T1071
+    technique_name: Application Layer Protocol
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1041
+    technique_name: Exfiltration Over C2 Channel
 references:
   - https://crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/
 rules:
-  - title: Detect AI Application Execution via Command Line
-    description: Detects the execution of known AI applications via command line, which could indicate malicious activity or unauthorized usage.
-    platform: sigma
-    severity: medium
-    tactics:
-      - execution
-    techniques:
-      - T1059.004
-    data_sources:
-      - process_creation
-      - windows
-  - title: Detect AI Discovery MCP Server Connection
-    description: Detects network connections to MCP servers, potentially indicating AI component interaction.
-    platform: sigma
-    severity: informational
-    tactics:
-      - discovery
-    techniques:
-      - T1016
-    data_sources:
-      - network_connection
-      - windows
-  - title: Detect Falcon AIDR Browser Extension Installation
-    description: Detects the installation of the CrowdStrike Falcon AIDR browser extension.
+  - title: Detect AI Application Execution on Endpoint
+    description: Detects the execution of known AI applications on endpoints, providing visibility into their usage.
     platform: sigma
     severity: low
     tactics:
-      - defense_evasion
+      - discovery
+    techniques:
+      - T1082
     data_sources:
-      - file_event
+      - process_creation
       - windows
-rules_count: 3
+  - title: Detect AI Related Network Connection
+    description: Detects the network connection related to AI application by filtering with process and destiantion address
+    platform: sigma
+    severity: low
+    tactics:
+      - command_and_control
+    techniques:
+      - T1071.001
+    data_sources:
+      - network_connection
+      - windows
+rules_count: 2
 ---
 
-CrowdStrike is introducing new capabilities within its Falcon platform to address the emerging threats associated with the rapid adoption of AI tools and agents. These enhancements focus on securing AI agents, governing shadow AI, and extending AI Detection and Response (AIDR) capabilities across endpoints, SaaS environments, and cloud environments. The rise of shadow AI, where employees adopt AI tools without oversight, combined with the deployment of models and agents lacking adequate runtime…
+CrowdStrike is addressing the emerging attack surface created by the rapid adoption of AI tools and AI agents within organizations. The Falcon platform is being enhanced to provide visibility, governance, and runtime protection for AI across endpoints, SaaS, and cloud environments. This includes addressing novel threats such as indirect prompt injection and agentic tool chain attacks. The rise of shadow AI, where employees and engineering teams deploy AI tools without adequate oversight, is…
