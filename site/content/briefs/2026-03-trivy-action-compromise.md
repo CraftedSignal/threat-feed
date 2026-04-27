@@ -1,26 +1,27 @@
 ---
-title: Compromised trivy-action GitHub Action
+title: Compromised trivy-action GitHub Action Leads to Credential Theft
 slug: 2026-03-trivy-action-compromise
-description: The trivy-action GitHub Action was compromised via git tag repointing, with 76 of 77 release tags poisoned to include a multi-stage credential stealer that executes before the legitimate scanner, impacting CI/CD pipelines.
-date: "2026-03-31T09:21:47Z"
+description: The trivy-action GitHub Action, a popular open-source vulnerability scanner used in CI/CD pipelines, was compromised via git tag repointing to inject a multi-stage credential stealer.
+date: "2026-03-30T07:13:10Z"
 severities:
   - critical
 tags:
   - supply-chain
   - github-actions
   - credential-theft
+  - linux
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1552
-    technique_name: Unsecured Credentials
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 references:
   - https://www.crowdstrike.com/en-us/blog/from-scanner-to-stealer-inside-the-trivy-action-supply-chain-compromise/
 rules:
-  - title: Suspicious Process Execution in GitHub Actions Runner
-    description: Detects execution of suspicious processes within the GitHub Actions runner environment, potentially indicating malicious activity injected via a compromised action.
+  - title: Detect Execution of trivy-action entrypoint.sh
+    description: Detects execution of the entrypoint.sh script from the trivy-action GitHub Action, which could indicate malicious activity if the action is compromised.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - execution
     techniques:
@@ -28,18 +29,18 @@ rules:
     data_sources:
       - process_creation
       - linux
-  - title: Detect Modification of GitHub Action Entrypoint
-    description: Detects modification of the entrypoint.sh file within a GitHub Action directory, which could indicate a supply chain compromise.
+  - title: Detect Runner Process Discovery
+    description: Detects the enumeration of process IDs (PIDs), which is the initial stage in the malicious campaign.
     platform: sigma
-    severity: medium
+    severity: low
     tactics:
-      - persistence
+      - discovery
     techniques:
-      - T1199
+      - T1057
     data_sources:
-      - file_event
+      - process_creation
       - linux
 rules_count: 2
 ---
 
-On March 19, 2026, a spike in script execution detections on Linux GitHub Actions runners led to the discovery of a supply chain compromise targeting the aquasecurity/trivy-action GitHub Action. The attack involved retroactively poisoning 76 of the 77 release tags by repointing them to malicious commits. This injected a multi-stage credential stealer into the action's entrypoint.sh script. The malicious code executes before the legitimate Trivy scanner, allowing it to steal credentials and…
+On March 19, 2026, CrowdStrike detected suspicious script execution activity originating from GitHub Actions runners across multiple customer environments. Investigation revealed that the aquasecurity/trivy-action GitHub Action, a widely used open-source vulnerability scanner within CI/CD pipelines, had been compromised. Further analysis showed that 76 out of 77 release tags for the action were retroactively poisoned through git tag repointing. This injected malicious code into the action's…
