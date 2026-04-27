@@ -1,51 +1,53 @@
 ---
-title: OpenClaw Matrix Room Control Command Authorization Bypass
+title: OpenClaw Incorrect Authorization Vulnerability (CVE-2026-35653)
 slug: 2026-04-openclaw-auth-bypass
-description: A vulnerability in OpenClaw versions greater than 2026.3.28 and before 2026.4.15 allowed a Matrix sender paired via DM to bypass room authorization boundaries and execute room control commands without proper authorization.
-date: "2026-04-18T12:00:00Z"
+description: OpenClaw before 2026.3.24 contains an incorrect authorization vulnerability in the POST /reset-profile endpoint, allowing authenticated callers with operator.write access to browser.request to bypass profile mutation restrictions and escalate privileges.
+date: "2026-04-11T12:00:00Z"
 severities:
   - high
 tags:
-  - openclaw
-  - matrix
-  - authorization-bypass
-  - privilege-escalation
+  - vulnerability
+  - authorization bypass
+  - privilege escalation
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
+    technique_id: T1548
+    technique_name: Abuse Elevation Control Mechanism
+cves:
+  - id: CVE-2026-35653
+    cvss: 8.1
 references:
-  - https://github.com/advisories/GHSA-2gvc-4f3c-2855
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-35653
+  - https://github.com/openclaw/openclaw/commit/4dcc39c25c6cc63fedfd004f52d173716576fcf0
+  - https://github.com/openclaw/openclaw/commit/e7d11f6c33e223a0dd8a21cfe01076bd76cef87a
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-xp9r-prpg-373r
+  - https://www.vulncheck.com/advisories/openclaw-incorrect-authorization-in-post-reset-profile-via-browser-request
 rules:
-  - title: Detect OpenClaw Room Control Command Execution from Unauthorized DM User
-    description: Detects attempts to execute OpenClaw room control commands by users who are only authorized via DM pairing and not explicitly allowed in the room.
-    platform: sigma
-    severity: high
-    tactics:
-      - defense_evasion
-      - privilege_escalation
-    techniques:
-      - T1068
-    data_sources:
-      - application
-      - openclaw
-  - title: Detect OpenClaw Control Command with Unexpected Arguments
-    description: Detects OpenClaw control command executions with unusual or unexpected arguments which may indicate malicious intent.
+  - title: Detect OpenClaw Profile Reset Attempt
+    description: Detects POST requests to the /reset-profile endpoint, potentially indicating an attempted exploitation of CVE-2026-35653.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - privilege_escalation
     techniques:
-      - T1059
+      - T1548
+      - T1548.001
     data_sources:
-      - application
-      - openclaw
+      - webserver
+      - linux
+  - title: Detect OpenClaw Profile Directory Manipulation
+    description: Detects file operations indicative of unauthorized profile directory manipulation in OpenClaw.
+    platform: sigma
+    severity: low
+    tactics:
+      - impact
+    techniques:
+      - T1485
+    data_sources:
+      - file_event
+      - linux
 rules_count: 2
 ---
 
-OpenClaw versions prior to 2026.4.15 contained a flaw in Matrix room control-command authorization. The system incorrectly included sender IDs learned from the Matrix DM pairing store in the effective allowlist for room traffic. This meant that a sender who was authorized only for a Matrix DM could potentially authorize room control commands when they also posted in a bot-controlled room. This vulnerability allows a DM-paired Matrix sender to cross the authorization boundary and run Matrix room…
+OpenClaw, a software application of unknown purpose, is susceptible to an incorrect authorization vulnerability tracked as CVE-2026-35653. This flaw affects versions prior to 2026.3.24. The vulnerability lies within the `/reset-profile` endpoint, specifically when accessed via a POST request. An authenticated user with `operator.write` access combined with `browser.request` permissions can exploit this to bypass intended profile mutation restrictions. This bypass allows the attacker to perform…
