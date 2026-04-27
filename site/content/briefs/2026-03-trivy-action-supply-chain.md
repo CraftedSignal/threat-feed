@@ -1,45 +1,45 @@
 ---
-title: Compromised aquasecurity/trivy-action GitHub Action
+title: Compromised trivy-action GitHub Action Leads to Credential Theft
 slug: 2026-03-trivy-action-supply-chain
-description: Attackers poisoned 76 of 77 release tags of the aquasecurity/trivy-action GitHub Action by repointing them to malicious commits containing a multi-stage credential stealer that exfiltrates secrets, credentials, and allows undetected access to infrastructure in CI/CD pipelines.
-date: "2026-03-30T21:48:14Z"
+description: The aquasecurity/trivy-action GitHub Action was compromised via git tag repointing, injecting a multi-stage credential stealer into CI/CD pipelines, allowing for the theft of secrets and credentials.
+date: "2026-03-30T06:24:43Z"
 severities:
   - critical
 tags:
   - supply-chain
-  - github-actions
   - credential-theft
+  - github-actions
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1552
-    technique_name: Unsecured Credentials
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 references:
   - https://www.crowdstrike.com/en-us/blog/from-scanner-to-stealer-inside-the-trivy-action-supply-chain-compromise/
 rules:
-  - title: Detect Suspicious Trivy Action Entrypoint Modification
-    description: Detects modifications to the trivy-action entrypoint.sh script, indicating a potential supply chain compromise.
+  - title: Detect Suspicious Script Execution in GitHub Actions Runner
+    description: Detects suspicious bash scripts being executed within the GitHub Actions runner environment, potentially indicating malicious activity injected through a compromised action.
     platform: sigma
     severity: high
     tactics:
-      - supply_chain
-    techniques:
-      - T1195
-    data_sources:
-      - file_event
-      - linux
-  - title: Detect Script Execution in GitHub Actions Temp Directory
-    description: Detects execution of shell scripts from the GitHub Actions temporary directory, which could indicate malicious activity.
-    platform: sigma
-    severity: medium
-    tactics:
-      - execution
+      - credential_access
     techniques:
       - T1059.004
     data_sources:
       - process_creation
       - linux
+  - title: Detect Trivy Action Entrypoint Modification
+    description: Detects modifications to the entrypoint.sh script within the aquasecurity/trivy-action directory, indicating potential tampering or malicious code injection.
+    platform: sigma
+    severity: medium
+    tactics:
+      - integrity
+    techniques:
+      - T1588.002
+    data_sources:
+      - file_event
+      - linux
 rules_count: 2
 ---
 
-On March 19, 2026, CrowdStrike's Engineering team identified a supply chain attack targeting the aquasecurity/trivy-action GitHub Action, a widely used open-source vulnerability scanner in CI/CD pipelines. The attackers retroactively poisoned 76 of the 77 release tags by repointing them to malicious commits. This meant that any CI/CD pipeline using the compromised action would unknowingly execute malicious code before the legitimate Trivy scanner. This malicious code consisted of a multi-stage…
+On March 19, 2026, CrowdStrike's Engineering team discovered a supply chain compromise targeting the aquasecurity/trivy-action GitHub Action, a popular open-source vulnerability scanner used in CI/CD pipelines. The attackers retroactively poisoned 76 of the scanner’s 77 release tags using git tag repointing, replacing the original entry point with a multi-stage credential stealer. The malicious code operates before the legitimate scanner, masking its activity and allowing workflows to appear…
