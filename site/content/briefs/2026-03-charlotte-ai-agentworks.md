@@ -1,41 +1,41 @@
 ---
-title: CrowdStrike Charlotte AI AgentWorks and Agentic SOAR for Enhanced Security Operations
+title: CrowdStrike Charlotte AI AgentWorks and Agentic SOAR for Automated Security Operations
 slug: 2026-03-charlotte-ai-agentworks
-description: CrowdStrike's Charlotte AI AgentWorks and Agentic SOAR aim to improve security operations by enabling AI-powered autonomous agents, orchestrated to amplify analyst capabilities and automate tasks like malware analysis and exposure prioritization, reducing manual workloads and increasing decision accuracy.
-date: "2026-03-28T08:17:38Z"
+description: CrowdStrike introduces Charlotte AI AgentWorks and Agentic SOAR to enhance security operations through AI-driven automation and orchestration, reducing manual workloads and improving decision accuracy.
+date: "2026-03-28T09:22:10Z"
 severities:
   - medium
 tags:
-  - agentic-soc
   - ai
+  - automation
+  - security operations
   - soar
-  - security-automation
 references:
   - https://www.crowdstrike.com/en-us/blog/how-charlotte-ai-agentworks-fuels-securitys-agentic-ecosystem/
 rules:
-  - title: Detect Suspicious PowerShell Encoded Commands via Charlotte AI
-    description: Detects PowerShell commands that contain Base64 encoded strings, which are often used to obfuscate malicious code. This rule helps identify potential exploitation attempts within the monitored environment.
+  - title: Detect Charlotte AI AgentWorks Agent Execution
+    description: Detects execution of agents within the Charlotte AI AgentWorks framework based on process names.
     platform: sigma
-    severity: high
+    severity: informational
     tactics:
-      - execution
+      - defense_evasion
     techniques:
-      - T1059.001
+      - T1562
     data_sources:
       - process_creation
       - windows
-  - title: Detect Suspicious Network Activity
-    description: Detects suspicious network connections initiated by uncommon processes, potentially indicating command and control activity.
+  - title: Detect SOAR Workflow Modification
+    description: Detects modifications to SOAR workflows, potentially indicating unauthorized changes.
     platform: sigma
-    severity: medium
+    severity: low
     tactics:
-      - command_and_control
+      - persistence
     techniques:
-      - T1071.001
+      - T1547
     data_sources:
-      - network_connection
+      - file_event
       - windows
 rules_count: 2
 ---
 
-CrowdStrike has introduced Charlotte AI AgentWorks and Charlotte Agentic SOAR as part of its Falcon platform, designed to revolutionize security operations by leveraging AI-driven autonomous agents. Launched in March 2026, AgentWorks acts as a central hub for building, scaling, and integrating security agents across the enterprise. It incorporates leading AI models from Anthropic, NVIDIA, and OpenAI, along with AI infrastructure services like Amazon Bedrock and Amazon SageMaker. Agentic SOAR…
+CrowdStrike is introducing Charlotte AI AgentWorks and Agentic SOAR as a new approach to security operations, designed to leverage AI to automate tasks, orchestrate workflows, and amplify analyst capabilities. Announced in March 2026, Charlotte AI AgentWorks serves as a central hub for building and scaling security agents across the enterprise, integrating with models from Anthropic, NVIDIA, and OpenAI, and promoting collaboration among security innovators. Charlotte Agentic SOAR is designed to…
