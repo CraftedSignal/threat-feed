@@ -1,15 +1,14 @@
 ---
 title: Tycoon2FA Phishing-as-a-Service Platform Resurgence After Takedown
 slug: 2026-04-tycoon2fa-resurgence
-description: The Tycoon2FA Phishing-as-a-Service (PhaaS) platform, which bypasses multifactor authentication (MFA) to compromise email accounts, experienced a temporary disruption following a law enforcement takedown, but campaign volumes and tactics have returned to pre-disruption levels, indicating the actors are likely to remain active.
-date: "2026-03-28T14:49:20Z"
+description: The Tycoon2FA phishing-as-a-service platform, which bypasses MFA, has resurged to pre-takedown activity levels, indicating continued risk despite law enforcement disruption efforts.
+date: "2026-03-31T08:36:16Z"
 severities:
   - high
 tags:
   - phishing
-  - mfa bypass
-  - credential theft
-  - cloud
+  - credential-theft
+  - MFA-bypass
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -17,45 +16,38 @@ mitre_ttps:
     technique_name: Phishing
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1539
-    technique_name: Steal Web Session Cookie
+    technique_id: T1566
+    technique_name: Phishing
 references:
   - https://www.crowdstrike.com/en-us/blog/tycoon2fa-phishing-as-a-service-platform-persists-following-takedown/
 rules:
-  - title: Detect Suspicious Javascript Cookie Theft
-    description: Detects Javascript attempting to access or modify document.cookie which could indicate cookie theft.
+  - title: Detect Redirection to Tycoon2FA CAPTCHA Pages
+    description: Detects potential phishing attempts redirecting users to Tycoon2FA CAPTCHA pages
     platform: sigma
     severity: medium
     tactics:
       - credential_access
+      - initial_access
     techniques:
-      - T1539
+      - T1566
+      - T1566.001
     data_sources:
-      - webserver
-      - linux
-  - title: Detect Access to Fake Microsoft 365 Login Page
-    description: Detects access to fake Microsoft 365 or Google login pages.
+      - network_connection
+      - windows
+  - title: Detect JavaScript Email Address Extraction
+    description: Detects suspicious JavaScript files attempting to extract email addresses
     platform: sigma
     severity: low
     tactics:
+      - credential_access
       - initial_access
     techniques:
+      - T1566
       - T1566.001
     data_sources:
-      - webserver
-      - linux
-  - title: Detect CAPTCHA Page Access Prior to Login Attempt
-    description: Detects access to a CAPTCHA page followed by a login attempt within a short timeframe, which is indicative of Tycoon2FA's technique.
-    platform: sigma
-    severity: medium
-    tactics:
-      - initial_access
-    techniques:
-      - T1566.001
-    data_sources:
-      - webserver
-      - linux
-rules_count: 3
+      - file_event
+      - windows
+rules_count: 2
 ---
 
-On March 4, 2026, Europol announced the takedown of Tycoon2FA, a subscription-based phishing-as-a-service (PhaaS) platform used by cybercriminals to bypass multi-factor authentication (MFA) and compromise email accounts. The coordinated effort involved law enforcement agencies from six countries and resulted in the seizure of 330 domains that constituted the platform's core infrastructure. Despite this disruption, CrowdStrike Falcon Complete observed a short-term decrease in Tycoon2FA campaign…
+Tycoon2FA is a subscription-based phishing-as-a-service (PhaaS) platform that allows cybercriminals to bypass multifactor authentication (MFA) and compromise email accounts. The platform began operations in 2023 and by mid-2025 was responsible for 62% of all phishing attempts blocked by Microsoft, generating over 30 million malicious emails in a single month. On March 4, 2026, Europol disrupted the platform by seizing 330 domains. Despite this takedown, CrowdStrike Falcon Complete observed a…
