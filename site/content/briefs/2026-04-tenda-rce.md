@@ -1,16 +1,16 @@
 ---
-title: Tenda F451 Stack-Based Buffer Overflow Vulnerability (CVE-2026-6137)
+title: Tenda F451 Router Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-tenda-rce
-description: A stack-based buffer overflow vulnerability exists in Tenda F451 version 1.0.0.7_cn_svn7958 allowing remote attackers to execute arbitrary code by overflowing the `wanmode` or `PPPOEPassword` arguments in the `/goform/AdvSetWan` endpoint.
-date: "2026-04-13T00:17:16Z"
+description: A stack-based buffer overflow vulnerability in the Tenda F451 router (version 1.0.0.7) allows remote attackers to execute arbitrary code by manipulating the 'page' argument in the fromRouteStatic function of the /goform/RouteStatic file.
+date: "2026-04-10T00:16:36Z"
 severities:
   - critical
+exploited: true
 tags:
-  - cve-2026-6137
   - tenda
-  - buffer-overflow
+  - router
+  - buffer_overflow
   - rce
-  - iot
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -19,42 +19,42 @@ mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Privilege Escalation
     technique_id: T1068
-    technique_name: Exploit System
+    technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1203
     technique_name: Exploitation for Client Execution
 cves:
-  - id: CVE-2026-6137
+  - id: CVE-2026-5989
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-6137
-  - https://github.com/Jimi-Lab/cve/issues/22
-  - https://vuldb.com/vuln/357001
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-5989
+  - https://github.com/Jimi-Lab/cve/issues/5
+  - https://vuldb.com/vuln/356543
 rules:
-  - title: Detect Tenda F451 Buffer Overflow Attempt
-    description: Detects potential buffer overflow attempts on Tenda F451 routers by monitoring the length of the 'wanmode' or 'PPPOEPassword' parameters in POST requests to '/goform/AdvSetWan'.
+  - title: Detect Tenda F451 Exploit Attempt
+    description: Detects potential exploit attempts against the Tenda F451 router by monitoring requests to the /goform/RouteStatic endpoint with unusually long 'page' arguments, which may indicate a buffer overflow attack.
     platform: sigma
     severity: critical
     tactics:
       - execution
     techniques:
-      - T1203
+      - T1210
     data_sources:
       - webserver
       - linux
-  - title: Detect Tenda F451 Web Request to AdvSetWan
-    description: Detects requests to the /goform/AdvSetWan endpoint on Tenda F451 routers, which is a common target for exploits. This rule can help identify suspicious activity even if it doesn't match known exploit patterns.
+  - title: Detect High HTTP Status Codes After RouteStatic Access
+    description: Detects potential exploit attempts by identifying elevated HTTP status codes after accessing the vulnerable RouteStatic endpoint.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
-      - discovery
+      - execution
     techniques:
-      - T1068
+      - T1210
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-CVE-2026-6137 is a critical stack-based buffer overflow vulnerability affecting Tenda F451 routers running firmware version 1.0.0.7_cn_svn7958. The vulnerability resides in the `fromAdvSetWan` function within the `/goform/AdvSetWan` endpoint. By manipulating the `wanmode` or `PPPOEPassword` arguments, a remote attacker can overwrite the stack and potentially execute arbitrary code on the device. The public availability of an exploit increases the risk of widespread exploitation, making it…
+A critical vulnerability, identified as CVE-2026-5989, affects the Tenda F451 router, specifically version 1.0.0.7. The vulnerability lies within the `fromRouteStatic` function of the `/goform/RouteStatic` file. By manipulating the `page` argument, a remote attacker can trigger a stack-based buffer overflow, potentially leading to arbitrary code execution. Publicly available exploit code exists, increasing the risk of exploitation. This vulnerability poses a significant threat as it allows…
