@@ -1,45 +1,55 @@
 ---
-title: Iperius Backup Improper Privilege Management Vulnerability (CVE-2026-4824)
+title: Iperius Backup 6.1.0 Privilege Escalation via Malicious Backup Jobs (CVE-2019-25608)
 slug: 2026-03-iperius-backup-privilege-escalation
-description: CVE-2026-4824 is a vulnerability in Enter Software Iperius Backup up to version 8.7.3, where manipulating the Backup Job Configuration File Handler allows for improper privilege management by a local attacker, requiring an upgrade to version 8.7.4 to resolve the issue.
-date: "2026-03-25T22:16:19Z"
+description: Iperius Backup 6.1.0 is vulnerable to privilege escalation, allowing low-privilege users to execute arbitrary programs with elevated privileges by creating malicious backup jobs that execute pre- or post-backup scripts with SYSTEM privileges.
+date: "2026-03-23T15:00:00Z"
 severities:
-  - medium
+  - critical
 tags:
-  - privilege-escalation
-  - vulnerability
-  - windows
+  - privilege escalation
+  - cve-2019-25608
+  - iperius backup
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1543
+    technique_name: Create or Modify System Process
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-4824
+  - https://nvd.nist.gov/vuln/detail/CVE-2019-25608
+  - https://www.exploit-db.com/exploits/46863
+  - https://www.iperiusbackup.com/
+  - https://www.iperiusbackup.com/download.aspx
+  - https://www.vulncheck.com/advisories/iperius-backup-privilege-escalation-via-backup-job
 rules:
-  - title: Detect Suspicious Iperius Backup Process Execution
-    description: Detects suspicious process executions potentially related to Iperius Backup exploitation.
+  - title: Suspicious Process Spawned by Iperius Backup Service
+    description: Detects suspicious processes spawned by the Iperius Backup service, which could indicate exploitation of CVE-2019-25608.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - privilege_escalation
     techniques:
+      - T1068
+      - T1543.003
+    data_sources:
+      - process_creation
+      - windows
+  - title: Iperius Backup Service Running Suspicious Command
+    description: Detects the Iperius Backup service executing suspicious commands, potentially indicating CVE-2019-25608 exploitation.
+    platform: sigma
+    severity: critical
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1059.001
       - T1068
     data_sources:
       - process_creation
       - windows
-  - title: Detect Iperius Backup Configuration File Modification
-    description: Detects modifications to the Iperius Backup configuration file, which could indicate an attempt to exploit CVE-2026-4824.
-    platform: sigma
-    severity: medium
-    tactics:
-      - privilege_escalation
-    techniques:
-      - T1068
-    data_sources:
-      - file_event
-      - windows
 rules_count: 2
 ---
 
-A privilege management vulnerability, tracked as CVE-2026-4824, has been identified in Enter Software Iperius Backup software, affecting versions up to 8.7.3. The vulnerability resides within the Backup Job Configuration File Handler. Successful exploitation of this vulnerability allows a local attacker to perform actions with elevated privileges. The vendor was promptly notified and released a patched version, 8.7.4, to address the reported security flaw. Due to the local attack vector and the…
+Iperius Backup 6.1.0 is susceptible to a privilege escalation vulnerability (CVE-2019-25608) that enables unprivileged users to gain elevated permissions on the system. This flaw allows attackers to create and configure backup jobs to execute arbitrary code, such as batch files or executable programs, with the privileges of the Iperius Backup Service account, which typically runs as Local System or Administrator. The vulnerability stems from insufficient checks on the scripts or programs…
