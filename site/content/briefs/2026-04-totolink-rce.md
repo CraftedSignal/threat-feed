@@ -1,44 +1,42 @@
 ---
-title: Totolink N300RH OS Command Injection Vulnerability (CVE-2026-6158)
+title: Totolink A7100RU OS Command Injection Vulnerability (CVE-2026-6116)
 slug: 2026-04-totolink-rce
-description: A remote OS command injection vulnerability exists in Totolink N300RH firmware version 6.1c.1353_B20190305 due to improper handling of the FileName argument in the setUpgradeUboot function, potentially allowing attackers to execute arbitrary commands.
-date: "2026-04-13T05:17:44Z"
+description: CVE-2026-6116 is an OS command injection vulnerability in Totolink A7100RU version 7.4cu.2313_b20191024, allowing remote attackers to execute arbitrary OS commands by manipulating the 'ip' argument in the setDiagnosisCfg function of the /cgi-bin/cstecgi.cgi CGI handler, with a public exploit available.
+date: "2026-04-12T05:16:01Z"
 severities:
   - critical
 tags:
-  - cve
-  - cve-2026-6158
+  - cve-2026-6116
   - command-injection
   - totolink
-  - rce
+  - router
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-6158
-    cvss: 7.3
-    epss: 0.04857
+  - id: CVE-2026-6116
+    cvss: 9.8
+    epss: 0.01254
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-6158
-  - https://github.com/xyh4ck/iot_poc/tree/main/TOTOLINK/N300RHv4/02_setUpgradeUboot_RCE
-  - https://vuldb.com/vuln/357038
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-6116
+  - https://github.com/Litengzheng/vuldb_new/blob/main/A7100RU/vul_181/README.md
+  - https://vuldb.com/vuln/356976
 rules:
-  - title: Detect Totolink N300RH setUpgradeUboot Command Injection Attempt
-    description: Detects potential command injection attempts in HTTP requests targeting the setUpgradeUboot function in Totolink N300RH devices.
+  - title: Detect Totolink A7100RU Command Injection Attempt
+    description: Detects attempts to exploit the Totolink A7100RU command injection vulnerability (CVE-2026-6116) by monitoring for suspicious requests to the /cgi-bin/cstecgi.cgi endpoint with shell metacharacters in the query string.
     platform: sigma
     severity: critical
     tactics:
       - execution
     techniques:
       - T1059.004
-      - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect Multiple OS Command Injection Characters in URI Query
-    description: Detects multiple OS command injection characters within a URI query string, indicative of a command injection attempt.
+  - title: Detect Totolink A7100RU Command Injection via Web Logs
+    description: This rule detects potential command injection attempts in Totolink A7100RU routers by analyzing web server logs for requests to the /cgi-bin/cstecgi.cgi endpoint containing specific patterns indicative of command injection.
     platform: sigma
     severity: high
     tactics:
@@ -51,4 +49,4 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-6158 describes an OS command injection vulnerability affecting Totolink N300RH devices running firmware version 6.1c.1353_B20190305. The vulnerability lies within the `setUpgradeUboot` function of the `upgrade.so` file. By manipulating the `FileName` argument, a remote attacker can inject and execute arbitrary OS commands on the underlying system. Publicly available exploits exist, increasing the risk of exploitation. This vulnerability allows for complete compromise of the affected…
+A critical OS command injection vulnerability, CVE-2026-6116, has been identified in Totolink A7100RU router firmware version 7.4cu.2313_b20191024. The vulnerability resides within the CGI handler component, specifically in the `setDiagnosisCfg` function of the `/cgi-bin/cstecgi.cgi` file. An attacker can remotely exploit this vulnerability by manipulating the `ip` argument, injecting arbitrary OS commands that are then executed by the router's operating system. The public availability of the…
