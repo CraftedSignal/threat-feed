@@ -1,45 +1,46 @@
 ---
-title: CrowdStrike Falcon Next-Gen SIEM Integrates with Microsoft Defender
+title: CrowdStrike Falcon SIEM Integrates with Microsoft Defender EDR
 slug: 2026-03-falcon-siem-integration
-description: CrowdStrike's Falcon Next-Gen SIEM is expanding to support third-party EDR solutions, starting with Microsoft Defender, to enable organizations to modernize their SOC without replacing existing endpoint agents and improve threat detection across diverse environments.
-date: "2026-03-23T00:00:00Z"
+description: CrowdStrike Falcon Next-Gen SIEM is expanding its capabilities to integrate with third-party EDR solutions, starting with Microsoft Defender, to enable organizations to extend their AI-native SOC across heterogeneous environments without replacing existing endpoint agents.
+date: "2026-03-28T21:52:45Z"
 severities:
   - medium
 tags:
   - siem
   - edr
-  - threat-intelligence
+  - microsoft-defender
+  - crowdstrike-falcon
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1562
-    technique_name: Impair Defenses
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
 references:
   - https://www.crowdstrike.com/en-us/blog/falcon-next-gen-siem-supports-third-party-edr-tools-starting-with-microsoft-defender/
 rules:
-  - title: Detect Defender Telemetry Ingestion via Falcon Onum
-    description: Detects the ingestion of Microsoft Defender telemetry through Falcon Onum, indicating the integration is active.
+  - title: Detect PowerShell Downgrade Attack
+    description: Detects PowerShell downgrade attacks by monitoring for the execution of older PowerShell versions.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - defensive_evasion
+      - defense_evasion
     techniques:
-      - T1562
+      - T1059.001
     data_sources:
-      - webserver
-      - linux
-  - title: Falcon SIEM Federated Search Activity
-    description: Detects attempts to execute federated searches within Falcon SIEM across multiple data sources.
+      - process_creation
+      - windows
+  - title: Detect Suspicious Process Creation from WScript
+    description: Detects potential script-based attacks by monitoring process creation events originating from WScript.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
-      - discovery
+      - initial_access
     techniques:
-      - T1082
+      - T1204.002
     data_sources:
-      - webserver
-      - linux
+      - process_creation
+      - windows
 rules_count: 2
 ---
 
-CrowdStrike is enhancing its Falcon Next-Gen SIEM to incorporate third-party Endpoint Detection and Response (EDR) solutions, initially supporting Microsoft Defender. This integration aims to provide organizations with a unified security operations center (SOC) view without requiring the replacement of existing endpoint agents. By integrating data from multiple sources, including Microsoft Defender, Falcon Next-Gen SIEM seeks to address the challenges posed by fragmented security systems and…
+CrowdStrike Falcon Next-Gen SIEM is evolving to support third-party endpoint detection and response (EDR) solutions, beginning with Microsoft Defender. This integration allows organizations to modernize their Security Operations Center (SOC) without necessitating the replacement of existing endpoint agents. The Falcon platform combines index-free, petabyte-scale search performance with AI-native threat detection, frontline adversary intelligence, and agentic automation. This expansion includes…
