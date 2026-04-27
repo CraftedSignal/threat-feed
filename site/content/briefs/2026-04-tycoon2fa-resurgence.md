@@ -1,14 +1,15 @@
 ---
-title: Tycoon2FA Phishing-as-a-Service Platform Resurgence After Takedown
+title: Tycoon2FA Phishing-as-a-Service Platform Resurgence
 slug: 2026-04-tycoon2fa-resurgence
-description: The Tycoon2FA phishing-as-a-service platform, which bypasses MFA, has resurged to pre-takedown activity levels, indicating continued risk despite law enforcement disruption efforts.
-date: "2026-03-31T08:36:16Z"
+description: The Tycoon2FA Phishing-as-a-Service (PhaaS) platform, used to bypass MFA and compromise email accounts, has rebounded after a law enforcement takedown, with campaign activity and tactics returning to pre-disruption levels.
+date: "2026-03-31T01:45:17Z"
 severities:
   - high
 tags:
   - phishing
   - credential-theft
-  - MFA-bypass
+  - mfa-bypass
+  - phaas
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -16,38 +17,34 @@ mitre_ttps:
     technique_name: Phishing
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1566
-    technique_name: Phishing
+    technique_id: T1539
+    technique_name: Steal Web Session Cookie
 references:
   - https://www.crowdstrike.com/en-us/blog/tycoon2fa-phishing-as-a-service-platform-persists-following-takedown/
 rules:
-  - title: Detect Redirection to Tycoon2FA CAPTCHA Pages
-    description: Detects potential phishing attempts redirecting users to Tycoon2FA CAPTCHA pages
+  - title: Detect Tycoon2FA Phishing Redirection
+    description: Detects process creation events indicative of a user being redirected to a Tycoon2FA phishing page after clicking a link in a phishing email.
     platform: sigma
     severity: medium
     tactics:
-      - credential_access
       - initial_access
     techniques:
-      - T1566
       - T1566.001
     data_sources:
-      - network_connection
+      - process_creation
       - windows
-  - title: Detect JavaScript Email Address Extraction
-    description: Detects suspicious JavaScript files attempting to extract email addresses
+  - title: Detect Tycoon2FA Cookie Theft via JavaScript
+    description: Detects JavaScript files attempting to steal cookies, a technique used by Tycoon2FA to bypass MFA.
     platform: sigma
-    severity: low
+    severity: high
     tactics:
       - credential_access
-      - initial_access
     techniques:
-      - T1566
-      - T1566.001
+      - T1539
     data_sources:
       - file_event
       - windows
 rules_count: 2
 ---
 
-Tycoon2FA is a subscription-based phishing-as-a-service (PhaaS) platform that allows cybercriminals to bypass multifactor authentication (MFA) and compromise email accounts. The platform began operations in 2023 and by mid-2025 was responsible for 62% of all phishing attempts blocked by Microsoft, generating over 30 million malicious emails in a single month. On March 4, 2026, Europol disrupted the platform by seizing 330 domains. Despite this takedown, CrowdStrike Falcon Complete observed a…
+Tycoon2FA is a subscription-based Phishing-as-a-Service (PhaaS) platform that enables cybercriminals to bypass multifactor authentication (MFA) and compromise email accounts. On March 4, 2026, Europol announced a technical disruption of Tycoon2FA, seizing 330 domains that formed the platform's core infrastructure. Despite this takedown, CrowdStrike observed only a short-term decrease in Tycoon2FA campaign activity. The volume of cloud compromises has since increased to levels previously…
