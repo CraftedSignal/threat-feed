@@ -1,0 +1,50 @@
+---
+title: SuiteCRM 7.10.7 Time-Based SQL Injection Vulnerability
+slug: 2026-04-suitecrm-sqli
+description: SuiteCRM 7.10.7 is vulnerable to time-based SQL injection in the record parameter of the Users module DetailView action, allowing authenticated attackers to manipulate database queries and potentially extract sensitive information.
+date: "2026-04-05T21:16:43Z"
+severities:
+  - high
+tags:
+  - sql-injection
+  - cve-2019-25664
+  - suitecrm
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2019-25664
+    cvss: 7.1
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2019-25664
+  - https://www.exploit-db.com/exploits/46311
+  - https://www.vulncheck.com/advisories/suitecrm-sql-injection-via-record-parameter
+rules:
+  - title: SuiteCRM SQL Injection Attempt via URI
+    description: Detects potential SQL injection attempts in SuiteCRM by monitoring for suspicious keywords in the URI.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+      - linux
+  - title: SuiteCRM SQL Injection Attempt via POST Data
+    description: Detects potential SQL injection attempts in SuiteCRM by monitoring for suspicious keywords in POST data.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+      - linux
+rules_count: 2
+---
+
+SuiteCRM 7.10.7 is susceptible to a time-based SQL injection vulnerability (CVE-2019-25664) affecting the `record` parameter within the `Users` module's `DetailView` action. This flaw enables authenticated attackers to inject arbitrary SQL code into database queries by manipulating the `record` parameter within GET requests directed to the `index.php` endpoint. By exploiting this vulnerability, attackers can leverage time-based blind SQL injection techniques to extract sensitive database…
