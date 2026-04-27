@@ -1,0 +1,56 @@
+---
+title: Unusual Process Spawned by a User Detected by Machine Learning
+slug: 2024-01-rare-process-user
+description: A machine learning job detected a suspicious Windows process, predicted to be malicious by the ProblemChild supervised ML model and found to be unusual within the user's context, potentially indicating defense evasion techniques like masquerading or the use of LOLbins.
+date: "2024-01-03T10:00:00Z"
+severities:
+  - low
+tags:
+  - endpoint
+  - windows
+  - defense evasion
+  - machine learning
+  - lolbins
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1036
+    technique_name: Masquerading
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1218
+    technique_name: System Binary Proxy Execution
+references:
+  - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
+  - https://docs.elastic.co/en/integrations/problemchild
+  - https://www.elastic.co/security-labs/detecting-living-off-the-land-attacks-with-new-elastic-integration
+  - https://attack.mitre.org/techniques/T1036/
+  - https://attack.mitre.org/techniques/T1218/
+  - https://attack.mitre.org/tactics/TA0005/
+rules:
+  - title: Detect LOLBins via Command Line Arguments
+    description: Detects potential LOLBins usage through command-line arguments often used in malicious activities.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1218
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect Renamed LOLBins
+    description: Detects renamed LOLBins by monitoring process creation events where the image name is unusual for its path.
+    platform: sigma
+    severity: low
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1036
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+A machine learning (ML) rule has identified unusual process execution on a Windows endpoint. This detection leverages two ML models from the Elastic ProblemChild integration: a supervised model that predicts malicious processes and an unsupervised model that identifies processes anomalous to the user's typical behavior. The rule focuses on detecting defense evasion tactics, specifically the potential use of Living-off-the-Land Binaries (LOLbins) or masquerading techniques, which can be…
