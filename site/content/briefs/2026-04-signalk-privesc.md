@@ -1,14 +1,14 @@
 ---
-title: Signal K Server Privilege Escalation via Unprotected /enableSecurity Endpoint
+title: Signal K Server Unauthenticated Privilege Escalation (CVE-2026-33950)
 slug: 2026-04-signalk-privesc
-description: The Signal K server is vulnerable to privilege escalation due to the /skServer/enableSecurity endpoint remaining active after initial setup, allowing unauthenticated users to inject a new admin account and gain full server control; this affects versions prior to 2.24.0-beta.4.
-date: "2026-04-04T12:00:00Z"
+description: An unauthenticated attacker can achieve full administrator access on vulnerable Signal K Servers by injecting an admin role via the /enableSecurity endpoint, allowing modification of sensitive vessel data and server configuration.
+date: "2026-04-02T17:16:22Z"
 severities:
   - critical
 tags:
+  - cve-2026-33950
   - privilege-escalation
   - web-application
-  - vulnerability
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -17,12 +17,16 @@ mitre_ttps:
 cves:
   - id: CVE-2026-33950
     cvss: 9.4
-    epss: 0.00049
 references:
-  - https://github.com/advisories/GHSA-x8hc-fqv3-7gwf
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-33950
+  - https://github.com/SignalK/signalk-server/releases/tag/v2.24.0-beta.4
+  - https://github.com/SignalK/signalk-server/security/advisories/GHSA-x8hc-fqv3-7gwf
+ioc_counts:
+  email: 1
+  url: 2
 rules:
-  - title: Detect SignalK Admin Role Injection
-    description: Detects attempts to inject an admin user via the /skServer/enableSecurity endpoint in SignalK, indicating a privilege escalation attempt.
+  - title: Detect Unauthorized Access to Signal K /enableSecurity Endpoint
+    description: Detects unauthorized POST requests to the /enableSecurity endpoint, indicating a potential privilege escalation attempt.
     platform: sigma
     severity: critical
     tactics:
@@ -32,18 +36,18 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect SignalK Login Attempt with Default Admin User
-    description: Detects login attempts using the potentially created 'admin' user via /signalk/v1/auth/login, indicating a potential takeover.
+  - title: Detect Access to Sensitive SignalK Endpoints After Potential PrivEsc
+    description: Detects access to sensitive endpoints, such as those modifying vessel data or server configuration, potentially indicating attacker activity following successful privilege escalation.
     platform: sigma
     severity: high
     tactics:
-      - credential_access
+      - persistence
     techniques:
-      - T1110
+      - T1078
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-The Signal K server, a popular open-source project for marine navigation data, contains a critical vulnerability that allows unauthenticated privilege escalation. The vulnerability resides in the `/skServer/enableSecurity` endpoint, which is intended for initial administrator setup when security is disabled. However, this endpoint is not disabled after the initial setup, leaving it perpetually exposed. Consequently, any unauthenticated user can call this endpoint to inject a new, fully…
+Signal K Server is a server application used on boats for central hub management. Versions prior to 2.24.0-beta.4 are vulnerable to privilege escalation (CVE-2026-33950). An unauthenticated attacker can gain full Administrator access to the SignalK server by exploiting Admin Role Injection via the `/enableSecurity` endpoint. This vulnerability allows attackers to modify sensitive vessel routing data, alter server configurations, and access restricted endpoints without authentication. The…
