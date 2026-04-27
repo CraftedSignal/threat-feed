@@ -1,13 +1,13 @@
 ---
 title: CrowdStrike Agentic MDR and SOC Transformation Services
 slug: 2026-03-agentic-mdr
-description: CrowdStrike introduces Agentic MDR and SOC Transformation Services, leveraging deterministic automation, adaptive AI, and human expertise for rapid breach containment and SOC modernization.
-date: "2026-03-28T09:13:59Z"
+description: CrowdStrike's Agentic MDR combines machine-speed execution with expert oversight, leveraging deterministic automation and adaptive AI agents to enhance breach prevention and SOC modernization.
+date: "2026-03-28T08:28:28Z"
 severities:
   - medium
 tags:
   - agentic-soc
-  - managed-detection-and-response
+  - mdr
   - soc-transformation
   - ai
 mitre_ttps:
@@ -15,26 +15,15 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1562
     technique_name: Impair Defenses
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1566
-    technique_name: Phishing
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 references:
   - https://crowdstrike.com/en-us/blog/crowdstrike-services-and-agentic-mdr-put-the-agentic-soc-in-reach/
 rules:
-  - title: Detecting SIEM Log Source Onboarding Activity
-    description: Detects events related to SIEM log source onboarding, which may indicate modernization efforts or potential security misconfigurations.
-    platform: sigma
-    severity: low
-    tactics:
-      - discovery
-    techniques:
-      - T1082
-    data_sources:
-      - webserver
-      - linux
-  - title: Detecting Potential Workflow Redesign Activity
-    description: Detects activity related to workflow redesign, which may indicate SOC transformation efforts.
+  - title: Detect CrowdStrike Falcon Fusion SOAR Activity
+    description: Detects activity related to CrowdStrike Falcon Fusion SOAR, indicating automated response actions.
     platform: sigma
     severity: informational
     tactics:
@@ -44,18 +33,18 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detecting Use of AI in Security Tools
-    description: Detects processes invoking AI-related binaries or libraries, potentially indicating the use of AI-powered security tools
+  - title: Detect Potential AI-Driven Defense Evasion
+    description: Detects processes attempting to disable or bypass security tools, potentially indicating AI-driven evasion techniques.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
       - defense_evasion
     techniques:
-      - T1027
+      - T1562
     data_sources:
       - process_creation
       - windows
-rules_count: 3
+rules_count: 2
 ---
 
-CrowdStrike has announced Agentic MDR and SOC Transformation Services to help organizations modernize their security operations and defend against modern threats. The Agentic MDR, delivered through Falcon Complete, combines deterministic automation with adaptive AI agents and expert human oversight to achieve machine-speed breach containment. This approach aims to address the challenges of legacy SIEMs and manual workflows that struggle to keep pace with rapidly evolving attacks. The SOC…
+CrowdStrike has launched Agentic MDR and SOC Transformation Services, designed to modernize security operations centers (SOCs) and enhance breach prevention. These offerings aim to address the challenges of modern adversaries who leverage AI for evasion and operate at machine speed across diverse environments. Agentic MDR combines deterministic automation, adaptive AI agents, and expert human oversight, delivered through CrowdStrike Falcon® Complete. SOC Transformation Services focus on…
