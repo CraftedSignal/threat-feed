@@ -1,47 +1,58 @@
 ---
-title: Langflow Multiple Vulnerabilities Allow Information Disclosure, Data Manipulation, and XSS
+title: Multiple Vulnerabilities in Langflow Allow for Arbitrary Code Execution and Information Disclosure
 slug: 2026-03-langflow-vulns
-description: An anonymous or authenticated remote attacker can exploit multiple vulnerabilities in Langflow to disclose information, manipulate data, and execute cross-site scripting attacks.
-date: "2026-03-30T11:08:56Z"
+description: Multiple vulnerabilities in Langflow could be exploited by an attacker to execute arbitrary program code, disclose information, and potentially manipulate data, leading to potential system compromise.
+date: "2026-03-25T09:46:08Z"
 severities:
-  - high
+  - critical
 tags:
   - langflow
   - vulnerability
-  - xss
-  - data-manipulation
+  - code-execution
   - information-disclosure
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1003
+    technique_name: OS Credential Dumping
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1082
+    technique_name: System Information Discovery
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0900
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0823
 rules:
-  - title: Detect HTTP Data Manipulation Methods
-    description: Detects potential data manipulation attempts by looking for unusual HTTP request methods like PUT, PATCH, or DELETE against Langflow web server
-    platform: sigma
-    severity: medium
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect XSS attempts via Script Tags
-    description: Detects possible XSS attacks through the use of `<script>` tags in HTTP requests.
+  - title: Detect Suspicious Processes Spawned by Langflow
+    description: Detects suspicious processes spawned by Langflow, indicating potential code execution vulnerability exploitation.
     platform: sigma
     severity: high
     tactics:
-      - initial_access
+      - execution
     techniques:
-      - T1190
+      - T1059.001
     data_sources:
-      - webserver
-      - linux
+      - process_creation
+      - windows
+  - title: Detect Potential Data Exfiltration via Langflow
+    description: Detects network connections from Langflow to external IPs, which could indicate potential data exfiltration after a successful code execution.
+    platform: sigma
+    severity: medium
+    tactics:
+      - exfiltration
+    techniques:
+      - T1041
+    data_sources:
+      - network_connection
+      - windows
 rules_count: 2
 ---
 
-Langflow is vulnerable to multiple security flaws that could be exploited by remote attackers. These vulnerabilities range from information disclosure to data manipulation and cross-site scripting (XSS). The vulnerabilities can be exploited by both anonymous and authenticated attackers, increasing the potential attack surface. Successful exploitation could lead to unauthorized access to sensitive information, modification of data, and execution of malicious scripts within the context of the…
+Langflow is vulnerable to multiple security flaws that could allow a remote attacker to perform several malicious actions. These vulnerabilities, if successfully exploited, may lead to arbitrary code execution, sensitive information disclosure, and data manipulation. While the specific versions affected and CVEs are not detailed in the advisory, the potential impact is significant, suggesting a need for immediate investigation and mitigation strategies for organizations utilizing Langflow in…
