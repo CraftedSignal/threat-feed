@@ -1,46 +1,59 @@
 ---
-title: Compromised trivy-action GitHub Action via Git Tag Repointing
+title: Trivy Ecosystem Supply Chain Compromise
 slug: 2026-03-trivy-supply-chain
-description: The trivy-action GitHub Action was compromised via git tag repointing, where 76 of 77 release tags were retroactively poisoned, replacing the legitimate entry point with a credential stealer that ran silently before the real scanner, targeting GitHub Actions runners on Linux.
-date: "2026-03-28T08:17:27Z"
+description: A threat actor compromised the Trivy ecosystem supply chain by publishing malicious releases of Trivy binaries, container images, and GitHub Actions to steal credentials, with observed impacts including exfiltration to attacker-controlled infrastructure and public repositories.
+date: "2026-03-25T12:00:00Z"
 severities:
   - critical
 tags:
   - supply-chain
   - github-actions
   - credential-theft
-  - linux
 mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1199
+    technique_name: Trusted Relationship
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1133
-    technique_name: External Service
+    technique_id: T1003
+    technique_name: OS Credential Dumping
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1119
+    technique_name: Automated Collection
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1567
+    technique_name: Exfiltration Over Web Service
 references:
-  - https://www.crowdstrike.com/en-us/blog/from-scanner-to-stealer-inside-the-trivy-action-supply-chain-compromise/
+  - https://github.com/advisories/GHSA-69fq-xp46-6x23
+ioc_counts:
+  domain: 1
 rules:
-  - title: Detect Suspicious Script Execution in GitHub Actions Runner
-    description: Detects suspicious shell script execution within GitHub Actions runner environments, potentially indicating malicious activity originating from compromised actions.
+  - title: Detect Public Repository Creation After Trivy Compromise
+    description: Detects the creation of a public repository named `tpcp-docs` on GitHub, potentially indicating successful secret exfiltration following the Trivy supply chain compromise.
     platform: sigma
     severity: high
     tactics:
-      - execution
+      - exfiltration
     techniques:
-      - T1059.004
+      - T1133
     data_sources:
-      - process_creation
-      - linux
-  - title: Detect Trivy Action Entrypoint Execution
-    description: Detects execution of the trivy-action entrypoint.sh script, which may indicate a compromised action is being used.
+      - webserver
+      - github
+  - title: Detect Outbound Connection to Typosquatted Trivy Domain
+    description: Detects network connections to the typosquatted domain get.trivy.dev, which was used to serve malicious Go source files during the Trivy supply chain compromise.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - command_and_control
     techniques:
-      - T1059.004
+      - T1071.001
     data_sources:
-      - process_creation
-      - linux
+      - network_connection
+      - windows
 rules_count: 2
 ---
 
-On March 19, 2026, CrowdStrike observed a spike in script execution detections on Linux GitHub Actions runners, tracing the activity to a compromised GitHub Action named `aquasecurity/trivy-action`. This popular open-source vulnerability scanner is widely used in CI/CD pipelines. The investigation revealed that 76 of the scanner’s 77 release tags were retroactively poisoned through git tag repointing. This malicious modification replaced the legitimate entry point with a multi-stage…
+On March 19 and 22, 2026, a threat actor compromised the Trivy ecosystem by leveraging compromised credentials. This resulted in the publication of malicious releases, including Trivy v0.69.4 binaries and container images, v0.69.5 and v0.69.6 DockerHub images, and malicious versions of the `aquasecurity/trivy-action` and `aquasecurity/setup-trivy` GitHub Actions. The attacker injected an infostealer into the GitHub Actions to collect secrets. The malicious code targeted SSH keys, AWS/GCP/Azure…
