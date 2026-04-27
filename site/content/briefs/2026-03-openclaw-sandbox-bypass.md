@@ -1,52 +1,50 @@
 ---
-title: OpenClaw Sandbox Boundary Bypass Vulnerability (CVE-2026-32988)
+title: OpenClaw Sandbox Boundary Bypass Vulnerability (CVE-2026-32915)
 slug: 2026-03-openclaw-sandbox-bypass
-description: OpenClaw before 2026.3.11 is vulnerable to a sandbox boundary bypass (CVE-2026-32988) due to improper handling of temporary files in fs-bridge staged writes, allowing attackers to potentially write arbitrary bytes outside the intended validated path.
-date: "2026-03-31T12:16:30Z"
+description: OpenClaw before 2026.3.11 contains a sandbox boundary bypass vulnerability that allows low-privilege leaf subagents to access the subagents control surface and execute commands with broader tool policies due to insufficient authorization checks, potentially leading to privilege escalation and unauthorized control of sibling processes.
+date: "2026-03-29T13:16:59Z"
 severities:
   - high
 tags:
-  - sandbox-bypass
-  - race-condition
-  - cve-2026-32988
-  - openclaw
+  - sandbox-escape
+  - privilege-escalation
+  - cve-2026-32915
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-cves:
-  - id: CVE-2026-32988
-    cvss: 7.5
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-32988
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-mj4p-rc52-m843
-  - https://www.vulncheck.com/advisories/openclaw-sandbox-boundary-bypass-via-unvalidated-temporary-file-creation
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-32915
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-4w7m-58cg-cmff
+  - https://www.vulncheck.com/advisories/openclaw-sandbox-boundary-bypass-via-subagent-control-surface
 rules:
-  - title: Detect OpenClaw Suspicious Temporary File Creation
-    description: Detects the creation of temporary files that might indicate an attempt to exploit the CVE-2026-32988 vulnerability in OpenClaw's fs-bridge staged writes.
+  - title: Detect Suspicious Subagent Control Request
+    description: Detects subagent control requests that attempt to access resources outside their intended sandbox, indicating a potential sandbox escape attempt.
     platform: sigma
     severity: high
     tactics:
-      - defense_evasion
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
-      - file_event
-      - linux
-  - title: Detect OpenClaw fs-bridge Staged Writes to Unexpected Paths
-    description: Detects file writes to unexpected paths during OpenClaw's fs-bridge staged write process which could indicate a sandbox escape.
+      - application
+      - openclaw
+  - title: Detect Subagent Terminating Sibling Runs
+    description: Detects subagents attempting to terminate sibling runs, which could be a sign of exploitation of CVE-2026-32915.
     platform: sigma
     severity: medium
     tactics:
-      - defense_evasion
-    techniques:
-      - T1068
+      - execution
+      - impact
     data_sources:
-      - file_event
-      - linux
+      - application
+      - openclaw
 rules_count: 2
 ---
 
-OpenClaw versions prior to 2026.3.11 are susceptible to a sandbox boundary bypass vulnerability identified as CVE-2026-32988. This flaw resides in the fs-bridge staged writes mechanism, where the creation and population of temporary files lack proper validation to ensure they remain within a verified parent directory. This vulnerability stems from a race condition involving parent-path alias changes. An attacker can exploit this condition to manipulate file writes, allowing attacker-controlled…
+CVE-2026-32915 describes a critical sandbox escape vulnerability affecting OpenClaw versions prior to 2026.3.11. The flaw resides in the insufficient authorization checks implemented on subagent control requests. A low-privilege sandboxed leaf worker can exploit this to bypass the intended sandbox boundaries and access the subagents control surface. This allows the attacker to resolve requests against the parent requester scope, instead of being limited to their own session tree. This…
