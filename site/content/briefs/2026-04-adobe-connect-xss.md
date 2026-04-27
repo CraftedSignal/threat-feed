@@ -1,49 +1,49 @@
 ---
-title: Adobe Connect Reflected XSS Vulnerability (CVE-2026-27243)
+title: Adobe Connect XSS Vulnerability Leading to Privilege Escalation
 slug: 2026-04-adobe-connect-xss
-description: Adobe Connect versions 2025.3, 12.10 and earlier are vulnerable to reflected Cross-Site Scripting (XSS), allowing an attacker to execute malicious JavaScript in a victim's browser by enticing them to visit a specially crafted URL.
-date: "2026-04-15T12:00:00Z"
+description: Adobe Connect versions 2025.3, 12.10, and earlier are susceptible to a Cross-Site Scripting (XSS) vulnerability (CVE-2026-34617) that can lead to privilege escalation if a user interacts with a malicious URL or compromised web page.
+date: "2026-04-14T18:17:36Z"
 severities:
-  - critical
+  - high
 tags:
   - adobe-connect
   - xss
-  - cve-2026-27243
-  - reflected-xss
+  - cve-2026-34617
+  - privilege-escalation
 mitre_ttps:
-  - tactic_id: TA0006
-    tactic_name: Execution
-    technique_id: T1059.001
-    technique_name: 'Command and Scripting Interpreter: PowerShell'
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
 cves:
-  - id: CVE-2026-27243
-    cvss: 9.3
+  - id: CVE-2026-34617
+    cvss: 8.7
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-27243
-  - https://helpx.adobe.com/security/products/connect/apsb26-37.html
-ioc_counts:
-  email: 1
-  url: 1
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-34617
 rules:
-  - title: Detect Adobe Connect XSS Attempt
-    description: Detects potential reflected XSS attempts targeting Adobe Connect by identifying requests containing common XSS payloads in the URI query.
+  - title: Detect Potential XSS in Adobe Connect URI
+    description: Detects potential XSS attacks targeting Adobe Connect by looking for common XSS payloads in the URI.
     platform: sigma
     severity: high
     tactics:
       - initial_access
+    techniques:
+      - T1189
     data_sources:
       - webserver
       - linux
-  - title: Detect Adobe Connect Redirection to NVD
-    description: Detects attempts to redirect users to the NVD website from Adobe Connect, potentially indicating an unauthorized frame window issue.
+  - title: Detect Potential XSS in Adobe Connect Request Body
+    description: Detects potential XSS attacks targeting Adobe Connect by looking for common XSS payloads in the HTTP request body.
     platform: sigma
-    severity: low
+    severity: high
     tactics:
-      - defense_evasion
+      - initial_access
+    techniques:
+      - T1189
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-Adobe Connect versions 2025.3, 12.10, and earlier are susceptible to a reflected Cross-Site Scripting (XSS) vulnerability, identified as CVE-2026-27243. This flaw allows an attacker to inject and execute arbitrary JavaScript code within a user's browser session if the user visits a malicious URL. The vulnerability arises because the application fails to properly sanitize user-supplied input before reflecting it back to the user. Exploitation requires social engineering to convince a victim to…
+Adobe Connect versions 2025.3, 12.10, and prior are vulnerable to a Cross-Site Scripting (XSS) attack, identified as CVE-2026-34617. This vulnerability allows a low-privileged attacker to inject malicious scripts into a web page viewed by other users. Successful exploitation requires user interaction, such as clicking a crafted URL or interacting with a compromised page within the Adobe Connect environment. The vulnerability could allow an attacker to gain elevated access or control over a…
