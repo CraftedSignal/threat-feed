@@ -1,8 +1,8 @@
 ---
-title: CrowdStrike Flex for Services Enhances Incident Response Readiness
+title: CrowdStrike Flex for Services Expands Access to Incident Response Expertise
 slug: 2026-03-crowdstrike-flex-services
-description: CrowdStrike's Flex for Services model provides organizations with flexible access to cybersecurity expertise for incident response, proactive security services, and training, improving readiness against modern threats.
-date: "2026-03-24T09:23:42Z"
+description: CrowdStrike is expanding its Falcon Flex model to its services offering, providing flexible access to incident response, proactive security services, advisory, platform services, and training.
+date: "2026-03-28T08:17:27Z"
 severities:
   - medium
 tags:
@@ -11,34 +11,37 @@ tags:
 mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection
-    technique_id: T1005
-    technique_name: Data from Local System
+    technique_id: T1560
+    technique_name: Archive Collected Data
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1027
+    technique_name: Obfuscated Files or Information
 references:
-  - https://crowdstrike.com/en-us/blog/crowdstrike-extends-the-falcon-flex-model-to-services/
+  - https://www.crowdstrike.com/en-us/blog/crowdstrike-extends-the-falcon-flex-model-to-services/
 rules:
-  - title: Detect Potential Incident Response Engagement
-    description: Detects potential incident response engagement activities through process creation events. This is a heuristic and requires tuning.
+  - title: Detect PowerShell Downgrade Attack
+    description: Detects PowerShell being invoked with a version parameter to downgrade it.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
-      - discovery
+      - defense_evasion
     techniques:
-      - T1082
+      - T1027
     data_sources:
       - process_creation
       - windows
-  - title: Detect Uncommon Network Connection by System Processes
-    description: Detects unusual network connections from system processes that typically don't initiate outbound connections. Requires tuning to avoid false positives.
+  - title: Detect Execution from Suspicious Folder
+    description: Detects execution of a binary from folders commonly used to store downloads or temporary files.
     platform: sigma
-    severity: low
+    severity: high
     tactics:
-      - discovery
-    techniques:
-      - T1016
+      - execution
+      - initial_access
     data_sources:
-      - network_connection
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-CrowdStrike is extending its Falcon Flex model to its services offerings, aiming to provide organizations with greater flexibility and speed in preparing for contemporary cybersecurity threats. This model includes the Zero Dollar Flex Fund, designed to offer proactive service hours that bolster incident readiness. The new approach covers a range of services, from incident response and proactive security measures to advisory, platform optimization, and training. This shift is a response to the…
+CrowdStrike is extending the Falcon Flex model to its services offering to provide organizations with the flexibility and speed required to prepare for modern threats. This model provides flexible consumption of expert-led cybersecurity services. The Zero Dollar Flex Fund provides proactive services hours to strengthen incident readiness. Customers draw down from a standalone services entitlement that can be applied across the services portfolio based on priorities and operational needs. This…
