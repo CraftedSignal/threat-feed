@@ -1,24 +1,28 @@
 ---
-title: CrowdStrike Falcon Data Security for Real-time Data Theft Prevention
+title: CrowdStrike Falcon Data Security Introduction
 slug: 2026-03-falcon-data-security
-description: CrowdStrike's Falcon Data Security provides real-time visibility into sensitive data movement across various environments, enabling organizations to detect and prevent data theft attempts by both internal and external actors.
-date: "2026-03-28T08:20:42Z"
+description: CrowdStrike's Falcon Data Security aims to protect sensitive data by providing visibility into data movement across various environments and preventing data theft.
+date: "2026-03-28T08:12:22Z"
 severities:
   - medium
 tags:
   - data-security
-  - data-exfiltration
-  - cloud-security
+  - data-loss-prevention
+  - crowdstrike
 mitre_ttps:
   - tactic_id: TA0010
     tactic_name: Exfiltration
     technique_id: T1041
     technique_name: Exfiltration Over C2 Channel
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1114
+    technique_name: Email Collection
 references:
   - https://www.crowdstrike.com/en-us/blog/falcon-data-security-secures-data-wherever-it-lives-and-moves/
 rules:
-  - title: Detect Suspicious Data Exfiltration via Web Upload
-    description: Detects potential data exfiltration attempts by monitoring for processes uploading data to web services after accessing sensitive files.
+  - title: Detect Suspicious SaaS Data Exfiltration via Browser
+    description: Detects potential data exfiltration attempts from SaaS applications through web browsers by monitoring file downloads or uploads to suspicious destinations.
     platform: sigma
     severity: medium
     tactics:
@@ -26,20 +30,20 @@ rules:
     techniques:
       - T1041
     data_sources:
-      - network_connection
+      - process_creation
       - windows
-  - title: Detect Data Exfiltration via Removable Media
-    description: Detects potential data exfiltration attempts to removable media based on file creation events.
+  - title: Detect Suspicious Cloud Data Transfer via Command Line
+    description: Detects potential data transfer to cloud storage services using command-line tools, which might indicate unauthorized data movement.
     platform: sigma
-    severity: medium
+    severity: low
     tactics:
       - exfiltration
     techniques:
-      - T1041
+      - T1530
     data_sources:
-      - file_event
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-CrowdStrike Falcon Data Security is a new product designed to protect sensitive data in modern, distributed environments. It addresses the challenge of securing data as it moves across endpoints, browsers, SaaS applications, cloud services, GenAI tools, and agentic workflows. The platform aims to provide organizations with the ability to understand what data is sensitive, monitor its movement in real-time, and prevent data theft. The focus is on detecting and stopping unauthorized data movement…
+CrowdStrike has launched Falcon Data Security in March 2026. This solution is designed to help organizations gain enhanced visibility into their sensitive data, track its movement in real time, and prevent data theft across diverse environments including endpoints, browsers, SaaS applications, cloud services, GenAI tools, and agentic workflows. Falcon Data Security aims to address the challenges of modern data security by providing real-time assessment of sensitive data in motion, enabling…
