@@ -1,48 +1,49 @@
 ---
-title: LXD Backup Import Bypass Allows Privilege Escalation in Restricted Projects
+title: Canonical LXD Backup Import Project Restriction Bypass (CVE-2026-34178)
 slug: 2026-04-lxd-backup-bypass
-description: A vulnerability in LXD allows an attacker with instance-creation rights in a restricted project to bypass project restrictions and escalate privileges by crafting a malicious backup archive.
-date: "2026-04-10T19:24:26Z"
+description: An authenticated remote attacker with instance-creation permission in a restricted project can bypass project restrictions in Canonical LXD before 6.8 by crafting a malicious backup archive, leading to full host compromise.
+date: "2026-04-09T10:16:21Z"
 severities:
   - critical
 tags:
   - lxd
+  - canonical
   - privilege-escalation
-  - container-escape
-  - cve-2026-34178
+  - vulnerability
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1611
-    technique_name: Escape to Host
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+cves:
+  - id: CVE-2026-34178
+    cvss: 9.1
 references:
-  - https://github.com/advisories/GHSA-q96j-3fmm-7fv4
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-34178
 rules:
-  - title: Detect LXD Container Creation with Privileged Mode in Restricted Projects
-    description: Detects the creation of LXD containers with 'security.privileged' set to 'true' which is a sign of potential privilege escalation, especially in restricted projects. This requires access to the LXD database.
+  - title: Detect LXD Backup Import with Suspicious Privileged Configuration
+    description: Detects LXD backup import operations that attempt to set privileged configurations, potentially bypassing project restrictions.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
       - privilege_escalation
     techniques:
       - T1068
-      - T1611
     data_sources:
-      - file_event
+      - process_creation
       - linux
-  - title: Detect LXD Container Creation with raw.lxc
-    description: Detects the creation of LXD containers with 'raw.lxc' config which is a sign of potential privilege escalation, especially in restricted projects. This requires access to the LXD database.
+  - title: Detect LXD process start with Elevated Privileges
+    description: Detects processes started in LXD containers with elevated privileges, which can indicate exploitation of a bypass vulnerability
     platform: sigma
     severity: high
     tactics:
       - privilege_escalation
     techniques:
       - T1068
-      - T1611
     data_sources:
-      - file_event
+      - process_creation
       - linux
 rules_count: 2
 ---
 
-A critical vulnerability exists in LXD (versions prior to the fixes mentioned below) that allows an attacker with limited privileges in a restricted project to bypass security restrictions and gain full control of the LXD host. The vulnerability stems from improper validation during instance backup import. Specifically, LXD validates project restrictions against the `backup/index.yaml` file within the backup archive but creates the instance from the `backup/container/backup.yaml` file. By…
+Canonical LXD, a container management platform, is vulnerable to a critical security flaw (CVE-2026-34178) affecting versions prior to 6.8. This vulnerability allows an authenticated remote attacker with instance-creation privileges within a restricted project to bypass enforced restrictions. The attack exploits a discrepancy in the backup import process, where project restrictions are validated against `backup/index.yaml`, but the instance is created from `backup/container/backup.yaml`, a…
