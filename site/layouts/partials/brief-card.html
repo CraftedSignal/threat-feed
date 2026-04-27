@@ -1,0 +1,63 @@
+{{/* Single-row brief card. Used on home, listings, and taxonomy term pages. */}}
+{{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
+{{ $sevClass := printf "sev-%s" $sev }}
+{{ $tags := .Params.tags | default slice }}
+{{ $actors := .Params.actors | default slice }}
+{{ $exploited := .Params.exploited | default false }}
+{{ $cveCount := len (.Params.cves | default slice) }}
+{{ $ttpCount := len (.Params.mitre_ttps | default slice) }}
+{{ $rulesCount := .Params.rules_count | default (len (.Params.rules | default slice)) }}
+{{ $ioc := .Params.ioc_counts | default dict }}
+{{ $iocTotal := 0 }}
+{{ range $k, $v := $ioc }}{{ $iocTotal = add $iocTotal $v }}{{ end }}
+
+<a href="{{ .RelPermalink }}" class="block rounded-xl border border-stroke bg-panel/70 hover:bg-panel hover:border-accent/40 p-5 transition group" data-pagefind-ignore data-brief-date="{{ .Date.Unix }}">
+  <div class="flex items-start gap-4">
+
+    <div class="pt-0.5 flex-none">
+      <span class="sev-badge {{ $sevClass }}">{{ $sev }}</span>
+    </div>
+
+    <div class="flex-1 min-w-0">
+      <div class="flex items-baseline justify-between gap-3">
+        <h3 class="font-display text-base md:text-lg font-semibold text-text leading-snug group-hover:text-accent transition truncate">{{ .Title }}</h3>
+        <span class="hidden md:flex items-center gap-3 text-xs text-muted whitespace-nowrap">
+          {{ if gt $rulesCount 0 }}<span><span class="font-mono text-text">{{ $rulesCount }}</span> {{ if eq $rulesCount 1 }}rule{{ else }}rules{{ end }}</span>{{ end }}
+          {{ if gt $ttpCount 0 }}<span><span class="font-mono text-text">{{ $ttpCount }}</span> {{ if eq $ttpCount 1 }}TTP{{ else }}TTPs{{ end }}</span>{{ end }}
+          {{ if gt $cveCount 0 }}<span><span class="font-mono text-text">{{ $cveCount }}</span> {{ if eq $cveCount 1 }}CVE{{ else }}CVEs{{ end }}</span>{{ end }}
+          {{ if gt $iocTotal 0 }}<span><span class="font-mono text-text">{{ $iocTotal }}</span> {{ if eq $iocTotal 1 }}IOC{{ else }}IOCs{{ end }}</span>{{ end }}
+        </span>
+      </div>
+
+      {{ with .Params.description | default .Summary }}
+      <p class="mt-1.5 text-sm text-muted line-clamp-2">{{ . }}</p>
+      {{ end }}
+
+      <div class="mt-3 flex items-end justify-between gap-3 text-[11px]">
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 min-w-0">
+          {{ if $exploited }}
+          <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-critical/10 text-sev-critical" title="Active exploitation observed in the wild">exploited</span>
+          {{ end }}
+          {{ range $actors }}
+          <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-accent/10 text-accent">{{ . }}</span>
+          {{ end }}
+          {{ range first 8 $tags }}
+          <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-panel-2 text-muted">{{ . }}</span>
+          {{ end }}
+          {{ if gt (len $tags) 8 }}<span class="text-muted">+{{ sub (len $tags) 8 }}</span>{{ end }}
+        </div>
+
+        <div class="flex items-center gap-3 flex-none whitespace-nowrap text-muted">
+          <span class="md:hidden flex items-center gap-3">
+            {{ if gt $rulesCount 0 }}<span><span class="font-mono text-text">{{ $rulesCount }}</span>r</span>{{ end }}
+            {{ if gt $ttpCount 0 }}<span><span class="font-mono text-text">{{ $ttpCount }}</span>t</span>{{ end }}
+            {{ if gt $cveCount 0 }}<span><span class="font-mono text-text">{{ $cveCount }}</span>c</span>{{ end }}
+            {{ if gt $iocTotal 0 }}<span><span class="font-mono text-text">{{ $iocTotal }}</span>i</span>{{ end }}
+          </span>
+          <time class="font-mono" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ .Date.Format "January 2, 2006 15:04 MST" }}">{{ partial "relative-time.html" . }}</time>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</a>

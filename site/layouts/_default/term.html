@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{ $taxonomy := .Data.Singular }}
+{{ $term := .Data.Term }}
+{{ $pages := .Pages.ByDate.Reverse }}
+{{ $taxLabel := $taxonomy | humanize }}
+
+<section class="px-4 md:px-0 pt-10 pb-6">
+  <div class="max-w-6xl mx-auto space-y-3">
+    <nav class="text-xs text-muted">
+      <a href="/" class="hover:text-accent">Home</a>
+      <span class="mx-1">/</span>
+      <a href="/{{ .Data.Plural }}/" class="hover:text-accent">{{ .Data.Plural | humanize }}</a>
+    </nav>
+
+    <p class="text-xs font-mono uppercase tracking-[0.18em] text-accent">{{ $taxLabel }}</p>
+    <div class="flex flex-wrap items-center gap-3">
+      {{ if eq $taxonomy "severity" }}
+        <span class="sev-badge sev-{{ $term }} text-base">{{ $term }}</span>
+      {{ else }}
+        <h1 class="font-display text-3xl md:text-4xl font-semibold">{{ .Title }}</h1>
+      {{ end }}
+      <span class="text-sm text-muted"><span class="font-mono text-text">{{ len $pages }}</span> {{ if eq (len $pages) 1 }}brief{{ else }}briefs{{ end }}</span>
+      <a href="feed.xml" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border border-stroke text-xs text-muted hover:text-text hover:border-accent/40 transition">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9h-2a7 7 0 0 0-7-7v-2zm0-4a13 13 0 0 1 13 13h-2A11 11 0 0 0 4 9V7zm2 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>
+        RSS
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ partial "search.html" . }}
+
+<section class="px-4 md:px-0 pb-12">
+  <div class="max-w-6xl mx-auto space-y-3">
+    {{ range $pages }}
+      {{ partial "brief-card.html" . }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}

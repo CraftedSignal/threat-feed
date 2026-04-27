@@ -1,0 +1,49 @@
+<footer class="px-6 pt-12 pb-8 mt-16 border-t border-stroke bg-base/60">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col lg:flex-row lg:justify-between gap-8 mb-8">
+      <div class="space-y-2 lg:max-w-sm">
+        <a href="{{ .Site.Home.RelPermalink }}" class="font-display text-lg font-semibold">
+          <span class="text-accent">crafted</span><span class="text-text">signal</span>
+          <span class="ml-1 text-xs font-mono uppercase tracking-wider text-muted">/ feed</span>
+        </a>
+        <p class="text-sm text-muted">{{ .Site.Params.description }}</p>
+        <p class="text-xs text-muted">Public summary view — full detection rules, IOCs, and rule tests are available in the <a class="text-accent hover:underline" href="{{ .Site.Params.appURL }}" target="_blank" rel="noopener noreferrer">CraftedSignal platform</a>.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-8">
+        <div class="space-y-2">
+          <h4 class="text-xs font-semibold uppercase tracking-[0.14em] text-text">Browse</h4>
+          <nav class="flex flex-col gap-1.5 text-sm text-muted">
+            <a href="/briefs/" class="hover:text-text transition">Briefs</a>
+            <a href="/severities/" class="hover:text-text transition">By severity</a>
+            <a href="/actors/" class="hover:text-text transition">By threat actor</a>
+            <a href="/tags/" class="hover:text-text transition">By tag</a>
+          </nav>
+        </div>
+        <div class="space-y-2">
+          <h4 class="text-xs font-semibold uppercase tracking-[0.14em] text-text">Subscribe</h4>
+          <nav class="flex flex-col gap-1.5 text-sm text-muted">
+            <a href="/feed.xml" class="hover:text-text transition">All briefs (RSS)</a>
+            <a href="/severities/critical/feed.xml" class="hover:text-text transition">Critical only (RSS)</a>
+            <a href="/severities/high/feed.xml" class="hover:text-text transition">High+ (RSS)</a>
+            <a href="/about/" class="hover:text-text transition">How to subscribe</a>
+          </nav>
+        </div>
+        <div class="space-y-2">
+          <h4 class="text-xs font-semibold uppercase tracking-[0.14em] text-text">Platform</h4>
+          <nav class="flex flex-col gap-1.5 text-sm text-muted">
+            <a href="{{ .Site.Params.marketingURL }}" class="hover:text-text transition">Platform</a>
+            <a href="{{ .Site.Params.appURL }}" target="_blank" rel="noopener noreferrer" class="hover:text-text transition">Login</a>
+            {{ with .Site.Params.githubURL }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="hover:text-text transition">GitHub</a>{{ end }}
+            <a href="mailto:{{ .Site.Params.email }}" class="hover:text-text transition">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-6 border-t border-stroke text-xs text-muted">
+      <p>&copy; {{ now.Year }} CraftedSignal. All rights reserved.</p>
+      <p class="font-mono">Updated continuously · {{ now.Format "2006-01-02" }}</p>
+    </div>
+  </div>
+</footer>

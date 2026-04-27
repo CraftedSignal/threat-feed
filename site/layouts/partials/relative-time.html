@@ -1,0 +1,10 @@
+{{- $now := now.Unix -}}
+{{- $then := .Date.Unix -}}
+{{- $diff := sub $now $then -}}
+{{- if lt $diff 60 -}}just now
+{{- else if lt $diff 3600 -}}{{ div $diff 60 }}m ago
+{{- else if lt $diff 86400 -}}{{ div $diff 3600 }}h ago
+{{- else if lt $diff 604800 -}}{{ div $diff 86400 }}d ago
+{{- else if lt $diff 2592000 -}}{{ div $diff 604800 }}w ago
+{{- else -}}{{ .Date.Format "Jan 2, 2006" -}}
+{{- end -}}

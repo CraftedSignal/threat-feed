@@ -1,0 +1,75 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Pre-paint theme: applies stored theme before first render so the page
+     never flashes the wrong palette. Default is 'auto' (follow OS); user can
+     override via the toggle, which writes 'light' or 'dark' to localStorage. -->
+<script>
+(function () {
+  try {
+    var v = localStorage.getItem('feedTheme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var dark = (v === 'dark') || ((v === null || v === 'auto') && prefersDark);
+    if (dark) document.documentElement.classList.add('dark');
+  } catch (_) { /* ignore */ }
+})();
+</script>
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+{{ $title := .Site.Title }}
+{{ $description := .Site.Params.description }}
+{{ $pageTitle := "" }}
+{{ if and .Title (not .IsHome) }}
+  {{ $pageTitle = printf "%s – %s" .Title .Site.Title }}
+{{ else }}
+  {{ $pageTitle = printf "%s – %s" .Site.Title (.Site.Params.tagline | default "Threat intelligence feed") }}
+{{ end }}
+{{ if and .Params.description (not .IsHome) }}
+  {{ $description = .Params.description }}
+{{ end }}
+<title>{{ $pageTitle }}</title>
+<meta name="title" content="{{ $pageTitle }}">
+<meta name="description" content="{{ $description }}">
+<meta name="keywords" content="threat intelligence, threat feed, MITRE ATT&CK, CVE, IOC, SOC, IR, detection engineering, sigma, SIEM">
+
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- RSS autodiscovery -->
+{{ range .AlternativeOutputFormats -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title }}">
+{{ end -}}
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ $pageTitle }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $pageTitle }}">
+<meta name="twitter:description" content="{{ $description }}">
+
+<!-- Security headers.
+     'unsafe-inline' is required:
+       - style-src: chart bars use inline style="height: …%" / "opacity: …".
+       - script-src: pre-paint theme script in <head> avoids the FOUC.
+     Pagefind's runtime fetches sit under 'self'. -->
+{{ $csp := "default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; frame-ancestors 'none'" }}
+{{ if hugo.IsServer }}
+  {{ $csp = "default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' ws://localhost:1313 ws://localhost:8765; form-action 'none'; base-uri 'self'; frame-ancestors 'none'" }}
+{{ end }}
+<meta http-equiv="Content-Security-Policy" content="{{ $csp }}">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow">
+
+<!-- Pagefind UI styles load FIRST so our main.css can override them.
+     onerror detaches the tag silently if the index isn't built yet. -->
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" onerror="this.remove()">
+<script src="/pagefind/pagefind-ui.js" defer onerror="this.remove()"></script>
+
+{{ $css := resources.Get "css/main.css" | css.PostCSS | minify | fingerprint "sha384" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous" />

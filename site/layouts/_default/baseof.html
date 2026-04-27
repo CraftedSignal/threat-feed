@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}">
+<head>
+  {{- partial "head.html" . -}}
+</head>
+<body class="min-h-screen flex flex-col bg-base text-text antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-lg">Skip to content</a>
+  {{- partial "header.html" . -}}
+  <main id="main" class="flex-1">
+    {{- block "main" . }}{{- end }}
+  </main>
+  {{- partial "footer.html" . -}}
+
+  {{ $js := resources.Get "js/app.js" | js.Build (dict "minify" true "target" "es2020") | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{{/* Activity strip. One column per day for the last N days, colored by
+     dominant severity. Reads like a barcode/threat-weather strip.
+     Rumour is excluded from the strip — it gets its own section below. */}}
+{{ $window := 30 }}
+{{ $cutoff := now.AddDate 0 0 (mul -1 $window) }}
+{{ $allRecent := where (where .Site.RegularPages "Section" "briefs") "Date" "ge" $cutoff }}
+
+{{ $scratch := newScratch }}
+{{/* Aggregate per-severity totals across ALL severities (incl. rumour) for the legend */}}
+{{ range $allRecent }}
+  {{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
+  {{ $scratch.Add (printf "tot_%s" $sev) 1 }}
+{{ end }}
+
+{{/* Strip excludes rumour — those get their own section. Build the per-day index from non-rumour briefs only. */}}
+{{ $recent := slice }}
+{{ range $allRecent }}
+  {{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
+  {{ if ne $sev "rumour" }}
+    {{ $recent = $recent | append . }}
+    {{ $key := .Date.Format "2006-01-02" }}
+    {{ $scratch.Add (printf "%s_%s" $key $sev) 1 }}
+    {{ $scratch.Add (printf "%s_total" $key) 1 }}
+  {{ end }}
+{{ end }}
+{{ $total := len $recent }}
+
+{{ $maxDay := 0 }}
+{{ range $i := seq $window }}
+  {{ $offset := sub $window $i }}
+  {{ $key := (now.AddDate 0 0 (mul -1 $offset)).Format "2006-01-02" }}
+  {{ $t := $scratch.Get (printf "%s_total" $key) | default 0 }}
+  {{ if gt $t $maxDay }}{{ $maxDay = $t }}{{ end }}
+{{ end }}
+{{ $denomDay := math.Max $maxDay 1 }}
+
+<div class="rounded-2xl border border-stroke bg-panel/60 p-5 md:p-6 space-y-5">
+  <div class="flex items-baseline justify-between gap-3">
+    <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Activity · last {{ $window }} days</h2>
+    <span class="text-xs font-mono text-muted"><span class="text-text">{{ $total }}</span> {{ if eq $total 1 }}brief{{ else }}briefs{{ end }}</span>
+  </div>
+
+  <div class="space-y-2">
+    <div class="flex items-end gap-[2px] h-12">
+      {{ range $i := seq $window }}
+        {{ $offset := sub $window $i }}
+        {{ $date := now.AddDate 0 0 (mul -1 $offset) }}
+        {{ $key := $date.Format "2006-01-02" }}
+        {{ $crit := $scratch.Get (printf "%s_critical" $key) | default 0 }}
+        {{ $high := $scratch.Get (printf "%s_high"     $key) | default 0 }}
+        {{ $med  := $scratch.Get (printf "%s_medium"   $key) | default 0 }}
+        {{ $low  := $scratch.Get (printf "%s_low"      $key) | default 0 }}
+        {{ $dayTotal := add (add (add $crit $high) $med) $low }}
+
+        {{ $dom := "" }}
+        {{ if gt $crit 0 }}{{ $dom = "critical" }}
+        {{ else if gt $high 0 }}{{ $dom = "high" }}
+        {{ else if gt $med  0 }}{{ $dom = "medium" }}
+        {{ else if gt $low  0 }}{{ $dom = "low" }}
+        {{ end }}
+
+        {{ $heightPct := 12 }}
+        {{ if gt $dayTotal 0 }}{{ $heightPct = add 25 (div (mul $dayTotal 75.0) $denomDay) }}{{ end }}
+
+        {{ $title := printf "%s — %d briefs" ($date.Format "Mon Jan 2") $dayTotal }}
+
+        <div class="flex-1 flex items-end h-full" title="{{ $title }}">
+          {{ if eq $dom "" }}
+          <div class="w-full bg-panel-2/40 rounded-sm" style="height: 8%"></div>
+          {{ else }}
+          <div class="w-full bg-sev-{{ $dom }} rounded-sm" style="height: {{ $heightPct }}%"></div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-muted">
+      <span>{{ (now.AddDate 0 0 (mul -1 (sub $window 1))).Format "Jan 2" }}</span>
+      <span>today</span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-5 gap-3 pt-2 border-t border-stroke">
+    {{ range $sev := slice "critical" "high" "medium" "low" "rumour" }}
+      {{ $count := $scratch.Get (printf "tot_%s" $sev) | default 0 }}
+      <a href="/severities/{{ $sev }}/" class="group flex items-baseline gap-2 hover:text-text transition" title="View all {{ $sev }} briefs">
+        <span class="w-2 h-2 rounded-sm bg-sev-{{ $sev }} flex-none"></span>
+        <span class="font-mono text-xl text-text group-hover:text-sev-{{ $sev }} transition">{{ $count }}</span>
+        <span class="text-[10px] uppercase tracking-wider text-muted group-hover:text-text transition">{{ $sev }}</span>
+      </a>
+    {{ end }}
+  </div>
+</div>

@@ -1,0 +1,79 @@
+{{ define "main" }}
+{{/* Handles both regular section list pages and taxonomy index pages
+     (e.g. /severities/, /actors/). Term pages use term.html. */}}
+{{ if eq .Kind "taxonomy" }}
+  {{ $taxonomy := .Data.Singular }}
+  {{ $plural := .Data.Plural }}
+  {{ $taxLabel := $taxonomy | humanize | lower }}
+  {{ $pluralLabel := $plural | humanize }}
+
+  <section class="px-4 md:px-0 pt-10 pb-4">
+    <div class="max-w-6xl mx-auto space-y-2">
+      <p class="text-xs font-mono uppercase tracking-[0.18em] text-accent">Browse by {{ $taxLabel }}</p>
+      <h1 class="font-display text-3xl md:text-4xl font-semibold">{{ .Title | default $pluralLabel }}</h1>
+      <p class="text-sm text-muted">Click any term below to see matching briefs. Each one has its own RSS feed.</p>
+    </div>
+  </section>
+
+  {{ partial "search.html" . }}
+
+  <section class="px-4 md:px-0 pb-10">
+    <div class="max-w-6xl mx-auto">
+
+      {{ $terms := .Data.Terms.ByCount }}
+      {{ if eq $taxonomy "severity" }}
+        {{/* Custom order for severity: critical → rumour */}}
+        {{ $order := slice "critical" "high" "medium" "low" "rumour" }}
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          {{ range $order }}
+            {{ $term := . }}
+            {{ $page := $.Site.GetPage (printf "/%s/%s" $plural $term) }}
+            {{ if $page }}
+            <a href="{{ $page.RelPermalink }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 p-4 hover:border-accent/40 transition">
+              <span class="sev-badge sev-{{ $term }}">{{ $term }}</span>
+              <span class="text-sm text-muted"><span class="font-mono text-text">{{ len $page.Pages }}</span> {{ if eq (len $page.Pages) 1 }}brief{{ else }}briefs{{ end }}</span>
+            </a>
+            {{ end }}
+          {{ end }}
+        </div>
+      {{ else }}
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {{ range $terms }}
+          <a href="{{ .Page.RelPermalink }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 px-4 py-3 hover:border-accent/40 transition group">
+            <span class="font-medium text-text group-hover:text-accent transition">{{ .Page.Title }}</span>
+            <span class="font-mono text-sm text-muted">{{ .Count }}</span>
+          </a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+{{ else }}
+
+  <section class="px-4 md:px-0 py-10">
+    <div class="max-w-6xl mx-auto space-y-6">
+      <header class="space-y-2">
+        <p class="text-xs font-mono uppercase tracking-[0.18em] text-accent">{{ .Type | humanize }}</p>
+        <h1 class="font-display text-3xl md:text-4xl font-semibold">{{ .Title | default "Index" }}</h1>
+        {{ with .Content }}<div class="prose-feed text-muted">{{ . }}</div>{{ end }}
+      </header>
+
+      <div class="grid gap-3">
+        {{ range .Pages }}
+        <a href="{{ .RelPermalink }}" class="block rounded-xl border border-stroke bg-panel/60 px-5 py-4 hover:border-accent/40 transition">
+          <div class="flex items-baseline justify-between gap-3">
+            <span class="font-display text-base font-semibold text-text">{{ .Title }}</span>
+            <span class="text-sm text-muted">View →</span>
+          </div>
+          {{ with .Description | default .Summary }}
+          <p class="mt-1 text-sm text-muted line-clamp-2">{{ . }}</p>
+          {{ end }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+{{ end }}
+{{ end }}

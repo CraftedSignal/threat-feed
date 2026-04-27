@@ -1,0 +1,54 @@
+{{ define "main" }}
+{{ $briefs := where .Site.RegularPages "Section" "briefs" }}
+{{ $totalCount := len $briefs }}
+{{/* Latest briefs excludes rumour-tier — those have their own section above */}}
+{{ $latestPool := slice }}
+{{ range $briefs }}
+  {{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
+  {{ if ne $sev "rumour" }}{{ $latestPool = $latestPool | append . }}{{ end }}
+{{ end }}
+{{ $latest := first 12 $latestPool }}
+
+<section class="px-4 md:px-0 pt-10 md:pt-16 pb-12">
+  <div class="max-w-6xl mx-auto space-y-5">
+    <p class="text-xs font-mono uppercase tracking-[0.18em] text-accent">CraftedSignal · Threat Feed</p>
+    <h1 class="font-display text-3xl md:text-5xl font-semibold leading-tight">{{ .Site.Params.tagline | default "Trending threats, refreshed continuously." }}</h1>
+    <p class="text-base md:text-lg text-muted max-w-3xl">
+      MITRE ATT&CK coverage, CVE references, and rule metadata from the CraftedSignal threat-intelligence pipeline. Detection rules and IOCs stay inside the platform — this feed is the public face of what we ship.
+    </p>
+    <div class="flex flex-wrap items-center gap-3 pt-2">
+      <a href="/briefs/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent text-white text-sm font-semibold shadow-soft hover:scale-[1.01] transition">Browse all briefs <span class="font-mono text-xs opacity-80">{{ $totalCount }}</span></a>
+      <a href="/feed.xml" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-stroke text-sm font-semibold text-text hover:border-accent/60 transition">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9h-2a7 7 0 0 0-7-7v-2zm0-4a13 13 0 0 1 13 13h-2A11 11 0 0 0 4 9V7zm2 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>
+        Subscribe via RSS
+      </a>
+      <span class="text-xs text-muted ml-2">or filter by <a class="hover:text-accent" href="/severities/">severity</a> · <a class="hover:text-accent" href="/actors/">actor</a> · <a class="hover:text-accent" href="/products/">product</a> · <a class="hover:text-accent" href="/tags/">tag</a></span>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 md:px-0 py-6">
+  <div class="max-w-6xl mx-auto">
+    {{ partial "chart-strip.html" . }}
+  </div>
+</section>
+
+{{ partial "search.html" . }}
+
+<section class="px-4 md:px-0 py-10">
+  <div class="max-w-6xl mx-auto space-y-6">
+    <div class="flex items-end justify-between gap-4">
+      <h2 class="font-display text-xl md:text-2xl font-semibold">Latest briefs</h2>
+      <a href="/briefs/" class="text-sm text-muted hover:text-accent transition">View all →</a>
+    </div>
+
+    <div class="space-y-3">
+      {{ range $latest }}
+        {{ partial "brief-card.html" . }}
+      {{ else }}
+        <p class="text-sm text-muted">No briefs published yet.</p>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
