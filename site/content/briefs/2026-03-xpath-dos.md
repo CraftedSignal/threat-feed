@@ -1,25 +1,33 @@
 ---
-title: XPath Boolean Expression DoS Vulnerability
+title: Denial of Service Vulnerability in github.com/antchfx/xpath (CVE-2026-4645)
 slug: 2026-03-xpath-dos
-description: A vulnerability in the antchfx/xpath package allows for denial of service via CPU exhaustion by exploiting boolean expressions that evaluate to true, leading to an infinite loop.
-date: "2026-03-29T15:19:45Z"
+description: A remote attacker can exploit CVE-2026-4645 in the `github.com/antchfx/xpath` component by submitting crafted Boolean XPath expressions, causing an infinite loop and leading to a denial-of-service condition with 100% CPU utilization.
+date: "2026-03-23T14:16:36Z"
 severities:
   - high
 tags:
-  - xpath
+  - cve-2026-4645
   - denial-of-service
-  - cve-2026-32287
+  - xpath
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
-    technique_id: T1499
+    technique_id: T1071.001
+    technique_name: 'Application Layer Protocol: Web Protocols'
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499.002
     technique_name: Endpoint Denial of Service
 references:
-  - https://github.com/advisories/GHSA-65xw-vw82-r86x
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-32287
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-4645
+  - https://access.redhat.com/security/cve/CVE-2026-4645
+  - https://bugzilla.redhat.com/show_bug.cgi?id=2450214
+  - https://github.com/antchfx/xpath/commit/afd4762cc342af56345a3fb4002a59281fcab494
+  - https://github.com/antchfx/xpath/issues/121
+  - https://github.com/golang/vulndb/issues/4526
 rules:
-  - title: Detect XPath Boolean Expression DoS Attempt
-    description: Detects attempts to trigger the XPath boolean expression denial-of-service vulnerability by identifying suspicious XPath expressions.
+  - title: Detect XPath DoS via High CPU
+    description: Detects processes that may be exploiting the XPath DoS vulnerability by monitoring for prolonged periods of high CPU usage.
     platform: sigma
     severity: high
     tactics:
@@ -27,10 +35,10 @@ rules:
     techniques:
       - T1499.002
     data_sources:
-      - webserver
+      - process_creation
       - linux
-  - title: Web Server Log - XPath Boolean Expression
-    description: Detects potentially malicious XPath boolean expressions in web server logs.
+  - title: Detect XPath DoS via Repeated Errors
+    description: Detects processes exhibiting repeated error messages indicative of a crafted XPath expression causing an infinite loop.
     platform: sigma
     severity: medium
     tactics:
@@ -43,4 +51,4 @@ rules:
 rules_count: 2
 ---
 
-A denial-of-service vulnerability exists in the `antchfx/xpath` Go package, specifically in versions prior to 1.3.6. The vulnerability, identified as CVE-2026-32287, stems from the way the `logicalQuery.Select` function handles boolean expressions. When expressions that always evaluate to true, such as "1=1" or "true()", are used as top-level selectors, they can trigger an infinite loop within the function. This results in the affected system consuming 100% of CPU resources, effectively denying…
+CVE-2026-4645 is a critical vulnerability found in the `github.com/antchfx/xpath` component. This flaw allows a remote, unauthenticated attacker to trigger a denial-of-service (DoS) condition. By sending specifically crafted Boolean XPath expressions, the attacker can force the `logicalQuery.Select` function into an infinite loop. This infinite loop results in the affected system's CPU utilization spiking to 100%, effectively rendering the system unresponsive and unavailable for legitimate…
