@@ -1,61 +1,48 @@
 ---
-title: OpenEMR SQL Injection Vulnerability (CVE-2026-33910)
+title: OpenEMR Blind SQL Injection Vulnerability in Patient Search (CVE-2026-29187)
 slug: 2026-03-openemr-sqli
-description: OpenEMR versions up to 8.0.0.2 are vulnerable to SQL injection in the patient selection feature, which can be exploited by authenticated attackers due to insufficient input validation, potentially leading to unauthorized data access and modification.
-date: "2026-03-26T12:00:00Z"
+description: OpenEMR versions prior to 8.0.0.3 are susceptible to a blind SQL injection vulnerability in the Patient Search functionality, allowing authenticated attackers to execute arbitrary SQL commands by manipulating HTTP parameter keys.
+date: "2026-03-25T23:17:09Z"
 severities:
   - high
 tags:
   - sqli
   - openemr
-  - cve-2026-33910
-  - healthcare
+  - vulnerability
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1078
-    technique_name: Valid Accounts
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1505
-    technique_name: Server Software Component
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-33910
-  - https://github.com/openemr/openemr/commit/73db3264aed253684532839380cae3b0a56c83d2
-  - https://github.com/openemr/openemr/releases/tag/v8_0_0_3
-  - https://github.com/openemr/openemr/security/advisories/GHSA-x32c-xj5g-7jx7
-ioc_counts:
-  email: 1
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-29187
+  - https://github.com/openemr/openemr/security/advisories/GHSA-2r7h-xm8v-m872
 rules:
-  - title: Detect SQL Injection Attempts in OpenEMR Patient Selection
-    description: Detects potential SQL injection attempts in OpenEMR patient selection based on suspicious characters and keywords in HTTP requests.
+  - title: Detect OpenEMR SQL Injection Attempt via Parameter Key Manipulation
+    description: Detects potential SQL injection attempts in OpenEMR by monitoring for suspicious characters or keywords in the parameter keys of requests to the Patient Search functionality.
     platform: sigma
     severity: high
     tactics:
       - initial_access
+      - persistence
     techniques:
       - T1190
-      - T1505
     data_sources:
       - webserver
       - linux
-  - title: Detect OpenEMR SQL Injection via POST Request
-    description: Detects SQL injection attempts targeting OpenEMR by analyzing POST request data for common SQL injection payloads.
+  - title: Detect OpenEMR SQL Injection Attempt via URL Encoding
+    description: Detects SQL injection attempts in OpenEMR Patient Search functionality via URL encoded characters in the query string.
     platform: sigma
     severity: high
     tactics:
       - initial_access
+      - persistence
     techniques:
       - T1190
-      - T1505
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-OpenEMR, a widely-used open-source electronic health records and medical practice management application, is vulnerable to SQL injection. Specifically, versions up to and including 8.0.0.2 contain a flaw in the patient selection feature (CVE-2026-33910). Authenticated attackers with valid user credentials can exploit this vulnerability due to insufficient input validation. Successful exploitation allows attackers to execute arbitrary SQL queries, potentially leading to unauthorized access…
+OpenEMR, a widely used open-source electronic health records and medical practice management application, has a critical security flaw. Specifically, versions prior to 8.0.0.3 contain a blind SQL injection vulnerability affecting the Patient Search functionality located at `/interface/new/new_search_popup.php`. Authenticated attackers can exploit this vulnerability, identified as CVE-2026-29187, by manipulating HTTP parameter keys during patient searches. Successful exploitation allows…
