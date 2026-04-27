@@ -1,15 +1,15 @@
 ---
-title: Compromised trivy-action GitHub Action Leads to Credential Theft
+title: Compromised trivy-action GitHub Action Inserts Credential Stealer
 slug: 2026-03-trivy-action-compromise
-description: The aquasecurity/trivy-action GitHub Action was compromised via git tag repointing, injecting a multi-stage credential stealer into CI/CD pipelines, potentially exposing secrets, credentials, and infrastructure.
-date: "2026-03-30T07:26:38Z"
+description: A supply chain compromise of the trivy-action GitHub Action resulted in the insertion of a multi-stage credential stealer into CI/CD pipelines, which executes before the legitimate Trivy scanner, silently stealing credentials while allowing the workflow to appear normal.
+date: "2026-03-28T08:30:07Z"
 severities:
   - critical
 tags:
   - supply-chain
   - github-actions
   - credential-theft
-  - linux
+  - ci/cd
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -18,29 +18,28 @@ mitre_ttps:
 references:
   - https://www.crowdstrike.com/en-us/blog/from-scanner-to-stealer-inside-the-trivy-action-supply-chain-compromise/
 rules:
-  - title: Detect Execution of Trivy Action Entrypoint Script
-    description: Detects execution of the trivy-action entrypoint.sh script, which may indicate the use of the action in a GitHub Actions workflow.
+  - title: Detect Suspicious Process from Trivy Action
+    description: Detects suspicious processes spawned from the compromised trivy-action entrypoint.sh in GitHub Actions runners.
     platform: sigma
-    severity: informational
+    severity: high
     tactics:
-      - execution
+      - credential_access
     techniques:
       - T1059.004
     data_sources:
       - process_creation
       - linux
-  - title: Detect Runner.Worker Process Spawning Shell
-    description: Detects the Runner.Worker process spawning a shell, which is part of the standard execution chain, but can be used as a baseline for detecting further malicious activity.
+  - title: Detect Github Actions Runner Enumerating Processes
+    description: Detects the enumeration of processes which is the initial stage of the credential stealer.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - execution
-    techniques:
-      - T1059.004
+      - credential_access
+      - discovery
     data_sources:
       - process_creation
       - linux
 rules_count: 2
 ---
 
-On March 19, 2026, CrowdStrike's Engineering team identified a supply chain attack targeting the widely used aquasecurity/trivy-action GitHub Action. The attackers retroactively poisoned 76 of 77 release tags by repointing them to malicious commits, effectively replacing the legitimate entry point with a multi-stage credential stealer. This compromised action, typically used for vulnerability scanning in CI/CD pipelines, injected malicious code before the genuine scanner logic, maintaining a…
+On March 19, 2026, a spike in script execution detections on Linux platforms linked to GitHub Actions runners led to the discovery of a supply chain compromise affecting the aquasecurity/trivy-action GitHub Action. The popular open-source vulnerability scanner, commonly used in CI/CD pipelines, was found to have 76 of its 77 release tags retroactively poisoned via git tag repointing. This replacement introduced a multi-stage credential stealer that silently executes before the legitimate Trivy…
