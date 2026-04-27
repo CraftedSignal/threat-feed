@@ -1,51 +1,53 @@
 ---
-title: Simple IT Discussion Forum SQL Injection Vulnerability (CVE-2026-6004)
+title: Simple IT Discussion Forum SQL Injection Vulnerability (CVE-2026-5827)
 slug: 2026-04-simple-it-forum-sqli
-description: CVE-2026-6004 is a SQL injection vulnerability in code-projects Simple IT Discussion Forum 1.0's /delete-category.php, allowing remote attackers to execute arbitrary SQL commands by manipulating the cat_id parameter.
-date: "2026-04-10T03:19:12Z"
+description: CVE-2026-5827 is a SQL injection vulnerability in code-projects Simple IT Discussion Forum 1.0, allowing remote attackers to execute arbitrary SQL commands by manipulating the 'content' argument in /question-function.php.
+date: "2026-04-09T01:16:50Z"
 severities:
   - high
 tags:
   - sqli
-  - cve-2026-6004
   - web-application
+  - injection
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-6004
+  - id: CVE-2026-5827
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-6004
-  - https://vuldb.com/vuln/356560
-ioc_counts:
-  url: 1
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-5827
+  - https://code-projects.org/
+  - https://github.com/lonelyuan/vunls/issues/8
+  - https://vuldb.com/vuln/356274
 rules:
-  - title: Detect Suspicious URI Access to delete-category.php
-    description: Detects suspicious access to the /delete-category.php file which is vulnerable to SQL injection
+  - title: Detect SQL Injection Attempts in Simple IT Forum via URI
+    description: Detects potential SQL injection attempts targeting the content parameter in Simple IT Discussion Forum by identifying SQL keywords in the URI.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
+      - T1595.002
     data_sources:
       - webserver
       - linux
-  - title: Detect SQL Injection Attempts via URI
-    description: Detects potential SQL injection attempts in URI parameters.
+  - title: Detect SQL Injection Attempts in Simple IT Forum via POST Data
+    description: Detects potential SQL injection attempts by identifying SQL keywords in POST requests to question-function.php.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
+      - T1595.002
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A SQL injection vulnerability, CVE-2026-6004, has been identified in code-projects Simple IT Discussion Forum version 1.0. The vulnerability resides within the `/delete-category.php` file and stems from improper handling of the `cat_id` argument. A remote attacker can exploit this flaw to inject malicious SQL code, potentially leading to unauthorized data access, modification, or deletion. The vulnerability was published on April 9, 2026, and a public exploit is available, increasing the risk…
+A SQL injection vulnerability, identified as CVE-2026-5827, affects code-projects Simple IT Discussion Forum version 1.0. The vulnerability resides in the `/question-function.php` file and is triggered by manipulating the `content` argument. Successful exploitation allows a remote attacker to inject arbitrary SQL commands, potentially leading to data exfiltration, modification, or complete system compromise. This vulnerability is considered high risk due to its ease of exploitation and the…
