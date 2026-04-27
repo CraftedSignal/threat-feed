@@ -1,36 +1,30 @@
 ---
-title: Multiple Vulnerabilities in FreeRDP
+title: Multiple Vulnerabilities in FreeRDP Allow for DoS and Potential Code Execution
 slug: 2026-03-freerdp-vulns
-description: Multiple vulnerabilities in FreeRDP allow a remote, anonymous attacker to potentially execute arbitrary code, cause a denial of service, cause memory corruption, manipulate data, or disclose sensitive information.
-date: "2026-03-30T11:02:08Z"
+description: A remote, anonymous attacker can exploit multiple vulnerabilities in FreeRDP to cause a denial of service or potentially execute arbitrary program code.
+date: "2026-03-24T10:17:27Z"
 severities:
-  - critical
+  - high
 tags:
   - freerdp
-  - vulnerability
   - rdp
+  - vulnerability
+  - denial-of-service
+  - code-execution
 mitre_ttps:
-  - tactic_id: TA0002
+  - tactic_id: TA0005
     tactic_name: Execution
     technique_id: T1203
     technique_name: Exploitation for Client Execution
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1016
-    technique_name: System Network Configuration Discovery
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1003
-    technique_name: OS Credential Dumping
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0725
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0244
 rules:
-  - title: Detect Suspicious Network Connection to RDP Port
-    description: Detects network connections to the standard RDP port (3389) from unusual source IPs or networks, which may indicate unauthorized access attempts or exploitation of RDP vulnerabilities.
+  - title: Detect Suspicious RDP Connection from Outside the Network
+    description: Detects RDP connections initiated from outside the expected network range, potentially indicating unauthorized access attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -40,18 +34,18 @@ rules:
     data_sources:
       - network_connection
       - windows
-  - title: Detect Unusual Process Connecting to RDP Port
-    description: Detects processes other than the standard RDP client (mstsc.exe) connecting to the RDP port (3389), potentially indicating malicious activity or lateral movement.
+  - title: Detect Suspicious Process Creation via RDP Session
+    description: Detects the creation of suspicious processes (cmd.exe, powershell.exe) spawned by the RDP service, potentially indicating exploitation or lateral movement.
     platform: sigma
     severity: high
     tactics:
-      - lateral_movement
+      - execution
     techniques:
-      - T1021.001
+      - T1059.001
     data_sources:
-      - network_connection
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-Multiple vulnerabilities have been identified in FreeRDP, a free and open-source implementation of the Remote Desktop Protocol (RDP). These vulnerabilities, if exploited, could allow a remote, anonymous attacker to compromise a system running FreeRDP. The vulnerabilities could lead to arbitrary code execution, denial-of-service conditions, memory corruption, data manipulation, and the disclosure of sensitive information. Given the wide deployment of RDP and FreeRDP in various environments…
+Multiple vulnerabilities exist within FreeRDP, a free implementation of the Remote Desktop Protocol (RDP). An unauthenticated, remote attacker can exploit these vulnerabilities to achieve a denial-of-service (DoS) condition on a vulnerable system, or potentially gain the ability to execute arbitrary code. While the specific CVEs are not detailed in this brief, the generic nature of RDP exploitation makes it a high-impact concern. This issue came to light on March 24, 2026, and is a potential…
