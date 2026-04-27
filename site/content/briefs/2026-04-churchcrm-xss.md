@@ -1,51 +1,51 @@
 ---
-title: ChurchCRM Stored XSS Vulnerability in Person Property Management
+title: ChurchCRM Stored XSS Vulnerability (CVE-2026-35574)
 slug: 2026-04-churchcrm-xss
-description: A stored cross-site scripting (XSS) vulnerability in ChurchCRM versions prior to 7.0.0 allows authenticated users to inject arbitrary JavaScript code via dynamically assigned person properties, leading to potential session hijacking or account compromise when other users view the affected profile.
-date: "2026-04-08T12:00:00Z"
+description: A stored XSS vulnerability in ChurchCRM versions before 6.5.3 allows authenticated users with note-adding permissions to inject arbitrary JavaScript code, potentially leading to session hijacking and privilege escalation.
+date: "2026-04-07T17:16:32Z"
 severities:
   - high
 tags:
+  - cve-2026-35574
   - xss
-  - web-application
   - churchcrm
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1566
-    technique_name: Phishing
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2023-38766
-    cvss: 5.4
-    epss: 0.00209
-  - id: CVE-2026-35576
-    cvss: 8.7
+  - id: CVE-2026-35574
+    cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-35576
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-35574
+  - https://github.com/ChurchCRM/CRM/security/advisories/GHSA-cx82-8xrh-7f5c
+ioc_counts:
+  url: 1
 rules:
-  - title: Detect ChurchCRM XSS Attempt via Property Value
-    description: Detects potential XSS attacks in ChurchCRM by monitoring for script tags or event handlers within dynamically assigned person property values.
+  - title: Detect ChurchCRM XSS via Note Editor
+    description: Detects potential XSS attacks against ChurchCRM Note Editor by looking for script tags or event handlers in the request URI.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
-      - T1566
+      - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect ChurchCRM XSS in HTTP Response
-    description: Detects potential XSS attacks in ChurchCRM reflected in the HTTP response body. This rule is looking for responses containing script tags or event handlers.
+  - title: Detect ChurchCRM XSS via Note Editor - URL Encoded
+    description: Detects potential XSS attacks against ChurchCRM Note Editor with URL encoded javascript in the request URI.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
-      - T1566
+      - T1190
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-ChurchCRM, an open-source church management system, is vulnerable to a stored cross-site scripting (XSS) attack affecting versions prior to 7.0.0. This vulnerability resides within the Person Property Management subsystem and stems from insufficient input sanitization when handling dynamically assigned person properties. An authenticated attacker can inject malicious JavaScript code, which is then persistently stored in the database. When other users view the compromised person's profile or…
+ChurchCRM, an open-source church management system, is vulnerable to a stored Cross-Site Scripting (XSS) flaw. This vulnerability, identified as CVE-2026-35574, resides in the Note Editor of versions prior to 6.5.3. Authenticated users possessing note-adding permissions can inject malicious JavaScript code into notes. When other users, including administrators, view these notes, the injected script executes within their browsers. This can result in session hijacking, privilege escalation, and…
