@@ -1,14 +1,14 @@
 ---
-title: 'Compromised trivy-action GitHub Action: Supply Chain Credential Theft'
+title: Compromised trivy-action GitHub Action Enables Credential Theft
 slug: 2026-03-trivy-supply-chain
-description: A supply chain attack compromised the trivy-action GitHub Action, a popular open-source vulnerability scanner used in CI/CD pipelines, with the attacker retroactively poisoning 76 of 77 release tags to steal credentials.
-date: "2026-03-30T06:30:00Z"
+description: The trivy-action GitHub Action was compromised via git tag repointing, injecting a multi-stage credential stealer that ran before the legitimate scanner, impacting CI/CD pipelines.
+date: "2026-03-30T06:42:19Z"
 severities:
   - critical
 tags:
   - supply-chain
-  - github-actions
   - credential-theft
+  - github-actions
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -17,30 +17,28 @@ mitre_ttps:
 references:
   - https://www.crowdstrike.com/en-us/blog/from-scanner-to-stealer-inside-the-trivy-action-supply-chain-compromise/
 rules:
-  - title: Suspicious GitHub Actions Runner Script Execution
-    description: Detects potentially malicious script execution within GitHub Actions runner environments by monitoring for unusual parent-child process relationships.
+  - title: Detect Suspicious Script Execution in GitHub Actions Runners
+    description: Detects suspicious script execution originating from GitHub Actions runners, potentially indicating a compromised action.
     platform: sigma
     severity: high
     tactics:
-      - execution
+      - credential_access
     techniques:
-      - T1053.005
       - T1059.004
     data_sources:
       - process_creation
       - linux
-  - title: Trivy Action Entrypoint Modification Detection
-    description: Detects modifications to the entrypoint.sh script within the trivy-action GitHub Action directory, which could indicate a supply chain compromise.
+  - title: Detect Malicious Trivy Action
+    description: Detects malicious activity within the trivy-action directory, indicating a compromised action.
     platform: sigma
-    severity: medium
+    severity: critical
     tactics:
+      - credential_access
       - supply_chain
-    techniques:
-      - T1195
     data_sources:
-      - file_event
+      - process_creation
       - linux
 rules_count: 2
 ---
 
-On March 19, 2026, CrowdStrike discovered a supply chain compromise affecting the aquasecurity/trivy-action GitHub Action, a widely used open-source vulnerability scanner in CI/CD pipelines. The attacker retroactively poisoned 76 of the 77 release tags by repointing them to malicious commits. This replaced the legitimate action entry point with a multi-stage credential stealer. The malicious code executes before the real Trivy scanner, allowing it to operate undetected while exfiltrating…
+On March 19, 2026, a spike in script execution detections on Linux platforms linked to GitHub Actions runners led CrowdStrike to investigate a supply chain compromise affecting the aquasecurity/trivy-action GitHub Action. This popular open-source vulnerability scanner is widely used in CI/CD pipelines. The investigation revealed that 76 of the scanner's 77 release tags had been retroactively poisoned via git tag repointing. This replaced the legitimate entry point with a multi-stage credential…
