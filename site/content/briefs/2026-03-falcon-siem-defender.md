@@ -1,50 +1,41 @@
 ---
-title: CrowdStrike Falcon SIEM Integration with Microsoft Defender
+title: CrowdStrike Falcon Next-Gen SIEM Integrates with Microsoft Defender
 slug: 2026-03-falcon-siem-defender
-description: CrowdStrike Falcon Next-Gen SIEM is expanding to support third-party EDR solutions, starting with Microsoft Defender, enabling organizations to extend their AI-native SOC and unify detection, investigation, and response across heterogeneous environments without requiring a Falcon sensor.
-date: "2026-03-30T06:19:01Z"
+description: CrowdStrike's Falcon Next-Gen SIEM is expanding to support third-party EDR solutions, starting with Microsoft Defender, to unify detection, investigation, and response without requiring a Falcon sensor.
+date: "2026-03-30T06:30:00Z"
 severities:
   - medium
 tags:
   - siem
   - edr
-  - threat-intelligence
-  - ecosystem-integration
-mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1562
-    technique_name: Impair Defenses
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+  - microsoft defender
+  - crowdstrike falcon
 references:
   - https://www.crowdstrike.com/en-us/blog/falcon-next-gen-siem-supports-third-party-edr-tools-starting-with-microsoft-defender/
 rules:
-  - title: Detecting Microsoft Defender Telemetry in Falcon SIEM
-    description: Detects events indicative of Microsoft Defender telemetry being ingested and processed within CrowdStrike Falcon SIEM.
+  - title: Data Stream Contains Falcon Onum
+    description: Detects when a data stream contains Falcon Onum indicating data transformation
     platform: sigma
     severity: informational
     tactics:
       - discovery
     techniques:
-      - T1018
+      - T1016
     data_sources:
-      - process_creation
+      - network_connection
       - windows
-  - title: Federated Search Activity in Falcon SIEM
-    description: Detects the use of federated search capabilities in Falcon SIEM to query external data sources like Falcon LogScale or Amazon S3.
+  - title: ExtraHop Network Connection
+    description: Detects network connections to ExtraHop indicating possible data integration
     platform: sigma
-    severity: low
+    severity: informational
     tactics:
       - discovery
     techniques:
-      - T1592.002
+      - T1016
     data_sources:
-      - process_creation
+      - network_connection
       - windows
 rules_count: 2
 ---
 
-CrowdStrike is enhancing its Falcon Next-Gen SIEM platform to integrate with third-party endpoint detection and response (EDR) solutions, beginning with Microsoft Defender. This integration aims to provide organizations with a unified security operations center (SOC) experience, allowing them to leverage existing EDR deployments without needing to replace them with the Falcon sensor. The move addresses the growing challenges of modern cybersecurity, where attacks often span multiple…
+CrowdStrike is enhancing its Falcon Next-Gen SIEM platform to incorporate telemetry from third-party endpoint detection and response (EDR) solutions, beginning with Microsoft Defender. Announced on March 23, 2026, this integration allows organizations to modernize their security operations center (SOC) by unifying detection, investigation, and response workflows without mandating the replacement of existing endpoint agents. This aims to address the increasing complexity of modern attacks that…
