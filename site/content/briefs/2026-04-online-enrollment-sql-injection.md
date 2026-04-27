@@ -1,32 +1,31 @@
 ---
-title: itsourcecode Online Enrollment System SQL Injection Vulnerability (CVE-2026-5534)
+title: SQL Injection Vulnerability in itsourcecode Online Enrollment System 1.0
 slug: 2026-04-online-enrollment-sql-injection
-description: CVE-2026-5534 is a SQL injection vulnerability in the itsourcecode Online Enrollment System 1.0 that allows remote attackers to execute arbitrary SQL commands by manipulating the USERID parameter in the /sms/user/index.php file, potentially leading to data exfiltration or unauthorized access.
-date: "2026-04-05T03:16:00Z"
+description: A SQL injection vulnerability exists in itsourcecode Online Enrollment System 1.0 within the Parameter Handler component at /enrollment/index.php, where manipulating the deptid argument can lead to remote code execution, with public exploits available.
+date: "2026-04-02T14:16:37Z"
 severities:
   - high
+exploited: true
 tags:
   - sql-injection
   - web-application
-  - cve-2026-5534
+  - cve-2026-5334
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-5534
+  - id: CVE-2026-5334
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5534
-  - https://github.com/ldan42008-ux/cve/issues/2
-  - https://vuldb.com/vuln/355287
-ioc_counts:
-  email: 1
-  url: 5
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-5334
+  - https://github.com/yuji0903/silver-guide/issues/15
+  - https://itsourcecode.com/
+  - https://vuldb.com/vuln/354668
 rules:
-  - title: Detect SQL Injection in Online Enrollment System
-    description: Detects potential SQL injection attempts targeting the itsourcecode Online Enrollment System via suspicious parameters in HTTP GET requests.
+  - title: Detect SQL Injection Attempt via deptid Parameter
+    description: Detects potential SQL injection attempts targeting the deptid parameter in the /enrollment/index.php endpoint.
     platform: sigma
     severity: high
     tactics:
@@ -36,10 +35,10 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect Access to Vulnerable Enrollment Endpoint
-    description: Detects access to the vulnerable /sms/user/index.php endpoint in itsourcecode Online Enrollment System.
+  - title: Detect Request to Vulnerable Enrollment Endpoint
+    description: Detects requests to the vulnerable endpoint /enrollment/index.php?view=edit&id=3 which may be an attempt to exploit CVE-2026-5334
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
       - initial_access
     techniques:
@@ -50,4 +49,4 @@ rules:
 rules_count: 2
 ---
 
-The itsourcecode Online Enrollment System version 1.0 is vulnerable to SQL injection via the USERID parameter in the `/sms/user/index.php` file. This vulnerability, identified as CVE-2026-5534, allows an unauthenticated, remote attacker to inject arbitrary SQL commands into the application's database queries. The vulnerability stems from insufficient sanitization of user-supplied input, leading to potential data breaches and unauthorized modification of enrollment data. This vulnerability has a…
+A SQL injection vulnerability has been identified in itsourcecode Online Enrollment System version 1.0. The vulnerability resides within the Parameter Handler component of the application, specifically affecting the `/enrollment/index.php` endpoint. By manipulating the `deptid` argument, a remote attacker can inject malicious SQL queries, potentially leading to unauthorized data access, modification, or even remote code execution. This vulnerability is particularly concerning because a public…
