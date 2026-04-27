@@ -1,45 +1,51 @@
 ---
-title: CrowdStrike Falcon Next-Gen SIEM Supports Third-Party EDR Integration
+title: CrowdStrike Falcon Next-Gen SIEM Integrates with Third-Party EDR Solutions
 slug: 2026-03-falcon-siem-third-party-edr
-description: CrowdStrike Falcon Next-Gen SIEM expands its capabilities to support third-party EDR solutions like Microsoft Defender, providing organizations with a unified AI-native SOC across diverse environments without requiring agent replacement.
-date: "2026-03-30T19:03:28Z"
+description: CrowdStrike is expanding Falcon Next-Gen SIEM to support third-party EDR solutions like Microsoft Defender, enabling organizations to modernize their SOC operations by unifying detection, investigation, and response across heterogeneous environments.
+date: "2026-03-29T06:58:32Z"
 severities:
   - medium
 tags:
-  - siem
-  - edr
+  - SIEM
+  - EDR
   - threat-intelligence
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1566
-    technique_name: Phishing
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1016
+    technique_name: System Network Configuration Discovery
 references:
   - https://www.crowdstrike.com/en-us/blog/falcon-next-gen-siem-supports-third-party-edr-tools-starting-with-microsoft-defender/
 rules:
-  - title: Detect Potential Lateral Movement via Uncommon Process Execution
-    description: Detects uncommon processes being executed, which could indicate lateral movement or malicious activity.
+  - title: Detect PowerShell Use with Encoded Command and Network Connection
+    description: Detects PowerShell usage with encoded commands and a subsequent network connection, which is often indicative of malicious activity.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - lateral_movement
+      - command_and_control
+      - execution
     techniques:
-      - T1021.002
+      - T1059.001
+      - T1071.001
     data_sources:
       - process_creation
       - windows
-  - title: Detect Data Exfiltration via Suspicious Network Connection
-    description: Detects suspicious outbound network connections from uncommon processes, which could indicate data exfiltration.
+  - title: Detect Suspicious Scheduled Task Creation
+    description: Detects the creation of scheduled tasks by unusual processes, potentially indicating persistence mechanisms.
     platform: sigma
     severity: medium
     tactics:
-      - exfiltration
+      - persistence
     techniques:
-      - T1041
+      - T1053.005
     data_sources:
-      - network_connection
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-CrowdStrike Falcon Next-Gen SIEM is evolving to incorporate data from third-party endpoint detection and response (EDR) solutions, starting with Microsoft Defender. Launched in March 2026, this update enables security operations centers (SOCs) to modernize their architecture without disrupting existing endpoint agent deployments. The expansion addresses the increasing complexity of attacks that span multiple domains, including endpoint, identity, network, and cloud environments. CrowdStrike…
+CrowdStrike is enhancing its Falcon Next-Gen SIEM to incorporate support for third-party Endpoint Detection and Response (EDR) solutions, initially focusing on Microsoft Defender. This integration aims to streamline Security Operations Center (SOC) workflows by providing a unified platform for detection, investigation, and response across diverse environments. The goal is to reduce the reliance on fragmented systems, which often leads to slower detection and delayed response times. The new…
