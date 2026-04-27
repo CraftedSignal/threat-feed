@@ -1,0 +1,51 @@
+---
+title: Multiple Vulnerabilities in cPanel/WHM
+slug: 2026-03-cpanel-vulns
+description: An anonymous remote attacker can exploit multiple vulnerabilities in cPanel/WHM to bypass security measures, perform XSS and SSRF attacks, disclose information, and potentially execute code.
+date: "2026-03-24T12:11:04Z"
+severities:
+  - high
+tags:
+  - cPanel
+  - WHM
+  - XSS
+  - SSRF
+  - vulnerability
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+references:
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0835
+rules:
+  - title: Detect Suspicious cPanel/WHM HTTP Request
+    description: Detects suspicious HTTP requests to cPanel/WHM servers that may indicate SSRF attempts.
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+      - linux
+  - title: Detect cPanel/WHM XSS Attempt
+    description: Detects potential XSS payloads being injected into cPanel/WHM.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1189
+    data_sources:
+      - webserver
+      - linux
+rules_count: 2
+---
+
+Multiple vulnerabilities have been identified in cPanel/WHM, a widely used web hosting control panel. An anonymous, remote attacker can exploit these vulnerabilities to compromise cPanel/WHM installations. The vulnerabilities allow an attacker to bypass security measures, perform Cross-Site Scripting (XSS) and Server-Side Request Forgery (SSRF) attacks, disclose sensitive information, and potentially execute arbitrary code on the server. These vulnerabilities pose a significant risk to…
