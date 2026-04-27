@@ -1,49 +1,48 @@
 ---
-title: CrowdStrike Falcon Enhancements for AI Agent Security and Shadow AI Governance
+title: Securing AI Agents with CrowdStrike Falcon AIDR and NVIDIA NeMo Guardrails
 slug: 2026-03-ai-agent-security
-description: CrowdStrike Falcon is enhanced to secure AI agents and govern shadow AI across endpoints, SaaS, and cloud environments, addressing emerging attack surfaces and visibility gaps.
-date: "2026-03-28T08:18:48Z"
+description: CrowdStrike Falcon AIDR integrates with NVIDIA NeMo Guardrails to provide comprehensive protection for AI agents against prompt injection, data leaks, and malicious content.
+date: "2026-03-28T21:37:25Z"
 severities:
   - medium
 tags:
-  - ai-security
-  - shadow-ai
+  - ai
+  - security
   - agentic-soc
 mitre_ttps:
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1518
-    technique_name: Software Discovery
-  - tactic_id: TA0011
-    tactic_name: Command and Control
-    technique_id: T1071
-    technique_name: Application Layer Protocol
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1070
+    technique_name: Indicator Removal on Host
 references:
-  - https://crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/
+  - https://crowdstrike.com/en-us/blog/secure-homegrown-ai-agents-with-crowdstrike-falcon-aidr-and-nvidia-nemo-guardrails/
 rules:
-  - title: Detect AI Agent Installation
-    description: Detects the installation of known AI-related applications on endpoints.
+  - title: Detect Suspicious Keywords in HTTP Requests to AI Agents
+    description: Detects potential prompt injection attempts by looking for suspicious keywords in HTTP requests.
     platform: sigma
     severity: medium
     tactics:
-      - discovery
+      - defense_evasion
+      - initial_access
     techniques:
-      - T1518.001
+      - T1566.001
     data_sources:
-      - process_creation
-      - windows
-  - title: Detect AI Agent Network Activity
-    description: Detects network connections initiated by known AI applications, potentially indicating data exfiltration or command and control.
+      - webserver
+      - linux
+  - title: Detect Blocked Content by Falcon AIDR
+    description: Detects instances where Falcon AIDR blocks potentially malicious content based on its classification rules.
     platform: sigma
-    severity: low
+    severity: informational
     tactics:
-      - command_and_control
-    techniques:
-      - T1071.001
+      - defense_evasion
     data_sources:
-      - network_connection
-      - windows
+      - webserver
+      - linux
 rules_count: 2
 ---
 
-CrowdStrike is enhancing its Falcon platform to address the emerging security challenges presented by the rapid adoption of AI tools and the rise of "shadow AI." The Falcon platform's enhancements aim to close AI visibility and governance gaps. The new capabilities include AI Detection and Response (AIDR) for desktop AI applications like ChatGPT, Gemini, Claude, DeepSeek, Microsoft Copilot, O365 Copilot, GitHub Copilot, and Cursor. AIDR is also extending runtime security to agents built in…
+The increasing adoption of AI agents in mainstream business tools presents new security challenges. A compromised agent can lead to data exposure, unauthorized transactions, and compliance violations. To address these risks, CrowdStrike Falcon AIDR now supports NVIDIA NeMo Guardrails. This integration provides enterprise-grade protection by defining guardrails and applying constraints on LLMs. NVIDIA NeMo Guardrails, an open-source library, offers features like content safety, PII detection…
