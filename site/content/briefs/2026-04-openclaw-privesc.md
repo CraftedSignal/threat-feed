@@ -1,13 +1,12 @@
 ---
-title: OpenClaw Privilege Escalation via Unbound Bootstrap Codes
+title: OpenClaw Privilege Escalation via Backend Reconnect
 slug: 2026-04-openclaw-privesc
-description: OpenClaw versions 2026.3.13-1 and earlier contain a privilege escalation vulnerability where bootstrap setup codes are not properly bound, allowing attackers to gain elevated privileges during the initial device pairing process.
-date: "2026-04-03T03:19:33Z"
+description: A critical privilege escalation vulnerability in OpenClaw allows non-admin operators to self-claim admin privileges by exploiting a flaw in gateway backend reconnect handling.
+date: "2026-03-27T22:48:49Z"
 severities:
-  - high
+  - critical
 tags:
   - privilege-escalation
-  - npm
   - openclaw
 mitre_ttps:
   - tactic_id: TA0004
@@ -15,31 +14,31 @@ mitre_ttps:
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
 references:
-  - https://github.com/advisories/GHSA-gg9v-mgcp-v6m7
+  - https://github.com/advisories/GHSA-9hjh-fr4f-gxc4
 rules:
-  - title: Detect OpenClaw Package Install from Public Registry
-    description: Detects installation of the OpenClaw package from the public npm registry, which could indicate an initial deployment or update.
+  - title: Detect OpenClaw Backend Reconnect Requesting Admin Scope
+    description: Detects attempts to reconnect to OpenClaw backend requesting operator.admin scope which is indicative of potential privilege escalation attempt in vulnerable versions.
     platform: sigma
-    severity: informational
+    severity: critical
     tactics:
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
-      - process_creation
+      - webserver
       - linux
-  - title: Detect OpenClaw Version Check via NPM
-    description: Detects attempts to check the installed version of OpenClaw using npm, which might precede exploitation attempts or reconnaissance.
+  - title: Detect OpenClaw Elevated Privileges Granted to Backend
+    description: Detects events where a backend is granted elevated privileges in OpenClaw, which could be a sign of successful exploitation of the privilege escalation vulnerability.
     platform: sigma
-    severity: informational
+    severity: high
     tactics:
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
-      - process_creation
+      - webserver
       - linux
 rules_count: 2
 ---
 
-A high-severity privilege escalation vulnerability affects the OpenClaw npm package. Specifically, versions up to and including 2026.3.13-1 are vulnerable. The flaw stems from a lack of proper binding for bootstrap setup codes, which are used during the initial device pairing. This allows an attacker to potentially escalate privileges during the first-time setup process. The vulnerability was reported by @tdjackey and patched in version 2026.3.22, with the fix committed on March 22, 2026…
+OpenClaw versions 2026.3.24 and earlier contain a critical vulnerability that allows a non-admin operator to escalate their privileges to that of an administrator. This is achieved through a flaw in the gateway backend reconnect process, where backend-labeled reconnects can self-request broader scopes, specifically `operator.admin`, effectively bypassing the intended pairing mechanism. This allows an attacker with limited operator privileges to gain full administrative control over the OpenClaw…
