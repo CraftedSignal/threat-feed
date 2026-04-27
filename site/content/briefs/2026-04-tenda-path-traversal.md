@@ -1,53 +1,50 @@
 ---
-title: Tenda i3 Path Traversal Vulnerability (CVE-2026-5841)
+title: Tenda i9 Path Traversal Vulnerability (CVE-2026-7036)
 slug: 2026-04-tenda-path-traversal
-description: A path traversal vulnerability (CVE-2026-5841) exists in the R7WebsSecurityHandler function of the HTTP Handler component in Tenda i3 version 1.0.0.6(2204), allowing a remote attacker to bypass authentication and potentially access sensitive files due to publicly available exploits.
-date: "2026-04-09T05:16:06Z"
+description: CVE-2026-7036 is a path traversal vulnerability affecting the R7WebsSecurityHandlerfunction in the HTTP Handler component of Tenda i9 version 1.0.0.5(2204), allowing remote attackers to access sensitive files.
+date: "2026-04-26T12:16:22Z"
 severities:
   - high
 tags:
+  - cve-2026-7036
   - path-traversal
   - tenda
-  - cve-2026-5841
+  - network
+vendors:
+  - Tenda
+products:
+  - i9
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-5841
+  - id: CVE-2026-7036
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5841
-  - https://github.com/MrXiaoFan/TendaVul/tree/main/tenda-i3-V1.0.0.6(2204)-R7WebsSecurityHandler-Authentication%20Bypass%20Issues
-  - https://vuldb.com/submit/789935
-  - https://vuldb.com/vuln/356297
-  - https://vuldb.com/vuln/356297/cti
-  - https://www.tenda.com.cn/
-ioc_counts:
-  email: 1
-  url: 5
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7036
+  - https://github.com/Litengzheng/vuldb_new/blob/main/M3/vul_80/README.md
+  - https://vuldb.com/vuln/359616
 rules:
-  - title: Detect Tenda i3 Path Traversal Attempts via Web Logs
-    description: Detects path traversal attempts in HTTP requests targeting Tenda i3 devices, potentially exploiting CVE-2026-5841.
+  - title: Detect Tenda i9 Path Traversal Attempt
+    description: Detects potential path traversal attempts targeting web servers using common traversal sequences
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
-      - T1133
       - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect Tenda i3 Path Traversal Attempts via Web Logs (Encoded)
-    description: Detects path traversal attempts with URL encoded characters in HTTP requests targeting Tenda i3 devices, potentially exploiting CVE-2026-5841.
+  - title: Detect Web Request to Sensitive Files
+    description: Detects web requests for sensitive files, potentially indicating path traversal
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - initial_access
     techniques:
-      - T1133
       - T1190
     data_sources:
       - webserver
@@ -55,4 +52,4 @@ rules:
 rules_count: 2
 ---
 
-A critical path traversal vulnerability has been identified in Tenda i3 router firmware version 1.0.0.6(2204). The vulnerability, tracked as CVE-2026-5841, resides within the R7WebsSecurityHandler function of the HTTP Handler component. This flaw allows unauthenticated remote attackers to manipulate requests and potentially gain unauthorized access to sensitive files and directories on the device. The vulnerability is considered high risk due to the availability of public exploits, increasing…
+A path traversal vulnerability, identified as CVE-2026-7036, exists in Tenda i9 version 1.0.0.5(2204). Specifically, the vulnerability resides in the R7WebsSecurityHandlerfunction of the HTTP Handler component. This flaw allows a remote, unauthenticated attacker to potentially access sensitive files and directories on the affected device. The vulnerability was reported on 2026-04-26, and a public exploit is reportedly available, increasing the risk of exploitation. This poses a significant…
