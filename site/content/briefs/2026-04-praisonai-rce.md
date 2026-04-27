@@ -1,68 +1,51 @@
 ---
-title: PraisonAI Agent Subprocess Sandbox Escape via Frame Traversal
+title: PraisonAI Subprocess Sandbox Escape Vulnerability (CVE-2026-34955)
 slug: 2026-04-praisonai-rce
-description: A critical vulnerability (CVE-2026-39888) in PraisonAI agents through version 1.5.113 allows remote code execution via a sandbox escape in the `execute_code` function due to insufficient attribute blocking, enabling privilege escalation, credential access, and lateral movement.
-date: "2026-04-08T19:17:28Z"
+description: PraisonAI versions prior to 4.5.97 are vulnerable to OS Command Injection (CVE-2026-34955) due to insufficient input validation in the SubprocessSandbox, allowing for trivial sandbox escapes.
+date: "2026-04-04T00:16:19Z"
 severities:
   - critical
 tags:
+  - cve
+  - rce
   - sandbox-escape
-  - remote-code-execution
-  - python
-  - praisonai
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1202
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1202
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1202
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1202
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0008
-    tactic_name: Lateral Movement
-    technique_id: T1202
-    technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1202
-    technique_name: Exploitation for Privilege Escalation
+    technique_id: T1569
+    technique_name: System Services
+cves:
+  - id: CVE-2026-34955
+    cvss: 8.8
 references:
-  - https://github.com/advisories/GHSA-qf73-2hrx-xprp
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-34955
+  - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-r4f2-3m54-pp7q
 rules:
-  - title: Detect PraisonAI Agent Sandbox Escape Attempt via Frame Traversal
-    description: Detects attempts to exploit the PraisonAI agent sandbox escape vulnerability by identifying code that accesses frame attributes within the sandboxed environment.
+  - title: Detect PraisonAI Sandbox Escape via sh or bash
+    description: Detects attempts to escape the PraisonAI SubprocessSandbox by executing commands through `sh` or `bash`.
     platform: sigma
     severity: critical
     tactics:
       - defense_evasion
-      - privilege_escalation
+      - execution
     techniques:
-      - T1202
+      - T1569.002
     data_sources:
       - process_creation
       - linux
-  - title: Detect PraisonAI Agent Subprocess Execution
-    description: Detects execution of the praisonaiagents python_tools subprocess, which may indicate exploitation activity.
+  - title: Detect PraisonAI Process Spawning Shell
+    description: Detects PraisonAI processes spawning a shell, which may indicate a sandbox escape attempt.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - defense_evasion
-      - privilege_escalation
+      - execution
     techniques:
-      - T1202
+      - T1569.002
     data_sources:
       - process_creation
       - linux
 rules_count: 2
 ---
 
-A critical vulnerability exists in PraisonAI agents, specifically affecting the `execute_code` function within the `praisonaiagents.tools.python_tools` module. This flaw allows an attacker to escape the intended subprocess sandbox environment due to an incomplete blocklist of attributes.  The vulnerability stems from the `sandbox_mode="sandbox"` default configuration, intended to restrict user-supplied code execution. The AST-based blocklist designed to prevent access to dangerous attributes is…
+PraisonAI, a multi-agent teams system, contains a critical vulnerability (CVE-2026-34955) in versions prior to 4.5.97. The vulnerability lies within the SubprocessSandbox, which is responsible for executing subprocesses in a controlled environment. The SubprocessSandbox, regardless of its configured mode (BASIC, STRICT, NETWORK_ISOLATED), uses `subprocess.run()` with `shell=True`. This approach, coupled with a reliance on simple string-pattern matching for command blocking, creates an…
