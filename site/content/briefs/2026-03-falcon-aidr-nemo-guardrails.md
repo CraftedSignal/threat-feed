@@ -1,56 +1,45 @@
 ---
 title: CrowdStrike Falcon AIDR and NVIDIA NeMo Guardrails Secure AI Agents
 slug: 2026-03-falcon-aidr-nemo-guardrails
-description: CrowdStrike Falcon AIDR now supports NVIDIA NeMo Guardrails as of release v0.20.0, delivering enterprise-grade protection for AI agents against prompt injection, data exposure, and malicious content.
-date: "2026-03-29T06:49:05Z"
+description: CrowdStrike Falcon AIDR now supports NVIDIA NeMo Guardrails (v0.20.0), providing enterprise-grade protection for AI agents by managing data access, controlling responses, ensuring policy compliance, and blocking prompt injection attacks.
+date: "2026-03-28T08:28:28Z"
 severities:
   - high
 tags:
-  - ai-security
+  - AI-security
   - prompt-injection
   - data-protection
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
+    technique_id: T1566
+    technique_name: Phishing
 references:
   - https://crowdstrike.com/en-us/blog/secure-homegrown-ai-agents-with-crowdstrike-falcon-aidr-and-nvidia-nemo-guardrails/
 rules:
-  - title: Detect Potential Prompt Injection Attempts via Command Keywords
-    description: Detects potential prompt injection attempts by identifying command-like keywords commonly used to manipulate AI models.
+  - title: Detect Suspicious AI Agent Command Line Activity
+    description: Detects suspicious command-line activity potentially indicative of prompt injection or malicious manipulation of AI agents.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
     techniques:
-      - T1190
+      - T1566
     data_sources:
-      - webserver
-      - linux
-  - title: Detect Sensitive Data Exposure in AI Agent Output
-    description: Detects potential exposure of sensitive data like SSNs or account numbers in AI agent output.
-    platform: sigma
-    severity: high
-    tactics:
-      - exfiltration
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect Blocked Competitor Mentions
-    description: Alerts when Falcon AIDR blocks competitor mentions in an AI agent's output
+      - process_creation
+      - windows
+  - title: Detect AI Agent Accessing Sensitive Files
+    description: Detects AI agents accessing files containing sensitive data, potentially indicative of data exfiltration.
     platform: sigma
     severity: medium
     tactics:
-      - impact
+      - credential_access
+    techniques:
+      - T1003
     data_sources:
-      - webserver
-      - linux
-rules_count: 3
+      - file_event
+      - windows
+rules_count: 2
 ---
 
-The increasing adoption of AI agents in business operations introduces new security challenges, primarily concerning the scope and limitations of these agents' actions. As AI transitions from experimental to mainstream tools, a single compromised agent can expose customer data, execute unauthorized transactions, or violate compliance. CrowdStrike Falcon AIDR, integrated with NVIDIA NeMo Guardrails (version 0.20.0 and later), addresses these risks by providing enterprise-grade protection for AI…
+The integration of CrowdStrike Falcon AIDR with NVIDIA NeMo Guardrails (v0.20.0) addresses the critical need to secure AI agents transitioning from experimental projects to mainstream business tools. A compromised AI agent can expose customer data, execute unauthorized transactions, and violate compliance requirements across numerous interactions. This new capability aims to limit the scope of AI agents to stay within stated business goals and prevent abuse. CrowdStrike Falcon AIDR and NVIDIA…
