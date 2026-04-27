@@ -1,53 +1,61 @@
 ---
-title: OpenClaw Incorrect Authorization Vulnerability (CVE-2026-35653)
+title: OpenClaw Premature Cite Expansion Vulnerability (CVE-2026-35637)
 slug: 2026-04-openclaw-auth-bypass
-description: OpenClaw before 2026.3.24 contains an incorrect authorization vulnerability in the POST /reset-profile endpoint, allowing authenticated callers with operator.write access to browser.request to bypass profile mutation restrictions and escalate privileges.
-date: "2026-04-11T12:00:00Z"
+description: OpenClaw versions before 2026.3.22 are vulnerable to a timing issue where cite expansion occurs before channel and DM authorization checks, potentially allowing attackers to access or manipulate content before authorization.
+date: "2026-04-09T22:16:32Z"
 severities:
-  - high
+  - medium
 tags:
   - vulnerability
-  - authorization bypass
-  - privilege escalation
+  - authorization
+  - timing-attack
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1548
-    technique_name: Abuse Elevation Control Mechanism
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
 cves:
-  - id: CVE-2026-35653
-    cvss: 8.1
+  - id: CVE-2026-35637
+    cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-35653
-  - https://github.com/openclaw/openclaw/commit/4dcc39c25c6cc63fedfd004f52d173716576fcf0
-  - https://github.com/openclaw/openclaw/commit/e7d11f6c33e223a0dd8a21cfe01076bd76cef87a
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-xp9r-prpg-373r
-  - https://www.vulncheck.com/advisories/openclaw-incorrect-authorization-in-post-reset-profile-via-browser-request
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-35637
+  - https://github.com/openclaw/openclaw/commit/3cbf932413e41d1836cb91aed1541a28a3122f93
+  - https://github.com/openclaw/openclaw/commit/630f1479c44f78484dfa21bb407cbe6f171dac87
+  - https://github.com/openclaw/openclaw/commit/ebee4e2210e1f282a982c7ef2ad79d77a572fc87
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-vfg3-pqpq-93m4
+  - https://www.vulncheck.com/advisories/openclaw-premature-cite-expansion-before-authorization-in-channel-and-dm
+ioc_counts:
+  email: 1
 rules:
-  - title: Detect OpenClaw Profile Reset Attempt
-    description: Detects POST requests to the /reset-profile endpoint, potentially indicating an attempted exploitation of CVE-2026-35653.
+  - title: Detect Potential OpenClaw Cite Expansion Bypass
+    description: Detects potential attempts to exploit the OpenClaw cite expansion vulnerability by monitoring for cite expansion events occurring before authorization checks.
     platform: sigma
     severity: medium
     tactics:
+      - defense_evasion
       - privilege_escalation
     techniques:
-      - T1548
-      - T1548.001
+      - T1068
     data_sources:
       - webserver
       - linux
-  - title: Detect OpenClaw Profile Directory Manipulation
-    description: Detects file operations indicative of unauthorized profile directory manipulation in OpenClaw.
+  - title: Detect OpenClaw Content Modification After Cite Expansion
+    description: Detects suspicious content modification events in OpenClaw after cite expansion, which might indicate exploitation of the authorization bypass vulnerability.
     platform: sigma
-    severity: low
+    severity: high
     tactics:
-      - impact
+      - defense_evasion
+      - privilege_escalation
     techniques:
-      - T1485
+      - T1068
     data_sources:
-      - file_event
+      - webserver
       - linux
 rules_count: 2
 ---
 
-OpenClaw, a software application of unknown purpose, is susceptible to an incorrect authorization vulnerability tracked as CVE-2026-35653. This flaw affects versions prior to 2026.3.24. The vulnerability lies within the `/reset-profile` endpoint, specifically when accessed via a POST request. An authenticated user with `operator.write` access combined with `browser.request` permissions can exploit this to bypass intended profile mutation restrictions. This bypass allows the attacker to perform…
+OpenClaw, in versions prior to 2026.3.22, suffers from a critical vulnerability related to the order of operations during cite expansion. Specifically, the application performs cite expansion before completing channel and Direct Message (DM) authorization checks. This timing issue allows attackers to potentially bypass authorization controls and interact with content that should otherwise be restricted. The vulnerability, identified as CVE-2026-35637, poses a risk of unauthorized access and…
