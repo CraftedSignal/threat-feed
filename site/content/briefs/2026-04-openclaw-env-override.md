@@ -1,53 +1,38 @@
 ---
-title: OpenClaw Workspace .env Overrides Bundled Plugin Trust Root
+title: OpenClaw Workspace .env Hook Override Vulnerability
 slug: 2026-04-openclaw-env-override
-description: OpenClaw versions up to 2026.3.28 are vulnerable to a workspace-level .env file overriding the bundled plugin trust root, potentially allowing for the execution of malicious plugins when an attacker-controlled workspace is loaded.
-date: "2026-04-03T02:48:24Z"
+description: The openclaw package is vulnerable to a high severity issue where a workspace's `.env` file can override the `OPENCLAW_BUNDLED_HOOKS_DIR`, allowing attackers to replace trusted hooks with malicious code.
+date: "2026-04-02T21:00:16Z"
 severities:
-  - medium
+  - high
 tags:
   - openclaw
-  - plugin-security
-  - env-variable-override
-mitre_ttps:
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1003
-    technique_name: OS Credential Dumping
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.004
-    technique_name: Command and Scripting Interpreter
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1562.001
-    technique_name: Impair Defenses
+  - env-override
+  - hook-injection
 references:
-  - https://github.com/advisories/GHSA-qcj9-wwgw-6gm8
+  - https://github.com/advisories/GHSA-3qpv-xf3v-mm45
 rules:
-  - title: Detect OpenClaw Plugin Directory Override
-    description: Detects attempts to override the OpenClaw plugin directory using a .env file. This may indicate a malicious workspace attempting to load untrusted plugins.
+  - title: Detect OpenClaw Bundled Hooks Override via .env
+    description: Detects modifications to .env files that override the OPENCLAW_BUNDLED_HOOKS_DIR environment variable, indicating a potential hook injection attempt.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - defense_evasion
-    techniques:
-      - T1562.001
+      - persistence
+      - privilege_escalation
     data_sources:
       - file_event
       - linux
-  - title: Detect Suspicious File Creation in OpenClaw Plugin Directory
-    description: Detects creation of executable files (e.g., .js, .py, .sh) within the OpenClaw plugin directory. Requires auditd or similar filesystem monitoring.
+  - title: Detect Execution from Non-Standard OpenClaw Hook Directory
+    description: Detects execution of scripts or binaries from a directory specified by OPENCLAW_BUNDLED_HOOKS_DIR in the .env file, indicating a potential hook injection attempt.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
       - persistence
-    techniques:
-      - T1547.001
+      - privilege_escalation
     data_sources:
-      - file_event
+      - process_creation
       - linux
 rules_count: 2
 ---
 
-OpenClaw, a workspace application, is susceptible to a vulnerability where the `OPENCLAW_BUNDLED_PLUGINS_DIR` environment variable can be overridden by a `.env` file within a workspace. This allows a malicious actor to craft a workspace containing a `.env` file that points to a directory containing malicious plugins. If a user opens this attacker-controlled workspace in a vulnerable version of OpenClaw (<= 2026.3.28), the application will load and execute these malicious plugins. This…
+The `openclaw` package, a yet-to-be-defined tool, is vulnerable to a critical flaw affecting versions 2026.3.28 and earlier. This vulnerability stems from the application's susceptibility to having its default hook directory, designated by the `OPENCLAW_BUNDLED_HOOKS_DIR` environment variable, overridden by settings defined within a workspace's `.env` file. An attacker could leverage this vulnerability within an untrusted workspace to replace trusted, default-on bundled hooks with malicious…
