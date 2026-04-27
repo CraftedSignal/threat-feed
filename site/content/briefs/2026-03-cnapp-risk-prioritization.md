@@ -1,52 +1,52 @@
 ---
-title: CrowdStrike Falcon CNAPP Adversary-Informed Risk Prioritization
+title: CrowdStrike CNAPP Advances with Adversary-Informed Risk Prioritization
 slug: 2026-03-cnapp-risk-prioritization
-description: CrowdStrike Falcon Cloud Security introduces new CNAPP capabilities including Application Explorer and adversary intelligence to prioritize cloud risks based on threat actor behavior, enabling security teams to focus on documented intrusion patterns by groups like LABYRINTH CHOLLIMA and SCATTERED SPIDER.
-date: "2026-03-30T06:19:01Z"
+description: CrowdStrike is enhancing its CNAPP capabilities with adversary-informed risk prioritization, application-layer visibility, and improved risk detection to address gaps in cloud security and reduce breach risks.
+date: "2026-03-28T09:14:12Z"
 severities:
-  - high
+  - medium
 actors:
-  - LABYRINTH CHOLLIMA, SCATTERED SPIDER
+  - LABYRINTH CHOLLIMA and SCATTERED SPIDER
 tags:
+  - CNAPP
   - cloud-security
-  - cnapp
-  - threat-intelligence
   - risk-prioritization
+  - threat-intelligence
 mitre_ttps:
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1580
-    technique_name: Cloud Infrastructure Discovery
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1535
-    technique_name: Unprotected Credentials
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1543
+    technique_name: Create or Modify System Process
 references:
   - https://www.crowdstrike.com/en-us/blog/crowdstrike-advances-cnapp-with-industry-first-adversary-informed-risk-prioritization/
 rules:
-  - title: Detect Suspicious Cloud Resource Enumeration
-    description: Detects potential reconnaissance activity through excessive API calls.
-    platform: sigma
-    severity: medium
-    tactics:
-      - discovery
-    techniques:
-      - T1580
-    data_sources:
-      - cloudtrail
-      - aws
-  - title: Detect Cloud Storage Access by Unusual Process
-    description: Detects access to cloud storage buckets by processes not typically associated with cloud operations.
+  - title: Detect Overly Permissive Cloud Storage Access
+    description: Detects potentially overly permissive access configurations in cloud storage resources that could be exploited by threat actors.
     platform: sigma
     severity: high
     tactics:
-      - credential_access
+      - initial_access
     techniques:
-      - T1535
+      - T1566
+    data_sources:
+      - cloudtrail
+      - aws
+  - title: Detect Lateral Movement Through Cloud Instance Credentials
+    description: Detects use of stolen or compromised credentials from cloud instances.
+    platform: sigma
+    severity: medium
+    tactics:
+      - lateral_movement
+    techniques:
+      - T1021.001
     data_sources:
       - cloudtrail
       - aws
 rules_count: 2
 ---
 
-CrowdStrike has enhanced its Falcon Cloud Security with new CNAPP capabilities designed to improve risk prioritization in cloud environments. This update focuses on addressing the limitations of current CNAPP solutions, which often lack visibility into business applications, ignore adversary behavior, and result in endless triage due to a lack of context around configuration changes. The new features, including Application Explorer and adversary intelligence integration, aim to provide security…
+CrowdStrike is advancing its Cloud Native Application Protection Platform (CNAPP) to provide more effective cloud security. Current CNAPP solutions often lack visibility into business applications, ignore adversary behavior patterns, and create endless triage cycles due to a lack of context. CrowdStrike's enhanced CNAPP capabilities aim to address these limitations by incorporating application-layer visibility, threat intelligence, and automated risk detection. These updates enable…
