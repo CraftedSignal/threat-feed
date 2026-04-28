@@ -3,6 +3,9 @@ title: OpenClaw Environment Variable Injection Vulnerability
 slug: 2024-01-23-openclaw-env-injection
 description: The openclaw package versions prior to 2026.4.10 are vulnerable to environment variable injection, where the exec environment policy missed interpreter startup variables allowing operator-supplied environment overrides to influence downstream execution or network behavior, addressed in versions 2026.4.10 and later.
 date: "2026-04-17T21:54:20Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
