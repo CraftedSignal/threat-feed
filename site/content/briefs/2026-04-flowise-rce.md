@@ -53,4 +53,25 @@ rules:
 rules_count: 3
 ---
 
-Flowise is an open-source low-code platform to build customized AI flow. Versions 3.0.13 and earlier contain a critical vulnerability that allows authenticated users to execute arbitrary commands on the underlying operating system. This vulnerability stems from insufficient input sanitization within the MCP (Model Composition Protocol) adapter. By adding a new MCP using stdio, an attacker can inject malicious commands, bypassing existing sanitization checks. Specifically, the vulnerability lies…
+Flowise is an open-source low-code platform to build customized AI flow. Versions 3.0.13 and earlier contain a critical vulnerability that allows authenticated users to execute arbitrary commands on the underlying operating system. This vulnerability stems from insufficient input sanitization within the MCP (Model Composition Protocol) adapter. By adding a new MCP using stdio, an attacker can inject malicious commands, bypassing existing sanitization checks. Specifically, the vulnerability lies in the "Custom MCP" configuration where commands like "npx" can be combined with code execution arguments (e.g., "npx -c touch /tmp/pwn"), leading to direct code execution. This vulnerability affects both the `flowise` and `flowise-components` packages.
+
+## Attack Chain
+
+1.  Attacker authenticates to the Flowise application.
+2.  Attacker navigates to the Custom MCP configuration page (e.g., `/canvas`).
+3.  Attacker creates a new Custom MCP adapter.
+4.  Attacker configures the MCP adapter to use stdio.
+5.  Attacker injects a malicious command, such as "npx -c touch /tmp/pwn", into the command or arguments fields. This bypasses `validateCommandInjection` and `validateArgsForLocalFileAccess` checks.
+6.  Flowise application executes the attacker-supplied command via the MCP adapter.
+7.  Malicious command is executed on the underlying operating system.
+8.  Attacker achieves arbitrary code execution on the server.
+
+## Impact
+
+Successful exploitation of this vulnerability allows an authenticated attacker to achieve arbitrary command execution on the Flowise server. This could lead to complete system compromise, data theft, or denial of service. The vulnerability affects Flowise installations running versions 3.0.13 and earlier. The number of affected installations is currently unknown, but given the popularity of Flowise, the potential impact is significant.
+
+## Recommendation
+
+*   Upgrade Flowise and Flowise-components to a version greater than 3.0.13 to patch CVE-2026-40933.
+*   Monitor process creation events for the execution of "npx" with the "-c" argument where the parent process is the Flowise application. Deploy the provided Sigma rule `Detect Flowise MCP Command Execution` to identify potential exploitation attempts.
+*   Implement stricter input validation and sanitization measures within the MCP adapter configuration to prevent command injection attacks.
