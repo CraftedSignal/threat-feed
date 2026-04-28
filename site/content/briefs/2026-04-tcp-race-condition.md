@@ -3,6 +3,9 @@ title: Windows TCP/IP Race Condition Vulnerability (CVE-2026-33827)
 slug: 2026-04-tcp-race-condition
 description: CVE-2026-33827 is a race condition vulnerability in Windows TCP/IP that allows an attacker to execute arbitrary code over the network by exploiting improper synchronization during concurrent execution using shared resources.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
