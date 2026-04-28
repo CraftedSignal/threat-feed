@@ -3,6 +3,9 @@ title: Lotus Data Wiper Targeting Venezuelan Energy and Utility Firms
 slug: 2026-04-lotus-wiper
 description: The Lotus wiper, a previously undocumented data-wiping malware, was deployed against Venezuelan energy and utilities organizations in 2025, overwriting physical drives, deleting files, and rendering systems unrecoverable.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
