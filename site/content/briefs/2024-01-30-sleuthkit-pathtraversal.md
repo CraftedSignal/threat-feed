@@ -59,4 +59,25 @@ rules:
 rules_count: 2
 ---
 
-The Sleuth Kit, a collection of command-line tools for forensic analysis of disk images, is susceptible to a path traversal vulnerability (CVE-2026-40024) affecting versions up to 4.14.0. This vulnerability resides within the `tsk_recover` utility, which is designed to recover files from disk images. An attacker can exploit this flaw by crafting a malicious filesystem image containing filenames or directory paths with path traversal sequences (e.g., `../`). When `tsk_recover` processes this…
+The Sleuth Kit, a collection of command-line tools for forensic analysis of disk images, is susceptible to a path traversal vulnerability (CVE-2026-40024) affecting versions up to 4.14.0. This vulnerability resides within the `tsk_recover` utility, which is designed to recover files from disk images. An attacker can exploit this flaw by crafting a malicious filesystem image containing filenames or directory paths with path traversal sequences (e.g., `../`). When `tsk_recover` processes this image, it can be tricked into writing files to arbitrary locations outside the intended recovery directory. Successful exploitation allows attackers to overwrite critical system files, such as shell configuration files or cron entries, ultimately leading to code execution with elevated privileges. This vulnerability poses a significant risk to systems utilizing The Sleuth Kit for forensic investigations.
+
+## Attack Chain
+
+1.  Attacker crafts a malicious filesystem image. This image contains filenames or directory paths embedded with path traversal sequences like `../`.
+2.  The attacker, or a user under their control, invokes the `tsk_recover` utility on a vulnerable system, specifying the malicious filesystem image as input.
+3.  `tsk_recover` parses the filesystem image and encounters the crafted filenames with path traversal sequences.
+4.  Due to the vulnerability, `tsk_recover` incorrectly resolves the file paths, allowing the write operation to escape the intended recovery directory.
+5.  The utility writes a file to an arbitrary location on the file system. This location is determined by the attacker-controlled path traversal sequences.
+6.  The attacker strategically targets critical system files for overwriting, such as shell configuration files (`.bashrc`, `.bash_profile`) or cron entries (`/etc/cron.d/`).
+7.  Upon the next user login or scheduled cron job execution, the attacker's malicious code embedded in the overwritten files is executed.
+8.  The attacker achieves code execution, potentially gaining persistence or escalating privileges on the compromised system.
+
+## Impact
+
+Successful exploitation of this vulnerability allows an attacker to write arbitrary files to the target system, potentially leading to code execution. By overwriting shell configuration files or cron entries, attackers can gain persistence and escalate their privileges, effectively taking control of the system. While the specific number of victims is unknown, any system utilizing a vulnerable version of The Sleuth Kit for disk image analysis is at risk. The impact could range from data theft to complete system compromise, depending on the attacker's objectives and the level of access gained.
+
+## Recommendation
+
+*   Upgrade The Sleuth Kit to a version beyond 4.14.0 to patch CVE-2026-40024 and eliminate the path traversal vulnerability.
+*   Monitor process execution for instances of `tsk_recover` writing files outside the intended recovery directory using the Sigma rule `Detect Sleuth Kit Path Traversal`.
+*   Implement file integrity monitoring for critical system files (e.g., `.bashrc`, `.bash_profile`, `/etc/cron.d/*`) to detect unauthorized modifications resulting from exploitation of CVE-2026-40024.
