@@ -49,4 +49,26 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-35682 describes an authenticated command injection vulnerability in Anviz CX2 Lite devices. An attacker with valid user credentials can inject arbitrary commands into the filename parameter, leading to remote code execution with root privileges. The vulnerability allows an attacker to execute commands like starting telnetd, effectively gaining complete control over the device. This poses a significant risk to organizations using vulnerable Anviz CX2 Lite devices for access control or…
+CVE-2026-35682 describes an authenticated command injection vulnerability in Anviz CX2 Lite devices. An attacker with valid user credentials can inject arbitrary commands into the filename parameter, leading to remote code execution with root privileges. The vulnerability allows an attacker to execute commands like starting telnetd, effectively gaining complete control over the device. This poses a significant risk to organizations using vulnerable Anviz CX2 Lite devices for access control or time attendance, potentially leading to unauthorized access, data breaches, or denial-of-service conditions. The ICS-CERT advisory, ICSA-26-106-03, provides additional details.
+
+## Attack Chain
+
+1. An attacker gains valid credentials for an Anviz CX2 Lite device.
+2. The attacker authenticates to the device's web interface or API.
+3. The attacker identifies the vulnerable filename parameter in a specific request.
+4. The attacker crafts a malicious request containing a command injection payload within the filename parameter (e.g., `filename=;telnetd -p 1337 -l /bin/sh;`).
+5. The Anviz CX2 Lite device processes the request, improperly sanitizing the filename parameter.
+6. The injected command executes with root privileges on the device.
+7. The attacker uses the executed command to start a service like telnetd.
+8. The attacker connects to the newly started service, gaining a root shell and complete control of the device.
+
+## Impact
+
+Successful exploitation of CVE-2026-35682 allows a remote attacker to gain root-level access to the Anviz CX2 Lite device. This can lead to complete system compromise, including unauthorized access to sensitive data, modification of device settings, and potential use of the device as a foothold for further attacks within the network. Given that these devices are often used for physical access control, this vulnerability could lead to unauthorized physical access to secured areas.
+
+## Recommendation
+
+*   Apply available patches or firmware updates from Anviz to remediate CVE-2026-35682. Contact Anviz directly through their website for support and remediation steps (https://www.anviz.com/contact-us.html).
+*   Deploy the Sigma rule `Detect Anviz CX2 Lite Command Injection Attempt` to identify exploitation attempts against the device.
+*   Monitor web server logs for suspicious requests containing command injection payloads in the filename parameter to identify potential exploitation attempts.
+*   Review authentication logs for unauthorized access attempts to the Anviz CX2 Lite devices.
