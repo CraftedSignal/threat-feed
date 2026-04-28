@@ -77,3 +77,62 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  notify-subscribers:
+    # Fire-and-forget call to the feed-notifier service so subscribers
+    # whose filters match the new briefs get an email/Slack/Teams ping.
+    # Skipped when the secrets aren't configured (e.g. before the
+    # notifier is deployed).
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 2 # need previous commit to diff against
+
+      - name: Find new briefs in this push
+        id: briefs
+        run: |
+          # Files added under site/content/briefs/ in this push.
+          {
+            git diff --name-only --diff-filter=AM \
+              "${{ github.event.before }}" "${{ github.event.after }}" -- \
+              'site/content/briefs/*.md' || true
+          } > /tmp/changed.txt
+          count=$(wc -l < /tmp/changed.txt | tr -d ' ')
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Changed brief files: $count"
+
+      - name: Set up Python
+        if: steps.briefs.outputs.count != '0'
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - name: Install PyYAML
+        if: steps.briefs.outputs.count != '0'
+        run: pip install pyyaml
+
+      - name: Build dispatch payload
+        if: steps.briefs.outputs.count != '0'
+        run: |
+          python3 .github/scripts/build-dispatch-payload.py \
+            < /tmp/changed.txt > /tmp/payload.json
+          jq '.briefs | length' /tmp/payload.json
+
+      - name: POST /dispatch
+        if: steps.briefs.outputs.count != '0' && env.NOTIFIER_URL != '' && env.NOTIFIER_DISPATCH_TOKEN != ''
+        env:
+          NOTIFIER_URL: ${{ secrets.NOTIFIER_URL }}
+          NOTIFIER_DISPATCH_TOKEN: ${{ secrets.NOTIFIER_DISPATCH_TOKEN }}
+        run: |
+          curl -fsS --max-time 60 \
+            -X POST "$NOTIFIER_URL/dispatch" \
+            -H "Authorization: Bearer $NOTIFIER_DISPATCH_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data @/tmp/payload.json
