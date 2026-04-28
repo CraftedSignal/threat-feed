@@ -48,4 +48,26 @@ rules:
 rules_count: 2
 ---
 
-NVIDIA Triton Inference Server is susceptible to a denial-of-service (DoS) vulnerability identified as CVE-2026-24146. This flaw stems from insufficient input validation within the server software. An attacker can exploit this by sending specially crafted requests with a large number of expected outputs to the server. If successful, this causes excessive memory allocation leading to a server crash, rendering the service unavailable to legitimate users. This vulnerability impacts any…
+NVIDIA Triton Inference Server is susceptible to a denial-of-service (DoS) vulnerability identified as CVE-2026-24146. This flaw stems from insufficient input validation within the server software. An attacker can exploit this by sending specially crafted requests with a large number of expected outputs to the server. If successful, this causes excessive memory allocation leading to a server crash, rendering the service unavailable to legitimate users. This vulnerability impacts any organization utilizing affected versions of the NVIDIA Triton Inference Server. Publicly available information regarding affected versions is limited, but it is critical that organizations monitor for updates and apply necessary patches promptly.
+
+## Attack Chain
+
+1. An attacker identifies a vulnerable NVIDIA Triton Inference Server instance.
+2. The attacker crafts a malicious request designed to trigger excessive output generation.
+3. The crafted request is sent to the Triton Inference Server via HTTP or gRPC.
+4. The server receives the request and attempts to process it.
+5. Due to insufficient input validation, the server allocates an excessive amount of memory.
+6. Repeated requests exhaust available memory resources.
+7. The server crashes due to an out-of-memory condition.
+8. Legitimate users are unable to access the inference server, resulting in a denial of service.
+
+## Impact
+
+Successful exploitation of CVE-2026-24146 leads to a denial-of-service condition on the NVIDIA Triton Inference Server. This can disrupt AI inference workloads, potentially impacting critical applications that rely on these services. The impact is significant for organizations that depend on the availability of their AI models for real-time decision-making or other operational needs. The specific number of affected organizations is unknown, but any organization using a vulnerable version of the Triton Inference Server is at risk.
+
+## Recommendation
+
+*   Apply the patch or upgrade to a non-vulnerable version of NVIDIA Triton Inference Server as soon as it is available from NVIDIA to remediate CVE-2026-24146.
+*   Implement input validation on the server-side to prevent malicious requests with excessive output parameters; this is a general mitigation strategy since specific filters are unavailable.
+*   Deploy the Sigma rule `Detect Suspicious Triton Inference Server Requests` to identify potential exploitation attempts targeting the vulnerability.
+*   Monitor web server logs (category `webserver`, product `linux`) for unusual request patterns that may indicate exploitation attempts, focusing on cs-uri-query parameters related to output size or count.
