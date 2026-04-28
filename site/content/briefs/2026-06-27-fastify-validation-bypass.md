@@ -3,6 +3,9 @@ title: Fastify Body Schema Validation Bypass via Leading Space in Content-Type H
 slug: 2026-06-27-fastify-validation-bypass
 description: Fastify v5.x is vulnerable to a body schema validation bypass, allowing attackers to circumvent request body validation by prepending a single space to the Content-Type header, potentially compromising data integrity and security constraints.
 date: "2026-04-15T19:26:39Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
