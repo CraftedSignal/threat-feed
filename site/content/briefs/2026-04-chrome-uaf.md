@@ -37,3 +37,24 @@ rules_count: 1
 ---
 
 CVE-2026-6300 is a use-after-free vulnerability affecting the CSS engine in Google Chrome versions prior to 147.0.7727.101. Successful exploitation allows a remote attacker to execute arbitrary code inside a sandbox environment. The vulnerability is triggered when processing a maliciously crafted HTML page. Google Chrome users who have not updated to version 147.0.7727.101 or later are vulnerable. Given the widespread use of Chrome, this vulnerability poses a significant risk.
+
+## Attack Chain
+
+1.  Attacker crafts a malicious HTML page containing a specific CSS payload designed to trigger the use-after-free condition.
+2.  The victim visits the attacker-controlled website or opens the malicious HTML page via phishing or other social engineering techniques.
+3.  Chrome's rendering engine processes the HTML and CSS code.
+4.  The vulnerability in the CSS engine is triggered during the processing of the malicious CSS, leading to memory corruption.
+5.  The attacker leverages the use-after-free condition to overwrite memory and gain control of program execution.
+6.  The attacker executes arbitrary code within the Chrome sandbox.
+7.  The attacker potentially escalates privileges or escapes the sandbox environment, depending on further exploitation techniques.
+8.  The attacker performs malicious actions, such as installing malware, stealing sensitive data, or further compromising the system.
+
+## Impact
+
+Successful exploitation of CVE-2026-6300 allows a remote attacker to execute arbitrary code within the Chrome sandbox. While the sandbox provides a degree of isolation, determined attackers may be able to escalate privileges or escape the sandbox entirely, leading to full system compromise. This could allow for the installation of malware, theft of sensitive data, or other malicious activities. Given the widespread use of Chrome, a successful exploit could potentially affect millions of users.
+
+## Recommendation
+
+*   Update Google Chrome to version 147.0.7727.101 or later to patch CVE-2026-6300.
+*   Deploy the following Sigma rule to detect potential exploitation attempts based on suspicious process creation events related to Chrome: `title: "Detect Possible Chrome UAF Exploitation"`
+*   Enable process creation logging for Google Chrome to ensure the Sigma rule functions correctly.
