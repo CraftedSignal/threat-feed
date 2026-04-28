@@ -3,6 +3,9 @@ title: .NET Spoofing Vulnerability (CVE-2026-32178)
 slug: 2026-04-dotnet-spoofing
 description: CVE-2026-32178 is a vulnerability in .NET that allows for network spoofing due to improper neutralization of special elements, potentially enabling attackers to impersonate legitimate entities.
 date: "2026-04-14T18:17:20Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
