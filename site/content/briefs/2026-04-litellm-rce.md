@@ -47,4 +47,26 @@ rules:
 rules_count: 2
 ---
 
-LiteLLM, a library for simplifying interactions with Large Language Models (LLMs), is vulnerable to remote code execution (RCE) through version 2026-04-08. The vulnerability, identified as CVE-2026-40217, exists due to insufficient input validation at the `/guardrails/test_custom_code` URI. A remote attacker can exploit this flaw by rewriting bytecode, effectively injecting and executing arbitrary code on the server hosting LiteLLM. This vulnerability poses a significant risk, as it allows…
+LiteLLM, a library for simplifying interactions with Large Language Models (LLMs), is vulnerable to remote code execution (RCE) through version 2026-04-08. The vulnerability, identified as CVE-2026-40217, exists due to insufficient input validation at the `/guardrails/test_custom_code` URI. A remote attacker can exploit this flaw by rewriting bytecode, effectively injecting and executing arbitrary code on the server hosting LiteLLM. This vulnerability poses a significant risk, as it allows unauthenticated attackers with network access to the affected server to gain complete control.
+
+## Attack Chain
+
+1.  An attacker identifies a LiteLLM instance running a vulnerable version (<= 2026-04-08) with the `/guardrails/test_custom_code` endpoint exposed.
+2.  The attacker crafts a malicious HTTP request targeting the `/guardrails/test_custom_code` URI.
+3.  The malicious request includes specially crafted data designed to rewrite the bytecode executed by the LiteLLM instance.
+4.  The LiteLLM application, due to the vulnerability, processes the attacker-supplied data without proper sanitization or validation.
+5.  The application rewrites its own bytecode based on the attacker's input.
+6.  The rewritten bytecode contains malicious code injected by the attacker.
+7.  The application executes the rewritten bytecode, effectively executing the attacker's injected code.
+8.  The attacker gains arbitrary code execution on the server, allowing them to compromise the system, install malware, or exfiltrate data.
+
+## Impact
+
+Successful exploitation of CVE-2026-40217 allows unauthenticated remote attackers to execute arbitrary code on systems running vulnerable versions of LiteLLM. This can lead to complete system compromise, including data theft, ransomware deployment, and denial of service. The vulnerability could affect any organization utilizing LiteLLM for LLM interaction, particularly those exposing the vulnerable endpoint to untrusted networks. The impact is rated as critical due to the ease of exploitation and the potential for widespread damage.
+
+## Recommendation
+
+*   Apply the necessary patches or upgrade to a version of LiteLLM that addresses CVE-2026-40217 immediately.
+*   Implement network segmentation to restrict access to the `/guardrails/test_custom_code` endpoint, as referenced in the vulnerability description.
+*   Deploy the provided Sigma rule `Detect LiteLLM Bytecode Rewrite Attempt` to identify potential exploitation attempts targeting the vulnerable endpoint.
+*   Monitor web server logs for suspicious POST requests to the `/guardrails/test_custom_code` URI, using the log source specified in the Sigma rule.
