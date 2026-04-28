@@ -53,4 +53,24 @@ rules:
 rules_count: 2
 ---
 
-HCL BigFix Platform is affected by insecure permissions on private cryptographic keys. This vulnerability, identified as CVE-2026-21765, exists because private cryptographic keys located on Windows host machines may have overly permissive file system permissions. This could allow unauthorized users or processes to access sensitive cryptographic material, potentially leading to privilege escalation or other malicious activities within the BigFix environment. Successful exploitation of this…
+HCL BigFix Platform is affected by insecure permissions on private cryptographic keys. This vulnerability, identified as CVE-2026-21765, exists because private cryptographic keys located on Windows host machines may have overly permissive file system permissions. This could allow unauthorized users or processes to access sensitive cryptographic material, potentially leading to privilege escalation or other malicious activities within the BigFix environment. Successful exploitation of this vulnerability could allow attackers to decrypt sensitive data or impersonate legitimate components of the BigFix platform. Defenders should ensure proper file system permissions are enforced on sensitive cryptographic key files within the HCL BigFix installation directory.
+
+## Attack Chain
+
+1.  Attacker gains initial access to a Windows host machine running the HCL BigFix client or server component. This could be achieved through existing malware infections, compromised credentials, or exploitation of other vulnerabilities.
+2.  Attacker identifies the location of the private cryptographic key files used by HCL BigFix. The specific location may vary depending on the BigFix configuration, but is typically within the BigFix installation directory.
+3.  Attacker checks the file system permissions of the cryptographic key files. Due to the vulnerability, these permissions may be overly permissive, granting read or write access to unauthorized users or groups.
+4.  Attacker copies the private cryptographic key files to a location where they can be further analyzed or used.
+5.  Attacker uses the stolen private keys to decrypt sensitive data stored or transmitted by the BigFix platform. This could include configuration settings, credentials, or other confidential information.
+6.  Attacker uses the stolen private keys to impersonate legitimate BigFix components, such as the client or server.
+7.  Attacker elevates privileges within the BigFix environment by using the impersonated identity to execute commands or access restricted resources.
+
+## Impact
+
+Successful exploitation of CVE-2026-21765 could allow an attacker to gain unauthorized access to sensitive data, escalate privileges within the HCL BigFix environment, and potentially compromise the entire BigFix deployment. The vulnerability affects any organization using HCL BigFix on Windows. If exploited successfully, attackers could gain complete control over managed endpoints.
+
+## Recommendation
+
+*   Apply the patch or mitigation steps provided by HCL Software as described in [KB0129906](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0129906) to correct the file system permissions on the private cryptographic key files.
+*   Use the Sigma rule "Detect Suspicious Access to HCL BigFix Private Keys" to detect unauthorized access attempts to the affected key files.
+*   Monitor file system access logs on Windows hosts running HCL BigFix components for suspicious activity targeting cryptographic key files.
