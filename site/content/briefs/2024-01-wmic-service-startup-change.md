@@ -62,4 +62,26 @@ rules:
 rules_count: 2
 ---
 
-Attackers may leverage WMIC, a legitimate Windows command-line utility, to modify the startup type of services. This tactic is often used to disable security products or critical system services, hindering incident response or creating system instability. By setting services to "Manual" or "Disabled", adversaries ensure that these services do not automatically start upon system boot, achieving persistence or impeding detection. While WMIC is a built-in tool, its use for modifying service…
+Attackers may leverage WMIC, a legitimate Windows command-line utility, to modify the startup type of services. This tactic is often used to disable security products or critical system services, hindering incident response or creating system instability. By setting services to "Manual" or "Disabled", adversaries ensure that these services do not automatically start upon system boot, achieving persistence or impeding detection. While WMIC is a built-in tool, its use for modifying service startup types is often indicative of malicious activity, especially when performed on security-related services. This activity may be part of a larger attack chain aimed at deploying ransomware, exfiltrating data, or establishing a persistent presence on the compromised system.
+
+## Attack Chain
+
+1. An attacker gains initial access to the target system, potentially through phishing, exploiting a vulnerability, or compromised credentials.
+2. The attacker executes `wmic.exe` with specific command-line arguments to interact with Windows services.
+3. The `service` alias is invoked within WMIC to target specific services.
+4. The `ChangeStartMode` method is used to modify the startup type of the targeted service.
+5. The attacker sets the startup type to either `Manual` or `Disabled`, preventing the service from automatically starting on subsequent reboots.
+6. If the targeted service is a security product, this action effectively disables the defense mechanism.
+7. The attacker proceeds with further malicious activities, such as deploying malware or exfiltrating sensitive data, with reduced resistance.
+8. The compromised system experiences degraded security posture and potential operational disruptions.
+
+## Impact
+
+Successful modification of service startup types can severely impact system security and availability. Disabling security software can lead to undetected malware infections and data breaches. Disabling critical system services can cause system instability, data loss, or complete system failure. While the exact number of victims is unknown, this technique is broadly applicable across Windows environments, potentially affecting organizations of any size and in any sector. The impact ranges from minor operational disruptions to significant financial losses due to data breaches and ransomware attacks.
+
+## Recommendation
+
+*   Deploy the provided Sigma rule to your SIEM to detect suspicious `wmic.exe` process creations that attempt to change service startup types.
+*   Investigate any instances where `wmic.exe` is used to modify service startup types, especially when the targeted services are related to security or critical system functions.
+*   Implement endpoint detection and response (EDR) solutions to provide enhanced visibility into process execution and system modifications.
+*   Regularly review and audit service configurations to identify unauthorized changes.
