@@ -3,6 +3,9 @@ title: Multiple Vulnerabilities in Firebird Database Server
 slug: 2026-04-firebird-vulns
 description: Multiple vulnerabilities in Firebird allow an attacker to execute arbitrary code with administrator privileges, disclose sensitive information, or cause a denial-of-service condition.
 date: "2026-04-20T10:29:07Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
