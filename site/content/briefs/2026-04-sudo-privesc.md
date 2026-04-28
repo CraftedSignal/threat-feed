@@ -49,4 +49,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-35535 identifies a critical vulnerability within Sudo, specifically affecting versions up to 1.9.17p2 before commit 3e474c2. The vulnerability stems from a failure to properly handle errors during the privilege dropping process that occurs before running the mailer component. Specifically, if the setuid, setgid, or setgroups calls fail during this stage, the error is not treated as fatal. This flaw allows a malicious actor with limited privileges to potentially escalate their…
+CVE-2026-35535 identifies a critical vulnerability within Sudo, specifically affecting versions up to 1.9.17p2 before commit 3e474c2. The vulnerability stems from a failure to properly handle errors during the privilege dropping process that occurs before running the mailer component. Specifically, if the setuid, setgid, or setgroups calls fail during this stage, the error is not treated as fatal. This flaw allows a malicious actor with limited privileges to potentially escalate their privileges to root or another privileged user. This vulnerability was reported in March 2026 and impacts systems relying on Sudo for privilege management, posing a significant risk to system integrity and confidentiality. Systems using affected versions of Sudo should be patched immediately to prevent potential exploitation.
+
+## Attack Chain
+
+1.  Attacker gains initial access to the system with a low-privileged account.
+2.  Attacker identifies a vulnerable Sudo version (<= 1.9.17p2).
+3.  Attacker crafts a malicious command intended to be executed via Sudo, specifically targeting the mailer functionality.
+4.  Sudo attempts to drop privileges using setuid, setgid, or setgroups before executing the mailer.
+5.  One of the privilege dropping calls (setuid, setgid, or setgroups) fails.
+6.  Due to the vulnerability, the failure is not treated as a fatal error, and Sudo continues execution with incomplete privilege dropping.
+7.  The mailer component executes with higher privileges than intended, as the privilege dropping was unsuccessful.
+8.  Attacker leverages the elevated privileges to execute arbitrary commands or modify system files, gaining full control of the system.
+
+## Impact
+
+Successful exploitation of CVE-2026-35535 can lead to complete system compromise. An attacker can gain root privileges, allowing them to install malware, exfiltrate sensitive data, or disrupt critical services. The vulnerability affects any system using a vulnerable version of Sudo, potentially impacting a wide range of organizations and individuals. The severity is high because it allows for unauthenticated privilege escalation on systems where the vulnerable version of Sudo is installed and improperly configured.
+
+## Recommendation
+
+*   Upgrade Sudo to a patched version (>= 3e474c2) to remediate CVE-2026-35535.
+*   Monitor system logs for failed setuid, setgid, or setgroups calls related to Sudo (see example Sigma rule below).
+*   Implement stricter privilege management policies to minimize the impact of potential privilege escalation vulnerabilities.
