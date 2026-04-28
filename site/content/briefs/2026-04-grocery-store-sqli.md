@@ -3,6 +3,9 @@ title: SQL Injection Vulnerability in anirudhkannan Grocery Store Management Sys
 slug: 2026-04-grocery-store-sqli
 description: A critical SQL injection vulnerability (CVE-2025-63939) exists in the anirudhkannan Grocery Store Management System 1.0, allowing unauthenticated attackers to execute arbitrary SQL queries via the sitem_name POST parameter in /Grocery/search_products_itname.php.
 date: "2026-04-14T16:16:33Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
