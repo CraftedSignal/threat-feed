@@ -56,4 +56,24 @@ rules:
 rules_count: 2
 ---
 
-A critical vulnerability exists in Nimiq's core-rs-albatross library, specifically within the nimiq-primitives crate, affecting versions 0.2.0 and earlier. An attacker can exploit this vulnerability by sending a malicious election macro block to a Nimiq node. This block contains an invalid compressed BLS voting key. When the node attempts to process this block, specifically during the hashing of the election macro header and the validation of the validators set via `Validators::voting_keys()`…
+A critical vulnerability exists in Nimiq's core-rs-albatross library, specifically within the nimiq-primitives crate, affecting versions 0.2.0 and earlier. An attacker can exploit this vulnerability by sending a malicious election macro block to a Nimiq node. This block contains an invalid compressed BLS voting key. When the node attempts to process this block, specifically during the hashing of the election macro header and the validation of the validators set via `Validators::voting_keys()`, the `validator.voting_key.uncompress().unwrap()` function is triggered. Due to the invalid BLS key, this operation results in a panic, effectively crashing the Nimiq node and causing a denial-of-service condition. The vulnerability was patched in version 1.3.0 of the core-rs-albatross library.
+
+## Attack Chain
+
+1.  Attacker identifies a vulnerable Nimiq node running a version of `nimiq-primitives` less than or equal to 0.2.0.
+2.  Attacker crafts a malicious election macro block.
+3.  The malicious block contains an invalid compressed BLS voting key within the `validators` set.
+4.  The attacker sends the crafted block to the target Nimiq node via the peer-to-peer network.
+5.  The Nimiq node receives the block and begins processing it.
+6.  During the hashing of the election macro header, the `validators` set is processed.
+7.  The `Validators::voting_keys()` function is called, which attempts to uncompress the BLS voting key.
+8.  Due to the invalid compressed BLS key, the `validator.voting_key.uncompress().unwrap()` function panics, causing the node to crash and leading to a denial of service.
+
+## Impact
+
+Successful exploitation of this vulnerability leads to a denial-of-service condition for the targeted Nimiq node. This can disrupt network operations, prevent legitimate transactions from being processed, and potentially impact the overall stability of the Nimiq network. The vulnerability allows any untrusted peer to trigger the crash.
+
+## Recommendation
+
+*   Upgrade to version 1.3.0 or later of the `core-rs-albatross` library to patch CVE-2026-34065.
+*   Implement rate limiting on incoming peer connections to mitigate the impact of malicious blocks being sent to the node.
