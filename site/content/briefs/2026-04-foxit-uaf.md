@@ -49,4 +49,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-3779 is a use-after-free vulnerability affecting an unspecified Foxit application. The vulnerability stems from the application's list box calculate array logic, which improperly manages references to page or form objects. Specifically, when these objects are deleted or re-created, the calculation logic retains stale references. This flaw allows attackers to craft malicious documents that, upon calculation, trigger a use-after-free condition. Successful exploitation of this…
+CVE-2026-3779 is a use-after-free vulnerability affecting an unspecified Foxit application. The vulnerability stems from the application's list box calculate array logic, which improperly manages references to page or form objects. Specifically, when these objects are deleted or re-created, the calculation logic retains stale references. This flaw allows attackers to craft malicious documents that, upon calculation, trigger a use-after-free condition. Successful exploitation of this vulnerability could enable an attacker to execute arbitrary code within the context of the affected application. The vulnerability was reported on March 31, 2026 and poses a significant risk to users who handle untrusted documents with the vulnerable application.
+
+## Attack Chain
+
+1.  Attacker crafts a malicious document exploiting the list box calculation logic.
+2.  The user opens the document in a vulnerable Foxit application.
+3.  The application attempts to perform a list box calculation.
+4.  The stale reference within the list box calculate array logic is triggered.
+5.  The application attempts to access the deleted or re-created page/form object.
+6.  A use-after-free condition occurs, potentially corrupting memory.
+7.  The attacker leverages memory corruption to inject and execute arbitrary code.
+8.  The attacker gains control of the affected system.
+
+## Impact
+
+Successful exploitation of CVE-2026-3779 can lead to arbitrary code execution on the victim's machine. The CVSS v3.1 score of 7.8 indicates a high severity. Exploitation requires user interaction (opening a malicious document), limiting the scope somewhat. However, targeted spearphishing campaigns could deliver such malicious documents, impacting organizations that rely on the vulnerable Foxit application for document handling. The consequences include potential data theft, system compromise, and further propagation of malicious activity within the network.
+
+## Recommendation
+
+*   Monitor process creations for unusual child processes spawned by the Foxit application, using the process creation rule provided below.
+*   Apply the security updates released by Foxit as outlined in their security bulletin to remediate CVE-2026-3779 (https://www.foxit.com/support/security-bulletins.html).
+*   Educate users about the risks of opening documents from untrusted sources to reduce the likelihood of initial access via social engineering (T1566).
