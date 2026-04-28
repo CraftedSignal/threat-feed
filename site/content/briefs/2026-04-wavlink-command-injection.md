@@ -3,6 +3,9 @@ title: Wavlink WL-WN530H4 OS Command Injection Vulnerability
 slug: 2026-04-wavlink-command-injection
 description: A remote command injection vulnerability exists in the Wavlink WL-WN530H4 router, specifically in the `strcat/snprintf` function of the `/cgi-bin/internet.cgi` file, allowing attackers to execute arbitrary OS commands.
 date: "2026-04-17T11:16:11Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
