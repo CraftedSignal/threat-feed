@@ -1,53 +1,55 @@
 ---
-title: Google Chrome Prerender Use-After-Free Vulnerability (CVE-2026-6299)
+title: Google Chrome Proxy Use-After-Free Vulnerability (CVE-2026-6297)
 slug: 2026-04-chrome-use-after-free
-description: A use-after-free vulnerability (CVE-2026-6299) in Google Chrome's Prerender component before version 147.0.7727.101 allows a remote attacker to execute arbitrary code by crafting a malicious HTML page.
-date: "2026-04-16T12:00:00Z"
+description: CVE-2026-6297 is a critical use-after-free vulnerability in the Proxy component of Google Chrome before version 147.0.7727.101, enabling a privileged network attacker to potentially achieve sandbox escape via a crafted HTML page.
+date: "2026-04-15T20:16:38Z"
 severities:
   - critical
 tags:
-  - CVE-2026-6299
+  - cve
   - use-after-free
-  - google-chrome
-  - code-execution
+  - chrome
+  - sandbox escape
 mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
 cves:
-  - id: CVE-2026-6299
-    cvss: 8.8
+  - id: CVE-2026-6297
+    cvss: 8.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-6299
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-6297
   - https://chromereleases.googleblog.com/2026/04/stable-channel-update-for-desktop_15.html
-  - https://issues.chromium.org/issues/497053588
+  - https://issues.chromium.org/issues/493628982
 rules:
-  - title: Detect Chrome Use-After-Free Exploit Attempt
-    description: Detects attempts to exploit use-after-free vulnerabilities in Chrome by monitoring for suspicious patterns in web server logs.
+  - title: Detect Chrome Sandbox Escape via Crafted HTML
+    description: Detects potential sandbox escape attempts in Google Chrome by monitoring for specific HTML elements or attributes often used in exploit code.
     platform: sigma
     severity: high
     tactics:
-      - execution
+      - defense_evasion
+      - privilege_escalation
     techniques:
-      - T1059.007
-      - T1203
+      - T1027
+      - T1068
     data_sources:
       - webserver
       - linux
-  - title: Detect Chrome Suspicious Process Spawning
-    description: Detects suspicious process spawning from Chrome browser, indicating potential exploitation.
+  - title: Detect Chrome Process Memory Access
+    description: Detects potential sandbox escape attempts in Google Chrome by monitoring for process accessing Chrome's process memory
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - execution
+      - defense_evasion
+      - privilege_escalation
     techniques:
-      - T1059.001
-      - T1059.003
+      - T1027
+      - T1068
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-CVE-2026-6299 is a critical security vulnerability affecting Google Chrome versions prior to 147.0.7727.101. This use-after-free vulnerability resides within the Prerender component, which is responsible for preloading web pages to improve browsing speed. A remote attacker can exploit this vulnerability by crafting a malicious HTML page and enticing a user to open it in a vulnerable version of Chrome. Successful exploitation leads to arbitrary code execution within the context of the user…
+CVE-2026-6297 is a critical security flaw affecting Google Chrome users. The vulnerability, a use-after-free issue within the Proxy component, exists in versions prior to 147.0.7727.101. Successfully exploiting this vulnerability would allow an attacker positioned in a privileged network location to potentially break out of Chrome's sandbox. The attack vector involves a specially crafted HTML page delivered to the victim. This is a critical vulnerability because a successful exploit could lead…
