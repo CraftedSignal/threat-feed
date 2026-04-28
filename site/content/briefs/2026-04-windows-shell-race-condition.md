@@ -3,6 +3,9 @@ title: Windows Shell Race Condition Vulnerability (CVE-2026-27918)
 slug: 2026-04-windows-shell-race-condition
 description: CVE-2026-27918 is a race condition vulnerability in Windows Shell, allowing a local attacker to elevate privileges due to improper synchronization when accessing shared resources.
 date: "2026-04-14T18:17:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
