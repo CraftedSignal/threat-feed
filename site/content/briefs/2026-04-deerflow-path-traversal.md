@@ -3,6 +3,9 @@ title: ByteDance DeerFlow Path Traversal and Arbitrary File Write Vulnerability
 slug: 2026-04-deerflow-path-traversal
 description: ByteDance DeerFlow before commit 2176b2b contains a path traversal and arbitrary file write vulnerability in bootstrap-mode custom-agent creation where the agent name validation is bypassed, allowing attackers to write files outside the intended custom-agent directory.
 date: "2026-04-17T17:17:09Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
