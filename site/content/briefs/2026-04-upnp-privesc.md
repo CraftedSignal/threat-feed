@@ -1,36 +1,38 @@
 ---
-title: Windows UPnP Device Host Use-After-Free Privilege Escalation (CVE-2026-27915)
+title: Windows UPnP Device Host Untrusted Pointer Dereference Vulnerability (CVE-2026-27920)
 slug: 2026-04-upnp-privesc
-description: A use-after-free vulnerability (CVE-2026-27915) in Windows Universal Plug and Play (UPnP) Device Host allows a locally authorized attacker to elevate privileges.
-date: "2026-04-15T12:00:00Z"
+description: CVE-2026-27920 is a local privilege escalation vulnerability in the Windows Universal Plug and Play (UPnP) Device Host due to an untrusted pointer dereference.
+date: "2026-04-14T18:17:01Z"
 type: coverage
 types:
   - coverage
 severities:
   - high
 tags:
-  - cve-2026-27915
-  - privilege-escalation
   - windows
+  - privilege-escalation
+  - cve
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
 cves:
-  - id: CVE-2026-27915
+  - id: CVE-2026-27920
     cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-27915
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-27915
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-27920
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-27920
 iocs:
-  - type: url
-    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-27915
+  - type: email
+    value: '[email&#160;protected]'
+  - type: email
+    value: '[email&#160;protected]'
 ioc_counts:
-  url: 1
+  email: 2
 rules:
-  - title: UPnP Device Host Suspicious Child Process
-    description: Detects suspicious child processes spawned by the UPnP Device Host service, potentially indicating exploitation of CVE-2026-27915.
+  - title: Suspicious Svchost Child Process Creation
+    description: Detects suspicious child processes created by svchost.exe which may indicate privilege escalation attempts.
     platform: sigma
     severity: high
     tactics:
@@ -40,38 +42,39 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: UPnP Device Host Suspicious Network Connection
-    description: Detects suspicious network connections initiated by the UPnP Device Host service, potentially indicating exploitation of CVE-2026-27915.
+  - title: UPnP Device Host Service Executing Suspicious Binary
+    description: Detects the Windows UPnP Device Host Service (svchost.exe -k LocalServiceNetworkRestricted) spawning cmd.exe, powershell.exe, or other suspicious binaries.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - command_and_control
+      - privilege_escalation
     techniques:
-      - T1071.001
+      - T1068
     data_sources:
-      - network_connection
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-CVE-2026-27915 is a use-after-free vulnerability affecting the Windows Universal Plug and Play (UPnP) Device Host service. This vulnerability allows an attacker who has already gained local access to a Windows system to elevate their privileges. The vulnerability resides within the UPnP service, a component designed to facilitate network device discovery and communication. Successful exploitation could allow a low-privileged user to execute arbitrary code with elevated permissions, potentially gaining full control over the affected system. This vulnerability was published on April 14, 2026, and requires local access, making it particularly dangerous in environments where initial access has been compromised.
+CVE-2026-27920 is a vulnerability affecting the Windows Universal Plug and Play (UPnP) Device Host. This vulnerability stems from an untrusted pointer dereference, which could allow an attacker with local access and authorization to escalate their privileges on the system. The vulnerability was published on April 14, 2026. An attacker who successfully exploits this vulnerability could gain higher-level access to the system potentially leading to complete system compromise. This privilege escalation could be leveraged to install programs, view, change, or delete data, or create new accounts with full user rights.
 
 ## Attack Chain
 
-1. An attacker gains initial local access to a Windows system through social engineering or exploiting a separate vulnerability.
-2. The attacker crafts a malicious UPnP service request.
-3. The crafted request triggers a use-after-free condition in the UPnP Device Host service (upnphost.exe).
-4. The vulnerability allows the attacker to overwrite memory associated with the UPnP Device Host process.
-5. The attacker gains the ability to execute arbitrary code within the context of the UPnP Device Host service.
-6. Because the UPnP Device Host service runs with elevated privileges, the attacker's code also runs with elevated privileges.
-7. The attacker leverages elevated privileges to install malware, modify system settings, or perform other malicious activities.
+1. An attacker gains initial local access to a Windows system.
+2. The attacker identifies that the Windows UPnP Device Host service is running.
+3. The attacker crafts a malicious request leveraging the UPnP service.
+4. The malicious request triggers the untrusted pointer dereference in the UPnP Device Host.
+5. This dereference allows the attacker to overwrite critical system memory.
+6. The attacker overwrites memory with a payload designed to inject code into a privileged process.
+7. The injected code executes with elevated privileges, such as SYSTEM.
+8. The attacker now has the ability to perform actions with elevated permissions.
 
 ## Impact
 
-Successful exploitation of CVE-2026-27915 allows an attacker to elevate their privileges from a low-privileged account to SYSTEM, granting them complete control over the compromised machine. This could lead to data theft, malware installation, or further lateral movement within the network. The vulnerability is particularly dangerous in environments where attackers have already gained initial access, as it provides a direct path to privilege escalation.
+Successful exploitation of CVE-2026-27920 allows a local attacker to elevate their privileges to SYSTEM. This gives the attacker complete control over the affected system. The number of potential victims includes any Windows system with the UPnP Device Host enabled. The impact includes data exfiltration, malware installation, and complete system compromise, which can result in significant financial and reputational damage.
 
 ## Recommendation
 
-*   Monitor process creations by the `upnphost.exe` process for unusual or suspicious child processes to detect potential exploitation attempts. Deploy the Sigma rule provided below to detect this activity.
-*   Monitor for unexpected network connections originating from `upnphost.exe`, as exploitation might involve communicating with a C2 server. Consider deploying the Sigma rule provided below and tuning to your environment.
-*   Apply the patch provided by Microsoft for CVE-2026-27915 as soon as it becomes available via https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-27915.
+*   Monitor for suspicious process creations originating from the `svchost.exe` process hosting the UPnP Device Host service to detect potential exploitation attempts.
+*   Apply the patch provided by Microsoft for CVE-2026-27920 to remediate the vulnerability.
+*   Enable process creation logging to capture command-line arguments for `svchost.exe`, which is required for the provided Sigma rule to function effectively.
