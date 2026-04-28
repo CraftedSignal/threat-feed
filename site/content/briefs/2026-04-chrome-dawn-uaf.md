@@ -3,6 +3,9 @@ title: Google Chrome Dawn Use-After-Free Vulnerability (CVE-2026-6310)
 slug: 2026-04-chrome-dawn-uaf
 description: A use-after-free vulnerability (CVE-2026-6310) in Google Chrome's Dawn component allows a remote attacker, having compromised the renderer process, to potentially execute a sandbox escape via a specially crafted HTML page.
 date: "2026-04-16T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
