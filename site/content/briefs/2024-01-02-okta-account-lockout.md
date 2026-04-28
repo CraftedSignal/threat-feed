@@ -3,6 +3,9 @@ title: Okta User Account Lockout Detection
 slug: 2024-01-02-okta-account-lockout
 description: Detection of an Okta user account lockout, which may indicate brute-force attempts or other malicious activity targeting user accounts.
 date: "2024-01-02T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
