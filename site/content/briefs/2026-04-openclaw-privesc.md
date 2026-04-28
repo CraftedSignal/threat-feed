@@ -1,14 +1,14 @@
 ---
-title: OpenClaw Privilege Escalation via Telegram Configuration and Cron Persistence Settings
+title: OpenClaw Privilege Escalation via chat.send
 slug: 2026-04-openclaw-privesc
-description: OpenClaw before 2026.3.28 contains a privilege escalation vulnerability that allows authenticated operators with write permissions to access and modify admin-class Telegram configuration and cron persistence settings via the send endpoint.
-date: "2026-04-24T12:00:00Z"
+description: OpenClaw before 2026.3.28 contains a privilege escalation vulnerability (CVE-2026-41371) in chat.send, allowing write-scoped gateway callers to execute admin-only session reset operations by bypassing authorization checks.
+date: "2026-04-28T00:16:26Z"
 severities:
   - high
 tags:
   - privilege-escalation
-  - persistence
-  - cve-2026-41359
+  - vulnerability
+  - CVE-2026-41371
 vendors:
   - OpenClaw
 products:
@@ -18,42 +18,39 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1053.003
-    technique_name: 'Scheduled Task/Job: Cron'
 cves:
-  - id: CVE-2026-41359
-    cvss: 7.1
+  - id: CVE-2026-41371
+    cvss: 8.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-41359
-  - https://github.com/openclaw/openclaw/commit/b7d70ade3b9900dbe97bd73be9c02e924ff3c986
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-767m-xrhc-fxm7
-  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-operator-write-to-admin-class-telegram-config-and-cron-persistence
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41371
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-5r8f-96gm-5j6g
+  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-chat-send-reset-command
 rules:
-  - title: Detect OpenClaw Cron Persistence Modification
-    description: Detects unauthorized modification of cron jobs, potentially indicating privilege escalation via CVE-2026-41359.
+  - title: Detect OpenClaw chat.send Privilege Escalation Attempt
+    description: Detects attempts to exploit CVE-2026-41371 by monitoring for suspicious chat.send requests that try to trigger session resets.
     platform: sigma
     severity: high
     tactics:
-      - persistence
+      - cve-2026-41371
       - privilege_escalation
     techniques:
-      - T1053.003
+      - T1068
     data_sources:
-      - file_event
+      - webserver
       - linux
-  - title: Detect OpenClaw Telegram Configuration Modification
-    description: Detects unauthorized modification of telegram configuration, potentially indicating privilege escalation via CVE-2026-41359.
+  - title: Detect OpenClaw chat.send Session Rotation
+    description: Detects potential session rotation by monitoring for the archiving of prior transcript state in OpenClaw.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
-      - persistence
+      - cve-2026-41371
       - privilege_escalation
+    techniques:
+      - T1068
     data_sources:
-      - file_event
+      - webserver
       - linux
 rules_count: 2
 ---
 
-OpenClaw, in versions prior to 2026.3.28, is vulnerable to a privilege escalation. An authenticated operator with `operator.write` credentials can leverage this vulnerability to access sensitive administrative functions. Specifically, the flaw resides in the `send` endpoint where insufficient access controls allow unauthorized modification of Telegram configurations and cron persistence settings, which are typically restricted to admin-level users. Successful exploitation allows an attacker to…
+OpenClaw, a chat application, is vulnerable to a privilege escalation flaw (CVE-2026-41371) affecting versions prior to 2026.3.28. This vulnerability resides within the chat.send functionality, where improper authorization checks allow callers with write scope to trigger admin-only session reset operations. This means a low-privileged attacker could potentially manipulate and disrupt chat sessions without requiring administrative privileges, leading to unauthorized actions and potential data…
