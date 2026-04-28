@@ -3,6 +3,9 @@ title: Modelscope Agentscope Code Injection Vulnerability (CVE-2026-6603)
 slug: 2026-04-agentscope-code-injection
 description: A code injection vulnerability exists in modelscope agentscope up to version 1.0.18, specifically affecting the execute_python_code/execute_shell_command functions, allowing for remote code execution.
 date: "2026-04-20T05:16:15Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
