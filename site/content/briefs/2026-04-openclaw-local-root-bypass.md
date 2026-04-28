@@ -3,6 +3,9 @@ title: OpenClaw Webchat Media Embedding Local-Root Containment Bypass
 slug: 2026-04-openclaw-local-root-bypass
 description: A vulnerability in OpenClaw versions 2026.4.7 to before 2026.4.15 allows a crafted tool-result media reference to cause the host to attempt local file reads or Windows UNC/network path access, potentially disclosing files or network credentials.
 date: "2026-04-18T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
