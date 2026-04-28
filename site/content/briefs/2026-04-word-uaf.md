@@ -3,6 +3,9 @@ title: Microsoft Office Word Use-After-Free Vulnerability (CVE-2026-33095)
 slug: 2026-04-word-uaf
 description: A use-after-free vulnerability in Microsoft Office Word (CVE-2026-33095) could allow a local attacker to execute arbitrary code by opening a specially crafted document.
 date: "2026-04-15T12:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - high
 exploited: true
