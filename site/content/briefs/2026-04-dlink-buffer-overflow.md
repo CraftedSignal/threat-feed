@@ -1,76 +1,76 @@
 ---
-title: D-Link DIR-825M Buffer Overflow Vulnerability
+title: D-Link DIR-825M Remote Buffer Overflow Vulnerability
 slug: 2026-04-dlink-buffer-overflow
-description: A buffer overflow vulnerability (CVE-2026-7288) exists in the D-Link DIR-825M router version 1.1.12, specifically within the `sub_4151FC` function of the `/boafrm/formVpnConfigSetup` file, triggered by manipulating the `submit-url` argument.
+description: D-Link DIR-825M version 1.1.12 is vulnerable to a buffer overflow via manipulation of the submit-url argument in the /boafrm/formWanConfigSetup file's sub_414BA8 function, allowing a remote attacker to execute arbitrary code.
 date: "2026-04-28T15:16:37Z"
 severities:
-  - high
+  - critical
 tags:
   - buffer-overflow
-  - d-link
-  - cve-2026-7288
   - router
+  - dlink
+  - cve
 vendors:
   - D-Link
 products:
-  - DIR-825M 1.1.12
+  - DIR-825M
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+    technique_id: T1189
+    technique_name: Drive-by Compromise
 cves:
-  - id: CVE-2026-7288
+  - id: CVE-2026-7289
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7288
-  - https://github.com/Kiciot/cve/issues/2
-  - https://vuldb.com/vuln/359946
-  - https://www.dlink.com/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7289
+  - https://github.com/Kiciot/cve/issues/3
+  - https://vuldb.com/vuln/359947
 rules:
-  - title: Detect Suspiciously Long submit-url in D-Link Router Request
-    description: Detects HTTP requests to D-Link routers with an unusually long submit-url parameter, potentially indicating a buffer overflow attempt.
+  - title: Detect D-Link DIR-825M Suscpicious formWanConfigSetup POST Request
+    description: Detects potentially malicious POST requests to formWanConfigSetup with long submit-url values indicative of a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
-      - exploitation
+      - initial_access
     techniques:
-      - T1210
+      - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect Access to VPN Config Setup
-    description: Detects access to the VPN config setup page which is where the overflow occurs.
+  - title: Detect D-Link DIR-825M Router Configuration File Access
+    description: Detects access to the configuration file on D-Link DIR-825M, which could be related to exploitation attempts.
     platform: sigma
     severity: medium
     tactics:
-      - initial_access
+      - discovery
+    techniques:
+      - T1068
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A buffer overflow vulnerability, identified as CVE-2026-7288, affects D-Link DIR-825M routers running firmware version 1.1.12. The vulnerability resides within the `sub_4151FC` function located in the `/boafrm/formVpnConfigSetup` file. Attackers can exploit this vulnerability remotely by manipulating the `submit-url` argument, leading to a buffer overflow condition. Publicly available exploits increase the risk of exploitation. This vulnerability allows an attacker to potentially execute arbitrary code or cause a denial-of-service condition on the affected device. The vulnerability was reported on April 28, 2026, and requires immediate attention to mitigate potential risks. Successful exploitation could lead to complete compromise of the router and connected network.
+A buffer overflow vulnerability exists in D-Link DIR-825M router version 1.1.12. The vulnerability is located within the `sub_414BA8` function of the `/boafrm/formWanConfigSetup` file. An attacker can exploit this flaw by manipulating the `submit-url` argument, leading to arbitrary code execution on the device. This vulnerability is remotely exploitable, and a proof-of-concept exploit is publicly available, increasing the risk of widespread attacks. Exploitation does not require authentication by default, and could allow an attacker to gain complete control over the device. This poses a significant threat to home and small business networks relying on this router model.
 
 ## Attack Chain
 
-1.  The attacker identifies a D-Link DIR-825M router running firmware version 1.1.12 exposed to the internet.
-2.  The attacker crafts a malicious HTTP request targeting the `/boafrm/formVpnConfigSetup` endpoint.
-3.  The crafted request includes a `submit-url` argument containing a payload designed to trigger a buffer overflow in the `sub_4151FC` function.
-4.  The router's web server processes the malicious request, passing the `submit-url` argument to the vulnerable function.
-5.  The `sub_4151FC` function fails to properly validate the size of the `submit-url` argument, leading to a buffer overflow when the payload exceeds the allocated buffer size.
-6.  The buffer overflow overwrites adjacent memory regions, potentially including critical program data or execution pointers.
-7.  If the attacker successfully overwrites an execution pointer, they can redirect program execution to an address controlled by the attacker.
-8.  The attacker executes arbitrary code on the router, potentially gaining complete control of the device.
+1. The attacker identifies a vulnerable D-Link DIR-825M router running firmware version 1.1.12.
+2. The attacker crafts a malicious HTTP POST request targeting the `/boafrm/formWanConfigSetup` endpoint.
+3. The attacker includes the `submit-url` argument in the POST request, injecting a buffer overflow payload.
+4. The crafted payload overflows the buffer in the `sub_414BA8` function during the processing of the `submit-url` argument.
+5. The buffer overflow overwrites critical memory regions, including the return address.
+6. When the `sub_414BA8` function returns, control is redirected to the attacker-controlled address.
+7. The attacker's payload executes arbitrary code, potentially downloading and executing a secondary payload.
+8. The attacker gains remote shell access to the router.
 
 ## Impact
 
-Successful exploitation of this buffer overflow vulnerability (CVE-2026-7288) can lead to severe consequences, including remote code execution and denial-of-service. An attacker gaining control of the router can intercept network traffic, modify DNS settings, or use the compromised device as a pivot point for further attacks within the network. Given the widespread use of D-Link routers, a successful large-scale exploitation could impact numerous home and small business networks.
+Successful exploitation of this buffer overflow vulnerability allows a remote attacker to execute arbitrary code on the D-Link DIR-825M router. This can lead to complete compromise of the device, allowing the attacker to eavesdrop on network traffic, modify router settings, or use the router as a botnet node for further malicious activities. Given the widespread use of D-Link routers in home and small business networks, a successful attack could compromise a large number of devices and networks.
 
 ## Recommendation
 
-*   Upgrade the D-Link DIR-825M to a firmware version that addresses CVE-2026-7288, if available. Check the vendor website for updates (reference: https://www.dlink.com/).
-*   Deploy the provided Sigma rule to detect suspicious HTTP requests targeting the `/boafrm/formVpnConfigSetup` endpoint with unusually long `submit-url` parameters.
-*   Monitor network traffic for connections originating from the router to suspicious or known malicious IP addresses after the device is potentially compromised.
-*   Implement input validation on web servers to prevent buffer overflows by limiting the size of submitted parameters.
+*   Apply available firmware updates from D-Link to patch CVE-2026-7289.
+*   Deploy the following Sigma rule to detect suspicious POST requests to `/boafrm/formWanConfigSetup` with overly long `submit-url` parameters.
+*   Monitor web server logs for suspicious activity related to the `/boafrm/formWanConfigSetup` endpoint.
