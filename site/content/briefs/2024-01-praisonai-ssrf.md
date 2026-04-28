@@ -54,4 +54,25 @@ rules:
 rules_count: 2
 ---
 
-PraisonAI, a multi-agent teams system, is susceptible to a Server-Side Request Forgery (SSRF) vulnerability affecting versions prior to 4.5.128. The vulnerability resides in the `/api/v1/runs` endpoint, which accepts a `webhook_url` parameter in the request body without proper validation. This allows an unauthenticated attacker to specify an arbitrary URL, causing the PraisonAI server to send an HTTP POST request to that URL upon job completion. This flaw enables attackers to target internal…
+PraisonAI, a multi-agent teams system, is susceptible to a Server-Side Request Forgery (SSRF) vulnerability affecting versions prior to 4.5.128. The vulnerability resides in the `/api/v1/runs` endpoint, which accepts a `webhook_url` parameter in the request body without proper validation. This allows an unauthenticated attacker to specify an arbitrary URL, causing the PraisonAI server to send an HTTP POST request to that URL upon job completion. This flaw enables attackers to target internal services, cloud metadata endpoints, and other network-adjacent resources, potentially leading to information disclosure, privilege escalation, or denial-of-service. Organizations using affected versions of PraisonAI should upgrade to version 4.5.128 or later to mitigate this risk.
+
+## Attack Chain
+
+1. An unauthenticated attacker identifies a PraisonAI instance running a version prior to 4.5.128.
+2. The attacker crafts a malicious HTTP POST request to the `/api/v1/runs` endpoint.
+3. The crafted request includes a `webhook_url` parameter containing a URL pointing to an internal service, cloud metadata endpoint, or external attacker-controlled server.
+4. The PraisonAI server receives the request and queues a job.
+5. The job completes (either successfully or with an error).
+6. Upon completion, the server, using `httpx.AsyncClient`, initiates an HTTP POST request to the URL specified in the `webhook_url` parameter.
+7. If the `webhook_url` points to an internal service, the attacker can potentially access sensitive information or trigger actions within that service.
+8. If the `webhook_url` points to a cloud metadata endpoint, the attacker can retrieve cloud credentials or configuration details.
+
+## Impact
+
+Successful exploitation of this SSRF vulnerability allows an unauthenticated attacker to force the PraisonAI server to make arbitrary HTTP POST requests. This can lead to the exposure of sensitive information from internal services or cloud metadata, potentially granting the attacker unauthorized access to systems and data. The vulnerability could also be leveraged to perform denial-of-service attacks against internal resources. While the exact number of affected organizations is unknown, any organization running a vulnerable version of PraisonAI is at risk.
+
+## Recommendation
+
+*   Upgrade PraisonAI instances to version 4.5.128 or later to remediate CVE-2026-40114.
+*   Inspect web server logs for requests to the `/api/v1/runs` endpoint containing suspicious `webhook_url` parameters to detect potential exploitation attempts. Deploy the Sigma rule to detect suspicious webhook URLs.
+*   Monitor network traffic for unexpected outbound connections originating from the PraisonAI server to internal or external destinations, as this could indicate SSRF exploitation.
