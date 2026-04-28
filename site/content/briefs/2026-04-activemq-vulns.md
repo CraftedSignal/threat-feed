@@ -3,6 +3,9 @@ title: Apache ActiveMQ Multiple Vulnerabilities Allow Remote Code Execution
 slug: 2026-04-activemq-vulns
 description: An authenticated remote attacker can exploit multiple vulnerabilities in Apache ActiveMQ to manipulate files or execute arbitrary code.
 date: "2026-04-16T05:29:10Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
