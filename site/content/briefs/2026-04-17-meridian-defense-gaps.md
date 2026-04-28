@@ -3,6 +3,9 @@ title: Meridian Library Multiple Defense-in-Depth Gaps
 slug: 2026-04-17-meridian-defense-gaps
 description: Multiple defense-in-depth gaps exist in Meridian versions prior to 2.1.1, including high severity issues related to bypassing safety caps on collection mapping that can lead to resource exhaustion, along with medium and low severity issues affecting constructor selection, telemetry, retry mechanisms, and exception handling.
 date: "2026-04-17T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
