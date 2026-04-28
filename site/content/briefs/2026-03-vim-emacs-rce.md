@@ -44,4 +44,25 @@ rules:
 rules_count: 2
 ---
 
-A researcher at Calif discovered vulnerabilities in Vim and GNU Emacs using the Claude AI assistant. The Vim vulnerability (versions 9.2.0271 and earlier) results from missing security checks in modeline handling, allowing arbitrary code execution when a specially crafted file is opened. A patch is available in version 9.2.0272. The GNU Emacs vulnerability stems from its integration with Git's version control (vc-git) and remains unpatched. Opening a file can trigger Git operations via…
+A researcher at Calif discovered vulnerabilities in Vim and GNU Emacs using the Claude AI assistant. The Vim vulnerability (versions 9.2.0271 and earlier) results from missing security checks in modeline handling, allowing arbitrary code execution when a specially crafted file is opened. A patch is available in version 9.2.0272. The GNU Emacs vulnerability stems from its integration with Git's version control (vc-git) and remains unpatched. Opening a file can trigger Git operations via `vc-refresh-state`, leading to the execution of arbitrary commands defined in a user-controlled `core.fsmonitor` program within a hidden `.git/config` file. This affects users who open files from untrusted sources.
+
+## Attack Chain
+
+1.  Attacker creates a malicious archive containing a text file and a hidden `.git/` directory.
+2.  The `.git/` directory includes a `config` file.
+3.  The `config` file contains a `core.fsmonitor` entry pointing to a malicious executable.
+4.  The attacker distributes the archive (e.g., via email or shared drive).
+5.  Victim extracts the archive on their system.
+6.  The victim opens the seemingly benign text file within GNU Emacs.
+7.  GNU Emacs' `vc-git` integration triggers `vc-refresh-state`.
+8.  `vc-refresh-state` causes Git to read the attacker-controlled `.git/config` file and execute the malicious `core.fsmonitor` program, achieving arbitrary code execution.
+
+## Impact
+
+Successful exploitation of these vulnerabilities leads to arbitrary code execution with the privileges of the user running Vim or Emacs. For Vim, all versions 9.2.0271 and earlier are affected until patched. While the Emacs vulnerability remains unpatched, it poses a significant risk to users who routinely open files from unknown or untrusted sources, potentially leading to system compromise and data breaches. The number of potential victims is substantial given the widespread use of these editors by developers and system administrators.
+
+## Recommendation
+
+*   Upgrade Vim to version 9.2.0272 or later to patch the RCE vulnerability related to modeline handling (refer to the Vim flaw and fix section).
+*   Exercise extreme caution when opening files from unknown sources or downloaded online when using GNU Emacs due to the unpatched Git integration vulnerability (refer to the GNU Emacs points to Git section).
+*   Deploy the Sigma rule to detect execution of git with unusual core.fsmonitor configuration to your SIEM and tune for your environment.
