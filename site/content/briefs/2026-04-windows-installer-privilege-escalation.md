@@ -3,6 +3,9 @@ title: 'CVE-2026-27910: Windows Installer Local Privilege Escalation'
 slug: 2026-04-windows-installer-privilege-escalation
 description: CVE-2026-27910 describes a local privilege escalation vulnerability in Windows Installer due to improper handling of insufficient permissions, allowing an authorized attacker to gain elevated privileges.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
