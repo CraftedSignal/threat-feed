@@ -47,4 +47,24 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-6301 describes a type confusion vulnerability affecting the Turbofan component in Google Chrome versions prior to 147.0.7727.101. The vulnerability allows a remote attacker to potentially execute arbitrary code within the Chrome sandbox. The attack is initiated by crafting a malicious HTML page that, when rendered by a vulnerable Chrome browser, triggers the type confusion in Turbofan. Successful exploitation could lead to arbitrary code execution, potentially allowing the attacker to…
+CVE-2026-6301 describes a type confusion vulnerability affecting the Turbofan component in Google Chrome versions prior to 147.0.7727.101. The vulnerability allows a remote attacker to potentially execute arbitrary code within the Chrome sandbox. The attack is initiated by crafting a malicious HTML page that, when rendered by a vulnerable Chrome browser, triggers the type confusion in Turbofan. Successful exploitation could lead to arbitrary code execution, potentially allowing the attacker to gain control of the affected system or access sensitive information within the sandbox constraints. This vulnerability poses a significant risk to users browsing untrusted websites or opening malicious HTML files.
+
+## Attack Chain
+
+1.  Attacker crafts a malicious HTML page designed to trigger the type confusion vulnerability in Chrome's Turbofan.
+2.  The victim visits the attacker-controlled website hosting the malicious HTML page or opens a locally stored HTML file.
+3.  Chrome's rendering engine attempts to process the malicious HTML, triggering the Turbofan component responsible for JavaScript optimization.
+4.  The type confusion vulnerability is exploited due to the crafted HTML, leading to incorrect assumptions about object types during JavaScript execution.
+5.  The incorrect type assumptions allow the attacker to manipulate memory within the Chrome renderer process.
+6.  The attacker leverages the memory manipulation capabilities to inject and execute arbitrary code within the Chrome sandbox.
+7.  The attacker's code executes with the privileges of the Chrome renderer process.
+
+## Impact
+
+Successful exploitation of CVE-2026-6301 allows a remote attacker to execute arbitrary code within the Chrome sandbox. While the sandbox provides some level of isolation, a determined attacker may be able to escape the sandbox and gain further access to the underlying system. The impact includes potential data theft, installation of malware, or complete system compromise, depending on the attacker's ability to bypass sandbox protections.
+
+## Recommendation
+
+*   Upgrade Google Chrome to version 147.0.7727.101 or later to patch CVE-2026-6301 (reference: https://chromereleases.googleblog.com/2026/04/stable-channel-update-for-desktop_15.html).
+*   Deploy the Sigma rule "Detect Suspicious Script Execution via Chrome" to identify potential exploitation attempts (reference: Sigma rule below).
+*   Educate users about the risks of visiting untrusted websites and opening suspicious HTML files to prevent initial access.
