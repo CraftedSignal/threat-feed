@@ -3,6 +3,9 @@ title: Sagredo qmail Remote Code Execution Vulnerability (CVE-2026-41113)
 slug: 2026-04-qmail-rce
 description: A remote code execution vulnerability exists in Sagredo qmail versions prior to 2026.04.07 due to the use of `popen` in the `notlshosts_auto` function within `qmail-remote.c`, potentially leading to OS command injection.
 date: "2026-04-17T12:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 exploited: true
