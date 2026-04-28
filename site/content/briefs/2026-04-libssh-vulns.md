@@ -3,6 +3,9 @@ title: Multiple Vulnerabilities in libssh Allow File Manipulation and DoS
 slug: 2026-04-libssh-vulns
 description: Multiple vulnerabilities in libssh allow an attacker to manipulate files or cause a denial-of-service condition, potentially leading to data corruption or service disruption.
 date: "2026-04-16T10:29:59Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
