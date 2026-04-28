@@ -46,4 +46,25 @@ rules:
 rules_count: 2
 ---
 
-A critical security vulnerability, CVE-2026-41329, has been identified in OpenClaw versions up to and including 2026.3.28. OpenClaw is an open-source, self-hosted AI agent platform designed for workflow automation, event-driven processing, and task orchestration, commonly deployed in internal environments. The vulnerability stems from improper context validation during heartbeat processing, enabling attackers to exploit context inheritance and manipulate the `senderIsOwner` parameter. This…
+A critical security vulnerability, CVE-2026-41329, has been identified in OpenClaw versions up to and including 2026.3.28. OpenClaw is an open-source, self-hosted AI agent platform designed for workflow automation, event-driven processing, and task orchestration, commonly deployed in internal environments. The vulnerability stems from improper context validation during heartbeat processing, enabling attackers to exploit context inheritance and manipulate the `senderIsOwner` parameter. This bypasses sandbox restrictions and grants elevated privileges within the platform.  Exploitation can occur remotely without prior credentials under specific deployment conditions. The vulnerability has been patched in version 2026.3.31, and users are strongly advised to update immediately.
+
+## Attack Chain
+
+1. The attacker identifies an OpenClaw instance running a vulnerable version (<= 2026.3.28).
+2. The attacker crafts a malicious heartbeat request exploiting the improper context validation.
+3. The attacker manipulates the `senderIsOwner` parameter within the heartbeat processing.
+4. Due to the flawed context inheritance mechanism, the attacker bypasses sandbox restrictions.
+5. The attacker gains escalated privileges within the OpenClaw platform.
+6. The attacker leverages elevated privileges to access sensitive data and systems.
+7. The attacker performs unauthorized actions, potentially leading to data exfiltration or system compromise.
+8. The attacker achieves full system compromise, impacting confidentiality, integrity, and availability.
+
+## Impact
+
+Exploitation of CVE-2026-41329 allows attackers to bypass sandbox restrictions in OpenClaw, potentially exposing sensitive systems and compromising organizational security. Successful exploitation could lead to data breaches, system compromise, and operational downtime, impacting the confidentiality, integrity, and availability of critical business data. The number of victims and specific sectors targeted are currently unknown, but any organization using vulnerable versions of OpenClaw is at risk.
+
+## Recommendation
+
+*   Apply the patch to upgrade to OpenClaw version 2026.3.31 or later to remediate CVE-2026-41329.
+*   Upscale monitoring and detection capabilities to identify any related suspicious activity as recommended by CCB.
+*   Investigate and remediate any potential historical compromise if vulnerable versions of OpenClaw were previously running.
