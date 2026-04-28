@@ -3,6 +3,9 @@ title: Suspicious Script Execution from Temporary Directory
 slug: 2024-01-script-exec-temp
 description: This brief covers a detection for suspicious script execution, such as PowerShell, WScript, or MSHTA, originating from common temporary directories, potentially indicating malware activity.
 date: "2024-01-02T14:30:00Z"
+type: threat
+types:
+  - threat
 severities:
   - high
 exploited: true
