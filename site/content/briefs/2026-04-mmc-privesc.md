@@ -3,6 +3,9 @@ title: Microsoft Management Console Improper Access Control Vulnerability (CVE-2
 slug: 2026-04-mmc-privesc
 description: CVE-2026-27914 is an improper access control vulnerability in Microsoft Management Console that allows a locally authorized attacker to elevate privileges.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
