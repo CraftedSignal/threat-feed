@@ -3,6 +3,9 @@ title: Cisco Catalyst SD-WAN Manager Multiple Vulnerabilities
 slug: 2026-04-cisco-sdwan-vulns
 description: Multiple vulnerabilities in Cisco Catalyst SD-WAN Manager allow a remote, anonymous, or local attacker to gain administrator privileges, bypass authentication, execute commands with Netadmin rights, read sensitive system information, and overwrite arbitrary files.
 date: "2026-04-21T08:08:56Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
