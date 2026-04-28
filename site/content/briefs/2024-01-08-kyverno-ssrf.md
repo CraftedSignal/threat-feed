@@ -3,6 +3,9 @@ title: Kyverno SSRF Vulnerability in CEL HTTP Library
 slug: 2024-01-08-kyverno-ssrf
 description: A Server-Side Request Forgery (SSRF) vulnerability in Kyverno's CEL HTTP library allows users with namespace-scoped policy creation permissions to make arbitrary HTTP requests, enabling unauthorized access to internal services, cloud metadata endpoints, and data exfiltration.
 date: "2026-04-14T22:37:20Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
