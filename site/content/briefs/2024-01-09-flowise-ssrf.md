@@ -3,6 +3,9 @@ title: Flowise SSRF Protection Bypass via Unprotected Built-in HTTP Modules
 slug: 2024-01-09-flowise-ssrf
 description: Flowise is vulnerable to SSRF protection bypass via unprotected built-in HTTP modules in the custom function sandbox, allowing authenticated users to access internal network resources by exploiting the lack of SSRF protection on Node.js `http`, `https`, and `net` modules.
 date: "2026-04-16T21:50:12Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
