@@ -3,6 +3,9 @@ title: Mirax RAT Targeting Android Users in Europe
 slug: 2026-04-mirax-rat
 description: Mirax RAT, a new Android RAT distributed as MaaS, is targeting European users by turning infected devices into residential proxy nodes and enabling credential theft via overlay and notification injection.
 date: "2026-04-16T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
