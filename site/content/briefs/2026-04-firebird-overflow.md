@@ -3,6 +3,9 @@ title: Firebird Database Server Slice Packet Deserialization Buffer Overflow
 slug: 2026-04-firebird-overflow
 description: Firebird versions before 5.0.4, 4.0.7, and 3.0.14 are vulnerable to a buffer overflow in the xdr_datum() function during slice packet deserialization, enabling unauthenticated attackers to cause a crash or potentially achieve arbitrary code execution by sending a malicious packet.
 date: "2026-04-17T19:16:36Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
