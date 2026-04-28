@@ -1,6 +1,7 @@
 {{/* Single-row brief card. Used on home, listings, and taxonomy term pages. */}}
 {{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
 {{ $sevClass := printf "sev-%s" $sev }}
+{{ $type := .Params.type | default "coverage" }}
 {{ $tags := .Params.tags | default slice }}
 {{ $actors := .Params.actors | default slice }}
 {{ $exploited := .Params.exploited | default false }}
@@ -14,8 +15,9 @@
 <a href="{{ .RelPermalink }}" class="block rounded-xl border border-stroke bg-panel/70 hover:bg-panel hover:border-accent/40 p-5 transition group" data-pagefind-ignore data-brief-date="{{ .Date.Unix }}">
   <div class="flex items-start gap-4">
 
-    <div class="pt-0.5 flex-none">
-      <span class="sev-badge {{ $sevClass }}">{{ $sev }}</span>
+    <div class="pt-0.5 flex-none flex flex-col items-stretch gap-1 min-w-[88px]">
+      <span class="sev-badge {{ $sevClass }} justify-center">{{ $sev }}</span>
+      <span class="type-badge type-{{ $type }} justify-center">{{ $type }}</span>
     </div>
 
     <div class="flex-1 min-w-0">

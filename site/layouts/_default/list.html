@@ -36,6 +36,21 @@
             {{ end }}
           {{ end }}
         </div>
+      {{ else if eq $taxonomy "type" }}
+        {{/* Custom order for type: threat → coverage → advisory → rumour */}}
+        {{ $order := slice "threat" "coverage" "advisory" "rumour" }}
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {{ range $order }}
+            {{ $term := . }}
+            {{ $page := $.Site.GetPage (printf "/%s/%s" $plural $term) }}
+            {{ if $page }}
+            <a href="{{ $page.RelPermalink }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 p-4 hover:border-accent/40 transition">
+              <span class="type-badge type-{{ $term }}">{{ $term }}</span>
+              <span class="text-sm text-muted"><span class="font-mono text-text">{{ len $page.Pages }}</span> {{ if eq (len $page.Pages) 1 }}brief{{ else }}briefs{{ end }}</span>
+            </a>
+            {{ end }}
+          {{ end }}
+        </div>
       {{ else }}
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {{ range $terms }}

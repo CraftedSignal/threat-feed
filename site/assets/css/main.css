@@ -170,6 +170,15 @@ body {
 .sev-low      { background: rgb(var(--color-sev-low)      / 0.12); color: rgb(var(--color-sev-low)); }
 .sev-rumour   { background: rgb(var(--color-sev-rumour)   / 0.12); color: rgb(var(--color-sev-rumour)); }
 
+/* Type badge — orthogonal to severity. Describes WHAT the brief is. */
+.type-badge {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono font-semibold uppercase tracking-wide;
+}
+.type-threat   { background: rgb(var(--color-sev-critical) / 0.10); color: rgb(var(--color-sev-critical)); }
+.type-coverage { background: rgb(var(--color-accent)       / 0.10); color: rgb(var(--color-accent)); }
+.type-advisory { background: rgb(var(--color-sev-medium)   / 0.10); color: rgb(var(--color-sev-medium)); }
+.type-rumour   { background: rgb(var(--color-sev-rumour)   / 0.10); color: rgb(var(--color-sev-rumour)); }
+
 /* Exploited-in-wild — distinct from severity; outlined "warning" pill. */
 .exploited-badge {
   @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono font-semibold uppercase tracking-wide;

@@ -14,6 +14,7 @@ module.exports = {
     'text-sev-critical', 'text-sev-high', 'text-sev-medium', 'text-sev-low', 'text-sev-rumour',
     'group-hover:text-sev-critical', 'group-hover:text-sev-high', 'group-hover:text-sev-medium',
     'group-hover:text-sev-low', 'group-hover:text-sev-rumour',
+    'type-threat', 'type-coverage', 'type-advisory', 'type-rumour',
   ],
   theme: {
     extend: {
