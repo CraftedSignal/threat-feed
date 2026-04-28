@@ -49,4 +49,27 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-5707 is an OS command injection vulnerability affecting AWS Research and Engineering Studio (RES) versions 2025.03 through 2025.12.01. The vulnerability resides in the virtual desktop session name handling, where user-supplied input is not properly sanitized before being used in an OS command. A remote, authenticated attacker can exploit this flaw by providing a specially crafted session name, leading to arbitrary command execution as root on the virtual desktop host. Successful…
+CVE-2026-5707 is an OS command injection vulnerability affecting AWS Research and Engineering Studio (RES) versions 2025.03 through 2025.12.01. The vulnerability resides in the virtual desktop session name handling, where user-supplied input is not properly sanitized before being used in an OS command. A remote, authenticated attacker can exploit this flaw by providing a specially crafted session name, leading to arbitrary command execution as root on the virtual desktop host. Successful exploitation allows the attacker to gain full control over the affected host, potentially compromising sensitive data and disrupting services. Users are advised to upgrade to RES version 2026.03 or apply the corresponding mitigation patch to their existing environment. The vulnerability was reported on April 6, 2026.
+
+## Attack Chain
+
+1.  The attacker authenticates to the AWS RES environment with valid credentials.
+2.  The attacker initiates a request to create a new virtual desktop session.
+3.  The attacker crafts a malicious session name containing OS command injection payload.
+4.  The malicious session name is passed to the vulnerable function in AWS RES without proper sanitization.
+5.  The vulnerable function executes an OS command, incorporating the unsanitized session name.
+6.  The injected command within the session name is executed with root privileges on the virtual desktop host.
+7.  The attacker gains arbitrary command execution, allowing them to install malware, create new users, or modify system configurations.
+8.  The attacker achieves complete control of the virtual desktop host.
+
+## Impact
+
+Successful exploitation of CVE-2026-5707 allows a remote attacker to execute arbitrary commands with root privileges on the virtual desktop host. This can lead to a complete compromise of the system, potentially affecting all users and data within the AWS RES environment. The attacker can steal sensitive information, install persistent backdoors, or disrupt critical services. The exact number of potential victims is unknown, but any organization utilizing vulnerable versions of AWS RES is at risk.
+
+## Recommendation
+
+*   Immediately upgrade AWS Research and Engineering Studio (RES) to version 2026.03 or apply the recommended mitigation patch to address CVE-2026-5707.
+*   Implement input validation and sanitization for all user-supplied data, especially session names, to prevent OS command injection vulnerabilities.
+*   Monitor AWS RES logs for suspicious activity related to session creation and command execution on the virtual desktop hosts.
+*   Deploy the Sigma rule "Detect Suspicious Session Names with OS Command Injection Characters" to identify potential exploitation attempts.
+*   Review and harden the security configurations of the virtual desktop hosts to limit the impact of potential command execution.
