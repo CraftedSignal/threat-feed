@@ -7,4 +7,4 @@ The link in your verification email is no longer valid — it may have expired (
 
 [Try subscribing again](/subscribe/) and we'll send a fresh confirmation link.
 
-<a href="/" class="inline-flex mt-4 px-4 py-2 rounded-lg bg-accent text-white text-sm font-semibold">Back to feed</a>
+<a href="/" class="not-prose inline-flex mt-4 px-4 py-2 rounded-lg bg-accent text-white text-sm font-semibold">Back to feed</a>
