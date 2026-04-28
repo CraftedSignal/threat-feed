@@ -1,56 +1,49 @@
 ---
-title: OpenClaw Privilege Escalation via chat.send
+title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-41329)
 slug: 2026-04-openclaw-privesc
-description: OpenClaw before 2026.3.28 contains a privilege escalation vulnerability (CVE-2026-41371) in chat.send, allowing write-scoped gateway callers to execute admin-only session reset operations by bypassing authorization checks.
-date: "2026-04-28T00:16:26Z"
+description: A critical privilege escalation vulnerability (CVE-2026-41329) in OpenClaw versions up to 2026.3.28 allows attackers to bypass sandbox restrictions via improper context validation, leading to potential data breaches and system compromise.
+date: "2026-04-21T15:02:58Z"
 severities:
-  - high
+  - critical
 tags:
   - privilege-escalation
   - vulnerability
-  - CVE-2026-41371
-vendors:
-  - OpenClaw
-products:
-  - OpenClaw
+  - openclaw
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
 cves:
-  - id: CVE-2026-41371
-    cvss: 8.5
+  - id: CVE-2026-41329
+    cvss: 9.9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-41371
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-5r8f-96gm-5j6g
-  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-chat-send-reset-command
+  - https://ccb.belgium.be/advisories/warning-privilege-escalation-openclaw-patch-immediately
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-g5cg-8x5w-7jpm
 rules:
-  - title: Detect OpenClaw chat.send Privilege Escalation Attempt
-    description: Detects attempts to exploit CVE-2026-41371 by monitoring for suspicious chat.send requests that try to trigger session resets.
+  - title: Detect Suspicious OpenClaw Heartbeat Activity
+    description: Detects potential exploitation of CVE-2026-41329 by monitoring for unusual heartbeat requests to OpenClaw instances.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
-      - cve-2026-41371
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
       - webserver
       - linux
-  - title: Detect OpenClaw chat.send Session Rotation
-    description: Detects potential session rotation by monitoring for the archiving of prior transcript state in OpenClaw.
+  - title: Detect OpenClaw Version <= 2026.3.28 in User-Agent
+    description: Detects connections from OpenClaw clients with a User-Agent string indicating a vulnerable version.
     platform: sigma
     severity: medium
     tactics:
-      - cve-2026-41371
-      - privilege_escalation
+      - discovery
     techniques:
-      - T1068
+      - T1592.004
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-OpenClaw, a chat application, is vulnerable to a privilege escalation flaw (CVE-2026-41371) affecting versions prior to 2026.3.28. This vulnerability resides within the chat.send functionality, where improper authorization checks allow callers with write scope to trigger admin-only session reset operations. This means a low-privileged attacker could potentially manipulate and disrupt chat sessions without requiring administrative privileges, leading to unauthorized actions and potential data…
+A critical security vulnerability, CVE-2026-41329, has been identified in OpenClaw versions up to and including 2026.3.28. OpenClaw is an open-source, self-hosted AI agent platform designed for workflow automation, event-driven processing, and task orchestration, commonly deployed in internal environments. The vulnerability stems from improper context validation during heartbeat processing, enabling attackers to exploit context inheritance and manipulate the `senderIsOwner` parameter. This…
