@@ -3,6 +3,9 @@ title: Windows Hyper-V Improper Input Validation Vulnerability (CVE-2026-32149)
 slug: 2026-04-hyper-v-code-execution
 description: CVE-2026-32149 is a vulnerability in Windows Hyper-V due to improper input validation, which allows an authorized, local attacker to execute arbitrary code.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
