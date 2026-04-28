@@ -72,4 +72,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-6194 describes a stack-based buffer overflow vulnerability present in Totolink A3002MU router firmware version B20211125.1046. The vulnerability resides within the HTTP Request Handler, specifically in the `sub_410188` function of the `/boafrm/formWlanSetup` file. A remote attacker can exploit this vulnerability by crafting a malicious HTTP request that manipulates the `wan-url` argument, leading to arbitrary code execution on the device. Publicly available exploit code increases the…
+CVE-2026-6194 describes a stack-based buffer overflow vulnerability present in Totolink A3002MU router firmware version B20211125.1046. The vulnerability resides within the HTTP Request Handler, specifically in the `sub_410188` function of the `/boafrm/formWlanSetup` file. A remote attacker can exploit this vulnerability by crafting a malicious HTTP request that manipulates the `wan-url` argument, leading to arbitrary code execution on the device. Publicly available exploit code increases the likelihood of exploitation. Successful exploitation allows an attacker to compromise the device and potentially gain control of the network.
+
+## Attack Chain
+
+1.  The attacker identifies a vulnerable Totolink A3002MU router running firmware B20211125.1046.
+2.  The attacker crafts a malicious HTTP POST request targeting the `/boafrm/formWlanSetup` endpoint.
+3.  The crafted request includes a `wan-url` argument with a payload exceeding the buffer size allocated for it in the `sub_410188` function.
+4.  The HTTP Request Handler processes the request and calls the vulnerable `sub_410188` function.
+5.  Due to insufficient bounds checking, the oversized `wan-url` argument overflows the stack buffer.
+6.  The attacker overwrites critical data on the stack, including the return address.
+7.  Upon returning from the `sub_410188` function, execution is redirected to an attacker-controlled address.
+8.  The attacker executes arbitrary code, potentially gaining full control of the router.
+
+## Impact
+
+Successful exploitation of CVE-2026-6194 can lead to complete compromise of the affected Totolink A3002MU router. This allows attackers to eavesdrop on network traffic, modify DNS settings, inject malicious code into web pages served to connected clients, or use the compromised router as a botnet node. Given the widespread use of these routers, a large number of devices could be at risk, potentially impacting home and small business networks.
+
+## Recommendation
+
+*   Monitor web server logs for suspicious POST requests to `/boafrm/formWlanSetup` with unusually long `wan-url` parameters to detect potential exploitation attempts (see Sigma rule "Detect Suspicious WAN-URL Parameter Length").
+*   Deploy the Sigma rules provided in this brief to your SIEM to detect and alert on potential exploitation attempts.
+*   If possible, block requests matching the patterns identified in the Sigma rules at your network perimeter.
