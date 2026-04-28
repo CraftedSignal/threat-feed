@@ -1,73 +1,75 @@
 ---
-title: OpenClaw Matrix Room Control Command Authorization Bypass
+title: OpenClaw Incorrect Authorization Vulnerability (CVE-2026-35653)
 slug: 2026-04-openclaw-auth-bypass
-description: A vulnerability in OpenClaw versions greater than 2026.3.28 and before 2026.4.15 allowed a Matrix sender paired via DM to bypass room authorization boundaries and execute room control commands without proper authorization.
-date: "2026-04-18T12:00:00Z"
+description: OpenClaw before 2026.3.24 contains an incorrect authorization vulnerability in the POST /reset-profile endpoint, allowing authenticated callers with operator.write access to browser.request to bypass profile mutation restrictions and escalate privileges.
+date: "2026-04-11T12:00:00Z"
 severities:
   - high
 tags:
-  - openclaw
-  - matrix
-  - authorization-bypass
-  - privilege-escalation
+  - vulnerability
+  - authorization bypass
+  - privilege escalation
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
+    technique_id: T1548
+    technique_name: Abuse Elevation Control Mechanism
+cves:
+  - id: CVE-2026-35653
+    cvss: 8.1
 references:
-  - https://github.com/advisories/GHSA-2gvc-4f3c-2855
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-35653
+  - https://github.com/openclaw/openclaw/commit/4dcc39c25c6cc63fedfd004f52d173716576fcf0
+  - https://github.com/openclaw/openclaw/commit/e7d11f6c33e223a0dd8a21cfe01076bd76cef87a
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-xp9r-prpg-373r
+  - https://www.vulncheck.com/advisories/openclaw-incorrect-authorization-in-post-reset-profile-via-browser-request
 rules:
-  - title: Detect OpenClaw Room Control Command Execution from Unauthorized DM User
-    description: Detects attempts to execute OpenClaw room control commands by users who are only authorized via DM pairing and not explicitly allowed in the room.
-    platform: sigma
-    severity: high
-    tactics:
-      - defense_evasion
-      - privilege_escalation
-    techniques:
-      - T1068
-    data_sources:
-      - application
-      - openclaw
-  - title: Detect OpenClaw Control Command with Unexpected Arguments
-    description: Detects OpenClaw control command executions with unusual or unexpected arguments which may indicate malicious intent.
+  - title: Detect OpenClaw Profile Reset Attempt
+    description: Detects POST requests to the /reset-profile endpoint, potentially indicating an attempted exploitation of CVE-2026-35653.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - privilege_escalation
     techniques:
-      - T1059
+      - T1548
+      - T1548.001
     data_sources:
-      - application
-      - openclaw
+      - webserver
+      - linux
+  - title: Detect OpenClaw Profile Directory Manipulation
+    description: Detects file operations indicative of unauthorized profile directory manipulation in OpenClaw.
+    platform: sigma
+    severity: low
+    tactics:
+      - impact
+    techniques:
+      - T1485
+    data_sources:
+      - file_event
+      - linux
 rules_count: 2
 ---
 
-OpenClaw versions prior to 2026.4.15 contained a flaw in Matrix room control-command authorization. The system incorrectly included sender IDs learned from the Matrix DM pairing store in the effective allowlist for room traffic. This meant that a sender who was authorized only for a Matrix DM could potentially authorize room control commands when they also posted in a bot-controlled room. This vulnerability allows a DM-paired Matrix sender to cross the authorization boundary and run Matrix room control commands without being present in the configured room allowlist, room membership list, or group allowlist. The vulnerability affects OpenClaw versions > 2026.3.28 and < 2026.4.15. The issue was reported by @nexrin and Keen Security Lab and patched in version 2026.4.15.
+OpenClaw, a software application of unknown purpose, is susceptible to an incorrect authorization vulnerability tracked as CVE-2026-35653. This flaw affects versions prior to 2026.3.24. The vulnerability lies within the `/reset-profile` endpoint, specifically when accessed via a POST request. An authenticated user with `operator.write` access combined with `browser.request` permissions can exploit this to bypass intended profile mutation restrictions. This bypass allows the attacker to perform administrative actions beyond their privilege level, leading to potential disruption of service and data alteration. This issue was reported and patched in version 2026.3.24 of OpenClaw.
 
 ## Attack Chain
 
-1. An attacker establishes a direct message (DM) pairing with the OpenClaw bot.
-2. The attacker gains authorization to send messages within the DM channel.
-3. The attacker identifies a Matrix room controlled by the OpenClaw bot.
-4. The attacker sends a message to the bot-controlled room.
-5. Due to the flawed authorization logic, the attacker's sender ID is incorrectly included in the effective allowlist for the room based on the DM pairing.
-6. The attacker sends a specially crafted message to the bot-controlled room, containing a control command.
-7. The OpenClaw bot, due to the bypassed authorization check, executes the control command.
-8. The attacker achieves unauthorized control over the Matrix room, potentially driving privileged OpenClaw behavior.
+1. An attacker authenticates to OpenClaw with a user account that possesses both `operator.write` and `browser.request` permissions.
+2. The attacker crafts a POST request targeting the `/reset-profile` endpoint.
+3. The attacker bypasses authorization checks due to the incorrect implementation.
+4. The attacker leverages the bypassed authorization to send commands to stop the running browser instance controlled by OpenClaw.
+5. The attacker proceeds to close Playwright connections managed by the application.
+6. The attacker moves profile directories associated with OpenClaw to the Trash, potentially deleting or corrupting user data.
+7. The attacker gains unauthorized control over browser instances and profile management functions.
+8. The ultimate goal is to disrupt the OpenClaw service and potentially compromise or delete user profiles.
 
 ## Impact
 
-This vulnerability allowed unauthorized users to execute Matrix room control commands within OpenClaw deployments. The impact severity is high because room control commands can drive privileged OpenClaw behavior depending on the deployment's command and tool policy. Successful exploitation could lead to unauthorized modification of room settings, access to sensitive information, or disruption of services managed by the OpenClaw bot. The number of potentially affected deployments is unknown, but all instances running vulnerable versions are at risk.
+Successful exploitation of this vulnerability could lead to denial of service, data loss, and unauthorized modification of user profiles. While the exact number of affected organizations is unknown, any deployment of OpenClaw prior to version 2026.3.24 is vulnerable. If successfully exploited, an attacker can cause significant disruption by terminating browser instances and deleting associated profile data. The CVSS v3.1 score of 8.1 indicates a high potential for impact, particularly in environments where OpenClaw is critical for business operations.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.15 or later to patch the authorization bypass vulnerability.
-*   Review OpenClaw's command and tool policy to understand the scope of potential privileged behavior that could be triggered by room control commands.
-*   Deploy the Sigma rule `Detect OpenClaw Room Control Command Execution from Unauthorized DM User` to identify potential exploitation attempts.
-*   Monitor OpenClaw logs for unexpected room control command executions, particularly those originating from users with only DM pairing-store entries.
+*   Upgrade OpenClaw to version 2026.3.24 or later to remediate the vulnerability (CVE-2026-35653).
+*   Monitor web server logs for POST requests to the `/reset-profile` endpoint originating from users with both `operator.write` and `browser.request` privileges, as these may indicate exploitation attempts. Use the rule "Detect OpenClaw Profile Reset Attempt" to detect this activity.
+*   Implement strict access controls to limit the number of users with `operator.write` and `browser.request` privileges to minimize the attack surface.
+*   Deploy the Sigma rule "Detect OpenClaw Profile Directory Manipulation" to identify suspicious file operations that could indicate unauthorized profile manipulation.
