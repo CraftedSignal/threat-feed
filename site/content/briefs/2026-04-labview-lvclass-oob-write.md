@@ -61,4 +61,25 @@ rules:
 rules_count: 2
 ---
 
-A memory corruption vulnerability has been identified in NI LabVIEW versions 2026 Q1 (26.1.0) and prior. This vulnerability, tracked as CVE-2026-32861, stems from an out-of-bounds write that occurs when the software attempts to load a malformed LVCLASS file. An attacker could exploit this vulnerability by crafting a malicious .lvclass file and convincing a user to open it within LabVIEW. Successful exploitation of this vulnerability could allow an attacker to achieve arbitrary code execution or…
+A memory corruption vulnerability has been identified in NI LabVIEW versions 2026 Q1 (26.1.0) and prior. This vulnerability, tracked as CVE-2026-32861, stems from an out-of-bounds write that occurs when the software attempts to load a malformed LVCLASS file. An attacker could exploit this vulnerability by crafting a malicious .lvclass file and convincing a user to open it within LabVIEW. Successful exploitation of this vulnerability could allow an attacker to achieve arbitrary code execution or disclose sensitive information from the affected system. This poses a significant risk to organizations using LabVIEW for critical applications, as it could lead to system compromise and data breaches.
+
+## Attack Chain
+
+1.  The attacker crafts a malicious .lvclass file containing an out-of-bounds write payload.
+2.  The attacker delivers the crafted .lvclass file to the victim via social engineering or other delivery methods.
+3.  The victim, using a vulnerable version of NI LabVIEW, opens the malicious .lvclass file.
+4.  LabVIEW attempts to parse the LVCLASS file, triggering the out-of-bounds write vulnerability.
+5.  The out-of-bounds write corrupts memory, potentially overwriting critical data structures or code.
+6.  If the overwritten memory contains attacker-controlled code, it could lead to arbitrary code execution.
+7.  The attacker gains control of the LabVIEW process and potentially the entire system.
+8.  The attacker performs malicious actions, such as data exfiltration, installing backdoors, or further compromising the system.
+
+## Impact
+
+Successful exploitation of CVE-2026-32861 can lead to information disclosure and arbitrary code execution on systems running vulnerable versions of NI LabVIEW. This could allow an attacker to steal sensitive data, install malware, or gain complete control of the affected system. The impact of this vulnerability is significant, especially for organizations using LabVIEW in critical infrastructure or industrial control systems, potentially leading to operational disruption, financial loss, and reputational damage.
+
+## Recommendation
+
+*   Apply the security patch provided by National Instruments to address CVE-2026-32861 on all systems running NI LabVIEW 2026 Q1 (26.1.0) and prior versions. Refer to the NI advisory for download links: [https://www.ni.com/en/support/security/available-critical-and-security-updates-for-ni-software/2026/lv-class-file-parsing-memory-corruption-vulnerability-in-ni-labview.html](https://www.ni.com/en/support/security/available-critical-and-security-updates-for-ni-software/2026/lv-class-file-parsing-memory-corruption-vulnerability-in-ni-labview.html).
+*   Implement user awareness training to educate users about the risks of opening files from untrusted sources to mitigate the initial access vector.
+*   Deploy the Sigma rule `DetectSuspiciousLvclassFileOpen` to detect suspicious LabVIEW process opening LVCLASS files.
