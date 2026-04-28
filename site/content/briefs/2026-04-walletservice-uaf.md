@@ -3,6 +3,9 @@ title: Windows WalletService Use-After-Free Privilege Escalation (CVE-2026-32080
 slug: 2026-04-walletservice-uaf
 description: CVE-2026-32080 is a use-after-free vulnerability in the Windows WalletService, allowing a locally authorized attacker to elevate privileges.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
