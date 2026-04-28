@@ -3,6 +3,9 @@ title: xrdp Privilege Escalation Vulnerability (CVE-2026-32107)
 slug: 2026-04-xrdp-privesc
 description: xrdp versions through 0.10.5 are vulnerable to a privilege escalation flaw (CVE-2026-32107) where improper privilege management during the privilege drop process could allow an authenticated local attacker to escalate privileges to root and execute arbitrary code.
 date: "2026-04-17T20:16:33Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
