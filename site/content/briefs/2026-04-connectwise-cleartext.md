@@ -3,6 +3,9 @@ title: ConnectWise Automate Solution Center Cleartext Communication Vulnerabilit
 slug: 2026-04-connectwise-cleartext
 description: ConnectWise Automate is vulnerable to CVE-2026-6066, a cleartext transmission of sensitive information vulnerability, where certain client-to-server communications could occur without transport-layer encryption, potentially allowing network-based interception of Solution Center traffic, and the issue is resolved in Automate 2026.4 by enforcing secure communication.
 date: "2026-04-21T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
