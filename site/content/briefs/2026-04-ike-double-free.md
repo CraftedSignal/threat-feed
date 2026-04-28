@@ -30,6 +30,9 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33824
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33824
+iocs:
+  - type: email
+    value: NVD@nist.gov
 ioc_counts:
   email: 1
 rules:
@@ -58,4 +61,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-33824 is a critical vulnerability affecting the Windows Internet Key Exchange (IKE) Extension. This double-free vulnerability enables an unauthenticated attacker to execute arbitrary code on a vulnerable system remotely. The vulnerability stems from improper memory management within the IKE service. Successful exploitation could lead to complete system compromise, making it a high-priority concern for defenders. Microsoft has assigned a CVSS v3.1 score of 9.8 to this vulnerability…
+CVE-2026-33824 is a critical vulnerability affecting the Windows Internet Key Exchange (IKE) Extension. This double-free vulnerability enables an unauthenticated attacker to execute arbitrary code on a vulnerable system remotely. The vulnerability stems from improper memory management within the IKE service. Successful exploitation could lead to complete system compromise, making it a high-priority concern for defenders. Microsoft has assigned a CVSS v3.1 score of 9.8 to this vulnerability. This issue was reported to Microsoft and assigned CVE-2026-33824. The affected systems are those running the Windows IKE Extension without the necessary security update.
+
+## Attack Chain
+
+1.  An unauthenticated attacker sends a specially crafted IKE packet to the target system.
+2.  The Windows IKE Extension processes the malicious IKE packet.
+3.  Due to a flaw in memory management, the IKE Extension attempts to free the same memory location twice (double-free).
+4.  The double-free condition corrupts the heap memory.
+5.  The attacker leverages the heap corruption to overwrite critical data structures.
+6.  The attacker gains control of program execution flow.
+7.  The attacker injects and executes arbitrary code within the context of the IKE service.
+8.  The attacker achieves remote code execution, potentially leading to complete system compromise.
+
+## Impact
+
+Successful exploitation of CVE-2026-33824 allows a remote, unauthenticated attacker to execute arbitrary code on a vulnerable Windows system. Given the critical CVSS score of 9.8, the impact is severe. A compromised system could be used to steal sensitive data, establish a foothold for further network penetration, or cause a denial-of-service condition. Organizations that do not apply the patch released by Microsoft are at significant risk of compromise.
+
+## Recommendation
+
+*   Apply the security update released by Microsoft to patch CVE-2026-33824 on all affected Windows systems immediately. Refer to the Microsoft advisory [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33824](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33824).
+*   Monitor network traffic for suspicious IKE packets targeting your Windows systems. Deploy the network connection rule below to identify potential exploitation attempts.
+*   Enable Windows event logging for the IKE service and deploy the process creation rule below to detect unexpected processes spawned by the IKE service.
