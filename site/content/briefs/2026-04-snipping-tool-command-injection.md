@@ -3,6 +3,9 @@ title: 'CVE-2026-32183: Windows Snipping Tool Command Injection Vulnerability'
 slug: 2026-04-snipping-tool-command-injection
 description: CVE-2026-32183 is a command injection vulnerability in the Windows Snipping Tool that allows a local attacker to execute arbitrary code.
 date: "2026-04-14T18:55:15Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
