@@ -3,6 +3,9 @@ title: Unlimited Elements for Elementor WordPress Plugin Arbitrary File Read (CV
 slug: 2026-04-wordpress-file-read
 description: The Unlimited Elements for Elementor plugin for WordPress is vulnerable to arbitrary file read due to insufficient path traversal sanitization, allowing authenticated attackers to read sensitive files from the WordPress host.
 date: "2026-04-17T07:23:36Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
