@@ -3,6 +3,9 @@ title: ManageEngine PAM360 and Password Manager Pro Authenticated SQL Injection 
 slug: 2026-04-manageengine-sqli
 description: An authenticated SQL injection vulnerability (CVE-2026-5785) in the query report module of Zohocorp ManageEngine PAM360 versions before 8531 and ManageEngine Password Manager Pro versions from 8600 to 13230 allows attackers with low privileges to potentially read or modify sensitive database information.
 date: "2026-04-17T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
