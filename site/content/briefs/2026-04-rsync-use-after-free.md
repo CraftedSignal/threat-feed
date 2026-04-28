@@ -49,4 +49,26 @@ rules:
 rules_count: 2
 ---
 
-rsync versions 3.0.1 through 3.4.1 are susceptible to a use-after-free vulnerability identified as CVE-2026-41035. This flaw resides within the `receive_xattr` function, where an untrusted length value is used during a `qsort` call. The vulnerability is triggered only when rsync is executed with the `-X` or `--xattrs` option, which enables extended attribute handling. While many Linux configurations are vulnerable, the issue is more prevalent on non-Linux platforms. Exploitation of this…
+rsync versions 3.0.1 through 3.4.1 are susceptible to a use-after-free vulnerability identified as CVE-2026-41035. This flaw resides within the `receive_xattr` function, where an untrusted length value is used during a `qsort` call. The vulnerability is triggered only when rsync is executed with the `-X` or `--xattrs` option, which enables extended attribute handling. While many Linux configurations are vulnerable, the issue is more prevalent on non-Linux platforms. Exploitation of this vulnerability could allow a malicious actor to achieve arbitrary code execution on the target system. Defenders should prioritize patching rsync installations and consider disabling the `-X` option where extended attributes are not essential.
+
+## Attack Chain
+
+1.  Attacker gains initial access to a system where they can influence rsync parameters. This could be through a compromised user account or a vulnerable service.
+2.  Attacker crafts a malicious rsync command that includes the `-X` or `--xattrs` option to enable extended attribute processing.
+3.  The crafted command is executed on the victim machine, targeting a vulnerable rsync version (3.0.1 to 3.4.1).
+4.  During the `receive_xattr` function call, the untrusted length value provided by the attacker is passed to the `qsort` function.
+5.  The `qsort` function attempts to sort the extended attributes based on the attacker-controlled length.
+6.  Due to the manipulated length value, the `qsort` function accesses memory outside the allocated buffer, leading to a use-after-free condition.
+7.  The use-after-free condition allows the attacker to potentially overwrite memory with malicious code.
+8.  The attacker's code is executed within the context of the rsync process, granting them control of the system.
+
+## Impact
+
+Successful exploitation of CVE-2026-41035 can lead to arbitrary code execution on the affected system. The impact can range from data corruption to complete system compromise. Given the widespread use of rsync for data synchronization and backups, a successful attack could affect a large number of systems across various sectors. The vulnerability is particularly concerning on non-Linux platforms, where the likelihood of successful exploitation is higher.
+
+## Recommendation
+
+*   Upgrade rsync to a version beyond 3.4.1 to patch CVE-2026-41035.
+*   Implement the file integrity monitoring rule to detect unauthorized modification of rsync binaries.
+*   Deploy the Sigma rule to detect rsync commands using the `-X` or `--xattrs` option, as those options are required to trigger this vulnerability.
+*   Where possible, disable the use of the `-X` or `--xattrs` option for rsync to prevent exploitation of this vulnerability.
