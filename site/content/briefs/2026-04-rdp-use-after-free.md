@@ -3,6 +3,9 @@ title: CVE-2026-32157 - Remote Desktop Client Use-After-Free Vulnerability
 slug: 2026-04-rdp-use-after-free
 description: CVE-2026-32157 is a use-after-free vulnerability in the Remote Desktop Client that allows an unauthorized attacker to execute code over a network.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
