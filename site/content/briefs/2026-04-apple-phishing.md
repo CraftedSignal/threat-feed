@@ -3,6 +3,9 @@ title: Apple Account Notification Phishing Campaign
 slug: 2026-04-apple-phishing
 description: A phishing campaign is abusing legitimate Apple account change notifications to deliver fake iPhone purchase scams, tricking users into calling malicious support numbers.
 date: "2026-04-19T16:03:01Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
