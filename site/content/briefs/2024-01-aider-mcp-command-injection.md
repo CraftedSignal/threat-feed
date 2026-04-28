@@ -49,4 +49,25 @@ rules:
 rules_count: 2
 ---
 
-A command injection vulnerability, identified as CVE-2026-7157, affects disler aider-mcp-server up to commit b2516fa466d0d851932da92ee6d0e66946db9efc. The vulnerability resides within the `src/aider_mcp_server/server.py` file of the `aider_ai_code` component. It stems from improper handling of the `relative_editable_files` argument, which can be manipulated by a remote attacker to inject and execute arbitrary commands on the system. Exploitation is possible remotely, and a proof-of-concept…
+A command injection vulnerability, identified as CVE-2026-7157, affects disler aider-mcp-server up to commit b2516fa466d0d851932da92ee6d0e66946db9efc. The vulnerability resides within the `src/aider_mcp_server/server.py` file of the `aider_ai_code` component. It stems from improper handling of the `relative_editable_files` argument, which can be manipulated by a remote attacker to inject and execute arbitrary commands on the system. Exploitation is possible remotely, and a proof-of-concept exploit has been published, increasing the risk of widespread attacks. The project follows a rolling release model, so specific patched versions are not available, making mitigation challenging.
+
+## Attack Chain
+
+1.  Attacker identifies a vulnerable instance of `aider-mcp-server` running a version up to commit `b2516fa466d0d851932da92ee6d0e66946db9efc`.
+2.  Attacker crafts a malicious request targeting the vulnerable functionality in `src/aider_mcp_server/server.py`.
+3.  The crafted request includes a payload within the `relative_editable_files` argument designed to inject shell commands.
+4.  The `aider-mcp-server` processes the request and improperly sanitizes the `relative_editable_files` argument.
+5.  The unsanitized argument is passed to a function that executes shell commands.
+6.  The injected commands are executed on the server with the privileges of the `aider-mcp-server` process.
+7.  Attacker gains arbitrary code execution on the server.
+8.  The attacker can then perform actions such as installing malware, accessing sensitive data, or pivoting to other systems.
+
+## Impact
+
+Successful exploitation of this command injection vulnerability allows a remote attacker to execute arbitrary commands on the affected server. This can lead to complete system compromise, including data theft, malware installation, and denial of service. Given that an exploit is publicly available, the risk of exploitation is significantly elevated. The lack of versioned releases makes patching and mitigation more complex, potentially affecting any instance running a version prior to a fix being implemented.
+
+## Recommendation
+
+*   Inspect `aider-mcp-server` logs for suspicious activity related to requests targeting `src/aider_mcp_server/server.py` and the handling of `relative_editable_files` to detect potential exploitation attempts.
+*   Deploy the provided Sigma rule to detect command execution originating from the `aider-mcp-server` process.
+*   Monitor network connections originating from the `aider-mcp-server` for unexpected outbound activity.
