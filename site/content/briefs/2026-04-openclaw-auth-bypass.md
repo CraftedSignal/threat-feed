@@ -1,76 +1,80 @@
 ---
-title: OpenClaw Matrix Room Control Command Authorization Bypass
+title: OpenClaw Authentication Bypass in Remote Onboarding
 slug: 2026-04-openclaw-auth-bypass
-description: A vulnerability in OpenClaw versions greater than 2026.3.28 and before 2026.4.15 allowed a Matrix sender paired via DM to bypass room authorization boundaries and execute room control commands without proper authorization.
-date: "2026-04-18T12:00:00Z"
+description: OpenClaw before 2026.3.28 contains an authentication bypass vulnerability (CVE-2026-41342) in the remote onboarding component, allowing attackers to spoof discovery endpoints and capture gateway credentials or traffic.
+date: "2024-01-03T12:00:00Z"
 type: coverage
 types:
   - coverage
 severities:
   - high
 tags:
+  - authentication bypass
+  - remote onboarding
+  - credential theft
+  - cve-2026-41342
+vendors:
   - openclaw
-  - matrix
-  - authorization-bypass
-  - privilege-escalation
+products:
+  - openclaw
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+cves:
+  - id: CVE-2026-41342
+    cvss: 7.3
 references:
-  - https://github.com/advisories/GHSA-2gvc-4f3c-2855
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41342
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-3cw3-5vxw-g2h3
+  - https://www.vulncheck.com/advisories/openclaw-unauthenticated-discovery-endpoint-credential-exfiltration-via-remote-onboarding
 rules:
-  - title: Detect OpenClaw Room Control Command Execution from Unauthorized DM User
-    description: Detects attempts to execute OpenClaw room control commands by users who are only authorized via DM pairing and not explicitly allowed in the room.
-    platform: sigma
-    severity: high
-    tactics:
-      - defense_evasion
-      - privilege_escalation
-    techniques:
-      - T1068
-    data_sources:
-      - application
-      - openclaw
-  - title: Detect OpenClaw Control Command with Unexpected Arguments
-    description: Detects OpenClaw control command executions with unusual or unexpected arguments which may indicate malicious intent.
+  - title: Detect Connection to Suspicious Onboarding Discovery Endpoint
+    description: Detects connections to unusual or potentially malicious discovery endpoints during remote onboarding, indicating possible spoofing attempts related to CVE-2026-41342.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - credential_access
+      - initial_access
     techniques:
-      - T1059
+      - T1189
     data_sources:
-      - application
-      - openclaw
+      - network_connection
+      - windows
+  - title: Detect OpenClaw Process Connecting to Non-Standard Ports
+    description: This rule identifies OpenClaw processes establishing network connections to ports commonly associated with malicious activity, potentially indicating exploitation or command and control.
+    platform: sigma
+    severity: medium
+    tactics:
+      - command_and_control
+    techniques:
+      - T1071
+    data_sources:
+      - network_connection
+      - windows
 rules_count: 2
 ---
 
-OpenClaw versions prior to 2026.4.15 contained a flaw in Matrix room control-command authorization. The system incorrectly included sender IDs learned from the Matrix DM pairing store in the effective allowlist for room traffic. This meant that a sender who was authorized only for a Matrix DM could potentially authorize room control commands when they also posted in a bot-controlled room. This vulnerability allows a DM-paired Matrix sender to cross the authorization boundary and run Matrix room control commands without being present in the configured room allowlist, room membership list, or group allowlist. The vulnerability affects OpenClaw versions > 2026.3.28 and < 2026.4.15. The issue was reported by @nexrin and Keen Security Lab and patched in version 2026.4.15.
+OpenClaw, a software solution, is vulnerable to an authentication bypass flaw in versions prior to 2026.3.28. Specifically, the remote onboarding component persists unauthenticated discovery endpoints without requiring explicit trust confirmation. This vulnerability, identified as CVE-2026-41342, enables a threat actor to spoof legitimate discovery endpoints. By doing so, attackers can redirect the onboarding process toward malicious gateways under their control. This redirection allows the attacker to intercept and capture gateway credentials or monitor sensitive network traffic. This is a critical vulnerability because successful exploitation allows an attacker to gain unauthorized access to a target system and potentially escalate privileges.
 
 ## Attack Chain
 
-1. An attacker establishes a direct message (DM) pairing with the OpenClaw bot.
-2. The attacker gains authorization to send messages within the DM channel.
-3. The attacker identifies a Matrix room controlled by the OpenClaw bot.
-4. The attacker sends a message to the bot-controlled room.
-5. Due to the flawed authorization logic, the attacker's sender ID is incorrectly included in the effective allowlist for the room based on the DM pairing.
-6. The attacker sends a specially crafted message to the bot-controlled room, containing a control command.
-7. The OpenClaw bot, due to the bypassed authorization check, executes the control command.
-8. The attacker achieves unauthorized control over the Matrix room, potentially driving privileged OpenClaw behavior.
+1.  Attacker identifies a vulnerable OpenClaw instance running a version before 2026.3.28.
+2.  The attacker spoofs a legitimate discovery endpoint using a malicious server.
+3.  A new or existing user attempts to onboard remotely through the OpenClaw application.
+4.  The application, lacking proper authentication checks, connects to the attacker's spoofed discovery endpoint.
+5.  The spoofed endpoint redirects the onboarding process to a malicious gateway controlled by the attacker.
+6.  The user unknowingly provides their gateway credentials to the malicious gateway.
+7.  The attacker captures the user's gateway credentials or intercepts subsequent network traffic.
+8.  The attacker leverages the stolen credentials to gain unauthorized access to the OpenClaw system or other related resources.
 
 ## Impact
 
-This vulnerability allowed unauthorized users to execute Matrix room control commands within OpenClaw deployments. The impact severity is high because room control commands can drive privileged OpenClaw behavior depending on the deployment's command and tool policy. Successful exploitation could lead to unauthorized modification of room settings, access to sensitive information, or disruption of services managed by the OpenClaw bot. The number of potentially affected deployments is unknown, but all instances running vulnerable versions are at risk.
+Successful exploitation of CVE-2026-41342 can lead to credential compromise and unauthorized access to sensitive systems and data. An attacker who successfully spoofs a discovery endpoint can steal gateway credentials, enabling them to impersonate legitimate users and perform malicious actions within the OpenClaw environment. The impact is significant for organizations relying on OpenClaw for secure remote onboarding, potentially leading to data breaches, service disruption, and reputational damage.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.15 or later to patch the authorization bypass vulnerability.
-*   Review OpenClaw's command and tool policy to understand the scope of potential privileged behavior that could be triggered by room control commands.
-*   Deploy the Sigma rule `Detect OpenClaw Room Control Command Execution from Unauthorized DM User` to identify potential exploitation attempts.
-*   Monitor OpenClaw logs for unexpected room control command executions, particularly those originating from users with only DM pairing-store entries.
+*   Upgrade OpenClaw to version 2026.3.28 or later to patch CVE-2026-41342 and mitigate the authentication bypass vulnerability.
+*   Implement network monitoring to detect and alert on connections to unexpected or untrusted discovery endpoints. Consider deploying a network connection rule like the one below to detect suspicious connections during onboarding.
+*   Review and strengthen the onboarding process to include multi-factor authentication and explicit trust confirmation for discovery endpoints.
