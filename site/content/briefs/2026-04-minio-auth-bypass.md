@@ -3,6 +3,9 @@ title: MinIO Authentication Bypass Vulnerabilities
 slug: 2026-04-minio-auth-bypass
 description: An anonymous remote attacker can exploit multiple vulnerabilities in MinIO to bypass authentication and manipulate data, potentially leading to unauthorized access and data breaches.
 date: "2026-04-22T07:39:11Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
