@@ -116,15 +116,10 @@ func (s *server) handleVerify(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	sub, err := s.store.ConsumePending(ctx, token)
 	if err != nil {
-		switch {
-		case errors.Is(err, ErrNotFound):
-			http.Error(w, "verification link not found or already used", http.StatusNotFound)
-		case errors.Is(err, ErrExpired):
-			http.Error(w, "verification link expired; please subscribe again", http.StatusGone)
-		default:
+		if !errors.Is(err, ErrNotFound) && !errors.Is(err, ErrExpired) {
 			s.logger.Error("consume pending failed", "err", err)
-			http.Error(w, "internal error", http.StatusInternalServerError)
 		}
+		s.redirectSiteError(w, r)
 		return
 	}
 
@@ -136,13 +131,23 @@ func (s *server) handleVerify(w http.ResponseWriter, r *http.Request) {
 	sub.ID = newToken()
 	if err := s.store.SaveSubscription(ctx, sub); err != nil {
 		s.logger.Error("save verified sub failed", "err", err)
-		http.Error(w, "internal error", http.StatusInternalServerError)
+		s.redirectSiteError(w, r)
 		return
 	}
 
 	// 303 to a confirmation page on the static site.
 	dest, _ := url.Parse(s.cfg.SiteOrigin)
 	dest.Path = "/subscribe/confirmed/"
+	http.Redirect(w, r, dest.String(), http.StatusSeeOther)
+}
+
+// redirectSiteError sends the user to the friendly /subscribe/error/
+// page on the static site instead of dumping a plaintext http.Error.
+// Server-side reasons stay in the logs; users get the same "try again"
+// CTA regardless of which failure mode they hit.
+func (s *server) redirectSiteError(w http.ResponseWriter, r *http.Request) {
+	dest, _ := url.Parse(s.cfg.SiteOrigin)
+	dest.Path = "/subscribe/error/"
 	http.Redirect(w, r, dest.String(), http.StatusSeeOther)
 }
 
