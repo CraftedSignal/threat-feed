@@ -69,4 +69,28 @@ rules:
 rules_count: 3
 ---
 
-This threat focuses on the exploitation of GitHub Actions runners by malicious actors. By gaining the ability to modify or trigger workflows in a linked GitHub repository, attackers can execute arbitrary commands on the runner host. The attack leverages the `Runner.Worker` process or shell interpreters launched via runner entrypoint scripts. Successful exploitation can lead to malicious workflow activity, including code execution, reconnaissance, credential harvesting, and network exfiltration…
+This threat focuses on the exploitation of GitHub Actions runners by malicious actors. By gaining the ability to modify or trigger workflows in a linked GitHub repository, attackers can execute arbitrary commands on the runner host. The attack leverages the `Runner.Worker` process or shell interpreters launched via runner entrypoint scripts. Successful exploitation can lead to malicious workflow activity, including code execution, reconnaissance, credential harvesting, and network exfiltration. This presents a significant risk, particularly for organizations relying on self-hosted runners, as it allows attackers to potentially compromise the underlying infrastructure and sensitive data. The Elastic detection rule aims to identify such malicious activity.
+
+## Attack Chain
+
+1. An attacker gains unauthorized access to a GitHub repository linked to a self-hosted runner.
+2. The attacker modifies an existing workflow or creates a new one to inject malicious commands.
+3. The compromised workflow is triggered, initiating the `Runner.Worker` process on the runner host.
+4. The `Runner.Worker` process executes a shell interpreter (e.g., bash, sh, zsh) via an entrypoint script.
+5. The shell interpreter executes malicious commands specified in the compromised workflow, such as downloading a payload using `curl` or `wget`.
+6. The downloaded payload is executed, establishing a reverse shell connection to an attacker-controlled server using `nc` or `socat`.
+7. The attacker performs reconnaissance, credential harvesting, or lateral movement within the runner host and connected network.
+8. Sensitive data is exfiltrated from the compromised runner host to the attacker's infrastructure.
+
+## Impact
+
+A successful attack can lead to the complete compromise of the self-hosted runner environment. This could result in the theft of sensitive source code, credentials, and other proprietary information. The attack can also be used as a stepping stone for further attacks on the organization's internal network and infrastructure. Affected sectors include software development, DevOps, and any organization using GitHub Actions with self-hosted runners.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Execution via GitHub Actions Runner` to your SIEM to detect suspicious commands executed by the GitHub Actions Runner.
+*   Monitor process creation events for commands like `curl`, `wget`, `nc`, `socat`, `powershell.exe`, `cmd.exe`, `bash`, and `ssh` spawned by `Runner.Worker` or shell interpreters with `entrypoint.sh` in their command line (see Sigma rule).
+*   Implement strict access control policies for GitHub repositories and workflows to prevent unauthorized modifications.
+*   Regularly review and audit GitHub Actions workflows for suspicious or unexpected commands.
+*   Isolate self-hosted runners in a segmented network to limit the impact of a potential compromise.
+*   Enable Sysmon process-creation logging to provide detailed process execution information for effective detection.
