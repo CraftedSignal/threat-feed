@@ -49,4 +49,26 @@ rules:
 rules_count: 2
 ---
 
-A critical security flaw, identified as CVE-2026-6224, affects NocoBase plugin-workflow-javascript versions up to 2.0.23. This vulnerability resides in the `createSafeConsole` function within the `packages/plugins/@nocobase/plugin-workflow-javascript/src/server/Vm.js` file. By manipulating this function, an attacker can escape the intended sandbox environment. Publicly available exploits exist, increasing the risk of active exploitation. This vulnerability allows for remote, unauthenticated…
+A critical security flaw, identified as CVE-2026-6224, affects NocoBase plugin-workflow-javascript versions up to 2.0.23. This vulnerability resides in the `createSafeConsole` function within the `packages/plugins/@nocobase/plugin-workflow-javascript/src/server/Vm.js` file. By manipulating this function, an attacker can escape the intended sandbox environment. Publicly available exploits exist, increasing the risk of active exploitation. This vulnerability allows for remote, unauthenticated exploitation, making it a significant threat to systems running the affected NocoBase plugin. The vendor has not responded to vulnerability disclosure attempts.
+
+## Attack Chain
+
+1.  The attacker sends a malicious request to the NocoBase server targeting the `plugin-workflow-javascript` component.
+2.  The request is processed by the vulnerable `createSafeConsole` function within `Vm.js`.
+3.  The attacker leverages the identified manipulation technique to bypass the intended sandbox restrictions.
+4.  The attacker gains unauthorized access to the underlying server environment.
+5.  The attacker injects and executes arbitrary JavaScript code within the server context.
+6.  The attacker escalates privileges to gain further control of the system.
+7.  The attacker establishes persistence through creating new user accounts or modifying system configurations.
+8.  The attacker achieves arbitrary code execution on the server, leading to potential data theft, system compromise, or denial of service.
+
+## Impact
+
+Successful exploitation of CVE-2026-6224 can lead to complete compromise of the NocoBase server. An attacker can gain unauthorized access to sensitive data, modify system configurations, install malware, or disrupt normal operations. Given the nature of NocoBase as a data management platform, the impact could include widespread data breaches and significant reputational damage. Because exploits are publicly available, organizations using vulnerable versions of the plugin are at immediate risk.
+
+## Recommendation
+
+*   Upgrade NocoBase plugin-workflow-javascript to a patched version beyond 2.0.23 to remediate CVE-2026-6224.
+*   Deploy the provided Sigma rule `Detect Suspicious NocoBase Workflow JavaScript Activity` to identify potential exploitation attempts targeting the `createSafeConsole` function.
+*   Monitor web server logs for suspicious requests targeting the `/packages/plugins/@nocobase/plugin-workflow-javascript/src/server/Vm.js` path.
+*   Implement strict input validation and sanitization measures to prevent malicious code injection.
