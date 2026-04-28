@@ -3,6 +3,9 @@ title: Vault Token Leak via Authorization Header Forwarding
 slug: 2026-04-vault-token-leak
 description: Vault instances configured to pass through the 'Authorization' header may forward Vault tokens to auth plugin backends when the header is used for authentication, potentially leading to token compromise; this vulnerability is tracked as CVE-2026-4525 and patched in versions 2.0.0, 1.21.5, 1.20.10, and 1.19.16.
 date: "2026-04-17T04:16:09Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
