@@ -54,4 +54,25 @@ rules:
 rules_count: 2
 ---
 
-Movary, a self-hosted web application for tracking and rating movies, is susceptible to a Server-Side Request Forgery (SSRF) vulnerability (CVE-2026-40348) in versions prior to 0.71.1. This flaw allows authenticated users to manipulate the `/settings/jellyfin/server-url-verify` endpoint to initiate server-side HTTP requests to arbitrary internal targets. The application uses the Guzzle HTTP client to send requests based on a user-supplied URL, to which `/system/info/public` is appended. The…
+Movary, a self-hosted web application for tracking and rating movies, is susceptible to a Server-Side Request Forgery (SSRF) vulnerability (CVE-2026-40348) in versions prior to 0.71.1. This flaw allows authenticated users to manipulate the `/settings/jellyfin/server-url-verify` endpoint to initiate server-side HTTP requests to arbitrary internal targets. The application uses the Guzzle HTTP client to send requests based on a user-supplied URL, to which `/system/info/public` is appended. The absence of input validation on the target URL allows attackers to bypass intended restrictions and access internal network resources. This vulnerability enables threat actors to perform internal reconnaissance activities such as host discovery, port scanning, and service fingerprinting. Successful exploitation can lead to further compromise by exposing internal administrative interfaces or cloud metadata endpoints.
+
+## Attack Chain
+
+1. An attacker authenticates to the Movary web application with a valid user account.
+2. The attacker crafts a malicious URL targeting an internal resource, such as `http://127.0.0.1/`.
+3. The attacker sends a `POST` request to `/settings/jellyfin/server-url-verify` with the crafted URL as the `serverUrl` parameter.
+4. The Movary server receives the request and appends `/system/info/public` to the user-provided URL.
+5. The Movary server uses the Guzzle HTTP client to initiate an HTTP request to the modified URL (e.g., `http://127.0.0.1/system/info/public`).
+6. The internal service at the targeted IP address responds to the Movary server.
+7. Based on the HTTP response code and content, the attacker can infer the existence and status of internal services. This allows for port scanning and service fingerprinting.
+8. The attacker leverages discovered services to escalate privileges, potentially accessing sensitive data or internal administrative panels.
+
+## Impact
+
+Successful exploitation of the SSRF vulnerability (CVE-2026-40348) in Movary can enable attackers to discover internal network infrastructure and identify vulnerable services. This can allow attackers to gain unauthorized access to sensitive information, pivot to other internal systems, or perform other malicious activities. Although no specific victim count is given, the impact of this vulnerability is potentially high for any organization using a vulnerable version of Movary.
+
+## Recommendation
+
+*   Upgrade Movary to version 0.71.1 or later to patch the SSRF vulnerability (CVE-2026-40348).
+*   Deploy the Sigma rule `Detect Movary SSRF Attempt` to identify potential exploitation attempts in web server logs.
+*   Implement network segmentation and access controls to restrict access to sensitive internal services, limiting the impact of potential SSRF attacks.
