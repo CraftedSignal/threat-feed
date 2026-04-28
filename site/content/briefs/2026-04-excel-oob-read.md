@@ -3,6 +3,9 @@ title: Microsoft Excel Out-of-Bounds Read Vulnerability (CVE-2026-32188)
 slug: 2026-04-excel-oob-read
 description: An out-of-bounds read vulnerability in Microsoft Office Excel (CVE-2026-32188) allows a local attacker to potentially disclose sensitive information through a maliciously crafted Excel file.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
