@@ -68,4 +68,25 @@ rules:
 rules_count: 3
 ---
 
-A critical authentication bypass vulnerability, CVE-2026-20093, affects multiple versions of Cisco Integrated Management Controller (IMC) software. The vulnerability allows an unauthenticated remote attacker to bypass the login process and gain full administrative privileges on the affected system. This flaw stems from improper input validation (CWE-20). Exploitation grants the attacker the ability to change user passwords, manipulate hardware settings such as power cycling servers, and…
+A critical authentication bypass vulnerability, CVE-2026-20093, affects multiple versions of Cisco Integrated Management Controller (IMC) software. The vulnerability allows an unauthenticated remote attacker to bypass the login process and gain full administrative privileges on the affected system. This flaw stems from improper input validation (CWE-20). Exploitation grants the attacker the ability to change user passwords, manipulate hardware settings such as power cycling servers, and potentially use the compromised device to launch attacks on other systems within the network. The impacted product list is extensive, spanning multiple Cisco product lines, including the 5000 Series ENCS, Catalyst 8300 Series Edge uCPE, UCS C-Series M5/M6 Rack Servers, and UCS E-Series M3/M6. This vulnerability poses a significant threat to organizations relying on these systems for critical infrastructure management.
+
+## Attack Chain
+
+1.  The unauthenticated attacker sends a specially crafted request to the Cisco IMC web interface.
+2.  The vulnerable IMC software fails to properly validate the request, allowing the attacker to bypass the authentication mechanism.
+3.  The attacker gains full administrative access to the IMC.
+4.  The attacker changes the password of an existing administrative user or creates a new administrative user.
+5.  The attacker logs in to the IMC with the newly acquired administrative credentials.
+6.  The attacker modifies hardware settings, such as power management configurations, potentially power cycling servers.
+7.  The attacker disrupts critical infrastructure managed by the compromised IMC.
+8.  The attacker uses the compromised device as a pivot point to launch further attacks against other systems on the network.
+
+## Impact
+
+Successful exploitation of CVE-2026-20093 grants an attacker complete control over the affected Cisco IMC. This can lead to severe consequences, including disruption of critical services, data breaches, and lateral movement within the network. Given the hardware-level access provided by IMC, attackers can manipulate physical infrastructure, leading to extended downtime and potential data loss. The CCB has assessed the risk of this vulnerability as high due to the ease of exploitation and the potential impact on confidentiality, integrity, and availability.
+
+## Recommendation
+
+*   Immediately patch all affected Cisco IMC instances to the latest available version to remediate CVE-2026-20093 (refer to the affected software list).
+*   Upscale monitoring and detection capabilities to identify any suspicious activity related to unauthorized access attempts to Cisco IMC web interfaces (deploy the Sigma rules provided).
+*   In case of an intrusion, report the incident via https://ccb.belgium.be/en/cert/report-incident.
