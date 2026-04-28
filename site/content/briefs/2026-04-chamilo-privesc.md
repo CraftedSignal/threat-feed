@@ -49,4 +49,26 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-33706 affects Chamilo LMS, a learning management system. Prior to version 1.11.38, the vulnerability allows an authenticated user, specifically a student (status=5), with a valid REST API key, to elevate their privileges. This is achieved by exploiting the `update_user_from_username` endpoint in the REST API. By sending a crafted request, a student can modify their user status to Teacher/CourseManager (status=1). This privilege escalation grants the attacker the ability to create and…
+CVE-2026-33706 affects Chamilo LMS, a learning management system. Prior to version 1.11.38, the vulnerability allows an authenticated user, specifically a student (status=5), with a valid REST API key, to elevate their privileges. This is achieved by exploiting the `update_user_from_username` endpoint in the REST API. By sending a crafted request, a student can modify their user status to Teacher/CourseManager (status=1). This privilege escalation grants the attacker the ability to create and manage courses, access sensitive data, and potentially disrupt the learning environment. The vulnerability has been patched in version 1.11.38, so upgrading is strongly recommended. This vulnerability highlights the importance of proper access controls and input validation in web applications.
+
+## Attack Chain
+
+1.  Attacker obtains valid credentials for a student account within the Chamilo LMS.
+2.  Attacker generates a REST API key associated with their student account.
+3.  Attacker crafts a malicious HTTP POST request targeting the `update_user_from_username` endpoint.
+4.  The POST request includes the attacker's username and a modified status value (e.g., from 5 to 1) within the request body.
+5.  The attacker sends the crafted request to the Chamilo LMS server, authenticating with their REST API key.
+6.  The Chamilo LMS server, lacking proper authorization checks, updates the attacker's user status in the database.
+7.  The attacker logs out and then logs back in to the Chamilo LMS.
+8.  Upon re-authentication, the attacker now has Teacher/CourseManager privileges, enabling them to create and manage courses, access student data, and modify system settings.
+
+## Impact
+
+Successful exploitation of CVE-2026-33706 allows a student to gain administrative control over the Chamilo LMS platform. This can lead to unauthorized course creation, modification of student grades, data theft, and disruption of the learning environment. The number of potential victims depends on the number of Chamilo LMS instances running a vulnerable version (prior to 1.11.38). If successful, an attacker could potentially compromise the entire learning platform and its users.
+
+## Recommendation
+
+*   Upgrade Chamilo LMS to version 1.11.38 or later to patch CVE-2026-33706.
+*   Implement strict access control policies and regularly audit user permissions to prevent unauthorized privilege escalation.
+*   Monitor web server logs for suspicious POST requests to the `update_user_from_username` endpoint (see example Sigma rule below).
+*   Deploy the provided Sigma rule to detect potential exploitation attempts in real-time.
