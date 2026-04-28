@@ -3,6 +3,9 @@ title: NovumOS Local Privilege Escalation via Unvalidated Syscall
 slug: 2026-04-novumos-lpe
 description: A local privilege escalation vulnerability exists in NovumOS versions before 0.24, where Syscall 12 (JumpToUser) lacks input validation, allowing user-mode processes to execute arbitrary code in kernel mode.
 date: "2026-04-18T01:16:19Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
