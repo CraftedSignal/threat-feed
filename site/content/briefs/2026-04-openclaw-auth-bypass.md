@@ -1,76 +1,76 @@
 ---
-title: OpenClaw Authorization Bypass Vulnerability (CVE-2026-41299)
+title: OpenClaw Matrix Room Control Command Authorization Bypass
 slug: 2026-04-openclaw-auth-bypass
-description: OpenClaw before 2026.3.28 contains an authorization bypass vulnerability in the chat.send gateway method that allows authenticated operator clients to spoof ACP identity labels and inject reserved provenance fields, leading to potential privilege escalation.
-date: "2026-04-21T00:16:30Z"
+description: A vulnerability in OpenClaw versions greater than 2026.3.28 and before 2026.4.15 allowed a Matrix sender paired via DM to bypass room authorization boundaries and execute room control commands without proper authorization.
+date: "2026-04-18T12:00:00Z"
 type: coverage
 types:
   - coverage
 severities:
   - high
 tags:
+  - openclaw
+  - matrix
   - authorization-bypass
   - privilege-escalation
-  - web-application
 mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1555
-    technique_name: Credentials from Password Stores
-cves:
-  - id: CVE-2026-41299
-    cvss: 7.1
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-41299
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-6xg4-82hv-cp6f
-  - https://www.vulncheck.com/advisories/openclaw-client-identity-spoofing-in-chat-send-gateway-provenance-guard
+  - https://github.com/advisories/GHSA-2gvc-4f3c-2855
 rules:
-  - title: Detect OpenClaw ACP Identity Spoofing via WebSocket
-    description: Detects potential ACP identity spoofing attempts during WebSocket handshake by monitoring client metadata for suspicious patterns related to reserved provenance fields.
+  - title: Detect OpenClaw Room Control Command Execution from Unauthorized DM User
+    description: Detects attempts to execute OpenClaw room control commands by users who are only authorized via DM pairing and not explicitly allowed in the room.
     platform: sigma
     severity: high
     tactics:
-      - privilege_escalation
-    techniques:
-      - T1555.004
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect OpenClaw Chat Send Gateway Abuse
-    description: Detects abuse of the chat.send gateway by monitoring for unusual message origins or content patterns indicative of exploitation.
-    platform: sigma
-    severity: medium
-    tactics:
+      - defense_evasion
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
-      - webserver
-      - linux
+      - application
+      - openclaw
+  - title: Detect OpenClaw Control Command with Unexpected Arguments
+    description: Detects OpenClaw control command executions with unusual or unexpected arguments which may indicate malicious intent.
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+    techniques:
+      - T1059
+    data_sources:
+      - application
+      - openclaw
 rules_count: 2
 ---
 
-OpenClaw, a chat application, is vulnerable to an authorization bypass (CVE-2026-41299) affecting versions prior to 2026.3.28. This vulnerability resides in the `chat.send` gateway method, where access control policies (ACP) are enforced based on client-provided metadata obtained during the WebSocket handshake. Instead of relying on verified authorization states, the system trusts self-declared metadata, enabling malicious authenticated operator clients to impersonate ACP identities and inject reserved provenance fields that should be exclusive to the ACP bridge. This flaw allows attackers to bypass intended security restrictions and potentially elevate their privileges within the OpenClaw system. The vulnerability was reported by VulnCheck on April 20, 2026, and poses a significant risk to the confidentiality and integrity of OpenClaw deployments.
+OpenClaw versions prior to 2026.4.15 contained a flaw in Matrix room control-command authorization. The system incorrectly included sender IDs learned from the Matrix DM pairing store in the effective allowlist for room traffic. This meant that a sender who was authorized only for a Matrix DM could potentially authorize room control commands when they also posted in a bot-controlled room. This vulnerability allows a DM-paired Matrix sender to cross the authorization boundary and run Matrix room control commands without being present in the configured room allowlist, room membership list, or group allowlist. The vulnerability affects OpenClaw versions > 2026.3.28 and < 2026.4.15. The issue was reported by @nexrin and Keen Security Lab and patched in version 2026.4.15.
 
 ## Attack Chain
 
-1. An attacker authenticates to the OpenClaw chat system as a regular operator.
-2. The attacker establishes a WebSocket connection to the `chat.send` gateway.
-3. During the WebSocket handshake, the attacker crafts malicious client metadata to spoof an ACP identity.
-4. The attacker injects reserved provenance fields intended for the ACP bridge within the crafted metadata.
-5. The `chat.send` method incorrectly trusts the self-declared client metadata without proper authorization checks.
-6. The system processes the attacker's chat message as if it originated from a trusted ACP source.
-7. The attacker successfully bypasses intended authorization controls due to the spoofed identity and injected fields.
-8. The attacker leverages the elevated privileges to perform unauthorized actions, such as accessing sensitive data or modifying system configurations.
+1. An attacker establishes a direct message (DM) pairing with the OpenClaw bot.
+2. The attacker gains authorization to send messages within the DM channel.
+3. The attacker identifies a Matrix room controlled by the OpenClaw bot.
+4. The attacker sends a message to the bot-controlled room.
+5. Due to the flawed authorization logic, the attacker's sender ID is incorrectly included in the effective allowlist for the room based on the DM pairing.
+6. The attacker sends a specially crafted message to the bot-controlled room, containing a control command.
+7. The OpenClaw bot, due to the bypassed authorization check, executes the control command.
+8. The attacker achieves unauthorized control over the Matrix room, potentially driving privileged OpenClaw behavior.
 
 ## Impact
 
-Successful exploitation of CVE-2026-41299 allows an authenticated operator client to bypass authorization controls within OpenClaw. This can lead to privilege escalation, enabling unauthorized access to sensitive information and system functionalities. The vulnerability could be exploited to inject malicious content into chat streams, disrupt communications, or compromise the integrity of the OpenClaw system. The number of potential victims is dependent on the number of OpenClaw deployments that have not been patched to version 2026.3.28 or later.
+This vulnerability allowed unauthorized users to execute Matrix room control commands within OpenClaw deployments. The impact severity is high because room control commands can drive privileged OpenClaw behavior depending on the deployment's command and tool policy. Successful exploitation could lead to unauthorized modification of room settings, access to sensitive information, or disruption of services managed by the OpenClaw bot. The number of potentially affected deployments is unknown, but all instances running vulnerable versions are at risk.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.3.28 or later to patch CVE-2026-41299.
-*   Implement additional server-side validation and authorization checks on incoming messages to verify the legitimacy of client identities and provenance fields.
-*   Monitor WebSocket handshake traffic for suspicious client metadata indicative of ACP identity spoofing attempts. Deploy the Sigma rule `Detect OpenClaw ACP Identity Spoofing via WebSocket` to detect potentially malicious connections.
-*   Review and harden the configuration of the `chat.send` gateway to restrict access to sensitive functionalities based on verified authorization states.
-*   Regularly audit OpenClaw deployments for misconfigurations and vulnerabilities to prevent potential exploitation.
+*   Upgrade OpenClaw to version 2026.4.15 or later to patch the authorization bypass vulnerability.
+*   Review OpenClaw's command and tool policy to understand the scope of potential privileged behavior that could be triggered by room control commands.
+*   Deploy the Sigma rule `Detect OpenClaw Room Control Command Execution from Unauthorized DM User` to identify potential exploitation attempts.
+*   Monitor OpenClaw logs for unexpected room control command executions, particularly those originating from users with only DM pairing-store entries.
