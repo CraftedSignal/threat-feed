@@ -24,6 +24,17 @@ references:
   - https://vuldb.com/vuln/358202
   - https://vuldb.com/vuln/358202/cti
   - https://vulnplus-note.wetolink.com/share/JyHBnRUaoOY2
+iocs:
+  - type: url
+    value: https://vuldb.com/submit/789981
+  - type: url
+    value: https://vuldb.com/vuln/358202
+  - type: url
+    value: https://vuldb.com/vuln/358202/cti
+  - type: url
+    value: https://vulnplus-note.wetolink.com/share/JyHBnRUaoOY2
+  - type: email
+    value: '[email&#160;protected]'
 ioc_counts:
   email: 1
   url: 4
@@ -53,4 +64,26 @@ rules:
 rules_count: 2
 ---
 
-A path traversal vulnerability, identified as CVE-2026-6568, affects kodcloud KodExplorer up to version 4.52. The vulnerability resides within the `share.class.php::initShareOld` function in the `/app/controller/share.class.php` file, a part of the Public Share Handler component. An attacker can exploit this flaw by manipulating the `path` argument, leading to unauthorized access to files and directories outside of the intended share path. Public exploit code is available, increasing the risk…
+A path traversal vulnerability, identified as CVE-2026-6568, affects kodcloud KodExplorer up to version 4.52. The vulnerability resides within the `share.class.php::initShareOld` function in the `/app/controller/share.class.php` file, a part of the Public Share Handler component. An attacker can exploit this flaw by manipulating the `path` argument, leading to unauthorized access to files and directories outside of the intended share path. Public exploit code is available, increasing the risk of active exploitation. The vendor was notified, but has not responded.
+
+## Attack Chain
+
+1.  An attacker identifies a KodExplorer instance running version 4.52 or earlier.
+2.  The attacker crafts a malicious HTTP request targeting the `/app/controller/share.class.php` endpoint.
+3.  The request includes a manipulated `path` argument designed to traverse directories outside the intended share path (e.g., `../../../../etc/passwd`).
+4.  The `share.class.php::initShareOld` function processes the request without proper sanitization of the `path` argument.
+5.  The application attempts to access the file specified by the attacker-controlled path.
+6.  If successful, the application reads and potentially displays the contents of the targeted file (e.g., `/etc/passwd`) to the attacker.
+7.  The attacker analyzes the retrieved information to gather sensitive data, such as usernames, system configurations, or database credentials.
+8.  The attacker leverages the compromised information to further compromise the system or gain access to other sensitive resources.
+
+## Impact
+
+Successful exploitation of CVE-2026-6568 can allow an unauthenticated remote attacker to read arbitrary files on the KodExplorer server. This may lead to the disclosure of sensitive information such as configuration files, user credentials, or source code. The vulnerability poses a significant risk to organizations using affected versions of KodExplorer. The number of potential victims is unknown, but it is likely to affect any organization using the vulnerable software.
+
+## Recommendation
+
+*   Apply input validation to the `path` parameter within the `share.class.php::initShareOld` function to prevent path traversal (reference CVE-2026-6568).
+*   Deploy the Sigma rule "Detect KodExplorer Path Traversal Attempt" to identify malicious requests targeting the vulnerable endpoint.
+*   Monitor web server logs for suspicious requests containing path traversal sequences (e.g., "../", "..\", "%2e%2e/").
+*   Block access to the malicious URLs listed in the IOC table at the network perimeter.
