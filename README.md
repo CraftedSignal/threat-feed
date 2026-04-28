@@ -5,10 +5,12 @@ Commercial threat intelligence feed for the CraftedSignal platform. Translates t
 ## Structure
 
 ```
-briefs/          YAML threat brief source files
+briefs/          YAML threat brief source files (cleartext, gitignored)
 cmd/feedgen/     Compiler that builds encrypted feed bundles
+cmd/notifier/    Cloud Run service: public alert subscriptions
 internal/        Compiler internals (loader, encryption, types)
-output/          Compiled bundle output
+output/          Compiled bundle output (encrypted)
+site/            Hugo source for feed.craftedsignal.io
 ```
 
 ## Brief format
@@ -27,24 +29,33 @@ Each YAML file in `briefs/` is a self-contained threat brief:
 Each brief is the source for two artifacts:
 
 1. **Encrypted bundle** — the full brief, AES-256-GCM encrypted, consumed by the CraftedSignal platform.
-2. **Public summary** (planned) — a metadata-only derivative consumed by craftedsignal.io for browsing, RSS, and search.
+2. **Public Markdown** — a redacted derivative published at [feed.craftedsignal.io](https://feed.craftedsignal.io). One Markdown file per brief, written by `ti-bot`'s publisher into `site/content/briefs/`. Hugo builds and deploys via the `Site Deploy` workflow.
 
-### Public summary fields
+### Public surface
 
-The public summary includes:
+The public derivative includes:
 
-- `slug`, `title`, `summary`, `severity`, `threat_actor`, `published_at`
+- `slug`, `title`, `description` (the summary), `published_at`
+- `type` (threat / coverage / advisory / rumour) and `severity` (critical → low; rumour for unverified)
 - `tags`, `references`
-- MITRE ATT&CK mappings (`ttps[]`)
+- `actors`, `vendors`, `products`, `affected_os`
+- `exploited` (true when active exploitation observed)
+- MITRE ATT&CK mappings (`mitre_ttps[]`)
 - CVE references (`cves[]`: id, EPSS, CVSS, KEV)
-- Affected vendors / products / operating systems
-- The first paragraph of `content` (~500 characters)
+- The full `content` body (rendered by Hugo)
 - Per-rule metadata: title, description, platform, severity, MITRE tactics/techniques, data sources
-- IOC counts by type
+- IOCs (type + value) and aggregate `ioc_counts`
 
-Detection rule queries, rule tests, IOC values, and the full body of `content` are not included in the public summary.
+The redacted fields — never included in the public output:
 
-Brief authors should write `summary` and the opening of `content` assuming they will be publicly indexed.
+- Detection rule **queries** (the operational logic)
+- Rule **tests** (real TTP samples)
+- Internal **priority scoring** fields
+- Anything outside the whitelisted set above
+
+Brief authors should write `summary` and `content` assuming everything except the explicitly-withheld fields above is publicly indexable.
+
+Subscribers can filter the public feed by any of the published fields and receive matching briefs by email, Slack, or Microsoft Teams via the [subscription form](https://feed.craftedsignal.io/subscribe/) (`cmd/notifier/`).
 
 ## Build
 
