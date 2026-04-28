@@ -3,6 +3,9 @@ title: Webkul Krayin CRM SSRF Vulnerability (CVE-2026-38527)
 slug: 2026-04-krayin-crm-ssrf
 description: A Server-Side Request Forgery (SSRF) vulnerability in Webkul Krayin CRM v2.2.x allows attackers to scan internal resources by sending a crafted POST request to the /settings/webhooks/create endpoint.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
