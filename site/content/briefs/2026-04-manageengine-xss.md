@@ -50,4 +50,25 @@ rules:
 rules_count: 2
 ---
 
-Zohocorp ManageEngine Exchange Reporter Plus versions prior to 5802 are susceptible to a Stored Cross-Site Scripting (XSS) vulnerability within the Distribution Lists report. This flaw allows an attacker with low privileges to inject malicious JavaScript code into the report. When other users view the compromised report, the injected script executes, potentially leading to session hijacking, sensitive data theft, or unauthorized administrative actions. The vulnerability stems from insufficient…
+Zohocorp ManageEngine Exchange Reporter Plus versions prior to 5802 are susceptible to a Stored Cross-Site Scripting (XSS) vulnerability within the Distribution Lists report. This flaw allows an attacker with low privileges to inject malicious JavaScript code into the report. When other users view the compromised report, the injected script executes, potentially leading to session hijacking, sensitive data theft, or unauthorized administrative actions. The vulnerability stems from insufficient input sanitization when generating the Distribution Lists report, a feature within the Exchange Reporter Plus application designed to provide insights into Exchange environments.
+
+## Attack Chain
+
+1. Attacker authenticates to ManageEngine Exchange Reporter Plus with low-privilege credentials.
+2. Attacker navigates to the Distribution Lists report generation page.
+3. Attacker crafts a malicious payload containing JavaScript code designed to execute upon rendering. This payload is injected via a field that contributes to the report.
+4. The application stores the malicious payload without proper sanitization within the Distribution Lists report data.
+5. A privileged user views the Distribution Lists report through the web interface.
+6. The stored malicious JavaScript payload is rendered within the user's browser.
+7. The script executes within the context of the user's session, potentially stealing cookies or other sensitive information.
+8. The attacker leverages the stolen credentials or session to perform unauthorized actions within the ManageEngine Exchange Reporter Plus application, such as accessing sensitive reports or modifying configurations.
+
+## Impact
+
+Successful exploitation of this Stored XSS vulnerability allows an attacker to compromise user accounts and potentially gain administrative access to the ManageEngine Exchange Reporter Plus application. This can lead to unauthorized access to sensitive Exchange environment data, including email addresses, distribution list memberships, and other configuration details. Given the broad adoption of ManageEngine products, this vulnerability could impact numerous organizations relying on Exchange Reporter Plus for monitoring and reporting. The impact is magnified because the injected script is stored, affecting multiple users who view the compromised report.
+
+## Recommendation
+
+*   Upgrade ManageEngine Exchange Reporter Plus to version 5802 or later to patch CVE-2026-28754.
+*   Deploy the Sigma rule `Detect Suspicious URI Access to Distribution List Reports` to identify potential exploitation attempts.
+*   Implement input validation and sanitization on the Distribution Lists report generation page to prevent the injection of malicious scripts.
