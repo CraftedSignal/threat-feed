@@ -90,4 +90,27 @@ rules:
 rules_count: 3
 ---
 
-This detection rule identifies the execution of Windows scripts that have been downloaded from the internet. Attackers often use scripting languages like PowerShell, VBScript, and JavaScript for initial access and execution within a compromised environment. They may download these scripts through web browsers or file utilities and then execute them using scripting engines such as `wscript.exe`, `cscript.exe`, or `mshta.exe`. This activity often bypasses traditional security controls, making it…
+This detection rule identifies the execution of Windows scripts that have been downloaded from the internet. Attackers often use scripting languages like PowerShell, VBScript, and JavaScript for initial access and execution within a compromised environment. They may download these scripts through web browsers or file utilities and then execute them using scripting engines such as `wscript.exe`, `cscript.exe`, or `mshta.exe`. This activity often bypasses traditional security controls, making it crucial for defenders to monitor for such behavior. The rule focuses on detecting unusual parent-child process relationships, where a browser downloads a script file, and a scripting engine subsequently executes it. This behavior is detected by monitoring file creation events from browsers and the subsequent execution of those files by scripting utilities.
+
+## Attack Chain
+
+1. A user browses to a malicious website or opens a compromised document.
+2. The web browser (e.g., `chrome.exe`, `msedge.exe`) downloads a script file (e.g., `.js`, `.vbs`, `.ps1`) from a remote server. The downloaded file often has a recognizable origin URL or referrer URL.
+3. The downloaded script is saved to the user's Downloads folder or another temporary directory.
+4. The user, either unknowingly or through social engineering, executes the downloaded script.
+5. A scripting engine (e.g., `wscript.exe`, `cscript.exe`, `powershell.exe`) is launched to interpret and run the script. The process arguments contain the path to the downloaded script.
+6. The script performs malicious actions, such as downloading additional payloads, modifying system settings, or establishing a reverse shell.
+7. The script may attempt to elevate privileges or propagate to other systems on the network.
+8. The attacker achieves their objective, such as data exfiltration, ransomware deployment, or establishing persistent access.
+
+## Impact
+
+A successful attack can lead to a wide range of consequences, including malware infection, data theft, and system compromise. By using scripting languages, attackers can bypass application whitelisting and other security controls, making it difficult to detect and prevent the attack. The compromised system can then be used as a foothold for further attacks within the organization. A successful execution of a malicious script can lead to complete system compromise, potentially impacting all business operations reliant on that system.
+
+## Recommendation
+
+*   Enable process monitoring with command-line arguments to capture the execution of scripting engines and their associated scripts.
+*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment to detect suspicious script execution.
+*   Implement application whitelisting to restrict the execution of unauthorized scripts and scripting utilities.
+*   Review and analyze the parent-child process relationships to identify unusual process execution patterns as described in the Attack Chain.
+*   Monitor file creation events from web browsers for script files originating from external URLs.
