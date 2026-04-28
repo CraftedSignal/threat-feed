@@ -53,4 +53,25 @@ rules:
 rules_count: 2
 ---
 
-Xerte Online Toolkits, a web-based open-source e-learning content creation platform, is vulnerable to a critical remote code execution vulnerability (CVE-2026-34413) affecting versions 3.15 and earlier. The vulnerability lies within the elFinder connector endpoint at `/editor/elfinder/php/connector.php`, which lacks proper authentication. This allows unauthenticated attackers to bypass intended access controls and directly interact with the file management system. Attackers can leverage this…
+Xerte Online Toolkits, a web-based open-source e-learning content creation platform, is vulnerable to a critical remote code execution vulnerability (CVE-2026-34413) affecting versions 3.15 and earlier. The vulnerability lies within the elFinder connector endpoint at `/editor/elfinder/php/connector.php`, which lacks proper authentication. This allows unauthenticated attackers to bypass intended access controls and directly interact with the file management system. Attackers can leverage this flaw to perform unauthorized file operations, including creating, uploading, renaming, duplicating, overwriting, and deleting files within project media directories. This can be chained with path traversal and extension blocklist bypass vulnerabilities to ultimately achieve remote code execution and arbitrary file read on the affected server.
+
+## Attack Chain
+
+1. An unauthenticated attacker sends a malicious HTTP request to `/editor/elfinder/php/connector.php` targeting the elFinder file manager.
+2. Due to the missing authentication check, the server processes the request without validating the user's identity.
+3. The attacker leverages the file operation functionalities (create, upload, rename, duplicate, overwrite, delete) of elFinder.
+4. The attacker exploits a path traversal vulnerability to navigate outside the intended media directory.
+5. The attacker uploads a malicious PHP file with a bypassed extension filter (e.g., using double extensions or null byte injection).
+6. The attacker renames the uploaded file to a valid PHP extension (e.g., `.php`).
+7. The attacker sends an HTTP request to the renamed PHP file, triggering server-side execution.
+8. The attacker achieves remote code execution on the server, allowing for arbitrary system commands and data access.
+
+## Impact
+
+Successful exploitation of this vulnerability grants unauthenticated attackers the ability to execute arbitrary code on the Xerte Online Toolkits server. This can lead to complete system compromise, data theft, defacement of the learning platform, and denial of service. The severity is high due to the ease of exploitation and the potential for widespread impact across educational institutions and organizations utilizing Xerte Online Toolkits for e-learning content delivery.
+
+## Recommendation
+
+*   Apply the latest security patches or upgrade to a version of Xerte Online Toolkits greater than 3.15 to address CVE-2026-34413.
+*   Implement the Sigma rule `Detect Unauthenticated elFinder Connector Access` to identify unauthorized access attempts to the vulnerable endpoint.
+*   Review and harden file upload policies to prevent the upload of potentially malicious file types, mitigating the risk of chained exploitation.
