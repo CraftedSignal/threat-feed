@@ -1,77 +1,74 @@
 ---
-title: Vehicle Showroom Management System SQL Injection Vulnerability (CVE-2026-6038)
+title: Vehicle Showroom Management System SQL Injection Vulnerability (CVE-2026-6152)
 slug: 2026-04-vehicle-showroom-sql-injection
-description: A remote SQL injection vulnerability (CVE-2026-6038) exists in the code-projects Vehicle Showroom Management System 1.0, specifically affecting the /util/RegisterCustomerFunction.php file by manipulating the BRANCH_ID argument.
-date: "2026-04-10T09:20:18Z"
+description: A remote SQL injection vulnerability exists in code-projects Vehicle Showroom Management System 1.0 due to improper handling of the STAFF_ID parameter in /util/StaffAddingFunction.php, potentially allowing attackers to execute arbitrary SQL commands.
+date: "2026-04-13T03:16:03Z"
 severities:
   - high
 tags:
-  - cve-2026-6038
   - sql-injection
   - web-application
+  - vulnerability
 mitre_ttps:
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1595
-    technique_name: Active Scanning
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-6038
+  - id: CVE-2026-6152
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-6038
-  - https://vuldb.com/vuln/356619
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-6152
+  - https://code-projects.org/
+  - https://github.com/zheng-lv/CVE-/issues/3
+  - https://vuldb.com/vuln/357032
 rules:
-  - title: Detect SQL Injection Attempt via BRANCH_ID Parameter
-    description: Detects potential SQL injection attempts targeting the BRANCH_ID parameter in the /util/RegisterCustomerFunction.php file.
+  - title: Detect SQL Injection Attempt in Vehicle Showroom Management System
+    description: Detects potential SQL injection attempts targeting the /util/StaffAddingFunction.php file in Vehicle Showroom Management System via the STAFF_ID parameter.
     platform: sigma
     severity: high
     tactics:
-      - injection
+      - initial_access
     techniques:
-      - T1505
+      - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect Direct Access to RegisterCustomerFunction.php
-    description: Detects direct access attempts to the RegisterCustomerFunction.php file, which may indicate reconnaissance or exploit attempts.
+  - title: Detect Exploitation via GitHub Public Exploit URL
+    description: Detects requests coming from GitHub to the vehicle showroom exploit code.
     platform: sigma
     severity: medium
     tactics:
-      - reconnaissance
+      - initial_access
     techniques:
-      - T1595
+      - T1190
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A SQL injection vulnerability, identified as CVE-2026-6038, has been discovered in version 1.0 of the code-projects Vehicle Showroom Management System. This vulnerability resides within the `/util/RegisterCustomerFunction.php` file, and can be exploited by manipulating the `BRANCH_ID` argument. The vulnerability allows for remote exploitation, meaning an attacker does not need local access to the system. Publicly available exploit code exists, increasing the likelihood of exploitation. Successful exploitation could allow an attacker to read, modify, or delete sensitive data within the application's database. This vulnerability was published on 2026-04-10.
+CVE-2026-6152 details a critical SQL injection vulnerability within version 1.0 of the code-projects Vehicle Showroom Management System. The flaw resides in the `/util/StaffAddingFunction.php` file and is triggered by manipulating the `STAFF_ID` parameter. Publicly disclosed exploits exist, meaning unauthenticated remote attackers can leverage this vulnerability to inject malicious SQL queries into the application's database. Successful exploitation could lead to unauthorized data access, modification, or deletion, compromising the integrity and confidentiality of the Vehicle Showroom Management System. This is especially concerning given the sensitive information typically stored within such systems, including customer data, vehicle inventory, and financial records. Defenders need to prioritize patching or implementing mitigations to prevent potential exploitation.
 
 ## Attack Chain
 
-1.  Attacker identifies a vulnerable instance of Vehicle Showroom Management System 1.0.
-2.  Attacker crafts a malicious HTTP request targeting `/util/RegisterCustomerFunction.php`.
-3.  The crafted request includes a SQL injection payload within the `BRANCH_ID` parameter.
-4.  The application fails to properly sanitize the `BRANCH_ID` input.
+1.  An attacker identifies an instance of Vehicle Showroom Management System 1.0 exposed to the internet.
+2.  The attacker crafts a malicious HTTP request targeting `/util/StaffAddingFunction.php`.
+3.  The crafted request includes a manipulated `STAFF_ID` parameter containing SQL injection payload.
+4.  The application fails to properly sanitize the `STAFF_ID` input.
 5.  The unsanitized input is incorporated into a SQL query executed by the application.
-6.  The SQL injection payload manipulates the query to extract sensitive data or modify database records.
-7.  The application returns the results of the manipulated query to the attacker.
+6.  The injected SQL code is executed by the database server.
+7.  The attacker gains unauthorized access to sensitive data stored within the database, potentially including user credentials, financial information, or vehicle details.
+8.  The attacker exfiltrates sensitive data or modifies database records to further compromise the system.
 
 ## Impact
 
-Successful exploitation of CVE-2026-6038 can lead to unauthorized access to the Vehicle Showroom Management System's database. This could result in the disclosure of sensitive customer information (names, addresses, financial details), modification of vehicle inventory data, or even complete compromise of the application's data integrity. The impact would depend on the level of privileges the application's database user has and the attacker's objectives, but it is a high-severity vulnerability due to the ease of exploitation and potential for significant data breach or manipulation.
+Successful exploitation of this SQL injection vulnerability (CVE-2026-6152) in Vehicle Showroom Management System 1.0 allows unauthenticated remote attackers to execute arbitrary SQL queries. This can lead to the theft of sensitive customer data, modification of vehicle inventory records, or complete compromise of the application and its underlying database. The impact ranges from data breaches and financial losses to reputational damage. Given the publicly available exploit code, organizations using the vulnerable software are at significant risk of attack. The number of potential victims is unknown, but any organization using Vehicle Showroom Management System 1.0 is vulnerable.
 
 ## Recommendation
 
-*   Inspect web server logs for suspicious POST requests to `/util/RegisterCustomerFunction.php` containing unusual characters or SQL keywords in the `BRANCH_ID` parameter using the Sigma rule "Detect SQL Injection Attempt via BRANCH_ID Parameter".
-*   Apply input validation and sanitization to the `BRANCH_ID` parameter within the `/util/RegisterCustomerFunction.php` file to prevent SQL injection.
-*   Monitor database logs for anomalous queries originating from the Vehicle Showroom Management System's application user.
+*   Apply any available patches or updates for Vehicle Showroom Management System 1.0 from code-projects to remediate CVE-2026-6152.
+*   Implement input validation and sanitization measures on the `/util/StaffAddingFunction.php` file, specifically for the `STAFF_ID` parameter, to prevent SQL injection attacks.
+*   Deploy the provided Sigma rule to detect exploitation attempts targeting `/util/StaffAddingFunction.php` based on suspicious characters in the STAFF_ID parameter.
+*   Monitor web server logs for unusual activity, specifically requests to `/util/StaffAddingFunction.php` with suspicious characters in the `STAFF_ID` parameter.
+*   Consider using a web application firewall (WAF) to filter malicious requests targeting this vulnerability and block requests matching the patterns identified in the Sigma rules.
