@@ -1,85 +1,77 @@
 ---
-title: OpenClaw Premature Cite Expansion Vulnerability (CVE-2026-35637)
+title: OpenClaw Authentication Bypass in Remote Onboarding
 slug: 2026-04-openclaw-auth-bypass
-description: OpenClaw versions before 2026.3.22 are vulnerable to a timing issue where cite expansion occurs before channel and DM authorization checks, potentially allowing attackers to access or manipulate content before authorization.
-date: "2026-04-09T22:16:32Z"
+description: OpenClaw before 2026.3.28 contains an authentication bypass vulnerability (CVE-2026-41342) in the remote onboarding component, allowing attackers to spoof discovery endpoints and capture gateway credentials or traffic.
+date: "2024-01-03T12:00:00Z"
 severities:
-  - medium
+  - high
 tags:
-  - vulnerability
-  - authorization
-  - timing-attack
+  - authentication bypass
+  - remote onboarding
+  - credential theft
+  - cve-2026-41342
+vendors:
+  - openclaw
+products:
+  - openclaw
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
 cves:
-  - id: CVE-2026-35637
+  - id: CVE-2026-41342
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-35637
-  - https://github.com/openclaw/openclaw/commit/3cbf932413e41d1836cb91aed1541a28a3122f93
-  - https://github.com/openclaw/openclaw/commit/630f1479c44f78484dfa21bb407cbe6f171dac87
-  - https://github.com/openclaw/openclaw/commit/ebee4e2210e1f282a982c7ef2ad79d77a572fc87
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-vfg3-pqpq-93m4
-  - https://www.vulncheck.com/advisories/openclaw-premature-cite-expansion-before-authorization-in-channel-and-dm
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41342
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-3cw3-5vxw-g2h3
+  - https://www.vulncheck.com/advisories/openclaw-unauthenticated-discovery-endpoint-credential-exfiltration-via-remote-onboarding
 rules:
-  - title: Detect Potential OpenClaw Cite Expansion Bypass
-    description: Detects potential attempts to exploit the OpenClaw cite expansion vulnerability by monitoring for cite expansion events occurring before authorization checks.
+  - title: Detect Connection to Suspicious Onboarding Discovery Endpoint
+    description: Detects connections to unusual or potentially malicious discovery endpoints during remote onboarding, indicating possible spoofing attempts related to CVE-2026-41342.
     platform: sigma
     severity: medium
     tactics:
-      - defense_evasion
-      - privilege_escalation
+      - credential_access
+      - initial_access
     techniques:
-      - T1068
+      - T1189
     data_sources:
-      - webserver
-      - linux
-  - title: Detect OpenClaw Content Modification After Cite Expansion
-    description: Detects suspicious content modification events in OpenClaw after cite expansion, which might indicate exploitation of the authorization bypass vulnerability.
+      - network_connection
+      - windows
+  - title: Detect OpenClaw Process Connecting to Non-Standard Ports
+    description: This rule identifies OpenClaw processes establishing network connections to ports commonly associated with malicious activity, potentially indicating exploitation or command and control.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
-      - defense_evasion
-      - privilege_escalation
+      - command_and_control
     techniques:
-      - T1068
+      - T1071
     data_sources:
-      - webserver
-      - linux
+      - network_connection
+      - windows
 rules_count: 2
 ---
 
-OpenClaw, in versions prior to 2026.3.22, suffers from a critical vulnerability related to the order of operations during cite expansion. Specifically, the application performs cite expansion before completing channel and Direct Message (DM) authorization checks. This timing issue allows attackers to potentially bypass authorization controls and interact with content that should otherwise be restricted. The vulnerability, identified as CVE-2026-35637, poses a risk of unauthorized access and data manipulation within OpenClaw environments. This is a significant concern as it undermines the intended security model of the application, potentially exposing sensitive information or enabling malicious actions through unauthorized content handling.
+OpenClaw, a software solution, is vulnerable to an authentication bypass flaw in versions prior to 2026.3.28. Specifically, the remote onboarding component persists unauthenticated discovery endpoints without requiring explicit trust confirmation. This vulnerability, identified as CVE-2026-41342, enables a threat actor to spoof legitimate discovery endpoints. By doing so, attackers can redirect the onboarding process toward malicious gateways under their control. This redirection allows the attacker to intercept and capture gateway credentials or monitor sensitive network traffic. This is a critical vulnerability because successful exploitation allows an attacker to gain unauthorized access to a target system and potentially escalate privileges.
 
 ## Attack Chain
 
-1.  An attacker sends a specially crafted message containing a cite to a channel or DM.
-2.  OpenClaw receives the message and initiates the cite expansion process.
-3.  Due to the vulnerability, cite expansion is performed before authorization checks.
-4.  The attacker exploits the timing window to access or manipulate the content related to the cite.
-5.  OpenClaw proceeds with authorization checks, but the attacker has already gained unauthorized access.
-6.  The attacker potentially escalates privileges by manipulating the accessed content.
-7.  The attacker evades detection by operating within the authorized user's session context.
+1.  Attacker identifies a vulnerable OpenClaw instance running a version before 2026.3.28.
+2.  The attacker spoofs a legitimate discovery endpoint using a malicious server.
+3.  A new or existing user attempts to onboard remotely through the OpenClaw application.
+4.  The application, lacking proper authentication checks, connects to the attacker's spoofed discovery endpoint.
+5.  The spoofed endpoint redirects the onboarding process to a malicious gateway controlled by the attacker.
+6.  The user unknowingly provides their gateway credentials to the malicious gateway.
+7.  The attacker captures the user's gateway credentials or intercepts subsequent network traffic.
+8.  The attacker leverages the stolen credentials to gain unauthorized access to the OpenClaw system or other related resources.
 
 ## Impact
 
-Successful exploitation of CVE-2026-35637 can lead to unauthorized access to sensitive information within OpenClaw channels and DMs. An attacker could potentially manipulate content, escalate privileges, or perform other malicious actions due to the bypassed authorization checks. The number of affected installations is unknown, but any OpenClaw deployment running a version prior to 2026.3.22 is vulnerable. The vulnerability has a CVSS v3.1 score of 7.3, indicating a high severity level.
+Successful exploitation of CVE-2026-41342 can lead to credential compromise and unauthorized access to sensitive systems and data. An attacker who successfully spoofs a discovery endpoint can steal gateway credentials, enabling them to impersonate legitimate users and perform malicious actions within the OpenClaw environment. The impact is significant for organizations relying on OpenClaw for secure remote onboarding, potentially leading to data breaches, service disruption, and reputational damage.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.3.22 or later to patch the vulnerability (CVE-2026-35637).
-*   Monitor OpenClaw application logs for unexpected cite expansion activity, focusing on discrepancies between authorization events and cite processing (review application logs).
-*   Deploy the provided Sigma rule to detect suspicious message handling and content manipulation within OpenClaw that may indicate exploitation of this vulnerability (Sigma rule provided below).
-*   Implement input validation and sanitization measures to prevent attackers from crafting malicious cite requests.
+*   Upgrade OpenClaw to version 2026.3.28 or later to patch CVE-2026-41342 and mitigate the authentication bypass vulnerability.
+*   Implement network monitoring to detect and alert on connections to unexpected or untrusted discovery endpoints. Consider deploying a network connection rule like the one below to detect suspicious connections during onboarding.
+*   Review and strengthen the onboarding process to include multi-factor authentication and explicit trust confirmation for discovery endpoints.
