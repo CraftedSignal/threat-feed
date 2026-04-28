@@ -54,4 +54,27 @@ rules:
 rules_count: 2
 ---
 
-A prototype pollution vulnerability, identified as CVE-2026-6594, affects brikcss merge versions up to 1.3.0. This vulnerability allows a remote attacker to manipulate the __proto__/constructor.prototype/prototype argument, leading to the modification of object prototype attributes. The vendor was notified, but did not respond. Successful exploitation can lead to denial of service, code injection, or other unintended behaviors in applications using the affected library. Prototype pollution…
+A prototype pollution vulnerability, identified as CVE-2026-6594, affects brikcss merge versions up to 1.3.0. This vulnerability allows a remote attacker to manipulate the __proto__/constructor.prototype/prototype argument, leading to the modification of object prototype attributes. The vendor was notified, but did not respond. Successful exploitation can lead to denial of service, code injection, or other unintended behaviors in applications using the affected library. Prototype pollution vulnerabilities are particularly concerning as they can have widespread effects, potentially impacting multiple parts of an application or even other applications sharing the same JavaScript runtime.
+
+## Attack Chain
+
+1.  Attacker identifies a vulnerable endpoint in an application using brikcss merge <= 1.3.0.
+2.  The attacker crafts a malicious payload containing a `__proto__`, `constructor.prototype`, or `prototype` property.
+3.  The malicious payload is sent to the vulnerable endpoint, often as part of a JSON object within a POST request.
+4.  The brikcss merge function processes the payload without proper sanitization or input validation.
+5.  The `__proto__` property is used to modify the prototype of JavaScript objects.
+6.  The prototype modification injects malicious properties or methods into all objects inheriting from the modified prototype.
+7.  The application executes code that relies on the now-polluted prototype.
+8.  This leads to unexpected behavior, such as arbitrary code execution, denial-of-service, or information disclosure.
+
+## Impact
+
+Successful exploitation of CVE-2026-6594 can lead to a variety of impacts, including denial of service, arbitrary code execution, and information disclosure. Since the vulnerability allows for modification of object prototypes, the impact can be widespread, affecting multiple parts of an application and potentially other applications. The number of affected applications is currently unknown, but any application using a vulnerable version of brikcss merge is potentially at risk.
+
+## Recommendation
+
+*   Upgrade brikcss merge to a patched version or remove the library entirely from your project to remediate CVE-2026-6594.
+*   Deploy the Sigma rule "Detect Prototype Pollution via HTTP Request" to detect exploitation attempts targeting web applications that use brikcss merge.
+*   Implement input validation and sanitization on all user-supplied data processed by brikcss merge to prevent malicious payloads from being processed.
+*   Review and audit code that uses brikcss merge to identify potential vulnerable code paths.
+*   Monitor web server logs for requests containing `__proto__`, `constructor.prototype`, or `prototype` parameters in the request body as described in the attack chain.
