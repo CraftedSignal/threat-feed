@@ -21,6 +21,9 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6066
   - https://www.connectwise.com/company/trust/security-bulletins/2026-04-20-connectwise-automate-bulletin
+iocs:
+  - type: url
+    value: https://www.connectwise.com/company/trust/security-bulletins/2026-04-20-connectwise-automate-bulletin
 ioc_counts:
   url: 1
 rules:
@@ -50,4 +53,25 @@ rules:
 rules_count: 2
 ---
 
-ConnectWise Automate is a remote monitoring and management (RMM) platform used by managed service providers (MSPs). CVE-2026-6066 describes a vulnerability in the ConnectWise Automate Solution Center where specific client-to-server communications may occur without transport-layer encryption. An attacker positioned on the network could intercept sensitive data transmitted in cleartext. This vulnerability was disclosed on April 20, 2026, and affects ConnectWise Automate versions prior to 2026.4…
+ConnectWise Automate is a remote monitoring and management (RMM) platform used by managed service providers (MSPs). CVE-2026-6066 describes a vulnerability in the ConnectWise Automate Solution Center where specific client-to-server communications may occur without transport-layer encryption. An attacker positioned on the network could intercept sensitive data transmitted in cleartext. This vulnerability was disclosed on April 20, 2026, and affects ConnectWise Automate versions prior to 2026.4. Successful exploitation allows an attacker to potentially gain access to credentials, configuration details, and other sensitive information related to the managed clients. The vulnerability has been resolved in Automate 2026.4 by enforcing secure communication for affected Solution Center connections.
+
+## Attack Chain
+
+1. Attacker gains network access to a ConnectWise Automate deployment.
+2. Attacker passively monitors network traffic for communications between Automate clients and the Solution Center.
+3. Attacker identifies vulnerable client-to-server communications occurring without transport-layer encryption.
+4. Attacker intercepts the cleartext network traffic using a packet capture tool such as Wireshark or tcpdump.
+5. Attacker analyzes the intercepted traffic to identify sensitive information such as credentials or configuration data.
+6. Attacker uses the acquired credentials to gain unauthorized access to managed systems or customer environments.
+7. Attacker leverages compromised systems for lateral movement within the network.
+
+## Impact
+
+Successful exploitation of CVE-2026-6066 can lead to the compromise of ConnectWise Automate deployments, potentially affecting hundreds or thousands of MSP clients. An attacker could intercept credentials, configuration data, and other sensitive information, leading to unauthorized access to managed systems. This could result in data breaches, ransomware attacks, and other malicious activities targeting MSP clients. The severity is amplified by the widespread use of ConnectWise Automate among MSPs and the potential for cascading effects across their customer base.
+
+## Recommendation
+
+*   Upgrade ConnectWise Automate to version 2026.4 or later to remediate CVE-2026-6066 as per the ConnectWise security bulletin ([https://www.connectwise.com/company/trust/security-bulletins/2026-04-20-connectwise-automate-bulletin](https://www.connectwise.com/company/trust/security-bulletins/2026-04-20-connectwise-automate-bulletin)).
+*   Implement network segmentation and monitoring to detect and prevent unauthorized network access and traffic interception.
+*   Deploy the Sigma rule for unencrypted ConnectWise Automate communication to identify potentially vulnerable connections.
+*   Review and enforce strong password policies and multi-factor authentication for all ConnectWise Automate accounts.
