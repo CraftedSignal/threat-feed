@@ -1,0 +1,40 @@
+# syntax=docker/dockerfile:1
+#
+# Build image for cmd/notifier — the public threat-feed alert
+# subscription Cloud Run service. Uses the same pattern as ti-bot:
+# native cross-compile outside the container, copy the binary into a
+# scratch image with CA certs + tzdata.
+#
+# Build (from threat-feed root):
+#
+#   GOOS=linux GOARCH=amd64 CGO_ENABLED=0 \
+#     go build -trimpath -ldflags="-w -s" -o feed-notifier ./cmd/notifier/
+#   podman build --platform linux/amd64 -f Dockerfile.notifier \
+#     -t europe-west1-docker.pkg.dev/craftedsignal-shared/craftedsignal/feed-notifier:latest .
+
+FROM alpine:3.21 AS certs
+
+RUN apk add --no-cache ca-certificates tzdata && \
+    mkdir -p /scratch/etc/ssl/certs && \
+    cp /etc/ssl/certs/ca-certificates.crt /scratch/etc/ssl/certs/ && \
+    mkdir -p /scratch/usr/share && \
+    cp -r /usr/share/zoneinfo /scratch/usr/share/ && \
+    echo "notifier:x:1000:1000::/app:/sbin/nologin" > /scratch/etc/passwd && \
+    echo "notifier:x:1000:" > /scratch/etc/group
+
+FROM scratch
+
+LABEL org.opencontainers.image.source="https://github.com/CraftedSignal/threat-feed"
+
+COPY --from=certs /scratch/usr/share/zoneinfo /usr/share/zoneinfo
+COPY --from=certs /scratch/etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=certs /scratch/etc/passwd /etc/passwd
+COPY --from=certs /scratch/etc/group /etc/group
+
+COPY --chmod=755 feed-notifier /app/feed-notifier
+
+USER 1000:1000
+
+EXPOSE 8080
+
+ENTRYPOINT ["/app/feed-notifier"]
