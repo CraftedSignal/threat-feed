@@ -3,6 +3,9 @@ title: Windows Storage Spaces Controller Out-of-Bounds Read Privilege Escalation
 slug: 2026-04-windows-storage-spaces-privesc
 description: CVE-2026-32076 is an out-of-bounds read vulnerability in the Windows Storage Spaces Controller that allows an authorized local attacker to elevate privileges.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
