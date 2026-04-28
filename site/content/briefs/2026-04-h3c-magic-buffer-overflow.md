@@ -3,6 +3,9 @@ title: H3C Magic B0 Router Buffer Overflow Vulnerability (CVE-2026-6560)
 slug: 2026-04-h3c-magic-buffer-overflow
 description: A buffer overflow vulnerability (CVE-2026-6560) in H3C Magic B0 up to 100R002 allows remote attackers to execute arbitrary code by manipulating the 'param' argument in the Edit_BasicSSID function of the /goform/aspForm file.
 date: "2026-04-19T07:16:05Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
