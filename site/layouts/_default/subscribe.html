@@ -1,0 +1,23 @@
+{{ define "main" }}
+<article class="px-4 md:px-0 py-10">
+  <div class="max-w-6xl mx-auto space-y-6">
+    <header class="space-y-2">
+      <h1 class="font-display text-3xl md:text-4xl font-semibold">{{ .Title }}</h1>
+      {{ with .Description }}<p class="text-muted">{{ . }}</p>{{ end }}
+    </header>
+    <div class="prose-feed">{{ .Content }}</div>
+  </div>
+</article>
+
+{{ if .Site.Params.notifierURL }}
+<script>
+  window.__NOTIFIER_URL__ = {{ .Site.Params.notifierURL | jsonify }};
+  window.__RECAPTCHA_SITE_KEY__ = {{ .Site.Params.recaptchaSiteKey | jsonify }};
+</script>
+{{ if .Site.Params.recaptchaSiteKey }}
+<script src="https://www.google.com/recaptcha/enterprise.js?render={{ .Site.Params.recaptchaSiteKey }}" async defer></script>
+{{ end }}
+{{ $sub := resources.Get "js/subscribe.js" | js.Build (dict "minify" true "target" "es2020") | fingerprint }}
+<script src="{{ $sub.RelPermalink }}" integrity="{{ $sub.Data.Integrity }}" crossorigin="anonymous" defer></script>
+{{ end }}
+{{ end }}

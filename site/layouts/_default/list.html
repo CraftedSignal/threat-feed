@@ -22,17 +22,57 @@
 
       {{ $terms := .Data.Terms.ByCount }}
       {{ if eq $taxonomy "severity" }}
-        {{/* Custom order for severity: critical → rumour */}}
+        {{/* Per-severity card: severity badge, total count, 30-day
+             sparkline of daily count drawn in the severity's color.
+             Whole card stays clickable. */}}
         {{ $order := slice "critical" "high" "medium" "low" "rumour" }}
+        {{ $window := 30 }}
+        {{ $cutoff := now.AddDate 0 0 (mul -1 $window) }}
+
+        {{/* Pre-aggregate per-day counts into a Scratch keyed by
+             "<severity>_YYYY-MM-DD" so each card's loop is O(window). */}}
+        {{ $scratch := newScratch }}
+        {{ $allRecent := where (where $.Site.RegularPages "Section" "briefs") "Date" "ge" $cutoff }}
+        {{ range $allRecent }}
+          {{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
+          {{ $day := .Date.Format "2006-01-02" }}
+          {{ $scratch.Add (printf "%s_%s" $sev $day) 1 }}
+        {{ end }}
+
         <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {{ range $order }}
             {{ $term := . }}
             {{ $page := $.Site.GetPage (printf "/%s/%s" $plural $term) }}
             {{ if $page }}
-            <a href="{{ $page.RelPermalink }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 p-4 hover:border-accent/40 transition">
-              <span class="sev-badge sev-{{ $term }}">{{ $term }}</span>
-              <span class="text-sm text-muted"><span class="font-mono text-text">{{ len $page.Pages }}</span> {{ if eq (len $page.Pages) 1 }}brief{{ else }}briefs{{ end }}</span>
-            </a>
+              {{/* Build sparkline points + find max for normalization */}}
+              {{ $maxN := 0 }}
+              {{ $counts := slice }}
+              {{ range $i := seq $window }}
+                {{ $offset := sub $window $i }}
+                {{ $day := (now.AddDate 0 0 (mul -1 $offset)).Format "2006-01-02" }}
+                {{ $n := $scratch.Get (printf "%s_%s" $term $day) | default 0 }}
+                {{ if gt $n $maxN }}{{ $maxN = $n }}{{ end }}
+                {{ $counts = $counts | append $n }}
+              {{ end }}
+              {{ $denom := math.Max $maxN 1 }}
+
+              <a href="{{ $page.RelPermalink }}" class="flex flex-col gap-3 rounded-xl border border-stroke bg-panel/60 p-4 hover:border-accent/40 transition">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="sev-badge sev-{{ $term }}">{{ $term }}</span>
+                  <span class="text-sm text-muted"><span class="font-mono text-text">{{ len $page.Pages }}</span> {{ if eq (len $page.Pages) 1 }}brief{{ else }}briefs{{ end }}</span>
+                </div>
+                {{/* Sparkline: 100×30 viewBox; one point per day. */}}
+                <svg viewBox="0 0 {{ sub $window 1 }} 30" class="w-full h-10" preserveAspectRatio="none" aria-hidden="true">
+                  {{/* Filled area under the line, faint */}}
+                  {{ $points := slice }}
+                  {{ range $i, $n := $counts }}
+                    {{ $x := $i }}
+                    {{ $y := sub 30 (div (mul $n 30.0) $denom) }}
+                    {{ $points = $points | append (printf "%d,%.2f" $x $y) }}
+                  {{ end }}
+                  <polyline class="text-sev-{{ $term }}" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" points="{{ delimit $points " " }}"/>
+                </svg>
+              </a>
             {{ end }}
           {{ end }}
         </div>

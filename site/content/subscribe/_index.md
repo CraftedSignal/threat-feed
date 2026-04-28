@@ -10,7 +10,7 @@ Pick a delivery channel and the filters you care about. We'll send a notificatio
 
 The simplest case — get every critical threat — is two clicks. Beyond that, every filter narrows the feed (filters AND across categories, OR within each).
 
-<form id="subscribe-form" class="space-y-6 my-8 not-prose" data-notifier-url="{{ .Site.Params.notifierURL }}">
+<form id="subscribe-form" class="space-y-6 my-8 not-prose">
 
   <fieldset class="rounded-xl border border-stroke bg-panel/60 p-5 space-y-3">
     <legend class="text-xs font-mono uppercase tracking-[0.14em] text-muted px-2">Channel</legend>
