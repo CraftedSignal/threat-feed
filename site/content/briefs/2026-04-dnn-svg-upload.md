@@ -3,6 +3,9 @@ title: DNN (DotNetNuke) SVG Upload Vulnerability (CVE-2026-40321)
 slug: 2026-04-dnn-svg-upload
 description: DNN (formerly DotNetNuke) before 10.2.2 is vulnerable to stored cross-site scripting (XSS) via malicious SVG file uploads, potentially leading to account takeover and arbitrary code execution.
 date: "2026-04-18T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
