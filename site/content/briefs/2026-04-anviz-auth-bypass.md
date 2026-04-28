@@ -3,6 +3,9 @@ title: Anviz CX2 Lite and CX7 Unauthenticated Debug Setting Modification
 slug: 2026-04-anviz-auth-bypass
 description: Anviz CX2 Lite and CX7 devices are vulnerable to unauthenticated POST requests that allow modification of debug settings such as enabling SSH, leading to unauthorized state changes and potential compromise.
 date: "2026-04-17T20:16:36Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
