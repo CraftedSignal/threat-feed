@@ -3,6 +3,9 @@ title: Firebird Path Traversal Vulnerability Leads to Code Execution (CVE-2026-4
 slug: 2026-04-firebird-path-traversal
 description: An authenticated user with CREATE FUNCTION privileges can exploit a path traversal vulnerability in Firebird versions prior to 5.0.4, 4.0.7, and 3.0.14, to load an arbitrary shared library leading to code execution as the server's OS account.
 date: "2026-04-17T20:16:35Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
