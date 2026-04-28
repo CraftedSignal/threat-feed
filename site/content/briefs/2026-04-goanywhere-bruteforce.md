@@ -3,6 +3,9 @@ title: Fortra GoAnywhere MFT SSH Key Brute-Force Vulnerability (CVE-2025-14362)
 slug: 2026-04-goanywhere-bruteforce
 description: Fortra's GoAnywhere MFT prior to 7.10.0 is vulnerable to brute-force attacks on SSH keys because the login limit is not enforced on the SFTP service when Web Users are configured to log in with an SSH Key.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
