@@ -3,6 +3,9 @@ title: CVE-2026-33096 HTTP.sys Out-of-Bounds Read Denial-of-Service
 slug: 2026-04-http-sys-dos
 description: An unauthenticated, remote attacker can exploit an out-of-bounds read vulnerability (CVE-2026-33096) in Windows HTTP.sys to cause a denial-of-service condition.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
