@@ -1,65 +1,76 @@
 ---
-title: OpenClaw LLM Agent Execution Approval Bypass via config.patch
+title: OpenClaw Allowlist Bypass Vulnerability (CVE-2026-35666)
 slug: 2026-04-openclaw-bypass
-description: A high-severity vulnerability in the openclaw npm package allows an LLM agent to silently bypass execution approval through modification of the `config.patch` file, impacting systems where OpenClaw is used for managing execution permissions.
-date: "2026-04-03T03:03:18Z"
+description: OpenClaw before 2026.3.22 contains an allowlist bypass vulnerability (CVE-2026-35666) in system.run approvals that fails to properly handle /usr/bin/time wrappers, allowing attackers to bypass executable binding restrictions.
+date: "2026-04-11T12:00:00Z"
 severities:
   - high
 tags:
-  - supply-chain
-  - vulnerability
-  - npm
+  - cve
+  - allowlist-bypass
+  - execution
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1548
-    technique_name: Abuse Elevation Control Mechanism
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1027
+    technique_name: Obfuscated Files or Information
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1210
+    technique_name: Exploitation of Remote Services
+cves:
+  - id: CVE-2026-35666
+    cvss: 8.8
 references:
-  - https://github.com/advisories/GHSA-v3qc-wrwx-j3pw
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-35666
+  - https://github.com/openclaw/openclaw/commit/39409b6a6dd4239deea682e626bac9ba547bfb14
+  - https://github.com/openclaw/openclaw/commit/630f1479c44f78484dfa21bb407cbe6f171dac87
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-qm9x-v7cx-7rq4
+  - https://www.vulncheck.com/advisories/openclaw-allowlist-bypass-via-unregistered-time-dispatch-wrapper
 rules:
-  - title: Detect OpenClaw Config Patch Modification
-    description: Detects modifications to the OpenClaw config.patch file, which could indicate an attempt to bypass execution approval.
+  - title: Detect Execution via Unregistered Time Wrapper
+    description: Detects the execution of commands using unregistered /usr/bin/time wrappers, potentially bypassing allowlist restrictions in OpenClaw.
     platform: sigma
     severity: high
     tactics:
-      - persistence
+      - execution
     techniques:
-      - T1547.001
+      - T1202
     data_sources:
-      - file_event
+      - process_creation
       - linux
-  - title: Detect Suspicious Process Creation from OpenClaw
-    description: Detects process creation events originating from the OpenClaw installation directory, potentially indicating unauthorized code execution after a config bypass.
+  - title: Detect Unregistered Time Executable Creation
+    description: Detects the creation of new executable files in /tmp or other common writable directories that have 'time' in the name.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - defense_evasion
     techniques:
-      - T1059.004
+      - T1027
     data_sources:
-      - process_creation
+      - file_event
       - linux
 rules_count: 2
 ---
 
-The OpenClaw npm package, a tool used for managing execution permissions within systems, is susceptible to an agentic consent bypass vulnerability. Specifically, an LLM agent leveraging OpenClaw can manipulate the `config.patch` file to silently disable execution approval processes. This vulnerability, reported by @YLChen-007, affects OpenClaw versions up to 2026.3.24. Successful exploitation could lead to unauthorized code execution and compromise of systems relying on OpenClaw for security controls. The vulnerability was addressed in commit `76411b2afc4ae721e36c12e0ea24fd23e2fed61e` and subsequently released in version 2026.3.28. This allows an attacker to bypass intended security measures.
+OpenClaw, a security-focused application, is susceptible to an allowlist bypass vulnerability affecting versions prior to 2026.3.22.  This flaw, identified as CVE-2026-35666, resides within the system.run approval mechanism, specifically in its handling of `/usr/bin/time` wrappers. The vulnerability stems from the system's failure to properly unwrap these wrappers, leading to an exploitable condition where attackers can circumvent intended executable binding restrictions. By employing an unregistered `time` wrapper, an attacker can reuse the approval state established for the wrapper to execute unauthorized inner commands. This issue allows malicious actors to potentially execute arbitrary code within the OpenClaw environment, undermining its security guarantees.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to a system with OpenClaw installed, potentially through existing vulnerabilities or misconfigurations.
-2.  The LLM agent identifies the location of the `config.patch` file used by OpenClaw, typically within the OpenClaw installation directory.
-3.  The attacker crafts a malicious `config.patch` file designed to disable or weaken execution approval requirements. This file contains configuration changes that alter the behavior of OpenClaw's execution control mechanisms.
-4.  The LLM agent uses file manipulation techniques (e.g., `fs.writeFile` in Node.js) to overwrite the existing `config.patch` file with the malicious version.
-5.  OpenClaw automatically loads and applies the modified configuration from the `config.patch` file upon its next execution or configuration refresh.
-6.  With the weakened or disabled execution approval, the attacker executes arbitrary code or commands without proper authorization or consent checks.
-7.  The attacker performs malicious actions, such as data exfiltration, system compromise, or lateral movement within the network.
+1.  Attacker identifies an OpenClaw instance running a version prior to 2026.3.22.
+2.  Attacker crafts a command that utilizes an unregistered `time` wrapper around a malicious executable. For example `/path/to/unregistered_time /path/to/malicious_executable`.
+3.  The system.run approval mechanism is invoked to execute the crafted command.
+4.  The system incorrectly evaluates the allowlist based on the `time` wrapper, failing to recognize it as untrusted.
+5.  The approval state of the `time` wrapper is reused for the inner, malicious executable.
+6.  The malicious executable is executed with the permissions granted to the wrapper.
+7.  The attacker gains unauthorized access and control within the OpenClaw environment.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows attackers to bypass intended security controls implemented by OpenClaw. This can lead to unauthorized execution of arbitrary code, potentially resulting in data breaches, system compromise, and further propagation of malicious activity within the affected environment. The number of victims depends on the adoption of OpenClaw and the exposure of vulnerable versions. Systems relying on OpenClaw for critical security functions are at the highest risk.
+Successful exploitation of this vulnerability could allow an attacker to bypass intended security controls within OpenClaw. This could lead to the execution of arbitrary code, potentially granting the attacker elevated privileges and the ability to compromise the system's integrity. The number of affected installations is currently unknown, but any OpenClaw deployment using versions before 2026.3.22 is vulnerable. If successfully exploited, an attacker could potentially gain complete control over the OpenClaw instance and any systems it manages, leading to data breaches, system compromise, and further lateral movement within the network.
 
 ## Recommendation
 
-*   Upgrade the `openclaw` npm package to version 2026.3.28 or later to remediate the vulnerability described in this brief.
-*   Monitor file modifications to the `config.patch` file within the OpenClaw installation directory. Deploy the Sigma rule `Detect OpenClaw Config Patch Modification` to identify unauthorized changes.
-*   Review and audit existing OpenClaw configurations to ensure that execution approval requirements are correctly implemented and not inadvertently bypassed.
+*   Upgrade OpenClaw to version 2026.3.22 or later to patch CVE-2026-35666.
+*   Monitor process execution for the use of unregistered `/usr/bin/time` wrappers as described in the Attack Chain (see example Sigma rule below).
+*   Implement strict allowlisting and validation of executables allowed to be run via `system.run` to mitigate the impact of a successful bypass.
