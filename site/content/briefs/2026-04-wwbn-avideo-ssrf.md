@@ -3,6 +3,9 @@ title: WWBN AVideo SSRF Vulnerability (CVE-2026-41055)
 slug: 2026-04-wwbn-avideo-ssrf
 description: WWBN AVideo versions 29.0 and below are vulnerable to Server-Side Request Forgery (SSRF) due to an incomplete fix in the LiveLinks proxy, potentially allowing attackers to redirect traffic to internal endpoints.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
