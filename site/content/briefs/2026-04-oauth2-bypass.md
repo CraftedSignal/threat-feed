@@ -1,26 +1,29 @@
 ---
-title: OAuth2 Proxy Authentication Bypass via User-Agent Header
+title: OAuth2 Proxy Authentication Bypass Vulnerability (CVE-2026-40575)
 slug: 2026-04-oauth2-bypass
-description: A critical authentication bypass vulnerability (CVE-2026-34457) exists in OAuth2 Proxy when used with `auth_request`-style integration and either `--ping-user-agent` is set or `--gcp-healthchecks` is enabled, allowing unauthenticated access to protected resources.
-date: "2026-04-15T12:00:00Z"
+description: A critical authentication bypass vulnerability in OAuth2 Proxy (CVE-2026-40575) allows unauthenticated remote attackers to forge headers and access protected resources, impacting system integrity and availability.
+date: "2026-04-16T18:06:42Z"
 severities:
   - critical
 tags:
-  - oauth2-proxy
+  - oauth2
   - authentication-bypass
-  - web-application
+  - cve-2026-40575
+  - webserver
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 references:
-  - https://github.com/advisories/GHSA-5hvv-m4w4-gf6v
+  - https://ccb.belgium.be/advisories/warning-critical-authentication-bypass-oauth2-can-lead-unauthorized-data-access-patch
+  - https://github.com/advisories?query=type%3Areviewed+ecosystem%3Ago
+  - https://www.tenable.com/cve/CVE-2026-40575
 rules:
   - title: OAuth2 Proxy Authentication Bypass Attempt
-    description: Detects attempts to bypass authentication in OAuth2 Proxy by using the health check User-Agent header.
+    description: Detects attempts to bypass OAuth2 Proxy authentication by forging the X-Forwarded-Uri header to access protected resources.
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - initial_access
     techniques:
@@ -28,16 +31,18 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: OAuth2 Proxy Auth Request with Modified User-Agent
-    description: Detects auth_request calls with a static user-agent header, potentially indicating a mitigation is in place.
+  - title: OAuth2 Proxy Potential Authentication Bypass via X-Forwarded-Uri Header
+    description: Detects potential authentication bypass attempts in OAuth2 Proxy by monitoring for the presence of the X-Forwarded-Uri header in web server logs, which could indicate header manipulation.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - defense_evasion
+      - initial_access
+    techniques:
+      - T1190
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-OAuth2 Proxy is vulnerable to an authentication bypass (CVE-2026-34457) when configured with `auth_request`-style integration (e.g., nginx `auth_request`) and either the `--ping-user-agent` option is set or `--gcp-healthchecks` is enabled. This flaw allows an unauthenticated remote attacker to gain unauthorized access to protected upstream resources. The vulnerability exists because OAuth2 Proxy incorrectly treats requests with the configured health check `User-Agent` value as legitimate health…
+A critical authentication bypass vulnerability, CVE-2026-40575, affects OAuth2 Proxy versions 7.5.0 through 7.15.1. OAuth2 Proxy is a reverse proxy and static file server used to secure web applications via OAuth 2.0 and OpenID Connect. When OAuth2 Proxy is deployed with the `--reverse-proxy` flag enabled and utilizes `--skip_auth_routes` or `--skip-auth-regex` for route exclusion, a remote attacker can bypass authentication by forging the `X-Forwarded-Uri` header. This allows unauthorized…
