@@ -50,4 +50,27 @@ rules:
 rules_count: 2
 ---
 
-Attackers may target Microsoft Office applications' autostart extensibility points (ASEPs) in the Windows Registry to establish persistence. By modifying specific registry keys, malicious actors can ensure that their code is executed each time an Office application, such as Word, Excel, or Outlook, is launched. This technique is often employed to maintain a foothold on a compromised system. While legitimate add-ins also leverage these registry keys, unauthorized modifications can lead to the…
+Attackers may target Microsoft Office applications' autostart extensibility points (ASEPs) in the Windows Registry to establish persistence. By modifying specific registry keys, malicious actors can ensure that their code is executed each time an Office application, such as Word, Excel, or Outlook, is launched. This technique is often employed to maintain a foothold on a compromised system. While legitimate add-ins also leverage these registry keys, unauthorized modifications can lead to the execution of arbitrary code, potentially resulting in data theft, system compromise, or further exploitation. Defenders should be aware that many legitimate applications modify these keys. Thorough testing and tuning is required.
+
+## Attack Chain
+
+1. An attacker gains initial access to the system via an unrelated method.
+2. The attacker identifies the relevant Office application ASEP registry keys: `\Software\Wow6432Node\Microsoft\Office`, `\Software\Microsoft\Office` and specific application keys like `\Word\Addins`, `\Excel\Addins`, etc.
+3. The attacker modifies the registry key to point to a malicious executable or script. This could be achieved using tools like `reg.exe` or PowerShell.
+4. The registry modification ensures that the malicious code is executed upon the next launch of the targeted Office application.
+5. The user launches the Office application (e.g., Word, Excel, Outlook).
+6. The Office application reads the modified registry key and executes the associated malicious code.
+7. The malicious code performs its intended actions, such as downloading additional payloads, establishing command and control, or stealing data.
+8. The attacker maintains persistence on the system through the modified registry key, ensuring continued access and control.
+
+## Impact
+
+Successful exploitation allows attackers to achieve persistence on compromised systems. This can lead to data exfiltration, deployment of ransomware, or further lateral movement within the network. The modification of these keys is often performed to maintain a persistent presence, allowing attackers to regain access to the system even after reboots or user logoffs. While the number of direct victims is unknown, the potential for widespread impact is significant, especially in organizations heavily reliant on Microsoft Office applications.
+
+## Recommendation
+
+*   Enable registry modification logging and deploy the provided Sigma rules to your SIEM to detect suspicious changes to Office application autostart registry keys.
+*   Regularly audit the Office application add-ins installed on systems to identify and remove any unauthorized or malicious extensions (reference: Sigma rules).
+*   Implement application whitelisting to prevent the execution of unauthorized executables and scripts (reference: Attack Chain).
+*   Monitor process execution events for Office applications launching unusual or suspicious child processes (reference: Attack Chain).
+*   Tune and customize the provided Sigma rules based on your environment's baseline of legitimate Office add-in activity to minimize false positives (reference: Sigma rules).
