@@ -26,6 +26,15 @@ references:
   - https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-106-03.json
   - https://www.anviz.com/contact-us.html
   - https://www.cisa.gov/news-events/ics-advisories/icsa-26-106-03
+iocs:
+  - type: url
+    value: https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-106-03.json
+  - type: url
+    value: https://www.anviz.com/contact-us.html
+  - type: url
+    value: https://www.cisa.gov/news-events/ics-advisories/icsa-26-106-03
+  - type: email
+    value: '[email protected]'
 ioc_counts:
   email: 1
   url: 3
@@ -55,4 +64,25 @@ rules:
 rules_count: 2
 ---
 
-Anviz CrossChex Standard is vulnerable to TCP packet injection due to a lack of source verification in the client/server communication channel. This vulnerability, identified as CVE-2026-40434, allows an attacker on the same network to inject malicious TCP packets, potentially leading to alteration or disruption of application traffic. The affected software is CrossChex Standard. This vulnerability was reported by ICS-CERT. Successful exploitation can allow an attacker to manipulate user data…
+Anviz CrossChex Standard is vulnerable to TCP packet injection due to a lack of source verification in the client/server communication channel. This vulnerability, identified as CVE-2026-40434, allows an attacker on the same network to inject malicious TCP packets, potentially leading to alteration or disruption of application traffic. The affected software is CrossChex Standard. This vulnerability was reported by ICS-CERT. Successful exploitation can allow an attacker to manipulate user data, disable devices, or gain unauthorized access to the system.
+
+## Attack Chain
+
+1.  The attacker gains access to the same network as the Anviz CrossChex Standard client and server.
+2.  The attacker passively monitors network traffic between the client and server to understand the communication protocol.
+3.  The attacker crafts malicious TCP packets designed to exploit the lack of source verification.
+4.  The attacker injects the crafted packets into the communication stream between the client and the server.
+5.  The injected packets are processed by the CrossChex server without proper authentication or validation of the source.
+6.  The attacker can modify user data, such as access control lists or time attendance records.
+7.  The attacker can disrupt application functionality by sending packets that cause errors or disable devices.
+8.  The attacker can potentially gain unauthorized access to sensitive information or system resources by exploiting the altered application state.
+
+## Impact
+
+Successful exploitation of CVE-2026-40434 can lead to unauthorized modification of user data, denial of service, and potentially unauthorized access to the CrossChex Standard system. An attacker could manipulate employee time attendance records, grant unauthorized access to restricted areas, or disable critical security features. This can have significant implications for organizations relying on CrossChex Standard for access control and time management, especially for those in critical infrastructure.
+
+## Recommendation
+
+*   Monitor network traffic for suspicious TCP packets originating from unexpected sources on the same network as CrossChex servers, and alert when detected.
+*   Implement network segmentation to isolate CrossChex servers and clients from untrusted network segments.
+*   Refer to the ICS-CERT advisory (https://www.cisa.gov/news-events/ics-advisories/icsa-26-106-03) for mitigation guidance and updates.
