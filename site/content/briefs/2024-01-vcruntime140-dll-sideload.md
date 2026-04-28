@@ -3,6 +3,9 @@ title: Potential Vcruntime140 DLL Sideloading
 slug: 2024-01-vcruntime140-dll-sideload
 description: Detects potential DLL sideloading of vcruntime140.dll, a common C++ runtime library, often used by threat actors like APT29 (via WinELOADER) to load malicious payloads under the guise of legitimate applications, leading to defense evasion, persistence, and privilege escalation.
 date: "2024-01-03T12:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - high
 actors:
