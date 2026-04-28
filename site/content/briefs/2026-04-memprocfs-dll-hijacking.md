@@ -60,4 +60,26 @@ rules:
 rules_count: 2
 ---
 
-MemProcFS before version 5.17 is vulnerable to DLL and shared library hijacking due to unsafe library loading practices. Specifically, the application uses bare-name `LoadLibraryU` and `dlopen` calls without proper path qualification for `vmmpyc`, `libMSCompression`, and plugin DLLs. This vulnerability, identified as CVE-2026-40031, exists across six attack surfaces. The vulnerability was reported by VulnCheck. Exploitation can occur on both Windows and Linux systems where MemProcFS is…
+MemProcFS before version 5.17 is vulnerable to DLL and shared library hijacking due to unsafe library loading practices. Specifically, the application uses bare-name `LoadLibraryU` and `dlopen` calls without proper path qualification for `vmmpyc`, `libMSCompression`, and plugin DLLs. This vulnerability, identified as CVE-2026-40031, exists across six attack surfaces. The vulnerability was reported by VulnCheck. Exploitation can occur on both Windows and Linux systems where MemProcFS is installed.
+
+## Attack Chain
+
+1.  Attacker identifies a vulnerable MemProcFS installation (version < 5.17).
+2.  Attacker determines the libraries MemProcFS attempts to load without a fully qualified path, such as `vmmpyc`, `libMSCompression`, or plugin DLLs.
+3.  Attacker crafts a malicious DLL or shared library with the same name as one of the targeted libraries (e.g., `vmmpyc.dll` on Windows or `libvmmpyc.so` on Linux).
+4.  Attacker places the malicious library in the same working directory as MemProcFS or manipulates the `LD_LIBRARY_PATH` environment variable (on Linux) to point to a directory containing the malicious library.
+5.  The user executes MemProcFS.
+6.  MemProcFS attempts to load the legitimate library using `LoadLibraryU` or `dlopen`.
+7.  Due to the presence of the malicious library in the working directory or the manipulated `LD_LIBRARY_PATH`, the malicious library is loaded instead of the intended legitimate library.
+8.  The malicious library executes arbitrary code within the context of the MemProcFS process, granting the attacker control over the system.
+
+## Impact
+
+Successful exploitation of CVE-2026-40031 allows an attacker to achieve arbitrary code execution. While the exact number of victims is unknown, any system running a vulnerable version of MemProcFS is at risk. Given the nature of MemProcFS, successful exploitation could lead to sensitive data exposure or complete system compromise.
+
+## Recommendation
+
+*   Upgrade MemProcFS to version 5.17 or later to address the vulnerability (References: [https://github.com/ufrisk/MemProcFS/releases/tag/v5.17](https://github.com/ufrisk/MemProcFS/releases/tag/v5.17)).
+*   Monitor process creations for MemProcFS loading unexpected DLLs or shared libraries from non-standard paths using the provided Sigma rules.
+*   Implement file integrity monitoring for MemProcFS installation directories to detect the presence of newly created DLLs or shared libraries with suspicious names.
+*   Educate users about the risks of running applications from untrusted sources and the importance of verifying the integrity of software before execution.
