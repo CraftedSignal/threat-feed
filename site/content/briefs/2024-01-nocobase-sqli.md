@@ -61,4 +61,26 @@ rules:
 rules_count: 2
 ---
 
-A SQL injection vulnerability exists in NocoBase version 2.0.32 and earlier due to string concatenation in the `queryParentSQL()` function within the `@nocobase/database` core package. The vulnerability stems from how the `queryParentSQL()` function constructs a recursive CTE query by concatenating `nodeIds` instead of using parameterized queries. An attacker with record creation permissions on a tree collection with string-type primary keys can inject arbitrary SQL via a malicious string…
+A SQL injection vulnerability exists in NocoBase version 2.0.32 and earlier due to string concatenation in the `queryParentSQL()` function within the `@nocobase/database` core package. The vulnerability stems from how the `queryParentSQL()` function constructs a recursive CTE query by concatenating `nodeIds` instead of using parameterized queries. An attacker with record creation permissions on a tree collection with string-type primary keys can inject arbitrary SQL via a malicious string primary key value in a created record. This injection is triggered when a subsequent request initiates recursive eager loading on that collection. This can lead to confidentiality breaches (extraction of database values including credentials), integrity issues (data manipulation via stacked queries), and availability problems (resource exhaustion). On PostgreSQL with superuser privileges, OS command execution is possible. The vulnerability affects all collections using a tree/adjacency-list structure with string primary keys. The same concatenation pattern also exists in `plugin-field-sort/src/server/sort-field.ts:124`. The vulnerability is tracked as CVE-2026-41640.
+
+## Attack Chain
+
+1. An attacker gains access to the NocoBase application with privileges to create records in a collection.
+2. The attacker identifies a "tree" collection that utilizes a string-type primary key.
+3. The attacker crafts a malicious primary key string containing SQL injection payload, such as `root') UNION ALL SELECT CAST((SELECT email FROM users LIMIT 1) AS integer)::text, NULL::text WHERE ('1'='1`.
+4. The attacker creates a new record in the target collection using the crafted malicious primary key.
+5. A subsequent request is made that triggers recursive eager loading on the target collection, specifically when a `BelongsTo` association has `recursively: true` and instances exist, calling the vulnerable `queryParentSQL` function.
+6. The `queryParentSQL` function concatenates the malicious primary key into the SQL query without proper sanitization or parameterization.
+7. The injected SQL code is executed against the database, allowing the attacker to extract sensitive data via error messages or potentially perform other malicious actions.
+8. The attacker retrieves the extracted data from the error messages or through other means, such as direct database access if integrity is compromised.
+
+## Impact
+
+This SQL injection vulnerability can lead to severe consequences. Successful exploitation can result in the unauthorized disclosure of sensitive information, including database credentials and other user data. Attackers can potentially modify data or execute arbitrary commands on the database server, leading to data corruption or system compromise. In the case of PostgreSQL databases with superuser privileges, attackers might gain operating system-level access. The vulnerability affects all collections using tree/adjacency-list structure with string-type primary keys, increasing the attack surface. Confirmed extractions include version information, database names, emails, and password hashes.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Detect NocoBase SQL Injection Attempt in Primary Key` to your SIEM to detect attempts to exploit this vulnerability via malicious primary key values.
+*   Apply the suggested fix from the advisory by using parameterized queries in `packages/core/database/src/eager-loading/eager-loading-tree.ts` as referenced in the overview.
+*   Apply the same fix to `plugin-field-sort/src/server/sort-field.ts:124` to address the identical concatenation pattern as described in the overview.
+*   Validate primary key values at record creation time to reject or escape values containing SQL metacharacters (`'`, `"`, `;`, `--`) in string-type primary key fields, as suggested in the advisory.
