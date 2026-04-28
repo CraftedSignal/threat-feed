@@ -3,6 +3,9 @@ title: compressing npm Package Symlink Bypass Vulnerability
 slug: 2026-04-compressing-symlink-bypass
 description: A vulnerability in the `compressing` npm package (<=v2.1.0) allows for arbitrary file overwrite via symlink path traversal, bypassing a previous patch for CVE-2026-24884.
 date: "2026-04-18T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
