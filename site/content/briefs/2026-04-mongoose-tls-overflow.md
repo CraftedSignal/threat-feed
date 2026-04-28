@@ -46,4 +46,25 @@ rules:
 rules_count: 2
 ---
 
-A heap-based buffer overflow vulnerability, identified as CVE-2026-5244, has been discovered in Cesanta Mongoose versions up to 7.20. This flaw resides within the `mg_tls_recv_cert` function in the `mongoose.c` file, specifically affecting the TLS 1.3 handler. The vulnerability can be triggered by manipulating the `pubkey` argument, which leads to memory corruption. The exploit for this vulnerability is publicly available, increasing the risk of exploitation. Successful exploitation could allow…
+A heap-based buffer overflow vulnerability, identified as CVE-2026-5244, has been discovered in Cesanta Mongoose versions up to 7.20. This flaw resides within the `mg_tls_recv_cert` function in the `mongoose.c` file, specifically affecting the TLS 1.3 handler. The vulnerability can be triggered by manipulating the `pubkey` argument, which leads to memory corruption. The exploit for this vulnerability is publicly available, increasing the risk of exploitation. Successful exploitation could allow a remote attacker to execute arbitrary code on the affected system. Cesanta has addressed this issue in version 7.21, with patch `0d882f1b43ff2308b7486a56a9d60cd6dba8a3f1`.
+
+## Attack Chain
+
+1.  An attacker initiates a TLS 1.3 handshake with a vulnerable Mongoose server.
+2.  The attacker crafts a malicious TLS certificate containing an oversized `pubkey`.
+3.  The `mg_tls_recv_cert` function processes the certificate.
+4.  Due to insufficient bounds checking, the oversized `pubkey` overwrites the heap buffer.
+5.  The heap overflow corrupts adjacent memory regions.
+6.  The attacker leverages memory corruption to gain control of program execution.
+7.  The attacker injects and executes arbitrary code on the server.
+8.  The attacker achieves complete control over the vulnerable system, potentially leading to data exfiltration or service disruption.
+
+## Impact
+
+Successful exploitation of CVE-2026-5244 allows a remote attacker to execute arbitrary code on systems running vulnerable versions of Cesanta Mongoose. This could lead to complete system compromise, data breaches, and denial-of-service conditions. Given the widespread use of Mongoose in embedded systems and IoT devices, a successful attack could impact a large number of devices across various sectors.
+
+## Recommendation
+
+*   Upgrade to Cesanta Mongoose version 7.21 or later to patch CVE-2026-5244, using the provided patch ID `0d882f1b43ff2308b7486a56a9d60cd6dba8a3f1`.
+*   Monitor web server logs for unusual TLS handshake patterns or certificate errors that could indicate exploitation attempts against vulnerable Mongoose instances. Utilize the provided Sigma rule to detect potential exploitation attempts.
+*   Implement network intrusion detection systems (IDS) to detect and block malicious TLS traffic targeting vulnerable Mongoose servers.
