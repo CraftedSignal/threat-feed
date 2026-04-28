@@ -3,6 +3,9 @@ title: Chamilo LMS Unauthenticated SSRF Vulnerability
 slug: 2026-04-chamilo-ssrf
 description: An unauthenticated server-side request forgery (SSRF) vulnerability exists in Chamilo LMS versions prior to 2.0.0-RC.3, allowing attackers to probe internal network services, access cloud metadata, or trigger state-changing operations on internal services.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
