@@ -54,4 +54,26 @@ rules:
 rules_count: 2
 ---
 
-Immich, a self-hosted photo and video management solution, is vulnerable to a stored Cross-Site Scripting (XSS) attack.  Specifically, versions prior to 2.7.0 are susceptible. An authenticated attacker can exploit the 360° panorama viewer by uploading a specially crafted equirectangular image that contains malicious text. When another user views the panorama with the OCR overlay enabled, the injected text is extracted via OCR and rendered by the panorama viewer without sanitization. This leads…
+Immich, a self-hosted photo and video management solution, is vulnerable to a stored Cross-Site Scripting (XSS) attack.  Specifically, versions prior to 2.7.0 are susceptible. An authenticated attacker can exploit the 360° panorama viewer by uploading a specially crafted equirectangular image that contains malicious text. When another user views the panorama with the OCR overlay enabled, the injected text is extracted via OCR and rendered by the panorama viewer without sanitization. This leads to arbitrary JavaScript execution within the victim's browser. The vulnerability, identified as CVE-2026-35455, poses a significant risk, potentially leading to session hijacking (via persistent API key creation), private photo exfiltration, and unauthorized access to sensitive data like GPS location history and face biometric data. Users are advised to upgrade to version 2.7.0 or later to mitigate this risk.
+
+## Attack Chain
+
+1. An attacker authenticates to an Immich instance with a valid user account.
+2. The attacker crafts an equirectangular image containing malicious JavaScript code embedded within the text.
+3. The attacker uploads the crafted image to the Immich server through the web interface.
+4. The attacker shares or otherwise causes another user to view the uploaded panorama image.
+5. The victim views the panorama image with the OCR overlay feature enabled.
+6. The Immich server processes the image, and the OCR engine extracts the malicious JavaScript from the image.
+7. The panorama viewer renders the OCR output via `innerHTML` without proper sanitization.
+8. The malicious JavaScript executes within the victim's browser session, allowing the attacker to perform actions such as session hijacking, data exfiltration, or unauthorized data access.
+
+## Impact
+
+Successful exploitation of this XSS vulnerability (CVE-2026-35455) in Immich can lead to severe consequences. An attacker can hijack user sessions by creating persistent API keys, allowing them to impersonate the victim. Furthermore, they can exfiltrate private photos and gain unauthorized access to sensitive information such as GPS location history and face biometric data stored within the Immich instance. The number of potential victims corresponds to the number of users on a vulnerable Immich instance. Given the self-hosted nature of Immich, the impact is largely dependent on the type and sensitivity of data stored within affected deployments.
+
+## Recommendation
+
+*   Upgrade Immich to version 2.7.0 or later to patch the CVE-2026-35455 vulnerability.
+*   Implement input validation and sanitization for user-uploaded content, particularly images, to prevent XSS attacks. Focus on `webserver` logs for unusual POST requests.
+*   Deploy the Sigma rule `Detect Suspicious Immich Panorama Requests` to identify potential exploitation attempts based on unusual URL parameters indicative of crafted panorama requests.
+*   Monitor `webserver` logs for HTTP requests containing suspicious JavaScript payloads within the URL, which may indicate XSS attempts.
