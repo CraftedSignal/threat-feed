@@ -51,4 +51,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-5966 describes an arbitrary file deletion vulnerability in TeamT5's ThreatSonar Anti-Ransomware. The vulnerability allows authenticated remote attackers with web access to exploit a path traversal flaw. This means that an attacker who already has valid credentials to access the web interface of ThreatSonar Anti-Ransomware can craft malicious requests to delete files that the application user has access to, regardless of their intended purpose or location. The CVSS v3.1 score is 8.1…
+CVE-2026-5966 describes an arbitrary file deletion vulnerability in TeamT5's ThreatSonar Anti-Ransomware. The vulnerability allows authenticated remote attackers with web access to exploit a path traversal flaw. This means that an attacker who already has valid credentials to access the web interface of ThreatSonar Anti-Ransomware can craft malicious requests to delete files that the application user has access to, regardless of their intended purpose or location. The CVSS v3.1 score is 8.1, indicating a high severity. The vulnerable software is ThreatSonar Anti-Ransomware from TeamT5.
+
+## Attack Chain
+
+1. An attacker gains valid credentials to the ThreatSonar Anti-Ransomware web interface, likely through credential stuffing or phishing.
+2. The attacker authenticates to the ThreatSonar Anti-Ransomware web application.
+3. The attacker identifies an endpoint within the web application that handles file operations (e.g., backup, restore, quarantine).
+4. The attacker crafts a malicious HTTP request to this endpoint containing a path traversal payload in a filename or filepath parameter (e.g., `../../../../windows/system32/drivers/etc/hosts`).
+5. The web application processes the request without proper sanitization or validation of the file path.
+6. The application attempts to delete the file specified by the attacker-controlled path.
+7. If the application user has sufficient privileges, the arbitrary file is deleted from the system.
+
+## Impact
+
+Successful exploitation of this vulnerability allows authenticated attackers to delete arbitrary files on the system where ThreatSonar Anti-Ransomware is installed. This could lead to denial of service by deleting critical system files, data loss by deleting important data files, or potentially escalate privileges by deleting files used in privilege escalation techniques.
+
+## Recommendation
+
+*   Apply the patch or upgrade to the latest version of ThreatSonar Anti-Ransomware as provided by TeamT5 to address CVE-2026-5966.
+*   Implement input validation and sanitization on all file path parameters within the ThreatSonar Anti-Ransomware web application to prevent path traversal attacks.
+*   Monitor web server logs for suspicious requests containing path traversal sequences (e.g., `../`, `..\\`) in file-related parameters to detect potential exploitation attempts. Deploy the Sigma rule for webserver logs.
+*   Implement principle of least privilege and regularly audit user permissions in ThreatSonar Anti-Ransomware.
