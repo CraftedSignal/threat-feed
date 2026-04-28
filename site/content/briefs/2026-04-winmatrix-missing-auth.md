@@ -3,6 +3,9 @@ title: Simopro WinMatrix Agent Missing Authentication Vulnerability (CVE-2026-63
 slug: 2026-04-winmatrix-missing-auth
 description: The WinMatrix agent by Simopro Technology suffers from a missing authentication vulnerability (CVE-2026-6348), enabling local authenticated attackers to execute arbitrary code with SYSTEM privileges on the local machine and all hosts within the agent's environment.
 date: "2026-04-16T03:16:30Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
