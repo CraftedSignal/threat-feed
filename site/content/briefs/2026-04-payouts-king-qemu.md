@@ -3,6 +3,9 @@ title: Payouts King Ransomware Abusing QEMU VMs for Defense Evasion
 slug: 2026-04-payouts-king-qemu
 description: The Payouts King ransomware is leveraging QEMU VMs as a reverse SSH backdoor to execute payloads, store malicious files, and establish covert remote access tunnels, bypassing endpoint security measures.
 date: "2026-04-18T12:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 actors:
