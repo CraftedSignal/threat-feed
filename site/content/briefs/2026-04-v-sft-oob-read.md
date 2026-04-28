@@ -41,6 +41,13 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32926
   - https://felib.fujielectric.co.jp/en/M10010/M20060/document_detail/5d9dd71d-9494-41a4-aa5c-8e6b8b21066b?region=en-glb
   - https://jvn.jp/en/vu/JVNVU90448293/
+iocs:
+  - type: url
+    value: https://felib.fujielectric.co.jp/en/M10010/M20060/document_detail/5d9dd71d-9494-41a4-aa5c-8e6b8b21066b?region=en-glb
+  - type: url
+    value: https://jvn.jp/en/vu/JVNVU90448293/
+  - type: email
+    value: '[email protected]'
 ioc_counts:
   email: 1
   url: 2
@@ -68,4 +75,26 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-32926 is an out-of-bounds read vulnerability affecting V-SFT versions 6.2.10.0 and earlier. The vulnerability exists within the `VS6ComFile!load_link_inf` function, which is responsible for processing V7 files. An attacker can exploit this vulnerability by crafting a malicious V7 file that, when opened by a vulnerable V-SFT application, triggers an out-of-bounds read. Successful exploitation could lead to information disclosure, potentially exposing sensitive data to the attacker. This…
+CVE-2026-32926 is an out-of-bounds read vulnerability affecting V-SFT versions 6.2.10.0 and earlier. The vulnerability exists within the `VS6ComFile!load_link_inf` function, which is responsible for processing V7 files. An attacker can exploit this vulnerability by crafting a malicious V7 file that, when opened by a vulnerable V-SFT application, triggers an out-of-bounds read. Successful exploitation could lead to information disclosure, potentially exposing sensitive data to the attacker. This vulnerability was reported and disclosed by JPCERT/CC.
+
+## Attack Chain
+
+1.  Attacker identifies a vulnerable V-SFT version (6.2.10.0 or prior).
+2.  Attacker crafts a malicious V7 file designed to trigger the out-of-bounds read in the `VS6ComFile!load_link_inf` function.
+3.  Attacker delivers the crafted V7 file to a target user, potentially through social engineering or other means.
+4.  The target user opens the malicious V7 file using the vulnerable V-SFT application.
+5.  The `VS6ComFile!load_link_inf` function attempts to read data beyond the allocated buffer while processing the crafted V7 file.
+6.  This out-of-bounds read allows the attacker to access memory regions outside the intended boundaries.
+7.  The attacker gains access to sensitive information stored in the adjacent memory regions due to the information disclosure.
+8.  The attacker extracts the disclosed information for malicious purposes.
+
+## Impact
+
+Successful exploitation of CVE-2026-32926 can lead to information disclosure, potentially exposing sensitive data to an attacker. While the specific impact depends on the nature of the disclosed information, it could include intellectual property, configuration details, or other confidential data. The vulnerability affects systems running vulnerable versions of V-SFT.
+
+## Recommendation
+
+*   Upgrade V-SFT to a version greater than 6.2.10.0 to patch CVE-2026-32926.
+*   Monitor for attempts to open unusual or suspicious V7 files using V-SFT applications.
+*   Implement the Sigma rule `Detect VS-FT opening unusual files` to detect suspicious file access patterns.
+*   Review the V-SFT vendor's advisory for additional mitigation guidance ([https://felib.fujielectric.co.jp/en/M10010/M20060/document_detail/5d9dd71d-9494-41a4-aa5c-8e6b8b21066b?region=en-glb](https://felib.fujielectric.co.jp/en/M10010/M20060/document_detail/5d9dd71d-9494-41a4-aa5c-8e6b8b21066b?region=en-glb)).
