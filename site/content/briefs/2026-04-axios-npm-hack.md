@@ -70,4 +70,27 @@ rules:
 rules_count: 2
 ---
 
-On April 4, 2026, the maintainers of the Axios HTTP client disclosed a social engineering attack targeting one of their developers. The attack, attributed to the North Korean threat actor UNC1069, involved impersonating a legitimate company to build trust with the targeted developer. The attacker used a fake Microsoft Teams update disguised as a critical error fix to deploy a remote access trojan (RAT). This RAT allowed the attackers to gain access to the developer's system and npm credentials…
+On April 4, 2026, the maintainers of the Axios HTTP client disclosed a social engineering attack targeting one of their developers. The attack, attributed to the North Korean threat actor UNC1069, involved impersonating a legitimate company to build trust with the targeted developer. The attacker used a fake Microsoft Teams update disguised as a critical error fix to deploy a remote access trojan (RAT). This RAT allowed the attackers to gain access to the developer's system and npm credentials. The attackers then published two malicious versions of Axios (1.14.1 and 0.30.4) to the npm package registry. These malicious versions included a dependency called plain-crypto-js, which installed a RAT on macOS, Windows, and Linux systems. These versions were available for three hours, posing a supply chain risk to any systems that installed them during that period.
+
+## Attack Chain
+
+1.  The attacker identifies a target developer and initiates contact via LinkedIn/Slack, impersonating a legitimate company.
+2.  The attacker invites the developer to a Slack workspace populated with fake profiles and staged company activity.
+3.  A meeting is scheduled on Microsoft Teams, during which a fake "RTC Connection" error message is displayed.
+4.  The attacker prompts the developer to install a "Teams update" to resolve the error.
+5.  The fake update is a RAT malware, granting the attacker remote access to the developer's machine.
+6.  The attacker steals the developer's npm credentials, bypassing MFA due to already authenticated session.
+7.  The attacker publishes malicious versions of the Axios package (1.14.1 and 0.30.4) to the npm registry, injecting the plain-crypto-js dependency.
+8.  Systems installing the compromised Axios versions download and execute the plain-crypto-js package, resulting in RAT deployment and credential theft.
+
+## Impact
+
+The compromise of the Axios npm package created a supply chain attack impacting an unknown number of systems across various sectors. Systems that installed the malicious versions (1.14.1 and 0.30.4) within the three-hour window are considered compromised. Successful exploitation results in the installation of a remote access trojan (RAT) capable of stealing credentials, browser data, and other sensitive information from macOS, Windows, and Linux systems. This can lead to further unauthorized access, data breaches, and potential financial loss.
+
+## Recommendation
+
+*   Monitor npm package installations for the presence of the plain-crypto-js dependency, particularly in projects that use Axios versions 1.14.1 or 0.30.4.
+*   Implement multi-factor authentication (MFA) for npm accounts and other developer accounts, but recognize that authenticated sessions can be hijacked.
+*   Deploy the Sigma rule "Detect Suspicious NPM Package Installation" to detect potentially malicious package installations based on unusual parent processes (see below).
+*   Block the domain associated with the malicious dependency plain-crypto-js at the DNS resolver.
+*   Educate developers about social engineering tactics and the risks of installing software from untrusted sources.
