@@ -3,6 +3,9 @@ title: Dell PowerProtect Data Domain Command Injection Vulnerability (CVE-2026-2
 slug: 2026-04-dell-powerprotect-cmd-injection
 description: A command injection vulnerability in Dell PowerProtect Data Domain (CVE-2026-23778) could allow a remote, high-privileged attacker to gain root-level access.
 date: "2026-04-17T09:16:05Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
