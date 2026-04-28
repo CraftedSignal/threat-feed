@@ -9,6 +9,7 @@
 {{ $type := .Params.type | default "threat" }}
 {{ $tags := .Params.tags | default slice }}
 {{ $actors := .Params.actors | default slice }}
+{{ $products := .Params.products | default slice }}
 {{ $exploited := .Params.exploited | default false }}
 {{ $cveCount := len (.Params.cves | default slice) }}
 {{ $ttpCount := len (.Params.mitre_ttps | default slice) }}
@@ -20,9 +21,15 @@
 <a href="{{ .RelPermalink }}" class="block rounded-xl border border-stroke bg-panel/70 hover:bg-panel hover:border-accent/40 p-5 transition group" data-pagefind-ignore data-brief-date="{{ .Date.Unix }}">
   <div class="flex items-start gap-4">
 
-    <div class="pt-0.5 flex-none flex flex-col items-stretch gap-1 min-w-[88px]">
+    <div class="pt-0.5 flex-none flex flex-col items-stretch gap-1 min-w-[88px] max-w-[88px]">
       <span class="sev-badge {{ $sevClass }} justify-center">{{ $sev }}</span>
       <span class="type-badge type-{{ $type }} justify-center">{{ $type }}</span>
+      {{ if $products }}
+      <span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[10px] bg-panel-2 text-muted truncate" title="{{ delimit $products ", " }}">
+        {{- index $products 0 -}}
+        {{- if gt (len $products) 1 }} +{{ sub (len $products) 1 }}{{ end -}}
+      </span>
+      {{ end }}
     </div>
 
     <div class="flex-1 min-w-0">
