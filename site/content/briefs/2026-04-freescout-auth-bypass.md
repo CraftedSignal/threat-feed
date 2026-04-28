@@ -3,6 +3,9 @@ title: FreeScout Incorrect Authorization Vulnerability via Save Draft
 slug: 2026-04-freescout-auth-bypass
 description: FreeScout before 1.8.215 has an incorrect authorization vulnerability where a direct POST request to the `save_draft` AJAX path can create a draft inside a hidden conversation when `APP_SHOW_ONLY_ASSIGNED_CONVERSATIONS` is enabled, potentially allowing unauthorized access or modification of data.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
