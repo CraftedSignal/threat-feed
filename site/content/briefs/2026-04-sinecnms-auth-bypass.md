@@ -1,75 +1,77 @@
 ---
-title: SINEC NMS Authentication Bypass Vulnerability (CVE-2026-24032)
+title: SINEC NMS Authentication Bypass Vulnerability (CVE-2026-25654)
 slug: 2026-04-sinecnms-auth-bypass
-description: An authentication bypass vulnerability (CVE-2026-24032) exists in SINEC NMS versions prior to V4.0 SP3 due to insufficient user identity validation in the UMC component, allowing unauthenticated remote attackers to gain unauthorized access.
-date: "2026-04-14T09:16:34Z"
+description: CVE-2026-25654 allows an authenticated remote attacker to bypass authorization checks in SINEC NMS versions prior to V4.0 SP3, leading to arbitrary user password reset.
+date: "2026-04-14T09:18:05Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
-  - sinec-nms
+  - cve-2026-25654
   - authentication-bypass
-  - cve-2026-24032
+  - password-reset
+  - web-application
   - siemens
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
 cves:
-  - id: CVE-2026-24032
-    cvss: 7.3
+  - id: CVE-2026-25654
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-24032
-  - https://cert-portal.siemens.com/productcert/html/ssa-801704.html
-iocs:
-  - type: url
-    value: https://cert-portal.siemens.com/productcert/html/ssa-801704.html
-ioc_counts:
-  url: 1
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-25654
+  - https://cert-portal.siemens.com/productcert/html/ssa-605717.html
 rules:
-  - title: Detect CVE-2026-24032 Exploitation Attempts via HTTP Request
-    description: Detects potential exploitation attempts of CVE-2026-24032 in SINEC NMS by monitoring HTTP requests for suspicious patterns indicative of authentication bypass attempts targeting the UMC component.
+  - title: Detect Suspicious SINEC NMS Password Reset Request
+    description: Detects password reset requests in SINEC NMS web server logs that may indicate an attempt to exploit CVE-2026-25654.
     platform: sigma
     severity: high
     tactics:
-      - initial_access
+      - credential_access
     techniques:
-      - T1190
+      - T1555
+      - T1555.004
     data_sources:
       - webserver
       - linux
-  - title: Detect CVE-2026-24032 Exploitation Attempts via HTTP Request - 401
-    description: Detects potential exploitation attempts of CVE-2026-24032 in SINEC NMS by monitoring HTTP requests for suspicious patterns indicative of authentication bypass attempts targeting the UMC component and returning 401.
+  - title: Detect SINEC NMS User Account Created/Modified from Unusual Source IP
+    description: Detects SINEC NMS account creations or modifications originating from an IP address not commonly associated with administrative activity.
     platform: sigma
     severity: medium
     tactics:
-      - initial_access
+      - persistence
     techniques:
-      - T1190
+      - T1098
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A critical authentication bypass vulnerability, identified as CVE-2026-24032, affects SINEC NMS (Network Management System) versions prior to V4.0 SP3 with UMC (Unified Management Center). This weakness stems from insufficient validation of user identity within the UMC component, a central piece of the SINEC NMS architecture. Successful exploitation could allow a remote, unauthenticated attacker to bypass security measures and gain unauthorized access to the SINEC NMS application. Siemens has released a security advisory (SSA-801704) addressing this vulnerability. This poses a significant risk to organizations relying on SINEC NMS for network management, potentially leading to data breaches, system compromise, and denial-of-service attacks. The vulnerability was reported through the Zero Day Initiative (ZDI-CAN-27564).
+A critical vulnerability, identified as CVE-2026-25654, affects SINEC NMS (Network Management System) versions prior to V4.0 SP3. This flaw stems from improper validation of user authorization during password reset requests. An authenticated attacker can exploit this vulnerability to bypass authorization controls, gaining the ability to reset the password of any user account within the SINEC NMS. This can lead to complete compromise of the NMS system and connected network devices. The vulnerability was reported by Siemens AG and impacts the confidentiality, integrity, and availability of the affected systems. Successful exploitation would allow an attacker to pivot and gain control of managed network infrastructure.
 
 ## Attack Chain
 
-1. The attacker identifies a vulnerable SINEC NMS instance running a version prior to V4.0 SP3 with UMC.
-2. The attacker crafts a malicious request that exploits the insufficient user identity validation in the UMC component.
-3. This request is sent to the SINEC NMS server, targeting the UMC component's authentication process.
-4. The UMC component fails to properly validate the user's identity due to the vulnerability.
-5. The attacker bypasses the authentication mechanism, gaining unauthorized access.
-6. With unauthorized access, the attacker can access sensitive data within the SINEC NMS application.
-7. The attacker may then leverage their access to modify configurations, add malicious users, or disrupt network operations.
+1.  Attacker authenticates to the SINEC NMS web interface with a valid, low-privilege account.
+2.  Attacker crafts a malicious password reset request, manipulating the request to target a different user account (e.g., the administrator account).
+3.  The attacker sends the crafted password reset request to the SINEC NMS server via HTTP POST.
+4.  Due to the authorization bypass vulnerability (CVE-2026-25654), the SINEC NMS server fails to properly validate the attacker's authorization to reset the target user's password.
+5.  The SINEC NMS server generates a password reset token for the target user, without proper authorization checks.
+6.  The attacker intercepts or receives the password reset token, potentially via email or a web interface response.
+7.  Attacker uses the password reset token to set a new password for the target user account via the SINEC NMS web interface.
+8.  The attacker logs into the target user's account using the newly set password, gaining unauthorized access to the SINEC NMS system and potentially the connected network devices.
 
 ## Impact
 
-Successful exploitation of CVE-2026-24032 allows an unauthenticated remote attacker to gain complete unauthorized access to the SINEC NMS application. This could lead to the compromise of sensitive network configuration data, allowing the attacker to reconfigure managed network devices, monitor network traffic, and potentially disrupt critical infrastructure. Given the broad use of SINEC NMS in industrial control systems (ICS) and critical infrastructure, a successful attack could have significant consequences, including financial losses, operational downtime, and even physical damage.
+Successful exploitation of CVE-2026-25654 allows a remote, authenticated attacker to reset passwords for arbitrary user accounts within SINEC NMS. This can lead to unauthorized access to sensitive network management functions, potentially allowing the attacker to reconfigure network devices, disrupt network operations, or exfiltrate sensitive network data. Given the critical role of SINEC NMS in managing industrial networks, a successful attack could have significant consequences, including disruption of critical infrastructure and financial losses.
 
 ## Recommendation
 
-*   Immediately upgrade SINEC NMS to version V4.0 SP3 with UMC or later to patch CVE-2026-24032 as referenced in the Siemens advisory [https://cert-portal.siemens.com/productcert/html/ssa-801704.html](https://cert-portal.siemens.com/productcert/html/ssa-801704.html).
-*   Deploy the Sigma rules provided in this brief to your SIEM to detect potential exploitation attempts.
-*   Monitor web server logs for suspicious activity and unexpected requests targeting the UMC component.
+*   Immediately upgrade SINEC NMS to version V4.0 SP3 or later to patch CVE-2026-25654.
+*   Monitor SINEC NMS web server logs for suspicious password reset requests, focusing on requests targeting administrative or privileged accounts. Deploy the provided Sigma rule targeting suspicious password reset requests in webserver logs.
+*   Implement multi-factor authentication for all SINEC NMS user accounts to mitigate the impact of password compromise.
+*   Review user account permissions in SINEC NMS, ensuring that users have only the necessary privileges to perform their tasks.
