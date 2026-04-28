@@ -1,71 +1,76 @@
 ---
-title: Firebird Server Denial-of-Service Vulnerability (CVE-2026-28224)
+title: Firebird Unauthenticated Denial-of-Service Vulnerability (CVE-2026-34232)
 slug: 2026-04-firebird-dos
-description: An unauthenticated attacker can trigger a denial-of-service condition on vulnerable Firebird servers by sending a specially crafted op_crypt_key_callback packet, leading to a null pointer dereference and server crash.
-date: "2026-04-18T10:00:00Z"
+description: An unauthenticated attacker can cause a denial-of-service condition in Firebird database servers prior to versions 5.0.4, 4.0.7, and 3.0.14 by sending a crafted op_response packet that triggers a crash in the xdr_status_vector() function.
+date: "2026-04-17T20:16:34Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
-  - cve-2026-28224
-  - denial-of-service
+  - cve-2026-34232
+  - dos
   - firebird
-  - database
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
 cves:
-  - id: CVE-2026-28224
-    cvss: 8.2
+  - id: CVE-2026-34232
+    cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-28224
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-34232
+  - https://github.com/FirebirdSQL/firebird/releases/tag/v3.0.14
+  - https://github.com/FirebirdSQL/firebird/releases/tag/v4.0.7
+  - https://github.com/FirebirdSQL/firebird/releases/tag/v5.0.4
+  - https://github.com/FirebirdSQL/firebird/security/advisories/GHSA-7jq3-6j3c-5cm2
 rules:
-  - title: Detect Unauthenticated Firebird Crypt Callback
-    description: Detects attempts to exploit CVE-2026-28224 by identifying unauthenticated op_crypt_key_callback packets sent to Firebird servers.
+  - title: Detect Firebird Server Crash
+    description: Detects a Firebird server process crashing, potentially due to CVE-2026-34232 exploitation
     platform: sigma
     severity: high
     tactics:
-      - impact
-    techniques:
-      - T1499.001
-    data_sources:
-      - network_connection
-      - windows
-  - title: Detect Firebird Server Crash
-    description: Detects potential Firebird server crashes by monitoring for process termination events with specific exit codes indicative of a crash.
-    platform: sigma
-    severity: critical
-    tactics:
-      - impact
+      - availability
     techniques:
       - T1499.001
     data_sources:
       - process_creation
-      - windows
+      - linux
+  - title: Detect Unusual Network Traffic to Firebird Default Port
+    description: Detects a spike in network traffic to the default Firebird port (3050) which might indicate a denial-of-service attempt.
+    platform: sigma
+    severity: medium
+    tactics:
+      - availability
+    techniques:
+      - T1499.001
+    data_sources:
+      - network_connection
+      - linux
 rules_count: 2
 ---
 
-CVE-2026-28224 describes a denial-of-service vulnerability affecting Firebird, an open-source relational database management system. The vulnerability exists in versions prior to 5.0.4, 4.0.7, and 3.0.14. An unauthenticated attacker can exploit this vulnerability by sending a crafted `op_crypt_key_callback` packet to the server. When the server receives this packet without prior authentication, the `port_server_crypt_callback` handler is not initialized, resulting in a null pointer dereference. This leads to a server crash, effectively causing a denial-of-service condition. The attacker only needs to know the server's IP address and port to trigger this vulnerability. The vulnerability has been patched in Firebird versions 5.0.4, 4.0.7 and 3.0.14.
+Firebird is an open-source relational database management system. A vulnerability exists in versions prior to 5.0.4, 4.0.7, and 3.0.14. Specifically, the `xdr_status_vector()` function is susceptible to a flaw when decoding an `op_response` packet. The function fails to properly handle the `isc_arg_cstring` type within the status vector, leading to a server crash when encountered. This vulnerability, identified as CVE-2026-34232, can be exploited by an unauthenticated attacker who sends a specially crafted `op_response` packet to the Firebird server. Successful exploitation results in a denial-of-service condition, impacting the availability of the database. The vulnerability has been addressed in Firebird versions 5.0.4, 4.0.7, and 3.0.14.
 
 ## Attack Chain
 
-1.  The attacker identifies a vulnerable Firebird server by scanning for exposed ports (typically 3050).
-2.  The attacker establishes a TCP connection with the targeted Firebird server on the identified port.
-3.  The attacker crafts a malicious `op_crypt_key_callback` packet. This packet does not require prior authentication.
-4.  The attacker sends the crafted `op_crypt_key_callback` packet to the Firebird server.
-5.  Upon receiving the packet, the server attempts to process the request in the `port_server_crypt_callback` handler.
-6.  Because no prior authentication has occurred, the `port_server_crypt_callback` handler is not properly initialized, leading to a null pointer dereference.
-7.  The null pointer dereference causes the Firebird server process to crash.
-8.  The Firebird database server becomes unavailable, resulting in a denial-of-service condition for legitimate users.
+1. The attacker identifies a vulnerable Firebird server running a version prior to 5.0.4, 4.0.7, or 3.0.14.
+2. The attacker crafts a malicious `op_response` packet. This packet is designed to include an `isc_arg_cstring` type within the status vector.
+3. The attacker sends the crafted `op_response` packet to the vulnerable Firebird server over the network.
+4. The server receives the packet and attempts to process it using the `xdr_status_vector()` function.
+5. The `xdr_status_vector()` function fails to handle the `isc_arg_cstring` type correctly.
+6. This leads to a memory corruption or similar error within the server process.
+7. The Firebird server process crashes due to the unhandled exception.
+8. The database becomes unavailable, resulting in a denial-of-service condition.
 
 ## Impact
 
-Successful exploitation of CVE-2026-28224 results in a denial-of-service condition, rendering the Firebird database server unavailable. This can disrupt applications and services that rely on the database, leading to data access issues, application downtime, and potential data loss if proper backup and recovery mechanisms are not in place. The number of affected organizations depends on the prevalence of vulnerable Firebird versions and their exposure to the network.
+Successful exploitation of CVE-2026-34232 results in a denial-of-service condition, rendering the Firebird database unavailable. The impact depends on the criticality of the database to the affected organization. This vulnerability can disrupt business operations that rely on the database. While the specific number of victims and targeted sectors is unknown, any organization utilizing vulnerable Firebird versions is at risk.
 
 ## Recommendation
 
-*   Upgrade Firebird servers to versions 5.0.4, 4.0.7, or 3.0.14 or later to patch CVE-2026-28224.
-*   Deploy the Sigma rule "Detect Unauthenticated Firebird Crypt Callback" to your SIEM to identify potential exploitation attempts targeting this vulnerability.
-*   Implement network segmentation and access control lists (ACLs) to restrict access to Firebird servers from untrusted networks, mitigating the risk of unauthorized exploitation (network_connection logs).
-*   Monitor network traffic for suspicious `op_crypt_key_callback` packets being sent to Firebird servers, particularly from untrusted sources (network_connection logs).
+*   Upgrade Firebird servers to versions 5.0.4, 4.0.7, or 3.0.14 to remediate CVE-2026-34232.
+*   Monitor network traffic for unexpected or malformed packets being sent to Firebird servers. While a specific rule is not provided, consider creating network intrusion detection system (NIDS) rules to look for anomalies in traffic destined for Firebird ports.
+*   Implement robust input validation on the server-side to prevent processing of malformed packets. This may require custom development or configuration changes specific to Firebird.
