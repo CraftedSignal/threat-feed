@@ -47,4 +47,26 @@ rules:
 rules_count: 2
 ---
 
-SuiteCRM 7.10.7 is susceptible to a time-based SQL injection vulnerability (CVE-2019-25664) affecting the `record` parameter within the `Users` module's `DetailView` action. This flaw enables authenticated attackers to inject arbitrary SQL code into database queries by manipulating the `record` parameter within GET requests directed to the `index.php` endpoint. By exploiting this vulnerability, attackers can leverage time-based blind SQL injection techniques to extract sensitive database…
+SuiteCRM 7.10.7 is susceptible to a time-based SQL injection vulnerability (CVE-2019-25664) affecting the `record` parameter within the `Users` module's `DetailView` action. This flaw enables authenticated attackers to inject arbitrary SQL code into database queries by manipulating the `record` parameter within GET requests directed to the `index.php` endpoint. By exploiting this vulnerability, attackers can leverage time-based blind SQL injection techniques to extract sensitive database information. This vulnerability poses a significant risk to organizations utilizing vulnerable versions of SuiteCRM as it can lead to unauthorized access to sensitive data.
+
+## Attack Chain
+
+1. An attacker authenticates to the SuiteCRM application.
+2. The attacker crafts a malicious GET request targeting the `index.php` endpoint.
+3. The attacker injects SQL code into the `record` parameter of the GET request, specifically targeting the `Users` module's `DetailView` action.
+4. The SuiteCRM application processes the crafted request without proper sanitization of the `record` parameter.
+5. The injected SQL code is executed within the context of the database query.
+6. The attacker leverages time-based SQL injection techniques to infer information about the database structure and content by observing the response times.
+7. Sensitive data is extracted from the database through repeated time-based injection attacks.
+8. The attacker exfiltrates the extracted data.
+
+## Impact
+
+Successful exploitation of this SQL injection vulnerability can lead to the unauthorized disclosure of sensitive data stored within the SuiteCRM database. The scope of the impact depends on the level of access granted to the compromised user account, but could include customer data, financial information, or other confidential business data. While there is no count on victims available, all SuiteCRM 7.10.7 installations are vulnerable.
+
+## Recommendation
+
+*   Upgrade to a patched version of SuiteCRM that addresses CVE-2019-25664 to remediate the SQL injection vulnerability.
+*   Deploy the Sigma rule provided below to detect exploitation attempts targeting the vulnerable `index.php` endpoint.
+*   Implement input validation and sanitization measures within the SuiteCRM application to prevent SQL injection attacks.
+*   Monitor web server logs for suspicious GET requests containing potentially malicious SQL code in the `record` parameter.
