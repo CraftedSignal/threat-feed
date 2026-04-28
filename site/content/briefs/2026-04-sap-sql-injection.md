@@ -1,14 +1,17 @@
 ---
-title: SAP Business Planning and Consolidation and Business Warehouse SQL Injection Vulnerability
+title: Critical SQL Injection Vulnerability in SAP Products (CVE-2026-27681)
 slug: 2026-04-sap-sql-injection
-description: CVE-2026-27681 describes an insufficient authorization check vulnerability in SAP Business Planning and Consolidation and SAP Business Warehouse that allows authenticated users to execute crafted SQL statements, leading to unauthorized data access, modification, and deletion.
-date: "2026-04-14T00:16:06Z"
+description: A critical SQL injection vulnerability, CVE-2026-27681, affects SAP Business Planning and Consolidation (BPC) and SAP Business Warehouse (BW), potentially allowing attackers to execute arbitrary SQL commands and fully compromise affected systems.
+date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
-  - cve-2026-27681
-  - sql-injection
   - sap
+  - sql-injection
+  - cve-2026-27681
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -17,13 +20,26 @@ mitre_ttps:
 cves:
   - id: CVE-2026-27681
     cvss: 9.9
+  - id: CVE-2026-34256
+    cvss: 7.1
+    epss: 0.00036
+  - id: CVE-2025-64775
+    cvss: 7.5
+    epss: 0.00193
+  - id: CVE-2026-27674
+    cvss: 6.1
+    epss: 0.00054
+  - id: CVE-2026-0512
+    cvss: 6.1
+    epss: 0.00069
 references:
+  - https://ccb.belgium.be/advisories/warning-critical-sql-injection-vulnerability-sap-products-cve-2026-27681-patch
   - https://nvd.nist.gov/vuln/detail/CVE-2026-27681
+  - https://support.sap.com/en/my-support/knowledge-base/security-notes-news/april-2026.html
   - https://me.sap.com/notes/3719353
-  - https://url.sap/sapsecuritypatchday
 rules:
-  - title: Detect Suspicious SAP SQL Injection Attempts
-    description: Detects potential SQL injection attempts in SAP applications based on suspicious keywords in HTTP request parameters.
+  - title: Generic SQL Injection Attempt - URI Query
+    description: Detects potential SQL injection attempts in URI queries based on common SQL keywords.
     platform: sigma
     severity: high
     tactics:
@@ -33,8 +49,8 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect Suspicious SAP SQL Injection Attempts via POST
-    description: Detects potential SQL injection attempts in SAP applications based on suspicious keywords in HTTP POST requests.
+  - title: Generic SQL Injection Attempt - POST Body
+    description: Detects potential SQL injection attempts in HTTP POST requests based on common SQL keywords.
     platform: sigma
     severity: high
     tactics:
@@ -47,26 +63,26 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-27681 highlights a critical security flaw within SAP Business Planning and Consolidation and SAP Business Warehouse. This vulnerability stems from insufficient authorization checks, which allows an authenticated user to inject and execute arbitrary SQL commands. The vulnerability was published on 2026-04-13. An attacker can leverage this flaw to perform unauthorized actions such as reading sensitive data, modifying critical system configurations, and deleting essential information. The successful exploitation of CVE-2026-27681 can lead to significant disruption of business operations, data breaches, and potential financial losses. The scope of impact is broad, affecting organizations relying on these SAP solutions for their planning, consolidation, and data warehousing needs. Defenders should prioritize patching and mitigating this vulnerability to prevent potential exploitation.
+On April 14, 2026, SAP released security patches addressing multiple vulnerabilities in its products, including a critical SQL injection vulnerability identified as CVE-2026-27681. This vulnerability affects SAP Business Planning and Consolidation (BPC) and SAP Business Warehouse (BW). The flaw stems from insufficient authorization checks, allowing a low-privilege authenticated user to execute arbitrary SQL commands. Successful exploitation could lead to unauthorized access to sensitive database information, modification of critical business data, and potentially a denial of service. The affected versions include HANABPC 810, BPC4HANA 300, SAP_BW 750, 752, 753, 754, 755, 756, 757, 758, and 816. In addition to CVE-2026-27681, SAP addressed other vulnerabilities, including CVE-2026-34256, CVE-2025-64775, CVE-2026-27674 and CVE-2026-0512.
 
 ## Attack Chain
 
-1. An attacker gains valid credentials for SAP Business Planning and Consolidation or SAP Business Warehouse.
-2. The attacker identifies input fields or interfaces within the SAP application that are vulnerable to SQL injection.
-3. The attacker crafts malicious SQL statements designed to bypass authorization checks.
-4. The attacker injects the crafted SQL statements into the vulnerable input fields or interfaces.
-5. The SAP application executes the attacker-supplied SQL statements against the underlying database.
-6. The attacker reads sensitive data from database tables, including user credentials, financial records, or proprietary information.
-7. The attacker modifies existing data within the database to manipulate system configurations, grant elevated privileges, or disrupt business processes.
-8. The attacker deletes critical database records, causing data loss, system instability, and denial of service.
+1. An attacker gains low-privilege access to an SAP system, either through compromised credentials or an existing authorized account.
+2. The attacker crafts a malicious SQL query designed to exploit CVE-2026-27681.
+3. The attacker injects the malicious SQL query into an input field or parameter within the SAP Business Planning and Consolidation (BPC) or SAP Business Warehouse (BW) application.
+4. Due to insufficient authorization checks, the application executes the injected SQL query.
+5. The attacker leverages the executed SQL query to access sensitive database information, such as user credentials, financial data, or proprietary business information.
+6. The attacker modifies critical business data, potentially altering financial records, supply chain information, or customer data.
+7. The attacker could delete or manipulate data, leading to a denial of service, disrupting business operations.
+8. The attacker achieves full compromise of the affected systems, potentially gaining complete control over the database and associated applications.
 
 ## Impact
 
-Successful exploitation of CVE-2026-27681 can have severe consequences for affected organizations. The ability to read, modify, and delete database data can lead to data breaches, financial fraud, and disruption of critical business processes. The vulnerability allows attackers to gain unauthorized access to sensitive information, manipulate system configurations, and cause data loss. This can result in significant financial losses, reputational damage, and regulatory penalties. Organizations relying on SAP Business Planning and Consolidation and SAP Business Warehouse should prioritize patching this vulnerability to prevent potential exploitation.
+Successful exploitation of CVE-2026-27681 can have severe consequences, including unauthorized access to sensitive database information, modification of critical business data, and potential denial of service. This could lead to significant financial losses, reputational damage, and disruption of critical business operations. The vulnerability impacts SAP Business Planning and Consolidation (BPC) and SAP Business Warehouse (BW), potentially affecting a wide range of organizations that rely on these systems for business planning, data warehousing, and analytics.
 
 ## Recommendation
 
-*   Apply the security patch provided by SAP SE as described in SAP Note 3719353 to remediate CVE-2026-27681 immediately.
-*   Monitor SAP application logs for suspicious SQL queries or unauthorized database access attempts to detect potential exploitation of CVE-2026-27681.
-*   Implement strong input validation and sanitization measures to prevent SQL injection attacks in SAP Business Planning and Consolidation and SAP Business Warehouse.
-*   Deploy the Sigma rule "Detect Suspicious SAP SQL Injection Attempts" to identify potential exploitation attempts.
+*   Apply the security patches released by SAP for CVE-2026-27681 to vulnerable instances of SAP Business Planning and Consolidation (BPC) and SAP Business Warehouse (BW) with the highest priority after thorough testing, as recommended by SAP.
+*   Deploy the generic SQL Injection detection rule to identify potential exploitation attempts in SAP webserver logs, tuning for your specific environment.
+*   Monitor SAP systems for suspicious database activity, such as unauthorized data access or modification, as highlighted in the advisory.
+*   Implement stricter authorization checks and input validation measures to prevent future SQL injection vulnerabilities, based on the description of CVE-2026-27681.
