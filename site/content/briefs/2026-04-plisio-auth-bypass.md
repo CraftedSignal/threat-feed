@@ -21,6 +21,9 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6372
   - https://patchstack.com/database/wordpress/plugin/plisio-payment-gateway-for-woocommerce/vulnerability/wordpress-accept-cryptocurrencies-with-plisio-plugin-2-0-5-payment-bypass-vulnerability?_s_id=cve
+iocs:
+  - type: url
+    value: https://patchstack.com/database/wordpress/plugin/plisio-payment-gateway-for-woocommerce/vulnerability/wordpress-accept-cryptocurrencies-with-plisio-plugin-2-0-5-payment-bypass-vulnerability?_s_id=cve
 ioc_counts:
   url: 1
 rules:
@@ -49,4 +52,24 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-6372 is a missing authorization vulnerability affecting the Plisio Accept Cryptocurrencies with Plisio WordPress plugin, specifically versions from initial releases through 2.0.5. Discovered by Patchstack, the vulnerability stems from incorrectly configured access control security levels within the plugin. An attacker can exploit this flaw to bypass payment verification processes, potentially leading to unauthorized transactions or manipulation of payment-related functionalities. Given…
+CVE-2026-6372 is a missing authorization vulnerability affecting the Plisio Accept Cryptocurrencies with Plisio WordPress plugin, specifically versions from initial releases through 2.0.5. Discovered by Patchstack, the vulnerability stems from incorrectly configured access control security levels within the plugin. An attacker can exploit this flaw to bypass payment verification processes, potentially leading to unauthorized transactions or manipulation of payment-related functionalities. Given the increasing adoption of cryptocurrency payments, this vulnerability presents a significant risk to e-commerce sites using the affected plugin. Successful exploitation can result in financial losses and reputational damage.
+
+## Attack Chain
+
+1.  Attacker identifies a WordPress site using the vulnerable Plisio plugin (version <= 2.0.5).
+2.  Attacker analyzes the plugin's code or intercepts network traffic to identify the specific endpoint or function responsible for payment verification lacking proper authorization checks.
+3.  The attacker crafts a malicious HTTP request to the vulnerable endpoint, bypassing the intended authentication or authorization mechanisms.
+4.  The crafted request modifies payment parameters (e.g., amount, recipient) without proper validation.
+5.  The modified request is sent to the server, which processes it without correctly verifying the user's authority.
+6.  The server updates the payment status, marking it as "paid" or "verified," even though the actual payment might be incomplete, altered, or entirely missing.
+7.  The WordPress site delivers goods or services based on the fraudulently verified payment status.
+
+## Impact
+
+Successful exploitation of CVE-2026-6372 allows attackers to bypass payment verification processes in e-commerce sites using the Plisio Accept Cryptocurrencies plugin. This can lead to financial losses for the site owner due to unauthorized transactions. The vulnerability affects all installations using versions up to and including 2.0.5. Given the potential for widespread impact on any site accepting cryptocurrency via this plugin, this issue represents a high risk.
+
+## Recommendation
+
+*   Upgrade the Plisio Accept Cryptocurrencies with Plisio plugin to a version greater than 2.0.5 to patch CVE-2026-6372.
+*   Deploy the Sigma rule `Detect Plisio Payment Bypass Attempt` to monitor for exploit attempts targeting the vulnerable endpoint.
+*   Examine web server logs for suspicious POST requests to payment processing endpoints associated with the Plisio plugin, filtering for unexpected parameter modifications (log source: webserver).
