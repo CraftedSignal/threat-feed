@@ -1,14 +1,14 @@
 ---
 title: Totolink A8000RU OS Command Injection Vulnerability
 slug: 2026-04-totolink-rce
-description: CVE-2026-7152 is a critical OS command injection vulnerability in the Totolink A8000RU router that allows remote attackers to execute arbitrary commands by manipulating the telnet_enabled argument in the setTelnetCfg function.
-date: "2026-04-27T20:16:29Z"
+description: Totolink A8000RU version 7.1cu.643_b20200521 is vulnerable to OS command injection via the setWiFiWpsStart function in the /cgi-bin/cstecgi.cgi CGI handler, allowing remote attackers to execute arbitrary commands by manipulating the wscDisabled argument.
+date: "2026-04-28T01:16:01Z"
 severities:
   - critical
 tags:
+  - cve-2026-7202
   - command-injection
-  - rce
-  - totolink
+  - router
 vendors:
   - Totolink
 products:
@@ -19,15 +19,18 @@ mitre_ttps:
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-7152
+  - id: CVE-2026-7202
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7152
-  - https://github.com/Litengzheng/vuldb_new2/blob/main/A8000RU/vul_316/README.md
-  - https://vuldb.com/vuln/359751
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7202
+  - https://github.com/Litengzheng/vuldb_new2/blob/main/A8000RU/vul_321/README.md
+  - https://vuldb.com/submit/801527
+  - https://vuldb.com/vuln/359802
+  - https://vuldb.com/vuln/359802/cti
+  - https://www.totolink.net/
 rules:
-  - title: Detect Totolink RCE via CGI
-    description: Detects attempts to exploit the Totolink A8000RU OS command injection vulnerability (CVE-2026-7152) by monitoring POST requests to the cstecgi.cgi script.
+  - title: Detect Totolink A8000RU Command Injection Attempt via cstecgi.cgi
+    description: Detects potential command injection attempts targeting the setWiFiWpsStart function in Totolink A8000RU routers by identifying suspicious characters in the wscDisabled parameter.
     platform: sigma
     severity: critical
     tactics:
@@ -37,8 +40,8 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect Shell Spawn from Totolink CGI
-    description: Detects shell processes spawned from the cstecgi.cgi process, which is indicative of successful command injection.
+  - title: Detect Totolink A8000RU Command Injection Attempt via User Agent
+    description: Detects potential command injection attempts targeting the setWiFiWpsStart function in Totolink A8000RU routers by identifying suspicious characters in the User Agent header, which might indicate an attacker attempting to bypass other security measures.
     platform: sigma
     severity: high
     tactics:
@@ -46,9 +49,9 @@ rules:
     techniques:
       - T1059.004
     data_sources:
-      - process_creation
+      - webserver
       - linux
 rules_count: 2
 ---
 
-A critical vulnerability, CVE-2026-7152, has been discovered in the Totolink A8000RU router, specifically version 7.1cu.643_b20200521. This flaw resides within the CGI handler component, affecting the `setTelnetCfg` function located in `/cgi-bin/cstecgi.cgi`. By manipulating the `telnet_enabled` argument, an attacker can inject arbitrary OS commands. This vulnerability is remotely exploitable and poses a significant threat as a proof-of-concept exploit is publicly available. Successful…
+A critical vulnerability, CVE-2026-7202, has been identified in Totolink A8000RU router firmware version 7.1cu.643_b20200521. The vulnerability resides within the CGI Handler component, specifically in the `setWiFiWpsStart` function of the `/cgi-bin/cstecgi.cgi` file. By manipulating the `wscDisabled` argument, a remote attacker can inject and execute arbitrary operating system commands on the affected device. This vulnerability is remotely exploitable without authentication and has a public…
