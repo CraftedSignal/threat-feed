@@ -56,4 +56,25 @@ rules:
 rules_count: 2
 ---
 
-A critical vulnerability, CVE-2026-35616, has been identified in Fortinet FortiClient EMS versions 7.4.5 through 7.4.6. This vulnerability allows unauthenticated attackers to bypass API authentication and authorization checks, enabling them to execute arbitrary code or commands on the EMS server. FortiClient EMS is a centralized platform used to deploy, configure, and monitor FortiClient agents across an organization, making it a high-value target. The vulnerability is being actively exploited…
+A critical vulnerability, CVE-2026-35616, has been identified in Fortinet FortiClient EMS versions 7.4.5 through 7.4.6. This vulnerability allows unauthenticated attackers to bypass API authentication and authorization checks, enabling them to execute arbitrary code or commands on the EMS server. FortiClient EMS is a centralized platform used to deploy, configure, and monitor FortiClient agents across an organization, making it a high-value target. The vulnerability is being actively exploited in the wild. Successful exploitation can lead to full compromise of the EMS infrastructure, impacting all managed endpoints and potentially enabling lateral movement across enterprise networks. Defenders should prioritize patching and enhance monitoring capabilities.
+
+## Attack Chain
+
+1. The attacker identifies a vulnerable FortiClient EMS instance (versions 7.4.5 through 7.4.6) exposed on the network.
+2. The attacker crafts a malicious HTTP/API request targeting the unauthenticated API interface of the FortiClient EMS.
+3. The crafted request bypasses authentication and authorization checks due to improper access control (CWE-284).
+4. The bypassed access controls allow the attacker to execute unauthorized code or commands on the EMS server.
+5. The attacker obtains control of administrative functionality on the FortiClient EMS server.
+6. The attacker manipulates or exfiltrates sensitive configuration and policy data stored on the EMS.
+7. The attacker deploys malicious payloads to managed endpoints via the compromised EMS server.
+8. The attacker uses the compromised EMS as a foothold for further network intrusion or lateral movement.
+
+## Impact
+
+Successful exploitation of CVE-2026-35616 can lead to a full compromise of the FortiClient EMS infrastructure. This includes the ability to manipulate or exfiltrate sensitive configuration and policy data, corrupt or disable endpoint protections, disrupt endpoint management services, and deploy malicious payloads to managed endpoints. The vulnerability enables lateral movement across enterprise networks. The CCB has confirmed that this vulnerability has been exploited in the wild.
+
+## Recommendation
+
+*   Apply the latest Fortinet patch for FortiClient EMS to remediate CVE-2026-35616 immediately.
+*   Upscale monitoring and detection capabilities to identify any related suspicious activity, ensuring a swift response in case of an intrusion as recommended by the CCB.
+*   Deploy the Sigma rule detecting unauthorized API access to the FortiClient EMS webserver to your SIEM and tune for your environment.
