@@ -48,4 +48,26 @@ rules:
 rules_count: 2
 ---
 
-Kados R10 GreenBee is susceptible to SQL injection attacks due to improper input validation. Specifically, the `filter_user_mail` parameter does not adequately sanitize user-supplied input, which enables attackers to inject arbitrary SQL code into database queries. Publicly disclosed as CVE-2019-25704, successful exploitation of this vulnerability can result in the unauthorized disclosure of sensitive information, modification of existing data, or potentially complete compromise of the…
+Kados R10 GreenBee is susceptible to SQL injection attacks due to improper input validation. Specifically, the `filter_user_mail` parameter does not adequately sanitize user-supplied input, which enables attackers to inject arbitrary SQL code into database queries. Publicly disclosed as CVE-2019-25704, successful exploitation of this vulnerability can result in the unauthorized disclosure of sensitive information, modification of existing data, or potentially complete compromise of the database. The affected software is Kados R10 GreenBee; specific versions are not mentioned in the source.
+
+## Attack Chain
+
+1. The attacker identifies the Kados R10 GreenBee application running.
+2. The attacker locates the `filter_user_mail` parameter in the application's web interface or API.
+3. The attacker crafts a malicious HTTP request containing SQL code injected into the `filter_user_mail` parameter.
+4. The application's backend processes the crafted request without proper sanitization.
+5. The injected SQL code is executed against the database.
+6. The attacker extracts sensitive data from the database, such as user credentials or financial records, by using SQL injection techniques like `UNION SELECT`.
+7. Alternatively, the attacker modifies data within the database, such as altering user privileges or inserting malicious content.
+8. The attacker uses the compromised database to further compromise the application or the underlying system.
+
+## Impact
+
+Successful exploitation of CVE-2019-25704 allows attackers to extract sensitive data (user credentials, financial records), modify existing data (alter user privileges), or potentially compromise the entire database. The number of affected installations is unknown, but unpatched systems are vulnerable. This could lead to significant data breaches, financial losses, and reputational damage.
+
+## Recommendation
+
+*   Inspect web server logs for HTTP requests targeting the `filter_user_mail` parameter with suspicious SQL syntax (e.g., `UNION`, `SELECT`, `--`, `/* */`) to identify potential exploitation attempts. This activity can be detected with the provided Sigma rule for webserver logs.
+*   Deploy a web application firewall (WAF) rule to block requests containing SQL injection payloads targeting the `filter_user_mail` parameter.
+*   Apply the patch or upgrade to a version of Kados R10 GreenBee that addresses CVE-2019-25704.
+*   Implement input validation and sanitization on all user-supplied input, especially the `filter_user_mail` parameter, to prevent SQL injection attacks.
