@@ -1,32 +1,36 @@
 ---
-title: D-Link DIR-645 Stack-Based Buffer Overflow Vulnerability (CVE-2026-5815)
+title: D-Link DI-8100 Buffer Overflow Vulnerability
 slug: 2026-04-dlink-buffer-overflow
-description: A remote stack-based buffer overflow vulnerability exists in the hedwigcgi_main function of the /cgi-bin/hedwig.cgi file on D-Link DIR-645 routers (versions 1.01, 1.02, and 1.03), potentially allowing unauthenticated attackers to execute arbitrary code.
-date: "2026-04-09T00:16:20Z"
+description: A remote buffer overflow vulnerability exists in D-Link DI-8100 version 16.07.26A1's file_exten_asp function, allowing code execution by manipulating the 'Name' argument.
+date: "2026-04-28T09:18:52Z"
 severities:
   - critical
 tags:
-  - cve-2026-5815
   - buffer-overflow
-  - d-link
   - router
+  - remote-code-execution
+  - cve-2026-7247
+vendors:
+  - D-Link
+products:
+  - DI-8100
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-5815
-    cvss: 8.8
+  - id: CVE-2026-7247
+    cvss: 7.2
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5815
-  - https://github.com/Pers1st0/CVE/blob/main/stack-based%20buffer%20overflow%20vulnerability%20exists%20in%20the%20hedwig.cgi%20of%20D-Link%20DIR-645.md
-  - https://vuldb.com/vuln/356263
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7247
+  - https://github.com/draw-ctf/report/blob/main/DI-8100/file_exten_asp_overflow.md
+  - https://vuldb.com/vuln/359856
 rules:
-  - title: D-Link DIR-645 Buffer Overflow Attempt
-    description: Detects potential buffer overflow attempts targeting the /cgi-bin/hedwig.cgi endpoint on D-Link DIR-645 routers.
+  - title: Suspicious File Extension ASP Request
+    description: Detects suspicious requests to file_exten.asp with overly long Name parameters, potentially indicating a buffer overflow attempt.
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - initial_access
     techniques:
@@ -34,40 +38,39 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: D-Link DIR-645 Unauthorized Access Attempt via hedwig.cgi
-    description: Detects attempts to access the hedwig.cgi endpoint, potentially indicating exploitation of CVE-2026-5815 or other vulnerabilities.
+  - title: D-Link DI-8100 file_exten.asp Access
+    description: Detects access to the file_exten.asp page on D-Link DI-8100 devices, which could indicate reconnaissance or exploitation attempts.
     platform: sigma
-    severity: medium
+    severity: informational
     tactics:
-      - initial_access
+      - reconnaissance
     techniques:
-      - T1190
+      - T1595.002
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-CVE-2026-5815 describes a stack-based buffer overflow vulnerability affecting D-Link DIR-645 routers running firmware versions 1.01, 1.02, and 1.03. The vulnerability resides within the `hedwigcgi_main` function in the `/cgi-bin/hedwig.cgi` file.  Successful exploitation of this flaw could allow a remote, unauthenticated attacker to execute arbitrary code on the affected device. This vulnerability is particularly critical because a public exploit is available, increasing the likelihood of exploitation, although D-Link no longer supports the affected devices.
+A critical buffer overflow vulnerability, tracked as CVE-2026-7247, has been discovered in D-Link DI-8100 router firmware version 16.07.26A1. The vulnerability resides within the `file_exten_asp` function of the `file_exten.asp` component, specifically the File Extension Handler. Successful exploitation could allow an attacker to execute arbitrary code on the device. The vulnerability is triggered by manipulating the `Name` argument, leading to a buffer overflow. Publicly available exploits exist, increasing the risk of widespread exploitation. Given the potential for remote exploitation and the existence of public exploits, organizations using the affected D-Link DI-8100 router should take immediate action.
 
 ## Attack Chain
 
-1.  The attacker sends a specially crafted HTTP request to the `/cgi-bin/hedwig.cgi` endpoint on the D-Link DIR-645 router.
-2.  The web server processes the request and calls the `hedwigcgi_main` function.
-3.  The `hedwigcgi_main` function copies user-supplied data from the HTTP request into a fixed-size buffer on the stack.
-4.  The attacker provides a payload that exceeds the buffer's capacity, causing a buffer overflow.
-5.  The overflow overwrites adjacent stack memory, including the return address.
-6.  When the `hedwigcgi_main` function returns, it jumps to the attacker-controlled return address.
-7.  The attacker-controlled return address points to shellcode injected by the attacker within the overflowing data.
-8.  The shellcode executes with the privileges of the web server, potentially granting the attacker full control of the device.
+1.  The attacker identifies a vulnerable D-Link DI-8100 router running firmware 16.07.26A1.
+2.  The attacker crafts a malicious HTTP request targeting the `file_exten.asp` endpoint.
+3.  The crafted request includes a `Name` argument with a payload exceeding the buffer size in the `file_exten_asp` function.
+4.  The router processes the malicious request, triggering the buffer overflow when handling the oversized `Name` argument.
+5.  The buffer overflow overwrites adjacent memory regions, potentially including return addresses or function pointers.
+6.  The attacker redirects execution flow to injected shellcode or existing code gadgets (ROP).
+7.  The injected code executes with the privileges of the web server process.
+8.  The attacker gains remote code execution on the D-Link DI-8100 router, potentially allowing for device takeover or network compromise.
 
 ## Impact
 
-Successful exploitation of CVE-2026-5815 can lead to complete compromise of the D-Link DIR-645 router. An attacker could gain unauthorized access to the device's configuration, intercept network traffic, or use the compromised router as a launching point for further attacks on other devices on the network. Given that the affected devices are no longer supported, users will not receive patches, making exploitation more likely.
+Successful exploitation of this vulnerability allows for remote code execution on the D-Link DI-8100 router. An attacker could gain complete control of the device, potentially using it as a pivot point for further attacks within the network. This could lead to data exfiltration, denial of service, or the installation of malicious firmware. Given the existence of public exploits, a wide range of actors could leverage this vulnerability, impacting potentially thousands of devices.
 
 ## Recommendation
 
-*   Implement network segmentation to limit the impact of a compromised router.
-*   Monitor web server logs for suspicious requests to `/cgi-bin/hedwig.cgi` using the provided Sigma rule to identify potential exploitation attempts.
-*   Deploy the provided Sigma rule to your SIEM to detect exploitation attempts targeting CVE-2026-5815.
-*   Consider replacing end-of-life D-Link DIR-645 routers with newer, supported models to eliminate the vulnerability.
+*   Monitor web server logs for suspicious requests targeting `file_exten.asp` with abnormally long `Name` parameters to detect potential exploitation attempts. (Log Source: webserver, Rule: Suspicious File Extension ASP Request).
+*   Implement rate limiting on web requests to the D-Link DI-8100's management interface to mitigate potential brute-force exploitation attempts. (Log Source: firewall, Affected Product: DI-8100 16.07.26A1)
+*   Apply any available patches or firmware updates released by D-Link to address CVE-2026-7247. (Affected Product: DI-8100 16.07.26A1)
