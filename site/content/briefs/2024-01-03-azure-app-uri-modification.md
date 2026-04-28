@@ -1,0 +1,115 @@
+---
+title: Azure Application URI Configuration Modification
+slug: 2024-01-03-azure-app-uri-modification
+description: Detection of Azure application URI modifications that can be indicative of malicious activity, such as using dangling URIs, non-HTTPS URIs, wildcard domains, or URIs pointing to uncontrolled domains, potentially leading to initial access, stealth, persistence, credential access, and privilege escalation.
+date: "2024-01-03T14:21:00Z"
+type: coverage
+types:
+  - coverage
+severities:
+  - high
+tags:
+  - cloud
+  - azure
+  - application
+  - uri
+  - modification
+  - persistence
+  - credential-access
+  - privilege-escalation
+vendors:
+  - Microsoft
+products:
+  - Azure Active Directory
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1528
+    technique_name: Steal Application Access Token
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1528
+    technique_name: Steal Application Access Token
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+references:
+  - https://learn.microsoft.com/en-us/entra/architecture/security-operations-applications#application-configuration-changes
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/azure/audit_logs/azure_app_uri_modifications.yml
+rules:
+  - title: Azure AD Application URI Modified to Non-HTTPS
+    description: Detects when an Azure AD Application URI is modified to a non-HTTPS URL, which can indicate a potential security risk.
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial-access
+      - persistence
+      - stealth
+    techniques:
+      - T1078.004
+      - T1528
+    data_sources:
+      - azure
+      - auditlogs
+  - title: Azure AD Application URI Modified to Wildcard Domain
+    description: Detects when an Azure AD Application URI is modified to include a wildcard domain, potentially indicating a malicious configuration.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential-access
+      - initial-access
+      - persistence
+      - privilege-escalation
+      - stealth
+    techniques:
+      - T1078.004
+      - T1528
+    data_sources:
+      - azure
+      - auditlogs
+  - title: Azure AD Application URI Configuration Changes
+    description: Detects when a configuration change is made to an applications URI.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential-access
+      - initial-access
+      - persistence
+      - privilege-escalation
+      - stealth
+    techniques:
+      - T1078.004
+      - T1528
+    data_sources:
+      - azure
+      - auditlogs
+rules_count: 3
+---
+
+Attackers may modify application URIs within Azure Active Directory to redirect users or applications to malicious resources, obtain unauthorized access, or establish persistence. The modification of an application's URI can be a subtle but effective technique for gaining a foothold in an environment. By manipulating the URI settings, attackers can redirect traffic to attacker-controlled servers, intercept credentials, or perform other malicious actions. This activity is often difficult to detect because it can blend in with legitimate administrative tasks. Investigation is merited if URIs for domain names no longer exist, are not using HTTPS, have wildcards at the end of the domain, are not unique to that app, or point to domains that the organization does not control.
+
+## Attack Chain
+
+1.  The attacker gains initial access to an Azure account with sufficient privileges to modify application registrations.
+2.  The attacker navigates to the Azure Active Directory portal.
+3.  The attacker locates a target application registration.
+4.  The attacker modifies the application's URI settings, such as the reply URLs or identifier URIs.
+5.  The attacker configures the URI to point to a malicious server or a phishing page.
+6.  Users or applications are redirected to the malicious URI when attempting to authenticate or access the application.
+7.  The attacker intercepts credentials or performs other malicious actions.
+8.  The attacker establishes persistence by maintaining control over the application's URI settings.
+
+## Impact
+
+A successful attack could lead to credential theft, data breaches, or unauthorized access to sensitive resources. By compromising application URIs, attackers can redirect users to phishing pages, intercept credentials, or gain a foothold in the environment for further exploitation. This activity can be difficult to detect and can have a significant impact on the organization's security posture.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Application URI Configuration Changes` to your SIEM to detect suspicious modifications to application URIs in Azure Audit Logs.
+*   Investigate any alerts generated by the Sigma rule `Application URI Configuration Changes` to determine if the URI modification is legitimate or malicious.
+*   Monitor Azure Audit Logs for any changes to application URI settings (as indicated by `properties.message: Update Application Sucess- Property Name AppAddress`) and validate the legitimacy of the changes.
