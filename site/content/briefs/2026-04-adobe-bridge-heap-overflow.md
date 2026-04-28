@@ -3,6 +3,9 @@ title: Adobe Bridge Heap-Based Buffer Overflow Vulnerability (CVE-2026-27311)
 slug: 2026-04-adobe-bridge-heap-overflow
 description: A heap-based buffer overflow vulnerability in Adobe Bridge versions 16.0.2, 15.1.4, and earlier (CVE-2026-27311) allows for arbitrary code execution when a user opens a specially crafted file.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
