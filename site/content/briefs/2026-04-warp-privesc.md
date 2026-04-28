@@ -3,6 +3,9 @@ title: Windows WARP Integer Truncation Privilege Escalation (CVE-2026-26178)
 slug: 2026-04-warp-privesc
 description: CVE-2026-26178 is an integer size truncation vulnerability in the Windows Advanced Rasterization Platform (WARP) that allows an unauthorized attacker to elevate privileges locally.
 date: "2026-04-14T18:16:53Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
