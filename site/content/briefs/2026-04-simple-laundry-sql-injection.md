@@ -1,35 +1,34 @@
 ---
-title: SQL Injection Vulnerability in Simple Laundry System 1.0 (CVE-2026-5257)
+title: Simple Laundry System SQL Injection Vulnerability (CVE-2026-5648)
 slug: 2026-04-simple-laundry-sql-injection
-description: A remote SQL injection vulnerability (CVE-2026-5257) exists in the Simple Laundry System 1.0 via the userid parameter in /delstaffinfo.php, allowing unauthenticated attackers to potentially read, modify, or delete sensitive data.
-date: "2026-04-01T06:16:16Z"
+description: A remote SQL injection vulnerability exists in code-projects Simple Laundry System 1.0 due to improper input validation in the firstName parameter of /userfinishregister.php, potentially allowing attackers to execute arbitrary SQL commands.
+date: "2026-04-06T11:17:03Z"
 severities:
   - high
-exploited: true
 tags:
+  - cve-2026-5648
   - sql-injection
   - web-application
-  - vulnerability
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-5257
+  - id: CVE-2026-5648
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5257
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-5648
   - https://code-projects.org/
-  - https://github.com/ningfashui123/louplus/issues/1
-  - https://vuldb.com/submit/780723
-  - https://vuldb.com/vuln/354447
-  - https://vuldb.com/vuln/354447/cti
+  - https://github.com/yao536/cve/issues/2
+  - https://vuldb.com/submit/786194
+  - https://vuldb.com/vuln/355436
+  - https://vuldb.com/vuln/355436/cti
 rules:
-  - title: Detect Suspicious Delstaffinfo.php SQL Injection Attempt
-    description: Detects potential SQL injection attempts targeting the /delstaffinfo.php endpoint by looking for common SQL injection keywords in the userid parameter.
+  - title: Detect Suspicious URI Access to userfinishregister.php
+    description: Detects access to the vulnerable userfinishregister.php page, which may indicate exploitation attempts
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - initial_access
     techniques:
@@ -37,10 +36,10 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect SQL Error Logs After Potential Injection
-    description: This rule detects specific SQL error messages in web server logs that may indicate a successful or attempted SQL injection attack.
+  - title: Detect SQL Injection Attempt in URI
+    description: Detects potential SQL injection attempts based on suspicious characters in the URI
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - initial_access
     techniques:
@@ -51,4 +50,26 @@ rules:
 rules_count: 2
 ---
 
-A SQL injection vulnerability, tracked as CVE-2026-5257, has been discovered in code-projects Simple Laundry System version 1.0. This vulnerability specifically impacts the `/delstaffinfo.php` file and is triggered by manipulating the `userid` parameter. Due to insufficient input validation, an attacker can inject arbitrary SQL commands. This vulnerability allows remote, unauthenticated attackers to potentially read, modify, or delete database information. The exploit is publicly known…
+A SQL injection vulnerability, identified as CVE-2026-5648, affects the code-projects Simple Laundry System version 1.0. The vulnerability resides within the `/userfinishregister.php` file, specifically in the Parameter Handler component. By manipulating the `firstName` argument, a remote attacker can inject arbitrary SQL commands. The vulnerability allows unauthenticated remote exploitation, and a proof-of-concept exploit has been published, increasing the risk of widespread exploitation. This poses a significant threat to systems running the affected software, potentially leading to data breaches and service disruption.
+
+## Attack Chain
+
+1.  An attacker identifies an instance of Simple Laundry System 1.0 running online.
+2.  The attacker crafts a malicious HTTP request targeting the `/userfinishregister.php` endpoint.
+3.  Within the HTTP request, the attacker injects a SQL payload into the `firstName` parameter.
+4.  The application fails to properly sanitize the `firstName` input before passing it to the SQL query.
+5.  The injected SQL code is executed by the application's database server.
+6.  The attacker gains unauthorized access to sensitive data stored in the database.
+7.  The attacker may modify or delete data, potentially leading to data corruption or denial of service.
+8.  The attacker could potentially leverage the SQL injection to gain shell access to the underlying server.
+
+## Impact
+
+Successful exploitation of this vulnerability can lead to unauthorized access to sensitive data, including user credentials, financial information, and other confidential data stored within the Simple Laundry System database. The vulnerability could allow an attacker to modify or delete data, leading to data corruption or a denial of service. Although the number of victims and specific sectors targeted are unknown, the availability of a published exploit increases the likelihood of widespread attacks against vulnerable installations.
+
+## Recommendation
+
+*   Apply appropriate input validation and sanitization techniques to the `firstName` parameter in `/userfinishregister.php` to prevent SQL injection attacks.
+*   Deploy the Sigma rule `Detect Suspicious URI Access to userfinishregister.php` to identify potential exploitation attempts against the vulnerable endpoint.
+*   Monitor web server logs for suspicious activity related to SQL injection attempts, focusing on requests targeting `/userfinishregister.php` (see rule `Detect SQL Injection Attempt in URI`).
+*   Consider using a web application firewall (WAF) to filter out malicious requests containing SQL injection payloads.
