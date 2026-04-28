@@ -26,6 +26,9 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32860
   - https://www.ni.com/en/support/security/available-critical-and-security-updates-for-ni-software/2026/lv-project-library-file-parsing-memory-corruption-vulnerability-in-ni-labview.html
+iocs:
+  - type: url
+    value: https://www.ni.com/en/support/security/available-critical-and-security-updates-for-ni-software/2026/lv-project-library-file-parsing-memory-corruption-vulnerability-in-ni-labview.html
 ioc_counts:
   url: 1
 rules:
@@ -54,4 +57,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-32860 is a vulnerability affecting NI LabVIEW versions 2026 Q1 (26.1.0) and prior. The vulnerability stems from an out-of-bounds write condition encountered during the loading of a corrupted LVLIB (LabVIEW Library) file. An attacker could exploit this flaw by crafting a malicious .lvlib file and enticing a user to open it within LabVIEW. Successful exploitation could lead to memory corruption, potentially enabling information disclosure or the execution of arbitrary code within the…
+CVE-2026-32860 is a vulnerability affecting NI LabVIEW versions 2026 Q1 (26.1.0) and prior. The vulnerability stems from an out-of-bounds write condition encountered during the loading of a corrupted LVLIB (LabVIEW Library) file. An attacker could exploit this flaw by crafting a malicious .lvlib file and enticing a user to open it within LabVIEW. Successful exploitation could lead to memory corruption, potentially enabling information disclosure or the execution of arbitrary code within the context of the LabVIEW application. This poses a significant risk to systems running vulnerable versions of LabVIEW, particularly those handling or processing potentially untrusted LVLIB files.
+
+## Attack Chain
+
+1.  Attacker crafts a malicious .lvlib file containing corrupted data designed to trigger the out-of-bounds write.
+2.  The attacker uses social engineering or other means to convince a victim to open the malicious .lvlib file in NI LabVIEW.
+3.  The victim opens the .lvlib file within NI LabVIEW.
+4.  LabVIEW attempts to parse the corrupted data within the .lvlib file.
+5.  During the parsing process, the out-of-bounds write vulnerability is triggered due to the malformed data.
+6.  Memory corruption occurs, potentially overwriting critical program data or code.
+7.  Depending on the overwritten memory, the attacker may achieve information disclosure by reading sensitive data.
+8.  Alternatively, the attacker may achieve arbitrary code execution by overwriting code pointers or injecting malicious code into memory.
+
+## Impact
+
+Successful exploitation of CVE-2026-32860 can lead to both information disclosure and arbitrary code execution on affected systems. An attacker exploiting this vulnerability could potentially gain unauthorized access to sensitive data processed or stored by LabVIEW, or completely compromise the affected system by executing malicious code. The impact is significant, especially in industrial control systems and other critical infrastructure environments where LabVIEW is commonly used, as it could lead to disruption of services, data breaches, or even physical damage.
+
+## Recommendation
+
+*   Apply the security patch provided by National Instruments as described in the advisory at [https://www.ni.com/en/support/security/available-critical-and-security-updates-for-ni-software/2026/lv-project-library-file-parsing-memory-corruption-vulnerability-in-ni-labview.html](https://www.ni.com/en/support/security/available-critical-and-security-updates-for-ni-software/2026/lv-project-library-file-parsing-memory-corruption-vulnerability-in-ni-labview.html) to remediate CVE-2026-32860.
+*   Implement strict file handling procedures and user awareness training to prevent users from opening untrusted .lvlib files received from external sources.
+*   Monitor process execution for unusual or unexpected activity originating from LabVIEW processes, which could indicate successful exploitation of this or other vulnerabilities.
