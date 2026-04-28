@@ -47,4 +47,24 @@ rules:
 rules_count: 2
 ---
 
-C4G Basic Laboratory Information System version 3.4 is susceptible to SQL injection vulnerabilities. The vulnerability allows unauthenticated attackers to inject malicious SQL code through the `site` parameter in HTTP GET requests targeting the `users_select.php` endpoint. Successful exploitation could grant attackers unauthorized access to sensitive data stored within the system's database, including confidential patient records and system credentials. This vulnerability poses a significant…
+C4G Basic Laboratory Information System version 3.4 is susceptible to SQL injection vulnerabilities. The vulnerability allows unauthenticated attackers to inject malicious SQL code through the `site` parameter in HTTP GET requests targeting the `users_select.php` endpoint. Successful exploitation could grant attackers unauthorized access to sensitive data stored within the system's database, including confidential patient records and system credentials. This vulnerability poses a significant threat to organizations utilizing the affected LIS, as it may lead to data breaches, compliance violations, and potential compromise of the entire system. Public exploits are available, increasing the risk of widespread exploitation.
+
+## Attack Chain
+
+1.  The attacker identifies a vulnerable C4G Basic Laboratory Information System 3.4 instance.
+2.  The attacker crafts a malicious SQL injection payload designed to extract data or execute commands.
+3.  The attacker sends an HTTP GET request to the `users_select.php` endpoint with the crafted SQL payload injected into the `site` parameter.
+4.  The vulnerable application processes the malicious SQL query without proper sanitization.
+5.  The database executes the injected SQL commands, potentially returning sensitive data.
+6.  The attacker receives the database response containing the extracted information or the results of the executed commands.
+7.  The attacker uses the extracted information, such as user credentials or patient data, for further malicious activities.
+
+## Impact
+
+Successful exploitation of this SQL injection vulnerability allows unauthorized access to sensitive data stored within the C4G Basic Laboratory Information System 3.4 database. This includes patient records, system credentials, and potentially other confidential information. The impact can range from data breaches and privacy violations to complete system compromise, depending on the privileges of the database user and the extent of the attacker's knowledge.
+
+## Recommendation
+
+*   Apply any available patches or updates for C4G Basic Laboratory Information System 3.4 to remediate the SQL injection vulnerability described in CVE-2019-25678.
+*   Deploy the Sigma rule `Detect SQL Injection Attempt in C4G Basic LIS` to identify potential exploitation attempts against the `users_select.php` endpoint.
+*   Implement input validation and sanitization measures to prevent SQL injection attacks against web applications.
