@@ -3,6 +3,9 @@ title: Oracle Java SE, GraalVM Networking Component Denial-of-Service Vulnerabil
 slug: 2026-04-java-dos
 description: CVE-2026-34282 is a remotely exploitable vulnerability in the Networking component of Oracle Java SE and GraalVM that allows an unauthenticated attacker to cause a complete denial of service.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
