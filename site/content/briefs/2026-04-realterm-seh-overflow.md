@@ -25,6 +25,9 @@ references:
   - https://sourceforge.net/projects/realterm/files/
   - https://www.exploit-db.com/exploits/46441
   - https://www.vulncheck.com/advisories/realterm-serial-terminal-buffer-overflow-seh
+iocs:
+  - type: email
+    value: '[email protected]'
 ioc_counts:
   email: 1
 rules:
@@ -53,4 +56,25 @@ rules:
 rules_count: 2
 ---
 
-RealTerm Serial Terminal version 2.0.0.70 is vulnerable to a structured exception handling (SEH) buffer overflow in the Echo Port tab. This vulnerability, identified as CVE-2019-25679, allows a local attacker to execute arbitrary code on a vulnerable system. The attack requires the user to be running the RealTerm application. The attacker must craft a malicious payload containing shellcode and a POP POP RET gadget chain and paste it into the Port field within the Echo Port tab. Subsequently…
+RealTerm Serial Terminal version 2.0.0.70 is vulnerable to a structured exception handling (SEH) buffer overflow in the Echo Port tab. This vulnerability, identified as CVE-2019-25679, allows a local attacker to execute arbitrary code on a vulnerable system. The attack requires the user to be running the RealTerm application. The attacker must craft a malicious payload containing shellcode and a POP POP RET gadget chain and paste it into the Port field within the Echo Port tab. Subsequently, the attacker needs to induce the user to click the "Change" button, triggering the buffer overflow and allowing arbitrary code execution within the context of the RealTerm application. This poses a significant risk, particularly in environments where RealTerm is used for debugging or serial communication.
+
+## Attack Chain
+
+1.  The attacker identifies a vulnerable RealTerm Serial Terminal 2.0.0.70 installation.
+2.  The attacker crafts a malicious payload containing shellcode and a POP POP RET gadget chain.
+3.  The attacker gains local access to the target system.
+4.  The attacker opens the RealTerm application and navigates to the Echo Port tab.
+5.  The attacker pastes the malicious payload into the Port field.
+6.  The attacker induces the user to click the "Change" button.
+7.  The buffer overflow occurs, overwriting the SEH handler.
+8.  The POP POP RET gadget chain is executed, redirecting control to the attacker's shellcode, resulting in arbitrary code execution.
+
+## Impact
+
+Successful exploitation of this vulnerability (CVE-2019-25679) allows a local attacker to execute arbitrary code on the affected system. This could lead to complete system compromise, including data theft, installation of malware, or denial of service. Although specific victim counts and targeted sectors are not available, the widespread use of RealTerm in technical environments makes this a potentially significant threat.
+
+## Recommendation
+
+*   Deploy the "RealTerm SEH Overflow Attempt" Sigma rule to detect suspicious process creation following the execution of RealTerm with a long string supplied as an argument.
+*   Monitor process creations where the parent process name is Realterm.exe using the "RealTerm Suspicious Child Process" Sigma rule.
+*   Although not directly available, consider network monitoring to detect anomalies should the attacker install malware after successful exploitation.
