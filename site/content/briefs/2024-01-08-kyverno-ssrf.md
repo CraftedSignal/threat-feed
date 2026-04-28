@@ -30,6 +30,15 @@ cves:
     epss: 0.0002
 references:
   - https://github.com/advisories/GHSA-rggm-jjmc-3394
+iocs:
+  - type: ip
+    value: 169.254.169.254
+  - type: domain
+    value: internal-api.kube-system.svc.cluster.local
+  - type: email
+    value: igor.stepansky@orca.security
+  - type: email
+    value: stepanskyigor@gmail.com
 ioc_counts:
   domain: 1
   email: 2
@@ -60,4 +69,26 @@ rules:
 rules_count: 2
 ---
 
-A Server-Side Request Forgery (SSRF) vulnerability has been identified in Kyverno's CEL HTTP library (`pkg/cel/libs/http/`), affecting versions >= 1.16.0. This flaw allows users with permissions to create namespace-scoped policies to bypass intended restrictions and make arbitrary HTTP requests from the Kyverno admission controller. This can lead to unauthorized access to internal Kubernetes services in other namespaces, cloud metadata endpoints such as 169.254.169.254 (allowing credential…
+A Server-Side Request Forgery (SSRF) vulnerability has been identified in Kyverno's CEL HTTP library (`pkg/cel/libs/http/`), affecting versions >= 1.16.0. This flaw allows users with permissions to create namespace-scoped policies to bypass intended restrictions and make arbitrary HTTP requests from the Kyverno admission controller. This can lead to unauthorized access to internal Kubernetes services in other namespaces, cloud metadata endpoints such as 169.254.169.254 (allowing credential theft), and the exfiltration of sensitive data by embedding it in policy error messages. The vulnerability stems from a lack of URL validation in the `http.Get()` and `http.Post()` functions used within CEL policies, contrasting with the namespace enforcement present in the `resource.Lib`. The reported vulnerability was tested and confirmed on Kyverno v1.16.2 deployed via Helm chart 3.6.2.
+
+## Attack Chain
+
+1. An attacker gains the ability to create NamespacedValidatingPolicy resources within a specific Kubernetes namespace. This could be achieved through compromised credentials, misconfigured RBAC, or other privilege escalation methods.
+2. The attacker crafts a malicious NamespacedValidatingPolicy that utilizes the `http.Get()` or `http.Post()` function within a CEL expression. The crafted policy is applied to the target Kubernetes cluster.
+3. The CEL expression within the policy is designed to make an HTTP request to an internal service (e.g., `internal-api.kube-system.svc.cluster.local`) or a cloud metadata endpoint (`169.254.169.254`).
+4. The crafted NamespacedValidatingPolicy is triggered by a specific event, such as the creation of a ConfigMap within the attacker's namespace, which matches the `matchConstraints` defined in the policy.
+5. The Kyverno admission controller executes the CEL expression, making the HTTP request to the specified internal service or cloud metadata endpoint.
+6. The HTTP response from the internal service or cloud metadata endpoint is captured by the CEL expression.
+7. The attacker crafts a `messageExpression` within the NamespacedValidatingPolicy to include the captured data in a validation error message.
+8. The validation error message, containing the exfiltrated data, is returned to the user, effectively leaking sensitive information.
+
+## Impact
+
+This SSRF vulnerability allows attackers with limited, namespace-scoped privileges to access sensitive data within a Kubernetes cluster. This includes the ability to access services in other namespaces, potentially compromising sensitive configurations or secrets. Access to cloud metadata endpoints (169.254.169.254) allows the theft of IAM credentials, leading to further escalation of privileges within the cloud environment. Successful exploitation breaks namespace isolation, undermining the security model of Kyverno and Kubernetes.
+
+## Recommendation
+
+*   Deploy the Sigma rule to detect suspicious usage of `http.Get` or `http.Post` function in `NamespacedValidatingPolicy` resources in your SIEM and tune for your environment.
+*   Monitor network connections originating from the Kyverno pods, specifically looking for connections to internal Kubernetes services or cloud metadata endpoints (169.254.169.254), using the `network_connection` log source.
+*   Apply the suggested fix by adding namespace and URL restrictions to `pkg/cel/libs/http/http.go` in Kyverno, similar to how `resource.Lib` enforces namespace boundaries as per the advisory.
+*   Upgrade Kyverno to a patched version >= 1.17 when available, addressing the CVE-2026-4789.
