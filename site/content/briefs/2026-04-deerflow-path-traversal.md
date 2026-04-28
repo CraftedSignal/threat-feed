@@ -51,4 +51,25 @@ rules:
 rules_count: 2
 ---
 
-ByteDance DeerFlow, a software of unknown purpose, prior to commit 2176b2b, is vulnerable to path traversal and arbitrary file write. The vulnerability lies within the bootstrap-mode custom-agent creation process, specifically due to insufficient validation of the agent name. This flaw allows attackers to bypass intended directory restrictions and write files to arbitrary locations on the system, provided they have the necessary filesystem permissions. The vulnerability was reported on April…
+ByteDance DeerFlow, a software of unknown purpose, prior to commit 2176b2b, is vulnerable to path traversal and arbitrary file write. The vulnerability lies within the bootstrap-mode custom-agent creation process, specifically due to insufficient validation of the agent name. This flaw allows attackers to bypass intended directory restrictions and write files to arbitrary locations on the system, provided they have the necessary filesystem permissions. The vulnerability was reported on April 17, 2026 and has been assigned CVE-2026-40518. Exploitation of this vulnerability could lead to privilege escalation and system compromise. Defenders should prioritize patching or mitigating this vulnerability to prevent unauthorized file modifications.
+
+## Attack Chain
+
+1.  Attacker gains low-privileged access to the DeerFlow application.
+2.  Attacker initiates the creation of a custom agent in bootstrap mode.
+3.  The attacker crafts a malicious agent name containing path traversal sequences (e.g., "../", absolute paths).
+4.  The DeerFlow application fails to properly validate the agent name.
+5.  The application uses the attacker-supplied agent name to create directories.
+6.  The path traversal in the agent name allows the application to create directories outside the intended custom-agent directory.
+7.  The attacker uploads files as part of the custom agent creation.
+8.  The application writes these files to the attacker-controlled location, resulting in arbitrary file write.
+
+## Impact
+
+Successful exploitation of this vulnerability allows attackers to write arbitrary files to the file system, potentially overwriting system files or planting malicious executables. This could lead to privilege escalation, arbitrary code execution, and complete system compromise. While the number of affected installations is unknown, any system running a vulnerable version of ByteDance DeerFlow is susceptible to this attack. The severity is compounded by the ease of exploitation, requiring only low-privileged access.
+
+## Recommendation
+
+*   Apply the patch or upgrade to a version of ByteDance DeerFlow that includes commit 2176b2b to remediate the vulnerability referenced by CVE-2026-40518.
+*   Implement the Sigma rule `Detect Suspicious DeerFlow Agent Creation` to detect exploitation attempts targeting CVE-2026-40518 by monitoring process creation events.
+*   Monitor web server logs for unusual activity related to custom agent creation endpoints in DeerFlow to detect potential exploitation attempts.
