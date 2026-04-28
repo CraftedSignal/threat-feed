@@ -1,7 +1,12 @@
 {{/* Single-row brief card. Used on home, listings, and taxonomy term pages. */}}
 {{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
 {{ $sevClass := printf "sev-%s" $sev }}
-{{ $type := .Params.type | default "coverage" }}
+{{/* Old briefs (pre-publisher type-emit) carry no `type` in frontmatter
+     and would all render as "coverage" with the prior default. Most of
+     that corpus is CVE-driven threat content, so default to "threat" —
+     ti-bot's backfill (when run) overwrites this with the bundle's
+     authoritative classification. */}}
+{{ $type := .Params.type | default "threat" }}
 {{ $tags := .Params.tags | default slice }}
 {{ $actors := .Params.actors | default slice }}
 {{ $exploited := .Params.exploited | default false }}
