@@ -5,8 +5,17 @@ import (
 	"fmt"
 	"log/slog"
 	"strings"
+	"sync"
+	"sync/atomic"
 	"time"
+
+	"golang.org/x/sync/errgroup"
 )
+
+// dispatchConcurrency caps simultaneous outbound deliveries (SMTP + webhook
+// fan-out). Anything higher and we risk swamping the SMTP relay or running
+// past Cloud Run's request budget.
+const dispatchConcurrency = 10
 
 // dispatcher fans new briefs out to matching subscriptions.
 type dispatcher struct {
@@ -16,37 +25,79 @@ type dispatcher struct {
 }
 
 // Dispatch evaluates each new brief against every verified subscription
-// and sends matches via the appropriate channel. Errors per delivery are
-// logged but don't fail the batch.
+// and sends matches via the appropriate channel. Deliveries run in
+// bounded parallel; errors per delivery are logged but don't fail the
+// batch. last_sent is only updated for subs that actually had ≥1
+// successful delivery.
 func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL string) (sent int, failed int) {
 	now := time.Now().UTC()
-	err := d.store.ForEachVerified(ctx, func(sub Subscription) error {
-		for _, b := range briefs {
-			if !sub.Filter.Matches(b) {
-				continue
+
+	var sentN, failedN atomic.Int64
+	g, gctx := errgroup.WithContext(ctx)
+	g.SetLimit(dispatchConcurrency)
+
+	// First pass: collect (sub, brief) pairs into a channel and stream
+	// out via the errgroup. The Firestore iterator runs in one
+	// goroutine; workers pull from the work queue.
+	type job struct {
+		sub   Subscription
+		brief Brief
+	}
+	jobs := make(chan job, dispatchConcurrency*2)
+
+	// Track per-sub success so we only update last_sent when something
+	// landed. Map needs a mutex since workers may touch the same sub.
+	var matchedMu sync.Mutex
+	matched := make(map[string]bool)
+
+	g.Go(func() error {
+		defer close(jobs)
+		return d.store.ForEachVerified(gctx, func(sub Subscription) error {
+			for _, b := range briefs {
+				if !sub.Filter.Matches(b) {
+					continue
+				}
+				select {
+				case jobs <- job{sub: sub, brief: b}:
+				case <-gctx.Done():
+					return gctx.Err()
+				}
 			}
-			if err := d.deliver(sub, b, serviceURL); err != nil {
-				d.logger.Error("delivery failed",
-					"sub_id", sub.ID,
-					"channel", sub.Channel,
-					"brief", b.Slug,
-					"err", err)
-				failed++
-				continue
-			}
-			sent++
-		}
-		// Update last_sent best-effort if anything matched. We can't tell
-		// from inside the closure how many briefs matched this sub
-		// without more bookkeeping, so just mark whenever the sub was
-		// considered.
-		_ = d.store.MarkSent(ctx, sub.ID, now)
-		return nil
+			return nil
+		})
 	})
-	if err != nil {
+
+	// Worker pool. errgroup.SetLimit gives us bounded concurrency.
+	for j := range jobs {
+		j := j // capture
+		g.Go(func() error {
+			if err := d.deliver(j.sub, j.brief, serviceURL); err != nil {
+				d.logger.Error("delivery failed",
+					"sub_id", j.sub.ID,
+					"channel", j.sub.Channel,
+					"brief", j.brief.Slug,
+					"err", err)
+				failedN.Add(1)
+				return nil // don't abort other deliveries
+			}
+			sentN.Add(1)
+			matchedMu.Lock()
+			matched[j.sub.ID] = true
+			matchedMu.Unlock()
+			return nil
+		})
+	}
+
+	if err := g.Wait(); err != nil {
 		d.logger.Error("dispatch iteration failed", "err", err)
 	}
-	return sent, failed
+
+	// Update last_sent only for subs with ≥1 successful delivery.
+	for subID := range matched {
+		_ = d.store.MarkSent(ctx, subID, now)
+	}
+
+	return int(sentN.Load()), int(failedN.Load())
 }
 
 func (d *dispatcher) deliver(sub Subscription, b Brief, serviceURL string) error {

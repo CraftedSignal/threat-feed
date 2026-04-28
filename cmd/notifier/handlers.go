@@ -24,6 +24,13 @@ type server struct {
 	logger     *slog.Logger
 }
 
+const (
+	// /subscribe accepts a small JSON form; cap well above realistic max.
+	maxBodyBytes = 64 * 1024
+	// /dispatch can receive a batch of brief metadata; cap higher.
+	maxDispatchBodyBytes = 1 * 1024 * 1024
+)
+
 func (s *server) handleHealthz(w http.ResponseWriter, _ *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	_, _ = w.Write([]byte("ok"))
@@ -39,6 +46,7 @@ func (s *server) handleSubscribe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	r.Body = http.MaxBytesReader(w, r.Body, maxBodyBytes)
 	var req subscribeRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, "invalid json", http.StatusBadRequest)
@@ -170,6 +178,7 @@ func (s *server) handleDispatch(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	r.Body = http.MaxBytesReader(w, r.Body, maxDispatchBodyBytes)
 	var req dispatchRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, "invalid json", http.StatusBadRequest)
@@ -291,6 +300,12 @@ func respondJSON(w http.ResponseWriter, status int, v any) {
 
 func withCORSAndLog(next http.Handler, origin string, logger *slog.Logger) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// HSTS — every response served over HTTPS by the LB; tell
+		// browsers to never downgrade.
+		w.Header().Set("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+		w.Header().Set("X-Content-Type-Options", "nosniff")
+		w.Header().Set("Referrer-Policy", "no-referrer")
+
 		// CORS for /subscribe — only the configured origin.
 		w.Header().Set("Vary", "Origin")
 		if r.Header.Get("Origin") == origin {

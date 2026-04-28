@@ -18,6 +18,9 @@ mainSections = ['briefs']
   # notifierURL is the Cloud Run feed-notifier service. Set after first
   # `terraform apply` from the `feed_notifier_url` output.
   notifierURL = "https://notify.craftedsignal.io"
+  # reCAPTCHA Enterprise site key — Cloud Armor blocks submissions
+  # without a valid token. From `terraform output feed_notifier_recaptcha_site_key`.
+  recaptchaSiteKey = "6Lf3Zs4sAAAAAG4CBo_segKlJ6oI6iRMHyjyXujw"
 
 [taxonomies]
   tag = "tags"

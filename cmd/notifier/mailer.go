@@ -1,12 +1,22 @@
 package main
 
 import (
+	"crypto/sha256"
 	"crypto/tls"
+	"encoding/hex"
 	"fmt"
 	"log/slog"
 	"net/smtp"
 	"strings"
 )
+
+// hashEmail returns a stable, non-reversible identifier for an email
+// address. Used in error logs so we can correlate failures without
+// persisting plaintext addresses to log storage.
+func hashEmail(addr string) string {
+	sum := sha256.Sum256([]byte(strings.ToLower(strings.TrimSpace(addr))))
+	return "sha256:" + hex.EncodeToString(sum[:])[:16]
+}
 
 type mailer interface {
 	Send(to, subject, body string) error
@@ -55,7 +65,7 @@ func (m *smtpMailer) Send(to, subject, body string) error {
 	_ = tlsCfg // reserved for explicit dial if we ever switch to net.Dial+tls.Client
 
 	if err := smtp.SendMail(addr, auth, m.cfg.From, []string{to}, []byte(msg.String())); err != nil {
-		m.logger.Error("smtp send failed", "to", to, "err", err)
+		m.logger.Error("smtp send failed", "to_hash", hashEmail(to), "err", err)
 		return fmt.Errorf("smtp send: %w", err)
 	}
 	return nil
