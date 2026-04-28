@@ -3,6 +3,9 @@ title: .NET Uncontrolled Resource Consumption Vulnerability (CVE-2026-26171)
 slug: 2026-04-dotnet-dos
 description: CVE-2026-26171 is a vulnerability in .NET that allows an unauthorized attacker to perform a denial-of-service attack over a network due to uncontrolled resource consumption.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
