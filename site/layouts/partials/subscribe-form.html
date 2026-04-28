@@ -1,4 +1,4 @@
-<form id="subscribe-form" class="space-y-6 my-8" method="POST" action="{{ .Site.Params.notifierURL }}/subscribe">
+<form id="subscribe-form" class="space-y-6 my-8" method="POST" action="{{ .Site.Params.notifierURL }}/subscribe" data-notifier-url="{{ .Site.Params.notifierURL }}" data-recaptcha-key="{{ .Site.Params.recaptchaSiteKey }}">
   <fieldset class="rounded-xl border border-stroke bg-panel/60 p-5 space-y-3">
     <legend class="text-xs font-mono uppercase tracking-[0.14em] text-muted px-2">Channel</legend>
     <div class="flex flex-wrap gap-3 text-sm">

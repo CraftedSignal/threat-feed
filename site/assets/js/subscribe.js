@@ -7,8 +7,8 @@
   const form = document.getElementById('subscribe-form');
   if (!form) return;
 
-  const notifierURL = window.__NOTIFIER_URL__;
-  const recaptchaKey = window.__RECAPTCHA_SITE_KEY__;
+  const notifierURL = form.dataset.notifierUrl;
+  const recaptchaKey = form.dataset.recaptchaKey;
   const status = form.querySelector('[data-subscribe-status]');
   const submitBtn = form.querySelector('button[type="submit"]');
 

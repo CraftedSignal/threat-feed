@@ -10,10 +10,6 @@
 </article>
 
 {{ if .Site.Params.notifierURL }}
-<script>
-  window.__NOTIFIER_URL__ = {{ .Site.Params.notifierURL | jsonify }};
-  window.__RECAPTCHA_SITE_KEY__ = {{ .Site.Params.recaptchaSiteKey | jsonify }};
-</script>
 {{ if .Site.Params.recaptchaSiteKey }}
 <script src="https://www.google.com/recaptcha/enterprise.js?render={{ .Site.Params.recaptchaSiteKey }}" async defer></script>
 {{ end }}
