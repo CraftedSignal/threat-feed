@@ -3,6 +3,9 @@ title: Radare2 Command Injection Vulnerability (CVE-2026-41015)
 slug: 2026-04-radare2-cmd-injection
 description: Radare2 before commit 9236f44, when configured on UNIX without SSL, is vulnerable to command injection via a PDB name passed to rabin2 -PP, potentially allowing arbitrary code execution.
 date: "2026-04-16T03:16:27Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
