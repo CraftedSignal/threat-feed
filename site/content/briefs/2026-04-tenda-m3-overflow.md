@@ -69,4 +69,27 @@ rules:
 rules_count: 2
 ---
 
-A critical buffer overflow vulnerability has been identified in Tenda M3 router version 1.0.0.10. The vulnerability resides in the `setAdvPolicyData` function within the `/goform/setAdvPolicyData` file, a part of the Destination Handler component. By manipulating the `policyType` argument, a remote attacker can trigger a buffer overflow, potentially leading to arbitrary code execution. Publicly available exploit code exists, increasing the risk of exploitation. This vulnerability poses a…
+A critical buffer overflow vulnerability has been identified in Tenda M3 router version 1.0.0.10. The vulnerability resides in the `setAdvPolicyData` function within the `/goform/setAdvPolicyData` file, a part of the Destination Handler component. By manipulating the `policyType` argument, a remote attacker can trigger a buffer overflow, potentially leading to arbitrary code execution. Publicly available exploit code exists, increasing the risk of exploitation. This vulnerability poses a significant threat to organizations utilizing the affected Tenda M3 router, potentially allowing attackers to gain unauthorized access to the network or disrupt services.
+
+## Attack Chain
+
+1.  Attacker identifies a vulnerable Tenda M3 router exposed to the internet or reachable from their network position.
+2.  Attacker sends a crafted HTTP POST request to `/goform/setAdvPolicyData`.
+3.  The POST request includes a malicious `policyType` argument designed to overflow the buffer in the `setAdvPolicyData` function.
+4.  The `setAdvPolicyData` function in `/goform/setAdvPolicyData` processes the `policyType` argument without proper bounds checking.
+5.  The excessive data provided in the `policyType` argument overwrites adjacent memory regions.
+6.  The attacker carefully crafts the overflow to overwrite critical data or inject malicious code into the process's memory space.
+7.  The injected code is executed, giving the attacker control over the router.
+8.  The attacker can then use the compromised router as a foothold to pivot to other devices on the network, exfiltrate sensitive data, or cause denial of service.
+
+## Impact
+
+Successful exploitation of this buffer overflow vulnerability allows a remote attacker to execute arbitrary code on the Tenda M3 router. This could lead to a complete compromise of the device, allowing the attacker to control network traffic, access sensitive information, or use the router as a launchpad for further attacks within the network. Given the severity and the existence of public exploits, vulnerable routers are at high risk of being targeted.
+
+## Recommendation
+
+*   Apply any available firmware updates from Tenda to patch CVE-2026-5567.
+*   Monitor web server logs for suspicious POST requests to `/goform/setAdvPolicyData` with unusually long `policyType` arguments; deploy the Sigma rule `Detect Suspicious PolicyType Argument Length` to identify this activity.
+*   Implement network segmentation to limit the potential impact of a compromised router.
+*   Consider using a web application firewall (WAF) to filter malicious requests targeting the affected endpoint.
+*   Review and restrict access to the router's management interface to authorized personnel only.
