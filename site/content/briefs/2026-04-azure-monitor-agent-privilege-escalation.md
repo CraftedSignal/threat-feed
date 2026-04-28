@@ -3,6 +3,9 @@ title: Azure Monitor Agent Deserialization Vulnerability (CVE-2026-32192) Allows
 slug: 2026-04-azure-monitor-agent-privilege-escalation
 description: CVE-2026-32192 allows a locally authorized attacker to escalate privileges on a host running the Azure Monitor Agent via deserialization of untrusted data.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
