@@ -3,6 +3,9 @@ title: Apktool Path Traversal Vulnerability (CVE-2026-39973)
 slug: 2026-04-apktool-path-traversal
 description: A path traversal vulnerability in Apktool versions 3.0.0 and 3.0.1 allows a malicious APK file to write arbitrary files to the filesystem during decoding, potentially leading to remote code execution.
 date: "2026-04-21T02:16:07Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
