@@ -3,6 +3,9 @@ title: Autodesk Fusion Stored XSS Vulnerability (CVE-2026-4344)
 slug: 2026-04-autodesk-xss
 description: CVE-2026-4344 is a stored cross-site scripting (XSS) vulnerability in the Autodesk Fusion desktop application where a malicious HTML payload in a component name, when displayed during the delete confirmation dialog and clicked by a user, can lead to arbitrary code execution.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
