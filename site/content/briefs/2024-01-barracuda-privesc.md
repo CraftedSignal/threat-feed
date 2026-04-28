@@ -3,6 +3,9 @@ title: Barracuda RMM Privilege Escalation via Filesystem ACLs
 slug: 2024-01-barracuda-privesc
 description: Barracuda RMM versions prior to 2025.2.2 are vulnerable to local privilege escalation, allowing attackers to gain SYSTEM privileges by exploiting overly permissive filesystem ACLs on the C:\Windows\Automation directory.
 date: "2026-04-15T21:17:04Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
