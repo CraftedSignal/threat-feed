@@ -3,6 +3,9 @@ title: Langflow Unrestricted File Upload Vulnerability (CVE-2026-6596)
 slug: 2026-04-langflow-unrestricted-upload
 description: An unrestricted file upload vulnerability in langflow-ai langflow versions up to 1.1.0 allows remote attackers to execute arbitrary code via the create_upload_file function in the API Endpoint.
 date: "2026-04-20T03:16:16Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
