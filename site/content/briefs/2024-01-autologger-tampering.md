@@ -67,4 +67,27 @@ rules:
 rules_count: 3
 ---
 
-Attackers are increasingly targeting Windows Event Tracing (ETW) and AutoLogger sessions to evade detection. The AutoLogger session is crucial as it records events early in the operating system boot process, providing security solutions with essential telemetry. This technique involves tampering with registry keys associated with AutoLogger sessions, specifically disabling or stopping them by setting DWORD values to 0. This is done to blind security solutions, preventing them from monitoring…
+Attackers are increasingly targeting Windows Event Tracing (ETW) and AutoLogger sessions to evade detection. The AutoLogger session is crucial as it records events early in the operating system boot process, providing security solutions with essential telemetry. This technique involves tampering with registry keys associated with AutoLogger sessions, specifically disabling or stopping them by setting DWORD values to 0. This is done to blind security solutions, preventing them from monitoring early boot activities and critical system events. Disabling these sessions allows adversaries to operate with less scrutiny, making it harder to detect malicious activities during the initial phases of a system compromise. This technique has been observed in attacks involving IcedID and XingLocker ransomware.
+
+## Attack Chain
+
+1.  Initial access is achieved through an as-yet-unspecified method (e.g., exploitation, phishing).
+2.  The attacker gains administrative privileges on the target system.
+3.  The attacker identifies AutoLogger sessions to disable, focusing on those relevant to security monitoring, such as '\EventLog-' or '\Defender'.
+4.  The attacker modifies the registry to disable the targeted AutoLogger sessions. This involves setting the 'Enabled' or 'Start' DWORD values under the `HKLM\System\CurrentControlSet\Control\WMI\Autologger` registry key to 0.
+5.  The attacker may use tools like `wevtutil.exe` or directly interact with the registry via PowerShell or `cmd.exe` to make these changes.
+6.  The security monitoring capabilities reliant on the tampered AutoLogger sessions are effectively impaired or disabled.
+7.  With logging impaired, the attacker proceeds with the main objectives, such as lateral movement, data exfiltration, or ransomware deployment, with a reduced risk of detection.
+8.  The ultimate goal is to compromise the system, steal data, or deploy ransomware, bypassing security measures that rely on early boot and system event logging.
+
+## Impact
+
+Successful tampering with AutoLogger sessions can significantly reduce the visibility of security solutions, allowing attackers to operate undetected for extended periods. This can lead to delayed incident response, increased dwell time, and greater potential for damage, including data breaches, financial losses, and reputational damage. The sectors most at risk are those heavily reliant on Windows-based systems and proactive security monitoring. The DFIR Report documented a case where adversaries moved from IcedID infection to XingLocker ransomware deployment within 24 hours, highlighting the speed and potential impact of these attacks.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Potential AutoLogger Sessions Tampering` to your SIEM to detect malicious registry modifications related to AutoLogger sessions.
+*   Investigate any registry modifications under the `\Control\WMI\Autologger\` path, focusing on changes to `Enabled` or `Start` values, as identified in the Sigma rule.
+*   Monitor process creation events for `wevtutil.exe` modifying registry keys related to AutoLogger, as specified in the `filter_main_wevtutil` section of the Sigma rule.
+*   Correlate registry modification events with process execution events to identify the source of the tampering, paying close attention to processes originating from the Windows Defender platform, as outlined in the `filter_main_defender` section of the Sigma rule.
+*   Implement endpoint detection and response (EDR) solutions with robust registry monitoring capabilities to identify and block unauthorized modifications to AutoLogger settings.
