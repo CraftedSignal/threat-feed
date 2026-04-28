@@ -50,4 +50,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-3780 describes a local privilege escalation vulnerability affecting an application installer. The installer, when executed, operates with elevated privileges. However, it resolves the location of system executables and DLLs using an untrusted search path. This untrusted path includes directories writable by standard users. An attacker can exploit this by placing malicious binaries, named identically to legitimate system files, in these user-writable directories. When the installer…
+CVE-2026-3780 describes a local privilege escalation vulnerability affecting an application installer. The installer, when executed, operates with elevated privileges. However, it resolves the location of system executables and DLLs using an untrusted search path. This untrusted path includes directories writable by standard users. An attacker can exploit this by placing malicious binaries, named identically to legitimate system files, in these user-writable directories. When the installer attempts to load or execute these system files, the attacker's malicious versions are used instead, due to the flawed search path resolution. This leads to arbitrary code execution with elevated privileges, thereby escalating the attacker's privileges on the local system. This vulnerability was reported in Foxit products and poses a significant risk to systems where the vulnerable installer is executed.
+
+## Attack Chain
+
+1.  The attacker identifies a user-writable directory included in the application installer's search path.
+2.  The attacker analyzes the application installer to determine which system executables or DLLs it attempts to load or execute.
+3.  The attacker creates malicious binaries that mimic the names of the targeted system files.
+4.  The attacker places the malicious binaries into the user-writable directory.
+5.  The attacker executes the vulnerable application installer, typically requiring some user interaction (e.g., clicking "Install").
+6.  The installer, running with elevated privileges, attempts to load or execute the legitimate system files.
+7.  Due to the untrusted search path, the installer loads or executes the attacker's malicious binaries instead of the legitimate ones.
+8.  The attacker's code executes with elevated privileges, allowing the attacker to perform actions such as creating new accounts, installing software, or modifying system settings, thereby achieving local privilege escalation.
+
+## Impact
+
+Successful exploitation of CVE-2026-3780 allows a local attacker to gain elevated privileges on the system. This means an attacker with limited access can perform administrative tasks, install malware, access sensitive data, and potentially compromise the entire system. The severity is high because it bypasses normal security controls and can lead to a full system compromise from a limited starting point. This poses a significant risk to any system running the affected application installer.
+
+## Recommendation
+
+*   Deploy the Sigma rule "Detect DLL Hijacking via Installer" to detect the creation of malicious DLLs in user-writable directories, referencing the rule details below.
+*   Enable file creation monitoring in user-writable directories (e.g., %TEMP%, %APPDATA%) to provide data for the Sigma rule and to detect suspicious file activity.
+*   Monitor process creation events for the execution of unexpected binaries within the context of the application installer, leveraging the rule "Detect Suspicious Process Execution by Installer" defined below.
