@@ -3,6 +3,9 @@ title: NVIDIA KAI Scheduler Authentication Bypass Vulnerability
 slug: 2026-04-nvidia-kai-auth-bypass
 description: CVE-2026-24177 describes an authentication bypass vulnerability in NVIDIA KAI Scheduler that could allow unauthorized access to API endpoints, leading to information disclosure.
 date: "2026-04-22T12:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - medium
 exploited: true
