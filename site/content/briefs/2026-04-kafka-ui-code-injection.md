@@ -51,4 +51,26 @@ rules:
 rules_count: 2
 ---
 
-A code injection vulnerability, identified as CVE-2026-5562, affects provectus kafka-ui versions up to 0.7.2. The vulnerability resides within the `validateAccess` function of the `/api/smartfilters/testexecutions` endpoint, potentially allowing remote attackers to inject arbitrary code. This vulnerability allows for remote code execution, potentially leading to complete system compromise. The vendor was notified but did not respond. A public exploit is reportedly available, increasing the risk…
+A code injection vulnerability, identified as CVE-2026-5562, affects provectus kafka-ui versions up to 0.7.2. The vulnerability resides within the `validateAccess` function of the `/api/smartfilters/testexecutions` endpoint, potentially allowing remote attackers to inject arbitrary code. This vulnerability allows for remote code execution, potentially leading to complete system compromise. The vendor was notified but did not respond. A public exploit is reportedly available, increasing the risk of exploitation. This poses a significant risk to organizations utilizing vulnerable versions of Kafka UI.
+
+## Attack Chain
+
+1.  An attacker identifies a vulnerable Kafka UI instance running a version prior to 0.7.3.
+2.  The attacker crafts a malicious HTTP request targeting the `/api/smartfilters/testexecutions` endpoint.
+3.  Within the crafted request, the attacker injects malicious code into the `validateAccess` function parameters.
+4.  The Kafka UI application processes the request without proper sanitization of the injected code.
+5.  The injected code is executed within the context of the application server.
+6.  The attacker gains the ability to execute arbitrary commands on the server.
+7.  The attacker establishes a persistent connection to the compromised system, potentially via a reverse shell.
+8.  The attacker pivots to other systems or resources within the network, potentially leading to data exfiltration or other malicious activities.
+
+## Impact
+
+Successful exploitation of CVE-2026-5562 can lead to arbitrary code execution on the server hosting the Provectus Kafka UI. This could allow attackers to gain complete control of the affected system, potentially leading to data breaches, service disruption, or further lateral movement within the network. Due to the public availability of a reported exploit, organizations running vulnerable versions of Kafka UI are at increased risk of attack. The lack of vendor response also raises concerns about future patches or mitigations.
+
+## Recommendation
+
+*   Upgrade Provectus Kafka UI to a version greater than 0.7.2 to remediate CVE-2026-5562.
+*   Implement input validation and sanitization on the `/api/smartfilters/testexecutions` endpoint to prevent code injection attacks.
+*   Deploy the Sigma rule `Detect Kafka UI Code Injection Attempt` to identify potential exploitation attempts targeting CVE-2026-5562.
+*   Monitor web server logs for suspicious POST requests to `/api/smartfilters/testexecutions` containing potentially malicious code.
