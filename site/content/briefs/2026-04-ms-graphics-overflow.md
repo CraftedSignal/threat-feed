@@ -3,6 +3,9 @@ title: Microsoft Graphics Component Heap-based Buffer Overflow Vulnerability (CV
 slug: 2026-04-ms-graphics-overflow
 description: CVE-2026-32221 is a heap-based buffer overflow vulnerability in the Microsoft Graphics Component, allowing a local attacker to execute arbitrary code.
 date: "2026-04-14T18:17:30Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
