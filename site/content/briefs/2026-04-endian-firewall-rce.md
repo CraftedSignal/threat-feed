@@ -47,4 +47,26 @@ rules:
 rules_count: 2
 ---
 
-Endian Firewall version 3.3.25 and prior is susceptible to OS command injection. This vulnerability, identified as CVE-2026-34791, allows authenticated users to execute arbitrary operating system commands. The vulnerability exists due to insufficient validation of the DATE parameter in the `/cgi-bin/logs_proxy.cgi` script. The DATE parameter's value is used to construct a file path that is subsequently passed to a Perl `open()` call. Due to an incomplete regular expression validation, an…
+Endian Firewall version 3.3.25 and prior is susceptible to OS command injection. This vulnerability, identified as CVE-2026-34791, allows authenticated users to execute arbitrary operating system commands. The vulnerability exists due to insufficient validation of the DATE parameter in the `/cgi-bin/logs_proxy.cgi` script. The DATE parameter's value is used to construct a file path that is subsequently passed to a Perl `open()` call. Due to an incomplete regular expression validation, an attacker can inject malicious commands. Successful exploitation allows the attacker to gain complete control of the affected system.
+
+## Attack Chain
+
+1.  An authenticated user accesses the `/cgi-bin/logs_proxy.cgi` endpoint.
+2.  The attacker crafts a malicious `DATE` parameter containing OS commands to be injected.
+3.  The `/cgi-bin/logs_proxy.cgi` script receives the `DATE` parameter.
+4.  The script constructs a file path using the unvalidated `DATE` parameter.
+5.  The script passes the crafted file path to a Perl `open()` call.
+6.  The Perl `open()` function executes the injected OS commands due to the incomplete regular expression validation.
+7.  The attacker gains arbitrary code execution on the system.
+8.  The attacker can then perform actions such as installing malware, creating user accounts, or exfiltrating sensitive data.
+
+## Impact
+
+Successful exploitation of this vulnerability allows an attacker to execute arbitrary OS commands on the affected Endian Firewall system. This can lead to complete system compromise, including data theft, service disruption, and the potential to use the compromised system as a launchpad for further attacks within the network. Given that firewalls are critical security components, a compromise could have severe consequences for the entire network infrastructure, leading to widespread data breaches and significant financial losses.
+
+## Recommendation
+
+*   Apply available patches or upgrade to a supported version of Endian Firewall that addresses CVE-2026-34791 (refer to Endian Firewall's advisory).
+*   Implement the Sigma rule `Detect Suspicious Logs Proxy Date Parameter` to detect potential exploitation attempts.
+*   Monitor web server logs for suspicious requests to `/cgi-bin/logs_proxy.cgi` containing unusual characters or command-like syntax in the `DATE` parameter.
+*   Implement strong input validation and sanitization for all user-supplied input to prevent command injection attacks.
