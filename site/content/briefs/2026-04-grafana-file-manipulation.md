@@ -3,6 +3,9 @@ title: Grafana Vulnerability Allows File Manipulation and Information Disclosure
 slug: 2026-04-grafana-file-manipulation
 description: A remote, authenticated attacker can exploit a vulnerability in Grafana to manipulate files and disclose sensitive information, potentially leading to persistence, unauthorized access, and significant impact.
 date: "2026-04-16T10:29:57Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
