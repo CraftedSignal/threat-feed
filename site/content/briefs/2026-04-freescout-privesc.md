@@ -3,6 +3,9 @@ title: FreeScout Privilege Escalation via Email Address Reassignment (CVE-2026-4
 slug: 2026-04-freescout-privesc
 description: FreeScout versions before 1.8.214 are vulnerable to privilege escalation, allowing a low-privileged agent to reassign email addresses from hidden customers to visible customers, leading to information disclosure and unauthorized access to conversations.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
