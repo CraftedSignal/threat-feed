@@ -45,4 +45,24 @@ rules:
 rules_count: 2
 ---
 
-The `rust-openssl` crate, a Rust wrapper for the OpenSSL library, is susceptible to a critical vulnerability (CVE-2026-41681) stemming from a buffer overflow within the `MdCtxRef::digest_final()` function. This flaw arises because `EVP_DigestFinal()` unconditionally writes `EVP_MD_CTX_size(ctx)` bytes to the provided output buffer (`out`), without verifying if the buffer's allocated size is sufficient. Consequently, if `out` is smaller than the size dictated by `EVP_MD_CTX_size(ctx)`, a…
+The `rust-openssl` crate, a Rust wrapper for the OpenSSL library, is susceptible to a critical vulnerability (CVE-2026-41681) stemming from a buffer overflow within the `MdCtxRef::digest_final()` function. This flaw arises because `EVP_DigestFinal()` unconditionally writes `EVP_MD_CTX_size(ctx)` bytes to the provided output buffer (`out`), without verifying if the buffer's allocated size is sufficient. Consequently, if `out` is smaller than the size dictated by `EVP_MD_CTX_size(ctx)`, a write-out-of-bounds condition occurs, potentially leading to stack corruption. The vulnerability is reachable from safe Rust code, making it a significant concern for applications utilizing the affected versions of the `rust-openssl` crate. Specifically, versions 0.10.39 up to (but not including) 0.10.78 are affected.
+
+## Attack Chain
+
+1. An attacker crafts a Rust application that utilizes the `rust-openssl` crate.
+2. The application initiates a digest operation using `EVP_DigestInit()` to set up the message digest context.
+3. The application feeds data into the digest context using `EVP_DigestUpdate()`.
+4. The application calls `MdCtxRef::digest_final()` via safe Rust.
+5. Internally, `EVP_DigestFinal()` is called without proper bounds checking.
+6. `EVP_DigestFinal()` attempts to write `EVP_MD_CTX_size(ctx)` bytes to the `out` buffer.
+7. If `out` is smaller than the expected size, a stack-based buffer overflow occurs as data is written beyond the allocated memory region.
+8. This overflow overwrites adjacent memory on the stack, potentially corrupting critical program data or control flow structures, leading to crashes or arbitrary code execution.
+
+## Impact
+
+Successful exploitation of this vulnerability allows an attacker to potentially achieve arbitrary code execution within the context of the affected application. This could lead to complete system compromise, data breaches, or denial-of-service conditions. Given that the vulnerability is reachable from safe Rust, applications relying on vulnerable versions of the `rust-openssl` crate are at risk. The vulnerability can cause stack corruption, leading to unpredictable behavior and potential application crashes.
+
+## Recommendation
+
+*   Upgrade the `rust-openssl` crate to version 0.10.78 or later to remediate CVE-2026-41681.
+*   Implement robust input validation and size checks when using the `rust-openssl` crate, specifically when handling digest operations, to prevent buffer overflows.
