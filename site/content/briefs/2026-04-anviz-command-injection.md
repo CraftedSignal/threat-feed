@@ -3,6 +3,9 @@ title: Anviz CX2 Lite Authenticated Command Injection Vulnerability (CVE-2026-35
 slug: 2026-04-anviz-command-injection
 description: Anviz CX2 Lite is vulnerable to an authenticated command injection via the filename parameter, leading to arbitrary command execution and root-level access.
 date: "2026-04-17T20:16:35Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
