@@ -3,6 +3,9 @@ title: Metasoft MetaCRM SQL Injection Vulnerability (CVE-2026-6629)
 slug: 2026-04-metasoft-crm-sql-injection
 description: A SQL injection vulnerability (CVE-2026-6629) exists in Metasoft MetaCRM up to version 6.4.0, allowing remote attackers to execute arbitrary SQL commands via manipulation of the sql argument in the Statement.executeUpdate function of the sql.jsp file.
 date: "2026-04-20T11:16:18Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
