@@ -47,4 +47,26 @@ rules:
 rules_count: 2
 ---
 
-Kados R10 GreenBee is susceptible to an SQL injection vulnerability (CVE-2019-25692) affecting the 'id_to_modify' parameter. An attacker can inject malicious SQL code into this parameter through crafted HTTP requests. Successful exploitation allows the attacker to manipulate database queries, potentially leading to unauthorized data access, modification, or deletion. This vulnerability poses a significant risk to organizations using Kados R10 GreenBee, as it could compromise the…
+Kados R10 GreenBee is susceptible to an SQL injection vulnerability (CVE-2019-25692) affecting the 'id_to_modify' parameter. An attacker can inject malicious SQL code into this parameter through crafted HTTP requests. Successful exploitation allows the attacker to manipulate database queries, potentially leading to unauthorized data access, modification, or deletion. This vulnerability poses a significant risk to organizations using Kados R10 GreenBee, as it could compromise the confidentiality, integrity, and availability of their data. The vulnerability was reported in 2026. The scope of targeting is any system running a vulnerable version of Kados R10 GreenBee.
+
+## Attack Chain
+
+1.  The attacker identifies an endpoint in the Kados R10 GreenBee application that utilizes the 'id_to_modify' parameter in a database query.
+2.  The attacker crafts a malicious HTTP request containing SQL injection payloads within the 'id_to_modify' parameter.
+3.  The attacker sends the crafted HTTP request to the vulnerable Kados R10 GreenBee endpoint.
+4.  The Kados R10 GreenBee application fails to properly sanitize the 'id_to_modify' parameter before incorporating it into a database query.
+5.  The database server executes the malicious SQL code injected by the attacker.
+6.  The attacker retrieves sensitive database information via SELECT queries (e.g., usernames, passwords, personal data).
+7.  Alternatively, the attacker modifies database records using INSERT, UPDATE, or DELETE queries, causing data corruption or unauthorized modifications.
+8.  The attacker may attempt to escalate privileges within the database or gain access to the underlying operating system depending on the database configuration and permissions.
+
+## Impact
+
+Successful exploitation of this SQL injection vulnerability can lead to a range of damaging consequences. An attacker could potentially access sensitive customer data, financial records, or proprietary information. They could also modify or delete data, leading to data corruption, service disruption, or financial loss. The number of affected systems and the potential damage depend on the deployment and data stored within the vulnerable Kados R10 GreenBee instance.
+
+## Recommendation
+
+*   Inspect web server logs for suspicious requests targeting Kados R10 GreenBee endpoints that use the `id_to_modify` parameter, looking for SQL syntax such as `UNION`, `SELECT`, `UPDATE`, or `DELETE` (see "Detect Suspicious SQL Injection Attempt" Sigma rule).
+*   Deploy the "Detect SQL Injection via HTTP Request" Sigma rule to monitor for potential SQL injection attempts based on common SQL injection payloads in HTTP requests.
+*   Implement input validation and sanitization measures for all user-supplied data, especially the 'id_to_modify' parameter, to prevent SQL injection attacks.
+*   Upgrade Kados R10 GreenBee to a patched version that addresses CVE-2019-25692.
