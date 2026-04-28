@@ -3,6 +3,9 @@ title: Notepad++ Updater (gup.exe) Creates Uncommon Files
 slug: 2026-06-notepadpp-updater-file-creation
 description: The Notepad++ updater (gup.exe) creating files in suspicious locations can indicate potential exploitation for malware delivery or unwarranted file placement, potentially leading to credential access and collection.
 date: "2026-04-21T10:34:51Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
