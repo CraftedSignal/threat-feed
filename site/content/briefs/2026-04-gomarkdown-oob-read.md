@@ -3,6 +3,9 @@ title: Go-Markdown Library Vulnerable to Out-of-Bounds Read via Malformed Input
 slug: 2026-04-gomarkdown-oob-read
 description: The `github.com/gomarkdown/markdown` Go library is susceptible to an out-of-bounds read or panic when processing malformed input with the SmartypantsRenderer, potentially leading to a denial-of-service condition.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
