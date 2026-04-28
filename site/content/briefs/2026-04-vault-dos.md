@@ -3,6 +3,9 @@ title: HashiCorp Vault Denial-of-Service Vulnerability (CVE-2026-5807)
 slug: 2026-04-vault-dos
 description: HashiCorp Vault is vulnerable to a denial-of-service (DoS) condition, identified as CVE-2026-5807, where an unauthenticated attacker can repeatedly initiate or cancel root token generation or rekey operations, preventing legitimate operators from completing these workflows.
 date: "2026-04-17T05:16:19Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
