@@ -3,6 +3,9 @@ title: KodExplorer Path Traversal Vulnerability (CVE-2026-6568)
 slug: 2026-04-kodexplorer-path-traversal
 description: KodExplorer up to version 4.52 is vulnerable to a path traversal attack via manipulation of the path argument in the share.class.php::initShareOld function, potentially allowing remote attackers to access sensitive files.
 date: "2026-04-19T10:16:09Z"
+type: threat
+types:
+  - threat
 severities:
   - high
 exploited: true
