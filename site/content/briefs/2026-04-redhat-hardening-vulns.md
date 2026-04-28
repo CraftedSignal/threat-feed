@@ -3,6 +3,9 @@ title: Multiple Vulnerabilities in Red Hat Hardened Images RPMs
 slug: 2026-04-redhat-hardening-vulns
 description: Remote, anonymous attackers can exploit vulnerabilities in Red Hat Hardened Images RPMs to bypass security measures, cause denial of service, disclose sensitive information, or potentially execute code.
 date: "2026-04-21T08:44:11Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
