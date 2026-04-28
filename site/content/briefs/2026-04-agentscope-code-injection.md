@@ -44,4 +44,24 @@ rules:
 rules_count: 2
 ---
 
-A critical code injection vulnerability, identified as CVE-2026-6603, affects modelscope agentscope versions up to 1.0.18. The vulnerability resides within the `execute_python_code` and `execute_shell_command` functions in the `src/AgentScope/tool/_coding/_python.py` file. This flaw allows an attacker to inject arbitrary code, leading to potential remote code execution on the affected system. A public exploit is available, increasing the risk of widespread exploitation. The vendor was contacted…
+A critical code injection vulnerability, identified as CVE-2026-6603, affects modelscope agentscope versions up to 1.0.18. The vulnerability resides within the `execute_python_code` and `execute_shell_command` functions in the `src/AgentScope/tool/_coding/_python.py` file. This flaw allows an attacker to inject arbitrary code, leading to potential remote code execution on the affected system. A public exploit is available, increasing the risk of widespread exploitation. The vendor was contacted but has not responded to the disclosure. This vulnerability poses a significant threat to systems running vulnerable versions of agentscope, potentially leading to compromise and unauthorized access.
+
+## Attack Chain
+
+1.  An attacker identifies a vulnerable instance of modelscope agentscope running a version up to 1.0.18.
+2.  The attacker crafts a malicious request targeting the `execute_python_code` or `execute_shell_command` function.
+3.  The malicious request injects arbitrary code into the vulnerable function's input.
+4.  The application processes the injected code without proper sanitization or validation.
+5.  The injected code is executed by the system, potentially allowing the attacker to execute arbitrary commands.
+6.  The attacker leverages the executed code to gain further access to the system or network.
+7.  The attacker installs malware, establishes persistence, or exfiltrates sensitive data.
+
+## Impact
+
+Successful exploitation of CVE-2026-6603 can result in arbitrary code execution on the affected system. This can lead to complete system compromise, data breaches, and unauthorized access to sensitive information. While the exact number of victims is currently unknown, the availability of a public exploit makes widespread exploitation highly probable. Organizations using modelscope agentscope are at risk and should take immediate action to mitigate this vulnerability.
+
+## Recommendation
+
+*   Upgrade modelscope agentscope to a patched version beyond 1.0.18 to remediate the vulnerability (CVE-2026-6603).
+*   Implement the provided Sigma rule to detect suspicious process execution originating from the agentscope application server.
+*   Monitor web server logs for unusual requests targeting the `execute_python_code` or `execute_shell_command` endpoints (webserver log source).
