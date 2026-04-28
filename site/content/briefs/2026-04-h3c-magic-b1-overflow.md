@@ -48,4 +48,26 @@ rules:
 rules_count: 2
 ---
 
-A critical buffer overflow vulnerability, identified as CVE-2026-6581, affects H3C Magic B1 routers up to version 100R004. The vulnerability resides in the `SetMobileAPInfoById` function within the `/goform/aspForm` file. An attacker can exploit this flaw by crafting a malicious request that manipulates the `param` argument, leading to a buffer overflow and potential remote code execution. This vulnerability is particularly concerning because a public exploit is available, increasing the risk…
+A critical buffer overflow vulnerability, identified as CVE-2026-6581, affects H3C Magic B1 routers up to version 100R004. The vulnerability resides in the `SetMobileAPInfoById` function within the `/goform/aspForm` file. An attacker can exploit this flaw by crafting a malicious request that manipulates the `param` argument, leading to a buffer overflow and potential remote code execution. This vulnerability is particularly concerning because a public exploit is available, increasing the risk of widespread exploitation. The vendor was notified about the vulnerability but has not responded. Given the ease of exploitation and the potential for complete system compromise, organizations using affected H3C routers should take immediate action.
+
+## Attack Chain
+
+1.  The attacker identifies a vulnerable H3C Magic B1 router running a firmware version up to 100R004.
+2.  The attacker crafts a malicious HTTP POST request targeting the `/goform/aspForm` endpoint.
+3.  The request includes the `SetMobileAPInfoById` function call with an overly long value for the `param` argument, triggering the buffer overflow.
+4.  The overflow overwrites adjacent memory regions, including the return address on the stack.
+5.  The attacker sets the overwritten return address to point to attacker-controlled code or a ROP chain.
+6.  When the `SetMobileAPInfoById` function returns, execution jumps to the attacker-controlled code.
+7.  The attacker's code executes with elevated privileges, potentially allowing full control of the router.
+8.  The attacker can then use the compromised router to establish a foothold within the network, exfiltrate data, or launch further attacks.
+
+## Impact
+
+Successful exploitation of CVE-2026-6581 allows a remote attacker to execute arbitrary code with root privileges on the H3C Magic B1 router. This can lead to complete compromise of the device, allowing the attacker to control network traffic, exfiltrate sensitive data, or use the router as a jumping-off point for further attacks within the network. Given the widespread use of these routers in small to medium-sized businesses and homes, a large number of devices are potentially vulnerable. There is no indication of victim counts or sectors targeted at this time.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Detect H3C Magic B1 Buffer Overflow Attempt` to your SIEM to detect exploitation attempts targeting CVE-2026-6581 via suspicious HTTP POST requests to `/goform/aspForm` (see Sigma rule below).
+*   Apply appropriate input validation and sanitization measures if you manage the web server to mitigate buffer overflows.
+*   Monitor network traffic for unusual activity originating from H3C Magic B1 routers.
+*   Consider replacing H3C Magic B1 routers with more secure alternatives if updates are not available.
