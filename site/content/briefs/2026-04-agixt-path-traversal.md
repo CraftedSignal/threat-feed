@@ -31,6 +31,15 @@ references:
   - https://github.com/Josh-XT/AGiXT/commit/2079ea5a88fa671a921bf0b5eba887a5a1b73d5f
   - https://github.com/Josh-XT/AGiXT/releases/tag/v1.9.2
   - https://github.com/Josh-XT/AGiXT/security/advisories/GHSA-5gfj-64gh-mgmw
+iocs:
+  - type: url
+    value: https://github.com/Josh-XT/AGiXT/commit/2079ea5a88fa671a921bf0b5eba887a5a1b73d5f
+  - type: url
+    value: https://github.com/Josh-XT/AGiXT/releases/tag/v1.9.2
+  - type: url
+    value: https://github.com/Josh-XT/AGiXT/security/advisories/GHSA-5gfj-64gh-mgmw
+  - type: email
+    value: '[email protected]'
 ioc_counts:
   email: 1
   url: 3
@@ -62,4 +71,26 @@ rules:
 rules_count: 2
 ---
 
-AGiXT, a dynamic AI Agent Automation Platform, contains a critical vulnerability (CVE-2026-39981) affecting versions prior to 1.9.2. The vulnerability lies in the `safe_join()` function within the `essential_abilities` extension. This function fails to adequately validate file paths, creating an opportunity for authenticated attackers to perform directory traversal attacks. By exploiting this flaw, an attacker can manipulate file paths to access files outside the designated agent workspace…
+AGiXT, a dynamic AI Agent Automation Platform, contains a critical vulnerability (CVE-2026-39981) affecting versions prior to 1.9.2. The vulnerability lies in the `safe_join()` function within the `essential_abilities` extension. This function fails to adequately validate file paths, creating an opportunity for authenticated attackers to perform directory traversal attacks. By exploiting this flaw, an attacker can manipulate file paths to access files outside the designated agent workspace, resulting in arbitrary file read, write, or deletion capabilities on the server hosting the AGiXT instance. This issue was addressed and resolved in AGiXT version 1.9.2. This vulnerability could allow an attacker to gain complete control over the AGiXT server.
+
+## Attack Chain
+
+1.  The attacker authenticates to the AGiXT application.
+2.  The attacker crafts a malicious request targeting the `safe_join()` function within the `essential_abilities` extension.
+3.  The malicious request includes directory traversal sequences (e.g., `../`) to navigate outside the intended agent workspace.
+4.  The `safe_join()` function fails to properly sanitize the input, allowing the traversal sequences to take effect.
+5.  The attacker gains the ability to read arbitrary files on the server using the path traversal.
+6.  The attacker exploits the ability to write to arbitrary files to inject malicious code or overwrite existing system files.
+7.  The attacker leverages the write access to establish persistence, potentially by modifying system startup scripts or scheduled tasks.
+8.  The attacker achieves arbitrary code execution on the server hosting the AGiXT instance, potentially leading to complete system compromise.
+
+## Impact
+
+Successful exploitation of CVE-2026-39981 can lead to complete compromise of the AGiXT server. An attacker could gain unauthorized access to sensitive data, modify system configurations, install malware, or disrupt services. This vulnerability has a CVSS v3.1 score of 8.8, indicating a high severity. The impact could be significant for organizations relying on AGiXT for critical operations, potentially leading to data breaches, financial losses, and reputational damage. The number of victims and specific sectors targeted are currently unknown.
+
+## Recommendation
+
+*   Upgrade AGiXT to version 1.9.2 or later to remediate CVE-2026-39981 (references: https://github.com/Josh-XT/AGiXT/releases/tag/v1.9.2).
+*   Implement input validation and sanitization measures to prevent directory traversal attacks.
+*   Monitor AGiXT application logs for suspicious file access attempts and path manipulation sequences.
+*   Deploy the Sigma rules below to your SIEM to detect potential exploitation attempts targeting CVE-2026-39981.
