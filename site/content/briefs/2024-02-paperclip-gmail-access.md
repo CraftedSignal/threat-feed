@@ -59,4 +59,26 @@ rules:
 rules_count: 2
 ---
 
-A critical vulnerability exists within the Paperclip AI ecosystem, specifically affecting the `codex_local` runtime environment. The core issue stems from a trust-boundary failure, where a Paperclip-managed `codex_local` runtime gains unauthorized access to Gmail connectors that were previously configured within the broader ChatGPT/OpenAI apps UI. This unintended inheritance of connector permissions allows the `codex_local` environment to perform actions, such as reading emails and sending…
+A critical vulnerability exists within the Paperclip AI ecosystem, specifically affecting the `codex_local` runtime environment. The core issue stems from a trust-boundary failure, where a Paperclip-managed `codex_local` runtime gains unauthorized access to Gmail connectors that were previously configured within the broader ChatGPT/OpenAI apps UI. This unintended inheritance of connector permissions allows the `codex_local` environment to perform actions, such as reading emails and sending messages, without explicit authorization within Paperclip itself. This is further complicated by the `codex_local` runtime's default setting of `dangerouslyBypassApprovalsAndSandbox` to `true`, which effectively disables security controls and amplifies the risk associated with the connector access.  This issue was identified in Paperclip versions up to and including 2026.403.0. Successful exploitation bypasses intended permission boundaries and poses a significant risk to user data and privacy.
+
+## Attack Chain
+
+1. User connects their Gmail account within the ChatGPT/OpenAI apps UI for use with other OpenAI services.
+2. A self-hosted Paperclip instance is deployed, utilizing the `codex_local` runtime.
+3. A `codex_local` agent is created and initiated, operating under default settings, which include `dangerouslyBypassApprovalsAndSandbox = true`.
+4. The `codex_local` runtime accesses cached OpenAI curated connector state for Gmail found within the `codex-home/plugins/cache/openai-curated/gmail/.../.app.json` path.
+5. The agent executes a task designed to inspect mailbox contents, leveraging the inherited Gmail connector.
+6.  The agent makes successful `mcp__codex_apps__gmail_get_profile`, `mcp__codex_apps__gmail_search_emails`, and `mcp__codex_apps__gmail_send_email` calls.
+7.  An email is sent from the user's Gmail account to an unintended recipient without explicit user authorization or Paperclip configuration.
+8.  Subsequent "retraction" emails are sent, further demonstrating the persistent and unauthorized write access to the Gmail account.
+
+## Impact
+
+The unauthorized access to Gmail connectors through Paperclip's `codex_local` runtime has severe consequences. It enables attackers to perform actions, such as disclosing mailbox identity, accessing email threads, and sending emails to external third parties without explicit user consent. In a real-world scenario, this resulted in the sending of an email from a user's personal Gmail account to an unintended external recipient, and follow-up retraction messages, highlighting the potential for significant reputational damage and data breaches. The inherent trust boundary failure and unsafe default settings significantly amplify the risk, making it critical to address these vulnerabilities.
+
+## Recommendation
+
+*   Disable or restrict the default inheritance of OpenAI app connectors within Paperclip-managed `codex_local` runs to prevent unintended access to services like Gmail.
+*   Implement a default-deny policy for send/write connectors, requiring explicit Paperclip-side opt-in before any outward actions are permitted.
+*   Modify the `codex_local` runtime defaults to ensure safer configurations, including setting `dangerouslyBypassApprovalsAndSandbox = false`.
+*   Implement the Sigma rules provided to detect unauthorized Gmail API calls originating from the Paperclip environment.
