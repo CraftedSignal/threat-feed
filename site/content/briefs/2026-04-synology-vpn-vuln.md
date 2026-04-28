@@ -45,4 +45,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2021-47961 describes a vulnerability in Synology SSL VPN Client versions prior to 1.4.5-0684. The client software stores user passwords in plaintext, creating a security risk. An attacker with access to the system or the client's configuration files could potentially retrieve these passwords and use them to manipulate the VPN configuration. Successful exploitation of this vulnerability can lead to unauthorized access to the VPN, as well as the potential interception and monitoring of VPN…
+CVE-2021-47961 describes a vulnerability in Synology SSL VPN Client versions prior to 1.4.5-0684. The client software stores user passwords in plaintext, creating a security risk. An attacker with access to the system or the client's configuration files could potentially retrieve these passwords and use them to manipulate the VPN configuration. Successful exploitation of this vulnerability can lead to unauthorized access to the VPN, as well as the potential interception and monitoring of VPN traffic. This is particularly concerning for organizations relying on secure VPN connections for remote access and data transmission. This vulnerability was disclosed on April 10, 2026.
+
+## Attack Chain
+
+1.  Attacker gains unauthorized access to the targeted system, either through physical access or remote access methods.
+2.  Attacker locates the Synology SSL VPN Client configuration file(s) on the compromised system.
+3.  Attacker opens the configuration file and retrieves the plaintext password stored within.
+4.  Attacker uses the retrieved password to access or modify the user's PIN code within the VPN client.
+5.  Attacker reconfigures the VPN client settings, potentially redirecting traffic through a malicious server.
+6.  User connects to the VPN using the modified configuration.
+7.  All VPN traffic from the user's machine is now routed through the attacker's server.
+8.  Attacker intercepts and monitors the user's VPN traffic, gaining access to sensitive data.
+
+## Impact
+
+Successful exploitation of CVE-2021-47961 allows attackers to gain unauthorized access to sensitive data transmitted through the VPN connection. The number of victims is dependent on the number of deployments using the vulnerable Synology SSL VPN client version prior to 1.4.5-0684. Sectors utilizing Synology SSL VPN clients for remote access are particularly at risk. A successful attack can lead to data breaches, intellectual property theft, and potential compromise of internal systems.
+
+## Recommendation
+
+*   Upgrade Synology SSL VPN Client to version 1.4.5-0684 or later to patch CVE-2021-47961.
+*   Deploy the Sigma rule "Detect Synology VPN Client Configuration File Access" to detect unauthorized access to configuration files.
+*   Monitor network traffic for unusual VPN connection patterns indicative of traffic redirection, using existing network monitoring tools.
