@@ -3,6 +3,9 @@ title: CrowdStrike LogScale Unauthenticated Path Traversal Vulnerability (CVE-20
 slug: 2026-04-crowdstrike-logscale-path-traversal
 description: A critical unauthenticated path traversal vulnerability (CVE-2026-40050) in CrowdStrike LogScale allows remote attackers to read arbitrary files from the server filesystem if a specific cluster API endpoint is exposed, necessitating immediate patching for self-hosted customers.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
