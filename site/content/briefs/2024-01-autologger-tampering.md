@@ -3,6 +3,9 @@ title: Windows AutoLogger Session Tampering Detection
 slug: 2024-01-autologger-tampering
 description: Attackers may disable AutoLogger sessions by modifying specific registry values to evade detection and prevent security monitoring of early boot activities and system events, a technique observed in intrusions involving IcedID and XingLocker ransomware.
 date: "2024-01-03T15:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - high
 exploited: true
