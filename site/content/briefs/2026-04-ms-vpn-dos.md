@@ -48,4 +48,26 @@ rules:
 rules_count: 2
 ---
 
-Microsoft VPN Browser+ version 1.1.0.0 is susceptible to a denial-of-service (DoS) vulnerability (CVE-2018-25241). This vulnerability allows an unauthenticated attacker to crash the application by providing an overly large input string to the search functionality. The application fails to handle the oversized input correctly, leading to an unhandled exception and subsequent termination. This poses a risk to users relying on the application for VPN services, as it can be easily disrupted without…
+Microsoft VPN Browser+ version 1.1.0.0 is susceptible to a denial-of-service (DoS) vulnerability (CVE-2018-25241). This vulnerability allows an unauthenticated attacker to crash the application by providing an overly large input string to the search functionality. The application fails to handle the oversized input correctly, leading to an unhandled exception and subsequent termination. This poses a risk to users relying on the application for VPN services, as it can be easily disrupted without requiring any form of authentication. The vulnerability was reported in April 2026.
+
+## Attack Chain
+
+1.  The attacker identifies a vulnerable instance of Microsoft VPN Browser+ 1.1.0.0.
+2.  The attacker opens the application interface.
+3.  The attacker locates the search bar within the application.
+4.  The attacker pastes an extremely large string (e.g., several megabytes) into the search bar.
+5.  The application attempts to process the oversized search query.
+6.  Due to inadequate input validation, the application triggers an unhandled exception.
+7.  The exception leads to the immediate termination of the Microsoft VPN Browser+ process.
+8.  The user experiences a denial of service as the application is no longer running.
+
+## Impact
+
+Successful exploitation of this vulnerability results in a denial-of-service condition, rendering the Microsoft VPN Browser+ application unusable. Users relying on the application for VPN connectivity will be unable to establish or maintain secure connections, potentially exposing them to security risks. While the impact is limited to denial of service, the ease of exploitation and lack of authentication requirements make it a notable concern. The number of affected users depends on the adoption rate of Microsoft VPN Browser+ 1.1.0.0.
+
+## Recommendation
+
+*   Monitor application logs for crashes associated with unusually large search queries to detect potential exploitation attempts (application logs).
+*   Implement input validation and sanitization on the search functionality to prevent processing of oversized input strings.
+*   Deploy the Sigma rule to detect processes crashing after large input to the Microsoft VPN Browser+ search (Sigma rule).
+*   Consider upgrading or patching Microsoft VPN Browser+ to a version that addresses this vulnerability, if available (CVE-2018-25241).
