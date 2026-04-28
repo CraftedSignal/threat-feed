@@ -3,6 +3,9 @@ title: Windows Projected File System Buffer Over-Read Privilege Escalation (CVE-
 slug: 2026-04-projfs-privesc
 description: CVE-2026-26184 is a buffer over-read vulnerability in the Windows Projected File System (ProjFS) that allows a local attacker to elevate privileges.
 date: "2026-04-14T18:16:55Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
