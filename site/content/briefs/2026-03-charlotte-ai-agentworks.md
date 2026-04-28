@@ -1,41 +1,82 @@
 ---
-title: CrowdStrike Charlotte AI AgentWorks and Agentic SOAR for Automated Security Operations
-slug: 2026-03-charlotte-ai-agentworks
-description: CrowdStrike introduces Charlotte AI AgentWorks and Agentic SOAR to enhance security operations through AI-driven automation and orchestration, reducing manual workloads and improving decision accuracy.
-date: "2026-03-28T09:22:10Z"
+title: CrowdStrike Charlotte AI AgentWorks and Agentic SOAR for AI-Enhanced Security Operations
+slug: 2026-03-Charlotte-AI-AgentWorks
+description: CrowdStrike's Charlotte AI AgentWorks facilitates the creation and deployment of AI-driven security agents, orchestrated by Charlotte Agentic SOAR, to augment security analysts and accelerate threat response, offered with complimentary AI credits to encourage adoption.
+date: "2026-03-29T06:58:32Z"
 severities:
   - medium
 tags:
+  - agentic-soc
   - ai
-  - automation
-  - security operations
-  - soar
+  - security-automation
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1053
+    technique_name: Scheduled Task/Job
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021
+    technique_name: Remote Services
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1567
+    technique_name: Exfiltration Over Web Service
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1041
+    technique_name: Exfiltration Over C2 Channel
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1486
+    technique_name: Data Encrypted for Impact
 references:
   - https://www.crowdstrike.com/en-us/blog/how-charlotte-ai-agentworks-fuels-securitys-agentic-ecosystem/
 rules:
-  - title: Detect Charlotte AI AgentWorks Agent Execution
-    description: Detects execution of agents within the Charlotte AI AgentWorks framework based on process names.
+  - title: Detect PowerShell Obfuscation with Base64 Encoding
+    description: Detects PowerShell commands employing Base64 encoding for obfuscation, a common technique used by attackers to conceal malicious code.
     platform: sigma
-    severity: informational
+    severity: high
     tactics:
       - defense_evasion
     techniques:
-      - T1562
+      - T1027
     data_sources:
       - process_creation
       - windows
-  - title: Detect SOAR Workflow Modification
-    description: Detects modifications to SOAR workflows, potentially indicating unauthorized changes.
+  - title: Detect Suspicious Scheduled Task Creation
+    description: Detects the creation of scheduled tasks that may be used for persistence by attackers.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
       - persistence
     techniques:
-      - T1547
+      - T1053.005
     data_sources:
-      - file_event
+      - process_creation
       - windows
-rules_count: 2
+  - title: Detect Lateral Movement via Pass-The-Hash
+    description: Detects potential pass-the-hash attacks by monitoring for authentication events with specific characteristics indicative of stolen credentials.
+    platform: sigma
+    severity: high
+    tactics:
+      - lateral_movement
+    data_sources:
+      - network_connection
+      - windows
+rules_count: 3
 ---
 
-CrowdStrike is introducing Charlotte AI AgentWorks and Agentic SOAR as a new approach to security operations, designed to leverage AI to automate tasks, orchestrate workflows, and amplify analyst capabilities. Announced in March 2026, Charlotte AI AgentWorks serves as a central hub for building and scaling security agents across the enterprise, integrating with models from Anthropic, NVIDIA, and OpenAI, and promoting collaboration among security innovators. Charlotte Agentic SOAR is designed to…
+CrowdStrike has announced Charlotte AI AgentWorks and Charlotte Agentic SOAR to enhance security operations through AI-driven automation. Charlotte AI AgentWorks serves as a platform for building and scaling security agents, integrating with models from Anthropic, NVIDIA, and OpenAI. Charlotte Agentic SOAR acts as an orchestration layer, enabling users to activate and coordinate agents across complex workflows while maintaining human oversight. Launch partners include Accenture, Deloitte…
