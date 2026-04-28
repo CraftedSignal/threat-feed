@@ -23,6 +23,9 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-21372
   - https://docs.qualcomm.com/product/publicresources/securitybulletin/april-2026-bulletin.html
+iocs:
+  - type: email
+    value: '[email protected]'
 ioc_counts:
   email: 1
 rules:
@@ -51,4 +54,27 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-21372 describes a memory corruption vulnerability affecting systems that handle IOCTL requests, specifically during memcpy operations. The vulnerability arises when the system does not properly validate buffer sizes, leading to a heap-based buffer overflow (CWE-122). This flaw can be triggered by sending IOCTL requests with invalid buffer sizes, potentially allowing an attacker with local access to execute arbitrary code or cause a denial-of-service condition. Qualcomm reported this…
+CVE-2026-21372 describes a memory corruption vulnerability affecting systems that handle IOCTL requests, specifically during memcpy operations. The vulnerability arises when the system does not properly validate buffer sizes, leading to a heap-based buffer overflow (CWE-122). This flaw can be triggered by sending IOCTL requests with invalid buffer sizes, potentially allowing an attacker with local access to execute arbitrary code or cause a denial-of-service condition. Qualcomm reported this vulnerability in their April 2026 security bulletin. Successful exploitation requires the attacker to have the ability to send specifically crafted IOCTL requests to the vulnerable driver or service.
+
+## Attack Chain
+
+1.  Attacker gains local access to the system.
+2.  Attacker identifies the vulnerable driver or service that processes IOCTL requests.
+3.  Attacker crafts a malicious IOCTL request with an invalid buffer size, specifically designed to trigger a buffer overflow during a memcpy operation.
+4.  Attacker sends the crafted IOCTL request to the vulnerable driver or service.
+5.  The driver or service attempts to copy data into a buffer using memcpy, without properly validating the size of the input buffer.
+6.  Due to the invalid buffer size, the memcpy operation writes beyond the allocated buffer, causing a heap-based buffer overflow.
+7.  The heap overflow corrupts adjacent memory regions, potentially overwriting critical data structures or code.
+8.  The memory corruption leads to a denial-of-service condition or allows the attacker to execute arbitrary code with the privileges of the vulnerable driver or service.
+
+## Impact
+
+Successful exploitation of CVE-2026-21372 allows a local attacker to cause memory corruption, potentially leading to arbitrary code execution or a denial-of-service condition. This could allow attackers to gain elevated privileges or disrupt the normal operation of the affected system. The impact is significant due to the potential for complete system compromise if code execution is achieved.
+
+## Recommendation
+
+*   Investigate systems which utilize Qualcomm components for vulnerable IOCTL handlers and memcpy operations.
+*   Monitor process execution for anomalous memory access patterns associated with drivers that handle IOCTL requests.
+*   Apply patches or updates provided by Qualcomm to address CVE-2026-21372 as detailed in the Qualcomm security bulletin (https://docs.qualcomm.com/product/publicresources/securitybulletin/april-2026-bulletin.html).
+*   Implement robust input validation for IOCTL requests to prevent buffer overflows, focusing on buffer size checks before memcpy operations.
+*   Deploy the Sigma rule provided below to detect potential exploitation attempts by monitoring for processes interacting with device drivers and triggering a memcpy near the IOCTL call.
