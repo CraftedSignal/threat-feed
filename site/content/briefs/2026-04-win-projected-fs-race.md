@@ -3,6 +3,9 @@ title: Windows Projected File System Race Condition Privilege Escalation (CVE-20
 slug: 2026-04-win-projected-fs-race
 description: CVE-2026-27927 is a race condition vulnerability in the Windows Projected File System that allows an authorized attacker to escalate privileges locally.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
