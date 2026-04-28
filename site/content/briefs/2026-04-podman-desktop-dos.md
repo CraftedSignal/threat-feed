@@ -60,4 +60,26 @@ rules:
 rules_count: 2
 ---
 
-Podman Desktop, a graphical tool for container and Kubernetes development, is vulnerable to an unauthenticated remote attack in versions prior to 1.26.2. The exposed HTTP server lacks proper connection limits and timeouts, enabling attackers to exhaust file descriptors and kernel memory. This resource exhaustion leads to denial-of-service conditions, potentially crashing the application or freezing the entire host system. Furthermore, verbose error responses from the server inadvertently…
+Podman Desktop, a graphical tool for container and Kubernetes development, is vulnerable to an unauthenticated remote attack in versions prior to 1.26.2. The exposed HTTP server lacks proper connection limits and timeouts, enabling attackers to exhaust file descriptors and kernel memory. This resource exhaustion leads to denial-of-service conditions, potentially crashing the application or freezing the entire host system. Furthermore, verbose error responses from the server inadvertently disclose internal paths and system details, including usernames on Windows systems. This information leakage facilitates further exploitation attempts. The vulnerability, identified as CVE-2026-34045, requires no authentication or user interaction and is exploitable over a network, making it a significant threat to systems running vulnerable versions of Podman Desktop. Users should update to version 1.26.2 or later to mitigate this risk.
+
+## Attack Chain
+
+1. Attacker identifies a vulnerable Podman Desktop instance running a version prior to 1.26.2 exposed on the network.
+2. Attacker connects to the unauthenticated HTTP server exposed by Podman Desktop.
+3. The attacker sends a large number of HTTP requests without proper connection management.
+4. The server fails to enforce connection limits, leading to an exhaustion of available file descriptors on the host system.
+5. The attacker sends specially crafted requests designed to trigger resource-intensive operations, consuming excessive kernel memory.
+6. As file descriptors and kernel memory are depleted, the Podman Desktop application becomes unresponsive.
+7. The system experiences a denial-of-service condition, potentially leading to application crash or a full host freeze.
+8. The attacker analyzes verbose error responses to gain insights into internal paths and system details, potentially including usernames on Windows, to prepare for further attacks.
+
+## Impact
+
+Successful exploitation of CVE-2026-34045 can lead to a complete denial-of-service of the Podman Desktop application, disrupting container and Kubernetes development workflows. In severe cases, the entire host system may freeze, requiring a reboot and causing data loss or corruption. The information disclosure aspect of the vulnerability, leaking internal paths and usernames, can aid attackers in crafting more targeted and sophisticated attacks against the compromised system. The lack of authentication makes all installations of vulnerable Podman Desktop versions potential targets, impacting developers and organizations relying on this tool.
+
+## Recommendation
+
+*   Immediately upgrade Podman Desktop to version 1.26.2 or later to patch CVE-2026-34045.
+*   Implement network segmentation and firewall rules to restrict access to the Podman Desktop HTTP server only to trusted networks, mitigating external exploitation.
+*   Deploy the Sigma rule "Detect Excessive HTTP Requests to Podman Desktop" to identify potential denial-of-service attempts against vulnerable Podman Desktop instances.
+*   Monitor webserver logs for unusual HTTP requests and error responses from Podman Desktop, correlating them with potential exploitation attempts. Enable webserver logging to activate the rule above.
