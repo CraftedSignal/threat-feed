@@ -44,4 +44,25 @@ rules:
 rules_count: 1
 ---
 
-This brief covers suspicious registry modifications made by scripting engine processes like WScript, CScript, and MSHTA. These processes are often abused by attackers to modify the registry without using standard tools like regedit.exe or reg.exe, potentially for evasion and persistence. Legitimate use of these scripting engines to modify the registry is uncommon, making this behavior a good indicator of potential malicious activity. Defenders should monitor for these processes interacting with…
+This brief covers suspicious registry modifications made by scripting engine processes like WScript, CScript, and MSHTA. These processes are often abused by attackers to modify the registry without using standard tools like regedit.exe or reg.exe, potentially for evasion and persistence. Legitimate use of these scripting engines to modify the registry is uncommon, making this behavior a good indicator of potential malicious activity. Defenders should monitor for these processes interacting with sensitive registry keys. This activity was observed as of 2025 and continues to be a relevant technique for persistence and defense evasion in 2026.
+
+## Attack Chain
+
+1. An attacker gains initial access to a system via an exploit or social engineering.
+2. The attacker uses MSHTA.exe to execute malicious HTML Application code.
+3. MSHTA.exe is used to launch a PowerShell script.
+4. The PowerShell script uses the Registry module to add a new registry key.
+5. The registry key is configured to execute a payload upon system startup.
+6. The attacker uses wscript.exe or cscript.exe to execute VBScript or JScript.
+7. The script modifies registry values to disable security features.
+8. The compromised system restarts, executing the payload defined in the registry, granting the attacker persistent access.
+
+## Impact
+
+Successful exploitation allows attackers to establish persistence on the targeted system, enabling them to maintain access even after a reboot. This can lead to data theft, further malware deployment, or complete system compromise. The impact ranges from minor data breaches to significant operational disruptions. The scope of the impact depends on the attacker's objectives and the compromised system's role within the organization.
+
+## Recommendation
+
+*   Deploy the Sigma rule "Registry Tampering by Potentially Suspicious Processes" to your SIEM to detect this specific activity, and tune for your environment (rules).
+*   Investigate any instances of wscript.exe, cscript.exe or mshta.exe modifying registry keys outside of known-good paths (rules).
+*   Monitor registry events for unexpected modifications by scripting engines, focusing on persistence-related keys (rules).
