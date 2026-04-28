@@ -3,6 +3,9 @@ title: Microsoft Defender Privilege Escalation Vulnerability (CVE-2026-33825)
 slug: 2026-04-defender-privesc
 description: CVE-2026-33825 allows a locally authenticated attacker to escalate privileges in Microsoft Defender due to insufficient access control granularity.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
