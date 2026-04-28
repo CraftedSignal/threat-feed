@@ -5,10 +5,14 @@ on:
     branches: [main]
     paths-ignore:
       - 'output/**'
+      - 'site/**'
+      - '**/*.md'
   pull_request:
     branches: [main]
     paths-ignore:
       - 'output/**'
+      - 'site/**'
+      - '**/*.md'
 
 permissions:
   contents: read
