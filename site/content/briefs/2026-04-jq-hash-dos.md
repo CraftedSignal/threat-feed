@@ -3,6 +3,9 @@ title: jq JSON Processor Hash Table Collision Denial-of-Service Vulnerability (C
 slug: 2026-04-jq-hash-dos
 description: A denial-of-service vulnerability exists in jq versions prior to commit 0c7d133c3c7e37c00b6d46b658a02244fdd3c784 due to the use of a hardcoded seed in MurmurHash3, enabling attackers to craft JSON objects that trigger hash collisions and cause excessive CPU consumption.
 date: "2026-04-14T00:16:07Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
