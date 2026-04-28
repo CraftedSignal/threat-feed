@@ -52,4 +52,26 @@ rules:
 rules_count: 2
 ---
 
-A critical buffer overflow vulnerability has been identified in Mbed TLS, a widely used open-source cryptographic library. Specifically, CVE-2026-34875 affects Mbed TLS versions up to 3.6.5 and TF-PSA-Crypto 1.0.0. The vulnerability is triggered during the export of public keys associated with Finite Field Diffie-Hellman (FFDH) algorithms. This flaw can be exploited by an attacker to overwrite memory buffers, potentially leading to arbitrary code execution or a denial-of-service condition…
+A critical buffer overflow vulnerability has been identified in Mbed TLS, a widely used open-source cryptographic library. Specifically, CVE-2026-34875 affects Mbed TLS versions up to 3.6.5 and TF-PSA-Crypto 1.0.0. The vulnerability is triggered during the export of public keys associated with Finite Field Diffie-Hellman (FFDH) algorithms. This flaw can be exploited by an attacker to overwrite memory buffers, potentially leading to arbitrary code execution or a denial-of-service condition. Given the prevalence of Mbed TLS in embedded systems and other security-sensitive applications, this vulnerability poses a significant risk to a wide range of devices and services. Defenders should prioritize patching and mitigation efforts to prevent potential exploitation. The vulnerability was published on 2026-04-01.
+
+## Attack Chain
+
+1.  Attacker identifies a system using a vulnerable version of Mbed TLS (<= 3.6.5) or TF-PSA-Crypto (1.0.0).
+2.  Attacker crafts a malicious request that triggers the FFDH public key export function.
+3.  The vulnerable function fails to properly validate the size of the buffer used to store the exported public key.
+4.  The application attempts to copy the public key data into the undersized buffer.
+5.  A buffer overflow occurs, overwriting adjacent memory regions.
+6.  The attacker gains control of program execution by overwriting critical data structures or function pointers.
+7.  The attacker executes arbitrary code on the target system.
+8.  The attacker achieves their final objective, such as gaining unauthorized access, stealing sensitive data, or causing a denial-of-service condition.
+
+## Impact
+
+Successful exploitation of CVE-2026-34875 can lead to a variety of severe consequences. The most critical outcome is arbitrary code execution, allowing attackers to gain complete control over the affected system. This could result in the theft of sensitive data, installation of malware, or disruption of critical services. Even without achieving code execution, the buffer overflow can cause a denial-of-service condition, rendering the system unusable. The wide adoption of Mbed TLS means that this vulnerability has the potential to impact numerous devices and applications across various sectors.
+
+## Recommendation
+
+*   Upgrade Mbed TLS to a patched version (later than 3.6.5) or TF-PSA-Crypto to a version that includes the fix for CVE-2026-34875.
+*   Apply input validation to any data that is used in the FFDH public key export functionality as a short-term workaround.
+*   Deploy the provided Sigma rule `Detect_MbedTLS_FFDH_Public_Key_Export` to identify potential exploitation attempts by monitoring process memory writes in Mbed TLS processes.
+*   Monitor web server logs for anomalies in requests related to TLS key exchange, in combination with MbedTLS to catch abnormal activity.
