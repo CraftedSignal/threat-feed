@@ -3,6 +3,9 @@ title: FreeScout CSS Injection Vulnerability in Mailbox Signature Leads to Privi
 slug: 2026-04-freescout-css-injection
 description: FreeScout versions prior to 1.8.213 are vulnerable to CSS injection via the mailbox signature, allowing an attacker with mailbox settings access to exfiltrate CSRF tokens and escalate privileges.
 date: "2026-04-21T03:16:08Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
