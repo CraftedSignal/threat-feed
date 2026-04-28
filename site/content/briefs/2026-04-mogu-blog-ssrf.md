@@ -3,6 +3,9 @@ title: Moxi Blog v2 <= 5.2 Server-Side Request Forgery Vulnerability
 slug: 2026-04-mogu-blog-ssrf
 description: A server-side request forgery (SSRF) vulnerability exists in moxi624 Mogu Blog v2 up to version 5.2, specifically affecting the `LocalFileServiceImpl.uploadPictureByUrl` function, allowing remote attackers to potentially interact with internal resources.
 date: "2026-04-20T10:16:44Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
