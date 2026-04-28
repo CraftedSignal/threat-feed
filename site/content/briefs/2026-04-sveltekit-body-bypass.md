@@ -45,4 +45,24 @@ rules:
 rules_count: 2
 ---
 
-A high-severity vulnerability, CVE-2026-40073, affects SvelteKit applications using `@sveltejs/adapter-node` versions 2.57.0 and earlier. This vulnerability allows requests to bypass the intended `BODY_SIZE_LIMIT`, potentially leading to resource exhaustion and denial-of-service conditions. The bypass occurs specifically within the adapter itself and does not impact body size limits enforced by other layers such as Web Application Firewalls (WAFs), gateways, or platform-level configurations…
+A high-severity vulnerability, CVE-2026-40073, affects SvelteKit applications using `@sveltejs/adapter-node` versions 2.57.0 and earlier. This vulnerability allows requests to bypass the intended `BODY_SIZE_LIMIT`, potentially leading to resource exhaustion and denial-of-service conditions. The bypass occurs specifically within the adapter itself and does not impact body size limits enforced by other layers such as Web Application Firewalls (WAFs), gateways, or platform-level configurations. Successful exploitation could allow an attacker to send arbitrarily large requests, overwhelming the server and causing it to become unresponsive. The vulnerability was patched in version 2.57.1.
+
+## Attack Chain
+
+1.  The attacker identifies a SvelteKit application using a vulnerable version of `@sveltejs/adapter-node` (<= 2.57.0).
+2.  The attacker crafts an HTTP request with a body exceeding the configured `BODY_SIZE_LIMIT`.
+3.  Due to the vulnerability, the adapter fails to enforce the size limit on the request body.
+4.  The oversized request is processed by the SvelteKit application.
+5.  The application consumes excessive server resources (CPU, memory) while handling the oversized request.
+6.  The server becomes overloaded and unresponsive due to resource exhaustion.
+7.  Legitimate users are unable to access the application, resulting in a denial-of-service condition.
+
+## Impact
+
+Successful exploitation of this vulnerability can lead to a denial-of-service condition, rendering the SvelteKit application unavailable to legitimate users. The number of affected applications is potentially large, given the popularity of SvelteKit for web development. Sectors utilizing SvelteKit for their web applications are all potentially at risk. If exploited, the application’s server can become overloaded causing a significant impact to availability.
+
+## Recommendation
+
+*   Upgrade `@sveltejs/kit` to version 2.57.1 or later to remediate CVE-2026-40073.
+*   Monitor web server logs for unusually large HTTP request sizes, using a rule such as the example Sigma rule below.
+*   Implement or reinforce body size limits at other layers of the application stack (e.g., WAF, gateway) to provide defense-in-depth.
