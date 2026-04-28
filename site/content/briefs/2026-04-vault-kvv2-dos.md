@@ -21,6 +21,9 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-3605
   - https://discuss.hashicorp.com/t/hcsec-2026-05-vault-kvv2-metadata-and-secret-deletion-policy-bypass-denial-of-service/77342
+iocs:
+  - type: email
+    value: nvd@nist.gov
 ioc_counts:
   email: 1
 rules:
@@ -49,4 +52,26 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-3605 is a vulnerability in HashiCorp Vault's kvv2 secrets engine where an authenticated user can delete secrets they lack read/write authorization for, leading to a denial-of-service. This occurs when a policy associated with the user contains a glob allowing access to a kvv2 path. The vulnerability does *not* permit cross-namespace secret deletion or unauthorized data reading. This issue impacts Vault Community Edition and Vault Enterprise. Affected versions include all releases prior…
+CVE-2026-3605 is a vulnerability in HashiCorp Vault's kvv2 secrets engine where an authenticated user can delete secrets they lack read/write authorization for, leading to a denial-of-service. This occurs when a policy associated with the user contains a glob allowing access to a kvv2 path. The vulnerability does *not* permit cross-namespace secret deletion or unauthorized data reading. This issue impacts Vault Community Edition and Vault Enterprise. Affected versions include all releases prior to the fixes in Vault Community Edition 2.0.0 and Vault Enterprise 2.0.0, 1.21.5, 1.20.10, and 1.19.16. Successful exploitation allows an attacker to disrupt applications relying on the deleted secrets.
+
+## Attack Chain
+
+1. An attacker obtains valid credentials for a Vault user account.
+2. The attacker identifies a kvv2 secrets path protected by a policy containing a glob (e.g., `secret/data/*`).
+3. The attacker authenticates to Vault using their credentials via the Vault CLI or API (`vault login -method=...`).
+4. The attacker uses the Vault CLI or API to attempt to delete a secret within the globbed path (`vault kv delete secret/data/unauthorized-secret`).
+5. Due to the policy misconfiguration, the delete operation succeeds, even though the attacker lacks explicit read or write permissions for the specific secret.
+6. The target secret is removed from the Vault backend.
+7. Applications or services relying on the deleted secret experience failures or unexpected behavior.
+8. Repeated secret deletion leads to widespread application disruption, resulting in a denial-of-service.
+
+## Impact
+
+Successful exploitation of CVE-2026-3605 allows an authenticated user to cause a denial-of-service by deleting secrets they are not authorized to manage. While the vulnerability does not allow unauthorized data access or cross-namespace deletion, the impact can be significant for organizations relying on Vault for secrets management. The number of affected systems depends on the scope of the vulnerable policy and the attacker's access. The primary impact is application downtime and potential data loss due to deleted secrets.
+
+## Recommendation
+
+*   Upgrade Vault Community Edition and Vault Enterprise to versions 2.0.0, 1.21.5, 1.20.10, or 1.19.16 to patch CVE-2026-3605.
+*   Review and revise Vault policies containing globs (`secret/data/*`) to ensure appropriate least-privilege access control and prevent unauthorized deletion, referencing the vulnerability description in this brief.
+*   Monitor Vault audit logs for `secret/delete` operations performed by users with policies containing broad globs, using the provided Sigma rule for guidance.
+*   Implement regular backups of Vault secrets to mitigate the impact of accidental or malicious deletion, in case this vulnerability is exploited.
