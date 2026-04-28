@@ -3,6 +3,9 @@ title: GIMP GIF Image Buffer Overflow Vulnerability
 slug: 2026-04-gimp-gif-overflow
 description: A buffer overflow vulnerability in the GIF image loading component of GIMP allows an attacker to write beyond an allocated buffer by processing a specially crafted GIF file, potentially leading to denial of service or arbitrary code execution.
 date: "2026-04-15T20:16:44Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
