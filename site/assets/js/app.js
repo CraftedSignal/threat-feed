@@ -174,10 +174,110 @@ function initMobileMenu() {
 }
 
 // ----------------------------------------------------------------------
+// Live feed updates: tag briefs the user hasn't seen since their last
+// visit with a "new" pill, and poll the RSS in the background to nudge
+// them when more land while the tab is open.
+
+const LAST_VIEWED_KEY = 'feedLastViewed';
+const FEED_POLL_MS = 5 * 60 * 1000;
+const FEED_BANNER_ID = 'feed-update-banner';
+
+function readLastViewed() {
+  try {
+    const v = parseInt(localStorage.getItem(LAST_VIEWED_KEY), 10);
+    return Number.isFinite(v) ? v : 0;
+  } catch (_) { return 0; }
+}
+
+function writeLastViewed(ts) {
+  try { localStorage.setItem(LAST_VIEWED_KEY, String(ts)); } catch (_) {}
+}
+
+function markUnseenBriefs(cards, sinceTs) {
+  if (!sinceTs) return;
+  cards.forEach((card) => {
+    const ts = +card.dataset.briefDate;
+    if (!ts || ts <= sinceTs) return;
+    if (card.querySelector('[data-new-pill]')) return;
+    const pill = document.createElement('span');
+    pill.dataset.newPill = '1';
+    pill.className = 'inline-flex items-center px-1.5 py-0.5 ml-2 rounded font-mono uppercase tracking-wider bg-accent/15 text-accent text-[10px] align-middle';
+    pill.textContent = 'new';
+    const heading = card.querySelector('h3');
+    if (heading) heading.appendChild(pill);
+  });
+}
+
+function showRefreshBanner(count) {
+  if (document.getElementById(FEED_BANNER_ID)) return;
+  const btn = document.createElement('button');
+  btn.id = FEED_BANNER_ID;
+  btn.type = 'button';
+  btn.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-40 px-4 py-2 rounded-full bg-accent text-white text-sm font-semibold shadow-soft hover:scale-[1.02] transition flex items-center gap-2';
+  btn.innerHTML = `<span aria-hidden="true">●</span> ${count} new ${count === 1 ? 'brief' : 'briefs'} — refresh`;
+  btn.setAttribute('aria-live', 'polite');
+  btn.addEventListener('click', () => window.location.reload());
+  document.body.appendChild(btn);
+}
+
+async function pollForNewBriefs(latestOnPage) {
+  try {
+    const res = await fetch('/feed.xml', { cache: 'no-cache' });
+    if (!res.ok) return 0;
+    const text = await res.text();
+    let count = 0;
+    for (const m of text.matchAll(/<pubDate>([^<]+)<\/pubDate>/g)) {
+      const ts = Math.floor(new Date(m[1]).getTime() / 1000);
+      if (Number.isFinite(ts) && ts > latestOnPage) count++;
+    }
+    return count;
+  } catch (_) {
+    return 0;
+  }
+}
+
+function initLiveUpdate() {
+  const cards = document.querySelectorAll('[data-brief-date]');
+  if (!cards.length) return;
+
+  let latestOnPage = 0;
+  cards.forEach((c) => {
+    const ts = +c.dataset.briefDate;
+    if (Number.isFinite(ts) && ts > latestOnPage) latestOnPage = ts;
+  });
+
+  // Mark items the user hasn't seen since their previous visit, then
+  // bump the pointer to the most recent timestamp on this page so the
+  // pills don't stick around on every reload.
+  markUnseenBriefs(cards, readLastViewed());
+  if (latestOnPage > 0) writeLastViewed(latestOnPage);
+
+  // RSS lives on every listing path that emits one (home, sections,
+  // taxonomy terms). `feed.xml` is always relative-correct because of
+  // Hugo's per-section RSS.
+  let stop = false;
+  const tick = async () => {
+    if (stop) return;
+    if (!document.hidden) {
+      const count = await pollForNewBriefs(latestOnPage);
+      if (count > 0) {
+        showRefreshBanner(count);
+        stop = true;
+      }
+    }
+  };
+  // First poll a minute in (give analytics + Pagefind room to settle),
+  // then on the steady cadence.
+  setTimeout(tick, 60 * 1000);
+  setInterval(tick, FEED_POLL_MS);
+}
+
+// ----------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initSearch();
   initMobileMenu();
   initDateFilter();
+  initLiveUpdate();
 });
