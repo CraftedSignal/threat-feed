@@ -42,4 +42,25 @@ rules:
 rules_count: 2
 ---
 
-Moxi Blog v2, a blogging platform, is vulnerable to a server-side request forgery (SSRF) vulnerability (CVE-2026-6625) in versions up to 5.2. The vulnerability resides within the `LocalFileServiceImpl.uploadPictureByUrl` function of the Picture Storage Service component. This flaw allows a remote attacker to potentially force the server to make HTTP requests to arbitrary domains, including internal services, potentially exposing sensitive information or allowing unauthorized actions. The…
+Moxi Blog v2, a blogging platform, is vulnerable to a server-side request forgery (SSRF) vulnerability (CVE-2026-6625) in versions up to 5.2. The vulnerability resides within the `LocalFileServiceImpl.uploadPictureByUrl` function of the Picture Storage Service component. This flaw allows a remote attacker to potentially force the server to make HTTP requests to arbitrary domains, including internal services, potentially exposing sensitive information or allowing unauthorized actions. The vulnerability has been publicly disclosed, making it crucial to address this issue to prevent potential exploitation. The vendor has been notified but has not responded.
+
+## Attack Chain
+
+1.  The attacker identifies a Mogu Blog v2 instance running a vulnerable version (<= 5.2).
+2.  The attacker crafts a malicious HTTP request targeting the `uploadPictureByUrl` function.
+3.  Within the crafted request, the attacker provides a URL pointing to an internal resource or an external server controlled by the attacker.
+4.  The Mogu Blog server processes the request and attempts to retrieve the resource specified in the URL via an HTTP GET request.
+5.  If the targeted URL points to an internal service, the server may inadvertently expose sensitive information (e.g., internal API keys, service configurations).
+6.  If the targeted URL points to an external server controlled by the attacker, the server may leak information about itself (e.g., internal IP address, software versions).
+7.  The attacker analyzes the response from the server to gather sensitive information or identify further attack vectors.
+
+## Impact
+
+Successful exploitation of this SSRF vulnerability could allow an attacker to scan internal networks, access internal services not exposed to the public internet, potentially read sensitive data, or leverage the server as a proxy to attack other systems. This can lead to information disclosure, unauthorized access to internal resources, and further compromise of the Mogu Blog infrastructure. The number of affected installations is unknown, but all instances of Mogu Blog v2 up to 5.2 are potentially vulnerable.
+
+## Recommendation
+
+*   Inspect web server logs for requests containing URLs to internal IP addresses (e.g. 127.0.0.1, 192.168.x.x, 10.x.x.x) in the `cs-uri-query` field using a webserver log rule.
+*   Monitor network connections originating from the Mogu Blog server to unusual or internal destinations, using a `network_connection` Sigma rule.
+*   Implement input validation and sanitization for the `uploadPictureByUrl` function to prevent the server from making requests to untrusted URLs.
+*   Apply any available patches or updates from the vendor to address CVE-2026-6625 (though no vendor response was noted).
