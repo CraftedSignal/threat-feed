@@ -3,6 +3,9 @@ title: OpenClaw Improper Trust Boundary Vulnerability (CVE-2026-41295)
 slug: 2026-04-openclaw-trust-boundary
 description: OpenClaw before 2026.4.2 contains an improper trust boundary vulnerability (CVE-2026-41295) allowing attackers to execute unintended code by cloning a workspace with a malicious plugin claiming a bundled channel id.
 date: "2026-04-21T00:16:29Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
