@@ -3,6 +3,9 @@ title: Suspicious Windows Process Cluster Detection via Machine Learning
 slug: 2024-01-suspicious-windows-process
 description: A machine learning job combination has identified a host with one or more suspicious Windows processes that exhibit unusually high malicious probability scores, potentially indicating masquerading and defense evasion tactics.
 date: "2024-01-03T18:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - low
 tags:
