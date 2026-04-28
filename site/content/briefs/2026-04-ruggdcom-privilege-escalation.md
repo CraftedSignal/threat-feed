@@ -3,6 +3,9 @@ title: RUGGEDCOM CROSSBOW SAM-P Privilege Escalation Vulnerability (CVE-2026-276
 slug: 2026-04-ruggdcom-privilege-escalation
 description: CVE-2026-27668 allows authenticated User Administrators in RUGGEDCOM CROSSBOW Secure Access Manager Primary (SAM-P) to escalate their privileges and access any device group, due to an incorrect privilege assignment in versions prior to V5.8.
 date: "2026-04-14T09:18:18Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
