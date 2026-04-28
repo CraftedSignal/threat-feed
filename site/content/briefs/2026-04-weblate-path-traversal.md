@@ -3,6 +3,9 @@ title: Weblate Path Traversal Vulnerability in ZIP Download Feature (CVE-2026-34
 slug: 2026-04-weblate-path-traversal
 description: Weblate versions before 5.17 are vulnerable to path traversal due to improper verification of downloaded files in the ZIP download feature, potentially allowing attackers to access files outside the intended repository.
 date: "2026-04-15T19:16:35Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
