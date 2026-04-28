@@ -49,4 +49,25 @@ rules:
 rules_count: 2
 ---
 
-The Widgets for Social Photo Feed plugin for WordPress, versions up to and including 1.7.9, contains a stored Cross-Site Scripting (XSS) vulnerability (CVE-2026-5425). This vulnerability stems from insufficient input sanitization and output escaping of the 'feed_data' parameter keys. An unauthenticated attacker can exploit this flaw by injecting malicious JavaScript code into the WordPress database. When a user visits a page containing a vulnerable widget, the injected script executes within…
+The Widgets for Social Photo Feed plugin for WordPress, versions up to and including 1.7.9, contains a stored Cross-Site Scripting (XSS) vulnerability (CVE-2026-5425). This vulnerability stems from insufficient input sanitization and output escaping of the 'feed_data' parameter keys. An unauthenticated attacker can exploit this flaw by injecting malicious JavaScript code into the WordPress database. When a user visits a page containing a vulnerable widget, the injected script executes within their browser, potentially leading to session hijacking, account takeover, or other malicious activities. This vulnerability was reported by Wordfence and patched in version 1.8 of the plugin.
+
+## Attack Chain
+
+1.  The unauthenticated attacker identifies a WordPress site using a vulnerable version (<= 1.7.9) of the Widgets for Social Photo Feed plugin.
+2.  The attacker crafts a malicious HTTP request targeting the plugin's functionality that handles the `feed_data` parameter. This request contains XSS payload within the parameter keys.
+3.  The WordPress server receives the crafted HTTP request. The vulnerable plugin processes the request without proper input sanitization or output escaping.
+4.  The malicious XSS payload is stored in the WordPress database, associated with the plugin's settings or data.
+5.  A legitimate user visits a page on the WordPress site where the affected widget is displayed.
+6.  The WordPress server retrieves the plugin data, including the stored XSS payload, from the database.
+7.  The server renders the page with the unsanitized XSS payload embedded within the HTML output.
+8.  The user's browser receives the HTML page containing the malicious script and executes it. This could lead to redirection, information theft, or further compromise of the user's session.
+
+## Impact
+
+Successful exploitation of this vulnerability allows an unauthenticated attacker to execute arbitrary JavaScript code in the context of a website user's browser. This can result in session hijacking, defacement of the website, redirection to malicious sites, or the theft of sensitive information. While the exact number of vulnerable installations is not available, the widespread use of WordPress plugins makes this a potentially significant threat, particularly for sites that do not promptly apply security updates.
+
+## Recommendation
+
+*   Upgrade the Widgets for Social Photo Feed plugin to version 1.8 or later to patch CVE-2026-5425.
+*   Deploy the Sigma rule `Detect WordPress Social Photo Feed XSS Attempt` to identify exploitation attempts in web server logs.
+*   Implement a web application firewall (WAF) rule to filter out requests containing potentially malicious JavaScript code in the `feed_data` parameter.
