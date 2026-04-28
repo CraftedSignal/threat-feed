@@ -3,6 +3,9 @@ title: JetBrains TeamCity Authentication Bypass and Path Traversal Vulnerabiliti
 slug: 2026-04-jetbrains-teamcity-vulns
 description: Unpatched JetBrains TeamCity servers are being actively exploited via an authentication bypass (CVE-2024-27198) and path traversal vulnerability (CVE-2024-27199), allowing attackers to perform administrative actions and potentially conduct supply-chain attacks.
 date: "2026-04-22T10:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 exploited: true
