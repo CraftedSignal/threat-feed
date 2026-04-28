@@ -3,6 +3,9 @@ title: Dragon Boss Solutions Adware Disabling Antivirus Protections
 slug: 2026-04-dragon-boss-adware
 description: Digitally signed adware from Dragon Boss Solutions LLC deploys payloads with SYSTEM privileges to disable antivirus protections on thousands of endpoints across education, utilities, government, and healthcare sectors.
 date: "2026-04-16T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
