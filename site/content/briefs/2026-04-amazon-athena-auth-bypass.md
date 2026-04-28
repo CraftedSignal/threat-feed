@@ -54,4 +54,26 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-35561 identifies a critical vulnerability within the Amazon Athena ODBC driver, specifically affecting versions prior to 2.1.0.0. This flaw resides in the browser-based authentication components, where insufficient security controls could enable attackers to intercept or hijack legitimate authentication sessions. The vulnerability stems from inadequate protection mechanisms within the authentication flows, leaving users susceptible to unauthorized access. To mitigate this risk, Amazon…
+CVE-2026-35561 identifies a critical vulnerability within the Amazon Athena ODBC driver, specifically affecting versions prior to 2.1.0.0. This flaw resides in the browser-based authentication components, where insufficient security controls could enable attackers to intercept or hijack legitimate authentication sessions. The vulnerability stems from inadequate protection mechanisms within the authentication flows, leaving users susceptible to unauthorized access. To mitigate this risk, Amazon recommends that users immediately upgrade to version 2.1.0.0 of the Athena ODBC driver. The affected driver is used on Windows, Linux, and macOS operating systems to connect to the Amazon Athena service. Successful exploitation could lead to unauthorized data access and manipulation within the victim's Athena environment.
+
+## Attack Chain
+
+1.  The attacker identifies a target using a vulnerable version of the Amazon Athena ODBC driver (prior to 2.1.0.0).
+2.  The attacker intercepts the browser-based authentication flow initiated by the ODBC driver. This could involve techniques such as man-in-the-middle attacks or exploiting vulnerabilities in the underlying browser or network infrastructure.
+3.  Due to insufficient security controls, the attacker is able to extract or manipulate the authentication credentials or session tokens.
+4.  The attacker uses the stolen credentials to authenticate to Amazon Athena as the compromised user.
+5.  The attacker queries sensitive data stored within Athena databases.
+6.  The attacker modifies data within the Athena environment, potentially injecting malicious code or altering existing records.
+7.  The attacker pivots to other AWS services accessible with the compromised account.
+
+## Impact
+
+Successful exploitation of CVE-2026-35561 can result in unauthorized access to sensitive data stored in Amazon Athena. The impact includes potential data breaches, data manipulation, and lateral movement to other AWS services if the compromised user has sufficient permissions. Given that Athena is often used to analyze large datasets, the compromise could expose significant amounts of business-critical information. The CVSS score of 7.4 highlights the severity of this vulnerability, particularly the high confidentiality and integrity impact.
+
+## Recommendation
+
+*   Immediately upgrade the Amazon Athena ODBC driver to version 2.1.0.0 or later across all affected systems to remediate CVE-2026-35561.
+*   Monitor network traffic for suspicious authentication patterns related to Amazon Athena, using a network intrusion detection system (IDS) or firewall logs.
+*   Implement multi-factor authentication (MFA) for all AWS accounts accessing Amazon Athena to mitigate the impact of compromised credentials.
+*   Deploy the Sigma rule "Detect Suspicious Athena ODBC Driver User Agent" to identify potentially vulnerable or malicious driver versions in use.
+*   Review and enforce least privilege access controls for all IAM roles and users accessing Amazon Athena to limit the potential impact of unauthorized access.
