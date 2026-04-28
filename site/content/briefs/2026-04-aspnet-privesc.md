@@ -3,6 +3,9 @@ title: ASP.NET Core Improper Signature Verification Vulnerability (CVE-2026-4037
 slug: 2026-04-aspnet-privesc
 description: CVE-2026-40372 is a critical vulnerability in ASP.NET Core stemming from improper cryptographic signature verification, potentially enabling unauthorized attackers to achieve network-based privilege escalation.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
