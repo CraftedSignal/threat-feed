@@ -47,4 +47,26 @@ rules:
 rules_count: 2
 ---
 
-A SQL injection vulnerability, identified as CVE-2026-6629, has been discovered in Metasoft 美特软件 MetaCRM versions up to 6.4.0. The vulnerability resides within the `sql.jsp` file, specifically affecting the `Statement.executeUpdate` function of the Interface component. The vulnerability allows remote attackers to inject arbitrary SQL commands by manipulating the `sql` argument. Public exploit code is available, increasing the risk of exploitation. The vendor was notified but did not…
+A SQL injection vulnerability, identified as CVE-2026-6629, has been discovered in Metasoft 美特软件 MetaCRM versions up to 6.4.0. The vulnerability resides within the `sql.jsp` file, specifically affecting the `Statement.executeUpdate` function of the Interface component. The vulnerability allows remote attackers to inject arbitrary SQL commands by manipulating the `sql` argument. Public exploit code is available, increasing the risk of exploitation. The vendor was notified but did not respond. This vulnerability poses a significant threat to organizations using the affected MetaCRM versions, potentially leading to data breaches, system compromise, and unauthorized access.
+
+## Attack Chain
+
+1.  An attacker identifies a Metasoft MetaCRM instance running a vulnerable version (<= 6.4.0).
+2.  The attacker crafts a malicious HTTP request targeting the `sql.jsp` file.
+3.  Within the HTTP request, the attacker manipulates the `sql` parameter to inject SQL code.
+4.  The crafted SQL injection payload is passed to the `Statement.executeUpdate` function.
+5.  The application executes the attacker-controlled SQL query against the underlying database.
+6.  The database server executes the malicious SQL command.
+7.  The attacker can read sensitive data from the database, modify existing data, or execute administrative commands.
+8.  The attacker gains unauthorized access to the system, potentially leading to complete system compromise or data exfiltration.
+
+## Impact
+
+Successful exploitation of this SQL injection vulnerability can lead to a range of severe consequences, including unauthorized data access, data modification, and complete system compromise. Attackers could steal sensitive customer data, financial records, or intellectual property. They might also be able to modify existing data to cause financial losses or disrupt business operations. The lack of vendor response exacerbates the risk, as no official patch or mitigation is available. The CVSS score of 7.3 reflects the high potential impact of this vulnerability.
+
+## Recommendation
+
+*   Inspect web server logs for suspicious POST requests targeting `sql.jsp` with potentially malicious SQL queries in the `sql` parameter to detect exploitation attempts. Reference the Sigma rule `Detect-Metasoft-MetaCRM-SQL-Injection`.
+*   Deploy the Sigma rule `Detect-Metasoft-MetaCRM-SQL-Error` to detect SQL errors that may indicate injection attempts.
+*   Apply input validation and sanitization to the `sql` parameter in `sql.jsp` to prevent SQL injection. This requires modifying the application code.
+*   Monitor network traffic for unusual database activity originating from the web server, such as large data transfers or unauthorized access attempts.
