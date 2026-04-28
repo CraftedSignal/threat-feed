@@ -3,6 +3,9 @@ title: Windows BitLocker Security Feature Bypass Vulnerability (CVE-2026-27913)
 slug: 2026-04-bitlocker-bypass
 description: CVE-2026-27913 describes an improper input validation vulnerability in Windows BitLocker that allows a local attacker to bypass security features.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
