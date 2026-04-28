@@ -3,6 +3,9 @@ title: Suspicious Registry Modifications by Scripting Engines
 slug: 2026-04-susp-reg-mod
 description: Scripting engines such as WScript, CScript, and MSHTA are being used to make registry modifications, potentially for persistence or defense evasion.
 date: "2026-04-14T12:50:16Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
