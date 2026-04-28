@@ -3,6 +3,9 @@ title: NestJS Microservices Denial-of-Service via Recursive handleData
 slug: 2026-04-nestjs-dos
 description: A denial-of-service vulnerability exists in NestJS's @nestjs/microservices package, affecting versions 11.1.18 and earlier, where an attacker can send multiple small, valid JSON messages within a single TCP frame, causing a stack overflow.
 date: "2026-04-14T00:15:09Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
