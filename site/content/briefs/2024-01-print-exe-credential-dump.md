@@ -58,4 +58,26 @@ rules:
 rules_count: 2
 ---
 
-Attackers are leveraging the `Print.exe` utility, a legitimate Windows command-line tool, to dump sensitive operating system files for credential harvesting. This technique involves using `Print.exe` to copy files like `ntds.dit`, `SAM`, `SECURITY`, and `SYSTEM` from their protected Windows directories. These files contain sensitive credential data that can be extracted offline. This activity was observed in relation to the SolarWinds Web Help Desk exploitation in early 2026. Abuse of…
+Attackers are leveraging the `Print.exe` utility, a legitimate Windows command-line tool, to dump sensitive operating system files for credential harvesting. This technique involves using `Print.exe` to copy files like `ntds.dit`, `SAM`, `SECURITY`, and `SYSTEM` from their protected Windows directories. These files contain sensitive credential data that can be extracted offline. This activity was observed in relation to the SolarWinds Web Help Desk exploitation in early 2026. Abuse of `Print.exe` allows attackers to bypass traditional security measures that focus on blocking known malicious executables. This poses a significant risk because the extracted credentials can be used for lateral movement, privilege escalation, and data exfiltration.
+
+## Attack Chain
+
+1.  The attacker gains initial access to a Windows system, potentially through exploitation of a vulnerability in a web application or via compromised credentials.
+2.  The attacker executes `print.exe` with command-line arguments specifying the source file to copy (e.g., `\config\SAM`, `\windows\ntds\ntds.dit`) and the destination path. The `/D` flag is used to designate the destination printer or file.
+3.  `Print.exe` copies the targeted sensitive file (e.g., NTDS.DIT, SAM, SECURITY, SYSTEM) from its protected location.
+4.  The copied file is typically saved to a location accessible to the attacker, either locally or on a network share.
+5.  The attacker uses credential harvesting tools (e.g., `secretsdump.py` from Impacket) to extract user credentials (hashes) from the dumped files.
+6.  The attacker cracks the password hashes or uses them directly for pass-the-hash attacks.
+7.  Using the harvested credentials, the attacker moves laterally to other systems within the network, escalating privileges as needed.
+8.  The attacker achieves their final objective, such as data exfiltration, deployment of ransomware, or other malicious activities.
+
+## Impact
+
+Successful exploitation allows attackers to steal domain or local account credentials. These stolen credentials enable unauthorized access to sensitive resources, including critical systems and data. The impact can range from data breaches and financial loss to complete compromise of the affected organization's network. While the scale of past attacks is not stated in the source, similar credential dumping attacks have led to breaches affecting millions of users.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Sensitive File Dump Via Print.EXE` to detect abuse of `Print.exe` for copying sensitive files (logsource: `process_creation`).
+*   Monitor process creation events for the execution of `print.exe` with command-line parameters that include sensitive file paths such as `\config\SAM`, `\config\SECURITY`, `\config\SYSTEM`, or `\windows\ntds\ntds.dit` (logsource: `process_creation`).
+*   Implement access controls to restrict access to sensitive files like `ntds.dit`, `SAM`, `SECURITY`, and `SYSTEM` to only authorized accounts and processes.
+*   Investigate any instances of `print.exe` copying files from the `\config` or `\windows\ntds` directories.
