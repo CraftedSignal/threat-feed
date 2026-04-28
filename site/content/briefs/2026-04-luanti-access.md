@@ -3,6 +3,9 @@ title: Luanti 5 Improper Access Control Vulnerability (CVE-2026-40960)
 slug: 2026-04-luanti-access
 description: Luanti 5 before 5.15.2 allows unintended access to an insecure environment if a crafted mod intercepts requests when secure mods are enabled, potentially leading to unauthorized access and control.
 date: "2026-04-16T01:16:11Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
