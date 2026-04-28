@@ -58,4 +58,27 @@ rules:
 rules_count: 2
 ---
 
-This threat brief details detection of rapid enumeration of AWS S3 bucket configurations. The activity is characterized by an AWS principal invoking read-only S3 control-plane APIs across numerous buckets within a short timeframe. This pattern is consistent with automated reconnaissance, security scanning, or post-compromise enumeration. The activity is detected by monitoring AWS CloudTrail logs for specific API calls such as `GetBucketAcl`, `GetBucketPublicAccessBlock`, `GetBucketPolicy`…
+This threat brief details detection of rapid enumeration of AWS S3 bucket configurations. The activity is characterized by an AWS principal invoking read-only S3 control-plane APIs across numerous buckets within a short timeframe. This pattern is consistent with automated reconnaissance, security scanning, or post-compromise enumeration. The activity is detected by monitoring AWS CloudTrail logs for specific API calls such as `GetBucketAcl`, `GetBucketPublicAccessBlock`, `GetBucketPolicy`, `GetBucketPolicyStatus`, and `GetBucketVersioning`. The detection logic excludes AWS service principals and sessions using Management Console credentials to reduce false positives. This activity is relevant for defenders as it can signal early-stage reconnaissance by threat actors like Team PCP, or unauthorized data discovery within the AWS environment. The rule uses a threshold of 15 distinct buckets accessed within 10 seconds to identify suspicious behavior.
+
+## Attack Chain
+
+1. An attacker gains access to AWS credentials, possibly through compromised credentials or misconfigured IAM roles.
+2. The attacker uses the acquired credentials to authenticate to the AWS environment.
+3. The attacker executes a script or tool that calls multiple S3 APIs (e.g., `GetBucketAcl`, `GetBucketPolicy`) to gather information about S3 buckets.
+4. The tool iterates through a list of buckets, querying the configuration of each.
+5. The attacker collects the responses from the S3 API calls, mapping out bucket names, permissions, and access control lists.
+6. The attacker analyzes the collected data to identify potentially sensitive data or misconfigured buckets.
+7. Based on the findings, the attacker may proceed to exfiltrate data from accessible buckets (T1530).
+8. The attacker may also attempt to modify bucket policies or access controls to gain further access or persistence.
+
+## Impact
+
+Successful reconnaissance of S3 bucket configurations allows attackers to identify vulnerable buckets, potentially leading to data breaches or unauthorized access to sensitive information. The source material does not provide specific victim counts or sectors. However, the impact can range from exposure of confidential data to full compromise of the AWS environment, depending on the level of access gained and the sensitivity of the data stored in the targeted buckets. Identifying the activity early can prevent further exploitation.
+
+## Recommendation
+
+*   Deploy the provided Sigma rule to your SIEM to detect rapid S3 bucket posture API calls (see: "AWS S3 Rapid Bucket Enumeration").
+*   Review IAM policies and enforce least privilege on S3 read APIs to limit the scope of potential reconnaissance activities.
+*   Monitor CloudTrail logs for the same `aws.cloudtrail.user_identity.arn` and `source.ip` within approximately ±30 minutes for follow-on patterns such as `ListBuckets`, `GetObject`, `PutBucketPolicy`, or `AssumeRole` activities (see Overview).
+*   Rotate or disable keys for the affected identity, revoke active role sessions where possible, and restrict the source IP at the network layer if it is not authorized (see Overview).
+*   Whitelist approved scanning accounts and tune the Sigma rule to reduce noise from those identities (see Overview).
