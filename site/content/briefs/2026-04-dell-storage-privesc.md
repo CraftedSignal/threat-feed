@@ -3,6 +3,9 @@ title: Dell Storage Manager Local Privilege Escalation Vulnerability
 slug: 2026-04-dell-storage-privesc
 description: A local attacker can exploit a vulnerability in Dell Storage Manager to escalate their privileges on the system.
 date: "2026-04-17T10:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
