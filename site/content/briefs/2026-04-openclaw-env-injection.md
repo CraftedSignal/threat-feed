@@ -1,74 +1,79 @@
 ---
-title: OpenClaw CLI Backend Environment Variable Injection (CVE-2026-4039)
+title: OpenClaw Environment Variable Injection Vulnerability (CVE-2026-41384)
 slug: 2026-04-openclaw-env-injection
-description: OpenClaw versions prior to 2026.3.24 are vulnerable to environment variable injection via a malicious workspace configuration, potentially allowing attackers to execute arbitrary code.
-date: "2026-04-08T12:00:00Z"
+description: OpenClaw before 2026.3.24 is vulnerable to environment variable injection, allowing attackers to inject malicious environment variables through crafted workspace configurations in the CLI backend, leading to potential code execution or sensitive data exposure.
+date: "2026-04-29T12:00:00Z"
 severities:
   - high
 tags:
-  - cve-2026-4039
-  - environment variable injection
-  - openclaw
+  - environment-variable-injection
+  - code-execution
+  - cve-2026-41384
+vendors:
+  - OpenClaw
+products:
+  - OpenClaw
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1189
-    technique_name: Drive-by Compromise
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
+    technique_id: T1559
+    technique_name: Injection
 cves:
-  - id: CVE-2026-4039
-    cvss: 6.3
-    epss: 0.00087
+  - id: CVE-2026-41384
+    cvss: 7.8
 references:
-  - https://github.com/advisories/GHSA-vfw7-6rhc-6xxg
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41384
+  - https://github.com/openclaw/openclaw/commit/c2fb7f1948c3226732a630256b5179a60664ec24
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-vfw7-6rhc-6xxg
+  - https://www.vulncheck.com/advisories/openclaw-environment-variable-injection-via-workspace-config-in-cli-backend
 rules:
-  - title: Detect OpenClaw CLI Execution with Suspicious Environment Variables
-    description: Detects OpenClaw CLI execution with command line arguments indicative of environment variable injection attempts, by looking for common injection strings.
+  - title: OpenClaw Suspicious Child Processes
+    description: Detects suspicious child processes spawned by OpenClaw, which could indicate successful exploitation of CVE-2026-41384.
     platform: sigma
     severity: high
     tactics:
       - execution
     techniques:
-      - T1059.004
+      - T1053
+      - T1059.001
+      - T1059.003
     data_sources:
       - process_creation
-      - linux
-  - title: Detect OpenClaw CLI Modification Attempts via Environment Variables
-    description: Detects attempts to modify OpenClaw behavior using environment variables, a common injection technique.
+      - windows
+  - title: OpenClaw Workspace Configuration Modification
+    description: Detects modifications to OpenClaw workspace configuration files.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - persistence
     techniques:
-      - T1059.004
+      - T1547.001
     data_sources:
-      - process_creation
-      - linux
+      - file_event
+      - windows
 rules_count: 2
 ---
 
-OpenClaw versions 2026.3.23-2 and earlier contain a vulnerability (CVE-2026-4039) that allows for environment variable injection when processing workspace configurations. An attacker can craft a malicious workspace configuration file that, when processed by the OpenClaw CLI backend, injects arbitrary environment variables. This can lead to the execution of arbitrary code with the privileges of the OpenClaw process. The vulnerability was reported by @YLChen-007 and a fix was implemented in commit `c2fb7f1948c3226732a630256b5179a60664ec24` and released in version 2026.3.24. This vulnerability poses a significant risk to systems using affected versions of OpenClaw as it can allow for full system compromise.
+OpenClaw, a CLI tool, is vulnerable to environment variable injection (CVE-2026-41384) in versions prior to 2026.3.24. The vulnerability resides in the CLI backend runner and allows attackers to inject malicious environment variables into the backend process. This is achieved by crafting malicious workspace configurations. Successful exploitation can lead to arbitrary code execution within the context of the OpenClaw process or exposure of sensitive information handled by the application. This vulnerability poses a significant risk to systems using affected versions of OpenClaw, potentially allowing attackers to compromise the confidentiality, integrity, and availability of the system.
 
 ## Attack Chain
 
-1.  Attacker crafts a malicious OpenClaw workspace configuration file containing environment variable injection payloads.
-2.  The malicious workspace configuration is delivered to a system running a vulnerable version of OpenClaw (<=2026.3.23-2). This could be achieved through various means, such as tricking a user into importing the configuration or through exploiting a separate vulnerability to write the file to disk.
-3.  The OpenClaw CLI is executed, and it loads the malicious workspace configuration file.
-4.  The OpenClaw backend attempts to process the workspace configuration.
-5.  Due to the vulnerability, the attacker-controlled environment variables are injected into the OpenClaw process's environment.
-6.  The injected environment variables are leveraged to execute arbitrary commands. This could involve using the variables to modify the execution path of subsequent commands or to execute shell commands directly.
-7.  The attacker gains arbitrary code execution on the system with the privileges of the OpenClaw process.
-8.  The attacker can then perform further actions, such as escalating privileges, installing malware, or exfiltrating sensitive data.
+1.  Attacker crafts a malicious OpenClaw workspace configuration file. This file contains specially crafted environment variables designed to inject malicious code.
+2.  The attacker gains access to a system where OpenClaw is installed, either through local access or by compromising an account that has access to modify OpenClaw workspace configurations.
+3.  The attacker modifies the existing OpenClaw workspace configuration or creates a new one with the malicious environment variables.
+4.  The user or system executes a command using the OpenClaw CLI, triggering the backend runner.
+5.  The OpenClaw CLI backend runner parses the workspace configuration file, including the attacker-controlled environment variables.
+6.  The backend runner spawns a new process, inheriting the injected environment variables.
+7.  The injected environment variables cause the spawned process to execute arbitrary code, potentially downloading and executing malware or modifying system settings.
+8.  The attacker achieves code execution, enabling them to perform various malicious activities such as data exfiltration, privilege escalation, or denial of service.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to execute arbitrary code on a system running a vulnerable version of OpenClaw. This could lead to complete system compromise, including data theft, malware installation, and denial of service. While the exact number of affected systems is unknown, any environment using OpenClaw versions prior to 2026.3.24 is potentially at risk. The severity is rated as high due to the potential for unauthenticated remote code execution.
+Successful exploitation of this vulnerability (CVE-2026-41384) allows attackers to inject arbitrary environment variables, potentially leading to code execution or sensitive data exposure. Given the nature of CLI tools often used in automated scripting and deployment pipelines, this could lead to widespread compromise across multiple systems. The severity is rated as HIGH with a CVSS v3.1 score of 7.8.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.3.24 or later to remediate CVE-2026-4039.
-*   Monitor process execution for suspicious activity originating from OpenClaw processes as a compensating control. Use process creation logs and the provided Sigma rules to detect potential exploitation attempts.
-*   Implement strict input validation and sanitization for any workspace configurations loaded by OpenClaw, even after upgrading, to prevent similar vulnerabilities in the future.
+*   Upgrade OpenClaw to version 2026.3.24 or later to remediate CVE-2026-41384.
+*   Implement strict access control policies to limit who can modify OpenClaw workspace configurations to prevent unauthorized injection of malicious environment variables.
+*   Monitor process creation events for unusual processes spawned by OpenClaw, using the `OpenClaw Suspicious Child Processes` Sigma rule.
+*   Implement file integrity monitoring on OpenClaw workspace configuration files to detect unauthorized modifications.
