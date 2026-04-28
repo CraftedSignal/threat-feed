@@ -50,4 +50,25 @@ rules:
 rules_count: 2
 ---
 
-A vulnerability exists within the Cisco ACI Multi-Site CloudSec encryption feature of Cisco Nexus 9000 Series Fabric Switches when operating in ACI mode. This flaw enables an unauthenticated, remote adversary to potentially decipher and manipulate encrypted traffic traversing between sites. The vulnerability, identified as CVE-2023-20185, originates from an issue in the cipher implementation employed by the CloudSec encryption feature. Cisco has deprecated and removed the affected ACI…
+A vulnerability exists within the Cisco ACI Multi-Site CloudSec encryption feature of Cisco Nexus 9000 Series Fabric Switches when operating in ACI mode. This flaw enables an unauthenticated, remote adversary to potentially decipher and manipulate encrypted traffic traversing between sites. The vulnerability, identified as CVE-2023-20185, originates from an issue in the cipher implementation employed by the CloudSec encryption feature. Cisco has deprecated and removed the affected ACI Multi-Site CloudSec encryption feature.
+
+## Attack Chain
+
+1.  Attacker establishes a network position on-path between ACI sites.
+2.  The attacker intercepts intersite encrypted traffic.
+3.  The attacker analyzes the captured traffic.
+4.  The attacker exploits the weak cipher implementation.
+5.  The attacker decrypts the intercepted traffic.
+6.  The attacker reads sensitive data within the decrypted traffic.
+7.  The attacker modifies the decrypted traffic.
+8.  The attacker re-encrypts (or forwards unencrypted) the modified traffic toward the destination.
+
+## Impact
+
+Successful exploitation of CVE-2023-20185 allows unauthorized reading and modification of data transmitted between ACI sites. The impact can range from data breaches and intellectual property theft to manipulated financial transactions and compromised control systems. The lack of a workaround necessitates immediate action to mitigate the risk.
+
+## Recommendation
+
+*   Apply configuration changes to remove usage of the CloudSec encryption feature.
+*   Monitor network traffic for unusual patterns indicative of man-in-the-middle attacks targeting intersite communication.
+*   Deploy the Sigma rules provided below to detect potential exploitation attempts targeting intersite traffic.
