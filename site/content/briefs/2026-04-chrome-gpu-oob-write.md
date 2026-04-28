@@ -3,6 +3,9 @@ title: Google Chrome GPU Out-of-Bounds Write Vulnerability (CVE-2026-6314)
 slug: 2026-04-chrome-gpu-oob-write
 description: Google Chrome versions prior to 147.0.7727.101 are vulnerable to an out-of-bounds write in the GPU process (CVE-2026-6314), allowing a remote attacker with GPU process compromise to potentially perform a sandbox escape via a crafted HTML page.
 date: "2026-04-16T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
