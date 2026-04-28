@@ -3,6 +3,9 @@ title: CVE-2026-26183 Windows RPC API Local Privilege Escalation
 slug: 2026-04-windows-rpc-privesc
 description: CVE-2026-26183 allows a locally authenticated attacker to escalate privileges due to improper access control within the Windows RPC API.
 date: "2026-04-14T18:26:47Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
