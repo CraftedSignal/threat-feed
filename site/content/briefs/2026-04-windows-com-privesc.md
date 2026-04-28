@@ -3,6 +3,9 @@ title: Windows COM Privilege Escalation via CVE-2026-32162
 slug: 2026-04-windows-com-privesc
 description: CVE-2026-32162 allows an unauthorized attacker to achieve local privilege escalation in Windows COM by exploiting the acceptance of extraneous untrusted data with trusted data.
 date: "2026-04-14T18:17:18Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
