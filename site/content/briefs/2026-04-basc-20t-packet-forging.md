@@ -49,4 +49,26 @@ rules:
 rules_count: 2
 ---
 
-CVE-2025-13926 is a critical vulnerability affecting Contemporary Controls BASC 20T. An attacker can exploit this vulnerability by capturing network traffic and forging packets, enabling them to send arbitrary requests to the device. This is achieved by sniffing network traffic, extracting necessary data for packet construction, and then crafting malicious packets to interact with the BASC 20T. The vulnerability has a CVSS v3.1 score of 9.8 and a CVSS v4.0 score of 9.3, highlighting the…
+CVE-2025-13926 is a critical vulnerability affecting Contemporary Controls BASC 20T. An attacker can exploit this vulnerability by capturing network traffic and forging packets, enabling them to send arbitrary requests to the device. This is achieved by sniffing network traffic, extracting necessary data for packet construction, and then crafting malicious packets to interact with the BASC 20T. The vulnerability has a CVSS v3.1 score of 9.8 and a CVSS v4.0 score of 9.3, highlighting the severity and potential impact. Successful exploitation could lead to unauthorized access, modification of settings, or disruption of operations managed by the BASC 20T. This vulnerability was reported by ICS-CERT and assigned CWE-807, which describes reliance on untrusted inputs in a security decision.
+
+## Attack Chain
+
+1.  Attacker performs network reconnaissance to identify a vulnerable Contemporary Controls BASC 20T device.
+2.  Attacker passively sniffs network traffic to and from the BASC 20T device.
+3.  The attacker analyzes captured network packets to understand the communication protocol and packet structure used by the BASC 20T.
+4.  Attacker identifies fields within the packets that can be manipulated to achieve the desired malicious actions.
+5.  The attacker crafts a forged packet with modified fields to perform an arbitrary request (e.g., changing settings, issuing commands).
+6.  The attacker injects the forged packet into the network, targeting the BASC 20T device.
+7.  The BASC 20T processes the forged packet without proper validation, executing the attacker's arbitrary request.
+8.  The attacker gains unauthorized control or access to the BASC 20T, potentially disrupting operations.
+
+## Impact
+
+Successful exploitation of CVE-2025-13926 allows an attacker to make arbitrary requests to the Contemporary Controls BASC 20T. This could lead to unauthorized modification of device settings, disruption of critical control processes, or potentially complete device compromise. The affected BASC 20T devices are often used in industrial control systems (ICS), so a successful attack could have significant consequences for the targeted organization, including operational downtime, equipment damage, or safety hazards.
+
+## Recommendation
+
+*   Monitor network traffic for unusual patterns or malformed packets originating from or directed to Contemporary Controls BASC 20T devices (network_connection category).
+*   Implement network segmentation to limit the blast radius of a potential compromise.
+*   Deploy the Sigma rules provided to detect suspicious network activity related to forged packets targeting BASC 20T devices.
+*   Contact Contemporary Controls for available patches or mitigations for CVE-2025-13926 (references section).
