@@ -3,6 +3,9 @@ title: Azure Monitor Agent Improper Input Validation Vulnerability (CVE-2026-321
 slug: 2026-04-azure-monitor-agent-privesc
 description: CVE-2026-32168 is an improper input validation vulnerability in Azure Monitor Agent that allows a locally authorized attacker to elevate privileges.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
