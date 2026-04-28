@@ -1,70 +1,75 @@
 ---
-title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-41329)
+title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-41386)
 slug: 2026-04-openclaw-privesc
-description: A critical privilege escalation vulnerability (CVE-2026-41329) in OpenClaw versions up to 2026.3.28 allows attackers to bypass sandbox restrictions via improper context validation, leading to potential data breaches and system compromise.
-date: "2026-04-21T15:02:58Z"
+description: OpenClaw before 2026.3.22 contains a privilege escalation vulnerability exploitable during first-use device pairing due to unbound bootstrap setup codes.
+date: "2026-04-29T12:00:00Z"
 severities:
   - critical
 tags:
   - privilege-escalation
-  - vulnerability
+  - cve-2026-41386
   - openclaw
+products:
+  - OpenClaw
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
 cves:
-  - id: CVE-2026-41329
-    cvss: 9.9
+  - id: CVE-2026-41386
+    cvss: 9.1
 references:
-  - https://ccb.belgium.be/advisories/warning-privilege-escalation-openclaw-patch-immediately
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-g5cg-8x5w-7jpm
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41386
+  - https://github.com/openclaw/openclaw/commit/a600c72ed7d0045a27f58bf031d2b36ecb0141c9
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-gg9v-mgcp-v6m7
+  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-unbound-bootstrap-setup-codes
 rules:
-  - title: Detect Suspicious OpenClaw Heartbeat Activity
-    description: Detects potential exploitation of CVE-2026-41329 by monitoring for unusual heartbeat requests to OpenClaw instances.
+  - title: Detect Suspicious OpenClaw Pairing Activity
+    description: Detects unusual network activity during OpenClaw device pairing that may indicate exploitation of CVE-2026-41386.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
-      - webserver
-      - linux
-  - title: Detect OpenClaw Version <= 2026.3.28 in User-Agent
-    description: Detects connections from OpenClaw clients with a User-Agent string indicating a vulnerable version.
+      - network_connection
+      - windows
+  - title: Detect Modified OpenClaw Configuration Files
+    description: Detects changes to OpenClaw configuration files that may indicate privilege escalation.
     platform: sigma
     severity: medium
     tactics:
-      - discovery
+      - privilege_escalation
     techniques:
-      - T1592.004
+      - T1574.001
     data_sources:
-      - webserver
-      - linux
+      - file_event
+      - windows
 rules_count: 2
 ---
 
-A critical security vulnerability, CVE-2026-41329, has been identified in OpenClaw versions up to and including 2026.3.28. OpenClaw is an open-source, self-hosted AI agent platform designed for workflow automation, event-driven processing, and task orchestration, commonly deployed in internal environments. The vulnerability stems from improper context validation during heartbeat processing, enabling attackers to exploit context inheritance and manipulate the `senderIsOwner` parameter. This bypasses sandbox restrictions and grants elevated privileges within the platform.  Exploitation can occur remotely without prior credentials under specific deployment conditions. The vulnerability has been patched in version 2026.3.31, and users are strongly advised to update immediately.
+OpenClaw versions prior to 2026.3.22 are susceptible to a critical privilege escalation vulnerability, identified as CVE-2026-41386. This flaw arises from the improper binding of bootstrap setup codes to intended device roles and scopes during the initial pairing process. An attacker with the ability to intercept or manipulate the first-use device pairing can exploit this vulnerability to elevate their privileges beyond their authorized level. Successful exploitation could lead to unauthorized access to sensitive data, modification of system configurations, and potentially full system compromise. The vulnerability was reported on April 28, 2026 and affects systems where OpenClaw is utilized for device management and access control.
 
 ## Attack Chain
 
-1. The attacker identifies an OpenClaw instance running a vulnerable version (<= 2026.3.28).
-2. The attacker crafts a malicious heartbeat request exploiting the improper context validation.
-3. The attacker manipulates the `senderIsOwner` parameter within the heartbeat processing.
-4. Due to the flawed context inheritance mechanism, the attacker bypasses sandbox restrictions.
-5. The attacker gains escalated privileges within the OpenClaw platform.
-6. The attacker leverages elevated privileges to access sensitive data and systems.
-7. The attacker performs unauthorized actions, potentially leading to data exfiltration or system compromise.
-8. The attacker achieves full system compromise, impacting confidentiality, integrity, and availability.
+1.  Attacker gains network access to the target environment where OpenClaw is deployed.
+2.  Attacker identifies a new OpenClaw device undergoing its initial pairing process.
+3.  Attacker intercepts the bootstrap setup code transmitted during the pairing process.
+4.  Attacker manipulates the bootstrap setup code to remove or alter restrictions related to device roles and scopes.
+5.  The modified bootstrap setup code is injected back into the pairing process.
+6.  The OpenClaw device is paired using the tampered bootstrap code.
+7.  The attacker gains elevated privileges on the OpenClaw device, exceeding the intended authorization level.
+8.  Attacker leverages escalated privileges to access sensitive data, modify configurations, or execute unauthorized commands.
 
 ## Impact
 
-Exploitation of CVE-2026-41329 allows attackers to bypass sandbox restrictions in OpenClaw, potentially exposing sensitive systems and compromising organizational security. Successful exploitation could lead to data breaches, system compromise, and operational downtime, impacting the confidentiality, integrity, and availability of critical business data. The number of victims and specific sectors targeted are currently unknown, but any organization using vulnerable versions of OpenClaw is at risk.
+Successful exploitation of CVE-2026-41386 allows an attacker to escalate privileges within the OpenClaw environment. This could lead to unauthorized access to sensitive data, modification of system configurations, and potentially full system compromise of affected devices. The vulnerability poses a significant risk to organizations relying on OpenClaw for secure device management and access control. While the precise number of affected organizations is unknown, the severity of the potential impact necessitates immediate patching.
 
 ## Recommendation
 
-*   Apply the patch to upgrade to OpenClaw version 2026.3.31 or later to remediate CVE-2026-41329.
-*   Upscale monitoring and detection capabilities to identify any related suspicious activity as recommended by CCB.
-*   Investigate and remediate any potential historical compromise if vulnerable versions of OpenClaw were previously running.
+*   Upgrade OpenClaw to version 2026.3.22 or later to remediate CVE-2026-41386.
+*   Monitor network traffic for suspicious activity related to OpenClaw device pairing, and deploy the "Detect Suspicious OpenClaw Pairing Activity" Sigma rule.
+*   Implement network segmentation to limit the scope of potential privilege escalation.
+*   Review and enforce strict access control policies for OpenClaw devices to minimize the impact of successful exploitation.
