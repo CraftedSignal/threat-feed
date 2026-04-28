@@ -50,4 +50,27 @@ rules:
 rules_count: 2
 ---
 
-DotNetNuke.Core versions prior to 10.2.2 are vulnerable to stored cross-site scripting (XSS). An attacker can exploit this vulnerability by uploading a malicious SVG file to the DotNetNuke server. This file contains embedded JavaScript that executes when the SVG is processed and displayed by the application. Successful exploitation requires a user to interact with the uploaded SVG file, which then triggers the malicious script execution. This poses a significant risk as the injected scripts can…
+DotNetNuke.Core versions prior to 10.2.2 are vulnerable to stored cross-site scripting (XSS). An attacker can exploit this vulnerability by uploading a malicious SVG file to the DotNetNuke server. This file contains embedded JavaScript that executes when the SVG is processed and displayed by the application. Successful exploitation requires a user to interact with the uploaded SVG file, which then triggers the malicious script execution. This poses a significant risk as the injected scripts can target both authenticated and unauthenticated users, potentially leading to session hijacking, data theft, or unauthorized actions performed on behalf of the victim. This vulnerability was published on April 10, 2026, and patched in version 10.2.2.
+
+## Attack Chain
+
+1. An attacker crafts a malicious SVG file containing embedded JavaScript code designed for XSS exploitation.
+2. The attacker, with low privileges, uploads the malicious SVG file to the DotNetNuke server through a file upload functionality.
+3. The server stores the SVG file, making it accessible to other users.
+4. A user (either authenticated or unauthenticated) navigates to the location where the SVG file is stored or displayed.
+5. The user's browser processes the SVG file, triggering the execution of the embedded JavaScript.
+6. The malicious script executes within the user's browser session, gaining access to cookies, session tokens, and other sensitive information.
+7. The attacker steals user's cookies and session tokens.
+8. The attacker uses stolen session tokens to hijack the user's session, perform unauthorized actions, and potentially escalate privileges.
+
+## Impact
+
+Successful exploitation of this XSS vulnerability allows an attacker to execute arbitrary JavaScript code within the context of a user's session. This can lead to sensitive information disclosure, such as stealing user credentials or session cookies. An attacker can then hijack user sessions, perform unauthorized actions on their behalf, and potentially gain elevated privileges within the DotNetNuke application. Due to the nature of stored XSS, the impact can be widespread, affecting any user who interacts with the malicious SVG file until the vulnerability is patched.
+
+## Recommendation
+
+*   Upgrade DotNetNuke.Core to version 10.2.2 or later to patch the XSS vulnerability (reference: Affected versions).
+*   Implement server-side validation to sanitize uploaded SVG files and prevent the injection of malicious scripts (reference: Description).
+*   Deploy the Sigma rule provided below to detect attempts to upload SVG files containing JavaScript code (reference: Sigma rule "Detect SVG Upload with Embedded JavaScript").
+*   Configure web application firewalls (WAFs) to inspect and block suspicious SVG uploads based on content analysis (reference: Description).
+*   Enable logging for file uploads to track potential malicious activity (reference: logsource category "file_event").
