@@ -129,6 +129,11 @@ func (s *server) handleVerify(w http.ResponseWriter, r *http.Request) {
 	}
 
 	sub.VerifiedAt = time.Now().UTC()
+	// The pending doc serialized the Subscription with `firestore:"-"`
+	// on ID, so the value set in handleSubscribe was dropped on the
+	// way through Firestore. ID is purely the doc key in the verified
+	// collection — re-mint one here.
+	sub.ID = newToken()
 	if err := s.store.SaveSubscription(ctx, sub); err != nil {
 		s.logger.Error("save verified sub failed", "err", err)
 		http.Error(w, "internal error", http.StatusInternalServerError)
