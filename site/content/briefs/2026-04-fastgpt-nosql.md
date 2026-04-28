@@ -51,4 +51,26 @@ rules:
 rules_count: 2
 ---
 
-FastGPT, an AI Agent building platform, is susceptible to a critical NoSQL injection vulnerability affecting versions before 4.14.9.5. The flaw resides within the password change endpoint, enabling an authenticated attacker to circumvent the necessary "old password" verification process. By injecting MongoDB query operators, an attacker with an existing, low-privileged session can manipulate password changes for their own account, or potentially other accounts if combined with ID manipulation…
+FastGPT, an AI Agent building platform, is susceptible to a critical NoSQL injection vulnerability affecting versions before 4.14.9.5. The flaw resides within the password change endpoint, enabling an authenticated attacker to circumvent the necessary "old password" verification process. By injecting MongoDB query operators, an attacker with an existing, low-privileged session can manipulate password changes for their own account, or potentially other accounts if combined with ID manipulation techniques. This exploit leads to full account takeover, allowing attackers to maintain persistence and potentially compromise sensitive data. This vulnerability has been patched in version 4.14.9.5, urging users to upgrade immediately.
+
+## Attack Chain
+
+1.  Attacker gains initial access to a FastGPT account with low privileges through legitimate means (e.g., registration or stolen credentials).
+2.  Attacker navigates to the password change endpoint within the FastGPT application.
+3.  The attacker crafts a malicious request to the password change endpoint, injecting MongoDB query operators into the "old password" field. For example, using a payload like `{$ne: "legitimate_old_password"}`.
+4.  The application's backend improperly processes the injected query operators, failing to correctly validate the old password against the stored hash.
+5.  The attacker provides a new password and confirms it within the crafted request.
+6.  The FastGPT application updates the account's password in the database, replacing the original password with the attacker-controlled value.
+7.  The attacker logs out and logs back in using the newly set password, gaining full control of the compromised account.
+8.  The attacker leverages the compromised account to access sensitive data, modify configurations, or perform other malicious activities within the FastGPT platform.
+
+## Impact
+
+Successful exploitation of this vulnerability allows attackers to take complete control of FastGPT accounts. The consequences range from unauthorized access to sensitive data and configurations to potential manipulation of AI agent behavior. This account takeover can lead to data breaches, service disruption, and reputational damage. While the specific number of victims is unknown, any FastGPT instance running a version prior to 4.14.9.5 is vulnerable, potentially affecting a wide range of users and organizations. The CVSS v3.1 base score of 8.8 highlights the severity of this issue.
+
+## Recommendation
+
+*   Immediately upgrade all FastGPT installations to version 4.14.9.5 or later to patch the NoSQL injection vulnerability (CVE-2026-40352).
+*   Implement the Sigma rule `Detect FastGPT Password Reset Bypass` to detect potential exploitation attempts against the password change endpoint.
+*   Review FastGPT webserver logs for unusual patterns or MongoDB query operators within requests to the password change endpoint to identify potential compromises.
+*   Enable and review detailed webserver logging for FastGPT to increase visibility into HTTP requests.
