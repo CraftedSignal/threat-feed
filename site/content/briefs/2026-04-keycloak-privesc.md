@@ -47,4 +47,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-4282 identifies a critical vulnerability within the Keycloak authentication server, specifically affecting the SingleUseObjectProvider. This component, responsible for managing single-use key-value pairs, suffers from a lack of sufficient type and namespace isolation. The absence of proper isolation mechanisms allows a remote, unauthenticated attacker to manipulate the system by forging authorization codes. Successful exploitation allows for the creation of access tokens with…
+CVE-2026-4282 identifies a critical vulnerability within the Keycloak authentication server, specifically affecting the SingleUseObjectProvider. This component, responsible for managing single-use key-value pairs, suffers from a lack of sufficient type and namespace isolation. The absence of proper isolation mechanisms allows a remote, unauthenticated attacker to manipulate the system by forging authorization codes. Successful exploitation allows for the creation of access tokens with administrative privileges. The vulnerability was published on April 2, 2026.
+
+## Attack Chain
+
+1.  The attacker sends a crafted request to the Keycloak server to initiate the authorization flow.
+2.  The attacker leverages the lack of type and namespace isolation in the SingleUseObjectProvider.
+3.  The attacker forges a valid authorization code using the vulnerability.
+4.  The attacker presents the forged authorization code to the token endpoint.
+5.  Keycloak validates the forged code due to the flawed SingleUseObjectProvider logic.
+6.  The attacker receives an access token with elevated (admin) privileges.
+7.  The attacker uses the admin-capable access token to perform administrative actions.
+8.  The attacker gains full control over Keycloak resources and user data.
+
+## Impact
+
+Successful exploitation of CVE-2026-4282 allows a remote attacker to gain full administrative control over a Keycloak instance. This can lead to the compromise of all applications and services relying on Keycloak for authentication and authorization. The impact includes data breaches, account takeovers, and the potential for widespread service disruption. Given Keycloak's prevalence in securing web applications and APIs, the vulnerability poses a significant risk to organizations using affected versions.
+
+## Recommendation
+
+*   Apply the patch or upgrade to a version of Keycloak that resolves CVE-2026-4282 as soon as it becomes available from Red Hat.
+*   Monitor Keycloak logs (webserver category, linux product) for suspicious requests to the authorization and token endpoints indicative of authorization code forging attempts.
+*   Implement stricter input validation and sanitization on the authorization code parameter to mitigate the vulnerability.
