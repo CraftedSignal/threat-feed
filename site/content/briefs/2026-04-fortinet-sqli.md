@@ -56,4 +56,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-39815 is an SQL injection vulnerability affecting Fortinet FortiDDoS-F versions 7.2.1 and 7.2.2. The vulnerability stems from improper neutralization of special elements used in SQL commands. According to Fortinet, an attacker with low privileges could exploit this vulnerability to execute unauthorized code or commands. While the exact attack vector is not detailed in the provided source material, successful exploitation would allow for arbitrary code execution within the context of…
+CVE-2026-39815 is an SQL injection vulnerability affecting Fortinet FortiDDoS-F versions 7.2.1 and 7.2.2. The vulnerability stems from improper neutralization of special elements used in SQL commands. According to Fortinet, an attacker with low privileges could exploit this vulnerability to execute unauthorized code or commands. While the exact attack vector is not detailed in the provided source material, successful exploitation would allow for arbitrary code execution within the context of the FortiDDoS-F appliance. This is a high-severity vulnerability because it could lead to complete system compromise.
+
+## Attack Chain
+
+1.  Attacker authenticates to the FortiDDoS-F appliance with valid low-privilege credentials.
+2.  Attacker crafts a malicious SQL query containing special characters designed to exploit the SQL injection vulnerability.
+3.  Attacker sends the crafted SQL query to the vulnerable FortiDDoS-F endpoint. (Attack Vector N/A from source)
+4.  The FortiDDoS-F appliance processes the malicious SQL query without proper sanitization.
+5.  The malicious SQL query is executed against the FortiDDoS-F database.
+6.  The attacker injects and executes arbitrary SQL code, potentially gaining access to sensitive data or the ability to modify system configurations.
+7.  The attacker leverages the injected SQL code to execute operating system commands on the FortiDDoS-F appliance.
+8.  The attacker escalates privileges and compromises the FortiDDoS-F system, potentially gaining complete control.
+
+## Impact
+
+Successful exploitation of CVE-2026-39815 can lead to unauthorized code execution, sensitive data exposure, and complete system compromise of the Fortinet FortiDDoS-F appliance. While the number of potential victims is not specified, all organizations using Fortinet FortiDDoS-F versions 7.2.1 and 7.2.2 are vulnerable. A successful attack could disrupt network operations, compromise sensitive data, and allow attackers to use the FortiDDoS-F appliance as a pivot point for further attacks within the network.
+
+## Recommendation
+
+*   Upgrade Fortinet FortiDDoS-F installations to a patched version that addresses CVE-2026-39815.
+*   Monitor FortiDDoS-F systems for suspicious activity, including unusual SQL queries, leveraging the `webserver` log source to detect anomalous HTTP requests related to potential exploitation attempts.
+*   Deploy the Sigma rule `Detect Suspicious FortiDDoS-F SQL Injection Attempts` to your SIEM to detect potential exploitation attempts.
