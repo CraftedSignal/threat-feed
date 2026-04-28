@@ -21,6 +21,9 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
 references:
   - https://github.com/advisories/GHSA-x5r2-r74c-3w28
+iocs:
+  - type: url
+    value: http://evil.com/notify
 ioc_counts:
   url: 1
 rules:
@@ -49,4 +52,26 @@ rules:
 rules_count: 2
 ---
 
-An improper path validation vulnerability in the free5gc UDR (User Data Repository) service allows unauthenticated attackers with network access to the 5G Service Based Interface (SBI) to read Traffic Influence Subscriptions. The vulnerability, present in versions up to 1.4.2, stems from a missing `return` statement after an HTTP 404 response is sent for an invalid path. This allows the request to continue processing and return subscription data despite the invalid path. An attacker can exploit…
+An improper path validation vulnerability in the free5gc UDR (User Data Repository) service allows unauthenticated attackers with network access to the 5G Service Based Interface (SBI) to read Traffic Influence Subscriptions. The vulnerability, present in versions up to 1.4.2, stems from a missing `return` statement after an HTTP 404 response is sent for an invalid path. This allows the request to continue processing and return subscription data despite the invalid path. An attacker can exploit this by providing an arbitrary value instead of the expected `subs-to-notify` path segment in a GET request. Successful exploitation allows the attacker to retrieve sensitive subscriber-related information, impacting deployments where the SBI is reachable by untrusted parties.
+
+## Attack Chain
+
+1.  Attacker identifies a vulnerable free5GC UDR instance with a reachable SBI.
+2.  Attacker creates a Traffic Influence Subscription using a POST request to `/nudr-dr/v2/application-data/influenceData/subs-to-notify` to obtain a valid `subscriptionId`.
+3.  The UDR service creates and stores the subscription, assigning a unique `subscriptionId`.
+4.  Attacker crafts a GET request to `/nudr-dr/v2/application-data/influenceData/{influenceId}/{subscriptionId}` with an invalid `influenceId` (e.g., "WRONGID") but the valid `subscriptionId` obtained in step 2.
+5.  The UDR service's `HandleApplicationDataInfluenceDataSubsToNotifySubscriptionIdGet` function checks if `influenceId` is not equal to "subs-to-notify".
+6.  The function incorrectly sends a "404 page not found" response but fails to terminate the request processing.
+7.  The request processing continues, retrieving the subscription data associated with the valid `subscriptionId`.
+8.  The UDR service returns the 404 error message along with the subscription object (containing sensitive information) in the same HTTP response body, disclosing subscriber data.
+
+## Impact
+
+This vulnerability allows unauthenticated attackers to retrieve Traffic Influence Subscription objects without proper authorization. Successful exploitation results in the disclosure of sensitive subscriber-related information, including SUPIs/IMSIs, DNNs, S-NSSAIs, and callback notification URI values. This data can be used for further malicious activities such as subscriber tracking or unauthorized service access. Any free5GC deployment with a reachable SBI is potentially impacted. The severity is high due to the ease of exploitation and the sensitivity of the disclosed information.
+
+## Recommendation
+
+*   Apply the patch provided by free5GC, which adds the missing `return` statement in `NFs/udr/internal/sbi/api_datarepository.go` to prevent further processing after sending the 404 response.
+*   Monitor webserver logs for GET requests to `/nudr-dr/v2/application-data/influenceData/*` that return a 404 status code along with a JSON body to detect potential exploitation attempts. Implement a detection rule similar to the "Detect free5GC UDR Path Traversal Attempt" Sigma rule provided below.
+*   Block the callback notification URI `http://evil.com/notify` listed in the IOC table at the network or application firewall to prevent potential callback exploitation.
+*   Upgrade the `go/github.com/free5gc/udr` package to a version greater than 1.4.2 to remediate CVE-2026-40247.
