@@ -3,6 +3,9 @@ title: Dnsmasq Out-of-Bounds Write Vulnerability (CVE-2026-6507)
 slug: 2026-04-dnsmasq-dos
 description: A remote attacker can exploit an out-of-bounds write vulnerability (CVE-2026-6507) in dnsmasq by sending a specially crafted BOOTREPLY packet to a server configured with the `--dhcp-split-relay` option, leading to a denial of service.
 date: "2026-04-17T13:16:14Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
