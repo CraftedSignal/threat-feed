@@ -56,4 +56,25 @@ rules:
 rules_count: 3
 ---
 
-NovumOS, a custom 32-bit operating system built with Zig and x86 Assembly, is vulnerable to a critical privilege escalation. Prior to version 0.24, Syscall 12, known as JumpToUser, fails to validate the entry point address provided by user-space registers. This flaw allows any process running in Ring 3 (user mode) to redirect execution to kernel addresses, thereby executing arbitrary code within the Ring 0 context (kernel mode). This effectively grants user-level processes complete control over…
+NovumOS, a custom 32-bit operating system built with Zig and x86 Assembly, is vulnerable to a critical privilege escalation. Prior to version 0.24, Syscall 12, known as JumpToUser, fails to validate the entry point address provided by user-space registers. This flaw allows any process running in Ring 3 (user mode) to redirect execution to kernel addresses, thereby executing arbitrary code within the Ring 0 context (kernel mode). This effectively grants user-level processes complete control over the system. The vulnerability was addressed and patched in NovumOS version 0.24. Organizations using affected versions of NovumOS are at risk of local privilege escalation attacks. The recommended mitigation is to upgrade to version 0.24. If immediate upgrading is not feasible, a temporary mitigation involves restricting syscall access by operating in single-user mode without Ring 3 and disabling user-mode processes.
+
+## Attack Chain
+
+1.  A user-mode process is initiated in Ring 3.
+2.  The attacker crafts a malicious payload containing the address of a kernel function or memory region they wish to control.
+3.  The attacker places the malicious kernel address into the registers used by Syscall 12 (JumpToUser).
+4.  The user-mode process invokes Syscall 12.
+5.  Due to the lack of validation in versions prior to 0.24, the system accepts the attacker-controlled address.
+6.  The CPU begins executing code at the attacker-specified kernel address in Ring 0.
+7.  The attacker's code can now perform privileged operations, modify kernel data structures, or execute other kernel functions.
+8.  The attacker has successfully escalated their privileges to the highest level, potentially gaining full control over the system.
+
+## Impact
+
+Successful exploitation of CVE-2026-40317 allows an attacker to gain complete control over a NovumOS system. This could lead to data breaches, system instability, or the deployment of rootkits. The vulnerability impacts any system running NovumOS versions prior to 0.24. Given the nature of the vulnerability, a single successful exploit leads to total compromise of the host.
+
+## Recommendation
+
+*   Upgrade to NovumOS version 0.24 to patch CVE-2026-40317.
+*   If an upgrade is not immediately possible, restrict syscall access by running the system in single-user mode without Ring 3 as a temporary workaround.
+*   Disable user-mode processes and only run the kernel shell to prevent exploitation of CVE-2026-40317.
