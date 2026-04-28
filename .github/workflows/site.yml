@@ -44,7 +44,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          # Hugo 0.161+ invokes `node --permission` to sandbox the
+          # postcss subprocess. The flag only landed unprefixed in
+          # Node 24 — earlier majors only recognise the experimental
+          # form and the build dies with `bad option: --permission`.
+          node-version: '24'
           cache: 'npm'
           cache-dependency-path: 'site/package-lock.json'
 
