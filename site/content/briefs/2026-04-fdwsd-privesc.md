@@ -3,6 +3,9 @@ title: CVE-2026-32087 Function Discovery Service Privilege Escalation
 slug: 2026-04-fdwsd-privesc
 description: CVE-2026-32087 is a heap-based buffer overflow vulnerability in the Function Discovery Service (fdwsd.dll) that allows an authorized local attacker to elevate privileges on a Windows system.
 date: "2026-04-14T18:17:12Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
