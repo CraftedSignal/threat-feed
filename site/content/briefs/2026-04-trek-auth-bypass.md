@@ -22,6 +22,9 @@ references:
   - https://github.com/mauriceboe/TREK/commit/16277a3811a00c2983f7486fee83c112986cb179
   - https://github.com/mauriceboe/TREK/releases/tag/v2.7.2
   - https://github.com/mauriceboe/TREK/security/advisories/GHSA-pcr3-6647-jh72
+iocs:
+  - type: email
+    value: '[email&#160;protected]'
 ioc_counts:
   email: 1
 rules:
@@ -48,4 +51,25 @@ rules:
 rules_count: 2
 ---
 
-TREK is a collaborative travel planning application. Prior to version 2.7.2, a critical vulnerability existed within the application related to authorization checks. Specifically, the Immich trip photo management routes lacked proper authorization checks. This flaw, identified as CVE-2026-40185, could potentially allow unauthorized users to access and manipulate trip photos if exploited. The vulnerability was reported by GitHub, Inc. and patched in version 2.7.2 of TREK. Defenders should ensure…
+TREK is a collaborative travel planning application. Prior to version 2.7.2, a critical vulnerability existed within the application related to authorization checks. Specifically, the Immich trip photo management routes lacked proper authorization checks. This flaw, identified as CVE-2026-40185, could potentially allow unauthorized users to access and manipulate trip photos if exploited. The vulnerability was reported by GitHub, Inc. and patched in version 2.7.2 of TREK. Defenders should ensure they are running version 2.7.2 or later of the TREK application to mitigate this risk. This vulnerability affects systems running the vulnerable versions of the TREK application and could impact the confidentiality and integrity of user data.
+
+## Attack Chain
+
+1. An attacker identifies a vulnerable TREK instance running a version prior to 2.7.2.
+2. The attacker crafts a malicious HTTP request targeting the Immich trip photo management routes.
+3. Due to the missing authorization checks, the attacker bypasses authentication requirements.
+4. The attacker gains unauthorized access to trip photos.
+5. The attacker may modify or delete trip photos, impacting data integrity.
+6. The attacker could potentially use the exposed data to gather sensitive information about the trip and its participants.
+7. The attacker could potentially upload malicious images to the photo storage.
+
+## Impact
+
+Successful exploitation of CVE-2026-40185 can lead to unauthorized access and modification of trip photos within the TREK travel planner application. While the exact number of affected users is unknown, any TREK instance running a version prior to 2.7.2 is susceptible. This could result in a breach of confidentiality, potential data manipulation, and reputational damage for the application. Sectors that rely on collaborative travel planning may be particularly affected.
+
+## Recommendation
+
+*   Upgrade all TREK instances to version 2.7.2 or later to remediate CVE-2026-40185.
+*   Deploy the Sigma rule `Detect Suspicious TREK Photo Route Access` to detect potential exploitation attempts targeting the vulnerable photo management routes.
+*   Monitor web server logs for unusual activity related to the Immich trip photo management routes.
+*   Monitor network traffic for unusual patterns or connections to the TREK server that might indicate exploitation attempts.
