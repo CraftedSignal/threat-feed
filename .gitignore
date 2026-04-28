@@ -12,6 +12,9 @@ output/*.log
 # OS
 .DS_Store
 
-# Source briefs (cleartext — never commit to public repo)
-briefs/
+# Source briefs (cleartext — never commit to public repo).
+# Anchored to repo root so it only matches /briefs/ and NOT nested dirs
+# like site/layouts/briefs/ (Hugo templates) or site/content/briefs/
+# (public Hugo content tree, populated by ti-bot via Contents API).
+/briefs/
 .claude/
