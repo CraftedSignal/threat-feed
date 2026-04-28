@@ -3,6 +3,9 @@ title: Multiple External EDR Alerts by Host
 slug: 2024-01-multiple-edr-alerts
 description: This rule identifies hosts generating multiple alerts from external Endpoint Detection and Response (EDR) solutions, indicating a higher likelihood of compromise and the need for prioritized investigation.
 date: "2024-01-04T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
