@@ -3,6 +3,9 @@ title: NTFS-3G Heap Buffer Overflow Vulnerability (CVE-2026-40706)
 slug: 2026-04-ntfs3g-heap-overflow
 description: A heap buffer overflow vulnerability exists in NTFS-3G versions 2022.10.3 before 2026.2.25 that allows for heap memory corruption by processing a crafted NTFS image with multiple ACCESS_DENIED ACEs containing WRITE_OWNER from distinct group SIDs.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
