@@ -3,6 +3,9 @@ title: WeGIA SQL Injection Vulnerability (CVE-2026-40285)
 slug: 2026-04-wegia-sqli
 description: WeGIA versions prior to 3.6.10 are vulnerable to SQL injection via the cpf_usuario POST parameter, allowing authenticated users to query the database under an arbitrary identity.
 date: "2026-04-18T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
