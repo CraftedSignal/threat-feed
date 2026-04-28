@@ -63,4 +63,27 @@ rules:
 rules_count: 3
 ---
 
-This threat brief addresses the detection of unusually long Remote Desktop Protocol (RDP) sessions, identified by a pre-built Elastic machine learning job named `lmd_high_mean_rdp_session_duration_ea`. Attackers can abuse RDP for lateral movement and maintaining persistence within a network. Extended RDP sessions can also be used to evade detection mechanisms. This detection leverages machine learning to identify deviations from normal RDP session durations, potentially indicating malicious…
+This threat brief addresses the detection of unusually long Remote Desktop Protocol (RDP) sessions, identified by a pre-built Elastic machine learning job named `lmd_high_mean_rdp_session_duration_ea`. Attackers can abuse RDP for lateral movement and maintaining persistence within a network. Extended RDP sessions can also be used to evade detection mechanisms. This detection leverages machine learning to identify deviations from normal RDP session durations, potentially indicating malicious activity. The detection rule has been available since October 2023, and the corresponding ML job is part of the Lateral Movement Detection integration, requiring Elastic Stack version 9.4.0 or later. The rule depends on the `host.ip` field to be populated, which may require enabling host IP collection in Elastic Defend versions 8.18 and above.
+
+## Attack Chain
+
+1.  An attacker gains initial access to a system within the network, possibly through phishing or exploiting a public-facing application.
+2.  The attacker leverages valid credentials or exploits a vulnerability to establish an RDP connection to a target system.
+3.  The RDP session is maintained for an extended period, significantly longer than typical RDP sessions within the environment.
+4.  During the prolonged RDP session, the attacker performs reconnaissance, gathering information about the network and target systems.
+5.  The attacker moves laterally to other systems within the network, using the established RDP session as a persistent access point.
+6.  The attacker executes malicious commands or transfers files, potentially installing malware or exfiltrating sensitive data.
+7.  The unusually long RDP session duration helps the attacker to remain undetected and evade security measures.
+8.  The attacker achieves their final objective, such as data theft, system compromise, or ransomware deployment.
+
+## Impact
+
+Successful exploitation and undetected lateral movement via prolonged RDP sessions can lead to significant data breaches, system compromise, and financial loss. The impact includes potential theft of sensitive information, disruption of business operations, and reputational damage. If an adversary establishes a persistent foothold via RDP, they can maintain long-term access to the compromised environment.
+
+## Recommendation
+
+*   Ensure `host.ip` field is populated by enabling host IP collection if using Elastic Defend versions 8.18 and above, as described in the [helper guide](https://www.elastic.co/docs/solutions/security/configure-elastic-defend/configure-data-volume-for-elastic-endpoint#host-fields).
+*   Install and configure the Lateral Movement Detection integration in Kibana as described in the [setup guide](https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html).
+*   Tune the machine learning job `lmd_high_mean_rdp_session_duration_ea` by adjusting the `anomaly_threshold` based on your environment and RDP usage patterns.
+*   Investigate triggered alerts from the "High Mean of RDP Session Duration" rule following the [triage and analysis guide](https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html).
+*   Monitor Windows RDP process events collected by the [Elastic Defend](https://docs.elastic.co/en/integrations/endpoint) integration for suspicious activity.
