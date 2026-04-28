@@ -79,6 +79,36 @@ func (s *firestoreStore) SaveSubscription(ctx context.Context, sub Subscription)
 	return err
 }
 
+// DeleteVerifiedByEmail removes every verified subscription with the
+// given (email, channel) pair. Used at verify-time to make
+// re-subscribing replace any existing row instead of producing
+// duplicates that would each receive every brief. No-op when nothing
+// matches.
+func (s *firestoreStore) DeleteVerifiedByEmail(ctx context.Context, email string, channel Channel) (int, error) {
+	if email == "" {
+		return 0, nil
+	}
+	q := s.c.Collection(collSubscriptions).
+		Where("email", "==", email).
+		Where("channel", "==", string(channel))
+	iter := q.Documents(ctx)
+	defer iter.Stop()
+	deleted := 0
+	for {
+		snap, err := iter.Next()
+		if errors.Is(err, iterator.Done) {
+			return deleted, nil
+		}
+		if err != nil {
+			return deleted, err
+		}
+		if _, err := snap.Ref.Delete(ctx); err != nil {
+			return deleted, err
+		}
+		deleted++
+	}
+}
+
 // DeleteByUnsubscribeToken deletes the subscription that matches the
 // given token. Returns ErrNotFound if no match.
 func (s *firestoreStore) DeleteByUnsubscribeToken(ctx context.Context, token string) error {

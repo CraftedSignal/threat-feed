@@ -129,6 +129,18 @@ func (s *server) handleVerify(w http.ResponseWriter, r *http.Request) {
 	// way through Firestore. ID is purely the doc key in the verified
 	// collection — re-mint one here.
 	sub.ID = newToken()
+	// Re-subscribing should replace, not duplicate. Drop any prior
+	// verified row for this address+channel before writing the new one
+	// — if the cleanup fails we still try the write so a Firestore
+	// hiccup doesn't block the user; worst case they end up with a
+	// duplicate, which the dispatcher already tolerates.
+	if sub.Email != "" {
+		if n, err := s.store.DeleteVerifiedByEmail(ctx, sub.Email, sub.Channel); err != nil {
+			s.logger.Warn("dedup verified subs failed", "err", err)
+		} else if n > 0 {
+			s.logger.Info("replaced existing subscription on re-verify", "to_hash", hashEmail(sub.Email), "removed", n)
+		}
+	}
 	if err := s.store.SaveSubscription(ctx, sub); err != nil {
 		s.logger.Error("save verified sub failed", "err", err)
 		s.redirectSiteError(w, r)
