@@ -3,6 +3,9 @@ title: Adobe ColdFusion Path Traversal Vulnerability (CVE-2026-34619)
 slug: 2026-04-coldfusion-path-traversal
 description: A path traversal vulnerability (CVE-2026-34619) in Adobe ColdFusion versions 2023.18, 2025.6, and earlier allows an attacker to bypass security features and access unauthorized files or directories without user interaction.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
