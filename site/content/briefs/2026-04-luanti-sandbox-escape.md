@@ -3,6 +3,9 @@ title: Luanti LuaJIT Sandbox Escape (CVE-2026-40959)
 slug: 2026-04-luanti-sandbox-escape
 description: Luanti 5 before 5.15.2, when LuaJIT is used, allows a Lua sandbox escape via a crafted mod, potentially leading to arbitrary code execution.
 date: "2026-04-16T01:16:11Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
