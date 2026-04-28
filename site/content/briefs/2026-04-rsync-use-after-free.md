@@ -3,6 +3,9 @@ title: rsync Use-After-Free Vulnerability in Extended Attribute Handling (CVE-20
 slug: 2026-04-rsync-use-after-free
 description: rsync versions 3.0.1 through 3.4.1 are vulnerable to a use-after-free vulnerability in the receive_xattr function during a qsort call, triggered by an untrusted length value when the -X/--xattrs option is used, potentially leading to code execution.
 date: "2026-04-16T07:16:31Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
