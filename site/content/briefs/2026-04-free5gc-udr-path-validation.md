@@ -3,6 +3,9 @@ title: free5gc UDR Improper Path Validation Allows Unauthenticated Access to Tra
 slug: 2026-04-free5gc-udr-path-validation
 description: An improper path validation vulnerability exists in the free5gc UDR service, allowing unauthenticated attackers with access to the 5G Service Based Interface (SBI) to read Traffic Influence Subscriptions.
 date: "2026-04-14T20:01:43Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
