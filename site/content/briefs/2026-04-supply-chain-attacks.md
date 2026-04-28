@@ -57,4 +57,26 @@ rules:
 rules_count: 3
 ---
 
-In early 2026, a surge in supply chain attacks has been observed, impacting widely used open-source libraries and tools. Notably, Axios, a popular HTTP client library for JavaScript with 100 million weekly downloads, was maliciously modified. Additionally, the "chaos-as-a-service" group TeamPCP injected malicious code into hijacked GitHub repositories for open-source projects, including Trivy, a security scanner. The Talos 2025 Year in Review indicated that nearly 25% of the top 100 targeted…
+In early 2026, a surge in supply chain attacks has been observed, impacting widely used open-source libraries and tools. Notably, Axios, a popular HTTP client library for JavaScript with 100 million weekly downloads, was maliciously modified. Additionally, the "chaos-as-a-service" group TeamPCP injected malicious code into hijacked GitHub repositories for open-source projects, including Trivy, a security scanner. The Talos 2025 Year in Review indicated that nearly 25% of the top 100 targeted vulnerabilities affected widely used frameworks and libraries. React2Shell became the top-targeted vulnerability of 2025. These incidents highlight the fragility of the software supply chain and the potential for widespread downstream impact, affecting numerous organizations relying on these compromised components. Defenders face the challenge of identifying and remediating deeply integrated malicious code within their environments.
+
+## Attack Chain
+
+1.  **Initial Compromise:** TeamPCP compromises GitHub repositories of open-source projects like Trivy.
+2.  **Code Injection:** Malicious code is injected into the project's codebase within the compromised GitHub repository.
+3.  **Package Build and Distribution:** The compromised code is included in a new version of the software package during the build process.
+4.  **Distribution via Package Managers:** The malicious package is distributed through package managers like npm, becoming available for download by developers.
+5.  **Downstream Consumption:** Developers unknowingly download and integrate the compromised package into their applications.
+6.  **Execution in Downstream Environments:** The malicious code executes within the developers' applications and environments.
+7.  **Lateral Movement/Data Exfiltration/Ransomware:** The injected code performs malicious actions such as data exfiltration or establishing a reverse shell for lateral movement.
+8.  **Impact:** The attacker achieves their objectives, such as data theft, system compromise, or ransomware deployment across numerous downstream victims.
+
+## Impact
+
+The compromise of widely used libraries and frameworks like Axios and Trivy can have a vast impact, potentially affecting millions of users and organizations. The Axios library alone receives 100 million downloads weekly. The successful exploitation of the React2Shell vulnerability demonstrates the speed at which these attacks can reach massive scale. The resulting damage can range from data breaches and system compromise to ransomware deployment, affecting organizations across various sectors. The integration of these utilities often makes full cataloging and remediation challenging, leading to prolonged exposure and increased risk.
+
+## Recommendation
+
+*   Secure CI/CD pipelines to prevent compromises from occurring, addressing the attack vector used by TeamPCP.
+*   Implement robust logging to monitor for suspicious activity related to compromised packages and aid in incident response.
+*   Organizations must inventory the software libraries and frameworks they employ and rapidly implement patching and other mitigations when security incidents are reported.
+*   Implement robust multi-factor authentication (MFA) to protect developer accounts on platforms like GitHub.
