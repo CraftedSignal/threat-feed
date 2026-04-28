@@ -3,6 +3,9 @@ title: WWBN AVideo Unauthenticated Remote Code Execution via test.php
 slug: 2026-04-avideo-rce
 description: WWBN AVideo versions up to 29.0 contain an OS Command Injection vulnerability (CVE-2026-41064) in the `test.php` file, allowing unauthenticated remote code execution due to insufficient input sanitization, especially affecting `file_get_contents` and `curl` code paths.
 date: "2026-04-22T00:16:28Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
