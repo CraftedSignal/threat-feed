@@ -3,6 +3,9 @@ title: Multiple Vulnerabilities in Gitea
 slug: 2026-04-gitea-vulns
 description: Multiple vulnerabilities in Gitea could allow an attacker to disclose information, bypass security measures, and perform cross-site scripting attacks.
 date: "2026-04-20T10:29:08Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
