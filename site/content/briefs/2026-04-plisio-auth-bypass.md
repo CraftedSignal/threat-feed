@@ -3,6 +3,9 @@ title: Plisio Accept Cryptocurrencies Plugin Missing Authorization Vulnerability
 slug: 2026-04-plisio-auth-bypass
 description: A missing authorization vulnerability in the Plisio Accept Cryptocurrencies with Plisio WordPress plugin (versions up to 2.0.5) allows attackers to bypass payment verification due to incorrectly configured access control security levels.
 date: "2026-04-16T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
