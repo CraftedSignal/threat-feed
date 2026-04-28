@@ -3,6 +3,9 @@ title: Suspicious Registry Modifications by Scripting Engines
 slug: 2024-01-29-susp-reg-mod
 description: The use of scripting engines like WScript and CScript to modify the Windows registry can indicate an attempt to bypass standard tools and evade defenses, potentially for persistence or other malicious activities.
 date: "2024-01-29T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
