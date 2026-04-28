@@ -46,4 +46,24 @@ rules:
 rules_count: 2
 ---
 
-IBM Verify Identity Access Container and IBM Security Verify Access Container are vulnerable to an authentication bypass vulnerability identified as CVE-2026-4101. The affected versions include IBM Verify Identity Access Container 11.0 through 11.0.2 and IBM Security Verify Access Container 10.0 through 10.0.9.1, as well as IBM Verify Identity Access 11.0 through 11.0.2 and IBM Security Verify Access 10.0 through 10.0.9.1. This vulnerability can be exploited under certain load conditions…
+IBM Verify Identity Access Container and IBM Security Verify Access Container are vulnerable to an authentication bypass vulnerability identified as CVE-2026-4101. The affected versions include IBM Verify Identity Access Container 11.0 through 11.0.2 and IBM Security Verify Access Container 10.0 through 10.0.9.1, as well as IBM Verify Identity Access 11.0 through 11.0.2 and IBM Security Verify Access 10.0 through 10.0.9.1. This vulnerability can be exploited under certain load conditions, potentially granting an attacker unauthorized access to the application. Defenders should prioritize patching vulnerable systems to mitigate the risk of exploitation.
+
+## Attack Chain
+
+1. The attacker identifies a vulnerable IBM Verify or Security Verify Access instance running a susceptible version (11.0-11.0.2 or 10.0-10.0.9.1).
+2. The attacker floods the targeted application with requests to induce high load conditions.
+3. Under these high load conditions, a flaw in the authentication mechanism is triggered.
+4. The attacker crafts specific requests to exploit the authentication bypass.
+5. The application incorrectly validates the attacker's request, bypassing authentication controls.
+6. The attacker gains unauthorized access to the application.
+7. Once authenticated, the attacker may perform privileged actions, access sensitive data, or escalate privileges within the system.
+
+## Impact
+
+Successful exploitation of CVE-2026-4101 allows an unauthenticated attacker to bypass authentication mechanisms and gain unauthorized access to the targeted IBM Verify or Security Verify Access application. This could lead to the compromise of sensitive data, unauthorized modification of system configurations, and potential lateral movement within the network. The number of potential victims is dependent on the number of unpatched IBM Verify and Security Verify Access instances exposed to network traffic.
+
+## Recommendation
+
+*   Apply the patches provided by IBM to address CVE-2026-4101 on all affected IBM Verify Identity Access Container and IBM Security Verify Access Container instances (refer to IBM's advisory [https://www.ibm.com/support/pages/node/7268253](https://www.ibm.com/support/pages/node/7268253)).
+*   Monitor web server logs for unusual HTTP requests or error patterns that may indicate exploitation attempts. Deploy the Sigma rule targeting HTTP 500 responses originating from the access container to detect potential exploitation attempts.
+*   Implement rate limiting and traffic shaping mechanisms to mitigate the risk of denial-of-service conditions that could exacerbate the vulnerability.
