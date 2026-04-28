@@ -3,6 +3,9 @@ title: Digiwin EasyFlow .NET SQL Injection Vulnerability (CVE-2026-5964)
 slug: 2026-04-easyflow-sqli
 description: Digiwin's EasyFlow .NET is susceptible to a SQL Injection vulnerability, enabling unauthenticated remote attackers to inject arbitrary SQL commands for unauthorized database access, modification, and deletion.
 date: "2026-04-20T08:16:10Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
