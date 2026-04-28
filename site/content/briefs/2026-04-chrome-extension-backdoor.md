@@ -3,6 +3,9 @@ title: Malicious Chrome Extensions Stealing Data and Opening Backdoors
 slug: 2026-04-chrome-extension-backdoor
 description: A coordinated campaign uses 108 malicious Chrome extensions to steal user data, inject ads, and establish backdoors on over 20,000 systems via a shared command-and-control infrastructure.
 date: "2026-04-16T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
