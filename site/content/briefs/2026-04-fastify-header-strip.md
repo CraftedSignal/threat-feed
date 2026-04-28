@@ -3,6 +3,9 @@ title: Fastify Proxy Header Stripping Vulnerability
 slug: 2026-04-fastify-header-strip
 description: The `@fastify/reply-from` and `@fastify/http-proxy` libraries process the client's `Connection` header after adding headers, allowing attackers to strip proxy-added headers via the `Connection` header, leading to potential bypass of security controls.
 date: "2026-04-16T01:02:59Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
