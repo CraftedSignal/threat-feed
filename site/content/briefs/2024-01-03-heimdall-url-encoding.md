@@ -44,4 +44,27 @@ rules:
 rules_count: 2
 ---
 
-Heimdall, a cloud-native access management proxy, is susceptible to an authorization bypass vulnerability due to its case-sensitive handling of URL-encoded slashes. Specifically, versions prior to 0.17.14 fail to properly process lowercase URL-encoded forward slashes (`%2f`) when the `allow_encoded_slashes` option is disabled, which is the default configuration. This discrepancy arises because, while percent-encoding should be case-insensitive, Heimdall only recognizes the uppercase `%2F`. This…
+Heimdall, a cloud-native access management proxy, is susceptible to an authorization bypass vulnerability due to its case-sensitive handling of URL-encoded slashes. Specifically, versions prior to 0.17.14 fail to properly process lowercase URL-encoded forward slashes (`%2f`) when the `allow_encoded_slashes` option is disabled, which is the default configuration. This discrepancy arises because, while percent-encoding should be case-insensitive, Heimdall only recognizes the uppercase `%2F`. This inconsistency can be exploited if an attacker crafts requests with lowercase encoded slashes that Heimdall doesn't normalize, while upstream services do. This can result in the application of an unintended default rule (if configured permissively), leading to unauthorized access to protected resources. The vulnerability is mitigated by ensuring secure default configurations or proper input validation.
+
+## Attack Chain
+
+1. The attacker identifies a Heimdall instance enforcing access control policies.
+2. The attacker crafts a malicious HTTP request targeting a protected resource, such as `/admin/secret`.
+3. The attacker replaces the forward slash in the request path with a lowercase URL-encoded slash (`%2f`), resulting in a request like `/admin%2fsecret`.
+4. The request reaches the Heimdall instance. Due to the case-sensitive handling of URL-encoded slashes, Heimdall does not normalize the `%2f`.
+5. Heimdall fails to match the request to the intended access control rule (e.g., a rule matching `/admin/**`).
+6. Heimdall executes the default rule, which, if misconfigured to be overly permissive (allowing anonymous access), grants access.
+7. The request is forwarded to the upstream service.
+8. The upstream service interprets `%2f` as a forward slash, effectively processing the request as `/admin/secret`, granting the attacker unauthorized access to the protected resource.
+
+## Impact
+
+Successful exploitation of this vulnerability allows an attacker to bypass intended access control policies, potentially leading to unauthorized access to sensitive data, modification of restricted resources, or invocation of privileged functionality. Depending on the exposed functionality and the configuration of the upstream service, this could also lead to privilege escalation. The number of victims and sectors targeted depend heavily on the deployment and configuration of Heimdall instances.
+
+## Recommendation
+
+*   Upgrade to Heimdall version 0.17.14 or later to address the case-sensitive handling of URL-encoded slashes.
+*   Avoid using the `--insecure` or `--insecure-skip-secure-default-rule-enforcement` flags during Heimdall configuration, as these flags weaken security posture.
+*   Configure the default rule in Heimdall to implement a "deny by default" policy to minimize the risk of unintended access.
+*   Implement input validation at layers in front of Heimdall (e.g., in proxies like Traefik) to reject HTTP paths containing encoded slashes, providing an additional layer of defense.
+*   If using JWTs, include the ID of the rule expected to be executed and verify that value in the project's service.
