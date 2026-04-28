@@ -49,4 +49,26 @@ rules:
 rules_count: 2
 ---
 
-The Gerador de Certificados – DevApps plugin for WordPress, versions up to and including 1.3.6, contains an arbitrary file upload vulnerability (CVE-2026-4808). This flaw stems from a lack of file type validation within the `moveUploadedFile()` function. Authenticated users with administrator privileges or higher can exploit this vulnerability by uploading arbitrary files to the affected server. Successful exploitation could allow an attacker to execute arbitrary code on the server, leading…
+The Gerador de Certificados – DevApps plugin for WordPress, versions up to and including 1.3.6, contains an arbitrary file upload vulnerability (CVE-2026-4808). This flaw stems from a lack of file type validation within the `moveUploadedFile()` function. Authenticated users with administrator privileges or higher can exploit this vulnerability by uploading arbitrary files to the affected server. Successful exploitation could allow an attacker to execute arbitrary code on the server, leading to a complete system compromise. This vulnerability poses a significant threat to websites using the affected plugin, potentially impacting data confidentiality, integrity, and availability.
+
+## Attack Chain
+
+1. An attacker authenticates to the WordPress site with administrator-level privileges.
+2. The attacker navigates to the Gerador de Certificados – DevApps plugin's upload functionality.
+3. The attacker crafts a malicious file (e.g., a PHP file) with a disguised extension or no extension.
+4. The attacker uploads the malicious file through the plugin's interface, bypassing the missing file type validation in the `moveUploadedFile()` function.
+5. The plugin saves the file to a publicly accessible directory on the server.
+6. The attacker identifies the location of the uploaded file.
+7. The attacker sends an HTTP request to the uploaded file's location.
+8. The server executes the malicious code within the uploaded file, granting the attacker remote code execution capabilities.
+
+## Impact
+
+Successful exploitation of this vulnerability allows attackers with administrator privileges to upload arbitrary files to the web server. This can lead to remote code execution, potentially allowing the attacker to gain full control of the WordPress website and the underlying server. This could lead to data theft, website defacement, or use of the server for malicious purposes such as hosting phishing sites or launching attacks against other systems. The number of affected sites is potentially very large.
+
+## Recommendation
+
+*   Upgrade the Gerador de Certificados – DevApps plugin to the latest version, which includes a fix for CVE-2026-4808.
+*   Implement web server configurations to prevent the execution of scripts in upload directories.
+*   Enable web server logging and monitor for suspicious file uploads and access attempts to unusual file types.
+*   Deploy the Sigma rule to detect attempts to access PHP files within the wp-content/uploads directory.
