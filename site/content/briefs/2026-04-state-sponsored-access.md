@@ -3,6 +3,9 @@ title: State-Sponsored Actors Leveraging Vulnerabilities and Identity for Persis
 slug: 2026-04-state-sponsored-access
 description: In 2025, state-sponsored actors from China, Russia, North Korea, and Iran leveraged vulnerabilities and identity compromise for initial access, focusing on persistence for long-term espionage or disruption.
 date: "2026-04-14T13:51:01Z"
+type: threat
+types:
+  - threat
 severities:
   - high
 actors:
