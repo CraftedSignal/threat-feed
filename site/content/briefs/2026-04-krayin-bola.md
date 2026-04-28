@@ -3,6 +3,9 @@ title: Webkul Krayin CRM BOLA Vulnerability (CVE-2026-38529)
 slug: 2026-04-krayin-bola
 description: CVE-2026-38529 is a Broken Object-Level Authorization (BOLA) vulnerability in Webkul Krayin CRM v2.2.x that allows authenticated attackers to reset user passwords and take over accounts.
 date: "2026-04-14T16:16:43Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
