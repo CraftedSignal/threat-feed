@@ -3,6 +3,9 @@ title: Windows SSDP Service Race Condition Privilege Escalation (CVE-2026-32068)
 slug: 2026-04-ssdp-privesc
 description: CVE-2026-32068 is a race condition vulnerability in the Windows SSDP Service that allows an authorized attacker to elevate privileges locally.
 date: "2026-04-15T12:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - high
 exploited: true
