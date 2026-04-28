@@ -1,0 +1,79 @@
+# Build and deploy the public threat-feed site (Hugo + Pagefind) to
+# GitHub Pages at feed.craftedsignal.io. Triggers on any push to main
+# that touches site/ — which includes ti-bot's brief commits via the
+# Contents API.
+name: Site Deploy
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "site/**"
+      - ".github/workflows/site.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Newer commits supersede in-flight builds; ti-bot can push many briefs in a
+# short window and we only need the latest one to deploy.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: site
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'site/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Copy fonts
+        run: make fonts
+
+      - name: Build site
+        run: hugo --minify --gc
+
+      - name: Build Pagefind index
+        run: npx pagefind --site public
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: 'site/public'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
