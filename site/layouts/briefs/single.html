@@ -1,7 +1,8 @@
 {{ define "main" }}
 {{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
 {{ $sevClass := printf "sev-%s" $sev }}
-{{ $type := .Params.type | default "coverage" }}
+{{/* See partials/brief-card.html — same rationale. */}}
+{{ $type := .Params.type | default "threat" }}
 {{ $tags := .Params.tags | default slice }}
 {{ $actors := .Params.actors | default slice }}
 {{ $vendors := .Params.vendors | default slice }}
