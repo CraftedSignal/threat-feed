@@ -54,4 +54,26 @@ rules:
 rules_count: 2
 ---
 
-The Riaxe Product Customizer plugin for WordPress, versions 2.1.2 and earlier, contains a critical privilege escalation vulnerability (CVE-2026-3596). This flaw stems from an unauthenticated AJAX action, 'wp_ajax_nopriv_install-imprint', which is improperly secured. The corresponding function, `ink_pd_add_option()`, allows unauthenticated users to modify arbitrary WordPress options by sending POST requests. There are no nonce checks, capability checks, or input validation performed on the…
+The Riaxe Product Customizer plugin for WordPress, versions 2.1.2 and earlier, contains a critical privilege escalation vulnerability (CVE-2026-3596). This flaw stems from an unauthenticated AJAX action, 'wp_ajax_nopriv_install-imprint', which is improperly secured. The corresponding function, `ink_pd_add_option()`, allows unauthenticated users to modify arbitrary WordPress options by sending POST requests. There are no nonce checks, capability checks, or input validation performed on the 'option' and 'opt_value' parameters, making it trivial to manipulate sensitive site settings. Successful exploitation allows attackers to grant themselves administrative privileges. This vulnerability poses a significant risk to any WordPress site using the affected plugin.
+
+## Attack Chain
+
+1. An unauthenticated attacker identifies a WordPress site using a vulnerable version of the Riaxe Product Customizer plugin (<= 2.1.2).
+2. The attacker crafts a malicious HTTP POST request targeting the `/wp-admin/admin-ajax.php` endpoint.
+3. The POST request includes the `action` parameter set to `install-imprint`, triggering the vulnerable AJAX action `wp_ajax_nopriv_install-imprint`.
+4. The attacker sets the `option` parameter to `default_role` and the `opt_value` parameter to `administrator` within the POST request. This will change the default user role to administrator.
+5. The attacker sets the `option` parameter to `users_can_register` and the `opt_value` parameter to `1` within the POST request. This enables user registration on the WordPress site.
+6. The `ink_pd_add_option()` function executes, calling `delete_option()` and `add_option()` with the attacker-supplied values, effectively updating the WordPress options table.
+7. The attacker registers a new user account on the WordPress site.
+8. Because user registration is enabled and the default user role is set to administrator, the attacker's new account is granted administrator privileges, allowing full control over the WordPress site.
+
+## Impact
+
+Successful exploitation of CVE-2026-3596 allows unauthenticated attackers to gain complete control over a vulnerable WordPress website. This can lead to website defacement, data theft, malware distribution, and denial of service. Given the widespread use of WordPress, this vulnerability has the potential to affect a large number of websites across various sectors. A successful attack would result in the attacker having the same access as the original website administrator.
+
+## Recommendation
+
+*   Immediately remove the Riaxe Product Customizer plugin from WordPress installations if it is present. This will eliminate the attack vector (plugin removal).
+*   Monitor web server logs (category: `webserver`, product: `linux` or `windows`) for POST requests to `/wp-admin/admin-ajax.php` with the `action` parameter set to `install-imprint` using the Sigma rule provided below.
+*   Consider implementing a Web Application Firewall (WAF) rule to block requests matching the exploit pattern described in the Attack Chain.
+*   Review WordPress user accounts for any unauthorized administrators.
