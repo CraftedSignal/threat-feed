@@ -49,4 +49,25 @@ rules:
 rules_count: 2
 ---
 
-Attackers can leverage cron jobs to schedule malicious tasks for persistence, privilege escalation, and execution of arbitrary code on compromised Linux systems. This involves creating or modifying cron files in specific directories such as `/etc/cron.d/`, `/etc/cron.daily/`, `/var/spool/cron/crontabs/`, and others. The creation of unexpected cron files by non-administrative users or during suspicious timeframes warrants investigation. While not all cron file creations are malicious, the…
+Attackers can leverage cron jobs to schedule malicious tasks for persistence, privilege escalation, and execution of arbitrary code on compromised Linux systems. This involves creating or modifying cron files in specific directories such as `/etc/cron.d/`, `/etc/cron.daily/`, `/var/spool/cron/crontabs/`, and others. The creation of unexpected cron files by non-administrative users or during suspicious timeframes warrants investigation. While not all cron file creations are malicious, the potential for abuse necessitates monitoring for anomalous activity. Detecting the creation of new cron files can help identify potential persistence mechanisms being deployed by malicious actors.
+
+## Attack Chain
+
+1. An attacker gains initial access to a Linux system, potentially through exploiting a vulnerability or using compromised credentials.
+2. The attacker identifies cron job directories, such as `/etc/cron.d/` or `/var/spool/cron/crontabs/`.
+3. The attacker creates a new cron file within one of these directories.
+4. The cron file contains malicious commands or scripts designed to execute at a specific time or interval. This could include commands to download and execute malware or establish a reverse shell.
+5. The cron daemon automatically executes the commands specified in the newly created cron file according to the defined schedule.
+6. The attacker gains persistent access to the system, allowing them to maintain control even after reboots.
+7. The attacker may escalate privileges by scheduling commands that run with elevated permissions.
+8. The attacker uses the persistent access to perform further malicious activities, such as data exfiltration or lateral movement.
+
+## Impact
+
+Successful exploitation can grant attackers persistent access to compromised Linux systems, potentially leading to privilege escalation and unauthorized execution of arbitrary code. This can lead to data breaches, system compromise, and disruption of services. The impact is magnified if the compromised system has access to sensitive information or critical infrastructure.
+
+## Recommendation
+
+*   Deploy the Sigma rule "Detect New Cron File Creation" to your SIEM to detect the creation of cron files in cron directories and tune for your environment.
+*   Monitor file creation events in cron directories such as `/etc/cron.d/`, `/etc/cron.daily/`, `/etc/cron.hourly/`, `/etc/cron.monthly/`, `/etc/cron.weekly/`, `/var/spool/cron/crontabs/`, and `/var/spool/cron/root` using file_event logs.
+*   Baseline normal cron file creation activity and apply additional filters to reduce false positives based on the specific environment, as mentioned in the rule description.
