@@ -50,4 +50,25 @@ rules:
 rules_count: 2
 ---
 
-A critical code injection vulnerability, identified as CVE-2026-5739, has been discovered in PowerJob, an open-source distributed job scheduling and management platform. This vulnerability affects versions 5.1.0, 5.1.1, and 5.1.2. The vulnerability resides in the `GroovyEvaluator.evaluate` function of the `/openApi/addWorkflowNode` endpoint within the OpenAPI component. By manipulating the `nodeParams` argument, a remote attacker can inject and execute arbitrary code on the server. This…
+A critical code injection vulnerability, identified as CVE-2026-5739, has been discovered in PowerJob, an open-source distributed job scheduling and management platform. This vulnerability affects versions 5.1.0, 5.1.1, and 5.1.2. The vulnerability resides in the `GroovyEvaluator.evaluate` function of the `/openApi/addWorkflowNode` endpoint within the OpenAPI component. By manipulating the `nodeParams` argument, a remote attacker can inject and execute arbitrary code on the server. This vulnerability can be exploited without authentication, posing a significant threat to systems running vulnerable PowerJob instances. The vendor has been notified, but has not yet responded.
+
+## Attack Chain
+
+1.  Attacker identifies a vulnerable PowerJob instance running versions 5.1.0, 5.1.1, or 5.1.2.
+2.  The attacker crafts a malicious HTTP request targeting the `/openApi/addWorkflowNode` endpoint.
+3.  Within the HTTP request, the attacker injects malicious code into the `nodeParams` argument, leveraging the `GroovyEvaluator.evaluate` function.
+4.  The PowerJob server receives the request and passes the attacker-controlled `nodeParams` argument to the vulnerable function.
+5.  The `GroovyEvaluator.evaluate` function processes the malicious code, leading to arbitrary code execution on the server.
+6.  The attacker gains control of the PowerJob server with the privileges of the PowerJob process.
+7.  The attacker can then use this access to move laterally within the network, exfiltrate sensitive data, or cause a denial of service.
+
+## Impact
+
+Successful exploitation of CVE-2026-5739 allows unauthenticated remote attackers to execute arbitrary code on the PowerJob server. This could lead to complete system compromise, data breaches, or disruption of critical job scheduling processes. Given the nature of job scheduling platforms, compromised servers could be used to compromise other systems in the network.
+
+## Recommendation
+
+*   Upgrade PowerJob instances to a patched version that addresses CVE-2026-5739 as soon as a patch is released by the vendor.
+*   Implement network segmentation to limit the impact of a potential compromise of the PowerJob server.
+*   Monitor web server logs for suspicious requests targeting the `/openApi/addWorkflowNode` endpoint, looking for unusual characters or patterns in the `nodeParams` argument.
+*   Deploy the Sigma rule `Detect PowerJob Groovy Code Injection Attempt` to detect exploitation attempts.
