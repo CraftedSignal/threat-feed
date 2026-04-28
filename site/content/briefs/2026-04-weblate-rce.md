@@ -3,6 +3,9 @@ title: Weblate Project Backup Vulnerability Leads to Potential Remote Code Execu
 slug: 2026-04-weblate-rce
 description: Weblate versions before 5.17 are susceptible to remote code execution due to unfiltered Git and Mercurial configuration files in project backups, potentially allowing attackers to execute arbitrary code under specific conditions.
 date: "2026-04-15T19:16:35Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
