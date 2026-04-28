@@ -3,6 +3,9 @@ title: Vvveb CMS 1.0.8 Remote Code Execution via Malicious Upload
 slug: 2026-04-vvveb-rce
 description: Vvveb CMS 1.0.8 is vulnerable to remote code execution, allowing authenticated attackers to upload a PHP webshell with a .phtml extension, bypass extension restrictions, and execute arbitrary operating system commands by requesting the uploaded file.
 date: "2026-04-21T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
