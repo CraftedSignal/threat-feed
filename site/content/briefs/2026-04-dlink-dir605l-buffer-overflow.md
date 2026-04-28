@@ -60,4 +60,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-5980 is a critical buffer overflow vulnerability affecting the D-Link DIR-605L router, specifically version 2.13B01. The vulnerability resides in the `formSetMACFilter` function within the `/goform/formSetMACFilter` component's POST Request Handler. A remote attacker can exploit this by sending a crafted POST request with a malicious `curTime` argument, leading to a buffer overflow. Exploit code is publicly available. Due to the product's end-of-life status, no patch is available…
+CVE-2026-5980 is a critical buffer overflow vulnerability affecting the D-Link DIR-605L router, specifically version 2.13B01. The vulnerability resides in the `formSetMACFilter` function within the `/goform/formSetMACFilter` component's POST Request Handler. A remote attacker can exploit this by sending a crafted POST request with a malicious `curTime` argument, leading to a buffer overflow. Exploit code is publicly available. Due to the product's end-of-life status, no patch is available, making unpatched devices highly vulnerable. This allows for potential remote code execution and complete compromise of the device.
+
+## Attack Chain
+
+1.  The attacker identifies a vulnerable D-Link DIR-605L router (version 2.13B01) exposed to the internet.
+2.  The attacker crafts a malicious POST request targeting the `/goform/formSetMACFilter` endpoint.
+3.  Within the POST request, the attacker includes the `curTime` parameter, injecting a string exceeding the buffer's expected size.
+4.  The router's `formSetMACFilter` function processes the POST request without proper bounds checking on the `curTime` argument.
+5.  The oversized `curTime` string overflows the buffer, overwriting adjacent memory regions.
+6.  The attacker carefully crafts the overflow to overwrite critical data, such as return addresses or function pointers.
+7.  When the `formSetMACFilter` function attempts to return, the overwritten return address is used, redirecting execution to attacker-controlled code.
+8.  The attacker gains arbitrary code execution on the router, potentially installing malware, changing configurations, or using the device for further malicious activities.
+
+## Impact
+
+Successful exploitation of CVE-2026-5980 allows a remote attacker to gain complete control over the vulnerable D-Link DIR-605L router. Given that the affected product is no longer supported, a large number of legacy routers remain vulnerable. Attackers can leverage compromised routers to establish botnets, conduct man-in-the-middle attacks, or gain unauthorized access to internal networks connected to the router. The lack of patches elevates the severity, as affected users have no direct mitigation available other than replacing the device.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Detect D-Link DIR-605L Buffer Overflow Attempt` to identify malicious POST requests targeting the `/goform/formSetMACFilter` endpoint on D-Link DIR-605L devices.
+*   Implement network segmentation to isolate potentially vulnerable D-Link DIR-605L routers to limit the impact of a successful compromise.
+*   If possible, replace D-Link DIR-605L routers (version 2.13B01) with newer, supported devices to eliminate the vulnerability.
