@@ -3,6 +3,9 @@ title: ChatGPTNextWeb NextChat SSRF Vulnerability (CVE-2026-7178)
 slug: 2024-01-03-nextchat-ssrf
 description: ChatGPTNextWeb NextChat versions up to 2.16.1 are vulnerable to server-side request forgery (SSRF) due to improper input validation in the storeUrl function, allowing remote attackers to potentially access internal resources or conduct other malicious activities.
 date: "2024-01-03T12:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - high
 exploited: true
