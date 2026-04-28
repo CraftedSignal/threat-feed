@@ -3,6 +3,9 @@ title: H3C Magic B1 Router Buffer Overflow Vulnerability
 slug: 2026-04-h3c-magic-b1-overflow
 description: A buffer overflow vulnerability (CVE-2026-6581) in H3C Magic B1 routers allows remote attackers to execute arbitrary code by manipulating the 'param' argument in the SetMobileAPInfoById function.
 date: "2026-04-19T23:16:33Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
