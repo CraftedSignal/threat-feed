@@ -23,6 +23,17 @@ references:
   - https://vuldb.com/submit/785863
   - https://vuldb.com/vuln/355422
   - https://vuldb.com/vuln/355422/cti
+iocs:
+  - type: url
+    value: https://github.com/eqiya17/collection-of-vulnerabilities/issues/12
+  - type: url
+    value: https://vuldb.com/submit/785863
+  - type: url
+    value: https://vuldb.com/vuln/355422
+  - type: url
+    value: https://vuldb.com/vuln/355422/cti
+  - type: email
+    value: '[email&#160;protected]'
 ioc_counts:
   email: 1
   url: 4
@@ -54,4 +65,27 @@ rules:
 rules_count: 2
 ---
 
-A publicly disclosed SQL injection vulnerability affects projectworlds Car Rental Project version 1.0. This vulnerability, identified as CVE-2026-5634, resides in the `/book_car.php` file, specifically within the parameter handler. An attacker can remotely manipulate the `fname` argument to inject arbitrary SQL commands. Given the availability of exploit code, the risk of exploitation is elevated. Successful exploitation could lead to unauthorized data access, modification, or deletion…
+A publicly disclosed SQL injection vulnerability affects projectworlds Car Rental Project version 1.0. This vulnerability, identified as CVE-2026-5634, resides in the `/book_car.php` file, specifically within the parameter handler. An attacker can remotely manipulate the `fname` argument to inject arbitrary SQL commands. Given the availability of exploit code, the risk of exploitation is elevated. Successful exploitation could lead to unauthorized data access, modification, or deletion, potentially compromising the entire application and its data. Defenders need to focus on detecting and preventing malicious requests targeting the vulnerable endpoint.
+
+## Attack Chain
+
+1.  An unauthenticated attacker identifies the vulnerable `/book_car.php` endpoint.
+2.  The attacker crafts a malicious HTTP GET or POST request to `/book_car.php`, injecting SQL code into the `fname` parameter. For example, `fname=value' OR '1'='1`.
+3.  The web server processes the request and passes the tainted `fname` parameter to the application's SQL query.
+4.  Due to the lack of proper input sanitization, the injected SQL code is executed by the database server.
+5.  The attacker can leverage the SQL injection vulnerability to bypass authentication, extract sensitive data (e.g., user credentials, car availability), or modify data (e.g., alter booking information, escalate privileges).
+6.  The database server returns the results of the injected SQL query to the application.
+7.  The application displays the results to the attacker, or uses them internally to further the attack.
+8.  The attacker gains unauthorized access to the application's data and functionality, potentially leading to complete compromise.
+
+## Impact
+
+Successful exploitation of CVE-2026-5634 can lead to significant data breaches, data manipulation, and service disruption. An attacker could potentially gain access to sensitive customer data, including personal information and booking details. This can result in financial losses, reputational damage, and legal liabilities for the affected organization. The number of potential victims is dependent on the user base of the affected Car Rental Project 1.0 installation.
+
+## Recommendation
+
+*   Inspect web server logs for suspicious requests containing SQL syntax within the `fname` parameter targeting `/book_car.php` to identify potential exploitation attempts.
+*   Deploy the provided Sigma rule to detect attempts to exploit the SQL injection vulnerability by monitoring web server logs (cs-uri-query).
+*   Apply input validation and sanitization to the `fname` parameter in `/book_car.php` to prevent SQL injection attacks.
+*   Consider using a Web Application Firewall (WAF) to filter out malicious requests targeting the vulnerable endpoint.
+*   Upgrade to a patched version of Car Rental Project that addresses CVE-2026-5634, if available.
