@@ -48,4 +48,26 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-32929 is an out-of-bounds read vulnerability affecting V-SFT versions 6.2.10.0 and prior. The vulnerability exists within the `VS6ComFile!get_macro_mem_COM` function. An attacker can exploit this vulnerability by crafting a malicious V7 file. When a user opens the crafted V7 file with a vulnerable version of V-SFT, the out-of-bounds read can be triggered, leading to potential information disclosure. This vulnerability was disclosed on April 1, 2026, and poses a risk to users who rely…
+CVE-2026-32929 is an out-of-bounds read vulnerability affecting V-SFT versions 6.2.10.0 and prior. The vulnerability exists within the `VS6ComFile!get_macro_mem_COM` function. An attacker can exploit this vulnerability by crafting a malicious V7 file. When a user opens the crafted V7 file with a vulnerable version of V-SFT, the out-of-bounds read can be triggered, leading to potential information disclosure. This vulnerability was disclosed on April 1, 2026, and poses a risk to users who rely on V-SFT software for industrial automation and control systems. Organizations should assess their exposure to this vulnerability and take appropriate mitigation steps, including updating to a patched version of V-SFT.
+
+## Attack Chain
+
+1.  Attacker identifies a target using V-SFT versions 6.2.10.0 or prior.
+2.  Attacker crafts a malicious V7 file specifically designed to trigger the out-of-bounds read in `VS6ComFile!get_macro_mem_COM`.
+3.  Attacker delivers the crafted V7 file to the target, possibly through social engineering or other means.
+4.  The target user opens the malicious V7 file using the vulnerable V-SFT software.
+5.  V-SFT attempts to parse the crafted V7 file, triggering the `VS6ComFile!get_macro_mem_COM` function.
+6.  Due to the malformed structure of the crafted V7 file, the `get_macro_mem_COM` function attempts to read data beyond the allocated buffer.
+7.  The out-of-bounds read occurs, potentially disclosing sensitive information from the V-SFT process memory.
+8.  The attacker may be able to leverage the disclosed information to further compromise the system or network.
+
+## Impact
+
+Successful exploitation of CVE-2026-32929 can lead to information disclosure. An attacker who successfully exploits this vulnerability may be able to read sensitive data from the memory of the V-SFT process. The disclosed information could potentially include configuration settings, credentials, or other sensitive data that could be used to further compromise the affected system. While the NVD does not yet contain scoring data, JPCERT/CC assigned a base score of 7.8 HIGH.
+
+## Recommendation
+
+*   Upgrade V-SFT to a version that patches CVE-2026-32929 to remediate the vulnerability.
+*   Deploy the Sigma rule "Detect V-SFT V7 File Opening" to detect attempts to open V7 files using the vulnerable software.
+*   Monitor systems running V-SFT for unexpected behavior or crashes, which could indicate exploitation attempts.
+*   Educate users about the risks of opening files from untrusted sources to prevent social engineering attacks.
