@@ -3,6 +3,9 @@ title: Velociraptor Authentication Bypass via query() Plugin
 slug: 2026-04-velociraptor-auth-bypass
 description: Velociraptor versions prior to 0.76.3 contain an authentication bypass vulnerability in the query() plugin, allowing authenticated users to access data from other organizations within the Velociraptor deployment, potentially leading to unauthorized data access and privilege escalation.
 date: "2026-04-15T18:17:25Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
