@@ -3,6 +3,9 @@ title: Multiple Vulnerabilities in Roundcube
 slug: 2026-04-roundcube-vulns
 description: Multiple vulnerabilities in Roundcube allow an attacker to manipulate files, bypass security measures, perform cross-site scripting attacks, and disclose information.
 date: "2026-04-21T08:06:54Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
