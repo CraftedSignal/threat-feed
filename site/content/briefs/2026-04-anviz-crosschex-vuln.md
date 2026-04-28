@@ -3,6 +3,9 @@ title: Anviz CrossChex Standard TDS7 PreLogin Encryption Vulnerability
 slug: 2026-04-anviz-crosschex-vuln
 description: Anviz CrossChex Standard is vulnerable to unauthorized database access due to the manipulation of TDS7 PreLogin, which disables encryption, leading to plaintext transmission of database credentials.
 date: "2026-04-18T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
