@@ -19,6 +19,9 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
 references:
   - https://github.com/advisories/GHSA-jjp3-mq3x-295m
+iocs:
+  - type: email
+    value: security@electronjs.org
 ioc_counts:
   email: 1
 rules:
@@ -47,4 +50,26 @@ rules:
 rules_count: 2
 ---
 
-A use-after-free vulnerability has been identified in the `powerMonitor` module of Electron versions prior to 38.8.6, between 39.0.0-alpha.1 and 39.8.1, between 40.0.0-alpha.1 and 40.8.0, and between 41.0.0-alpha.1 and 41.0.0-beta.8. This vulnerability occurs when the native `PowerMonitor` object is garbage-collected, but associated OS-level resources (message window on Windows, shutdown handler on macOS) retain dangling references. This issue can lead to a crash or memory corruption when a…
+A use-after-free vulnerability has been identified in the `powerMonitor` module of Electron versions prior to 38.8.6, between 39.0.0-alpha.1 and 39.8.1, between 40.0.0-alpha.1 and 40.8.0, and between 41.0.0-alpha.1 and 41.0.0-beta.8. This vulnerability occurs when the native `PowerMonitor` object is garbage-collected, but associated OS-level resources (message window on Windows, shutdown handler on macOS) retain dangling references. This issue can lead to a crash or memory corruption when a session-change event on Windows or system shutdown on macOS attempts to dereference the freed memory. All Electron applications that utilize the `powerMonitor` module and its events (e.g., `suspend`, `resume`, `lock-screen`) are potentially vulnerable. Defenders should prioritize patching Electron to the fixed versions to mitigate the risk.
+
+## Attack Chain
+
+1. An Electron application is built using a vulnerable version of Electron (e.g., 38.8.5).
+2. The application utilizes the `powerMonitor` module to listen for system power events.
+3. The application runs on a Windows or macOS system.
+4. The native `PowerMonitor` object is garbage-collected by the JavaScript engine. The associated OS-level resources on Windows (message window) or macOS (shutdown handler) are not properly released.
+5. A session-change event occurs on Windows (e.g., user lock/unlock) or a system shutdown is initiated on macOS.
+6. The OS attempts to notify the previously freed `PowerMonitor` object about the session change or shutdown event.
+7. The OS dereferences the dangling pointer, leading to a use-after-free condition.
+8. The application crashes or experiences memory corruption, potentially leading to denial of service or other undefined behavior.
+
+## Impact
+
+Successful exploitation of this use-after-free vulnerability can lead to application crashes and potential memory corruption. The impact affects any Electron application that uses the `powerMonitor` module, potentially disrupting application functionality and causing data loss. The vulnerability affects all platforms where Electron applications are deployed, specifically Windows and macOS. The severity is high due to the potential for application instability and the lack of application-side workarounds, requiring a patch to the Electron framework itself.
+
+## Recommendation
+
+*   Upgrade Electron to a patched version (41.0.0-beta.8, 40.8.0, 39.8.1, or 38.8.6) to resolve the use-after-free vulnerability in the `powerMonitor` module.
+*   Monitor application crash logs for indicators of use-after-free conditions, especially following session-change events on Windows or system shutdowns on macOS.
+*   Implement application monitoring to detect unexpected memory corruption events, which could be a sign of successful exploitation.
+*   Contact security@electronjs.org for any questions or comments about the advisory.
