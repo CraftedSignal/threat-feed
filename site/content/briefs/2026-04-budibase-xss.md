@@ -46,4 +46,26 @@ rules:
 rules_count: 2
 ---
 
-Budibase, an open-source low-code platform, is vulnerable to a stored cross-site scripting (XSS) attack. Prior to version 3.32.5, the Builder Command Palette renders entity names (tables, views, queries, automations) unsanitized, using Svelte's {@html} directive. This allows an attacker with Builder access to inject arbitrary HTML into the names of database tables, views, queries, or automations. When a Builder-role user in the same workspace opens the Command Palette (Ctrl+K), the injected…
+Budibase, an open-source low-code platform, is vulnerable to a stored cross-site scripting (XSS) attack. Prior to version 3.32.5, the Builder Command Palette renders entity names (tables, views, queries, automations) unsanitized, using Svelte's {@html} directive. This allows an attacker with Builder access to inject arbitrary HTML into the names of database tables, views, queries, or automations. When a Builder-role user in the same workspace opens the Command Palette (Ctrl+K), the injected HTML payload is executed within their browser context. This execution can be leveraged to steal session cookies, leading to full account takeover. The vulnerability, identified as CVE-2026-35218, was patched in Budibase version 3.32.5. Defenders should prioritize upgrading to the patched version.
+
+## Attack Chain
+
+1. An attacker authenticates to a Budibase instance with Builder access.
+2. The attacker creates or modifies a database table.
+3. The attacker injects a malicious HTML payload (e.g., `<img src=x onerror=alert(document.domain)>`) into the table name via the Budibase Builder interface.
+4. The attacker saves the modified table.
+5. Another authenticated user with Builder access in the same workspace opens the Command Palette (Ctrl+K).
+6. The Command Palette renders the table name containing the malicious HTML.
+7. The user's browser executes the injected HTML, triggering the onerror event and executing JavaScript.
+8. The JavaScript steals the user's session cookie and sends it to an attacker-controlled server.
+9. The attacker uses the stolen session cookie to impersonate the victim user and gain full account access.
+
+## Impact
+
+Successful exploitation of this vulnerability can lead to the theft of sensitive user session cookies, allowing an attacker to impersonate legitimate users with Builder access. This can result in unauthorized modification of Budibase applications, exfiltration of sensitive data stored within Budibase, and further compromise of systems integrated with Budibase. The severity is high due to the ease of exploitation for authenticated users and the potential for complete account takeover.
+
+## Recommendation
+
+*   Upgrade Budibase to version 3.32.5 or later to remediate CVE-2026-35218.
+*   Implement the Sigma rule `Budibase_Suspicious_Command_Palette_HTML` to detect potential exploitation attempts by monitoring HTTP activity related to the Command Palette.
+*   Enable webserver logging to collect the data required by the Sigma rule `Budibase_Suspicious_Command_Palette_HTML`.
