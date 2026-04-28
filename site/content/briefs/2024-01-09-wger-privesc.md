@@ -3,6 +3,9 @@ title: wger Broken Access Control in Global Gym Configuration Update Endpoint
 slug: 2024-01-09-wger-privesc
 description: The wger application has a broken access control vulnerability in the global gym configuration update endpoint, allowing low-privileged authenticated users to modify installation-wide configuration settings and escalate privileges.
 date: "2026-04-16T01:35:16Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
