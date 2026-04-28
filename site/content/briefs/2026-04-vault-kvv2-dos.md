@@ -3,6 +3,9 @@ title: Vault kvv2 Policy Bypass Vulnerability Leading to Denial-of-Service (CVE-
 slug: 2026-04-vault-kvv2-dos
 description: An authenticated user with access to a kvv2 path through a policy containing a glob may be able to delete secrets they were not authorized to read or write, resulting in denial-of-service, addressed in Vault versions 2.0.0, 1.21.5, 1.20.10, and 1.19.16.
 date: "2026-04-17T04:16:03Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
