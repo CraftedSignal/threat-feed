@@ -3,6 +3,9 @@ title: CVE-2026-26176 Windows CSC Driver Privilege Escalation
 slug: 2026-04-csc-privesc
 description: CVE-2026-26176 is a heap-based buffer overflow vulnerability in the Windows Client Side Caching driver (csc.sys), which allows an authorized attacker to elevate privileges locally.
 date: "2026-04-14T18:16:53Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
