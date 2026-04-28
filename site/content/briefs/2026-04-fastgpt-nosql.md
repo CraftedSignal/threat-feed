@@ -3,6 +3,9 @@ title: FastGPT NoSQL Injection Vulnerability in Password Change Endpoint
 slug: 2026-04-fastgpt-nosql
 description: FastGPT versions prior to 4.14.9.5 are vulnerable to NoSQL injection in the password change endpoint, allowing authenticated attackers to bypass password verification and perform account takeover.
 date: "2026-04-17T22:16:32Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
