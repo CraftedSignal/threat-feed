@@ -3,6 +3,9 @@ title: PraisonAI GitHub Actions Credential Leakage Vulnerability (CVE-2026-40313
 slug: 2026-04-praisonai-artifact-leakage
 description: 'PraisonAI versions 4.5.139 and below are vulnerable to credential leakage due to the ArtiPACKED attack, where GitHub Actions workflows using actions/checkout without persist-credentials: false write the GITHUB_TOKEN into the .git/config file, leading to potential exposure in uploaded artifacts and subsequent supply chain compromise.'
 date: "2026-04-14T04:17:13Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
