@@ -3,6 +3,9 @@ title: manikandan580 School-management-system SQL Injection Vulnerability
 slug: 2026-04-school-management-sqli
 description: A time-based blind SQL injection vulnerability in manikandan580 School-management-system 1.0 allows unauthenticated attackers to potentially execute arbitrary SQL queries and gain unauthorized access to sensitive information.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
