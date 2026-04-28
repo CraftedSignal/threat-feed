@@ -3,6 +3,9 @@ title: Openfind MailGates/MailAudit CRLF Injection Vulnerability
 slug: 2026-04-mailgates-crlf
 description: Openfind MailGates/MailAudit is vulnerable to CRLF injection (CVE-2026-6351), enabling unauthenticated remote attackers to read system files by injecting malicious CRLF sequences.
 date: "2026-04-16T03:17:58Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
