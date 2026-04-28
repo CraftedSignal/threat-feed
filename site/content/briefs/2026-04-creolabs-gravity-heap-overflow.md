@@ -57,4 +57,25 @@ rules:
 rules_count: 2
 ---
 
-Creolabs Gravity, a scripting language, is susceptible to a heap buffer overflow vulnerability (CVE-2026-40504) affecting versions prior to 0.9.6. The vulnerability resides within the `gravity_vm_exec` function and can be triggered by crafting Gravity scripts containing a large number of string literals declared at the global scope. This leads to an out-of-bounds write, potentially corrupting heap metadata. Successful exploitation of this vulnerability can lead to arbitrary code execution…
+Creolabs Gravity, a scripting language, is susceptible to a heap buffer overflow vulnerability (CVE-2026-40504) affecting versions prior to 0.9.6. The vulnerability resides within the `gravity_vm_exec` function and can be triggered by crafting Gravity scripts containing a large number of string literals declared at the global scope. This leads to an out-of-bounds write, potentially corrupting heap metadata. Successful exploitation of this vulnerability can lead to arbitrary code execution within applications that evaluate untrusted Gravity scripts. The root cause is insufficient bounds checking in the `gravity_fiber_reassign()` function. Defenders need to ensure they are running version 0.9.6 or later.
+
+## Attack Chain
+
+1. An attacker crafts a malicious Gravity script with numerous string literals defined at the global scope.
+2. The application using the vulnerable Creolabs Gravity library loads and attempts to execute the crafted script, calling the `gravity_vm_exec` function.
+3. During script execution, the `gravity_vm_exec` function allocates memory on the heap to store the string literals.
+4. The sheer number of string literals causes a heap buffer overflow when `gravity_fiber_reassign()` is called.
+5. The heap buffer overflow corrupts adjacent heap metadata.
+6. The corruption of heap metadata leads to unpredictable behavior, potentially including crashes or the ability to overwrite critical data structures.
+7. The attacker leverages the ability to overwrite heap metadata to gain control of program execution flow.
+8. The attacker achieves arbitrary code execution within the context of the application running the vulnerable Gravity script.
+
+## Impact
+
+Successful exploitation of CVE-2026-40504 can lead to arbitrary code execution, potentially allowing attackers to gain full control over systems running applications that execute untrusted Gravity scripts. Given a CVSS v3.1 base score of 9.8, this is a critical vulnerability. The exact number of victims or targeted sectors is unknown, but any application using a vulnerable version of Creolabs Gravity to execute untrusted code is at risk.
+
+## Recommendation
+
+*   Upgrade Creolabs Gravity to version 0.9.6 or later to patch CVE-2026-40504 (Reference: https://github.com/marcobambini/gravity/releases/tag/0.9.6).
+*   Implement input validation and sanitization of Gravity scripts to limit the number and size of string literals processed to prevent triggering the heap overflow.
+*   Deploy the following Sigma rule to detect exploitation attempts by monitoring process creation events that may indicate arbitrary code execution following the heap overflow.
