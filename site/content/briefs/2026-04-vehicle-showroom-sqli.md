@@ -1,28 +1,28 @@
 ---
-title: code-projects Vehicle Showroom Management System SQL Injection Vulnerability (CVE-2026-6151)
+title: SQL Injection Vulnerability in Vehicle Showroom Management System 1.0
 slug: 2026-04-vehicle-showroom-sqli
-description: CVE-2026-6151 is a SQL injection vulnerability affecting code-projects Vehicle Showroom Management System 1.0, which can be exploited by manipulating the CUSTOMER_ID argument in the `/util/PaymentStatusFunction.php` file, leading to potential data compromise.
-date: "2026-04-13T03:16:02Z"
+description: A remote attacker can exploit an SQL injection vulnerability (CVE-2026-6165) in code-projects Vehicle Showroom Management System 1.0 by manipulating the ID parameter in /util/Login_check.php, potentially leading to unauthorized data access and modification.
+date: "2026-04-13T06:17:51Z"
 severities:
   - high
 tags:
-  - sql-injection
+  - sqli
   - web-application
-  - cve-2026-6151
+  - cve-2026-6165
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-6151
+  - id: CVE-2026-6165
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-6151
-  - https://vuldb.com/vuln/357031
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-6165
+  - https://vuldb.com/vuln/357053
 rules:
-  - title: Detect Suspicious Payment Status Function SQL Injection
-    description: Detects potential SQL injection attempts targeting the /util/PaymentStatusFunction.php file by looking for SQL keywords in the CUSTOMER_ID parameter.
+  - title: Detect SQL Injection Attempts in Login_check.php
+    description: Detects potential SQL injection attempts by monitoring requests to /util/Login_check.php containing common SQL injection payloads.
     platform: sigma
     severity: high
     tactics:
@@ -32,8 +32,8 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect SQL Injection via URI keywords
-    description: Detects SQL Injection attempts via keywords in URI
+  - title: Detect SQL Injection via POST Request to Login_check.php
+    description: Detects SQL injection attempts targeting Login_check.php via POST requests.
     platform: sigma
     severity: high
     tactics:
@@ -46,26 +46,27 @@ rules:
 rules_count: 2
 ---
 
-A SQL injection vulnerability, CVE-2026-6151, has been identified in code-projects Vehicle Showroom Management System version 1.0. This vulnerability specifically impacts the `/util/PaymentStatusFunction.php` file, where manipulation of the `CUSTOMER_ID` argument can lead to arbitrary SQL command execution. The vulnerability allows for remote exploitation without authentication. Public exploits are available, increasing the risk of widespread exploitation. Successful exploitation could lead to unauthorized data access, modification, or deletion. This vulnerability poses a significant threat to organizations using the affected Vehicle Showroom Management System.
+CVE-2026-6165 identifies an SQL injection vulnerability within the code-projects Vehicle Showroom Management System version 1.0. The vulnerability resides in the `/util/Login_check.php` file and can be exploited by manipulating the `ID` argument. Successful exploitation allows attackers to inject malicious SQL queries, potentially gaining unauthorized access to sensitive data, modifying database contents, or even executing arbitrary commands on the underlying server. As a publicly available exploit exists, the risk of exploitation is elevated, making it crucial for organizations using this software to implement mitigation measures. The scope of this vulnerability impacts any deployment of the affected Vehicle Showroom Management System version 1.0 exposed to network traffic.
 
 ## Attack Chain
 
-1. An attacker identifies a vulnerable instance of Vehicle Showroom Management System 1.0.
-2. The attacker crafts a malicious HTTP request targeting `/util/PaymentStatusFunction.php`.
-3. The crafted request includes a SQL injection payload within the `CUSTOMER_ID` parameter.
-4. The web server processes the request without proper sanitization of the `CUSTOMER_ID` input.
-5. The injected SQL code is executed against the underlying database.
-6. The attacker gains unauthorized access to sensitive data within the database.
-7. The attacker may modify existing data, potentially altering financial records or user accounts.
-8. The attacker may exfiltrate stolen data, compromising confidentiality and potentially violating data protection regulations.
+1.  Attacker identifies a vulnerable Vehicle Showroom Management System 1.0 instance exposed on the network.
+2.  The attacker crafts a malicious HTTP request targeting the `/util/Login_check.php` endpoint.
+3.  The attacker injects SQL code into the `ID` parameter of the HTTP request, bypassing input validation.
+4.  The web application processes the malicious SQL query without proper sanitization.
+5.  The injected SQL code is executed against the underlying database.
+6.  The attacker retrieves sensitive information from the database, such as user credentials or financial records.
+7.  The attacker may modify database entries, such as altering prices or inventory.
+8.  The attacker could potentially leverage the SQL injection to gain code execution on the server.
 
 ## Impact
 
-Successful exploitation of this SQL injection vulnerability can lead to unauthorized access to sensitive data, including customer information, financial records, and system configurations. Attackers could modify data to conduct fraud, steal personally identifiable information (PII), or disrupt business operations. The vulnerability has a high CVSS score of 7.3, indicating a significant risk to affected systems. Exploitation could lead to regulatory fines, reputational damage, and significant financial losses.
+Successful exploitation of CVE-2026-6165 can lead to a range of severe consequences. An attacker could gain unauthorized access to sensitive customer data, including personally identifiable information (PII) and financial details. Data breaches can result in significant financial losses, reputational damage, and legal liabilities. Furthermore, the ability to modify database contents could lead to manipulated sales figures, altered inventory, or even complete disruption of business operations. The vulnerability's potential for remote code execution poses the highest risk, allowing attackers to establish a persistent foothold within the organization's infrastructure.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect Suspicious Payment Status Function SQL Injection` to identify exploitation attempts targeting the `/util/PaymentStatusFunction.php` file (Sigma rule).
-*   Apply input validation and sanitization to the `CUSTOMER_ID` parameter in the `/util/PaymentStatusFunction.php` file to prevent SQL injection (CVE-2026-6151).
-*   Monitor web server logs for unusual requests to `/util/PaymentStatusFunction.php` that contain suspicious characters or SQL keywords (webserver log source).
-*   Implement a web application firewall (WAF) to filter malicious requests targeting the vulnerable endpoint.
+*   Apply appropriate input validation and sanitization techniques to the `ID` parameter in `/util/Login_check.php` to prevent SQL injection (CVE-2026-6165).
+*   Deploy the provided Sigma rule to detect suspicious HTTP requests targeting `/util/Login_check.php` with potential SQL injection payloads.
+*   Implement a web application firewall (WAF) to filter malicious traffic and block known SQL injection patterns.
+*   Regularly audit and patch all software components to address known vulnerabilities.
+*   Monitor web server logs for unusual activity and potential signs of exploitation.
