@@ -5,6 +5,9 @@
       <h1 class="font-display text-3xl md:text-4xl font-semibold">{{ .Title }}</h1>
       {{ with .Description }}<p class="text-muted">{{ . }}</p>{{ end }}
     </header>
+
+    {{ partial "subscribe-form.html" . }}
+
     <div class="prose-feed">{{ .Content }}</div>
   </div>
 </article>
