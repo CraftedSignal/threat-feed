@@ -53,4 +53,27 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-5686 is a critical vulnerability affecting Tenda CX12L routers running firmware version 16.03.53.12. This stack-based buffer overflow is located in the `fromRouteStatic` function within the `/goform/RouteStatic` file. A remote, unauthenticated attacker can exploit this vulnerability by sending a crafted request with a malicious `page` argument. Publicly available exploit code exists, increasing the risk of widespread exploitation. Successful exploitation could lead to arbitrary code…
+CVE-2026-5686 is a critical vulnerability affecting Tenda CX12L routers running firmware version 16.03.53.12. This stack-based buffer overflow is located in the `fromRouteStatic` function within the `/goform/RouteStatic` file. A remote, unauthenticated attacker can exploit this vulnerability by sending a crafted request with a malicious `page` argument. Publicly available exploit code exists, increasing the risk of widespread exploitation. Successful exploitation could lead to arbitrary code execution, potentially allowing attackers to gain full control of the affected router. This poses a significant risk to home and small business networks using the vulnerable device.
+
+## Attack Chain
+
+1.  The attacker identifies a Tenda CX12L router running firmware version 16.03.53.12.
+2.  The attacker sends a crafted HTTP POST request to `/goform/RouteStatic`.
+3.  The request includes a `page` argument with a string exceeding the buffer size allocated to the `fromRouteStatic` function.
+4.  The oversized `page` argument overwrites adjacent memory on the stack, including the return address.
+5.  When the `fromRouteStatic` function returns, it attempts to jump to the overwritten return address controlled by the attacker.
+6.  The attacker's payload, injected via the overflowed buffer, is executed with the privileges of the `httpd` process.
+7.  The attacker gains remote code execution on the router.
+8.  The attacker can then use the compromised router as a foothold for further attacks, such as network reconnaissance, lateral movement, or data exfiltration.
+
+## Impact
+
+Successful exploitation of CVE-2026-5686 allows a remote attacker to execute arbitrary code on the affected Tenda CX12L router. This could lead to a complete compromise of the device, enabling attackers to modify router settings, intercept network traffic, or use the router as a proxy for malicious activities. Given the widespread use of Tenda routers in home and small business networks, this vulnerability could have a significant impact, potentially affecting thousands of users. A successful attack could lead to data breaches, service disruptions, and further compromise of connected devices within the network.
+
+## Recommendation
+
+*   Apply available patches or firmware updates provided by Tenda to address CVE-2026-5686.
+*   Monitor web server logs for suspicious POST requests to `/goform/RouteStatic` with unusually long `page` parameters, using the provided Sigma rule.
+*   Implement network intrusion detection systems (IDS) to detect and block exploit attempts targeting this vulnerability.
+*   Restrict access to the router's administrative interface to trusted networks or IP addresses to limit the attack surface.
+*   Regularly review router configurations and security settings to ensure they align with best practices.
