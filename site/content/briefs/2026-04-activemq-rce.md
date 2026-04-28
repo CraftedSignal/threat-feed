@@ -64,4 +64,27 @@ rules:
 rules_count: 2
 ---
 
-A remote code execution vulnerability, CVE-2026-34197, has been identified in Apache ActiveMQ Classic, an open-source messaging and Integration Patterns server widely used across industries. This vulnerability, present for 13 years, allows attackers to invoke management operations through the Jolokia API and instruct the broker to retrieve a remote configuration file, leading to OS command execution. This is achieved by bypassing CVE-2022-41678, a previous bug that allowed webshell creation…
+A remote code execution vulnerability, CVE-2026-34197, has been identified in Apache ActiveMQ Classic, an open-source messaging and Integration Patterns server widely used across industries. This vulnerability, present for 13 years, allows attackers to invoke management operations through the Jolokia API and instruct the broker to retrieve a remote configuration file, leading to OS command execution. This is achieved by bypassing CVE-2022-41678, a previous bug that allowed webshell creation. Additionally, CVE-2024-32114 exposes the Jolokia API to unauthenticated users in ActiveMQ versions 6.0.0 through 6.1.1, enabling potential RCE without authentication. The vulnerability affects ActiveMQ Classic deployments and was addressed in versions 5.19.4 and 6.2.3.
+
+## Attack Chain
+
+1. Attacker identifies an Apache ActiveMQ Classic instance running a vulnerable version (prior to 5.19.4 or 6.2.3).
+2. If the instance is running ActiveMQ 6.0.0 through 6.1.1, the attacker leverages CVE-2024-32114 to access the Jolokia API without authentication. Otherwise, the attacker authenticates to the ActiveMQ instance.
+3. The attacker invokes management operations through the Jolokia API to target ActiveMQ's VM transport feature.
+4. The attacker crafts a VM transport URI referencing a non-existent broker.
+5. ActiveMQ creates the broker and accepts a parameter instructing it to load a configuration from a URL controlled by the attacker.
+6. The attacker hosts a malicious Spring XML configuration file on a remote server.
+7. The ActiveMQ broker retrieves and processes the malicious Spring XML configuration file.
+8. The Spring XML file instantiates bean definitions that execute arbitrary OS commands, achieving remote code execution.
+
+## Impact
+
+Successful exploitation of these vulnerabilities could lead to complete compromise of the ActiveMQ server, potentially impacting numerous industries relying on this messaging middleware. Attackers could gain unauthorized access to sensitive data, disrupt message queues, and pivot to other systems within the network. The scope of the impact depends on the ActiveMQ deployment and the attacker's objectives. Unauthenticated exploitation via CVE-2024-32114 significantly broadens the attack surface.
+
+## Recommendation
+
+*   Upgrade Apache ActiveMQ Classic to versions 5.19.4 or 6.2.3 or later to address CVE-2026-34197.
+*   For ActiveMQ versions 6.0.0 through 6.1.1, verify the configuration and security constraints to ensure the Jolokia API is not exposed without authentication, mitigating CVE-2024-32114.
+*   Deploy the Sigma rule "ActiveMQ Jolokia API Access" to monitor for unauthorized access attempts to the Jolokia API.
+*   Implement network segmentation to limit the blast radius in case of a successful compromise.
+*   Monitor process creation events for suspicious processes spawned by the ActiveMQ Java process, leveraging the "ActiveMQ Suspicious Process Creation" Sigma rule.
