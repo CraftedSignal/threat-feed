@@ -1,56 +1,50 @@
 ---
-title: OpenClaw Authentication Bypass in Remote Onboarding
+title: OpenClaw Authorization Bypass Vulnerability (CVE-2026-41299)
 slug: 2026-04-openclaw-auth-bypass
-description: OpenClaw before 2026.3.28 contains an authentication bypass vulnerability (CVE-2026-41342) in the remote onboarding component, allowing attackers to spoof discovery endpoints and capture gateway credentials or traffic.
-date: "2024-01-03T12:00:00Z"
+description: OpenClaw before 2026.3.28 contains an authorization bypass vulnerability in the chat.send gateway method that allows authenticated operator clients to spoof ACP identity labels and inject reserved provenance fields, leading to potential privilege escalation.
+date: "2026-04-21T00:16:30Z"
 severities:
   - high
 tags:
-  - authentication bypass
-  - remote onboarding
-  - credential theft
-  - cve-2026-41342
-vendors:
-  - openclaw
-products:
-  - openclaw
+  - authorization-bypass
+  - privilege-escalation
+  - web-application
 mitre_ttps:
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1189
-    technique_name: Drive-by Compromise
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
 cves:
-  - id: CVE-2026-41342
-    cvss: 7.3
+  - id: CVE-2026-41299
+    cvss: 7.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-41342
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-3cw3-5vxw-g2h3
-  - https://www.vulncheck.com/advisories/openclaw-unauthenticated-discovery-endpoint-credential-exfiltration-via-remote-onboarding
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41299
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-6xg4-82hv-cp6f
+  - https://www.vulncheck.com/advisories/openclaw-client-identity-spoofing-in-chat-send-gateway-provenance-guard
 rules:
-  - title: Detect Connection to Suspicious Onboarding Discovery Endpoint
-    description: Detects connections to unusual or potentially malicious discovery endpoints during remote onboarding, indicating possible spoofing attempts related to CVE-2026-41342.
+  - title: Detect OpenClaw ACP Identity Spoofing via WebSocket
+    description: Detects potential ACP identity spoofing attempts during WebSocket handshake by monitoring client metadata for suspicious patterns related to reserved provenance fields.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1555.004
+    data_sources:
+      - webserver
+      - linux
+  - title: Detect OpenClaw Chat Send Gateway Abuse
+    description: Detects abuse of the chat.send gateway by monitoring for unusual message origins or content patterns indicative of exploitation.
     platform: sigma
     severity: medium
     tactics:
-      - credential_access
-      - initial_access
+      - privilege_escalation
     techniques:
-      - T1189
+      - T1068
     data_sources:
-      - network_connection
-      - windows
-  - title: Detect OpenClaw Process Connecting to Non-Standard Ports
-    description: This rule identifies OpenClaw processes establishing network connections to ports commonly associated with malicious activity, potentially indicating exploitation or command and control.
-    platform: sigma
-    severity: medium
-    tactics:
-      - command_and_control
-    techniques:
-      - T1071
-    data_sources:
-      - network_connection
-      - windows
+      - webserver
+      - linux
 rules_count: 2
 ---
 
-OpenClaw, a software solution, is vulnerable to an authentication bypass flaw in versions prior to 2026.3.28. Specifically, the remote onboarding component persists unauthenticated discovery endpoints without requiring explicit trust confirmation. This vulnerability, identified as CVE-2026-41342, enables a threat actor to spoof legitimate discovery endpoints. By doing so, attackers can redirect the onboarding process toward malicious gateways under their control. This redirection allows the…
+OpenClaw, a chat application, is vulnerable to an authorization bypass (CVE-2026-41299) affecting versions prior to 2026.3.28. This vulnerability resides in the `chat.send` gateway method, where access control policies (ACP) are enforced based on client-provided metadata obtained during the WebSocket handshake. Instead of relying on verified authorization states, the system trusts self-declared metadata, enabling malicious authenticated operator clients to impersonate ACP identities and inject…
