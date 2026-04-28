@@ -48,4 +48,26 @@ rules:
 rules_count: 2
 ---
 
-V-SFT versions 6.2.10.0 and earlier are vulnerable to a stack-based buffer overflow (CVE-2026-32928) located in the VS6ComFile!CSaveData::_conv_AnimationItem function. This vulnerability is triggered when the software processes a specially crafted V7 file. Successful exploitation of this vulnerability can lead to arbitrary code execution within the context of the application. Given the potential for complete system compromise, organizations using affected versions of V-SFT should take immediate…
+V-SFT versions 6.2.10.0 and earlier are vulnerable to a stack-based buffer overflow (CVE-2026-32928) located in the VS6ComFile!CSaveData::_conv_AnimationItem function. This vulnerability is triggered when the software processes a specially crafted V7 file. Successful exploitation of this vulnerability can lead to arbitrary code execution within the context of the application. Given the potential for complete system compromise, organizations using affected versions of V-SFT should take immediate steps to mitigate this risk. This vulnerability was reported by JPCERT/CC.
+
+## Attack Chain
+
+1.  Attacker identifies a target using a vulnerable version of V-SFT (<= 6.2.10.0).
+2.  Attacker crafts a malicious V7 file designed to trigger the buffer overflow in the `VS6ComFile!CSaveData::_conv_AnimationItem` function.
+3.  The attacker delivers the malicious V7 file to the target, potentially through social engineering or other means.
+4.  The target user opens the malicious V7 file using the vulnerable V-SFT software.
+5.  The `VS6ComFile!CSaveData::_conv_AnimationItem` function processes the V7 file, copying data into a fixed-size buffer on the stack.
+6.  The crafted V7 file contains data exceeding the buffer's capacity, causing a buffer overflow.
+7.  The overflow overwrites adjacent stack memory, including the return address.
+8.  When the `_conv_AnimationItem` function returns, execution is redirected to an attacker-controlled address, allowing arbitrary code execution.
+
+## Impact
+
+Successful exploitation of CVE-2026-32928 allows an attacker to execute arbitrary code on the affected system. This could lead to complete system compromise, data theft, or denial of service. The vulnerability affects any system running V-SFT versions 6.2.10.0 and prior. The severity is rated as high with a CVSS v3.1 score of 7.8.
+
+## Recommendation
+
+*   Apply the patch or upgrade to a non-vulnerable version of V-SFT (later than 6.2.10.0) as provided by the vendor.
+*   Monitor process creation events for V-SFT processes spawning child processes or executing unusual commands, using the provided Sigma rule.
+*   Implement file integrity monitoring for the V-SFT executable and associated libraries to detect unauthorized modifications.
+*   Educate users about the risks of opening files from untrusted sources to mitigate social engineering attacks.
