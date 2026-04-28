@@ -3,6 +3,9 @@ title: Totolink A8000RU OS Command Injection Vulnerability (CVE-2026-7154)
 slug: 2024-01-totolink-a8000ru-command-injection
 description: A remote OS command injection vulnerability exists in the Totolink A8000RU router version 7.1cu.643_b20200521, allowing attackers to execute arbitrary commands by manipulating the 'tty_server' argument in the 'setAdvancedInfoShow' function.
 date: "2024-01-23T12:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 exploited: true
