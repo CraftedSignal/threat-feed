@@ -42,4 +42,25 @@ rules:
 rules_count: 2
 ---
 
-A denial-of-service vulnerability has been identified in the `@nestjs/microservices` package, specifically impacting versions up to and including 11.1.18. This vulnerability arises from the recursive nature of the `handleData()` function when processing JSON messages over TCP. An attacker can exploit this by sending a single TCP frame containing numerous small, valid JSON messages. This triggers excessive recursion, rapidly consuming stack space and ultimately leading to a stack overflow. A…
+A denial-of-service vulnerability has been identified in the `@nestjs/microservices` package, specifically impacting versions up to and including 11.1.18. This vulnerability arises from the recursive nature of the `handleData()` function when processing JSON messages over TCP. An attacker can exploit this by sending a single TCP frame containing numerous small, valid JSON messages. This triggers excessive recursion, rapidly consuming stack space and ultimately leading to a stack overflow. A relatively small payload of approximately 47 KB is sufficient to trigger the `RangeError` and cause the application to crash, effectively denying service to legitimate users. The vulnerability was discovered by https://github.com/hwpark6804-gif and has been addressed in version 11.1.19 of the `@nestjs/microservices` package.
+
+## Attack Chain
+
+1.  The attacker establishes a TCP connection to the NestJS microservice endpoint.
+2.  The attacker crafts a TCP frame containing multiple small, valid JSON messages.
+3.  The attacker sends the crafted TCP frame to the microservice.
+4.  The `handleData()` function in `@nestjs/microservices` receives the TCP frame.
+5.  For each JSON message in the frame, `handleData()` recursively calls itself.
+6.  With each recursive call, the buffer size shrinks, preventing the `maxBufferSize` from being reached.
+7.  The call stack overflows due to the excessive recursion.
+8.  A `RangeError` is triggered, crashing the NestJS microservice and causing a denial of service.
+
+## Impact
+
+Successful exploitation of this vulnerability results in a denial-of-service condition, rendering the affected NestJS microservice unavailable. This can disrupt critical application functionality that relies on the microservice. While the specific number of victims or sectors targeted is unknown, any application using a vulnerable version of `@nestjs/microservices` is susceptible. A successful attack leads to application downtime and potential data loss or corruption if the microservice is responsible for data persistence.
+
+## Recommendation
+
+*   Upgrade the `@nestjs/microservices` package to version 11.1.19 or later to remediate the vulnerability (reference: `@nestjs/microservices@11.1.19`).
+*   Deploy the Sigma rule "Detect Excessive TCP Data" to identify potential exploitation attempts by monitoring for unusually large TCP packets (reference: rule "Detect Excessive TCP Data").
+*   Monitor network traffic for connections sending abnormally large amounts of data to NestJS microservice endpoints.
