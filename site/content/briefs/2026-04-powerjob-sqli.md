@@ -47,4 +47,26 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-5736 is a SQL injection vulnerability affecting PowerJob, an open-source distributed job scheduling and management platform. The vulnerability resides in the `InstanceController.java` file within the `powerjob-server` component, specifically in versions 5.1.0, 5.1.1, and 5.1.2. An attacker can remotely exploit this vulnerability by manipulating the `customQuery` argument of the `detailPlus` endpoint, injecting malicious SQL code that is then executed by the application's database. This…
+CVE-2026-5736 is a SQL injection vulnerability affecting PowerJob, an open-source distributed job scheduling and management platform. The vulnerability resides in the `InstanceController.java` file within the `powerjob-server` component, specifically in versions 5.1.0, 5.1.1, and 5.1.2. An attacker can remotely exploit this vulnerability by manipulating the `customQuery` argument of the `detailPlus` endpoint, injecting malicious SQL code that is then executed by the application's database. This could lead to unauthorized data access, modification, or deletion. Despite being reported through an issue report, the project has not yet provided a patch or mitigation. This vulnerability poses a significant risk to organizations using vulnerable versions of PowerJob, potentially enabling attackers to compromise sensitive data and disrupt critical job scheduling processes.
+
+## Attack Chain
+
+1.  Attacker identifies a vulnerable PowerJob instance running versions 5.1.0, 5.1.1, or 5.1.2.
+2.  Attacker crafts a malicious SQL injection payload, targeting the `customQuery` parameter of the `/detailPlus` endpoint.
+3.  Attacker sends a crafted HTTP request to the vulnerable `/detailPlus` endpoint, embedding the SQL injection payload within the `customQuery` parameter.
+4.  The PowerJob server receives the request and processes the `customQuery` parameter without proper sanitization or validation.
+5.  The unsanitized `customQuery` value is incorporated into an SQL query executed against the PowerJob database.
+6.  The injected SQL code is executed, allowing the attacker to bypass intended security restrictions and perform unauthorized database operations.
+7.  The attacker may extract sensitive data, modify existing records, or even gain control over the underlying database server.
+8.  Depending on the attacker's objectives, they may leverage the compromised database to pivot to other systems or disrupt critical job scheduling processes.
+
+## Impact
+
+Successful exploitation of CVE-2026-5736 can lead to a complete compromise of the PowerJob server and its associated database. An attacker could potentially gain access to sensitive data related to job schedules, configurations, and execution history. They could also modify existing jobs, create new malicious jobs, or even disrupt the entire job scheduling system. The exact impact depends on the scope of data stored in the PowerJob database and the attacker's objectives, but could include data theft, service disruption, and potentially lateral movement within the compromised network.
+
+## Recommendation
+
+*   Upgrade PowerJob to a patched version that addresses CVE-2026-5736 as soon as it becomes available from the vendor.
+*   Implement input validation and sanitization on the `customQuery` parameter in the `detailPlus` endpoint to prevent SQL injection attacks.
+*   Deploy the provided Sigma rule `Detect Suspicious PowerJob customQuery Parameter` to detect potential exploitation attempts targeting the vulnerable endpoint.
+*   Monitor web server logs for suspicious requests to the `/detailPlus` endpoint containing potentially malicious SQL injection payloads, as covered in the logsource for the Sigma rule.
