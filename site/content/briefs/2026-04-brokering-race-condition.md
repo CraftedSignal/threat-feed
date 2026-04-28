@@ -3,6 +3,9 @@ title: Microsoft Brokering File System Race Condition Vulnerability (CVE-2026-32
 slug: 2026-04-brokering-race-condition
 description: CVE-2026-32091 is a race condition vulnerability in the Microsoft Brokering File System, allowing an unauthenticated local attacker to escalate privileges.
 date: "2026-04-14T18:17:14Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
