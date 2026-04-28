@@ -1,69 +1,70 @@
 ---
-title: IBM Verify Identity Access and Security Verify Access Command Injection Vulnerability
+title: IBM Verify Identity Access and Security Verify Access Container RCE Vulnerability (CVE-2026-1342)
 slug: 2026-04-ibm-verify-rce
-description: Unauthenticated command execution is possible in IBM Verify Identity Access Container and IBM Security Verify Access Container due to improper validation of user-supplied input, allowing arbitrary command execution with lower privileges.
-date: "2026-04-01T21:16:58Z"
+description: A locally authenticated user can exploit CVE-2026-1342 in IBM Verify Identity Access Container and IBM Security Verify Access Container to execute arbitrary malicious scripts, gaining control outside of the intended security sphere.
+date: "2026-04-08T00:16:03Z"
 severities:
   - high
 tags:
-  - command-injection
+  - cve-2026-1342
   - rce
-  - cve-2026-1345
+  - ibm
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
+    technique_id: T1059.004
+    technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-1345
-    cvss: 7.3
+  - id: CVE-2026-1342
+    cvss: 8.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-1345
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-1342
   - https://www.ibm.com/support/pages/node/7268253
 rules:
-  - title: Detect Suspicious HTTP Request with OS Command Injection Pattern
-    description: Detects HTTP requests containing common OS command injection patterns.
+  - title: Detect Suspicious Process Execution from IBM Verify Access Container
+    description: Detects unusual processes being executed from within the IBM Verify Access container which could indicate exploitation of CVE-2026-1342.
     platform: sigma
     severity: high
     tactics:
       - execution
     techniques:
-      - T1203
+      - T1059.004
     data_sources:
-      - webserver
+      - process_creation
       - linux
-  - title: Detect Suspicious POST Request with OS Command Injection Pattern
-    description: Detects HTTP POST requests containing common OS command injection patterns.
+  - title: Detect Script Execution via IBM Verify Access Configuration Modification
+    description: Detects modifications to configuration files within the IBM Verify Access container followed by script execution, potentially indicating CVE-2026-1342 exploitation.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
-      - execution
+      - persistence
     techniques:
-      - T1203
+      - T1547.001
     data_sources:
-      - webserver
+      - file_event
       - linux
 rules_count: 2
 ---
 
-IBM Verify Identity Access Container versions 11.0 through 11.0.2 and IBM Security Verify Access Container versions 10.0 through 10.0.9.1, as well as IBM Verify Identity Access 11.0 through 11.0.2 and IBM Security Verify Access 10.0 through 10.0.9.1, are vulnerable to command injection. An unauthenticated attacker can exploit this vulnerability (CVE-2026-1345) to execute arbitrary commands with lower user privileges due to insufficient input validation. This poses a significant risk as it could lead to unauthorized access, data breaches, or system compromise if successfully exploited. Defenders need to ensure systems are patched and monitor for suspicious activity.
+CVE-2026-1342 affects IBM Verify Identity Access Container versions 11.0 through 11.0.2, IBM Security Verify Access Container versions 10.0 through 10.0.9.1, IBM Verify Identity Access versions 11.0 through 11.0.2, and IBM Security Verify Access versions 10.0 through 10.0.9.1. A locally authenticated user can exploit this vulnerability to execute malicious scripts from outside the product's intended control sphere. This allows for potential privilege escalation or unauthorized access to sensitive data within the containerized environment. Successful exploitation bypasses intended security boundaries, potentially compromising the entire application and the underlying system. Defenders must patch vulnerable versions to mitigate the risk.
 
 ## Attack Chain
 
-1. An unauthenticated attacker sends a malicious request to the vulnerable IBM Verify or Security Verify Access server.
-2. The request contains crafted input designed to exploit the command injection vulnerability.
-3. The server fails to properly validate the user-supplied input.
-4. The malicious input is passed to an operating system command.
-5. The server executes the attacker-controlled command with the privileges of the compromised user (lower user privileges).
-6. The attacker gains unauthorized access to the system.
-7. The attacker can then potentially escalate privileges, move laterally, or exfiltrate sensitive data.
+1.  A local user authenticates to the vulnerable IBM Verify Identity Access or Security Verify Access Container.
+2.  The attacker leverages CVE-2026-1342, which allows for the inclusion of functionality from an untrusted control sphere (CWE-829).
+3.  The attacker crafts a malicious script designed to be executed within the application's context.
+4.  The malicious script is injected into a location where the application will execute it. This could involve manipulating configuration files or exploiting input validation flaws.
+5.  The vulnerable application executes the injected malicious script.
+6.  The script gains elevated privileges due to the compromised application context.
+7.  The attacker uses the elevated privileges to access sensitive data or execute arbitrary commands on the system.
+8.  The attacker achieves complete control of the application and potentially the underlying host system.
 
 ## Impact
 
-Successful exploitation of this vulnerability (CVE-2026-1345) allows an unauthenticated attacker to execute arbitrary commands on the affected system with lower user privileges. While the attacker does not gain root access directly, this vulnerability can be used as a stepping stone to further compromise the system, potentially leading to data breaches, service disruption, or complete system takeover. The lack of initial authentication makes it easily exploitable.
+Successful exploitation of CVE-2026-1342 allows a locally authenticated user to execute arbitrary code within the context of the IBM Verify Identity Access or Security Verify Access Container. This can lead to complete compromise of the application and potentially the underlying system. Consequences include unauthorized access to sensitive data, privilege escalation, and the ability to perform malicious actions on behalf of the compromised application. This is a high-severity vulnerability with a CVSS v3.1 score of 8.5, indicating a significant risk to organizations using affected IBM products.
 
 ## Recommendation
 
-*   Apply the security patch provided by IBM as detailed in their advisory to remediate CVE-2026-1345 (https://www.ibm.com/support/pages/node/7268253).
-*   Implement input validation and sanitization measures on all user-supplied input to prevent command injection attacks.
-*   Monitor web server logs for suspicious requests and patterns that indicate command injection attempts, creating correlation rules using webserver logs.
+*   Apply the security patch provided by IBM as described in their advisory to remediate CVE-2026-1342 (https://www.ibm.com/support/pages/node/7268253).
+*   Implement strict input validation and sanitization measures to prevent the inclusion of untrusted functionality within IBM Verify Identity Access and Security Verify Access containers.
+*   Monitor application logs for suspicious activity that could indicate exploitation of CVE-2026-1342. Create a detection rule based on unusual process executions originating from within the container.
