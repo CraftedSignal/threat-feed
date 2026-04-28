@@ -3,6 +3,9 @@ title: Tenda F451 Router Buffer Overflow Vulnerability
 slug: 2026-04-tenda-f451-buffer-overflow
 description: A buffer overflow vulnerability (CVE-2026-6631) in Tenda F451 router version 1.0.0.7_cn_svn7958 allows remote attackers to execute arbitrary code by manipulating the 'page' argument in the /goform/webExcptypemanFilter component.
 date: "2026-04-20T11:16:19Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
