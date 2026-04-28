@@ -3,6 +3,9 @@ title: Adobe Connect Reflected XSS Vulnerability (CVE-2026-27245)
 slug: 2024-02-adobe-connect-xss
 description: Adobe Connect versions 2025.3, 12.10, and earlier are vulnerable to a reflected Cross-Site Scripting (XSS) attack, enabling attackers to execute malicious JavaScript in a victim's browser by enticing them to visit a crafted URL.
 date: "2026-04-14T18:16:55Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
