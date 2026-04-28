@@ -34,6 +34,9 @@ references:
   - https://github.com/sagredo-dev/qmail/commit/749f607f6885e3d01b36f2647d7a1db88f1ef741
   - https://github.com/sagredo-dev/qmail/pull/42
   - https://github.com/sagredo-dev/qmail/releases/tag/v2026.04.07
+iocs:
+  - type: email
+    value: '[email protected]'
 ioc_counts:
   email: 1
 rules:
@@ -63,4 +66,26 @@ rules:
 rules_count: 2
 ---
 
-Sagredo qmail, a mail transfer agent (MTA), is vulnerable to a remote code execution (RCE) flaw, identified as CVE-2026-41113.  Specifically, versions prior to 2026.04.07 are affected. The vulnerability lies in the `notlshosts_auto` function within the `qmail-remote.c` file, where the `popen` function is used without proper sanitization, potentially allowing an attacker to inject and execute arbitrary OS commands. This vulnerability could be exploited by a remote attacker without requiring…
+Sagredo qmail, a mail transfer agent (MTA), is vulnerable to a remote code execution (RCE) flaw, identified as CVE-2026-41113.  Specifically, versions prior to 2026.04.07 are affected. The vulnerability lies in the `notlshosts_auto` function within the `qmail-remote.c` file, where the `popen` function is used without proper sanitization, potentially allowing an attacker to inject and execute arbitrary OS commands. This vulnerability could be exploited by a remote attacker without requiring authentication, making it a critical security concern for organizations utilizing the affected qmail versions. Defenders should prioritize patching and consider implementing mitigations to prevent potential exploitation.
+
+## Attack Chain
+
+1.  An attacker sends an email to a target qmail server.
+2.  The qmail server receives the email and processes the recipient address.
+3.  During the delivery process, `qmail-remote.c` is invoked to handle remote delivery.
+4.  The `notlshosts_auto` function is called within `qmail-remote.c` to determine if TLS should be used for the connection.
+5.  The `notlshosts_auto` function executes the `popen` command with a crafted input string from the email, attempting to resolve hostnames.
+6.  The attacker injects malicious commands into the hostname string, which are then executed by `popen` on the server.
+7.  The attacker gains arbitrary code execution on the qmail server.
+8.  The attacker can then pivot to other systems within the network or exfiltrate sensitive data.
+
+## Impact
+
+Successful exploitation of CVE-2026-41113 allows a remote attacker to execute arbitrary code on the vulnerable qmail server. This could lead to complete system compromise, data breaches, or denial-of-service conditions. Organizations using vulnerable versions of qmail are at risk of losing control of their email infrastructure and potentially exposing sensitive information. While the number of actively exploited instances is currently unknown, the high CVSS score (8.1) underscores the severity and potential for widespread impact.
+
+## Recommendation
+
+*   Upgrade to Sagredo qmail version 2026.04.07 or later to patch CVE-2026-41113 (reference: <https://github.com/sagredo-dev/qmail/releases/tag/v2026.04.07>).
+*   Implement network segmentation to limit the impact of a successful compromise on the qmail server.
+*   Monitor qmail server logs for suspicious activity, such as unusual process execution or network connections (enable process_creation and network_connection logging).
+*   Deploy the Sigma rule "Detect Suspicious Qmail Remote Execution via popen" to identify potential exploitation attempts.
