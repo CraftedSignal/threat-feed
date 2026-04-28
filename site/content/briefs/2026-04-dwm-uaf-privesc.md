@@ -3,6 +3,9 @@ title: 'CVE-2026-32155: Desktop Window Manager Use-After-Free Privilege Escalati
 slug: 2026-04-dwm-uaf-privesc
 description: CVE-2026-32155 is a use-after-free vulnerability in the Desktop Window Manager that allows an authorized attacker to escalate privileges locally on a Windows system.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
