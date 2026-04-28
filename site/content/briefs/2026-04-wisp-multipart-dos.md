@@ -58,4 +58,25 @@ rules:
 rules_count: 3
 ---
 
-An unauthenticated denial-of-service vulnerability exists in gleam-wisp versions prior to 2.2.2 due to a flaw in the multipart form parsing logic. Specifically, the issue arises from the handling of multipart data within the `multipart_body` and `multipart_headers` functions. The vulnerability stems from the parser's failure to properly decrement the quota when handling chunks that do not contain the multipart boundary, effectively allowing attackers to send arbitrarily large multipart bodies…
+An unauthenticated denial-of-service vulnerability exists in gleam-wisp versions prior to 2.2.2 due to a flaw in the multipart form parsing logic. Specifically, the issue arises from the handling of multipart data within the `multipart_body` and `multipart_headers` functions. The vulnerability stems from the parser's failure to properly decrement the quota when handling chunks that do not contain the multipart boundary, effectively allowing attackers to send arbitrarily large multipart bodies without triggering configured size limits. This results in uncontrolled resource consumption, potentially leading to memory or disk exhaustion. Any application leveraging `require_form` or `require_multipart_form` on user-controlled input is susceptible to this vulnerability.
+
+## Attack Chain
+
+1. An unauthenticated attacker sends an HTTP request to a wisp-based application that uses `require_form` or `require_multipart_form`.
+2. The request contains a multipart body crafted to exploit the parsing vulnerability.
+3. The multipart body is split into multiple chunks, none of which (except the last) contain the multipart boundary.
+4. The `multipart_body` or `multipart_headers` functions in wisp process the initial chunks.
+5. The parser recurses due to the `MoreRequiredForBody` or `MoreRequiredForHeaders` branch being triggered, but it does not decrement the quota.
+6. The server accumulates the data from these chunks in memory (for form fields) or on disk (for file uploads).
+7. The final chunk, containing the boundary, is processed, and only its size is accounted for in the quota.
+8. The accumulated data exceeds available memory or disk space, causing a denial of service, application crash, or system termination.
+
+## Impact
+
+This vulnerability can lead to a denial-of-service condition. Successful exploitation allows an unauthenticated attacker to exhaust server resources, rendering the application unavailable. The impact includes potential memory exhaustion or disk exhaustion, leading to application crashes or termination by the operating system. The number of potential victims depends on the adoption of the vulnerable gleam-wisp library.
+
+## Recommendation
+
+*   Apply the fix by upgrading to wisp version 2.2.2 or later to remediate CVE-2026-32145.
+*   Deploy a reverse proxy (such as nginx or HAProxy) in front of the application and enforce request body size limits as a workaround to mitigate the vulnerability.
+*   Implement monitoring for excessive memory or disk usage by wisp-based applications to detect potential exploitation attempts.
