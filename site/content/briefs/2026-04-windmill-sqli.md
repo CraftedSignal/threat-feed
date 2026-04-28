@@ -57,4 +57,25 @@ rules:
 rules_count: 2
 ---
 
-Windmill CE and EE, versions 1.276.0 through 1.603.2, are susceptible to an SQL injection vulnerability (CVE-2026-23696) affecting the folder ownership management functionality. An authenticated attacker can exploit this flaw by injecting SQL code via the `owner` parameter. Successful exploitation allows the attacker to read sensitive information, including the JWT signing secret and administrative user identifiers. This access enables them to forge administrative tokens, ultimately leading to…
+Windmill CE and EE, versions 1.276.0 through 1.603.2, are susceptible to an SQL injection vulnerability (CVE-2026-23696) affecting the folder ownership management functionality. An authenticated attacker can exploit this flaw by injecting SQL code via the `owner` parameter. Successful exploitation allows the attacker to read sensitive information, including the JWT signing secret and administrative user identifiers. This access enables them to forge administrative tokens, ultimately leading to arbitrary code execution through the workflow execution endpoints. This vulnerability poses a significant risk to organizations using affected versions of Windmill, potentially leading to data breaches and system compromise.
+
+## Attack Chain
+
+1.  An attacker authenticates to the Windmill CE/EE instance.
+2.  The attacker navigates to the folder ownership management section.
+3.  The attacker crafts a malicious HTTP request to modify folder ownership, injecting SQL code into the `owner` parameter.
+4.  The application fails to properly sanitize the input, passing the malicious SQL query to the database.
+5.  The SQL injection allows the attacker to extract sensitive information from the database, such as the JWT signing secret and administrative user credentials.
+6.  The attacker uses the extracted JWT signing secret to forge an administrative token.
+7.  The attacker leverages the forged administrative token to authenticate to the workflow execution endpoint.
+8.  The attacker executes arbitrary code on the server via the workflow execution endpoint, achieving remote code execution.
+
+## Impact
+
+Successful exploitation of CVE-2026-23696 can lead to complete compromise of the Windmill CE/EE instance. An attacker can gain unauthorized access to sensitive data, including credentials and internal application secrets. They can also execute arbitrary code on the server, potentially leading to data breaches, system downtime, and further lateral movement within the network. This vulnerability affects all organizations using Windmill CE/EE versions 1.276.0 through 1.603.2, and can result in significant financial and reputational damage.
+
+## Recommendation
+
+*   Upgrade Windmill CE/EE to version 1.603.3 or later to patch CVE-2026-23696 as per the vendor's release notes ([https://github.com/windmill-labs/windmill/releases/tag/v1.603.3](https://github.com/windmill-labs/windmill/releases/tag/v1.603.3)).
+*   Deploy the Sigma rule `Detect Suspicious Windmill Folder Ownership Modification` to identify potential SQL injection attempts within HTTP requests to the folder ownership management endpoint.
+*   Monitor web server logs for suspicious activity, such as SQL errors or unusual characters in the `owner` parameter of requests targeting the folder ownership management endpoint (webserver log source).
