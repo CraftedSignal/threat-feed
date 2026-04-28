@@ -52,4 +52,26 @@ rules:
 rules_count: 2
 ---
 
-Hermes WebUI, a web-based user interface, contains an arbitrary file deletion vulnerability, tracked as CVE-2026-6832. The vulnerability resides in the `/api/session/delete` endpoint. An authenticated attacker can exploit this flaw by supplying a crafted `session_id` parameter containing an absolute path or path traversal sequences. This allows the attacker to bypass the intended `SESSION_DIR` boundary and delete arbitrary files on the server, provided the attacker has write access to those…
+Hermes WebUI, a web-based user interface, contains an arbitrary file deletion vulnerability, tracked as CVE-2026-6832. The vulnerability resides in the `/api/session/delete` endpoint. An authenticated attacker can exploit this flaw by supplying a crafted `session_id` parameter containing an absolute path or path traversal sequences. This allows the attacker to bypass the intended `SESSION_DIR` boundary and delete arbitrary files on the server, provided the attacker has write access to those files. Versions prior to the patched version are affected. Successful exploitation leads to information integrity issues and potential denial of service.
+
+## Attack Chain
+
+1.  Attacker authenticates to Hermes WebUI using valid credentials.
+2.  Attacker crafts a malicious HTTP POST request to the `/api/session/delete` endpoint.
+3.  The request includes a `session_id` parameter with a path traversal payload (e.g., `../../../../etc/passwd`) or an absolute path to a target file.
+4.  The Hermes WebUI application fails to properly validate the `session_id` parameter.
+5.  The application constructs a file path using the unvalidated `session_id`, allowing it to escape the intended `SESSION_DIR`.
+6.  The application attempts to delete the file specified by the attacker-controlled path.
+7.  If the attacker has sufficient privileges, the target file is successfully deleted from the file system.
+8.  The deletion of critical system or application files leads to a denial-of-service condition or other system instability.
+
+## Impact
+
+Successful exploitation of CVE-2026-6832 allows authenticated attackers to delete arbitrary files on the system running Hermes WebUI. This can lead to data loss, application malfunction, or even complete system compromise if critical system files are deleted. The vulnerability affects all deployments of Hermes WebUI prior to the patched version, potentially impacting numerous organizations using the vulnerable software. While the exact number of victims is unknown, the severity of the vulnerability is high due to the potential for significant damage and disruption.
+
+## Recommendation
+
+*   Upgrade Hermes WebUI to version v0.50.132 or later, where the vulnerability is patched, as referenced in the advisory.
+*   Implement strict input validation on the `session_id` parameter in the `/api/session/delete` endpoint to prevent path traversal attacks.
+*   Deploy the provided Sigma rule to detect malicious requests to the `/api/session/delete` endpoint containing path traversal sequences.
+*   Monitor web server logs for HTTP requests to `/api/session/delete` with suspicious `session_id` values.
