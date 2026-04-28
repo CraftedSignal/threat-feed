@@ -3,6 +3,9 @@ title: disler aider-mcp-server Command Injection Vulnerability (CVE-2026-7157)
 slug: 2024-01-aider-mcp-command-injection
 description: A command injection vulnerability (CVE-2026-7157) exists in disler aider-mcp-server, allowing remote attackers to execute arbitrary commands by manipulating the relative_editable_files argument in the aider_ai_code component's server.py.
 date: "2024-01-02T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
