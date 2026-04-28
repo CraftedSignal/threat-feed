@@ -47,4 +47,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-39467 is a critical vulnerability affecting the MetaSlider Responsive Slider plugin for WordPress. Specifically, it is a Deserialization of Untrusted Data vulnerability that can lead to Object Injection. The vulnerability exists in versions up to and including 3.106.0. An attacker can exploit this vulnerability to inject arbitrary PHP objects into the application, potentially leading to remote code execution. This is possible because the plugin deserializes data without proper…
+CVE-2026-39467 is a critical vulnerability affecting the MetaSlider Responsive Slider plugin for WordPress. Specifically, it is a Deserialization of Untrusted Data vulnerability that can lead to Object Injection. The vulnerability exists in versions up to and including 3.106.0. An attacker can exploit this vulnerability to inject arbitrary PHP objects into the application, potentially leading to remote code execution. This is possible because the plugin deserializes data without proper validation, allowing malicious actors to manipulate serialized data and inject harmful objects. The vulnerability was reported by Patchstack. Given the widespread use of WordPress and the MetaSlider plugin, this vulnerability poses a significant risk to a large number of websites.
+
+## Attack Chain
+
+1.  Attacker sends a crafted HTTP request to a WordPress endpoint that processes MetaSlider plugin data.
+2.  The request contains a serialized PHP object designed for malicious purposes.
+3.  The MetaSlider plugin deserializes the untrusted data without proper sanitization or validation using `unserialize()`.
+4.  The deserialization process instantiates the malicious PHP object.
+5.  The injected object executes its malicious payload, potentially writing files to the server.
+6.  The attacker leverages the file write capability to plant a PHP webshell in the WordPress uploads directory.
+7.  The attacker accesses the webshell via a direct HTTP request.
+8.  The attacker executes arbitrary commands on the server via the webshell, gaining full control.
+
+## Impact
+
+Successful exploitation of CVE-2026-39467 allows an unauthenticated attacker to inject arbitrary PHP objects, leading to remote code execution on the target WordPress server. This could result in complete compromise of the website, including data theft, defacement, or further attacks on internal networks. Given the popularity of MetaSlider, potentially thousands of websites are vulnerable.
+
+## Recommendation
+
+*   Upgrade the MetaSlider Responsive Slider plugin to the latest version to patch CVE-2026-39467.
+*   Implement the Sigma rule `Detect MetaSlider Object Injection Attempt` to detect exploitation attempts in web server logs.
+*   Monitor web server logs for suspicious POST requests containing serialized PHP objects to WordPress endpoints.
