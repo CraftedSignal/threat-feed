@@ -3,6 +3,9 @@ title: GIMP Multiple Vulnerabilities Allow Code Execution
 slug: 2026-04-gimp-code-execution
 description: A remote, anonymous attacker can exploit multiple vulnerabilities in GIMP to execute arbitrary program code, potentially leading to system compromise.
 date: "2026-04-21T08:09:06Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
