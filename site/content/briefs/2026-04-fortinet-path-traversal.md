@@ -3,6 +3,9 @@ title: Fortinet FortiSandbox Path Traversal Vulnerability (CVE-2026-39813)
 slug: 2026-04-fortinet-path-traversal
 description: A path traversal vulnerability (CVE-2026-39813) in Fortinet FortiSandbox versions 5.0.0 through 5.0.5 and 4.4.0 through 4.4.8 may allow an unauthenticated attacker to escalate privileges via '../filedir'.
 date: "2026-04-14T16:16:45Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
