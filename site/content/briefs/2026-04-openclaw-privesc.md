@@ -1,14 +1,13 @@
 ---
-title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-41386)
+title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-41378)
 slug: 2026-04-openclaw-privesc
-description: OpenClaw before 2026.3.22 contains a privilege escalation vulnerability exploitable during first-use device pairing due to unbound bootstrap setup codes.
-date: "2026-04-29T12:00:00Z"
+description: OpenClaw before 2026.3.31 contains a privilege escalation vulnerability allowing paired nodes with role=node to dispatch node.event agent requests with unrestricted gateway-side tool access, leading to remote code execution.
+date: "2026-04-28T19:37:40Z"
 severities:
   - critical
 tags:
   - privilege-escalation
-  - cve-2026-41386
-  - openclaw
+  - remote-code-execution
 products:
   - OpenClaw
 mitre_ttps:
@@ -16,60 +15,68 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-41386
-    cvss: 9.1
+  - id: CVE-2026-41378
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-41386
-  - https://github.com/openclaw/openclaw/commit/a600c72ed7d0045a27f58bf031d2b36ecb0141c9
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-gg9v-mgcp-v6m7
-  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-unbound-bootstrap-setup-codes
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41378
 rules:
-  - title: Detect Suspicious OpenClaw Pairing Activity
-    description: Detects unusual network activity during OpenClaw device pairing that may indicate exploitation of CVE-2026-41386.
+  - title: Detect Suspicious OpenClaw Agent Requests
+    description: Detects suspicious OpenClaw agent requests that could indicate privilege escalation attempts exploiting CVE-2026-41378.
     platform: sigma
     severity: high
     tactics:
+      - execution
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
-      - network_connection
-      - windows
-  - title: Detect Modified OpenClaw Configuration Files
-    description: Detects changes to OpenClaw configuration files that may indicate privilege escalation.
+      - webserver
+      - linux
+  - title: Detect OpenClaw Gateway Remote Code Execution via Agent Request
+    description: Detects potential remote code execution attempts on the OpenClaw gateway by monitoring for specific commands within agent requests.
     platform: sigma
-    severity: medium
+    severity: critical
     tactics:
+      - execution
       - privilege_escalation
     techniques:
-      - T1574.001
+      - T1059.004
+      - T1059.005
+      - T1068
     data_sources:
-      - file_event
-      - windows
+      - webserver
+      - linux
 rules_count: 2
 ---
 
-OpenClaw versions prior to 2026.3.22 are susceptible to a critical privilege escalation vulnerability, identified as CVE-2026-41386. This flaw arises from the improper binding of bootstrap setup codes to intended device roles and scopes during the initial pairing process. An attacker with the ability to intercept or manipulate the first-use device pairing can exploit this vulnerability to elevate their privileges beyond their authorized level. Successful exploitation could lead to unauthorized access to sensitive data, modification of system configurations, and potentially full system compromise. The vulnerability was reported on April 28, 2026 and affects systems where OpenClaw is utilized for device management and access control.
+OpenClaw before version 2026.3.31 is vulnerable to a privilege escalation flaw. The vulnerability allows paired nodes configured with the role "node" to dispatch `node.event agent` requests, bypassing intended restrictions on gateway-side tool access. An attacker who has already compromised a trusted paired node with valid credentials can exploit this vulnerability to elevate their privileges. By abusing the unrestricted `agent.request` dispatch, they can achieve arbitrary remote code execution on the gateway. This vulnerability poses a significant threat as it grants unauthorized access and control over the OpenClaw gateway.
 
 ## Attack Chain
 
-1.  Attacker gains network access to the target environment where OpenClaw is deployed.
-2.  Attacker identifies a new OpenClaw device undergoing its initial pairing process.
-3.  Attacker intercepts the bootstrap setup code transmitted during the pairing process.
-4.  Attacker manipulates the bootstrap setup code to remove or alter restrictions related to device roles and scopes.
-5.  The modified bootstrap setup code is injected back into the pairing process.
-6.  The OpenClaw device is paired using the tampered bootstrap code.
-7.  The attacker gains elevated privileges on the OpenClaw device, exceeding the intended authorization level.
-8.  Attacker leverages escalated privileges to access sensitive data, modify configurations, or execute unauthorized commands.
+1. An attacker gains initial access to a paired node with the `role=node` configuration.
+2. The attacker authenticates to the OpenClaw gateway using the compromised node's credentials.
+3. The attacker crafts a malicious `node.event agent` request.
+4. The crafted request is dispatched to the OpenClaw gateway.
+5. The gateway improperly processes the request, failing to enforce proper access controls.
+6. The unrestricted `agent.request` dispatch allows the attacker to execute arbitrary commands.
+7. The attacker executes a payload of their choice, such as deploying a reverse shell.
+8. The attacker achieves remote code execution on the OpenClaw gateway, gaining complete control.
 
 ## Impact
 
-Successful exploitation of CVE-2026-41386 allows an attacker to escalate privileges within the OpenClaw environment. This could lead to unauthorized access to sensitive data, modification of system configurations, and potentially full system compromise of affected devices. The vulnerability poses a significant risk to organizations relying on OpenClaw for secure device management and access control. While the precise number of affected organizations is unknown, the severity of the potential impact necessitates immediate patching.
+Successful exploitation of this vulnerability allows an attacker to gain complete control of the OpenClaw gateway. This can lead to data breaches, system compromise, and disruption of services. Given the CVSS v3.1 base score of 8.8, this vulnerability is considered critical. The number of affected installations is unknown, but organizations using OpenClaw versions prior to 2026.3.31 are at risk.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.3.22 or later to remediate CVE-2026-41386.
-*   Monitor network traffic for suspicious activity related to OpenClaw device pairing, and deploy the "Detect Suspicious OpenClaw Pairing Activity" Sigma rule.
-*   Implement network segmentation to limit the scope of potential privilege escalation.
-*   Review and enforce strict access control policies for OpenClaw devices to minimize the impact of successful exploitation.
+*   Upgrade OpenClaw to version 2026.3.31 or later to patch CVE-2026-41378.
+*   Implement the Sigma rule `Detect Suspicious OpenClaw Agent Requests` to identify potentially malicious `node.event agent` requests targeting the OpenClaw gateway.
+*   Monitor network traffic for unusual activity originating from OpenClaw nodes that could indicate exploitation attempts.
