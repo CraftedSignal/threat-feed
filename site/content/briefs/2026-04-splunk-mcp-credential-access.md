@@ -47,4 +47,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-20205 affects Splunk MCP Server app versions prior to 1.0.3. The vulnerability allows a low-privileged user with access to the `_internal` index or the `mcp_tool_admin` capability to view sensitive information in cleartext. This information includes user session and authorization tokens. Successful exploitation of this vulnerability requires either local access to the log files where the tokens are stored or administrative access to Splunk's internal indexes. The default configuration…
+CVE-2026-20205 affects Splunk MCP Server app versions prior to 1.0.3. The vulnerability allows a low-privileged user with access to the `_internal` index or the `mcp_tool_admin` capability to view sensitive information in cleartext. This information includes user session and authorization tokens. Successful exploitation of this vulnerability requires either local access to the log files where the tokens are stored or administrative access to Splunk's internal indexes. The default configuration limits access to the `_internal` index to the administrator role; however, if roles are misconfigured, less privileged users could gain unauthorized access. This vulnerability could lead to account compromise and lateral movement within the affected Splunk environment.
+
+## Attack Chain
+
+1.  Attacker gains access to a Splunk account with permissions to the `_internal` index or possesses the `mcp_tool_admin` capability.
+2.  The attacker accesses the `_internal` index through the Splunk web interface or directly via file system access (if local access is available).
+3.  The attacker searches the `_internal` index for logs related to MCP Server activity.
+4.  The attacker identifies log entries containing user session tokens and authorization tokens.
+5.  The attacker extracts the cleartext tokens from the log entries.
+6.  The attacker uses the stolen session tokens to impersonate legitimate users.
+7.  The attacker leverages the impersonated user's privileges to access sensitive data or perform unauthorized actions.
+
+## Impact
+
+Successful exploitation of CVE-2026-20205 allows an attacker to obtain user session and authorization tokens in cleartext. This compromises the confidentiality and integrity of the Splunk environment. An attacker could impersonate legitimate users, escalate privileges, and gain unauthorized access to sensitive data. The number of potential victims depends on the number of Splunk users and the extent of the misconfiguration. Sectors that heavily rely on Splunk for security monitoring, such as finance, healthcare, and government, are particularly at risk.
+
+## Recommendation
+
+*   Upgrade Splunk MCP Server app to version 1.0.3 or later to remediate CVE-2026-20205.
+*   Review and restrict access to the `_internal` index to administrator-level roles only, following Splunk's documentation on [defining roles](https://docs.splunk.com/Documentation/Splunk/latest/Security/Rolesandcapabilities).
+*   Monitor Splunk audit logs for unusual access patterns to the `_internal` index using the Sigma rule `Splunk Unusual Internal Index Access`.
+*   Review and restrict the `mcp_tool_admin` capability to only authorized personnel.
