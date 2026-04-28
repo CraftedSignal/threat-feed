@@ -49,4 +49,26 @@ rules:
 rules_count: 2
 ---
 
-PraisonAI's `SubprocessSandbox`, even in STRICT mode, is vulnerable to a sandbox escape. The vulnerability arises from the use of `subprocess.run()` with `shell=True` in `sandbox_executor.py`, coupled with an insufficient blocklist that fails to include `sh` and `bash` as standalone executables. This oversight allows attackers to bypass the intended command restrictions by executing arbitrary commands through `sh -c '<command>'`.  Versions of PraisonAI up to 4.5.96 are affected. This means that…
+PraisonAI's `SubprocessSandbox`, even in STRICT mode, is vulnerable to a sandbox escape. The vulnerability arises from the use of `subprocess.run()` with `shell=True` in `sandbox_executor.py`, coupled with an insufficient blocklist that fails to include `sh` and `bash` as standalone executables. This oversight allows attackers to bypass the intended command restrictions by executing arbitrary commands through `sh -c '<command>'`.  Versions of PraisonAI up to 4.5.96 are affected. This means that any command blocked by the configured policy can be trivially executed, which could allow agent prompt injection attacks to lead to full system compromise.
+
+## Attack Chain
+
+1. An attacker crafts a malicious command to be executed within the PraisonAI environment.
+2. The PraisonAI application receives the crafted command and attempts to execute it within the `SubprocessSandbox`.
+3. The `SubprocessSandbox` uses `subprocess.run()` with `shell=True` to execute the provided command.
+4. The blocklist in `sandbox_executor.py` fails to block the `sh` or `bash` commands themselves.
+5. The attacker injects shell commands via `sh -c '<blocked_command>'`, bypassing the string-pattern matching intended to restrict execution.
+6. The `sh` process executes the attacker's command within the sandbox's context, bypassing the intended security restrictions.
+7. The attacker gains unauthorized access to resources such as network connections, the filesystem, or cloud metadata services.
+8. The attacker escalates privileges and potentially compromises the entire system.
+
+## Impact
+
+Successful exploitation of this vulnerability allows attackers to bypass the intended security restrictions imposed by the PraisonAI `SubprocessSandbox`, even in its strictest configuration. This could lead to privilege escalation, unauthorized access to sensitive data, and the potential compromise of the entire system. Specifically, an attacker could leverage this escape to access network resources, manipulate the filesystem, or extract sensitive information from cloud metadata services. The lack of effective sandboxing could have severe consequences for environments relying on PraisonAI for secure execution of untrusted code.
+
+## Recommendation
+
+*   Apply the suggested fix of using `shlex.split()` and `shell=False` when calling `subprocess.run()` to prevent shell command injection (reference: suggested fix code block).
+*   Upgrade PraisonAI to a version beyond 4.5.96 to incorporate the patch for CVE-2026-34955 (reference: CVE-2026-34955).
+*   Deploy the provided Sigma rule to detect the execution of `sh` or `bash` with the `-c` option, which is indicative of attempts to bypass command restrictions (reference: Sigma rule "Detect sh/bash Command Execution with -c Option").
+*   Implement a more comprehensive blocklist that includes `sh` and `bash` as standalone executables in addition to dangerous patterns (reference: `sandbox_executor.py:179`).
