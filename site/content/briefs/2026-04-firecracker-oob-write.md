@@ -62,4 +62,25 @@ rules:
 rules_count: 3
 ---
 
-CVE-2026-5747 is an out-of-bounds write vulnerability affecting the virtio PCI transport implementation in Amazon Firecracker versions 1.13.0 through 1.14.3 and 1.15.0, specifically on x86_64 and aarch64 architectures. This vulnerability could be exploited by a malicious local guest user who has gained root privileges within the guest operating system. Successful exploitation could lead to a denial-of-service condition by crashing the Firecracker Virtual Machine Monitor (VMM) process. In…
+CVE-2026-5747 is an out-of-bounds write vulnerability affecting the virtio PCI transport implementation in Amazon Firecracker versions 1.13.0 through 1.14.3 and 1.15.0, specifically on x86_64 and aarch64 architectures. This vulnerability could be exploited by a malicious local guest user who has gained root privileges within the guest operating system. Successful exploitation could lead to a denial-of-service condition by crashing the Firecracker Virtual Machine Monitor (VMM) process. In scenarios where specific preconditions are met, such as the usage of a custom guest kernel or particular snapshot configurations, this vulnerability can also potentially lead to arbitrary code execution on the host system. Defenders should upgrade to Firecracker versions 1.14.4 or 1.15.1 or later to remediate the issue.
+
+## Attack Chain
+
+1.  Attacker gains root privileges within a Firecracker guest OS.
+2.  Attacker identifies the Firecracker VMM version running on the host, confirming it is within the vulnerable range (1.13.0 - 1.14.3 or 1.15.0).
+3.  The attacker modifies virtio queue configuration registers after device activation. This is the trigger point for the vulnerability, exploiting the out-of-bounds write.
+4.  The crafted write operation corrupts memory within the Firecracker VMM process.
+5.  If the memory corruption is limited, this may cause a denial-of-service by crashing the VMM process.
+6.  If specific preconditions are met (custom guest kernel, specific snapshot configurations), the memory corruption allows for arbitrary code execution.
+7.  The attacker executes malicious code within the context of the Firecracker VMM process on the host.
+8.  The attacker achieves persistence or performs further malicious actions on the host system.
+
+## Impact
+
+Successful exploitation of CVE-2026-5747 can lead to a denial-of-service condition, disrupting the services hosted on affected Firecracker instances. In certain circumstances, this vulnerability can escalate to arbitrary code execution on the host, potentially compromising the entire system and any other virtual machines hosted on it. This can lead to data breaches, system instability, and complete loss of control over the compromised host. The severity is dependent on the environment configuration and the attacker's capabilities, ranging from service disruption to full host compromise.
+
+## Recommendation
+
+*   Upgrade all Firecracker installations to versions 1.14.4 or 1.15.1 or later to patch CVE-2026-5747, as recommended by the vendor.
+*   Monitor Firecracker guest OS instances for unauthorized attempts to modify virtio queue configuration registers to detect potential exploitation attempts related to CVE-2026-5747.
+*   Implement strict access control policies within the guest operating systems to minimize the risk of attackers gaining root privileges, thus reducing the attack surface for CVE-2026-5747.
