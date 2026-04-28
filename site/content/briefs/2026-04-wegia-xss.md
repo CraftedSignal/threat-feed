@@ -3,6 +3,9 @@ title: WeGIA Stored Cross-Site Scripting Vulnerability (CVE-2026-40286)
 slug: 2026-04-wegia-xss
 description: A stored Cross-Site Scripting (XSS) vulnerability exists in WeGIA versions prior to 3.6.10, allowing attackers to inject malicious scripts into the 'Member Name' field during member registration, leading to persistent execution upon user access.
 date: "2026-04-17T21:16:34Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
