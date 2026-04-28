@@ -3,6 +3,9 @@ title: AiAssistant Type Privilege Bypass Vulnerability (CVE-2026-31368)
 slug: 2026-04-ai-assistant-privilege-bypass
 description: CVE-2026-31368 is a type privilege bypass vulnerability in AiAssistant, potentially leading to service availability issues and complete compromise of the system.
 date: "2026-04-21T07:16:39Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
