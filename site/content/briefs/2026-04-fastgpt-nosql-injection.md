@@ -3,6 +3,9 @@ title: FastGPT NoSQL Injection Vulnerability (CVE-2026-40351)
 slug: 2026-04-fastgpt-nosql-injection
 description: FastGPT versions before 4.14.9.5 are vulnerable to NoSQL injection, allowing unauthenticated attackers to bypass authentication and gain administrative access.
 date: "2026-04-18T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
