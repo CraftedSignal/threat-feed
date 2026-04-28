@@ -55,4 +55,26 @@ rules:
 rules_count: 2
 ---
 
-Msiexec.exe is the command-line utility for the Windows Installer, commonly used to execute installation packages (.msi). Attackers are known to abuse msiexec.exe to proxy the execution of arbitrary DLLs, a technique that helps bypass application control and evade detection. This approach leverages the trusted nature of msiexec.exe to execute malicious code, making it harder for security tools to identify and block the activity. The abuse of msiexec.exe has been observed in various attack…
+Msiexec.exe is the command-line utility for the Windows Installer, commonly used to execute installation packages (.msi). Attackers are known to abuse msiexec.exe to proxy the execution of arbitrary DLLs, a technique that helps bypass application control and evade detection. This approach leverages the trusted nature of msiexec.exe to execute malicious code, making it harder for security tools to identify and block the activity. The abuse of msiexec.exe has been observed in various attack campaigns, highlighting the need for defenders to monitor its usage closely.
+
+## Attack Chain
+
+1. An attacker gains initial access to the target system, often through phishing or exploitation of a vulnerability.
+2. The attacker uploads a malicious DLL to the compromised system.
+3. The attacker uses msiexec.exe with the `/Y` flag to execute the malicious DLL. This flag is used to trigger DLL execution via msiexec.
+4. Msiexec.exe loads and executes the malicious DLL.
+5. The malicious DLL performs its intended actions, such as establishing persistence, escalating privileges, or deploying additional malware.
+6. The attacker may use the proxy execution through msiexec.exe to evade detection by security tools monitoring process execution.
+7. The attacker pivots to other systems or begins data exfiltration.
+8. The ultimate objective is often data theft, system compromise, or ransomware deployment.
+
+## Impact
+
+Successful exploitation allows attackers to execute arbitrary code on the targeted system, potentially leading to a full system compromise. This can result in data breaches, financial loss, and reputational damage. The technique is particularly effective at bypassing application control solutions, increasing the likelihood of a successful attack. While specific victim counts are unavailable, the widespread use of Windows Installer makes this a relevant threat across various sectors.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Suspicious Msiexec Execute Arbitrary DLL` to your SIEM to detect the execution of msiexec.exe with the `/Y` flag, indicative of potential malicious DLL execution.
+*   Investigate any instances of msiexec.exe executing DLLs from unusual or temporary locations.
+*   Implement application control policies to restrict the execution of msiexec.exe to authorized users and legitimate installation processes.
+*   Monitor process creation events for msiexec.exe to identify suspicious command-line arguments and parent processes.
