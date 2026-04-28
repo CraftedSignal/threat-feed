@@ -1,29 +1,22 @@
 ---
-title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-35663)
+title: OpenClaw Node Pairing Reconnect Command Escalation
 slug: 2026-04-openclaw-privesc
-description: OpenClaw before 2026.3.25 contains a privilege escalation vulnerability (CVE-2026-35663) that allows non-admin operators to gain unauthorized administrative privileges by self-requesting broader scopes during backend reconnect and bypassing pairing requirements.
-date: "2026-04-10T17:17:08Z"
+description: A vulnerability in OpenClaw allows a previously paired node to reconnect with a broader command set, including exec-capable commands, without requiring the operator/admin re-pairing path, leading to potential privilege escalation.
+date: "2026-04-09T17:35:53Z"
 severities:
   - high
 tags:
   - privilege-escalation
-  - cve-2026-35663
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-cves:
-  - id: CVE-2026-35663
-    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-35663
-  - https://github.com/openclaw/openclaw/commit/d3d8e316bd819d3c7e34253aeb7eccb2510f5f48
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-9hjh-fr4f-gxc4
-  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-backend-reconnect-scope-self-claim
+  - https://github.com/advisories/GHSA-5wj5-87vq-39xm
 rules:
-  - title: Detect OpenClaw Privilege Escalation
-    description: Detects attempts to escalate privileges in OpenClaw by requesting the operator.admin scope during backend reconnect.
+  - title: Detect OpenClaw Reconnect Privilege Escalation
+    description: Detects when a previously paired node reconnects with escalated privileges, specifically when exec-capable commands are used after reconnection.
     platform: sigma
     severity: high
     tactics:
@@ -31,10 +24,10 @@ rules:
     techniques:
       - T1068
     data_sources:
-      - webserver
-      - linux
-  - title: Detect OpenClaw Backend Reconnect Scope Modification
-    description: Detects modifications to the scope parameter during an OpenClaw backend reconnect, potentially indicating privilege escalation attempts.
+      - application
+      - openclaw
+  - title: Detect Attempted OpenClaw Command Execution with Elevated Privileges
+    description: Detects when a node attempts to execute commands requiring elevated privileges after reconnecting to OpenClaw. This could be an indicator of the privilege escalation vulnerability.
     platform: sigma
     severity: medium
     tactics:
@@ -42,30 +35,29 @@ rules:
     techniques:
       - T1068
     data_sources:
-      - webserver
-      - linux
+      - application
+      - openclaw
 rules_count: 2
 ---
 
-OpenClaw, a yet-to-be-identified application, is vulnerable to a privilege escalation flaw (CVE-2026-35663) in versions prior to 2026.3.25. The vulnerability allows a non-administrative operator to escalate their privileges to that of an administrator. This is achieved by manipulating the backend reconnect process to self-request broader scopes, specifically the `operator.admin` scope. The attacker bypasses the standard pairing requirements, allowing them to authenticate as an administrator without proper authorization. This vulnerability was reported on April 10, 2026, and poses a significant risk to OpenClaw deployments where proper access controls are critical. Successful exploitation grants unauthorized administrative access, potentially leading to full system compromise.
+OpenClaw, a user-controlled local assistant, is vulnerable to a privilege escalation issue. Specifically, a previously paired node can reconnect to the OpenClaw system and execute a broader set of commands than initially authorized. This includes commands capable of arbitrary code execution, potentially bypassing the intended operator/admin re-pairing security mechanism. This vulnerability affects OpenClaw versions 2026.4.5 and earlier. The vulnerability was reported by @zsxsoft and @KeenSecurityLab and patched in version 2026.4.8. This bypass occurs because the system doesn't properly validate the scope of commands allowed upon reconnection, allowing an attacker to leverage an old pairing to gain elevated privileges.
 
 ## Attack Chain
 
-1.  A non-admin operator initiates a legitimate connection to the OpenClaw backend.
-2.  The operator disconnects from the backend, triggering a reconnect sequence.
-3.  During the reconnection attempt, the operator modifies the scope request to include `operator.admin`, a privileged scope.
-4.  The application fails to properly validate the requested scope against the user's existing privileges.
-5.  The backend grants the requested `operator.admin` scope due to insufficient authorization checks.
-6.  The operator reconnects to the backend with the elevated administrative privileges.
-7.  The attacker leverages the administrative privileges to perform unauthorized actions, such as modifying system configurations, accessing sensitive data, or creating new user accounts.
+1. A node is initially paired with OpenClaw with a limited set of command permissions.
+2. The node disconnects from the OpenClaw system.
+3. The OpenClaw system does not properly invalidate or restrict the node's permissions upon disconnection.
+4. The node reconnects to OpenClaw.
+5. OpenClaw incorrectly authorizes the node with the broader, exec-capable command set.
+6. The node executes commands with escalated privileges.
+7. The attacker gains unauthorized access to sensitive data or system resources.
+8. The attacker maintains persistent access or performs further malicious actions.
 
 ## Impact
 
-Successful exploitation of CVE-2026-35663 allows a non-administrative operator to gain full administrative control over the OpenClaw system. The impact of this vulnerability is severe, as it allows unauthorized access to sensitive data, modification of critical system configurations, and the potential for complete system compromise. The vulnerability affects all OpenClaw deployments running versions prior to 2026.3.25. If the OpenClaw system manages sensitive data or controls critical infrastructure, the impact could be devastating.
+Successful exploitation of this vulnerability allows a malicious or compromised node to gain elevated privileges within the OpenClaw system. This could lead to unauthorized access to sensitive data, arbitrary code execution, and full system compromise. This affects any OpenClaw installation running versions 2026.4.5 or earlier. The impact is significant as it bypasses the intended security model of requiring re-pairing by an operator/admin for elevated privileges.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.3.25 or later to patch CVE-2026-35663.
-*   Implement input validation on the backend to ensure that scope requests are properly authorized based on the user's existing privileges.
-*   Monitor application logs for suspicious scope requests during backend reconnects to detect potential exploitation attempts. Enable process creation logging to activate related rules.
-*   Deploy the Sigma rule `DetectOpenClawPrivilegeEscalation` to your SIEM and tune for your environment.
+*   Upgrade the `openclaw` npm package to version 2026.4.8 or later to remediate the vulnerability.
+*   Deploy the Sigma rule `DetectOpenClawReconnectPrivilegeEscalation` to monitor for exploitation attempts via command execution.
