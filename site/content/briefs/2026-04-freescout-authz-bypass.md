@@ -3,6 +3,9 @@ title: FreeScout Incorrect Authorization Vulnerability (CVE-2026-41189)
 slug: 2026-04-freescout-authz-bypass
 description: FreeScout versions before 1.8.215 are vulnerable to an incorrect authorization issue where users without conversation access can edit customer threads due to a flaw in the `ThreadPolicy::edit()` function.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
