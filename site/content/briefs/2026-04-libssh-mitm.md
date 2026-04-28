@@ -47,4 +47,25 @@ rules:
 rules_count: 2
 ---
 
-A critical vulnerability, CVE-2025-14821, has been identified in the libssh library. This flaw arises from an insecure default configuration on Windows systems. Specifically, libssh automatically loads configuration files from the `C:\etc` directory. Critically, this directory can be created and modified by unprivileged local users. This allows a malicious local user to manipulate the SSH configuration, facilitating man-in-the-middle attacks, downgrading connection security, and manipulating…
+A critical vulnerability, CVE-2025-14821, has been identified in the libssh library. This flaw arises from an insecure default configuration on Windows systems. Specifically, libssh automatically loads configuration files from the `C:\etc` directory. Critically, this directory can be created and modified by unprivileged local users. This allows a malicious local user to manipulate the SSH configuration, facilitating man-in-the-middle attacks, downgrading connection security, and manipulating trusted host information. Successful exploitation grants attackers the ability to intercept and potentially modify SSH communications, posing a significant risk to data confidentiality, integrity, and availability.
+
+## Attack Chain
+
+1.  Attacker creates the directory `C:\etc` if it does not already exist.
+2.  Attacker creates a malicious SSH configuration file (e.g., `ssh_config`) within the `C:\etc` directory. This configuration can specify settings to downgrade encryption or redirect connections.
+3.  A legitimate user initiates an SSH connection using an application that leverages the vulnerable libssh library.
+4.  libssh automatically loads the attacker-controlled configuration file from `C:\etc\ssh_config`.
+5.  The malicious configuration settings are applied, potentially downgrading the encryption algorithm used for the SSH connection.
+6.  The attacker intercepts the SSH traffic, performing a man-in-the-middle attack due to the weakened encryption or connection redirection.
+7.  The attacker can now eavesdrop on or modify the SSH communication, gaining unauthorized access to sensitive information or injecting malicious commands.
+8.  Attacker maintains persistent access or exfiltrates sensitive data obtained through the compromised SSH session.
+
+## Impact
+
+Successful exploitation of CVE-2025-14821 allows a local attacker to perform man-in-the-middle attacks on SSH connections. This can lead to the compromise of sensitive data transmitted over SSH, such as credentials, configuration files, or confidential documents. The ability to manipulate trusted host information further exacerbates the risk, potentially allowing attackers to impersonate legitimate servers. The vulnerability affects any Windows system using a vulnerable version of libssh and could impact organizations across all sectors that rely on SSH for secure communication and remote administration.
+
+## Recommendation
+
+*   Monitor for the creation or modification of files within the `C:\etc` directory, particularly configuration files like `ssh_config`, using file integrity monitoring (FIM) rules on Windows systems.
+*   Implement the Sigma rule provided to detect the creation of the `C:\etc` directory by non-system processes.
+*   Restrict write access to the `C:\etc` directory and its contents using appropriate file system permissions on Windows systems.
