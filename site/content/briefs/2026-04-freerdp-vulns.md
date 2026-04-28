@@ -3,6 +3,9 @@ title: Multiple Vulnerabilities in FreeRDP Allow Remote Code Execution and DoS
 slug: 2026-04-freerdp-vulns
 description: An anonymous remote attacker can exploit multiple vulnerabilities in FreeRDP to potentially execute arbitrary code, cause a denial-of-service condition, manipulate data, disclose confidential information, or perform other unspecified attacks.
 date: "2026-04-21T08:04:45Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
