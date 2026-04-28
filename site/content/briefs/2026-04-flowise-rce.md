@@ -3,6 +3,9 @@ title: Flowise Authenticated Remote Code Execution via MCP Adapter
 slug: 2026-04-flowise-rce
 description: Flowise versions 3.0.13 and earlier are vulnerable to authenticated arbitrary command execution due to unsafe serialization of stdio commands in the MCP adapter, allowing a malicious user to execute commands on the underlying operating system.
 date: "2026-04-17T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
