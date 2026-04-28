@@ -1,50 +1,51 @@
 ---
-title: OpenClaw Authorization Bypass Vulnerability (CVE-2026-41299)
+title: OpenClaw Matrix Room Control Command Authorization Bypass
 slug: 2026-04-openclaw-auth-bypass
-description: OpenClaw before 2026.3.28 contains an authorization bypass vulnerability in the chat.send gateway method that allows authenticated operator clients to spoof ACP identity labels and inject reserved provenance fields, leading to potential privilege escalation.
-date: "2026-04-21T00:16:30Z"
+description: A vulnerability in OpenClaw versions greater than 2026.3.28 and before 2026.4.15 allowed a Matrix sender paired via DM to bypass room authorization boundaries and execute room control commands without proper authorization.
+date: "2026-04-18T12:00:00Z"
 severities:
   - high
 tags:
+  - openclaw
+  - matrix
   - authorization-bypass
   - privilege-escalation
-  - web-application
 mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1555
-    technique_name: Credentials from Password Stores
-cves:
-  - id: CVE-2026-41299
-    cvss: 7.1
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-41299
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-6xg4-82hv-cp6f
-  - https://www.vulncheck.com/advisories/openclaw-client-identity-spoofing-in-chat-send-gateway-provenance-guard
+  - https://github.com/advisories/GHSA-2gvc-4f3c-2855
 rules:
-  - title: Detect OpenClaw ACP Identity Spoofing via WebSocket
-    description: Detects potential ACP identity spoofing attempts during WebSocket handshake by monitoring client metadata for suspicious patterns related to reserved provenance fields.
+  - title: Detect OpenClaw Room Control Command Execution from Unauthorized DM User
+    description: Detects attempts to execute OpenClaw room control commands by users who are only authorized via DM pairing and not explicitly allowed in the room.
     platform: sigma
     severity: high
     tactics:
-      - privilege_escalation
-    techniques:
-      - T1555.004
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect OpenClaw Chat Send Gateway Abuse
-    description: Detects abuse of the chat.send gateway by monitoring for unusual message origins or content patterns indicative of exploitation.
-    platform: sigma
-    severity: medium
-    tactics:
+      - defense_evasion
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
-      - webserver
-      - linux
+      - application
+      - openclaw
+  - title: Detect OpenClaw Control Command with Unexpected Arguments
+    description: Detects OpenClaw control command executions with unusual or unexpected arguments which may indicate malicious intent.
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+    techniques:
+      - T1059
+    data_sources:
+      - application
+      - openclaw
 rules_count: 2
 ---
 
-OpenClaw, a chat application, is vulnerable to an authorization bypass (CVE-2026-41299) affecting versions prior to 2026.3.28. This vulnerability resides in the `chat.send` gateway method, where access control policies (ACP) are enforced based on client-provided metadata obtained during the WebSocket handshake. Instead of relying on verified authorization states, the system trusts self-declared metadata, enabling malicious authenticated operator clients to impersonate ACP identities and inject…
+OpenClaw versions prior to 2026.4.15 contained a flaw in Matrix room control-command authorization. The system incorrectly included sender IDs learned from the Matrix DM pairing store in the effective allowlist for room traffic. This meant that a sender who was authorized only for a Matrix DM could potentially authorize room control commands when they also posted in a bot-controlled room. This vulnerability allows a DM-paired Matrix sender to cross the authorization boundary and run Matrix room…
