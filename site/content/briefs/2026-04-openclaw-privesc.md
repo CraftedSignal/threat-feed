@@ -1,10 +1,10 @@
 ---
-title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-41329)
+title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-35669)
 slug: 2026-04-openclaw-privesc
-description: A critical privilege escalation vulnerability (CVE-2026-41329) in OpenClaw versions up to 2026.3.28 allows attackers to bypass sandbox restrictions via improper context validation, leading to potential data breaches and system compromise.
-date: "2026-04-21T15:02:58Z"
+description: OpenClaw before 2026.3.25 contains a privilege escalation vulnerability in gateway-authenticated plugin HTTP routes due to incorrect scope minting, allowing attackers to gain elevated privileges and perform unauthorized administrative actions.
+date: "2026-04-11T12:00:00Z"
 severities:
-  - critical
+  - high
 tags:
   - privilege-escalation
   - vulnerability
@@ -15,16 +15,18 @@ mitre_ttps:
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
 cves:
-  - id: CVE-2026-41329
-    cvss: 9.9
+  - id: CVE-2026-35669
+    cvss: 8.8
 references:
-  - https://ccb.belgium.be/advisories/warning-privilege-escalation-openclaw-patch-immediately
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-g5cg-8x5w-7jpm
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-35669
+  - https://github.com/openclaw/openclaw/commit/ec2dbcff9afd8a52e00de054b506c91726d9fbbe
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-qm2m-28pf-hgjw
+  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-gateway-plugin-http-authentication-scope
 rules:
-  - title: Detect Suspicious OpenClaw Heartbeat Activity
-    description: Detects potential exploitation of CVE-2026-41329 by monitoring for unusual heartbeat requests to OpenClaw instances.
+  - title: Detect Suspicious OpenClaw Admin Scope Minting
+    description: Detects potential exploitation of OpenClaw CVE-2026-35669 by monitoring for requests where admin scope is assigned incorrectly.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - privilege_escalation
     techniques:
@@ -32,39 +34,43 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect OpenClaw Version <= 2026.3.28 in User-Agent
-    description: Detects connections from OpenClaw clients with a User-Agent string indicating a vulnerable version.
+  - title: Detect Unauthorized Administrative Actions After Privilege Escalation
+    description: Detects potential administrative actions after privilege escalation in OpenClaw
     platform: sigma
     severity: medium
     tactics:
-      - discovery
+      - impact
+      - privilege_escalation
     techniques:
-      - T1592.004
+      - T1068
+      - T1489
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A critical security vulnerability, CVE-2026-41329, has been identified in OpenClaw versions up to and including 2026.3.28. OpenClaw is an open-source, self-hosted AI agent platform designed for workflow automation, event-driven processing, and task orchestration, commonly deployed in internal environments. The vulnerability stems from improper context validation during heartbeat processing, enabling attackers to exploit context inheritance and manipulate the `senderIsOwner` parameter. This bypasses sandbox restrictions and grants elevated privileges within the platform.  Exploitation can occur remotely without prior credentials under specific deployment conditions. The vulnerability has been patched in version 2026.3.31, and users are strongly advised to update immediately.
+OpenClaw, a yet-to-be-determined software application, is susceptible to a privilege escalation vulnerability (CVE-2026-35669) affecting versions prior to 2026.3.25. The vulnerability resides in gateway-authenticated plugin HTTP routes, where the system incorrectly assigns `operator.admin` runtime scope, irrespective of the scopes granted to the caller. This flaw enables attackers to bypass intended scope boundaries, potentially leading to the execution of unauthorized administrative tasks. The discovery of this vulnerability highlights the importance of robust access control mechanisms in OpenClaw and necessitates immediate patching to mitigate the risk of exploitation. Successful exploitation could lead to a complete compromise of the OpenClaw instance.
 
 ## Attack Chain
 
-1. The attacker identifies an OpenClaw instance running a vulnerable version (<= 2026.3.28).
-2. The attacker crafts a malicious heartbeat request exploiting the improper context validation.
-3. The attacker manipulates the `senderIsOwner` parameter within the heartbeat processing.
-4. Due to the flawed context inheritance mechanism, the attacker bypasses sandbox restrictions.
-5. The attacker gains escalated privileges within the OpenClaw platform.
-6. The attacker leverages elevated privileges to access sensitive data and systems.
-7. The attacker performs unauthorized actions, potentially leading to data exfiltration or system compromise.
-8. The attacker achieves full system compromise, impacting confidentiality, integrity, and availability.
+1. An attacker gains initial access with limited privileges to the OpenClaw system.
+2. The attacker crafts a malicious HTTP request targeting a gateway-authenticated plugin HTTP route.
+3. Due to the vulnerability (CVE-2026-35669), OpenClaw incorrectly mints the `operator.admin` runtime scope for the request, regardless of the attacker's actual permissions.
+4. The attacker's request, now incorrectly granted administrative privileges, is processed by the affected plugin.
+5. The attacker leverages the elevated privileges to perform unauthorized administrative actions.
+6. The attacker may modify sensitive configurations, create new administrative accounts, or access restricted data.
+7. The attacker maintains persistence by injecting malicious code or scripts into the OpenClaw system.
+8. The attacker achieves complete control over the OpenClaw instance, potentially compromising the entire environment.
 
 ## Impact
 
-Exploitation of CVE-2026-41329 allows attackers to bypass sandbox restrictions in OpenClaw, potentially exposing sensitive systems and compromising organizational security. Successful exploitation could lead to data breaches, system compromise, and operational downtime, impacting the confidentiality, integrity, and availability of critical business data. The number of victims and specific sectors targeted are currently unknown, but any organization using vulnerable versions of OpenClaw is at risk.
+Successful exploitation of CVE-2026-35669 can lead to significant damage. An attacker can gain full administrative control over OpenClaw, potentially affecting all users and systems managed by the software. Depending on the role of OpenClaw, this could result in data breaches, service disruptions, and financial losses. The vulnerability affects all deployments running OpenClaw versions prior to 2026.3.25, making it a critical concern for organizations using the affected software.
 
 ## Recommendation
 
-*   Apply the patch to upgrade to OpenClaw version 2026.3.31 or later to remediate CVE-2026-41329.
-*   Upscale monitoring and detection capabilities to identify any related suspicious activity as recommended by CCB.
-*   Investigate and remediate any potential historical compromise if vulnerable versions of OpenClaw were previously running.
+*   Upgrade OpenClaw to version 2026.3.25 or later to patch CVE-2026-35669.
+*   Deploy the Sigma rule `Detect Suspicious OpenClaw Admin Scope Minting` to identify potential exploitation attempts targeting CVE-2026-35669.
+*   Monitor web server logs for unusual activity on gateway-authenticated plugin HTTP routes, as this could indicate exploitation attempts.
+*   Review and harden access control configurations in OpenClaw to limit the impact of potential privilege escalation attacks.
+*   Enable logging for HTTP requests to identify the vulnerable routes using category "webserver" and product "linux" or "windows".
