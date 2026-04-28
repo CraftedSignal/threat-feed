@@ -28,6 +28,9 @@ references:
   - https://github.com/WWBN/AVideo/commit/78bccae74634ead68aa6528d631c9ec4fd7aa536
   - https://github.com/WWBN/AVideo/security/advisories/GHSA-3fpm-8rjr-v5mc
   - https://github.com/WWBN/AVideo/security/advisories/GHSA-pq8p-wc4f-vg7j
+iocs:
+  - type: domain
+    value: httpevil[.]com
 ioc_counts:
   domain: 1
 rules:
@@ -56,4 +59,25 @@ rules:
 rules_count: 2
 ---
 
-WWBN AVideo, an open-source video platform, is vulnerable to an unauthenticated remote code execution (RCE) flaw. This vulnerability, identified as CVE-2026-41064, exists in versions up to and including 29.0. The root cause is an incomplete fix applied to the `test.php` file. While the fix implemented `escapeshellarg` for the `wget` command, it neglected to sanitize input for the `file_get_contents` and `curl` code paths. Additionally, the URL validation regex `/^http/` is overly permissive…
+WWBN AVideo, an open-source video platform, is vulnerable to an unauthenticated remote code execution (RCE) flaw. This vulnerability, identified as CVE-2026-41064, exists in versions up to and including 29.0. The root cause is an incomplete fix applied to the `test.php` file. While the fix implemented `escapeshellarg` for the `wget` command, it neglected to sanitize input for the `file_get_contents` and `curl` code paths. Additionally, the URL validation regex `/^http/` is overly permissive, accepting malicious strings such as `httpevil[.]com`. Successful exploitation allows attackers to execute arbitrary commands on the server hosting the AVideo platform. The recommended remediation is to apply the updated fix detailed in commit 78bccae74634ead68aa6528d631c9ec4fd7aa536.
+
+## Attack Chain
+
+1.  An attacker sends a crafted HTTP request to the `test.php` endpoint.
+2.  The request includes a malicious URL, designed to exploit the insufficient input validation in the `file_get_contents` or `curl` code paths. For example, using `httpevil[.]com` to bypass the regex check `/^http/`.
+3.  The `test.php` script processes the request, attempting to retrieve content from the attacker-controlled URL using either `file_get_contents` or `curl`.
+4.  Due to the lack of proper sanitization, the malicious URL is interpreted as an OS command.
+5.  The server executes the attacker-supplied OS command.
+6.  The attacker gains arbitrary code execution on the AVideo server.
+7.  The attacker can then perform various malicious activities, such as installing malware, stealing sensitive data, or pivoting to other systems on the network.
+
+## Impact
+
+Successful exploitation of this vulnerability (CVE-2026-41064) grants unauthenticated attackers the ability to execute arbitrary code on the affected AVideo server. This can lead to complete compromise of the server, including data theft, defacement, or use as a staging ground for further attacks. Given the platform's use in video hosting, successful attacks could impact numerous users and content creators relying on the vulnerable AVideo instance. The vulnerable regex `/^http/` and unsanitized functions leave the server open to mass exploitation if exposed to the public internet.
+
+## Recommendation
+
+*   Apply the updated fix detailed in commit 78bccae74634ead68aa6528d631c9ec4fd7aa536 to fully address the input validation issue in `test.php`.
+*   Deploy the Sigma rule "Detect AVideo test.php Command Injection Attempt" to detect exploitation attempts in web server logs.
+*   Monitor web server logs for requests to `test.php` containing suspicious URLs, especially those matching the `httpevil[.]com` pattern as documented in the IOCs.
+*   Implement a more robust URL validation mechanism that properly sanitizes input before passing it to `file_get_contents` or `curl`.
