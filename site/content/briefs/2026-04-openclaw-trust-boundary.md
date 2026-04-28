@@ -49,4 +49,25 @@ rules:
 rules_count: 2
 ---
 
-OpenClaw before version 2026.4.2 is vulnerable to an improper trust boundary issue. This vulnerability allows an attacker to achieve in-process code execution by exploiting the way OpenClaw handles workspace channel shadows. Specifically, an attacker can clone a workspace and include a malicious plugin. This plugin claims a bundled channel ID, which results in the execution of untrusted code during the built-in channel setup and login process, even before the plugin is explicitly trusted by the…
+OpenClaw before version 2026.4.2 is vulnerable to an improper trust boundary issue. This vulnerability allows an attacker to achieve in-process code execution by exploiting the way OpenClaw handles workspace channel shadows. Specifically, an attacker can clone a workspace and include a malicious plugin. This plugin claims a bundled channel ID, which results in the execution of untrusted code during the built-in channel setup and login process, even before the plugin is explicitly trusted by the user. This poses a significant risk as it bypasses normal trust mechanisms within OpenClaw.
+
+## Attack Chain
+
+1.  Attacker clones a legitimate OpenClaw workspace.
+2.  Attacker crafts a malicious plugin designed to exploit the trust boundary vulnerability.
+3.  The malicious plugin is configured to claim a bundled channel ID that OpenClaw uses for built-in channels.
+4.  The cloned workspace, including the malicious plugin, is distributed to a target user.
+5.  The target user opens the cloned workspace in a vulnerable version of OpenClaw (before 2026.4.2).
+6.  During the workspace loading and channel setup process, OpenClaw incorrectly trusts the malicious plugin due to the claimed channel ID.
+7.  The malicious plugin executes arbitrary code within the OpenClaw process.
+8.  The attacker gains control or compromises the user's OpenClaw session.
+
+## Impact
+
+Successful exploitation of CVE-2026-41295 leads to arbitrary code execution within the OpenClaw application. An attacker can leverage this to potentially steal sensitive information, modify workspace data, or escalate privileges on the affected system. The vulnerability impacts all OpenClaw users running versions prior to 2026.4.2 who open a maliciously crafted workspace. The impact is severe, as it allows for immediate code execution without explicit user consent or trust of the malicious plugin.
+
+## Recommendation
+
+*   Upgrade OpenClaw to version 2026.4.2 or later to patch CVE-2026-41295.
+*   Monitor for the creation and loading of OpenClaw plugins, specifically those claiming bundled channel IDs, using a process creation rule with a focus on command-line arguments.
+*   Implement application control policies to restrict the execution of unsigned or untrusted plugins within OpenClaw to mitigate the risk of malicious plugin execution.
