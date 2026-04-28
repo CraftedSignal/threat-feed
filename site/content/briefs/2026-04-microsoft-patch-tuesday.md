@@ -3,6 +3,9 @@ title: Microsoft April 2026 Patch Tuesday Addresses 163 Vulnerabilities
 slug: 2026-04-microsoft-patch-tuesday
 description: Microsoft's April 2026 Patch Tuesday addresses 163 vulnerabilities, including 8 critical ones, ranging from Tampering to Remote Code Execution and Privilege Escalation, affecting various Microsoft products; it is recommended to apply patches immediately.
 date: "2026-04-16T10:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 exploited: true
