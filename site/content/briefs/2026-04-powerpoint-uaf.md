@@ -3,6 +3,9 @@ title: Microsoft PowerPoint Use-After-Free Vulnerability (CVE-2026-32200)
 slug: 2026-04-powerpoint-uaf
 description: CVE-2026-32200 is a use-after-free vulnerability in Microsoft Office PowerPoint that allows an unauthorized attacker to achieve local code execution by enticing a user to open a specially crafted PowerPoint document.
 date: "2026-04-14T18:17:26Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
