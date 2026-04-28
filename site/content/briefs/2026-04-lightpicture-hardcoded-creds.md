@@ -3,6 +3,9 @@ title: osuuu LightPicture Hardcoded Credentials Vulnerability (CVE-2026-6574)
 slug: 2026-04-lightpicture-hardcoded-creds
 description: CVE-2026-6574 allows remote attackers to manipulate the 'key' argument in the /public/install/lp.sql file via the API Upload Endpoint in osuuu LightPicture <= 1.2.2, leading to hardcoded credentials exposure.
 date: "2026-04-19T14:16:11Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
