@@ -1,14 +1,14 @@
 ---
-title: D-Link DIR-645 Stack-Based Buffer Overflow Vulnerability (CVE-2026-5815)
+title: D-Link DIR-513 Router Buffer Overflow Vulnerability (CVE-2026-6014)
 slug: 2026-04-dlink-buffer-overflow
-description: A remote stack-based buffer overflow vulnerability exists in the hedwigcgi_main function of the /cgi-bin/hedwig.cgi file on D-Link DIR-645 routers (versions 1.01, 1.02, and 1.03), potentially allowing unauthenticated attackers to execute arbitrary code.
-date: "2026-04-09T00:16:20Z"
+description: CVE-2026-6014 is a buffer overflow vulnerability in the D-Link DIR-513 router that allows a remote attacker to execute arbitrary code by manipulating the webpage argument in the formAdvanceSetup function, affecting devices that are no longer supported.
+date: "2026-04-10T05:16:07Z"
 severities:
   - critical
 tags:
-  - cve-2026-5815
-  - buffer-overflow
   - d-link
+  - buffer-overflow
+  - cve-2026-6014
   - router
 mitre_ttps:
   - tactic_id: TA0001
@@ -16,58 +16,79 @@ mitre_ttps:
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-5815
+  - id: CVE-2026-6014
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5815
-  - https://github.com/Pers1st0/CVE/blob/main/stack-based%20buffer%20overflow%20vulnerability%20exists%20in%20the%20hedwig.cgi%20of%20D-Link%20DIR-645.md
-  - https://vuldb.com/vuln/356263
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-6014
+  - https://lavender-bicycle-a5a.notion.site/D-Link-DIR-513-formAdvanceSetup-33153a41781f80829d47ec9b86dd8abf?source=copy_link
+  - https://vuldb.com/submit/791860
+  - https://vuldb.com/vuln/356570
+  - https://vuldb.com/vuln/356570/cti
+  - https://www.dlink.com/
+iocs:
+  - type: url
+    value: https://lavender-bicycle-a5a.notion.site/D-Link-DIR-513-formAdvanceSetup-33153a41781f80829d47ec9b86dd8abf?source=copy_link
+  - type: url
+    value: https://vuldb.com/submit/791860
+  - type: url
+    value: https://vuldb.com/vuln/356570
+  - type: url
+    value: https://vuldb.com/vuln/356570/cti
+  - type: url
+    value: https://www.dlink.com/
+  - type: email
+    value: '[email protected]'
+ioc_counts:
+  email: 1
+  url: 5
 rules:
-  - title: D-Link DIR-645 Buffer Overflow Attempt
-    description: Detects potential buffer overflow attempts targeting the /cgi-bin/hedwig.cgi endpoint on D-Link DIR-645 routers.
+  - title: Detect D-Link DIR-513 Buffer Overflow Attempt
+    description: Detects potential exploitation attempts of the D-Link DIR-513 buffer overflow vulnerability by monitoring POST requests to the /goform/formAdvanceSetup endpoint with unusually long webpage parameters.
     platform: sigma
     severity: critical
     tactics:
       - initial_access
     techniques:
+      - T1071.001
       - T1190
     data_sources:
       - webserver
       - linux
-  - title: D-Link DIR-645 Unauthorized Access Attempt via hedwig.cgi
-    description: Detects attempts to access the hedwig.cgi endpoint, potentially indicating exploitation of CVE-2026-5815 or other vulnerabilities.
+  - title: Detect Access to D-Link Default CGI Endpoint
+    description: Detects requests to the vulnerable endpoint associated with D-Link devices, which could indicate vulnerability scanning or exploitation attempts.
     platform: sigma
     severity: medium
     tactics:
-      - initial_access
+      - discovery
     techniques:
-      - T1190
+      - T1068
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-CVE-2026-5815 describes a stack-based buffer overflow vulnerability affecting D-Link DIR-645 routers running firmware versions 1.01, 1.02, and 1.03. The vulnerability resides within the `hedwigcgi_main` function in the `/cgi-bin/hedwig.cgi` file.  Successful exploitation of this flaw could allow a remote, unauthenticated attacker to execute arbitrary code on the affected device. This vulnerability is particularly critical because a public exploit is available, increasing the likelihood of exploitation, although D-Link no longer supports the affected devices.
+A buffer overflow vulnerability, tracked as CVE-2026-6014, has been identified in D-Link DIR-513 version 1.10. The vulnerability resides within the `formAdvanceSetup` function of the `/goform/formAdvanceSetup` component, specifically in the POST Request Handler. An attacker can exploit this flaw by manipulating the `webpage` argument, leading to arbitrary code execution. The vulnerability is remotely exploitable, and public exploits are available, increasing the risk of exploitation. This vulnerability poses a significant risk as successful exploitation can lead to complete system compromise. The D-Link DIR-513 is a legacy device, and is no longer supported.
 
 ## Attack Chain
 
-1.  The attacker sends a specially crafted HTTP request to the `/cgi-bin/hedwig.cgi` endpoint on the D-Link DIR-645 router.
-2.  The web server processes the request and calls the `hedwigcgi_main` function.
-3.  The `hedwigcgi_main` function copies user-supplied data from the HTTP request into a fixed-size buffer on the stack.
-4.  The attacker provides a payload that exceeds the buffer's capacity, causing a buffer overflow.
-5.  The overflow overwrites adjacent stack memory, including the return address.
-6.  When the `hedwigcgi_main` function returns, it jumps to the attacker-controlled return address.
-7.  The attacker-controlled return address points to shellcode injected by the attacker within the overflowing data.
-8.  The shellcode executes with the privileges of the web server, potentially granting the attacker full control of the device.
+1.  Attacker identifies a vulnerable D-Link DIR-513 device running firmware version 1.10.
+2.  The attacker crafts a malicious POST request targeting the `/goform/formAdvanceSetup` endpoint.
+3.  Within the POST request, the `webpage` argument is populated with a string exceeding the expected buffer size.
+4.  The router processes the crafted POST request without proper bounds checking on the `webpage` argument.
+5.  The overflowed buffer overwrites adjacent memory regions, including critical program data such as return addresses.
+6.  Upon returning from the `formAdvanceSetup` function, the overwritten return address is used, redirecting execution to attacker-controlled code.
+7.  The attacker gains arbitrary code execution on the device with the privileges of the web server process.
+8.  The attacker uses this code execution to establish persistence, move laterally within the network, or exfiltrate sensitive data.
 
 ## Impact
 
-Successful exploitation of CVE-2026-5815 can lead to complete compromise of the D-Link DIR-645 router. An attacker could gain unauthorized access to the device's configuration, intercept network traffic, or use the compromised router as a launching point for further attacks on other devices on the network. Given that the affected devices are no longer supported, users will not receive patches, making exploitation more likely.
+Successful exploitation of CVE-2026-6014 allows an attacker to gain complete control over the vulnerable D-Link DIR-513 router. This can lead to a variety of malicious activities, including data exfiltration, denial-of-service attacks, and the use of the compromised router as a botnet node. Given the end-of-life status of the device, affected users are unlikely to receive security updates, increasing the likelihood of widespread exploitation.
 
 ## Recommendation
 
-*   Implement network segmentation to limit the impact of a compromised router.
-*   Monitor web server logs for suspicious requests to `/cgi-bin/hedwig.cgi` using the provided Sigma rule to identify potential exploitation attempts.
-*   Deploy the provided Sigma rule to your SIEM to detect exploitation attempts targeting CVE-2026-5815.
-*   Consider replacing end-of-life D-Link DIR-645 routers with newer, supported models to eliminate the vulnerability.
+*   Deploy the Sigma rule `Detect D-Link DIR-513 Buffer Overflow Attempt` to identify exploitation attempts in web server logs.
+*   Block access to the router's management interface from the public internet using firewall rules to limit the attack surface.
+*   Consider replacing the D-Link DIR-513 router with a more secure and actively supported device, since this device is EOL.
+*   Monitor network traffic for suspicious POST requests targeting the `/goform/formAdvanceSetup` URI, using the rule provided in this brief.
+*   Use vulnerability scanning tools to identify D-Link DIR-513 devices running firmware version 1.10 on the network and prioritize their removal or replacement.
