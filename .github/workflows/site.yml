@@ -17,11 +17,12 @@ permissions:
   pages: write
   id-token: write
 
-# Newer commits supersede in-flight builds; ti-bot can push many briefs in a
-# short window and we only need the latest one to deploy.
+# Serialize, don't cancel. ti-bot pushes one Markdown commit per brief
+# every ~2s; cancelling means no deploy ever runs to completion. Queue
+# them — each build is ~30s and Pages handles concurrent deploys.
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 defaults:
   run:
