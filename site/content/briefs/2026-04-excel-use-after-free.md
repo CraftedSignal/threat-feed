@@ -57,4 +57,25 @@ rules:
 rules_count: 3
 ---
 
-CVE-2026-32198 is a critical use-after-free vulnerability affecting Microsoft Office Excel. Discovered and reported on April 14, 2026, this vulnerability allows an unauthenticated, local attacker to execute arbitrary code on a target system. The vulnerability stems from improper memory management within Excel while processing malformed or specially crafted Excel files. Successful exploitation of this flaw could lead to complete system compromise, allowing attackers to install malware, steal…
+CVE-2026-32198 is a critical use-after-free vulnerability affecting Microsoft Office Excel. Discovered and reported on April 14, 2026, this vulnerability allows an unauthenticated, local attacker to execute arbitrary code on a target system. The vulnerability stems from improper memory management within Excel while processing malformed or specially crafted Excel files. Successful exploitation of this flaw could lead to complete system compromise, allowing attackers to install malware, steal sensitive data, or pivot to other systems within the network. This vulnerability impacts systems running vulnerable versions of Microsoft Office Excel.
+
+## Attack Chain
+
+1. An attacker crafts a malicious Excel file designed to trigger the use-after-free vulnerability.
+2. The attacker delivers the malicious Excel file to the victim via social engineering.
+3. The victim opens the malicious Excel file using a vulnerable version of Microsoft Office Excel.
+4. Excel attempts to access a memory location that has already been freed, triggering the vulnerability.
+5. The attacker gains control of the execution flow due to the use-after-free condition.
+6. The attacker injects malicious code into the Excel process's memory space.
+7. The injected code executes with the privileges of the user running Excel.
+8. The attacker can install malware, steal data, or perform other malicious activities on the system.
+
+## Impact
+
+Successful exploitation of CVE-2026-32198 allows an attacker to execute arbitrary code on a vulnerable system. This can lead to complete system compromise, data theft, malware installation, and potentially further network compromise. Organizations that rely heavily on Excel for data processing and analysis are particularly at risk.
+
+## Recommendation
+
+*   Apply the security patch released by Microsoft to address CVE-2026-32198 on all systems running Microsoft Office Excel.
+*   Deploy the Sigma rules in this brief to your SIEM to detect potential exploitation attempts of CVE-2026-32198.
+*   Educate users about the risks of opening suspicious or unexpected Excel files delivered via email or other means.
