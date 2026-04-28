@@ -3,6 +3,9 @@ title: Openfind MailGates/MailAudit Stack-based Buffer Overflow (CVE-2026-6350)
 slug: 2026-04-openfind-mailgates-bo
 description: Openfind MailGates/MailAudit is vulnerable to a stack-based buffer overflow (CVE-2026-6350) allowing unauthenticated remote attackers to execute arbitrary code by controlling the program's execution flow.
 date: "2026-04-16T03:16:30Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
