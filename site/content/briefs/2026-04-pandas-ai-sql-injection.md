@@ -47,4 +47,25 @@ rules:
 rules_count: 2
 ---
 
-pandas-ai v3.0.0 contains a SQL injection vulnerability in the `pandasai.agent.base._execute_sql_query` component. This flaw, identified as CVE-2026-30273, could allow an attacker to inject malicious SQL code into queries executed by the application. Successful exploitation can lead to unauthorized data access, modification, or deletion within the underlying database. Given the nature of pandas-ai as a tool intended to work with data, this vulnerability poses a significant risk to data…
+pandas-ai v3.0.0 contains a SQL injection vulnerability in the `pandasai.agent.base._execute_sql_query` component. This flaw, identified as CVE-2026-30273, could allow an attacker to inject malicious SQL code into queries executed by the application. Successful exploitation can lead to unauthorized data access, modification, or deletion within the underlying database. Given the nature of pandas-ai as a tool intended to work with data, this vulnerability poses a significant risk to data integrity and confidentiality. The affected version is pandas-ai v3.0.0, and users of this version should take immediate action to mitigate the risk.
+
+## Attack Chain
+
+1. An attacker identifies a publicly accessible endpoint in the pandas-ai application that leverages the vulnerable `_execute_sql_query` function.
+2. The attacker crafts a malicious SQL query string containing SQL injection payloads.
+3. This malicious SQL query is submitted to the vulnerable endpoint, often as part of user-supplied input.
+4. The pandas-ai application passes the tainted SQL query to the `_execute_sql_query` function without proper sanitization or parameterization.
+5. The `_execute_sql_query` function executes the injected SQL command directly against the database.
+6. The attacker gains unauthorized access to sensitive data stored in the database.
+7. The attacker may modify or delete data, escalate privileges, or potentially execute arbitrary code on the database server, depending on database permissions and configuration.
+
+## Impact
+
+Successful exploitation of this SQL injection vulnerability (CVE-2026-30273) can result in unauthorized access to sensitive data, data modification or deletion, and potential compromise of the underlying database server. The impact depends on the permissions granted to the database user the pandas-ai application uses. This vulnerability could affect any organization using pandas-ai v3.0.0 to interact with SQL databases, potentially leading to data breaches, financial loss, and reputational damage.
+
+## Recommendation
+
+*   Upgrade to a patched version of pandas-ai that addresses CVE-2026-30273. Check the pandas-ai GitHub repository for updates (https://github.com/sinaptik-ai/pandas-ai).
+*   Implement robust input validation and sanitization measures to prevent SQL injection attacks. Specifically, focus on sanitizing any input passed to the `pandasai.agent.base._execute_sql_query` function.
+*   Deploy the Sigma rule `Detecting_Potential_PandasAI_SQL_Injection_Attempts` to identify potential exploitation attempts within web server logs.
+*   Regularly audit and review the application's code to identify and remediate potential security vulnerabilities.
