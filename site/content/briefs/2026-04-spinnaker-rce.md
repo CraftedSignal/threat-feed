@@ -3,6 +3,9 @@ title: Spinnaker Clouddriver Pod Remote Code Execution Vulnerability (CVE-2026-3
 slug: 2026-04-spinnaker-rce
 description: Unauthenticated users can execute arbitrary commands on Spinnaker clouddriver pods in vulnerable versions, leading to credential exposure, file deletion, or resource injection.
 date: "2026-04-20T21:16:32Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
