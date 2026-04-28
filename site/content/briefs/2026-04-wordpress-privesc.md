@@ -1,79 +1,70 @@
 ---
-title: Riaxe Product Customizer WordPress Plugin Privilege Escalation Vulnerability (CVE-2026-3596)
+title: WordPress Users Manager Plugin Privilege Escalation Vulnerability (CVE-2026-4003)
 slug: 2026-04-wordpress-privesc
-description: The Riaxe Product Customizer plugin for WordPress is vulnerable to privilege escalation, allowing unauthenticated attackers to update arbitrary WordPress options via a publicly accessible AJAX endpoint and escalate privileges to administrator.
-date: "2026-04-16T06:16:15Z"
+description: The Users manager – PN plugin for WordPress is vulnerable to privilege escalation, allowing unauthenticated attackers to modify arbitrary user metadata by exploiting a flawed authorization check in the userspn_ajax_nopriv_server() function (CVE-2026-4003).
+date: "2026-04-08T05:16:06Z"
 severities:
   - critical
 tags:
   - wordpress
   - privilege-escalation
-  - cve-2026-3596
+  - cve-2026-4003
   - plugin
 mitre_ttps:
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1548
-    technique_name: Abuse Elevation Control Mechanism
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
 cves:
-  - id: CVE-2026-3596
+  - id: CVE-2026-4003
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-3596
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-4003
 rules:
-  - title: Detect Riaxe Product Customizer Privilege Escalation Attempt
-    description: Detects attempts to exploit the privilege escalation vulnerability (CVE-2026-3596) in the Riaxe Product Customizer plugin by monitoring POST requests to admin-ajax.php with the install-imprint action.
+  - title: Detect WordPress Users Manager Plugin Privilege Escalation Attempt
+    description: Detects potential exploitation attempts of CVE-2026-4003 by monitoring for POST requests to wp-admin/admin-ajax.php with the userspn_form_save action and a non-empty user_id.
     platform: sigma
     severity: critical
     tactics:
-      - persistence
       - privilege_escalation
     techniques:
       - T1068
-      - T1548.001
     data_sources:
       - webserver
       - linux
-  - title: Detect Unauthorized User Registration After CVE-2026-3596 Exploitation
-    description: Detects potentially unauthorized user registration events following exploitation of the Riaxe Product Customizer vulnerability. This assumes that attackers will enable user registration to create an admin account.
+  - title: Detect WordPress userspn_secret_token User Meta Modification
+    description: Detects attempts to modify the `userspn_secret_token` user meta value via the vulnerable AJAX endpoint.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - persistence
       - privilege_escalation
     techniques:
       - T1068
-      - T1548.001
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-The Riaxe Product Customizer plugin for WordPress, versions 2.1.2 and earlier, contains a critical privilege escalation vulnerability (CVE-2026-3596). This flaw stems from an unauthenticated AJAX action, 'wp_ajax_nopriv_install-imprint', which is improperly secured. The corresponding function, `ink_pd_add_option()`, allows unauthenticated users to modify arbitrary WordPress options by sending POST requests. There are no nonce checks, capability checks, or input validation performed on the 'option' and 'opt_value' parameters, making it trivial to manipulate sensitive site settings. Successful exploitation allows attackers to grant themselves administrative privileges. This vulnerability poses a significant risk to any WordPress site using the affected plugin.
+The Users manager – PN plugin, versions up to and including 1.1.15, contains a critical privilege escalation vulnerability (CVE-2026-4003). The vulnerability resides in the `userspn_ajax_nopriv_server()` function, specifically within the `userspn_form_save` case. A flawed authorization check enables unauthenticated users to bypass security controls when a non-empty `user_id` is provided. This allows them to update arbitrary user meta using the `update_user_meta()` function without proper authorization. The nonce, 'userspn-nonce', is exposed to all visitors via `wp_localize_script` on the public `wp_enqueue_scripts` hook, making the nonce check ineffective. Successful exploitation allows unauthenticated attackers to modify user metadata, including the `userspn_secret_token` field, leading to potential account takeover and administrative control of the WordPress site. This vulnerability poses a significant risk to any WordPress site using the affected plugin.
 
 ## Attack Chain
 
-1. An unauthenticated attacker identifies a WordPress site using a vulnerable version of the Riaxe Product Customizer plugin (<= 2.1.2).
-2. The attacker crafts a malicious HTTP POST request targeting the `/wp-admin/admin-ajax.php` endpoint.
-3. The POST request includes the `action` parameter set to `install-imprint`, triggering the vulnerable AJAX action `wp_ajax_nopriv_install-imprint`.
-4. The attacker sets the `option` parameter to `default_role` and the `opt_value` parameter to `administrator` within the POST request. This will change the default user role to administrator.
-5. The attacker sets the `option` parameter to `users_can_register` and the `opt_value` parameter to `1` within the POST request. This enables user registration on the WordPress site.
-6. The `ink_pd_add_option()` function executes, calling `delete_option()` and `add_option()` with the attacker-supplied values, effectively updating the WordPress options table.
-7. The attacker registers a new user account on the WordPress site.
-8. Because user registration is enabled and the default user role is set to administrator, the attacker's new account is granted administrator privileges, allowing full control over the WordPress site.
+1.  The attacker identifies a WordPress site using the vulnerable "Users manager – PN" plugin (<= 1.1.15).
+2.  The attacker accesses the publicly exposed 'userspn-nonce' value via the `wp_enqueue_scripts` hook.
+3.  The attacker crafts a malicious AJAX request to the `userspn_ajax_nopriv_server()` endpoint with the `userspn_form_save` action and a non-empty `user_id` parameter.
+4.  The flawed authorization check in `userspn_ajax_nopriv_server()` bypasses authentication due to the supplied `user_id` not being empty.
+5.  The attacker injects arbitrary user meta values, including the `userspn_secret_token` or other sensitive fields.
+6.  The `update_user_meta()` function is called, updating the targeted user's metadata with the attacker-supplied values.
+7.  The attacker exploits the modified `userspn_secret_token` or other injected admin-level capabilities to escalate privileges.
+8.  The attacker gains administrative access to the WordPress site and performs malicious actions such as installing backdoors, modifying content, or exfiltrating data.
 
 ## Impact
 
-Successful exploitation of CVE-2026-3596 allows unauthenticated attackers to gain complete control over a vulnerable WordPress website. This can lead to website defacement, data theft, malware distribution, and denial of service. Given the widespread use of WordPress, this vulnerability has the potential to affect a large number of websites across various sectors. A successful attack would result in the attacker having the same access as the original website administrator.
+Successful exploitation of CVE-2026-4003 allows unauthenticated attackers to escalate privileges to administrator level on affected WordPress sites. This could lead to complete compromise of the website, including data theft, defacement, or use of the server for malicious purposes. The severity is heightened by the ease of exploitation. Because no IOCs are present in the source, it is impossible to determine the scope of exploitation.
 
 ## Recommendation
 
-*   Immediately remove the Riaxe Product Customizer plugin from WordPress installations if it is present. This will eliminate the attack vector (plugin removal).
-*   Monitor web server logs (category: `webserver`, product: `linux` or `windows`) for POST requests to `/wp-admin/admin-ajax.php` with the `action` parameter set to `install-imprint` using the Sigma rule provided below.
-*   Consider implementing a Web Application Firewall (WAF) rule to block requests matching the exploit pattern described in the Attack Chain.
-*   Review WordPress user accounts for any unauthorized administrators.
+*   Apply the vendor-supplied patch or upgrade the "Users manager – PN" plugin to a version greater than 1.1.15 to remediate CVE-2026-4003.
+*   Monitor web server logs for POST requests to `/wp-admin/admin-ajax.php` with the action `userspn_form_save` and a non-empty `user_id` parameter to detect potential exploitation attempts using the provided Sigma rule.
+*   Implement rate limiting on AJAX endpoints to mitigate potential brute-force attacks targeting the vulnerability.
