@@ -3,6 +3,9 @@ title: goshs GitHub Token Leakage via ArtiPACKED Vulnerability (CVE-2026-40903)
 slug: 2026-04-goshs-github-token-leakage
 description: The goshs SimpleHTTPServer prior to version 2.0.0-beta.6 is vulnerable to ArtiPACKED, potentially leading to leakage of the GITHUB_TOKEN through workflow artifacts.
 date: "2026-04-22T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
