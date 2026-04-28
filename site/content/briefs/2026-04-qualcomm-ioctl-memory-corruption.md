@@ -47,4 +47,24 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-21375 is a memory corruption vulnerability affecting certain Qualcomm chipsets. The vulnerability stems from a lack of proper size validation when accessing an output buffer during IOCTL (Input/Output Control) processing. This flaw, disclosed in the April 2026 Qualcomm security bulletin, allows a local attacker with limited privileges to potentially overwrite memory, leading to denial of service or even arbitrary code execution. Successful exploitation requires a malicious application…
+CVE-2026-21375 is a memory corruption vulnerability affecting certain Qualcomm chipsets. The vulnerability stems from a lack of proper size validation when accessing an output buffer during IOCTL (Input/Output Control) processing. This flaw, disclosed in the April 2026 Qualcomm security bulletin, allows a local attacker with limited privileges to potentially overwrite memory, leading to denial of service or even arbitrary code execution. Successful exploitation requires a malicious application or process to interact with the vulnerable IOCTL interface on the target device. The vulnerability is classified as a buffer over-read (CWE-126).
+
+## Attack Chain
+
+1.  A malicious application is installed on a device with a vulnerable Qualcomm chipset.
+2.  The application gains the necessary permissions to interact with the device driver via IOCTL calls.
+3.  The malicious application crafts a specific IOCTL request with a small output buffer size.
+4.  The device driver processes the IOCTL request but fails to properly validate the output buffer size against the actual data being written.
+5.  The driver attempts to write data exceeding the allocated buffer size.
+6.  The excess data overwrites adjacent memory regions in kernel space.
+7.  This memory corruption can lead to a crash or, with careful manipulation, arbitrary code execution.
+
+## Impact
+
+Successful exploitation of CVE-2026-21375 can result in a denial-of-service condition, where the device becomes unstable or unresponsive. In more severe scenarios, a local attacker could leverage the memory corruption to achieve arbitrary code execution with elevated privileges. Given the widespread use of Qualcomm chipsets in mobile devices and embedded systems, the potential impact could affect millions of devices globally.
+
+## Recommendation
+
+*   Apply the security patches released by Qualcomm as detailed in the April 2026 security bulletin to remediate CVE-2026-21375.
+*   Monitor process creation events for suspicious processes attempting to interact with device drivers, using the provided Sigma rule.
+*   Implement runtime validation of IOCTL buffer sizes within kernel drivers to prevent buffer overflows (mitigation, not detection).
