@@ -1,13 +1,15 @@
 ---
-title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-41378)
+title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-41379)
 slug: 2026-04-openclaw-privesc
-description: OpenClaw before 2026.3.31 contains a privilege escalation vulnerability allowing paired nodes with role=node to dispatch node.event agent requests with unrestricted gateway-side tool access, leading to remote code execution.
+description: OpenClaw before version 2026.3.28 contains a privilege escalation vulnerability, allowing authenticated operators with write permissions to modify sensitive Talk Voice configurations via the chat.send endpoint.
 date: "2026-04-28T19:37:40Z"
 severities:
-  - critical
+  - high
 tags:
   - privilege-escalation
-  - remote-code-execution
+  - cve
+vendors:
+  - OpenClaw
 products:
   - OpenClaw
 mitre_ttps:
@@ -15,42 +17,34 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-41378
-    cvss: 8.8
+  - id: CVE-2026-41379
+    cvss: 7.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-41378
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41379
+  - https://github.com/openclaw/openclaw/commit/e34694733fc64931ed4a543c73d84ad3435d5df1
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-3q42-xmxv-9vfr
+  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-chat-send-to-admin-class-talk-voice-config
 rules:
-  - title: Detect Suspicious OpenClaw Agent Requests
-    description: Detects suspicious OpenClaw agent requests that could indicate privilege escalation attempts exploiting CVE-2026-41378.
+  - title: Detect OpenClaw Talk Voice Configuration Modification
+    description: Detects modifications to Talk Voice configurations, potentially indicating exploitation of CVE-2026-41379.
     platform: sigma
     severity: high
     tactics:
-      - execution
       - privilege_escalation
     techniques:
       - T1068
+      - T1555.003
     data_sources:
       - webserver
       - linux
-  - title: Detect OpenClaw Gateway Remote Code Execution via Agent Request
-    description: Detects potential remote code execution attempts on the OpenClaw gateway by monitoring for specific commands within agent requests.
+  - title: OpenClaw Chat Send Endpoint Activity
+    description: Detects POST requests to the /chat.send endpoint, which could indicate an attempt to exploit CVE-2026-41379.
     platform: sigma
-    severity: critical
+    severity: medium
     tactics:
-      - execution
       - privilege_escalation
     techniques:
-      - T1059.004
-      - T1059.005
       - T1068
     data_sources:
       - webserver
@@ -58,25 +52,26 @@ rules:
 rules_count: 2
 ---
 
-OpenClaw before version 2026.3.31 is vulnerable to a privilege escalation flaw. The vulnerability allows paired nodes configured with the role "node" to dispatch `node.event agent` requests, bypassing intended restrictions on gateway-side tool access. An attacker who has already compromised a trusted paired node with valid credentials can exploit this vulnerability to elevate their privileges. By abusing the unrestricted `agent.request` dispatch, they can achieve arbitrary remote code execution on the gateway. This vulnerability poses a significant threat as it grants unauthorized access and control over the OpenClaw gateway.
+OpenClaw, prior to version 2026.3.28, is vulnerable to a privilege escalation. This vulnerability allows authenticated operators who possess write privileges to gain unauthorized access to and modify administrative-level Talk Voice configuration persistence settings. The vulnerability is located in the chat.send endpoint which should only be accessible to administrators. This could lead to unauthorized configuration changes, potentially disrupting services or compromising sensitive information. Exploitation requires valid operator credentials with write permissions.
 
 ## Attack Chain
 
-1. An attacker gains initial access to a paired node with the `role=node` configuration.
-2. The attacker authenticates to the OpenClaw gateway using the compromised node's credentials.
-3. The attacker crafts a malicious `node.event agent` request.
-4. The crafted request is dispatched to the OpenClaw gateway.
-5. The gateway improperly processes the request, failing to enforce proper access controls.
-6. The unrestricted `agent.request` dispatch allows the attacker to execute arbitrary commands.
-7. The attacker executes a payload of their choice, such as deploying a reverse shell.
-8. The attacker achieves remote code execution on the OpenClaw gateway, gaining complete control.
+1. An attacker obtains valid operator credentials with write privileges.
+2. The attacker authenticates to the OpenClaw application using the compromised or malicious operator account.
+3. The attacker crafts a malicious request targeting the chat.send endpoint.
+4. The crafted request includes parameters designed to modify Talk Voice configuration settings, normally restricted to administrators.
+5. The application incorrectly authorizes the request due to the vulnerability, allowing the operator to bypass intended access controls.
+6. The sensitive voice configuration persistence is accessed and modified.
+7. The attacker alters critical voice settings, potentially causing service disruption or data compromise.
+8. The attacker achieves privilege escalation by modifying admin-level configurations, impacting overall system integrity.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to gain complete control of the OpenClaw gateway. This can lead to data breaches, system compromise, and disruption of services. Given the CVSS v3.1 base score of 8.8, this vulnerability is considered critical. The number of affected installations is unknown, but organizations using OpenClaw versions prior to 2026.3.31 are at risk.
+Successful exploitation of this vulnerability allows attackers with operator-level write access to modify critical Talk Voice configuration settings. This could lead to service disruptions, unauthorized data access, or other malicious activities. The vulnerability affects OpenClaw installations before version 2026.3.28, potentially impacting any organization using the vulnerable versions of the software. The consequences can range from minor inconveniences to significant security breaches, depending on the specific configurations modified.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.3.31 or later to patch CVE-2026-41378.
-*   Implement the Sigma rule `Detect Suspicious OpenClaw Agent Requests` to identify potentially malicious `node.event agent` requests targeting the OpenClaw gateway.
-*   Monitor network traffic for unusual activity originating from OpenClaw nodes that could indicate exploitation attempts.
+*   Upgrade OpenClaw to version 2026.3.28 or later to patch CVE-2026-41379.
+*   Implement the Sigma rule `Detect OpenClaw Talk Voice Configuration Modification` to monitor for unauthorized changes to voice configurations.
+*   Review and enforce strict access control policies to limit operator privileges to the minimum necessary for their roles.
+*   Monitor web server logs for suspicious activity targeting the `chat.send` endpoint, using the `OpenClaw Chat Send Endpoint Activity` Sigma rule.
