@@ -52,4 +52,26 @@ rules:
 rules_count: 2
 ---
 
-Attackers may leverage the Windows Management Instrumentation Command-line (WMIC) tool for reconnaissance activities within a network. Specifically, WMIC can be used to query and retrieve information about services running on remote systems. By executing WMIC commands with the 'service' parameter, adversaries can identify the presence and status of specific services, potentially revealing vulnerable or misconfigured systems. This information can then be used to guide further exploitation…
+Attackers may leverage the Windows Management Instrumentation Command-line (WMIC) tool for reconnaissance activities within a network. Specifically, WMIC can be used to query and retrieve information about services running on remote systems. By executing WMIC commands with the 'service' parameter, adversaries can identify the presence and status of specific services, potentially revealing vulnerable or misconfigured systems. This information can then be used to guide further exploitation attempts. WMIC is a built-in Windows utility, making its activity blend with legitimate system administration tasks, increasing the difficulty of detection. This activity is a component of the broader T1047 technique (Windows Management Instrumentation).
+
+## Attack Chain
+
+1.  The attacker gains initial access to a compromised system within the target network.
+2.  The attacker executes WMIC.exe from the command line.
+3.  WMIC.exe is invoked with the `service` parameter to query service information.
+4.  The command includes a target IP address or hostname to query a remote system.
+5.  The command attempts to retrieve service names and status information (e.g., `wmic /node:"192.168.1.100" service get name, state`).
+6.  WMIC attempts to connect to the remote host via RPC. An error message is generated if the remote host is unreachable: "Node - (provided IP or default) ERROR Description =The RPC server is unavailable".
+7.  If the target service is not running, a "No instance(s) Available" message may be displayed.
+8.  The attacker parses the output from WMIC to identify running services of interest for further exploitation or lateral movement.
+
+## Impact
+
+Successful service reconnaissance allows attackers to map potential attack vectors within a network. By identifying specific services running on remote systems, attackers can prioritize targets for exploitation based on known vulnerabilities or misconfigurations. This can lead to unauthorized access, data breaches, and system compromise. While the reconnaissance itself does not directly cause harm, it provides crucial information that enables subsequent malicious activities.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Detect Suspicious WMIC Service Enumeration` to your SIEM to identify potential service reconnaissance attempts via WMIC (logsource: process_creation, product: windows).
+*   Monitor process creation events for `WMIC.exe` executions containing the `service` parameter using endpoint detection and response (EDR) solutions (logsource: process_creation, product: windows).
+*   Implement network segmentation to limit the scope of potential reconnaissance activities.
+*   Review and restrict the use of WMIC in your environment, as it is a common tool for both legitimate administration and malicious activity.
