@@ -3,6 +3,9 @@ title: Okta API Token Creation
 slug: 2024-01-okta-api-token-creation
 description: Detection of Okta API token creation events which can indicate malicious persistence activity.
 date: "2024-01-03T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
