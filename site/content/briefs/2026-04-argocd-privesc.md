@@ -3,6 +3,9 @@ title: ArgoCD Image Updater Namespace Bypass Vulnerability (CVE-2026-6388)
 slug: 2026-04-argocd-privesc
 description: CVE-2026-6388 describes a flaw in ArgoCD Image Updater that allows an attacker with permissions to create or modify an ImageUpdater resource in a multi-tenant environment to bypass namespace boundaries and trigger unauthorized image updates.
 date: "2026-04-15T22:17:22Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
