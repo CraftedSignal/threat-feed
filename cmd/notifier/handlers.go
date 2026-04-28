@@ -36,6 +36,12 @@ func (s *server) handleHealthz(w http.ResponseWriter, _ *http.Request) {
 	_, _ = w.Write([]byte("ok"))
 }
 
+func (s *server) handleFavicon(w http.ResponseWriter, _ *http.Request) {
+	w.Header().Set("Content-Type", "image/svg+xml")
+	w.Header().Set("Cache-Control", "public, max-age=86400")
+	_, _ = w.Write(faviconSVG)
+}
+
 // POST /subscribe — JSON body: {channel, email|webhook_url, filter}.
 // On success, stores a pending verification and emails (or — for
 // webhook channels — directly issues a confirmation token in the
@@ -104,12 +110,12 @@ func (s *server) handleSubscribe(w http.ResponseWriter, r *http.Request) {
 // GET /verify?token=… — confirm an emailed subscription.
 func (s *server) handleVerify(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
-		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		s.redirectSiteError(w, r)
 		return
 	}
 	token := r.URL.Query().Get("token")
 	if token == "" {
-		http.Error(w, "missing token", http.StatusBadRequest)
+		s.redirectSiteError(w, r)
 		return
 	}
 
@@ -166,21 +172,19 @@ func (s *server) redirectSiteError(w http.ResponseWriter, r *http.Request) {
 // GET /unsubscribe?token=…
 func (s *server) handleUnsubscribe(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
-		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		s.redirectSiteError(w, r)
 		return
 	}
 	token := r.URL.Query().Get("token")
 	if token == "" {
-		http.Error(w, "missing token", http.StatusBadRequest)
+		s.redirectSiteError(w, r)
 		return
 	}
 	if err := s.store.DeleteByUnsubscribeToken(r.Context(), token); err != nil {
-		if errors.Is(err, ErrNotFound) {
-			http.Error(w, "subscription not found", http.StatusNotFound)
-			return
+		if !errors.Is(err, ErrNotFound) {
+			s.logger.Error("delete sub failed", "err", err)
 		}
-		s.logger.Error("delete sub failed", "err", err)
-		http.Error(w, "internal error", http.StatusInternalServerError)
+		s.redirectSiteError(w, r)
 		return
 	}
 	dest, _ := url.Parse(s.cfg.SiteOrigin)

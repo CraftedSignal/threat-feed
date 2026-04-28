@@ -15,6 +15,7 @@ package main
 
 import (
 	"context"
+	_ "embed"
 	"errors"
 	"log/slog"
 	"net/http"
@@ -23,6 +24,9 @@ import (
 	"syscall"
 	"time"
 )
+
+//go:embed favicon.svg
+var faviconSVG []byte
 
 func main() {
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
@@ -67,6 +71,11 @@ func main() {
 	mux.HandleFunc("/verify", srv.handleVerify)
 	mux.HandleFunc("/unsubscribe", srv.handleUnsubscribe)
 	mux.HandleFunc("/dispatch", srv.handleDispatch)
+	// Browsers eagerly fetch /favicon.ico against any host the user
+	// visits. Without a handler the LB returned 404 noise; serve the
+	// same SVG the static site uses.
+	mux.HandleFunc("/favicon.ico", srv.handleFavicon)
+	mux.HandleFunc("/favicon.svg", srv.handleFavicon)
 
 	port := os.Getenv("PORT")
 	if port == "" {
