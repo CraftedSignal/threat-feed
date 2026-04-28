@@ -47,4 +47,25 @@ rules:
 rules_count: 2
 ---
 
-A critical command injection vulnerability has been identified in Electerm, specifically affecting users who install the application via `npm install -g electerm` on Linux systems. The vulnerability resides within the `runLinux()` function in `github.com/elcterm/electerm/npm/install.js`. This function lacks proper validation when appending remote version strings into an `exec("rm -rf ...")` command. An attacker capable of controlling the remote release metadata (e.g., version string, release…
+A critical command injection vulnerability has been identified in Electerm, specifically affecting users who install the application via `npm install -g electerm` on Linux systems. The vulnerability resides within the `runLinux()` function in `github.com/elcterm/electerm/npm/install.js`. This function lacks proper validation when appending remote version strings into an `exec("rm -rf ...")` command. An attacker capable of controlling the remote release metadata (e.g., version string, release name) served by Electerm's update server could exploit this flaw to execute arbitrary system commands. This could lead to tampering with local files and a complete compromise of development or runtime assets. This vulnerability affects Electerm versions prior to 3.3.8.
+
+## Attack Chain
+
+1.  Attacker gains control over the Electerm update server or performs a man-in-the-middle attack.
+2.  The attacker crafts malicious release metadata, including a crafted version string containing command injection payloads.
+3.  A user on a Linux system executes `npm install -g electerm` to install or update Electerm.
+4.  The `install.js` script fetches the malicious release metadata from the compromised update server.
+5.  The `runLinux()` function appends the attacker-controlled version string directly into an `exec("rm -rf ...")` command.
+6.  The `exec()` function executes the command, resulting in arbitrary command execution with the privileges of the user running `npm install`.
+7.  The attacker can then tamper with local files, install backdoors, or escalate privileges.
+8.  The attacker achieves complete system compromise, potentially exfiltrating sensitive data or using the compromised system as a pivot point.
+
+## Impact
+
+Successful exploitation of this vulnerability allows attackers to execute arbitrary system commands on the victim's machine. This can lead to complete system compromise, including unauthorized access to sensitive data, installation of malware, and further propagation of the attack within the network. Given the nature of `npm install`, developers are primarily at risk. The impact could be significant for development environments.
+
+## Recommendation
+
+*   Apply the following rule to detect command injection attempts within npm installations referencing the electerm package: `Electerm NPM install Command Injection`.
+*   Monitor network traffic for connections to unexpected or suspicious update servers that could be serving malicious Electerm release metadata using network connection logs.
+*   While the vulnerability is patched in later versions, ensure users are aware of the risks associated with running older versions of Electerm (`< 3.3.8`).
