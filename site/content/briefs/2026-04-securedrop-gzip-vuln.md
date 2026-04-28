@@ -3,6 +3,9 @@ title: SecureDrop Client Code Execution via Gzip Extraction Vulnerability
 slug: 2026-04-securedrop-gzip-vuln
 description: A compromised SecureDrop server can achieve code execution on the SecureDrop client's virtual machine by exploiting improper filename validation during gzip archive extraction, allowing for the overwriting of critical files.
 date: "2026-04-18T01:16:18Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
