@@ -49,4 +49,27 @@ rules:
 rules_count: 2
 ---
 
-This detection identifies the execution of `mstsc.exe` (Remote Desktop Connection) with an RDP file located in suspicious directories on Windows systems. Adversaries may use malicious RDP files delivered via phishing campaigns as an initial access vector. These files, containing connection settings, can be placed in locations such as the Downloads folder, temporary directories, or Outlook's content cache. The rule focuses on detecting RDP files opened from unusual paths, which can signal…
+This detection identifies the execution of `mstsc.exe` (Remote Desktop Connection) with an RDP file located in suspicious directories on Windows systems. Adversaries may use malicious RDP files delivered via phishing campaigns as an initial access vector. These files, containing connection settings, can be placed in locations such as the Downloads folder, temporary directories, or Outlook's content cache. The rule focuses on detecting RDP files opened from unusual paths, which can signal unauthorized access or malicious activity. The behavior was observed in conjunction with the Midnight Blizzard campaign in October 2024. This detection helps defenders identify potential RDP-based attacks and investigate suspicious user behavior.
+
+## Attack Chain
+
+1.  The attacker crafts a spearphishing email with a malicious RDP file attachment (T1566.001).
+2.  The victim receives the email and downloads the RDP file to a common location such as the Downloads folder.
+3.  The user executes the downloaded RDP file, initiating the `mstsc.exe` process (T1204.002).
+4.  The `mstsc.exe` process attempts to establish a remote connection to a malicious server controlled by the attacker.
+5.  The attacker may exploit vulnerabilities in the RDP service or use credential harvesting techniques to gain access to the remote system.
+6.  Upon successful connection, the attacker performs reconnaissance activities, such as network scanning and user enumeration.
+7.  The attacker moves laterally within the network, exploiting additional vulnerabilities or using stolen credentials.
+8.  The attacker achieves their objective, such as data exfiltration or deploying ransomware.
+
+## Impact
+
+Successful exploitation via malicious RDP files can lead to unauthorized access to internal systems, data breaches, and potential ransomware deployment. While the number of victims and targeted sectors is unspecified, the impact can be significant, especially if the compromised systems have access to sensitive data or critical infrastructure. This can result in financial losses, reputational damage, and operational disruptions.
+
+## Recommendation
+
+*   Enable Sysmon process creation logging to detect the execution of `mstsc.exe` and capture the command-line arguments used to launch the process.
+*   Deploy the Sigma rule "Remote Desktop File Opened from Suspicious Path" to your SIEM to detect RDP files opened from suspicious locations.
+*   Educate users about the risks of opening RDP files from untrusted sources, especially those received via email.
+*   Implement application control policies to restrict the execution of `mstsc.exe` from untrusted directories.
+*   Monitor network connections originating from systems where `mstsc.exe` has been executed to identify suspicious remote connections.
