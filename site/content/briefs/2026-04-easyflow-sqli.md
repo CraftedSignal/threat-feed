@@ -48,4 +48,25 @@ rules:
 rules_count: 2
 ---
 
-EasyFlow .NET, a product developed by Digiwin, is affected by a critical SQL Injection vulnerability (CVE-2026-5964). This flaw allows unauthenticated remote attackers to inject arbitrary SQL commands into the application's database queries. This can lead to the unauthorized reading, modification, or deletion of sensitive database contents. The vulnerability poses a significant risk, as it requires no prior authentication and can be exploited remotely. Public reports detailing the vulnerability…
+EasyFlow .NET, a product developed by Digiwin, is affected by a critical SQL Injection vulnerability (CVE-2026-5964). This flaw allows unauthenticated remote attackers to inject arbitrary SQL commands into the application's database queries. This can lead to the unauthorized reading, modification, or deletion of sensitive database contents. The vulnerability poses a significant risk, as it requires no prior authentication and can be exploited remotely. Public reports detailing the vulnerability were released in April 2026, and exploitation attempts are anticipated to increase. Defenders should prioritize patching and implementing detection mechanisms to mitigate potential exploitation.
+
+## Attack Chain
+
+1. An unauthenticated attacker identifies an EasyFlow .NET instance exposed to the internet.
+2. The attacker crafts a malicious HTTP request containing SQL injection payloads within a vulnerable parameter.
+3. The EasyFlow .NET application fails to properly sanitize the input, passing the malicious SQL query to the database.
+4. The database executes the injected SQL command, potentially revealing sensitive data.
+5. The attacker extracts data from the database, such as user credentials or proprietary information.
+6. The attacker leverages the SQL injection to modify database records, such as escalating privileges or injecting malicious code.
+7. The attacker may delete data from the database, leading to denial of service or data loss.
+
+## Impact
+
+Successful exploitation of this SQL Injection vulnerability allows unauthenticated attackers to read, modify, and delete data within the EasyFlow .NET database. This can lead to the compromise of sensitive information, including user credentials, financial data, and proprietary business information. Modified data can disrupt business operations or facilitate further attacks. Data deletion can cause significant data loss and system instability. Due to the critical nature of the vulnerability and the ease of exploitation, organizations using EasyFlow .NET are at high risk.
+
+## Recommendation
+
+*   Apply the patch or upgrade to the latest version of EasyFlow .NET provided by Digiwin to remediate CVE-2026-5964.
+*   Deploy the Sigma rule "Detect Suspicious SQL Injection Attempts in HTTP Requests" to identify exploitation attempts targeting web servers.
+*   Implement input validation and parameterized queries to prevent SQL injection vulnerabilities in web applications.
+*   Monitor web server logs for suspicious HTTP requests containing common SQL injection keywords.
