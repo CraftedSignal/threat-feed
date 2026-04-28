@@ -3,6 +3,9 @@ title: 'CVE-2026-33826: Windows Active Directory Improper Input Validation Vulne
 slug: 2026-04-active-directory-code-execution
 description: An improper input validation vulnerability (CVE-2026-33826) in Windows Active Directory could allow an authenticated attacker on an adjacent network to execute code.
 date: "2026-04-15T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
