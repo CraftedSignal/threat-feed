@@ -3,6 +3,9 @@ title: libarchive Multiple Vulnerabilities Allow Information Disclosure and DoS
 slug: 2026-04-libarchive-dos-info
 description: Multiple vulnerabilities in libarchive can be exploited by a remote attacker to disclose information or cause a denial-of-service condition.
 date: "2026-04-21T08:04:42Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
