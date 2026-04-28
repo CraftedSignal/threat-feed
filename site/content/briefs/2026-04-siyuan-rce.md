@@ -1,30 +1,41 @@
 ---
-title: SiYuan Knowledge Management System Stored XSS Leads to RCE (CVE-2026-39846)
+title: SiYuan Knowledge Management System RCE via Malicious Website
 slug: 2026-04-siyuan-rce
-description: A stored XSS vulnerability in SiYuan versions prior to 3.6.4 (CVE-2026-39846) allows remote code execution by syncing a malicious note containing a crafted table caption to another user, leading to arbitrary code execution on the victim's machine.
-date: "2026-04-07T22:16:23Z"
+description: SiYuan versions prior to 3.6.2 are vulnerable to remote code execution (RCE) via a malicious website exploiting a permissive CORS policy to inject a JavaScript snippet, leading to arbitrary code execution within the application's Node.js context.
+date: "2026-03-31T22:17:16Z"
 severities:
   - critical
 tags:
-  - cve-2026-39846
+  - cve-2026-34449
   - rce
-  - xss
   - siyuan
+  - cors
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-39846
-    cvss: 9
+  - id: CVE-2026-34449
+    cvss: 9.6
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-39846
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-34449
 rules:
-  - title: Detect Suspicious SiYuan Table Caption
-    description: Detects potential exploitation of the SiYuan RCE vulnerability (CVE-2026-39846) by monitoring for process creations originating from the SiYuan application with suspicious command-line arguments.
+  - title: Detect Suspicious SiYuan API Access from Web Browser
+    description: Detects network connections to the SiYuan API originating from web browsers, potentially indicating an exploitation attempt of CVE-2026-34449.
     platform: sigma
-    severity: critical
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1059.007
+    data_sources:
+      - network_connection
+      - windows
+  - title: Detect Processes Spawned from SiYuan Indicating RCE
+    description: Detects the creation of unusual processes spawned directly from the SiYuan application, which could indicate successful remote code execution (RCE).
+    platform: sigma
+    severity: high
     tactics:
       - execution
     techniques:
@@ -32,39 +43,29 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: SiYuan Network Activity
-    description: Detects network connections initiated by SiYuan process that may indicate command and control activity after exploitation.
-    platform: sigma
-    severity: medium
-    tactics:
-      - command_and_control
-    techniques:
-      - T1071.001
-    data_sources:
-      - network_connection
-      - windows
 rules_count: 2
 ---
 
-SiYuan, a personal knowledge management system, is vulnerable to remote code execution (RCE) due to a stored Cross-Site Scripting (XSS) vulnerability. This flaw, identified as CVE-2026-39846, affects versions prior to 3.6.4. The vulnerability stems from unsanitized table caption content within notes. An attacker can craft a malicious note containing a specifically crafted table caption with JavaScript, import this note into a shared workspace, and then wait for another user (the victim) to synchronize their workspace. When the victim opens the malicious note, the unsanitized table caption gets rendered, executing the attacker-controlled JavaScript code. Because the SiYuan Electron desktop client runs with nodeIntegration enabled and contextIsolation disabled, this Javascript can access Node.js APIs, allowing for arbitrary code execution on the victim's system.
+SiYuan is a personal knowledge management system. Versions prior to 3.6.2 contain a critical vulnerability (CVE-2026-34449) that allows a malicious website to execute arbitrary code on any desktop running the application. This is achieved by exploiting an overly permissive Cross-Origin Resource Sharing (CORS) policy ("Access-Control-Allow-Origin: *" combined with "Access-Control-Allow-Private-Network: true"). An attacker can inject a JavaScript snippet into the application via its API. This injected code then executes in the context of Electron's Node.js environment, granting the attacker full operating system access. The vulnerability is triggered simply by a user visiting a malicious website while SiYuan is running. The issue has been addressed and patched in version 3.6.2 of SiYuan. This RCE can allow attackers to steal data, install malware, or perform other malicious activities on the victim's machine.
 
 ## Attack Chain
 
-1.  Attacker crafts a malicious note containing a table with a specially crafted caption including JavaScript. This JavaScript payload is designed to execute arbitrary commands on the victim's machine.
-2.  The attacker imports this malicious note into a SiYuan workspace that is synced with other users.
-3.  The victim synchronizes their SiYuan workspace, downloading the malicious note.
-4.  The victim opens the note containing the malicious table.
-5.  The SiYuan application renders the table, including the unsanitized table caption.
-6.  The attacker's embedded JavaScript executes within the SiYuan Electron desktop client context.
-7.  Due to the lack of context isolation and enabled nodeIntegration, the JavaScript can leverage Node.js APIs.
-8.  The attacker achieves arbitrary code execution on the victim's machine, potentially installing malware, exfiltrating data, or compromising the system.
+1. Victim launches the SiYuan application on their desktop (Windows, Linux, or macOS).
+2. Victim visits a malicious website in a web browser while SiYuan is running.
+3. The malicious website leverages the permissive CORS policy of SiYuan.
+4. The malicious website sends an API request to the running SiYuan instance.
+5. This API request injects a malicious JavaScript payload into SiYuan.
+6. The injected JavaScript code is stored within SiYuan's data.
+7. The next time the user opens SiYuan's UI, the injected JavaScript code executes within Electron's Node.js context.
+8. The attacker gains full OS access and can perform arbitrary actions.
 
 ## Impact
 
-Successful exploitation of CVE-2026-39846 allows a remote attacker to execute arbitrary code on a victim's machine. This could lead to complete system compromise, data theft, or installation of ransomware. Given the nature of SiYuan as a knowledge management system, successful attacks could result in the exfiltration of sensitive personal or organizational information stored within the notes. While the number of affected users and specific sectors are unknown, all users of SiYuan versions prior to 3.6.4 are vulnerable.
+Successful exploitation of CVE-2026-34449 allows for complete compromise of the user's system. The attacker can steal sensitive data, install persistent backdoors, or deploy ransomware. Given SiYuan's purpose as a knowledge management system, it likely holds valuable and sensitive personal or business information. The impact is significant due to the ease of exploitation requiring no user interaction beyond visiting a malicious website.
 
 ## Recommendation
 
-*   Immediately upgrade SiYuan to version 3.6.4 or later to patch CVE-2026-39846.
-*   Deploy the provided Sigma rule `Detect Suspicious SiYuan Table Caption` to detect potential exploitation attempts by monitoring process creations originating from the SiYuan application.
-*   Monitor network connections initiated by the SiYuan application for unusual outbound traffic as a potential sign of post-exploitation activity, using the Sigma rule `SiYuan Network Activity`.
+*   Immediately upgrade SiYuan to version 3.6.2 or later to patch CVE-2026-34449.
+*   Monitor network connections for unusual API requests originating from web browsers, as this could indicate exploitation attempts. Deploy the Sigma rule `title: "Detect Suspicious SiYuan API Access from Web Browser"` to detect this behavior.
+*   Implement strict CORS policies for web applications to prevent unauthorized cross-origin requests.
+*   Enable process creation logging and monitor for unexpected processes spawned from SiYuan, as this could be a sign of successful RCE. Deploy the Sigma rule `title: "Detect Processes Spawned from SiYuan Indicating RCE"` to detect this.
