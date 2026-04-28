@@ -1,73 +1,76 @@
 ---
-title: OpenClaw Server-Side Request Forgery Vulnerability (CVE-2026-35629)
+title: OpenClaw Server-Side Request Forgery Vulnerability (CVE-2026-41297)
 slug: 2026-04-openclaw-ssrf
-description: OpenClaw before 2026.3.25 is vulnerable to server-side request forgery (SSRF), allowing attackers to access restricted resources by exploiting improperly guarded base URLs in channel extensions.
-date: "2026-04-09T22:16:31Z"
+description: OpenClaw before 2026.3.31 is vulnerable to server-side request forgery (SSRF) in the marketplace plugin download functionality, allowing attackers to access internal resources by exploiting unvalidated redirects via the marketplace.ts module.
+date: "2026-04-21T00:16:30Z"
 severities:
   - high
 tags:
   - ssrf
+  - cve-2026-41297
   - openclaw
-  - cve-2026-35629
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-35629
-    cvss: 7.4
+  - id: CVE-2026-41297
+    cvss: 7.6
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-35629
-  - https://github.com/openclaw/openclaw/commit/f92c92515bd439a71bd03eb1bc969c1964f17acf
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-rhfg-j8jq-7v2h
-  - https://www.vulncheck.com/advisories/openclaw-server-side-request-forgery-via-unguarded-configured-base-urls-in-channel-extensions
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41297
+  - https://github.com/openclaw/openclaw/commit/2ce44ca6a1302b166a128abbd78f72114f2f4f52
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-vjx8-8p7h-82gr
+  - https://www.vulncheck.com/advisories/openclaw-server-side-request-forgery-via-marketplace-plugin-download-redirect
 rules:
-  - title: Detect Suspicious OpenClaw SSRF Attempt
-    description: Detects potential SSRF attempts against OpenClaw by identifying requests containing localhost or internal IP addresses in the query parameters.
+  - title: Detect OpenClaw SSRF Attempt via HTTP Redirect
+    description: Detects potential SSRF attempts in OpenClaw by monitoring HTTP traffic for suspicious redirects to internal or unexpected external IPs or domains.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
-      - T1068
+      - T1021.001
       - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect OpenClaw Channel Extension SSRF via Fetch Call
-    description: Detects attempts to exploit SSRF in OpenClaw channel extensions by monitoring for requests that try to access internal resources using fetch calls.
+  - title: Detect OpenClaw SSRF Attempt via DNS Query to Internal Domain
+    description: Detects potential SSRF attempts in OpenClaw by monitoring DNS queries for internal domains.
     platform: sigma
     severity: medium
     tactics:
       - initial_access
     techniques:
+      - T1021.001
       - T1190
     data_sources:
-      - webserver
-      - linux
+      - dns_query
+      - windows
 rules_count: 2
 ---
 
-OpenClaw versions prior to 2026.3.25 are susceptible to a server-side request forgery (SSRF) vulnerability, identified as CVE-2026-35629. This flaw resides within multiple channel extensions, where configured base URLs are not adequately protected against SSRF attacks. An attacker can leverage this vulnerability by exploiting unprotected `fetch()` calls directed towards configured endpoints. This allows the attacker to rebind requests to internal, restricted destinations, gaining unauthorized access to sensitive resources. Successful exploitation could lead to information disclosure or further internal network compromise. Defenders should prioritize patching OpenClaw installations to version 2026.3.25 or later.
+OpenClaw before version 2026.3.31 contains a server-side request forgery (SSRF) vulnerability in its marketplace plugin download functionality. This flaw, identified as CVE-2026-41297, allows remote attackers to access internal resources by exploiting unvalidated redirects. The issue lies within the `marketplace.ts` module, which fails to properly restrict redirect destinations during archive downloads. An attacker can manipulate the download process to redirect requests to arbitrary internal or external servers, potentially exposing sensitive information or allowing unauthorized actions. Successful exploitation can lead to information disclosure or further compromise of the OpenClaw server and its environment.
 
 ## Attack Chain
 
-1.  The attacker identifies an OpenClaw instance running a vulnerable version (prior to 2026.3.25).
-2.  The attacker discovers an unprotected channel extension that utilizes `fetch()` calls with a configurable base URL.
-3.  The attacker crafts a malicious request to the vulnerable channel extension, injecting a URL pointing to an internal resource or service (e.g., `http://localhost/admin`).
-4.  The OpenClaw application, without proper validation, uses the attacker-supplied URL in a `fetch()` call.
-5.  The `fetch()` call is executed by the server, accessing the internal resource specified in the attacker's payload.
-6.  The response from the internal resource is returned to the attacker, potentially exposing sensitive information or allowing for further exploitation.
-7.  The attacker analyzes the response data to identify further internal targets or sensitive data.
+1.  Attacker identifies an OpenClaw instance running a vulnerable version (prior to 2026.3.31).
+2.  Attacker crafts a malicious request to the marketplace plugin download functionality.
+3.  The crafted request includes a manipulated URL designed to redirect the server's request.
+4.  The vulnerable `marketplace.ts` module fails to validate the redirect destination.
+5.  The OpenClaw server initiates a request to the attacker-specified URL, which could be an internal resource or an external server.
+6.  If the redirection points to an internal resource, the server fetches and potentially exposes sensitive information.
+7.  If the redirection points to an external server, the server may leak internal information within the request headers or body.
+8.  The attacker gains unauthorized access to internal resources or sensitive information via the SSRF vulnerability.
 
 ## Impact
 
-Successful exploitation of this SSRF vulnerability (CVE-2026-35629) in OpenClaw installations can lead to unauthorized access to internal resources, potentially exposing sensitive information such as configuration files, internal application data, or credentials. This could allow the attacker to pivot further into the internal network, potentially leading to lateral movement, data exfiltration, or other malicious activities. The vulnerability affects any OpenClaw instance running a version prior to 2026.3.25.
+Successful exploitation of CVE-2026-41297 can allow attackers to access internal resources, potentially exposing sensitive data such as configuration files, database credentials, or internal application data. The impact depends on the internal resources accessible from the OpenClaw server. If the OpenClaw instance has access to critical internal systems, this vulnerability could lead to a significant compromise of the network. While the specific number of victims and targeted sectors are unknown, any organization using a vulnerable version of OpenClaw is at risk.
 
 ## Recommendation
 
-*   Upgrade OpenClaw installations to version 2026.3.25 or later to remediate CVE-2026-35629.
-*   Implement strict input validation on all configurable base URLs used in channel extensions to prevent SSRF attacks.
-*   Deploy the Sigma rule `Detect Suspicious OpenClaw SSRF Attempt` to identify potential exploitation attempts based on HTTP request patterns.
-*   Monitor web server logs for unusual or unexpected requests to internal resources, indicative of SSRF activity, using the `webserver` log source.
+*   Upgrade OpenClaw to version 2026.3.31 or later to patch CVE-2026-41297.
+*   Deploy the Sigma rule `Detect OpenClaw SSRF Attempt via HTTP Redirect` to detect suspicious HTTP traffic indicative of SSRF exploitation.
+*   Implement strict input validation and sanitization on all user-supplied URLs, especially those used in redirect operations, to prevent similar SSRF vulnerabilities in other applications.
+*   Monitor web server logs for unusual outbound connections originating from the OpenClaw server, which may indicate an SSRF attempt.
+*   Review and harden internal network segmentation to limit the impact of potential SSRF attacks, minimizing the resources accessible from the OpenClaw server.
