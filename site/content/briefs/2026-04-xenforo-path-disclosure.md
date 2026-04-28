@@ -47,4 +47,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2025-71282 details a path disclosure vulnerability affecting XenForo versions prior to 2.3.7. The vulnerability arises due to insufficient restrictions on error message generation when encountering `open_basedir` restrictions. By triggering specific errors related to file access, an attacker can elicit exception messages that reveal the server's internal filesystem structure. This information can then be leveraged to further understand the system's configuration, identify potential attack…
+CVE-2025-71282 details a path disclosure vulnerability affecting XenForo versions prior to 2.3.7. The vulnerability arises due to insufficient restrictions on error message generation when encountering `open_basedir` restrictions. By triggering specific errors related to file access, an attacker can elicit exception messages that reveal the server's internal filesystem structure. This information can then be leveraged to further understand the system's configuration, identify potential attack vectors, and potentially bypass security measures. The vulnerability was reported by VulnCheck and addressed in XenForo 2.3.7. This vulnerability could expose sensitive information about the web server.
+
+## Attack Chain
+
+1.  The attacker identifies a XenForo instance running a version prior to 2.3.7.
+2.  The attacker crafts a malicious request designed to trigger a file access operation that violates `open_basedir` restrictions. This could involve manipulating URL parameters or POST data to request access to restricted files or directories.
+3.  XenForo attempts to access the file or directory specified in the malicious request.
+4.  The `open_basedir` restriction prevents XenForo from accessing the requested resource.
+5.  XenForo generates an exception message containing the full filesystem path of the attempted file access.
+6.  The exception message is displayed to the attacker, revealing the server's internal directory structure.
+7.  The attacker analyzes the disclosed filesystem paths to gather information about the server's configuration and identify potential targets for further attacks.
+
+## Impact
+
+Successful exploitation of CVE-2025-71282 allows attackers to obtain sensitive information about the XenForo server's filesystem. This information can be used to map out the server's directory structure, identify configuration files, and potentially locate other sensitive data. While the vulnerability does not directly lead to code execution or data modification, the disclosed information can significantly aid attackers in reconnaissance and subsequent exploitation attempts. The number of affected XenForo installations is unknown, but the impact is potentially widespread given the popularity of the platform.
+
+## Recommendation
+
+*   Upgrade XenForo installations to version 2.3.7 or later to remediate CVE-2025-71282.
+*   Implement a Web Application Firewall (WAF) rule to detect and block requests attempting to trigger `open_basedir` violations. Analyze webserver logs for HTTP requests resulting in server errors that contain file paths.
+*   Monitor web server logs for unusual patterns of file access attempts that may indicate exploitation attempts.
+*   Deploy the Sigma rules provided below to detect exploitation attempts in your environment.
