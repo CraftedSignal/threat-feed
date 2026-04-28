@@ -48,4 +48,26 @@ rules:
 rules_count: 2
 ---
 
-The Gravity SMTP plugin, a WordPress extension facilitating email sending through SMTP, contains a missing authorization vulnerability (CVE-2026-4162) affecting versions 2.1.4 and earlier. This flaw allows authenticated users with minimal subscriber-level permissions to perform administrative actions such as uninstalling and deactivating the plugin, as well as deleting its associated options. The vulnerability stems from the plugin failing to properly validate user authorization before…
+The Gravity SMTP plugin, a WordPress extension facilitating email sending through SMTP, contains a missing authorization vulnerability (CVE-2026-4162) affecting versions 2.1.4 and earlier. This flaw allows authenticated users with minimal subscriber-level permissions to perform administrative actions such as uninstalling and deactivating the plugin, as well as deleting its associated options. The vulnerability stems from the plugin failing to properly validate user authorization before executing sensitive functions. Additionally, the vulnerability can be exploited via a Cross-Site Request Forgery (CSRF) attack. Patches have been released in Gravity SMTP version 2.1.5 to address this security concern. Exploitation of this vulnerability allows low-privileged users to disrupt email functionality and potentially compromise WordPress configurations.
+
+## Attack Chain
+
+1. An attacker authenticates to the WordPress site with subscriber-level or higher privileges.
+2. The attacker crafts a malicious HTTP request to uninstall the Gravity SMTP plugin, leveraging the missing authorization vulnerability. This request targets the WordPress plugin management endpoint.
+3. Alternatively, the attacker crafts a CSRF attack that tricks a privileged user into triggering the malicious HTTP request to uninstall the plugin.
+4. The WordPress server receives the crafted request without proper authorization checks.
+5. The plugin's uninstall function is executed, removing the Gravity SMTP plugin from the WordPress installation.
+6. The attacker crafts another HTTP request to delete Gravity SMTP plugin options.
+7. The WordPress server processes the request, and the plugin options are deleted from the database.
+8. The Gravity SMTP plugin is uninstalled and deactivated, and its settings are removed, disrupting the email functionality of the WordPress site.
+
+## Impact
+
+Successful exploitation of CVE-2026-4162 allows attackers with low-level privileges on a WordPress site to disable email functionality and manipulate plugin settings. While the number of affected installations remains unknown, the impact can be significant for organizations heavily reliant on WordPress for communication or critical business processes, potentially leading to disruption of services, loss of email functionality, and unauthorized access to sensitive data or configurations. The CVSS v3.1 score of 7.1 indicates a high severity, considering the ease of exploitation and the potential for widespread disruption.
+
+## Recommendation
+
+*   Upgrade the Gravity SMTP plugin to version 2.1.5 or later to patch CVE-2026-4162.
+*   Monitor WordPress access logs for unauthorized requests targeting the plugin management endpoints to detect potential exploitation attempts. Deploy the Sigma rule `Detect WordPress Plugin Uninstall via Missing Auth` to identify suspicious activity.
+*   Implement CSRF protection mechanisms within WordPress plugins to mitigate the risk of CSRF-based exploitation.
+*   Review WordPress user roles and permissions to minimize the attack surface and restrict access to sensitive functionalities.
