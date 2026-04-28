@@ -20,6 +20,9 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35610
   - https://github.com/polarnl/PolarLearn/security/advisories/GHSA-8hww-w7cc-77rj
+iocs:
+  - type: email
+    value: '[email protected]'
 ioc_counts:
   email: 1
 rules:
@@ -50,4 +53,25 @@ rules:
 rules_count: 2
 ---
 
-PolarLearn, a free and open-source learning program, is vulnerable to a privilege escalation flaw (CVE-2026-35610) in versions 0-PRERELEASE-14 and earlier. The vulnerability lies within the account-management module, specifically affecting the `setCustomPassword(userId, password)` and `deleteUser(userId)` functions. An inverted admin check allows authenticated non-admin users to perform these actions, while simultaneously denying legitimate administrators the same privileges. This oversight…
+PolarLearn, a free and open-source learning program, is vulnerable to a privilege escalation flaw (CVE-2026-35610) in versions 0-PRERELEASE-14 and earlier. The vulnerability lies within the account-management module, specifically affecting the `setCustomPassword(userId, password)` and `deleteUser(userId)` functions. An inverted admin check allows authenticated non-admin users to perform these actions, while simultaneously denying legitimate administrators the same privileges. This oversight allows malicious users to gain unauthorized control over user accounts and system configurations, leading to potential data breaches or service disruption.
+
+## Attack Chain
+
+1.  Attacker authenticates to the PolarLearn application using valid, non-admin credentials.
+2.  Attacker identifies the vulnerable `setCustomPassword` function within the account-management module.
+3.  Attacker crafts a malicious request to the `setCustomPassword` function, targeting the `userId` of an administrator account.
+4.  Due to the inverted admin check, the application incorrectly validates the attacker's non-admin privileges as sufficient for the action.
+5.  The application executes the `setCustomPassword` function, modifying the administrator's password using the attacker's provided value.
+6.  The attacker authenticates to the PolarLearn application using the compromised administrator credentials.
+7.  The attacker leverages the escalated administrator privileges to access sensitive data or modify critical system settings.
+8.  Alternatively, the attacker could exploit the `deleteUser` function, deleting administrator or other user accounts.
+
+## Impact
+
+Successful exploitation of CVE-2026-35610 allows unauthorized privilege escalation within PolarLearn. Non-admin users can modify administrator passwords or delete user accounts, leading to potential data breaches, service disruption, and unauthorized access to sensitive information. The vulnerability affects versions 0-PRERELEASE-14 and earlier, potentially impacting all deployments of the software within educational institutions and other organizations using PolarLearn.
+
+## Recommendation
+
+*   Upgrade PolarLearn to a patched version beyond 0-PRERELEASE-14 to remediate the vulnerability described in CVE-2026-35610.
+*   Implement the Sigma rule `DetectPolarLearnPrivilegeEscalation` to detect exploitation attempts by monitoring calls to the `setCustomPassword` function made by non-admin users.
+*   Review and audit user permissions within PolarLearn to identify and remove any unauthorized administrator accounts created through exploitation of CVE-2026-35610.
