@@ -3,6 +3,9 @@ title: Coinbase AgentKit Prompt Injection Vulnerability
 slug: 2026-04-coinbase-agentkit-prompt-injection
 description: A prompt injection vulnerability in Coinbase AgentKit allows for potential wallet drain, infinite approvals, and agent-level remote code execution.
 date: "2026-04-14T00:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
