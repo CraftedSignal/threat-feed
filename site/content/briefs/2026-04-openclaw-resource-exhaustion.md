@@ -3,6 +3,9 @@ title: OpenClaw MS Teams Webhook Resource Exhaustion Vulnerability
 slug: 2026-04-openclaw-resource-exhaustion
 description: OpenClaw before 2026.3.31 parses MS Teams webhook request bodies before performing JWT validation, allowing unauthenticated attackers to exhaust server resources by sending malicious Teams webhook payloads.
 date: "2026-04-29T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
