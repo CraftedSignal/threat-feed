@@ -3,6 +3,9 @@ title: Django Multiple Vulnerabilities Leading to SQL Injection, Information Dis
 slug: 2026-04-django-vulns
 description: A remote, authenticated attacker can exploit multiple vulnerabilities in Django to perform SQL injections, disclose confidential information, or cause a denial-of-service condition.
 date: "2026-04-01T09:20:35Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
