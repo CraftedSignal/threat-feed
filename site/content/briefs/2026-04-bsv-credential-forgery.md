@@ -3,6 +3,9 @@ title: bsv-sdk and bsv-wallet Credential Forgery Vulnerability
 slug: 2026-04-bsv-credential-forgery
 description: The bsv-sdk and bsv-wallet packages are vulnerable to credential forgery because the `acquire_certificate` function persists certificate records to storage without verifying the certifier's signature, allowing attackers to forge identity certificates.
 date: "2026-04-09T20:28:10Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
