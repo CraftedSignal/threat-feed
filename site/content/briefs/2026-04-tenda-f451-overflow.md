@@ -1,42 +1,43 @@
 ---
-title: Tenda F451 Remote Stack-Based Buffer Overflow Vulnerability
+title: Tenda F451 Router Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-tenda-f451-overflow
-description: A remote stack-based buffer overflow vulnerability (CVE-2026-5991) exists in the Tenda F451 router version 1.0.0.7, allowing unauthenticated attackers to potentially execute arbitrary code via a crafted request to the `/goform/WrlExtraSet` endpoint.
-date: "2026-04-10T00:16:36Z"
+description: Tenda F451 router version 1.0.0.7 is vulnerable to a stack-based buffer overflow in the frmL7ProtForm function, enabling remote attackers to execute arbitrary code by manipulating the 'page' argument.
+date: "2026-04-12T08:16:37Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
-  - cve-2026-5991
-  - tenda
+  - cve-2026-6122
   - buffer-overflow
   - router
-  - webserver
+  - tenda
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-5991
+  - id: CVE-2026-6122
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5991
-  - https://github.com/Jimi-Lab/cve/issues/9
-  - https://vuldb.com/vuln/356545
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-6122
 rules:
   - title: Detect Tenda F451 Buffer Overflow Attempt
-    description: Detects potential buffer overflow attempts against Tenda F451 routers by monitoring for abnormally long GO parameters in requests to the /goform/WrlExtraSet endpoint.
+    description: Detects attempts to exploit the stack-based buffer overflow vulnerability (CVE-2026-6122) in Tenda F451 routers by monitoring for requests to the /goform/L7Prot endpoint with excessively long 'page' parameters.
     platform: sigma
     severity: critical
     tactics:
       - initial_access
     techniques:
+      - T1068
       - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect High Volume of Requests to Tenda Configuration Page
-    description: Detects a high volume of requests to /goform/WrlExtraSet, potentially indicating a brute-force or automated exploitation attempt targeting CVE-2026-5991.
+  - title: Detect Tenda F451 POST Request to L7Prot
+    description: Detects POST requests to the /goform/L7Prot endpoint which may indicate command execution or exploitation attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -49,26 +50,26 @@ rules:
 rules_count: 2
 ---
 
-A stack-based buffer overflow vulnerability has been identified in Tenda F451 version 1.0.0.7. The vulnerability resides within the `formWrlExtraSet` function in the `/goform/WrlExtraSet` file. An attacker can trigger the overflow by manipulating the `GO` argument in a crafted HTTP request. This vulnerability is remotely exploitable and could allow an attacker to execute arbitrary code on the device. Publicly available exploits exist, increasing the risk of exploitation. Given the widespread use of these routers, this vulnerability presents a significant risk to home and small business networks.
+A critical stack-based buffer overflow vulnerability has been identified in Tenda F451 router version 1.0.0.7. The vulnerability resides within the `frmL7ProtForm` function of the `/goform/L7Prot` component, specifically within the `httpd` service. A remote attacker can exploit this flaw by crafting a malicious request targeting the `page` argument. Successful exploitation allows the attacker to execute arbitrary code on the device. Publicly available exploit code exists, increasing the risk of widespread exploitation. This vulnerability poses a significant threat to affected devices, potentially leading to full device compromise.
 
 ## Attack Chain
 
-1. An attacker identifies a vulnerable Tenda F451 router running firmware version 1.0.0.7.
-2. The attacker crafts a malicious HTTP POST request targeting the `/goform/WrlExtraSet` endpoint.
-3. The HTTP POST request includes the `GO` parameter with a string exceeding the buffer size allocated for it in the `formWrlExtraSet` function.
-4. The router's web server receives the crafted HTTP POST request and passes the `GO` parameter to the `formWrlExtraSet` function without proper bounds checking.
-5. The `formWrlExtraSet` function writes the oversized `GO` parameter into a stack-based buffer, causing a buffer overflow.
-6. The overflow overwrites adjacent memory on the stack, including the return address.
-7. The attacker controls the overwritten return address to point to malicious code injected into the request.
-8. When the `formWrlExtraSet` function returns, it jumps to the attacker-controlled address, executing arbitrary code on the router.
+1.  Attacker identifies a vulnerable Tenda F451 router running firmware version 1.0.0.7.
+2.  Attacker crafts a malicious HTTP GET or POST request targeting the `/goform/L7Prot` endpoint.
+3.  The malicious request includes the `page` argument with a payload exceeding the buffer size allocated for it within the `frmL7ProtForm` function.
+4.  The `httpd` service processes the request without proper bounds checking on the `page` argument.
+5.  The oversized payload overflows the stack buffer during the execution of the `frmL7ProtForm` function.
+6.  The buffer overflow overwrites adjacent memory regions on the stack, including the return address.
+7.  The attacker-controlled return address redirects execution to attacker-supplied code or a return-oriented programming (ROP) chain.
+8.  The attacker executes arbitrary code on the router, potentially gaining full control of the device.
 
 ## Impact
 
-Successful exploitation of CVE-2026-5991 allows an unauthenticated remote attacker to execute arbitrary code on the Tenda F451 router. This could lead to complete compromise of the device, allowing the attacker to eavesdrop on network traffic, inject malicious content into web pages, or use the router as a launchpad for further attacks against other devices on the network or the internet. Given the number of potentially affected devices, this vulnerability presents a significant risk.
+Successful exploitation of this vulnerability allows a remote attacker to execute arbitrary code on the affected Tenda F451 router. This can lead to a complete compromise of the device, allowing the attacker to modify router settings, intercept network traffic, or use the device as a bot in a botnet. Given the availability of public exploits, vulnerable devices are at high risk of compromise. The number of potentially affected devices is substantial, as the Tenda F451 is a widely used router model.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect Tenda F451 Buffer Overflow Attempt` to identify potential exploitation attempts based on abnormally long GO parameter values in web requests (see "rules" section).
-*   Monitor web server logs for requests to `/goform/WrlExtraSet` with unusually long `GO` parameter values, indicative of potential buffer overflow attempts.
-*   Implement rate limiting on requests to `/goform/WrlExtraSet` to mitigate brute-force exploitation attempts.
-*   Since the vendor patch is not available, consider replacing vulnerable Tenda F451 routers with more secure alternatives.
+*   Monitor web server logs for requests to `/goform/L7Prot` with unusually long `page` parameters, deploying the Sigma rule `Detect Tenda F451 Buffer Overflow Attempt` to identify potential exploitation attempts.
+*   Since no patch is available, consider replacing the Tenda F451 1.0.0.7 with a more secure router or firewall solution.
+*   Implement network segmentation to limit the impact of a compromised router on other network devices.
+*   Disable remote administration access to the router to reduce the attack surface.
