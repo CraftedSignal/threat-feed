@@ -3,6 +3,9 @@ title: 7-Zip Vulnerability Allows File Manipulation
 slug: 2026-04-7zip-file-manipulation
 description: A remote, anonymous attacker can exploit a vulnerability in 7-Zip to manipulate files, leading to potential data integrity issues.
 date: "2026-04-01T09:21:35Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
