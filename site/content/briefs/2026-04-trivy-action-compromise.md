@@ -3,6 +3,9 @@ title: Compromised trivy-action GitHub Action Leads to Credential Theft
 slug: 2026-04-trivy-action-compromise
 description: A supply chain compromise of the trivy-action GitHub Action was discovered, where 76 of the 77 release tags had been retroactively poisoned to include a multi-stage credential stealer that runs before the legitimate scanner, making workflows appear normal.
 date: "2026-03-31T17:50:16Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
