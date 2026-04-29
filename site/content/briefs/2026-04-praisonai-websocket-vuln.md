@@ -3,6 +3,9 @@ title: PraisonAI Unauthenticated WebSocket Allows Resource Exhaustion
 slug: 2026-04-praisonai-websocket-vuln
 description: PraisonAI before version 4.5.128 is vulnerable to resource exhaustion and API credit draining due to the `/media-stream` WebSocket endpoint accepting unauthenticated connections, allowing attackers to exhaust server resources and drain OpenAI API credits.
 date: "2026-04-09T22:16:35Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
