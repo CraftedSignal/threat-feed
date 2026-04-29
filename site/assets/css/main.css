@@ -264,6 +264,66 @@ body {
   color: inherit;
 }
 
+/* Tighten the Pagefind layout. Defaults inflate the input row, leave a
+   wide gutter between filters and results, and pad each result tile
+   heavily. Compact the spacing so the search panel feels in line with
+   the rest of the cards on the site. */
+.pagefind-ui {
+  --pagefind-ui-result-spacing: 0.5rem;
+}
+.pagefind-ui__form {
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0 !important;
+}
+.pagefind-ui__search-input {
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.95rem !important;
+}
+.pagefind-ui__drawer {
+  gap: 0.5rem !important;
+}
+.pagefind-ui__results-area {
+  padding-top: 0 !important;
+}
+.pagefind-ui__result {
+  padding: 0.5rem 0.25rem !important;
+  margin-bottom: 0 !important;
+}
+.pagefind-ui__result + .pagefind-ui__result {
+  border-top: 1px solid rgb(var(--color-stroke));
+}
+.pagefind-ui__result-title {
+  font-size: 0.95rem !important;
+  margin-bottom: 0.15rem !important;
+  line-height: 1.25 !important;
+}
+.pagefind-ui__result-excerpt {
+  font-size: 0.825rem !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+.pagefind-ui__result-thumb,
+.pagefind-ui__result-image {
+  display: none !important; /* showImages:false already, belt-and-suspenders */
+}
+.pagefind-ui__result-inner {
+  margin: 0 !important;
+}
+.pagefind-ui__result-nested {
+  padding: 0.25rem 0 0.25rem 0.75rem !important;
+  margin-top: 0.25rem !important;
+  border-left: 2px solid rgb(var(--color-stroke));
+}
+.pagefind-ui__filter-panel {
+  padding: 0 !important;
+}
+.pagefind-ui__message,
+.pagefind-ui__results-area > p {
+  font-size: 0.85rem !important;
+  margin: 0.5rem 0 !important;
+  color: rgb(var(--color-muted));
+}
+
 /* ---------------------------------------------------------------------- */
 /* Prose — Hugo's rendered Markdown */
 /* ---------------------------------------------------------------------- */
