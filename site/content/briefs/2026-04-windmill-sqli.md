@@ -3,6 +3,9 @@ title: Windmill CE/EE SQL Injection Vulnerability
 slug: 2026-04-windmill-sqli
 description: Windmill CE/EE versions 1.276.0 through 1.603.2 are vulnerable to SQL injection in the folder ownership management, allowing authenticated attackers to inject SQL through the owner parameter, leading to sensitive data access, token forgery, and arbitrary code execution.
 date: "2026-04-07T17:16:27Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
