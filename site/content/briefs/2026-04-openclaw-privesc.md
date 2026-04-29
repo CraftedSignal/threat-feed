@@ -1,8 +1,8 @@
 ---
-title: OpenClaw Gateway Plugin HTTP Authentication Privilege Escalation
+title: OpenClaw Privilege Escalation via Telegram Configuration and Cron Persistence Settings
 slug: 2026-04-openclaw-privesc
-description: OpenClaw before 2026.4.8 contains a privilege escalation vulnerability where attackers can gain unauthorized write access to runtime operations by sending read-scoped requests through the gateway authentication route.
-date: "2026-04-29T12:00:00Z"
+description: OpenClaw before 2026.3.28 contains a privilege escalation vulnerability that allows authenticated operators with write permissions to access and modify admin-class Telegram configuration and cron persistence settings via the send endpoint.
+date: "2026-04-24T12:00:00Z"
 type: coverage
 types:
   - coverage
@@ -10,8 +10,8 @@ severities:
   - high
 tags:
   - privilege-escalation
-  - webserver
-  - CVE-2026-42429
+  - persistence
+  - cve-2026-41359
 vendors:
   - OpenClaw
 products:
@@ -21,60 +21,62 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1053.003
+    technique_name: 'Scheduled Task/Job: Cron'
 cves:
-  - id: CVE-2026-42429
+  - id: CVE-2026-41359
     cvss: 7.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-42429
-  - https://github.com/openclaw/openclaw/commit/d7c3210cd6f5fdfdc1beff4c9541673e814354d5
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-4f8g-77mw-3rxc
-  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-gateway-plugin-http-authentication
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41359
+  - https://github.com/openclaw/openclaw/commit/b7d70ade3b9900dbe97bd73be9c02e924ff3c986
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-767m-xrhc-fxm7
+  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-operator-write-to-admin-class-telegram-config-and-cron-persistence
 rules:
-  - title: Detect OpenClaw Gateway Authentication Privilege Escalation Attempt
-    description: Detects potential attempts to exploit the OpenClaw privilege escalation vulnerability (CVE-2026-42429) by monitoring requests to the gateway authentication route.
+  - title: Detect OpenClaw Cron Persistence Modification
+    description: Detects unauthorized modification of cron jobs, potentially indicating privilege escalation via CVE-2026-41359.
     platform: sigma
     severity: high
     tactics:
-      - cve-2026-42429
+      - persistence
       - privilege_escalation
     techniques:
-      - T1068
+      - T1053.003
     data_sources:
-      - webserver
+      - file_event
       - linux
-  - title: Detect OpenClaw Unauthenticated Access
-    description: Detects unauthorized access attempts to OpenClaw resources which may be indicative of an exploit.
+  - title: Detect OpenClaw Telegram Configuration Modification
+    description: Detects unauthorized modification of telegram configuration, potentially indicating privilege escalation via CVE-2026-41359.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - cve-2026-42429
+      - persistence
       - privilege_escalation
-    techniques:
-      - T1068
     data_sources:
-      - webserver
+      - file_event
       - linux
 rules_count: 2
 ---
 
-OpenClaw, in versions prior to 2026.4.8, is susceptible to a privilege escalation vulnerability within its gateway plugin's HTTP authentication mechanism. This flaw allows an attacker to elevate their permissions from `operator.read` to `operator.write`, effectively granting them unauthorized control over runtime operations. The vulnerability stems from the gateway plugin improperly handling identity-bearing requests. By exploiting this, malicious actors can leverage the gateway's authentication route to escalate privileges and perform actions beyond their intended scope. This poses a significant risk to the integrity and security of OpenClaw deployments, potentially leading to unauthorized modifications, data breaches, or service disruptions.
+OpenClaw, in versions prior to 2026.3.28, is vulnerable to a privilege escalation. An authenticated operator with `operator.write` credentials can leverage this vulnerability to access sensitive administrative functions. Specifically, the flaw resides in the `send` endpoint where insufficient access controls allow unauthorized modification of Telegram configurations and cron persistence settings, which are typically restricted to admin-level users. Successful exploitation allows an attacker to gain elevated privileges and control critical system configurations. This can lead to persistent backdoor access or manipulation of the bot's behavior.
 
 ## Attack Chain
 
-1. An attacker identifies an OpenClaw instance running a version prior to 2026.4.8 with the gateway plugin enabled.
-2. The attacker crafts an HTTP request with read-only permissions (`operator.read`) targeting the gateway authentication route.
-3. The gateway plugin incorrectly processes the request, widening the permission scope to include `operator.write`.
-4. The attacker successfully authenticates through the gateway with the escalated privileges.
-5. The attacker leverages the gained `operator.write` permissions to perform unauthorized runtime operations.
-6. These operations could include modifying system configurations or accessing sensitive data.
-7. The attacker maintains the escalated privileges for further malicious activity.
+1. Attacker gains valid `operator.write` credentials through legitimate access or credential compromise.
+2. Attacker authenticates to the OpenClaw instance.
+3. Attacker crafts a malicious request to the `/send` endpoint.
+4. The crafted request targets the Telegram configuration settings, bypassing access controls.
+5. The attacker modifies sensitive Telegram configurations, potentially redirecting communications or impersonating the admin.
+6. The attacker manipulates the cron persistence settings to execute arbitrary code at scheduled intervals.
+7. The attacker establishes a persistent backdoor, maintaining unauthorized access to the system.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to bypass intended access controls and gain elevated privileges within the OpenClaw system. This can lead to unauthorized modification of critical system settings, potentially disrupting services or compromising sensitive data. While the specific number of affected installations is unknown, any OpenClaw deployment running a version before 2026.4.8 with the gateway plugin enabled is potentially vulnerable.
+Successful exploitation of this vulnerability allows an attacker with limited `operator.write` privileges to gain administrative control over the OpenClaw instance. This could lead to unauthorized access to sensitive information, manipulation of the bot's functionality, or persistent backdoor access. The affected version is OpenClaw before 2026.3.28. There is no information about victim count or sectors targeted.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.8 or later to patch the vulnerability (CVE-2026-42429).
-*   Monitor web server logs for suspicious requests targeting the gateway authentication route that may indicate exploitation attempts. Deploy the Sigma rule provided below to detect potential exploitation attempts.
-*   Review and enforce strict access control policies within OpenClaw to minimize the potential impact of privilege escalation attacks.
+*   Upgrade OpenClaw to version 2026.3.28 or later to patch CVE-2026-41359.
+*   Implement the Sigma rule `Detect OpenClaw Cron Persistence Modification` to monitor for unauthorized changes to cron jobs.
+*   Implement the Sigma rule `Detect OpenClaw Telegram Configuration Modification` to monitor for unauthorized changes to telegram configurations.
