@@ -1,7 +1,7 @@
 ---
-title: UTT HiPER 1250GW Buffer Overflow Vulnerability (CVE-2026-7419)
+title: UTT HiPER 1250GW Buffer Overflow Vulnerability (CVE-2026-7420)
 slug: 2026-04-utt-hiper-buffer-overflow
-description: A buffer overflow vulnerability exists in UTT HiPER 1250GW devices, potentially allowing remote attackers to execute arbitrary code by manipulating the 'Profile' argument in the formTaskEdit_ap.goform.
+description: A buffer overflow vulnerability in UTT HiPER 1250GW devices (versions up to 3.2.7-210907-180535) allows remote attackers to execute arbitrary code by manipulating the 'Profile' argument in the `strcpy` function of the `route/goform/ConfigAdvideo` file, due to insufficient bounds checking.
 date: "2026-04-29T23:16:20Z"
 type: coverage
 types:
@@ -9,8 +9,8 @@ types:
 severities:
   - critical
 tags:
-  - buffer overflow
-  - cve-2026-7419
+  - buffer-overflow
+  - remote-code-execution
   - iot
 vendors:
   - UTT
@@ -22,60 +22,58 @@ mitre_ttps:
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-7419
+  - id: CVE-2026-7420
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7419
-  - https://github.com/kirlic123/IOTvulner/blob/main/4035/2/2.md
-  - https://vuldb.com/submit/803994
-  - https://vuldb.com/vuln/360156
-  - https://vuldb.com/vuln/360156/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7420
+  - https://github.com/kirlic123/IOTvulner/blob/main/4035/5/5.md
+  - https://vuldb.com/vuln/360157
 rules:
-  - title: Detect Suspiciously Long Profile Parameter in formTaskEdit_ap.goform POST Request
-    description: Detects abnormally long Profile parameters in POST requests to formTaskEdit_ap.goform, which could indicate a buffer overflow attempt.
+  - title: Detect UTT HiPER Buffer Overflow Attempt
+    description: Detects potential buffer overflow attempts on UTT HiPER devices by monitoring HTTP requests to ConfigAdvideo with unusually long Profile arguments.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
-      - exploitation
+      - execution
     techniques:
-      - T1190
+      - T1203
     data_sources:
       - webserver
       - linux
-  - title: Detect strcpy function call in webserver logs
-    description: Detects calls to the strcpy function in webserver logs, which may indicate a buffer overflow attempt.
+  - title: UTT HiPER ConfigAdvideo Access
+    description: Detects access to the ConfigAdvideo endpoint, which may indicate exploitation attempts.
     platform: sigma
     severity: medium
     tactics:
-      - exploitation
+      - discovery
     techniques:
-      - T1190
+      - T1068
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A buffer overflow vulnerability, identified as CVE-2026-7419, affects UTT HiPER 1250GW devices with firmware versions up to 3.2.7-210907-180535. The vulnerability resides within the `strcpy` function of the `route/goform/formTaskEdit_ap.goform` file. Attackers can exploit this vulnerability by manipulating the 'Profile' argument, leading to a buffer overflow. Publicly available exploits exist, increasing the risk of exploitation. Successful exploitation could allow remote attackers to execute arbitrary code on the affected device, potentially leading to complete system compromise. This poses a significant threat to organizations using these devices, particularly if they are exposed to the internet.
+A critical buffer overflow vulnerability, CVE-2026-7420, has been identified in UTT HiPER 1250GW devices. The vulnerability exists in versions up to 3.2.7-210907-180535. The vulnerability lies within the `strcpy` function in the `route/goform/ConfigAdvideo` file, where the 'Profile' argument is not properly validated, leading to a buffer overflow condition. This allows unauthenticated remote attackers to potentially execute arbitrary code on the device. Publicly available exploits exist, increasing the risk of exploitation. Defenders should implement mitigations and detection strategies immediately.
 
 ## Attack Chain
 
-1.  The attacker identifies a UTT HiPER 1250GW device running a vulnerable firmware version (<= 3.2.7-210907-180535).
-2.  The attacker crafts a malicious HTTP POST request targeting the `formTaskEdit_ap.goform` endpoint.
-3.  Within the POST request, the attacker includes the `Profile` argument with a value exceeding the buffer's allocated size.
-4.  The `strcpy` function in `formTaskEdit_ap.goform` attempts to copy the oversized 'Profile' value into a fixed-size buffer.
+1.  The attacker identifies a vulnerable UTT HiPER 1250GW device exposed to the internet.
+2.  The attacker crafts a malicious HTTP request targeting the `route/goform/ConfigAdvideo` endpoint.
+3.  The HTTP request includes a 'Profile' argument with a payload exceeding the buffer size allocated for it.
+4.  The `strcpy` function attempts to copy the oversized 'Profile' argument into the undersized buffer.
 5.  The buffer overflow occurs, overwriting adjacent memory regions.
-6.  By carefully crafting the overflowed data, the attacker can overwrite critical data structures, such as function return addresses.
-7.  When the vulnerable function returns, it jumps to the attacker-controlled address.
-8.  The attacker gains arbitrary code execution on the device, potentially leading to complete system compromise, including remote shell access, configuration changes, or data exfiltration.
+6.  The attacker injects malicious code into the overflowed memory region to gain code execution.
+7.  The attacker achieves remote code execution on the UTT HiPER 1250GW device.
+8.  The attacker gains control of the device, potentially using it for further malicious activities such as lateral movement, data exfiltration, or denial-of-service attacks.
 
 ## Impact
 
-Successful exploitation of this buffer overflow vulnerability allows remote attackers to execute arbitrary code on the UTT HiPER 1250GW device. This could lead to complete device compromise, including unauthorized access to network resources, modification of device configurations, and potentially using the device as a pivot point for further attacks within the network. Given the publicly available exploit, organizations using these devices are at significant risk of being targeted.
+Successful exploitation of this vulnerability allows a remote attacker to execute arbitrary code on the UTT HiPER 1250GW device. This can lead to complete compromise of the device, potentially enabling attackers to gain unauthorized access to the network it is connected to, exfiltrate sensitive data, or use the device as a bot in a botnet. The impact is significant, especially if these devices are used in critical infrastructure or sensitive environments.
 
 ## Recommendation
 
-*   Apply available patches or firmware updates from UTT to address CVE-2026-7419 on HiPER 1250GW devices (reference affected_products).
-*   Implement network segmentation to limit the potential impact of a compromised device (reference attack chain step 8).
-*   Monitor web server logs for suspicious POST requests targeting the `formTaskEdit_ap.goform` endpoint with unusually long `Profile` parameters using the provided Sigma rule (reference rules).
-*   Deploy the provided Sigma rule to detect exploitation attempts by monitoring for abnormally long Profile parameters in POST requests to formTaskEdit_ap.goform (reference rules).
+*   Apply available patches or firmware updates for UTT HiPER 1250GW devices to remediate CVE-2026-7420.
+*   Implement network segmentation to isolate UTT HiPER 1250GW devices from critical network segments.
+*   Deploy the Sigma rule `Detect UTT HiPER Buffer Overflow Attempt` to identify malicious HTTP requests targeting the `route/goform/ConfigAdvideo` endpoint.
+*   Monitor web server logs for unusual activity and large 'Profile' argument values in requests to `route/goform/ConfigAdvideo` to identify potential exploitation attempts.
