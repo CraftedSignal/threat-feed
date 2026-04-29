@@ -23,7 +23,7 @@ Replace `<term>` and `<slug>` with the value you want.
 | Actor | `/actors/<slug>/feed.xml` | `/actors/<slug>/feed.json` |
 | Tag | `/tags/<slug>/feed.xml` | `/tags/<slug>/feed.json` |
 
-Severity terms: `critical`, `high`, `medium`, `low`, `rumour`. Type terms: `threat`, `coverage`, `advisory`, `rumour`.
+Severity terms: critical, high, medium, low, rumour. Type terms: threat, coverage, advisory, rumour.
 
 ## JSON shape
 
