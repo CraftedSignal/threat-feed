@@ -3,6 +3,9 @@ title: WebServer Access Logs Deleted
 slug: 2026-04-websvr-log-deletion
 description: Detection of web server access log deletion across Windows, Linux, and macOS systems indicates potential defense evasion and destruction of forensic evidence by threat actors.
 date: "2026-04-01T14:12:42Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
