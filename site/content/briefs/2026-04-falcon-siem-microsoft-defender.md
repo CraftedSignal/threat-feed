@@ -3,6 +3,9 @@ title: CrowdStrike Falcon SIEM Integration with Microsoft Defender
 slug: 2026-04-falcon-siem-microsoft-defender
 description: CrowdStrike's Falcon Next-Gen SIEM expands to support third-party EDR solutions, beginning with Microsoft Defender, to unify detection, investigation, and response without requiring the Falcon sensor and modernize security operations.
 date: "2026-03-28T22:14:01Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
@@ -77,4 +80,26 @@ rules:
 rules_count: 2
 ---
 
-CrowdStrike is expanding its Falcon Next-Gen SIEM to incorporate third-party EDR solutions, starting with Microsoft Defender. This integration aims to allow organizations to modernize their SOC without replacing existing endpoint agents, addressing the issue of fragmented security systems. Modern attacks exploit gaps across endpoint, identity, network, and cloud environments, forcing security teams to investigate across disparate systems. Falcon Next-Gen SIEM combines index-free search…
+CrowdStrike is expanding its Falcon Next-Gen SIEM to incorporate third-party EDR solutions, starting with Microsoft Defender. This integration aims to allow organizations to modernize their SOC without replacing existing endpoint agents, addressing the issue of fragmented security systems. Modern attacks exploit gaps across endpoint, identity, network, and cloud environments, forcing security teams to investigate across disparate systems. Falcon Next-Gen SIEM combines index-free search, AI-driven threat detection, and automation across diverse environments to provide a data-agnostic approach to SOC transformation, improving detection and response times. By integrating Microsoft Defender telemetry, Falcon Next-Gen SIEM unifies detection, investigation, and response within a single console.
+
+## Attack Chain
+
+This threat brief focuses on the integration of security tools rather than a specific attack chain.  However, the value of the integration is to defend against a variety of attack chains, a generalized example follows:
+1.  Initial Access: An attacker gains initial access through methods such as phishing or exploiting a vulnerability. (T1566, T1190)
+2.  Execution: The attacker executes malicious code on the endpoint. (T1059)
+3.  Persistence: The attacker establishes persistence to maintain access to the compromised system. (T1547)
+4.  Lateral Movement: The attacker moves laterally within the network to access additional systems. (T1021)
+5.  Credential Access: The attacker attempts to steal credentials to escalate privileges and access sensitive data. (T1003)
+6.  Data Exfiltration: The attacker exfiltrates sensitive data from the compromised systems. (T1041)
+7.  Impact: The attacker achieves their objective, such as data theft, system disruption, or ransomware deployment. (T1486)
+
+## Impact
+
+The integration of Microsoft Defender with CrowdStrike Falcon Next-Gen SIEM aims to reduce the impact of successful attacks.  Without unified detection, organizations may experience delayed detection, slower response times, increased operational costs, and potential data breaches. The number of potential victims and sectors targeted is broad, as this integration applies to any organization using both Microsoft Defender and CrowdStrike. Success of an attack despite these tools leads to data breaches, financial losses, and reputational damage.
+
+## Recommendation
+
+*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment to detect suspicious processes indicative of post-exploitation activity.
+*   Investigate systems generating process creation events flagged by the rules in this brief (process_creation logging).
+*   Review Falcon Onum settings to ensure proper filtering and routing of Microsoft Defender telemetry to optimize data fidelity and reduce storage costs (Falcon Onum documentation).
+*   Utilize federated search capabilities to investigate across live, network, and archived data sources, including Falcon LogScale, ExtraHop, and Amazon S3 (Falcon Next-Gen SIEM documentation).
