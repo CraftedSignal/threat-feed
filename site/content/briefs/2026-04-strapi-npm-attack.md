@@ -3,6 +3,9 @@ title: Malicious NPM Packages Target Strapi Users
 slug: 2026-04-strapi-npm-attack
 description: A threat actor published 36 malicious NPM packages disguised as Strapi plugins in a supply chain attack, designed to execute code, escape containers, harvest credentials, and establish persistent implants on Linux systems targeting Strapi users, with specific focus on the Guardarian cryptocurrency payment gateway.
 date: "2026-04-07T10:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
