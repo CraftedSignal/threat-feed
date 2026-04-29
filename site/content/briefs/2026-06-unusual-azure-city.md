@@ -3,6 +3,9 @@ title: Unusual City for Azure Activity Logs Event
 slug: 2026-06-unusual-azure-city
 description: A machine learning job detected Azure Activity Logs activity that, while not inherently suspicious or abnormal, is sourcing from a geolocation (city) that is unusual for the event action, indicating potential compromised credentials.
 date: "2026-04-02T13:35:13Z"
+type: coverage
+types:
+  - coverage
 severities:
   - low
 tags:
