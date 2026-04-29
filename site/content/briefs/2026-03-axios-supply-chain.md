@@ -3,6 +3,9 @@ title: Axios npm Package Compromised in Supply Chain Attack
 slug: 2026-03-axios-supply-chain
 description: The widely used Axios npm package was compromised via a supply chain attack on March 31, 2026, resulting in the publication of malicious versions through a compromised maintainer account.
 date: "2026-03-31T21:04:21Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
