@@ -3,6 +3,9 @@ title: OpenClaw Plugin Archive Integrity Vulnerability (CVE-2026-42428)
 slug: 2026-04-openclaw-plugin-vuln
 description: OpenClaw versions before 2026.4.8 fail to enforce integrity verification on downloaded plugin archives, allowing attackers to install malicious plugins and compromise the local assistant environment.
 date: "2026-04-29T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
