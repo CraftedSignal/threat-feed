@@ -3,6 +3,9 @@ title: SiYuan Note Reflected XSS Vulnerability in SVG Processing
 slug: 2026-04-siyuan-xss
 description: SiYuan Note versions prior to the fix for commit f09953afc57a are vulnerable to reflected cross-site scripting (XSS) via a namespace prefix bypass in the SanitizeSVG function when handling dynamic icons, allowing unauthenticated attackers to execute arbitrary JavaScript in a victim's browser.
 date: "2026-04-01T00:30:01Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
