@@ -1,72 +1,84 @@
 ---
-title: Langflow Multiple Vulnerabilities Allow Information Disclosure, Data Manipulation, and XSS
+title: Multiple Vulnerabilities in Langflow Allow for Arbitrary Code Execution and Information Disclosure
 slug: 2026-03-langflow-vulns
-description: An anonymous or authenticated remote attacker can exploit multiple vulnerabilities in Langflow to disclose information, manipulate data, and execute cross-site scripting attacks.
-date: "2026-03-30T11:08:56Z"
+description: Multiple vulnerabilities in Langflow could be exploited by an attacker to execute arbitrary program code, disclose information, and potentially manipulate data, leading to potential system compromise.
+date: "2026-03-25T09:46:08Z"
 type: coverage
 types:
   - coverage
 severities:
-  - high
+  - critical
 tags:
   - langflow
   - vulnerability
-  - xss
-  - data-manipulation
+  - code-execution
   - information-disclosure
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1003
+    technique_name: OS Credential Dumping
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1082
+    technique_name: System Information Discovery
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0900
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0823
 rules:
-  - title: Detect HTTP Data Manipulation Methods
-    description: Detects potential data manipulation attempts by looking for unusual HTTP request methods like PUT, PATCH, or DELETE against Langflow web server
-    platform: sigma
-    severity: medium
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect XSS attempts via Script Tags
-    description: Detects possible XSS attacks through the use of `<script>` tags in HTTP requests.
+  - title: Detect Suspicious Processes Spawned by Langflow
+    description: Detects suspicious processes spawned by Langflow, indicating potential code execution vulnerability exploitation.
     platform: sigma
     severity: high
     tactics:
-      - initial_access
+      - execution
     techniques:
-      - T1190
+      - T1059.001
     data_sources:
-      - webserver
-      - linux
+      - process_creation
+      - windows
+  - title: Detect Potential Data Exfiltration via Langflow
+    description: Detects network connections from Langflow to external IPs, which could indicate potential data exfiltration after a successful code execution.
+    platform: sigma
+    severity: medium
+    tactics:
+      - exfiltration
+    techniques:
+      - T1041
+    data_sources:
+      - network_connection
+      - windows
 rules_count: 2
 ---
 
-Langflow is vulnerable to multiple security flaws that could be exploited by remote attackers. These vulnerabilities range from information disclosure to data manipulation and cross-site scripting (XSS). The vulnerabilities can be exploited by both anonymous and authenticated attackers, increasing the potential attack surface. Successful exploitation could lead to unauthorized access to sensitive information, modification of data, and execution of malicious scripts within the context of the affected application. These vulnerabilities pose a significant risk to organizations using Langflow, potentially leading to data breaches, service disruption, or further compromise of internal systems. Defenders need to implement measures to detect and prevent exploitation of these vulnerabilities.
+Langflow is vulnerable to multiple security flaws that could allow a remote attacker to perform several malicious actions. These vulnerabilities, if successfully exploited, may lead to arbitrary code execution, sensitive information disclosure, and data manipulation. While the specific versions affected and CVEs are not detailed in the advisory, the potential impact is significant, suggesting a need for immediate investigation and mitigation strategies for organizations utilizing Langflow in their environments. Defenders should prioritize identifying instances of Langflow within their infrastructure and monitor for any unusual activity related to the application.
 
 ## Attack Chain
 
-1.  An attacker identifies a Langflow instance accessible over the network, either anonymously or with valid credentials.
-2.  The attacker sends a crafted HTTP request to exploit an information disclosure vulnerability, potentially revealing sensitive data or configuration details.
-3.  The attacker leverages revealed information to craft further attacks or identify additional vulnerabilities.
-4.  The attacker exploits a data manipulation vulnerability, possibly through API endpoints, to modify application data, settings, or user accounts.
-5.  The attacker injects malicious JavaScript code into Langflow through a cross-site scripting (XSS) vulnerability, potentially targeting other users or administrators.
-6.  A legitimate user accesses the compromised Langflow instance, triggering the injected XSS payload in their browser.
-7.  The XSS payload steals the user's session cookie or credentials, granting the attacker unauthorized access to their account.
-8.  The attacker uses the compromised account to further escalate privileges or access sensitive resources within Langflow or connected systems.
+1.  Attacker identifies a vulnerable Langflow instance.
+2.  Attacker exploits a vulnerability to inject malicious code. (T1203)
+3.  The injected code executes within the context of the Langflow application. (T1059)
+4.  The attacker leverages code execution to access sensitive information, such as credentials or API keys, stored within the application or on the underlying system. (T1003)
+5.  Attacker escalates privileges by exploiting a separate vulnerability or misconfiguration. (T1068)
+6.  With elevated privileges, the attacker gains broader access to the system and network. (T1078)
+7.  Attacker exfiltrates sensitive data to an external server. (T1041)
+8.  Attacker manipulates data within the Langflow application or connected systems, potentially causing data corruption or further compromise.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities could result in significant damage. Information disclosure can expose sensitive data, undermining confidentiality. Data manipulation can lead to data corruption, denial of service, or unauthorized modifications to application functionality. XSS attacks can compromise user accounts, leading to further privilege escalation and access to sensitive resources. The number of affected users and the scope of the impact depend on the specific configuration and deployment of Langflow within the organization.
+Successful exploitation of these Langflow vulnerabilities could lead to complete system compromise, including arbitrary code execution and the theft of sensitive data. Depending on the function of the Langflow instance, impacts could range from data breaches and financial loss to disruption of critical services. Given the potential for lateral movement and privilege escalation, the scope of the impact could extend beyond the immediate Langflow environment.
 
 ## Recommendation
 
-*   Monitor web server logs for suspicious HTTP requests targeting Langflow (cs-uri-query, cs-uri-stem log fields).
-*   Implement the provided Sigma rule to detect potential data manipulation attempts via unusual HTTP request methods.
-*   Deploy the Sigma rule to detect potential XSS attacks using `Script` tag injections in HTTP requests.
-*   Continuously monitor for unexpected modifications to Langflow application data or user accounts.
+*   Investigate all Langflow installations within the environment and apply any available patches or updates provided by the vendor.
+*   Implement network segmentation to limit the potential impact of a compromised Langflow instance.
+*   Monitor Langflow application logs for suspicious activity such as unusual API calls or unauthorized access attempts. Use the process creation rule to detect execution of suspicious processes spawned by Langflow.
+*   Deploy the Sigma rules provided in this brief to your SIEM to detect potential exploitation attempts.
+*   Review and enforce principle of least privilege for accounts used by Langflow.
