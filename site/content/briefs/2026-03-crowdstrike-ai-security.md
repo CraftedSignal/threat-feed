@@ -1,76 +1,79 @@
 ---
-title: CrowdStrike Falcon Enhancements for Securing AI Agents and Shadow AI
+title: CrowdStrike Falcon Enhancements for Securing AI Environments
 slug: 2026-03-crowdstrike-ai-security
-description: CrowdStrike is enhancing its Falcon platform with new AI Detection and Response (AIDR) capabilities to secure AI agent adoption and development across endpoints, SaaS, and cloud environments, addressing threats like prompt injection, data leaks, and policy violations.
-date: "2026-03-23T07:11:28Z"
+description: CrowdStrike is enhancing its Falcon platform with new features focusing on AI Detection and Response (AIDR) capabilities across endpoints, SaaS, and cloud environments to mitigate risks such as prompt injection attacks, data leaks, and policy violations related to AI agents and shadow AI.
+date: "2026-03-28T09:35:50Z"
 type: coverage
 types:
   - coverage
 severities:
   - medium
 tags:
-  - AI-security
-  - shadow-AI
-  - endpoint-security
-  - saas-security
-  - cloud-security
+  - ai
+  - security
+  - falcon
+  - agentic-soc
+  - prompt-injection
 mitre_ttps:
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1082
-    technique_name: System Information Discovery
-  - tactic_id: TA0010
-    tactic_name: Exfiltration
-    technique_id: T1041
-    technique_name: Exfiltration Over C2 Channel
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1202
+    technique_name: Exploitation for Defense Evasion
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public Fasing Application
 references:
-  - https://www.crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/
+  - https://crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/
 rules:
-  - title: Detect Suspicious AI Application Usage
-    description: Detects the execution of AI-related applications on endpoints, potentially indicating unauthorized usage or shadow AI.
+  - title: Detect Suspicious Execution from AI Desktop Applications
+    description: Detects suspicious execution of commands or scripts initiated from known AI desktop applications such as ChatGPT, Gemini, or Microsoft Copilot, which could indicate prompt injection or other malicious activity.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - discovery
+      - defense_evasion
+      - execution
     techniques:
-      - T1082
+      - T1059.001
     data_sources:
       - process_creation
       - windows
-  - title: Detect Network Connection from AI Related Processes
-    description: Detects network connections from AI related processes which may indicate data exfiltration.
+  - title: Detect AI related processes
+    description: Detects execution of AI related processes such as MCP Servers
     platform: sigma
     severity: medium
     tactics:
-      - exfiltration
+      - defense_evasion
+      - execution
     techniques:
-      - T1041
+      - T1059.001
     data_sources:
-      - network_connection
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-CrowdStrike is introducing new capabilities within its Falcon platform to address the emerging security challenges presented by the increasing adoption of AI tools and agents within organizations. The focus is on mitigating risks associated with "shadow AI" (AI tools used without proper oversight) and securing AI agents against novel threats like indirect prompt injection and agentic tool chain attacks. These enhancements aim to provide visibility, governance, and runtime protection for AI deployments across endpoints, SaaS environments, and cloud infrastructures. The new Falcon AIDR capabilities extend beyond browser-based AI interactions to include desktop AI applications and deeper discovery of AI assets on endpoints. These updates were announced in March 2026 and are being rolled out with general availability expected in Q2 2026 for some features.
+CrowdStrike is addressing the emerging threats associated with the rapid adoption of AI tools and AI-powered software by enhancing its Falcon platform. These enhancements focus on providing AI Detection and Response (AIDR) capabilities across endpoints, SaaS environments, and cloud environments. The core issue being addressed is the increasing attack surface created by novel threats, such as indirect prompt injection and agentic tool chain attacks, alongside the widespread adoption of shadow AI. This adoption leads to visibility and governance gaps, creating opportunities for adversaries to exploit the "living off the AI land" (LOTAIL) technique, particularly on developer machines where AI agents with high system permissions are deployed with minimal governance. The new Falcon capabilities aim to provide security teams with the visibility and threat detection necessary to secure AI workforce adoption and development.
 
 ## Attack Chain
 
-1.  **Initial Access (Endpoint):** A developer downloads and installs an AI code assistant tool (e.g., GitHub Copilot, Cursor) on their endpoint to increase productivity.
-2.  **Execution (Agentic Tool Chain):** The AI agent, running with the developer's user privileges, executes a command to retrieve external code from an untrusted source.
-3.  **Defense Evasion (Prompt Injection):** The external code contains a crafted prompt designed to inject malicious instructions into the AI agent's workflow.
-4.  **Credential Access:** The injected prompt tricks the AI agent into accessing and displaying sensitive credentials stored in environment variables or configuration files.
-5.  **Collection:** The AI agent, now under attacker control, begins collecting sensitive data from the developer's workstation, including source code, API keys, and customer data.
-6.  **Command and Control:** The AI agent establishes a connection to a remote server controlled by the attacker, exfiltrating the collected data.
-7.  **Exfiltration:** Stolen credentials and intellectual property are transmitted to the attacker's infrastructure.
-8.  **Impact:** The stolen credentials are used to gain unauthorized access to internal systems, leading to data breaches, financial loss, or reputational damage.
+1. **Initial Access:** An attacker gains initial access to a system, potentially through compromised credentials or a vulnerability in a third-party application or service.
+2. **Agent Deployment:** The attacker deploys a malicious AI agent, such as a compromised Model Context Protocol (MCP) server or a malicious IDE extension, onto a developer's machine.
+3. **Privilege Escalation:** The malicious AI agent leverages its high system permissions to escalate privileges.
+4. **Prompt Injection:** The attacker uses prompt injection techniques to manipulate the behavior of legitimate AI agents like ChatGPT, Gemini, or Microsoft Copilot.
+5. **Data Exfiltration:** The compromised or manipulated AI agents are used to exfiltrate sensitive data from the organization.
+6. **Lateral Movement:** The attacker uses the compromised endpoint as a launchpad to move laterally within the network, targeting other critical systems and data stores.
+7. **Policy Violation:** The attacker manipulates AI agents to violate security policies.
+8. **Impact:** The attacker achieves their objective, such as stealing sensitive data, disrupting business operations, or causing reputational damage.
 
 ## Impact
 
-The increasing use of AI agents and tools introduces new attack surfaces, particularly with the rise of "living off the AI land" (LOTAIL) techniques. Successful attacks can lead to data breaches, intellectual property theft, and unauthorized access to sensitive systems. The lack of visibility and governance over AI deployments ("shadow AI") exacerbates these risks. The CrowdStrike announcement highlights the potential for compromised AI agents to perform actions that appear legitimate, making them difficult to detect with traditional security tools. The number of organizations impacted by shadow AI is currently unknown, but it is expected to grow as AI adoption continues.
+The exploitation of AI environments can lead to significant data breaches, intellectual property theft, and disruption of critical business operations. The lack of visibility and governance over AI tools and agents allows attackers to operate undetected, increasing the potential for widespread damage. Organizations across all sectors are vulnerable, especially those heavily reliant on AI for development and operations. Successful attacks can result in financial losses, reputational damage, and regulatory penalties.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect Suspicious AI Application Usage` to identify unauthorized or risky AI applications on endpoints using process creation logs.
-*   Enable Falcon Exposure Management to automatically discover AI-related components running across endpoints in real time as referenced in the overview.
-*   Implement Falcon AIDR policies for Copilot Studio agents to monitor for prompt injection attacks, data leaks, and policy violations as mentioned in the overview.
-*   Utilize the Falcon sensor to gain visibility into employee use of AI apps, including full prompt content, as described in the "AI Detection and Response for Desktop AI Applications" section.
+*   Deploy the provided Sigma rules to your SIEM to detect suspicious AI-related activity on endpoints.
+*   Utilize CrowdStrike Falcon Exposure Management to discover and classify AI-related components running across endpoints in real-time.
+*   Implement Falcon AIDR policies to monitor and protect agents built in Microsoft Copilot Studio against prompt injection attacks and data leaks.
+*   Leverage Falcon AIDR's runtime threat detection capabilities to secure workforce AI adoption across both browser-based and desktop AI applications (ChatGPT, Gemini, Claude, etc.).
+*   Review and update existing security policies to address the specific risks associated with AI agents and shadow AI, focusing on access control, data protection, and prompt injection prevention.
