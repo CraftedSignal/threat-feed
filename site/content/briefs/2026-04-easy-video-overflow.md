@@ -3,6 +3,9 @@ title: Easy Video to iPod Converter 1.6.20 Local Buffer Overflow Vulnerability
 slug: 2026-04-easy-video-overflow
 description: Easy Video to iPod Converter 1.6.20 is vulnerable to a local buffer overflow in the user registration field, allowing a local attacker to overwrite the structured exception handler (SEH) by providing a crafted payload exceeding 996 bytes in the username field, potentially leading to arbitrary code execution with user privileges.
 date: "2026-04-12T13:16:32Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
