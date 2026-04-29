@@ -3,6 +3,9 @@ title: Malicious LiteLLM Versions Harvest Credentials
 slug: 2026-03-litellm-supply-chain
 description: Compromised versions of the LiteLLM package (1.82.7 and 1.82.8) on PyPI contained malware designed to harvest sensitive credentials and files, exfiltrating them to a remote API, impacting users who installed and ran the package.
 date: "2026-03-26T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
@@ -51,4 +54,25 @@ rules:
 rules_count: 2
 ---
 
-On March 25, 2026, two malicious versions of the `litellm` package (versions 1.82.7 and 1.82.8) were discovered on the PyPI repository. These versions were found to contain automatically activated malware. The malicious code was designed to harvest sensitive credentials and files from systems where the compromised packages were installed. This supply chain attack follows a previous API token exposure stemming from a compromised trivy dependency, indicating a potential escalation in targeting…
+On March 25, 2026, two malicious versions of the `litellm` package (versions 1.82.7 and 1.82.8) were discovered on the PyPI repository. These versions were found to contain automatically activated malware. The malicious code was designed to harvest sensitive credentials and files from systems where the compromised packages were installed. This supply chain attack follows a previous API token exposure stemming from a compromised trivy dependency, indicating a potential escalation in targeting the `litellm` project. The compromised packages exfiltrate stolen data to a remote API controlled by the attacker.
+
+## Attack Chain
+
+1. An attacker compromises the `litellm` PyPI package repository, likely leveraging exposed credentials.
+2. The attacker injects malicious code into versions 1.82.7 and 1.82.8 of the `litellm` package. The malicious code is automatically activated upon installation.
+3. A user installs either `litellm` version 1.82.7 or 1.82.8 via `pip`.
+4. Upon execution, the malicious code begins harvesting credentials and files accessible to the `litellm` environment. This may include API keys, tokens, and other sensitive information.
+5. The malware establishes a network connection to a remote API server controlled by the attacker.
+6. The harvested credentials and files are exfiltrated to the attacker's remote API server.
+7. The attacker gains unauthorized access to services and data protected by the stolen credentials.
+
+## Impact
+
+This supply chain attack directly impacts any user who installed the malicious `litellm` packages (versions 1.82.7 and 1.82.8). Successful credential harvesting allows attackers to pivot and compromise other systems and services accessible with the stolen credentials, potentially leading to data breaches, unauthorized access, and further lateral movement within victim environments. The number of affected users is currently unknown, but the popularity of `litellm` suggests a potentially wide impact.
+
+## Recommendation
+
+*   Immediately revoke and rotate any credentials accessible to environments where `litellm` versions 1.82.7 or 1.82.8 were installed (description).
+*   Deploy the following Sigma rule to detect installations of the affected `litellm` versions (Sigma rule).
+*   Monitor network traffic for connections originating from `litellm` processes to external, untrusted APIs (network_connection).
+*   Implement strong dependency management practices, including the use of software composition analysis tools, to identify and prevent the installation of malicious packages (overview).
