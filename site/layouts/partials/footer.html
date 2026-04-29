@@ -43,7 +43,11 @@
 
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-6 border-t border-stroke text-xs text-muted">
       <p>&copy; {{ now.Year }} CraftedSignal. All rights reserved.</p>
-      <p class="font-mono">Updated continuously · {{ now.Format "2006-01-02" }}</p>
+      {{/* Git SHA is exposed by GitHub Actions as GITHUB_SHA. Locally it
+           is unset, so fall back to "dev". now is build time. */}}
+      {{ $sha := os.Getenv "GITHUB_SHA" }}
+      {{ if $sha }}{{ $sha = substr $sha 0 7 }}{{ else }}{{ $sha = "dev" }}{{ end }}
+      <p class="font-mono">Version {{ $sha }} · {{ now.Format "2006-01-02 15:04 MST" }}</p>
     </div>
   </div>
 </footer>
