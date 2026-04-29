@@ -1,8 +1,8 @@
 ---
-title: CrowdStrike Falcon Next-Gen SIEM Integrates with Microsoft Defender
+title: CrowdStrike Falcon SIEM Integration with Microsoft Defender
 slug: 2026-03-falcon-siem-defender
-description: CrowdStrike's Falcon Next-Gen SIEM is expanding to support third-party EDR solutions, starting with Microsoft Defender, to unify detection, investigation, and response without requiring a Falcon sensor.
-date: "2026-03-30T06:30:00Z"
+description: CrowdStrike's Falcon Next-Gen SIEM expands to support third-party EDR solutions like Microsoft Defender, streamlining SOC modernization by unifying detection, investigation, and response across diverse environments without replacing existing endpoint agents.
+date: "2026-03-29T12:00:00Z"
 type: coverage
 types:
   - coverage
@@ -11,48 +11,56 @@ severities:
 tags:
   - siem
   - edr
-  - microsoft defender
-  - crowdstrike falcon
+  - microsoft-defender
+  - falcon-siem
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1027
+    technique_name: Obfuscated Files or Information
 references:
   - https://www.crowdstrike.com/en-us/blog/falcon-next-gen-siem-supports-third-party-edr-tools-starting-with-microsoft-defender/
 rules:
-  - title: Data Stream Contains Falcon Onum
-    description: Detects when a data stream contains Falcon Onum indicating data transformation
+  - title: Detect Potential Initial Access via Suspicious Process Execution (Generic)
+    description: Detects potential initial access attempts by monitoring for suspicious processes not typically seen in the environment based on the Falcon SIEM integration data.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - discovery
+      - initial_access
     techniques:
-      - T1016
+      - T1566
     data_sources:
-      - network_connection
+      - process_creation
       - windows
-  - title: ExtraHop Network Connection
-    description: Detects network connections to ExtraHop indicating possible data integration
+  - title: Detecting Microsoft Defender Telemetry Data in Falcon SIEM
+    description: This rule detects the ingestion of Microsoft Defender telemetry within the CrowdStrike Falcon SIEM, verifying integration.
     platform: sigma
     severity: informational
-    tactics:
-      - discovery
-    techniques:
-      - T1016
     data_sources:
-      - network_connection
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-CrowdStrike is enhancing its Falcon Next-Gen SIEM platform to incorporate telemetry from third-party endpoint detection and response (EDR) solutions, beginning with Microsoft Defender. Announced on March 23, 2026, this integration allows organizations to modernize their security operations center (SOC) by unifying detection, investigation, and response workflows without mandating the replacement of existing endpoint agents. This aims to address the increasing complexity of modern attacks that span across different domains, including endpoint, identity, network, and cloud environments. The integration includes Falcon Onum, which filters, enriches, and routes data in motion to reduce noise before it reaches downstream systems, improving data fidelity and lowering infrastructure costs. This reduces the data tax and helps accelerate security outcomes.
+CrowdStrike is enhancing its Falcon Next-Gen SIEM to incorporate telemetry from third-party EDR solutions, beginning with Microsoft Defender. This integration aims to provide organizations with a consolidated security operations center (SOC) view, reducing the need to replace existing endpoint agents. The initiative addresses the increasing complexity of modern attacks that span multiple domains, including endpoint, identity, network, and cloud. Legacy SIEMs often struggle with data ingestion costs and create visibility gaps, leading to slower detection and response times. Falcon Next-Gen SIEM seeks to resolve these issues by offering AI-native threat detection, petabyte-scale search performance, and streamlined automation across diverse environments, facilitating a data-agnostic approach to SOC transformation.
 
 ## Attack Chain
 
-This brief describes how CrowdStrike is making its SIEM interoperate with 3rd party EDR solutions. This is not a description of attacker behavior.
+1. Adversary exploits a vulnerability in an application or system, gaining initial access to the environment.
+2. Microsoft Defender detects the initial intrusion attempt based on its signature and behavior analysis capabilities.
+3. Defender generates an alert, logging relevant telemetry data such as process execution details, file modifications, and network connections.
+4. Falcon Onum ingests and processes the Microsoft Defender telemetry data.
+5. The data is normalized, enriched, and deduplicated to improve its fidelity and reduce noise.
+6. Falcon Next-Gen SIEM analyzes the processed data, correlating it with other security events and threat intelligence feeds.
+7. The SIEM identifies a potential cross-domain attack based on the combined insights from Defender and other sources.
+8. Security analysts investigate the incident within the Falcon platform, leveraging the unified view to respond to the threat effectively.
 
 ## Impact
 
-The successful integration of Microsoft Defender data into CrowdStrike Falcon Next-Gen SIEM allows security teams to centralize their security operations. It enables faster detection of cross-domain attacks, more efficient investigations, and quicker response times. By removing the need to replace existing endpoint agents, organizations can avoid the costs and complexities associated with rip-and-replace strategies. This helps streamline SOC operations and improve overall security posture by providing a more comprehensive view of the threat landscape. The integration with Falcon Onum also reduces storage costs and improves data fidelity.
+Successful attacks can lead to data breaches, system compromise, and business disruption. Without consolidated visibility, organizations may experience delayed detection and response, increasing the dwell time of attackers within the environment. The integration aims to reduce the impact of cross-domain attacks by providing security teams with a unified view of security events, allowing them to respond more quickly and effectively, preventing potentially significant financial and reputational damage.
 
 ## Recommendation
 
-*   Evaluate the benefits of integrating Microsoft Defender telemetry into Falcon Next-Gen SIEM to consolidate security operations.
-*   Implement Falcon Onum within the Falcon platform to filter, enrich, and route data in motion, reducing noise and storage costs as mentioned in the overview.
-*   Utilize the federated search capabilities of Falcon Next-Gen SIEM to investigate across live, network, and archived data sources, as described in the overview.
+*   Enable the integration between Microsoft Defender and CrowdStrike Falcon Next-Gen SIEM to centralize security data and improve visibility across the environment.
+*   Utilize Falcon Onum's data processing capabilities to filter, enrich, and route Microsoft Defender telemetry, optimizing data fidelity and reducing storage costs.
+*   Leverage the federated search capabilities of Falcon Next-Gen SIEM to investigate threats across live, network, and archived data sources.
