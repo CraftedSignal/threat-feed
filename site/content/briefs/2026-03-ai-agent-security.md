@@ -1,74 +1,74 @@
 ---
-title: CrowdStrike Falcon Enhancements for AI Agent Security and Shadow AI Governance
+title: Securing AI Agents with CrowdStrike Falcon AIDR and NVIDIA NeMo Guardrails
 slug: 2026-03-ai-agent-security
-description: CrowdStrike Falcon is enhanced to secure AI agents and govern shadow AI across endpoints, SaaS, and cloud environments, addressing emerging attack surfaces and visibility gaps.
-date: "2026-03-28T08:18:48Z"
+description: CrowdStrike Falcon AIDR integrates with NVIDIA NeMo Guardrails to provide comprehensive protection for AI agents against prompt injection, data leaks, and malicious content.
+date: "2026-03-28T21:37:25Z"
 type: coverage
 types:
   - coverage
 severities:
   - medium
 tags:
-  - ai-security
-  - shadow-ai
+  - ai
+  - security
   - agentic-soc
 mitre_ttps:
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1518
-    technique_name: Software Discovery
-  - tactic_id: TA0011
-    tactic_name: Command and Control
-    technique_id: T1071
-    technique_name: Application Layer Protocol
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1070
+    technique_name: Indicator Removal on Host
 references:
-  - https://crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/
+  - https://crowdstrike.com/en-us/blog/secure-homegrown-ai-agents-with-crowdstrike-falcon-aidr-and-nvidia-nemo-guardrails/
 rules:
-  - title: Detect AI Agent Installation
-    description: Detects the installation of known AI-related applications on endpoints.
+  - title: Detect Suspicious Keywords in HTTP Requests to AI Agents
+    description: Detects potential prompt injection attempts by looking for suspicious keywords in HTTP requests.
     platform: sigma
     severity: medium
     tactics:
-      - discovery
+      - defense_evasion
+      - initial_access
     techniques:
-      - T1518.001
+      - T1566.001
     data_sources:
-      - process_creation
-      - windows
-  - title: Detect AI Agent Network Activity
-    description: Detects network connections initiated by known AI applications, potentially indicating data exfiltration or command and control.
+      - webserver
+      - linux
+  - title: Detect Blocked Content by Falcon AIDR
+    description: Detects instances where Falcon AIDR blocks potentially malicious content based on its classification rules.
     platform: sigma
-    severity: low
+    severity: informational
     tactics:
-      - command_and_control
-    techniques:
-      - T1071.001
+      - defense_evasion
     data_sources:
-      - network_connection
-      - windows
+      - webserver
+      - linux
 rules_count: 2
 ---
 
-CrowdStrike is enhancing its Falcon platform to address the emerging security challenges presented by the rapid adoption of AI tools and the rise of "shadow AI." The Falcon platform's enhancements aim to close AI visibility and governance gaps. The new capabilities include AI Detection and Response (AIDR) for desktop AI applications like ChatGPT, Gemini, Claude, DeepSeek, Microsoft Copilot, O365 Copilot, GitHub Copilot, and Cursor. AIDR is also extending runtime security to agents built in Microsoft Copilot Studio. Additionally, CrowdStrike is introducing deep agent and shadow AI discovery on endpoints using Falcon Exposure Management. This feature automatically discovers AI-related components running across endpoints in real-time, including AI apps and agents, LLM runtimes, MCP servers, and IDE extensions. These innovations are designed to address new attack surfaces created by the increased deployment of AI agents and AI-powered software across diverse environments.
+The increasing adoption of AI agents in mainstream business tools presents new security challenges. A compromised agent can lead to data exposure, unauthorized transactions, and compliance violations. To address these risks, CrowdStrike Falcon AIDR now supports NVIDIA NeMo Guardrails. This integration provides enterprise-grade protection by defining guardrails and applying constraints on LLMs. NVIDIA NeMo Guardrails, an open-source library, offers features like content safety, PII detection, jailbreak detection, and topic control. Falcon AIDR and NeMo Guardrails enable developers to manage data access, control agent responses, and ensure policy compliance, facilitating the secure transition of AI agents from development to production. This solution helps organizations maintain visibility and control over their AI agents.
 
 ## Attack Chain
 
-1.  **Initial Deployment:** An organization deploys AI agents (e.g., OpenClaw or custom agents), LLMs, and related tools across its endpoints and SaaS environments, including developer machines.
-2.  **Shadow AI Emergence:** Employees and engineering teams adopt AI tools and deploy models without adequate oversight, creating a shadow AI environment.
-3.  **LOTAIL Exploitation:** Adversaries leverage "Living Off The AI Land" (LOTAIL) techniques, exploiting the increasing autonomy, high system permissions, and minimal governance of AI agents on endpoints.
-4.  **Prompt Injection:** Attackers inject malicious prompts into AI agents or Copilot Studio agents to manipulate their behavior and gain unauthorized access.
-5.  **Data Leakage:** Compromised AI agents or Copilot Studio agents exfiltrate sensitive data from the organization's systems or SaaS environments.
-6.  **Policy Violation:** Malicious prompts or compromised agents trigger policy violations, leading to unauthorized actions or data access.
-7.  **Lateral Movement:** Attackers use compromised AI agents to move laterally within the network, gaining access to critical assets and sensitive data.
-8.  **Exfiltration/Impact:** The attacker exfiltrates sensitive data, disrupts business operations, or causes reputational damage.
+1. **Initial Access:** An attacker crafts a malicious prompt to interact with an AI agent.
+2. **Prompt Injection:** The malicious prompt injects unintended commands or instructions into the agent's processing flow.
+3. **Bypass Guardrails (Attempt):** The attacker attempts to bypass existing guardrails using sophisticated injection techniques.
+4. **Data Exfiltration:** If successful, the attacker exploits the agent to access and exfiltrate sensitive data (e.g., customer PII, internal documents).
+5. **Unauthorized Actions:** The attacker manipulates the agent to perform unauthorized actions, such as initiating fraudulent transactions or modifying configurations.
+6. **Lateral Movement (Potential):** In some scenarios, a compromised agent could be leveraged to access other systems or data sources within the organization's environment.
+7. **Compliance Violation:** The agent's actions result in violations of regulatory compliance requirements (e.g., HIPAA, GDPR).
+8. **Impact:** Data breach, financial loss, reputational damage, and legal penalties.
 
 ## Impact
 
-The lack of visibility and governance over AI tools and agents introduces significant security risks, including data leaks, prompt injection attacks, and policy violations. Compromised AI agents can be exploited for lateral movement, data exfiltration, and disruption of business operations. The increasing use of shadow AI exacerbates these risks, as employees adopt AI tools without adequate security controls. A successful attack could result in the theft of sensitive data, disruption of critical services, and significant reputational damage.
+A successful attack against an AI agent can have significant consequences. Data breaches exposing customer PII, unauthorized transactions leading to financial losses, and compliance violations resulting in legal penalties are all potential outcomes. The impact spans across various sectors, including financial services, healthcare, and customer service, where AI agents handle sensitive data and critical business processes. The extent of the damage depends on the agent's access privileges and the sensitivity of the data it handles. Even a single compromised agent can expose thousands of interactions, amplifying the blast radius of an attack.
 
 ## Recommendation
 
-*   Deploy the "Detect AI Agent Installation" Sigma rule to identify the installation of AI-related components on endpoints (Sigma Rule).
-*   Enable Falcon Exposure Management to automatically discover and classify AI-related components running across endpoints (CrowdStrike Falcon Exposure Management).
-*   Implement Falcon AIDR policies to monitor AI application interactions and detect prompt attacks, data leaks, and policy violations (CrowdStrike Falcon AIDR).
-*   Monitor network traffic for unusual patterns associated with AI applications, especially traffic originating from developer machines (Network Connection Logs).
+*   Deploy Falcon AIDR with NVIDIA NeMo Guardrails to enforce content safety, PII protection, and jailbreak detection (see Overview).
+*   Implement custom data classification rules in Falcon AIDR to align with your organization's specific data protection requirements (see Overview).
+*   Enable monitoring mode in Falcon AIDR to understand the threat landscape and progressively enforce blocks and redactions as agents move from development to production (see Use Cases).
+*   Create named detection policies in Falcon AIDR tailored to specific security requirements at critical points in AI agent workflows (see Configuring Falcon AIDR Policies).
+*   Monitor web server logs for unexpected HTTP requests that might indicate prompt injection attempts targeting AI agents (see rules).
