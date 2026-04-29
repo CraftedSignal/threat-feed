@@ -290,6 +290,16 @@ body {
 }
 .pagefind-ui__drawer {
   gap: 0.5rem !important;
+  /* Single column — the filter panel below is hidden, give all
+     horizontal space to the results column. */
+  grid-template-columns: 1fr !important;
+}
+/* Hide the filter sidebar entirely — duplicates the chrome (severity /
+   actor / product nav already lives in the header) and just narrowed
+   the result column. */
+.pagefind-ui__filter-panel,
+.pagefind-ui__filter-block {
+  display: none !important;
 }
 .pagefind-ui__results-area {
   padding-top: 0 !important;
