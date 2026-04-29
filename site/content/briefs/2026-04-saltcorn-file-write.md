@@ -3,6 +3,9 @@ title: Unauthenticated Arbitrary File Write in Saltcorn
 slug: 2026-04-saltcorn-file-write
 description: Unauthenticated attackers can exploit a vulnerability in Saltcorn versions prior to 1.4.5, 1.5.5, and 1.6.0-beta.4 to write arbitrary files and list directory contents on the server.
 date: "2026-04-11T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
