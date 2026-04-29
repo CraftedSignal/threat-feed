@@ -3,6 +3,9 @@ title: OpenTelemetry-Go Multi-Value Baggage Header DOS Vulnerability
 slug: 2026-04-opentelemetry-dos
 description: A vulnerability in OpenTelemetry-Go allows attackers to amplify CPU and allocation usage by sending many `baggage:` header lines, leading to a denial-of-service condition due to excessive resource consumption.
 date: "2026-04-08T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
