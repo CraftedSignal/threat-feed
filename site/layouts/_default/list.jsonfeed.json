@@ -1,0 +1,37 @@
+{{- $items := slice -}}
+{{- /* Mirror RSS behaviour: home/section give briefs from the
+       configured mainSections; taxonomy term pages give that term's
+       pages directly. */ -}}
+{{- $pages := .Pages -}}
+{{- if .IsHome -}}
+{{-   $pages = where .Site.RegularPages "Section" "in" .Site.Params.mainSections -}}
+{{- end -}}
+{{- range first 100 ($pages.ByDate.Reverse) -}}
+{{-   $item := dict
+        "id"          .RelPermalink
+        "url"         .Permalink
+        "title"       .Title
+        "summary"     (or .Params.description .Summary)
+        "date"        (.Date.Format "2006-01-02T15:04:05Z07:00")
+        "type"        (or .Params.type "threat")
+        "severities"  (.Params.severities | default slice)
+        "products"    (.Params.products | default slice)
+        "vendors"     (.Params.vendors | default slice)
+        "actors"      (.Params.actors | default slice)
+        "tags"        (.Params.tags | default slice)
+        "exploited"   (.Params.exploited | default false) -}}
+{{-   $cves := slice -}}
+{{-   range (.Params.cves | default slice) -}}
+{{-     $cves = $cves | append (dict "id" (.id | default "") "cvss" (.cvss | default 0)) -}}
+{{-   end -}}
+{{-   $item = merge $item (dict "cves" $cves) -}}
+{{-   $items = $items | append $item -}}
+{{- end -}}
+{{- $feed := dict
+      "version"        "1.0"
+      "title"          (printf "%s — %s" .Site.Title (.Title | default "All briefs"))
+      "site_url"       .Site.Home.Permalink
+      "feed_url"       .Permalink
+      "description"    (or .Description .Site.Params.description)
+      "items"          $items -}}
+{{- $feed | jsonify (dict "indent" "  ") | safeJS -}}

@@ -4,11 +4,17 @@
     <header class="space-y-2">
       <h1 class="font-display text-3xl md:text-4xl font-semibold">{{ .Title }}</h1>
       {{ with .Description }}<p class="text-muted">{{ . }}</p>{{ end }}
+      {{ with .Params.intro }}<p class="text-sm text-muted max-w-3xl">{{ . }}</p>{{ end }}
     </header>
 
     {{ partial "subscribe-form.html" . }}
 
-    <div class="prose-feed">{{ .Content }}</div>
+    {{ with .Content }}
+    <section class="border-t border-stroke pt-8 mt-4 space-y-3">
+      <p class="text-xs font-mono uppercase tracking-[0.18em] text-muted">No signup needed</p>
+      <div class="prose-feed">{{ . }}</div>
+    </section>
+    {{ end }}
   </div>
 </article>
 

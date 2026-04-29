@@ -45,22 +45,30 @@ mainSections = ['briefs']
 [minify]
   minifyOutput = true
 
-# RSS on home, section listing, and every taxonomy term.
-# (Hugo emits HTML + RSS for all of these by default; listing here for clarity.)
+# RSS + JSON Feed on home, section listing, and every taxonomy term.
+# JSONFeed is a parallel feed format (https://www.jsonfeed.org/) — same
+# items, easier to consume from scripts and modern aggregators.
 [outputs]
-  home = ["HTML", "RSS"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML", "RSS"]
-  term = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "JSONFeed"]
+  section = ["HTML", "RSS", "JSONFeed"]
+  taxonomy = ["HTML", "RSS", "JSONFeed"]
+  term = ["HTML", "RSS", "JSONFeed"]
 
 [outputFormats]
   [outputFormats.RSS]
     mediatype = "application/rss+xml"
     baseName = "feed"
+  [outputFormats.JSONFeed]
+    mediatype = "application/feed+json"
+    baseName = "feed"
+    isPlainText = true
+    notAlternative = false
 
 [mediaTypes]
   [mediaTypes."application/rss+xml"]
     suffixes = ["xml"]
+  [mediaTypes."application/feed+json"]
+    suffixes = ["json"]
 
 [sitemap]
   changeFreq = "hourly"
