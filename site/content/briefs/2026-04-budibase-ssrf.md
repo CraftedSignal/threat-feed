@@ -3,6 +3,9 @@ title: Budibase REST Connector SSRF via Empty Blacklist
 slug: 2026-04-budibase-ssrf
 description: A critical Server-Side Request Forgery (SSRF) vulnerability in Budibase's REST datasource connector allows attackers with Builder privileges to exfiltrate sensitive data from internal network services due to a missing default IP blacklist.
 date: "2026-04-04T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
