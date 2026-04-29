@@ -1,71 +1,74 @@
 ---
-title: CrowdStrike Flex for Services Expands Access to Incident Response
+title: CrowdStrike Falcon Flex for Services Expansion
 slug: 2026-03-falcon-flex-services
-description: CrowdStrike's Falcon Flex for Services expands access to incident response and proactive security services, offering flexible consumption models to address evolving cybersecurity threats and improve incident readiness.
-date: "2026-03-24T09:00:00Z"
+description: CrowdStrike is expanding its Falcon Flex model to include its services, offering flexible consumption of expert-led cybersecurity services including incident response and proactive security measures.
+date: "2026-03-28T08:13:20Z"
 type: coverage
 types:
   - coverage
 severities:
-  - medium
+  - low
 tags:
   - incident-response
   - security-services
-  - falcon-flex
+  - crowdstrike
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1566
     technique_name: Phishing
+  - tactic_id: TA0009
+    tactic_name: Incident Response
+    technique_id: T1578
+    technique_name: Account Access
 references:
   - https://www.crowdstrike.com/en-us/blog/crowdstrike-extends-the-falcon-flex-model-to-services/
 rules:
-  - title: Detect Potential Incident Response Engagement via Network Connection
-    description: Detects potential engagement of an incident response provider by monitoring network connections to known IR provider domains.
+  - title: CrowdStrike Services Engagement - Process Creation
+    description: Detects process creation events that may be related to CrowdStrike services engagements based on specific process names often used during incident response or other service activities.
     platform: sigma
     severity: informational
-    tactics:
-      - discovery
-    techniques:
-      - T1016
-    data_sources:
-      - network_connection
-      - windows
-  - title: Detect Potential Incident Response Engagement via Process Creation
-    description: Detects potential engagement of an incident response provider by monitoring process creation events for tools often used during incident response activities.
-    platform: sigma
-    severity: informational
-    tactics:
-      - discovery
-    techniques:
-      - T1016
     data_sources:
       - process_creation
       - windows
-rules_count: 2
+  - title: CrowdStrike Services Engagement - Network Connection
+    description: Detects network connections that may be related to CrowdStrike services engagements based on connections to known CrowdStrike infrastructure or commonly used tools.
+    platform: sigma
+    severity: informational
+    data_sources:
+      - network_connection
+      - windows
+  - title: CrowdStrike Services Engagement - File Download
+    description: Detects file downloads that may be related to CrowdStrike services engagements, focusing on commonly used tools for incident response and analysis.
+    platform: sigma
+    severity: informational
+    data_sources:
+      - file_event
+      - windows
+rules_count: 3
 ---
 
-CrowdStrike has extended its Falcon Flex model to its services offerings, providing organizations with more flexibility and speed in preparing for and responding to modern cybersecurity threats. This includes the introduction of the Zero Dollar Flex Fund, which offers proactive service hours designed to strengthen incident readiness. The Falcon Flex for Services allows customers to draw down from a standalone services entitlement across the CrowdStrike services portfolio, which includes incident response, proactive security services, advisory, platform services, and training. The offering aims to address the rigid nature of traditional hours-based service models, which often lag behind real-world threats.
+CrowdStrike has extended its Falcon Flex model to its services offering, allowing organizations to consume cybersecurity services with greater flexibility. This model enables organizations to draw down from a standalone services entitlement, applying it across CrowdStrike's services portfolio based on their specific priorities and operational needs. The Falcon Flex for Services covers incident response, proactive security services, advisory, platform services, and training. Additionally, CrowdStrike is introducing the Zero Dollar Flex Fund, providing qualifying new services customers with access to 200 hours of CrowdStrike Services at no initiation cost, including 160 hours of incident response and 40 hours of proactive services. This initiative aims to lower the barrier for organizations to engage with CrowdStrike's expertise, especially those seeking expert support before committing to a broader platform. The key benefit is a more adaptable way to consume CrowdStrike expertise over time, without requiring a new procurement cycle for every shift in priorities.
 
 ## Attack Chain
 
-1.  **Initial Compromise (Assumed):** While the document focuses on response, an initial compromise is assumed. This could involve phishing, exploitation of a vulnerability, or other common entry points.
-2.  **Detection of Intrusion:** The organization detects a potential security incident, potentially through existing security tools or anomalies observed in their environment.
-3.  **Engagement of Incident Response Services:** The organization leverages CrowdStrike's Falcon Flex for Services to engage their incident response team. This provides pre-arranged access to expertise.
-4.  **Incident Assessment and Containment:** CrowdStrike's incident response team assesses the scope and impact of the incident and implements containment measures to prevent further damage or data exfiltration.
-5.  **Remediation and Recovery:** The incident response team works with the organization to remediate the vulnerabilities exploited during the attack and restore affected systems to a secure state.
-6.  **Proactive Security Services:** The organization leverages the proactive services component of Falcon Flex for Services to assess their overall security posture, identify vulnerabilities, and improve defenses.
-7.  **Advisory Services:** The organization consults with CrowdStrike's advisory services to develop a long-term security strategy and roadmap.
-8.  **Training and Operationalization:** The organization utilizes the training services to upskill their internal security team and better operationalize the CrowdStrike Falcon platform.
+This brief describes a service offering that enables rapid incident response, rather than a specific attack chain. Therefore, the typical attack chain steps do not apply. However, the service is designed to improve resilience against attacks, which can be described as follows:
+
+1. Initial Access: An attacker gains initial access to the target environment through various means such as phishing, vulnerability exploitation, or stolen credentials (not directly mentioned in the source).
+2. Lateral Movement: The attacker attempts to move laterally within the network, escalating privileges to gain control over critical systems (not directly mentioned in the source).
+3. Data Exfiltration: The attacker identifies and exfiltrates sensitive data from the compromised systems (not directly mentioned in the source).
+4. Impact: The attacker deploys ransomware or causes other damage to disrupt business operations (not directly mentioned in the source).
+5. Detection: The organization detects the intrusion, potentially through existing security tools or alerts (not directly mentioned in the source).
+6. Activation of CrowdStrike Services: The organization leverages CrowdStrike Flex for Services to engage incident response experts.
+7. Incident Response: CrowdStrike experts rapidly assess the scope of the breach, contain the attacker's activities, and begin remediation efforts.
+8. Remediation and Recovery: CrowdStrike assists in recovering compromised systems, patching vulnerabilities, and implementing security enhancements to prevent future incidents.
 
 ## Impact
 
-A successful attack, even if initially contained, can lead to significant financial losses, reputational damage, and disruption of business operations. The number of potential victims is broad, encompassing organizations across various sectors. Failure to respond effectively and efficiently to an incident can exacerbate the damage and increase the cost of recovery. The CrowdStrike offering aims to reduce the time to respond, and therefore reduce the overall impact.
+The successful utilization of CrowdStrike Flex for Services can significantly reduce the impact of a cyberattack by enabling rapid incident response and minimizing downtime. Organizations can pre-arrange incident response coverage, providing access to elite expertise and a more adaptable approach to consuming cybersecurity services over time. The Zero Dollar Flex Fund provides a direct path to CrowdStrike expertise for first-time services customers, offering a standalone 12-month agreement with flexibility in applying proactive services to readiness and consulting priorities. This results in improved preparedness, faster containment of threats, and more effective recovery from incidents, minimizing potential financial losses, reputational damage, and operational disruptions.
 
 ## Recommendation
 
-*   Evaluate your current incident response readiness and identify gaps in your capabilities. Consider using CrowdStrike Flex for Services to augment your internal team and ensure access to expert support when needed (CrowdStrike Flex for Services).
-*   If eligible, explore the Zero Dollar Flex Fund to gain initial access to CrowdStrike Services and strengthen your incident response preparedness (Zero Dollar Flex Fund).
-*   Review your existing security policies and procedures to ensure they align with current threat landscapes and business requirements. Consider leveraging CrowdStrike's advisory services to develop a comprehensive security strategy (CrowdStrike Advisory Services).
-*   Implement the "Detect Potential Incident Response Engagement via Network Connection" Sigma rule to identify systems connecting to known IR provider domains.
-*   Implement the "Detect Potential Incident Response Engagement via Process Creation" Sigma rule to identify tools often used during incident response activities.
+*   Evaluate the CrowdStrike Falcon Flex for Services model to determine its suitability for your organization's incident response and cybersecurity service needs (Reference: CrowdStrike Flex for Services).
+*   For qualifying new services customers, explore the Zero Dollar Flex Fund to gain initial access to CrowdStrike Services for incident response and proactive security measures (Reference: Zero Dollar Flex Fund).
+*   Integrate CrowdStrike's incident response capabilities with existing security tools and processes to streamline incident handling and improve overall security posture (Reference: CrowdStrike Services).
