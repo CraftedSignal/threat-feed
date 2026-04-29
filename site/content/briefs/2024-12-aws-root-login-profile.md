@@ -3,6 +3,9 @@ title: AWS IAM Login Profile Added for Root
 slug: 2024-12-aws-root-login-profile
 description: An adversary with temporary root access in AWS may create a login profile for the root account to establish persistent console access, even if the original access keys are rotated or disabled.
 date: "2026-04-10T16:27:52Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
