@@ -78,7 +78,11 @@ jobs:
         run: hugo --minify --gc
 
       - name: Build Pagefind index
-        run: npx pagefind --site public
+        # exclude-selectors strips the brief-card markup from the search
+        # index so each brief is indexed once (from its own page) rather
+        # than N+1 times (every listing that renders a card for it).
+        # Keeps the index smaller and the search faster.
+        run: npx pagefind --site public --exclude-selectors '[data-pagefind-ignore], .pagefind-ignore'
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
