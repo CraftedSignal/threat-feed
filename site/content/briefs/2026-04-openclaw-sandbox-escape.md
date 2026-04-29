@@ -3,6 +3,9 @@ title: OpenClaw TOCTOU Race Condition Leads to Sandbox Escape
 slug: 2026-04-openclaw-sandbox-escape
 description: A critical time-of-check time-of-use (TOCTOU) vulnerability in OpenClaw's remote file system bridge allows a sandbox escape by exploiting the delay between path validation and file reading, affecting versions up to 2026.3.28.
 date: "2026-04-03T03:15:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
