@@ -3,6 +3,9 @@ title: Across DR-810 Unauthenticated File Disclosure Vulnerability
 slug: 2026-04-across-dr810-file-disclosure
 description: Across DR-810 routers are vulnerable to unauthenticated file disclosure, allowing remote attackers to download the rom-0 backup file containing sensitive information, such as router passwords and configuration data, via a simple GET request to the rom-0 endpoint.
 date: "2026-04-12T13:16:33Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
