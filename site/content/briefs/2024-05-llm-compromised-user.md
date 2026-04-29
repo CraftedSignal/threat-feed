@@ -3,6 +3,9 @@ title: LLM-Based Compromised User Triage
 slug: 2024-05-llm-compromised-user
 description: This rule correlates multiple security alerts involving the same user, analyzes them with an LLM, and flags potentially compromised accounts based on MITRE tactics, geographic anomalies, and multi-host activity, helping analysts prioritize users exhibiting indicators of credential theft or unauthorized access.
 date: "2026-04-28T17:17:03Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:

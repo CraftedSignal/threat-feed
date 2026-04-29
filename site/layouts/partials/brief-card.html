@@ -23,10 +23,17 @@
 
     <div class="pt-0.5 flex-none flex flex-col items-stretch gap-1 min-w-[88px] max-w-[88px]">
       <span class="sev-badge {{ $sevClass }} justify-center">{{ $sev }}</span>
-      <span class="type-badge type-{{ $type }} justify-center">{{ $type }}</span>
+      {{/* Display "coverage" as "rule" — clearer to a casual reader. The
+           data model, CSS class, and taxonomy URL stay coverage. */}}
+      <span class="type-badge type-{{ $type }} justify-center">{{ cond (eq $type "coverage") "rule" $type }}</span>
       {{ if $products }}
+      {{/* Strip version specifiers like "(<= 0.4.1)" / "(versions prior to 3.3)"
+           from the displayed product name — they read as noise in a badge.
+           Hover title still carries the unredacted list. */}}
+      {{ $primaryProduct := index $products 0 }}
+      {{ $primaryProduct = trim (index (split $primaryProduct "(") 0) " " }}
       <span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[10px] bg-panel-2 text-muted truncate" title="{{ delimit $products ", " }}">
-        {{- index $products 0 -}}
+        {{- $primaryProduct -}}
         {{- if gt (len $products) 1 }} +{{ sub (len $products) 1 }}{{ end -}}
       </span>
       {{ end }}
