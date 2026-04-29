@@ -3,6 +3,9 @@ title: Budibase Command Injection Vulnerability in Bash Automation Step
 slug: 2026-04-budibase-cmd-injection
 description: A command injection vulnerability exists in Budibase's bash automation step due to insufficient sanitization, allowing attackers with automation modification access to inject arbitrary shell commands, leading to remote code execution.
 date: "2026-04-04T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
