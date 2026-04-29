@@ -3,6 +3,9 @@ title: Balena Etcher for Windows TOCTOU Vulnerability
 slug: 2026-04-balena-etcher-toctou
 description: A Time-of-Check to Time-of-Use (TOCTOU) race condition vulnerability in Balena Etcher for Windows prior to v2.1.4 allows attackers to escalate privileges and execute arbitrary code by replacing a legitimate script with a crafted payload during the flashing process.
 date: "2026-04-02T16:16:22Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
