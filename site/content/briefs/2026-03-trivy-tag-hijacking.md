@@ -3,6 +3,9 @@ title: Trivy Security Scanner GitHub Actions Tag Hijacking for CI/CD Secret Thef
 slug: 2026-03-trivy-tag-hijacking
 description: Attackers hijacked 75 tags associated with the Trivy Security Scanner GitHub Actions to steal CI/CD secrets from users of the compromised tags.
 date: "2026-03-21T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
@@ -56,4 +59,26 @@ rules:
 rules_count: 2
 ---
 
-On March 20, 2026, a breach was reported affecting the Trivy Security Scanner GitHub Actions. The incident involved the hijacking of 75 tags associated with the project. While the exact method of tag hijacking is not detailed, the attacker's objective was to steal CI/CD secrets. This attack could affect any project using the compromised tags in their GitHub Actions workflows. Successful exploitation allows an attacker to gain access to sensitive credentials, API keys, and other secrets stored…
+On March 20, 2026, a breach was reported affecting the Trivy Security Scanner GitHub Actions. The incident involved the hijacking of 75 tags associated with the project. While the exact method of tag hijacking is not detailed, the attacker's objective was to steal CI/CD secrets. This attack could affect any project using the compromised tags in their GitHub Actions workflows. Successful exploitation allows an attacker to gain access to sensitive credentials, API keys, and other secrets stored within the CI/CD environment, leading to potential data breaches, supply chain compromise, and unauthorized access to critical systems. Defenders should focus on detecting and preventing unauthorized modifications to GitHub Action workflows and monitoring for suspicious access to CI/CD secrets.
+
+## Attack Chain
+
+1.  The attacker compromises the GitHub repository or account with permissions to manage tags for the Trivy Security Scanner GitHub Actions.
+2.  The attacker creates or modifies existing tags (75 in this case) to point to malicious code repositories.
+3.  Users unknowingly include the compromised tags in their GitHub Actions workflows, triggering the malicious code during CI/CD pipeline execution.
+4.  The malicious code executes within the user's CI/CD environment, gaining access to environment variables and secrets.
+5.  The attacker's code exfiltrates the stolen CI/CD secrets to an external server controlled by the attacker.
+6.  The attacker uses the stolen secrets to gain unauthorized access to victim's systems, cloud resources, or code repositories.
+7.  The attacker may further compromise the victim's infrastructure, inject malicious code into software builds, or steal sensitive data.
+
+## Impact
+
+This attack has the potential to impact a wide range of organizations that rely on the Trivy Security Scanner GitHub Actions in their CI/CD pipelines. The successful theft of CI/CD secrets can lead to significant data breaches, supply chain compromise, and unauthorized access to critical infrastructure. The scope of impact depends on the number of users affected by the compromised tags and the sensitivity of the secrets stored within their CI/CD environments. The incident could result in financial losses, reputational damage, and legal liabilities for affected organizations.
+
+## Recommendation
+
+*   Review GitHub Actions workflows for use of the compromised Trivy Security Scanner tags (reference: Overview).
+*   Implement stricter access controls and multi-factor authentication for GitHub accounts with permissions to manage tags (reference: Attack Chain).
+*   Deploy the Sigma rule to detect suspicious script execution within GitHub Actions workflows (reference: rules).
+*   Monitor network traffic for unusual outbound connections originating from CI/CD environments, indicative of secret exfiltration (reference: rules).
+*   Implement secrets scanning tools to detect exposed credentials and API keys within code repositories and CI/CD environments (reference: Attack Chain).
