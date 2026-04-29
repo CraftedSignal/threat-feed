@@ -3,6 +3,9 @@ title: OpenClaw Sandbox Escape via Symlink Traversal
 slug: 2026-04-openclaw-symlink
 description: The openclaw npm package versions up to 2026.3.28 are vulnerable to a sandbox escape due to unrestricted file synchronization and symlink traversal, allowing attackers to potentially access or modify files outside the intended sandbox.
 date: "2026-04-03T02:49:14Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
