@@ -1,69 +1,78 @@
 ---
-title: Go Markdown Library Out-of-Bounds Read Vulnerability
+title: Go-Markdown Library Vulnerable to Out-of-Bounds Read via Malformed Input
 slug: 2026-04-gomarkdown-oob-read
-description: A vulnerability in the go-markdown library exists where processing a malformed input containing a '<' character that is not followed by a '>' character with a SmartypantsRenderer can lead to an out-of-bounds read or a panic, causing a denial of service.
-date: "2026-04-15T12:00:00Z"
+description: The `github.com/gomarkdown/markdown` Go library is susceptible to an out-of-bounds read or panic when processing malformed input with the SmartypantsRenderer, potentially leading to a denial-of-service condition.
+date: "2026-04-22T12:00:00Z"
 type: coverage
 types:
   - coverage
 severities:
-  - high
+  - medium
 tags:
   - markdown
-  - denial-of-service
   - go
-  - out-of-bounds read
+  - denial-of-service
+  - cve-2026-40890
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
+cves:
+  - id: CVE-2026-40890
+    cvss: 7.5
 references:
-  - https://github.com/advisories/GHSA-77fj-vx54-gvh7
-  - https://github.com/gomarkdown/markdown/blob/37c66b85d6ab025ba67a73ba03b7f3ef55859cca/html/smartypants.go#L367-L376
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-40890
+  - https://github.com/gomarkdown/markdown/commit/759bbc3e32073c3bc4e25969c132fc520eda2778
+  - https://github.com/gomarkdown/markdown/security/advisories/GHSA-77fj-vx54-gvh7
+iocs:
+  - type: url
+    value: https://github.com/gomarkdown/markdown/commit/759bbc3e32073c3bc4e25969c132fc520eda2778
+  - type: url
+    value: https://github.com/gomarkdown/markdown/security/advisories/GHSA-77fj-vx54-gvh7
+ioc_counts:
+  url: 2
 rules:
-  - title: Detect Go Markdown Smartypants Panic
-    description: Detects panics originating from the `go-markdown` library related to the SmartypantsRenderer, indicating a potential out-of-bounds read vulnerability.
-    platform: sigma
-    severity: high
-    tactics:
-      - availability
-    techniques:
-      - T1499.002
-    data_sources:
-      - application
-      - linux
-  - title: Detect Suspicious Input to Markdown Processor
-    description: Detects HTTP requests that include suspicious unclosed HTML-like tags being sent to a markdown processing service.
+  - title: Detect Go process with gomarkdown library and suspicious arguments
+    description: Detects Go processes that import the 'github.com/gomarkdown/markdown' library and process suspicious input, potentially indicating exploitation of CVE-2026-40890.
     platform: sigma
     severity: medium
     tactics:
-      - initial_access
+      - impact
+    techniques:
+      - T1499.004
     data_sources:
-      - webserver
+      - process_creation
       - linux
+  - title: Detect network connection to github commit URL
+    description: Detects network connections to the GitHub commit URL associated with the fix for CVE-2026-40890, potentially indicating attempts to retrieve the patch or exploit details.
+    platform: sigma
+    severity: low
+    tactics:
+      - reconnaissance
+    data_sources:
+      - network_connection
+      - windows
 rules_count: 2
 ---
 
-The `go-markdown` library, specifically versions prior to `0.0.0-20260411013819-759bbc3e3207`, is susceptible to an out-of-bounds read vulnerability. This flaw is triggered when the `SmartypantsRenderer` processes malformed markdown input containing a `<` character that is not subsequently closed by a `>` character within the remaining text. The vulnerability resides within the `smartLeftAngle()` function in `html/smartypants.go`. Exploitation of this vulnerability leads to either an out-of-bounds read (if the slice length is less than its capacity) or a panic (if the slice length equals its capacity), ultimately resulting in a denial of service. This issue affects applications utilizing the vulnerable versions of the `go-markdown` library for markdown processing.
+The `github.com/gomarkdown/markdown` library, a widely used Go package for parsing Markdown and rendering it as HTML, contains a vulnerability (CVE-2026-40890) that can be triggered by processing specially crafted Markdown input. Specifically, if the input contains a `<` character that is not subsequently closed by a `>` character, the SmartypantsRenderer will cause an out-of-bounds read or panic. This issue was introduced in an earlier version of the library and was addressed in commit 759bbc3e32073c3bc4e25969c132fc520eda2778. Exploitation of this vulnerability can lead to a denial-of-service (DoS) condition, affecting applications that rely on this library to process untrusted Markdown content. Defenders should ensure they are running a patched version of the library.
 
 ## Attack Chain
 
-1. An attacker crafts a malicious markdown input string containing an unclosed `<` tag (e.g., `<a`).
-2. The application receives the crafted markdown input for processing.
-3. The application uses the `go-markdown` library with the `SmartypantsRenderer` enabled to render the markdown input.
-4. The `SmartypantsRenderer` calls the `smartLeftAngle()` function in `html/smartypants.go` to handle the `<` character.
-5. The `smartLeftAngle()` function encounters the unclosed `<` tag, triggering the out-of-bounds read due to missing `>` character.
-6. Depending on the slice's length and capacity, the program either reads an extra byte of data (if length < capacity) or panics (if length == capacity).
-7. The application crashes due to the panic or becomes unstable due to the out-of-bounds read.
-8. Service availability is disrupted, resulting in a denial-of-service condition.
+1.  An attacker crafts a malicious Markdown document containing a `<` character without a closing `>` character.
+2.  A user or automated system submits the malicious Markdown document to an application using the vulnerable `github.com/gomarkdown/markdown` library.
+3.  The application calls the `markdown.ToHTML` function with the crafted Markdown and uses `SmartypantsRenderer` to render to HTML.
+4.  The `SmartypantsRenderer` attempts to process the malformed `<` character.
+5.  Due to the missing `>`, the renderer attempts to read beyond the bounds of the input buffer, triggering an out-of-bounds read.
+6.  The out-of-bounds read leads to a panic within the Go application.
+7.  The panic crashes the Go application, causing a denial-of-service.
 
 ## Impact
 
-Successful exploitation of this vulnerability leads to a denial of service. Any service using the vulnerable `go-markdown` library to process potentially malicious markdown input is susceptible to crashing or becoming unstable. The impact is a loss of availability for the affected service. While the specific number of affected services or sectors is not mentioned in the source, any application relying on `go-markdown` is potentially vulnerable.
+Successful exploitation of this vulnerability results in a denial-of-service condition. Applications using the vulnerable version of `github.com/gomarkdown/markdown` may crash when processing attacker-controlled Markdown input. The severity of the impact depends on the role of the affected application; if it is a critical service, the denial of service could have significant consequences. The number of potential victims is proportional to the number of applications using the vulnerable `github.com/gomarkdown/markdown` library and processing potentially untrusted Markdown content.
 
 ## Recommendation
 
-*   Upgrade the `go-markdown` library to version `0.0.0-20260411013819-759bbc3e3207` or later to patch the vulnerability as detailed in the overview.
-*   Implement input validation to sanitize or reject markdown input containing unclosed `<` tags. This mitigates the risk even if the vulnerable library is used.
-*   Monitor application logs for unexpected panics or errors originating from the `go-markdown` library, specifically around markdown rendering routines.
+*   Update the `github.com/gomarkdown/markdown` library to a version containing commit 759bbc3e32073c3bc4e25969c132fc520eda2778 or later to remediate the vulnerability.
+*   Implement input validation to sanitize Markdown input before processing it with the `github.com/gomarkdown/markdown` library.
