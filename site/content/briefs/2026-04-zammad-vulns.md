@@ -3,6 +3,9 @@ title: Multiple Vulnerabilities in Zammad
 slug: 2026-04-zammad-vulns
 description: Multiple vulnerabilities in Zammad allow a remote attacker to execute arbitrary code, bypass security measures, disclose sensitive information, and perform cross-site scripting attacks.
 date: "2026-04-09T08:09:17Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
