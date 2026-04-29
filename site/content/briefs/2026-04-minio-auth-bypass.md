@@ -1,80 +1,72 @@
 ---
-title: MinIO Unauthenticated Object Write Vulnerability
+title: MinIO Authentication Bypass Vulnerabilities
 slug: 2026-04-minio-auth-bypass
-description: Two authentication bypass vulnerabilities in MinIO allow writing arbitrary objects to any bucket with only a valid access key, without the secret key or valid signature, impacting all MinIO deployments.
-date: "2026-04-14T00:05:52Z"
+description: An anonymous remote attacker can exploit multiple vulnerabilities in MinIO to bypass authentication and manipulate data, potentially leading to unauthorized access and data breaches.
+date: "2026-04-22T07:39:11Z"
 type: coverage
 types:
   - coverage
 severities:
-  - high
+  - critical
 tags:
   - minio
   - authentication-bypass
-  - object-storage
+  - data-manipulation
 mitre_ttps:
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1550
-    technique_name: Use Alternate Authentication Material
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1550
-    technique_name: Use Alternate Authentication Material
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
 references:
-  - https://github.com/advisories/GHSA-9c4q-hq6p-c237
-  - https://github.com/minio/minio/commit/76913a9fd5c6e5c2dbd4e8c7faf56ed9e9e24091
-  - https://min.io/aistor
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1081
 rules:
-  - title: Detect MinIO Unsigned Payload Trailer
-    description: Detects requests using the STREAMING-UNSIGNED-PAYLOAD-TRAILER, indicative of potential exploitation of MinIO authentication bypass.
+  - title: Detect Suspicious MinIO API Access
+    description: Detects unusual API calls to MinIO that may indicate unauthorized access attempts
     platform: sigma
     severity: high
     tactics:
-      - credential_access
-    techniques:
-      - T1550.004
+      - defense_evasion
+      - initial_access
     data_sources:
       - webserver
       - linux
-  - title: Detect MinIO Snowball Auto Extract Exploit Attempt
-    description: Detects attempts to exploit the missing signature verification in PutObjectExtractHandler by identifying requests with the Snowball auto-extract header.
+  - title: Detect MinIO Authentication Bypass Attempt (Generic)
+    description: Detects potential authentication bypass attempts by monitoring for HTTP 401 errors followed by successful 200 OK responses to sensitive MinIO endpoints from the same source IP.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
-      - credential_access
-    techniques:
-      - T1550.004
+      - defense_evasion
+      - initial_access
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-MinIO is susceptible to two authentication bypass vulnerabilities affecting all deployments up to AIStor RELEASE.2026-04-11T03-20-12Z. The vulnerability lies within the `STREAMING-UNSIGNED-PAYLOAD-TRAILER` code path. An attacker possessing a valid access key (including the default `minioadmin` or any key with WRITE permissions) can exploit these flaws to write arbitrary objects to any bucket. This bypass eliminates the need for the secret key or a valid cryptographic signature. One vulnerability involves missing signature verification in `PutObjectExtractHandler`, while the other bypasses signature verification using query-string credentials. These issues stem from the introduction of `authTypeStreamingUnsignedTrailer` support in commit 76913a9fd, specifically impacting releases from RELEASE.2023-05-18T00-05-36Z onwards.
+Multiple vulnerabilities exist within MinIO that allow an unauthenticated, remote attacker to bypass authentication mechanisms and potentially manipulate data stored within the system. While the specific CVEs are not detailed in this advisory, the broad impact suggests a critical flaw in the authentication or authorization logic of the MinIO server. Given the lack of detailed information, defenders need to prioritize identifying MinIO instances and monitoring for anomalous access patterns. This type of vulnerability can have significant consequences, allowing unauthorized access to sensitive data, disruption of services, and potential for further malicious activities within the affected environment.
 
 ## Attack Chain
 
-1.  Attacker obtains a valid MinIO access key, either through default credentials or compromised accounts.
-2.  For vulnerability 1, the attacker crafts a PUT request with `X-Amz-Content-Sha256: STREAMING-UNSIGNED-PAYLOAD-TRAILER`, `X-Amz-Meta-Snowball-Auto-Extract: true`, and an `Authorization` header containing the valid access key but a fabricated signature.
-3.  The request is sent to the MinIO server's `PutObjectExtractHandler` endpoint.
-4.  Due to the missing signature verification in the `PutObjectExtractHandler`, the request proceeds without proper authentication.
-5.  The server extracts the access key and checks IAM permissions via `isPutActionAllowed`, but the fabricated signature is not validated.
-6.  The server accepts the request, and the attacker-controlled payload is extracted into the target bucket.
-7.  For vulnerability 2, the attacker crafts a PUT or PUT Part request omitting the `Authorization` header.
-8.  The attacker includes authentication credentials (access key) exclusively via the `X-Amz-Credential` query parameter. Since the `Authorization` header is missing, signature verification is skipped, and the request proceeds with the permissions of the impersonated access key, allowing the attacker to write arbitrary objects.
+1.  The attacker identifies a vulnerable MinIO instance accessible over the network.
+2.  The attacker crafts a malicious request, exploiting an authentication bypass vulnerability. This could involve manipulating HTTP headers or crafting specific API calls that circumvent authentication checks.
+3.  The vulnerable MinIO instance processes the malicious request without proper authentication, granting the attacker unauthorized access.
+4.  The attacker enumerates available resources within the MinIO instance to identify valuable data or administrative functions.
+5.  The attacker modifies existing data, potentially corrupting critical information or injecting malicious content.
+6.  The attacker exfiltrates sensitive data, such as user credentials, configuration files, or proprietary information.
+7.  The attacker leverages the compromised MinIO instance to gain a foothold in the internal network, potentially escalating privileges and moving laterally.
+8.  The attacker disrupts MinIO services, leading to denial of service for legitimate users.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities allows unauthorized users to modify objects within MinIO storage buckets, potentially leading to data breaches, service disruptions, or the injection of malicious content. Any MinIO deployment is affected, creating a widespread risk for organizations relying on MinIO for their storage infrastructure. The CVSS v4.0 score of 8.8 (High) highlights the severity and potential impact of these vulnerabilities. The number of victims depends on the adoption rate of vulnerable MinIO versions.
+Successful exploitation of these vulnerabilities allows an attacker to bypass authentication controls, leading to unauthorized access to data stored within MinIO. This could result in data breaches, corruption of critical information, and disruption of services. The lack of specifics in this report prevents estimating victim counts or industry sectors targeted. A successful attack could compromise sensitive data, damage reputation, and incur significant financial losses.
 
 ## Recommendation
 
-*   Upgrade to MinIO AIStor version `RELEASE.2026-04-11T03-20-12Z` or later, as indicated in the [MinIO AIStor documentation](https://docs.min.io/enterprise/aistor-object-store/upgrade-aistor-server/community-edition/).
-*   Implement a block at the load balancer or reverse proxy to reject any requests containing `X-Amz-Content-Sha256: STREAMING-UNSIGNED-PAYLOAD-TRAILER`, as mentioned in the **Workarounds** section.
-*   Deploy the Sigma rule `Detect MinIO Unsigned Payload Trailer` to identify exploitation attempts based on the presence of the vulnerable header.
-*   Review and restrict WRITE permissions (`s3:PutObject`) to trusted principals to reduce the attack surface as described in the **Workarounds** section.
+*   Deploy the Sigma rule for detecting unauthorized MinIO access based on unusual HTTP request patterns to your SIEM and tune for your environment.
+*   Monitor web server logs for suspicious API calls that may indicate authentication bypass attempts (see rule: "Detect Suspicious MinIO API Access").
+*   Conduct thorough penetration testing of MinIO instances to identify and remediate any existing vulnerabilities.
+*   Review MinIO access logs for unusual activity or access attempts from unexpected IP addresses.
