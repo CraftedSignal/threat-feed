@@ -1,8 +1,8 @@
 ---
 title: Compromised trivy-action GitHub Action Leads to Credential Theft
 slug: 2026-03-trivy-action-compromise
-description: The trivy-action GitHub Action, a popular open-source vulnerability scanner used in CI/CD pipelines, was compromised via git tag repointing to inject a multi-stage credential stealer.
-date: "2026-03-30T07:13:10Z"
+description: The aquasecurity/trivy-action GitHub Action was compromised via git tag repointing, injecting a multi-stage credential stealer into CI/CD pipelines, potentially exposing secrets, credentials, and infrastructure.
+date: "2026-03-30T07:26:38Z"
 type: coverage
 types:
   - coverage
@@ -21,10 +21,10 @@ mitre_ttps:
 references:
   - https://www.crowdstrike.com/en-us/blog/from-scanner-to-stealer-inside-the-trivy-action-supply-chain-compromise/
 rules:
-  - title: Detect Execution of trivy-action entrypoint.sh
-    description: Detects execution of the entrypoint.sh script from the trivy-action GitHub Action, which could indicate malicious activity if the action is compromised.
+  - title: Detect Execution of Trivy Action Entrypoint Script
+    description: Detects execution of the trivy-action entrypoint.sh script, which may indicate the use of the action in a GitHub Actions workflow.
     platform: sigma
-    severity: medium
+    severity: informational
     tactics:
       - execution
     techniques:
@@ -32,39 +32,39 @@ rules:
     data_sources:
       - process_creation
       - linux
-  - title: Detect Runner Process Discovery
-    description: Detects the enumeration of process IDs (PIDs), which is the initial stage in the malicious campaign.
+  - title: Detect Runner.Worker Process Spawning Shell
+    description: Detects the Runner.Worker process spawning a shell, which is part of the standard execution chain, but can be used as a baseline for detecting further malicious activity.
     platform: sigma
-    severity: low
+    severity: informational
     tactics:
-      - discovery
+      - execution
     techniques:
-      - T1057
+      - T1059.004
     data_sources:
       - process_creation
       - linux
 rules_count: 2
 ---
 
-On March 19, 2026, CrowdStrike detected suspicious script execution activity originating from GitHub Actions runners across multiple customer environments. Investigation revealed that the aquasecurity/trivy-action GitHub Action, a widely used open-source vulnerability scanner within CI/CD pipelines, had been compromised. Further analysis showed that 76 out of 77 release tags for the action were retroactively poisoned through git tag repointing. This injected malicious code into the action's entrypoint, allowing attackers to execute a multi-stage credential theft operation before the legitimate scanner ran, masking the malicious activity. Aqua Security has confirmed the compromise and removed the malicious artifacts. This supply chain attack highlights the risk of using mutable tags in GitHub Actions and the potential for attackers to gain access to sensitive credentials and infrastructure.
+On March 19, 2026, CrowdStrike's Engineering team identified a supply chain attack targeting the widely used aquasecurity/trivy-action GitHub Action. The attackers retroactively poisoned 76 of 77 release tags by repointing them to malicious commits, effectively replacing the legitimate entry point with a multi-stage credential stealer. This compromised action, typically used for vulnerability scanning in CI/CD pipelines, injected malicious code before the genuine scanner logic, maintaining a facade of normal operation. The impact of this compromise extends to any pipeline referencing the poisoned versions, granting the attackers potential access to secrets, credentials, and internal infrastructure configured within the GitHub Actions environment. Aqua Security has confirmed the compromise and removed the malicious artifacts.
 
 ## Attack Chain
 
-1.  Attacker compromises the aquasecurity/trivy-action GitHub repository or gains control over the release process.
-2.  The attacker repoints existing git tags (e.g., 0.24.0) to malicious commits.
-3.  A developer's CI/CD pipeline references the compromised trivy-action using a tag (e.g., uses: aquasecurity/trivy-action@0.24.0).
-4.  When the workflow runs, the GitHub Actions runner downloads the compromised action from GitHub.
-5.  The runner executes the malicious entrypoint.sh script, which initiates a multi-stage credential theft operation. This involves enumeration of process IDs (PIDs).
-6.  The malicious script steals credentials from the runner's environment, secrets, and potentially the network.
-7.  The script then executes the legitimate Trivy scanner to avoid raising suspicion.
-8.  Stolen credentials are used to access internal infrastructure or cloud resources.
+1.  **Initial Access:** Attackers gained write access to the aquasecurity/trivy-action GitHub repository.
+2.  **Tag Repointing:** Malicious actors repointed existing git tags (e.g., `@0.24.0`) to malicious commits containing the injected credential-stealing code.
+3.  **Workflow Execution:** Developers trigger CI/CD workflows that reference the compromised trivy-action by tag.
+4.  **Malicious Entrypoint Execution:** The GitHub Actions runner downloads the compromised action and executes the injected malicious code within `entrypoint.sh` before the legitimate Trivy scanner.
+5.  **Process Discovery:** The malicious script enumerates process IDs (PIDs) on the runner.
+6.  **Credential Theft:** The injected code performs multi-stage credential theft operations, leveraging the runner's environment and access to secrets.
+7.  **Normal Execution:** The legitimate Trivy scanner is executed after the malicious code, masking the compromise and allowing workflows to complete without apparent errors.
+8.  **Data Exfiltration:** Stolen credentials and secrets are exfiltrated to an attacker-controlled location (details of exfiltration not specified in source).
 
 ## Impact
 
-The compromise of the trivy-action GitHub Action could have affected numerous organizations using the scanner in their CI/CD pipelines. Successful exploitation could result in the theft of sensitive credentials, including API keys, deploy tokens, and cloud credentials. This, in turn, may allow attackers to gain unauthorized access to internal infrastructure, deploy malicious code, or exfiltrate sensitive data. The exact number of affected organizations remains unclear, but the widespread use of trivy-action suggests a potentially significant impact.
+The compromise of the trivy-action GitHub Action affected numerous CI/CD pipelines relying on the scanner. While the exact number of victims is not specified, the wide adoption of the action suggests a broad impact. Successful exploitation grants attackers access to sensitive credentials, API keys, and cloud deployment tokens configured within the affected pipelines. This access could lead to unauthorized access to internal infrastructure, data breaches, and supply chain attacks targeting downstream dependencies.
 
 ## Recommendation
 
-*   Pin GitHub Actions to specific, immutable commit SHAs instead of using mutable tags. This prevents attackers from repointing tags to malicious code ([https://www.crowdstrike.com/en-us/blog/from-scanner-to-stealer-inside-the-trivy-action-supply-chain-compromise/](https://www.crowdstrike.com/en-us/blog/from-scanner-to-stealer-inside-the-trivy-action-supply-chain-compromise/)).
-*   Implement integrity monitoring on GitHub Actions runners to detect unexpected script executions or modifications to action code. Use `category: process_creation` and `product: linux` to monitor the `entrypoint.sh` file, and deploy the Sigma rule provided below.
-*   Audit GitHub Action workflows for usage of aquasecurity/trivy-action and investigate any suspicious activity around the time of the compromise (March 2026).
+*   Review your CI/CD pipelines for usage of the `aquasecurity/trivy-action` GitHub Action and inspect the commit history of the referenced tags for unexpected changes.
+*   Deploy the Sigma rules provided in this brief to detect potential malicious activity originating from GitHub Actions runners.
+*   Enable detailed logging on GitHub Actions runners to capture process execution and network connections for incident investigation.
