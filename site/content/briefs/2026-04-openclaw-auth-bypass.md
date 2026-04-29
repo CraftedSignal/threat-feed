@@ -1,76 +1,90 @@
 ---
-title: OpenClaw Matrix Room Control Command Authorization Bypass
+title: OpenClaw Authentication Bypass Vulnerability
 slug: 2026-04-openclaw-auth-bypass
-description: A vulnerability in OpenClaw versions greater than 2026.3.28 and before 2026.4.15 allowed a Matrix sender paired via DM to bypass room authorization boundaries and execute room control commands without proper authorization.
-date: "2026-04-18T12:00:00Z"
+description: OpenClaw before 2026.3.31 is vulnerable to an authentication bypass, allowing unauthenticated users to access plugin-auth HTTP routes and perform privileged runtime actions intended for authorized operators, potentially leading to unauthorized system control.
+date: "2026-04-29T12:00:00Z"
 type: coverage
 types:
   - coverage
 severities:
-  - high
+  - critical
 tags:
+  - authentication bypass
+  - privilege escalation
+  - web application
+vendors:
   - openclaw
-  - matrix
-  - authorization-bypass
-  - privilege-escalation
+products:
+  - openclaw
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
+cves:
+  - id: CVE-2026-41394
+    cvss: 8.2
 references:
-  - https://github.com/advisories/GHSA-2gvc-4f3c-2855
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41394
+  - https://github.com/openclaw/openclaw/commit/2a1db0c0f1fa375004a95ba0ef030534790a6d47
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-mhgq-xpfq-6r66
+  - https://www.vulncheck.com/advisories/openclaw-unauthorized-operator-scope-access-in-unauthenticated-plugin-auth-routes
 rules:
-  - title: Detect OpenClaw Room Control Command Execution from Unauthorized DM User
-    description: Detects attempts to execute OpenClaw room control commands by users who are only authorized via DM pairing and not explicitly allowed in the room.
+  - title: Detect OpenClaw Unauthorized Access
+    description: Detects unauthorized access attempts to OpenClaw plugin-auth routes by monitoring HTTP requests without valid authentication headers.
+    platform: sigma
+    severity: critical
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1555
+    data_sources:
+      - webserver
+      - linux
+  - title: Detect OpenClaw Malicious File Upload
+    description: Detects attempts to upload malicious files through OpenClaw by looking for suspicious file extensions in HTTP requests.
     platform: sigma
     severity: high
     tactics:
-      - defense_evasion
-      - privilege_escalation
+      - initial_access
     techniques:
-      - T1068
+      - T1189
     data_sources:
-      - application
-      - openclaw
-  - title: Detect OpenClaw Control Command with Unexpected Arguments
-    description: Detects OpenClaw control command executions with unusual or unexpected arguments which may indicate malicious intent.
+      - webserver
+      - linux
+  - title: Detect OpenClaw Configuration Modification
+    description: Detects attempts to modify OpenClaw configuration by looking for POST requests to specific configuration endpoints.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - persistence
     techniques:
-      - T1059
+      - T1547
     data_sources:
-      - application
-      - openclaw
-rules_count: 2
+      - webserver
+      - linux
+rules_count: 3
 ---
 
-OpenClaw versions prior to 2026.4.15 contained a flaw in Matrix room control-command authorization. The system incorrectly included sender IDs learned from the Matrix DM pairing store in the effective allowlist for room traffic. This meant that a sender who was authorized only for a Matrix DM could potentially authorize room control commands when they also posted in a bot-controlled room. This vulnerability allows a DM-paired Matrix sender to cross the authorization boundary and run Matrix room control commands without being present in the configured room allowlist, room membership list, or group allowlist. The vulnerability affects OpenClaw versions > 2026.3.28 and < 2026.4.15. The issue was reported by @nexrin and Keen Security Lab and patched in version 2026.4.15.
+OpenClaw, a software application, is susceptible to an authentication bypass vulnerability (CVE-2026-41394) in versions prior to 2026.3.31. This flaw allows unauthenticated attackers to access plugin-auth HTTP routes, which are intended for authorized operators. By exploiting this vulnerability, attackers can gain unauthorized access and execute privileged runtime actions, potentially compromising the integrity and availability of the OpenClaw system. The vulnerability stems from improper authorization checks on specific HTTP routes, granting write scopes to unauthenticated users. This poses a significant risk as it could lead to unauthorized system modifications, data breaches, or denial-of-service conditions.
 
 ## Attack Chain
 
-1. An attacker establishes a direct message (DM) pairing with the OpenClaw bot.
-2. The attacker gains authorization to send messages within the DM channel.
-3. The attacker identifies a Matrix room controlled by the OpenClaw bot.
-4. The attacker sends a message to the bot-controlled room.
-5. Due to the flawed authorization logic, the attacker's sender ID is incorrectly included in the effective allowlist for the room based on the DM pairing.
-6. The attacker sends a specially crafted message to the bot-controlled room, containing a control command.
-7. The OpenClaw bot, due to the bypassed authorization check, executes the control command.
-8. The attacker achieves unauthorized control over the Matrix room, potentially driving privileged OpenClaw behavior.
+1.  The attacker identifies an OpenClaw instance running a version prior to 2026.3.31.
+2.  The attacker sends a crafted HTTP request to a plugin-auth route without providing any authentication credentials.
+3.  Due to the authentication bypass vulnerability (CVE-2026-41394), the request is processed without proper authorization checks.
+4.  The OpenClaw server grants operator runtime write scopes to the unauthenticated request.
+5.  The attacker leverages these granted scopes to perform privileged actions.
+6.  The attacker modifies system configurations or data through the compromised HTTP route.
+7.  The attacker escalates privileges within the OpenClaw environment due to the unauthorized access.
+8.  The attacker achieves complete control over the OpenClaw system, potentially leading to data exfiltration or service disruption.
 
 ## Impact
 
-This vulnerability allowed unauthorized users to execute Matrix room control commands within OpenClaw deployments. The impact severity is high because room control commands can drive privileged OpenClaw behavior depending on the deployment's command and tool policy. Successful exploitation could lead to unauthorized modification of room settings, access to sensitive information, or disruption of services managed by the OpenClaw bot. The number of potentially affected deployments is unknown, but all instances running vulnerable versions are at risk.
+Successful exploitation of CVE-2026-41394 can lead to complete compromise of OpenClaw installations. Given the nature of the affected routes (plugin-auth with operator runtime write scopes), attackers could modify system configurations, inject malicious code, or steal sensitive information. While the exact number of vulnerable installations is unknown, any organization using OpenClaw versions prior to 2026.3.31 is at risk. The impact can range from data breaches and financial loss to complete disruption of services relying on OpenClaw.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.15 or later to patch the authorization bypass vulnerability.
-*   Review OpenClaw's command and tool policy to understand the scope of potential privileged behavior that could be triggered by room control commands.
-*   Deploy the Sigma rule `Detect OpenClaw Room Control Command Execution from Unauthorized DM User` to identify potential exploitation attempts.
-*   Monitor OpenClaw logs for unexpected room control command executions, particularly those originating from users with only DM pairing-store entries.
+*   Upgrade OpenClaw to version 2026.3.31 or later to remediate the authentication bypass vulnerability (CVE-2026-41394).
+*   Monitor web server logs for unauthorized access attempts to plugin-auth HTTP routes. Implement the Sigma rule `Detect OpenClaw Unauthorized Access` to identify suspicious activity.
+*   Implement network segmentation to limit the impact of potential breaches.
