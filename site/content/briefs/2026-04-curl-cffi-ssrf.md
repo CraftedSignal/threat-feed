@@ -3,6 +3,9 @@ title: curl_cffi SSRF Vulnerability via Redirects
 slug: 2026-04-curl-cffi-ssrf
 description: curl_cffi versions before 0.15.0 are vulnerable to server-side request forgery (SSRF) due to unrestricted redirects to internal IP ranges, potentially enabling access to sensitive internal resources and cloud metadata.
 date: "2026-04-03T21:36:44Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
