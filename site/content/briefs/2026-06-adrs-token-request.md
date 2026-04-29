@@ -3,6 +3,9 @@ title: Entra ID ADRS Token Request by Microsoft Authentication Broker
 slug: 2026-06-adrs-token-request
 description: Detects suspicious OAuth 2.0 token requests where the Microsoft Authentication Broker requests access to the Device Registration Service on behalf of a user principal, potentially indicating an attempt to abuse device registration for unauthorized persistence.
 date: "2026-04-10T17:57:29Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
