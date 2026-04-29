@@ -3,6 +3,9 @@ title: OpenClaw Arbitrary Directory Deletion Vulnerability
 slug: 2026-04-openclaw-directory-deletion
 description: OpenClaw before 2026.4.2 is vulnerable to arbitrary directory deletion in mirror mode, enabling attackers to delete remote directories by manipulating remoteWorkspaceDir and remoteAgentWorkspaceDir configuration values.
 date: "2026-04-29T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
