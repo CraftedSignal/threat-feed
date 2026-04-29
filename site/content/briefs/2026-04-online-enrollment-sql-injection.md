@@ -3,6 +3,9 @@ title: SQL Injection Vulnerability in itsourcecode Online Enrollment System 1.0
 slug: 2026-04-online-enrollment-sql-injection
 description: A SQL injection vulnerability exists in itsourcecode Online Enrollment System 1.0 within the Parameter Handler component at /enrollment/index.php, where manipulating the deptid argument can lead to remote code execution, with public exploits available.
 date: "2026-04-02T14:16:37Z"
+type: threat
+types:
+  - threat
 severities:
   - high
 exploited: true
