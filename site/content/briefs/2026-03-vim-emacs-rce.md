@@ -3,6 +3,9 @@ title: Vim and Emacs Remote Code Execution Vulnerabilities Triggered by File Ope
 slug: 2026-03-vim-emacs-rce
 description: Vulnerabilities in Vim (<=9.2.0271) and GNU Emacs allow remote code execution by opening a specially crafted file, leveraging flaws in modeline handling and Git integration, respectively.
 date: "2026-03-31T21:45:14Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
