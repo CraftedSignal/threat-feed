@@ -1,8 +1,8 @@
 ---
 title: CrowdStrike Agentic MDR and SOC Transformation Services
 slug: 2026-03-agentic-soc
-description: CrowdStrike introduces agentic MDR and SOC Transformation Services leveraging AI and automation to accelerate breach response and modernize security operations.
-date: "2026-03-29T01:41:24Z"
+description: CrowdStrike's agentic MDR combines automation, AI agents, and human oversight for rapid breach response, while SOC Transformation Services modernize security operations for an agentic SOC approach.
+date: "2026-03-28T08:12:22Z"
 type: coverage
 types:
   - coverage
@@ -11,98 +11,69 @@ severities:
 tags:
   - agentic-soc
   - mdr
-  - soc
-mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1562
-    technique_name: Impair Defenses
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1547
-    technique_name: Boot or Logon Autostart Execution
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1082
-    technique_name: System Information Discovery
-  - tactic_id: TA0008
-    tactic_name: Lateral Movement
-    technique_id: T1021
-    technique_name: Remote Services
-  - tactic_id: TA0011
-    tactic_name: Command and Control
-    technique_id: T1071
-    technique_name: Application Layer Protocol
-  - tactic_id: TA0040
-    tactic_name: Impact
-    technique_id: T1486
-    technique_name: Data Encryption for Impact
+  - soc-transformation
 references:
-  - https://crowdstrike.com/en-us/blog/crowdstrike-services-and-agentic-mdr-put-the-agentic-soc-in-reach/
+  - https://www.crowdstrike.com/en-us/blog/crowdstrike-services-and-agentic-mdr-put-the-agentic-soc-in-reach/
 rules:
-  - title: Detect Falcon Fusion SOAR Execution
-    description: Detects the execution of CrowdStrike Falcon Fusion SOAR playbooks, indicating automated response actions.
-    platform: sigma
-    severity: informational
-    tactics:
-      - defense_evasion
-    techniques:
-      - T1562
-    data_sources:
-      - process_creation
-      - windows
-  - title: Detect Suspicious Processes Leveraging AI Libraries
-    description: Detects processes loading AI-related libraries, which could indicate malicious use of AI agents.
+  - title: Detect Potential Phishing Email Delivery
+    description: Detects potential phishing emails based on subject and attachment types.
     platform: sigma
     severity: low
     tactics:
-      - defense_evasion
+      - initial_access
     techniques:
-      - T1027
+      - T1566.001
     data_sources:
-      - image_load
-      - windows
-  - title: Detecting SIEM Log Source Onboarding Activity
-    description: Detects activity related to log source onboarding, useful for identifying migrations to Next-Gen SIEM
+      - email
+      - o365
+  - title: Detect Script Execution from Suspicious Attachment
+    description: Detects potential script execution from a downloaded attachment.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - discovery
+      - execution
     techniques:
-      - T1518
+      - T1204.002
     data_sources:
-      - file_event
+      - process_creation
+      - windows
+  - title: Detect Registry Modification for Persistence
+    description: Detects potential persistence mechanism using Registry Run keys.
+    platform: sigma
+    severity: high
+    tactics:
+      - persistence
+    techniques:
+      - T1547.001
+    data_sources:
+      - registry_set
       - windows
 rules_count: 3
 ---
 
-CrowdStrike is introducing agentic Managed Detection and Response (MDR) and Security Operations Center (SOC) Transformation Services designed to enhance breach response capabilities by combining machine-speed execution with human expertise. These services aim to address the challenges posed by modern adversaries who leverage AI to evade detection across diverse systems, including endpoints, cloud environments, and third-party platforms. The agentic MDR solution, delivered through Falcon Complete, integrates deterministic automation, adaptive AI agents, and expert oversight to enable faster threat triage, enrichment, containment, and remediation. The SOC Transformation Services assist organizations in modernizing their security infrastructure and processes, focusing on areas such as SIEM, data pipelines, workflows, and governance, to achieve repeatable security outcomes.
+CrowdStrike has announced agentic MDR and SOC Transformation Services to help organizations operationalize an agentic SOC. The modern threat landscape requires defenses that operate at machine speed, addressing threats across endpoints, identity, cloud, and third-party systems. Legacy SIEMs and manual workflows struggle to keep pace with this complexity. CrowdStrike's agentic MDR, delivered through Falcon Complete, combines deterministic automation, adaptive AI agents, and elite human accountability to stop breaches rapidly. SOC Transformation Services focus on modernizing core elements of the SOC, including SIEM, data pipelines, workflows, and governance, to enable organizations to scale agentic security safely and consistently. This addresses the operational divide where some organizations are equipped for agentic execution while others struggle with governance and scaling.
 
 ## Attack Chain
 
-While the document doesn't explicitly detail a specific attack chain, the capabilities described address various stages of an attack:
+This brief describes services intended to *prevent* attacks, not an active attack chain. However, here's a hypothetical scenario of how an adversary might operate in an environment *lacking* these agentic capabilities, highlighting the need for the services described:
 
-1.  **Initial Access:** Adversaries gain entry through various methods (e.g., phishing, exploiting vulnerabilities).
-2.  **Execution:** Malicious code or scripts are executed on the compromised system. Falcon Complete's automation and AI are designed to detect and contain this.
-3.  **Persistence:** Adversaries establish mechanisms to maintain access. Agentic MDR aims to detect and remediate these mechanisms.
-4.  **Lateral Movement:** Adversaries move to other systems within the network. Falcon Complete's adaptive AI agents can accelerate investigations across the attack surface.
-5.  **Command and Control:** Adversaries establish communication with external servers. This communication may be detected by the AI agents and expert analysts.
-6.  **Impact:** The final objective, such as data theft or ransomware deployment, is achieved. The objective of agentic MDR is to prevent this through rapid containment and remediation.
+1.  **Initial Access:** An attacker gains initial access via a phishing email, delivering a malicious payload.
+2.  **Execution:** The payload executes on the endpoint, establishing a foothold for further exploitation.
+3.  **Persistence:** The attacker establishes persistence using techniques like scheduled tasks or registry modifications to ensure continued access.
+4.  **Privilege Escalation:** The attacker attempts to escalate privileges to gain administrative control over the system.
+5.  **Lateral Movement:** Using compromised credentials or exploits, the attacker moves laterally to other systems on the network.
+6.  **Data Exfiltration:** The attacker identifies and exfiltrates sensitive data from compromised systems to an external location.
+7.  **Impact:** The attacker deploys ransomware across the network, encrypting critical files and demanding a ransom payment.
 
 ## Impact
 
-The key impact of this offering is to improve breach response times (reducing MTTC to 1 minute) and reduce the operational burden on security teams. Organizations lacking the skills or resources to effectively combat modern threats will benefit from the MDR and SOC transformation services by maturing their operations. Failure to adopt these advanced capabilities may result in breaches occurring faster than organizations can respond.
+Without agentic MDR and SOC capabilities, organizations face slower response times, increased operational noise, and inconsistent threat handling. The potential impact includes data breaches, ransomware attacks, financial losses, and reputational damage. The disparity between human-paced operations and automated attacks widens, leaving organizations vulnerable to sophisticated adversaries. Organizations that struggle to scale agentic security may experience prolonged incident response times, allowing attackers to cause significant damage before being detected and contained.
 
 ## Recommendation
 
-*   Evaluate your current SOC capabilities and determine if SOC Transformation Services can improve your security posture.
-*   Investigate CrowdStrike Falcon Complete to see how agentic MDR can improve your MTTC (as mentioned in the overview).
-*   Assess your current SIEM and logging architecture and consider Falcon Next-Gen SIEM for modernization (from the SOC Transformation Services description).
+*   Assess your current SIEM and logging architecture to identify areas for modernization using CrowdStrike Falcon® Next-Gen SIEM mentioned in the overview.
+*   Redesign triage, escalation, containment, and recovery workflows to align with team structure, staffing model, and business risk tolerance, improving efficiency and response times.
+*   Prioritize detection engineering and automation acceleration using AI use case development to proactively identify and respond to threats.
+*   Implement guardrails for safe response actions by leveraging elite human judgement to validate automation responses, preventing unintended consequences.
+*   Consider using CrowdStrike SOC Transformation Services mentioned in the overview to modernize your SOC and establish foundational operating conditions for agentic SOC operations.
+*   Evaluate CrowdStrike Falcon® Complete with agentic MDR to enhance speed, precision, and protection, benefiting from intelligent AI and automation operating seamlessly behind the scenes.
