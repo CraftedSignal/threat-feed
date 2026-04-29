@@ -3,6 +3,9 @@ title: Axios npm Package Compromised via Social Engineering
 slug: 2026-04-axios-npm-hack
 description: North Korean threat actors (UNC1069) compromised the Axios npm package by socially engineering a maintainer with a fake Microsoft Teams update delivering a RAT, leading to the injection of a malicious dependency and a supply chain attack.
 date: "2026-04-04T20:30:42Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 actors:
