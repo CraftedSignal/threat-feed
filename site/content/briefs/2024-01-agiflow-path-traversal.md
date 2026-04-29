@@ -3,6 +3,9 @@ title: AgiFlow scaffold-mcp Path Traversal Vulnerability (CVE-2026-7237)
 slug: 2024-01-agiflow-path-traversal
 description: A path traversal vulnerability (CVE-2026-7237) exists in AgiFlow scaffold-mcp versions up to 1.0.27, allowing remote attackers to write to arbitrary files by manipulating the file_path argument in the write-to-file tool.
 date: "2026-04-28T08:16:02Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
