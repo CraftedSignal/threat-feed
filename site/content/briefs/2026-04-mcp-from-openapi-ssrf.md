@@ -3,6 +3,9 @@ title: mcp-from-openapi SSRF Vulnerability via Untrusted OpenAPI Specifications
 slug: 2026-04-mcp-from-openapi-ssrf
 description: The mcp-from-openapi library is vulnerable to Server-Side Request Forgery (SSRF) due to insecure handling of $ref pointers in OpenAPI specifications, allowing attackers to read local files, internal network resources, and cloud metadata endpoints by processing untrusted OpenAPI specifications.
 date: "2026-04-08T19:22:53Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
