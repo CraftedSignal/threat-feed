@@ -3,6 +3,9 @@ title: PraisonAI UI Hardcoded Approval Mode Leads to Remote Code Execution
 slug: 2024-01-09-praisonai-rce
 description: A vulnerability in PraisonAI allows authenticated users to execute arbitrary shell commands due to a hardcoded approval setting in the Chainlit UI modules, overriding administrator configurations and bypassing intended approval gates; insufficient command sanitization allows for destructive command execution, leading to confidentiality breach, integrity compromise, and availability impact on the server.
 date: "2026-04-10T19:25:49Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
