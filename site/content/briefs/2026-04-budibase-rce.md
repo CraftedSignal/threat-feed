@@ -3,6 +3,9 @@ title: Budibase Unauthenticated Remote Code Execution via Webhook
 slug: 2026-04-budibase-rce
 description: Budibase versions before 3.33.4 are susceptible to unauthenticated remote code execution, where a threat actor can trigger a Bash step within an automation via the public webhook endpoint, leading to code execution as root within the container.
 date: "2026-04-03T16:16:41Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
