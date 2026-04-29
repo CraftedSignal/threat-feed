@@ -1,31 +1,36 @@
 ---
-title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-41329)
+title: OpenClaw Node Pairing Reconnect Command Escalation
 slug: 2026-04-openclaw-privesc
-description: A critical privilege escalation vulnerability (CVE-2026-41329) in OpenClaw versions up to 2026.3.28 allows attackers to bypass sandbox restrictions via improper context validation, leading to potential data breaches and system compromise.
-date: "2026-04-21T15:02:58Z"
+description: A vulnerability in OpenClaw allows a previously paired node to reconnect with a broader command set, including exec-capable commands, without requiring the operator/admin re-pairing path, leading to potential privilege escalation.
+date: "2026-04-09T17:35:53Z"
 type: coverage
 types:
   - coverage
 severities:
-  - critical
+  - high
 tags:
   - privilege-escalation
-  - vulnerability
-  - openclaw
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-cves:
-  - id: CVE-2026-41329
-    cvss: 9.9
 references:
-  - https://ccb.belgium.be/advisories/warning-privilege-escalation-openclaw-patch-immediately
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-g5cg-8x5w-7jpm
+  - https://github.com/advisories/GHSA-5wj5-87vq-39xm
 rules:
-  - title: Detect Suspicious OpenClaw Heartbeat Activity
-    description: Detects potential exploitation of CVE-2026-41329 by monitoring for unusual heartbeat requests to OpenClaw instances.
+  - title: Detect OpenClaw Reconnect Privilege Escalation
+    description: Detects when a previously paired node reconnects with escalated privileges, specifically when exec-capable commands are used after reconnection.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1068
+    data_sources:
+      - application
+      - openclaw
+  - title: Detect Attempted OpenClaw Command Execution with Elevated Privileges
+    description: Detects when a node attempts to execute commands requiring elevated privileges after reconnecting to OpenClaw. This could be an indicator of the privilege escalation vulnerability.
     platform: sigma
     severity: medium
     tactics:
@@ -33,41 +38,29 @@ rules:
     techniques:
       - T1068
     data_sources:
-      - webserver
-      - linux
-  - title: Detect OpenClaw Version <= 2026.3.28 in User-Agent
-    description: Detects connections from OpenClaw clients with a User-Agent string indicating a vulnerable version.
-    platform: sigma
-    severity: medium
-    tactics:
-      - discovery
-    techniques:
-      - T1592.004
-    data_sources:
-      - webserver
-      - linux
+      - application
+      - openclaw
 rules_count: 2
 ---
 
-A critical security vulnerability, CVE-2026-41329, has been identified in OpenClaw versions up to and including 2026.3.28. OpenClaw is an open-source, self-hosted AI agent platform designed for workflow automation, event-driven processing, and task orchestration, commonly deployed in internal environments. The vulnerability stems from improper context validation during heartbeat processing, enabling attackers to exploit context inheritance and manipulate the `senderIsOwner` parameter. This bypasses sandbox restrictions and grants elevated privileges within the platform.  Exploitation can occur remotely without prior credentials under specific deployment conditions. The vulnerability has been patched in version 2026.3.31, and users are strongly advised to update immediately.
+OpenClaw, a user-controlled local assistant, is vulnerable to a privilege escalation issue. Specifically, a previously paired node can reconnect to the OpenClaw system and execute a broader set of commands than initially authorized. This includes commands capable of arbitrary code execution, potentially bypassing the intended operator/admin re-pairing security mechanism. This vulnerability affects OpenClaw versions 2026.4.5 and earlier. The vulnerability was reported by @zsxsoft and @KeenSecurityLab and patched in version 2026.4.8. This bypass occurs because the system doesn't properly validate the scope of commands allowed upon reconnection, allowing an attacker to leverage an old pairing to gain elevated privileges.
 
 ## Attack Chain
 
-1. The attacker identifies an OpenClaw instance running a vulnerable version (<= 2026.3.28).
-2. The attacker crafts a malicious heartbeat request exploiting the improper context validation.
-3. The attacker manipulates the `senderIsOwner` parameter within the heartbeat processing.
-4. Due to the flawed context inheritance mechanism, the attacker bypasses sandbox restrictions.
-5. The attacker gains escalated privileges within the OpenClaw platform.
-6. The attacker leverages elevated privileges to access sensitive data and systems.
-7. The attacker performs unauthorized actions, potentially leading to data exfiltration or system compromise.
-8. The attacker achieves full system compromise, impacting confidentiality, integrity, and availability.
+1. A node is initially paired with OpenClaw with a limited set of command permissions.
+2. The node disconnects from the OpenClaw system.
+3. The OpenClaw system does not properly invalidate or restrict the node's permissions upon disconnection.
+4. The node reconnects to OpenClaw.
+5. OpenClaw incorrectly authorizes the node with the broader, exec-capable command set.
+6. The node executes commands with escalated privileges.
+7. The attacker gains unauthorized access to sensitive data or system resources.
+8. The attacker maintains persistent access or performs further malicious actions.
 
 ## Impact
 
-Exploitation of CVE-2026-41329 allows attackers to bypass sandbox restrictions in OpenClaw, potentially exposing sensitive systems and compromising organizational security. Successful exploitation could lead to data breaches, system compromise, and operational downtime, impacting the confidentiality, integrity, and availability of critical business data. The number of victims and specific sectors targeted are currently unknown, but any organization using vulnerable versions of OpenClaw is at risk.
+Successful exploitation of this vulnerability allows a malicious or compromised node to gain elevated privileges within the OpenClaw system. This could lead to unauthorized access to sensitive data, arbitrary code execution, and full system compromise. This affects any OpenClaw installation running versions 2026.4.5 or earlier. The impact is significant as it bypasses the intended security model of requiring re-pairing by an operator/admin for elevated privileges.
 
 ## Recommendation
 
-*   Apply the patch to upgrade to OpenClaw version 2026.3.31 or later to remediate CVE-2026-41329.
-*   Upscale monitoring and detection capabilities to identify any related suspicious activity as recommended by CCB.
-*   Investigate and remediate any potential historical compromise if vulnerable versions of OpenClaw were previously running.
+*   Upgrade the `openclaw` npm package to version 2026.4.8 or later to remediate the vulnerability.
+*   Deploy the Sigma rule `DetectOpenClawReconnectPrivilegeEscalation` to monitor for exploitation attempts via command execution.
