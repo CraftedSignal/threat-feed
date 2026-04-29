@@ -3,6 +3,9 @@ title: Axios NPM Supply Chain Attack Delivering Platform-Specific RATs
 slug: 2026-04-axios-npm-supply-chain
 description: A supply chain attack on the Axios NPM package injected malicious code into versions v1.14.1 and v0.30.4, leading to the deployment of platform-specific remote access trojans (RATs) after the installation of a rogue dependency that communicated with attacker-controlled infrastructure to retrieve malicious payloads for Windows, MacOS, and Linux.
 date: "2026-04-04T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
