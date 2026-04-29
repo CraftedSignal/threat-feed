@@ -3,6 +3,9 @@ title: IBM Semeru Runtime Code Execution Vulnerability
 slug: 2026-04-ibm-semeru-code-exec
 description: A remote, anonymous attacker can exploit a vulnerability in IBM Semeru Runtime and IBM DB2 to execute arbitrary program code.
 date: "2026-04-10T08:19:05Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
