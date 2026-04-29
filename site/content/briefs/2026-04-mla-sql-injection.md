@@ -3,6 +3,9 @@ title: Media Library Assistant WordPress Plugin SQL Injection Vulnerability
 slug: 2026-04-mla-sql-injection
 description: The Media Library Assistant WordPress plugin through version 3.34 is vulnerable to SQL injection, allowing attackers to manipulate database queries.
 date: "2026-04-06T15:17:11Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
