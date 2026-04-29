@@ -3,6 +3,9 @@ title: Directus Aggregate Query Vulnerability Allows Disclosure of Concealed Dat
 slug: 2026-04-directus-aggregate-disclosure
 description: A vulnerability in Directus versions prior to 11.17.0 allows authenticated users to extract concealed field values, including static API tokens and two-factor authentication secrets from directus_users, via aggregate queries.
 date: "2026-04-04T06:13:57Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
