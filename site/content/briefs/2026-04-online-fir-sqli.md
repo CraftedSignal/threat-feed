@@ -3,6 +3,9 @@ title: code-projects Online FIR System SQL Injection Vulnerability
 slug: 2026-04-online-fir-sqli
 description: A SQL injection vulnerability in code-projects Online FIR System 1.0 allows remote attackers to execute arbitrary SQL commands by manipulating the email or password parameters in the /Login/checklogin.php file.
 date: "2026-04-06T16:16:41Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
