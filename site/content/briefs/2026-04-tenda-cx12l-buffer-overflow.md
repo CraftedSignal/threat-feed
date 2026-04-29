@@ -3,6 +3,9 @@ title: Tenda CX12L Router Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-tenda-cx12l-buffer-overflow
 description: A stack-based buffer overflow vulnerability exists in the Tenda CX12L router (version 16.03.53.12) due to improper handling of the 'page' argument in the 'fromwebExcptypemanFilter' function, potentially allowing attackers with local network access to execute arbitrary code.
 date: "2026-04-06T22:16:24Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
