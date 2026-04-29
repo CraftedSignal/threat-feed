@@ -58,6 +58,22 @@ jobs:
       - name: Copy fonts
         run: make fonts
 
+      # Hugo's processed-asset cache (PostCSS output, fingerprinted
+      # js.Build bundles, font copies under site/resources/_gen).
+      # These only invalidate when a CSS/JS source, the postcss/
+      # tailwind config, the npm dependency set, or hugo.toml changes.
+      # Brief Markdown is intentionally NOT in the key — ti-bot pushes
+      # touch /content/briefs hundreds of times per backfill but the
+      # processed assets they depend on stay identical, so keying on
+      # briefs would burn the cache on every backfill.
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: site/resources
+          key: hugo-resources-${{ hashFiles('site/assets/**', 'site/postcss.config.cjs', 'site/tailwind.config.js', 'site/package-lock.json', 'site/hugo.toml') }}
+          restore-keys: |
+            hugo-resources-
+
       - name: Build site
         run: hugo --minify --gc
 

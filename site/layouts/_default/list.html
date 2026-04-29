@@ -15,7 +15,24 @@
     </div>
   </section>
 
-  {{ partial "search.html" . }}
+  {{/* For severity / type the index page has small, curated card
+       grids — full-site Pagefind is the right search UI there. For
+       open-ended taxonomies (vendors / actors / products / tags) the
+       page is itself a sortable list of terms; replace the global
+       search box with a client-side input that filters the list in
+       place, so typing "Amaz" on /vendors/ surfaces "Amazon" rather
+       than every brief that mentions Amazon. */}}
+  {{ if or (eq $taxonomy "severity") (eq $taxonomy "type") }}
+    {{ partial "search.html" . }}
+  {{ else }}
+  <section class="px-4 md:px-0 py-3">
+    <div class="max-w-6xl mx-auto">
+      <input data-taxonomy-filter type="text" placeholder="Filter {{ $pluralLabel | lower }}…"
+             class="w-full rounded-xl border border-stroke bg-panel-2 px-3 py-2 text-sm font-mono focus:outline-none focus:border-accent placeholder:text-muted"
+             aria-label="Filter {{ $pluralLabel | lower }}">
+    </div>
+  </section>
+  {{ end }}
 
   <section class="px-4 md:px-0 pb-10">
     <div class="max-w-6xl mx-auto">
@@ -93,14 +110,15 @@
           {{ end }}
         </div>
       {{ else }}
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div data-taxonomy-grid class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {{ range $terms }}
-          <a href="{{ .Page.RelPermalink }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 px-4 py-3 hover:border-accent/40 transition group">
+          <a href="{{ .Page.RelPermalink }}" data-taxonomy-term="{{ .Page.Title | lower }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 px-4 py-3 hover:border-accent/40 transition group">
             <span class="font-medium text-text group-hover:text-accent transition">{{ .Page.Title }}</span>
             <span class="font-mono text-sm text-muted">{{ .Count }}</span>
           </a>
           {{ end }}
         </div>
+        <p data-taxonomy-empty class="hidden text-sm text-muted py-6">No matches.</p>
       {{ end }}
     </div>
   </section>

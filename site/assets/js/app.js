@@ -274,10 +274,41 @@ function initLiveUpdate() {
 
 // ----------------------------------------------------------------------
 
+// ----------------------------------------------------------------------
+// Client-side taxonomy filter. On /vendors/, /actors/, /products/,
+// /tags/ the page is itself a list of terms — full-site Pagefind is
+// the wrong tool because typing "Amaz" should narrow the visible
+// vendors to Amazon, not return every brief that mentions Amazon.
+// The list.html template emits an <input data-taxonomy-filter> and
+// tags each anchor with data-taxonomy-term=<lowercased title>.
+
+function initTaxonomyFilter() {
+  const input = document.querySelector('[data-taxonomy-filter]');
+  if (!input) return;
+  const cards = document.querySelectorAll('[data-taxonomy-term]');
+  const empty = document.querySelector('[data-taxonomy-empty]');
+  if (!cards.length) return;
+
+  function apply() {
+    const q = input.value.toLowerCase().trim();
+    let visible = 0;
+    cards.forEach((c) => {
+      const term = c.dataset.taxonomyTerm || '';
+      const match = !q || term.includes(q);
+      c.classList.toggle('hidden', !match);
+      if (match) visible++;
+    });
+    if (empty) empty.classList.toggle('hidden', visible > 0);
+  }
+
+  input.addEventListener('input', apply);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initSearch();
   initMobileMenu();
   initDateFilter();
   initLiveUpdate();
+  initTaxonomyFilter();
 });
