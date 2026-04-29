@@ -276,8 +276,17 @@ body {
   padding-bottom: 0 !important;
 }
 .pagefind-ui__search-input {
-  padding: 0.5rem 0.75rem !important;
+  /* Right padding has to keep clearing the search-input gutter Pagefind
+     reserves; the magnifying-glass slot lives there even after we hide
+     the clear button below. Asymmetric padding keeps typed text from
+     sliding under it. */
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem !important;
   font-size: 0.95rem !important;
+}
+/* Hide the trailing clear (×) button — the input clears on its own
+   when you backspace, the dedicated control was just visual noise. */
+.pagefind-ui__search-clear {
+  display: none !important;
 }
 .pagefind-ui__drawer {
   gap: 0.5rem !important;
