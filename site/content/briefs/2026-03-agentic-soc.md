@@ -1,8 +1,8 @@
 ---
 title: CrowdStrike Agentic MDR and SOC Transformation Services
 slug: 2026-03-agentic-soc
-description: CrowdStrike introduces agentic MDR and SOC Transformation Services to enhance SOC capabilities with AI and automation, emphasizing data foundations, workflows, and governance for improved detection and response across diverse environments.
-date: "2026-03-30T06:22:22Z"
+description: CrowdStrike's agentic MDR and SOC transformation services combine machine speed execution with expert human judgment to stop breaches while enabling organizations to modernize and sustain their security operations, leveraging Falcon Fusion SOAR and AI agents.
+date: "2026-03-25T12:00:00Z"
 type: coverage
 types:
   - coverage
@@ -10,67 +10,64 @@ severities:
   - medium
 tags:
   - agentic-soc
+  - security-operations
   - ai
-  - automation
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1070
     technique_name: Indicator Removal on Host
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1003
-    technique_name: OS Credential Dumping
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.001
+    technique_name: 'Command and Scripting Interpreter: PowerShell'
 references:
   - https://crowdstrike.com/en-us/blog/crowdstrike-services-and-agentic-mdr-put-the-agentic-soc-in-reach/
 rules:
-  - title: Detect SIEM Log Source Onboarding Activity
-    description: Detects activity related to log source onboarding, which is a key step in SIEM modernization and could indicate malicious activity if unauthorized.
+  - title: Detect Falcon Fusion SOAR Execution
+    description: Detects the execution of CrowdStrike Falcon Fusion SOAR playbooks, indicating automated response actions.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+      - execution
+    techniques:
+      - T1059.001
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect Potential SIEM Modernization Activity
+    description: Detects commands or scripts related to SIEM log source onboarding, parsing, and normalization activities, which may indicate SIEM modernization efforts.
     platform: sigma
     severity: low
     tactics:
       - discovery
     techniques:
-      - T1059.001
-    data_sources:
-      - file_event
-      - windows
-  - title: Detect Workflow Redesign Script Execution
-    description: Detects script execution that is part of a workflow redesign, which attackers could abuse to introduce malicious processes.
-    platform: sigma
-    severity: medium
-    tactics:
-      - defense_evasion
-    techniques:
-      - T1059.001
+      - T1082
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-CrowdStrike has launched its Agentic MDR and SOC Transformation Services in March 2026. These services are designed to help organizations modernize their security operations centers (SOCs) by integrating AI and automation. The core focus is on establishing robust data foundations, optimizing workflows, and implementing governance guardrails to ensure that automation operates safely and consistently. The services aim to address the challenges posed by adversaries who are increasingly leveraging AI and operating at machine speed across diverse systems, including endpoint, identity, cloud, and third-party environments. By combining machine-speed execution with human expertise, CrowdStrike intends to provide a pragmatic approach to agentic security.
+CrowdStrike has announced Agentic MDR and SOC Transformation Services to help organizations operationalize an agentic SOC. These services aim to provide a pragmatic and trusted path towards modernizing security operations. The agentic MDR is delivered through CrowdStrike Falcon Complete, which combines deterministic automation, adaptive AI agents, and expert human oversight to achieve machine-speed breach prevention. Falcon Complete utilizes Falcon Fusion SOAR and proprietary tooling to execute expert-engineered response playbooks for known threats. SOC Transformation Services assist organizations in establishing foundational operating conditions for agentic SOC operations, modernizing SIEM, data pipelines, workflows, and talent models. The goal is to bridge the operational divide, enabling organizations to effectively leverage automation while maintaining control and governance.
 
 ## Attack Chain
 
-1. **Initial Access:** Adversaries compromise an organization's systems through various methods, including exploiting vulnerabilities in endpoint, identity, cloud, or third-party systems.
-2. **Defense Evasion:** Adversaries utilize AI-powered techniques to evade traditional detection methods, such as signature-based antivirus and anomaly detection.
-3. **Credential Access:** Adversaries attempt to steal credentials to gain unauthorized access to sensitive systems and data.
-4. **Lateral Movement:** Using compromised credentials or other exploits, adversaries move laterally across the network to access critical assets.
-5. **Privilege Escalation:** Adversaries escalate their privileges to gain administrative control over systems, allowing them to perform more damaging actions.
-6. **Data Exfiltration:** Adversaries exfiltrate sensitive data from compromised systems to external locations.
-7. **Impact:** Adversaries disrupt business operations, steal intellectual property, or deploy ransomware to extort the organization.
+1.  Initial Access: While the specific initial access vector isn't detailed, the context suggests adversaries are leveraging AI to evade detection across endpoint, identity, cloud, and third-party systems.
+2.  Execution: Adversaries execute malicious code or commands within the compromised environment. Falcon Complete aims to provide scaled automation to execute expert-engineered response playbooks for known threats.
+3.  Persistence: Establishing persistence to maintain access to the environment. CrowdStrike SOC transformation services help modernize SIEM, data pipelines, workflows, and talent models.
+4.  Defense Evasion: Adversaries use AI-driven techniques to evade detection by legacy SIEMs and fragmented toolchains.
+5.  Command and Control: Maintaining communication with external command and control servers. Falcon Complete customers realize the benefits of agentic MDR, enhancing speed, precision, and protection.
+6.  Lateral Movement: Moving laterally within the network to access additional systems and data.
+7.  Impact: Data exfiltration, system compromise, or other malicious activities. Falcon Complete aims to reduce MTTC and operational noise, providing confidence in stopping threats safely and consistently.
 
 ## Impact
 
-Successful attacks can result in significant financial losses, reputational damage, and disruption of business operations. The increasing sophistication of adversaries, coupled with their use of AI, makes it more challenging for organizations to detect and respond to attacks effectively. Organizations lacking modern SOC capabilities and agentic security measures are particularly vulnerable, potentially facing extended breach detection and response times and greater overall impact.
+The potential impact includes data breaches, system compromise, and reputational damage. Organizations that fail to modernize their security operations may struggle to keep pace with increasingly sophisticated AI-driven attacks, leading to a wider operational divide. Successful attacks can result in significant financial losses, regulatory fines, and disruption to business operations. The introduction of agentic MDR and SOC Transformation Services aims to mitigate these risks by enhancing speed, precision, and protection.
 
 ## Recommendation
 
-- Modernize SIEM and logging architecture using CrowdStrike Falcon® Next-Gen SIEM (log source onboarding, parsing/normalization, retention strategy, and use-case mapping) as described in the content to improve data ingestion and analysis.
-- Redesign workflows for triage, escalation, containment, and recovery based on team structure, staffing model, and business risk tolerance mentioned in the content, ensuring efficient incident handling.
-- Implement prioritized detection rules and AI use case development detailed in the content for enhanced detection and automation acceleration.
+*   Deploy CrowdStrike Falcon Fusion SOAR playbooks to automate responses to known threats, as mentioned in the overview, enhancing response times.
+*   Implement CrowdStrike SOC Transformation Services to modernize SIEM, data pipelines, and workflows for better detection engineering.
+*   Leverage Falcon Complete to realize the benefits of agentic MDR, which enhances speed, precision, and protection through deterministic automation.
