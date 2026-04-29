@@ -3,6 +3,9 @@ title: Nix Package Manager Arbitrary File Overwrite Vulnerability
 slug: 2026-04-nix-privesc
 description: A flaw in Nix package manager allows arbitrary file overwrites via symlink following during fixed-output derivation registration, potentially leading to root privilege escalation on multi-user Linux systems.
 date: "2026-04-09T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
