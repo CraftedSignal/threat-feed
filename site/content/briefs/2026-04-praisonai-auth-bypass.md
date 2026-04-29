@@ -3,6 +3,9 @@ title: PraisonAI Gateway Unauthenticated Access Vulnerability
 slug: 2026-04-praisonai-auth-bypass
 description: PraisonAI Gateway server versions prior to 4.5.97 allow unauthenticated access to WebSocket connections and agent topology, enabling unauthorized message sending and agent enumeration.
 date: "2026-04-03T23:17:06Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
