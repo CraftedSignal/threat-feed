@@ -22,6 +22,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-7220
     cvss: 7.3
+    epss: 0.01039
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7220
 rules:
