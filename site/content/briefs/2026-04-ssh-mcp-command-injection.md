@@ -3,6 +3,9 @@ title: tufantunc ssh-mcp Command Injection Vulnerability (CVE-2026-7039)
 slug: 2026-04-ssh-mcp-command-injection
 description: A command injection vulnerability exists in tufantunc ssh-mcp up to version 1.5.0 via manipulation of the Description argument in the shell.write function.
 date: "2026-04-27T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
@@ -54,4 +57,25 @@ rules:
 rules_count: 2
 ---
 
-A command injection vulnerability, tracked as CVE-2026-7039, affects tufantunc ssh-mcp versions up to 1.5.0. The vulnerability resides in the `shell.write` function within the `src/index.ts` file. By manipulating the `Description` argument, a local attacker can inject arbitrary commands. Publicly disclosed exploits exist, increasing the risk of exploitation. The project maintainers have been notified but have not yet responded. This vulnerability poses a significant risk to systems where…
+A command injection vulnerability, tracked as CVE-2026-7039, affects tufantunc ssh-mcp versions up to 1.5.0. The vulnerability resides in the `shell.write` function within the `src/index.ts` file. By manipulating the `Description` argument, a local attacker can inject arbitrary commands. Publicly disclosed exploits exist, increasing the risk of exploitation. The project maintainers have been notified but have not yet responded. This vulnerability poses a significant risk to systems where ssh-mcp is installed, potentially allowing attackers to execute commands with the privileges of the application.
+
+## Attack Chain
+
+1.  Attacker gains local access to a system with tufantunc ssh-mcp installed.
+2.  The attacker identifies the vulnerable `shell.write` function in `src/index.ts`.
+3.  The attacker crafts a malicious input containing shell commands embedded within the `Description` argument.
+4.  The attacker executes a function that calls `shell.write` with the crafted input.
+5.  The `shell.write` function processes the malicious input without proper sanitization.
+6.  The injected shell commands are executed by the system.
+7.  The attacker gains unauthorized access to the system or its data.
+
+## Impact
+
+Successful exploitation of CVE-2026-7039 allows a local attacker to execute arbitrary commands on the affected system. This can lead to complete system compromise, including data theft, modification, or destruction. Given the publicly available exploit, organizations using vulnerable versions of tufantunc ssh-mcp are at significant risk.
+
+## Recommendation
+
+*   Apply any available patches or updates for tufantunc ssh-mcp to remediate CVE-2026-7039.
+*   Monitor process creation events for suspicious commands originating from the ssh-mcp application, using the provided Sigma rule.
+*   Implement strict input validation and sanitization within the `shell.write` function to prevent command injection.
+*   Review and restrict local access privileges on systems running ssh-mcp to minimize the attack surface.
