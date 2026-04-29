@@ -1,34 +1,37 @@
 ---
-title: Tenda F451 Router Stack-Based Buffer Overflow Vulnerability
+title: Tenda F456 Router Buffer Overflow Vulnerability (CVE-2026-7097)
 slug: 2026-04-tenda-buffer-overflow
-description: A stack-based buffer overflow vulnerability exists in Tenda F451 version 1.0.0.7, allowing remote attackers to execute arbitrary code by manipulating the `mit_ssid` argument in the `/goform/AdvSetWrlsafeset` file.
-date: "2026-04-09T23:17:02Z"
+description: A buffer overflow vulnerability exists in Tenda F456 version 1.0.0.5 within the fromwebExcptypemanFilter function of the /goform/webExcptypemanFilter component's httpd server, which can be triggered remotely by manipulating the page argument leading to potential remote code execution.
+date: "2026-04-27T08:16:02Z"
 type: coverage
 types:
   - coverage
 severities:
   - critical
 tags:
-  - cve-2026-5988
   - buffer-overflow
-  - tenda
+  - router
+  - remote-code-execution
+  - cve
+vendors:
+  - Tenda
+products:
+  - F456
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-5988
+  - id: CVE-2026-7097
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5988
-  - https://github.com/Jimi-Lab/cve/issues/4
-  - https://vuldb.com/vuln/356542
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7097
 rules:
-  - title: Detect Suspicious AdvSetWrlsafeset Request
-    description: Detects HTTP requests to /goform/AdvSetWrlsafeset with an unusually long mit_ssid parameter, indicative of a buffer overflow attempt.
+  - title: Detect Tenda F456 Buffer Overflow Attempt via URI Length
+    description: Detects potential buffer overflow attempts on Tenda F456 routers by monitoring for abnormally long URI queries targeting the vulnerable endpoint.
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - initial_access
     techniques:
@@ -36,8 +39,8 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect Large POST Request to AdvSetWrlsafeset
-    description: Detects abnormally large POST requests to the /goform/AdvSetWrlsafeset endpoint, potentially indicating a buffer overflow attack.
+  - title: Detect Tenda F456 Buffer Overflow Attempt via Suspicious Characters
+    description: Detects potential buffer overflow attempts by looking for suspicious character sequences within the URI query to the vulnerable endpoint.
     platform: sigma
     severity: high
     tactics:
@@ -50,25 +53,25 @@ rules:
 rules_count: 2
 ---
 
-A stack-based buffer overflow vulnerability has been identified in Tenda F451 router version 1.0.0.7. The vulnerability resides within the `formWrlsafeset` function of the `/goform/AdvSetWrlsafeset` file. A remote attacker can exploit this flaw by crafting a malicious request with an overly long `mit_ssid` argument, leading to potential arbitrary code execution on the device. Public exploits for this vulnerability are available, making it imperative for users of affected Tenda devices to take immediate action. This vulnerability poses a significant risk, as successful exploitation could grant an attacker full control over the vulnerable device.
+A buffer overflow vulnerability, identified as CVE-2026-7097, has been discovered in Tenda F456 router version 1.0.0.5. The vulnerability resides in the `fromwebExcptypemanFilter` function within the `/goform/webExcptypemanFilter` component of the device's `httpd` server. Successful exploitation of this vulnerability allows a remote attacker to cause a buffer overflow by manipulating the `page` argument, potentially leading to arbitrary code execution on the affected device. Given the public availability of exploit code, this vulnerability poses a significant risk to users of the Tenda F456 router.
 
 ## Attack Chain
 
-1.  The attacker identifies a Tenda F451 router running firmware version 1.0.0.7 exposed to the internet.
-2.  The attacker crafts a malicious HTTP POST request targeting the `/goform/AdvSetWrlsafeset` endpoint.
-3.  The crafted request includes the `mit_ssid` argument with a string exceeding the buffer's expected size.
-4.  The router's web server processes the request and passes the `mit_ssid` argument to the `formWrlsafeset` function.
-5.  Due to the insufficient bounds checking, the overly long `mit_ssid` value overflows the stack-based buffer.
-6.  The buffer overflow overwrites critical data on the stack, including the return address.
-7.  The attacker carefully crafts the overflowed data to redirect execution to a location containing malicious code.
-8.  The malicious code executes with the privileges of the web server process, potentially granting the attacker full control of the device.
+1.  The attacker identifies a Tenda F456 router with firmware version 1.0.0.5 exposed to the internet.
+2.  The attacker crafts a malicious HTTP request targeting the `/goform/webExcptypemanFilter` endpoint.
+3.  The attacker includes a specially crafted `page` argument within the HTTP request, designed to overflow the buffer in the `fromwebExcptypemanFilter` function.
+4.  The `httpd` server processes the request and calls the vulnerable function.
+5.  The `fromwebExcptypemanFilter` function copies the attacker-controlled `page` argument into a fixed-size buffer without proper bounds checking.
+6.  The buffer overflow corrupts adjacent memory regions, potentially overwriting critical data or code pointers.
+7.  The attacker redirects program execution to attacker-controlled code by overwriting a return address.
+8.  The attacker achieves remote code execution on the Tenda F456 router, potentially gaining full control of the device.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows a remote attacker to execute arbitrary code on the affected Tenda F451 router. This can lead to complete compromise of the device, allowing the attacker to modify router settings, intercept network traffic, or use the device as a botnet node. Given the widespread use of Tenda routers, this vulnerability has the potential to impact a large number of users and networks.
+Successful exploitation of CVE-2026-7097 can lead to complete compromise of the Tenda F456 router. This allows attackers to execute arbitrary code, potentially enabling them to modify device settings, intercept network traffic, or use the compromised device as part of a botnet. Given the ease of exploitation with publicly available exploits, a widespread attack targeting vulnerable Tenda routers is possible.
 
 ## Recommendation
 
-*   Apply any available firmware updates released by Tenda to patch CVE-2026-5988.
-*   Deploy the Sigma rule `Detect Suspicious AdvSetWrlsafeset Request` to detect exploitation attempts targeting the vulnerable endpoint.
-*   Monitor web server logs for unusually long `mit_ssid` parameters in requests to `/goform/AdvSetWrlsafeset`.
+*   Monitor web server logs for requests to `/goform/webExcptypemanFilter` with unusually long `page` parameters using the provided Sigma rule.
+*   Implement rate limiting on HTTP requests to the `/goform/webExcptypemanFilter` endpoint to mitigate potential exploitation attempts.
+*   Consider deploying a web application firewall (WAF) rule to filter out malicious requests targeting CVE-2026-7097 based on the payload structure.
