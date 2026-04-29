@@ -1,76 +1,82 @@
 ---
-title: OpenTelemetry-Go Multi-Value Baggage Header Extraction DoS Vulnerability (CVE-2026-29181)
+title: OpenTelemetry-Go Multi-Value Baggage Header DOS Vulnerability
 slug: 2026-04-opentelemetry-dos
-description: A vulnerability in OpenTelemetry-Go related to the extraction of multi-value baggage headers can lead to excessive resource allocation, resulting in a remote denial-of-service amplification.
-date: "2026-04-29T07:33:41Z"
+description: A vulnerability in OpenTelemetry-Go allows attackers to amplify CPU and allocation usage by sending many `baggage:` header lines, leading to a denial-of-service condition due to excessive resource consumption.
+date: "2026-04-08T12:00:00Z"
 type: coverage
 types:
   - coverage
 severities:
-  - medium
+  - high
 tags:
   - dos
   - opentelemetry
-  - cve-2026-29181
-products:
-  - OpenTelemetry-Go
+  - header injection
 mitre_ttps:
+  - tactic_id: TA0011
+    tactic_name: Command and Control
+    technique_id: T1071.001
+    technique_name: 'Application Layer Protocol: Web Protocols'
+  - tactic_id: TA0042
+    tactic_name: Resource Development
+    technique_id: T1588
+    technique_name: Obtain Capabilities
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1068
+    technique_name: Standard Application Layer Protocol
   - tactic_id: TA0040
     tactic_name: Impact
-    technique_id: T1498
-    technique_name: Denial of Service
-cves:
-  - id: CVE-2026-29181
-    cvss: 7.5
-    epss: 0.00052
+    technique_id: T1499.001
+    technique_name: 'Endpoint Denial of Service: Application Exhaustion'
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-29181
+  - https://github.com/advisories/GHSA-mh2q-q3fh-2475
+  - https://github.com/open-telemetry/opentelemetry-go/blob/1ee4a4126dbdd1bc79e9fae072fa488beffac52a/propagation/baggage.go#L58
 rules:
-  - title: Detect Suspicious Baggage Header Size
-    description: Detects HTTP requests with unusually large baggage headers, potentially indicating a denial-of-service attempt.
-    platform: sigma
-    severity: high
-    tactics:
-      - availability
-    techniques:
-      - T1498
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect High Volume of Requests with Baggage Header
-    description: Detects a high volume of HTTP requests containing baggage headers from a single source IP within a short time frame, potentially indicating a denial-of-service attempt.
+  - title: Detect High Baggage Header Count
+    description: Detects HTTP requests with a large number of baggage headers, potentially indicating a denial-of-service attempt.
     platform: sigma
     severity: medium
     tactics:
-      - availability
+      - denial_of_service
     techniques:
-      - T1498
+      - T1499.001
     data_sources:
       - webserver
+      - linux
+  - title: Detect Large Allocations from Baggage Parsing
+    description: Detects processes that may be allocating excessive memory due to baggage parsing in OpenTelemetry.
+    platform: sigma
+    severity: low
+    tactics:
+      - denial_of_service
+      - resource_hijacking
+    data_sources:
+      - process_creation
       - linux
 rules_count: 2
 ---
 
-CVE-2026-29181 describes a vulnerability within the OpenTelemetry-Go library. Specifically, the manner in which the library handles HTTP requests containing multiple values within the `baggage` header can be exploited. An attacker can craft malicious requests with excessively large or numerous baggage values, leading to excessive memory allocations on the server. This resource exhaustion can ultimately result in a denial-of-service condition, impacting the availability of services relying on the vulnerable OpenTelemetry-Go component. This vulnerability highlights the importance of careful input validation and resource management in telemetry libraries.
+A remote denial-of-service vulnerability exists in OpenTelemetry-Go versions 1.36.0 through 1.40.0. The vulnerability stems from the `extractMultiBaggage` function parsing each `baggage:` header field-value independently and aggregating members across values. This allows an attacker to bypass the intended 8192-byte per-value parse limit by sending numerous `baggage:` header lines. Even when individual header values are within the limit, the aggregate parsing overhead can exhaust server resources. Exploitation involves crafting malicious HTTP requests containing a high number of `baggage` headers. This vulnerability poses a risk to services utilizing affected OpenTelemetry-Go versions by allowing attackers to trigger excessive CPU and memory allocation, resulting in increased latency or service unavailability. The issue was identified and reported in the OpenTelemetry-Go project, leading to the reported advisory.
 
 ## Attack Chain
 
-1. An attacker identifies a service using a vulnerable version of OpenTelemetry-Go.
-2. The attacker crafts an HTTP request targeting an endpoint monitored by OpenTelemetry.
-3. The crafted HTTP request includes a `baggage` header containing numerous values or excessively large individual values.
-4. The OpenTelemetry-Go library attempts to extract and process these baggage values upon receiving the request.
-5. The baggage extraction process triggers excessive memory allocations due to the large number or size of baggage values.
-6. Repeated requests of this nature rapidly consume available server memory.
-7. The server's performance degrades significantly as it struggles to allocate memory.
-8. Ultimately, the server becomes unresponsive, resulting in a denial-of-service condition, making the service unavailable to legitimate users.
+1. The attacker crafts an HTTP request targeting a server running an application instrumented with the vulnerable OpenTelemetry-Go library (versions 1.36.0-1.40.0).
+2. The attacker includes multiple `baggage:` headers in the HTTP request. Each `baggage:` header contains a value that is individually within the 8192-byte limit.
+3. The HTTP request is received by the server and processed by the `net/http` handler.
+4. The `propagation.HeaderCarrier.Values("baggage")` function extracts all `baggage` header values from the request.
+5. For each `baggage` header value, the `extractMultiBaggage` function calls `baggage.Parse`, leading to independent parsing and member aggregation.
+6. Due to the large number of `baggage` headers, the repeated parsing and member aggregation consumes excessive CPU and memory resources.
+7. The server experiences increased latency or becomes unresponsive due to resource exhaustion.
+8. The application becomes unavailable, leading to a denial-of-service condition.
 
 ## Impact
 
-Successful exploitation of CVE-2026-29181 leads to a denial-of-service condition. The number of affected services depends on the prevalence of vulnerable OpenTelemetry-Go library versions in production environments. Affected services become unavailable, disrupting normal operations and potentially leading to financial losses or reputational damage. The impact is amplified if critical infrastructure components rely on the vulnerable services.
+Successful exploitation of this vulnerability can lead to a denial-of-service condition, impacting the availability of applications using the affected OpenTelemetry-Go library versions (1.36.0 to 1.40.0). In a default `net/http` configuration (max header bytes 1MB), a single request with many `baggage:` header field-values can cause large per-request allocations and increased latency. The provided proof of concept demonstrates a significant increase in per-request allocation bytes (from 133,429 to 10,315,458) and p95 latency (from 0ms to 7ms) when using multiple `baggage` headers. This can severely degrade performance and potentially render the service unavailable to legitimate users.
 
 ## Recommendation
 
-*   Upgrade OpenTelemetry-Go to a patched version that addresses CVE-2026-29181 to prevent excessive memory allocation.
-*   Deploy the Sigma rule `Detect Suspicious Baggage Header Size` to identify potentially malicious requests exploiting this vulnerability.
-*   Implement rate limiting on HTTP endpoints that are monitored by OpenTelemetry to mitigate the impact of denial-of-service attacks.
-*   Review and adjust memory allocation limits for services using OpenTelemetry-Go to prevent resource exhaustion.
+*   Upgrade to a patched version of the `go.opentelemetry.io/otel/baggage` and `go.opentelemetry.io/otel/propagation` modules that addresses CVE-2026-29181.
+*   Implement a mitigation strategy to limit the number of `baggage` headers processed per request.
+*   Deploy the Sigma rule "Detect High Baggage Header Count" to identify requests with an excessive number of baggage headers.
+*   Monitor web server logs for requests with a high number of `baggage` headers and investigate potential abuse.
