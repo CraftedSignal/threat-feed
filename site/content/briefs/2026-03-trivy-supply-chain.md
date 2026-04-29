@@ -1,57 +1,38 @@
 ---
-title: Trivy Ecosystem Supply Chain Compromise
+title: Trivy Scanner Compromised in Supply Chain Attack
 slug: 2026-03-trivy-supply-chain
-description: A threat actor compromised the Trivy ecosystem supply chain by publishing malicious releases of Trivy binaries, container images, and GitHub Actions to steal credentials, with observed impacts including exfiltration to attacker-controlled infrastructure and public repositories.
-date: "2026-03-25T12:00:00Z"
+description: The widely used Trivy scanner has been compromised in an ongoing supply chain attack, potentially impacting numerous organizations using the tool for vulnerability management.
+date: "2026-03-22T00:00:00Z"
 type: coverage
 types:
   - coverage
 severities:
-  - critical
+  - high
 tags:
   - supply-chain
-  - github-actions
-  - credential-theft
+  - vulnerability-scanner
+  - trivy
 mitre_ttps:
+  - tactic_id: TA0042
+    tactic_name: Resource Development
+    technique_id: T1588
+    technique_name: Obtain Capabilities
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1199
-    technique_name: Trusted Relationship
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1003
-    technique_name: OS Credential Dumping
-  - tactic_id: TA0009
-    tactic_name: Collection
-    technique_id: T1119
-    technique_name: Automated Collection
-  - tactic_id: TA0010
-    tactic_name: Exfiltration
-    technique_id: T1567
-    technique_name: Exfiltration Over Web Service
+    technique_name: Supply Chain Compromise
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1204
+    technique_name: User Execution
 references:
-  - https://github.com/advisories/GHSA-69fq-xp46-6x23
-iocs:
-  - type: domain
-    value: get.trivy.dev
-ioc_counts:
-  domain: 1
+  - https://www.reddit.com/r/cybersecurity/comments/1rzznag/widely_used_trivy_scanner_compromised_in_ongoing/
+  - https://arstechnica.com/security/2026/03/widely-used-trivy-scanner-compromised-in-ongoing/
 rules:
-  - title: Detect Public Repository Creation After Trivy Compromise
-    description: Detects the creation of a public repository named `tpcp-docs` on GitHub, potentially indicating successful secret exfiltration following the Trivy supply chain compromise.
+  - title: Detect Suspicious Outbound Connection from Trivy
+    description: Detects suspicious outbound network connections initiated by the Trivy scanner, which may indicate a compromise.
     platform: sigma
     severity: high
-    tactics:
-      - exfiltration
-    techniques:
-      - T1133
-    data_sources:
-      - webserver
-      - github
-  - title: Detect Outbound Connection to Typosquatted Trivy Domain
-    description: Detects network connections to the typosquatted domain get.trivy.dev, which was used to serve malicious Go source files during the Trivy supply chain compromise.
-    platform: sigma
-    severity: medium
     tactics:
       - command_and_control
     techniques:
@@ -59,29 +40,40 @@ rules:
     data_sources:
       - network_connection
       - windows
+  - title: Detect Suspicious Trivy Execution
+    description: Detects anomalous execution of the Trivy scanner, such as running from unusual directories or with suspicious command-line arguments.
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+    techniques:
+      - T1059.001
+    data_sources:
+      - process_creation
+      - windows
 rules_count: 2
 ---
 
-On March 19 and 22, 2026, a threat actor compromised the Trivy ecosystem by leveraging compromised credentials. This resulted in the publication of malicious releases, including Trivy v0.69.4 binaries and container images, v0.69.5 and v0.69.6 DockerHub images, and malicious versions of the `aquasecurity/trivy-action` and `aquasecurity/setup-trivy` GitHub Actions. The attacker injected an infostealer into the GitHub Actions to collect secrets. The malicious code targeted SSH keys, AWS/GCP/Azure credentials, Kubernetes tokens, Docker configs, `.env` files, database credentials, and cryptocurrency wallets. This attack affected users who utilized the compromised versions within specific exposure windows and highlights the risks associated with supply chain vulnerabilities in widely used security tools. The incident underscores the importance of immutable releases, dependency verification, and robust credential management practices.
+On March 21, 2026, reports emerged indicating that the Trivy scanner, a popular open-source vulnerability scanner used extensively in software development and deployment pipelines, has been compromised in a supply chain attack. The specifics of the initial compromise vector remain under investigation, but the impact could be widespread due to Trivy's integration into numerous CI/CD systems and container registries. Organizations utilizing affected versions of Trivy risk deploying vulnerable or malicious containers and software builds, creating a significant security risk. The attackers' goals are currently unknown, but possibilities include injecting malware, stealing credentials, or gaining persistent access to compromised systems.
 
 ## Attack Chain
 
-1. The attacker gained unauthorized access to credentials used to manage the Trivy project's GitHub repository and Docker Hub account.
-2. The attacker pushed a malicious commit (`1885610c`) to the Trivy repository, which swapped the `actions/checkout` reference to a malicious commit (`70379aad`). This malicious commit contained a composite action to download Go source files from a typosquatted domain (get.trivy.dev).
-3. The attacker tagged the malicious commit as `v0.69.4`, triggering the automated release pipeline.
-4. The malicious release was distributed across various Trivy distribution channels, including GitHub Releases, GHCR, ECR Public, Docker Hub, deb/rpm packages, and `get.trivy.dev`.
-5. For the `trivy-action` GitHub Action, the attacker force-pushed 76 of 77 version tags to malicious commits, injecting an infostealer into `entrypoint.sh`.
-6. The infostealer collected secrets by dumping process memory and sweeping the filesystem for sensitive files and credentials.
-7. The stolen data was encrypted using AES-256-CBC with RSA-4096 hybrid encryption.
-8. The encrypted data was transmitted to attacker-controlled infrastructure. As a fallback, if exfiltration failed and `INPUT_GITHUB_PAT` was set, the attacker created a public repository named `tpcp-docs` on the victim's GitHub account and uploaded the stolen data as a release asset.
+1.  The attacker gains unauthorized access to the Trivy project's build or distribution infrastructure (potentially via compromised credentials or a software vulnerability in the build process).
+2.  The attacker injects malicious code into a release of the Trivy scanner. This could involve modifying existing binaries or libraries, or adding new malicious components.
+3.  The compromised Trivy release is distributed to users through official channels, such as package managers or container registries.
+4.  Developers and system administrators download and install the compromised Trivy scanner as part of their regular vulnerability scanning process.
+5.  The malicious code within Trivy executes during scans, potentially allowing the attacker to gain initial access to the target system.
+6.  The attacker uses the compromised Trivy scanner to establish a reverse shell connection to a command and control (C2) server.
+7.  The attacker performs reconnaissance on the compromised system to identify sensitive data and potential targets.
+8.  The attacker exfiltrates sensitive data, deploys ransomware, or performs other malicious activities depending on their objectives.
 
 ## Impact
 
-The Trivy supply chain compromise had a critical impact, potentially exposing sensitive credentials and secrets of numerous users and organizations that rely on Trivy for security scanning and vulnerability management. While the exact number of victims remains unknown, the widespread use of Trivy binaries, container images, and GitHub Actions suggests a broad potential impact. Successful exploitation could lead to unauthorized access to cloud environments, data breaches, and other security incidents. The creation of public `tpcp-docs` repositories on victim's GitHub accounts serves as a clear indicator of successful exfiltration and data compromise.
+The compromise of the Trivy scanner represents a significant supply chain risk. Given Trivy's widespread adoption, a successful attack could impact thousands of organizations across various sectors. The impact ranges from data breaches and financial losses due to ransomware to reputational damage and disruption of critical services. The exact number of affected organizations is currently unknown, but the potential scope is substantial.
 
 ## Recommendation
 
-*   Upgrade to a known-safe version of Trivy (v0.69.2 or v0.69.3) and the `trivy-action` (v0.35.0) and `setup-trivy` (v0.2.6) GitHub Actions as listed in the advisory.
-*   Rotate all potentially exposed secrets accessible to affected pipelines if there is any possibility that a compromised version of Trivy ran in a project's environment as stated in the overview.
-*   Audit GitHub Action references in all workflows using `aquasecurity/trivy-action` or `aquasecurity/setup-trivy`, checking workflow run logs from March 19–20, 2026 for signs of compromise, and search for repositories named `tpcp-docs` in your GitHub organization, as described in the "Recommended Actions" section.
-*   Block the domain `get.trivy.dev` at the network perimeter to prevent access to potentially malicious resources served from the typosquatted domain, based on the "Attack Details" section.
+*   Implement network connection monitoring and deploy the Sigma rule "Detect Suspicious Outbound Connection from Trivy" to identify potentially compromised Trivy instances attempting to communicate with malicious C2 servers.
+*   Monitor process creations and deploy the Sigma rule "Detect Suspicious Trivy Execution" to identify anomalies in Trivy execution behavior.
+*   Implement integrity monitoring for Trivy binaries and configuration files to detect unauthorized modifications.
+*   Conduct thorough security audits of your CI/CD pipelines and software supply chain to identify and mitigate potential vulnerabilities.
