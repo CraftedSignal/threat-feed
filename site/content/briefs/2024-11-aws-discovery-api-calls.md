@@ -3,6 +3,9 @@ title: AWS Discovery API Calls via CLI from a Single Resource
 slug: 2024-11-aws-discovery-api-calls
 description: Detection of multiple AWS discovery API calls made via the AWS CLI from a single resource within a 10-second window, potentially indicating reconnaissance attempts by an attacker with compromised credentials or a compromised instance.
 date: "2026-04-03T18:54:25Z"
+type: coverage
+types:
+  - coverage
 severities:
   - low
 tags:
