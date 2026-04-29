@@ -3,6 +3,9 @@ title: BRICKSTORM Malware Targeting VMware vSphere Environments
 slug: 2026-04-brickstorm-vsphere
 description: The BRICKSTORM malware targets VMware vSphere environments, specifically vCenter Server Appliance (VCSA) and ESXi hypervisors, by exploiting weak security configurations to establish persistence at the virtualization layer, leading to administrative control and potential data exfiltration.
 date: "2026-04-02T13:55:05Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 actors:
