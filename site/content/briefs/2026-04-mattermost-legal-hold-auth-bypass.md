@@ -3,6 +3,9 @@ title: Mattermost Legal Hold Plugin Authentication Bypass Vulnerability
 slug: 2026-04-mattermost-legal-hold-auth-bypass
 description: Mattermost Legal Hold plugin versions 1.1.4 and earlier allow authenticated attackers to bypass authorization checks, enabling unauthorized access and modification of legal hold data via crafted API requests.
 date: "2026-04-06T13:17:18Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
