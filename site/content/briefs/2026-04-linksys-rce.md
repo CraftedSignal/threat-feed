@@ -3,6 +3,9 @@ title: Linksys MR9600 Command Injection Vulnerability (CVE-2026-6992)
 slug: 2026-04-linksys-rce
 description: CVE-2026-6992 is a command injection vulnerability in the Linksys MR9600 router that allows remote attackers to execute arbitrary OS commands by manipulating the 'pin' argument in the BTRequestGetSmartConnectStatus function.
 date: "2026-04-26T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
@@ -58,4 +61,24 @@ rules:
 rules_count: 2
 ---
 
-A command injection vulnerability, CVE-2026-6992, affects the Linksys MR9600 router, specifically version 2.0.6.206937. The vulnerability resides in the JNAP Action Handler component within the `/etc/init.d/run_central2.sh` script. Attackers can remotely exploit this flaw by manipulating the `pin` argument passed to the `BTRequestGetSmartConnectStatus` function. This allows for the execution of arbitrary operating system commands on the affected device. A public exploit is available, increasing…
+A command injection vulnerability, CVE-2026-6992, affects the Linksys MR9600 router, specifically version 2.0.6.206937. The vulnerability resides in the JNAP Action Handler component within the `/etc/init.d/run_central2.sh` script. Attackers can remotely exploit this flaw by manipulating the `pin` argument passed to the `BTRequestGetSmartConnectStatus` function. This allows for the execution of arbitrary operating system commands on the affected device. A public exploit is available, increasing the risk of exploitation. The vendor was notified but did not respond.
+
+## Attack Chain
+
+1. The attacker sends a crafted HTTP request to the Linksys MR9600 router.
+2. The request targets the JNAP Action Handler component, specifically the `/etc/init.d/run_central2.sh` script.
+3. The `BTRequestGetSmartConnectStatus` function is invoked by the crafted request.
+4. The attacker injects malicious OS commands within the `pin` argument of the `BTRequestGetSmartConnectStatus` function.
+5. The router's firmware processes the request, failing to properly sanitize the `pin` argument.
+6. The injected OS commands are executed with the privileges of the running process, potentially `root`.
+7. The attacker gains control of the router, potentially allowing for further malicious activities, such as network traffic interception or modification of router settings.
+
+## Impact
+
+Successful exploitation of CVE-2026-6992 allows a remote attacker to execute arbitrary commands on the Linksys MR9600 router. This can lead to a complete compromise of the device, allowing the attacker to monitor network traffic, change router configurations, or use the router as a foothold for further attacks within the network. Given the availability of a public exploit, the risk of widespread exploitation is high.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Detect CVE-2026-6992 Exploitation Attempt` to identify exploitation attempts in web server logs.
+*   Apply the Sigma rule `Detect Suspicious Shell Activity via Web Request` to detect potential command injection attempts.
+*   Monitor web server logs for requests containing suspicious characters in the `cs-uri-query` field that target `/etc/init.d/run_central2.sh` to uncover exploitation attempts.
