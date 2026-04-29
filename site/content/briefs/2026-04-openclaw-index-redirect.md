@@ -3,6 +3,9 @@ title: OpenClaw NPM Package Vulnerable to Python Package Index Redirection
 slug: 2026-04-openclaw-index-redirect
 description: The openclaw npm package is vulnerable to Python package-index redirection through host execution due to improper sanitization of `PIP_INDEX_URL` and `UV_INDEX_URL`, affecting versions 2026.3.28 and earlier.
 date: "2026-04-02T20:57:44Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
