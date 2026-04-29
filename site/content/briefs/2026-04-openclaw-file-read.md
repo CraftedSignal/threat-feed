@@ -3,6 +3,9 @@ title: OpenClaw Arbitrary File Read and Credential Exfiltration Vulnerability
 slug: 2026-04-openclaw-file-read
 description: The openclaw package is vulnerable to arbitrary file read and credential exfiltration due to media local roots self-whitelisting in `appendLocalMediaParentRoots`, allowing a model to initiate arbitrary host file reads, potentially leading to credential exfiltration.
 date: "2026-04-03T02:53:58Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
