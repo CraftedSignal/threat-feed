@@ -3,6 +3,9 @@ title: PraisonAI Vulnerable to OS Command Injection
 slug: 2024-02-29-praisonai-command-injection
 description: PraisonAI is vulnerable to OS command injection due to the use of `subprocess.run()` with `shell=True` on user-controlled inputs, allowing attackers to inject arbitrary shell commands and potentially leading to sensitive data exfiltration or system compromise in versions prior to 4.5.121.
 date: "2026-04-08T21:52:10Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
