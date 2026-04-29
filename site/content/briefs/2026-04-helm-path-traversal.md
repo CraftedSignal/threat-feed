@@ -3,6 +3,9 @@ title: Helm Plugin Path Traversal Vulnerability
 slug: 2026-04-helm-path-traversal
 description: A path traversal vulnerability in Helm versions 4.0.0 to 4.1.3 allows a malicious plugin to write files to arbitrary locations on the filesystem, leading to potential system compromise.
 date: "2026-04-11T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
