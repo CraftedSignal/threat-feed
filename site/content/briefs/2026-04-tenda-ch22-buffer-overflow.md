@@ -3,6 +3,9 @@ title: Tenda CH22 Router Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-tenda-ch22-buffer-overflow
 description: A stack-based buffer overflow vulnerability in Tenda CH22 version 1.0.0.1 allows a remote attacker to execute arbitrary code by manipulating the 'GO' argument in the formWrlExtraSet function via the /goform/WrlExtraSet endpoint.
 date: "2026-04-06T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
