@@ -3,6 +3,9 @@ title: SiYuan Zero-Click NTLM Theft and Blind SSRF via Mermaid Diagrams
 slug: 2026-04-siyuan-ntlm-ssrf
 description: SiYuan is vulnerable to zero-click NTLM hash theft on Windows and blind SSRF on all platforms due to insecure Mermaid.js configuration, where a malicious Mermaid diagram containing a protocol-relative URL can be injected into a note, causing the Electron client to fetch the URL, triggering SMB authentication on Windows and sending the victim's NTLMv2 hash to the attacker. On macOS and Linux, the request acts as a tracking pixel and blind SSRF.
 date: "2026-04-11T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
