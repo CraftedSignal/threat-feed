@@ -3,6 +3,9 @@ title: ResourceSpace 8.6 SQL Injection Vulnerability
 slug: 2026-04-resourcespace-sqli
 description: ResourceSpace 8.6 is vulnerable to SQL injection, allowing unauthenticated attackers to execute arbitrary SQL queries via the 'ref' parameter in GET requests to the watched_searches.php endpoint, leading to sensitive data extraction.
 date: "2026-04-05T21:16:43Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
