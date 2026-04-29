@@ -3,6 +3,9 @@ title: Multiple Vulnerabilities in Atlassian Products
 slug: 2026-04-atlassian-vulns
 description: Multiple vulnerabilities in Atlassian Bamboo, Bitbucket, Confluence, and Jira allow attackers to execute arbitrary code, bypass security measures, manipulate data, disclose information, or perform cross-site scripting attacks.
 date: "2026-04-28T08:31:27Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
