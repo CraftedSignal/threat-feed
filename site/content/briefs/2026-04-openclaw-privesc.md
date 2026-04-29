@@ -1,8 +1,8 @@
 ---
-title: OpenClaw Privilege Escalation via Unbound Bootstrap Codes
+title: OpenClaw Gateway Plugin HTTP Authentication Privilege Escalation
 slug: 2026-04-openclaw-privesc
-description: OpenClaw versions 2026.3.13-1 and earlier contain a privilege escalation vulnerability where bootstrap setup codes are not properly bound, allowing attackers to gain elevated privileges during the initial device pairing process.
-date: "2026-04-03T03:19:33Z"
+description: OpenClaw before 2026.4.8 contains a privilege escalation vulnerability where attackers can gain unauthorized write access to runtime operations by sending read-scoped requests through the gateway authentication route.
+date: "2026-04-29T12:00:00Z"
 type: coverage
 types:
   - coverage
@@ -10,58 +10,71 @@ severities:
   - high
 tags:
   - privilege-escalation
-  - npm
-  - openclaw
+  - webserver
+  - CVE-2026-42429
+vendors:
+  - OpenClaw
+products:
+  - OpenClaw
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
+cves:
+  - id: CVE-2026-42429
+    cvss: 7.1
 references:
-  - https://github.com/advisories/GHSA-gg9v-mgcp-v6m7
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-42429
+  - https://github.com/openclaw/openclaw/commit/d7c3210cd6f5fdfdc1beff4c9541673e814354d5
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-4f8g-77mw-3rxc
+  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-gateway-plugin-http-authentication
 rules:
-  - title: Detect OpenClaw Package Install from Public Registry
-    description: Detects installation of the OpenClaw package from the public npm registry, which could indicate an initial deployment or update.
+  - title: Detect OpenClaw Gateway Authentication Privilege Escalation Attempt
+    description: Detects potential attempts to exploit the OpenClaw privilege escalation vulnerability (CVE-2026-42429) by monitoring requests to the gateway authentication route.
     platform: sigma
-    severity: informational
+    severity: high
     tactics:
+      - cve-2026-42429
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
-      - process_creation
+      - webserver
       - linux
-  - title: Detect OpenClaw Version Check via NPM
-    description: Detects attempts to check the installed version of OpenClaw using npm, which might precede exploitation attempts or reconnaissance.
+  - title: Detect OpenClaw Unauthenticated Access
+    description: Detects unauthorized access attempts to OpenClaw resources which may be indicative of an exploit.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
+      - cve-2026-42429
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
-      - process_creation
+      - webserver
       - linux
 rules_count: 2
 ---
 
-A high-severity privilege escalation vulnerability affects the OpenClaw npm package. Specifically, versions up to and including 2026.3.13-1 are vulnerable. The flaw stems from a lack of proper binding for bootstrap setup codes, which are used during the initial device pairing. This allows an attacker to potentially escalate privileges during the first-time setup process. The vulnerability was reported by @tdjackey and patched in version 2026.3.22, with the fix committed on March 22, 2026. Defenders should ensure that all OpenClaw installations are updated to version 2026.3.22 or later to mitigate this risk.
+OpenClaw, in versions prior to 2026.4.8, is susceptible to a privilege escalation vulnerability within its gateway plugin's HTTP authentication mechanism. This flaw allows an attacker to elevate their permissions from `operator.read` to `operator.write`, effectively granting them unauthorized control over runtime operations. The vulnerability stems from the gateway plugin improperly handling identity-bearing requests. By exploiting this, malicious actors can leverage the gateway's authentication route to escalate privileges and perform actions beyond their intended scope. This poses a significant risk to the integrity and security of OpenClaw deployments, potentially leading to unauthorized modifications, data breaches, or service disruptions.
 
 ## Attack Chain
 
-1.  Attacker gains access to an OpenClaw deployment using a vulnerable version (<=2026.3.13-1). This could involve an initial install of the package.
-2.  Attacker initiates the device pairing process, triggering the bootstrap setup code functionality.
-3.  The application fails to properly validate the scope or role associated with the bootstrap setup code.
-4.  Attacker leverages the unbound bootstrap setup code to request elevated privileges.
-5.  Due to the missing validation, the application grants the attacker's request for elevated privileges.
-6.  The attacker now operates with higher privileges within the OpenClaw environment.
-7.  Attacker performs actions that require elevated privileges, such as modifying system settings or accessing sensitive data.
+1. An attacker identifies an OpenClaw instance running a version prior to 2026.4.8 with the gateway plugin enabled.
+2. The attacker crafts an HTTP request with read-only permissions (`operator.read`) targeting the gateway authentication route.
+3. The gateway plugin incorrectly processes the request, widening the permission scope to include `operator.write`.
+4. The attacker successfully authenticates through the gateway with the escalated privileges.
+5. The attacker leverages the gained `operator.write` permissions to perform unauthorized runtime operations.
+6. These operations could include modifying system configurations or accessing sensitive data.
+7. The attacker maintains the escalated privileges for further malicious activity.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to escalate their privileges within the OpenClaw application. This can lead to unauthorized access to sensitive data, modification of critical system settings, and potentially full control over the affected system. The number of affected installations is unknown, but any OpenClaw deployment using a vulnerable version is susceptible to this attack.
+Successful exploitation of this vulnerability allows an attacker to bypass intended access controls and gain elevated privileges within the OpenClaw system. This can lead to unauthorized modification of critical system settings, potentially disrupting services or compromising sensitive data. While the specific number of affected installations is unknown, any OpenClaw deployment running a version before 2026.4.8 with the gateway plugin enabled is potentially vulnerable.
 
 ## Recommendation
 
-*   Upgrade OpenClaw installations to version 2026.3.22 or later to remediate the vulnerability.
-*   If upgrading is not immediately possible, investigate any suspicious activity related to device pairing and bootstrap code usage.
+*   Upgrade OpenClaw to version 2026.4.8 or later to patch the vulnerability (CVE-2026-42429).
+*   Monitor web server logs for suspicious requests targeting the gateway authentication route that may indicate exploitation attempts. Deploy the Sigma rule provided below to detect potential exploitation attempts.
+*   Review and enforce strict access control policies within OpenClaw to minimize the potential impact of privilege escalation attacks.
