@@ -3,6 +3,9 @@ title: UTT HiPER 1250GW Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-utt-hiper-overflow
 description: A stack-based buffer overflow vulnerability in UTT HiPER 1250GW devices allows remote attackers to execute arbitrary code by manipulating the 'Profile' argument in the /goform/formRemoteControl file.
 date: "2026-04-05T06:16:01Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 exploited: true
