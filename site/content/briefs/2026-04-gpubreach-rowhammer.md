@@ -3,6 +3,9 @@ title: 'GPUBreach: GPU Rowhammer Attack for Privilege Escalation'
 slug: 2026-04-gpubreach-rowhammer
 description: GPUBreach is a novel Rowhammer attack targeting GPUs, allowing privilege escalation to root shell by inducing bit flips in GDDR6 memory and exploiting memory-safety bugs in Nvidia drivers, posing a significant risk to shared cloud environments.
 date: "2026-04-07T11:31:38Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
