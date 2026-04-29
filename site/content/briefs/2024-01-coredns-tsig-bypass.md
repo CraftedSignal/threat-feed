@@ -1,74 +1,73 @@
 ---
 title: CoreDNS TSIG Authentication Bypass Vulnerability
 slug: 2024-01-coredns-tsig-bypass
-description: CoreDNS versions prior to 1.14.3 are vulnerable to TSIG authentication bypass on gRPC, QUIC, DoH, and DoH3 transports, allowing unauthenticated network attackers to bypass authentication and potentially access TSIG-protected zone data or submit dynamic DNS updates.
-date: "2024-01-24T12:00:00Z"
+description: A vulnerability exists in CoreDNS' tsig plugin that allows bypassing TSIG authentication on non-plain-DNS transports like DoT, DoH, DoH3, DoQ, and gRPC due to trusting the transport writer's TsigStatus() instead of performing verification itself, enabling unauthenticated remote clients to bypass TSIG-based authentication/authorization.
+date: "2024-01-03T12:00:00Z"
 type: coverage
 types:
   - coverage
 severities:
   - high
 tags:
+  - cve
+  - vulnerability
   - coredns
-  - tsig
   - authentication-bypass
 vendors:
-  - coredns
+  - CoreDNS
 products:
-  - coredns
+  - CoreDNS
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1588
-    technique_name: Obtain Capabilities
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
 references:
-  - https://github.com/advisories/GHSA-vp29-5652-4fw9
+  - https://github.com/advisories/GHSA-qhmp-q7xh-99rh
 rules:
-  - title: Detect CoreDNS AXFR Request over DoH with Forged TSIG
-    description: Detects a DNS zone transfer request (AXFR) over DoH with a forged TSIG record, indicating a potential TSIG authentication bypass attempt.
+  - title: Detect CoreDNS TSIG Bypass Attempt
+    description: Detects attempts to bypass TSIG authentication in CoreDNS by monitoring DNS query responses over DoT/DoH with unexpected NOERROR responses and a non-zero answer count after a REFUSED response when TSIG is expected.
     platform: sigma
     severity: high
     tactics:
-      - initial_access
+      - defense_evasion
     techniques:
-      - T1588.004
+      - T1555.003
     data_sources:
-      - webserver
-      - linux
-  - title: Detect CoreDNS gRPC/QUIC Request with Invalid TSIG HMAC
-    description: Detects gRPC or QUIC requests to CoreDNS where a TSIG key name is present but the HMAC is invalid, indicating a possible bypass attempt.
+      - dns_query
+      - coredns
+  - title: Detect CoreDNS DoH Request with Invalid TSIG
+    description: Detects DoH requests to CoreDNS where the HTTP response indicates a successful request (200) but the DNS response code is NOERROR and the answer count is greater than 0, which is indicative of a TSIG bypass.
     platform: sigma
     severity: medium
     tactics:
-      - initial_access
+      - defense_evasion
     techniques:
-      - T1588.004
+      - T1555.003
     data_sources:
-      - network_connection
+      - webserver
       - linux
 rules_count: 2
 ---
 
-CoreDNS versions prior to 1.14.3 contain a flaw in the handling of TSIG authentication for gRPC, QUIC, DoH, and DoH3 transports. Specifically, gRPC and QUIC transports only check for the presence of a TSIG key name without verifying the HMAC, while DoH and DoH3 transports unconditionally return a successful TSIG status. This vulnerability allows unauthenticated attackers to bypass TSIG authentication, potentially enabling unauthorized zone transfers, dynamic updates, and access to other TSIG-protected resources. This issue was identified in version 1.14.2 and prior, and affects deployments where TSIG authentication is relied upon for secure DNS operations over these transports.
+A critical vulnerability has been identified in CoreDNS' tsig plugin affecting versions prior to 1.14.3. This flaw enables attackers to bypass TSIG (Transaction Signature) authentication on non-plain-DNS transports, including DoT (DNS over TLS), DoH (DNS over HTTPS), DoH3, DoQ, and gRPC. The vulnerability stems from the plugin's reliance on the transport writer's `TsigStatus()` function instead of performing independent TSIG verification. This trust allows clients without the correct shared secret to bypass `require all` restrictions. The vulnerability matters because it allows unauthorized access to restricted DNS resources, potentially exposing sensitive zone data and enabling privileged queries that would normally be protected by TSIG authentication.
 
 ## Attack Chain
 
-1. The attacker identifies a CoreDNS server using gRPC, QUIC, DoH, or DoH3 with TSIG authentication enabled.
-2. For gRPC/QUIC, the attacker crafts a DNS request with a valid TSIG key name but a forged or invalid HMAC value. For DoH/DoH3, the attacker crafts a DNS request with any TSIG record.
-3. The attacker sends the crafted request to the CoreDNS server via the affected transport (gRPC, QUIC, DoH, or DoH3).
-4. CoreDNS receives the request and processes the TSIG information. For gRPC/QUIC, CoreDNS checks if the TSIG key name exists in the configuration. For DoH/DoH3, the transport layer reports successful TSIG verification without performing actual verification.
-5. The TSIG check passes due to the vulnerability: either HMAC is not validated (gRPC/QUIC) or TSIG status is unconditionally reported as valid (DoH/DoH3).
-6. The request is passed to the appropriate plugin, bypassing TSIG authentication requirements.
-7. The attacker gains access to TSIG-protected functionality, such as AXFR/IXFR zone transfers or dynamic DNS updates.
-8. The attacker exfiltrates zone data or modifies DNS records, depending on the enabled functionality.
+1. An attacker crafts a DNS request with an invalid TSIG signature.
+2. The attacker sends the crafted DNS request to a CoreDNS server configured to use DoT, DoH, DoH3, DoQ, or gRPC.
+3. The CoreDNS server receives the request and the tsig plugin is invoked.
+4. The tsig plugin checks the validity of the TSIG signature by calling the transport writer's `TsigStatus()` function.
+5. Because the transport writer (e.g., `DoHWriter`, `DoT`, `DoQWriter`, `gRPCresponse`) does not perform TSIG verification and always returns a nil or "valid" status, the plugin incorrectly assumes the TSIG signature is valid.
+6. The CoreDNS server processes the DNS request as if it were authenticated, bypassing the intended TSIG-based authorization.
+7. The attacker gains unauthorized access to protected zone data, privileged queries, or other restricted resources.
 
 ## Impact
 
-Successful exploitation of this vulnerability can allow unauthenticated attackers to perform unauthorized actions on the affected CoreDNS server. This can lead to the exposure of sensitive zone data via AXFR/IXFR, unauthorized modification of DNS records through dynamic updates, or other bypasses of TSIG-gated plugin behavior. The DoH and DoH3 variants pose a higher risk because they do not even require a valid TSIG key name to be known. The impact depends on the specific TSIG-protected functionality enabled on the CoreDNS server and the sensitivity of the data being protected.
+Successful exploitation of this vulnerability allows unauthenticated remote clients to bypass TSIG-based authentication/authorization on encrypted transports. This can lead to unauthorized access to sensitive zone data, the execution of privileged queries, and other actions that the deployment intended to restrict behind `tsig { require all }`. The impact is significant as it undermines the security measures designed to protect critical DNS resources.
 
 ## Recommendation
 
-- Upgrade CoreDNS to version 1.14.3 or later to patch CVE-2026-35579.
-- If upgrading is not immediately possible, disable gRPC, QUIC, DoH, and DoH3 listeners where TSIG authentication is required as suggested in the advisory.
-- Implement network-level access controls to restrict access to gRPC, QUIC, DoH, and DoH3 ports to trusted sources only, as recommended in the advisory.
-- Deploy the Sigma rule "Detect CoreDNS AXFR Request over DoH with Forged TSIG" to identify potential exploitation attempts.
+*   Upgrade CoreDNS to version 1.14.3 or later to patch CVE-2026-33190.
+*   Monitor network traffic for DNS queries over DoT, DoH, DoH3, DoQ, and gRPC that exhibit characteristics of TSIG bypass attempts. Use the Sigma rule `Detect CoreDNS TSIG Bypass Attempt` to identify such attempts.
+*   Regularly review and validate TSIG configurations to ensure they are properly enforced across all DNS transports.
