@@ -3,6 +3,9 @@ title: PraisonAI Remote Code Execution via Malicious Workflow YAML
 slug: 2024-01-03-praisonai-rce
 description: 'PraisonAI is vulnerable to remote code execution; loading untrusted YAML files with `type: job` can lead to arbitrary host command execution, potentially enabling full system compromise.'
 date: "2026-04-10T19:32:48Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
