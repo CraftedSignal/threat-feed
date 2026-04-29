@@ -3,6 +3,9 @@ title: OpenDocMan 1.3.4 SQL Injection Vulnerability
 slug: 2026-04-opendocman-sqli
 description: OpenDocMan version 1.3.4 is vulnerable to SQL injection, allowing unauthenticated attackers to manipulate database queries via the 'where' parameter in search.php to extract sensitive information.
 date: "2026-04-05T21:16:46Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
