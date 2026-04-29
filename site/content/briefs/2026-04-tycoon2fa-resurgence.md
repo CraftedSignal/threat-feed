@@ -1,8 +1,8 @@
 ---
 title: Tycoon2FA Phishing-as-a-Service Platform Resurgence After Takedown
 slug: 2026-04-tycoon2fa-resurgence
-description: The Tycoon2FA PhaaS platform, which facilitates MFA bypass and email account compromise, experienced a temporary decrease in activity following a takedown in March 2026, but campaign volumes and TTPs quickly returned to pre-disruption levels, indicating the actors behind the platform remain active and adaptive.
-date: "2026-03-30T23:00:57Z"
+description: The Tycoon2FA phishing-as-a-service (PhaaS) platform, enabling MFA bypass and email account compromise, has rebounded to pre-takedown activity levels, maintaining consistent tactics, techniques, and procedures (TTPs) after a law enforcement disruption.
+date: "2026-03-28T14:22:14Z"
 type: coverage
 types:
   - coverage
@@ -11,7 +11,7 @@ severities:
 tags:
   - phishing
   - credential-theft
-  - phishing-as-a-service
+  - mfa-bypass
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -19,56 +19,58 @@ mitre_ttps:
     technique_name: Phishing
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1539
-    technique_name: Steal Web Session Cookie
+    technique_id: T1566
+    technique_name: Phishing
 references:
   - https://www.crowdstrike.com/en-us/blog/tycoon2fa-phishing-as-a-service-platform-persists-following-takedown/
 rules:
-  - title: Detect Suspicious JavaScript for Cookie Extraction
-    description: Detects JavaScript code potentially used for extracting session cookies after CAPTCHA validation.
+  - title: Detect Tycoon2FA Landing Page Redirection
+    description: Detects redirects to potential Tycoon2FA landing pages from phishing emails.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - credential_access
+      - initial_access
     techniques:
-      - T1539
+      - T1566.001
     data_sources:
-      - webserver
-      - linux
-  - title: Detect Proxying Credentials to Microsoft 365 via JavaScript
-    description: Detects JavaScript code proxying credentials to Microsoft 365 cloud account, indicative of credential harvesting.
+      - network_connection
+      - windows
+  - title: Detect Email Address Extraction via JavaScript
+    description: Detects JavaScript files attempting to extract email addresses, a TTP used by Tycoon2FA.
     platform: sigma
-    severity: high
+    severity: low
     tactics:
       - credential_access
+      - initial_access
     techniques:
-      - T1539
+      - T1566.001
     data_sources:
-      - webserver
-      - linux
+      - file_event
+      - windows
 rules_count: 2
 ---
 
-On March 4, 2026, Europol disrupted the Tycoon2FA PhaaS platform, seizing 330 domains that formed its core infrastructure. This platform, active since 2023, allows cybercriminals to bypass multifactor authentication (MFA) and compromise email accounts. In mid-2025, Tycoon2FA was reportedly responsible for 62% of all phishing attempts blocked by Microsoft, generating over 30 million malicious emails in a single month. Despite the takedown, CrowdStrike observed only a short-term decrease in Tycoon2FA activity, with campaign volumes quickly returning to pre-disruption levels, and TTPs remaining unchanged. This indicates the actors behind the platform remain active and adaptive, warranting continued vigilance by defenders.
+On March 4, 2026, Europol disrupted Tycoon2FA, a subscription-based PhaaS platform used to bypass multifactor authentication (MFA) and compromise email accounts. The takedown involved seizing 330 domains. Despite this disruption, CrowdStrike observed a temporary decrease in Tycoon2FA activity, but it has since returned to pre-disruption levels, indicating the actors behind the platform remain active and adaptive. The platform began operations in 2023 and gained prominence, being responsible for 62% of all phishing attempts blocked by Microsoft in mid-2025, generating over 30 million malicious emails in a single month. Defenders must maintain vigilance and continuously monitor for Tycoon2FA activity.
 
 ## Attack Chain
 
-1.  The attack begins with a phishing email designed to lure victims to a Tycoon2FA-controlled domain.
-2.  Victims are presented with a Tycoon2FA CAPTCHA page to solve, likely to filter out automated systems and add legitimacy.
-3.  Upon successful CAPTCHA validation, the victim's session cookies are stolen by the attacker.
-4.  The victim is then redirected to a fake Microsoft 365 or Google login page hosted on a Tycoon2FA domain, crafted to harvest credentials.
-5.  The entered credentials, along with stolen cookies, are proxied to a legitimate Microsoft 365 cloud account via an obfuscated JavaScript (JS) file.
-6.  Attackers authenticate to the victim’s cloud environment using the stolen session cookies and credentials.
-7.  Once authenticated, the attacker gains access to the victim's email and potentially other cloud services.
-8.  The attacker can then perform actions such as reading emails, sending phishing emails to other users, or exfiltrating sensitive data.
+1.  Victims receive phishing emails designed to lure them to malicious websites.
+2.  Victims are directed to Tycoon2FA CAPTCHA pages to appear legitimate.
+3.  Upon CAPTCHA validation, a JavaScript (JS) file extracts the victim's email address.
+4.  The JS file populates fake Microsoft 365 or Google login pages hosted on a Tycoon2FA domain.
+5.  Victims enter their credentials into the fake login pages.
+6.  An obfuscated JavaScript file proxies victims' credentials to a legitimate Microsoft 365 cloud account.
+7.  The platform steals victims’ session cookies.
+8.  Attackers authenticate to the victim’s cloud environment using the stolen cookies and credentials, gaining unauthorized access.
 
 ## Impact
 
-The Tycoon2FA platform was responsible for 62% of all phishing attempts blocked by Microsoft in mid-2025, generating over 30 million malicious emails in a single month. A successful compromise allows attackers to access sensitive data, spread phishing attacks further, and potentially cause significant financial and reputational damage to victim organizations. Even after the takedown of some infrastructure, the platform quickly resumed operation, highlighting the resilience of PhaaS operations.
+The resurgence of Tycoon2FA demonstrates the resilience of PhaaS platforms. Tycoon2FA was responsible for 62% of all phishing attempts blocked by Microsoft in mid-2025 and reportedly generated more than 30 million malicious emails in a single month. Successful attacks lead to unauthorized access to sensitive cloud environments, potentially resulting in data breaches, financial losses, and reputational damage. The persistence of Tycoon2FA after the takedown highlights the need for continuous monitoring and improved detection capabilities.
 
 ## Recommendation
 
-*   Monitor network traffic for connections to known Tycoon2FA domains (Tycoon2FA domain, RaccoonO365) at the network perimeter.
-*   Implement and tune the provided Sigma rules to detect suspicious JavaScript execution and cookie theft attempts following CAPTCHA validation.
-*   Educate users to identify phishing emails, especially those redirecting to unusual CAPTCHA pages or login portals.
-*   Investigate any alerts of unusual logins from unexpected locations or devices based on cloud access logs.
+*   Monitor email traffic for patterns associated with phishing campaigns that redirect to suspicious CAPTCHA pages, using network connection and process creation logs to correlate activity.
+*   Deploy the Sigma rule "Detect Tycoon2FA Landing Page Redirection" to identify potential phishing attempts redirecting to Tycoon2FA infrastructure.
+*   Inspect network traffic for connections to domains associated with Tycoon2FA (domain IOCs) using network connection logs and block these domains at the firewall or DNS resolver.
+*   Enhance monitoring for unusual logins and session activity within cloud environments after validating CAPTCHA, leveraging cloud audit logs and identity management systems.
