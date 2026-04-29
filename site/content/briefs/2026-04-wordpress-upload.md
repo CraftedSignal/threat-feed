@@ -3,6 +3,9 @@ title: 'WordPress Plugin Vulnerability: Arbitrary File Upload in Gerador de Cert
 slug: 2026-04-wordpress-upload
 description: The Gerador de Certificados – DevApps WordPress plugin is vulnerable to arbitrary file uploads due to missing file type validation, potentially leading to remote code execution.
 date: "2026-04-08T07:16:22Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
