@@ -3,6 +3,9 @@ title: parseusbs Unsanitized LNK File Command Injection Vulnerability
 slug: 2026-04-parseusbs-cmd-injection
 description: parseusbs before 1.9 is vulnerable to OS command injection in parseUSBs.py due to unsanitized LNK file paths passed to os.popen(), allowing arbitrary command execution via crafted .lnk filenames.
 date: "2026-04-08T22:16:23Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
