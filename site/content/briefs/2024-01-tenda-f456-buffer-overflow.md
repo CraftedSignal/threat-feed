@@ -1,18 +1,17 @@
 ---
 title: Tenda F456 Remote Buffer Overflow Vulnerability
 slug: 2024-01-tenda-f456-buffer-overflow
-description: A buffer overflow vulnerability in the `fromSetIpBind` function of Tenda F456 version 1.0.0.5 allows remote attackers to execute arbitrary code by manipulating the `page` argument in a request to `/goform/SetIpBind`.
-date: "2024-01-03T12:00:00Z"
+description: A remote buffer overflow vulnerability exists in Tenda F456 version 1.0.0.5 via manipulation of the 'page' argument in the fromDhcpListClient function of the /goform/DhcpListClient component, potentially leading to arbitrary code execution.
+date: "2024-01-02T12:00:00Z"
 type: coverage
 types:
   - coverage
 severities:
   - critical
 tags:
+  - cve-2026-7098
   - buffer-overflow
   - router
-  - remote-code-execution
-  - cve-2026-7078
 vendors:
   - Tenda
 products:
@@ -23,57 +22,55 @@ mitre_ttps:
     technique_id: T1203
     technique_name: Exploitation for Client Execution
 cves:
-  - id: CVE-2026-7078
+  - id: CVE-2026-7098
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7078
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7098
 rules:
-  - title: Detect Tenda F456 Buffer Overflow Attempt via Long Page Parameter
-    description: Detects attempts to exploit CVE-2026-7078 by identifying unusually long 'page' parameters in requests to /goform/SetIpBind.
+  - title: Detect Tenda F456 Buffer Overflow Attempt
+    description: Detects attempts to exploit the Tenda F456 buffer overflow vulnerability by monitoring for unusually long 'page' parameters in requests to /goform/DhcpListClient.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1203
+    data_sources:
+      - webserver
+      - linux
+  - title: Detect Tenda F456 Buffer Overflow Response
+    description: Detects potential successful exploitation of the Tenda F456 buffer overflow vulnerability based on unexpected server response codes (e.g., 500 Internal Server Error) after a request to /goform/DhcpListClient with a long page parameter.
     platform: sigma
     severity: critical
     tactics:
       - execution
     techniques:
-      - T1068
-      - T1190
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect Tenda F456 - Requests to SetIpBind
-    description: Detects requests to the /goform/SetIpBind endpoint on Tenda F456 devices. This could be an early indicator of exploitation attempts targeting CVE-2026-7078.
-    platform: sigma
-    severity: low
-    tactics:
-      - discovery
-    techniques:
-      - T1595
+      - T1203
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A critical buffer overflow vulnerability, identified as CVE-2026-7078, affects Tenda F456 router firmware version 1.0.0.5. The vulnerability resides in the `fromSetIpBind` function within the `/goform/SetIpBind` file, part of the httpd component. A remote attacker can exploit this vulnerability by crafting a malicious HTTP request with a manipulated `page` argument, leading to arbitrary code execution on the device. The public availability of this exploit increases the risk of widespread exploitation and potential compromise of vulnerable Tenda F456 routers. This is critical for defenders to address because successful exploitation gives attackers full control of the router.
+A critical buffer overflow vulnerability, identified as CVE-2026-7098, has been discovered in Tenda F456 router version 1.0.0.5. The vulnerability resides within the `fromDhcpListClient` function of the `/goform/DhcpListClient` component's `httpd` service. An attacker can exploit this flaw by remotely manipulating the `page` argument, leading to a buffer overflow. Publicly available exploit code exists, increasing the risk of widespread exploitation. Successful exploitation could allow an attacker to execute arbitrary code on the device, potentially gaining full control of the router and the network it serves. This poses a significant threat to home and small business users relying on these routers.
 
 ## Attack Chain
 
-1.  The attacker identifies a vulnerable Tenda F456 router with firmware version 1.0.0.5 exposed to the internet.
-2.  The attacker crafts a malicious HTTP GET or POST request targeting the `/goform/SetIpBind` endpoint.
-3.  Within the request, the attacker includes a specially crafted `page` argument designed to trigger the buffer overflow in the `fromSetIpBind` function.
-4.  The `httpd` component processes the request without proper bounds checking on the `page` argument.
-5.  The oversized `page` argument overwrites adjacent memory regions in the stack, including the return address.
-6.  The `fromSetIpBind` function attempts to return, but the overwritten return address redirects execution to attacker-controlled code.
-7.  The attacker-controlled code executes with the privileges of the `httpd` process, typically root.
-8.  The attacker gains complete control over the device, enabling them to modify settings, intercept traffic, or use the router as a botnet node.
+1.  Attacker identifies a vulnerable Tenda F456 router (version 1.0.0.5) accessible over the network.
+2.  The attacker crafts a malicious HTTP request targeting the `/goform/DhcpListClient` endpoint.
+3.  The crafted request includes a `page` argument with a payload designed to overflow the buffer in the `fromDhcpListClient` function.
+4.  The `httpd` service processes the request and calls the `fromDhcpListClient` function.
+5.  Due to insufficient bounds checking, the oversized payload overwrites the buffer, potentially overwriting adjacent memory regions.
+6.  The attacker's payload overwrites the return address on the stack with a pointer to attacker-controlled code.
+7.  The `fromDhcpListClient` function returns, causing execution to jump to the attacker-controlled code.
+8.  The attacker-controlled code executes with the privileges of the `httpd` service, potentially allowing for full control of the device.
 
 ## Impact
 
-Successful exploitation of this buffer overflow vulnerability allows a remote attacker to gain complete control over the affected Tenda F456 router. This could lead to unauthorized access to the local network, data theft, or the use of the router as a botnet node. Given the ease of exploitation and the public availability of the exploit, a large number of devices could be compromised if left unpatched. This could lead to large-scale DDoS attacks or widespread data breaches.
+Successful exploitation of this vulnerability can allow a remote attacker to execute arbitrary code on the Tenda F456 router. This could lead to a complete compromise of the device, allowing the attacker to modify router settings, intercept network traffic, or use the router as a pivot point for further attacks within the network. Given the ease of exploitation and public availability of exploit code, a large number of Tenda F456 users are at risk.
 
 ## Recommendation
 
-*   Monitor web server logs for requests to `/goform/SetIpBind` with abnormally long `page` parameters, which could indicate exploitation attempts (see the provided Sigma rule).
-*   Implement rate limiting on requests to `/goform/SetIpBind` to reduce the impact of potential exploitation attempts.
-*   Consider deploying a web application firewall (WAF) rule to filter out malicious requests targeting the `/goform/SetIpBind` endpoint.
-*   Apply any available patches or firmware updates released by Tenda to address CVE-2026-7078.
+*   Monitor web server logs for suspicious requests to `/goform/DhcpListClient` with unusually long `page` parameters to detect potential exploitation attempts (see Sigma rule "Detect Tenda F456 Buffer Overflow Attempt").
+*   Implement rate limiting on requests to the `/goform/DhcpListClient` endpoint to mitigate the impact of potential attacks.
+*   Deploy the Sigma rule "Detect Tenda F456 Buffer Overflow Response" to identify successful exploitation attempts based on server response codes.
