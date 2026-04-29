@@ -3,6 +3,9 @@ title: XWiki Remote Code Execution via Unprotected Velocity Scripting API
 slug: 2026-04-xwiki-rce
 description: XWiki is vulnerable to remote code execution due to an improperly protected scripting API, allowing users with script rights to bypass the Velocity scripting API sandbox and execute arbitrary code, leading to full instance compromise.
 date: "2026-04-08T15:00:17Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
