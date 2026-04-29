@@ -3,6 +3,9 @@ title: Azure Service Principal Sign-In Followed by Arc Cluster Credential Access
 slug: 2024-11-24-azure-arc-credential-access
 description: Detects a service principal authenticating to Azure AD followed by listing credentials for an Azure Arc-connected Kubernetes cluster, indicating potential adversary activity with stolen service principal secrets to establish a proxy tunnel into Kubernetes clusters.
 date: "2026-04-10T16:27:52Z"
+type: threat
+types:
+  - threat
 severities:
   - medium
 exploited: true
