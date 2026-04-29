@@ -3,6 +3,9 @@ title: OpenClaw Sandbox Bypass via Heartbeat Context Inheritance
 slug: 2026-04-openclaw-sandbox-bypass
 description: A critical vulnerability in the openclaw npm package (<=2026.3.28) allows a heartbeat context inheritance to bypass the sandbox via senderIsOwner escalation, patched in version 2026.3.31.
 date: "2026-04-02T20:59:29Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
