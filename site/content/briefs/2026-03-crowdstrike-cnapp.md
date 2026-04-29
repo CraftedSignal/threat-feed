@@ -1,76 +1,74 @@
 ---
 title: CrowdStrike CNAPP Enhancements for Adversary-Informed Risk Prioritization
 slug: 2026-03-crowdstrike-cnapp
-description: CrowdStrike's enhanced Cloud Native Application Protection Platform (CNAPP) improves risk prioritization by incorporating threat intelligence from groups like LABYRINTH CHOLLIMA and SCATTERED SPIDER, providing context on application-infrastructure dependencies, and identifying configuration changes leading to exposure.
-date: "2026-03-30T06:46:07Z"
+description: CrowdStrike's new CNAPP capabilities, including Application Explorer and Adversary Intelligence, enable security teams to prioritize cloud risks based on application context and known adversary behaviors, such as those of LABYRINTH CHOLLIMA and SCATTERED SPIDER, improving remediation efforts.
+date: "2026-03-28T08:29:13Z"
 type: coverage
 types:
   - coverage
 severities:
   - medium
-actors:
-  - LABYRINTH CHOLLIMA / SCATTERED SPIDER
 tags:
   - cloud-security
   - cnapp
   - threat-intelligence
-  - risk-prioritization
 mitre_ttps:
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1580
-    technique_name: Cloud Infrastructure Discovery
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1530
-    technique_name: Exploitation of Cloud Vulnerabilities
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1556
+    technique_name: Modify Authentication Process
 references:
   - https://www.crowdstrike.com/en-us/blog/crowdstrike-advances-cnapp-with-industry-first-adversary-informed-risk-prioritization/
 rules:
-  - title: Detect Cloud Metadata Service Access
-    description: Detects access to cloud metadata services, which can be an early sign of reconnaissance by threat actors in cloud environments.
+  - title: Detect Potential Lateral Movement via New Process Execution in Cloud Environments
+    description: Detects potential lateral movement attempts by identifying new process executions within cloud environments that are not part of the standard operating procedures.
+    platform: sigma
+    severity: medium
+    tactics:
+      - lateral_movement
+    techniques:
+      - T1021
+    data_sources:
+      - process_creation
+      - linux
+  - title: Detect AI Application Discovery via Network Connection to LLMs
+    description: Detects potential AI application discovery by identifying network connections to known Large Language Model (LLM) services from cloud instances, indicating possible Shadow AI usage.
     platform: sigma
     severity: low
     tactics:
       - discovery
     techniques:
-      - T1580
+      - T1518
     data_sources:
       - network_connection
-      - cloudtrail
-  - title: Detect Overly Permissive Storage Access
-    description: Detects storage resource access with overly permissive configurations, potentially exposing sensitive data to unauthorized access.
-    platform: sigma
-    severity: medium
-    tactics:
-      - credential_access
-    techniques:
-      - T1530
-    data_sources:
-      - cloudtrail
-      - aws
+      - linux
 rules_count: 2
 ---
 
-CrowdStrike has enhanced its CNAPP offering by incorporating adversary-informed risk prioritization. This update addresses limitations in existing CNAPP solutions, which often lack visibility into business applications, ignore specific adversary behaviors, and result in endless triage. The enhanced CNAPP aims to provide security teams with the context needed to understand cloud risks, prioritize remediation efforts, and accelerate the transition from detection to action. A key component involves leveraging CrowdStrike's threat intelligence on over 280 adversary groups, including LABYRINTH CHOLLIMA and SCATTERED SPIDER, to align risks with known attacker tactics. The enhancements released on March 24, 2026, intend to reduce the impact of cloud intrusions, which surged 266% year-over-year in 2025, as reported in the CrowdStrike 2026 Global Threat Report.
+CrowdStrike has enhanced its Cloud Native Application Protection Platform (CNAPP) with new capabilities designed to bridge critical gaps in cloud security. These enhancements aim to provide security teams with a more comprehensive understanding of cloud risks and to enable better-prioritized remediation efforts. The key additions include Application Explorer, which offers visibility into how business applications interact with cloud infrastructure, and Adversary Intelligence for Cloud Risks, which applies threat intelligence to prioritize risks based on known adversary behaviors and targeted industries. According to the CrowdStrike 2026 Global Threat Report, cloud-conscious intrusions by state-nexus threat actors surged 266% year-over-year, highlighting the need for improved cloud security measures. These capabilities are designed to address the limitations of current CNAPP solutions, which often lack application-layer visibility, ignore adversary behavior, and result in endless triage.
 
 ## Attack Chain
 
-1.  Initial Access: Adversary gains initial access to the cloud environment, potentially by exploiting misconfigurations or vulnerabilities in cloud services.
-2.  Discovery: The attacker performs reconnaissance to map out the cloud infrastructure, identify business applications, and discover dependencies between services.
-3.  Privilege Escalation: The attacker attempts to escalate privileges to gain access to sensitive resources and data.
-4.  Lateral Movement: The attacker moves laterally within the cloud environment to access additional systems and applications.
-5.  Data Access: The attacker targets specific applications, such as those processing PII or payment information, to access sensitive data.
-6.  Exfiltration: The attacker exfiltrates the stolen data from the cloud environment to an external location.
-7.  Impact: The attacker may cause disruption to business operations, financial loss, or reputational damage.
+1.  **Initial Cloud Infrastructure Compromise:** An attacker gains initial access to the cloud environment, potentially through misconfigurations or vulnerabilities in cloud services.
+2.  **Privilege Escalation:** The attacker attempts to escalate privileges within the cloud environment to gain control over more resources.
+3.  **Application Discovery:** Using tools and techniques, the attacker identifies critical business applications running within the compromised cloud infrastructure. This includes identifying dependencies and data access patterns.
+4.  **Data Access:** The attacker leverages compromised credentials or vulnerabilities to access sensitive data within the targeted applications, such as customer PII.
+5.  **Lateral Movement:** The attacker uses the compromised applications and data to move laterally to other parts of the cloud environment or to on-premises systems.
+6.  **Shadow AI Discovery:** The attacker identifies AI-driven applications and their dependencies on external large language models (LLMs), potentially uncovering shadow AI usage.
+7.  **Data Exfiltration:** The attacker exfiltrates sensitive data from the compromised applications and systems.
+8.  **Impact:** The attacker achieves their final objective, such as data theft, financial gain, or disruption of services.
 
 ## Impact
 
-Successful exploitation of cloud misconfigurations and vulnerabilities, as targeted by groups like LABYRINTH CHOLLIMA and SCATTERED SPIDER, can lead to significant data breaches, service disruptions, and financial losses. The CrowdStrike 2026 Global Threat Report indicated a 266% surge in cloud-conscious intrusions during 2025. The enhanced CNAPP aims to mitigate these risks by prioritizing threats aligned with known adversary tactics, techniques, and procedures (TTPs).
+Successful exploitation using the described attack chain can lead to significant data breaches, financial losses, and reputational damage. The targeted industries include financial services, as identified by CrowdStrike's threat intelligence on groups like LABYRINTH CHOLLIMA and SCATTERED SPIDER. A successful attack can expose customer PII, intellectual property, and other sensitive data, leading to regulatory fines and legal liabilities. The increasing sophistication of cloud-conscious threat actors, as highlighted in the 2026 Global Threat Report, underscores the importance of proactive cloud security measures.
 
 ## Recommendation
 
-*   Utilize the Application Explorer feature in Falcon Cloud Security to gain visibility into application-infrastructure dependencies and prioritize remediation efforts based on business risk.
-*   Leverage CrowdStrike's threat intelligence integration to assess cloud risks based on known adversary profiles and observed techniques, particularly those associated with groups like LABYRINTH CHOLLIMA and SCATTERED SPIDER.
-*   Deploy the Sigma rule below to detect potential reconnaissance activity targeting cloud metadata services, helping to identify early stages of cloud attacks.
-*   Enable logging for cloud configuration changes and correlate these changes with risk detections to identify the root cause of exposures.
+*   Implement Application Explorer within Falcon Cloud Security to gain visibility into how business applications interact with cloud infrastructure, enabling a better understanding of application-layer risks.
+*   Leverage Adversary Intelligence for Cloud Risks to prioritize remediation efforts based on known adversary profiles and observed techniques, focusing on threat actors targeting specific industries.
+*   Use Falcon Cloud Security to identify AI-driven applications and their dependencies on external LLMs, enabling the discovery of shadow AI activity and prevention of sensitive data exposure.
+*   Enable and review cloud provider logs (AWS CloudTrail, Azure Activity Log, GCP Audit Logs) for unusual activity or misconfigurations.
