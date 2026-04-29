@@ -1,70 +1,78 @@
 ---
-title: OpenClaw Gateway RCE and Privilege Escalation via Device Pairing Approval
+title: OpenClaw Remote Code Execution via Node Scope Gate Bypass (CVE-2026-41352)
 slug: 2026-04-openclaw-rce
-description: A critical vulnerability in OpenClaw versions prior to 2026.3.22 allows for remote code execution and privilege escalation by permitting an operator.pairing approver to approve device requests with broader operator scopes than authorized, potentially leading to unauthorized administrative access.
-date: "2026-03-26T21:46:07Z"
+description: OpenClaw before 2026.3.31 is vulnerable to remote code execution (CVE-2026-41352) because a device-paired node can bypass the node scope gate authentication mechanism, allowing attackers with device pairing credentials to execute arbitrary node commands.
+date: "2026-04-24T12:00:00Z"
 type: coverage
 types:
   - coverage
 severities:
   - critical
 tags:
-  - openclaw
   - rce
-  - privilege-escalation
+  - vulnerability
+  - cve-2026-41352
+vendors:
+  - OpenClaw
+products:
+  - OpenClaw
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2026-41352
+    cvss: 8.8
 references:
-  - https://github.com/advisories/GHSA-hf68-49fm-59cq
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41352
+  - https://github.com/openclaw/openclaw/commit/3886b65ef21d02808c1a106fa1f9f69e22f71c32
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-xj9w-5r6q-x6v4
+  - https://www.vulncheck.com/advisories/openclaw-remote-code-execution-via-node-scope-gate-bypass
 rules:
-  - title: Detect Suspicious Device Pairing Approval
-    description: Detects attempts to approve device pairing requests with escalated privileges by monitoring for device pairing events where the requested scope exceeds the approver's scope.
+  - title: OpenClaw Suspicious Node Command Execution
+    description: Detects suspicious command execution originating from OpenClaw processes, potentially indicating exploitation of CVE-2026-41352.
     platform: sigma
     severity: high
     tactics:
-      - privilege_escalation
+      - execution
     techniques:
-      - T1068
+      - T1059.004
     data_sources:
-      - application
-      - openclaw
-  - title: Detect Admin Activity from Newly Paired Device
-    description: Detects unusual administrative activity originating from devices that were recently paired, potentially indicating exploitation of the privilege escalation vulnerability.
+      - process_creation
+      - windows
+  - title: OpenClaw Network Connection to Uncommon Ports
+    description: Detects network connections from OpenClaw to uncommon ports, which may indicate command and control activity after exploiting CVE-2026-41352.
     platform: sigma
     severity: medium
     tactics:
-      - persistence
+      - command_and_control
     techniques:
-      - T1098
+      - T1071.001
     data_sources:
-      - application
-      - openclaw
+      - network_connection
+      - windows
 rules_count: 2
 ---
 
-OpenClaw versions prior to 2026.3.22 contain a critical vulnerability that allows for remote code execution (RCE) and privilege escalation. Specifically, the `device.pair.approve` function within the OpenClaw gateway does not properly validate the scopes requested during device pairing. This flaw enables an attacker with `operator.pairing` privileges to approve device requests for scopes exceeding their own, potentially escalating their privileges to `operator.admin`. The vulnerability was reported by @zpbrent and patched in version 2026.3.22, with the fix present in subsequent releases (v2026.3.23 and v2026.3.23-2). Defenders should upgrade vulnerable instances immediately. The affected package is npm/openclaw.
+OpenClaw before version 2026.3.31 suffers from a remote code execution vulnerability (CVE-2026-41352). This flaw exists because a device-paired node can bypass the node scope gate authentication mechanism. An attacker who has already obtained device pairing credentials can exploit this vulnerability to execute arbitrary node commands on the host system. This occurs because the application doesn't perform adequate node pairing validation, allowing malicious actors to potentially gain complete control over the affected system if successfully exploited. Defenders should prioritize patching to version 2026.3.31 or later to mitigate this risk.
 
 ## Attack Chain
 
-1. An attacker gains initial access with `operator.pairing` privileges.
-2. The attacker initiates a device pairing request, specifying a broader scope such as `operator.admin`.
-3. The vulnerable `device.pair.approve` function, lacking proper scope validation, approves the device pairing request.
-4. The newly paired device now possesses the elevated `operator.admin` privileges.
-5. The attacker leverages the escalated privileges to execute administrative functions, potentially including modifying system configurations or accessing sensitive data.
-6. The attacker deploys malicious code or alters existing code through the compromised administrative access.
-7. The system executes the attacker's malicious code, leading to remote code execution.
-8. The attacker maintains persistent access and control over the OpenClaw gateway.
+1.  The attacker gains initial access to the OpenClaw system. This may involve social engineering or other means of obtaining device pairing credentials.
+2.  The attacker leverages the device pairing credentials to authenticate to a device-paired node.
+3.  The attacker attempts to execute a node command on the host system.
+4.  Due to the missing authorization check (CWE-862), the node scope gate authentication mechanism is bypassed.
+5.  The system incorrectly validates the request, failing to properly verify node pairing.
+6.  The attacker successfully executes an arbitrary node command on the host system.
+7.  The attacker escalates privileges, potentially gaining full control over the system.
+8.  The attacker can then perform malicious activities such as data exfiltration, system compromise, or lateral movement within the network.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows attackers to escalate privileges from `operator.pairing` to `operator.admin` on OpenClaw gateways. This privilege escalation can lead to unauthorized access to sensitive data, modification of system configurations, and remote code execution, potentially compromising the entire OpenClaw environment. Given the critical nature of gateways in controlling access and data flow, this vulnerability could result in significant data breaches and system downtime. The impact is especially severe in environments where OpenClaw manages critical infrastructure or sensitive data.
+Successful exploitation of CVE-2026-41352 allows an attacker with valid device pairing credentials to execute arbitrary commands on the host system. This can lead to a complete compromise of the OpenClaw system and potentially the entire network. The number of potential victims is dependent on the number of deployments of OpenClaw before version 2026.3.31. The impact includes data breaches, system downtime, and reputational damage.
 
 ## Recommendation
 
-*   Upgrade all OpenClaw installations to version 2026.3.22 or later to patch the vulnerability (reference: Affected Packages / Versions).
-*   Deploy the Sigma rule `Detect Suspicious Device Pairing Approval` to monitor for unauthorized scope escalation attempts (reference: rules).
-*   Review and audit existing device pairing configurations to identify any instances where devices may have been granted excessive privileges due to this vulnerability.
-*   Monitor gateway logs for unusual administrative activity originating from recently paired devices (reference: Sigma rule `Detect Admin Activity from Newly Paired Device`).
+*   Upgrade OpenClaw to version 2026.3.31 or later to patch CVE-2026-41352.
+*   Monitor OpenClaw systems for unauthorized command execution attempts. While no specific IOCs are available, monitor for unexpected process executions originating from the OpenClaw application.
