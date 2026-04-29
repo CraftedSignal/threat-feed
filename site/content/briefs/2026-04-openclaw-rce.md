@@ -3,6 +3,9 @@ title: OpenClaw Paired Node Escalation to Gateway RCE via Unrestricted Agent Dis
 slug: 2026-04-openclaw-rce
 description: A vulnerability in OpenClaw versions 2026.3.28 and earlier allows a paired node to escalate privileges to achieve remote code execution on the gateway via unrestricted node.event agent dispatch, requiring an existing foothold on a trusted paired node.
 date: "2026-04-03T03:22:05Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
