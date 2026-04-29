@@ -3,6 +3,9 @@ title: CrowdStrike CNAPP Enhancements Prioritize Risk Based on Adversary Behavio
 slug: 2026-03-cnapp-adversary-prioritization
 description: CrowdStrike's CNAPP enhancements prioritize cloud risk based on adversary behavior, correlating application insights with cloud infrastructure telemetry to identify and address critical exposures targeted by specific threat actors like LABYRINTH CHOLLIMA and SCATTERED SPIDER.
 date: "2026-03-29T07:19:13Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 actors:
@@ -72,4 +75,26 @@ rules:
 rules_count: 2
 ---
 
-CrowdStrike has enhanced its Cloud Native Application Protection Platform (CNAPP) to prioritize cloud risks based on real-world adversary behavior, addressing limitations in traditional CNAPP solutions. These improvements correlate application-layer visibility with cloud infrastructure context, enabling security teams to understand how applications interact with services, access data, use credentials, and integrate AI components. Falcon Cloud Security maps cloud risks to known adversary…
+CrowdStrike has enhanced its Cloud Native Application Protection Platform (CNAPP) to prioritize cloud risks based on real-world adversary behavior, addressing limitations in traditional CNAPP solutions. These improvements correlate application-layer visibility with cloud infrastructure context, enabling security teams to understand how applications interact with services, access data, use credentials, and integrate AI components. Falcon Cloud Security maps cloud risks to known adversary profiles and observed techniques, allowing security teams to focus on conditions attackers target in documented intrusions. With threat intelligence from over 280 adversary groups, including LABYRINTH CHOLLIMA and SCATTERED SPIDER, organizations can better prepare their defenses against evolving cloud threats. This advancement aims to reduce alert fatigue and enable more effective remediation by aligning security efforts with actual adversary tactics. The enhancements were announced on March 24, 2026, and are designed to address the increasing number of cloud-conscious intrusions, which surged 266% year-over-year in 2025, as highlighted in the CrowdStrike 2026 Global Threat Report.
+
+## Attack Chain
+
+1. **Initial Compromise:** Adversaries exploit misconfigurations or vulnerabilities in cloud infrastructure or applications to gain initial access.
+2. **Discovery:** Using tools and techniques, the adversary performs reconnaissance to map out cloud assets, services, and dependencies, identifying potential targets.
+3. **Privilege Escalation:** The attacker leverages compromised credentials or exploits vulnerabilities to elevate privileges within the cloud environment.
+4. **Lateral Movement:** With elevated privileges, the adversary moves laterally across different cloud services and applications to access sensitive data.
+5. **Data Access:** The threat actor accesses business-critical applications, customer PII, or AI components to exfiltrate data or cause disruption.
+6. **Exfiltration:** Sensitive data is exfiltrated from the cloud environment to an external location controlled by the adversary.
+7. **Persistence:** Adversaries establish persistence mechanisms to maintain access to the compromised cloud environment for future operations.
+8. **Impact:** The ultimate objective is achieved, whether it be data theft, disruption of services, or financial gain.
+
+## Impact
+
+Successful exploitation can lead to significant data breaches, disruption of critical business applications, and financial losses. With the increasing reliance on cloud infrastructure, the impact can extend across various sectors, affecting organizations of all sizes. The 266% surge in cloud intrusions in 2025 demonstrates the growing threat, potentially impacting millions of users and costing organizations significant resources to remediate and recover.
+
+## Recommendation
+
+*   Deploy the "Detect Cloud Infrastructure Misconfiguration Leading to Potential Data Access" Sigma rule to identify overly permissive access to storage resources (rules).
+*   Implement the "Detect Shadow AI Activity via LLM Usage" Sigma rule to detect unauthorized use of external large language models (LLMs) (rules).
+*   Leverage CrowdStrike Falcon Cloud Security to correlate application-layer visibility with cloud infrastructure context for comprehensive risk analysis (overview).
+*   Prioritize cloud risks based on adversary intelligence provided by CrowdStrike to focus on conditions targeted by threat actors like LABYRINTH CHOLLIMA and SCATTERED SPIDER (overview).
