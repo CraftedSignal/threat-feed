@@ -3,6 +3,9 @@ title: Multiple Vulnerabilities in Fleet
 slug: 2026-03-fleet-vulns
 description: Multiple vulnerabilities in Fleet allow an attacker to perform SQL injection, denial of service, bypass security measures, disclose information, and execute arbitrary program code with administrator privileges.
 date: "2026-03-30T11:08:57Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
@@ -71,4 +74,26 @@ rules:
 rules_count: 2
 ---
 
-Multiple vulnerabilities have been identified in Fleet, a device management platform. These vulnerabilities, if exploited, could allow an attacker to perform a range of malicious activities, including SQL injection attacks, denial-of-service (DoS) attacks, bypassing security measures, disclosing sensitive information, and ultimately executing arbitrary program code with administrator privileges. Successful exploitation poses a significant risk to the confidentiality, integrity, and availability…
+Multiple vulnerabilities have been identified in Fleet, a device management platform. These vulnerabilities, if exploited, could allow an attacker to perform a range of malicious activities, including SQL injection attacks, denial-of-service (DoS) attacks, bypassing security measures, disclosing sensitive information, and ultimately executing arbitrary program code with administrator privileges. Successful exploitation poses a significant risk to the confidentiality, integrity, and availability of systems managed by Fleet. Defenders should prioritize patching and implementing detection measures to mitigate the risk associated with these vulnerabilities. This threat affects all versions of Fleet.
+
+## Attack Chain
+
+1.  Attacker identifies a vulnerable endpoint in the Fleet application susceptible to SQL injection.
+2.  The attacker crafts a malicious SQL query designed to extract sensitive data from the Fleet database.
+3.  The attacker injects the malicious SQL query into the vulnerable endpoint, bypassing input validation.
+4.  The Fleet application executes the injected SQL query, inadvertently disclosing sensitive information such as user credentials and system configurations.
+5.  Alternatively, the attacker crafts a different SQL injection payload to modify database records, potentially granting themselves administrative privileges.
+6.  With elevated privileges, the attacker uploads and executes a malicious payload on the Fleet server.
+7.  The attacker leverages their access to install persistent backdoors and expand their reach within the network.
+8.  The attacker uses their foothold to disrupt the normal operations of the Fleet server causing a denial-of-service.
+
+## Impact
+
+Successful exploitation of these vulnerabilities can have severe consequences. An attacker could gain complete control over the Fleet server, leading to data breaches, system outages, and the compromise of managed devices. The impact includes potential loss of sensitive data, disruption of critical services, and reputational damage. The attacker's ability to execute arbitrary code with administrator privileges allows them to perform virtually any action on the affected system.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Detect Suspicious Fleet Processes` to identify potentially malicious processes spawned by Fleet.
+*   Inspect web server logs for SQL injection attempts targeting the Fleet application using the `Detect Fleet SQL Injection Attempts` Sigma rule.
+*   Monitor network connections originating from Fleet servers for unusual activity, especially outbound connections to unexpected destinations.
+*   Implement strict input validation and sanitization measures to prevent SQL injection attacks, addressing the vulnerability at its root.
