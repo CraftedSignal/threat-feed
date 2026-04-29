@@ -3,6 +3,9 @@ title: Spike in Successful Logon Events from a Source IP
 slug: 2026-04-auth-spike
 description: A machine learning job detected a spike in successful authentication events from a source IP address, which can indicate password spraying, user enumeration, or brute force activity, potentially leading to credential access.
 date: "2026-04-02T13:25:14Z"
+type: coverage
+types:
+  - coverage
 severities:
   - low
 tags:
