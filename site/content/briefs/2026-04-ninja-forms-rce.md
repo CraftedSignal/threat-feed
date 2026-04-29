@@ -3,6 +3,9 @@ title: Ninja Forms File Upload Plugin Vulnerability Leads to RCE
 slug: 2026-04-ninja-forms-rce
 description: The Ninja Forms File Uploads plugin for WordPress is vulnerable to unauthenticated arbitrary file uploads due to missing file type validation, potentially leading to remote code execution.
 date: "2026-04-07T05:16:06Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
