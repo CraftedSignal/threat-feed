@@ -3,6 +3,9 @@ title: OpenClaw Privilege Escalation via Trusted Proxy Authentication (CVE-2026-
 slug: 2026-04-openclaw-privilege-escalation
 description: OpenClaw before 2026.3.31 contains an incomplete scope-clearing vulnerability in trusted-proxy authentication mode that allows operator.admin privilege escalation by declaring operator scopes on non-Control-UI clients.
 date: "2026-04-29T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
