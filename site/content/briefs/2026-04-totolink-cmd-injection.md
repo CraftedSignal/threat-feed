@@ -3,6 +3,9 @@ title: Totolink A8000RU OS Command Injection Vulnerability (CVE-2026-7240)
 slug: 2026-04-totolink-cmd-injection
 description: CVE-2026-7240 is a critical OS command injection vulnerability in the Totolink A8000RU router that allows remote attackers to execute arbitrary commands by manipulating the 'User' argument in the 'setVpnAccountCfg' function.
 date: "2026-04-28T08:16:02Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
