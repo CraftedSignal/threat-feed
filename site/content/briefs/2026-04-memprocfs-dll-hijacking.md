@@ -3,6 +3,9 @@ title: MemProcFS DLL and Shared Library Hijacking Vulnerability
 slug: 2026-04-memprocfs-dll-hijacking
 description: MemProcFS before 5.17 is susceptible to DLL and shared-library hijacking due to unsafe library-loading patterns, allowing attackers to achieve arbitrary code execution by placing malicious libraries or manipulating the library search path.
 date: "2026-04-08T22:16:23Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
