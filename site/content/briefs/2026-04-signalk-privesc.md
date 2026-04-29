@@ -1,14 +1,17 @@
 ---
-title: Signal K Server Unauthenticated Privilege Escalation (CVE-2026-33950)
+title: Signal K Server Privilege Escalation via Unprotected /enableSecurity Endpoint
 slug: 2026-04-signalk-privesc
-description: An unauthenticated attacker can achieve full administrator access on vulnerable Signal K Servers by injecting an admin role via the /enableSecurity endpoint, allowing modification of sensitive vessel data and server configuration.
-date: "2026-04-02T17:16:22Z"
+description: The Signal K server is vulnerable to privilege escalation due to the /skServer/enableSecurity endpoint remaining active after initial setup, allowing unauthenticated users to inject a new admin account and gain full server control; this affects versions prior to 2.24.0-beta.4.
+date: "2026-04-04T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
-  - cve-2026-33950
   - privilege-escalation
   - web-application
+  - vulnerability
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -17,23 +20,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-33950
     cvss: 9.4
+    epss: 0.00049
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-33950
-  - https://github.com/SignalK/signalk-server/releases/tag/v2.24.0-beta.4
-  - https://github.com/SignalK/signalk-server/security/advisories/GHSA-x8hc-fqv3-7gwf
-iocs:
-  - type: url
-    value: https://github.com/SignalK/signalk-server/releases/tag/v2.24.0-beta.4
-  - type: url
-    value: https://github.com/SignalK/signalk-server/security/advisories/GHSA-x8hc-fqv3-7gwf
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
-  url: 2
+  - https://github.com/advisories/GHSA-x8hc-fqv3-7gwf
 rules:
-  - title: Detect Unauthorized Access to Signal K /enableSecurity Endpoint
-    description: Detects unauthorized POST requests to the /enableSecurity endpoint, indicating a potential privilege escalation attempt.
+  - title: Detect SignalK Admin Role Injection
+    description: Detects attempts to inject an admin user via the /skServer/enableSecurity endpoint in SignalK, indicating a privilege escalation attempt.
     platform: sigma
     severity: critical
     tactics:
@@ -43,39 +35,39 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect Access to Sensitive SignalK Endpoints After Potential PrivEsc
-    description: Detects access to sensitive endpoints, such as those modifying vessel data or server configuration, potentially indicating attacker activity following successful privilege escalation.
+  - title: Detect SignalK Login Attempt with Default Admin User
+    description: Detects login attempts using the potentially created 'admin' user via /signalk/v1/auth/login, indicating a potential takeover.
     platform: sigma
     severity: high
     tactics:
-      - persistence
+      - credential_access
     techniques:
-      - T1078
+      - T1110
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-Signal K Server is a server application used on boats for central hub management. Versions prior to 2.24.0-beta.4 are vulnerable to privilege escalation (CVE-2026-33950). An unauthenticated attacker can gain full Administrator access to the SignalK server by exploiting Admin Role Injection via the `/enableSecurity` endpoint. This vulnerability allows attackers to modify sensitive vessel routing data, alter server configurations, and access restricted endpoints without authentication. The vulnerability was reported on April 2nd, 2026 and patched in version 2.24.0-beta.4. Defenders should prioritize patching vulnerable instances of Signal K Server and monitor for suspicious activity targeting the `/enableSecurity` endpoint.
+The Signal K server, a popular open-source project for marine navigation data, contains a critical vulnerability that allows unauthenticated privilege escalation. The vulnerability resides in the `/skServer/enableSecurity` endpoint, which is intended for initial administrator setup when security is disabled. However, this endpoint is not disabled after the initial setup, leaving it perpetually exposed. Consequently, any unauthenticated user can call this endpoint to inject a new, fully privileged "admin" account by crafting a malicious POST request. This vulnerability affects Signal K server versions prior to 2.24.0-beta.4 and poses a significant risk to maritime systems relying on this software. Successful exploitation grants attackers full control over the Signal K server and access to sensitive vessel data, potentially leading to manipulation of routing, alteration of server configurations, and access to restricted API endpoints.
 
 ## Attack Chain
 
-1.  The attacker identifies a vulnerable Signal K Server instance running a version prior to 2.24.0-beta.4.
-2.  The attacker sends a crafted HTTP request to the `/enableSecurity` endpoint without providing valid authentication credentials.
-3.  The crafted request injects an admin role into the server's authorization mechanism.
-4.  The Signal K Server improperly authorizes the attacker, granting them administrator privileges.
-5.  The attacker leverages the newly acquired administrator privileges to modify vessel routing data.
-6.  The attacker alters server configurations to establish persistence or further compromise the system.
-7.  The attacker accesses restricted endpoints to gather sensitive information about the vessel and its operations.
-8.  The attacker achieves complete control over the Signal K Server, potentially disrupting navigation and compromising vessel safety.
+1.  The attacker identifies a vulnerable Signal K server running a version prior to 2.24.0-beta.4.
+2.  The attacker sends an unauthenticated POST request to the `/skServer/enableSecurity` endpoint.
+3.  The POST request contains a JSON payload with the attacker's desired username, password, and the critical `"type": "admin"` parameter.
+4.  The Signal K server's `addUser` function in `src/tokensecurity.ts` blindly trusts the injected "type" field without validation.
+5.  A new user account is created with administrator privileges, bypassing any existing authentication mechanisms.
+6.  The attacker uses the newly created account's username and password to obtain a valid JWT token via the `/signalk/v1/auth/login` endpoint.
+7.  The attacker uses the JWT token to authenticate to restricted API endpoints, demonstrating successful privilege escalation.
+8.  The attacker can now modify vessel routing data, alter server configurations, and access sensitive information.
 
 ## Impact
 
-Successful exploitation of CVE-2026-33950 allows an unauthenticated attacker to gain full administrator access to a Signal K Server. This can lead to modification of sensitive vessel routing data, potentially causing navigational hazards. Attackers can also alter server configurations to maintain persistence or further compromise the system. The number of victims and specific sectors targeted are currently unknown, but the vulnerability's ease of exploitation poses a significant risk to maritime operations.
+Successful exploitation of this vulnerability grants an unauthenticated attacker full Administrator access to the Signal K server. This allows them to modify sensitive vessel routing data, which can have serious safety implications. The attacker can also alter server configurations, potentially disrupting services or injecting malicious code. Furthermore, the attacker gains access to restricted endpoints, exposing sensitive information and enabling further malicious activities. This vulnerability affects Signal K server versions prior to 2.24.0-beta.4, potentially impacting numerous vessels and maritime systems relying on the vulnerable software.
 
 ## Recommendation
 
-*   Upgrade all Signal K Server instances to version 2.24.0-beta.4 or later to remediate CVE-2026-33950 (https://github.com/SignalK/signalk-server/releases/tag/v2.24.0-beta.4).
-*   Deploy the Sigma rule provided below to detect unauthorized access attempts to the `/enableSecurity` endpoint on Signal K Servers.
-*   Monitor web server logs for suspicious POST requests to `/enableSecurity` originating from unexpected IP addresses.
+*   Upgrade Signal K server to version 2.24.0-beta.4 or later to patch CVE-2026-33950.
+*   Deploy the Sigma rule `Detect SignalK Admin Role Injection` to detect attempts to exploit this vulnerability by monitoring for POST requests to the `/skServer/enableSecurity` endpoint.
+*   Enable web server logging and specifically monitor POST requests to the `/skServer/enableSecurity` endpoint to investigate any suspicious activity.
