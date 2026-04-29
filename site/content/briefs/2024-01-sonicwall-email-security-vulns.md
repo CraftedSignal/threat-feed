@@ -3,6 +3,9 @@ title: SonicWall Email Security Appliance Multiple Vulnerabilities
 slug: 2024-01-sonicwall-email-security-vulns
 description: A remote, authenticated attacker with administrator rights can exploit multiple vulnerabilities in SonicWall Email Security Appliance to perform cross-site scripting, manipulate data, or cause a denial-of-service.
 date: "2026-04-01T10:39:09Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
