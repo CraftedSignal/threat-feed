@@ -3,6 +3,9 @@ title: Wisp Multipart Parsing Vulnerability Leads to Denial of Service
 slug: 2026-04-wisp-multipart-dos
 description: A vulnerability in the multipart parsing logic of gleam-wisp allows an unauthenticated attacker to bypass request size limits and cause a denial of service by exhausting server memory or disk.
 date: "2026-04-03T03:40:30Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
