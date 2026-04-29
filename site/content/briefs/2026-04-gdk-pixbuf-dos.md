@@ -3,6 +3,9 @@ title: gdk-pixbuf Vulnerability Allows Denial of Service and Potential Code Exec
 slug: 2026-04-gdk-pixbuf-dos
 description: A remote, anonymous attacker can exploit a vulnerability in gdk-pixbuf to cause a denial of service and potentially execute arbitrary code.
 date: "2026-04-01T10:39:09Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
