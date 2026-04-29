@@ -1,8 +1,8 @@
 ---
-title: D-Link DI-8100 Buffer Overflow Vulnerability
+title: D-Link DIR-825M Remote Buffer Overflow Vulnerability
 slug: 2026-04-dlink-buffer-overflow
-description: A remote buffer overflow vulnerability exists in D-Link DI-8100 version 16.07.26A1's file_exten_asp function, allowing code execution by manipulating the 'Name' argument.
-date: "2026-04-28T09:18:52Z"
+description: D-Link DIR-825M version 1.1.12 is vulnerable to a buffer overflow via manipulation of the submit-url argument in the /boafrm/formWanConfigSetup file's sub_414BA8 function, allowing a remote attacker to execute arbitrary code.
+date: "2026-04-28T15:16:37Z"
 type: coverage
 types:
   - coverage
@@ -11,27 +11,27 @@ severities:
 tags:
   - buffer-overflow
   - router
-  - remote-code-execution
-  - cve-2026-7247
+  - dlink
+  - cve
 vendors:
   - D-Link
 products:
-  - DI-8100
+  - DIR-825M
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+    technique_id: T1189
+    technique_name: Drive-by Compromise
 cves:
-  - id: CVE-2026-7247
-    cvss: 7.2
+  - id: CVE-2026-7289
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7247
-  - https://github.com/draw-ctf/report/blob/main/DI-8100/file_exten_asp_overflow.md
-  - https://vuldb.com/vuln/359856
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7289
+  - https://github.com/Kiciot/cve/issues/3
+  - https://vuldb.com/vuln/359947
 rules:
-  - title: Suspicious File Extension ASP Request
-    description: Detects suspicious requests to file_exten.asp with overly long Name parameters, potentially indicating a buffer overflow attempt.
+  - title: Detect D-Link DIR-825M Suscpicious formWanConfigSetup POST Request
+    description: Detects potentially malicious POST requests to formWanConfigSetup with long submit-url values indicative of a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -41,39 +41,39 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: D-Link DI-8100 file_exten.asp Access
-    description: Detects access to the file_exten.asp page on D-Link DI-8100 devices, which could indicate reconnaissance or exploitation attempts.
+  - title: Detect D-Link DIR-825M Router Configuration File Access
+    description: Detects access to the configuration file on D-Link DIR-825M, which could be related to exploitation attempts.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - reconnaissance
+      - discovery
     techniques:
-      - T1595.002
+      - T1068
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A critical buffer overflow vulnerability, tracked as CVE-2026-7247, has been discovered in D-Link DI-8100 router firmware version 16.07.26A1. The vulnerability resides within the `file_exten_asp` function of the `file_exten.asp` component, specifically the File Extension Handler. Successful exploitation could allow an attacker to execute arbitrary code on the device. The vulnerability is triggered by manipulating the `Name` argument, leading to a buffer overflow. Publicly available exploits exist, increasing the risk of widespread exploitation. Given the potential for remote exploitation and the existence of public exploits, organizations using the affected D-Link DI-8100 router should take immediate action.
+A buffer overflow vulnerability exists in D-Link DIR-825M router version 1.1.12. The vulnerability is located within the `sub_414BA8` function of the `/boafrm/formWanConfigSetup` file. An attacker can exploit this flaw by manipulating the `submit-url` argument, leading to arbitrary code execution on the device. This vulnerability is remotely exploitable, and a proof-of-concept exploit is publicly available, increasing the risk of widespread attacks. Exploitation does not require authentication by default, and could allow an attacker to gain complete control over the device. This poses a significant threat to home and small business networks relying on this router model.
 
 ## Attack Chain
 
-1.  The attacker identifies a vulnerable D-Link DI-8100 router running firmware 16.07.26A1.
-2.  The attacker crafts a malicious HTTP request targeting the `file_exten.asp` endpoint.
-3.  The crafted request includes a `Name` argument with a payload exceeding the buffer size in the `file_exten_asp` function.
-4.  The router processes the malicious request, triggering the buffer overflow when handling the oversized `Name` argument.
-5.  The buffer overflow overwrites adjacent memory regions, potentially including return addresses or function pointers.
-6.  The attacker redirects execution flow to injected shellcode or existing code gadgets (ROP).
-7.  The injected code executes with the privileges of the web server process.
-8.  The attacker gains remote code execution on the D-Link DI-8100 router, potentially allowing for device takeover or network compromise.
+1. The attacker identifies a vulnerable D-Link DIR-825M router running firmware version 1.1.12.
+2. The attacker crafts a malicious HTTP POST request targeting the `/boafrm/formWanConfigSetup` endpoint.
+3. The attacker includes the `submit-url` argument in the POST request, injecting a buffer overflow payload.
+4. The crafted payload overflows the buffer in the `sub_414BA8` function during the processing of the `submit-url` argument.
+5. The buffer overflow overwrites critical memory regions, including the return address.
+6. When the `sub_414BA8` function returns, control is redirected to the attacker-controlled address.
+7. The attacker's payload executes arbitrary code, potentially downloading and executing a secondary payload.
+8. The attacker gains remote shell access to the router.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows for remote code execution on the D-Link DI-8100 router. An attacker could gain complete control of the device, potentially using it as a pivot point for further attacks within the network. This could lead to data exfiltration, denial of service, or the installation of malicious firmware. Given the existence of public exploits, a wide range of actors could leverage this vulnerability, impacting potentially thousands of devices.
+Successful exploitation of this buffer overflow vulnerability allows a remote attacker to execute arbitrary code on the D-Link DIR-825M router. This can lead to complete compromise of the device, allowing the attacker to eavesdrop on network traffic, modify router settings, or use the router as a botnet node for further malicious activities. Given the widespread use of D-Link routers in home and small business networks, a successful attack could compromise a large number of devices and networks.
 
 ## Recommendation
 
-*   Monitor web server logs for suspicious requests targeting `file_exten.asp` with abnormally long `Name` parameters to detect potential exploitation attempts. (Log Source: webserver, Rule: Suspicious File Extension ASP Request).
-*   Implement rate limiting on web requests to the D-Link DI-8100's management interface to mitigate potential brute-force exploitation attempts. (Log Source: firewall, Affected Product: DI-8100 16.07.26A1)
-*   Apply any available patches or firmware updates released by D-Link to address CVE-2026-7247. (Affected Product: DI-8100 16.07.26A1)
+*   Apply available firmware updates from D-Link to patch CVE-2026-7289.
+*   Deploy the following Sigma rule to detect suspicious POST requests to `/boafrm/formWanConfigSetup` with overly long `submit-url` parameters.
+*   Monitor web server logs for suspicious activity related to the `/boafrm/formWanConfigSetup` endpoint.
