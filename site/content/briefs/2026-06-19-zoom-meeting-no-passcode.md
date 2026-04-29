@@ -3,6 +3,9 @@ title: Unsecured Zoom Meeting Creation
 slug: 2026-06-19-zoom-meeting-no-passcode
 description: The creation of Zoom meetings without passcodes allows unauthorized access and disruption, known as Zoombombing, potentially leading to the exposure of sensitive information or reputational damage.
 date: "2026-04-01T15:53:12Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
