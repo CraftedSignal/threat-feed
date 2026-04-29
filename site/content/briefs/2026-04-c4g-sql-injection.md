@@ -3,6 +3,9 @@ title: C4G Basic Laboratory Information System 3.4 SQL Injection Vulnerability
 slug: 2026-04-c4g-sql-injection
 description: C4G Basic Laboratory Information System 3.4 is vulnerable to SQL injection, allowing unauthenticated attackers to execute arbitrary SQL commands via the 'site' parameter in GET requests to the users_select.php endpoint, potentially leading to sensitive data extraction.
 date: "2026-04-05T21:16:45Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
