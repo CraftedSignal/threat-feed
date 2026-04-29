@@ -3,6 +3,9 @@ title: OpenVPN-auth-oauth2 Authentication Bypass in Plugin Mode
 slug: 2026-04-openvpn-auth-bypass
 description: A critical authentication bypass vulnerability exists in openvpn-auth-oauth2 versions 1.26.3 through 1.27.2 when deployed in the experimental plugin mode; clients that do not support WebAuth/SSO are incorrectly granted VPN access without completing OIDC authentication.
 date: "2026-04-22T14:29:22Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
@@ -48,4 +51,25 @@ rules:
 rules_count: 2
 ---
 
-OpenVPN-auth-oauth2, a plugin for OpenVPN, is susceptible to an authentication bypass vulnerability in versions 1.26.3 through 1.27.2 when deployed in the experimental plugin mode. This flaw allows unauthenticated VPN access for clients that do not support WebAuth/SSO. Specifically, standard OpenVPN clients like the Linux CLI `openvpn`, which do not advertise WebAuth/SSO support (`IV_SSO=webauth`), can bypass OIDC authentication and gain full network access. The default management-interface…
+OpenVPN-auth-oauth2, a plugin for OpenVPN, is susceptible to an authentication bypass vulnerability in versions 1.26.3 through 1.27.2 when deployed in the experimental plugin mode. This flaw allows unauthenticated VPN access for clients that do not support WebAuth/SSO. Specifically, standard OpenVPN clients like the Linux CLI `openvpn`, which do not advertise WebAuth/SSO support (`IV_SSO=webauth`), can bypass OIDC authentication and gain full network access. The default management-interface mode is not affected. Successful exploitation grants unauthorized access to the internal network behind the VPN. This vulnerability is addressed in version 1.27.3.
+
+## Attack Chain
+
+1.  Attacker identifies an OpenVPN server running openvpn-auth-oauth2 in experimental plugin mode (versions 1.26.3 - 1.27.2).
+2.  Attacker uses a standard OpenVPN client (e.g., Linux `openvpn` CLI) that does not support WebAuth/SSO.
+3.  The client initiates a connection to the OpenVPN server, bypassing the expected WebAuth/SSO flow.
+4.  The openvpn-auth-oauth2 plugin attempts to deny the client by writing "0" to the `auth_control_file`.
+5.  The plugin incorrectly returns `OPENVPN_PLUGIN_FUNC_SUCCESS` to the OpenVPN server.
+6.  OpenVPN interprets the `FUNC_SUCCESS` return code as successful authentication, ignoring the "0" in the `auth_control_file`.
+7.  The OpenVPN server grants the unauthenticated client full access to the internal network behind the VPN.
+8.  Attacker gains unauthorized access to internal resources and performs malicious activities such as data exfiltration or lateral movement.
+
+## Impact
+
+Successful exploitation of this vulnerability grants unauthenticated attackers full access to the internal network behind the OpenVPN server. This could lead to data breaches, lateral movement within the network, and potential compromise of sensitive systems. The vulnerability affects any deployment using the experimental plugin mode with vulnerable versions. This could result in significant financial losses, reputational damage, and legal repercussions for affected organizations.
+
+## Recommendation
+
+*   Immediately upgrade to openvpn-auth-oauth2 version 1.27.3 to apply the fix described in commit [`36f69a6`](https://github.com/jkroepke/openvpn-auth-oauth2/commit/36f69a6c67c1054da7cbfa04ced3f0555127c8f2).
+*   If immediate upgrade is not feasible, switch to the standalone management client mode (the default, non-plugin deployment) as a workaround.
+*   Monitor OpenVPN server logs for connection attempts from clients that do not support WebAuth/SSO (identified by missing `IV_SSO=webauth` in the logs) and correlate with network access activity.
