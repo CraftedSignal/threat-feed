@@ -3,6 +3,9 @@ title: Drift Protocol $280M Crypto Theft Linked to North Korean Hackers
 slug: 2026-04-drift-hack
 description: The Drift Protocol suffered a $280 million crypto theft orchestrated by North Korean hackers who spent six months building an in-person operational presence within the Drift ecosystem, engaging with contributors at crypto conferences and via Telegram.
 date: "2026-04-06T16:35:39Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 actors:
