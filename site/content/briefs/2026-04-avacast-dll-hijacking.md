@@ -3,6 +3,9 @@ title: AVACAST DLL Hijacking Vulnerability (CVE-2026-7279)
 slug: 2026-04-avacast-dll-hijacking
 description: A DLL hijacking vulnerability in eMPIA Technology's AVACAST (CVE-2026-7279) allows authenticated local attackers to achieve arbitrary code execution with system privileges by placing a malicious DLL in a specific directory.
 date: "2026-04-28T10:16:04Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
