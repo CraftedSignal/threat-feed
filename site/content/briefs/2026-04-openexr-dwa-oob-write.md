@@ -3,6 +3,9 @@ title: OpenEXR DWA Lossy Decoder Heap Out-of-Bounds Write Vulnerability
 slug: 2026-04-openexr-dwa-oob-write
 description: A heap out-of-bounds write vulnerability exists in OpenEXR's DWA lossy decoder due to integer overflow during block pointer calculation, triggered via crafted DWAA files, leading to crashes during DCT execution.
 date: "2026-04-09T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
