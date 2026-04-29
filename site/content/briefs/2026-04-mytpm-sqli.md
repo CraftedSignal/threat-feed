@@ -3,6 +3,9 @@ title: MyT-PM 1.5.1 SQL Injection Vulnerability
 slug: 2026-04-mytpm-sqli
 description: MyT-PM 1.5.1 is vulnerable to SQL injection, allowing authenticated attackers to execute arbitrary SQL queries via the Charge[group_total] parameter.
 date: "2026-04-12T13:16:34Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
