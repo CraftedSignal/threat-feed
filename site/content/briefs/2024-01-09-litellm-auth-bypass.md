@@ -3,6 +3,9 @@ title: LiteLLM Authentication Bypass via Password Hash Exposure and Pass-the-Has
 slug: 2024-01-09-litellm-auth-bypass
 description: LiteLLM versions before 1.83.0 stored user passwords as unsalted SHA-256 hashes and exposed these hashes through multiple API endpoints, enabling an authenticated user to retrieve another user's password hash and use it to log in as that user due to the /v2/login endpoint accepting the raw SHA-256 hash without re-hashing, leading to potential privilege escalation.
 date: "2026-04-08T00:04:12Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
