@@ -1,68 +1,68 @@
 ---
-title: CrowdStrike Charlotte AI AgentWorks and Agentic SOAR for Enhanced Security Operations
+title: CrowdStrike Charlotte AI AgentWorks and Agentic SOAR for Automated Security Operations
 slug: 2026-03-charlotte-ai-agentworks
-description: CrowdStrike's Charlotte AI AgentWorks and Agentic SOAR aim to improve security operations by enabling AI-powered autonomous agents, orchestrated to amplify analyst capabilities and automate tasks like malware analysis and exposure prioritization, reducing manual workloads and increasing decision accuracy.
-date: "2026-03-28T08:17:38Z"
+description: CrowdStrike introduces Charlotte AI AgentWorks and Agentic SOAR to enhance security operations through AI-driven automation and orchestration, reducing manual workloads and improving decision accuracy.
+date: "2026-03-28T09:22:10Z"
 type: coverage
 types:
   - coverage
 severities:
   - medium
 tags:
-  - agentic-soc
   - ai
+  - automation
+  - security operations
   - soar
-  - security-automation
 references:
   - https://www.crowdstrike.com/en-us/blog/how-charlotte-ai-agentworks-fuels-securitys-agentic-ecosystem/
 rules:
-  - title: Detect Suspicious PowerShell Encoded Commands via Charlotte AI
-    description: Detects PowerShell commands that contain Base64 encoded strings, which are often used to obfuscate malicious code. This rule helps identify potential exploitation attempts within the monitored environment.
+  - title: Detect Charlotte AI AgentWorks Agent Execution
+    description: Detects execution of agents within the Charlotte AI AgentWorks framework based on process names.
     platform: sigma
-    severity: high
+    severity: informational
     tactics:
-      - execution
+      - defense_evasion
     techniques:
-      - T1059.001
+      - T1562
     data_sources:
       - process_creation
       - windows
-  - title: Detect Suspicious Network Activity
-    description: Detects suspicious network connections initiated by uncommon processes, potentially indicating command and control activity.
+  - title: Detect SOAR Workflow Modification
+    description: Detects modifications to SOAR workflows, potentially indicating unauthorized changes.
     platform: sigma
-    severity: medium
+    severity: low
     tactics:
-      - command_and_control
+      - persistence
     techniques:
-      - T1071.001
+      - T1547
     data_sources:
-      - network_connection
+      - file_event
       - windows
 rules_count: 2
 ---
 
-CrowdStrike has introduced Charlotte AI AgentWorks and Charlotte Agentic SOAR as part of its Falcon platform, designed to revolutionize security operations by leveraging AI-driven autonomous agents. Launched in March 2026, AgentWorks acts as a central hub for building, scaling, and integrating security agents across the enterprise. It incorporates leading AI models from Anthropic, NVIDIA, and OpenAI, along with AI infrastructure services like Amazon Bedrock and Amazon SageMaker. Agentic SOAR serves as the orchestration layer, enabling customers to activate and coordinate these agents within complex workflows, while maintaining necessary human oversight and security guardrails. The primary objective is to enhance analyst capabilities by automating routine tasks such as triage, malware analysis, and exposure prioritization. This initiative aims to reduce manual workloads by 70%, restore team capacity, and improve decision accuracy to over 98%.
+CrowdStrike is introducing Charlotte AI AgentWorks and Agentic SOAR as a new approach to security operations, designed to leverage AI to automate tasks, orchestrate workflows, and amplify analyst capabilities. Announced in March 2026, Charlotte AI AgentWorks serves as a central hub for building and scaling security agents across the enterprise, integrating with models from Anthropic, NVIDIA, and OpenAI, and promoting collaboration among security innovators. Charlotte Agentic SOAR is designed to enable the coordinated operation of these agents within complex security workflows, providing mission-ready agents for common tasks like triage and malware analysis. The aim is to reduce manual workloads, enhance decision-making accuracy, and provide a security-first foundation for AI-driven automation. To help customers accelerate AI adoption, CrowdStrike offers free AI credits for experimentation within their environments.
 
 ## Attack Chain
 
-This document describes the capabilities of a security platform, not an attack chain. The following steps describe a hypothetical attack that could be detected using the platform's capabilities:
+This brief describes new product capabilities and not an active attack chain. Therefore, a typical attack chain is not applicable. However, the following steps outline how a security team might leverage the capabilities:
 
-1.  Initial Access: An attacker gains initial access through a vulnerability, potentially exploiting a zero-day.
-2.  Execution: The attacker executes a malicious payload via a script interpreter like PowerShell.
-3.  Persistence: The attacker establishes persistence by creating a scheduled task.
-4.  Discovery: The attacker uses built-in tools to enumerate the environment, such as `net.exe` to discover network shares.
-5.  Lateral Movement: The attacker utilizes valid credentials or Pass-the-Hash to move laterally to other systems.
-6.  Command and Control: The attacker establishes command and control using a custom protocol.
-7.  Exfiltration: The attacker exfiltrates sensitive data to an external server.
-8.  Impact: The attacker deploys ransomware across the environment, encrypting critical systems.
+1.  **AI Model Integration:** The organization integrates various AI models from providers like Anthropic, NVIDIA, and OpenAI into the Charlotte AI AgentWorks platform, choosing the most suitable models for specific security tasks.
+2.  **Agent Development:** Security engineers use Charlotte AI AgentWorks to develop custom security agents tailored to their environment, leveraging the platform's tools and frameworks.
+3.  **Workflow Design:** Using Charlotte Agentic SOAR, analysts design automated workflows that incorporate the newly created and out-of-the-box agents to address specific security challenges, such as threat triage or malware analysis.
+4.  **Agent Deployment:** The security agents are deployed across the CrowdStrike Falcon platform, inheriting the platform's telemetry, security guardrails, and access controls.
+5.  **Task Automation:** The agents automatically perform tasks such as triaging alerts, analyzing malware samples, prioritizing exposure management, and generating correlation rules.
+6.  **Human Oversight:** Analysts monitor the agents' activities through the unified case management interface, ensuring that actions align with established security policies and compliance requirements.
+7.  **Workflow Optimization:** The security team identifies operational bottlenecks and streamlines investigations based on the data provided by the case management system, continuously improving the automated workflows.
+8.  **Analyst Amplification:** Analysts leverage the AI-driven automation to reduce manual tasks, accelerate response times, and focus on strategic oversight and complex investigations.
 
 ## Impact
 
-The successful deployment of Charlotte AI AgentWorks and Agentic SOAR aims to mitigate the impact of attacks like the one described above by automating detection and response. If these tools are not in place, organizations face increased manual workloads, slower response times, and potentially greater damage from successful attacks, including data breaches, ransomware deployment, and financial losses. Early adopters have reported a 70% reduction in manual investigation workloads, restoring more than 40 hours of team capacity per week, and achieving greater than 98% decision accuracy. Failure to adopt such AI-driven security measures leaves organizations vulnerable to adversaries who are increasingly leveraging AI in their attacks.
+Successful implementation of Charlotte AI AgentWorks and Agentic SOAR can lead to a significant reduction in manual investigation workloads, potentially by as much as 70%, and a restoration of over 40 hours of team capacity per week. The platform aims to achieve greater than 98% decision accuracy in automated tasks. By automating repetitive and time-consuming processes, organizations can free up security analysts to focus on more strategic initiatives, improving overall security posture and reducing the risk of successful attacks. The platform's goal is to reshape the analyst experience, eliminate toil, accelerate outcomes, and help teams seize an operating advantage in the AI era.
 
 ## Recommendation
 
-*   Evaluate and deploy Charlotte AI AgentWorks and Agentic SOAR on the CrowdStrike Falcon platform to leverage AI-driven security automation (Ref: Overview).
-*   Utilize the 50 free AI credits offered by CrowdStrike to experiment with and experience agentic operations within your environment (Ref: Activate Charlotte AI with Free Credits Today).
-*   Deploy mission-ready agents across the Falcon platform modules to offload high-friction tasks, such as malware analysis and exposure prioritization (Ref: Charlotte Agentic SOAR).
-*   Implement the provided Sigma rules to detect suspicious PowerShell command lines (Ref: rules).
+*   Explore the capabilities of Charlotte AI AgentWorks and Agentic SOAR within a test environment using the free AI credits offered by CrowdStrike, to evaluate the potential benefits for your organization (Charlotte AI AgentWorks, Agentic SOAR).
+*   Leverage the out-of-the-box agents available in Charlotte Agentic SOAR to automate common security tasks such as threat triage and malware analysis, and customize them to your environment (Charlotte Agentic SOAR).
+*   Evaluate existing security workflows and identify areas where AI-driven automation can reduce manual effort and improve decision accuracy, designing new workflows using Charlotte Agentic SOAR (Charlotte Agentic SOAR).
+*   Monitor the performance of deployed agents and automated workflows through the unified case management interface, identifying and addressing any bottlenecks or areas for optimization (Charlotte Agentic SOAR).
