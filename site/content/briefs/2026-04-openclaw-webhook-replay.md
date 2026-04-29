@@ -3,6 +3,9 @@ title: OpenClaw Webhook Replay Vulnerability (CVE-2026-41395)
 slug: 2026-04-openclaw-webhook-replay
 description: OpenClaw before 2026.3.28 is vulnerable to webhook replay attacks due to improper signature verification, allowing attackers to reorder query parameters and trigger duplicate voice-call processing.
 date: "2026-04-29T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
