@@ -1,197 +1,196 @@
 ---
-title: Maltrail IOCs for Android Joker, APT Lazarus, UNC2465, and Powershell Injector
+title: Maltrail IOCs for Remcos RAT and EK_ClearFake
 slug: 2026-02-maltrail-iocs
-description: This brief covers IOCs associated with Android Joker malware, APT Lazarus group, APT UNC2465 activity, and PowerShell Injector campaigns identified by Maltrail on February 25, 2026.
-date: "2026-02-25T22:01:17Z"
+description: This brief summarizes IOCs related to Remcos RAT, a remote access trojan, and EK_ClearFake, an exploit kit, as identified by Maltrail on February 26, 2026.
+date: "2026-02-26T17:00:11Z"
 type: coverage
 types:
   - coverage
 severities:
-  - medium
+  - high
 tags:
-  - maltrail
-  - ioc
-  - android_joker
-  - apt_lazarus
-  - unc2465
-  - powershell_injector
+  - remcos
+  - clearfake
+  - exploit-kit
+  - rat
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1566
-    technique_name: Phishing
+    technique_id: T1189
+    technique_name: Drive-by Compromise
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1071
     technique_name: Application Layer Protocol
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
 references:
-  - https://www.circl.lu/doc/misp/feed-osint/6af94a64-39c8-4066-a702-7ad7b9cc5cdd.json
+  - https://www.circl.lu/doc/misp/feed-osint/9291457f-54be-4e1d-b239-3562e18112d7.json
+  - https://api.github.com/repos/stamparm/maltrail/commits/0c6667175dd9fba7698bbf1bdf849297b605a2e3
+  - https://x.com/BlinkzSec/status/2026899651345993936
+  - https://www.virustotal.com/gui/file/4f0c95a1885411100649bf8150c2f189dc0941ac569b801b3765d1ca64b760dc/detection
+  - https://api.github.com/repos/stamparm/maltrail/commits/210c5c1185382eb070ddcbbee197d498b2870bce
+  - https://api.github.com/repos/stamparm/maltrail/commits/89ff2ed1d3a60e8ab5104cc8b6f398be6d6045ae
 iocs:
   - type: url
-    value: https://api.github.com/repos/stamparm/maltrail/commits/96912006c1e73a8654d881938df2fbc3285525cf
-  - type: domain
-    value: genad.click
-  - type: domain
-    value: infkm.bond
-  - type: domain
-    value: stmuis.help
-  - type: domain
-    value: suluk.cyou
+    value: https://api.github.com/repos/stamparm/maltrail/commits/0c6667175dd9fba7698bbf1bdf849297b605a2e3
   - type: url
-    value: https://api.github.com/repos/stamparm/maltrail/commits/86d172cc9700912c7505a1f8e2212a8f0a36846f
+    value: https://x.com/BlinkzSec/status/2026899651345993936
+  - type: url
+    value: https://www.virustotal.com/gui/file/4f0c95a1885411100649bf8150c2f189dc0941ac569b801b3765d1ca64b760dc/detection
   - type: ip
-    value: 147.124.214.235
+    value: 186.169.75.221
   - type: domain
-    value: app.breezyhr.us
+    value: oficialrem.duckdns.org
   - type: domain
-    value: breezyhr.us
+    value: filecindercrate.com
+  - type: domain
+    value: filedeltaforge.com
+  - type: domain
+    value: filemodulelink.com
+  - type: domain
+    value: filemonorailsync.com
+  - type: domain
+    value: fileoriginvault.com
+  - type: domain
+    value: filequartzrelay.com
   - type: url
-    value: https://api.github.com/repos/stamparm/maltrail/commits/ca426025791afbb1adbd61cf1bc0542e7e0b703c
+    value: https://api.github.com/repos/stamparm/maltrail/commits/210c5c1185382eb070ddcbbee197d498b2870bce
   - type: domain
-    value: hornetseculty.com
+    value: a.greetinggleeful.ru
+  - type: domain
+    value: greetinggleeful.ru
+  - type: domain
+    value: ns1.yyau.ru
+  - type: domain
+    value: s.greetinggleeful.ru
+  - type: domain
+    value: utterdeflected.ru
+  - type: domain
+    value: yyau.ru
   - type: url
-    value: https://api.github.com/repos/stamparm/maltrail/commits/ff57848255e0c2f3649dc297b210c0730fc5105b
-  - type: url
-    value: https://x.com/malwrhunterteam/status/2026412293878157472
-  - type: url
-    value: https://www.virustotal.com/gui/file/7cdc63f6cb960db552cdc88e96315b0dc6a7f1418afa452ae325c197351fa8de/detection
+    value: https://api.github.com/repos/stamparm/maltrail/commits/89ff2ed1d3a60e8ab5104cc8b6f398be6d6045ae
   - type: domain
-    value: cdn0x.store
+    value: 13nq2ksp.lunarbridge.digital
   - type: domain
-    value: 101centricconsulting.click
+    value: 1m89k7yv.primefusion.digital
   - type: domain
-    value: 101macroconsulting.click
+    value: 2lrej7f0.microzen.digital
   - type: domain
-    value: 101pulsestrategy.click
+    value: 2z0nkkls.lumenbit.digital
   - type: domain
-    value: 1forgelumen.click
+    value: 3li6xvqk.rapidmatrix.digital
   - type: domain
-    value: 1quantumhub.click
+    value: 5mf4m58e.lumenbit.digital
   - type: domain
-    value: 1technoplus.click
+    value: 6u5wy3rf.lunarbridge.digital
   - type: domain
-    value: 2024.monadnetwork.app
+    value: 6ut6sdn1.clearvertex.digital
   - type: domain
-    value: 2025ultraworks.click
+    value: 85lgsf41.clearvertex.digital
   - type: domain
-    value: 247novaflow.sbs
+    value: activestatushub.snoozetrap.in.net
   - type: domain
-    value: 2alphadomain.click
+    value: advancedsystrace.intricessaucy.in.net
   - type: domain
-    value: 2insightglobal.click
+    value: aerospaceviewport.aircraftmodel.in.net
   - type: domain
-    value: 2stratamax.sbs
+    value: agri-tech-monitor.silverfield.ru
   - type: domain
-    value: 360alphaadvisory.sbs
+    value: agricultural-monitoring.freshhill.ru
   - type: domain
-    value: 360centricfusion.digital
+    value: aidiyet.esb.org.tr
   - type: domain
-    value: advanta8resources.click
+    value: aircraftmodel.in.net
   - type: domain
-    value: aeroedgeinsight.click
+    value: alphasync.digital
   - type: domain
-    value: aerogrouply.click
+    value: applicationbackup.implementnega.in.net
   - type: domain
-    value: aerostrategyinnovate.click
+    value: applynow.approvkrup.in.net
   - type: domain
-    value: alphahorizonventures.sbs
+    value: arctic-data-sync-node.thenorthernvertex.com
   - type: domain
-    value: analytic.monadnetwork.app
+    value: area-grove-sync.brightgrove.ru
   - type: domain
-    value: analytics360ev-olve.sbs
+    value: atmospheric-sensor-unit.quietwind.ru
   - type: domain
-    value: antiguacasadelplomero.com.mx
+    value: auditsounder.ru
   - type: domain
-    value: apex247forge.buzz
+    value: authpoint.approvkrup.in.net
   - type: domain
-    value: apex247po-int.forum
+    value: b113a978.alphasync.digital
   - type: domain
-    value: apex365prime.sbs
+    value: b4svvivz.cybervox.digital
   - type: domain
-    value: apexonebase.pics
+    value: backgroundprocess.snoozetrap.in.net
   - type: domain
-    value: astroflowventures.click
+    value: basepoint.solidyears.in.net
   - type: domain
-    value: astronextconsulting.click
+    value: baseportion.inherentrecip.ru
   - type: domain
-    value: astroprimeinnovate.click
-  - type: domain
-    value: axion48industries.click
-  - type: domain
-    value: axis247media.click
-  - type: domain
-    value: badasusoziusadvisoryco.pics
-  - type: domain
-    value: badufuciuminvestments.digital
-  - type: domain
-    value: bakoyuvaaservices.sbs
+    value: baskadubutil.in.net
 ioc_counts:
-  domain: 42
+  domain: 43
   ip: 1
-  url: 6
+  url: 5
 rules:
-  - title: Detect PowerShell Encoded Commands
-    description: Detects PowerShell commands using the -enc or -EncodedCommand parameters, which are often used to obfuscate malicious scripts.
+  - title: Detect Remcos RAT DNS Query
+    description: Detects DNS queries to the Remcos RAT domain.
     platform: sigma
     severity: high
-    tactics:
-      - execution
-    techniques:
-      - T1059.001
-    data_sources:
-      - process_creation
-      - windows
-  - title: Detect Outbound Connections to APT Lazarus IP
-    description: Detects network connections to the IP address associated with APT Lazarus activity.
-    platform: sigma
-    severity: medium
     tactics:
       - command_and_control
     techniques:
       - T1071.001
     data_sources:
+      - dns_query
+      - windows
+  - title: Detect EK_ClearFake Domain Connection
+    description: Detects network connections to EK_ClearFake domains.
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial_access
+    techniques:
+      - T1189
+    data_sources:
       - network_connection
       - windows
-  - title: Detect Connection to Newly Observed Domains
-    description: Detects network connections to domains observed in the Maltrail feed, which could indicate new or emerging threats.
+  - title: Detect Connection to EK_ClearFake snoozetrap.in.net Domains
+    description: Detects connections to EK_ClearFake domains ending in snoozetrap.in.net.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
-      - command_and_control
+      - initial_access
     techniques:
-      - T1568.002
+      - T1189
     data_sources:
       - network_connection
       - windows
 rules_count: 3
 ---
 
-This threat brief summarizes indicators of compromise (IOCs) identified by Maltrail on February 25, 2026, linking to several distinct threat actors and campaigns. These include the Android Joker malware known for its malicious billing fraud, APT Lazarus group, APT UNC2465, and campaigns involving the use of PowerShell injectors. The IOCs consist of domains and URLs related to network activity and external analysis of these threats. Notably, a large number of domains were identified without specific attribution, potentially representing a broader infrastructure used across multiple campaigns. Defenders should utilize these IOCs to proactively identify and block malicious activity targeting their networks.
+This brief is based on IOCs identified by Maltrail on February 26, 2026. The IOCs are associated with two distinct threats: Remcos RAT and EK_ClearFake. Remcos RAT is a commercially available remote access trojan often used for malicious purposes, including data theft and surveillance. EK_ClearFake is an exploit kit known for distributing various malware through compromised websites. The domains associated with EK_ClearFake are likely used to host or redirect to landing pages containing exploits. Identifying and blocking these IOCs is crucial to preventing potential infections and mitigating the risk of compromise. This information is relevant for defenders looking to proactively block connections to known malicious infrastructure.
 
 ## Attack Chain
 
-The following attack chain represents a generalized view based on the observed indicators, as the specific methods vary between the threat actors:
+The following is a generalized attack chain based on typical Remcos RAT and Exploit Kit (EK_ClearFake) operations.
 
-1.  **Initial Compromise:** (Observed for Android Joker): User unknowingly installs a malicious application containing the Joker malware from a third-party app store or via sideloading.
-2.  **Persistence (Android Joker):** The malware establishes persistence on the device, often by hiding itself or masquerading as a legitimate application.
-3.  **Command and Control (Various):** The compromised system communicates with command-and-control (C2) servers using domains like `genad.click`, `infkm.bond`, `stmuis.help`, `suluk.cyou`, or others listed in the IOCs.
-4.  **PowerShell Injection (PowerShell Injector):** A PowerShell script is executed to inject malicious code into another process, often to evade detection. This may involve domains like `cdn0x.store`.
-5.  **Credential Harvesting (APT Lazarus):** The Lazarus Group attempts to steal credentials and other sensitive information from the compromised system to facilitate lateral movement.
-6.  **Lateral Movement (APT Lazarus, UNC2465):** Using stolen credentials or exploiting vulnerabilities, the attacker moves laterally to other systems within the network, potentially leveraging infrastructure related to `hornetseculty.com`, `app.breezyhr.us`, and `breezyhr.us`.
-7.  **Data Exfiltration (APT Lazarus, UNC2465):** Sensitive data is exfiltrated from the compromised network to attacker-controlled infrastructure.
-8.  **Monetary Gain/Espionage (Android Joker, APT Lazarus, UNC2465, PowerShell Injector):** The ultimate objective ranges from financial gain (Android Joker, PowerShell Injector) through fraudulent activities or data theft to espionage or disruption (APT Lazarus, UNC2465) targeting specific organizations or sectors.
+1.  **Initial Compromise (EK_ClearFake):** User visits a website compromised with EK_ClearFake.
+2.  **Redirection (EK_ClearFake):** The compromised website redirects the user to a landing page controlled by the attacker, often using domains like those listed in the IOCs (e.g., `13nq2ksp.lunarbridge.digital`).
+3.  **Exploit Delivery (EK_ClearFake):** The landing page probes the user's browser for vulnerabilities.
+4.  **Malware Installation (EK_ClearFake):** If a vulnerability is found, the EK_ClearFake delivers and executes a malicious payload.
+5.  **Remcos RAT Installation (Remcos):** The delivered payload installs Remcos RAT on the victim's machine.
+6.  **Command and Control (Remcos):** Remcos RAT establishes a connection to a command-and-control server (e.g., `oficialrem.duckdns.org`) controlled by the attacker.
+7.  **Data Exfiltration (Remcos):** The attacker uses Remcos RAT to steal sensitive data from the compromised system.
+8.  **Lateral Movement/Further Exploitation (Remcos):** The attacker leverages the compromised system to move laterally within the network or deploy additional malware.
 
 ## Impact
 
-Successful exploitation can lead to significant financial losses for victims of Android Joker through billing fraud. APT Lazarus and UNC2465 intrusions can result in the theft of sensitive data, intellectual property, and disruption of critical services. The large number of unattributed domains suggests a broad and potentially widespread malicious infrastructure, which could be leveraged in various campaigns impacting multiple sectors.
+A successful attack involving Remcos RAT can lead to significant data breaches, financial losses, and reputational damage. EK_ClearFake infections can result in widespread malware infections across an organization. The impact could include the theft of sensitive data, disruption of business operations, and the need for extensive incident response efforts. While the number of direct victims from this particular Maltrail feed is unknown, the potential for widespread impact is high given the nature of the tools involved.
 
 ## Recommendation
 
-*   Monitor network traffic for connections to the domains listed in the IOC table and block them at the firewall or DNS resolver to disrupt communication with attacker infrastructure.
-*   Implement the Sigma rule for PowerShell injection to detect suspicious PowerShell activity and potential code injection attempts.
-*   Review network connection logs for connections to the IP address `147.124.214.235`, associated with APT Lazarus.
-*   Investigate systems that have communicated with any of the unattributed domains in the IOCs to identify potential compromise.
+*   Block the listed domains associated with EK_ClearFake (e.g., `13nq2ksp.lunarbridge.digital`) at the DNS resolver level to prevent connections to malicious landing pages.
+*   Block the IP address `186.169.75.221` and domain `oficialrem.duckdns.org` associated with Remcos RAT at the firewall to disrupt command and control communications.
+*   Deploy the Sigma rules provided below to your SIEM to detect potential Remcos RAT or EK_ClearFake activity within your environment.
+*   Investigate systems that communicate with the IOCs identified in this brief to determine the extent of any potential compromise.
