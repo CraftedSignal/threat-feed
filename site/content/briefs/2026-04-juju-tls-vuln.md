@@ -3,6 +3,9 @@ title: Juju Controller Vulnerable to Unauthorized Database Access Due to Imprope
 slug: 2026-04-juju-tls-vuln
 description: Juju controller versions 3.2.0 up to 3.6.20 and 4.0.5 are vulnerable to unauthorized database access due to improper TLS client/server authentication and certificate verification, allowing an attacker with network access to modify all information, escalate privileges, and open firewall ports.
 date: "2026-04-02T00:03:36Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
