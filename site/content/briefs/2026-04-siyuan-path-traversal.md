@@ -3,6 +3,9 @@ title: SiYuan Publish Reader Path Traversal via removeUnusedAttributeView
 slug: 2026-04-siyuan-path-traversal
 description: A path traversal vulnerability exists in SiYuan's publish service via the `/api/av/removeUnusedAttributeView` endpoint, allowing a publish-service Reader to delete arbitrary `.json` files under the workspace path reachable from `data/storage/av/` using traversal payloads.
 date: "2026-04-11T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
