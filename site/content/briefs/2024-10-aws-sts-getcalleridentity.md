@@ -3,6 +3,9 @@ title: AWS STS GetCallerIdentity API Called for the First Time
 slug: 2024-10-aws-sts-getcalleridentity
 description: An adversary with access to compromised AWS credentials may attempt to verify their validity and determine the account they are using by calling the STS GetCallerIdentity API, potentially indicating credential compromise and unauthorized discovery activity.
 date: "2026-04-10T16:48:32Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
