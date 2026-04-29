@@ -1,35 +1,38 @@
 ---
-title: UTT HiPER 1250GW Stack-Based Buffer Overflow Vulnerability
+title: UTT HiPER 1250GW Buffer Overflow Vulnerability
 slug: 2026-04-utt-hiper-overflow
-description: A stack-based buffer overflow vulnerability in UTT HiPER 1250GW devices allows remote attackers to execute arbitrary code by manipulating the 'Profile' argument in the /goform/formRemoteControl file.
-date: "2026-04-05T06:16:01Z"
-type: threat
+description: A remote buffer overflow vulnerability exists in the UTT HiPER 1250GW device due to improper handling of the 'Profile' argument in the NTP configuration, potentially allowing for arbitrary code execution.
+date: "2026-04-29T22:16:22Z"
+type: coverage
 types:
-  - threat
+  - coverage
 severities:
   - critical
-exploited: true
 tags:
-  - cve-2026-5544
   - buffer-overflow
-  - webserver
+  - remote-code-execution
+  - cve-2026-7418
+vendors:
+  - UTT
+products:
+  - HiPER 1250GW
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-5544
+  - id: CVE-2026-7418
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5544
-  - https://github.com/jinxjinxboom/cve/issues/1
-  - https://vuldb.com/vuln/355297
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7418
+  - https://github.com/kirlic123/IOTvulner/blob/main/4035/1/1.md
+  - https://vuldb.com/vuln/360155
 rules:
-  - title: Detect UTT HiPER Buffer Overflow Attempt
-    description: Detects potential attempts to exploit the buffer overflow vulnerability (CVE-2026-5544) in UTT HiPER devices by monitoring the length of the Profile argument in requests to /goform/formRemoteControl.
+  - title: Detect Suspicious NTP Profile Argument
+    description: Detects suspicious HTTP requests with unusually long Profile arguments targeting the NTP configuration endpoint, potentially indicating a buffer overflow attempt.
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - initial_access
     techniques:
@@ -37,10 +40,10 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect UTT HiPER 1250GW CVE-2026-5544 Exploitation Attempt
-    description: Detects potential exploitation attempts of CVE-2026-5544 in UTT HiPER 1250GW devices based on HTTP requests to the /goform/formRemoteControl endpoint.
+  - title: Detect Shell Commands in the Profile argument
+    description: Detects shell commands within the profile argument, which is a sign of command injection or exploitation attempt.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
       - initial_access
     techniques:
@@ -51,25 +54,25 @@ rules:
 rules_count: 2
 ---
 
-A critical security vulnerability, CVE-2026-5544, affects UTT HiPER 1250GW devices with firmware versions up to 3.2.7-210907-180535. The vulnerability resides in the `/goform/formRemoteControl` file, where manipulation of the `Profile` argument results in a stack-based buffer overflow. This flaw allows unauthenticated remote attackers to potentially execute arbitrary code on the affected device. The vulnerability has a CVSS v3.1 score of 8.8 (HIGH). Publicly available exploits exist, increasing the risk of active exploitation. Successful exploitation could lead to complete system compromise, allowing attackers to gain full control of the device, potentially disrupting network services or using the device as a foothold for further attacks within the network.
+A buffer overflow vulnerability, identified as CVE-2026-7418, has been discovered in UTT HiPER 1250GW devices with firmware versions up to 3.2.7-210907-180535. The vulnerability resides within the `strcpy` function in the `route/goform/NTP` file. A remote attacker can exploit this vulnerability by manipulating the `Profile` argument during NTP configuration. Successful exploitation could lead to arbitrary code execution on the affected device. The vulnerability has been publicly disclosed, increasing the risk of exploitation. This poses a significant threat to organizations using the affected UTT HiPER 1250GW devices, as attackers could potentially gain control of the device and use it as a foothold for further malicious activities within the network.
 
 ## Attack Chain
 
-1.  An attacker identifies a vulnerable UTT HiPER 1250GW device running a susceptible firmware version.
-2.  The attacker crafts a malicious HTTP request targeting the `/goform/formRemoteControl` endpoint.
-3.  Within the HTTP request, the attacker includes a `Profile` argument containing a payload exceeding the buffer's expected size.
-4.  The device receives the malicious request and attempts to process the `Profile` argument without proper bounds checking.
-5.  The oversized payload overwrites adjacent memory on the stack, including return addresses and other critical data.
-6.  When the function attempts to return, it jumps to an address controlled by the attacker (due to the overwritten return address).
-7.  The attacker's code is executed, potentially granting them complete control over the device.
-8.  The attacker can then use the compromised device for malicious purposes, such as network reconnaissance, data exfiltration, or denial-of-service attacks.
+1.  The attacker identifies a vulnerable UTT HiPER 1250GW device with a firmware version up to 3.2.7-210907-180535.
+2.  The attacker crafts a malicious HTTP request targeting the `/route/goform/NTP` endpoint.
+3.  The crafted request includes a specially designed `Profile` argument containing a payload that exceeds the buffer size allocated for it.
+4.  The web server on the UTT HiPER 1250GW device receives the HTTP request and passes the `Profile` argument to the `strcpy` function.
+5.  The `strcpy` function copies the oversized `Profile` argument into the undersized buffer, leading to a buffer overflow.
+6.  The buffer overflow overwrites adjacent memory regions, potentially including critical program data or executable code.
+7.  The attacker gains arbitrary code execution on the device with the privileges of the web server process.
+8.  The attacker can then use this foothold to further compromise the device or the network it is connected to, potentially leading to data exfiltration or denial-of-service attacks.
 
 ## Impact
 
-Successful exploitation of CVE-2026-5544 allows remote attackers to execute arbitrary code on vulnerable UTT HiPER 1250GW devices. Given that this device may be used in homes or businesses, the number of potential victims is significant. Successful exploitation could result in complete device compromise, leading to disruption of network services, data theft, or the use of the device as a botnet node. Due to the availability of public exploits, the risk of widespread exploitation is high.
+Successful exploitation of CVE-2026-7418 can allow a remote attacker to execute arbitrary code on the affected UTT HiPER 1250GW device. This could allow the attacker to gain full control of the device, potentially leading to data exfiltration, denial-of-service attacks, or further compromise of the network to which the device is connected. The vulnerability has a CVSS v3.1 score of 8.8, indicating a high severity. Given the public availability of the exploit, organizations using the affected devices are at increased risk.
 
 ## Recommendation
 
-*   Apply available patches or firmware updates for UTT HiPER 1250GW devices to address CVE-2026-5544.
-*   Deploy the Sigma rule `Detect UTT HiPER Buffer Overflow Attempt` to identify exploitation attempts in web server logs.
-*   Monitor web server logs for requests to `/goform/formRemoteControl` with unusually long `Profile` arguments, as indicated in the Sigma rule.
+*   Apply available patches or firmware updates provided by UTT to address CVE-2026-7418 on HiPER 1250GW devices.
+*   Deploy the Sigma rule `Detect Suspicious NTP Profile Argument` to detect exploitation attempts against the `/route/goform/NTP` endpoint.
+*   Monitor web server logs for suspicious requests targeting the `/route/goform/NTP` endpoint with unusually long `Profile` arguments to identify potential exploitation attempts.
