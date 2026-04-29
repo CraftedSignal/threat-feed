@@ -3,6 +3,9 @@ title: Plunk Email Platform CRLF Header Injection Vulnerability
 slug: 2024-01-30-plunk-crlf
 description: A CRLF header injection vulnerability in Plunk versions prior to 0.8.0 allows authenticated API users to inject arbitrary email headers, enabling silent email forwarding, reply redirection, or sender spoofing.
 date: "2026-04-06T17:17:11Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
