@@ -3,6 +3,9 @@ title: Apache Traffic Server Vulnerabilities Leading to Denial of Service
 slug: 2026-04-apache-traffic-server-dos
 description: A remote attacker can exploit multiple vulnerabilities in Apache Traffic Server to conduct a denial of service or request smuggling attack.
 date: "2026-04-07T11:24:02Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
