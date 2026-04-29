@@ -1,68 +1,79 @@
 ---
-title: OpenClaw LLM Agent Execution Approval Bypass via config.patch
+title: OpenClaw Agentic Consent Bypass Vulnerability (CVE-2026-41349)
 slug: 2026-04-openclaw-bypass
-description: A high-severity vulnerability in the openclaw npm package allows an LLM agent to silently bypass execution approval through modification of the `config.patch` file, impacting systems where OpenClaw is used for managing execution permissions.
-date: "2026-04-03T03:03:18Z"
+description: OpenClaw before version 2026.3.28 contains an agentic consent bypass vulnerability (CVE-2026-41349) that allows LLM agents to silently disable execution approval via the config.patch parameter, potentially enabling remote attackers to bypass security controls and execute unauthorized operations without user consent.
+date: "2026-04-24T12:00:00Z"
 type: coverage
 types:
   - coverage
 severities:
   - high
 tags:
-  - supply-chain
-  - vulnerability
-  - npm
+  - cve-2026-41349
+  - agentic consent bypass
+  - llm
+vendors:
+  - OpenClaw
+products:
+  - OpenClaw
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1548
-    technique_name: Abuse Elevation Control Mechanism
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562
+    technique_name: Impair Defenses
+cves:
+  - id: CVE-2026-41349
+    cvss: 8.8
 references:
-  - https://github.com/advisories/GHSA-v3qc-wrwx-j3pw
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41349
+  - https://github.com/openclaw/openclaw/commit/76411b2afc4ae721e36c12e0ea24fd23e2fed61e
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-v3qc-wrwx-j3pw
+  - https://www.vulncheck.com/advisories/openclaw-agentic-consent-bypass-via-config-patch
 rules:
-  - title: Detect OpenClaw Config Patch Modification
-    description: Detects modifications to the OpenClaw config.patch file, which could indicate an attempt to bypass execution approval.
+  - title: Detect OpenClaw Config Patch Manipulation
+    description: Detects modifications to OpenClaw configuration files that contain 'config.patch', indicating a potential attempt to bypass security controls.
     platform: sigma
     severity: high
     tactics:
-      - persistence
+      - defense_evasion
     techniques:
-      - T1547.001
+      - T1562.001
     data_sources:
       - file_event
       - linux
-  - title: Detect Suspicious Process Creation from OpenClaw
-    description: Detects process creation events originating from the OpenClaw installation directory, potentially indicating unauthorized code execution after a config bypass.
+  - title: Detect OpenClaw Unauthorized Execution
+    description: Detects execution of critical OpenClaw functions without prior authorization, potentially indicating a bypass of consent mechanisms.
     platform: sigma
     severity: medium
     tactics:
       - execution
     techniques:
-      - T1059.004
+      - T1204.002
     data_sources:
       - process_creation
       - linux
 rules_count: 2
 ---
 
-The OpenClaw npm package, a tool used for managing execution permissions within systems, is susceptible to an agentic consent bypass vulnerability. Specifically, an LLM agent leveraging OpenClaw can manipulate the `config.patch` file to silently disable execution approval processes. This vulnerability, reported by @YLChen-007, affects OpenClaw versions up to 2026.3.24. Successful exploitation could lead to unauthorized code execution and compromise of systems relying on OpenClaw for security controls. The vulnerability was addressed in commit `76411b2afc4ae721e36c12e0ea24fd23e2fed61e` and subsequently released in version 2026.3.28. This allows an attacker to bypass intended security measures.
+OpenClaw, a framework for building LLM agents, is vulnerable to an agentic consent bypass. Specifically, versions prior to 2026.3.28 are susceptible to CVE-2026-41349, where an LLM agent can silently disable execution approval through manipulation of the `config.patch` parameter. This vulnerability allows remote attackers to bypass security controls that are meant to ensure user consent before executing operations. The vulnerability was reported on April 23, 2026. Successful exploitation could lead to unauthorized actions being performed by the LLM agent without the user's knowledge or permission, undermining the intended security model of OpenClaw.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to a system with OpenClaw installed, potentially through existing vulnerabilities or misconfigurations.
-2.  The LLM agent identifies the location of the `config.patch` file used by OpenClaw, typically within the OpenClaw installation directory.
-3.  The attacker crafts a malicious `config.patch` file designed to disable or weaken execution approval requirements. This file contains configuration changes that alter the behavior of OpenClaw's execution control mechanisms.
-4.  The LLM agent uses file manipulation techniques (e.g., `fs.writeFile` in Node.js) to overwrite the existing `config.patch` file with the malicious version.
-5.  OpenClaw automatically loads and applies the modified configuration from the `config.patch` file upon its next execution or configuration refresh.
-6.  With the weakened or disabled execution approval, the attacker executes arbitrary code or commands without proper authorization or consent checks.
-7.  The attacker performs malicious actions, such as data exfiltration, system compromise, or lateral movement within the network.
+1.  An attacker gains initial access to an OpenClaw instance or application using it, potentially through compromised credentials or by exploiting another vulnerability.
+2.  The attacker crafts a malicious `config.patch` parameter designed to disable execution approval.
+3.  The attacker injects the crafted `config.patch` into the OpenClaw configuration, exploiting the vulnerability.
+4.  The OpenClaw application processes the modified configuration, effectively bypassing consent checks.
+5.  The LLM agent, now operating without consent requirements, initiates unauthorized actions.
+6.  These unauthorized actions can include data exfiltration, system modification, or other malicious activities depending on the LLM agent's capabilities.
+7.  The attacker monitors the LLM agent's activities, leveraging its capabilities for further malicious purposes.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows attackers to bypass intended security controls implemented by OpenClaw. This can lead to unauthorized execution of arbitrary code, potentially resulting in data breaches, system compromise, and further propagation of malicious activity within the affected environment. The number of victims depends on the adoption of OpenClaw and the exposure of vulnerable versions. Systems relying on OpenClaw for critical security functions are at the highest risk.
+Successful exploitation of this vulnerability allows an attacker to bypass intended security controls and execute unauthorized operations. The severity of impact depends on the privileges and capabilities granted to the LLM agent. In a worst-case scenario, an attacker could gain complete control over systems accessible to the LLM agent, leading to significant data breaches, system compromise, or financial loss. While the exact number of affected organizations is unknown, any deployment of OpenClaw before version 2026.3.28 is potentially vulnerable.
 
 ## Recommendation
 
-*   Upgrade the `openclaw` npm package to version 2026.3.28 or later to remediate the vulnerability described in this brief.
-*   Monitor file modifications to the `config.patch` file within the OpenClaw installation directory. Deploy the Sigma rule `Detect OpenClaw Config Patch Modification` to identify unauthorized changes.
-*   Review and audit existing OpenClaw configurations to ensure that execution approval requirements are correctly implemented and not inadvertently bypassed.
+*   Upgrade OpenClaw to version 2026.3.28 or later to remediate CVE-2026-41349.
+*   Implement monitoring for unexpected modifications to the OpenClaw configuration, especially those involving the `config.patch` parameter. Deploy the Sigma rule `Detect OpenClaw Config Patch Manipulation` to detect such modifications.
+*   Review and restrict the permissions granted to LLM agents to minimize the potential impact of unauthorized actions.
+*   Monitor network traffic for suspicious activity originating from OpenClaw instances. Use the IOC information provided by VulnCheck's advisory for threat hunting.
