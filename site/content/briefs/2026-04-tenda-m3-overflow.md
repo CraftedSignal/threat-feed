@@ -3,6 +3,9 @@ title: Tenda M3 Router Buffer Overflow Vulnerability
 slug: 2026-04-tenda-m3-overflow
 description: A buffer overflow vulnerability exists in Tenda M3 1.0.0.10 via manipulation of the policyType argument in the setAdvPolicyData function, allowing remote attackers to execute arbitrary code.
 date: "2026-04-05T13:17:14Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
