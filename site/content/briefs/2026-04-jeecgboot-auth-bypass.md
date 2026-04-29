@@ -3,6 +3,9 @@ title: JeecgBoot AI Chat Module Authentication Bypass Vulnerability
 slug: 2026-04-jeecgboot-auth-bypass
 description: JeecgBoot versions 3.9.0 and 3.9.1 are vulnerable to a remote unauthenticated bypass in the AI Chat Module, specifically affecting the JeecgBizToolsProvider.java file, potentially allowing unauthorized access.
 date: "2026-04-06T04:16:13Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
