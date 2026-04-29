@@ -3,6 +3,9 @@ title: MinIO S3 Select CSV Parsing Denial of Service
 slug: 2026-04-minio-dos
 description: MinIO's S3 Select feature is vulnerable to denial of service due to unbounded memory allocation when processing CSV files without newlines, leading to memory exhaustion and server crashes.
 date: "2026-04-09T17:32:31Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
