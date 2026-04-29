@@ -60,9 +60,9 @@
 {{/* frame-ancestors is ignored when CSP is delivered via <meta>;
      Cloudflare's response headers carry it at the HTTP layer.
      Allow Google's reCAPTCHA Enterprise + the notifier API (subscribe form). */}}
-{{ $csp := printf "default-src 'none'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.gstatic.com; font-src 'self'; connect-src 'self' %s https://www.google.com https://www.recaptcha.net; frame-src https://www.google.com https://www.recaptcha.net; form-action 'none'; base-uri 'self'" .Site.Params.notifierURL }}
+{{ $csp := printf "default-src 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.gstatic.com; font-src 'self'; connect-src 'self' %s https://www.google.com https://www.recaptcha.net; frame-src https://www.google.com https://www.recaptcha.net; form-action 'none'; base-uri 'self'" .Site.Params.notifierURL }}
 {{ if hugo.IsServer }}
-  {{ $csp = printf "default-src 'none'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.gstatic.com; font-src 'self'; connect-src 'self' ws://localhost:1313 ws://localhost:8765 %s https://www.google.com https://www.recaptcha.net; frame-src https://www.google.com https://www.recaptcha.net; form-action 'none'; base-uri 'self'" .Site.Params.notifierURL }}
+  {{ $csp = printf "default-src 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.gstatic.com; font-src 'self'; connect-src 'self' ws://localhost:1313 ws://localhost:8765 %s https://www.google.com https://www.recaptcha.net; frame-src https://www.google.com https://www.recaptcha.net; form-action 'none'; base-uri 'self'" .Site.Params.notifierURL }}
 {{ end }}
 <meta http-equiv="Content-Security-Policy" content="{{ $csp }}">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
