@@ -3,6 +3,9 @@ title: Chartbrew Cross-Tenant Authorization Bypass Vulnerability
 slug: 2024-01-03-chartbrew-auth-bypass
 description: Chartbrew versions prior to 4.9.0 are vulnerable to a cross-tenant authorization bypass, allowing an authenticated attacker to access project data belonging to other teams.
 date: "2026-04-10T20:16:21Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
