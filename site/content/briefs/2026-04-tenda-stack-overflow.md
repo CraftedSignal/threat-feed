@@ -3,6 +3,9 @@ title: Tenda F451 Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-tenda-stack-overflow
 description: A stack-based buffer overflow vulnerability in Tenda F451 version 1.0.0.7 allows remote attackers to execute arbitrary code by manipulating the 'page/menufacturer' argument in the fromSafeMacFilter function.
 date: "2026-04-12T09:16:18Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
