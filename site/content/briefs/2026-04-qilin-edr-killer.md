@@ -3,6 +3,9 @@ title: Qilin Ransomware EDR Killer Infection Chain
 slug: 2026-04-qilin-edr-killer
 description: Qilin ransomware employs a malicious msimg32.dll in a multi-stage infection chain to disable endpoint detection and response (EDR) solutions by evading detection and terminating EDR processes.
 date: "2026-04-02T10:00:56Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 actors:
