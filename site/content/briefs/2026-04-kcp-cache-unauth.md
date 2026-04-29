@@ -3,6 +3,9 @@ title: Unauthenticated Access to kcp Cache Server
 slug: 2026-04-kcp-cache-unauth
 description: The kcp cache server is exposed without authentication, allowing unauthorized read access to sensitive data and a race condition for write access that could lead to temporary privilege escalation.
 date: "2026-04-08T15:04:22Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
