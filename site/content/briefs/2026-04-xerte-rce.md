@@ -3,6 +3,9 @@ title: Xerte Online Toolkits Unauthenticated Remote Code Execution via File Uplo
 slug: 2026-04-xerte-rce
 description: Xerte Online Toolkits 3.15 and earlier contain an incomplete input validation vulnerability allowing unauthenticated attackers to upload malicious PHP code with a '.php4' extension, leading to arbitrary operating system command execution on the server.
 date: "2026-04-23T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
@@ -67,4 +70,26 @@ rules:
 rules_count: 2
 ---
 
-Xerte Online Toolkits, a platform used for creating online learning materials, is vulnerable to unauthenticated remote code execution (RCE). Specifically, versions 3.15 and earlier contain an incomplete input validation vulnerability within the elFinder connector endpoint. This flaw allows an attacker to bypass existing file extension filters and upload PHP files with a '.php4' extension. Combined with authentication bypass and path traversal vulnerabilities, this can lead to arbitrary…
+Xerte Online Toolkits, a platform used for creating online learning materials, is vulnerable to unauthenticated remote code execution (RCE). Specifically, versions 3.15 and earlier contain an incomplete input validation vulnerability within the elFinder connector endpoint. This flaw allows an attacker to bypass existing file extension filters and upload PHP files with a '.php4' extension. Combined with authentication bypass and path traversal vulnerabilities, this can lead to arbitrary operating system command execution on the underlying server. This vulnerability, identified as CVE-2026-34415, poses a significant risk to organizations using affected versions of Xerte Online Toolkits, potentially allowing attackers to gain complete control of the web server.
+
+## Attack Chain
+
+1.  An unauthenticated attacker sends a crafted HTTP request to the elFinder connector endpoint.
+2.  The attacker exploits an authentication bypass vulnerability to gain unauthorized access to file upload functionality.
+3.  The attacker leverages a path traversal vulnerability to specify a writable directory for the uploaded file.
+4.  The attacker uploads a malicious PHP file disguised with a '.php4' extension, bypassing the incomplete input validation.
+5.  The server saves the malicious PHP file to the specified directory.
+6.  The attacker sends another HTTP request to directly access the uploaded PHP file via its URL.
+7.  The web server executes the PHP code within the uploaded file, granting the attacker arbitrary code execution.
+8.  The attacker can now execute operating system commands on the server, potentially leading to data theft, system compromise, or further malicious activities.
+
+## Impact
+
+Successful exploitation of this vulnerability allows an unauthenticated attacker to execute arbitrary operating system commands on the affected Xerte Online Toolkits server. Given the high CVSS score of 9.8, this vulnerability is considered critical. If exploited, an attacker could potentially gain full control of the server, leading to data breaches, defacement of the website, or the use of the compromised server as a launchpad for further attacks within the network. The number of potentially affected installations is currently unknown.
+
+## Recommendation
+
+*   Upgrade Xerte Online Toolkits to a patched version greater than 3.15 to remediate CVE-2026-34415.
+*   Implement the Sigma rule "Detect Suspicious PHP4 Uploads" to identify potential exploitation attempts by monitoring web server logs for '.php4' file uploads.
+*   Review web server access logs for unusual requests to PHP files located in unexpected directories, which may indicate exploitation attempts.
+*   Monitor web server logs for requests to the elFinder connector endpoint that include suspicious parameters or file extensions.
