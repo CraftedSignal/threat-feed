@@ -3,6 +3,9 @@ title: Math.js Improperly Controlled Modification of Object Attributes Leads to 
 slug: 2026-04-mathjs-rce
 description: A vulnerability in math.js versions before 15.2.0 allows for arbitrary JavaScript execution through the expression parser when evaluating user-supplied expressions.
 date: "2026-04-11T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
