@@ -3,6 +3,9 @@ title: XenForo OAuth2 Unauthorized Scope Request Vulnerability
 slug: 2026-04-xenforo-oauth2-unauth-scope
 description: XenForo before 2.3.5 allows OAuth2 client applications to request unauthorized scopes, potentially allowing client applications to gain access beyond their intended authorization level due to improper authorization checks.
 date: "2026-04-01T01:16:40Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
