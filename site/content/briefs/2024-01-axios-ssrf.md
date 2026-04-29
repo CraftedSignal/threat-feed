@@ -3,6 +3,9 @@ title: Axios NO_PROXY Hostname Normalization Bypass Leads to SSRF
 slug: 2024-01-axios-ssrf
 description: Axios is vulnerable to a NO_PROXY hostname normalization bypass leading to SSRF, where requests to loopback addresses like `localhost.` or `[::1]` bypass `NO_PROXY` rules, allowing attackers to force requests through a proxy and potentially exfiltrate sensitive data.
 date: "2026-04-09T17:32:19Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
