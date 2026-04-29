@@ -3,6 +3,9 @@ title: SuiteCRM 7.10.7 Time-Based SQL Injection Vulnerability
 slug: 2026-04-suitecrm-sqli
 description: SuiteCRM 7.10.7 is vulnerable to time-based SQL injection in the record parameter of the Users module DetailView action, allowing authenticated attackers to manipulate database queries and potentially extract sensitive information.
 date: "2026-04-05T21:16:43Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
