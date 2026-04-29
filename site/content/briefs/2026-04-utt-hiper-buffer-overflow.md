@@ -1,48 +1,53 @@
 ---
-title: UTT HiPER 1250GW Buffer Overflow Vulnerability
+title: UTT HiPER 1250GW Buffer Overflow Vulnerability (CVE-2026-7419)
 slug: 2026-04-utt-hiper-buffer-overflow
-description: A buffer overflow vulnerability exists in UTT HiPER 1250GW devices, allowing remote attackers to execute arbitrary code by manipulating the NatBind argument in the /goform/formNatStaticMap endpoint.
-date: "2026-04-05T13:17:14Z"
+description: A buffer overflow vulnerability exists in UTT HiPER 1250GW devices, potentially allowing remote attackers to execute arbitrary code by manipulating the 'Profile' argument in the formTaskEdit_ap.goform.
+date: "2026-04-29T23:16:20Z"
 type: coverage
 types:
   - coverage
 severities:
   - critical
 tags:
-  - cve-2026-5566
-  - buffer-overflow
-  - remote-code-execution
-  - utt-hiper
+  - buffer overflow
+  - cve-2026-7419
+  - iot
+vendors:
+  - UTT
+products:
+  - HiPER 1250GW
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-5566
+  - id: CVE-2026-7419
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5566
-  - https://github.com/Moxxkidd/CVE/issues/1
-  - https://vuldb.com/vuln/355336
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7419
+  - https://github.com/kirlic123/IOTvulner/blob/main/4035/2/2.md
+  - https://vuldb.com/submit/803994
+  - https://vuldb.com/vuln/360156
+  - https://vuldb.com/vuln/360156/cti
 rules:
-  - title: Detect Suspicious NatBind Parameter Length
-    description: Detects suspicious POST requests to /goform/formNatStaticMap with unusually long NatBind parameters, indicating a potential buffer overflow attempt.
+  - title: Detect Suspiciously Long Profile Parameter in formTaskEdit_ap.goform POST Request
+    description: Detects abnormally long Profile parameters in POST requests to formTaskEdit_ap.goform, which could indicate a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
-      - initial_access
+      - exploitation
     techniques:
       - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect Access to formNatStaticMap
-    description: Detects access to the formNatStaticMap endpoint, which could be related to exploitation attempts.
+  - title: Detect strcpy function call in webserver logs
+    description: Detects calls to the strcpy function in webserver logs, which may indicate a buffer overflow attempt.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
-      - initial_access
+      - exploitation
     techniques:
       - T1190
     data_sources:
@@ -51,26 +56,26 @@ rules:
 rules_count: 2
 ---
 
-A critical buffer overflow vulnerability, tracked as CVE-2026-5566, affects UTT HiPER 1250GW devices with firmware versions up to 3.2.7-210907-180535. The vulnerability resides in the `strcpy` function within the `/goform/formNatStaticMap` endpoint. A remote attacker can exploit this vulnerability by crafting a malicious request that overflows the buffer when processing the `NatBind` argument. Publicly available exploits exist, increasing the risk of widespread exploitation. Successful exploitation allows attackers to execute arbitrary code on the affected device, potentially leading to complete system compromise.
+A buffer overflow vulnerability, identified as CVE-2026-7419, affects UTT HiPER 1250GW devices with firmware versions up to 3.2.7-210907-180535. The vulnerability resides within the `strcpy` function of the `route/goform/formTaskEdit_ap.goform` file. Attackers can exploit this vulnerability by manipulating the 'Profile' argument, leading to a buffer overflow. Publicly available exploits exist, increasing the risk of exploitation. Successful exploitation could allow remote attackers to execute arbitrary code on the affected device, potentially leading to complete system compromise. This poses a significant threat to organizations using these devices, particularly if they are exposed to the internet.
 
 ## Attack Chain
 
-1.  Attacker identifies a vulnerable UTT HiPER 1250GW device running a susceptible firmware version (<= 3.2.7-210907-180535).
-2.  The attacker crafts a malicious HTTP POST request targeting the `/goform/formNatStaticMap` endpoint.
-3.  The POST request includes the `NatBind` argument with a value exceeding the buffer size allocated for it.
-4.  The vulnerable `strcpy` function within `/goform/formNatStaticMap` is called to copy the attacker-controlled `NatBind` argument into the undersized buffer.
-5.  The buffer overflow overwrites adjacent memory regions, potentially including function return addresses or other critical data.
-6.  The overwritten return address is replaced with an address pointing to attacker-controlled code.
-7.  When the vulnerable function returns, control is transferred to the attacker's code.
-8.  The attacker's code executes with the privileges of the web server process, potentially allowing for complete system compromise.
+1.  The attacker identifies a UTT HiPER 1250GW device running a vulnerable firmware version (<= 3.2.7-210907-180535).
+2.  The attacker crafts a malicious HTTP POST request targeting the `formTaskEdit_ap.goform` endpoint.
+3.  Within the POST request, the attacker includes the `Profile` argument with a value exceeding the buffer's allocated size.
+4.  The `strcpy` function in `formTaskEdit_ap.goform` attempts to copy the oversized 'Profile' value into a fixed-size buffer.
+5.  The buffer overflow occurs, overwriting adjacent memory regions.
+6.  By carefully crafting the overflowed data, the attacker can overwrite critical data structures, such as function return addresses.
+7.  When the vulnerable function returns, it jumps to the attacker-controlled address.
+8.  The attacker gains arbitrary code execution on the device, potentially leading to complete system compromise, including remote shell access, configuration changes, or data exfiltration.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows remote attackers to execute arbitrary code on affected UTT HiPER 1250GW devices. This can lead to complete device compromise, including unauthorized access to network resources, data theft, and denial-of-service conditions. Given the public availability of exploits, organizations using vulnerable devices are at high risk of being targeted.
+Successful exploitation of this buffer overflow vulnerability allows remote attackers to execute arbitrary code on the UTT HiPER 1250GW device. This could lead to complete device compromise, including unauthorized access to network resources, modification of device configurations, and potentially using the device as a pivot point for further attacks within the network. Given the publicly available exploit, organizations using these devices are at significant risk of being targeted.
 
 ## Recommendation
 
-*   Apply available patches or firmware updates provided by UTT to address CVE-2026-5566.
-*   Monitor web server logs for suspicious POST requests to `/goform/formNatStaticMap` with unusually long `NatBind` arguments.
-*   Deploy the Sigma rule "Detect Suspicious NatBind Parameter Length" to identify potential exploitation attempts.
-*   Implement network segmentation to limit the impact of a compromised device.
+*   Apply available patches or firmware updates from UTT to address CVE-2026-7419 on HiPER 1250GW devices (reference affected_products).
+*   Implement network segmentation to limit the potential impact of a compromised device (reference attack chain step 8).
+*   Monitor web server logs for suspicious POST requests targeting the `formTaskEdit_ap.goform` endpoint with unusually long `Profile` parameters using the provided Sigma rule (reference rules).
+*   Deploy the provided Sigma rule to detect exploitation attempts by monitoring for abnormally long Profile parameters in POST requests to formTaskEdit_ap.goform (reference rules).
