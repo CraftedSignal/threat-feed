@@ -3,6 +3,9 @@ title: openFPGALoader Heap-Buffer-Overflow Read Vulnerability
 slug: 2026-04-openfpgaloader-heap-overflow
 description: A heap-buffer-overflow read vulnerability exists in openFPGALoader 1.1.1 and earlier, allowing out-of-bounds heap memory access via a crafted .pof file, potentially leading to denial of service or information disclosure.
 date: "2026-04-06T20:16:25Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
