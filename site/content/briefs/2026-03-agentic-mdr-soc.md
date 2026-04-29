@@ -1,8 +1,8 @@
 ---
 title: CrowdStrike Agentic MDR and SOC Transformation Services
 slug: 2026-03-agentic-mdr-soc
-description: CrowdStrike introduces agentic MDR and SOC Transformation Services combining deterministic automation, AI agents, and human accountability to accelerate breach response and modernize security operations.
-date: "2026-03-30T06:24:43Z"
+description: CrowdStrike introduces agentic MDR and SOC Transformation Services to enhance breach prevention through machine-speed execution and expert oversight, while SOC Transformation Services aim to modernize security operations by focusing on SIEM, data pipelines, workflows, talent models, and governance.
+date: "2026-03-28T09:23:42Z"
 type: coverage
 types:
   - coverage
@@ -10,24 +10,25 @@ severities:
   - medium
 tags:
   - agentic-soc
-  - managed-detection-and-response
-  - soc-transformation
+  - mdr
+  - soc
+  - ai
 mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1027
     technique_name: Obfuscated Files or Information
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1547
-    technique_name: Boot or Logon Autostart Execution
 references:
-  - https://crowdstrike.com/en-us/blog/crowdstrike-services-and-agentic-mdr-put-the-agentic-soc-in-reach/
+  - https://www.crowdstrike.com/en-us/blog/crowdstrike-services-and-agentic-mdr-put-the-agentic-soc-in-reach/
 rules:
-  - title: Detect PowerShell Execution with Suspicious Arguments
-    description: Detects PowerShell execution with arguments commonly used for malicious purposes
+  - title: Detect PowerShell Execution via Command Line
+    description: Detects PowerShell execution via command line, commonly used by attackers for various malicious activities.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - execution
     techniques:
@@ -35,40 +36,40 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detect Network Connection from Uncommon Process
-    description: Detects network connections initiated by processes not commonly associated with network activity
+  - title: Detect Persistence via Scheduled Task Creation
+    description: Detects the creation of scheduled tasks, which can be used by attackers to establish persistence.
     platform: sigma
     severity: medium
     tactics:
-      - command_and_control
+      - persistence
     techniques:
-      - T1071.001
+      - T1053.005
     data_sources:
-      - network_connection
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-CrowdStrike has announced Agentic MDR and SOC Transformation Services, designed to enhance security operations by combining machine-speed execution with expert human oversight. The Agentic MDR, delivered through Falcon Complete, integrates deterministic automation, adaptive AI agents, and elite human analysts to improve breach response times. Falcon Complete leverages Falcon Fusion SOAR and proprietary tooling to execute pre-defined response playbooks. SOC Transformation Services aim to modernize core SOC elements like SIEM, data pipelines, workflows, and talent models, enabling organizations to achieve repeatable security outcomes. These services focus on establishing foundational operating conditions for agentic SOC operations, facilitating a pragmatic path towards agentic execution and addressing the challenges of modern attacks that evade traditional defenses. The goal is to provide a trusted path for organizations to modernize and sustain their security operations effectively.
+CrowdStrike has announced agentic MDR and SOC Transformation Services to improve the effectiveness of security operations centers (SOCs). The agentic MDR solution is designed to leverage machine-speed execution with expert accountability to stop breaches more efficiently. This involves combining deterministic automation with expert-defined guardrails, adaptive AI agents, and human oversight to ensure rapid and precise responses to threats. SOC Transformation Services aim to modernize the foundational aspects of SOC operations, including SIEM systems, data pipelines, workflows, talent models, and governance frameworks. These services are designed to help organizations establish the necessary operating conditions for agentic SOC operations, enabling them to evolve their security practices safely and deliberately. This addresses the challenge organizations face in scaling agentic security due to a lack of clean data foundations, modern workflows, and governance structures.
 
 ## Attack Chain
 
-While the announcement focuses on defense, understanding potential attack chains that Agentic MDR aims to defend against is crucial:
+Given the nature of this announcement focusing on services rather than specific attacks, the following represents a generalized attack chain that CrowdStrike's Agentic MDR and SOC Transformation Services aim to disrupt and mitigate.
 
-1.  **Initial Access:** Adversaries gain initial access through various means, such as phishing, exploiting vulnerabilities, or leveraging compromised credentials.
-2.  **Execution:** Upon gaining access, attackers execute malicious code using tools like PowerShell or command-line interpreters to establish persistence and move laterally within the network.
-3.  **Persistence:** Attackers establish persistence mechanisms, such as creating scheduled tasks or modifying registry keys, to maintain access to the compromised system even after a reboot.
-4.  **Privilege Escalation:** Adversaries attempt to elevate their privileges to gain administrative control over the system, often exploiting vulnerabilities or misconfigurations.
-5.  **Lateral Movement:** Using compromised credentials or other techniques, attackers move laterally to other systems on the network to expand their reach and access sensitive data.
-6.  **Data Exfiltration:** Once they have identified valuable data, attackers exfiltrate it from the compromised network to an external location using protocols like FTP or HTTP.
-7.  **Impact:** The final objective could include ransomware deployment, data theft, or disruption of critical services, causing financial and reputational damage to the organization.
+1.  **Initial Access:** An attacker gains initial access to a system or network through various means, such as phishing, exploiting vulnerabilities, or using stolen credentials.
+2.  **Execution:** The attacker executes malicious code on the compromised system, often using scripting languages like PowerShell or Python.
+3.  **Persistence:** The attacker establishes persistence mechanisms to maintain access to the system, such as creating scheduled tasks or modifying registry keys.
+4.  **Privilege Escalation:** The attacker attempts to escalate privileges to gain higher-level access to the system and network.
+5.  **Lateral Movement:** The attacker moves laterally within the network, compromising additional systems and expanding their control.
+6.  **Data Exfiltration:** The attacker identifies and exfiltrates sensitive data from the compromised systems to an external location.
+7.  **Impact:** The attacker achieves their final objective, which could include data theft, ransomware deployment, or disruption of services.
 
 ## Impact
 
-The successful exploitation of vulnerabilities and execution of sophisticated attacks can result in significant damage, including financial losses, reputational damage, and disruption of critical services. Organizations lacking modern security operations centers and facing a skills gap may struggle to defend against these threats, leading to prolonged incident response times and increased impact. Agentic MDR aims to reduce the median time to contain (MTTC) to 1 minute, significantly decreasing the impact of successful breaches.
+The potential impact of successful attacks on organizations without adequate security measures can be significant. This includes data breaches, financial losses, reputational damage, and disruption of critical services. Organizations lacking modern security operations capabilities may struggle to detect and respond to advanced threats, leading to prolonged incidents and increased damage. CrowdStrike's agentic MDR and SOC Transformation Services aim to mitigate these risks by providing faster detection, automated response, and expert guidance to improve overall security posture.
 
 ## Recommendation
 
-*   Implement and fine-tune detection rules for common attack techniques, such as PowerShell-based execution and lateral movement, to improve visibility into malicious activity.
-*   Modernize SIEM and logging architecture by onboarding relevant log sources, normalizing data, and developing use-case mappings, as suggested by CrowdStrike's SOC Transformation Services.
-*   Redesign incident response workflows for triage, escalation, containment, and recovery, aligning them with team structure, staffing model, and business risk tolerance.
+*   Evaluate your current SIEM and logging architecture and create a migration plan to a modern SIEM solution like CrowdStrike Falcon Next-Gen SIEM, focusing on log source onboarding, parsing, normalization, and retention strategy.
+*   Redesign your triage, escalation, containment, and recovery workflows to align with your team structure, staffing model, and business risk tolerance, as described in the "SOC Transformation Services" section.
+*   Prioritize the development and deployment of detection rules and automation, incorporating AI use case development and guardrails for safe response actions, leveraging the capabilities outlined in the "SOC Transformation Services" section.
