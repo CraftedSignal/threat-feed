@@ -3,6 +3,9 @@ title: File Browser Stored XSS via Crafted EPUB File
 slug: 2024-07-filebrowser-xss
 description: File Browser version 2.62.1 and earlier is vulnerable to stored cross-site scripting (XSS) via crafted EPUB files, allowing attackers to execute arbitrary JavaScript in a victim's browser by exploiting the application's misconfigured iframe sandbox and stealing sensitive information like JWT tokens.
 date: "2026-03-31T23:44:36Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
