@@ -1,74 +1,70 @@
 ---
-title: OpenClaw Paired Node Escalation to Gateway RCE via Unrestricted Agent Dispatch
+title: OpenClaw Gateway RCE and Privilege Escalation via Device Pairing Approval
 slug: 2026-04-openclaw-rce
-description: A vulnerability in OpenClaw versions 2026.3.28 and earlier allows a paired node to escalate privileges to achieve remote code execution on the gateway via unrestricted node.event agent dispatch, requiring an existing foothold on a trusted paired node.
-date: "2026-04-03T03:22:05Z"
+description: A critical vulnerability in OpenClaw versions prior to 2026.3.22 allows for remote code execution and privilege escalation by permitting an operator.pairing approver to approve device requests with broader operator scopes than authorized, potentially leading to unauthorized administrative access.
+date: "2026-03-26T21:46:07Z"
 type: coverage
 types:
   - coverage
 severities:
-  - high
+  - critical
 tags:
   - openclaw
   - rce
   - privilege-escalation
 mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
 references:
-  - https://github.com/advisories/GHSA-gjm7-hw8f-73rq
+  - https://github.com/advisories/GHSA-hf68-49fm-59cq
 rules:
-  - title: Detect Suspicious Process Creation from OpenClaw Gateway
-    description: Detects suspicious process creation events originating from the OpenClaw gateway application, which could indicate exploitation of the RCE vulnerability.
+  - title: Detect Suspicious Device Pairing Approval
+    description: Detects attempts to approve device pairing requests with escalated privileges by monitoring for device pairing events where the requested scope exceeds the approver's scope.
     platform: sigma
     severity: high
     tactics:
-      - execution
       - privilege_escalation
     techniques:
-      - T1059.004
+      - T1068
     data_sources:
-      - process_creation
-      - linux
-  - title: Detect OpenClaw Node Event Agent Request Command Execution
-    description: Detects command execution associated with OpenClaw Node Event Agent Requests.
+      - application
+      - openclaw
+  - title: Detect Admin Activity from Newly Paired Device
+    description: Detects unusual administrative activity originating from devices that were recently paired, potentially indicating exploitation of the privilege escalation vulnerability.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - persistence
     techniques:
-      - T1059.004
+      - T1098
     data_sources:
-      - process_creation
-      - linux
+      - application
+      - openclaw
 rules_count: 2
 ---
 
-OpenClaw, a package available on npm, is vulnerable to a privilege escalation issue. The vulnerability resides in the handling of `node.event` agent dispatch, allowing a compromised or malicious paired node to execute commands on the gateway with elevated privileges. This is possible because the gateway trusts the paired node and doesn't sufficiently restrict the `node.event` agent's capabilities. While the attacker requires a pre-existing foothold on a paired node, successful exploitation leads to remote code execution on the gateway. This vulnerability affects OpenClaw versions up to and including 2026.3.28. Version 2026.3.31 addresses this vulnerability, as reported by AntAI Security Lab. Defenders should upgrade immediately.
+OpenClaw versions prior to 2026.3.22 contain a critical vulnerability that allows for remote code execution (RCE) and privilege escalation. Specifically, the `device.pair.approve` function within the OpenClaw gateway does not properly validate the scopes requested during device pairing. This flaw enables an attacker with `operator.pairing` privileges to approve device requests for scopes exceeding their own, potentially escalating their privileges to `operator.admin`. The vulnerability was reported by @zpbrent and patched in version 2026.3.22, with the fix present in subsequent releases (v2026.3.23 and v2026.3.23-2). Defenders should upgrade vulnerable instances immediately. The affected package is npm/openclaw.
 
 ## Attack Chain
 
-1. An attacker gains initial access to a paired node within the OpenClaw environment.
-2. The attacker leverages their access to the paired node to craft a malicious `node.event` agent request.
-3. This crafted request is designed to exploit the unrestricted agent dispatch vulnerability.
-4. The paired node sends the malicious `node.event` agent request to the OpenClaw gateway.
-5. The gateway, trusting the paired node, processes the request without adequate validation.
-6. Due to the lack of restrictions, the agent dispatch executes commands on the gateway system.
-7. The attacker achieves remote code execution on the OpenClaw gateway.
-8. The attacker can then perform further actions, such as data exfiltration or lateral movement.
+1. An attacker gains initial access with `operator.pairing` privileges.
+2. The attacker initiates a device pairing request, specifying a broader scope such as `operator.admin`.
+3. The vulnerable `device.pair.approve` function, lacking proper scope validation, approves the device pairing request.
+4. The newly paired device now possesses the elevated `operator.admin` privileges.
+5. The attacker leverages the escalated privileges to execute administrative functions, potentially including modifying system configurations or accessing sensitive data.
+6. The attacker deploys malicious code or alters existing code through the compromised administrative access.
+7. The system executes the attacker's malicious code, leading to remote code execution.
+8. The attacker maintains persistent access and control over the OpenClaw gateway.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker with a foothold on a paired node to gain remote code execution on the OpenClaw gateway. This could lead to complete compromise of the gateway, potentially impacting all connected systems and data. The severity is high because the attacker can leverage this vulnerability to pivot from a less privileged node to the critical gateway server.
+Successful exploitation of this vulnerability allows attackers to escalate privileges from `operator.pairing` to `operator.admin` on OpenClaw gateways. This privilege escalation can lead to unauthorized access to sensitive data, modification of system configurations, and remote code execution, potentially compromising the entire OpenClaw environment. Given the critical nature of gateways in controlling access and data flow, this vulnerability could result in significant data breaches and system downtime. The impact is especially severe in environments where OpenClaw manages critical infrastructure or sensitive data.
 
 ## Recommendation
 
-*   Upgrade the `openclaw` package to version 2026.3.31 or later to patch the vulnerability.
-*   Implement input validation and sanitization on the gateway side to prevent malicious `node.event` agent requests from being processed.
-*   Monitor process creation events on the OpenClaw gateway for unusual or unauthorized processes originating from the OpenClaw application. Deploy the provided Sigma rule for process creation to detect suspicious activity on the gateway.
+*   Upgrade all OpenClaw installations to version 2026.3.22 or later to patch the vulnerability (reference: Affected Packages / Versions).
+*   Deploy the Sigma rule `Detect Suspicious Device Pairing Approval` to monitor for unauthorized scope escalation attempts (reference: rules).
+*   Review and audit existing device pairing configurations to identify any instances where devices may have been granted excessive privileges due to this vulnerability.
+*   Monitor gateway logs for unusual administrative activity originating from recently paired devices (reference: Sigma rule `Detect Admin Activity from Newly Paired Device`).
