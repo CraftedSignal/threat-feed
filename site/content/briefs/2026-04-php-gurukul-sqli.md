@@ -3,6 +3,9 @@ title: PHPGurukul Daily Expense Tracking System SQL Injection Vulnerability
 slug: 2026-04-php-gurukul-sqli
 description: A remote SQL injection vulnerability exists in PHPGurukul Daily Expense Tracking System 1.1 within the /register.php file, where manipulation of the email argument allows for arbitrary SQL command execution, with a public exploit available.
 date: "2026-04-14T12:00:00Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
