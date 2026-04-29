@@ -3,6 +3,9 @@ title: Rise in Software Supply Chain Attacks Targeting Open-Source Libraries
 slug: 2026-04-supply-chain-attacks
 description: Multiple supply chain attacks, including the compromise of Axios and Trivy via hijacked GitHub repositories by TeamPCP, demonstrate the increasing threat to open-source software.
 date: "2026-04-03T17:31:42Z"
+type: threat
+types:
+  - threat
 severities:
   - high
 actors:
