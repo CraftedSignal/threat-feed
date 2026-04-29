@@ -3,6 +3,9 @@ title: UTT HiPER 1250GW Buffer Overflow Vulnerability
 slug: 2026-04-utt-hiper-buffer-overflow
 description: A buffer overflow vulnerability exists in UTT HiPER 1250GW devices, allowing remote attackers to execute arbitrary code by manipulating the NatBind argument in the /goform/formNatStaticMap endpoint.
 date: "2026-04-05T13:17:14Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
