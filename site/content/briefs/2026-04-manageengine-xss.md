@@ -3,6 +3,9 @@ title: ManageEngine Exchange Reporter Plus Stored XSS Vulnerability
 slug: 2026-04-manageengine-xss
 description: Zohocorp ManageEngine Exchange Reporter Plus versions before 5802 are vulnerable to Stored XSS in the Distribution Lists report, allowing attackers to inject malicious scripts.
 date: "2026-04-03T11:17:05Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
