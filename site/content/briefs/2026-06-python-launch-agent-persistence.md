@@ -3,6 +3,9 @@ title: First Time Python Process Creates macOS Launch Agent or Daemon
 slug: 2026-06-python-launch-agent-persistence
 description: This rule detects the initial creation or modification of a macOS LaunchAgent or LaunchDaemon plist file by a Python process, a common persistence technique employed by attackers using malicious scripts, compromised dependencies, or model file deserialization.
 date: "2026-04-08T21:12:54Z"
+type: coverage
+types:
+  - coverage
 severities:
   - medium
 tags:
