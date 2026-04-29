@@ -3,6 +3,9 @@ title: Multiple Vulnerabilities in PowerDNS
 slug: 2026-04-powerdns-vulns
 description: Multiple vulnerabilities in PowerDNS could be exploited by an attacker to disclose information, bypass security measures, cause a denial of service, and potentially execute code.
 date: "2026-04-01T09:22:02Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
