@@ -3,6 +3,9 @@ title: PilusCart 1.4.1 SQL Injection Vulnerability
 slug: 2026-04-piluscart-sqli
 description: PilusCart 1.4.1 is vulnerable to SQL injection, allowing unauthenticated attackers to manipulate database queries by injecting SQL code through the 'send' parameter to extract sensitive database information.
 date: "2026-04-05T21:16:44Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
