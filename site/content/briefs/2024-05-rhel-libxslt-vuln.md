@@ -3,6 +3,9 @@ title: Red Hat Enterprise Linux libxslt Vulnerability Allows DoS and Code Execut
 slug: 2024-05-rhel-libxslt-vuln
 description: A local attacker can exploit a vulnerability in libxslt on Red Hat Enterprise Linux to cause a denial of service or execute arbitrary program code.
 date: "2026-04-01T09:20:35Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
