@@ -17,7 +17,11 @@
       {{ if eq $taxonomy "severity" }}
         <span class="sev-badge sev-{{ $term }} text-base">{{ $term }}</span>
       {{ else }}
-        <h1 class="font-display text-3xl md:text-4xl font-semibold">{{ .Title }}</h1>
+        {{/* Relabel /types/coverage/ → "Rule" for clarity. Other taxonomy
+             term pages keep Hugo's auto-titled heading. */}}
+        {{ $heading := .Title }}
+        {{ if and (eq $taxonomy "type") (eq $term "coverage") }}{{ $heading = "Rule" }}{{ end }}
+        <h1 class="font-display text-3xl md:text-4xl font-semibold">{{ $heading }}</h1>
       {{ end }}
       <span class="text-sm text-muted"><span class="font-mono text-text">{{ len $pages }}</span> {{ if eq (len $pages) 1 }}brief{{ else }}briefs{{ end }}</span>
       <a href="feed.xml" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border border-stroke text-xs text-muted hover:text-text hover:border-accent/40 transition">

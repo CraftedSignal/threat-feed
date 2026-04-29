@@ -82,10 +82,11 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {{ range $order }}
             {{ $term := . }}
+            {{ $termLabel := cond (eq $term "coverage") "rule" $term }}
             {{ $page := $.Site.GetPage (printf "/%s/%s" $plural $term) }}
             {{ if $page }}
             <a href="{{ $page.RelPermalink }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 p-4 hover:border-accent/40 transition">
-              <span class="type-badge type-{{ $term }}">{{ $term }}</span>
+              <span class="type-badge type-{{ $term }}">{{ $termLabel }}</span>
               <span class="text-sm text-muted"><span class="font-mono text-text">{{ len $page.Pages }}</span> {{ if eq (len $page.Pages) 1 }}brief{{ else }}briefs{{ end }}</span>
             </a>
             {{ end }}

@@ -29,7 +29,8 @@
 
       <div class="flex flex-wrap items-center gap-2 text-xs">
         <span class="sev-badge {{ $sevClass }}">{{ $sev }}</span>
-        <a href="/types/{{ $type }}/" class="type-badge type-{{ $type }} hover:opacity-80 transition" title="See all {{ $type }} briefs">{{ $type }}</a>
+        {{ $typeLabel := cond (eq $type "coverage") "rule" $type }}
+        <a href="/types/{{ $type }}/" class="type-badge type-{{ $type }} hover:opacity-80 transition" title="See all {{ $typeLabel }} briefs">{{ $typeLabel }}</a>
         {{ if $exploited }}<span class="exploited-badge" title="Active exploitation observed in the wild">exploited</span>{{ end }}
         <time class="font-mono text-muted" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
         {{ range $actors }}
