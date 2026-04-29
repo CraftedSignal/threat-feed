@@ -3,6 +3,9 @@ title: WordPress Widgets for Social Photo Feed Plugin Stored XSS Vulnerability
 slug: 2026-04-wordpress-xss
 description: The Widgets for Social Photo Feed plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) via the 'feed_data' parameter, allowing unauthenticated attackers to inject arbitrary web scripts in pages that will execute when a user accesses the injected page.
 date: "2026-04-04T09:16:20Z"
+type: threat
+types:
+  - threat
 severities:
   - medium
 actors:
