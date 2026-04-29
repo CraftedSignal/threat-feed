@@ -3,6 +3,9 @@ title: NocoBase plugin-workflow-javascript Sandbox Escape Vulnerability
 slug: 2026-04-nocobase-rce
 description: A remote code execution vulnerability exists in NocoBase plugin-workflow-javascript versions up to 2.0.23 due to a sandbox escape in the createSafeConsole function, allowing unauthenticated attackers to potentially execute arbitrary code on the server.
 date: "2026-04-14T12:00:00Z"
+type: threat
+types:
+  - threat
 severities:
   - critical
 exploited: true
