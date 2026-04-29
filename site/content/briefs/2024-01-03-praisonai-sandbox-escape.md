@@ -3,6 +3,9 @@ title: PraisonAI SubprocessSandbox Shell Escape via sh/bash
 slug: 2024-01-03-praisonai-sandbox-escape
 description: PraisonAI's SubprocessSandbox allows attackers to bypass command restrictions due to the use of `shell=True` in `subprocess.run()` combined with an insufficient blocklist that does not include `sh` or `bash`, enabling command execution via `sh -c '<command>'`.
 date: "2026-04-01T23:26:01Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
