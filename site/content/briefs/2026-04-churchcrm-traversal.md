@@ -3,6 +3,9 @@ title: ChurchCRM Path Traversal Vulnerability Leading to Remote Code Execution
 slug: 2026-04-churchcrm-traversal
 description: A path traversal vulnerability in ChurchCRM versions prior to 6.5.3 allows authenticated administrators to upload arbitrary files, leading to remote code execution by overwriting Apache .htaccess files.
 date: "2026-04-07T18:16:41Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
