@@ -1,70 +1,73 @@
 ---
-title: Canonical LXD Backup Import Project Restriction Bypass (CVE-2026-34178)
+title: LXD Backup Import Bypass Allows Privilege Escalation in Restricted Projects
 slug: 2026-04-lxd-backup-bypass
-description: An authenticated remote attacker with instance-creation permission in a restricted project can bypass project restrictions in Canonical LXD before 6.8 by crafting a malicious backup archive, leading to full host compromise.
-date: "2026-04-09T10:16:21Z"
+description: A vulnerability in LXD allows an attacker with instance-creation rights in a restricted project to bypass project restrictions and escalate privileges by crafting a malicious backup archive.
+date: "2026-04-10T19:24:26Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
   - lxd
-  - canonical
   - privilege-escalation
-  - vulnerability
+  - container-escape
+  - cve-2026-34178
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-cves:
-  - id: CVE-2026-34178
-    cvss: 9.1
+    technique_id: T1611
+    technique_name: Escape to Host
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-34178
+  - https://github.com/advisories/GHSA-q96j-3fmm-7fv4
 rules:
-  - title: Detect LXD Backup Import with Suspicious Privileged Configuration
-    description: Detects LXD backup import operations that attempt to set privileged configurations, potentially bypassing project restrictions.
-    platform: sigma
-    severity: critical
-    tactics:
-      - privilege_escalation
-    techniques:
-      - T1068
-    data_sources:
-      - process_creation
-      - linux
-  - title: Detect LXD process start with Elevated Privileges
-    description: Detects processes started in LXD containers with elevated privileges, which can indicate exploitation of a bypass vulnerability
+  - title: Detect LXD Container Creation with Privileged Mode in Restricted Projects
+    description: Detects the creation of LXD containers with 'security.privileged' set to 'true' which is a sign of potential privilege escalation, especially in restricted projects. This requires access to the LXD database.
     platform: sigma
     severity: high
     tactics:
       - privilege_escalation
     techniques:
       - T1068
+      - T1611
     data_sources:
-      - process_creation
+      - file_event
+      - linux
+  - title: Detect LXD Container Creation with raw.lxc
+    description: Detects the creation of LXD containers with 'raw.lxc' config which is a sign of potential privilege escalation, especially in restricted projects. This requires access to the LXD database.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1068
+      - T1611
+    data_sources:
+      - file_event
       - linux
 rules_count: 2
 ---
 
-Canonical LXD, a container management platform, is vulnerable to a critical security flaw (CVE-2026-34178) affecting versions prior to 6.8. This vulnerability allows an authenticated remote attacker with instance-creation privileges within a restricted project to bypass enforced restrictions. The attack exploits a discrepancy in the backup import process, where project restrictions are validated against `backup/index.yaml`, but the instance is created from `backup/container/backup.yaml`, a separate file that is not subject to the same validation. Successful exploitation allows attackers to inject malicious configurations, such as `security.privileged=true` or `raw.lxc` directives, effectively escalating privileges and gaining full control over the host system. This poses a significant threat to multi-tenant LXD environments where projects are intended to be isolated.
+A critical vulnerability exists in LXD (versions prior to the fixes mentioned below) that allows an attacker with limited privileges in a restricted project to bypass security restrictions and gain full control of the LXD host. The vulnerability stems from improper validation during instance backup import. Specifically, LXD validates project restrictions against the `backup/index.yaml` file within the backup archive but creates the instance from the `backup/container/backup.yaml` file. By crafting a malicious backup archive where `index.yaml` appears clean while `backup.yaml` contains configurations that violate project restrictions (e.g., `security.privileged=true`, `raw.lxc` host filesystem mounts), an attacker can create a privileged container and escape the restricted environment. This allows them to escalate privileges and potentially compromise the entire LXD host. The attacker needs `can_view_instances`, `can_create_instances`, and `can_operate_instances` permissions. This affects LXD versions up to those patched in April 2026.
 
 ## Attack Chain
 
-1. Attacker authenticates to LXD with instance-creation permissions within a restricted project.
-2. Attacker crafts a malicious backup archive. This archive contains a `backup/index.yaml` file that conforms to the project's restrictions to pass initial validation.
-3. The malicious archive also contains a `backup/container/backup.yaml` file with configurations that violate project restrictions, such as `security.privileged=true` or `raw.lxc` directives.
-4. The attacker initiates the backup import process using the `lxc import` command, specifying the crafted archive.
-5. LXD validates the `backup/index.yaml` file against project restrictions, which passes due to the crafted nature of the file.
-6. LXD creates a new instance based on the configurations specified in the `backup/container/backup.yaml` file.
-7. Due to the vulnerability, the configurations in `backup/container/backup.yaml` are not checked against project restrictions, allowing the malicious configurations to be applied to the new instance.
-8. The attacker gains escalated privileges within the newly created instance, leading to full host compromise.
+1.  The attacker creates a local directory structure mimicking an LXD backup archive, including `backup/index.yaml` and `backup/container/backup.yaml`.
+2.  The attacker crafts a `backup/index.yaml` file with configurations that satisfy project restrictions (e.g., no privileged mode, no raw.lxc).
+3.  The attacker crafts a malicious `backup/container/backup.yaml` file that contains configurations violating project restrictions, such as `security.privileged=true` and `raw.lxc` entries to mount the host's LXD Unix socket.
+4.  The attacker packages the crafted directory structure into a tar archive (e.g., `malicious-backup.tar`).
+5.  The attacker uses `lxc import target-lxd: malicious-backup.tar --project restricted-project` to import the malicious backup into the target LXD server. LXD validates against `index.yaml` at this stage.
+6.  LXD extracts the contents of the tar archive, including the malicious `backup.yaml`, to the storage volume. The actual instance creation uses `backup.yaml` configuration.
+7.  The attacker starts the newly created, privileged container using `lxc start target-lxd:escalated-instance --project restricted-project`.
+8.  The attacker leverages the bind-mounted LXD Unix socket from within the container to interact with the LXD API as a full administrator, allowing them to create admin certificates, access all projects, and modify any instance, leading to full host compromise.
 
 ## Impact
 
-Successful exploitation of CVE-2026-34178 can lead to a complete compromise of the LXD host system. Attackers can bypass project restrictions designed to isolate tenants, allowing them to execute arbitrary code, access sensitive data, and potentially disrupt services for all tenants on the affected host. This vulnerability poses a significant risk to organizations utilizing LXD for container management, particularly in multi-tenant environments where security and isolation are paramount. The CVSS v3.1 base score of 9.1 reflects the criticality of this vulnerability.
+Successful exploitation allows an attacker to completely bypass LXD project restrictions and gain full administrative control over the LXD host. This can lead to the compromise of all containers running on the host, data theft, and further malicious activities. The vulnerability affects multi-tenant environments where LXD is used to isolate different users or projects, allowing a malicious tenant to break out of their restricted environment and compromise the entire system.
 
 ## Recommendation
 
-*   Upgrade LXD to version 6.8 or later to patch CVE-2026-34178.
-*   Implement strict access control policies to limit instance-creation permissions to only trusted users.
-*   Monitor LXD audit logs for suspicious backup import activities that may indicate exploitation attempts. Use the rule `title: "Detect LXD Backup Import with Suspicious Privileged Configuration"` to detect attempts to set privileged configurations via backup import.
+*   Apply the patches provided by Canonical for LXD versions 6, 5.21, and 5.0 to remediate the vulnerability. Specifically, upgrade to LXD 6.7, LXD 5.21.4, or LXD 5.0.6.
+*   Monitor LXD server logs for suspicious `lxc import` commands, especially those targeting restricted projects. While difficult to detect solely on command line arguments, anomalous import patterns could be a sign of attempted exploitation.
+*   Deploy the provided Sigma rule to detect the creation of containers with `security.privileged` set to true or with `raw.lxc` configurations in restricted projects by analyzing the LXD database (if accessible).
+*   As a defense-in-depth measure, consider implementing filesystem integrity monitoring on the LXD storage volumes to detect unauthorized modifications to container configurations.
