@@ -3,6 +3,9 @@ title: GenAI Tool Access to Sensitive Files for Credential Harvesting and Persis
 slug: 2024-01-genai-sensitive-file-access
 description: This brief outlines the threat of attackers leveraging GenAI tools to access sensitive files containing credentials, SSH keys, browser data, and shell configurations for credential access and persistence.
 date: "2026-04-22T16:34:10Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
@@ -68,4 +71,27 @@ rules:
 rules_count: 2
 ---
 
-Attackers are increasingly exploiting GenAI tools to automate the discovery and exfiltration of sensitive information from compromised systems. This involves using GenAI agents to systematically scan file systems for credentials, API keys, tokens, and other secrets. Access to credential stores (.aws/credentials, .ssh/id_*) indicates credential harvesting, while modifications to shell configuration files (.bashrc, .zshrc) point to persistence attempts.  The observed activity leverages legitimate…
+Attackers are increasingly exploiting GenAI tools to automate the discovery and exfiltration of sensitive information from compromised systems. This involves using GenAI agents to systematically scan file systems for credentials, API keys, tokens, and other secrets. Access to credential stores (.aws/credentials, .ssh/id_*) indicates credential harvesting, while modifications to shell configuration files (.bashrc, .zshrc) point to persistence attempts.  The observed activity leverages legitimate GenAI tool functionality, making it difficult to distinguish between benign use and malicious intent.  This technique has become more prevalent since late 2025, with attackers refining methods to instruct GenAI agents to specifically target and exfiltrate sensitive files. Defenders must monitor for unusual file access patterns by GenAI processes.
+
+## Attack Chain
+
+1.  Attacker gains initial access to a system via phishing or exploiting a software vulnerability.
+2.  Attacker installs or deploys a GenAI tool (e.g., LM Studio, Claude, Copilot) on the compromised system.
+3.  The attacker configures the GenAI tool to scan the file system for specific file names and patterns associated with sensitive data (credentials, keys, cookies).
+4.  The GenAI tool accesses files such as `.aws/credentials`, `.ssh/id_rsa`, browser login databases (e.g., `Login Data`, `logins.json`, `Cookies`), and other credential stores.
+5.  The GenAI tool may modify shell configuration files (`.bashrc`, `.zshrc`) to establish persistence.
+6.  The GenAI tool stages the collected data for exfiltration.
+7.  The attacker exfiltrates the harvested credentials and data to an external server.
+8.  The attacker uses the stolen credentials to gain unauthorized access to other systems or cloud resources.
+
+## Impact
+
+Successful exploitation can lead to widespread credential compromise, allowing attackers to move laterally within a network, access sensitive data, and potentially disrupt critical business operations. A single compromised developer workstation could expose cloud infrastructure credentials, impacting hundreds of systems and services. The use of GenAI tools allows for rapid and automated credential harvesting, significantly increasing the scale and speed of potential breaches. Sectors at high risk include software development, cloud computing, and any organization that relies heavily on API keys and secrets for authentication.
+
+## Recommendation
+
+*   Deploy the Sigma rule `GenAI Process Accessing Sensitive Files` to your SIEM to detect GenAI tools accessing sensitive files. Tune for your environment to reduce false positives.
+*   Monitor file access events, specifically looking for GenAI processes (ollama, lmstudio, claude) accessing files with names like `credentials`, `id_rsa`, `logins.json`, and `.bashrc`, as outlined in the Sigma rule.
+*   Implement stricter access controls and monitoring for sensitive directories like `.aws`, `.ssh`, and browser profile directories.
+*   Regularly audit and rotate credentials, API keys, and tokens, especially those stored in files.
+*   Educate developers and users about the risks of using GenAI tools to handle sensitive data.
