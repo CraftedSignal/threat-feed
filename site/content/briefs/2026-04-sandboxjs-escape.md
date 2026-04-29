@@ -3,6 +3,9 @@ title: SandboxJS Integrity Escape Vulnerability
 slug: 2026-04-sandboxjs-escape
 description: A sandbox integrity escape vulnerability exists in SandboxJS versions prior to 0.8.36, allowing untrusted code to bypass global write protections and mutate host shared global objects, potentially leading to cross-context persistence and broader compromise.
 date: "2026-04-03T21:44:39Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
