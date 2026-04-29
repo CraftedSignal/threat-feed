@@ -1,8 +1,8 @@
 ---
-title: Multiple Vulnerabilities in FreeRDP Allow Code Execution and DoS
+title: Multiple Vulnerabilities in FreeRDP
 slug: 2026-03-freerdp-vulns
-description: Multiple vulnerabilities in FreeRDP allow a remote attacker to execute arbitrary code or cause a denial-of-service condition.
-date: "2026-03-30T11:01:43Z"
+description: Multiple vulnerabilities in FreeRDP allow a remote, anonymous attacker to potentially execute arbitrary code, cause a denial of service, cause memory corruption, manipulate data, or disclose sensitive information.
+date: "2026-03-30T11:02:08Z"
 type: coverage
 types:
   - coverage
@@ -11,65 +11,73 @@ severities:
 tags:
   - freerdp
   - vulnerability
-  - code-execution
-  - denial-of-service
+  - rdp
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1218
-    technique_name: System Binary Proxy Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1016
+    technique_name: System Network Configuration Discovery
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1003
+    technique_name: OS Credential Dumping
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0514
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0725
 rules:
-  - title: Detect Suspicious FreeRDP Client Executables
-    description: Detects FreeRDP client executables running from unusual locations, which may indicate malicious activity or unauthorized usage.
+  - title: Detect Suspicious Network Connection to RDP Port
+    description: Detects network connections to the standard RDP port (3389) from unusual source IPs or networks, which may indicate unauthorized access attempts or exploitation of RDP vulnerabilities.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - initial_access
     techniques:
-      - T1218
+      - T1190
     data_sources:
-      - process_creation
+      - network_connection
       - windows
-  - title: Detect FreeRDP Process Making Network Connections
-    description: Detects FreeRDP processes establishing network connections, useful for baseline monitoring and identifying potentially malicious connections.
+  - title: Detect Unusual Process Connecting to RDP Port
+    description: Detects processes other than the standard RDP client (mstsc.exe) connecting to the RDP port (3389), potentially indicating malicious activity or lateral movement.
     platform: sigma
-    severity: informational
+    severity: high
     tactics:
-      - command_and_control
+      - lateral_movement
     techniques:
-      - T1071.001
+      - T1021.001
     data_sources:
       - network_connection
       - windows
 rules_count: 2
 ---
 
-Multiple vulnerabilities exist within FreeRDP, a free remote desktop protocol implementation. Successful exploitation of these vulnerabilities could allow a remote attacker to achieve arbitrary code execution on the target system or trigger a denial-of-service (DoS) condition, impacting the availability of the service. This advisory highlights the potential risks associated with running unpatched FreeRDP instances. Defenders should promptly investigate and apply available patches or mitigations to prevent exploitation. The exact versions affected are not specified in the advisory, highlighting the need for a comprehensive assessment of the FreeRDP deployment within an organization.
+Multiple vulnerabilities have been identified in FreeRDP, a free and open-source implementation of the Remote Desktop Protocol (RDP). These vulnerabilities, if exploited, could allow a remote, anonymous attacker to compromise a system running FreeRDP. The vulnerabilities could lead to arbitrary code execution, denial-of-service conditions, memory corruption, data manipulation, and the disclosure of sensitive information. Given the wide deployment of RDP and FreeRDP in various environments, these vulnerabilities pose a significant risk to organizations that rely on this software for remote access and management. Defenders should prioritize patching and monitoring for exploitation attempts.
 
 ## Attack Chain
 
-1.  An attacker identifies a vulnerable FreeRDP instance exposed to the network.
-2.  The attacker crafts a malicious RDP request targeting a specific vulnerability within FreeRDP's parsing or processing logic.
-3.  The malicious request is sent to the vulnerable FreeRDP server.
-4.  The FreeRDP server processes the crafted request, triggering a buffer overflow or other memory corruption vulnerability.
-5.  If successful, the attacker gains the ability to inject and execute arbitrary code on the server.
-6.  Alternatively, the malicious request may cause the FreeRDP service to crash, resulting in a denial-of-service.
-7.  Following successful code execution, the attacker can perform actions such as installing malware, stealing sensitive data, or pivoting to other systems on the network.
+1.  The attacker identifies a vulnerable FreeRDP instance exposed to the network.
+2.  The attacker establishes a connection to the target FreeRDP server.
+3.  The attacker sends a malformed RDP request specifically crafted to exploit one of the vulnerabilities.
+4.  The vulnerability is triggered, leading to memory corruption within the FreeRDP process.
+5.  The attacker leverages the memory corruption to inject malicious code into the FreeRDP process.
+6.  The injected code is executed, granting the attacker control over the system.
+7.  The attacker uses their control to install malware, steal data, or disrupt services.
+8.  The attacker achieves their objective: arbitrary code execution, data exfiltration, or denial of service.
 
 ## Impact
 
-Successful exploitation of these FreeRDP vulnerabilities can lead to complete compromise of the affected system. This could result in data breaches, service disruption, and further propagation of the attack within the organization's network. The lack of specific version or vulnerability details in the advisory emphasizes the broad scope of the potential impact, requiring immediate investigation and patching across all FreeRDP deployments. Depending on the function of the FreeRDP server, the impact could range from minor inconvenience to critical business disruption.
+Successful exploitation of these vulnerabilities can have severe consequences. An attacker could gain complete control over affected systems, potentially leading to data breaches, system downtime, and financial losses. The broad usage of FreeRDP means a large number of systems are potentially vulnerable. The impact ranges from individual workstations to critical servers, impacting productivity and potentially compromising sensitive data across various sectors.
 
 ## Recommendation
 
-*   Apply the latest security patches to all FreeRDP installations.
-*   Monitor network traffic for suspicious RDP connections, looking for malformed packets.
+*   Apply the latest patches and updates to FreeRDP as soon as they are available from the vendor.
+*   Monitor network traffic for suspicious RDP connections, especially from unexpected sources (see network connection Sigma rule).
 *   Implement network segmentation to limit the blast radius of a potential compromise.
-*   Deploy the Sigma rule "Detect Suspicious FreeRDP Client Executables" to identify unusual FreeRDP client processes.
-*   Enable process creation logging to facilitate investigation of suspicious FreeRDP activity.
+*   Enable and review FreeRDP logs for error messages or unusual activity.
+*   Deploy the provided Sigma rules to your SIEM to detect potential exploitation attempts.
