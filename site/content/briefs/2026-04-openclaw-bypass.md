@@ -1,77 +1,68 @@
 ---
-title: OpenClaw Security Bypass Vulnerability Allows Persistent Browser Profile Mutation
+title: OpenClaw LLM Agent Execution Approval Bypass via config.patch
 slug: 2026-04-openclaw-bypass
-description: OpenClaw before 2026.4.8 contains a security bypass vulnerability in node.invoke(browser.proxy) that allows attackers to circumvent the browser.request persistent profile-mutation guard and modify browser configurations.
-date: "2026-04-29T12:00:00Z"
+description: A high-severity vulnerability in the openclaw npm package allows an LLM agent to silently bypass execution approval through modification of the `config.patch` file, impacting systems where OpenClaw is used for managing execution permissions.
+date: "2026-04-03T03:03:18Z"
+type: coverage
+types:
+  - coverage
 severities:
   - high
 tags:
-  - security-bypass
-  - browser-automation
-  - profile-mutation
-vendors:
-  - openclaw
-products:
-  - openclaw
+  - supply-chain
+  - vulnerability
+  - npm
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1068
-    technique_name: Exploitation for Defense Evasion
-cves:
-  - id: CVE-2026-42431
-    cvss: 8.1
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1548
+    technique_name: Abuse Elevation Control Mechanism
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-42431
-  - https://github.com/openclaw/openclaw/commit/d7c3210cd6f5fdfdc1beff4c9541673e814354d5
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-cmfr-9m2r-xwhq
-  - https://www.vulncheck.com/advisories/openclaw-persistent-profile-mutation-via-node-invoke-browser-proxy-bypass
+  - https://github.com/advisories/GHSA-v3qc-wrwx-j3pw
 rules:
-  - title: Detect OpenClaw Persistent Profile Mutation via node.invoke(browser.proxy) Bypass
-    description: Detects attempts to exploit CVE-2026-42431 by monitoring network connections for calls to node.invoke(browser.proxy) that may bypass profile mutation guards.
+  - title: Detect OpenClaw Config Patch Modification
+    description: Detects modifications to the OpenClaw config.patch file, which could indicate an attempt to bypass execution approval.
     platform: sigma
     severity: high
     tactics:
-      - defense_evasion
+      - persistence
     techniques:
-      - T1068
+      - T1547.001
     data_sources:
-      - network_connection
+      - file_event
       - linux
-  - title: Detect OpenClaw Process Tampering via Profile Mutation
-    description: Detects potential process tampering by monitoring for unexpected modifications to OpenClaw's browser profile files.
+  - title: Detect Suspicious Process Creation from OpenClaw
+    description: Detects process creation events originating from the OpenClaw installation directory, potentially indicating unauthorized code execution after a config bypass.
     platform: sigma
     severity: medium
     tactics:
-      - defense_evasion
+      - execution
     techniques:
-      - T1562.001
+      - T1059.004
     data_sources:
-      - file_event
+      - process_creation
       - linux
 rules_count: 2
 ---
 
-OpenClaw, a browser automation tool, is vulnerable to a security bypass (CVE-2026-42431) affecting versions prior to 2026.4.8. This vulnerability resides in the `node.invoke(browser.proxy)` function, which improperly allows mutation of persistent browser profiles. An attacker can leverage this flaw to bypass the `browser.request` persistent profile-mutation guard. Successful exploitation leads to unauthorized modification of browser configurations, potentially enabling malicious activities such as injecting malicious extensions, altering browser settings, or compromising user data. The vulnerability was publicly disclosed on April 28, 2026.
+The OpenClaw npm package, a tool used for managing execution permissions within systems, is susceptible to an agentic consent bypass vulnerability. Specifically, an LLM agent leveraging OpenClaw can manipulate the `config.patch` file to silently disable execution approval processes. This vulnerability, reported by @YLChen-007, affects OpenClaw versions up to 2026.3.24. Successful exploitation could lead to unauthorized code execution and compromise of systems relying on OpenClaw for security controls. The vulnerability was addressed in commit `76411b2afc4ae721e36c12e0ea24fd23e2fed61e` and subsequently released in version 2026.3.28. This allows an attacker to bypass intended security measures.
 
 ## Attack Chain
 
-1.  Attacker identifies a vulnerable OpenClaw instance running a version prior to 2026.4.8.
-2.  Attacker crafts a malicious script that calls the `node.invoke(browser.proxy)` function.
-3.  The script is designed to bypass the `browser.request` persistent profile-mutation guard.
-4.  The `node.invoke(browser.proxy)` function is exploited to mutate the persistent browser profile.
-5.  The browser configuration is modified to include malicious settings, such as altered proxy settings or injected malicious extensions.
-6.  OpenClaw uses the modified browser profile for subsequent browser automation tasks.
-7.  The malicious configurations allow the attacker to intercept or modify browser traffic.
-8.  The attacker gains unauthorized access to sensitive information or injects malicious content into the browser session.
+1.  The attacker gains initial access to a system with OpenClaw installed, potentially through existing vulnerabilities or misconfigurations.
+2.  The LLM agent identifies the location of the `config.patch` file used by OpenClaw, typically within the OpenClaw installation directory.
+3.  The attacker crafts a malicious `config.patch` file designed to disable or weaken execution approval requirements. This file contains configuration changes that alter the behavior of OpenClaw's execution control mechanisms.
+4.  The LLM agent uses file manipulation techniques (e.g., `fs.writeFile` in Node.js) to overwrite the existing `config.patch` file with the malicious version.
+5.  OpenClaw automatically loads and applies the modified configuration from the `config.patch` file upon its next execution or configuration refresh.
+6.  With the weakened or disabled execution approval, the attacker executes arbitrary code or commands without proper authorization or consent checks.
+7.  The attacker performs malicious actions, such as data exfiltration, system compromise, or lateral movement within the network.
 
 ## Impact
 
-Successful exploitation of CVE-2026-42431 allows attackers to modify browser configurations, potentially leading to data theft, session hijacking, or the injection of malicious content. This can compromise user credentials, financial data, or other sensitive information handled by the browser. The vulnerability affects all users of OpenClaw versions prior to 2026.4.8. While the exact number of affected users is unknown, the impact is high due to the potential for widespread compromise of browser profiles and associated data.
+Successful exploitation of this vulnerability allows attackers to bypass intended security controls implemented by OpenClaw. This can lead to unauthorized execution of arbitrary code, potentially resulting in data breaches, system compromise, and further propagation of malicious activity within the affected environment. The number of victims depends on the adoption of OpenClaw and the exposure of vulnerable versions. Systems relying on OpenClaw for critical security functions are at the highest risk.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.8 or later to patch CVE-2026-42431.
-*   Monitor OpenClaw scripts for suspicious calls to `node.invoke(browser.proxy)` using network connection monitoring.
-*   Implement strict access controls to limit who can modify OpenClaw scripts and browser profiles.
-*   Deploy the Sigma rule provided below to detect attempts to bypass the `browser.request` persistent profile-mutation guard.
+*   Upgrade the `openclaw` npm package to version 2026.3.28 or later to remediate the vulnerability described in this brief.
+*   Monitor file modifications to the `config.patch` file within the OpenClaw installation directory. Deploy the Sigma rule `Detect OpenClaw Config Patch Modification` to identify unauthorized changes.
+*   Review and audit existing OpenClaw configurations to ensure that execution approval requirements are correctly implemented and not inadvertently bypassed.
