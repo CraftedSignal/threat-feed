@@ -3,6 +3,9 @@ title: Budibase Path Traversal Vulnerability in Plugin Upload
 slug: 2024-05-budibase-traversal
 description: A path traversal vulnerability exists in Budibase versions prior to 3.33.4, allowing attackers with Global Builder privileges to delete arbitrary directories and write arbitrary files via crafted plugin uploads.
 date: "2026-04-03T16:16:41Z"
+type: coverage
+types:
+  - coverage
 severities:
   - critical
 tags:
