@@ -75,6 +75,13 @@ mainSections = ['briefs']
   priority = 0.7
   filename = "sitemap.xml"
 
+[security]
+  [security.funcs]
+    # Allow the footer template to read GITHUB_SHA (injected by GitHub
+    # Actions) so the build commit is rendered alongside the timestamp.
+    # Hugo's default whitelist is HUGO_* and CI only; widen by one entry.
+    getenv = ['^HUGO_', '^CI$', '^GITHUB_SHA$']
+
 [privacy]
   [privacy.disqus]
     disable = true
