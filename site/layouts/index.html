@@ -1,6 +1,20 @@
 {{ define "main" }}
 {{ $briefs := where .Site.RegularPages "Section" "briefs" }}
 {{ $totalCount := len $briefs }}
+{{/* Compact display: 1234 → "1.2K", 12340 → "12K". Drop the .0 from
+     round numbers so 2000 reads as "2K" not "2.0K". */}}
+{{ $countLabel := "" }}
+{{ if ge $totalCount 1000 }}
+  {{ $thou := div (float $totalCount) 1000.0 }}
+  {{ if ge $totalCount 10000 }}
+    {{ $countLabel = printf "%dK" (int (math.Round $thou)) }}
+  {{ else }}
+    {{ $countLabel = printf "%.1fK" $thou }}
+    {{ if hasSuffix $countLabel ".0K" }}{{ $countLabel = replace $countLabel ".0K" "K" }}{{ end }}
+  {{ end }}
+{{ else }}
+  {{ $countLabel = printf "%d" $totalCount }}
+{{ end }}
 {{/* Latest briefs excludes rumour-tier — those have their own section above */}}
 {{ $latestPool := slice }}
 {{ range $briefs }}
@@ -18,7 +32,7 @@
     </p>
     <div class="flex flex-wrap items-center gap-3 pt-2">
       <a href="/subscribe/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent text-white text-sm font-semibold shadow-soft hover:scale-[1.01] transition">Subscribe to alerts</a>
-      <a href="/briefs/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-stroke text-sm font-semibold text-text hover:border-accent/60 transition">Browse <span class="font-mono text-xs opacity-80">{{ $totalCount }}</span> briefs</a>
+      <a href="/briefs/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-stroke text-sm font-semibold text-text hover:border-accent/60 transition" title="Browse {{ $totalCount }} briefs">Browse <span class="font-mono text-xs opacity-80">{{ $countLabel }}</span> briefs</a>
       <a href="/api/" class="inline-flex items-center justify-center w-9 h-9 rounded-xl border border-stroke text-muted hover:text-text hover:border-accent/60 transition" title="Feeds and API" aria-label="Feeds and API">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M17.25 6.75 22.5 12l-5.25 5.25M6.75 17.25 1.5 12l5.25-5.25M14.5 4 9.5 20"/>

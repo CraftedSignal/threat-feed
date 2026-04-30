@@ -42,10 +42,11 @@
       {{ end }}
     </header>
 
-    {{/* Two-column grid on lg+. Main: prose body, MITRE, detection
-         coverage, IOC table. Sidebar: metadata blocks (actors,
-         vendors, products, OS, CVEs, references, tags) — sticky so
-         it tracks the body. Stacks single-column on mobile. */}}
+    {{/* Two-column on lg+. Main: prose body, detection coverage,
+         IOC table — the long-running analysis. Sidebar: every
+         analyst-facing reference card (CVEs, MITRE ATT&CK, threat
+         actors, affected vendors / products / OS, tags, refs).
+         Sidebar sticks to top-20 so it tracks the body when reading. */}}
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
       <div class="lg:col-span-8 space-y-8 min-w-0">
@@ -57,27 +58,6 @@
             This is a public summary. The full analysis, detection rule queries, and IOC values are available in the
             <a class="text-accent hover:underline" href="{{ .Site.Params.appURL }}" target="_blank" rel="noopener noreferrer">CraftedSignal platform</a>.
           </p>
-        </section>
-        {{ end }}
-
-        {{ if $ttps }}
-        <section class="space-y-3">
-          <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">MITRE ATT&CK</h2>
-          <div class="grid sm:grid-cols-2 gap-3">
-            {{ range $ttps }}
-            <div class="rounded-xl border border-stroke bg-panel/60 p-4">
-              <div class="flex items-center gap-2 text-xs font-mono">
-                <span class="text-accent">{{ .technique_id }}</span>
-                {{ with .subtechnique_id }}<span class="text-muted">.{{ . }}</span>{{ end }}
-                <span class="text-muted">·</span>
-                <span class="text-muted">{{ .tactic_id }}</span>
-              </div>
-              <p class="mt-1.5 text-sm text-text font-medium">{{ .technique_name }}</p>
-              {{ with .subtechnique_name }}<p class="text-sm text-muted">{{ . }}</p>{{ end }}
-              <p class="mt-1 text-xs text-muted">Tactic: {{ .tactic_name }}</p>
-            </div>
-            {{ end }}
-          </div>
         </section>
         {{ end }}
 
@@ -147,7 +127,7 @@
 
       </div>
 
-      <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-20 lg:self-start min-w-0">
+      <aside class="lg:col-span-4 space-y-4 lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto min-w-0">
 
         {{ if $cves }}
         <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-3">
@@ -161,6 +141,27 @@
                 {{ if .epss }}<span class="font-mono text-muted" title="EPSS">{{ printf "%.2f" .epss }}</span>{{ end }}
                 {{ if .kev }}<span class="sev-badge sev-critical">KEV</span>{{ end }}
               </div>
+            </div>
+            {{ end }}
+          </div>
+        </section>
+        {{ end }}
+
+        {{ if $ttps }}
+        <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-3">
+          <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">MITRE ATT&CK</h2>
+          <div class="space-y-2.5">
+            {{ range $ttps }}
+            <div class="text-sm">
+              <div class="flex items-baseline gap-2 text-xs font-mono">
+                <span class="text-accent">{{ .technique_id }}</span>
+                {{ with .subtechnique_id }}<span class="text-muted">.{{ . }}</span>{{ end }}
+                <span class="text-muted">·</span>
+                <span class="text-muted">{{ .tactic_id }}</span>
+              </div>
+              <p class="text-text">{{ .technique_name }}</p>
+              {{ with .subtechnique_name }}<p class="text-xs text-muted">{{ . }}</p>{{ end }}
+              <p class="text-[11px] text-muted">{{ .tactic_name }}</p>
             </div>
             {{ end }}
           </div>
@@ -184,13 +185,29 @@
           {{ if $vendors }}
           <div class="space-y-1.5">
             <p class="text-[11px] font-mono uppercase tracking-wider text-muted">Vendors</p>
-            <div class="flex flex-wrap gap-1.5">{{ range $vendors }}<a href="/vendors/{{ . | urlize }}/" class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2 hover:text-accent transition">{{ . }}</a>{{ end }}</div>
+            <div class="flex flex-wrap gap-1.5">
+              {{ range $vendors }}<a href="/vendors/{{ . | urlize }}/" class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2 hover:text-accent transition">{{ . }}</a>{{ end }}
+            </div>
           </div>
           {{ end }}
           {{ if $products }}
           <div class="space-y-1.5">
             <p class="text-[11px] font-mono uppercase tracking-wider text-muted">Products</p>
-            <div class="flex flex-wrap gap-1.5">{{ range $products }}<a href="/products/{{ . | urlize }}/" class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2 hover:text-accent transition">{{ . }}</a>{{ end }}</div>
+            <div class="space-y-1">
+              {{ range $products }}
+              {{/* Split "name (version)" so the version sits on its own
+                   line in the sidebar. The product name links to the
+                   taxonomy page (slugged from the bare name); the
+                   version text isn't a link. */}}
+              {{ $bare := trim (index (split . "(") 0) " " }}
+              {{ $ver := "" }}
+              {{ if in . "(" }}{{ $ver = trim (replace (index (split . "(") 1) ")" "") " " }}{{ end }}
+              <div class="text-sm">
+                <a href="/products/{{ $bare | urlize }}/" class="font-mono text-text hover:text-accent transition break-all">{{ $bare }}</a>
+                {{ if $ver }}<span class="block text-[11px] font-mono text-muted">{{ $ver }}</span>{{ end }}
+              </div>
+              {{ end }}
+            </div>
           </div>
           {{ end }}
           {{ if $os }}
