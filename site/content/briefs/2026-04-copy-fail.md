@@ -1,19 +1,32 @@
 ---
-title: Linux Kernel 'Copy Fail' Local Privilege Escalation Vulnerability
+title: Local Privilege Escalation Vulnerability 'Copy Fail' in Linux Kernel
 slug: 2026-04-copy-fail
-description: A local privilege escalation vulnerability, dubbed 'Copy Fail' (CVE-2026-31431), affects Linux kernels built since 2017, potentially allowing unprivileged users to gain root privileges.
-date: "2026-04-30T09:26:21Z"
-type: advisory
+description: A local privilege escalation vulnerability, dubbed 'Copy Fail' (CVE-2026-31431), affects Linux kernels released since 2017, allowing an unprivileged local attacker to gain root permissions by exploiting a logic bug in the authencesn cryptographic template.
+date: "2026-04-30T13:54:47Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+actors:
+  - Theori
 tags:
   - privilege-escalation
   - linux
   - vulnerability
+vendors:
+  - Theori
+  - Ubuntu
+  - Amazon
+  - Red Hat
+  - SUSE
+  - Linux
 products:
-  - Linux Kernel
+  - Linux kernel
+  - Ubuntu 24.04 LTS
+  - Amazon Linux 2023
+  - RHEL 10.1
+  - SUSE 16
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -24,52 +37,52 @@ cves:
     cvss: 7.8
     epss: 8e-05
 references:
-  - https://cert.europa.eu/publications/security-advisories/2026-005/
+  - https://www.bleepingcomputer.com/news/security/new-linux-copy-fail-flaw-gives-hackers-root-on-major-distros/
 rules:
-  - title: Detect Copy Fail Exploit Execution via Syscalls
-    description: Detects potential exploitation attempts of the 'Copy Fail' vulnerability by monitoring for specific syscall patterns indicative of memory manipulation.
+  - title: Detect Suspicious Splice Usage for Privilege Escalation
+    description: Detects suspicious usage of the splice() system call potentially related to privilege escalation attempts like Copy Fail (CVE-2026-31431), monitoring for file modifications in common temporary directories followed by process execution.
     platform: sigma
     severity: high
     tactics:
       - privilege_escalation
     techniques:
       - T1068
+      - T1548.001
     data_sources:
-      - syscall
+      - process_creation
       - linux
-  - title: Detect suspicious /tmp file execution
-    description: Detects execution of files from /tmp directory, which is common for exploits
+  - title: Detect algif_aead module removal
+    description: Detects attempts to remove the 'algif_aead' module, which is a recommended mitigation for CVE-2026-31431.
     platform: sigma
     severity: medium
     tactics:
-      - privilege_escalation
-    techniques:
-      - T1068
+      - defense_evasion
     data_sources:
       - process_creation
       - linux
 rules_count: 2
 ---
 
-A high-severity local privilege escalation vulnerability, identified as CVE-2026-31431 and nicknamed "Copy Fail," has been discovered in the Linux kernel. This vulnerability impacts all mainstream Linux distributions that utilize a kernel built since 2017. The vulnerability allows unprivileged users to escalate their privileges to root. A public proof-of-concept (PoC) exploit is available, increasing the risk of exploitation. As of April 29, 2026, no distributions have released patched kernel packages. A fix was committed to the mainline kernel on April 1, 2026, but vendor updates are still pending across major distributions. CERT-EU recommends immediate application of interim mitigations, prioritizing Kubernetes nodes and CI/CD runners exposed to untrusted workloads.
+A local privilege escalation vulnerability, "Copy Fail" (CVE-2026-31431), impacts Linux kernels released since 2017. Discovered by Theori's AI-driven pentesting platform Xint Code, the vulnerability allows an unprivileged local attacker to gain root permissions. Theori reported the finding to the Linux kernel security team on March 23, 2026, and patches became available within a week. A proof-of-concept exploit was published, demonstrating a 732-byte script that can root every Linux distribution shipped since 2017. This vulnerability stems from a logic bug in the Linux kernel's authencesn cryptographic template. Theori demonstrated successful exploits on Ubuntu 24.04, Amazon Linux 2023, RHEL 10.1, and SUSE 16.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to a Linux system through some other means (e.g., compromised service, phishing, or physical access).
-2.  The attacker compiles the publicly available "Copy Fail" exploit code on the target system.
-3.  The attacker executes the compiled exploit binary.
-4.  The exploit leverages the vulnerability in the kernel's memory management routines related to copy operations.
-5.  The vulnerability allows the attacker to overwrite kernel memory with attacker-controlled values.
-6.  The attacker overwrites security-sensitive kernel data structures, such as user ID (UID) or group ID (GID) fields.
-7.  The exploit modifies the attacker's effective user ID to 0 (root).
-8.  The attacker now has root privileges and can execute arbitrary commands with elevated permissions.
+1. An unprivileged local attacker gains access to a vulnerable Linux system.
+2. The attacker utilizes the `AF_ALG` socket-based interface to access Linux kernel crypto functions from user space.
+3. The attacker uses the `splice()` system call to perform a controlled 4-byte write in the page cache of a readable file, instead of a normal buffer.
+4. The attacker targets a setuid-root binary file for modification.
+5. The 4-byte write alters the behavior of the setuid-root binary.
+6. The attacker executes the modified setuid-root binary.
+7. Due to the altered behavior, the binary grants the attacker elevated privileges.
+8. The attacker gains root privileges on the system.
 
 ## Impact
 
-Successful exploitation of CVE-2026-31431 allows an unprivileged local attacker to gain full root privileges on the affected system. This can lead to complete system compromise, data theft, malware installation, and denial of service. Given the widespread use of Linux in servers, cloud infrastructure, and embedded systems, the potential impact is significant. Kubernetes nodes and CI/CD runners exposed to untrusted workloads are at particularly high risk.
+Successful exploitation of the Copy Fail vulnerability (CVE-2026-31431) allows an unprivileged local attacker to gain root privileges on a vulnerable Linux system. Theori demonstrated and confirmed the exploit on Ubuntu 24.04, Amazon Linux 2023, RHEL 10.1, and SUSE 16, highlighting the widespread impact. Multi-tenant Linux hosts, Kubernetes/container clusters, CI runners/build farms, and cloud SaaS environments running user code are at high risk.
 
 ## Recommendation
 
-*   Apply the interim mitigation recommended by CERT-EU immediately, prioritizing Kubernetes nodes and CI/CD runners, as mentioned in the overview.
-*   Deploy the Sigma rule "Detect Copy Fail Exploit Execution via Syscalls" to detect potential exploit attempts by monitoring specific syscall patterns associated with the vulnerability.
-*   Update Linux kernel packages to the latest versions as soon as vendor-supplied patches for CVE-2026-31431 become available.
+*   Apply available kernel patches for CVE-2026-31431 on affected Linux distributions, prioritizing multi-tenant environments (e.g., Ubuntu 24.04 LTS, Amazon Linux 2023, RHEL 10.1, SUSE 16).
+*   As an interim mitigation, disable the vulnerable crypto interface by blocking `AF_ALG` socket creation or disabling the `algif_aead` module, as described in the overview.
+*   Monitor for the execution of unusual processes after the modification of binaries in `/tmp` or `/var/tmp` using the Sigma rule "Detect Suspicious Splice Usage for Privilege Escalation".
+*   Deploy the Sigma rule "Detect algif_aead module removal" to detect attempts to disable the vulnerable module.
