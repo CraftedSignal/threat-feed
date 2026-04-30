@@ -13,6 +13,10 @@ tags:
   - ics
   - vulnerability
   - dos
+vendors:
+  - CloudCharge
+products:
+  - cloudcharge.se
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
