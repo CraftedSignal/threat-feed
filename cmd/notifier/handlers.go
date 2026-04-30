@@ -219,11 +219,38 @@ func (s *server) handleDispatch(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
 	defer cancel()
 
-	sent, failed := s.dispatcher.Dispatch(ctx, req.Briefs, s.cfg.ServiceURL)
+	queued, overflowFlushed := s.dispatcher.Dispatch(ctx, req.Briefs, s.cfg.ServiceURL)
 	respondJSON(w, http.StatusOK, map[string]any{
-		"sent":   sent,
-		"failed": failed,
-		"briefs": len(req.Briefs),
+		"queued":           queued,
+		"overflow_flushed": overflowFlushed,
+		"briefs":           len(req.Briefs),
+	})
+}
+
+// POST /flush-pending — bearer-authed; called periodically by Cloud
+// Scheduler. Drains every queue with first_queued_at older than the
+// debounce window, batching all matched briefs per subscriber into
+// one delivery. The debounce window is fixed at 5 min server-side
+// to keep the public surface minimal; tune via flushDebounce.
+func (s *server) handleFlushPending(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	if !s.checkDispatchAuth(r) {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
+
+	const flushDebounce = 5 * time.Minute
+	ctx, cancel := context.WithTimeout(context.Background(), 90*time.Second)
+	defer cancel()
+
+	sent, failed := s.dispatcher.FlushPending(ctx, flushDebounce, s.cfg.ServiceURL)
+	respondJSON(w, http.StatusOK, map[string]any{
+		"sent":     sent,
+		"failed":   failed,
+		"debounce": flushDebounce.String(),
 	})
 }
 

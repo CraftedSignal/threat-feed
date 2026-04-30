@@ -62,6 +62,90 @@ func SendTeams(webhook string, b Brief) error {
 	return postJSON(webhook, card)
 }
 
+// SendSlackBatch posts a single Slack message containing multiple
+// briefs as separate attachments. Single-brief case mirrors SendSlack
+// so existing webhook recipients see no regression.
+func SendSlackBatch(webhook string, briefs []Brief) error {
+	if len(briefs) == 0 {
+		return nil
+	}
+	if len(briefs) == 1 {
+		return SendSlack(webhook, briefs[0])
+	}
+	atts := make([]map[string]any, 0, len(briefs))
+	top := ""
+	for _, b := range briefs {
+		atts = append(atts, map[string]any{
+			"color":      slackColor(b.Severity),
+			"title":      b.Title,
+			"title_link": b.URL,
+			"text":       b.Description,
+			"fields": []map[string]any{
+				{"title": "Type", "value": b.Type, "short": true},
+				{"title": "Severity", "value": b.Severity, "short": true},
+			},
+			"footer": footerLine(b),
+		})
+		if severityRank(b.Severity) > severityRank(top) {
+			top = b.Severity
+		}
+	}
+	payload := map[string]any{
+		"text":        fmt.Sprintf("%s+%d more — %d briefs match your filter", strings.ToUpper(top), len(briefs)-1, len(briefs)),
+		"attachments": atts,
+	}
+	return postJSON(webhook, payload)
+}
+
+// SendTeamsBatch sends a Teams MessageCard with one section per brief.
+// Limited to ~10 sections to stay under Teams' card-size constraints;
+// excess briefs are summarized in a tail note.
+func SendTeamsBatch(webhook string, briefs []Brief) error {
+	if len(briefs) == 0 {
+		return nil
+	}
+	if len(briefs) == 1 {
+		return SendTeams(webhook, briefs[0])
+	}
+	const maxSections = 10
+	render := briefs
+	tail := 0
+	if len(render) > maxSections {
+		tail = len(render) - maxSections
+		render = render[:maxSections]
+	}
+	sections := make([]map[string]any, 0, len(render)+1)
+	top := ""
+	for _, b := range render {
+		sections = append(sections, map[string]any{
+			"activityTitle":    b.Title,
+			"activitySubtitle": fmt.Sprintf("%s · %s", b.Type, b.Severity),
+			"text":             b.Description,
+			"facts": []map[string]any{
+				{"name": "Tags", "value": strings.Join(b.Tags, ", ")},
+				{"name": "Link", "value": b.URL},
+			},
+		})
+		if severityRank(b.Severity) > severityRank(top) {
+			top = b.Severity
+		}
+	}
+	if tail > 0 {
+		sections = append(sections, map[string]any{
+			"text": fmt.Sprintf("…and %d more.", tail),
+		})
+	}
+	card := map[string]any{
+		"@type":      "MessageCard",
+		"@context":   "https://schema.org/extensions",
+		"themeColor": teamsColor(top),
+		"summary":    fmt.Sprintf("%d new briefs", len(briefs)),
+		"title":      fmt.Sprintf("%d briefs match your filter", len(briefs)),
+		"sections":   sections,
+	}
+	return postJSON(webhook, card)
+}
+
 func postJSON(url string, body any) error {
 	buf, err := json.Marshal(body)
 	if err != nil {

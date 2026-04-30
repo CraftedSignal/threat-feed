@@ -53,6 +53,19 @@ type PendingVerification struct {
 	ExpiresAt    time.Time    `firestore:"expires_at"`
 }
 
+// PendingDispatch holds briefs queued for a single subscription, waiting
+// to be batched into one email / Slack / Teams message at the next
+// flush interval. Doc ID is the subscription_id; collection is
+// pending_dispatch. Each /dispatch call appends matching briefs;
+// the periodic /flush-pending sweep drains queues older than the flush
+// debounce window and clears them on success.
+type PendingDispatch struct {
+	SubscriptionID string    `firestore:"-"                json:"subscription_id"`
+	Briefs         []Brief   `firestore:"briefs"           json:"briefs"`
+	FirstQueuedAt  time.Time `firestore:"first_queued_at"  json:"first_queued_at"`
+	LastQueuedAt   time.Time `firestore:"last_queued_at"   json:"last_queued_at"`
+}
+
 // Brief — minimal subset that the dispatcher needs from each new public
 // brief. Posted by the threat-feed Site Deploy workflow on initial
 // publish, and by ti-bot directly when a merge enriches an existing

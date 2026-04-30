@@ -13,10 +13,17 @@ import (
 )
 
 const (
-	collSubscriptions = "subscriptions"
-	collPending       = "pending_verifications"
+	collSubscriptions    = "subscriptions"
+	collPending          = "pending_verifications"
+	collPendingDispatch  = "pending_dispatch"
 
 	pendingTTL = 24 * time.Hour
+
+	// pendingDispatchCap limits how many briefs a single subscriber's
+	// queue can hold before the next /dispatch arrival force-flushes
+	// the queue. Keeps the doc comfortably under Firestore's 1 MB
+	// limit even with verbose briefs.
+	pendingDispatchCap = 50
 )
 
 type firestoreStore struct {
@@ -166,3 +173,109 @@ var (
 	ErrNotFound = errors.New("subscription not found")
 	ErrExpired  = errors.New("verification token expired")
 )
+
+// GetSubscription fetches a single verified subscription by ID. Used at
+// flush-time to pair a queued PendingDispatch with the subscriber's
+// current channel / email / unsubscribe token. Returns ErrNotFound if
+// the subscription has been removed since the brief was queued.
+func (s *firestoreStore) GetSubscription(ctx context.Context, id string) (Subscription, error) {
+	var sub Subscription
+	snap, err := s.c.Collection(collSubscriptions).Doc(id).Get(ctx)
+	if err != nil {
+		if status.Code(err) == codes.NotFound {
+			return sub, ErrNotFound
+		}
+		return sub, err
+	}
+	if err := snap.DataTo(&sub); err != nil {
+		return sub, err
+	}
+	sub.ID = snap.Ref.ID
+	return sub, nil
+}
+
+// EnqueuePending appends matched briefs to a subscription's pending
+// dispatch queue, creating the doc on first use. Idempotent on slug
+// (briefs already in the queue are not re-added). Returns true when
+// the post-append queue depth has reached pendingDispatchCap, so the
+// caller can trigger an immediate flush for that subscription instead
+// of waiting for the next periodic sweep.
+func (s *firestoreStore) EnqueuePending(ctx context.Context, subID string, briefs []Brief) (overflow bool, err error) {
+	if subID == "" || len(briefs) == 0 {
+		return false, nil
+	}
+	ref := s.c.Collection(collPendingDispatch).Doc(subID)
+	now := time.Now().UTC()
+
+	err = s.c.RunTransaction(ctx, func(ctx context.Context, tx *firestore.Transaction) error {
+		var pd PendingDispatch
+		snap, err := tx.Get(ref)
+		if err != nil && status.Code(err) != codes.NotFound {
+			return err
+		}
+		if err == nil {
+			if perr := snap.DataTo(&pd); perr != nil {
+				return perr
+			}
+		}
+		seen := make(map[string]struct{}, len(pd.Briefs))
+		for _, b := range pd.Briefs {
+			seen[b.Slug] = struct{}{}
+		}
+		for _, b := range briefs {
+			if _, dup := seen[b.Slug]; dup {
+				continue
+			}
+			seen[b.Slug] = struct{}{}
+			pd.Briefs = append(pd.Briefs, b)
+		}
+		if pd.FirstQueuedAt.IsZero() {
+			pd.FirstQueuedAt = now
+		}
+		pd.LastQueuedAt = now
+		if len(pd.Briefs) >= pendingDispatchCap {
+			overflow = true
+		}
+		return tx.Set(ref, pd)
+	})
+	return overflow, err
+}
+
+// ForEachFlushablePending iterates pending_dispatch docs whose
+// first_queued_at is older than cutoff, decoding each into a
+// PendingDispatch. fn is called sequentially; the iteration unsubscribes
+// on the first error.
+func (s *firestoreStore) ForEachFlushablePending(ctx context.Context, cutoff time.Time, fn func(PendingDispatch) error) error {
+	iter := s.c.Collection(collPendingDispatch).
+		Where("first_queued_at", "<=", cutoff).
+		Documents(ctx)
+	defer iter.Stop()
+	for {
+		snap, err := iter.Next()
+		if errors.Is(err, iterator.Done) {
+			return nil
+		}
+		if err != nil {
+			return err
+		}
+		var pd PendingDispatch
+		if err := snap.DataTo(&pd); err != nil {
+			return err
+		}
+		pd.SubscriptionID = snap.Ref.ID
+		if err := fn(pd); err != nil {
+			return err
+		}
+	}
+}
+
+// DeletePending removes the queue doc for a subscription. Called after
+// a successful batched delivery. Best-effort: a delete failure leaves
+// the queue in place and the next flush retries.
+func (s *firestoreStore) DeletePending(ctx context.Context, subID string) error {
+	_, err := s.c.Collection(collPendingDispatch).Doc(subID).Delete(ctx)
+	if status.Code(err) == codes.NotFound {
+		return nil
+	}
+	return err
+}

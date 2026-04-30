@@ -71,6 +71,7 @@ func main() {
 	mux.HandleFunc("/verify", srv.handleVerify)
 	mux.HandleFunc("/unsubscribe", srv.handleUnsubscribe)
 	mux.HandleFunc("/dispatch", srv.handleDispatch)
+	mux.HandleFunc("/flush-pending", srv.handleFlushPending)
 	// Browsers eagerly fetch /favicon.ico against any host the user
 	// visits. Without a handler the LB returned 404 noise; serve the
 	// same SVG the static site uses.
