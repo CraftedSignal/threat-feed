@@ -3,9 +3,9 @@ title: Okta Application Sign-On Policy Modified or Deleted
 slug: 2024-01-okta-sign-on-policy-changes
 description: Attackers may modify or delete Okta application sign-on policies to weaken security controls, potentially leading to unauthorized access and data breaches.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

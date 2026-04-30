@@ -5,6 +5,9 @@ description: A remote attacker can exploit CVE-2026-28367 in Undertow by sending
 date: "2026-03-27T17:16:27Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - request-smuggling

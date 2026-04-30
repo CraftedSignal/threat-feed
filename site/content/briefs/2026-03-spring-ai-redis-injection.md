@@ -5,6 +5,9 @@ description: CVE-2026-22744 is a code injection vulnerability in Spring AI's Red
 date: "2026-03-27T06:16:38Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - injection
   - spring-ai

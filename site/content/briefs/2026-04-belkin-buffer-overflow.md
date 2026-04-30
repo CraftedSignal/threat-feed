@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability (CVE-2026-5608) exists 
 date: "2026-04-06T01:16:40Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - buffer-overflow
   - belkin

@@ -3,9 +3,9 @@ title: Sharp Laravel Admin Panel Unrestricted File Upload Vulnerability
 slug: 2026-06-sharp-file-upload-bypass
 description: The code16/sharp Laravel admin panel package contains a vulnerability in its file upload endpoint that allows authenticated users to bypass all file type restrictions by manipulating the validation_rule parameter, potentially leading to Remote Code Execution (RCE) if the storage disk is configured to be publicly accessible.
 date: "2026-03-25T20:03:11Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

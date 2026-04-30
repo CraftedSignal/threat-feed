@@ -5,6 +5,9 @@ description: Easy Chat Server 3.1 is vulnerable to a denial-of-service attack wh
 date: "2026-03-24T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - dos
   - cve-2019-25613

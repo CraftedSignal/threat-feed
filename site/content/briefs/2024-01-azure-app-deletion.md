@@ -3,9 +3,9 @@ title: Detection of Azure Application Deletion
 slug: 2024-01-azure-app-deletion
 description: This alert identifies when an application is deleted within an Azure environment, which could indicate malicious activity or unintended misconfiguration leading to service disruption.
 date: "2024-01-03T15:27:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

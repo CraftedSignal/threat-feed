@@ -3,9 +3,9 @@ title: libpng Vulnerability Allows Code Execution
 slug: 2026-03-libpng-code-execution
 description: A vulnerability in libpng allows a remote, anonymous attacker to potentially execute arbitrary code, disclose sensitive information, or cause a denial-of-service condition.
 date: "2026-03-24T12:36:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

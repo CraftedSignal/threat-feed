@@ -3,9 +3,9 @@ title: Detection of Command and Control Activity via Commonly Abused Web Service
 slug: 2024-01-04-c2-web-services
 description: This rule detects command and control activity using common web services by identifying Windows hosts making DNS requests to a list of commonly abused web services from processes outside of known program locations, potentially indicating adversaries attempting to blend malicious traffic with legitimate network activity.
 date: "2024-01-04T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

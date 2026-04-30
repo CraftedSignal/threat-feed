@@ -5,6 +5,9 @@ description: A remote SQL injection vulnerability exists in code-projects Accoun
 date: "2026-03-29T06:16:12Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sqli
   - cve-2026-5034

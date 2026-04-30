@@ -5,6 +5,9 @@ description: Attackers may halt or disable security services on Linux systems to
 date: "2024-01-09T14:30:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - attack.defense-evasion
   - attack.t1562

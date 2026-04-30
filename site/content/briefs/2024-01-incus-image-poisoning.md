@@ -3,9 +3,9 @@ title: Incus Image Cache Poisoning Vulnerability
 slug: 2024-01-incus-image-poisoning
 description: A vulnerability exists in Incus where it does not properly verify the combined fingerprint when downloading images from simplestreams servers, allowing an attacker to perform image cache poisoning and potentially expose other tenants to running attacker-controlled images.
 date: "2026-03-27T17:08:07Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

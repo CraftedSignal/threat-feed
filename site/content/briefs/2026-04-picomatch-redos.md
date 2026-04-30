@@ -3,9 +3,9 @@ title: Picomatch ReDoS Vulnerability via Extglob Quantifiers
 slug: 2026-04-picomatch-redos
 description: Picomatch is vulnerable to Regular Expression Denial of Service (ReDoS) when processing crafted extglob patterns with quantifiers, leading to excessive CPU consumption and denial of service.
 date: "2026-03-25T21:13:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

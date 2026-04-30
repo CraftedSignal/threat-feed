@@ -5,6 +5,9 @@ description: The wpForo Forum plugin for WordPress is vulnerable to arbitrary fi
 date: "2026-04-11T08:16:05Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - file-deletion

@@ -3,9 +3,9 @@ title: Craft CMS Authenticated Remote Code Execution via Malicious Attached Beha
 slug: 2024-01-18-craftcms-rce
 description: A remote code execution vulnerability exists in Craft CMS versions 5.6.0 through 5.9.12, where any authenticated user with control panel access can exploit the vulnerability by injecting malicious behavior via the `fieldLayouts` parameter in `ElementIndexesController::actionFilterHud()` due to the unsanitized parameter being passed to `FieldLayout::createFromConfig()`.
 date: "2026-03-24T16:50:42Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

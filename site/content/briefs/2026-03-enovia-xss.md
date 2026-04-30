@@ -5,6 +5,9 @@ description: A stored cross-site scripting (XSS) vulnerability in ENOVIA Collabo
 date: "2026-03-31T09:16:21Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - xss
   - cve-2025-10551

@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.22 is vulnerable to arbitrary code execution
 date: "2026-04-10T17:17:04Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-35643
   - rce

@@ -3,9 +3,9 @@ title: Tycoon2FA Phishing-as-a-Service Platform Persists After Takedown
 slug: 2026-03-tycoon2fa-persistence
 description: The Tycoon2FA phishing-as-a-service (PhaaS) platform, used to bypass MFA and compromise email accounts, saw a temporary decrease in activity after a law enforcement takedown, but cloud compromises have since returned to pre-disruption levels with unchanged TTPs, indicating continued threat actor activity.
 date: "2026-03-29T08:34:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

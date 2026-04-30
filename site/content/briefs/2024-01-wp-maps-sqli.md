@@ -5,6 +5,9 @@ description: The WP Maps WordPress plugin before version 4.9.2 is vulnerable to 
 date: "2026-03-23T00:16:51Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - sqli

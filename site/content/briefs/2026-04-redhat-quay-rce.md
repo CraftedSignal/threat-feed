@@ -5,6 +5,9 @@ description: CVE-2026-32590 describes a deserialization vulnerability in Red Hat
 date: "2026-04-08T18:25:59Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-32590
   - redhat-quay

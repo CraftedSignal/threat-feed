@@ -3,9 +3,9 @@ title: Azure Identity Protection Suspicious Browser Activity
 slug: 2024-01-31-suspicious-azure-browser
 description: A suspicious browser activity alert indicates anomalous behavior based on suspicious sign-in activity across multiple tenants from different countries in the same browser, potentially indicating compromised credentials or other malicious activity.
 date: "2024-01-31T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

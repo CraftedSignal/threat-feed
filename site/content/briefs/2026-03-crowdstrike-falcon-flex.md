@@ -3,9 +3,9 @@ title: CrowdStrike Falcon Flex for Services Expansion
 slug: 2026-03-crowdstrike-falcon-flex
 description: CrowdStrike is expanding the Falcon Flex model to its services offering to provide organizations with more flexible access to incident response and proactive security services.
 date: "2026-03-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

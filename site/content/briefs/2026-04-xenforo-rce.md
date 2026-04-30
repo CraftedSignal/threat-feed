@@ -5,6 +5,9 @@ description: XenForo before 2.3.9 and 2.2.18 allows remote code execution by aut
 date: "2026-04-01T01:16:41Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - rce
   - xenforo

@@ -3,9 +3,9 @@ title: GitHub Repository Archive Status Changed
 slug: 2024-01-github-repo-archive-status-changed
 description: Detection of GitHub repository archiving or unarchiving events, which could indicate malicious activity such as persistence, impact, or defense impairment.
 date: "2024-01-04T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

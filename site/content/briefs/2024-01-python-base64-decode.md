@@ -3,9 +3,9 @@ title: Detection of Python One-Liners with Base64 Decoding
 slug: 2024-01-python-base64-decode
 description: This brief outlines a method to detect malicious use of Python one-liners employing base64 decoding to execute obfuscated payloads, a common tactic for evading traditional security measures.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

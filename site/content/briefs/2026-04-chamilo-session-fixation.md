@@ -5,6 +5,9 @@ description: Chamilo LMS versions prior to 1.11.38 and 2.0.0-RC.3 are vulnerable
 date: "2026-04-11T14:30:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - session-fixation
   - web-application

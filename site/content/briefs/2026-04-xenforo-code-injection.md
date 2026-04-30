@@ -5,6 +5,9 @@ description: XenForo before 2.3.7 is vulnerable to code injection due to a loose
 date: "2026-04-01T01:16:40Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - xenforo
   - code-injection

@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability exists in Tenda F453 ve
 date: "2026-03-23T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4553
   - tenda

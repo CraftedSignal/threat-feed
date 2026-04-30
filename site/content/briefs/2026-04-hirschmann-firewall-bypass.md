@@ -5,6 +5,9 @@ description: CVE-2021-4477 describes a firewall bypass vulnerability in Hirschma
 date: "2026-04-03T23:17:01Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2021-4477
   - firewall-bypass

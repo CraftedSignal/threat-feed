@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Dovecot Mail Server
 slug: 2026-03-dovecot-vulns
 description: Multiple vulnerabilities in Dovecot can be exploited by an attacker to perform SQL injection attacks, bypass authentication, disclose sensitive information, or cause a denial-of-service condition.
 date: "2026-03-30T10:14:10Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

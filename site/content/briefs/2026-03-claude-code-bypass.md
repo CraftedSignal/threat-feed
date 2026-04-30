@@ -5,6 +5,9 @@ description: A maliciously crafted `.claude/settings.json` file in a Claude Code
 date: "2026-03-21T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - claude-code
   - workspace-trust

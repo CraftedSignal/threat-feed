@@ -3,9 +3,9 @@ title: JetAudio jetCast Server 2.0 Stack-Based Buffer Overflow
 slug: 2026-03-jetaudio-stack-overflow
 description: JetAudio jetCast Server 2.0 is vulnerable to a stack-based buffer overflow in the Log Directory configuration, enabling local attackers to overwrite structured exception handling pointers and execute arbitrary code.
 date: "2026-03-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

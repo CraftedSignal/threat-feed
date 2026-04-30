@@ -3,9 +3,9 @@ title: OpenVPN-auth-oauth2 Authentication Bypass in Plugin Mode
 slug: 2026-04-openvpn-auth-bypass
 description: A critical authentication bypass vulnerability exists in openvpn-auth-oauth2 versions 1.26.3 through 1.27.2 when deployed in the experimental plugin mode; clients that do not support WebAuth/SSO are incorrectly granted VPN access without completing OIDC authentication.
 date: "2026-04-22T14:29:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

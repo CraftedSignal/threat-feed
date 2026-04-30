@@ -3,9 +3,9 @@ title: i18next-http-middleware HTTP Response Splitting and DoS Vulnerability
 slug: 2024-01-i18next-http-middleware-crlf
 description: i18next-http-middleware versions before 3.9.3 are vulnerable to HTTP response splitting and denial-of-service attacks due to unsanitized Content-Language headers, potentially leading to session fixation, cache poisoning, reflected XSS, or complete service disruption depending on the Node.js version.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

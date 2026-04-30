@@ -3,9 +3,9 @@ title: CUPS Vulnerability Allows Local Privilege Escalation
 slug: 2026-04-cups-privesc
 description: A local attacker can exploit a vulnerability in CUPS to execute arbitrary program code with administrator privileges on Linux and macOS systems.
 date: "2026-04-30T09:43:58Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: CVE-2025-14821 in libssh allows local man-in-the-middle attacks, SS
 date: "2026-04-07T17:16:25Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - libssh
   - mitm

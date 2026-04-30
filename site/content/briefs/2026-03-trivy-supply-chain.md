@@ -3,9 +3,9 @@ title: Trivy Scanner Compromised in Supply Chain Attack
 slug: 2026-03-trivy-supply-chain
 description: The widely used Trivy scanner has been compromised in an ongoing supply chain attack, potentially impacting numerous organizations using the tool for vulnerability management.
 date: "2026-03-22T00:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

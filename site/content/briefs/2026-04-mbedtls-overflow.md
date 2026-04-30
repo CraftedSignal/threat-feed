@@ -5,6 +5,9 @@ description: A buffer overflow vulnerability (CVE-2026-34875) exists in Mbed TLS
 date: "2026-04-01T18:16:31Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - buffer-overflow
   - mbedtls

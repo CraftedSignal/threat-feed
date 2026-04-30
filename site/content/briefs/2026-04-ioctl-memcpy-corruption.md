@@ -7,6 +7,9 @@ severities:
   - high
 actors:
   - Qualcomm
+type: threat
+types:
+  - threat
 tags:
   - cve-2026-21372
   - memory-corruption

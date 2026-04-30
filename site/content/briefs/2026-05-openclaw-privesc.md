@@ -3,9 +3,9 @@ title: OpenClaw Incomplete Scope Clearing Allows Privilege Escalation
 slug: 2026-05-openclaw-privesc
 description: An incomplete fix in OpenClaw versions 2026.3.28 and earlier allows for operator.admin privilege escalation via trusted-proxy authentication mode, which is fixed in version 2026.3.31.
 date: "2026-04-03T03:06:12Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

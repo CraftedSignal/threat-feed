@@ -3,9 +3,9 @@ title: Linux Cron File Creation for Persistence
 slug: 2024-01-03-linux-cron-persistence
 description: An attacker may create new cron files in cron directories to establish persistence on a Linux system, potentially leading to privilege escalation and arbitrary code execution.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

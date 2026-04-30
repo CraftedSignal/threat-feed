@@ -3,9 +3,9 @@ title: AWS Config Service Disabling Detection
 slug: 2024-01-aws-config-disable
 description: Detection of AWS Config Service disabling, potentially indicating an attempt to impair defenses by stopping configuration recording and delivery.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Clerk SSRF Vulnerability in frontendApiProxy Allows Secret Key Leakage
 slug: 2026-03-clerk-ssrf
 description: A server-side request forgery (SSRF) vulnerability exists in the `clerkFrontendApiProxy` function of the `@clerk/backend` package, allowing an unauthenticated attacker to send the application's `Clerk-Secret-Key` to an attacker-controlled server.
 date: "2026-03-28T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

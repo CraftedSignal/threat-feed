@@ -3,9 +3,9 @@ title: Newly Observed High Severity Detection Alert in Elastic SIEM
 slug: 2024-01-newly-observed-high-severity-detection-alert
 description: This rule detects newly observed, low-frequency, high-severity Elastic SIEM detection alerts affecting a single agent, helping prioritize triage and response by highlighting alerts tied to specific detection rules that have not been seen previously for the host.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

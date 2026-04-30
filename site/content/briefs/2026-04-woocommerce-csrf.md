@@ -5,6 +5,9 @@ description: The Product Feed PRO for WooCommerce WordPress plugin (versions 13.
 date: "2026-04-08T02:16:04Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - woocommerce

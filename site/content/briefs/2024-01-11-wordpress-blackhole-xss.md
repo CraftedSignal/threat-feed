@@ -3,9 +3,9 @@ title: Blackhole for Bad Bots WordPress Plugin Stored XSS Vulnerability
 slug: 2024-01-11-wordpress-blackhole-xss
 description: The Blackhole for Bad Bots WordPress plugin through version 3.8 is vulnerable to stored cross-site scripting (XSS) via the User-Agent HTTP header, allowing unauthenticated attackers to inject arbitrary web scripts that execute when an administrator views the plugin's admin page.
 date: "2026-03-26T05:16:40Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

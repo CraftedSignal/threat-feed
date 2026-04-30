@@ -3,9 +3,9 @@ title: TIBCO ActiveMatrix Vulnerability Allows Information Disclosure and Data M
 slug: 2026-03-tibco-vuln
 description: A remote, authenticated attacker can exploit a vulnerability in TIBCO ActiveMatrix and TIBCO Administrator to disclose information and manipulate data, potentially leading to unauthorized access and control.
 date: "2026-03-25T11:31:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Node-Forge Certificate Chain Verification Bypass due to basicConstraints 
 slug: 2026-07-node-forge-basic-constraints-bypass
 description: Node-forge's certificate chain verification fails to enforce RFC 5280 basicConstraints, allowing leaf certificates without basicConstraints and keyUsage extensions to act as Certificate Authorities, leading to potential certificate forgery and man-in-the-middle attacks.
 date: "2026-03-26T22:06:12Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

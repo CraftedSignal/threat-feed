@@ -5,6 +5,9 @@ description: The WScript or CScript Dropper technique involves using cscript.exe
 date: "2024-01-02T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - script-dropper
   - file-creation

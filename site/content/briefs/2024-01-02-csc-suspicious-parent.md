@@ -5,6 +5,9 @@ description: The Csc.exe (C# compiler) process is being launched by unusual pare
 date: "2024-01-02T15:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - attack.execution
   - attack.defense-evasion

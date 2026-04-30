@@ -5,6 +5,9 @@ description: CVE-2026-34402 is a time-based blind SQL injection vulnerability in
 date: "2026-04-06T16:16:35Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sqlinjection
   - cve-2026-34402

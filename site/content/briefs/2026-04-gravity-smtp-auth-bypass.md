@@ -5,6 +5,9 @@ description: The Gravity SMTP plugin for WordPress is vulnerable to Missing Auth
 date: "2026-04-10T10:16:04Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - missing-authorization

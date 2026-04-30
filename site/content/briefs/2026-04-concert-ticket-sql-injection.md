@@ -6,6 +6,9 @@ date: "2026-04-05T10:16:18Z"
 severities:
   - high
 exploited: true
+type: threat
+types:
+  - threat
 tags:
   - sql-injection
   - web-application

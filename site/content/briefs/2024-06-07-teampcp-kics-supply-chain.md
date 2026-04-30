@@ -3,9 +3,9 @@ title: TeamPCP Compromise of KICS GitHub Action Supply Chain
 slug: 2024-06-07-teampcp-kics-supply-chain
 description: TeamPCP conducted a supply chain attack compromising the KICS GitHub Action, impacting users who integrated the compromised version into their CI/CD pipelines.
 date: "2026-03-23T19:20:57Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

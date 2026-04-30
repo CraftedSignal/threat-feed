@@ -5,6 +5,9 @@ description: CVE-2026-4639 is an Incorrect Authorization vulnerability in Galaxy
 date: "2026-03-24T05:16:25Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - incorrect-authorization
   - privilege-escalation

@@ -3,9 +3,9 @@ title: PostgreSQL JDBC Driver SQL Injection Vulnerability
 slug: 2024-06-postgresql-jdbc-injection
 description: An anonymous, remote attacker can exploit a vulnerability in the PostgreSQL JDBC Driver to perform SQL injection attacks.
 date: "2026-03-24T10:21:21Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: PraisonAI versions prior to 1.5.90 are vulnerable to OS Command Inj
 date: "2026-04-03T23:17:06Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-34937
   - os command injection

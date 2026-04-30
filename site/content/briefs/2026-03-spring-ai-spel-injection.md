@@ -5,6 +5,9 @@ description: A SpEL injection vulnerability exists in Spring AI's SimpleVectorSt
 date: "2026-03-27T06:16:37Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - spel-injection
   - spring-ai

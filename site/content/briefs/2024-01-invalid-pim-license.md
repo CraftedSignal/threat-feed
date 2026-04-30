@@ -3,9 +3,9 @@ title: Azure Privileged Identity Management (PIM) Invalid License Detection
 slug: 2024-01-invalid-pim-license
 description: Detection of unauthorized access or privilege escalation attempts within Azure environments due to invalid or missing Microsoft Entra Premium P2 or Microsoft Entra ID Governance licenses for Privileged Identity Management (PIM).
 date: "2024-01-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

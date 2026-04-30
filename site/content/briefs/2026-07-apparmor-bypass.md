@@ -3,9 +3,9 @@ title: AppArmor Policy Bypass via Direct File Manipulation
 slug: 2026-07-apparmor-bypass
 description: This rule detects processes attempting to bypass AppArmor protections by directly writing to AppArmor policy management files in `/sys/kernel/security/apparmor/`.
 date: "2026-07-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

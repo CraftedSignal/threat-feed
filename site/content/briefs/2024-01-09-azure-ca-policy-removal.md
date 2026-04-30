@@ -3,9 +3,9 @@ title: Unauthorized Removal of Azure Conditional Access Policy
 slug: 2024-01-09-azure-ca-policy-removal
 description: An unauthorized actor removes a Conditional Access policy in Azure, potentially weakening the organization's security posture and enabling privilege escalation or credential access.
 date: "2024-01-09T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

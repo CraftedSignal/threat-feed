@@ -5,6 +5,9 @@ description: A remote SQL injection vulnerability exists in the User Registratio
 date: "2026-03-31T09:18:57Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

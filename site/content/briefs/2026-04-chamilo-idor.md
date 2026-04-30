@@ -5,6 +5,9 @@ description: An Insecure Direct Object Reference (IDOR) vulnerability in Chamilo
 date: "2026-04-10T18:16:42Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - idor
   - chamilo

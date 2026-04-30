@@ -3,9 +3,9 @@ title: CrowdStrike Falcon Enhancements Secure AI Agents and Govern Shadow AI
 slug: 2026-03-securing-ai-agents
 description: CrowdStrike is enhancing its Falcon platform with AI Detection and Response (AIDR) to secure AI agents and govern shadow AI across endpoints, SaaS, and cloud, addressing threats like prompt injection attacks, data leaks, and policy violations.
 date: "2026-03-28T09:23:42Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

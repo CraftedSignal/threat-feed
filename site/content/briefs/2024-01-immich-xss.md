@@ -5,6 +5,9 @@ description: A stored cross-site scripting (XSS) vulnerability in Immich version
 date: "2026-04-08T19:25:24Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - immich
   - xss

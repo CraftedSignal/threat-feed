@@ -5,6 +5,9 @@ description: AIDA64 Business 5.99.4900 is vulnerable to a local Structured Excep
 date: "2026-03-24T12:16:03Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2019-25631
   - buffer-overflow

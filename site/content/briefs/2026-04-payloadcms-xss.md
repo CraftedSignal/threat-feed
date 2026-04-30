@@ -5,6 +5,9 @@ description: A stored Cross-Site Scripting (XSS) vulnerability exists in Payload
 date: "2026-04-01T20:16:27Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - xss
   - cve-2026-34748

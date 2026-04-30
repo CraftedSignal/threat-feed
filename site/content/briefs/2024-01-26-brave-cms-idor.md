@@ -5,6 +5,9 @@ description: Brave CMS versions prior to 2.0.6 are vulnerable to an Insecure Dir
 date: "2026-04-06T20:16:26Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - idor
   - brave-cms

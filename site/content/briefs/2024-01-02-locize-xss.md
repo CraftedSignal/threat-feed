@@ -3,9 +3,9 @@ title: locize Client SDK Cross-Origin DOM XSS and Handler Hijack Vulnerability
 slug: 2024-01-02-locize-xss
 description: The locize client SDK versions prior to 4.0.21 are vulnerable to cross-origin DOM XSS and handler hijack due to missing origin validation in the InContext Editor, allowing attackers to inject malicious code and exfiltrate data via crafted postMessage events.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: OpenBao Multiple Vulnerabilities Allow Security Bypass and XSS
 slug: 2026-03-openbao-vulns
 description: An anonymous, remote attacker can exploit multiple vulnerabilities in OpenBao to bypass security measures or conduct cross-site scripting attacks.
 date: "2026-03-30T10:15:54Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: A remote SQL injection vulnerability (CVE-2026-4613) exists in Sour
 date: "2026-03-24T00:16:31Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

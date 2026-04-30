@@ -3,9 +3,9 @@ title: GhostLoader Malware Targeting macOS via GitHub and AI Workflows
 slug: 2024-01-ghostloader
 description: GhostLoader malware leverages GitHub repositories and AI-assisted development workflows to distribute credential-stealing payloads targeting macOS systems.
 date: "2026-03-21T13:03:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

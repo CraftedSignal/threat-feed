@@ -5,6 +5,9 @@ description: TuneClone 2.20 is vulnerable to a structured exception handler (SEH
 date: "2026-03-23T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2019-25603
   - seh-overflow

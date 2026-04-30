@@ -3,9 +3,9 @@ title: RegPwnBOF Registry Symlink Race Condition Exploit
 slug: 2024-01-regpwnbof
 description: RegPwnBOF exploits a registry symlink race condition in the Windows Accessibility ATConfig mechanism, enabling a normal user to write arbitrary values to protected HKLM registry keys for persistence and privilege escalation.
 date: "2026-03-19T05:23:44Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

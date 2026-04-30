@@ -9,6 +9,9 @@ actors:
   - LockBit
   - BITWISE SPIDER
   - HelloKitty
+type: threat
+types:
+  - threat
 tags:
   - activemq
   - rce

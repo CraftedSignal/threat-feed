@@ -3,9 +3,9 @@ title: Glances XML-RPC Server Cross-Origin Information Disclosure
 slug: 2026-05-glances-xmlrpc-cors
 description: The Glances XML-RPC server exposes sensitive system information due to a permissive CORS policy and missing Content-Type validation, enabling attackers to bypass CORS restrictions and steal data like hostnames, OS details, IP addresses, and process lists.
 date: "2026-03-30T17:01:44Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

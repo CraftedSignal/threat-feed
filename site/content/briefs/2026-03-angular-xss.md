@@ -3,9 +3,9 @@ title: Angular Cross-Site Scripting (XSS) Vulnerability
 slug: 2026-03-angular-xss
 description: A cross-site scripting (XSS) vulnerability exists in Angular versions prior to 22.0.0-next.3, 21.2.4, 20.3.18, and 19.2.20, allowing attackers to execute arbitrary code within the context of the vulnerable application, potentially leading to session hijacking, data exfiltration, and unauthorized actions.
 date: "2026-03-17T19:19:33Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

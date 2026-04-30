@@ -5,6 +5,9 @@ description: A remote, unauthenticated attacker can bypass Traefik deny rules by
 date: "2026-03-29T15:37:47Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - traefik
   - grpc

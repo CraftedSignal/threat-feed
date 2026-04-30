@@ -5,6 +5,9 @@ description: A remote attacker can exploit CVE-2026-30653 in Free5GC v4.2.0 and 
 date: "2026-03-24T15:16:34Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - free5gc
   - denial-of-service

@@ -3,9 +3,9 @@ title: Red Hat Enterprise Linux Vulnerability Leads to Code Execution and Potent
 slug: 2026-03-rhel-code-execution
 description: A remote, authenticated attacker can exploit a vulnerability in Red Hat Enterprise Linux (specifically 389-ds-base) to achieve arbitrary code execution and potentially cause a denial of service.
 date: "2026-03-25T09:51:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -5,6 +5,9 @@ description: A critical broken access control vulnerability (CVE-2026-39355) in 
 date: "2026-04-07T19:16:46Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - broken-access-control
   - php

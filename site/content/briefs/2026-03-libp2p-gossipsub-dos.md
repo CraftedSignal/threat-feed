@@ -3,9 +3,9 @@ title: libp2p-gossipsub Remote Denial of Service via Integer Overflow
 slug: 2026-03-libp2p-gossipsub-dos
 description: A remote, unauthenticated attacker can crash applications using libp2p-gossipsub versions prior to 0.49.4 by sending a crafted PRUNE control message with a near-maximum backoff value, causing an arithmetic overflow during heartbeat processing.
 date: "2026-03-30T13:04:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

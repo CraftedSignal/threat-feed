@@ -3,9 +3,9 @@ title: GitHub Push Protection Bypass Detection
 slug: 2024-04-github-push-protection-bypass
 description: Detection of a GitHub user bypassing push protection, potentially leading to the exposure of secrets.
 date: "2024-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

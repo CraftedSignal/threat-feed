@@ -3,9 +3,9 @@ title: IBM WebSphere Application Server Liberty Multiple Vulnerabilities
 slug: 2026-03-websphere-vulns
 description: A remote, authenticated attacker can exploit multiple vulnerabilities in IBM WebSphere Application Server Liberty to escalate privileges, bypass security measures, and disclose information.
 date: "2026-03-25T11:50:50Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

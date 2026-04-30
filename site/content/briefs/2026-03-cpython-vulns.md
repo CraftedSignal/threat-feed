@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Cpython Allow Remote Code Execution
 slug: 2026-03-cpython-vulns
 description: A remote, authenticated attacker can exploit multiple vulnerabilities in Cpython to manipulate files or execute arbitrary code.
 date: "2026-03-24T12:40:51Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

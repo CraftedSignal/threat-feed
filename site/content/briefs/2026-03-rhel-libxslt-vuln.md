@@ -3,9 +3,9 @@ title: Red Hat Enterprise Linux libxslt Vulnerability Allows Code Execution or F
 slug: 2026-03-rhel-libxslt-vuln
 description: A local attacker can exploit a vulnerability in libxslt in Red Hat Enterprise Linux to execute arbitrary program code or manipulate files.
 date: "2026-03-24T10:16:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

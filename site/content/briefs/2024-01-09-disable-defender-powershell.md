@@ -3,9 +3,9 @@ title: Disabling Windows Defender Security Settings via PowerShell
 slug: 2024-01-09-disable-defender-powershell
 description: Attackers use PowerShell commands, including base64-encoded variants, to disable or weaken Windows Defender settings, impairing defenses on compromised systems.
 date: "2024-01-09T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

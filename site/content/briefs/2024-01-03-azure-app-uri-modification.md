@@ -3,9 +3,9 @@ title: Azure Application URI Configuration Modification
 slug: 2024-01-03-azure-app-uri-modification
 description: Detection of Azure application URI modifications that can be indicative of malicious activity, such as using dangling URIs, non-HTTPS URIs, wildcard domains, or URIs pointing to uncontrolled domains, potentially leading to initial access, stealth, persistence, credential access, and privilege escalation.
 date: "2024-01-03T14:21:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Note Mark OIDC Authentication Bypass via Hardcoded Password
 slug: 2024-01-03-note-mark-auth-bypass
 description: A critical authentication bypass vulnerability in note-mark allows attackers to authenticate as any OIDC-registered user by submitting the password 'null' to the internal login endpoint due to a hardcoded bcrypt hash fallback, potentially leading to account takeover and persistent access.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

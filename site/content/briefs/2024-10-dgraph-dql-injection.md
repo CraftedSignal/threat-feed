@@ -3,9 +3,9 @@ title: Dgraph Pre-Auth DQL Injection Vulnerability
 slug: 2024-10-dgraph-dql-injection
 description: A pre-authentication DQL injection vulnerability in Dgraph's `/mutate` endpoint, when ACL is disabled, allows attackers to exfiltrate the entire database by crafting a malicious `cond` field in an upsert mutation.
 date: "2024-10-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

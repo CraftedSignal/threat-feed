@@ -3,9 +3,9 @@ title: User Added to Group with Conditional Access Policy Modification Access
 slug: 2024-01-azure-group-add
 description: An attacker adds a user to a privileged Azure Active Directory group with permissions to modify Conditional Access policies, potentially leading to privilege escalation, credential access, persistence, and defense impairment.
 date: "2024-01-03T18:22:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

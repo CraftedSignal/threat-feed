@@ -5,6 +5,9 @@ description: An authenticated remote attacker with high privileges can exploit t
 date: "2026-04-09T11:16:19Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2024-1490
   - wago-plc

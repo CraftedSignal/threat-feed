@@ -5,6 +5,9 @@ description: CVE-2026-3872 is a vulnerability in Keycloak that allows an attacke
 date: "2026-04-02T13:16:26Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - keycloak
   - redirect-uri-bypass

@@ -3,9 +3,9 @@ title: WP Job Portal Plugin SQL Injection Vulnerability
 slug: 2026-03-wp-job-portal-sqli
 description: The WP Job Portal plugin for WordPress is vulnerable to SQL Injection via the 'radius' parameter, allowing unauthenticated attackers to extract sensitive database information in versions up to 2.4.8.
 date: "2026-03-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

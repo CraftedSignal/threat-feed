@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability (CVE-2026-5686) exists 
 date: "2026-04-06T22:16:24Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5686
   - tenda

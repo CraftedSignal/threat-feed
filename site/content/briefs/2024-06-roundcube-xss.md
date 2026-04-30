@@ -3,9 +3,9 @@ title: Roundcube Vulnerabilities Leading to Cross-Site Scripting and Information
 slug: 2024-06-roundcube-xss
 description: Multiple vulnerabilities in Roundcube allow an attacker to perform a cross-site scripting attack and disclose confidential information.
 date: "2024-06-24T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

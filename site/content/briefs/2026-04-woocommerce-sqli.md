@@ -5,6 +5,9 @@ description: The WCAPF - WooCommerce Ajax Product Filter plugin is vulnerable to
 date: "2026-04-08T12:16:21Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - woocommerce
   - sqli

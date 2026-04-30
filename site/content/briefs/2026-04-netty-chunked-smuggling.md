@@ -3,9 +3,9 @@ title: Netty HTTP Request Smuggling via Chunked Extension Quoted-String Parsing
 slug: 2026-04-netty-chunked-smuggling
 description: Netty incorrectly parses quoted strings in HTTP/1.1 chunked transfer encoding extension values, enabling request smuggling attacks by terminating chunk header parsing at \r\n inside quoted strings instead of rejecting the malformed request.
 date: "2026-03-26T18:51:27Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

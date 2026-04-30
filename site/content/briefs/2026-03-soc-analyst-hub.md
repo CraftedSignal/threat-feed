@@ -3,9 +3,9 @@ title: SOC Analyst Toolkit with Threat Hunting Queries
 slug: 2026-03-soc-analyst-hub
 description: A free, offline SOC toolkit aimed at Tier 1 analysts includes IR checklists, triage playbooks, and threat hunting guides mapped to MITRE ATT&CK, with Splunk and Elastic queries for threats such as Kerberoasting, Pass-the-Hash, LOLBAS, scheduled task persistence, and C2 on non-standard ports.
 date: "2026-03-18T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

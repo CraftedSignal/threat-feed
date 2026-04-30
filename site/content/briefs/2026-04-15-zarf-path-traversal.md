@@ -3,9 +3,9 @@ title: Zarf Path Traversal Vulnerability via Malicious Package Metadata.Name
 slug: 2026-04-15-zarf-path-traversal
 description: Zarf is vulnerable to path traversal due to insufficient sanitization of the Metadata.Name field in package manifests when using the `zarf package inspect sbom` or `zarf package inspect documentation` commands, potentially leading to arbitrary file write.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Suspicious AWS SAML Activity Detection
 slug: 2024-01-03-aws-suspicious-saml
 description: This rule identifies suspicious SAML activity in AWS, such as AssumeRoleWithSAML and UpdateSAMLProvider events, which could indicate an attacker gaining backdoor access, escalating privileges, or establishing persistence.
 date: "2024-01-03T18:22:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

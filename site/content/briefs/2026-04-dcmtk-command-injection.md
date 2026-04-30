@@ -5,6 +5,9 @@ description: A remote command injection vulnerability exists in OFFIS DCMTK vers
 date: "2026-04-06T15:17:16Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - dcmtk

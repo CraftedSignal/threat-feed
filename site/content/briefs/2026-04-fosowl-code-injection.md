@@ -6,6 +6,9 @@ date: "2026-04-05T17:16:57Z"
 severities:
   - critical
 exploited: true
+type: threat
+types:
+  - threat
 tags:
   - code-injection
   - vulnerability

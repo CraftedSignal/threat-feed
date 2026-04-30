@@ -5,6 +5,9 @@ description: A path traversal vulnerability (CVE-2026-31939) in Chamilo LMS vers
 date: "2026-04-11T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - file-deletion

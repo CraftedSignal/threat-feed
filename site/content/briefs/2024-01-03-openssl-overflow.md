@@ -3,9 +3,9 @@ title: Heap/Stack Overflow in rust-openssl with OpenSSL 1.1.x
 slug: 2024-01-03-openssl-overflow
 description: The rust-openssl crate's `Deriver::derive` and `PkeyCtxRef::derive` functions can cause heap/stack overflows when used with OpenSSL 1.1.x due to insufficient buffer length validation in X25519, X448, DH, and HKDF-extract, affecting rust-openssl versions >= 0.9.27 and < 0.10.78.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

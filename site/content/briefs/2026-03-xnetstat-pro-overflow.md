@@ -5,6 +5,9 @@ description: X-NetStat Pro 5.63 contains a local buffer overflow vulnerability (
 date: "2026-03-24T12:16:04Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - buffer-overflow
   - code-execution

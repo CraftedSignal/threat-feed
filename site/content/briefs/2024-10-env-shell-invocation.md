@@ -5,6 +5,9 @@ description: The 'env' command is used to invoke a shell on Linux systems, poten
 date: "2024-10-26T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - execution
   - linux

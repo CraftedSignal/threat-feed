@@ -3,9 +3,9 @@ title: Langflow Multiple Vulnerabilities
 slug: 2026-04-langflow-vulns
 description: Multiple vulnerabilities in Langflow allow an attacker to manipulate files, disclose sensitive information, or conduct cross-site scripting attacks.
 date: "2026-04-20T10:38:57Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

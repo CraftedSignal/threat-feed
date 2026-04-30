@@ -5,6 +5,9 @@ description: The Perfmatters plugin for WordPress versions up to 2.5.9.1 is vuln
 date: "2026-04-03T08:16:17Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4350
   - wordpress

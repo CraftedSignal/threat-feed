@@ -3,9 +3,9 @@ title: Azure Service Principal Removal Detection
 slug: 2024-01-azure-service-principal-removed
 description: Detection of a service principal removal in Azure, potentially indicating malicious activity or an attempt to remove evidence of a compromise.
 date: "2024-01-03T14:27:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

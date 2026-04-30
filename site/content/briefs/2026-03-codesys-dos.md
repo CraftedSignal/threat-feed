@@ -5,6 +5,9 @@ description: An unauthenticated remote attacker can exploit CVE-2026-3509 in the
 date: "2026-03-25T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - codesys
   - dos

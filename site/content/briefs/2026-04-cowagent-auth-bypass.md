@@ -5,6 +5,9 @@ description: CVE-2026-6126 is an unauthenticated remote code execution vulnerabi
 date: "2026-04-12T11:16:16Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-6126
   - authentication-bypass

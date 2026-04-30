@@ -3,9 +3,9 @@ title: Detection of Privileged Identity Management (PIM) Settings Modifications
 slug: 2024-01-03-azure-pim-settings-change
 description: Detects unauthorized or malicious modifications to Privileged Identity Management (PIM) settings within Azure environments, potentially leading to privilege escalation, persistence, and stealthy access by attackers.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

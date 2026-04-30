@@ -5,6 +5,9 @@ description: A critical vulnerability in Vim versions prior to 9.2.0276 allows a
 date: "2026-04-06T16:16:38Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - vim
   - modeline

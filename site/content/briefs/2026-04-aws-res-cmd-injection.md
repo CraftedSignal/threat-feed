@@ -5,6 +5,9 @@ description: A remote authenticated attacker can execute arbitrary commands as r
 date: "2026-04-06T22:16:25Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - command-injection

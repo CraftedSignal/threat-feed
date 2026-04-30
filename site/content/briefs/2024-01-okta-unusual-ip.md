@@ -3,9 +3,9 @@ title: Unusual Source IP for Okta Privileged Operations Detected
 slug: 2024-01-okta-unusual-ip
 description: A machine learning job has identified a user performing privileged operations in Okta from an uncommon source IP, indicating potential privileged access activity indicative of account compromise or privilege escalation.
 date: "2024-01-09T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

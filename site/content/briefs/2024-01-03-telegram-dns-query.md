@@ -3,9 +3,9 @@ title: Suspicious DNS Queries to Telegram API by Non-Telegram Processes
 slug: 2024-01-03-telegram-dns-query
 description: Detection of a process making DNS queries to the Telegram API domain, which is indicative of malware utilizing Telegram bots for command and control (C2) communications.
 date: "2024-01-03T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

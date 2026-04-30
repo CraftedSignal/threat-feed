@@ -5,6 +5,9 @@ description: A memory corruption vulnerability due to an out-of-bounds read in N
 date: "2026-04-07T20:16:26Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-32863
   - labview

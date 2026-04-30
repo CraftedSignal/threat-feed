@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in cURL
 slug: 2026-04-curl-multiple-vulnerabilities
 description: Multiple vulnerabilities in cURL could allow an attacker to bypass security measures, disclose confidential information, or manipulate data.
 date: "2026-04-29T10:54:08Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

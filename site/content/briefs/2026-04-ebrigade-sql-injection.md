@@ -5,6 +5,9 @@ description: eBrigade ERP 4.5 is vulnerable to SQL injection via the 'id' parame
 date: "2026-04-12T13:16:33Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

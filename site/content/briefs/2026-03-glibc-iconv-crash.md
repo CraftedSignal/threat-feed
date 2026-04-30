@@ -5,6 +5,9 @@ description: A vulnerability in the iconv() function of the GNU C Library (versi
 date: "2026-03-30T18:16:19Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - glibc
   - iconv

@@ -3,9 +3,9 @@ title: Azure PIM Role Activation Without MFA
 slug: 2024-01-azure-pim-no-mfa
 description: Detection of Azure Privileged Identity Management (PIM) roles being activated without requiring multi-factor authentication, potentially leading to unauthorized privilege escalation and persistence.
 date: "2024-01-03T18:23:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

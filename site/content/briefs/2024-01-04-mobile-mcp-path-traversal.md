@@ -3,9 +3,9 @@ title: '@mobilenext/mobile-mcp Path Traversal Vulnerability'
 slug: 2024-01-04-mobile-mcp-path-traversal
 description: The @mobilenext/mobile-mcp package before version 0.0.49 is vulnerable to a Path Traversal vulnerability in the mobile_save_screenshot and mobile_start_screen_recording tools where the `saveTo` and `output` parameters are passed directly to filesystem operations without validation, potentially allowing an attacker to write files outside the intended workspace, leading to privilege escalation and persistence by overwriting sensitive host files.
 date: "2026-03-27T19:13:17Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

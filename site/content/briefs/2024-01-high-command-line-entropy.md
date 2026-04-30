@@ -3,9 +3,9 @@ title: High Command Line Entropy Detected for Privileged Commands on Linux
 slug: 2024-01-high-command-line-entropy
 description: A machine learning job has identified an unusually high median command line entropy for privileged commands executed by a user on Linux systems, suggesting possible privileged access activity through command lines, indicating potential obfuscation or unauthorized use of privileged access.
 date: "2024-01-03T15:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

@@ -5,6 +5,9 @@ description: SoftEtherVPN version 5.2.5188 and earlier is vulnerable to a pre-au
 date: "2026-04-07T17:16:36Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - dos
   - softethervpn

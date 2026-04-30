@@ -5,6 +5,9 @@ description: The Oxygen Theme for WordPress is vulnerable to Server-Side Request
 date: "2026-03-28T04:16:49Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - wordpress

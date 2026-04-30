@@ -3,9 +3,9 @@ title: CrowdStrike Innovations Secure AI Agents and Govern Shadow AI
 slug: 2026-03-shadow-ai-governance
 description: CrowdStrike is introducing innovations to secure AI agents and govern shadow AI across endpoints, SaaS, and cloud environments by extending AI detection and response (AIDR) capabilities to cover desktop AI applications and provide visibility into AI-related components, helping to prevent prompt attacks, data leaks, and policy violations.
 date: "2026-03-28T21:52:45Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

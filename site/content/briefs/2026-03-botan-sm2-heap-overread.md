@@ -5,6 +5,9 @@ description: Botan C++ cryptography library versions 2.3.0 before 3.11.0 are vul
 date: "2026-03-30T21:17:09Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - vulnerability

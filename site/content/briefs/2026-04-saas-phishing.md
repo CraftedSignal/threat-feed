@@ -5,6 +5,9 @@ description: Threat actors are weaponizing legitimate SaaS notification pipeline
 date: "2026-04-09T18:00:20Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - saas
   - phishing

@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.13 is vulnerable to a replay attack during d
 date: "2026-03-29T13:17:02Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - replay-attack
   - privilege-escalation

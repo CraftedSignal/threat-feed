@@ -5,6 +5,9 @@ description: Postiz, an AI social media scheduling tool, is vulnerable to Server
 date: "2026-04-11T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - cve-2026-40168

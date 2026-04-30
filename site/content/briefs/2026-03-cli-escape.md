@@ -5,6 +5,9 @@ description: An unauthenticated remote attacker can exploit a hidden function in
 date: "2026-03-24T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - cli

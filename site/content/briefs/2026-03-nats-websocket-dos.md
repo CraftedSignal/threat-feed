@@ -3,9 +3,9 @@ title: NATS Server WebSocket Frame Length Overflow Denial of Service
 slug: 2026-03-nats-websocket-dos
 description: A vulnerability in NATS server allows a remote, unauthenticated attacker to cause a denial of service by sending a crafted WebSocket frame, leading to a server crash due to missing validation on WebSocket frame length.
 date: "2026-03-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Spike in Number of RDP Connections from a Single Source IP
 slug: 2024-01-spike-in-rdp-connections
 description: A machine learning job detected a high count of destination IPs establishing RDP connections with a single source IP, indicating potential lateral movement attempts after initial compromise.
 date: "2024-01-30T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

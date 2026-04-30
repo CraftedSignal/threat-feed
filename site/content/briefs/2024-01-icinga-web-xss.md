@@ -3,9 +3,9 @@ title: Icinga Web Reflected XSS Vulnerability via Malformed Search Requests
 slug: 2024-01-icinga-web-xss
 description: A reflected cross-site scripting (XSS) vulnerability exists in Icinga Web versions 0.13.0 and earlier, allowing attackers to inject malicious JavaScript into a victim's browser through malformed search requests, potentially leading to arbitrary code execution within the Icinga Web context.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Windows EventLog Autologger Session Disabled via Registry Modification
 slug: 2024-01-autologger-disable
 description: Adversaries may attempt to disable Windows EventLog autologger sessions via registry modification to evade detection and prevent security monitoring of early boot activities and system events.
 date: "2024-01-09T14:22:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

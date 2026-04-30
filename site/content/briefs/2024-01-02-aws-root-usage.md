@@ -3,9 +3,9 @@ title: AWS Root Account Usage Detected
 slug: 2024-01-02-aws-root-usage
 description: The AWS root account, which grants unrestricted access to all resources within an AWS account, was used, potentially indicating unauthorized activity, privilege escalation, or a breach of security best practices.
 date: "2024-01-02T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: AWS SecurityHub Findings Evasion via API Calls
 slug: 2024-01-aws-securityhub-evasion
 description: Attackers can impair defenses by modifying or deleting findings and insights within AWS SecurityHub using API calls such as BatchUpdateFindings, DeleteInsight, UpdateFindings, and UpdateInsight.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

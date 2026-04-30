@@ -5,6 +5,9 @@ description: CVE-2026-3988 is a denial of service vulnerability in GitLab CE/EE 
 date: "2026-03-26T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - denial-of-service
   - graphql

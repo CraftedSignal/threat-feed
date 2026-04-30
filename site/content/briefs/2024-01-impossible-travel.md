@@ -3,9 +3,9 @@ title: Impossible Travel Detection in Azure AD
 slug: 2024-01-impossible-travel
 description: This brief describes the detection of 'impossible travel' events in Azure AD, where a user appears to log in from geographically distant locations within an implausibly short time frame, potentially indicating account compromise.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

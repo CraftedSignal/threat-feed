@@ -3,9 +3,9 @@ title: Blinko Pre-1.8.4 OS Command Injection Vulnerability
 slug: 2026-03-blinko-command-injection
 description: Blinko versions before 1.8.4 are vulnerable to OS Command Injection (CWE-78), where the MCP server creation function allows specifying arbitrary commands and arguments that are executed when testing the connection, potentially leading to code execution for attackers with high privileges.
 date: "2026-03-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

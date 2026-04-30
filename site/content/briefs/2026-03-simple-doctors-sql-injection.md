@@ -5,6 +5,9 @@ description: A SQL injection vulnerability (CVE-2026-5179) exists in SourceCodes
 date: "2026-03-31T05:16:11Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

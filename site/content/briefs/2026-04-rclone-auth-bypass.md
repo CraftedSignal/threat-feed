@@ -3,9 +3,9 @@ title: Rclone Unauthenticated options/set Allows Runtime Auth Bypass
 slug: 2026-04-rclone-auth-bypass
 description: Rclone is vulnerable to an unauthenticated options/set vulnerability that allows runtime authentication bypass, potentially leading to sensitive operations and command execution by setting `rc.NoAuth=true` on reachable RC servers started without global HTTP authentication.
 date: "2026-04-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

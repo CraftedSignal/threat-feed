@@ -3,9 +3,9 @@ title: AIDA64 Extreme 5.99.4900 Structured Exception Handler Buffer Overflow
 slug: 2026-03-aida64-buffer-overflow
 description: AIDA64 Extreme 5.99.4900 is vulnerable to a structured exception handler buffer overflow, allowing local attackers to execute arbitrary code by supplying a malicious CSV log file path through the Hardware Monitoring logging preferences.
 date: "2026-03-24T12:16:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: Jsrsasign versions before 11.1.1 are vulnerable to an incorrect con
 date: "2026-03-23T06:16:22Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - jsrsasign
   - vulnerability

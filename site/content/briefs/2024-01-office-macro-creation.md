@@ -3,9 +3,9 @@ title: Detection of Office Macro File Creation
 slug: 2024-01-office-macro-creation
 description: This brief outlines a threat involving the creation of new Office macro files, potentially indicating malicious activity such as phishing or malware distribution, targeting Windows systems.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

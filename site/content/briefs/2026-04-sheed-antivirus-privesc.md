@@ -5,6 +5,9 @@ description: Sheed AntiVirus 2.3 contains an unquoted service path vulnerability
 date: "2026-04-04T14:16:18Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - unquoted-service-path

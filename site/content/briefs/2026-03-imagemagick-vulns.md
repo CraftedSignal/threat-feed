@@ -3,9 +3,9 @@ title: ImageMagick Multiple Vulnerabilities Leading to DoS, Code Execution, or D
 slug: 2026-03-imagemagick-vulns
 description: Multiple vulnerabilities in ImageMagick could allow an attacker to perform a denial of service attack, execute arbitrary code, or manipulate data.
 date: "2026-03-31T08:55:55Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

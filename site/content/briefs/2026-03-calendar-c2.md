@@ -3,9 +3,9 @@ title: China-Nexus Campaign Using Google Calendar as C2
 slug: 2026-03-calendar-c2
 description: A China-nexus threat actor is utilizing Google Calendar as a command and control (C2) infrastructure to conduct stealthy operations.
 date: "2026-03-21T00:00:00Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

@@ -5,6 +5,9 @@ description: A vulnerability in Incus versions prior to 6.23.0 allows for arbitr
 date: "2026-03-26T23:16:20Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - incus
   - template-injection

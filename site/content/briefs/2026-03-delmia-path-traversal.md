@@ -5,6 +5,9 @@ description: CVE-2025-10559 is a path traversal vulnerability in DELMIA Factory 
 date: "2026-03-31T09:16:21Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - vulnerability

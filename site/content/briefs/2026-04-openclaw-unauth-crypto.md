@@ -3,9 +3,9 @@ title: OpenClaw Nostr DM Unauthorized Crypto Computation Vulnerability
 slug: 2026-04-openclaw-unauth-crypto
 description: The openclaw npm package before version 2026.3.22 allows unauthorized pre-authentication computation due to improper handling of inbound Nostr DMs, where crypto and dispatch work are performed before enforcing sender and pairing policies.
 date: "2026-03-26T19:09:45Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Appsmith SQL Injection Vulnerability in FilterDataService
 slug: 2024-01-appsmith-sql-injection
 description: A SQL injection vulnerability exists in Appsmith's FilterDataServiceCE.java in versions 1.98 and earlier where the dropTable method constructs a SQL DROP TABLE statement using string concatenation with the table name, allowing arbitrary SQL command execution, leading to potential data loss, exfiltration, or modification.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

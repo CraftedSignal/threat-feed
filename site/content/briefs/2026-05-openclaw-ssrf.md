@@ -3,9 +3,9 @@ title: OpenClaw SSRF Vulnerability via Unguarded Configured Base URLs
 slug: 2026-05-openclaw-ssrf
 description: OpenClaw versions 2026.3.24 and earlier are vulnerable to Server-Side Request Forgery (SSRF) because of unguarded configured base URLs in multiple channel extensions, allowing attackers to potentially access internal resources.
 date: "2026-03-29T15:49:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

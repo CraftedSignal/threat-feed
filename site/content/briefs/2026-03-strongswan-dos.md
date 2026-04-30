@@ -5,6 +5,9 @@ description: An integer underflow vulnerability in strongSwan's EAP-TTLS AVP par
 date: "2026-03-24T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - denial-of-service
   - integer-underflow

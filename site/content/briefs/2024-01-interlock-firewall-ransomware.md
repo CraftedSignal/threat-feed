@@ -3,9 +3,9 @@ title: Interlock Ransomware Campaign Targeting Enterprise Firewalls
 slug: 2024-01-interlock-firewall-ransomware
 description: The Interlock ransomware campaign is targeting enterprise firewalls to encrypt sensitive data and demand ransom payment.
 date: "2026-03-19T05:33:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Azure AD Device Registration Policy Changes Detected
 slug: 2024-01-device-registration-policy-change
 description: Monitoring changes to the device registration policy can detect potential privilege escalation or defense impairment attempts by malicious actors aiming to weaken security controls related to device management in Azure Active Directory.
 date: "2024-01-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

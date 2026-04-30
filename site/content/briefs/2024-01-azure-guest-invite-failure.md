@@ -3,9 +3,9 @@ title: Unauthorized Guest User Invitation Attempt in Azure
 slug: 2024-01-azure-guest-invite-failure
 description: Detection of a failed attempt to invite an external guest user by an Azure user lacking the necessary permissions, potentially indicating privilege escalation or malicious insider activity.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

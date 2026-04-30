@@ -5,6 +5,9 @@ description: CVE-2026-5190 is an out-of-bounds write vulnerability in the aws-c-
 date: "2026-03-31T18:16:59Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5190
   - aws-c-event-stream

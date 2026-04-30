@@ -3,9 +3,9 @@ title: Suspicious PowerShell Reconnaissance via WMI Queries
 slug: 2024-01-wmi-reconnaissance
 description: Detection of suspicious PowerShell activity using Windows Management Instrumentation (WMI) to gather system information, indicative of reconnaissance efforts by adversaries potentially leading to further exploitation or lateral movement.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

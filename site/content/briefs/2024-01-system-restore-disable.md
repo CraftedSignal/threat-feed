@@ -5,6 +5,9 @@ description: Attackers may attempt to disable system restore via registry modifi
 date: "2024-01-03T14:30:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - attack.impact
   - attack.t1490

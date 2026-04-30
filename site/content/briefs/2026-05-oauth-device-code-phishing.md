@@ -3,9 +3,9 @@ title: Large-Scale OAuth Device Code Phishing Campaign Observed in April 2026
 slug: 2026-05-oauth-device-code-phishing
 description: In early April 2026, Arctic Wolf tracked a large-scale device code phishing campaign across multiple regions and sectors where threat actors abused OAuth device code flow to trick victims into providing authentication codes.
 date: "2026-04-24T19:52:35Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

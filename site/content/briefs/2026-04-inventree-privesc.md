@@ -5,6 +5,9 @@ description: A non-staff authenticated user can elevate their account to a staff
 date: "2026-04-08T20:16:24Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - inventree
   - privilege-escalation

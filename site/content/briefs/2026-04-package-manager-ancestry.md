@@ -3,9 +3,9 @@ title: Elastic Defend Alert from Package Manager Install Ancestry
 slug: 2026-04-package-manager-ancestry
 description: This rule detects Elastic Defend alerts where the alerted process has a package-manager install context in its ancestry (npm, PyPI, Rust), indicating potential supply chain compromise via malicious postinstall scripts.
 date: "2026-04-11T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: Grafana Privilege Escalation Vulnerability
 slug: 2024-05-grafana-privesc
 description: A remote, authenticated attacker can exploit a vulnerability in Grafana to escalate privileges.
 date: "2024-04-30T09:38:56Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

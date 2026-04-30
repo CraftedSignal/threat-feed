@@ -5,6 +5,9 @@ description: CVE-2026-5429 is a code execution vulnerability in Kiro IDE before 
 date: "2026-04-02T19:21:37Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - cve-2026-5429

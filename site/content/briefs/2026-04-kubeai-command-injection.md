@@ -3,9 +3,9 @@ title: KubeAI OS Command Injection via Model URL in Ollama Engine Startup Probe
 slug: 2026-04-kubeai-command-injection
 description: The KubeAI project is vulnerable to OS command injection because the `ollamaStartupProbeScript()` function constructs a shell command string using `fmt.Sprintf` with unsanitized model URL components (`ref`, `modelParam`), which is then executed via `bash -c` as a Kubernetes startup probe, allowing arbitrary command execution inside model server pods by attackers with the ability to create or update `Model` custom resources.
 date: "2026-04-01T23:22:43Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

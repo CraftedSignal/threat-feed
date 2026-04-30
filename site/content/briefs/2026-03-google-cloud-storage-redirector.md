@@ -3,9 +3,9 @@ title: Phishing Campaign Abusing Google Cloud Storage Redirectors
 slug: 2026-03-google-cloud-storage-redirector
 description: A phishing campaign leverages Google Cloud Storage as a redirect layer to serve victims scam pages related to surveys, giveaways, rewards, alerts, and job lures, primarily hosted on .autos domains.
 date: "2026-03-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

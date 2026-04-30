@@ -3,9 +3,9 @@ title: Netty HTTP/2 CONTINUATION Frame Flood Denial of Service
 slug: 2026-05-03-netty-http2-dos
 description: A denial of service vulnerability exists in Netty's HTTP/2 server implementation where an unauthenticated user can exhaust server CPU resources by sending a flood of CONTINUATION frames with zero-byte payloads, bypassing size-based mitigations and leading to service unavailability with minimal bandwidth usage; affected versions include netty-codec-http2 < 4.1.132.Final and netty-codec-http2 versions >= 4.2.0.Alpha1 and < 4.2.10.Final.
 date: "2026-03-26T18:51:14Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

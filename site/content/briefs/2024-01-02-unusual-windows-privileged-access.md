@@ -3,9 +3,9 @@ title: Unusual Host Name for Windows Privileged Operations Detected via ML
 slug: 2024-01-02-unusual-windows-privileged-access
 description: A machine learning job has identified a user performing privileged operations in Windows from an uncommon device, indicating potential privileged access activity associated with compromised accounts or insider threats.
 date: "2024-01-02T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

@@ -3,9 +3,9 @@ title: Monetr Lunch Flow SSRF Vulnerability
 slug: 2024-05-monetr-ssrf
 description: A server-side request forgery (SSRF) vulnerability in Monetr's Lunch Flow integration allows authenticated users on self-hosted instances to send HTTP GET requests to arbitrary URLs, potentially exposing sensitive information.
 date: "2024-05-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

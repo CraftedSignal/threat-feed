@@ -3,9 +3,9 @@ title: Office Application Autorun Registry Key Modification
 slug: 2024-01-03-office-autorun-registry-modification
 description: Adversaries modify Office application autostart extensibility point (ASEP) registry keys to achieve persistence and execute malicious code when Office applications are launched.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

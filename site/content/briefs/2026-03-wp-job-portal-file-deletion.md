@@ -5,6 +5,9 @@ description: The WP Job Portal plugin for WordPress is vulnerable to arbitrary f
 date: "2026-03-26T00:16:41Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - wordpress

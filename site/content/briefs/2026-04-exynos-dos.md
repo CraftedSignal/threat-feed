@@ -5,6 +5,9 @@ description: A denial-of-service vulnerability, CVE-2025-57834, exists in Samsun
 date: "2026-04-06T20:16:20Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2025-57834
   - denial-of-service

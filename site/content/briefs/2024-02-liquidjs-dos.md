@@ -3,9 +3,9 @@ title: LiquidJS replace_first Filter Exponential Memory Amplification DoS
 slug: 2024-02-liquidjs-dos
 description: The `replace_first` filter in LiquidJS is vulnerable to exponential memory amplification due to its use of JavaScript's `String.prototype.replace()` and mishandling of the `$&` backreference pattern, allowing attackers to bypass the `memoryLimit` and cause denial of service.
 date: "2026-03-25T17:44:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

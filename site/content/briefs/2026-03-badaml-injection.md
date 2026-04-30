@@ -3,9 +3,9 @@ title: BadAML Injection Allows Arbitrary Code Execution in Confidential VMs
 slug: 2026-03-badaml-injection
 description: The BadAML injection attack allows arbitrary code execution in confidential VMs by exploiting the ACPI interface, enabling attackers with host control to execute malicious AML code within the guest.
 date: "2026-03-27T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

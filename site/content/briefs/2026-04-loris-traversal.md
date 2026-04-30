@@ -5,6 +5,9 @@ description: LORIS, a neuroimaging research data management web application, is 
 date: "2026-04-08T19:25:24Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - directory-traversal
   - web-application

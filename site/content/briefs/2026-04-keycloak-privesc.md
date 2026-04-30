@@ -5,6 +5,9 @@ description: An unauthenticated attacker can exploit CVE-2026-4282 in Keycloak's
 date: "2026-04-02T13:16:26Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - keycloak
   - privilege-escalation

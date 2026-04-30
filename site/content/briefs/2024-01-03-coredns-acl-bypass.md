@@ -3,9 +3,9 @@ title: CoreDNS Transfer Plugin ACL Bypass Vulnerability
 slug: 2024-01-03-coredns-acl-bypass
 description: CoreDNS' transfer plugin prior to version 1.14.3 can select the wrong ACL stanza due to lexicographic comparison, leading to unauthorized zone transfers by clients intended to be denied by subzone-specific transfer policies.
 date: "2024-01-03T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

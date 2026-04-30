@@ -3,9 +3,9 @@ title: Fluent Booking WordPress Plugin Stored XSS Vulnerability
 slug: 2026-03-fluentbooking-xss
 description: The Fluent Booking plugin for WordPress is vulnerable to stored cross-site scripting (XSS) allowing unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses the injected page, affecting versions up to and including 2.0.01.
 date: "2026-03-26T14:16:09Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

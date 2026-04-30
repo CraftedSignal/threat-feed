@@ -3,9 +3,9 @@ title: OpenCanary HTTPPROXY Login Attempt Detection
 slug: 2024-10-opencanary-httpproxy
 description: Detection of attempted HTTP proxy use on an OpenCanary node, indicating potential reconnaissance or lateral movement by an attacker attempting to proxy another page.
 date: "2024-10-26T18:22:34Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

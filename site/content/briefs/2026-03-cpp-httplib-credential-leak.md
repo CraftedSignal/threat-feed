@@ -3,9 +3,9 @@ title: cpp-httplib Vulnerability Leads to Credential Leakage via HTTP Redirects
 slug: 2026-03-cpp-httplib-credential-leak
 description: The cpp-httplib library prior to version 0.39.0 forwards stored authentication credentials to arbitrary hosts via HTTP redirects, potentially exposing sensitive information to malicious actors.
 date: "2026-03-27T01:16:21Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

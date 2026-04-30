@@ -3,9 +3,9 @@ title: TinaCMS GraphQL Path Traversal Vulnerability
 slug: 2026-04-tinacms-path-traversal
 description: A path traversal vulnerability in @tinacms/graphql allows unauthenticated users to write and overwrite arbitrary files within the project root by manipulating the relativePath parameter in GraphQL mutations, leading to potential arbitrary code execution.
 date: "2026-03-30T17:11:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

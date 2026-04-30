@@ -5,6 +5,9 @@ description: An authenticated API user of ChurchCRM prior to v7.1.0 can bypass a
 date: "2026-04-07T18:16:44Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-39331
   - churchcrm

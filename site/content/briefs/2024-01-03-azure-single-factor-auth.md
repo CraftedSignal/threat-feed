@@ -3,9 +3,9 @@ title: Azure AD Authentication to Important Apps Using Single-Factor Authenticat
 slug: 2024-01-03-azure-single-factor-auth
 description: Detection of successful Azure AD authentications to critical applications that only required single-factor authentication, potentially indicating a security lapse or policy violation leading to unauthorized access.
 date: "2024-01-03T15:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Okta User Account Created
 slug: 2024-01-23-okta-user-created
 description: Detection of new user account creation in Okta, which could indicate malicious activity related to credential access.
 date: "2024-01-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

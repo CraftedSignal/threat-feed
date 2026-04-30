@@ -3,9 +3,9 @@ title: Giskard-agents ChatWorkflow.chat() Server-Side Template Injection
 slug: 2024-01-02-giskard-ssti
 description: Giskard-agents versions 0.3.3 and earlier, and versions 1.0.1a1 through 1.0.2a1 are vulnerable to remote code execution via server-side template injection where the ChatWorkflow.chat() method passes user-supplied strings directly to a non-sandboxed Jinja2 Environment, allowing attackers to execute arbitrary code on the server.
 date: "2026-03-27T22:17:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

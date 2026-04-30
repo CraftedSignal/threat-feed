@@ -5,6 +5,9 @@ description: CVE-2026-5842 is an authorization bypass vulnerability in decolua 9
 date: "2026-04-09T05:16:06Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - authorization-bypass

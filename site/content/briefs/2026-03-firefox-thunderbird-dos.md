@@ -5,6 +5,9 @@ description: CVE-2026-4697 is a denial-of-service vulnerability due to incorrect
 date: "2026-03-24T13:16:05Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4697
   - denial-of-service

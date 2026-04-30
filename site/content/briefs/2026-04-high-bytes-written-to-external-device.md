@@ -3,9 +3,9 @@ title: Unusual Spike in Bytes Written to External Device Detected by Machine Lea
 slug: 2026-04-high-bytes-written-to-external-device
 description: A machine learning job has detected a spike in bytes written to an external device, which is anomalous and can signal illicit data copying or transfer activities, potentially leading to data exfiltration.
 date: "2026-04-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

@@ -3,9 +3,9 @@ title: OpenSC Stack Buffer Overflow Vulnerability (CVE-2025-49010)
 slug: 2024-07-opensc-buffer-overflow
 description: CVE-2025-49010 is a critical stack buffer overflow vulnerability within the GET RESPONSE function of OpenSC, potentially leading to arbitrary code execution.
 date: "2024-07-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability exists in xwpe version 
 date: "2026-03-28T12:15:58Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - buffer-overflow

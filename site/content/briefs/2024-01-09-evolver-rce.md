@@ -3,9 +3,9 @@ title: Evolver Remote Code Execution via Command Injection in `_extractLLM()`
 slug: 2024-01-09-evolver-rce
 description: A command injection vulnerability in the `_extractLLM()` function of the evolver application allows remote attackers to execute arbitrary shell commands by injecting shell metacharacters into the `corpus` parameter, leading to potential system compromise.
 date: "2024-01-09T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

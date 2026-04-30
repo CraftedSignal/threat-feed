@@ -3,9 +3,9 @@ title: Device Code Phishing Campaign Targeting Cloud Platforms
 slug: 2026-03-device-code-phishing
 description: A phishing campaign abuses Microsoft's Device Code OAuth flow to gain access to cloud-based file storage and document workflow platforms, bypassing traditional credential harvesting.
 date: "2026-03-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

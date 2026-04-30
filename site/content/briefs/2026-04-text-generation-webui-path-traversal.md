@@ -5,6 +5,9 @@ description: text-generation-webui versions prior to 4.1.1 are vulnerable to pat
 date: "2026-04-06T18:16:42Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - path traversal
   - code execution

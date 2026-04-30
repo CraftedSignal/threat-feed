@@ -3,9 +3,9 @@ title: rust-openssl Stack Buffer Overflow Vulnerability
 slug: 2024-01-03-rust-openssl-buffer-overflow
 description: The rust-openssl crate is vulnerable to a stack-based buffer overflow (CVE-2026-41681) where the `EVP_DigestFinal()` function writes beyond the allocated buffer, potentially corrupting the stack, affecting versions >= 0.10.39 and < 0.10.78.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

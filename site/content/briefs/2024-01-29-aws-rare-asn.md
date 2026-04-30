@@ -3,9 +3,9 @@ title: AWS Identity API Access from Rare ASN Organizations
 slug: 2024-01-29-aws-rare-asn
 description: This rule detects AWS identities with API traffic dominated by cloud-provider source AS organization labels, but also exhibit traffic from other AS organizations, potentially indicating credential reuse or pivoting.
 date: "2024-01-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

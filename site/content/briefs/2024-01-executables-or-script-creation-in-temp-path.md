@@ -3,9 +3,9 @@ title: Executable or Script Creation in Temporary Paths
 slug: 2024-01-executables-or-script-creation-in-temp-path
 description: Adversaries may create executables or scripts in temporary directories to evade detection, maintain persistence, and execute unauthorized code on Windows systems.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

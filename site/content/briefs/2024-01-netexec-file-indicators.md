@@ -3,9 +3,9 @@ title: NetExec File Creation Detection
 slug: 2024-01-netexec-file-indicators
 description: This brief covers the detection of NetExec, a post-exploitation and lateral movement tool, through monitoring for unique file creation patterns associated with its execution and file extraction in Windows environments.
 date: "2024-01-18T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

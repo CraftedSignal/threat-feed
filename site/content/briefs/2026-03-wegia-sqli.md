@@ -5,6 +5,9 @@ description: WeGIA web manager prior to version 3.6.7 is vulnerable to SQL injec
 date: "2026-03-27T23:17:13Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-33991
   - sql-injection

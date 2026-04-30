@@ -5,6 +5,9 @@ description: Adversaries attempt to clear Linux system logs using utilities like
 date: "2024-01-09T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - defense-evasion
   - log-clearing

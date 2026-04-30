@@ -3,9 +3,9 @@ title: 'OpenClaw Trust Model Vulnerability: System Prompt Channel Injection'
 slug: 2026-04-openclaw-trust-model
 description: OpenClaw versions 2026.4.2 and earlier are vulnerable to a trust model issue where authenticated wake hooks or mapped wake payloads can be promoted into the trusted System prompt channel, potentially leading to security vulnerabilities within the OpenClaw trust model.
 date: "2026-04-09T14:22:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Bitbucket Audit Log Configuration Modified
 slug: 2024-10-bitbucket-audit-config-mod
 description: An attacker may modify the Bitbucket audit log configuration to impair security monitoring and evade detection.
 date: "2024-10-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

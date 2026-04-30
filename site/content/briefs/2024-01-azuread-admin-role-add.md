@@ -3,9 +3,9 @@ title: Azure AD User Added to Administrator Role
 slug: 2024-01-azuread-admin-role-add
 description: An adversary adds a user to an Azure Active Directory administrative role to gain initial access, persist in the environment, escalate privileges, and potentially operate stealthily.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

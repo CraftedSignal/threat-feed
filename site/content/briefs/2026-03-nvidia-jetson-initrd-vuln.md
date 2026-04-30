@@ -5,6 +5,9 @@ description: CVE-2026-24154 is a vulnerability in NVIDIA Jetson Linux where an u
 date: "2026-03-31T17:16:30Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-24154
   - nvidia

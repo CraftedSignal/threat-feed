@@ -3,9 +3,9 @@ title: Windows Time-Based Evasion via Choice Exec
 slug: 2024-01-time-based-evasion-choice
 description: Detection of choice.exe used in batch files for time-based evasion, a technique observed in SnakeKeylogger malware, indicating potential stealthy code execution and persistence.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

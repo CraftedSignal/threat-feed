@@ -5,6 +5,9 @@ description: A use-after-free vulnerability (CVE-2026-4676) in Google Chrome bef
 date: "2026-03-24T01:17:03Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - use-after-free
   - sandbox-escape

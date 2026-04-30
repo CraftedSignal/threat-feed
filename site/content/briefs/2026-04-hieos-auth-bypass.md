@@ -5,6 +5,9 @@ description: Hirschmann HiEOS devices contain an authentication bypass vulnerabi
 date: "2026-04-02T20:16:19Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - authentication bypass
   - cve-2024-14034

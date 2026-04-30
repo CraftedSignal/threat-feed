@@ -3,9 +3,9 @@ title: AWS CloudTrail Logging Disabled or Modified
 slug: 2024-01-aws-cloudtrail-disable-logging
 description: Detection of AWS CloudTrail being disabled, deleted, or updated by an adversary to impair defenses and evade detection.
 date: "2024-01-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

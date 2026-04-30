@@ -5,6 +5,9 @@ description: RetroDebugger before v0.64.72 is vulnerable to an out-of-bounds rea
 date: "2026-03-24T06:16:23Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4753
   - out-of-bounds read

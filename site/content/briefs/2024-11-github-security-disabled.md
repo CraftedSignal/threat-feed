@@ -3,9 +3,9 @@ title: GitHub Security Feature Disablement
 slug: 2024-11-github-security-disabled
 description: An administrator or privileged user disables critical security features within a GitHub organization or repository, potentially leading to increased risk of unauthorized access, data breaches, and persistent compromise.
 date: "2024-10-31T18:22:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

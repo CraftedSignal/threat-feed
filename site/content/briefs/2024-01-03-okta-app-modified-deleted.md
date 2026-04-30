@@ -3,9 +3,9 @@ title: Okta Application Modified or Deleted
 slug: 2024-01-03-okta-app-modified-deleted
 description: Detects when an Okta application is modified or deleted, potentially indicating unauthorized changes or removal of critical applications.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Tabs Mail Carrier 2.5.1 MAIL FROM Buffer Overflow Vulnerability
 slug: 2026-03-tabs-mail-carrier-overflow
 description: Tabs Mail Carrier 2.5.1 is vulnerable to a buffer overflow in the MAIL FROM SMTP command, allowing remote attackers to execute arbitrary code by sending a crafted MAIL FROM parameter with an oversized buffer to overwrite the EIP register and execute a bind shell payload via port 25.
 date: "2026-03-24T12:16:07Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

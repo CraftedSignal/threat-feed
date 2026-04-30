@@ -5,6 +5,9 @@ description: An unauthenticated SQL Injection vulnerability (CVE-2026-33614) in 
 date: "2026-04-02T10:16:16Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - vulnerability

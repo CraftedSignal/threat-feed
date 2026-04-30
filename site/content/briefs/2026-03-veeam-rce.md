@@ -5,6 +5,9 @@ description: Multiple critical vulnerabilities in Veeam Backup & Replication, in
 date: "2026-03-14T10:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - veeam
   - rce

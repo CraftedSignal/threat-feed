@@ -5,6 +5,9 @@ description: Twitch Studio version 0.114.8 and prior contains a privilege escala
 date: "2026-04-06T16:16:26Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - cve-2024-14032

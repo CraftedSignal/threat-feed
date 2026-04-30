@@ -3,9 +3,9 @@ title: Azure AD Hybrid Health AD FS Service Deletion for Defense Evasion
 slug: 2024-01-03-azuread-adfs-delete
 description: Threat actors may delete Azure AD Hybrid Health AD FS service instances after using them to spoof AD FS signing logs for defense evasion.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

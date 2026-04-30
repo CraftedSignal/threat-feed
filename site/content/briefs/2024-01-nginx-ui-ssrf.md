@@ -3,9 +3,9 @@ title: Nginx-UI SSRF Vulnerability via Cluster Node Proxy
 slug: 2024-01-nginx-ui-ssrf
 description: Nginx-UI version 2.3.4 and earlier is vulnerable to Server-Side Request Forgery (SSRF) allowing authenticated users to access internal services by manipulating cluster node configurations.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

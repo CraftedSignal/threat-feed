@@ -5,6 +5,9 @@ description: CVE-2026-6105 is a critical vulnerability in perfree go-fastdfs-web
 date: "2026-04-11T22:16:01Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-6105
   - Improper Authorization

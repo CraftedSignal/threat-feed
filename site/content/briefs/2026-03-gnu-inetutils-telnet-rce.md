@@ -3,9 +3,9 @@ title: Unpatched GNU Inetutils Telnet Remote Code Execution Vulnerability
 slug: 2026-03-gnu-inetutils-telnet-rce
 description: A remote code execution vulnerability exists in the GNU Inetutils Telnet server, potentially allowing unauthenticated attackers to execute arbitrary code on vulnerable systems.
 date: "2026-03-19T10:18:48Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - critical
 tags:

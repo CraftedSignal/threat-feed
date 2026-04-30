@@ -3,9 +3,9 @@ title: SourceCodester Online Admission System 1.0 SQL Injection Vulnerability
 slug: 2026-03-online-admission-sqli
 description: A SQL injection vulnerability in SourceCodester Online Admission System 1.0 allows remote attackers to execute arbitrary SQL commands by manipulating the 'program' argument in the /programmes.php file.
 date: "2026-03-24T04:17:14Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

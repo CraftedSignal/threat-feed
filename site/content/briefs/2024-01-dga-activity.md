@@ -3,9 +3,9 @@ title: Potential DGA Activity Detected by Machine Learning
 slug: 2024-01-dga-activity
 description: A machine learning job detected potential DGA (domain generation algorithm) activity indicative of malware command and control (C2) channels, identifying source IP addresses making DNS requests with a high probability of being DGA-generated, a technique used by adversaries to evade detection.
 date: "2024-01-09T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

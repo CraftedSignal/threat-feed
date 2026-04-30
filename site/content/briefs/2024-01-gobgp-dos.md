@@ -3,9 +3,9 @@ title: GoBGP Remote Denial of Service via Malformed BGP Update Message
 slug: 2024-01-gobgp-dos
 description: A denial-of-service vulnerability exists in GoBGP version 4.3.0 where a malformed BGP UPDATE message containing an unrecognized Well-known Path Attribute triggers a nil pointer dereference, causing the BGP daemon to crash.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

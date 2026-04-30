@@ -3,9 +3,9 @@ title: Speagle Malware Hijacks Cobra DocGuard for Data Exfiltration
 slug: 2026-03-speagle-docguard-hijack
 description: The Speagle malware hijacks the Cobra DocGuard application to exfiltrate sensitive data from infected machines to attacker-controlled Cobra DocGuard servers, effectively masking malicious traffic as legitimate DocGuard communication.
 date: "2026-03-21T00:38:59Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

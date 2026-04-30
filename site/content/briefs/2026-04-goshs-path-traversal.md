@@ -5,6 +5,9 @@ description: The goshs application is vulnerable to unauthenticated path travers
 date: "2026-04-04T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - file-deletion

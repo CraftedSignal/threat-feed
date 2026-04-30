@@ -3,9 +3,9 @@ title: Azure AD Threat Intelligence Detection
 slug: 2024-01-azuread-threatintel
 description: This brief focuses on detecting unusual user activity and sign-in patterns flagged by Azure AD Threat Intelligence, which may indicate stealthy attacks, persistence attempts, privilege escalation, or initial access.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

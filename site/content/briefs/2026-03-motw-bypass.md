@@ -3,9 +3,9 @@ title: MOTW Bypass via CAB, TAR, and 7-Zip Chaining
 slug: 2026-03-motw-bypass
 description: A newly discovered Mark of the Web (MOTW) bypass technique utilizes a chain of CAB, TAR, and 7-Zip archives to circumvent SmartScreen and execute files without security warnings.
 date: "2026-03-19T17:31:15Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Dagster SQL Injection Vulnerability in Dynamic Partition Keys
 slug: 2024-01-02-dagster-sqli
 description: A SQL injection vulnerability exists in Dagster's DuckDB, Snowflake, BigQuery, and DeltaLake I/O managers, where a user with 'Add Dynamic Partitions' permission can inject arbitrary SQL due to improper escaping of dynamic partition key values, leading to unauthorized data access or modification.
 date: "2026-04-18T01:07:59Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: XenForo before 2.3.7 discloses filesystem paths through exception m
 date: "2026-04-01T01:16:40Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - path-disclosure
   - cve-2025-71282

@@ -5,6 +5,9 @@ description: A path traversal vulnerability exists in prompts.chat prior to comm
 date: "2026-04-04T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - file-write

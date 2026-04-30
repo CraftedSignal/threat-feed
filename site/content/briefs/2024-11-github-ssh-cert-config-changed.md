@@ -3,9 +3,9 @@ title: GitHub SSH Certificate Configuration Changed
 slug: 2024-11-github-ssh-cert-config-changed
 description: Attackers can modify SSH certificate configurations in GitHub organizations to gain unauthorized access, persist in the environment, escalate privileges, and operate stealthily.
 date: "2024-11-02T14:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

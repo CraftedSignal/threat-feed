@@ -3,9 +3,9 @@ title: Unusual Remote File Extension Detected via Machine Learning
 slug: 2024-01-03-unusual-remote-file-extension
 description: An Elastic machine learning rule detects unusual remote file transfers with rare extensions, potentially indicating lateral movement activity on a host and suggesting adversaries bypassing security measures.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

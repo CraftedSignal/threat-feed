@@ -3,9 +3,9 @@ title: Google Chrome Device Bound Session Credentials (DBSC) Mitigates Cookie Th
 slug: 2026-04-chrome-cookie-protection
 description: Google's rollout of Device Bound Session Credentials (DBSC) in Chrome 146 for Windows, with a future release planned for macOS, cryptographically binds authentication sessions to the user's device, rendering stolen session cookies unusable and mitigating credential access.
 date: "2026-04-10T07:50:52Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

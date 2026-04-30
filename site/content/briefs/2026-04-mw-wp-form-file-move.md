@@ -5,6 +5,9 @@ description: The MW WP Form plugin for WordPress is vulnerable to arbitrary file
 date: "2026-04-02T06:16:23Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - file-move

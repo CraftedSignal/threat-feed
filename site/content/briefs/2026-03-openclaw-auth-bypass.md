@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.12 is vulnerable to an authentication bypass
 date: "2026-03-29T13:17:01Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - authentication-bypass
   - webhook

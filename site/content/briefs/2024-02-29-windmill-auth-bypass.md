@@ -5,6 +5,9 @@ description: Windmill versions 1.56.0 through 1.614.0 contain a missing authoriz
 date: "2026-04-07T17:16:27Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - windmill
   - authorization-bypass

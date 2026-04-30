@@ -3,9 +3,9 @@ title: Malware Spreading Through Fake 'Claude Code' Google Ads
 slug: 2024-01-03-fake-claude-ads
 description: Malware is distributed via malicious advertisements on Google impersonating 'Claude Code', targeting both Windows and macOS operating systems with the goal of infecting users.
 date: "2026-03-15T15:31:12Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

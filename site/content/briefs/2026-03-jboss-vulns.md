@@ -3,9 +3,9 @@ title: Red Hat JBoss Enterprise Application Platform Multiple Vulnerabilities
 slug: 2026-03-jboss-vulns
 description: An anonymous remote attacker can exploit multiple vulnerabilities in Red Hat JBoss Enterprise Application Platform to cause a denial-of-service condition, manipulate data, and conduct further attacks such as cache poisoning and session hijacking.
 date: "2026-03-25T10:23:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

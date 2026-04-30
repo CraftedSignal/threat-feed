@@ -3,9 +3,9 @@ title: Suspicious Pod Creation in Kubernetes System Namespace
 slug: 2024-11-kubernetes-pod-creation
 description: An attacker may deploy a pod within the kube-system namespace in Kubernetes to mimic legitimate system pods and evade detection.
 date: "2024-11-07T14:23:50Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

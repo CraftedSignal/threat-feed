@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Grub Bootloader
 slug: 2024-05-grub-vulns
 description: Multiple vulnerabilities in the Grub bootloader allow attackers to execute arbitrary code and cause denial-of-service conditions.
 date: "2026-03-25T10:22:08Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

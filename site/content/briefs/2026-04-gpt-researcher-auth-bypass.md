@@ -5,6 +5,9 @@ description: CVE-2026-5632 is an authentication bypass vulnerability in assafelo
 date: "2026-04-06T07:16:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-5632
   - authentication-bypass

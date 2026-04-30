@@ -3,9 +3,9 @@ title: Okta Password Entered in AlternateID Field
 slug: 2024-02-okta-password-alternateid
 description: Okta logs may contain user passwords if a user mistakenly enters their password into the username field during login, potentially exposing credentials in logs.
 date: "2024-02-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

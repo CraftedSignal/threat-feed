@@ -3,9 +3,9 @@ title: Argo Workflows Controller Denial-of-Service via Malformed Pod Annotation
 slug: 2024-01-09-argo-workflow-dos
 description: A malformed `workflows.argoproj.io/pod-gc-strategy` annotation in an Argo Workflow pod can trigger an unchecked array index in the `podGCFromPod()` function, leading to a controller-wide panic and denial-of-service.
 date: "2026-04-23T21:39:21Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

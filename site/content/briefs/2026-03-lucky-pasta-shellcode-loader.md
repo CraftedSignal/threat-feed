@@ -3,9 +3,9 @@ title: Lucky Pasta Shellcode Loader for Windows
 slug: 2026-03-lucky-pasta-shellcode-loader
 description: A shellcode loader dubbed 'Lucky Pasta' employs JIT decryption, string obfuscation, dynamic library loading, fiber-based execution, and AES instruction patching to evade AV detection, retrieving shellcode via HTTP/HTTPS and executing it on Windows systems.
 date: "2026-03-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

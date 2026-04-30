@@ -3,9 +3,9 @@ title: Dgraph Pre-Auth Full Database Exfiltration via DQL Injection
 slug: 2024-01-dgraph-dql-injection
 description: A pre-authentication DQL injection vulnerability in Dgraph's default configuration allows attackers to exfiltrate the entire database by crafting malicious JSON mutations to the `/mutate` endpoint, exploiting unsanitized language tags in predicates.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

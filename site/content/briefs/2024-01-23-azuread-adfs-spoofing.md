@@ -3,9 +3,9 @@ title: Spoofing AD FS Signing Logs via Azure AD Hybrid Health Service
 slug: 2024-01-23-azuread-adfs-spoofing
 description: A threat actor can create a new, rogue AD Health ADFS service within Azure and then create a fake server instance, which can be leveraged to spoof AD FS signing logs without compromising on-prem AD FS servers.
 date: "2024-01-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

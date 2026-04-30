@@ -3,9 +3,9 @@ title: util-linux Vulnerability Allows DoS and Information Disclosure
 slug: 2024-04-util-linux-dos-info-disclosure
 description: A local attacker can exploit a vulnerability in util-linux to perform a denial of service attack and disclose sensitive information.
 date: "2026-04-22T08:08:57Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Salvo Web Framework Path Traversal Vulnerability
 slug: 2024-01-salvo-path-traversal
 description: Salvo web framework versions 0.39.0 through 0.89.2 are vulnerable to Path Traversal and Access Control Bypass, allowing unauthenticated external attackers to bypass proxy routing constraints and access unintended backend paths.
 date: "2026-03-24T00:16:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

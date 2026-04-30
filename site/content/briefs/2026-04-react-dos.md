@@ -5,6 +5,9 @@ description: A denial of service vulnerability, CVE-2026-23869, exists in React 
 date: "2026-04-08T20:16:23Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-23869
   - denial-of-service

@@ -6,6 +6,9 @@ date: "2026-04-09T21:16:05Z"
 severities:
   - high
 exploited: true
+type: threat
+types:
+  - threat
 tags:
   - wordpress
   - sql-injection

@@ -5,6 +5,9 @@ description: A memory corruption vulnerability (CVE-2026-21378) exists in a came
 date: "2026-04-06T16:16:30Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - camera-driver
   - memory-corruption

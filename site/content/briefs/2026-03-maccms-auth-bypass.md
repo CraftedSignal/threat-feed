@@ -5,6 +5,9 @@ description: A missing authentication vulnerability exists in MacCMS 2025.1000.4
 date: "2026-03-24T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-4562
   - authentication-bypass

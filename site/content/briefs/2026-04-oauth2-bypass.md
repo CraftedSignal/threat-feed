@@ -3,9 +3,9 @@ title: OAuth2 Proxy Authentication Bypass via User-Agent Header
 slug: 2026-04-oauth2-bypass
 description: A critical authentication bypass vulnerability (CVE-2026-34457) exists in OAuth2 Proxy when used with `auth_request`-style integration and either `--ping-user-agent` is set or `--gcp-healthchecks` is enabled, allowing unauthenticated access to protected resources.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

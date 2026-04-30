@@ -3,9 +3,9 @@ title: CrowdStrike Falcon Data Security Introduction
 slug: 2026-03-falcon-data-security
 description: CrowdStrike's Falcon Data Security aims to protect sensitive data by providing visibility into data movement across various environments and preventing data theft.
 date: "2026-03-28T08:12:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

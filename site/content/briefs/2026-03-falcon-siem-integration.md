@@ -3,9 +3,9 @@ title: CrowdStrike Falcon SIEM Integrates with Microsoft Defender EDR
 slug: 2026-03-falcon-siem-integration
 description: CrowdStrike Falcon Next-Gen SIEM is expanding its capabilities to integrate with third-party EDR solutions, starting with Microsoft Defender, to enable organizations to extend their AI-native SOC across heterogeneous environments without replacing existing endpoint agents.
 date: "2026-03-28T21:52:45Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

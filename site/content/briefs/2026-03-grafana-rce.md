@@ -5,6 +5,9 @@ description: A chained attack leveraging SQL Expressions and a Grafana Enterpris
 date: "2026-03-27T15:16:50Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - grafana
   - rce

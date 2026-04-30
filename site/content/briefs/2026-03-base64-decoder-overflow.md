@@ -5,6 +5,9 @@ description: Base64 Decoder 1.1.2 is vulnerable to a stack-based buffer overflow
 date: "2026-03-24T12:16:04Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2019-25634
   - buffer-overflow

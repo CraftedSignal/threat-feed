@@ -5,6 +5,9 @@ description: CVE-2026-21382 is a memory corruption vulnerability related to hand
 date: "2026-04-06T16:16:31Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-21382
   - buffer-overflow

@@ -3,9 +3,9 @@ title: FlowiseAI AirtableAgent Remote Code Execution via Prompt Injection
 slug: 2024-01-flowise-rce
 description: A remote code execution vulnerability exists in FlowiseAI's AirtableAgent.ts due to insufficient input verification when using Pandas, allowing attackers to inject malicious code into the prompt and execute arbitrary code via Pyodide.
 date: "2026-04-16T21:43:57Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

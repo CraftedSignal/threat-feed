@@ -5,6 +5,9 @@ description: A SQL injection vulnerability exists in Kysely versions prior to 0.
 date: "2026-03-26T17:16:41Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - kysely
   - sql-injection

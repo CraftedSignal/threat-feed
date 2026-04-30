@@ -3,9 +3,9 @@ title: PackageKit Local Privilege Escalation Vulnerability
 slug: 2026-04-packagekit-privesc
 description: A local attacker can exploit a vulnerability in PackageKit to escalate their privileges on a Linux system.
 date: "2026-04-30T09:09:12Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

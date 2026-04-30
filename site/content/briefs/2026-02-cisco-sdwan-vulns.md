@@ -5,6 +5,9 @@ description: Malicious actors are actively exploiting CVE-2026-20127 for initial
 date: "2026-02-25T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cisco-sdwan
   - vulnerability

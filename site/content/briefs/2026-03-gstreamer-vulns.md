@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in GStreamer
 slug: 2026-03-gstreamer-vulns
 description: Multiple vulnerabilities in GStreamer allow a remote, anonymous attacker to cause a denial-of-service condition, memory corruption, and potentially execute arbitrary code.
 date: "2026-03-25T09:46:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

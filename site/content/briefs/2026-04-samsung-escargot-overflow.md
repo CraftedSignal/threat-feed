@@ -5,6 +5,9 @@ description: CVE-2026-25207 is an out-of-bounds write vulnerability in Samsung O
 date: "2026-04-13T05:17:17Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-25207
   - out-of-bounds write

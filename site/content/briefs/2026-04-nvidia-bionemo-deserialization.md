@@ -5,6 +5,9 @@ description: NVIDIA BioNeMo is vulnerable to deserialization of untrusted data (
 date: "2026-03-31T17:17:41Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - deserialization

@@ -3,9 +3,9 @@ title: CrowdStrike CNAPP Enhanced with Adversary-Informed Risk Prioritization
 slug: 2026-03-cnapp-advances
 description: CrowdStrike has enhanced its CNAPP capabilities by adding application-layer visibility and prioritizing risks based on known adversary tactics, techniques, and procedures (TTPs).
 date: "2026-03-28T14:46:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 actors:

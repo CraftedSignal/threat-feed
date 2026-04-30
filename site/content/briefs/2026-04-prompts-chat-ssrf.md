@@ -5,6 +5,9 @@ description: prompts.chat prior to commit 30a8f04 is vulnerable to server-side r
 date: "2026-04-03T21:17:09Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - cve-2026-22664

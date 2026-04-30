@@ -3,9 +3,9 @@ title: AWS GuardDuty Detector Deletion or Disablement
 slug: 2024-01-03-aws-guardduty-disable
 description: Attackers may delete or disable AWS GuardDuty detectors to impair defenses and evade detection of malicious activities within the AWS environment.
 date: "2024-01-03T17:38:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

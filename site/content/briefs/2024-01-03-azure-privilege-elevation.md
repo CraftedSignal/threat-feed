@@ -3,9 +3,9 @@ title: Detection of Azure Subscription Permission Elevation
 slug: 2024-01-03-azure-privilege-elevation
 description: Detection of a user being assigned the 'User Access Administrator' role, which grants the ability to manage all Azure Subscriptions, potentially leading to privilege escalation and unauthorized access.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

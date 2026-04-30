@@ -3,9 +3,9 @@ title: go-zserio Unbounded Memory Allocation Vulnerability
 slug: 2024-11-01-go-zserio-memory-allocation
 description: go-zserio versions prior to 0.9.1 are vulnerable to unbounded memory allocation when deserializing data, potentially leading to denial of service.
 date: "2024-11-01T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

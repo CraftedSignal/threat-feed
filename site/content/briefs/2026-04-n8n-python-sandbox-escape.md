@@ -3,9 +3,9 @@ title: n8n Python Task Runner Sandbox Escape Vulnerability
 slug: 2026-04-n8n-python-sandbox-escape
 description: A sandbox escape vulnerability exists in n8n's Python Task Runner that allows an authenticated user with workflow creation/modification permissions to achieve arbitrary code execution on the task runner container, impacting n8n instances with the Python Task Runner enabled; upgrade to versions 1.123.32, 2.17.4, 2.18.1 or later to remediate the vulnerability.
 date: "2026-04-29T21:21:50Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

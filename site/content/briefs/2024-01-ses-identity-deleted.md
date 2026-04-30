@@ -3,9 +3,9 @@ title: AWS SES Identity Deletion
 slug: 2024-01-ses-identity-deleted
 description: Detection of an AWS Simple Email Service (SES) identity deletion event, potentially indicating an adversary attempting to cover their tracks after malicious activity.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

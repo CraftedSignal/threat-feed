@@ -3,9 +3,9 @@ title: S3Browser IAM Policy Creation with Default Bucket Name
 slug: 2024-01-26-s3browser-iam-policy
 description: An AWS IAM policy is created by the S3Browser utility with the default S3 bucket name placeholder, potentially indicating unauthorized access or misconfiguration.
 date: "2024-01-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

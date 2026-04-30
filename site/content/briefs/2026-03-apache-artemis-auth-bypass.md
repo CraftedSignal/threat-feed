@@ -5,6 +5,9 @@ description: CVE-2026-27446 allows an unauthenticated remote attacker to inject 
 date: "2026-03-05T09:31:38Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - apache-artemis
   - apache-activemq

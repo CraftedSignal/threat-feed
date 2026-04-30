@@ -5,6 +5,9 @@ description: CVE-2026-5320 describes an unauthenticated remote access vulnerabil
 date: "2026-04-02T05:16:04Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - authentication-bypass
   - cve-2026-5320

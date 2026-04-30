@@ -3,9 +3,9 @@ title: Citrix Systems NetScaler Vulnerabilities Allow Information Disclosure and
 slug: 2026-03-netscaler-vulns
 description: An anonymous or authenticated remote attacker can exploit multiple vulnerabilities in Citrix Systems NetScaler to disclose information and take over a user session.
 date: "2026-03-24T12:36:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

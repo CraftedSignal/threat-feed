@@ -3,9 +3,9 @@ title: Azure Network Firewall Policy Modification or Deletion
 slug: 2024-01-azure-firewall-policy-changes
 description: An adversary may modify or delete Azure Network Firewall Policies to impair defenses and potentially impact network security.
 date: "2024-01-03T18:12:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

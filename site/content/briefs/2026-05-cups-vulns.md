@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in CUPS
 slug: 2026-05-cups-vulns
 description: Multiple vulnerabilities in CUPS allow an attacker to bypass security measures, execute arbitrary code, escalate privileges, manipulate data, or cause a denial-of-service condition.
 date: "2026-04-30T09:43:58Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

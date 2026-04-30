@@ -5,6 +5,9 @@ description: Chamilo LMS before 1.11.38 allows authenticated users with a REST A
 date: "2026-04-11T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - web-application

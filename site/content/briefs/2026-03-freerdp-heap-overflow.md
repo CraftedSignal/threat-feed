@@ -5,6 +5,9 @@ description: A heap-buffer-overflow read vulnerability exists in FreeRDP version
 date: "2026-03-30T22:16:19Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - freerdp
   - heap-buffer-overflow

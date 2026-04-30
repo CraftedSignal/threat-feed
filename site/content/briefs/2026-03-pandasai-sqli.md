@@ -3,9 +3,9 @@ title: SQL Injection Vulnerability in Sinaptik AI PandasAI lancedb Extension
 slug: 2026-03-pandasai-sqli
 description: A SQL injection vulnerability exists in Sinaptik AI PandasAI up to version 0.1.4 within the pandasai-lancedb Extension, allowing remote exploitation through manipulation of multiple functions in the lancedb.py file.
 date: "2026-03-28T12:16:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: CVE-2026-32211 is a critical vulnerability in Azure MCP Server due 
 date: "2026-04-03T00:16:04Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - azure
   - information-disclosure

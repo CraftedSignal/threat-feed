@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability exists in Tenda AC5 ver
 date: "2026-03-27T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4903
   - buffer-overflow

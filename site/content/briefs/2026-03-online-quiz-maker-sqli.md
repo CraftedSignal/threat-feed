@@ -5,6 +5,9 @@ description: Online Quiz Maker 1.0 is vulnerable to SQL injection via the catid 
 date: "2026-03-26T12:16:05Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - cve-2018-25207

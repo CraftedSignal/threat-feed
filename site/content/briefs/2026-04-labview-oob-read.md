@@ -5,6 +5,9 @@ description: A memory corruption vulnerability exists in NI LabVIEW due to an ou
 date: "2026-04-08T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-32864
   - labview

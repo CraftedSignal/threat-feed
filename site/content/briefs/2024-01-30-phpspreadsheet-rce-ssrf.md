@@ -3,9 +3,9 @@ title: PhpSpreadsheet SSRF and RCE Vulnerability via IOFactory::load
 slug: 2024-01-30-phpspreadsheet-rce-ssrf
 description: PhpSpreadsheet is vulnerable to Server-Side Request Forgery (SSRF) and Remote Code Execution (RCE) due to improper validation of filenames in the IOFactory::load function, exploitable via PHP wrappers like `phar://` and `ftp://`.
 date: "2024-01-30T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

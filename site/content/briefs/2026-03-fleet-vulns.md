@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Fleet
 slug: 2026-03-fleet-vulns
 description: Multiple vulnerabilities in Fleet allow an attacker to perform SQL injection, denial of service, bypass security measures, disclose information, and execute arbitrary program code with administrator privileges.
 date: "2026-03-30T11:08:57Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

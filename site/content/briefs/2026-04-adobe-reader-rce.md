@@ -6,6 +6,9 @@ date: "2026-04-13T15:37:41Z"
 severities:
   - critical
 exploited: true
+type: threat
+types:
+  - threat
 tags:
   - adobe
   - acrobat

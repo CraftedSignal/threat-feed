@@ -3,9 +3,9 @@ title: Zserio Runtime Unbounded Memory Allocation Vulnerability
 slug: 2024-05-zserio-oom
 description: A crafted payload can force memory allocations of up to 16 GB, leading to a denial-of-service condition in applications using the Zserio serialization framework, including those within the automotive Navigation Data Standard (NDS).
 date: "2024-05-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

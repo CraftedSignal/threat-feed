@@ -5,6 +5,9 @@ description: CVE-2026-5412 describes an authorization issue in Juju versions pri
 date: "2026-04-10T13:16:45Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - vulnerability
   - authorization

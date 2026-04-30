@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Cisco Products Allow for Remote Code Executio
 slug: 2024-07-cisco-multiple-vulns
 description: Multiple vulnerabilities in Cisco ASA, Secure Firewall Threat Defense, IOS, IOS XE, and IOS XR allow a remote attacker to bypass authentication and execute arbitrary code with administrator privileges.
 date: "2026-04-24T05:43:56Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

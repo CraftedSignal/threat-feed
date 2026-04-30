@@ -3,9 +3,9 @@ title: CrowdStrike Flex for Services Expands Access to Incident Response Experti
 slug: 2026-03-crowdstrike-flex-services
 description: CrowdStrike is expanding its Falcon Flex model to its services offering, providing flexible access to incident response, proactive security services, advisory, platform services, and training.
 date: "2026-03-28T08:17:27Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

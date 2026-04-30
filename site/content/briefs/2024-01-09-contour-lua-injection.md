@@ -3,9 +3,9 @@ title: Contour HTTPProxy Lua Code Injection via Cookie Path Rewrite
 slug: 2024-01-09-contour-lua-injection
 description: Contour's Cookie Rewriting feature is vulnerable to Lua code injection; an attacker with RBAC permissions to create or modify HTTPProxy resources can craft a malicious value in the `spec.routes[].cookieRewritePolicies[].pathRewrite.value` or `spec.routes[].services[].cookieRewritePolicies[].pathRewrite.value` fields, resulting in arbitrary code execution in the Envoy proxy.
 date: "2024-01-09T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

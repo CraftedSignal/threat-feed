@@ -3,9 +3,9 @@ title: pygeoapi Path Traversal Vulnerability in STAC FileSystemProvider
 slug: 2024-01-03-pygeoapi-path-traversal
 description: A path traversal vulnerability exists in pygeoapi versions 0.23.0 to 0.23.2 within the STAC FileSystemProvider plugin, allowing unauthenticated access to directories when deployed without a URL-normalizing proxy.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

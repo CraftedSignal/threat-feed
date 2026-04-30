@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability (CVE-2026-4975) exists 
 date: "2026-03-28T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - tenda
   - router

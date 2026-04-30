@@ -3,9 +3,9 @@ title: JPCERT/CC Study on Reverse Engineering Rust Binaries
 slug: 2026-03-rust-binaries
 description: JPCERT/CC published a study on the reverse engineering of binaries created with the Rust programming language, providing insights for malware analysis and detection engineering.
 date: "2026-03-16T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

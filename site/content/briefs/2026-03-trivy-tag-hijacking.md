@@ -3,9 +3,9 @@ title: Trivy Security Scanner GitHub Actions Tag Hijacking for CI/CD Secret Thef
 slug: 2026-03-trivy-tag-hijacking
 description: Attackers hijacked 75 tags associated with the Trivy Security Scanner GitHub Actions to steal CI/CD secrets from users of the compromised tags.
 date: "2026-03-21T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

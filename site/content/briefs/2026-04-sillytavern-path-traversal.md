@@ -3,9 +3,9 @@ title: SillyTavern Path Traversal Vulnerability in Chat Endpoints
 slug: 2026-04-sillytavern-path-traversal
 description: A path traversal vulnerability in SillyTavern versions 1.16.0 and earlier allows an authenticated attacker to read and delete arbitrary files under their user data root by manipulating the avatar_url parameter in the `/api/chats/export` and `/api/chats/delete` endpoints.
 date: "2026-04-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in GnuPG and Gpg4win Allow for Arbitrary Code Ex
 slug: 2026-03-gnupg-gpg4win-vulns
 description: Multiple vulnerabilities exist in GnuPG and Gpg4win that could allow a remote attacker to execute arbitrary code or cause a denial-of-service condition.
 date: "2026-03-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

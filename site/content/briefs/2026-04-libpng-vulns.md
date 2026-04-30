@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in libpng Allow Remote Code Execution and Denial
 slug: 2026-04-libpng-vulns
 description: A remote, anonymous attacker can exploit multiple vulnerabilities in libpng to execute arbitrary program code or cause a denial of service.
 date: "2026-04-01T09:21:36Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

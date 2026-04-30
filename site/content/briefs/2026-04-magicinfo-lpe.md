@@ -5,6 +5,9 @@ description: Samsung MagicINFO 9 Server versions prior to 21.1091.1 are suscepti
 date: "2026-04-10T02:16:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - samsung

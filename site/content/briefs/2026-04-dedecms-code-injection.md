@@ -5,6 +5,9 @@ description: DedeCMS 5.7.118 is vulnerable to remote code execution via crafted 
 date: "2026-04-01T17:28:39Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - dedecms
   - code-injection

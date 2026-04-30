@@ -3,9 +3,9 @@ title: Detection of Suspicious Inbox Manipulation Rules in Azure
 slug: 2024-01-suspicious-inbox-rules
 description: This brief focuses on detecting malicious inbox manipulation rules set within a user's Azure environment, often indicative of account compromise or insider threats aiming to conceal illicit activities.
 date: "2024-01-02T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

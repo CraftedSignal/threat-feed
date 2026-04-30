@@ -5,6 +5,9 @@ description: A heap overflow vulnerability in the HiLCOS web interface of Hirsch
 date: "2026-04-02T21:16:39Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2024-14033
   - denial-of-service

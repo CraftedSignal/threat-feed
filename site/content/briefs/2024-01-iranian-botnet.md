@@ -3,9 +3,9 @@ title: Iranian Botnet Operation Exposed via Open Directory
 slug: 2024-01-iranian-botnet
 description: An Iranian botnet operation utilizing a 15-node relay network and active C2 infrastructure was exposed through an open directory.
 date: "2026-03-17T19:15:28Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

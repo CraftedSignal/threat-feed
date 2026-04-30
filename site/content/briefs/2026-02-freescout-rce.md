@@ -5,6 +5,9 @@ description: Critical vulnerabilities, CVE-2026-27636 and CVE-2026-27637, exist 
 date: "2026-02-25T14:05:50Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - freescout
   - rce

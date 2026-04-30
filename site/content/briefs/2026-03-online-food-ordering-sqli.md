@@ -5,6 +5,9 @@ description: CVE-2026-4844 describes a SQL injection vulnerability in the Admin 
 date: "2026-03-26T05:16:41Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

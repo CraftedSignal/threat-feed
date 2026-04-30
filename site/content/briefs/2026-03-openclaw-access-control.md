@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.12 contains an insufficient access control v
 date: "2026-03-29T13:16:59Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - insufficient-access-control
   - privilege-escalation

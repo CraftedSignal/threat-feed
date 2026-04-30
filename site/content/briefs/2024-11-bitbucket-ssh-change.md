@@ -3,9 +3,9 @@ title: Bitbucket Global SSH Settings Changed
 slug: 2024-11-bitbucket-ssh-change
 description: An attacker modifies Bitbucket global SSH settings to potentially enable unauthorized access and lateral movement.
 date: "2024-11-01T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: PhreeBooks ERP 5.2.3 Arbitrary File Upload Vulnerability
 slug: 2026-03-phreebooks-file-upload
 description: PhreeBooks ERP 5.2.3 is vulnerable to arbitrary file upload in the Image Manager component, allowing authenticated attackers to upload malicious PHP files leading to remote code execution.
 date: "2026-03-24T12:16:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

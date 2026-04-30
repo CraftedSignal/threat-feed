@@ -5,6 +5,9 @@ description: jsrsasign versions before 11.1.1 are vulnerable to a missing crypto
 date: "2026-03-23T06:16:21Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - jsrsasign
   - dsa

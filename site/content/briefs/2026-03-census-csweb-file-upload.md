@@ -5,6 +5,9 @@ description: A remote, authenticated attacker can exploit an arbitrary file uplo
 date: "2026-03-24T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - file-upload
   - remote-code-execution

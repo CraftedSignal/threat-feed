@@ -5,6 +5,9 @@ description: A remote attacker can exploit an out-of-bounds read vulnerability (
 date: "2026-03-24T01:17:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - out-of-bounds read

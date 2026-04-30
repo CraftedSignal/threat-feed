@@ -5,6 +5,9 @@ description: A stack buffer overflow vulnerability (CVE-2026-39853) exists in os
 date: "2026-04-09T16:16:31Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - osslsigncode
   - buffer-overflow

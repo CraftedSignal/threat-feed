@@ -5,6 +5,9 @@ description: Inout Article Base CMS is vulnerable to SQL injection, allowing una
 date: "2026-03-24T12:16:05Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - cve-2019-25640

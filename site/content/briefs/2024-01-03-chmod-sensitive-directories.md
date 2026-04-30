@@ -5,6 +5,9 @@ description: Attackers may use chmod to modify file permissions within sensitive
 date: "2024-01-03T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - defense-evasion
   - privilege-escalation

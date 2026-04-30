@@ -3,9 +3,9 @@ title: cURL Vulnerability Allows File Manipulation
 slug: 2026-03-curl-file-manipulation
 description: A remote, anonymous attacker can exploit a vulnerability in cURL to manipulate files on a vulnerable system.
 date: "2026-03-24T10:25:51Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

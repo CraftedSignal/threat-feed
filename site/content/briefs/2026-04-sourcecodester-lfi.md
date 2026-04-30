@@ -5,6 +5,9 @@ description: SourceCodester Leave Application System 1.0 is vulnerable to remote
 date: "2026-03-31T19:16:29Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5210
   - file-inclusion

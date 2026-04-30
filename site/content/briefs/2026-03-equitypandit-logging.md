@@ -5,6 +5,9 @@ description: EquityPandit 1.0 contains an insecure logging vulnerability (CVE-20
 date: "2026-03-23T14:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - insecure-logging
   - credential-access

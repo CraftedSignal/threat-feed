@@ -3,9 +3,9 @@ title: Multiple Cloud Secrets Accessed by Single Source IP
 slug: 2024-02-multi-cloud-secrets-access
 description: A single source IP accessing secret-management APIs across multiple cloud providers (AWS, GCP, Azure) and Kubernetes clusters within a short timeframe indicates potential credential theft, session hijacking, or token replay.
 date: "2026-04-10T16:27:52Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

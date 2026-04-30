@@ -3,9 +3,9 @@ title: Electerm Command Injection Vulnerability via runLinux Function
 slug: 2024-01-electerm-command-injection
 description: A command injection vulnerability exists in electerm's install.js due to insufficient validation in the runLinux() function, allowing attackers to execute arbitrary commands by manipulating remote release metadata.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

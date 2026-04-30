@@ -5,6 +5,9 @@ description: A server-side request forgery (SSRF) vulnerability, identified as C
 date: "2026-04-03T00:16:05Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - azure

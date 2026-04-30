@@ -5,6 +5,9 @@ description: CVE-2026-21992 allows an unauthenticated attacker to gain network a
 date: "2026-03-24T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - vulnerability
   - rce

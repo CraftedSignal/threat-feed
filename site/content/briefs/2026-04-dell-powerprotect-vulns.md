@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Dell PowerProtect Data Domain OS
 slug: 2026-04-dell-powerprotect-vulns
 description: Multiple vulnerabilities in Dell PowerProtect Data Domain OS allow an attacker to execute arbitrary code with root privileges, escalate privileges to administrator, bypass security measures, manipulate data, disclose sensitive information, or conduct unspecified attacks.
 date: "2026-04-21T08:05:52Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

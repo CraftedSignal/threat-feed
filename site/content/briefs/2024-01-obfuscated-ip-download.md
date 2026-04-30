@@ -5,6 +5,9 @@ description: This brief details the use of obfuscated IP addresses within downlo
 date: "2024-01-27T18:29:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - discovery
   - evasion

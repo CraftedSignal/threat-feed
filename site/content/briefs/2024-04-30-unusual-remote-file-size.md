@@ -3,9 +3,9 @@ title: Unusual Remote File Size Indicating Lateral Movement
 slug: 2024-04-30-unusual-remote-file-size
 description: A machine learning job has detected an unusually high file size shared by a remote host, indicating potential lateral movement as attackers bundle data into a single large file transfer to evade detection when exfiltrating valuable information.
 date: "2024-04-30T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

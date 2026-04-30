@@ -5,6 +5,9 @@ description: The Contact Form by Supsystic WordPress plugin is vulnerable to Ser
 date: "2026-03-30T22:16:20Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - ssti
   - wordpress

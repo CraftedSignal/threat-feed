@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.23 contains an insufficient access control v
 date: "2026-04-10T17:50:21Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-35660
   - openclaw

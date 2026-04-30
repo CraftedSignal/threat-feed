@@ -5,6 +5,9 @@ description: Adversaries delete or disable critical scheduled tasks, such as tho
 date: "2024-01-03T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - attack.execution
   - attack.privilege-escalation

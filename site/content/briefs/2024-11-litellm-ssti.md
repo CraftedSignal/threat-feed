@@ -3,9 +3,9 @@ title: LiteLLM Server-Side Template Injection Vulnerability
 slug: 2024-11-litellm-ssti
 description: A server-side template injection vulnerability in LiteLLM versions 1.80.5 to before 1.83.7 allows authenticated users to execute arbitrary code within the LiteLLM Proxy process via a crafted prompt template, potentially exposing sensitive information and enabling command execution on the host.
 date: "2024-11-05T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: A buffer overflow vulnerability in Totolink LR350 version 9.3.5u.63
 date: "2026-03-27T21:17:28Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4976
   - buffer-overflow

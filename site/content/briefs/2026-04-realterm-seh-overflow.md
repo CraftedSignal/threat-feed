@@ -5,6 +5,9 @@ description: RealTerm Serial Terminal 2.0.0.70 contains a structured exception h
 date: "2026-04-05T21:16:46Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2019-25679
   - buffer-overflow

@@ -5,6 +5,9 @@ description: CVE-2026-3779 is a use-after-free vulnerability in a Foxit applicat
 date: "2026-04-01T02:16:03Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-3779
   - use-after-free

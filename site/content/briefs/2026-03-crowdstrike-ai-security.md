@@ -3,9 +3,9 @@ title: CrowdStrike Falcon Enhancements for Securing AI Environments
 slug: 2026-03-crowdstrike-ai-security
 description: CrowdStrike is enhancing its Falcon platform with new features focusing on AI Detection and Response (AIDR) capabilities across endpoints, SaaS, and cloud environments to mitigate risks such as prompt injection attacks, data leaks, and policy violations related to AI agents and shadow AI.
 date: "2026-03-28T09:35:50Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -5,6 +5,9 @@ description: CVE-2025-10681 describes a vulnerability where hardcoded storage cr
 date: "2026-04-03T21:17:08Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2025-10681
   - hardcoded-credentials

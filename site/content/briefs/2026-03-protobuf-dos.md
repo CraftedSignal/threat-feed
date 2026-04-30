@@ -3,9 +3,9 @@ title: Protobuf PHP Library Denial of Service Vulnerability
 slug: 2026-03-protobuf-dos
 description: A denial-of-service vulnerability exists in the Protobuf PHP library due to maliciously crafted messages with negative varints or deep recursion, leading to application crashes and impacting service availability.
 date: "2026-03-25T21:04:21Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

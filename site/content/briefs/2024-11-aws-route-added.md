@@ -3,9 +3,9 @@ title: Detect AWS Route Table Modification via CloudTrail
 slug: 2024-11-aws-route-added
 description: An attacker may add a new route to an AWS route table, potentially redirecting network traffic for malicious purposes such as defense impairment or data exfiltration.
 date: "2024-11-01T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

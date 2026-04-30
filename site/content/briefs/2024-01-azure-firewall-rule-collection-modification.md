@@ -3,9 +3,9 @@ title: Azure Firewall Rule Collection Modification or Deletion
 slug: 2024-01-azure-firewall-rule-collection-modification
 description: An attacker may modify or delete Azure Firewall rule collections (Application, NAT, and Network) to impair defenses and potentially enable malicious traffic.
 date: "2024-01-31T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

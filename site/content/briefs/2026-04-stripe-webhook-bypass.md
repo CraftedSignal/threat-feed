@@ -3,9 +3,9 @@ title: Stripe Webhook Signature Bypass via Empty Secret Enables Unlimited Quota 
 slug: 2026-04-stripe-webhook-bypass
 description: A vulnerability in the Stripe webhook handler allows an unauthenticated attacker to forge webhook events and credit arbitrary quota to their account without payment, stemming from an empty StripeWebhookSecret and lack of PaymentMethod validation, enabling cross-gateway exploitation.
 date: "2026-04-24T15:43:25Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

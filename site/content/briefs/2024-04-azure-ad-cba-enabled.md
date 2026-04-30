@@ -3,9 +3,9 @@ title: Azure AD Certificate-Based Authentication Enabled
 slug: 2024-04-azure-ad-cba-enabled
 description: Enabling certificate-based authentication (CBA) in Azure Active Directory can be abused by attackers to establish persistence, escalate privileges, and impair defenses.
 date: "2024-04-29T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

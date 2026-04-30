@@ -5,6 +5,9 @@ description: Payload CMS versions before 3.79.1 are vulnerable to Server-Side Re
 date: "2026-04-01T20:16:26Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-34746
   - ssrf

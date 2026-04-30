@@ -3,9 +3,9 @@ title: Microsoft 365 Suspicious Email Delivery
 slug: 2024-01-m365-suspicious-email
 description: This brief outlines a threat where Microsoft Defender for Office 365 identifies an email as malicious or suspicious but still delivers it to a user's inbox or junk folder, potentially bypassing initial security measures.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

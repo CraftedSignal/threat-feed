@@ -3,9 +3,9 @@ title: NornicDB Improper Network Binding Exposes Bolt Server
 slug: 2024-11-nornicdb-bolt-binding
 description: NornicDB versions prior to 1.0.42-hotfix have an improper network binding vulnerability in its Bolt server, allowing unauthorized remote access because the `--address` CLI flag is not correctly plumbed through to the Bolt server config, causing the Bolt listener to always bind to the wildcard address and expose the database with default credentials.
 date: "2024-11-02T18:23:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

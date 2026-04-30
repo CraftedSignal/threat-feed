@@ -5,6 +5,9 @@ description: parseusbs before 1.9 is vulnerable to OS command injection (CVE-202
 date: "2026-04-08T22:16:23Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - vulnerability

@@ -5,6 +5,9 @@ description: CISA added CVE-2026-3909, an out-of-bounds write vulnerability in G
 date: "2026-03-14T10:00:00Z"
 severities:
   - high
+type: threat
+types:
+  - threat
 tags:
   - vulnerability
   - chrome

@@ -5,6 +5,9 @@ description: GLPI versions 11.0.0 to before 11.0.6 are vulnerable to remote code
 date: "2026-04-06T15:17:07Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-26026
   - template-injection

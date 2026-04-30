@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Apache Tomcat Allow for Remote Code Execution
 slug: 2024-06-apache-tomcat-vulns
 description: Multiple vulnerabilities in Apache Tomcat can be exploited by a remote, authenticated or anonymous attacker to execute arbitrary code, bypass security measures, manipulate data, and cause a denial of service.
 date: "2026-03-25T10:22:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: OpenCanary SSH Login Attempt Detection
 slug: 2024-05-opencanary-ssh-login
 description: Detects instances where an SSH service on an OpenCanary node has had a login attempt, indicating potential reconnaissance, privilege escalation, or lateral movement.
 date: "2024-05-02T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

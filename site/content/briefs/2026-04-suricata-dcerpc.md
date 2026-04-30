@@ -5,6 +5,9 @@ description: Suricata versions prior to 7.0.15 are vulnerable to CVE-2026-31937,
 date: "2026-04-02T15:16:37Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - vulnerability
   - dos

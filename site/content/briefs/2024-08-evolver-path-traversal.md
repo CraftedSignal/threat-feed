@@ -3,9 +3,9 @@ title: Evolver Path Traversal Vulnerability in `fetch` Command
 slug: 2024-08-evolver-path-traversal
 description: A path traversal vulnerability exists in the `fetch` command of `@evomap/evolver` due to insufficient validation of the `--out` flag, allowing attackers to write files to arbitrary locations on the filesystem, potentially leading to overwriting critical system files and privilege escalation.
 date: "2024-08-10T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

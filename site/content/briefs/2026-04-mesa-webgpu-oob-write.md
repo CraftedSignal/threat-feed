@@ -5,6 +5,9 @@ description: An out-of-bounds write vulnerability exists in Mesa versions before
 date: "2026-04-12T19:16:20Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - vulnerability

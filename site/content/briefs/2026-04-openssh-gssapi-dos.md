@@ -3,9 +3,9 @@ title: OpenSSH GSSAPI Vulnerability Leads to Potential Denial-of-Service
 slug: 2026-04-openssh-gssapi-dos
 description: A remote, anonymous attacker can exploit a vulnerability in OpenSSH GSSAPI and Ubuntu Linux to trigger undefined behavior or a potential denial-of-service attack.
 date: "2026-04-07T10:16:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

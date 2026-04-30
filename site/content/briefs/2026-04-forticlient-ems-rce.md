@@ -6,6 +6,9 @@ date: "2026-04-07T15:08:28Z"
 severities:
   - critical
 exploited: true
+type: threat
+types:
+  - threat
 tags:
   - fortinet
   - forticlient

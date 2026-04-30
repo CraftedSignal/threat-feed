@@ -3,9 +3,9 @@ title: AWS STS Role Assumption by User
 slug: 2026-03-aws-sts-role-assumption
 description: Detection of a user assuming a role in AWS Security Token Service (STS) to obtain temporary credentials, which can indicate privilege escalation or lateral movement.
 date: "2026-03-04T18:01:49Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

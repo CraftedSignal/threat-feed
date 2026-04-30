@@ -3,9 +3,9 @@ title: Tinyproxy HTTP Chunked Encoding Integer Overflow Denial of Service
 slug: 2026-03-tinyproxy-dos
 description: An integer overflow vulnerability in Tinyproxy's HTTP chunked transfer encoding parser (versions <= 1.11.3) allows an unauthenticated remote attacker to cause a denial of service by sending a crafted chunk size that bypasses validation, leading to resource exhaustion.
 date: "2026-03-30T08:16:17Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

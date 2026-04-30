@@ -3,9 +3,9 @@ title: Executable or Script Creation in Suspicious Paths
 slug: 2024-01-03-executable-creation-suspicious-path
 description: This analytic identifies the creation of executables or scripts in suspicious file paths on Windows systems, where adversaries often use these paths to evade detection and maintain persistence, potentially leading to unauthorized code execution, privilege escalation, or persistence within the environment.
 date: "2024-01-03T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

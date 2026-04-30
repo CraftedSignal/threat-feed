@@ -5,6 +5,9 @@ description: Auth0-PHP SDK versions 8.0.0 to before 8.19.0 encrypt cookies with 
 date: "2026-04-01T18:16:30Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-34236
   - auth0

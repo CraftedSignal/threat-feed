@@ -3,9 +3,9 @@ title: GitHub Exfiltration via High Number of Repository Clones
 slug: 2026-06-github-exfiltration
 description: A single user rapidly cloning a high number of GitHub repositories indicates potential exfiltration of sensitive data such as proprietary code, embedded secrets, and build artifacts.
 date: "2026-04-10T17:40:11Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

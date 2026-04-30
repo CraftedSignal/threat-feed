@@ -3,9 +3,9 @@ title: CrowdStrike Falcon Cloud Security CNAPP with Adversary-Informed Risk Prio
 slug: 2026-03-cnapp-adversary-risk
 description: CrowdStrike Falcon Cloud Security enhances CNAPP capabilities with application-layer visibility and adversary-informed risk prioritization, enabling security teams to focus on attacker-aligned risks and known threat actors.
 date: "2026-03-28T09:35:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 actors:

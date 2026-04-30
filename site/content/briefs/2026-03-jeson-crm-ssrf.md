@@ -3,9 +3,9 @@ title: DefaultFuction Jeson-Customer-Relationship-Management-System Server-Side 
 slug: 2026-03-jeson-crm-ssrf
 description: A server-side request forgery (SSRF) vulnerability exists in the DefaultFuction Jeson-Customer-Relationship-Management-System's API Module, specifically affecting the /api/System.php file, allowing remote attackers to manipulate the 'url' argument and potentially access internal resources.
 date: "2026-03-24T03:16:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

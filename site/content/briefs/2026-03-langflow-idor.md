@@ -5,6 +5,9 @@ description: Langflow versions 1.5.0 and earlier contain an IDOR vulnerability (
 date: "2026-03-27T19:36:23Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - idor
   - langflow

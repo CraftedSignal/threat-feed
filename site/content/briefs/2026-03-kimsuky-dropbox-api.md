@@ -3,9 +3,9 @@ title: Kimsuky Malware Using Dropbox API for Command and Control
 slug: 2026-03-kimsuky-dropbox-api
 description: Kimsuky is using malware that leverages the Dropbox API for command and control, enabling file exfiltration and remote code execution.
 date: "2026-03-19T12:00:00Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

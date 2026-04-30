@@ -3,9 +3,9 @@ title: Azure AD Successful Authentication Increase
 slug: 2024-01-03-azure-auth-increase
 description: This detection identifies a statistically significant (10% or greater) increase in successful sign-ins to Azure Active Directory, potentially indicating credential compromise or account takeover attempts.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

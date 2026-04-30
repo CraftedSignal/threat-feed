@@ -3,9 +3,9 @@ title: Spike in Special Privilege Use Events
 slug: 2024-01-spike-privilege-use
 description: A machine learning job detected an unusual increase in special privilege usage events on Windows, such as privileged operations and service calls, potentially indicating unauthorized privileged access and privilege escalation attempts.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

@@ -5,6 +5,9 @@ description: A critical pre-authentication remote code execution vulnerability i
 date: "2026-04-07T18:16:45Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - rce
   - cve-2026-39337

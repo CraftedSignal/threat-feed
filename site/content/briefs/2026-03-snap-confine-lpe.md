@@ -5,6 +5,9 @@ description: An unprivileged user may exploit CVE-2026-3888 to escalate privileg
 date: "2026-03-20T08:34:17Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - linux

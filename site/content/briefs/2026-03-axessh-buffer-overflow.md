@@ -3,9 +3,9 @@ title: Axessh 4.2 Stack-Based Buffer Overflow Vulnerability
 slug: 2026-03-axessh-buffer-overflow
 description: Axessh 4.2 is vulnerable to a stack-based buffer overflow in the log file name field, allowing local attackers to execute arbitrary code by supplying an excessively long filename.
 date: "2026-03-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

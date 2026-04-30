@@ -3,9 +3,9 @@ title: Msiexec Arbitrary DLL Execution
 slug: 2024-01-msiexec-dll-execution
 description: Adversaries may abuse the msiexec.exe utility to proxy the execution of malicious DLL payloads, bypassing application control and other defenses.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

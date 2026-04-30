@@ -5,6 +5,9 @@ description: A use-after-free vulnerability, tracked as CVE-2026-34856, exists i
 date: "2026-04-13T04:16:12Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - vulnerability
   - uaf

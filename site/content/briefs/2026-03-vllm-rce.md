@@ -5,6 +5,9 @@ description: vLLM versions before 0.18.0 are vulnerable to remote code execution
 date: "2026-03-27T00:16:22Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - vLLM
   - RCE

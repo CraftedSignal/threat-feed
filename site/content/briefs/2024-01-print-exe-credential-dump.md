@@ -3,9 +3,9 @@ title: Print.exe Used to Dump Sensitive Files for Credential Access
 slug: 2024-01-print-exe-credential-dump
 description: Attackers are abusing the legitimate Windows Print.exe utility to copy sensitive files like NTDS.DIT and SAM in order to extract credentials, enabling local or remote credential access.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

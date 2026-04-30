@@ -5,6 +5,9 @@ description: CVE-2026-21371 is a memory corruption vulnerability due to insuffic
 date: "2026-04-06T16:16:29Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - memory-corruption

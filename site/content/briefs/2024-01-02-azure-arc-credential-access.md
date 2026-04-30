@@ -3,9 +3,9 @@ title: Azure Service Principal Sign-In Followed by Arc Cluster Credential Access
 slug: 2024-01-02-azure-arc-credential-access
 description: Detects a service principal authenticating to Microsoft Entra ID and then listing credentials for an Azure Arc-connected Kubernetes cluster within a short time window, indicating potential unauthorized access to Kubernetes clusters via stolen service principal secrets.
 date: "2026-03-17T15:06:47Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

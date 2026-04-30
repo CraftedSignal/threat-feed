@@ -5,6 +5,9 @@ description: SciTokens C++ library before 1.4.1 is vulnerable to an authorizatio
 date: "2026-03-31T18:16:50Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - authorization-bypass
   - privilege-escalation

@@ -3,9 +3,9 @@ title: Agent Skill Marketplace Supply Chain Attack via GitHub Account Hijacking
 slug: 2026-03-agent-skill-hijacking
 description: A supply chain attack targets agent skill marketplaces by exploiting GitHub username hijacking, allowing threat actors to intercept skill downloads from vulnerable repositories, with scanners showing significant disagreement on malicious skill identification and embedded live API credentials discovered.
 date: "2026-03-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

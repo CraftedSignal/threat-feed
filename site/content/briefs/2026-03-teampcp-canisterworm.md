@@ -3,9 +3,9 @@ title: TeamPCP Deploys CanisterWorm on NPM After Trivy Compromise
 slug: 2026-03-teampcp-canisterworm
 description: TeamPCP deployed the CanisterWorm malware on the NPM package registry following a compromise of the Trivy scanning tool.
 date: "2026-03-22T10:00:00Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

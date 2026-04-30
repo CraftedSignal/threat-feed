@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Redis
 slug: 2026-03-redis-vulns
 description: Multiple vulnerabilities in Redis allow an attacker to execute arbitrary program code and perform a denial-of-service attack.
 date: "2026-03-25T10:23:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

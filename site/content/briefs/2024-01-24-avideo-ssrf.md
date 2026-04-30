@@ -3,9 +3,9 @@ title: AVideo Unauthenticated Server-Side Request Forgery Vulnerability
 slug: 2024-01-24-avideo-ssrf
 description: AVideo versions up to 26.0 are vulnerable to an unauthenticated server-side request forgery (SSRF) vulnerability in the `plugin/Live/test.php` endpoint, allowing attackers to make the server send arbitrary HTTP requests, potentially exposing internal resources and cloud metadata.
 date: "2026-03-23T17:16:51Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -5,6 +5,9 @@ description: CVE-2026-4800 allows attackers to inject arbitrary code at template
 date: "2026-03-31T20:16:29Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - lodash
   - template-injection

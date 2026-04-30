@@ -5,6 +5,9 @@ description: TREK collaborative travel planner before version 2.7.2 is vulnerabl
 date: "2026-04-11T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-40185
   - authorization-bypass

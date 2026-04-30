@@ -3,9 +3,9 @@ title: Census CSWeb 8.0.1 Configuration File Disclosure Vulnerability
 slug: 2026-03-census-csweb-config-disclosure
 description: Census CSWeb 8.0.1 is vulnerable to unauthenticated remote configuration file disclosure via HTTP requests to the `/app/config` path, potentially exposing sensitive secrets; fixed in 8.1.0 alpha.
 date: "2026-03-24T14:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: QEMU Hypervisor Escape via virtio-snd 0-Day
 slug: 2026-03-qemu-escape
 description: An unpatched vulnerability in QEMU's virtio-snd component allows for a hypervisor escape due to an uncontrolled heap overflow.
 date: "2026-03-19T05:19:00Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - critical
 tags:

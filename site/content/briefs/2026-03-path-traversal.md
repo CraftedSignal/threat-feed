@@ -5,6 +5,9 @@ description: CVE-2026-2328 describes a vulnerability where an unauthenticated re
 date: "2026-03-30T08:16:17Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - vulnerability

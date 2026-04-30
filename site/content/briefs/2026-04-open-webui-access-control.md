@@ -5,6 +5,9 @@ description: A broken access control vulnerability in Open WebUI versions prior 
 date: "2026-04-01T18:16:29Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - broken-access-control
   - web-application

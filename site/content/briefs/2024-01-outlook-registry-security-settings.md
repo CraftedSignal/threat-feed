@@ -3,9 +3,9 @@ title: Outlook Security Settings Registry Modification
 slug: 2024-01-outlook-registry-security-settings
 description: Attackers modify Outlook security settings via registry changes to enable malicious mail rules and bypass security controls, potentially leading to persistence and data compromise.
 date: "2024-01-03T18:15:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

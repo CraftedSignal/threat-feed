@@ -5,6 +5,9 @@ description: Chamilo LMS versions prior to 1.11.38 and 2.0.0-RC.3 generate predi
 date: "2026-04-11T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-33710
   - chamilo

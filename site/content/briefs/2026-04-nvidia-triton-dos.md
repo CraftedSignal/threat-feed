@@ -5,6 +5,9 @@ description: NVIDIA Triton Inference Server is vulnerable to denial of service d
 date: "2026-04-07T18:16:39Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-24146
   - denial-of-service

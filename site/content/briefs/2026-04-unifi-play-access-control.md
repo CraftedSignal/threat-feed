@@ -5,6 +5,9 @@ description: An improper access control vulnerability in UniFi Play PowerAmp and
 date: "2026-04-13T22:16:28Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - vulnerability
   - access-control

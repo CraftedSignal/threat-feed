@@ -3,9 +3,9 @@ title: IBM InfoSphere Information Server Plaintext Credential Storage Vulnerabil
 slug: 2026-03-ibm-infosphere-plaintext-creds
 description: IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 stores user credentials in plaintext, allowing local users to read sensitive information.
 date: "2026-03-25T21:16:24Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

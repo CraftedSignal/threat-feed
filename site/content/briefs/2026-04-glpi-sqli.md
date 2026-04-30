@@ -5,6 +5,9 @@ description: GLPI versions 10.0.0 before 10.0.24 and 11.0.6 are vulnerable to SQ
 date: "2026-04-06T15:17:07Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - glpi
   - sqli

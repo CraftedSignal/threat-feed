@@ -3,9 +3,9 @@ title: Warlock Group Deploys Web Shells, Tunnels, and Ransomware
 slug: 2024-05-warlock-webshell-ransomware
 description: The Warlock group utilizes web shells and tunneling to deploy ransomware within compromised environments, impacting victim data confidentiality and availability.
 date: "2026-03-19T05:26:28Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - critical
 actors:

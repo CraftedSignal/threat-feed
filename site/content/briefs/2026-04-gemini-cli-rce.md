@@ -3,9 +3,9 @@ title: Gemini CLI Remote Code Execution via Workspace Trust and Tool Allowlistin
 slug: 2026-04-gemini-cli-rce
 description: Gemini CLI is vulnerable to remote code execution via workspace trust and tool allowlisting bypasses, impacting headless mode and GitHub Actions workflows.
 date: "2026-04-24T19:30:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

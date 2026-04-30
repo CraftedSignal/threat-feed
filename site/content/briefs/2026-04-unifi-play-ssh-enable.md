@@ -5,6 +5,9 @@ description: CVE-2026-22564 is an improper access control vulnerability in UniFi
 date: "2026-04-13T22:16:28Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-22564
   - unifi-play

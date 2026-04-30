@@ -3,9 +3,9 @@ title: VMware Tanzu Spring Cloud Gateway Security Bypass Vulnerability
 slug: 2026-04-spring-cloud-gateway-bypass
 description: An anonymous, remote attacker can exploit a vulnerability in VMware Tanzu Spring Cloud Gateway to bypass security measures, potentially gaining unauthorized access or control.
 date: "2026-04-13T10:12:40Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: CVE-2025-13926 describes a vulnerability in Contemporary Controls B
 date: "2026-04-09T20:16:23Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2025-13926
   - basc-20t

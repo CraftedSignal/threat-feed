@@ -3,9 +3,9 @@ title: Kubernetes Cluster Enumeration via Audit Logs
 slug: 2024-01-kubernetes-enumeration
 description: Attackers attempt to enumerate and discover sensitive information within a Kubernetes cluster by leveraging common shells, utilities, and specialized tools, as reflected in audit logs.
 date: "2024-01-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

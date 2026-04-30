@@ -3,9 +3,9 @@ title: Right-to-Left Override Character Used for Defense Evasion
 slug: 2026-04-right-to-left-override
 description: Adversaries are using the Right-to-Left Override (RTLO) character (U+202E) in command-line arguments to obfuscate malicious file names and trick users into executing them, achieving defense evasion.
 date: "2026-04-01T11:57:31Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

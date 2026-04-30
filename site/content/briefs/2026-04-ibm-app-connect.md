@@ -3,9 +3,9 @@ title: IBM App Connect Enterprise Multiple Vulnerabilities
 slug: 2026-04-ibm-app-connect
 description: A remote, anonymous attacker can exploit multiple vulnerabilities in IBM App Connect Enterprise to cause a denial-of-service condition or bypass security measures, enabling cross-site scripting attacks.
 date: "2026-04-01T09:21:09Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

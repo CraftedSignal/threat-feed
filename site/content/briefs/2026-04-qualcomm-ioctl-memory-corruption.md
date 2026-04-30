@@ -5,6 +5,9 @@ description: CVE-2026-21375 is a memory corruption vulnerability in Qualcomm chi
 date: "2026-04-06T16:16:30Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-21375
   - qualcomm

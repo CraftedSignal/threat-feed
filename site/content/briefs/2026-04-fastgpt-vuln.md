@@ -5,6 +5,9 @@ description: CVE-2026-34162 in FastGPT allows unauthenticated attackers to exfil
 date: "2026-04-01T16:12:02Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - fastgpt
   - vulnerability

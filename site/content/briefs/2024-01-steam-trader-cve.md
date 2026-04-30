@@ -5,6 +5,9 @@ description: CVE-2026-5128 exposes sensitive Steam account data via the /users A
 date: "2026-03-30T10:16:02Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5128
   - steam-trader

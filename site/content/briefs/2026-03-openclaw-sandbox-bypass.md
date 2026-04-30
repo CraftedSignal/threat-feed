@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.11 contains a sandbox boundary bypass vulner
 date: "2026-03-29T13:16:59Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sandbox-escape
   - privilege-escalation

@@ -3,9 +3,9 @@ title: Critical Unauthenticated RCE Vulnerability Exploited in Microsoft SharePo
 slug: 2026-03-sharepoint-rce
 description: A remote code execution vulnerability in Microsoft SharePoint (CVE not specified) is being actively exploited by unauthenticated attackers, prompting urgent patching recommendations for internet-facing servers.
 date: "2026-03-25T08:51:39Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

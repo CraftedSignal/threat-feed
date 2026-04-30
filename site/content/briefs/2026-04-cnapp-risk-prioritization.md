@@ -3,9 +3,9 @@ title: CrowdStrike CNAPP Adds Adversary-Informed Risk Prioritization
 slug: 2026-04-cnapp-risk-prioritization
 description: CrowdStrike's CNAPP enhancements prioritize cloud risks based on adversary behavior, application context, and configuration change tracking to reduce breach likelihood.
 date: "2026-03-29T06:52:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 actors:

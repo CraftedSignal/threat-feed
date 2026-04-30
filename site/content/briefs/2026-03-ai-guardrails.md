@@ -3,9 +3,9 @@ title: CrowdStrike Falcon AIDR Supports NVIDIA NeMo Guardrails for AI Agent Prot
 slug: 2026-03-ai-guardrails
 description: CrowdStrike Falcon AIDR now supports NVIDIA NeMo Guardrails (v0.20.0) to protect AI agents from prompt injection, data exposure, and unauthorized actions, enabling safer deployment of AI applications.
 date: "2026-03-19T06:19:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

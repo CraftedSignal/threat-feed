@@ -5,6 +5,9 @@ description: A SQL injection vulnerability (CVE-2026-4612) exists in itsourcecod
 date: "2026-03-24T14:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4612
   - sql-injection

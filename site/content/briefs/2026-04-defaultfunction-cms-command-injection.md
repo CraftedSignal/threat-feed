@@ -5,6 +5,9 @@ description: DefaultFuction Content-Management-System 1.0 is vulnerable to comma
 date: "2026-04-02T14:16:36Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - web-application

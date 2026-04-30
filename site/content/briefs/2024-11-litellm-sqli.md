@@ -3,9 +3,9 @@ title: LiteLLM Proxy API Key Verification SQL Injection
 slug: 2024-11-litellm-sqli
 description: A SQL injection vulnerability exists in LiteLLM versions 1.81.16 to prior to 1.83.7 allowing an unauthenticated attacker to inject SQL queries via a crafted 'Authorization' header, potentially leading to unauthorized data access or modification.
 date: "2024-11-08T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

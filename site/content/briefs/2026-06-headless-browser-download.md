@@ -3,9 +3,9 @@ title: Potential File Download via a Headless Browser
 slug: 2026-06-headless-browser-download
 description: Detects the execution of headless browsers from suspicious parent processes with arguments indicative of scripted retrieval, bypassing application control policies and restrictions on direct download tools.
 date: "2026-04-06T15:34:19Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

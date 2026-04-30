@@ -3,9 +3,9 @@ title: GitPython Command Injection Vulnerability
 slug: 2024-01-09-gitpython-cmd-injection
 description: GitPython versions 3.1.30 through 3.1.46 are vulnerable to command injection by passing attacker-controlled kwargs into `Repo.clone_from()`, `Remote.fetch()`, `Remote.pull()`, or `Remote.push()`, leading to arbitrary command execution due to bypassed safety checks.
 date: "2024-01-09T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

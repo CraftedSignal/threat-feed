@@ -3,9 +3,9 @@ title: Heimdall Authorization Bypass via Path Normalization Mismatch
 slug: 2024-01-02-heimdall-auth-bypass
 description: Heimdall is vulnerable to an authorization bypass due to a path normalization mismatch between Heimdall and downstream components, potentially leading to unauthorized access and privilege escalation.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

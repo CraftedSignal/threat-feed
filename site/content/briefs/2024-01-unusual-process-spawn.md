@@ -3,9 +3,9 @@ title: Unusual Process Spawned by a Parent Process via Machine Learning
 slug: 2024-01-unusual-process-spawn
 description: A machine learning job detected a suspicious Windows process, predicted malicious by the ProblemChild model and flagged as an unusual child process name for its parent, potentially indicating LOLbins usage and evading traditional detection.
 date: "2024-01-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

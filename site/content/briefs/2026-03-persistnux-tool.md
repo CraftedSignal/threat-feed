@@ -3,9 +3,9 @@ title: Persistnux - Linux Persistence Detection Tool
 slug: 2026-03-persistnux-tool
 description: Persistnux is a bash-based tool designed to identify known Linux persistence mechanisms used by attackers to maintain access to compromised systems, generating detailed reports for DFIR analysis.
 date: "2026-03-17T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

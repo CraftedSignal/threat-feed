@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in SWITCH EV Charging Stations
 slug: 2026-02-switch-ev-vulns
 description: Multiple vulnerabilities in SWITCH EV swtchenergy.com charging stations could allow attackers to impersonate stations, hijack sessions, cause denial of service, and manipulate backend data due to missing authentication, rate limiting issues, session expiration flaws, and exposed credentials.
 date: "2026-02-27T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

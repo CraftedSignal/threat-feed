@@ -5,6 +5,9 @@ description: A cross-site request forgery (CSRF) vulnerability exists in the Ana
 date: "2026-04-07T09:16:21Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - csrf

@@ -3,9 +3,9 @@ title: Windows Registry Classes Autorun Keys Modification for Persistence
 slug: 2024-01-28-classes-autorun-keys-modification
 description: Adversaries modify Windows Registry Classes keys to establish persistence by executing malicious code when specific file types are opened or actions are performed, potentially leading to privilege escalation and persistent access.
 date: "2024-01-28T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

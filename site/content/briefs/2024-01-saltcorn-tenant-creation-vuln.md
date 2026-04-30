@@ -3,9 +3,9 @@ title: Saltcorn Data Tenant Admin Privilege Escalation via Tenant Creation
 slug: 2024-01-saltcorn-tenant-creation-vuln
 description: A vulnerability in Saltcorn Data allows tenant admins to gain unauthorized admin-level access to the root domain by creating tenants in the root domain's schema instead of their own.
 date: "2024-01-30T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Detection of New GitHub Actions Secrets Creation
 slug: 2024-01-github-secret-creation
 description: This analytic detects the creation of new GitHub Actions secrets at the organization, environment, codespaces, or repository level, potentially indicating malicious persistence or privilege escalation.
 date: "2024-01-30T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

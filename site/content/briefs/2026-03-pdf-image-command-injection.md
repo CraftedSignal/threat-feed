@@ -5,6 +5,9 @@ description: The pdf-image npm package through version 2.0.0 is vulnerable to OS
 date: "2026-03-25T15:16:38Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - npm

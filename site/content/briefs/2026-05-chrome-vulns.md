@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Google Chrome
 slug: 2026-05-chrome-vulns
 description: Multiple vulnerabilities in Google Chrome could allow an attacker to execute arbitrary code, bypass security mechanisms, disclose and manipulate data, and cause a denial-of-service condition.
 date: "2026-04-30T09:09:14Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

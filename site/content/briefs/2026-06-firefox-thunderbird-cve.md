@@ -5,6 +5,9 @@ description: Firefox 148 and Thunderbird 148 contain memory safety bugs that cou
 date: "2026-03-25T14:18:11Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4729
   - memory-corruption

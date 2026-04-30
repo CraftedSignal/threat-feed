@@ -3,9 +3,9 @@ title: CISA Urges Securing Microsoft Intune Systems Following Stryker Breach
 slug: 2026-03-intune-security
 description: CISA is urging US organizations to secure their Microsoft Intune systems due to a breach at Stryker, highlighting potential vulnerabilities in cloud-based device management that could lead to unauthorized access and control over managed devices.
 date: "2026-03-19T12:09:13Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

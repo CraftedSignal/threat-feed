@@ -5,6 +5,9 @@ description: Synology SSL VPN Client before 1.4.5-0684 stores passwords in plain
 date: "2026-04-10T10:16:03Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - plaintext-password
   - vpn

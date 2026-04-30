@@ -3,9 +3,9 @@ title: ProblemChild ML Model Detects Unusual Process on Windows Host
 slug: 2024-01-03-problemchild-rare-process
 description: The ProblemChild machine learning model detected a rare Windows process indicative of defense evasion, potentially involving LOLbins, on a host not commonly associated with malicious activity.
 date: "2024-01-03T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

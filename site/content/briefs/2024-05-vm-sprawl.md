@@ -3,9 +3,9 @@ title: Uncontrolled VM Growth Leading to Security Gaps in Cloud Environments
 slug: 2024-05-vm-sprawl
 description: Uncontrolled growth of virtual machines (VM sprawl) in cloud environments allows attackers to exploit unmonitored VMs with overly permissive access for lateral movement, data exfiltration, and ransomware deployment.
 date: "2026-03-25T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: BentoML SSTI via Unsandboxed Jinja2 in Dockerfile Generation
 slug: 2024-02-bentoml-ssti
 description: BentoML versions 1.4.37 and earlier are vulnerable to server-side template injection (SSTI), where the Dockerfile generation function uses an unsandboxed jinja2.Environment allowing arbitrary Python code execution on the host machine when a malicious bento archive is imported and containerized, bypassing container isolation and potentially granting full access to the host filesystem and environment variables.
 date: "2026-04-03T23:14:15Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

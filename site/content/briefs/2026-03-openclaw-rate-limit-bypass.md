@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.12 applies rate limiting only after successf
 date: "2026-03-31T12:16:30Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - rate-limiting
   - brute-force

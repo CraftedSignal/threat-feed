@@ -5,6 +5,9 @@ description: A context isolation bypass vulnerability exists in Electron applica
 date: "2026-04-04T01:16:39Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - electron
   - context-isolation

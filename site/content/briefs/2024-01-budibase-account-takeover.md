@@ -3,9 +3,9 @@ title: Budibase XSS Leads to Account Takeover via JWT Theft
 slug: 2024-01-budibase-account-takeover
 description: The `budibase:auth` cookie in Budibase is set without the `httpOnly` flag, enabling attackers with XSS to steal JWTs and gain persistent access to user accounts.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

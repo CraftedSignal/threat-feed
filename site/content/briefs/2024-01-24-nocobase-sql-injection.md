@@ -3,9 +3,9 @@ title: NocoBase SQL Injection via Missing Validation on Update Endpoint
 slug: 2024-01-24-nocobase-sql-injection
 description: A SQL injection vulnerability exists in nocobase plugin-collection-sql versions 2.0.32 and earlier due to missing validation on the sqlCollection:update endpoint, allowing attackers with collection management permissions to execute arbitrary SQL queries and exfiltrate data.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

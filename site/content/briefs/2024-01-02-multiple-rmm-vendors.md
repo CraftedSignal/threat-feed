@@ -3,9 +3,9 @@ title: Multiple Remote Management Tool Vendors on Same Host
 slug: 2024-01-02-multiple-rmm-vendors
 description: This detection identifies a Windows host where two or more distinct remote monitoring and management (RMM) or remote-access tool vendors are observed starting processes within the same eight-minute window, potentially indicating compromise, shadow IT, or attacker staging of redundant access.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

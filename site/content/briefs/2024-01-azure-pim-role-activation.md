@@ -3,9 +3,9 @@ title: Frequent Azure PIM Role Activation Detected
 slug: 2024-01-azure-pim-role-activation
 description: Detection of frequent role activation in Azure Privileged Identity Management (PIM) by the same user may indicate potential privilege escalation or account compromise.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

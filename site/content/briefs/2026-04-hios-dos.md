@@ -5,6 +5,9 @@ description: A denial-of-service vulnerability in Hirschmann HiOS devices allows
 date: "2026-04-03T21:17:08Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - dos
   - cve-2020-37216

@@ -5,6 +5,9 @@ description: CVE-2026-4717 is a critical privilege escalation vulnerability in t
 date: "2026-03-24T13:16:07Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - firefox

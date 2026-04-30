@@ -3,9 +3,9 @@ title: Malicious Azure Kubernetes Admission Controller Configuration
 slug: 2024-01-azure-kubernetes-admission-controller
 description: An adversary can exploit Kubernetes Admission Controllers in Azure to achieve persistence, privilege escalation, or credential access by manipulating webhook configurations.
 date: "2024-01-03T15:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

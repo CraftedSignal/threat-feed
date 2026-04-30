@@ -3,9 +3,9 @@ title: MCPHub Path Traversal Vulnerability via Malicious MCPB Manifest Name
 slug: 2024-01-mcphub-path-traversal
 description: MCPHub is vulnerable to path traversal, where a malicious MCPB file with a crafted manifest.name can cause files to be extracted to arbitrary locations due to missing sanitization in the upload handler.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

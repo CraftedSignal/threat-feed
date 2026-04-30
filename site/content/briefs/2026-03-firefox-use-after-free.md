@@ -5,6 +5,9 @@ description: A use-after-free vulnerability in the Disability Access APIs compon
 date: "2026-03-24T13:16:04Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - use-after-free
   - sandbox-escape

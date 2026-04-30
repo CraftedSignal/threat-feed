@@ -3,9 +3,9 @@ title: Azure Subscription Permission Elevation via Activity Logs
 slug: 2024-01-azure-subscription-elevation
 description: An attacker elevates their Azure subscription permissions to manage all subscriptions, potentially leading to unauthorized access and control over the environment.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

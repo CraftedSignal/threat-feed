@@ -3,9 +3,9 @@ title: OpenClaw Improper Header Validation Leads to Credential Leakage
 slug: 2026-03-openclaw-header-leak
 description: OpenClaw before 2026.3.7 is vulnerable to improper header validation in fetchWithSsrFGuard, allowing attackers to intercept sensitive authorization headers via cross-origin redirects.
 date: "2026-03-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

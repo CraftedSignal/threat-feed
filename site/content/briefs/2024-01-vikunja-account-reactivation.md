@@ -5,6 +5,9 @@ description: A critical vulnerability in Vikunja versions prior to 2.2.0 allows 
 date: "2026-03-24T15:16:35Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - vikunja
   - account-reactivation

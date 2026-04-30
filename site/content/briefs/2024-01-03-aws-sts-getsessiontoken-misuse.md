@@ -3,9 +3,9 @@ title: Suspicious AWS STS GetSessionToken Usage
 slug: 2024-01-03-aws-sts-getsessiontoken-misuse
 description: The AWS STS GetSessionToken API is being misused to create temporary tokens for lateral movement and privilege escalation within AWS environments by potentially compromised IAM users.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

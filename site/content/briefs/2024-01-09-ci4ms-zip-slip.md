@@ -3,9 +3,9 @@ title: CI4MS Backup Restore Zip Slip Vulnerability Leads to RCE
 slug: 2024-01-09-ci4ms-zip-slip
 description: The CI4MS Backup restore function is vulnerable to Zip Slip, allowing remote code execution by uploading a malicious ZIP archive that writes PHP files to the public web root due to missing validation of entry names during extraction, affecting versions prior to 0.31.5.0.
 date: "2026-04-22T17:28:39Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

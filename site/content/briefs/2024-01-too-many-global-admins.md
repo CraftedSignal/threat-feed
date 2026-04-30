@@ -3,9 +3,9 @@ title: Excessive Global Administrator Accounts in Azure PIM
 slug: 2024-01-too-many-global-admins
 description: Detection of an excessive number of Global Administrator accounts assigned within an Azure tenant, indicating potential privilege escalation or compromised accounts.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

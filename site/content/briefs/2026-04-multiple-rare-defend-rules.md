@@ -3,9 +3,9 @@ title: Multiple Rare Elastic Defend Behavior Rules Triggered on Single Host
 slug: 2026-04-multiple-rare-defend-rules
 description: This rule identifies hosts triggering multiple distinct, globally rare Elastic Defend behavior rules, increasing the likelihood of detecting compromised hosts while reducing false positives.
 date: "2026-04-11T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

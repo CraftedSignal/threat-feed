@@ -3,9 +3,9 @@ title: RagaSerpent 'Tax Audit' Campaign Targeting Multiple Countries
 slug: 2026-03-ragaserpent-tax-audit
 description: The RagaSerpent cluster, also known as SideWinder-Adjacent, is conducting targeted attacks across multiple countries between 2025 and 2026, associated with a 'Tax Audit' themed campaign.
 date: "2026-03-21T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 actors:

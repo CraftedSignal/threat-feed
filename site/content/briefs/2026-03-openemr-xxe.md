@@ -5,6 +5,9 @@ description: OpenEMR before version 8.0.0.3 is vulnerable to XML External Entity
 date: "2026-03-26T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-33913
   - xxe

@@ -5,6 +5,9 @@ description: CVE-2023-7342 allows authenticated users with operator or auditor r
 date: "2026-04-02T19:16:52Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - web-server

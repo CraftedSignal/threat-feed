@@ -3,9 +3,9 @@ title: Johnson Controls Frick Controls Quantum HD Multiple Vulnerabilities
 slug: 2026-02-quantum-hd-vulns
 description: Multiple vulnerabilities in Johnson Controls, Inc. Frick Controls Quantum HD versions <=10.22 can lead to pre-authentication remote code execution, information leak, or denial of service.
 date: "2026-02-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

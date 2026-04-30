@@ -5,6 +5,9 @@ description: Adversaries may leverage Powercat, a PowerShell implementation of N
 date: "2024-11-04T14:27:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - command-and-control
   - execution

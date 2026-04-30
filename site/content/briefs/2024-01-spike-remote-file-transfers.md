@@ -3,9 +3,9 @@ title: Spike in Remote File Transfers via Lateral Movement
 slug: 2024-01-spike-remote-file-transfers
 description: A machine learning job detects an abnormal volume of remote file transfers, potentially indicating lateral movement by attackers attempting to blend in with normal network egress activity.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

@@ -3,9 +3,9 @@ title: Bitbucket Repository Exempted from Secret Scanning
 slug: 2024-04-bitbucket-secret-scanning-exempt
 description: An attacker may attempt to disable or bypass secret scanning on a Bitbucket repository to avoid detection of committed secrets, potentially leading to credential compromise and subsequent unauthorized access.
 date: "2024-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

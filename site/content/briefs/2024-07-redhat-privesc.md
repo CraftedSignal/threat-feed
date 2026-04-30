@@ -3,9 +3,9 @@ title: RedHat Multicluster Engine for Kubernetes Privilege Escalation Vulnerabil
 slug: 2024-07-redhat-privesc
 description: A local attacker can exploit a vulnerability in RedHat Multicluster Engine for Kubernetes to escalate privileges.
 date: "2026-03-25T10:22:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

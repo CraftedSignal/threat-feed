@@ -3,9 +3,9 @@ title: CKAN Unauthenticated SQL Injection in datastore_search_sql
 slug: 2024-01-ckan-sql-injection
 description: An unauthenticated SQL injection vulnerability in CKAN's `datastore_search_sql` function allows attackers to access private resources and PostgreSQL system information, affecting versions prior to 2.10.10 and versions 2.11.0 through 2.11.4.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

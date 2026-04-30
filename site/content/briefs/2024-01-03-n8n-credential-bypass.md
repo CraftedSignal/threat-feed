@@ -3,9 +3,9 @@ title: n8n Credential Authorization Bypass in dynamic-node-parameters Allows For
 slug: 2024-01-03-n8n-credential-bypass
 description: A credential authorization bypass vulnerability in n8n versions before 2.18.0 allows an authenticated user with access to a shared workflow to supply a foreign credential ID, causing the backend to decrypt and use that credential against attacker-controlled infrastructure, leading to API key exfiltration.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

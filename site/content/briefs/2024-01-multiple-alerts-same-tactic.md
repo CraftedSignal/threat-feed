@@ -3,9 +3,9 @@ title: Multiple Alerts in Same ATT&CK Tactic by Host
 slug: 2024-01-multiple-alerts-same-tactic
 description: This rule correlates multiple security alerts associated with the same ATT&CK tactic on a single host within a defined time window, helping to identify hosts exhibiting concentrated malicious behavior indicative of an active intrusion or post-compromise activity, focusing on Credential Access, Defense Evasion, Execution, and Command and Control tactics.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

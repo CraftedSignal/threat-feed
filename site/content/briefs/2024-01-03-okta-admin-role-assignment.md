@@ -3,9 +3,9 @@ title: Detection of Okta Administrator Role Assignment to User or Group
 slug: 2024-01-03-okta-admin-role-assignment
 description: Detects the assignment of an Okta administrator role to a user or group, potentially indicating privilege escalation or persistence attempts by malicious actors.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

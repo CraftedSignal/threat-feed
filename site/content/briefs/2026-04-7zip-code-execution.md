@@ -3,9 +3,9 @@ title: 7-Zip Multiple Vulnerabilities Allow Remote Code Execution
 slug: 2026-04-7zip-code-execution
 description: Multiple vulnerabilities in 7-Zip allow an attacker to execute arbitrary program code with the privileges of the service, potentially leading to system compromise.
 date: "2026-04-01T09:23:57Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

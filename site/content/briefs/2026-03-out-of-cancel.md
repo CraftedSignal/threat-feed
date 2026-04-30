@@ -3,9 +3,9 @@ title: Out-of-Cancel Vulnerability Class in Linux Workqueue Cancellation APIs
 slug: 2026-03-out-of-cancel
 description: The 'Out-of-Cancel' vulnerability class stems from flaws in Linux workqueue cancellation APIs, potentially leading to exploitable conditions within the kernel.
 date: "2026-03-25T07:30:12Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

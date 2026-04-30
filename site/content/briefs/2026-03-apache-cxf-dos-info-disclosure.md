@@ -3,9 +3,9 @@ title: Apache CXF Vulnerability Allows DoS and Information Disclosure
 slug: 2026-03-apache-cxf-dos-info-disclosure
 description: An anonymous remote attacker can exploit a vulnerability in Apache CXF to perform a denial of service attack and disclose sensitive information.
 date: "2026-03-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

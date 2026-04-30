@@ -3,9 +3,9 @@ title: LiteLLM Package Compromised with Credential-Stealing Code via Trivy
 slug: 2026-03-litellm-credential-theft
 description: The LiteLLM package was compromised and infected with credential-stealing code through a supply chain attack leveraging the Trivy vulnerability scanner.
 date: "2026-03-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

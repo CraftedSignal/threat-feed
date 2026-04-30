@@ -3,9 +3,9 @@ title: Okta Group Application Assignment Spike Indicates Privilege Escalation
 slug: 2024-01-okta-group-app-assignment-spike
 description: A machine learning job identified a spike in Okta group application assignment changes, potentially indicating threat actors escalating privileges, maintaining persistence, or moving laterally by assigning applications to groups.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

@@ -3,9 +3,9 @@ title: Critical Vulnerabilities in Quest KACE SMA Allow System Takeover
 slug: 2026-03-quest-kace-sma-vulns
 description: Multiple critical vulnerabilities in Quest KACE Systems Management Appliance (SMA), including authentication bypass and 2FA bypass, allow unauthenticated attackers to achieve system takeover and cause denial of service; active exploitation is reported.
 date: "2026-03-21T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

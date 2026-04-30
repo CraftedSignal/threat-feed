@@ -5,6 +5,9 @@ description: A use-after-free vulnerability, identified as CVE-2026-21380, exist
 date: "2026-04-06T16:16:30Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-21380
   - memory-corruption

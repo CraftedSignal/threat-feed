@@ -3,9 +3,9 @@ title: Multiple Network Intrusion Attempts Detected
 slug: 2026-03-network-intrusion-attempts
 description: Multiple network-based intrusion attempts were detected on 2026-03-14, targeting PHP information exposure, Fortigate VPN exploitation, sensitive file access, and credential exposure.
 date: "2026-03-14T23:06:48Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

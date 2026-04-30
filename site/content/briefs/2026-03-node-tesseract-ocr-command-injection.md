@@ -3,9 +3,9 @@ title: node-tesseract-ocr OS Command Injection Vulnerability
 slug: 2026-03-node-tesseract-ocr-command-injection
 description: The node-tesseract-ocr npm package through version 2.2.1 is vulnerable to OS command injection due to improper sanitization of the file path parameter in the recognize() function, potentially allowing for arbitrary command execution.
 date: "2026-03-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

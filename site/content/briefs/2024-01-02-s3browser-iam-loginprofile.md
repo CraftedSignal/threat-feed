@@ -3,9 +3,9 @@ title: S3 Browser Used to Create IAM Login Profiles
 slug: 2024-01-02-s3browser-iam-loginprofile
 description: The S3 Browser utility is being used to enumerate IAM users lacking login profiles and subsequently create them, potentially for reconnaissance, persistence, and privilege escalation within AWS environments.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

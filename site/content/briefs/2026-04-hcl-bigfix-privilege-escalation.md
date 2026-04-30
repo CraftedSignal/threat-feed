@@ -5,6 +5,9 @@ description: HCL BigFix Platform is vulnerable to insecure permissions on privat
 date: "2026-04-02T00:16:23Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-21765
   - privilege-escalation

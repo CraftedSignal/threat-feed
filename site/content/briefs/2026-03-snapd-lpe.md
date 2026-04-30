@@ -5,6 +5,9 @@ description: CVE-2026-3888 allows a local attacker to escalate privileges to roo
 date: "2026-03-19T00:38:41Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - snapd

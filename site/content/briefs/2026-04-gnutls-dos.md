@@ -5,6 +5,9 @@ description: A remote, unauthenticated attacker can exploit CVE-2026-1584 in gnu
 date: "2026-04-09T18:16:44Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-1584
   - denial-of-service

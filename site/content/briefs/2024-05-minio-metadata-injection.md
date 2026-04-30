@@ -3,9 +3,9 @@ title: MinIO SSE Metadata Injection via Replication Headers Leads to Data Unread
 slug: 2024-05-minio-metadata-injection
 description: A vulnerability in MinIO allows authenticated users with `s3:PutObject` permission to inject internal server-side encryption metadata into objects via crafted replication headers, leading to permanent data unreadability.
 date: "2026-03-27T22:26:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

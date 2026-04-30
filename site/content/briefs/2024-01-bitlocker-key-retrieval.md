@@ -3,9 +3,9 @@ title: Azure AD Bitlocker Key Retrieval
 slug: 2024-01-bitlocker-key-retrieval
 description: An adversary with sufficient privileges in Azure Active Directory may attempt to retrieve BitLocker keys to decrypt drives for lateral movement or data exfiltration.
 date: "2024-01-03T18:29:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

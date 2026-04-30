@@ -5,6 +5,9 @@ description: NGINX Plus and NGINX Open Source are vulnerable to a denial-of-serv
 date: "2026-03-24T15:16:32Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - nginx
   - denial-of-service

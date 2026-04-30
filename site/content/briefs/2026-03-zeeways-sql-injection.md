@@ -3,9 +3,9 @@ title: Zeeways Matrimony CMS Unauthenticated SQL Injection Vulnerability
 slug: 2026-03-zeeways-sql-injection
 description: Zeeways Matrimony CMS is vulnerable to SQL injection via the profile_list endpoint, where an unauthenticated attacker can inject SQL code via the up_cast, s_mother, and s_religion parameters, potentially allowing them to extract sensitive information.
 date: "2026-03-24T12:16:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: Bitbucket User Login Failure Detection
 slug: 2024-03-bitbucket-login-fail
 description: Detection of Bitbucket user login failures, potentially indicating credential access attempts, initial access attempts, or other malicious activity.
 date: "2024-03-08T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

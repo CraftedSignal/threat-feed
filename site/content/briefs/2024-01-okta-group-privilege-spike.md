@@ -3,9 +3,9 @@ title: Okta Group Privilege Change Spike via ML Detection
 slug: 2024-01-okta-group-privilege-spike
 description: A machine learning job has identified an unusual spike in Okta group privilege change events, indicating potential privileged access activity where attackers might be elevating privileges by adding themselves or compromised accounts to high-privilege groups, enabling further access or persistence.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

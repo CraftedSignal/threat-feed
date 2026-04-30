@@ -5,6 +5,9 @@ description: Snes9K 0.0.9z is vulnerable to a buffer overflow in the Netplay Soc
 date: "2026-04-04T14:16:21Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - buffer-overflow
   - code-execution

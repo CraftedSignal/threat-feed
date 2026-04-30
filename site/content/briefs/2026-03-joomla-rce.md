@@ -5,6 +5,9 @@ description: An unauthenticated remote attacker can exploit an OS command inject
 date: "2026-03-23T12:16:08Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-32968
   - joomla

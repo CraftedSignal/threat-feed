@@ -5,6 +5,9 @@ description: Multiple vulnerabilities in VMware Aria Operations, Cloud Foundatio
 date: "2026-02-25T15:21:35Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - vmware
   - aria-operations

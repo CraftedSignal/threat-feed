@@ -3,9 +3,9 @@ title: Malicious LiteLLM Versions Harvest Credentials
 slug: 2026-03-litellm-supply-chain
 description: Compromised versions of the LiteLLM package (1.82.7 and 1.82.8) on PyPI contained malware designed to harvest sensitive credentials and files, exfiltrating them to a remote API, impacting users who installed and ran the package.
 date: "2026-03-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: SQL Injection Vulnerability in Simple Food Order System 1.0
 slug: 2026-03-simple-food-sqli
 description: A SQL injection vulnerability exists in code-projects Simple Food Order System 1.0 within the register-router.php file, where manipulation of the Name argument can lead to remote code execution.
 date: "2026-03-28T23:16:44Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

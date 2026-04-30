@@ -3,9 +3,9 @@ title: Suspicious DNS Queries to RMM Domains from Non-Browser Processes
 slug: 2024-01-rmm-dns-non-browser
 description: Detection of DNS queries to remote monitoring and management (RMM) domains from non-browser processes indicating potential misuse of legitimate remote access tools for command and control.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

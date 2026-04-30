@@ -5,6 +5,9 @@ description: A missing functional level access control vulnerability in HCL Afte
 date: "2026-03-26T14:16:07Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - access-control

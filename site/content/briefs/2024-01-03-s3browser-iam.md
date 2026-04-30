@@ -3,9 +3,9 @@ title: AWS IAM User or Access Key Creation via S3 Browser
 slug: 2024-01-03-s3browser-iam
 description: The use of S3 Browser to create IAM users or access keys in AWS environments indicates a potential privilege escalation, persistence, or initial access attempt by threat actors leveraging a known cloud administration tool.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: CoreDNS TSIG Authentication Bypass Vulnerability
 slug: 2024-01-coredns-tsig-bypass
 description: CoreDNS versions prior to 1.14.3 are vulnerable to TSIG authentication bypass on gRPC, QUIC, DoH, and DoH3 transports, allowing unauthenticated network attackers to bypass authentication and potentially access TSIG-protected zone data or submit dynamic DNS updates.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

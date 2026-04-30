@@ -3,9 +3,9 @@ title: Azure Authentication Method Change Detection
 slug: 2024-01-23-azure-auth-method-change
 description: An attacker may add an authentication method to a compromised Azure account for persistent access, which can be detected by monitoring changes to authentication methods in Azure audit logs.
 date: "2024-01-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

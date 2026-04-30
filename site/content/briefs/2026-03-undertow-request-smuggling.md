@@ -5,6 +5,9 @@ description: CVE-2026-28368 is a vulnerability in Undertow that allows a remote 
 date: "2026-03-28T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - undertow
   - request-smuggling

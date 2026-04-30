@@ -3,9 +3,9 @@ title: Hyperledger Fabric SDK Java Deserialization RCE
 slug: 2024-01-26-fabric-deserialization
 description: The deprecated fabric-sdk-java client SDK is vulnerable to Java deserialization RCE due to the use of ObjectInputStream.readObject() without an ObjectInputFilter in Channel.java, allowing remote code execution if an attacker can supply crafted serialized Channel bytes to the client application.
 date: "2026-04-29T20:41:58Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

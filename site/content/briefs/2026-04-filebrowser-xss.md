@@ -5,6 +5,9 @@ description: File Browser versions prior to 2.62.2 are vulnerable to stored cros
 date: "2026-04-01T21:17:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - xss
   - filebrowser

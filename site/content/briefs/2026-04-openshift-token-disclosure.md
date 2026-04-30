@@ -5,6 +5,9 @@ description: CVE-2026-5483 is a high-severity vulnerability in the `odh-dashboar
 date: "2026-04-11T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - openshift
   - kubernetes

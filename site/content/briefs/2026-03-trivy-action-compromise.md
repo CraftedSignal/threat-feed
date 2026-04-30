@@ -3,9 +3,9 @@ title: Compromised trivy-action GitHub Action Enables Credential Theft
 slug: 2026-03-trivy-action-compromise
 description: The trivy-action GitHub Action was compromised via git tag repointing, with attackers poisoning 76 of 77 release tags to inject a multi-stage credential stealer before the legitimate scanner runs, granting attackers access to CI/CD pipeline secrets.
 date: "2026-03-28T08:12:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: Clerk JavaScript SDK Middleware Route Protection Bypass
 slug: 2026-04-clerk-middleware-bypass
 description: A vulnerability in `@clerk/nextjs`, `@clerk/nuxt`, and `@clerk/astro` allows crafted requests to bypass middleware gating via `createRouteMatcher`, potentially exposing protected routes if downstream authentication checks are absent.
 date: "2026-04-17T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

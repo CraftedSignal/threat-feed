@@ -5,6 +5,9 @@ description: UXGROUP LLC Cast to TV Screen Mirroring v2.2.77 is vulnerable to ar
 date: "2026-03-31T18:16:47Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - arbitrary-file-overwrite
   - code-execution

@@ -5,6 +5,9 @@ description: A remote, unauthenticated attacker can cause resource exhaustion in
 date: "2026-04-08T19:25:23Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-35401
   - graphql

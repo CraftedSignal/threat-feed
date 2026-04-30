@@ -5,6 +5,9 @@ description: A command injection vulnerability in pymetasploit3 versions up to 1
 date: "2026-04-03T05:16:24Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - metasploit

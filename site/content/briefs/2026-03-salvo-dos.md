@@ -5,6 +5,9 @@ description: The Salvo web framework before version 0.89.3 is vulnerable to deni
 date: "2026-03-25T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - denial-of-service
   - web-framework

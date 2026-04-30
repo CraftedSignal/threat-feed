@@ -3,9 +3,9 @@ title: Download Accelerator Plus (DAP) SEH Buffer Overflow Vulnerability
 slug: 2026-03-dap-seh-overflow
 description: Download Accelerator Plus DAP 10.0.6.0 is vulnerable to a structured exception handler buffer overflow, allowing remote attackers to execute arbitrary code via malicious crafted URLs by overwriting SEH pointers and executing embedded shellcode.
 date: "2026-03-24T12:16:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

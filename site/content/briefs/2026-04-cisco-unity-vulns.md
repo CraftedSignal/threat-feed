@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Cisco Unity Connection
 slug: 2026-04-cisco-unity-vulns
 description: Multiple vulnerabilities in Cisco Unity Connection can be exploited by an attacker to conduct cross-site scripting attacks, redirect users to malicious websites, manipulate data, and disclose confidential information.
 date: "2026-04-16T11:13:57Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

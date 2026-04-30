@@ -3,9 +3,9 @@ title: Schneider Electric Modicon PLC Denial-of-Service Vulnerability
 slug: 2024-05-modicon-dos
 description: Team82 disclosed vulnerabilities in Schneider Electric Modicon Controllers M241, M251, and M262 PLC lines, which can allow an attacker to cause a denial-of-service condition and affect controller availability.
 date: "2026-03-23T19:15:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

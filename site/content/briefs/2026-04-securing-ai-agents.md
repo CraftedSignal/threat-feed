@@ -3,9 +3,9 @@ title: Securing AI Agents and Governing Shadow AI
 slug: 2026-04-securing-ai-agents
 description: CrowdStrike is introducing new capabilities to secure AI agents and govern shadow AI across endpoints, SaaS, and cloud environments by providing detection and response (AIDR) for desktop AI applications, discovery of AI-related components, and runtime security for agents built in Microsoft Copilot Studio to combat attacks like living off the AI land (LOTAIL) by securing the agentic interaction layer.
 date: "2026-03-30T06:41:52Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

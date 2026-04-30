@@ -5,6 +5,9 @@ description: PraisonAI before version 4.5.128 is vulnerable to supply chain atta
 date: "2026-04-09T22:16:36Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-40154
   - template-injection

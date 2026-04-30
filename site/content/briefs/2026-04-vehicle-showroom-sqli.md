@@ -5,6 +5,9 @@ description: A remote attacker can exploit an SQL injection vulnerability (CVE-2
 date: "2026-04-13T06:17:51Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sqli
   - web-application

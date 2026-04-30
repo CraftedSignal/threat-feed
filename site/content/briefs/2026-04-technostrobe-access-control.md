@@ -5,6 +5,9 @@ description: CVE-2026-5569 describes a remote improper access control vulnerabil
 date: "2026-04-05T14:16:17Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5569
   - access-control

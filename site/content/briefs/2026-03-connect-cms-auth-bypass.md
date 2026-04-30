@@ -5,6 +5,9 @@ description: Connect-CMS versions 1.x up to 1.41.0 and 2.x up to 2.41.0 are vuln
 date: "2026-03-24T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-32299
   - connect-cms

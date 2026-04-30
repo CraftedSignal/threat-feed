@@ -3,9 +3,9 @@ title: Multiple Alerts Involving a User Detection
 slug: 2024-01-24-multiple-alerts-user
 description: This rule identifies when multiple different alerts involving the same user are triggered, which could indicate a compromised user account and requires further investigation.
 date: "2024-01-24T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

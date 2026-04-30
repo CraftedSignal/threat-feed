@@ -5,6 +5,9 @@ description: CVE-2026-33105 is a critical vulnerability in Microsoft Azure Kuber
 date: "2026-04-03T00:16:05Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - azure
   - kubernetes

@@ -5,6 +5,9 @@ description: A path traversal vulnerability exists in Sharp CMS versions prior t
 date: "2026-03-26T22:16:31Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - cms

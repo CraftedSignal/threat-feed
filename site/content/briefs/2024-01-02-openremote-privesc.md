@@ -3,9 +3,9 @@ title: OpenRemote Improper Access Control Leads to Privilege Escalation
 slug: 2024-01-02-openremote-privesc
 description: OpenRemote is vulnerable to privilege escalation, allowing an attacker with write:admin privileges in one Keycloak realm to gain administrator access to the master realm by manipulating Keycloak realm roles due to missing authorization checks in the updateUserRealmRoles function.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

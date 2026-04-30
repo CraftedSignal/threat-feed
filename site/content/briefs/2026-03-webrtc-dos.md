@@ -5,6 +5,9 @@ description: CVE-2026-4704 is a denial-of-service vulnerability in the WebRTC Si
 date: "2026-03-24T13:16:06Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - webrtc
   - denial-of-service

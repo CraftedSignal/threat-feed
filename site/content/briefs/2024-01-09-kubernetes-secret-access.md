@@ -3,9 +3,9 @@ title: Kubernetes Secret Access via Unusual User Agent
 slug: 2024-01-09-kubernetes-secret-access
 description: Detects unusual access to Kubernetes secrets, potentially indicating an attacker attempting to steal sensitive information after gaining initial access to the cluster.
 date: "2026-04-06T12:05:33Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

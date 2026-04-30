@@ -5,6 +5,9 @@ description: Laravel Passport versions 13.0.0 before 13.7.1 contain an authentic
 date: "2026-04-09T17:16:31Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-39976
   - laravel

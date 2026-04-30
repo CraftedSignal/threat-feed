@@ -5,6 +5,9 @@ description: An authentication bypass vulnerability (CVE-2026-1241) in the web m
 date: "2026-02-27T10:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-1241
   - authentication-bypass

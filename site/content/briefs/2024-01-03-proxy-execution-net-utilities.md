@@ -3,9 +3,9 @@ title: Windows Proxy Execution of .NET Utilities via Scripts
 slug: 2024-01-03-proxy-execution-net-utilities
 description: Detects the execution of .NET utilities by script processes from unusual locations, indicative of signed binary proxy execution for defense evasion and code execution.
 date: "2024-01-03T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

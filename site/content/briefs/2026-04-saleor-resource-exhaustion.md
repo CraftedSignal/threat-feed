@@ -5,6 +5,9 @@ description: Unauthenticated attackers can exploit a resource exhaustion vulnera
 date: "2026-04-09T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - resource-exhaustion
   - graphql

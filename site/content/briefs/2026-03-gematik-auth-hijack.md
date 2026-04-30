@@ -5,6 +5,9 @@ description: Gematik Authenticator versions prior to 4.16.0 are vulnerable to au
 date: "2026-03-27T21:17:24Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-33875
   - authentication-hijacking

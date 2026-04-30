@@ -5,6 +5,9 @@ description: CVE-2026-33797 is an improper input validation vulnerability in Jun
 date: "2026-04-09T22:16:29Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-33797
   - denial-of-service

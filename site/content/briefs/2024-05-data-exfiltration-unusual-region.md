@@ -3,9 +3,9 @@ title: Potential Data Exfiltration to Unusual Geographic Region via Machine Lear
 slug: 2024-05-data-exfiltration-unusual-region
 description: A machine learning job has detected potential data exfiltration activity to an unusual geographical region, specifically by region name, indicating exfiltration over command and control channels.
 date: "2024-05-02T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

@@ -5,6 +5,9 @@ description: PraisonAI versions prior to 4.5.115 expose agent activity without a
 date: "2026-04-08T21:17:01Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-39889
   - information-disclosure

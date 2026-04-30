@@ -5,6 +5,9 @@ description: Meeplace Business Review Script is vulnerable to SQL injection via 
 date: "2026-03-24T12:16:04Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

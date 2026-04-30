@@ -3,9 +3,9 @@ title: Unusual Remote File Directory Lateral Movement Detection
 slug: 2024-01-22-unusual-remote-file-directory
 description: An Elastic machine learning job detects anomalous remote file transfers to unusual directories, indicating potential lateral movement by attackers attempting to bypass standard security monitoring.
 date: "2024-01-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

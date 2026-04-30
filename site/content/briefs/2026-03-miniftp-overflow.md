@@ -5,6 +5,9 @@ description: MiniFtp contains a buffer overflow vulnerability in the parseconf_l
 date: "2026-03-23T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2019-25611
   - buffer-overflow

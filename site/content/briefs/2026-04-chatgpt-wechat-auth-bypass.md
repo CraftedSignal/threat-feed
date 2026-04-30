@@ -5,6 +5,9 @@ description: CVE-2026-6129 is a critical vulnerability in zhayujie chatgpt-on-we
 date: "2026-04-12T20:16:19Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-6129
   - authentication-bypass

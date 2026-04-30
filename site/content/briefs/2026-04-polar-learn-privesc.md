@@ -5,6 +5,9 @@ description: PolarLearn version 0-PRERELEASE-14 and earlier contains a privilege
 date: "2026-04-07T17:16:35Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-35610
   - privilege-escalation

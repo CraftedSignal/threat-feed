@@ -3,9 +3,9 @@ title: liquidjs Denial of Service via Circular Block Reference
 slug: 2024-01-03-liquidjs-dos
 description: A vulnerability in liquidjs versions prior to 10.25.7 allows for denial of service due to a circular block reference in the layout, causing an infinite recursive loop that exhausts memory and crashes the Node.js process.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

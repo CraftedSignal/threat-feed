@@ -5,6 +5,9 @@ description: CVE-2026-4545 describes a vulnerability in Flos Freeware Notepad2 4
 date: "2026-03-23T14:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - uncontrolled search path

@@ -5,6 +5,9 @@ description: CVE-2026-5573 allows remote attackers to perform unrestricted file 
 date: "2026-04-05T15:16:41Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-5573
   - file-upload

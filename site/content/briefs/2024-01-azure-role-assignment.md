@@ -3,9 +3,9 @@ title: Azure AD Privileged Role Assignment
 slug: 2024-01-azure-role-assignment
 description: Detection of a user being added to a privileged role in Azure AD, potentially indicating privilege escalation or persistence by an attacker.
 date: "2024-01-02T15:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

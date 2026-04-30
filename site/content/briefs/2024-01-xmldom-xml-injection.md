@@ -3,9 +3,9 @@ title: xmldom XML Injection Vulnerability
 slug: 2024-01-xmldom-xml-injection
 description: The xmldom package is vulnerable to XML injection. The package serializes DocumentType node fields (internalSubset, publicId, systemId) verbatim without any escaping or validation. When these fields are set programmatically to attacker-controlled strings, XMLSerializer.serializeToString can produce output where the DOCTYPE declaration is terminated early and arbitrary markup appears outside it. To address this applications that pass untrusted data to createDocumentType() or write untrusted values directly to a DocumentType node's publicId, systemId, or internalSubset properties should audit all serializeToString() call sites and add the option.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

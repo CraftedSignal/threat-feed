@@ -3,9 +3,9 @@ title: GitHub Push Protection Disabled
 slug: 2024-05-github-push-protection-disabled
 description: An administrator has disabled the GitHub push protection feature, potentially allowing secrets and other sensitive information to be pushed to repositories.
 date: "2024-05-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

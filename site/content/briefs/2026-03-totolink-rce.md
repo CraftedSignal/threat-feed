@@ -3,9 +3,9 @@ title: TOTOLINK X6000R Remote Command Injection Vulnerability
 slug: 2026-03-totolink-rce
 description: A remote command injection vulnerability exists in TOTOLINK X6000R routers, specifically versions 9.4.0cu.1360_B20241207 and 9.4.0cu.1498_B20250826, allowing attackers to execute arbitrary commands via manipulation of the Hostname argument in the setLanCfg function.
 date: "2026-03-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

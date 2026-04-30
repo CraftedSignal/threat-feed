@@ -5,6 +5,9 @@ description: CVE-2025-55262 is a SQL Injection vulnerability affecting HCL After
 date: "2026-03-26T14:16:07Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2025-55262
   - sql-injection

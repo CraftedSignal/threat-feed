@@ -5,6 +5,9 @@ description: CVE-2026-32589 describes a vulnerability in Red Hat Quay's containe
 date: "2026-04-08T18:25:59Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - quay
   - image upload

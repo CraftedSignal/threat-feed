@@ -3,9 +3,9 @@ title: cgltf Integer Overflow Vulnerability in Sparse Accessor Validation
 slug: 2026-03-cgltf-overflow
 description: cgltf version 1.15 and prior contain an integer overflow vulnerability in the cgltf_validate() function when validating sparse accessors, allowing attackers to trigger out-of-bounds reads via crafted glTF/GLB files, leading to denial of service and potential memory disclosure.
 date: "2026-03-23T16:16:48Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

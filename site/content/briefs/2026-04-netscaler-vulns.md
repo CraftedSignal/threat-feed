@@ -6,6 +6,9 @@ date: "2026-04-01T08:44:01Z"
 severities:
   - critical
 exploited: true
+type: threat
+types:
+  - threat
 tags:
   - netscaler
   - cve-2026-3055

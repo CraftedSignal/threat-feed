@@ -3,9 +3,9 @@ title: AWS STS AssumeRole Misuse for Lateral Movement and Privilege Escalation
 slug: 2024-01-aws-assumerole-misuse
 description: Abuse of AWS STS AssumeRole can allow attackers to move laterally within an AWS environment and escalate privileges, potentially leading to unauthorized access to sensitive resources and data.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Google Workspace Login Attempt with Government Attack Warning
 slug: 2024-01-23-gworkspace-govattack
 description: A Google Workspace login attempt flagged as a potential attack by a government-backed threat actor, indicating potential privilege escalation, defense evasion, persistence, initial access, or impact.
 date: "2026-04-28T00:48:14Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

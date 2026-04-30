@@ -5,6 +5,9 @@ description: CVE-2026-33785 allows a low-privileged, local, authenticated user t
 date: "2026-04-09T22:16:27Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - network

@@ -3,9 +3,9 @@ title: AWS SAML Provider Deletion Activity
 slug: 2024-12-19-aws-saml-provider-deletion
 description: An adversary may delete an AWS SAML provider to disrupt administrative access, hindering incident response and potentially escalating privileges within the AWS environment.
 date: "2024-12-19T00:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

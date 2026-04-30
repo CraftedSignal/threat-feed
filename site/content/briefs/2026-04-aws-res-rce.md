@@ -5,6 +5,9 @@ description: CVE-2026-5709 is a critical vulnerability in AWS Research and Engin
 date: "2026-04-06T22:16:25Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5709
   - rce

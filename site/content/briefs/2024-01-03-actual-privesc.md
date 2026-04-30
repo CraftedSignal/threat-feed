@@ -3,9 +3,9 @@ title: Actual Privilege Escalation via change-password Endpoint on OpenID-Migrat
 slug: 2024-01-03-actual-privesc
 description: Any authenticated user can escalate to ADMIN on Actual servers migrated from password authentication to OpenID Connect by exploiting a lack of authorization checks, orphaned password rows, and client-controlled login methods, leading to full administrative privileges.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

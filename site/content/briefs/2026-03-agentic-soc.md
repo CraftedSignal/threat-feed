@@ -3,9 +3,9 @@ title: CrowdStrike Agentic MDR and SOC Transformation Services
 slug: 2026-03-agentic-soc
 description: CrowdStrike's agentic MDR combines automation, AI agents, and human oversight for rapid breach response, while SOC Transformation Services modernize security operations for an agentic SOC approach.
 date: "2026-03-28T08:12:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

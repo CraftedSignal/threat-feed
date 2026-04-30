@@ -5,6 +5,9 @@ description: ImageMagick versions prior to 7.1.2-19 and 6.9.13-44 are susceptibl
 date: "2026-04-13T22:18:02Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - dos
   - imagemagick

@@ -3,9 +3,9 @@ title: Windows Netsh Tool Used for Firewall Discovery
 slug: 2024-01-netsh-firewall-discovery
 description: The analytic detects the execution of the Windows built-in tool netsh.exe to display the state, configuration, and profile of the host firewall, potentially leading to unauthorized network access or data exfiltration.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

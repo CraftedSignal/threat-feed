@@ -5,6 +5,9 @@ description: A remote code injection vulnerability exists in assafelovic gpt-res
 date: "2026-04-06T07:16:01Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - code-injection
   - vulnerability

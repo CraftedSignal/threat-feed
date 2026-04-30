@@ -3,9 +3,9 @@ title: Machine Learning Detects High Bytes Written to External Device
 slug: 2024-01-exfiltration-ml-high-bytes
 description: A machine learning job has detected high bytes of data written to an external device, potentially indicating illicit data copying or transfer activities leading to data exfiltration over a physical medium such as USB.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

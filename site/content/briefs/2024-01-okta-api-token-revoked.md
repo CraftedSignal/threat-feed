@@ -3,9 +3,9 @@ title: Okta API Token Revoked
 slug: 2024-01-okta-api-token-revoked
 description: Detection of Okta API token revocation events, indicating potential unauthorized access or compromise.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

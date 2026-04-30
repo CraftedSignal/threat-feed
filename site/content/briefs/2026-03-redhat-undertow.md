@@ -3,9 +3,9 @@ title: Red Hat Undertow Multiple Vulnerabilities Allow Security Bypass
 slug: 2026-03-redhat-undertow
 description: An anonymous remote attacker can exploit multiple vulnerabilities in Red Hat Undertow to bypass security measures, manipulate data, and disclose sensitive information.
 date: "2026-03-30T11:24:09Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

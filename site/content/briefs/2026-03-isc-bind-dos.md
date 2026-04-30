@@ -3,9 +3,9 @@ title: Internet Systems Consortium BIND Vulnerabilities Leading to Denial of Ser
 slug: 2026-03-isc-bind-dos
 description: Multiple vulnerabilities in Internet Systems Consortium BIND can be exploited by a remote attacker to conduct a denial of service attack or bypass security measures.
 date: "2026-03-30T10:14:09Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

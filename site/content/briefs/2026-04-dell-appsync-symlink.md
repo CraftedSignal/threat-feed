@@ -5,6 +5,9 @@ description: Dell AppSync version 4.6.0 is vulnerable to a UNIX Symbolic Link (S
 date: "2026-04-01T13:16:33Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - symlink
   - dell

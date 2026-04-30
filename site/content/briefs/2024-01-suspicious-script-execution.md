@@ -3,9 +3,9 @@ title: Suspicious Script Interpreter Execution from Environment Variable Folders
 slug: 2024-01-suspicious-script-execution
 description: Malware may execute scripts from suspicious directories accessible via environment variables using script interpreters like cscript, wscript, mshta, and powershell to evade detection.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

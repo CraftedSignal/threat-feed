@@ -3,9 +3,9 @@ title: Kirby CMS Server-Side Template Injection via Double Template Resolution
 slug: 2026-04-kirby-ssti
 description: A server-side template injection (SSTI) vulnerability exists in Kirby CMS within the option rendering feature due to double template resolution in option fields (checkboxes, color, multiselect, select, radio, tags, or toggles) when using options from a query or API with untrusted values, potentially allowing attackers to inject malicious queries.
 date: "2026-04-23T21:24:37Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

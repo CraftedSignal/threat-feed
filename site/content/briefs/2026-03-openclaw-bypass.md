@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.11 contains an exec allowlist bypass vulnera
 date: "2026-03-29T13:17:01Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-32973
   - openclaw

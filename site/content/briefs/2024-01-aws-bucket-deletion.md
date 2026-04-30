@@ -3,9 +3,9 @@ title: AWS S3 Bucket Deletion Detected via CloudTrail
 slug: 2024-01-aws-bucket-deletion
 description: An AWS S3 bucket deletion event was detected via CloudTrail logs, potentially indicating data loss or unauthorized access attempts.
 date: "2024-01-02T14:27:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

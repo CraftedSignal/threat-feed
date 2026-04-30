@@ -5,6 +5,9 @@ description: CVE-2026-4101 describes an authentication bypass vulnerability in I
 date: "2026-04-01T21:17:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - authentication-bypass
   - cve-2026-4101

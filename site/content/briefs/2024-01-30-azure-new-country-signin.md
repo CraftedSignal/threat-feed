@@ -3,9 +3,9 @@ title: Azure AD Sign-in from New Country/Region
 slug: 2024-01-30-azure-new-country-signin
 description: Detection of Azure AD sign-ins originating from countries or regions not previously associated with a user, indicating potential account compromise or anomalous activity.
 date: "2024-01-30T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

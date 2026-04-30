@@ -3,9 +3,9 @@ title: Lavavo CD Ripper 4.20 SEH Buffer Overflow Vulnerability
 slug: 2026-03-lavavo-cd-ripper-seh-overflow
 description: Lavavo CD Ripper 4.20 is vulnerable to a structured exception handling (SEH) buffer overflow, allowing local attackers to execute arbitrary code by supplying a malicious string in the License Activation Name field leading to arbitrary code execution and a bind shell.
 date: "2026-03-23T14:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

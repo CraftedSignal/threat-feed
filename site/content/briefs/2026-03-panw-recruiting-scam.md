@@ -3,9 +3,9 @@ title: Palo Alto Networks Recruiting Impersonation Phishing Campaign
 slug: 2026-03-panw-recruiting-scam
 description: Since August 2025, threat actors have been impersonating Palo Alto Networks talent acquisition staff in a sophisticated phishing campaign targeting senior professionals, using social engineering tactics to solicit fraudulent resume fees.
 date: "2026-03-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

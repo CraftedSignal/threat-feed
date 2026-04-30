@@ -3,9 +3,9 @@ title: SQL Injection Vulnerability in Simple Laundry System 1.0
 slug: 2026-03-simple-laundry-sqli
 description: A remote SQL Injection vulnerability exists in code-projects Simple Laundry System 1.0 within the Parameter Handler component's /checkregisitem.php file, where manipulating the Long-arm-shirtVol argument can trigger the injection, with a publicly available exploit.
 date: "2026-03-26T08:16:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

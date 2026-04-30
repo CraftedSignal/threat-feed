@@ -3,9 +3,9 @@ title: Acronis Cyber Protect Cloud Agent Multiple Vulnerabilities Allow Privileg
 slug: 2026-05-acronis-privesc
 description: Multiple vulnerabilities in Acronis Cyber Protect Cloud Agent can be exploited by a local or remote, authenticated attacker to escalate privileges.
 date: "2026-04-30T10:19:14Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

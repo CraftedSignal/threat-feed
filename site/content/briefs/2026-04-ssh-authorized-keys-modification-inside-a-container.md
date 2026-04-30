@@ -3,9 +3,9 @@ title: SSH Authorized Key File Modification Inside a Container
 slug: 2026-04-ssh-authorized-keys-modification-inside-a-container
 description: The rule detects the creation or modification of an authorized_keys file inside a container, a technique used by adversaries to maintain persistence on a victim host by adding their own public key(s) to enable unauthorized SSH access for lateral movement or privilege escalation.
 date: "2026-04-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

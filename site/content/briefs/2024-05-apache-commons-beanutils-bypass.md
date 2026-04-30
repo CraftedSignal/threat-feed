@@ -3,9 +3,9 @@ title: Apache Commons BeanUtils Security Bypass Vulnerability
 slug: 2024-05-apache-commons-beanutils-bypass
 description: An authenticated remote attacker can exploit a vulnerability in Apache Commons BeanUtils to bypass security measures, potentially leading to unauthorized access or privilege escalation.
 date: "2026-03-24T10:16:55Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -5,6 +5,9 @@ description: A remote SQL injection vulnerability (CVE-2026-6036) exists in the 
 date: "2026-04-10T09:16:51Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sqli
   - cve-2026-6036

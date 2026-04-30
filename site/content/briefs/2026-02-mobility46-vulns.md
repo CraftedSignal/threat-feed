@@ -3,9 +3,9 @@ title: Mobility46 Charging Station Vulnerabilities Allow Unauthorized Control an
 slug: 2026-02-mobility46-vulns
 description: Multiple vulnerabilities in Mobility46 charging stations allow attackers to gain unauthorized administrative control or disrupt charging services through missing authentication, improper authentication restrictions, insufficient session expiration, and exposed credentials.
 date: "2026-02-27T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

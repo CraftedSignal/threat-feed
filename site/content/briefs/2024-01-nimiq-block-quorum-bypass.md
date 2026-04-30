@@ -3,9 +3,9 @@ title: Nimiq Block Skip Block Quorum Bypass Vulnerability
 slug: 2024-01-nimiq-block-quorum-bypass
 description: A vulnerability exists in Nimiq Block's SkipBlockProof verification process, allowing attackers to bypass quorum checks by manipulating MultiSignature signers with out-of-range indices, potentially compromising blockchain integrity, and affecting rust/nimiq-block versions 0.2.0 and earlier.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

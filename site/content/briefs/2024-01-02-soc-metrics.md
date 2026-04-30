@@ -3,9 +3,9 @@ title: Impact of Poor Security Operation Center (SOC) Metrics
 slug: 2024-01-02-soc-metrics
 description: Poorly chosen performance metrics can significantly impair a SOC's ability to detect and respond to threats, leading to ineffective security operations and potential compromise.
 date: "2024-01-02T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

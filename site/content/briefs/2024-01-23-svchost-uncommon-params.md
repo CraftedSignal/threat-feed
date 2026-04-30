@@ -5,6 +5,9 @@ description: Detection of svchost.exe executing with uncommon command-line param
 date: "2024-01-23T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - defense-evasion
   - privilege-escalation

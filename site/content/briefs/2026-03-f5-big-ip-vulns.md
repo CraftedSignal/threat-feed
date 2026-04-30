@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in F5 BIG-IP and F5OS
 slug: 2026-03-f5-big-ip-vulns
 description: Multiple vulnerabilities in F5 BIG-IP and F5OS allow an attacker to bypass security mechanisms, escalate privileges, cause a denial-of-service condition, perform a cross-site scripting attack, and disclose or manipulate information.
 date: "2026-03-30T09:24:10Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

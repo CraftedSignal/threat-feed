@@ -5,6 +5,9 @@ description: UniFi Network Controller versions before 5.10.22 and 5.11.x before 
 date: "2026-03-27T22:16:19Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - unifi
   - mitm

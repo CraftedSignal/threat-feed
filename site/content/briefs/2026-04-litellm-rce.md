@@ -5,6 +5,9 @@ description: LiteLLM through 2026-04-08 allows remote attackers to execute arbit
 date: "2026-04-11T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-40217
   - litellm

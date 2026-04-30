@@ -3,9 +3,9 @@ title: EmEditor Supply Chain Compromise Delivering Infostealer
 slug: 2026-03-emeditor-supply-chain
 description: A trojanized EmEditor installer was distributed through a trusted source, delivering an infostealer, highlighting how attackers exploit legitimate software distribution channels to bypass user trust and security controls.
 date: "2026-03-19T00:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

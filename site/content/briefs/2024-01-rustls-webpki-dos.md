@@ -3,9 +3,9 @@ title: rustls-webpki Denial-of-Service Vulnerability via Malformed CRL BIT STRIN
 slug: 2024-01-rustls-webpki-dos
 description: A denial-of-service vulnerability exists in rustls-webpki versions prior to 0.103.13 and between 0.104.0-alpha.1 and 0.104.0-alpha.7 due to a panic in `bit_string_flags()` when processing a malformed CRL BIT STRING, triggered when CRL checking is enabled and an attacker provides a crafted CRL.
 date: "2024-01-09T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

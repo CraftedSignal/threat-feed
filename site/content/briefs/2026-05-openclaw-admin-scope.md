@@ -3,9 +3,9 @@ title: OpenClaw Gateway Plugin Grants Unrestricted operator.admin Runtime Scope
 slug: 2026-05-openclaw-admin-scope
 description: The openclaw gateway plugin versions 2026.3.24 and earlier incorrectly grants operator.admin runtime scope to all callers, regardless of their granted scopes, potentially allowing unauthorized actions.
 date: "2026-03-27T22:32:36Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

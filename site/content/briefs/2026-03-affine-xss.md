@@ -3,9 +3,9 @@ title: Critical XSS Vulnerabilities in AFFiNE
 slug: 2026-03-affine-xss
 description: Two critical XSS vulnerabilities, Reflected XSS in the /image-proxy endpoint and Stored XSS in bookmark cards, were discovered in AFFiNE, a self-hosted alternative to Notion, with the vendor being unresponsive.
 date: "2026-03-19T12:09:56Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.11 contains a session sandbox escape vulnera
 date: "2026-03-29T13:17:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - openclaw
   - sandbox-escape

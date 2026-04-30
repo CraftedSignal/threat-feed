@@ -3,9 +3,9 @@ title: CrowdStrike Falcon Enhancements for Securing AI Agents and Governing Shad
 slug: 2026-03-ai-security
 description: CrowdStrike is enhancing its Falcon platform with new AI detection and response capabilities to secure AI agents and govern shadow AI across endpoints, SaaS, and cloud environments, addressing threats like prompt injection and data leaks.
 date: "2026-03-28T08:12:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: LangChain Core Path Traversal Vulnerability in Legacy APIs
 slug: 2026-03-langchain-path-traversal
 description: A path traversal vulnerability in LangChain Core's legacy `load_prompt` functions allows attackers to read arbitrary files by injecting malicious paths into prompt configurations.
 date: "2026-03-28T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

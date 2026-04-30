@@ -3,9 +3,9 @@ title: Unauthorized Modification of Azure Conditional Access Policy
 slug: 2024-05-29-azure-ca-policy-update
 description: An unauthorized actor modifies an Azure Conditional Access policy, potentially leading to privilege escalation, credential access, persistence, or defense impairment.
 date: "2024-05-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

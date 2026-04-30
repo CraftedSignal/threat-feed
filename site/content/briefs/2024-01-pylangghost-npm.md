@@ -3,9 +3,9 @@ title: PylangGhost RAT Observed on npm Registry
 slug: 2024-01-pylangghost-npm
 description: A new remote access trojan (RAT) named PylangGhost has been observed on the npm registry, posing a supply chain risk to developers and applications using affected packages.
 date: "2026-03-16T04:45:53Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

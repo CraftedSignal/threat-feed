@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in GNU libc
 slug: 2026-04-gnu-libc-vulns
 description: A remote, anonymous attacker can exploit multiple vulnerabilities in GNU libc to execute arbitrary program code, cause a denial-of-service condition, or disclose sensitive information.
 date: "2026-04-29T09:59:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

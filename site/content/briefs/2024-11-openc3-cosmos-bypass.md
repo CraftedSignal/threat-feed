@@ -3,9 +3,9 @@ title: OpenC3 COSMOS Script Runner Permissions Bypass
 slug: 2024-11-openc3-cosmos-bypass
 description: The OpenC3 COSMOS Script Runner widget allows authenticated users to bypass API permissions checks and execute administrative actions by running specially crafted Python and Ruby scripts, leading to data manipulation and privilege escalation.
 date: "2024-11-08T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

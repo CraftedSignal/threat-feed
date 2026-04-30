@@ -5,6 +5,9 @@ description: CVE-2026-1343 allows an attacker to contact internal authentication
 date: "2026-04-08T01:16:40Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - cve-2026-1343

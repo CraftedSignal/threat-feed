@@ -5,6 +5,9 @@ description: A memory safety vulnerability (CVE-2026-4720) in Firefox ESR 140.8,
 date: "2026-03-25T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4720
   - firefox

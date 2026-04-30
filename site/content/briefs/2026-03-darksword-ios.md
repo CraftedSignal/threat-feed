@@ -3,9 +3,9 @@ title: DarkSword iOS Exploit Chain Proliferation
 slug: 2026-03-darksword-ios
 description: The DarkSword exploit chain targets iOS versions 18 and under by exploiting a WebKit vulnerability, and is being adopted by multiple threat actors for initial access and execution.
 date: "2026-03-19T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

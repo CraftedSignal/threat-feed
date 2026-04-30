@@ -3,9 +3,9 @@ title: Crunchyroll Data Breach via Telus Supply Chain Compromise
 slug: 2026-03-crunchyroll-breach
 description: Crunchyroll suffered a data breach after a Telus employee was phished, leading to Okta credential theft and exfiltration of 100GB of customer data.
 date: "2026-03-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: WWBN AVideo platform versions up to 26.0 are vulnerable to SQL inje
 date: "2026-03-23T19:16:42Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - avideo
   - sqli

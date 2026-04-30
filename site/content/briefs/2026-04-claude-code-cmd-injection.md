@@ -5,6 +5,9 @@ description: The Anthropic Claude Code CLI and Claude Agent SDK are vulnerable t
 date: "2026-04-06T20:16:25Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-35021
   - command-injection

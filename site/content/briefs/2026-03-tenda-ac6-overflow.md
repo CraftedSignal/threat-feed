@@ -3,9 +3,9 @@ title: Tenda AC6 Stack-Based Buffer Overflow Vulnerability
 slug: 2026-03-tenda-ac6-overflow
 description: A stack-based buffer overflow vulnerability in Tenda AC6 version 15.03.05.16 allows remote attackers to execute arbitrary code by manipulating the WANT/WANS argument in the /goform/WizardHandle POST request handler.
 date: "2026-03-27T17:16:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

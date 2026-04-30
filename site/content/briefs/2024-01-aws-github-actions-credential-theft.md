@@ -3,9 +3,9 @@ title: AWS Credentials Used from GitHub Actions and Non-CI/CD Infrastructure
 slug: 2024-01-aws-github-actions-credential-theft
 description: Attackers are stealing AWS credentials configured as GitHub Actions secrets and using them from non-CI/CD infrastructure, indicating potential credential theft and unauthorized access to AWS resources.
 date: "2026-04-22T17:45:55Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

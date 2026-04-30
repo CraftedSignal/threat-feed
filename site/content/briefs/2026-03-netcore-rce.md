@@ -5,6 +5,9 @@ description: CVE-2026-4840 is a critical command injection vulnerability in the 
 date: "2026-03-26T05:16:40Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - rce

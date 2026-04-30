@@ -3,9 +3,9 @@ title: Dgraph Unauthenticated Admin Token Disclosure via /debug/vars
 slug: 2024-05-dgraph-auth-bypass
 description: Dgraph versions prior to 25.3.3 expose the admin token via the `/debug/vars` endpoint, allowing unauthenticated attackers to bypass authentication and gain administrative access.
 date: "2024-05-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

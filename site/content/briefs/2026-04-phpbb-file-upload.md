@@ -5,6 +5,9 @@ description: phpBB is vulnerable to arbitrary file upload (CVE-2019-25685) by ex
 date: "2026-04-05T21:16:47Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - phpBB
   - file-upload

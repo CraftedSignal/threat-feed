@@ -5,6 +5,9 @@ description: An out-of-bounds read and write vulnerability in LIBPNG's ARM/AArch
 date: "2026-03-27T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - libpng
   - png

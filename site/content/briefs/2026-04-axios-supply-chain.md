@@ -3,9 +3,9 @@ title: Compromised Axios Library Leads to RAT Deployment via @usebruno/cli
 slug: 2026-04-axios-supply-chain
 description: Compromised versions of the `axios` npm package introduced a hidden dependency deploying a cross-platform Remote Access Trojan (RAT), impacting users of `@usebruno/cli` who ran `npm install` between 00:21 UTC and ~03:30 UTC on March 31, 2026, potentially leading to credential exfiltration.
 date: "2026-04-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

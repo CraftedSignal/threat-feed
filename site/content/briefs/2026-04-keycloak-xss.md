@@ -3,9 +3,9 @@ title: Keycloak Cross-Site Scripting Vulnerability
 slug: 2026-04-keycloak-xss
 description: An authenticated remote attacker can exploit a vulnerability in Keycloak to perform a Cross-Site Scripting attack, potentially leading to unauthorized access and data compromise.
 date: "2026-04-15T07:33:56Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Heimdall Authorization Bypass via Case-Sensitive URL-Encoded Slash Handli
 slug: 2024-01-03-heimdall-url-encoding
 description: Heimdall versions before 0.17.14 are vulnerable to inconsistent path interpretation due to case-sensitive handling of URL-encoded slashes; when `allow_encoded_slashes` is set to `off` (the default), the lowercase `%2f` is not recognized, potentially leading to authorization bypass if the default rule is overly permissive and the upstream service interprets `%2f` as a path separator.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

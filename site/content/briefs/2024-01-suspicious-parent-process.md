@@ -3,9 +3,9 @@ title: Suspicious Windows Process Cluster from Parent Process via Machine Learni
 slug: 2024-01-suspicious-parent-process
 description: A machine learning model detected a parent process spawning a cluster of suspicious Windows processes with high malicious probability scores, potentially indicating LOLBins usage and defense evasion.
 date: "2024-01-30T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

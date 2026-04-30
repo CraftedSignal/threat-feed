@@ -3,9 +3,9 @@ title: Execution via GitHub Actions Runner
 slug: 2024-01-github-actions-runner-execution
 description: Adversaries compromising GitHub Actions workflows can execute arbitrary commands on runner hosts, leading to code execution, reconnaissance, credential harvesting, or network exfiltration.
 date: "2024-01-02T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

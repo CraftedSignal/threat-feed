@@ -5,6 +5,9 @@ description: An unauthenticated attacker can exploit CVE-2026-31932, a vulnerabi
 date: "2026-04-02T14:16:28Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-31932
   - suricata

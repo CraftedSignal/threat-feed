@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.8 contains a sender allowlist bypass vulnera
 date: "2026-03-31T12:16:30Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-34506
   - openclaw

@@ -3,9 +3,9 @@ title: PowerShell Loading .NET Assemblies via Reflection
 slug: 2024-01-03-powershell-reflection-load
 description: This analytic detects PowerShell scripts leveraging .NET reflection to load assemblies into memory, a technique commonly used by threat actors to bypass defenses and execute malicious code.
 date: "2024-01-03T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

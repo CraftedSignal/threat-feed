@@ -5,6 +5,9 @@ description: OAuthenticator versions prior to 17.4.0 contain an authentication b
 date: "2026-04-03T22:16:26Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - authentication-bypass
   - jupyterhub

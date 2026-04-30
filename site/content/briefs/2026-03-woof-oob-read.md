@@ -5,6 +5,9 @@ description: CVE-2026-4750 is a critical out-of-bounds read vulnerability affect
 date: "2026-03-24T06:16:23Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4750
   - out-of-bounds read

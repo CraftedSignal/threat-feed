@@ -5,6 +5,9 @@ description: CVE-2026-35092 is an integer overflow vulnerability in Corosync's j
 date: "2026-04-01T14:16:57Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-35092
   - denial-of-service

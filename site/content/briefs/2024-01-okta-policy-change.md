@@ -3,9 +3,9 @@ title: Okta Policy Modification or Deletion Detected
 slug: 2024-01-okta-policy-change
 description: An Okta policy was modified or deleted, potentially indicating unauthorized changes to security configurations within the Okta identity management platform by a malicious actor or insider.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

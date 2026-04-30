@@ -5,6 +5,9 @@ description: Emissary, a P2P data-driven workflow engine, is vulnerable to OS co
 date: "2026-04-07T17:16:33Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - command injection

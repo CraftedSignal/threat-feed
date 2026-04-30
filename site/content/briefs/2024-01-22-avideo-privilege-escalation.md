@@ -3,9 +3,9 @@ title: WWBN AVideo Privilege Escalation via Moderator Account
 slug: 2024-01-22-avideo-privilege-escalation
 description: WWBN AVideo platform versions up to 26.0 allows a 'Videos Moderator' to escalate privileges and perform unauthorized video management operations due to inconsistent authorization checks.
 date: "2026-03-23T19:16:41Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

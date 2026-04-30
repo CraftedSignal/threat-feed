@@ -5,6 +5,9 @@ description: LinkAce versions prior to 2.5.3 are vulnerable to server-side reque
 date: "2026-03-27T22:16:21Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - linkace

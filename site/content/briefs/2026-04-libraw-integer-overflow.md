@@ -5,6 +5,9 @@ description: CVE-2026-20884 is an integer overflow vulnerability in LibRaw's def
 date: "2026-04-07T15:17:35Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - libraw
   - integer-overflow

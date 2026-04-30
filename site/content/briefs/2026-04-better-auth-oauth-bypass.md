@@ -3,9 +3,9 @@ title: Better Auth OAuth Provider Authorization Bypass Vulnerability
 slug: 2026-04-better-auth-oauth-bypass
 description: An authorization bypass vulnerability exists in Better Auth's OAuth provider, allowing low-privilege users to create OAuth clients despite configured clientPrivileges, potentially leading to unauthorized client registration and increased phishing risks.
 date: "2026-04-17T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

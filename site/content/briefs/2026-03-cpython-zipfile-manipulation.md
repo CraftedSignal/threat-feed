@@ -3,9 +3,9 @@ title: CPython Zipfile Module Vulnerability Allows File Manipulation
 slug: 2026-03-cpython-zipfile-manipulation
 description: A remote, anonymous attacker can exploit a vulnerability in the zipfile module of CPython to manipulate files on affected systems.
 date: "2026-03-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

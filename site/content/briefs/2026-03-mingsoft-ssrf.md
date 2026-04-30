@@ -5,6 +5,9 @@ description: A server-side request forgery (SSRF) vulnerability (CVE-2026-4953) 
 date: "2026-03-27T15:17:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - SSRF
   - mingSoft

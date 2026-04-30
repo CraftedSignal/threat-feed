@@ -3,9 +3,9 @@ title: Flowise Multiple Vulnerabilities
 slug: 2026-04-flowise-multiple-vulnerabilities
 description: Multiple vulnerabilities in Flowise allow an attacker to execute arbitrary code, bypass security measures, disclose information, and manipulate files.
 date: "2026-04-24T06:24:08Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

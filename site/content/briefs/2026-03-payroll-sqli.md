@@ -5,6 +5,9 @@ description: A SQL injection vulnerability (CVE-2026-5237) exists in itsourcecod
 date: "2026-03-31T23:17:11Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

@@ -3,9 +3,9 @@ title: Compromised Telnyx PyPI Package Distributes Credential-Stealing Malware
 slug: 2026-03-telnyx-pypi-compromise
 description: A threat actor compromised the PyPI package `telnyx`, uploading malicious versions 4.87.1 and 4.87.2 containing credential-stealing malware that exfiltrates data to a C2 server.
 date: "2026-03-30T19:15:30Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - critical
 actors:

@@ -5,6 +5,9 @@ description: 'CVE-2026-4693 is a vulnerability due to incorrect boundary conditi
 date: "2026-03-24T13:16:05Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - denial-of-service

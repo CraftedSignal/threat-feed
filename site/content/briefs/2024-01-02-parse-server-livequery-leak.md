@@ -3,9 +3,9 @@ title: Parse Server LiveQuery Protected Field Leak via Shared Mutable State
 slug: 2024-01-02-parse-server-livequery-leak
 description: Parse Server versions before 8.6.65 and between 9.0.0 and 9.7.0-alpha.9 are vulnerable to a data leak where protected fields and authentication data can be exposed to unauthorized clients due to shared mutable objects across concurrent LiveQuery subscribers.
 date: "2026-03-30T17:40:59Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

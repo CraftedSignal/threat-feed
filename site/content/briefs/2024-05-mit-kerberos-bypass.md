@@ -3,9 +3,9 @@ title: MIT Kerberos Security Bypass Vulnerability
 slug: 2024-05-mit-kerberos-bypass
 description: An anonymous, remote attacker can exploit a vulnerability in MIT Kerberos to bypass security measures.
 date: "2026-03-24T10:16:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

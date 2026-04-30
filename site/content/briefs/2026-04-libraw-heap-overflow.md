@@ -5,6 +5,9 @@ description: A heap-based buffer overflow vulnerability (CVE-2026-24660) exists 
 date: "2026-04-07T15:17:37Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - libraw
   - heap-overflow

@@ -3,9 +3,9 @@ title: ScreenConnect 26.1 Cryptographic Material Protection Vulnerability
 slug: 2026-03-screenconnect-hardening
 description: ScreenConnect version 26.1 has a vulnerability related to the insufficient protection of server-level cryptographic material, potentially allowing unauthorized access and data compromise.
 date: "2026-03-19T05:28:50Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

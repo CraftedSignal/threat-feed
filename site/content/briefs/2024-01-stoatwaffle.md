@@ -3,9 +3,9 @@ title: StoatWaffle Malware Used by WaterPlum Actor
 slug: 2024-01-stoatwaffle
 description: StoatWaffle is malware employed by the WaterPlum threat actor, used for an unknown purpose.
 date: "2026-03-19T05:35:27Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 actors:

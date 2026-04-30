@@ -5,6 +5,9 @@ description: A use-after-free vulnerability, CVE-2026-4723, in the JavaScript En
 date: "2026-03-24T13:16:08Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - use-after-free
   - firefox

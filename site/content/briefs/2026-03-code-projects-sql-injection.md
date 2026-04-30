@@ -5,6 +5,9 @@ description: A remote SQL injection vulnerability (CVE-2026-5150) exists in code
 date: "2026-03-30T20:16:24Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

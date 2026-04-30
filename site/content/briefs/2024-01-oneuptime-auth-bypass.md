@@ -5,6 +5,9 @@ description: OneUptime versions prior to 10.0.42 are vulnerable to an authentica
 date: "2026-04-02T20:16:28Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-34840
   - saml

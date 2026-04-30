@@ -5,6 +5,9 @@ description: A malicious actor with access to the UniFi Play network can exploit
 date: "2026-04-13T22:16:28Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - unifi

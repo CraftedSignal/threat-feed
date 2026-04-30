@@ -3,9 +3,9 @@ title: OpenCanary Telnet Login Attempt
 slug: 2024-10-opencanary-telnet-login
 description: The OpenCanary Telnet Login Attempt detection identifies unauthorized login attempts to a Telnet service monitored by an OpenCanary node, indicating potential reconnaissance or intrusion attempts targeting the network.
 date: "2024-10-26T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

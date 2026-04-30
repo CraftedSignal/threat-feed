@@ -5,6 +5,9 @@ description: CVE-2026-4740 describes a vulnerability in Red Hat Open Cluster Man
 date: "2026-04-07T15:17:46Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - kubernetes
   - privilege-escalation

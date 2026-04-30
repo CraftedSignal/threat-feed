@@ -5,6 +5,9 @@ description: Ory Polis versions prior to 26.2.0 are vulnerable to DOM-based XSS 
 date: "2026-03-26T19:17:05Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - xss
   - ory-polis

@@ -5,6 +5,9 @@ description: CVE-2026-4926 describes a denial-of-service vulnerability due to an
 date: "2026-03-27T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - denial-of-service
   - regex

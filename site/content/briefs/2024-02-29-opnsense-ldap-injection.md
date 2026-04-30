@@ -5,6 +5,9 @@ description: OPNsense versions prior to 26.1.6 are vulnerable to LDAP injection,
 date: "2026-04-09T15:16:10Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ldap-injection
   - vulnerability

@@ -3,9 +3,9 @@ title: Silver Fox Spearphishing Campaign Targeting Japanese Firms During Tax Sea
 slug: 2026-03-silverfox-japan-tax-season
 description: The Silver Fox threat actor is conducting a targeted spearphishing campaign against Japanese manufacturers and other businesses, exploiting the annual tax filing and organizational change season by sending emails containing malicious attachments that deploy ValleyRAT, leading to remote access, data theft, and persistence.
 date: "2026-03-28T12:00:00Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

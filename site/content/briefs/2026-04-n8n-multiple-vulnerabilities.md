@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in n8n Workflow Automation Tool
 slug: 2026-04-n8n-multiple-vulnerabilities
 description: Multiple vulnerabilities in n8n can be exploited by an attacker to execute arbitrary code, bypass security measures, disclose sensitive information, conduct SQL injection attacks, cause denial-of-service, perform cross-site scripting, redirect users, or hijack sessions.
 date: "2026-04-23T10:23:56Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

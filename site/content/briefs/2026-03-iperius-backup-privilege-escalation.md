@@ -5,6 +5,9 @@ description: Iperius Backup 6.1.0 is vulnerable to privilege escalation, allowin
 date: "2026-03-23T15:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - privilege escalation
   - cve-2019-25608

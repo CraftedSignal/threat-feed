@@ -3,9 +3,9 @@ title: Stealthy WMI Lateral Movement via StealthyWMIExec.py
 slug: 2024-05-stealthy-wmi-exec
 description: The StealthyWMIExec.py script facilitates lateral movement via WMI, potentially evading standard detection mechanisms by employing stealthy techniques.
 date: "2026-03-16T19:03:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

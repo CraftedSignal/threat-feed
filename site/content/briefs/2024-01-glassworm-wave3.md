@@ -3,9 +3,9 @@ title: GlassWorm Campaign Deploying Wave 3 Windows Payload
 slug: 2024-01-glassworm-wave3
 description: The GlassWorm campaign has been observed deploying a Wave 3 Windows payload, indicating ongoing malicious activity targeting Windows systems.
 date: "2026-03-16T15:00:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Grafana
 slug: 2026-03-grafana-vulns
 description: Multiple vulnerabilities in Grafana allow a remote attacker to conduct a denial-of-service attack, execute code, or disclose information.
 date: "2026-03-30T11:04:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: GlassWorm Supply Chain Attack Using Unicode Encoding and Credential Theft
 slug: 2026-03-glassworm-supply-chain
 description: The GlassWorm campaign employs Unicode variation selectors to conceal malicious code within supply chain artifacts, subsequently querying a Solana wallet for C2 URLs and exfiltrating sensitive credentials.
 date: "2026-03-24T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

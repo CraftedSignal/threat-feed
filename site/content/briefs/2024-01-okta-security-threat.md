@@ -3,9 +3,9 @@ title: Okta Security Threat Detected
 slug: 2024-01-okta-security-threat
 description: This alert detects when Okta's ThreatInsight identifies a security threat within an Okta environment, potentially indicating command and control activity.
 date: "2024-01-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

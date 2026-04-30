@@ -5,6 +5,9 @@ description: The Amelia WordPress plugin is vulnerable to an insecure direct obj
 date: "2026-04-07T07:16:24Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - amelia

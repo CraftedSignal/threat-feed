@@ -5,6 +5,9 @@ description: IBM Tivoli Netcool Impact 7.1.0.0 through 7.1.0.37 stores sensitive
 date: "2026-04-08T01:16:41Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4788
   - information-disclosure

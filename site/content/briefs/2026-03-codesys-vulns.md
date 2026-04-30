@@ -3,9 +3,9 @@ title: CODESYS Multiple Vulnerabilities Allow Arbitrary Code Execution and DoS
 slug: 2026-03-codesys-vulns
 description: Multiple vulnerabilities in CODESYS allow a remote attacker to execute arbitrary program code and conduct a denial-of-service attack.
 date: "2026-03-25T09:46:08Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

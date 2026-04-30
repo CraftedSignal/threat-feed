@@ -5,6 +5,9 @@ description: A local attacker can exploit CVE-2026-35093 in libinput by placing 
 date: "2026-04-01T14:16:57Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - libinput
   - code-injection

@@ -3,9 +3,9 @@ title: User Removed from Group with Conditional Access Policy Modification Acces
 slug: 2024-01-azure-group-removal
 description: An attacker removes a user from a privileged Azure Active Directory group with permissions to modify Conditional Access policies, potentially leading to privilege escalation, persistence, or defense evasion.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

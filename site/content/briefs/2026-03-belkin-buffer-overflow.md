@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability (CVE-2026-5042) exists 
 date: "2026-03-29T11:16:34Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5042
   - buffer-overflow

@@ -3,9 +3,9 @@ title: OpenClaw Gateway Unauthorized Session Reset Vulnerability
 slug: 2026-04-openclaw-session-reset
 description: A vulnerability in OpenClaw Gateway allows a write-scoped gateway caller to rotate a target session, archive the prior transcript state, and force a new session id without admin scope via the `chat.send` path by reusing command authorization to trigger `/reset` session rotation.
 date: "2026-04-01T00:00:34Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: An unauthenticated attacker can exploit an uncontrolled resource co
 date: "2026-04-04T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - denial-of-service
   - websocket

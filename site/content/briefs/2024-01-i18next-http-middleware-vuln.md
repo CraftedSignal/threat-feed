@@ -3,9 +3,9 @@ title: i18next-http-middleware Prototype Pollution and Path Traversal Vulnerabil
 slug: 2024-01-i18next-http-middleware-vuln
 description: Versions of i18next-http-middleware before 3.9.3 are vulnerable to prototype pollution, path traversal, and server-side request forgery (SSRF) due to improper validation of user-controlled language and namespace parameters, potentially leading to denial of service or remote code execution.
 date: "2024-01-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

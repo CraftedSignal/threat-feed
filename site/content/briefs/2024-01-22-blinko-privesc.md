@@ -3,9 +3,9 @@ title: Blinko Privilege Escalation via upsertUser Endpoint
 slug: 2024-01-22-blinko-privesc
 description: An authenticated user can exploit the Blinko upsertUser endpoint to escalate privileges, modify other users' passwords, and achieve account takeover due to missing authentication and verification checks.
 date: "2026-03-23T21:17:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

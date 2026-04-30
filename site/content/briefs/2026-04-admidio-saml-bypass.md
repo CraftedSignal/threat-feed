@@ -3,9 +3,9 @@ title: Admidio SAML Signature Validation Bypass Allows Forged AuthnRequests and 
 slug: 2026-04-admidio-saml-bypass
 description: Admidio's SAML Identity Provider implementation fails to properly validate signatures on SAML AuthnRequests and LogoutRequests, enabling attackers to bypass signature enforcement, potentially disclose user attributes via forged SSO requests, and terminate user sessions via forged SLO requests.
 date: "2026-04-29T21:56:13Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

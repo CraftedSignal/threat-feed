@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in EV Energy ev.energy Charging Stations
 slug: 2026-02-ev-energy-vulns
 description: Multiple vulnerabilities exist in EV Energy ev.energy that could allow an attacker to gain unauthorized administrative control over vulnerable charging stations or disrupt charging services through denial-of-service attacks.
 date: "2026-02-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

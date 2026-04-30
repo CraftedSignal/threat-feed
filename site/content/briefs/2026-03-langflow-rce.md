@@ -5,6 +5,9 @@ description: A critical remote code execution vulnerability, CVE-2026-33017, exi
 date: "2026-03-24T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - langflow
   - rce

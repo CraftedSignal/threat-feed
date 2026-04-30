@@ -5,6 +5,9 @@ description: A critical remote code execution vulnerability exists in Cisco Cata
 date: "2026-02-27T10:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cisco
   - sd-wan

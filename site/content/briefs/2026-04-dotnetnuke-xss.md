@@ -3,9 +3,9 @@ title: DotNetNuke.Core Stored XSS via SVG Upload
 slug: 2026-04-dotnetnuke-xss
 description: DotNetNuke.Core is vulnerable to stored cross-site scripting (XSS) where a user can upload a specially crafted SVG file containing malicious scripts, potentially targeting both authenticated and unauthenticated DNN users, with successful exploitation requiring user interaction and leading to high impact on confidentiality, integrity, and availability.
 date: "2026-04-11T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

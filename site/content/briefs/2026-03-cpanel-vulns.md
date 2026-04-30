@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in cPanel/WHM
 slug: 2026-03-cpanel-vulns
 description: An anonymous remote attacker can exploit multiple vulnerabilities in cPanel/WHM to bypass security measures, perform XSS and SSRF attacks, disclose information, and potentially execute code.
 date: "2026-03-24T12:11:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

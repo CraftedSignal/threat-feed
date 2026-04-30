@@ -3,9 +3,9 @@ title: OpenClaw Gateway Plugin Subagent Admin Scope Vulnerability
 slug: 2026-04-openclaw-admin-scope
 description: The openclaw package versions 2026.3.24 and earlier are vulnerable due to the gateway plugin subagent fallback `deleteSession` function dispatching `sessions.delete` with a synthetic `operator.admin` runtime scope, potentially leading to unauthorized session deletion.
 date: "2026-03-29T15:50:41Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

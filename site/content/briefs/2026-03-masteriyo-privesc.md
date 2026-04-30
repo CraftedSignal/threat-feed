@@ -3,9 +3,9 @@ title: Masteriyo LMS WordPress Plugin Privilege Escalation Vulnerability
 slug: 2026-03-masteriyo-privesc
 description: The Masteriyo LMS plugin for WordPress is vulnerable to privilege escalation, allowing authenticated users with student-level access or higher to gain administrator privileges by manipulating the 'InstructorsController::prepare_object_for_database' function.
 date: "2026-03-26T02:16:07Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

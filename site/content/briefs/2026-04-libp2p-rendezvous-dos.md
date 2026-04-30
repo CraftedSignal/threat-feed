@@ -3,9 +3,9 @@ title: libp2p-rendezvous Unlimited Namespace Registration DoS
 slug: 2026-04-libp2p-rendezvous-dos
 description: A vulnerable libp2p-rendezvous server can be crashed via a denial-of-service attack where an unauthenticated peer registers unlimited namespaces, leading to memory exhaustion.
 date: "2026-04-04T06:33:46Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

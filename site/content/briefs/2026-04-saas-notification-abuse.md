@@ -3,9 +3,9 @@ title: SaaS Notification Pipeline Abuse for Phishing and Spam Campaigns
 slug: 2026-04-saas-notification-abuse
 description: Attackers are abusing notification pipelines in SaaS platforms like GitHub and Jira to deliver phishing and spam emails by exploiting legitimate platform features and bypassing traditional email security measures.
 date: "2026-04-07T10:00:35Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

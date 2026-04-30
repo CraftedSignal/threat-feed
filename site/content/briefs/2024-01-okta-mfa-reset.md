@@ -3,9 +3,9 @@ title: Okta MFA Reset or Deactivation Attempt
 slug: 2024-01-okta-mfa-reset
 description: An attacker attempts to disable or reset multi-factor authentication (MFA) for a user account in Okta, potentially leading to unauthorized access and account compromise.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Azure Identity Protection Atypical Travel Anomaly
 slug: 2024-01-azure-atypical-travel
 description: The Atypical Travel detection in Azure Identity Protection identifies potentially compromised user accounts by detecting geographically improbable sign-in activity, indicative of account compromise or misuse.
 date: "2024-01-02T18:21:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Apache Commons FileUpload Denial of Service Vulnerability
 slug: 2024-05-apache-commons-fileupload-dos
 description: A remote, anonymous attacker can exploit a vulnerability in Apache Commons FileUpload to perform a denial of service attack.
 date: "2026-03-24T10:17:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

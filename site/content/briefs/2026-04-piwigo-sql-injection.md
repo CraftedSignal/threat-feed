@@ -5,6 +5,9 @@ description: A SQL Injection vulnerability (CVE-2026-27834) exists in Piwigo ver
 date: "2026-04-03T22:16:26Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - piwigo
   - sql-injection

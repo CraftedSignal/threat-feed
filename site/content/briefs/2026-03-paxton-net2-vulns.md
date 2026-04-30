@@ -3,9 +3,9 @@ title: Vulnerabilities in Paxton Net2 Access Control Units
 slug: 2026-03-paxton-net2-vulns
 description: Vulnerabilities in Paxton Net2 Access Control Units (ACUs) could allow unauthorized remote access and control of secured doors, potentially affecting prisons and other high-security facilities.
 date: "2026-03-19T22:15:35Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

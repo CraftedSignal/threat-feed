@@ -5,6 +5,9 @@ description: CVE-2024-45163 is a remote denial-of-service vulnerability affectin
 date: "2026-03-16T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2024-45163
   - mirai

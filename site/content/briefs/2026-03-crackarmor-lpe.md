@@ -3,9 +3,9 @@ title: 'CrackArmor: AppArmor Flaws Enable Local Privilege Escalation'
 slug: 2026-03-crackarmor-lpe
 description: Qualys discovered critical vulnerabilities in AppArmor, enabling local privilege escalation to root on vulnerable Linux systems.
 date: "2026-03-17T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

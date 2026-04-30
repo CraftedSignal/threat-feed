@@ -3,9 +3,9 @@ title: Unpatched Microsoft Windows RPC Vulnerability Allows Privilege Escalation
 slug: 2026-05-windows-rpc-privesc
 description: A local attacker can exploit an unpatched vulnerability in Microsoft Windows RPC to escalate privileges.
 date: "2026-04-30T11:16:31Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 tags:

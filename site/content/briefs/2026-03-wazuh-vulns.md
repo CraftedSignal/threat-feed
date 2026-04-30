@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Wazuh Leading to Code Execution and Data Mani
 slug: 2026-03-wazuh-vulns
 description: Multiple vulnerabilities in Wazuh allow an attacker to perform denial-of-service attacks, execute arbitrary code, manipulate data, and disclose sensitive information, potentially leading to significant data breaches and system compromise.
 date: "2026-03-30T11:24:10Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

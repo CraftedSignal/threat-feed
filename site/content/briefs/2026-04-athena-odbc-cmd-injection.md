@@ -5,6 +5,9 @@ description: A critical OS command injection vulnerability (CVE-2026-5485) in th
 date: "2026-04-04T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5485
   - command injection

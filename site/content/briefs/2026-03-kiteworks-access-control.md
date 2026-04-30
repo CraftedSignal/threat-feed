@@ -5,6 +5,9 @@ description: Kiteworks Core versions 9.2.0 and 9.2.1 contain an access control v
 date: "2026-03-25T15:16:37Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - access-control
   - vulnerability

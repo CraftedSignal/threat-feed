@@ -5,6 +5,9 @@ description: A use-after-free vulnerability (CVE-2026-34774) exists in Electron 
 date: "2026-04-03T02:42:27Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - electron
   - use-after-free

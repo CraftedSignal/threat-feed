@@ -3,9 +3,9 @@ title: Paperclip Cross-Tenant Agent API Token Minting Vulnerability
 slug: 2026-04-paperclip-agent-token-minting
 description: A vulnerability in Paperclip allows any authenticated user to mint agent API tokens for other tenants, leading to unauthorized access and control due to missing company access checks.
 date: "2026-04-17T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

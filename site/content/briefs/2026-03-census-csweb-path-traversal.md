@@ -5,6 +5,9 @@ description: CVE-2025-60946 details a vulnerability in Census CSWeb 8.0.1, where
 date: "2026-03-24T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - cve-2025-60946

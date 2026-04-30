@@ -3,9 +3,9 @@ title: pygeoapi Unauthenticated SSRF Vulnerability in OGC API - Processes Subscr
 slug: 2024-01-pygeoapi-ssrf
 description: pygeoapi versions 0.23.0 to 0.23.2 contain an unauthenticated server-side request forgery (SSRF) vulnerability where OGC API process execution requests can use the subscriber object to make requests to internal HTTP services, which is resolved in version 0.23.3 by disabling internal requests by default.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

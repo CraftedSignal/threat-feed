@@ -3,9 +3,9 @@ title: RegPwn Windows Local Privilege Escalation Vulnerability
 slug: 2024-05-regpwn-lpe
 description: RegPwn is a now-fixed local privilege escalation vulnerability in Windows that allowed an attacker to gain elevated privileges.
 date: "2026-03-13T17:12:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Kirby CMS Authorization Bypass via Blueprint Injection
 slug: 2026-04-kirby-auth-bypass
 description: An authorization bypass vulnerability in Kirby CMS allows authenticated users to perform actions they should not be allowed to perform based on their configured permissions by injecting custom dynamic blueprint configuration into the model data, leading to privilege escalation.
 date: "2026-04-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

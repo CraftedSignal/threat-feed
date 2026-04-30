@@ -3,9 +3,9 @@ title: Azure AD Activity From Anonymous IP Address
 slug: 2024-01-09-azure-anonymous-ip
 description: Detection of user activity originating from an IP address identified as an anonymous proxy, potentially indicating unauthorized access, privilege escalation, or persistence within an Azure Active Directory environment.
 date: "2024-01-09T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

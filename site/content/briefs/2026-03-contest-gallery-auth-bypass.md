@@ -5,6 +5,9 @@ description: CVE-2026-4021 describes an authentication bypass vulnerability in t
 date: "2026-03-24T00:16:31Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - authentication-bypass

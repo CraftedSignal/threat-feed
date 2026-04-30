@@ -3,9 +3,9 @@ title: Tenda AC21 Router Buffer Overflow Vulnerability
 slug: 2026-03-tenda-ac21-buffer-overflow
 description: A buffer overflow vulnerability exists in Tenda AC21 firmware version 16.03.08.16, allowing remote attackers to execute arbitrary code by manipulating arguments to the formSetQosBand function.
 date: "2026-03-23T01:16:43Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

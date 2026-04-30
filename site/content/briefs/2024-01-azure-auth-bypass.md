@@ -3,9 +3,9 @@ title: Azure AD Authentication from Unexpected Geo-locations
 slug: 2024-01-azure-auth-bypass
 description: Detection of successful authentications originating from geographic locations outside of an organization's expected operational footprint, potentially indicating compromised credentials or unauthorized access.
 date: "2024-01-29T18:22:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

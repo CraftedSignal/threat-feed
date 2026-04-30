@@ -3,9 +3,9 @@ title: First Time Seen Remote Monitoring and Management Tool Usage
 slug: 2024-01-first-time-seen-rmm
 description: This rule detects the first time a remote monitoring and management (RMM) or remote access process is seen on a host within a defined history window, indicating potential command-and-control, persistence, or unauthorized remote access activity.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

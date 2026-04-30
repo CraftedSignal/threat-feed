@@ -3,9 +3,9 @@ title: Crashmail 1.6 Stack-Based Buffer Overflow Vulnerability
 slug: 2026-03-crashmail-bo
 description: Crashmail 1.6 is vulnerable to a stack-based buffer overflow, allowing remote attackers to execute arbitrary code via malicious input and potentially leading to denial of service.
 date: "2026-03-28T12:16:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

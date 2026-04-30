@@ -3,9 +3,9 @@ title: Admidio SAML Assertion Consumer Service (ACS) URL Validation Bypass
 slug: 2024-01-29-admidio-saml-acs-bypass
 description: Admidio's SAML IdP implementation in its SSO module is vulnerable to sending SAML responses to unvalidated Assertion Consumer Service URLs, allowing an attacker to craft a SAML AuthnRequest with an arbitrary AssertionConsumerServiceURL, causing the IdP to send the signed SAML response, containing user identity attributes, to an attacker-controlled URL, enabling impersonation of the victim user on the legitimate SP by replaying the SAML assertion.
 date: "2024-01-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

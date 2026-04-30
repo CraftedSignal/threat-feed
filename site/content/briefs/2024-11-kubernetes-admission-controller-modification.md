@@ -3,9 +3,9 @@ title: Kubernetes Admission Controller Modification
 slug: 2024-11-kubernetes-admission-controller-modification
 description: An adversary modifies Kubernetes admission controller configurations to achieve persistence, escalate privileges, or gain unauthorized access to credentials within the cluster.
 date: "2024-11-01T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -5,6 +5,9 @@ description: CVE-2026-27885 is a SQL Injection vulnerability in Piwigo before ve
 date: "2026-04-03T22:16:26Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

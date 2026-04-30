@@ -3,9 +3,9 @@ title: DNSdist Multiple Vulnerabilities Leading to Denial of Service
 slug: 2024-01-dnsdist-dos
 description: Multiple vulnerabilities in DNSdist can be exploited by an attacker to perform a denial of service attack, impacting the availability of DNS services.
 date: "2026-04-30T09:09:10Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

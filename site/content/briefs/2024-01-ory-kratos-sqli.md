@@ -3,9 +3,9 @@ title: Ory Kratos SQL Injection Vulnerability in ListCourierMessages API
 slug: 2024-01-ory-kratos-sqli
 description: A SQL injection vulnerability exists in the ListCourierMessages Admin API of Ory Kratos versions prior to 26.2.0 due to flaws in its pagination implementation, allowing attackers to craft malicious tokens if the pagination secret is known or the default secret is used.
 date: "2026-03-26T18:16:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Okta User Session Start via Anonymizing Proxy Service
 slug: 2024-01-okta-anonymizing-proxy
 description: Detection of Okta user sessions initiated through anonymizing proxy services, potentially indicating malicious activity or attempts to evade security controls.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

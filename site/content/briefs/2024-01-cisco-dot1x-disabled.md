@@ -3,9 +3,9 @@ title: Cisco 802.1X (dot1x) Disabled on Network Interface
 slug: 2024-01-cisco-dot1x-disabled
 description: Detection of manual disablement of IEEE 802.1X (dot1x) on a Cisco network device interface, potentially allowing unauthorized network access and lateral movement.
 date: "2024-01-03T18:23:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

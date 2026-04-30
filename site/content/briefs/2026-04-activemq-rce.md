@@ -5,6 +5,9 @@ description: A remote code execution vulnerability (CVE-2026-34197) in Apache Ac
 date: "2026-04-08T14:30:27Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - activemq
   - rce

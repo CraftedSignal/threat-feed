@@ -3,9 +3,9 @@ title: Google Workspace Suspicious Login Activity
 slug: 2024-01-26-gworkspace-suspicious-login
 description: Detect Google Workspace login activity that Google has classified as suspicious, potentially indicating initial access, privilege escalation, defense evasion, or persistence attempts.
 date: "2024-01-26T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

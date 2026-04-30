@@ -3,9 +3,9 @@ title: Libarchive Code Execution Vulnerability
 slug: 2026-04-libarchive-code-execution
 description: A remote attacker can exploit a vulnerability in libarchive to achieve arbitrary code execution on a vulnerable system.
 date: "2026-04-21T08:08:51Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

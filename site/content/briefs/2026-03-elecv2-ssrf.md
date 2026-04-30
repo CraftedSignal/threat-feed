@@ -5,6 +5,9 @@ description: A server-side request forgery vulnerability exists in elecV2 elecV2
 date: "2026-03-28T22:15:58Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5016
   - ssrf

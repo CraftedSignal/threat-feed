@@ -3,9 +3,9 @@ title: AWS VPC Flow Logs Deletion for Defense Evasion
 slug: 2024-01-03-aws-vpc-flow-logs-deleted
 description: An adversary may delete VPC Flow Logs in AWS EC2 by calling the DeleteFlowLogs API to evade detection and hinder forensic investigations.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

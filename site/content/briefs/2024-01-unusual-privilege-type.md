@@ -3,9 +3,9 @@ title: Unusual Privilege Type Assigned to User via Machine Learning Anomaly
 slug: 2024-01-unusual-privilege-type
 description: A machine learning job has identified a user leveraging an uncommon privilege type for privileged operations on Windows systems, potentially indicating privileged access activity and requiring investigation for privilege escalation or account manipulation.
 date: "2024-01-02T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

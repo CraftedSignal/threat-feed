@@ -3,9 +3,9 @@ title: Malicious Usage of AWS IMDS Credentials Outside of Expected Services
 slug: 2024-07-aws-imds-abuse
 description: Compromised EC2 instances may be leveraged to exfiltrate and misuse AWS Instance Metadata Service (IMDS) credentials to perform actions outside of the expected AWS Simple Systems Manager (SSM) service, indicating potential lateral movement or data exfiltration.
 date: "2024-07-11T00:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

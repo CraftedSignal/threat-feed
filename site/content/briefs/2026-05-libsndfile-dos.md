@@ -3,9 +3,9 @@ title: libsndfile Vulnerability Allows Denial of Service
 slug: 2026-05-libsndfile-dos
 description: A remote, unauthenticated attacker can exploit an unpatched vulnerability in libsndfile to cause a denial of service.
 date: "2026-04-30T09:57:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

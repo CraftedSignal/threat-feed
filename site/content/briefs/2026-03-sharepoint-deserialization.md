@@ -5,6 +5,9 @@ description: CVE-2026-20963, a SharePoint deserialization vulnerability, is unde
 date: "2026-03-20T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-20963
   - sharepoint

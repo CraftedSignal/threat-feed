@@ -3,9 +3,9 @@ title: Bitbucket Global Secret Scanning Rule Deletion
 slug: 2024-04-bitbucket-secret-rule-delete
 description: An adversary with administrative privileges may delete global secret scanning rules in Bitbucket to impair defenses and exfiltrate sensitive data without detection.
 date: "2024-04-29T14:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

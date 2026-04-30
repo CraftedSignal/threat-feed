@@ -5,6 +5,9 @@ description: Spring AI's spring-ai-bedrock-converse library is vulnerable to Ser
 date: "2026-03-27T06:16:37Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - spring-ai

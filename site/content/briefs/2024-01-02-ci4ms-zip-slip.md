@@ -3,9 +3,9 @@ title: CI4MS Theme Upload Zip Slip Vulnerability
 slug: 2024-01-02-ci4ms-zip-slip
 description: A critical vulnerability exists in ci4ms Theme::upload, where improper validation of ZIP archive entry names allows authenticated users with theme creation permissions to write files to arbitrary locations, leading to remote code execution.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

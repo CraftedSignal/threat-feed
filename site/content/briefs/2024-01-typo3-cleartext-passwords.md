@@ -3,9 +3,9 @@ title: TYPO3 CMS 14.2.0 Stores Passwords in Cleartext
 slug: 2024-01-typo3-cleartext-passwords
 description: TYPO3 CMS version 14.2.0 stores passwords in cleartext in the `uc` and `user_settings` fields of the `be_users` database table when users change their credentials in the backend user settings module.
 date: "2024-01-30T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

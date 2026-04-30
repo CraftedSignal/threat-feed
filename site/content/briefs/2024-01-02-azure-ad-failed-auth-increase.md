@@ -3,9 +3,9 @@ title: Azure AD Failed Authentication Increase
 slug: 2024-01-02-azure-ad-failed-auth-increase
 description: Detects a significant increase (10% or greater) in failed Azure AD sign-in attempts, potentially indicating brute-force attacks, credential stuffing, or other unauthorized access attempts.
 date: "2024-01-02T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

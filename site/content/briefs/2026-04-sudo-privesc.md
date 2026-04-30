@@ -5,6 +5,9 @@ description: CVE-2026-35535 describes a privilege escalation vulnerability in Su
 date: "2026-04-03T03:16:18Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sudo
   - privilege-escalation

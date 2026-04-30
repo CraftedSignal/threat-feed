@@ -5,6 +5,9 @@ description: CVE-2026-20160 is a critical vulnerability in Cisco Smart Software 
 date: "2026-04-01T17:28:31Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-20160
   - cisco

@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.24 is vulnerable to path traversal, allowing
 date: "2026-04-10T17:17:09Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - vulnerability

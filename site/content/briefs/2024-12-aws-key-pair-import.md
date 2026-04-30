@@ -3,9 +3,9 @@ title: Suspicious AWS EC2 Key Pair Import Activity
 slug: 2024-12-aws-key-pair-import
 description: The import of SSH key pairs into AWS EC2, as detected by CloudTrail logs, may indicate unauthorized access attempts, persistence establishment, or privilege escalation by an attacker.
 date: "2024-12-19T00:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -5,6 +5,9 @@ description: A low-privileged remote attacker can exploit CVE-2026-4436 by sendi
 date: "2026-04-09T20:16:27Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - modbus

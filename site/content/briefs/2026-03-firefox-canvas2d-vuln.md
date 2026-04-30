@@ -5,6 +5,9 @@ description: An improper boundary condition vulnerability in the Canvas2D compon
 date: "2026-03-24T13:16:04Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4685
   - firefox

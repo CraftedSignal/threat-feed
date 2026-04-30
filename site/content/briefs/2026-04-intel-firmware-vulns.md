@@ -3,9 +3,9 @@ title: 'Intel IPU, UEFI Reference Firmware: Multiple Vulnerabilities'
 slug: 2026-04-intel-firmware-vulns
 description: A local attacker can exploit multiple vulnerabilities in Intel Firmware to disclose confidential information or gain elevated privileges.
 date: "2026-04-21T08:04:40Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

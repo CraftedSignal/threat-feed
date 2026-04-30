@@ -3,9 +3,9 @@ title: Azure AD Guest to Member User Type Conversion
 slug: 2024-01-azure-guest-member
 description: An adversary may convert a guest user account to a member account in Azure Active Directory to elevate privileges and gain persistent access to resources.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

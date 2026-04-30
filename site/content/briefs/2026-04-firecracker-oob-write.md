@@ -5,6 +5,9 @@ description: An out-of-bounds write vulnerability in Amazon Firecracker's virtio
 date: "2026-04-08T00:16:05Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5747
   - firecracker

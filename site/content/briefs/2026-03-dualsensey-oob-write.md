@@ -5,6 +5,9 @@ description: CVE-2026-33850 is an out-of-bounds write vulnerability in WujekFoli
 date: "2026-03-24T06:16:22Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - vulnerability

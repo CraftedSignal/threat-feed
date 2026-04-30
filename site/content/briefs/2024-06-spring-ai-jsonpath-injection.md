@@ -5,6 +5,9 @@ description: CVE-2026-22729 is a JSONPath Injection vulnerability found in Sprin
 date: "2026-03-19T12:35:09Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-22729
   - jsonpath-injection

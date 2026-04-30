@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Fortinet FortiSandbox
 slug: 2026-04-fortinet-fortisandbox-vulns
 description: Multiple vulnerabilities in Fortinet FortiSandbox allow attackers to perform cross-site scripting attacks, disclose information, bypass security measures, and execute arbitrary code, potentially leading to system compromise.
 date: "2026-04-21T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

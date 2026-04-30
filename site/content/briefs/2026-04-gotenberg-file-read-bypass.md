@@ -5,6 +5,9 @@ description: Gotenberg versions before 8.29.0 are vulnerable to unauthenticated 
 date: "2026-03-30T16:16:57Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - gotenberg
   - file-read

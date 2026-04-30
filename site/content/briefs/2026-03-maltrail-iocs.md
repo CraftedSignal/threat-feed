@@ -3,9 +3,9 @@ title: Maltrail IOC Feed Update for Multiple Threats
 slug: 2026-03-maltrail-iocs
 description: This brief summarizes IOCs extracted from the Maltrail feed on March 15, 2026, covering domains and URLs associated with threats targeting macOS and Android platforms, including OSX_Atomic, FakeApp, Android_Joker, Lummack2, APT_Sidewinder, APT_Kimsuky, and Hak5Cloud_C2.
 date: "2026-03-15T21:00:08Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

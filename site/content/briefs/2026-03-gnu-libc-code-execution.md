@@ -3,9 +3,9 @@ title: GNU libc Vulnerability Allows Local Code Execution
 slug: 2026-03-gnu-libc-code-execution
 description: A local attacker can exploit a vulnerability in GNU libc to execute arbitrary program code on Linux systems.
 date: "2026-03-24T12:40:49Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

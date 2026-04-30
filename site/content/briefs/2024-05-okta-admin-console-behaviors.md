@@ -3,9 +3,9 @@ title: Okta Admin Console Unusual Behavior Detection
 slug: 2024-05-okta-admin-console-behaviors
 description: This brief details detection of anomalous activity within the Okta Admin Console, potentially indicating privilege escalation, persistence, defense evasion, or initial access attempts by malicious actors.
 date: "2024-05-02T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

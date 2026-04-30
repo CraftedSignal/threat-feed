@@ -3,9 +3,9 @@ title: Azure AD Root Certificate Authority Added for Passwordless Authentication
 slug: 2024-05-azuread-root-ca-add
 description: An attacker may add a new root certificate authority to an Azure AD tenant to support certificate-based authentication for persistence, privilege escalation, or defense evasion.
 date: "2024-05-08T18:22:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

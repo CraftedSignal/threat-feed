@@ -5,6 +5,9 @@ description: A path traversal vulnerability exists in Spring Cloud Config Server
 date: "2026-03-24T01:17:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-22739
   - path-traversal

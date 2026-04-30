@@ -5,6 +5,9 @@ description: Endian Firewall version 3.3.25 and prior allows authenticated users
 date: "2026-04-02T15:16:42Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - rce

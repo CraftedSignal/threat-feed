@@ -3,9 +3,9 @@ title: Claude Code Trust Dialog Bypass via Git Worktree Spoofing
 slug: 2026-04-claude-code-trust-bypass
 description: A vulnerability in Claude Code allowed for trust dialog bypass via git worktree spoofing, potentially leading to arbitrary code execution by crafting a malicious repository with a `commondir` file pointing to a previously trusted path, bypassing the trust dialog, and executing malicious hooks defined in `.claude/settings.json`.
 date: "2026-04-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

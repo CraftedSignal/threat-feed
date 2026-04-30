@@ -3,9 +3,9 @@ title: eNdonesia Portal v8.7 SQL Injection Vulnerability
 slug: 2026-03-endonesia-sql-injection
 description: eNdonesia Portal v8.7 is vulnerable to SQL injection allowing unauthenticated attackers to execute arbitrary SQL queries via the bid parameter in banners.php, potentially leading to sensitive data extraction.
 date: "2026-03-24T12:16:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

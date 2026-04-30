@@ -3,9 +3,9 @@ title: OpenC3 COSMOS SQL Injection Vulnerability in QuestDB Time-Series Database
 slug: 2024-01-09-openc3-sql-injection
 description: A SQL injection vulnerability exists in the Time-Series Database (TSDB) component of COSMOS, allowing an authenticated remote user to execute arbitrary SQL commands, including telemetry data disclosure and deletion.
 date: "2026-04-23T14:12:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

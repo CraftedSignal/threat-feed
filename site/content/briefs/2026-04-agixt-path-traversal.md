@@ -5,6 +5,9 @@ description: AGiXT versions prior to 1.9.2 are vulnerable to path traversal (CVE
 date: "2026-04-09T18:17:02Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - cve

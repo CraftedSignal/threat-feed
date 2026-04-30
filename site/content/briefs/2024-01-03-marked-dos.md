@@ -3,9 +3,9 @@ title: Denial of Service Vulnerability in marked via Infinite Recursion
 slug: 2024-01-03-marked-dos
 description: A denial of service vulnerability exists in marked version 18.0.0 due to infinite recursion when processing a specific 3-byte sequence (tab, vertical tab, and newline), leading to unbounded memory allocation and application crash.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

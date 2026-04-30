@@ -5,6 +5,9 @@ description: CVE-2026-5526 describes an improper access control vulnerability in
 date: "2026-04-04T23:16:44Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5526
   - tenda

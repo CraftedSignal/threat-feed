@@ -3,9 +3,9 @@ title: Detection of Python Base64 Encoded Execution on Linux
 slug: 2024-01-python-base64-linux
 description: This brief focuses on detecting the execution of Python one-liners utilizing base64 decoding functions on Linux systems, a technique employed by malicious actors to obfuscate and execute payloads, thereby evading traditional security measures.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

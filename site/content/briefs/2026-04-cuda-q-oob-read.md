@@ -3,9 +3,9 @@ title: NVIDIA CUDA-Q Out-of-Bounds Read Vulnerability (CVE-2026-24189)
 slug: 2026-04-cuda-q-oob-read
 description: NVIDIA CUDA-Q is vulnerable to an out-of-bounds read via a maliciously crafted request to an endpoint, potentially leading to denial of service and information disclosure as tracked by CVE-2026-24189.
 date: "2026-04-21T17:16:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

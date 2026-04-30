@@ -3,9 +3,9 @@ title: VMware Tanzu Spring Framework and Spring Security Vulnerabilities Allow S
 slug: 2025-03-vmware-spring-bypass
 description: An anonymous, remote attacker can exploit multiple vulnerabilities in VMware Tanzu Spring Security and VMware Tanzu Spring Framework to bypass security measures.
 date: "2026-03-24T10:36:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

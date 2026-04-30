@@ -5,6 +5,9 @@ description: Tina CMS versions before 2.2.2 are vulnerable to a path traversal a
 date: "2026-04-01T17:28:41Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - tina-cms

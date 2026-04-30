@@ -5,6 +5,9 @@ description: OpenClaw before 2026.2.17 creates session transcript JSONL files wi
 date: "2026-03-29T13:17:02Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-33572
   - file-permissions

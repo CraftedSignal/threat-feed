@@ -5,6 +5,9 @@ description: News Website Script 2.0.5 contains an SQL injection vulnerability (
 date: "2026-04-05T21:16:44Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sqli
   - cve-2019-25668

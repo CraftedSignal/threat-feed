@@ -3,9 +3,9 @@ title: KomSeo Cart 1.3 SQL Injection Vulnerability
 slug: 2026-03-komseo-sqli
 description: KomSeo Cart 1.3 is vulnerable to SQL injection via the 'my_item_search' parameter in edit.php, allowing attackers to inject SQL commands and extract sensitive database information.
 date: "2026-03-26T12:16:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.11 is vulnerable to an approval integrity is
 date: "2026-03-29T13:17:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-32979
   - code-execution

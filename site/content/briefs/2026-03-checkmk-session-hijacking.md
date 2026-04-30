@@ -3,9 +3,9 @@ title: Checkmk Vulnerability Allows Session Hijacking
 slug: 2026-03-checkmk-session-hijacking
 description: An authenticated remote attacker can exploit a vulnerability in Checkmk to bypass security measures, leading to session hijacking.
 date: "2026-03-25T09:51:19Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

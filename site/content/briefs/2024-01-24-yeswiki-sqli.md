@@ -3,9 +3,9 @@ title: YesWiki Authenticated SQL Injection Vulnerability
 slug: 2024-01-24-yeswiki-sqli
 description: YesWiki is vulnerable to authenticated SQL Injection via the id_fiche parameter in the EntryManager::formatDataBeforeSave() function, allowing attackers to inject arbitrary SQL commands and potentially extract sensitive data.
 date: "2026-04-18T01:00:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

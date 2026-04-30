@@ -3,9 +3,9 @@ title: Azure AD MFA Disabled to Bypass Authentication
 slug: 2024-01-azure-mfa-disabled
 description: An adversary may disable multi-factor authentication (MFA) in Azure Active Directory to weaken an organization's security posture and bypass authentication mechanisms, potentially gaining unauthorized access to sensitive resources and maintaining persistence.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Attrib.exe Used to Hide Files and Directories
 slug: 2024-01-attrib-hide-files
 description: Detection of attrib.exe being used with the +h flag to hide files and directories on Windows systems, a technique used by attackers for defense evasion and persistence.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

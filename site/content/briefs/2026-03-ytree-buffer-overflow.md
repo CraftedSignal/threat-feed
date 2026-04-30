@@ -5,6 +5,9 @@ description: yTree version 1.94-1.1 is vulnerable to a stack-based buffer overfl
 date: "2026-03-28T12:15:59Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2016-20038
   - buffer-overflow

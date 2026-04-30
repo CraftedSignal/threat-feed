@@ -5,6 +5,9 @@ description: CVE-2026-5570 is an improper authentication vulnerability in the in
 date: "2026-04-05T14:16:17Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - authentication-bypass

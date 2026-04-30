@@ -3,9 +3,9 @@ title: XPath Boolean Expression DoS Vulnerability
 slug: 2026-03-xpath-dos
 description: A vulnerability in the antchfx/xpath package allows for denial of service via CPU exhaustion by exploiting boolean expressions that evaluate to true, leading to an infinite loop.
 date: "2026-03-29T15:19:45Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: PowerShell P/Invoke API Chain for Process Injection
 slug: 2024-01-powershell-pinvoke-injection
 description: This brief details detection of PowerShell scripts leveraging P/Invoke API calls to perform process injection, covering techniques like self-injection, remote thread injection, APC injection, thread-context hijacking, process hollowing, section-map injection, reflective DLL loading, and DLL injection.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

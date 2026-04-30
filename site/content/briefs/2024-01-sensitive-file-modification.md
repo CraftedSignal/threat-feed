@@ -5,6 +5,9 @@ description: This threat brief covers the detection of suspicious processes modi
 date: "2024-01-03T15:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - file-integrity
   - privilege-escalation

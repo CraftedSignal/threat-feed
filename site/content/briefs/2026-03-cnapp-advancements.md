@@ -3,9 +3,9 @@ title: CrowdStrike Falcon Cloud Security Advances CNAPP with Adversary-Informed 
 slug: 2026-03-cnapp-advancements
 description: CrowdStrike Falcon Cloud Security enhances its CNAPP capabilities, incorporating adversary intelligence to prioritize cloud risks based on threat actor behavior, particularly focusing on groups like LABYRINTH CHOLLIMA and SCATTERED SPIDER, to enable security teams to understand and remediate cloud exposures more effectively.
 date: "2026-03-30T06:43:41Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 actors:

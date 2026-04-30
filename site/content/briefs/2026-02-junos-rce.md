@@ -5,6 +5,9 @@ description: A critical unauthenticated remote code execution vulnerability, CVE
 date: "2026-02-27T15:13:48Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - junos
   - rce

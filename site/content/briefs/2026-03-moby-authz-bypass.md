@@ -5,6 +5,9 @@ description: A security vulnerability in Moby (prior to v29.3.1) allows attacker
 date: "2026-03-31T03:15:57Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - containerization
   - authorization bypass

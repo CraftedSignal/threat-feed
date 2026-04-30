@@ -3,9 +3,9 @@ title: Large ICMP Traffic Detection
 slug: 2024-01-large-icmp-traffic
 description: This analytic identifies excessive ICMP traffic to external IP addresses exceeding 1,000 bytes, potentially indicating command and control activity, data exfiltration, or covert communication channels.
 date: "2024-01-02T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

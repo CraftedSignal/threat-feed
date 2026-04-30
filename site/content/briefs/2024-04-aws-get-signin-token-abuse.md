@@ -3,9 +3,9 @@ title: Potential Abuse of AWS Console GetSigninToken
 slug: 2024-04-aws-get-signin-token-abuse
 description: Adversaries may abuse the AWS GetSigninToken API to create temporary federated credentials for obfuscating compromised AWS access keys and pivoting to console sessions without MFA, potentially leading to lateral movement within the AWS environment.
 date: "2024-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

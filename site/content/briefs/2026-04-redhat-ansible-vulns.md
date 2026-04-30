@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Red Hat Ansible Automation Platform
 slug: 2026-04-redhat-ansible-vulns
 description: A remote, anonymous attacker can exploit multiple vulnerabilities in Red Hat Ansible Automation Platform to perform denial of service, execute arbitrary code, bypass security measures, manipulate data, disclose information, or conduct XSS attacks.
 date: "2026-04-15T11:37:19Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

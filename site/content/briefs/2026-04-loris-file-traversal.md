@@ -5,6 +5,9 @@ description: A file traversal vulnerability (CVE-2026-34392) in LORIS versions 2
 date: "2026-04-08T19:25:21Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - file-traversal
   - web-application

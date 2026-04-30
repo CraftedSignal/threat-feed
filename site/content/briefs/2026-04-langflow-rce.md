@@ -5,6 +5,9 @@ description: IBM Langflow Desktop versions 1.6.0 through 1.8.2 is vulnerable to 
 date: "2026-04-08T01:16:41Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-3357
   - deserialization

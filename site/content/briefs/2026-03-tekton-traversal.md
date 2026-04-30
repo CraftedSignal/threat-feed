@@ -3,9 +3,9 @@ title: Tekton Pipelines Git Resolver Path Traversal Vulnerability
 slug: 2026-03-tekton-traversal
 description: The Tekton Pipelines git resolver is vulnerable to path traversal via the `pathInRepo` parameter, allowing arbitrary file reads from the resolver pod's filesystem, including ServiceAccount tokens.
 date: "2026-03-24T00:16:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

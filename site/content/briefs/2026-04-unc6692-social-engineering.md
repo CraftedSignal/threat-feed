@@ -3,9 +3,9 @@ title: UNC6692 Combines Social Engineering, Malware, and Cloud Abuse
 slug: 2026-04-unc6692-social-engineering
 description: UNC6692 is a newly discovered, financially motivated threat actor that combines social engineering via Microsoft Teams, custom malware named SNOWBELT, and abuse of legitimate AWS S3 cloud infrastructure in its attack campaigns to steal credentials and prepare for data exfiltration.
 date: "2026-04-28T14:00:00Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

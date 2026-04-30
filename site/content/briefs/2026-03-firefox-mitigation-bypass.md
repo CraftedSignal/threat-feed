@@ -5,6 +5,9 @@ description: 'CVE-2026-4700 is a critical vulnerability in the Networking: HTTP 
 date: "2026-03-24T13:16:06Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4700
   - firefox

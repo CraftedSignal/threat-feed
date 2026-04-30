@@ -3,9 +3,9 @@ title: ProFTPD SQL Injection Vulnerability
 slug: 2024-01-proftpd-sqli
 description: An anonymous remote attacker can exploit a SQL injection vulnerability in ProFTPD.
 date: "2026-04-29T09:54:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

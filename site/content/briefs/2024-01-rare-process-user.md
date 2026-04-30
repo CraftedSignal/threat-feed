@@ -3,9 +3,9 @@ title: Unusual Process Spawned by a User Detected by Machine Learning
 slug: 2024-01-rare-process-user
 description: A machine learning job detected a suspicious Windows process, predicted to be malicious by the ProblemChild supervised ML model and found to be unusual within the user's context, potentially indicating defense evasion techniques like masquerading or the use of LOLbins.
 date: "2024-01-03T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

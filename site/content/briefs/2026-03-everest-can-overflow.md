@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability exists in EVerest EV ch
 date: "2026-03-27T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - everest
   - buffer-overflow

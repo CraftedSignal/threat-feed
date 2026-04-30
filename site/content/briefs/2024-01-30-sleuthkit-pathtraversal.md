@@ -5,6 +5,9 @@ description: A path traversal vulnerability exists in The Sleuth Kit through 4.1
 date: "2026-04-08T22:16:22Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path traversal
   - code execution

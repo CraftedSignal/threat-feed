@@ -3,9 +3,9 @@ title: Okta Network Zone Deactivation or Deletion
 slug: 2024-01-26-okta-network-zone-changes
 description: An Okta network zone was deactivated or deleted, potentially indicating malicious activity aimed at bypassing security controls.
 date: "2024-01-26T18:22:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

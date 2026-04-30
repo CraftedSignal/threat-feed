@@ -3,9 +3,9 @@ title: engramx vulnerable to CSRF enabling graph exfiltration and prompt injecti
 slug: 2024-01-engram-csrf-prompt-injection
 description: The engramx HTTP server, enabled by default and binding to 127.0.0.1:7337, is vulnerable to CSRF and prompt injection attacks, allowing a malicious website to exfiltrate the local knowledge graph and inject persistent prompt-injection payloads.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

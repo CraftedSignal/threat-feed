@@ -5,6 +5,9 @@ description: CVE-2026-5198 is a SQL injection vulnerability in the Admin Login c
 date: "2026-03-31T12:16:31Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - vulnerability

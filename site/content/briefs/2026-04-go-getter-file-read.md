@@ -5,6 +5,9 @@ description: HashiCorp's go-getter library up to v1.8.5 is vulnerable to arbitra
 date: "2026-04-09T14:16:32Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4660
   - file-read

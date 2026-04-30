@@ -3,9 +3,9 @@ title: OpenPrinting CUPS Path Traversal Vulnerability (CVE-2026-34978)
 slug: 2026-05-cups-path-traversal
 description: CVE-2026-34978 is a path traversal vulnerability in OpenPrinting CUPS that allows writing files outside the CacheDir/rss directory, potentially overwriting the job.cache file.
 date: "2026-04-30T08:46:41Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

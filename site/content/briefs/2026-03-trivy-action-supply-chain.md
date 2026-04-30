@@ -3,9 +3,9 @@ title: Compromised trivy-action GitHub Action Leads to Credential Theft
 slug: 2026-03-trivy-action-supply-chain
 description: The aquasecurity/trivy-action GitHub Action was compromised via git tag repointing, injecting a multi-stage credential stealer into CI/CD pipelines, allowing for the theft of secrets and credentials.
 date: "2026-03-30T06:24:43Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

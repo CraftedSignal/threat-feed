@@ -5,6 +5,9 @@ description: CVE-2024-44250 is a permission issue in macOS Sequoia 15.1 that all
 date: "2026-04-02T19:18:28Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - macos

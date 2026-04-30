@@ -3,9 +3,9 @@ title: Kubernetes Sensitive Role Creation or Modification
 slug: 2026-03-kubernetes-role-modification
 description: This rule detects the creation or modification of Kubernetes Roles or ClusterRoles that grant high-risk permissions, such as wildcard access or RBAC escalation verbs (e.g., bind, escalate, impersonate), potentially leading to privilege escalation or unauthorized access within the cluster.
 date: "2026-03-05T13:13:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -5,6 +5,9 @@ description: Multi Emulator Super System 0.154-3.1 is vulnerable to a buffer ove
 date: "2026-03-28T12:15:59Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - buffer overflow

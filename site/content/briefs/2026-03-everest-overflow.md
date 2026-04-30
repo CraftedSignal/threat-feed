@@ -3,9 +3,9 @@ title: EVerest IsoMux Certificate Filename Stack-Based Buffer Overflow Vulnerabi
 slug: 2026-03-everest-overflow
 description: A stack-based buffer overflow vulnerability exists in EVerest's IsoMux certificate filename handling before version 2026.02.0, potentially allowing code execution via a crafted filename.
 date: "2026-03-26T15:16:31Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

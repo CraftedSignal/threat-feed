@@ -5,6 +5,9 @@ description: A memory corruption vulnerability (CVE-2025-47390) exists while pre
 date: "2026-04-06T16:16:27Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - memory-corruption
   - jpeg

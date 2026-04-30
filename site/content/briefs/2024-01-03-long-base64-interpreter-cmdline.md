@@ -3,9 +3,9 @@ title: Long Base64 Encoded Command via Scripting Interpreter
 slug: 2024-01-03-long-base64-interpreter-cmdline
 description: Detection of oversized command lines used by Python, PowerShell, Node.js, or Deno interpreters containing base64 decoding or encoded-command patterns, indicating potential evasion and malicious execution.
 date: "2024-01-03T17:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

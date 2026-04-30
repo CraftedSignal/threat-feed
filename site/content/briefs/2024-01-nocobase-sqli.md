@@ -3,9 +3,9 @@ title: NocoBase SQL Injection via Recursive Eager Loading
 slug: 2024-01-nocobase-sqli
 description: NocoBase versions 2.0.32 and earlier are vulnerable to SQL injection due to string concatenation in the `queryParentSQL()` function, allowing attackers with record creation permissions to inject arbitrary SQL and potentially extract sensitive information or execute commands.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

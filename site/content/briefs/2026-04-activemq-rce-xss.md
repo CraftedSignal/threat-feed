@@ -3,9 +3,9 @@ title: Apache ActiveMQ Vulnerabilities Allow RCE and XSS
 slug: 2026-04-activemq-rce-xss
 description: An authenticated remote attacker can exploit multiple vulnerabilities in Apache ActiveMQ to execute arbitrary program code or perform cross-site scripting attacks.
 date: "2026-04-24T09:09:10Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

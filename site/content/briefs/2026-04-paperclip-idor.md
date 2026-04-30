@@ -3,9 +3,9 @@ title: Paperclip Cross-Tenant Agent API Key IDOR Vulnerability
 slug: 2026-04-paperclip-idor
 description: A Paperclip API vulnerability allows a board user from one company to create, list, and revoke agent API keys in another company, leading to full cross-tenant compromise due to insufficient authorization checks on `/agents/:id/keys` routes.
 date: "2026-04-16T22:49:46Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

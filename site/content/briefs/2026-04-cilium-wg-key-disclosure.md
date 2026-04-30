@@ -3,9 +3,9 @@ title: Cilium `cilium-bugtool` WireGuard Private Key Exposure
 slug: 2026-04-cilium-wg-key-disclosure
 description: The `cilium-bugtool` debugging tool in Cilium exposes WireGuard private keys, potentially allowing unauthorized access to encrypted node-to-node communication in affected versions.
 date: "2026-04-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

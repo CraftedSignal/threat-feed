@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability (CVE-2026-5044) in Belk
 date: "2026-03-29T13:17:03Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5044
   - buffer-overflow

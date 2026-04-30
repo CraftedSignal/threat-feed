@@ -3,9 +3,9 @@ title: Suspicious PowerShell Script Using Cryptography Namespace
 slug: 2024-01-powershell-cryptography
 description: The analytic detects suspicious PowerShell script execution involving the cryptography namespace (excluding SHA and MD5) via EventCode 4104, often associated with malware that decrypts or decodes additional malicious payloads leading to further code execution, privilege escalation, or persistence.
 date: "2024-01-03T18:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: R i386 version 3.5.0 is susceptible to a local buffer overflow in t
 date: "2026-04-05T21:16:42Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - buffer-overflow
   - seh-overwrite

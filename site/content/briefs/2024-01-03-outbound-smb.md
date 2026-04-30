@@ -3,9 +3,9 @@ title: Outbound SMB Traffic Detection
 slug: 2024-01-03-outbound-smb
 description: This analytic detects outbound SMB connections from internal hosts to external servers, potentially indicating lateral movement and credential theft attempts.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

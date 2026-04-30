@@ -5,6 +5,9 @@ description: A critical command injection vulnerability (CVE-2026-13942) in the 
 date: "2026-02-27T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - zyxel
   - router

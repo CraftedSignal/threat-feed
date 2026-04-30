@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.25 contains an improper access control vulne
 date: "2026-04-09T22:16:29Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - access-control
   - vulnerability

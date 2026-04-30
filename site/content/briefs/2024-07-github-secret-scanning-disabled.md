@@ -3,9 +3,9 @@ title: GitHub Secret Scanning Feature Disabled
 slug: 2024-07-github-secret-scanning-disabled
 description: Detection of the disabling of GitHub secret scanning at the business or repository level, potentially increasing the risk of exposed credentials and secrets.
 date: "2024-07-19T00:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: GIMP Vulnerability Allows Remote Code Execution
 slug: 2026-03-gimp-code-exec
 description: A remote, anonymous attacker can exploit a vulnerability in GIMP to execute arbitrary code on a targeted system.
 date: "2026-03-24T10:17:28Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

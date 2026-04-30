@@ -3,9 +3,9 @@ title: Invoke-Obfuscation via Clip.exe
 slug: 2024-01-invoke-obfuscation-clip
 description: The use of `clip.exe` in conjunction with PowerShell and command-line obfuscation is used to evade detection.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

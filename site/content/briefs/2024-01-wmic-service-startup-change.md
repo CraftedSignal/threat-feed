@@ -3,9 +3,9 @@ title: Service Startup Type Modification via WMIC
 slug: 2024-01-wmic-service-startup-change
 description: Adversaries use the Windows Management Instrumentation Command-line (WMIC) utility to modify the startup type of services, setting them to 'Manual' or 'Disabled' to impair defenses or disrupt system operations.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

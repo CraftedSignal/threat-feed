@@ -5,6 +5,9 @@ description: V-SFT versions 6.2.10.0 and prior contain an out-of-bounds read vul
 date: "2026-04-01T23:17:02Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-32926
   - out-of-bounds read

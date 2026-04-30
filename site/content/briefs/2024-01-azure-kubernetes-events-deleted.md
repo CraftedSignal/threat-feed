@@ -3,9 +3,9 @@ title: Azure Kubernetes Events Deleted
 slug: 2024-01-azure-kubernetes-events-deleted
 description: Adversaries may delete events in Azure Kubernetes to evade detection, which this rule detects via the MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/EVENTS.K8S.IO/EVENTS/DELETE operation.
 date: "2024-01-09T18:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: i18next-fs-backend Path Traversal Vulnerability
 slug: 2024-01-25-i18next-fs-backend-path-traversal
 description: i18next-fs-backend versions before 2.6.4 are vulnerable to path traversal due to insufficient sanitization of the lng and ns values, potentially allowing attackers to read arbitrary files, overwrite files, or execute code if .js or .ts locale files are in use.
 date: "2024-01-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

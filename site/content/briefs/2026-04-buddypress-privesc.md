@@ -5,6 +5,9 @@ description: The BuddyPress Groupblog plugin for WordPress is vulnerable to priv
 date: "2026-04-11T02:19:36Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - buddypress

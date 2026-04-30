@@ -3,9 +3,9 @@ title: Connect-CMS Cabinet Plugin DOM-based XSS Vulnerability
 slug: 2024-01-03-connect-cms-xss
 description: A DOM-based Cross-Site Scripting (XSS) vulnerability exists in the Cabinet Plugin list view of Connect-CMS, affecting versions 1.35.0 to 1.41.0 and 2.35.0 to 2.41.0, which can lead to arbitrary script execution in the victim's browser.
 date: "2026-03-23T20:35:48Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

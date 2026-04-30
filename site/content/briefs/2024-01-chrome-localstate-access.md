@@ -3,9 +3,9 @@ title: Unauthorized Access to Chrome Local State File
 slug: 2024-01-chrome-localstate-access
 description: Detection of non-Chrome processes accessing the Chrome 'Local State' file, potentially leading to extraction of the master key used for decrypting saved passwords.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

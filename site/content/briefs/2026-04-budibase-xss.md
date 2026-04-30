@@ -5,6 +5,9 @@ description: A stored cross-site scripting (XSS) vulnerability in Budibase versi
 date: "2026-04-03T16:16:41Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - budibase
   - xss

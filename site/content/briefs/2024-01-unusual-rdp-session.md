@@ -3,9 +3,9 @@ title: Unusual Time or Day for an RDP Session Detected by Machine Learning
 slug: 2024-01-unusual-rdp-session
 description: A machine learning job detected an RDP session initiated at an unusual time or day, potentially indicating lateral movement activity within a network.
 date: "2024-01-03T18:50:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

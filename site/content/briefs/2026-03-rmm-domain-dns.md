@@ -3,9 +3,9 @@ title: DNS Queries to RMM Domains from Non-Browser Processes
 slug: 2026-03-rmm-domain-dns
 description: Detection of DNS queries to known remote monitoring and management (RMM) domains originating from non-browser processes on Windows systems indicates potential abuse of legitimate software for command and control.
 date: "2026-03-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

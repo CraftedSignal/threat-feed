@@ -5,6 +5,9 @@ description: Emmett web framework versions 2.5.0 to before 2.8.1 are vulnerable 
 date: "2026-04-07T22:16:23Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - web-application

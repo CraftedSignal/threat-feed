@@ -3,9 +3,9 @@ title: OpenLearnX Remote Code Execution via Python Sandbox Escape
 slug: 2024-01-02-openlearnx-rce
 description: A critical RCE vulnerability in OpenLearnX allows for sandbox escape and arbitrary command execution in versions prior to 2.0.3.
 date: "2024-01-02T18:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

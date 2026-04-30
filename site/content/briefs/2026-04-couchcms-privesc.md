@@ -5,6 +5,9 @@ description: CouchCMS is vulnerable to privilege escalation, allowing authentica
 date: "2026-04-11T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - web-application

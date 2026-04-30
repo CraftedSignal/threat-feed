@@ -3,9 +3,9 @@ title: PhpSpreadsheet XML Reader Denial of Service via Unbounded Row Index
 slug: 2024-01-09-phpspreadsheet-dos
 description: PhpSpreadsheet is vulnerable to a denial-of-service attack by crafting a SpreadsheetML XML file with an excessively large row index, which exhausts server CPU resources due to unbounded iteration.
 date: "2024-01-09T18:45:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

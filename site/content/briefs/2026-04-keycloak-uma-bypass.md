@@ -5,6 +5,9 @@ description: CVE-2026-4636 describes a vulnerability in Keycloak where an authen
 date: "2026-04-02T13:16:27Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - keycloak
   - uma

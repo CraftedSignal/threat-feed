@@ -5,6 +5,9 @@ description: An attacker exploits CVE-2026-20929 by manipulating DNS responses t
 date: "2026-03-31T17:49:30Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - kerberos
   - relay

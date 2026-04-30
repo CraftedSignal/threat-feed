@@ -3,9 +3,9 @@ title: libTIFF Vulnerability Allows Code Execution and DoS
 slug: 2026-04-libtiff-code-execution-dos
 description: A remote, anonymous attacker can exploit a vulnerability in libTIFF to potentially execute arbitrary code or cause a denial-of-service condition.
 date: "2026-04-14T09:21:26Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

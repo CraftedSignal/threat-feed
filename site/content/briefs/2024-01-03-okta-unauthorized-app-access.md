@@ -3,9 +3,9 @@ title: Okta Unauthorized Application Access Attempt
 slug: 2024-01-03-okta-unauthorized-app-access
 description: This brief describes a detection for unauthorized application access attempts within an Okta environment, indicating a potential security breach or misconfiguration.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

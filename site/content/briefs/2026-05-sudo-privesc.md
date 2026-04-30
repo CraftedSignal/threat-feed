@@ -3,9 +3,9 @@ title: Sudo Privilege Escalation Vulnerabilities
 slug: 2026-05-sudo-privesc
 description: Multiple vulnerabilities in sudo allow a local attacker to bypass security precautions and escalate privileges to root.
 date: "2026-04-30T09:33:58Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

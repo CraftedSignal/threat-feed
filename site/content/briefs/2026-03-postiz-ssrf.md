@@ -3,9 +3,9 @@ title: Postiz App SSRF Vulnerability via Next.js
 slug: 2026-03-postiz-ssrf
 description: A high-severity SSRF vulnerability exists in the Postiz application via Next.js, allowing attackers to bypass firewalls, scan internal networks, access sensitive cloud metadata (AWS IMDS), potentially leak instance credentials, and pivot within the internal network.
 date: "2026-03-27T15:46:53Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

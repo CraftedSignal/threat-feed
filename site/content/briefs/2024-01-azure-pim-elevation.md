@@ -3,9 +3,9 @@ title: Azure PIM Elevation Approved or Denied
 slug: 2024-01-azure-pim-elevation
 description: Detection of Azure Privileged Identity Management (PIM) elevation approvals or denials, which, if unexpected, may indicate unauthorized privilege escalation or malicious activity within an Azure environment.
 date: "2024-01-03T18:27:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

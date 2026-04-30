@@ -5,6 +5,9 @@ description: 'CVE-2026-4715 is a critical vulnerability involving uninitialized 
 date: "2026-03-24T13:16:07Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4715
   - firefox

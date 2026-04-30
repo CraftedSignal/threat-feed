@@ -3,9 +3,9 @@ title: Logon Script Registry Modification for Persistence and Privilege Escalati
 slug: 2024-01-03-logon-script-registry-modification
 description: This brief details the detection of UserInitMprLogonScript registry entry modifications, a technique employed by threat actors for persistence and privilege escalation by ensuring payloads execute automatically at system startup.
 date: "2024-01-03T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

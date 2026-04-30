@@ -3,9 +3,9 @@ title: Okta Admin Role Assignment Creation
 slug: 2024-01-okta-admin-role
 description: Detection of new admin role assignments in Okta, potentially indicating privilege escalation or persistence attempts by malicious actors.
 date: "2024-01-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

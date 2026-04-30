@@ -3,9 +3,9 @@ title: Detection of Out-of-Domain Email Forwarding in Google Workspace
 slug: 2024-01-gworkspace-email-forwarding
 description: Detects automatic email forwarding to external domains in Google Workspace, which may indicate data leakage or misuse by malicious insiders or compromised accounts.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

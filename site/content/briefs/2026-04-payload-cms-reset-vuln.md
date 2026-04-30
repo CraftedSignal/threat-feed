@@ -5,6 +5,9 @@ description: An unauthenticated attacker can perform actions on behalf of a user
 date: "2026-04-01T18:16:31Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-34751
   - payload-cms

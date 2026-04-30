@@ -3,9 +3,9 @@ title: RustFS Notification Target Admin API Authorization Bypass
 slug: 2024-01-rustfs-admin-auth-bypass
 description: A vulnerability in RustFS allows a non-admin user to overwrite a shared admin-defined notification target, leading to event interception and audit evasion due to missing admin-action authorization on notification target admin API endpoints.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

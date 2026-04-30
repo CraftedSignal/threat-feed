@@ -5,6 +5,9 @@ description: A heap-based buffer overflow vulnerability in Samsung Open Source E
 date: "2026-04-13T05:16:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-25205
   - heap-based buffer overflow

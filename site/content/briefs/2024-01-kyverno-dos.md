@@ -3,9 +3,9 @@ title: Kyverno Controller Denial of Service via forEach Mutation Panic
 slug: 2024-01-kyverno-dos
 description: An unchecked type assertion in Kyverno versions v1.13.0 to v1.17.1 allows a user with permission to create a Policy or ClusterPolicy to crash the cluster-wide background controller into a persistent CrashLoopBackOff, leading to a denial of service, by crafting a malicious policy that triggers a nil pointer dereference in the forEach mutation handler.
 date: "2024-01-27T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

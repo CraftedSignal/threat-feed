@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Kyverno Allow Privilege Escalation and Data M
 slug: 2026-04-kyverno-vulns
 description: An authenticated remote attacker can exploit multiple vulnerabilities in Kyverno to disclose information, bypass security measures, manipulate data, and gain elevated privileges.
 date: "2026-04-16T11:19:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

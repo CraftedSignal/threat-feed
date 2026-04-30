@@ -5,6 +5,9 @@ description: Attackers may use csc.exe to compile .NET code on the fly to evade 
 date: "2024-01-03T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - defense-evasion
   - dynamic-compilation

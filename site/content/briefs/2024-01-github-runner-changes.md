@@ -3,9 +3,9 @@ title: GitHub Self-Hosted Runner Configuration Changes Detected
 slug: 2024-01-github-runner-changes
 description: Detection of changes to self-hosted runner configurations in GitHub environments can indicate potential impact, discovery, collection, persistence, privilege escalation, initial access, or stealth activities.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

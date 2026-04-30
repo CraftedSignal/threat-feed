@@ -3,9 +3,9 @@ title: Unusual Process Writing Data to an External Device via Machine Learning
 slug: 2024-01-rare-process-exfiltration
 description: A machine learning job detects a rare process writing data to an external device, potentially indicating data exfiltration masked by benign-looking processes.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

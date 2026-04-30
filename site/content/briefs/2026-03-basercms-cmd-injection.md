@@ -5,6 +5,9 @@ description: baserCMS prior to version 5.2.3 contains an OS command injection vu
 date: "2026-03-31T01:16:35Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - basercms
   - command-injection

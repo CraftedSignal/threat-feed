@@ -5,6 +5,9 @@ description: The text-generation-webui application before version 4.3 is vulnera
 date: "2026-04-07T16:16:26Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - text-generation-webui

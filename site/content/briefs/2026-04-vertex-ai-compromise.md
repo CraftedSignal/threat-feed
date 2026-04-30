@@ -3,9 +3,9 @@ title: Weaponization of Google Vertex AI Agents
 slug: 2026-04-vertex-ai-compromise
 description: Researchers demonstrated that AI agents built on Google's Vertex AI can be compromised to exfiltrate data, create backdoors, and compromise infrastructure by abusing excessive permissions of the Per-Project, Per-Product Service Agent (P4SA).
 date: "2026-04-01T07:43:16Z"
-type: threat
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - critical
 tags:

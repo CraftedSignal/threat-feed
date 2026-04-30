@@ -5,6 +5,9 @@ description: Adversaries employ token obfuscation techniques within PowerShell c
 date: "2024-01-03T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - defense-evasion
   - token-obfuscation

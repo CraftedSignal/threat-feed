@@ -5,6 +5,9 @@ description: NVIDIA DALI contains a deserialization of untrusted data vulnerabil
 date: "2026-04-07T18:16:39Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-24156
   - deserialization

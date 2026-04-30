@@ -5,6 +5,9 @@ description: CVE-2026-5827 is a SQL injection vulnerability in code-projects Sim
 date: "2026-04-09T01:16:50Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sqli
   - web-application

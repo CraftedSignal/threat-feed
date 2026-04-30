@@ -3,9 +3,9 @@ title: Bitbucket Secret Scanning Rule Deleted
 slug: 2024-11-bitbucket-secret-rule-deletion
 description: Attackers may delete secret scanning rules in Bitbucket to impair defenses and introduce secrets into the code repository undetected, potentially leading to unauthorized access or data breaches.
 date: "2024-11-17T14:22:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

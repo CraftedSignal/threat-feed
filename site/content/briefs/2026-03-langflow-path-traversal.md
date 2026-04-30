@@ -5,6 +5,9 @@ description: A path traversal vulnerability in Langflow versions before 1.7.1 al
 date: "2026-03-25T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - vulnerability

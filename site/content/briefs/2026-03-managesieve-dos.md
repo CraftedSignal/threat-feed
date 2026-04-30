@@ -5,6 +5,9 @@ description: CVE-2025-59032 describes a vulnerability in ManageSieve's AUTHENTIC
 date: "2026-03-27T09:16:18Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - denial-of-service
   - managesieve

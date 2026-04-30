@@ -5,6 +5,9 @@ description: CVE-2026-33466 describes a vulnerability in Logstash where improper
 date: "2026-04-08T18:26:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - remote-code-execution

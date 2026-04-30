@@ -5,6 +5,9 @@ description: Doveadm credentials are verified using direct comparison, making it
 date: "2026-03-27T09:16:19Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - vulnerability
   - timing oracle

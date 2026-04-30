@@ -3,9 +3,9 @@ title: k8sGPT Operator Vulnerable to Prompt Injection
 slug: 2026-04-k8sgpt-prompt-injection
 description: k8sGPT versions before 0.4.32 are vulnerable to prompt injection due to deserialization of AI-generated YAML without proper validation in the auto-remediation pipeline, potentially leading to arbitrary code execution within the Kubernetes cluster.
 date: "2026-04-24T16:41:39Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

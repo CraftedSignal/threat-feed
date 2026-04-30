@@ -5,6 +5,9 @@ description: A SQL injection vulnerability (CVE-2026-4910) exists in Shenzhen Ru
 date: "2026-03-27T04:16:08Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4910
   - sql-injection

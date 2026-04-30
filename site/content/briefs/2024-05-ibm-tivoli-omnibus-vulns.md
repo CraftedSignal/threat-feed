@@ -3,9 +3,9 @@ title: IBM Tivoli Netcool/OMNIbus Multiple Vulnerabilities
 slug: 2024-05-ibm-tivoli-omnibus-vulns
 description: An anonymous remote attacker can exploit multiple vulnerabilities in IBM Tivoli Netcool/OMNIbus to achieve arbitrary code execution, information disclosure, file manipulation, or denial of service.
 date: "2026-03-25T10:21:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

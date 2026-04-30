@@ -3,9 +3,9 @@ title: North Korean IT Worker Operation Infiltration Techniques
 slug: 2026-03-dprk-itw
 description: Analysis of North Korean IT workers reveals techniques for infiltrating Western tech companies, including fake identity creation, internal training, and recruitment of collaborators.
 date: "2026-03-19T17:35:38Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

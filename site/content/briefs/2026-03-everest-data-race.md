@@ -5,6 +5,9 @@ description: EVerest versions prior to 2026.02.0 exhibit a data race vulnerabili
 date: "2026-03-26T17:16:33Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-26074
   - data-race

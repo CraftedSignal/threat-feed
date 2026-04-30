@@ -3,9 +3,9 @@ title: Langflow GitHub Actions Shell Injection Vulnerability
 slug: 2026-03-langflow-shell-injection
 description: Unauthenticated remote shell injection vulnerability exists in Langflow GitHub Actions workflows prior to version 1.9.0, enabling attackers to execute arbitrary shell commands via malicious branch names or pull request titles due to unsanitized GitHub context variable interpolation, leading to potential secret exfiltration and supply chain compromise.
 date: "2026-03-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

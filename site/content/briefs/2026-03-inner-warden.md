@@ -3,9 +3,9 @@ title: Inner Warden Security Agent Capabilities
 slug: 2026-03-inner-warden
 description: The open-source Inner Warden project is a security agent leveraging eBPF for kernel-level monitoring and autonomous response actions like IP blocking and process termination, aiming to create a distributed security mesh.
 date: "2026-03-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

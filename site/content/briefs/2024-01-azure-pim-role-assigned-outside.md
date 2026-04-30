@@ -3,9 +3,9 @@ title: Azure PIM - Role Assignment Outside of Privileged Identity Management
 slug: 2024-01-azure-pim-role-assigned-outside
 description: Detection of privilege role assignments outside of Azure Privileged Identity Management (PIM) can indicate potential attacker activity related to initial access, stealth, persistence, or privilege escalation within the Azure environment.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

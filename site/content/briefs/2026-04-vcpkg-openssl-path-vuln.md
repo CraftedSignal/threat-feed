@@ -5,6 +5,9 @@ description: A vulnerability exists in vcpkg versions prior to 3.6.1#3, where Wi
 date: "2026-03-31T03:20:08Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - vulnerability
   - openssl

@@ -3,9 +3,9 @@ title: AWS EC2 LOLBin Execution via SSM SendCommand
 slug: 2024-01-03-aws-ec2-lolbin-ssm
 description: Detection of Living Off the Land Binaries (LOLBins) or GTFOBins execution on EC2 instances via AWS Systems Manager (SSM) SendCommand API, potentially indicating malicious activity.
 date: "2026-04-10T16:27:52Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

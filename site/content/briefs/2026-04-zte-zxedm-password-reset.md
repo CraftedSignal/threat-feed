@@ -5,6 +5,9 @@ description: CVE-2026-40436 is a vulnerability in the ZTE ZXEDM iEMS product tha
 date: "2026-04-13T07:16:50Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - password-reset

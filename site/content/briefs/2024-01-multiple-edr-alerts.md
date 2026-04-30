@@ -3,9 +3,9 @@ title: Multiple External EDR Alerts by Host
 slug: 2024-01-multiple-edr-alerts
 description: This rule detects multiple external EDR alerts on the same host, indicating a potential compromise, by analyzing alert data from various EDR solutions like CrowdStrike, SentinelOne, and M365 Defender to identify hosts triggering multiple alerts, enabling prioritization of investigation and response.
 date: "2026-04-10T16:27:52Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

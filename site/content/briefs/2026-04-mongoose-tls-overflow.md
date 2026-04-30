@@ -5,6 +5,9 @@ description: A remote heap-based buffer overflow vulnerability exists in Cesanta
 date: "2026-04-02T08:16:28Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5244
   - heap-based-buffer-overflow

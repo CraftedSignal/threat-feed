@@ -3,9 +3,9 @@ title: Bootstrapy CMS Unauthenticated SQL Injection Vulnerabilities
 slug: 2026-03-bootstrapy-sqli
 description: Bootstrapy CMS contains multiple SQL injection vulnerabilities that allow unauthenticated attackers to execute arbitrary SQL queries by injecting malicious code through POST parameters to extract sensitive database information or cause denial of service.
 date: "2026-03-24T12:16:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

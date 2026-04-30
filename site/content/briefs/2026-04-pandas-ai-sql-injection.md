@@ -5,6 +5,9 @@ description: pandas-ai v3.0.0 is vulnerable to SQL injection via the pandasai.ag
 date: "2026-04-01T17:28:38Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - vulnerability

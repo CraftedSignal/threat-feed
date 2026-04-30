@@ -3,9 +3,9 @@ title: Windows Remote Desktop Network Bruteforce Attempt
 slug: 2024-01-rdp-bruteforce
 description: This detection identifies potential RDP brute force attacks by monitoring network traffic for RDP application activity by detecting source IPs that have made more than 10 connection attempts to the same RDP port on a host within a one-hour window.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: Authenticated users can upload malicious files to a ShareFile Stora
 date: "2026-04-02T14:16:27Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - rce
   - file-upload

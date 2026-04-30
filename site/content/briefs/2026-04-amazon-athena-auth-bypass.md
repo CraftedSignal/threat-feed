@@ -5,6 +5,9 @@ description: CVE-2026-35561 describes an insufficient authentication security co
 date: "2026-04-03T21:17:12Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - amazon
   - athena

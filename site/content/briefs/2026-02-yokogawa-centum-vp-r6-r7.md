@@ -3,9 +3,9 @@ title: Yokogawa CENTUM VP R6 and R7 Vulnerabilities Lead to Potential Denial of 
 slug: 2026-02-yokogawa-centum-vp-r6-r7
 description: Multiple vulnerabilities in Yokogawa CENTUM VP R6 and R7 Vnet/IP Interface Package can be exploited by sending maliciously crafted packets, leading to denial-of-service or arbitrary code execution.
 date: "2026-02-27T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: CVE-2026-3991 is an elevation of privilege vulnerability in Symante
 date: "2026-03-30T19:16:27Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - vulnerability
   - privilege-escalation

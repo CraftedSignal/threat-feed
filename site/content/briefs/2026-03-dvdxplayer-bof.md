@@ -5,6 +5,9 @@ description: DVDXPlayer Pro 5.5 is vulnerable to a local buffer overflow, allowi
 date: "2026-03-23T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - buffer-overflow
   - seh-overwrite

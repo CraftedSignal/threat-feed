@@ -3,9 +3,9 @@ title: 'Operation GhostMail: Russian APT Exploiting Zimbra XSS to Target Ukraine
 slug: 2026-03-ghostmail
 description: A Russian APT group is exploiting a Zimbra XSS vulnerability (details unspecified) to target the Ukrainian government in an operation dubbed 'GhostMail'.
 date: "2026-03-20T05:20:03Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

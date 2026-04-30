@@ -5,6 +5,9 @@ description: A NULL pointer dereference vulnerability in the daap_reply_playlist
 date: "2026-03-24T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-26828
   - denial-of-service

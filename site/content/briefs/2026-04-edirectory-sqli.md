@@ -5,6 +5,9 @@ description: Unauthenticated attackers can exploit SQL injection vulnerabilities
 date: "2026-04-05T21:16:45Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - sqli
   - edirectory

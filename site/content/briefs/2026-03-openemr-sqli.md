@@ -5,6 +5,9 @@ description: OpenEMR versions prior to 8.0.0.3 are susceptible to a blind SQL in
 date: "2026-03-25T23:17:09Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sqli
   - openemr

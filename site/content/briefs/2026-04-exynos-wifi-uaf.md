@@ -5,6 +5,9 @@ description: A use-after-free vulnerability exists in the Wi-Fi driver of Samsun
 date: "2026-04-06T20:16:20Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2025-54602
   - use-after-free

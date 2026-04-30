@@ -5,6 +5,9 @@ description: Vim versions before 9.2.0272 allow code execution upon opening a sp
 date: "2026-03-30T19:16:26Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-34714
   - code-execution

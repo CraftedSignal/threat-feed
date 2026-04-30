@@ -3,9 +3,9 @@ title: Znuny Cross-Site Scripting Vulnerability
 slug: 2026-03-znuny-xss
 description: An anonymous remote attacker can exploit a vulnerability in Znuny to perform a cross-site scripting attack, potentially leading to information disclosure or session hijacking.
 date: "2026-03-24T10:35:57Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Langflow Vulnerability Allows Arbitrary Code Execution
 slug: 2026-03-langflow-code-exec
 description: A vulnerability in Langflow allows an attacker to execute arbitrary code, potentially leading to system compromise.
 date: "2026-03-25T11:21:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -6,6 +6,9 @@ date: "2026-04-01T12:00:00Z"
 severities:
   - critical
 exploited: true
+type: threat
+types:
+  - threat
 tags:
   - f5
   - big-ip

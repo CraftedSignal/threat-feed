@@ -3,9 +3,9 @@ title: 'GlassWorm Threat: DLL Injection and Chrome Hijacking'
 slug: 2026-03-glassworm
 description: The GlassWorm threat involves DLL injection and Chrome hijacking via COM abuse, confirming a full supply chain loop, potentially leading to data theft and system compromise.
 date: "2026-03-17T15:03:41Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

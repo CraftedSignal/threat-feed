@@ -3,9 +3,9 @@ title: Azure Firewall Modification or Deletion Detected
 slug: 2024-01-azure-firewall-modified-or-deleted
 description: An Azure firewall was created, modified, or deleted, potentially indicating malicious activity aimed at impairing network defenses.
 date: "2024-01-03T18:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

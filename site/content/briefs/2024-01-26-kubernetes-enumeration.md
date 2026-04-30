@@ -3,9 +3,9 @@ title: Kubernetes Endpoint Permission Enumeration
 slug: 2024-01-26-kubernetes-enumeration
 description: A single user and source IP attempts to enumerate Kubernetes endpoints, issuing API requests across multiple endpoints to identify accessible resources for further exploitation.
 date: "2026-03-05T13:13:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Heimdall Host Matching Case-Sensitivity Vulnerability
 slug: 2024-01-02-heimdall-case-sensitivity
 description: Heimdall performs case-sensitive host matching, which can lead to policy bypass because HTTP hostnames are case-insensitive, potentially leading to unauthorized access, data modification, or privilege escalation if the request host is part of the rule.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

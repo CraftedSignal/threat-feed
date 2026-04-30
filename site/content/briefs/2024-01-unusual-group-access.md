@@ -3,9 +3,9 @@ title: Unusual Group Name Accessed by User via Privileged Access Detection
 slug: 2024-01-unusual-group-access
 description: A machine learning job detected a user accessing an uncommon group name for privileged operations, potentially indicating privilege escalation or unauthorized account manipulation on a Windows system.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

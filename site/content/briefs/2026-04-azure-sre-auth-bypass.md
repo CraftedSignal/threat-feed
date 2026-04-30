@@ -5,6 +5,9 @@ description: An improper authentication vulnerability (CVE-2026-32173) in the Az
 date: "2026-04-03T00:16:04Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - azure
   - sre

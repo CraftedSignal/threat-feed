@@ -3,9 +3,9 @@ title: Forge Ed25519 Signature Forgery Vulnerability
 slug: 2026-09-forge-ed25519-forgery
 description: Forge is vulnerable to signature forgery in Ed25519 due to a missing check that S < L, allowing non-canonical signatures and potentially bypassing authentication/authorization logic, affecting versions before 1.4.0.
 date: "2026-03-26T22:08:55Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: Kados R10 GreenBee is vulnerable to SQL injection (CVE-2019-25704),
 date: "2026-04-05T21:16:48Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - cve-2019-25704

@@ -3,9 +3,9 @@ title: CPCI85 and SICORE Base System XML Out-of-Bounds Write Vulnerability
 slug: 2026-03-cpc85-xml-dos
 description: An unauthenticated attacker can exploit an out-of-bounds write vulnerability in CPCI85 Central Processing/Communication and SICORE Base System by sending a malicious XML request, potentially causing a service crash leading to a denial-of-service condition.
 date: "2026-03-26T15:16:34Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

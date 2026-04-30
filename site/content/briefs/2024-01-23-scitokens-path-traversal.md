@@ -5,6 +5,9 @@ description: A path traversal vulnerability (CVE-2026-32727) in SciTokens librar
 date: "2026-03-31T03:15:57Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - scitokens
   - path-traversal

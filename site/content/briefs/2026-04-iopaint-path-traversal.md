@@ -5,6 +5,9 @@ description: A path traversal vulnerability (CVE-2026-5258) exists in Sanster IO
 date: "2026-04-01T07:16:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path traversal
   - cve-2026-5258

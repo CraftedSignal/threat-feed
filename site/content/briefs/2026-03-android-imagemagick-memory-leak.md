@@ -5,6 +5,9 @@ description: A missing release of memory vulnerability (CVE-2026-33852) in Molot
 date: "2026-03-24T07:16:07Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - memory leak

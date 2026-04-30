@@ -5,6 +5,9 @@ description: baserCMS versions prior to 5.2.3 are vulnerable to DOM-based Cross-
 date: "2026-03-31T01:18:26Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - xss
   - vulnerability

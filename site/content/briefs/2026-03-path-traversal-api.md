@@ -5,6 +5,9 @@ description: The 'POST /api/v2/files' endpoint is vulnerable to path traversal d
 date: "2026-03-27T15:17:04Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - file-upload

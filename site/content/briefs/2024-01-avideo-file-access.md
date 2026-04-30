@@ -3,9 +3,9 @@ title: WWBN AVideo Unauthorized File Access and Deletion Vulnerability
 slug: 2024-01-avideo-file-access
 description: WWBN AVideo platform versions up to 26.0 are vulnerable to unauthorized file access and deletion, where an authenticated user with upload permissions can exploit the `objects/import.json.php` endpoint by manipulating the `fileURI` parameter to steal private video files, read adjacent text files, and delete `.mp4` and other writable files on the filesystem.
 date: "2026-03-23T16:16:49Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

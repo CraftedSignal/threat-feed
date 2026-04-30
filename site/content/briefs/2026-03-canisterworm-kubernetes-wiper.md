@@ -3,9 +3,9 @@ title: TeamPCP's CanisterWorm Kubernetes Wiper Targeting Iran
 slug: 2026-03-canisterworm-kubernetes-wiper
 description: TeamPCP's CanisterWorm is a newly identified Kubernetes wiper targeting Iranian infrastructure, indicating a politically motivated destructive attack.
 date: "2026-03-23T12:00:00Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - critical
 actors:

@@ -5,6 +5,9 @@ description: A remote OS command injection vulnerability exists in the Linksys M
 date: "2026-03-23T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-4558
   - linksys

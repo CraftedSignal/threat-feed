@@ -3,9 +3,9 @@ title: EV2GO Charging Station Vulnerabilities Allow Impersonation and Denial of 
 slug: 2026-02-ev2go-vulns
 description: Multiple vulnerabilities in EV2GO charging stations, including missing authentication and session management flaws, could allow attackers to impersonate stations, hijack sessions, and cause denial-of-service conditions.
 date: "2026-02-27T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

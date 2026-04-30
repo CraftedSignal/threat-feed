@@ -3,9 +3,9 @@ title: rust-openssl Unchecked Callback Length Memory Leak
 slug: 2026-04-rust-openssl-memory-leak
 description: The rust-openssl crate versions 0.9.24 prior to 0.10.78 are vulnerable to memory leaks due to unchecked callback lengths in PSK/cookie trampolines, potentially leading to buffer overflows.
 date: "2026-04-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

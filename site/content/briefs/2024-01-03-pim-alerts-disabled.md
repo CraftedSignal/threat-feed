@@ -3,9 +3,9 @@ title: Privileged Identity Management (PIM) Alerting Disabled
 slug: 2024-01-03-pim-alerts-disabled
 description: An adversary disables Privileged Identity Management (PIM) alerts in Azure to evade detection and maintain persistent access with escalated privileges.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

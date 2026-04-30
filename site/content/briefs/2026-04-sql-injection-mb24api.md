@@ -5,6 +5,9 @@ description: CVE-2026-33616 describes an unauthenticated blind SQL Injection vul
 date: "2026-04-02T10:16:17Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - cve-2026-33616

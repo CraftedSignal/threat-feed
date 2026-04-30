@@ -3,9 +3,9 @@ title: Ray Data Remote Code Execution via Parquet Arrow Extension Type Deseriali
 slug: 2026-04-ray-parquet-rce
 description: Ray Data is vulnerable to remote code execution via Parquet Arrow Extension Type Deserialization; specifically, a maliciously crafted Parquet file can trigger arbitrary code execution due to the unsafe deserialization of Arrow extension metadata, affecting Ray versions 2.49.0 through 2.54.0.
 date: "2026-04-24T16:15:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

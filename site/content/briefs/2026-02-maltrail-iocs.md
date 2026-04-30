@@ -3,9 +3,9 @@ title: 'Maltrail IOCs Report: Tracking Multiple Threat Actors'
 slug: 2026-02-maltrail-iocs
 description: This brief analyzes IOCs aggregated by Maltrail on February 27, 2026, highlighting network activity associated with diverse threat actors including APT_UNC2465, Lazarus Group, Gorat, APT_Bitter, Android_Joker, PowerShell Injector, SmokeLoader, and FakeApp campaigns targeting various sectors.
 date: "2026-02-27T23:00:14Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

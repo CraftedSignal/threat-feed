@@ -3,9 +3,9 @@ title: MinIO Unauthenticated Object Write Vulnerability
 slug: 2026-04-minio-auth-bypass
 description: Two authentication bypass vulnerabilities in MinIO allow writing arbitrary objects to any bucket with only a valid access key, without the secret key or valid signature, impacting all MinIO deployments.
 date: "2026-04-14T00:05:52Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

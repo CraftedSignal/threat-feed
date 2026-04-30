@@ -3,9 +3,9 @@ title: Goshs Authentication Bypass via Share Token
 slug: 2024-01-02-goshs-auth-bypass
 description: Goshs is vulnerable to an authentication bypass via share tokens, allowing attackers to bypass authentication checks by using a valid share token in conjunction with other functionalities like WebSocket connections to gain unauthorized access and execute arbitrary commands on the server.
 date: "2026-04-01T20:58:48Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

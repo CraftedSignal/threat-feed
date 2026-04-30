@@ -5,6 +5,9 @@ description: A local attacker can exploit a path traversal vulnerability in Inst
 date: "2026-04-22T13:16:22Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - path-traversal
   - instructlab

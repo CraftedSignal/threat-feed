@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Chargemap Charging Stations
 slug: 2026-02-chargemap-vulns
 description: Unauthenticated attackers can exploit multiple vulnerabilities in Chargemap's charging stations, including missing authentication, improper authentication attempt restrictions, insufficient session expiration, and unprotected credentials, potentially leading to unauthorized control and denial-of-service.
 date: "2026-02-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

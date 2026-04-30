@@ -3,9 +3,9 @@ title: Langflow Vulnerability Allows File Manipulation
 slug: 2026-03-langflow-file-manipulation
 description: An authenticated, remote attacker can exploit a vulnerability in Langflow to manipulate files, potentially leading to unauthorized data modification or application compromise.
 date: "2026-03-30T10:16:46Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

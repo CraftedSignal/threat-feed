@@ -5,6 +5,9 @@ description: TiEmu 3.03 is vulnerable to a buffer overflow in ROM parameter hand
 date: "2026-03-28T12:15:59Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2016-20040
   - buffer-overflow

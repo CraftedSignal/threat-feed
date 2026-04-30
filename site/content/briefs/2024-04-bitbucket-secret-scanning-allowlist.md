@@ -3,9 +3,9 @@ title: Bitbucket Project Secret Scanning Allowlist Added
 slug: 2024-04-bitbucket-secret-scanning-allowlist
 description: An adversary may impair defenses by adding a secret scanning allowlist rule for Bitbucket projects, potentially allowing secrets to be committed and exposed.
 date: "2024-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

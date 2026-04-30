@@ -5,6 +5,9 @@ description: A reflected cross-site scripting (XSS) vulnerability exists in the 
 date: "2026-04-10T14:16:25Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - xss
   - wordpress

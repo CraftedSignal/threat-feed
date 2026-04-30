@@ -3,9 +3,9 @@ title: Successful AWS Console Login Without MFA
 slug: 2024-01-09-aws-console-login-no-mfa
 description: Successful AWS console logins without multi-factor authentication can indicate compromised credentials, misconfigured security settings, or unauthorized access attempts.
 date: "2024-01-09T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

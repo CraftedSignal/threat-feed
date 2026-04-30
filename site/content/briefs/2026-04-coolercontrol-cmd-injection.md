@@ -5,6 +5,9 @@ description: CoolerControl/coolercontrold versions before 4.0.0 are vulnerable t
 date: "2026-04-08T12:16:22Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - privilege-escalation

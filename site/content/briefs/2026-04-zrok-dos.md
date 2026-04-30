@@ -3,9 +3,9 @@ title: zrok Unauthenticated Denial-of-Service Vulnerability
 slug: 2026-04-zrok-dos
 description: An unauthenticated attacker can cause a denial-of-service (DoS) in zrok by sending a crafted HTTP request with a large cookie chunk count to an OAuth-protected proxy share, triggering unbounded memory allocation and leading to process termination.
 date: "2026-04-17T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

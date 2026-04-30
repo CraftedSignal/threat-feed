@@ -5,6 +5,9 @@ description: An unauthenticated attacker can cause a denial of service by crashi
 date: "2026-04-04T14:16:19Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - dos
   - cve-2018-25241

@@ -5,6 +5,9 @@ description: CVE-2026-4632 is a SQL Injection vulnerability in itsourcecode Onli
 date: "2026-03-24T05:16:24Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

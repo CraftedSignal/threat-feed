@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Microsoft Cloud Products Allow Privilege Esca
 slug: 2026-04-microsoft-cloud-vulns
 description: Multiple vulnerabilities in Microsoft Azure, Microsoft 365 Copilot, Microsoft Dynamics 365, and Microsoft Power Apps could allow an attacker to escalate privileges, execute arbitrary code, and conduct spoofing attacks.
 date: "2026-04-24T09:09:09Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

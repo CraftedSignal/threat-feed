@@ -3,9 +3,9 @@ title: Okta Session Hijacking via Multiple Device Token Hashes
 slug: 2024-01-03-okta-session-hijacking
 description: Detection of multiple device token hashes and source IPs for a single Okta session, indicating potential session hijacking and unauthorized access to Okta resources.
 date: "2024-01-03T18:41:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

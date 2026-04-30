@@ -5,6 +5,9 @@ description: A guest VM issuing a Xenstore command with the node path '/local/do
 date: "2026-03-23T07:16:07Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - xen
   - xenstore

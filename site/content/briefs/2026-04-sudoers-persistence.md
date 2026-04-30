@@ -5,6 +5,9 @@ description: Attackers can achieve persistence and privilege escalation on Linux
 date: "2026-04-27T23:12:30Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - persistence
   - privilege-escalation

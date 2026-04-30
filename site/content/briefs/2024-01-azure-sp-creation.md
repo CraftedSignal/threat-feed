@@ -3,9 +3,9 @@ title: Detection of Azure Service Principal Creation
 slug: 2024-01-azure-sp-creation
 description: Detects the creation of a service principal in Azure, which could indicate potential attacker activity for lateral movement or persistence.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Azure Domain Federation Settings Modified
 slug: 2024-01-azure-federation-modification
 description: An attacker may modify Azure domain federation settings to establish persistence, escalate privileges, or gain unauthorized access to resources.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

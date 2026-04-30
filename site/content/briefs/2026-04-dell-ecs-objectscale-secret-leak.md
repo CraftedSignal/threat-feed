@@ -5,6 +5,9 @@ description: Dell Elastic Cloud Storage and ObjectScale are vulnerable to local 
 date: "2026-04-08T13:16:41Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-28261
   - secret-leak

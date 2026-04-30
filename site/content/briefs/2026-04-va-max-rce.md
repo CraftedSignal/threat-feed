@@ -5,6 +5,9 @@ description: VA MAX 8.3.4 is vulnerable to remote code execution (CVE-2019-25671
 date: "2026-04-05T21:16:44Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - rce
   - cve-2019-25671

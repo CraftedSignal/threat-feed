@@ -3,9 +3,9 @@ title: Azure AD Temporary Access Pass Added to Account
 slug: 2024-01-azure-tap-added
 description: Detection of a temporary access pass (TAP) being added to an Azure AD account, which could indicate potential privilege escalation, initial access, persistence, or stealth activity.
 date: "2024-01-03T15:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

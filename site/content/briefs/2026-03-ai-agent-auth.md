@@ -3,9 +3,9 @@ title: Unscoped API Keys in AI Agent Frameworks
 slug: 2026-03-ai-agent-auth
 description: A research report auditing popular AI agent projects found that 93% rely on unscoped API keys as the only authentication mechanism, leading to potential credential exposure, privilege escalation, and lateral movement within multi-agent systems.
 date: "2026-03-16T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

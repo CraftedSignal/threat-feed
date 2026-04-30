@@ -5,6 +5,9 @@ description: FTP Shell Server 6.83 contains a buffer overflow vulnerability (CVE
 date: "2026-03-23T14:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - buffer-overflow
   - code-execution

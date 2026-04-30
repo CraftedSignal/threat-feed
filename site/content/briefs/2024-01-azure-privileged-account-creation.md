@@ -3,9 +3,9 @@ title: Detection of Privileged Account Creation in Azure
 slug: 2024-01-azure-privileged-account-creation
 description: Detects the creation of new privileged accounts in Azure environments, potentially indicating initial access, persistence, privilege escalation, or stealth activities by malicious actors.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

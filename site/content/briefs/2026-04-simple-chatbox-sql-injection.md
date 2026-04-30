@@ -5,6 +5,9 @@ description: CVE-2026-6161 is an unauthenticated SQL injection vulnerability in 
 date: "2026-04-13T05:16:05Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Microsoft Developer Tools
 slug: 2026-04-ms-dev-tools-vulns
 description: Multiple vulnerabilities in Microsoft Visual Studio, .NET Framework, .NET, PowerShell, and Visual Studio Code can be exploited by an attacker to disclose sensitive information, conduct spoofing attacks, cause a denial of service, or bypass security measures, potentially leading to arbitrary code execution.
 date: "2026-04-21T08:06:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

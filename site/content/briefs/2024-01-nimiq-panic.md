@@ -3,9 +3,9 @@ title: Nimiq Node Panic due to Invalid BLS Key
 slug: 2024-01-nimiq-panic
 description: An unauthenticated peer can crash a Nimiq node by sending a malformed election macro block containing an invalid BLS voting key, leading to a denial of service.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Self-Hosted Email Threat Detection Tool
 slug: 2026-03-verdictmail
 description: A user created a self-hosted email threat detection tool, named VerdictMail, employing IMAP IDLE for real-time monitoring and multi-stage enrichment via SPF, DKIM, DMARC, DNSBL, WHOIS, URLhaus, and VirusTotal, coupled with an LLM for threat assessment.
 date: "2026-03-18T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

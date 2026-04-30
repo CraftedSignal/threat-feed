@@ -3,9 +3,9 @@ title: Okta Group Membership Spike Detection
 slug: 2024-01-okta-group-spike
 description: A machine learning job has identified an unusual spike in Okta group membership events, indicating potential privileged access activity where attackers or malicious insiders might be adding accounts to privileged groups to escalate their access, potentially leading to unauthorized actions or data breaches.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

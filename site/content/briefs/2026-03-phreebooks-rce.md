@@ -3,9 +3,9 @@ title: PhreeBooks ERP 5.2.3 Remote Code Execution Vulnerability
 slug: 2026-03-phreebooks-rce
 description: PhreeBooks ERP 5.2.3 is vulnerable to remote code execution, allowing authenticated attackers to upload and execute arbitrary PHP files via the image manager, leading to reverse shell connections and system command execution.
 date: "2026-03-24T12:16:07Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

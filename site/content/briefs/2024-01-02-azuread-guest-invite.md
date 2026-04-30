@@ -3,9 +3,9 @@ title: Unauthorized Guest User Invitations in Azure AD
 slug: 2024-01-02-azuread-guest-invite
 description: Detection of unauthorized guest user invitations within an Azure Active Directory tenant, indicating potential privilege escalation, persistence, or initial access attempts.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

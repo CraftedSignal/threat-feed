@@ -3,9 +3,9 @@ title: ReviewX WordPress Plugin Arbitrary Method Call Vulnerability
 slug: 2026-03-reviewx-rce
 description: The ReviewX WordPress plugin is vulnerable to arbitrary method calls, allowing unauthenticated attackers to potentially achieve remote code execution.
 date: "2026-03-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

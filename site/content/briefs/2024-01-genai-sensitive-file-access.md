@@ -3,9 +3,9 @@ title: GenAI Tool Access to Sensitive Files for Credential Harvesting and Persis
 slug: 2024-01-genai-sensitive-file-access
 description: This brief outlines the threat of attackers leveraging GenAI tools to access sensitive files containing credentials, SSH keys, browser data, and shell configurations for credential access and persistence.
 date: "2026-04-22T16:34:10Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

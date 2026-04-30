@@ -3,9 +3,9 @@ title: CISA Urges Endpoint Management System Hardening After Cyberattack
 slug: 2026-03-ems-hardening
 description: CISA is urging hardening of endpoint management systems following a cyberattack against a US organization, highlighting the potential for significant impact via compromised management infrastructure.
 date: "2026-03-19T19:45:48Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

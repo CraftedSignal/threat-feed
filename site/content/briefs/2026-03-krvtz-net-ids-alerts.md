@@ -5,6 +5,9 @@ description: Multiple IDS alerts indicate potential network reconnaissance, vuln
 date: "2026-03-13T20:52:20Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - network-scanning
   - vulnerability-exploitation

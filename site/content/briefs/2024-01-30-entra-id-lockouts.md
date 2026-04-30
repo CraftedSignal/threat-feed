@@ -3,9 +3,9 @@ title: Entra ID Excessive Account Lockouts Detected
 slug: 2024-01-30-entra-id-lockouts
 description: A high volume of failed Microsoft Entra ID sign-in attempts resulting in account lockouts indicates potential brute-force attacks, such as password spraying or credential stuffing, targeting user accounts.
 date: "2026-04-22T18:43:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

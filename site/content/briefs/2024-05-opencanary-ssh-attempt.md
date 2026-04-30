@@ -3,9 +3,9 @@ title: OpenCanary SSH Connection Attempt
 slug: 2024-05-opencanary-ssh-attempt
 description: An SSH connection attempt to an OpenCanary node indicates a potential adversary probing for vulnerable services or attempting unauthorized access within a network.
 date: "2024-05-08T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

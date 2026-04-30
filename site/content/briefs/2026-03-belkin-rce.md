@@ -3,9 +3,9 @@ title: Belkin F9K1122 Router Stack-Based Buffer Overflow
 slug: 2026-03-belkin-rce
 description: A stack-based buffer overflow vulnerability exists in Belkin F9K1122 version 1.00.33, allowing remote attackers to execute arbitrary code by manipulating the 'webpage' argument in the 'formWISP5G' function.
 date: "2026-03-23T03:16:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

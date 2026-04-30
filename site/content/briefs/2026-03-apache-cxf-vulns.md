@@ -3,9 +3,9 @@ title: Apache CXF Multiple Vulnerabilities Allow Information Disclosure and SSRF
 slug: 2026-03-apache-cxf-vulns
 description: A remote attacker can exploit multiple vulnerabilities in Apache CXF to disclose information and perform Server-Side Request Forgery (SSRF) attacks.
 date: "2026-03-24T10:20:50Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

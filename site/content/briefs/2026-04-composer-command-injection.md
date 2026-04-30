@@ -3,9 +3,9 @@ title: Composer Command Injection via Malicious Perforce Repository
 slug: 2026-04-composer-command-injection
 description: Composer is vulnerable to command injection via a malicious Perforce repository due to improper escaping of user-supplied Perforce connection parameters, potentially leading to arbitrary command execution in the context of the user running Composer.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

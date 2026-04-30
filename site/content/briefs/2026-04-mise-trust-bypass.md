@@ -3,9 +3,9 @@ title: Mise Trust Bypass Vulnerability via Malicious .mise.toml
 slug: 2026-04-mise-trust-bypass
 description: A vulnerability in mise allows an attacker who can place a malicious .mise.toml file in a repository to bypass trust checks and execute arbitrary code via `[env] _.source` due to improper loading of trust settings.
 date: "2026-04-07T20:13:11Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

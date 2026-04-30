@@ -3,9 +3,9 @@ title: CrowdStrike CNAPP Enhanced with Adversary-Informed Risk Prioritization
 slug: 2026-05-cnapp-adversary-risk
 description: CrowdStrike enhances its CNAPP capabilities by incorporating adversary intelligence for risk prioritization, application-layer visibility, and runtime analysis, addressing critical gaps in cloud security and enabling faster remediation based on threat actor behavior like LABYRINTH CHOLLIMA and SCATTERED SPIDER.
 date: "2026-03-29T07:29:13Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

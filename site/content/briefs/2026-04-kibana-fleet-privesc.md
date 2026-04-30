@@ -5,6 +5,9 @@ description: CVE-2026-4498 allows an authenticated Kibana user with Fleet sub-fe
 date: "2026-04-08T17:21:24Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - privilege-escalation

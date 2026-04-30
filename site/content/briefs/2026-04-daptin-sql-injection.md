@@ -3,9 +3,9 @@ title: Daptin SQL Injection Vulnerability in Aggregate API
 slug: 2026-04-daptin-sql-injection
 description: A SQL injection vulnerability exists in Daptin versions prior to 0.11.4 within the `/aggregate/:typename` endpoint, where the `column` and `group` query parameters are passed to `goqu.L()` without validation, allowing authenticated users to inject arbitrary SQL expressions and exfiltrate sensitive data.
 date: "2026-04-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

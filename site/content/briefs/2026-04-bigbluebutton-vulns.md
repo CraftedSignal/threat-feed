@@ -3,9 +3,9 @@ title: BigBlueButton Vulnerabilities Allow Data Manipulation and Redirects
 slug: 2026-04-bigbluebutton-vulns
 description: Multiple vulnerabilities in BigBlueButton can be exploited by an attacker to manipulate data and redirect users to attacker-controlled domains.
 date: "2026-04-22T07:39:12Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

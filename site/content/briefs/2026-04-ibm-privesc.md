@@ -5,6 +5,9 @@ description: A locally authenticated user can escalate privileges to root on vul
 date: "2026-04-08T01:16:40Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - cve-2026-1346

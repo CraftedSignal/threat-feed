@@ -3,9 +3,9 @@ title: JAD Java Decompiler Stack-Based Buffer Overflow Vulnerability
 slug: 2026-03-jad-decompiler-overflow
 description: JAD Java Decompiler 1.5.8e-1kali1 and prior is vulnerable to a stack-based buffer overflow, allowing attackers to execute arbitrary code by providing overly long input to the jad command leading to a return-oriented programming chain execution and shell spawning.
 date: "2026-03-28T12:16:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

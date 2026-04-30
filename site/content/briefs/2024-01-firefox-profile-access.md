@@ -3,9 +3,9 @@ title: Non-Firefox Process Accessing Firefox Profile Directory
 slug: 2024-01-firefox-profile-access
 description: This analytic detects non-Firefox processes accessing the Firefox profile directory, potentially indicating malware attempting to harvest sensitive user data like login credentials, browsing history, and cookies.
 date: "2024-01-03T15:22:32Z"
-type: threat
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
 tags:

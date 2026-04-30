@@ -5,6 +5,9 @@ description: goshs versions 1.1.0 to before 2.0.0-beta.2 are vulnerable to authe
 date: "2026-04-02T19:21:32Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-34581
   - authentication-bypass

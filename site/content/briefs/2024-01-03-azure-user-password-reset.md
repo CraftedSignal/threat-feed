@@ -3,9 +3,9 @@ title: Azure AD User Password Reset Detection
 slug: 2024-01-03-azure-user-password-reset
 description: Detects when a user successfully resets their own password in Azure Active Directory, which may indicate malicious activity or account compromise.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

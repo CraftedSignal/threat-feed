@@ -3,9 +3,9 @@ title: SiYuan Arbitrary Document Reading Vulnerability in Publishing Service
 slug: 2026-06-siyuan-arbitrary-doc-read
 description: SiYuan is vulnerable to arbitrary document reading via the publishing service, allowing attackers to retrieve document IDs and view the content of all documents, including encrypted or prohibited ones, by exploiting the `/api/file/readDir` and `/api/block/getChildBlocks` interfaces.
 date: "2026-03-25T19:37:18Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

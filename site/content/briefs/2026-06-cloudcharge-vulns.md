@@ -3,9 +3,9 @@ title: CloudCharge Vulnerabilities Allow Charging Station Impersonation and DoS
 slug: 2026-06-cloudcharge-vulns
 description: Multiple vulnerabilities in CloudCharge cloudcharge.se allow attackers to impersonate charging stations, hijack sessions, cause denial of service, and manipulate backend data, impacting energy and transportation sectors.
 date: "2026-06-13T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

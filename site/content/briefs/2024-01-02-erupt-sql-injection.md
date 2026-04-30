@@ -5,6 +5,9 @@ description: A SQL injection vulnerability (CVE-2026-4594) exists in erupts erup
 date: "2026-03-23T18:16:26Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - vulnerability

@@ -5,6 +5,9 @@ description: BugSink 2.1.0 is vulnerable to an authenticated file write vulnerab
 date: "2026-04-11T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-40162
   - file-write

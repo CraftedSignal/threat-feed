@@ -3,9 +3,9 @@ title: Compromised Litellm PyPI Package Versions
 slug: 2024-01-litellm-compromise
 description: Versions 1.82.7 and 1.82.8 of the Litellm package on PyPI were compromised in a supply chain attack, potentially impacting numerous users, with recommendations to avoid updating to these versions.
 date: "2026-03-24T12:12:58Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

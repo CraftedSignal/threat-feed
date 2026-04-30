@@ -5,6 +5,9 @@ description: letta-ai letta version 0.16.4 contains a remote code injection vuln
 date: "2026-03-27T18:16:06Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-4965
   - code-injection

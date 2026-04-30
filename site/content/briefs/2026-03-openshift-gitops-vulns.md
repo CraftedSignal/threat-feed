@@ -3,9 +3,9 @@ title: Red Hat OpenShift GitOps Multiple Vulnerabilities
 slug: 2026-03-openshift-gitops-vulns
 description: An anonymous remote attacker can exploit multiple vulnerabilities in Red Hat OpenShift GitOps to manipulate data, misrepresent information, or cause a denial of service.
 date: "2026-03-25T10:21:36Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

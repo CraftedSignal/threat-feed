@@ -3,9 +3,9 @@ title: Azure AD User Added to Global or Device Admin Role
 slug: 2024-01-03-azuread-role-assignment
 description: An attacker may attempt to add a user to a high-privilege Azure AD role, such as Global Administrator or Device Administrator, to establish persistence, gain initial access, escalate privileges, or operate stealthily within the compromised environment.
 date: "2024-01-03T18:27:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

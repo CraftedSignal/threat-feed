@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Red Hat Developer Hub
 slug: 2026-03-redhat-devhub-vulns
 description: Multiple vulnerabilities in Red Hat Developer Hub allow a remote attacker to perform denial of service, execute arbitrary code, bypass security measures, and manipulate data.
 date: "2026-03-25T10:23:28Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

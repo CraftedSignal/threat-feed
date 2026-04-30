@@ -3,9 +3,9 @@ title: LSA PPL Protection Setting Modification via CommandLine
 slug: 2024-01-lsa-ppl-modification
 description: Attackers modify LSA PPL protection settings via command-line tools like reg.exe and PowerShell to weaken system security and enable credential dumping.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

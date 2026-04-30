@@ -3,9 +3,9 @@ title: PhpSpreadsheet CPU Denial of Service via Unbounded Row Number
 slug: 2024-01-03-phpspreadsheet-dos
 description: A vulnerability in PhpSpreadsheet exists where a crafted XLSX file containing a large row number can cause excessive CPU consumption due to unbounded loop iterations, leading to a denial of service.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

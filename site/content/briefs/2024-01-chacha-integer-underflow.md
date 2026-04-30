@@ -3,9 +3,9 @@ title: CVE-2026-5778 Integer Underflow in ChaCha Decryption Leads to Out-of-Boun
 slug: 2024-01-chacha-integer-underflow
 description: CVE-2026-5778 is an integer underflow vulnerability in the ChaCha decrypt path of an unspecified Microsoft product, leading to an out-of-bounds access issue.
 date: "2026-04-30T08:43:55Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

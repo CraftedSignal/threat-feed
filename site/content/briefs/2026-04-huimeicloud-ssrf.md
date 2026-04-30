@@ -5,6 +5,9 @@ description: A server-side request forgery (SSRF) vulnerability exists in huimei
 date: "2026-04-02T15:16:53Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5346
   - ssrf

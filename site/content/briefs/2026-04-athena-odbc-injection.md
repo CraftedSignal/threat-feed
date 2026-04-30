@@ -5,6 +5,9 @@ description: A command injection vulnerability (CVE-2026-35558) exists in the Am
 date: "2026-04-03T21:17:11Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - command injection
   - cve-2026-35558

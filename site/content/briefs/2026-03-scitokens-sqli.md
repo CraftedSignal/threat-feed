@@ -5,6 +5,9 @@ description: A SQL injection vulnerability exists in SciTokens versions before 1
 date: "2026-03-31T03:15:55Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - scitokens

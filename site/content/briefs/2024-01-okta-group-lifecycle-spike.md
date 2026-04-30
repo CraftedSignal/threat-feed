@@ -3,9 +3,9 @@ title: Okta Group Lifecycle Change Spike Indicating Privilege Escalation
 slug: 2024-01-okta-group-lifecycle-spike
 description: A machine learning job has identified an unusual spike in Okta group lifecycle change events, indicating potential privilege escalation activity, where adversaries may be altering group structures to escalate privileges, maintain persistence, or facilitate lateral movement within an organization’s identity management system.
 date: "2024-01-09T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

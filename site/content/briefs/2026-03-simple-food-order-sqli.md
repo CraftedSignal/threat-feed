@@ -5,6 +5,9 @@ description: CVE-2026-5017 is a SQL injection vulnerability in code-projects Sim
 date: "2026-03-28T23:16:43Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - web-application

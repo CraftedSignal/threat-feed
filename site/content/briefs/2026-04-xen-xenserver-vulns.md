@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Xen and Citrix Systems XenServer
 slug: 2026-04-xen-xenserver-vulns
 description: Multiple vulnerabilities exist in Xen and Citrix Systems XenServer that could allow an attacker to escalate privileges, bypass security measures, modify and disclose data, or cause a denial-of-service condition.
 date: "2026-04-30T09:09:11Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

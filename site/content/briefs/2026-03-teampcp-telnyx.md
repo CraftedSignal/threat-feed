@@ -3,9 +3,9 @@ title: TeamPCP Backdoors Telnyx PyPI Package with Steganographic Malware
 slug: 2026-03-teampcp-telnyx
 description: The TeamPCP threat actor compromised the Telnyx PyPI package, injecting credential-stealing malware hidden within WAV audio files to target Linux, macOS, and Windows systems.
 date: "2026-03-28T12:00:00Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - critical
 actors:

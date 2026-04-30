@@ -5,6 +5,9 @@ description: A server-side request forgery (SSRF) vulnerability exists in assafe
 date: "2026-04-06T08:16:39Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - cve-2026-5633

@@ -5,6 +5,9 @@ description: Lakeside SysTrack Agent 11 before 11.2.1.28 is vulnerable to a race
 date: "2026-04-01T16:23:50Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - lakeside
   - systrack

@@ -3,9 +3,9 @@ title: VMware Tanzu Spring Boot Multiple Vulnerabilities
 slug: 2026-04-tanzu-spring-boot-vulns
 description: Multiple vulnerabilities in VMware Tanzu Spring Boot allow attackers to execute arbitrary code, bypass security measures, manipulate or disclose sensitive data, or hijack authenticated users.
 date: "2026-04-28T08:31:28Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

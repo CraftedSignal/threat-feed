@@ -5,6 +5,9 @@ description: CVE-2025-58913 is a PHP Local File Inclusion vulnerability in the C
 date: "2026-04-11T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - lfi

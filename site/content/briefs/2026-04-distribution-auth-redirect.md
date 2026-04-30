@@ -5,6 +5,9 @@ description: A vulnerability in the distribution toolkit prior to 3.1.0 allows a
 date: "2026-04-06T15:17:10Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-33540
   - authentication

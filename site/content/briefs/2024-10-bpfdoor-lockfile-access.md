@@ -3,9 +3,9 @@ title: BPFDoor Lock File Access
 slug: 2024-10-bpfdoor-lockfile-access
 description: BPFDoor, an evasive Linux backdoor, is detected via the unusual access of process ID and lock files in the /var/run/ directory, indicating potential malicious activity.
 date: "2026-04-01T11:18:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

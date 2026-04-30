@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in OpenBao Allow for Security Bypass, DoS, and S
 slug: 2026-04-openbao-vulns
 description: Multiple vulnerabilities in OpenBao can be exploited by an attacker to bypass security measures, conduct a denial of service attack, and conduct a SQL injection attack.
 date: "2026-04-22T07:39:10Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

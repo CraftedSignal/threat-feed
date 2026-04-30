@@ -5,6 +5,9 @@ description: Mattermost versions 11.2.x <= 11.2.2, 10.11.x <= 10.11.10, 11.4.x <
 date: "2026-03-26T17:16:41Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-3108
   - mattermost

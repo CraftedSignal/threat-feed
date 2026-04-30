@@ -5,6 +5,9 @@ description: A use-after-free vulnerability in Google Chrome's WebGPU component 
 date: "2026-03-24T01:17:03Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4678
   - use-after-free

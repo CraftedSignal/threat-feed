@@ -5,6 +5,9 @@ description: Unauthenticated attackers can perform a stored XSS attack against C
 date: "2026-04-08T13:16:43Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - xss
   - cve-2026-5301

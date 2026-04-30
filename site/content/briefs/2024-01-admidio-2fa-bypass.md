@@ -3,9 +3,9 @@ title: Admidio Inverted 2FA Reset Allows Privilege Escalation
 slug: 2024-01-admidio-2fa-bypass
 description: A logic error in Admidio's two-factor authentication reset inverts the authorization check, allowing non-admin users to remove other users' TOTP, including administrators, reducing their security to password-only authentication in versions 5.0.8 and earlier.
 date: "2024-01-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

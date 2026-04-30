@@ -3,9 +3,9 @@ title: Spike in Number of Processes in an RDP Session
 slug: 2024-01-rdp-process-spike
 description: A machine learning job has detected an unusually high number of processes started within a single Remote Desktop Protocol (RDP) session, potentially indicating lateral movement activity.
 date: "2024-01-23T14:35:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

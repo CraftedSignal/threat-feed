@@ -3,9 +3,9 @@ title: OpenMage LTS Phar Deserialization RCE
 slug: 2024-01-openmage-phar-deserialization
 description: A remote code execution vulnerability exists in OpenMage LTS versions prior to 20.16.1 due to Phar deserialization, where an attacker can upload a malicious phar file disguised as an image and trigger deserialization via functions like `getimagesize()`, `file_exists()`, or `is_readable()` when processing `phar://` stream wrapper paths, leading to arbitrary code execution.
 date: "2026-04-21T14:32:48Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

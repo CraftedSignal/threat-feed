@@ -5,6 +5,9 @@ description: CVE-2023-7338 is a remote code execution vulnerability affecting Ru
 date: "2026-03-26T20:16:08Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2023-7338
   - ruckus

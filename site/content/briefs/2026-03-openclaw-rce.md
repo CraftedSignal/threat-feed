@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.13 is vulnerable to remote command injection
 date: "2026-03-31T12:16:28Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - imessage

@@ -5,6 +5,9 @@ description: CVE-2026-5373 is an improper privilege management vulnerability in 
 date: "2026-04-07T15:17:47Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - cve

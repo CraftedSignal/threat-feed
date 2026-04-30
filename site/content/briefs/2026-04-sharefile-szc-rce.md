@@ -5,6 +5,9 @@ description: An unauthenticated attacker can access restricted configuration pag
 date: "2026-04-02T14:16:27Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - sharefile
   - storage-zones-controller

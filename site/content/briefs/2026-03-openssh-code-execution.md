@@ -3,9 +3,9 @@ title: OpenSSH Vulnerabilities Allow Local Code Execution
 slug: 2026-03-openssh-code-execution
 description: A local attacker can exploit multiple vulnerabilities in OpenSSH to execute arbitrary code, potentially leading to privilege escalation and system compromise.
 date: "2026-03-24T10:30:51Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

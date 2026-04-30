@@ -3,9 +3,9 @@ title: Kubernetes Event Deletion for Defense Evasion
 slug: 2024-05-kubernetes-events-deleted
 description: An adversary may delete Kubernetes events to evade detection and hide malicious activity within a Kubernetes environment by removing audit logs.
 date: "2024-05-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

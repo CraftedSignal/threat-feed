@@ -5,6 +5,9 @@ description: OpenEXR is vulnerable to a heap information disclosure in PXR24 dec
 date: "2026-04-04T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - openexr
   - heap-disclosure

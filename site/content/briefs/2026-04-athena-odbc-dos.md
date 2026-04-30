@@ -5,6 +5,9 @@ description: A remote, unauthenticated attacker can cause a denial of service by
 date: "2026-04-03T21:17:12Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-35562
   - denial-of-service

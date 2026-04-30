@@ -3,9 +3,9 @@ title: Mini Shai-Hulud Supply Chain Attack Targets SAP-Related npm Packages
 slug: 2026-04-mini-shai-hulud
 description: The 'mini Shai-Hulud' campaign compromised SAP-related npm packages with credential-stealing malware, exfiltrating sensitive data to public GitHub repositories and propagating through developer workflows.
 date: "2026-04-29T16:26:00Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - critical
 actors:

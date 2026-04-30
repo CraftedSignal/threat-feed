@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability exists in ASDA-Soft, po
 date: "2026-04-08T03:16:07Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - buffer-overflow
   - asda-soft

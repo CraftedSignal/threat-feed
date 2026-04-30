@@ -5,6 +5,9 @@ description: A heap buffer overflow vulnerability (CVE-2026-4675) exists in Goog
 date: "2026-03-25T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4675
   - heap-buffer-overflow

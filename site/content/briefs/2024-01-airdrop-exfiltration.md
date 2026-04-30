@@ -3,9 +3,9 @@ title: Spike in Bytes Sent to an External Device via Airdrop
 slug: 2024-01-airdrop-exfiltration
 description: A machine learning job has detected a spike in bytes of data written to an external device via Airdrop, potentially indicating illicit data copying or transfer activities.
 date: "2024-01-03T15:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

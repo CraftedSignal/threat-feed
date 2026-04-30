@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Canva Affinity, TP-Link, and HikVision Device
 slug: 2026-03-multiple-vulns
 description: Cisco Talos disclosed multiple vulnerabilities in Canva Affinity, TP-Link Archer AX53, and HikVision Ultra Face Recognition Terminal products which could lead to sensitive information disclosure, arbitrary code execution, or credentials leak if exploited.
 date: "2026-03-27T14:35:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

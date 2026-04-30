@@ -5,6 +5,9 @@ description: FlexHEX 2.71 is vulnerable to a local buffer overflow in the Stream
 date: "2026-03-24T12:16:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - buffer-overflow
   - seh-overflow

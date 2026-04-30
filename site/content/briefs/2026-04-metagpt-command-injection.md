@@ -5,6 +5,9 @@ description: A remote command injection vulnerability exists in FoundationAgents
 date: "2026-04-09T20:16:28Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-5972
   - command-injection

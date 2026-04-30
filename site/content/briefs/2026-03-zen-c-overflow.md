@@ -5,6 +5,9 @@ description: A stack-based buffer overflow vulnerability in Zen C compiler versi
 date: "2026-03-27T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - buffer_overflow

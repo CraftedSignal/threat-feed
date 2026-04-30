@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in NGINX and NGINX Plus
 slug: 2026-03-nginx-vulns
 description: Multiple vulnerabilities in NGINX Plus and NGINX can be exploited by an attacker to perform a denial of service attack, manipulate data, bypass security measures, and potentially execute arbitrary program code, leading to significant impact.
 date: "2026-03-30T10:14:08Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

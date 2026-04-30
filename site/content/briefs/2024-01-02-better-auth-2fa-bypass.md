@@ -3,9 +3,9 @@ title: Better Auth Two-Factor Authentication Bypass Vulnerability
 slug: 2024-01-02-better-auth-2fa-bypass
 description: Better Auth versions prior to 1.4.9 have a critical two-factor authentication bypass vulnerability; when session.cookieCache is enabled, the initial sign-in session may be improperly cached, allowing attackers with valid credentials to bypass 2FA.
 date: "2026-04-03T03:29:59Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

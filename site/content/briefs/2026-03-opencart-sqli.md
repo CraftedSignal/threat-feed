@@ -5,6 +5,9 @@ description: OpenCart Core 4.0.2.3 is vulnerable to SQL injection via the 'searc
 date: "2026-03-25T16:16:07Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2024-58341
   - sql-injection

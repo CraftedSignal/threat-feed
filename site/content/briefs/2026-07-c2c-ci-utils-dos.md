@@ -5,6 +5,9 @@ description: The c2cciutils package is vulnerable to denial of service due to an
 date: "2026-03-26T22:27:55Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - denial-of-service
   - pyasn

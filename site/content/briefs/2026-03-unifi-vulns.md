@@ -5,6 +5,9 @@ description: A combination of path traversal (CVE-2026-22557) and NoSQL injectio
 date: "2026-03-21T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - unifi
   - path-traversal

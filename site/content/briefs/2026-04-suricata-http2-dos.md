@@ -5,6 +5,9 @@ description: A denial of service vulnerability, CVE-2026-31935, exists in Surica
 date: "2026-04-02T15:16:37Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - dos

@@ -3,9 +3,9 @@ title: Suspicious Process Execution from Unusual File Paths
 slug: 2024-01-03-suspicious-process-path
 description: Attackers may execute malicious code from unusual file paths such as Windows fonts or debug directories to evade defenses and gain unauthorized access, as detected by endpoint detection and response (EDR) agents.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

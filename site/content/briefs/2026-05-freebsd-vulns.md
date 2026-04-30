@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in FreeBSD OS Allow Privilege Escalation and Arb
 slug: 2026-05-freebsd-vulns
 description: Multiple vulnerabilities in FreeBSD OS could allow an attacker to gain elevated privileges, execute arbitrary code, manipulate data, disclose sensitive information, or cause a denial of service.
 date: "2026-04-30T11:09:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

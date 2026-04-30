@@ -8,6 +8,9 @@ severities:
 actors:
   - TrueChaos
 exploited: true
+type: threat
+types:
+  - threat
 tags:
   - trueconf
   - zero-day

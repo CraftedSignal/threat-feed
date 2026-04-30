@@ -5,6 +5,9 @@ description: A remote attacker can exploit a heap buffer overflow vulnerability 
 date: "2026-03-25T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4673
   - chrome

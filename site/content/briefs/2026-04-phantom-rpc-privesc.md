@@ -3,9 +3,9 @@ title: 'PhantomRPC: Windows RPC Privilege Escalation Vulnerability'
 slug: 2026-04-phantom-rpc-privesc
 description: A vulnerability in Windows RPC architecture allows an attacker to create a fake RPC server and escalate their privileges to SYSTEM level, leveraging processes with impersonation privileges.
 date: "2026-04-24T08:00:12Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

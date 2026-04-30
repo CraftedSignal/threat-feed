@@ -5,6 +5,9 @@ description: A command injection vulnerability (CVE-2026-5844) exists in the D-L
 date: "2026-04-09T05:16:06Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - d-link

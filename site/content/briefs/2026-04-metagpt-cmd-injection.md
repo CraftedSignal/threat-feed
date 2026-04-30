@@ -5,6 +5,9 @@ description: A command injection vulnerability exists in FoundationAgents MetaGP
 date: "2026-04-09T20:16:29Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - metagpt

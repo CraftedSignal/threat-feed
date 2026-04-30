@@ -5,6 +5,9 @@ description: A remote attacker can exploit an out-of-bounds access vulnerability
 date: "2026-04-08T20:16:26Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - dos
   - cve-2026-39863

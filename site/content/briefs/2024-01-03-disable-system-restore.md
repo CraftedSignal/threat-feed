@@ -3,9 +3,9 @@ title: Windows System Restore Disabled via Registry Modification
 slug: 2024-01-03-disable-system-restore
 description: Attackers disable Windows System Restore by modifying specific registry keys to hinder recovery efforts after malicious activity.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

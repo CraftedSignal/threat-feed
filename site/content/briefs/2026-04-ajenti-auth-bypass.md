@@ -5,6 +5,9 @@ description: Ajenti versions before 2.2.15 contain an authorization bypass vulne
 date: "2026-04-03T03:57:43Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ajenti
   - authorization-bypass

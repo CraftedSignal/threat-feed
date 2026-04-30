@@ -5,6 +5,9 @@ description: CMSsite 1.0 is vulnerable to unauthenticated SQL injection (CVE-201
 date: "2026-04-12T13:16:32Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sqli
   - cve-2019-25697

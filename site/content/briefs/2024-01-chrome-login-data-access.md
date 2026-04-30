@@ -3,9 +3,9 @@ title: Non-Chrome Process Accessing Chrome Login Data
 slug: 2024-01-chrome-login-data-access
 description: This analytic identifies non-Chrome processes accessing the Chrome user data file 'login data', which is an SQLite database containing sensitive information like saved passwords, potentially leading to credential theft.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

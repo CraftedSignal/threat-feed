@@ -5,6 +5,9 @@ description: Endian Firewall versions 3.3.25 and prior allow authenticated users
 date: "2026-04-02T15:16:42Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - path-traversal

@@ -3,9 +3,9 @@ title: Tenda AC7 Stack-Based Buffer Overflow in SetSysTimeCfg
 slug: 2026-03-tenda-ac7-overflow
 description: A stack-based buffer overflow vulnerability exists in Tenda AC7 version 15.03.06.44 within the fromSetSysTime function of the /goform/SetSysTimeCfg component's POST Request Handler, allowing a remote attacker to potentially execute arbitrary code by manipulating the 'Time' argument.
 date: "2026-03-27T20:16:38Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

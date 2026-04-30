@@ -3,9 +3,9 @@ title: GlassWorm V2 Infrastructure Rotation and GitHub Injection Analysis
 slug: 2024-01-26-glassworm-v2-analysis
 description: Analysis of GlassWorm V2 reveals infrastructure rotation and GitHub injection techniques.
 date: "2026-03-15T13:51:21Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

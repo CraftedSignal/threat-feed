@@ -5,6 +5,9 @@ description: CVE-2026-4627 is an OS command injection vulnerability in the handl
 date: "2026-03-24T05:16:24Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - router

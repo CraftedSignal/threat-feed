@@ -3,9 +3,9 @@ title: Kubectl Network Configuration Modification
 slug: 2026-05-kubectl-network-modification
 description: This rule detects potential kubectl network configuration modification activity by monitoring for process events where the kubectl command is executed with arguments that suggest an attempt to modify network configurations in Kubernetes, potentially leading to unauthorized access or data exfiltration.
 date: "2026-04-01T14:16:09Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

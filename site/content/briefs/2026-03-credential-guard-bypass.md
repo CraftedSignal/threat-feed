@@ -3,9 +3,9 @@ title: Credential Guard Bypass and Detection Strategies
 slug: 2026-03-credential-guard-bypass
 description: This brief covers offensive techniques to bypass Credential Guard, a Windows security feature designed to protect credentials, and provides detection strategies for these bypass attempts.
 date: "2026-03-18T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

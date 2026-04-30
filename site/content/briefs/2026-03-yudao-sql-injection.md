@@ -5,6 +5,9 @@ description: A remote SQL injection vulnerability (CVE-2026-5147) exists in Yuna
 date: "2026-03-30T19:16:27Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5147
   - sql-injection

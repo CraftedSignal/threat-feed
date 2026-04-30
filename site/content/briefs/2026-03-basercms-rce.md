@@ -5,6 +5,9 @@ description: baserCMS versions prior to 5.2.3 are vulnerable to arbitrary code e
 date: "2026-03-31T01:16:34Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - basercms
   - rce

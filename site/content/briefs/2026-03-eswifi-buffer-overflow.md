@@ -5,6 +5,9 @@ description: CVE-2026-1679 describes a vulnerability in the eswifi socket offloa
 date: "2026-03-28T00:16:04Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-1679
   - buffer-overflow

@@ -5,6 +5,9 @@ description: Rack versions prior to 2.2.23, 3.1.21, and 3.2.6 are vulnerable to 
 date: "2026-04-02T17:16:24Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - rack
   - information-disclosure

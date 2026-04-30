@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Absolute Secure Access
 slug: 2026-05-absolute-secure-access-vulns
 description: Multiple vulnerabilities in Absolute Secure Access could allow an attacker to escalate privileges, conduct a denial-of-service attack, and disclose sensitive information.
 date: "2026-04-30T10:44:07Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

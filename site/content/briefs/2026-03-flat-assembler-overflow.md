@@ -5,6 +5,9 @@ description: Flat Assembler version 1.71.21 is susceptible to a stack-based buff
 date: "2026-03-28T12:16:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2017-20228
   - buffer-overflow

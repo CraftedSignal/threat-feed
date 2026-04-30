@@ -3,9 +3,9 @@ title: New AWS Network ACL Entry Creation Detected
 slug: 2024-10-aws-network-acl-created
 description: Detection of new Network ACL entries in AWS CloudTrail logs can indicate potential defense impairment or the opening of new attack vectors within an AWS account by an adversary.
 date: "2024-10-26T14:27:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

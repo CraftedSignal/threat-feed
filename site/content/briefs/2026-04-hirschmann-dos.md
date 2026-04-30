@@ -5,6 +5,9 @@ description: Hirschmann EagleSDV devices are vulnerable to denial-of-service (Do
 date: "2026-04-02T22:16:23Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - denial-of-service
   - cve-2022-4986

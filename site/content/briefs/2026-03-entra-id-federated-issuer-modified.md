@@ -3,9 +3,9 @@ title: Entra ID Federated Identity Credential Issuer Modified
 slug: 2026-03-entra-id-federated-issuer-modified
 description: Modification of the issuer URL of a federated identity credential in Entra ID can allow an attacker to authenticate as the application's service principal, granting persistent access to Azure resources by pointing to an attacker-controlled identity provider and bypassing normal authentication.
 date: "2026-03-18T21:22:55Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

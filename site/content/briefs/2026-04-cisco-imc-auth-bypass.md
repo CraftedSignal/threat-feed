@@ -5,6 +5,9 @@ description: An unauthenticated remote attacker can exploit CVE-2026-20093 to by
 date: "2026-04-03T14:00:09Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - authentication bypass
   - cisco

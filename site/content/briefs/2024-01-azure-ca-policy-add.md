@@ -3,9 +3,9 @@ title: Unauthorized Conditional Access Policy Creation in Azure AD
 slug: 2024-01-azure-ca-policy-add
 description: An unauthorized actor created a new Conditional Access policy in Azure AD, potentially leading to privilege escalation and unauthorized access.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

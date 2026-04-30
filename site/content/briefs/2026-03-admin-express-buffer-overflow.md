@@ -3,9 +3,9 @@ title: Admin Express 1.2.5.485 Local SEH Buffer Overflow Vulnerability
 slug: 2026-03-admin-express-buffer-overflow
 description: Admin Express 1.2.5.485 is susceptible to a local structured exception handling buffer overflow vulnerability, enabling local attackers to execute arbitrary code via a crafted payload in the Folder Path field of the System Compare feature.
 date: "2026-03-23T14:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

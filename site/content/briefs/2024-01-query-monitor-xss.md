@@ -5,6 +5,9 @@ description: The Query Monitor WordPress plugin is vulnerable to reflected cross
 date: "2026-03-31T12:16:31Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - xss

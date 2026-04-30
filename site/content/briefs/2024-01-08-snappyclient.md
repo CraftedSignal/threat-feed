@@ -3,9 +3,9 @@ title: SnappyClient Malware Delivered via HijackLoader
 slug: 2024-01-08-snappyclient
 description: SnappyClient is a multi-functional malware delivered via HijackLoader that steals data from browsers, takes screenshots, logs keystrokes, and establishes a remote terminal for attacker command and control.
 date: "2026-03-20T05:19:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

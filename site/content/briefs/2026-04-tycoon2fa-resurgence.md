@@ -3,9 +3,9 @@ title: Tycoon2FA Phishing-as-a-Service Resurgence After Takedown
 slug: 2026-04-tycoon2fa-resurgence
 description: The Tycoon2FA Phishing-as-a-Service platform, used to bypass multifactor authentication (MFA), has resurged to pre-takedown levels of activity following a disruption effort in March 2026, maintaining its original tactics, techniques, and procedures (TTPs) for credential harvesting and cloud compromise.
 date: "2026-03-28T08:20:54Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

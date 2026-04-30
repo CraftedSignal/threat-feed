@@ -5,6 +5,9 @@ description: An application installer vulnerable to CVE-2026-3780 runs with elev
 date: "2026-04-01T02:16:03Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - cve-2026-3780

@@ -5,6 +5,9 @@ description: WWBN AVideo, up to version 26.0, contains an improper authenticatio
 date: "2026-03-24T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-33512
   - avideo

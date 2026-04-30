@@ -5,6 +5,9 @@ description: A remote attacker can perform an out-of-bounds memory write on Goog
 date: "2026-03-24T01:17:03Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4679
   - chrome

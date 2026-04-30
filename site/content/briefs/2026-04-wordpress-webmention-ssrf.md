@@ -5,6 +5,9 @@ description: The Webmention plugin for WordPress is vulnerable to Server-Side Re
 date: "2026-04-02T08:16:27Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - wordpress

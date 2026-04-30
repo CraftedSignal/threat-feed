@@ -3,9 +3,9 @@ title: Critical Vulnerabilities in SolarWinds Serv-U Allow Remote Code Execution
 slug: 2026-02-solarwinds-servu-rce
 description: Multiple critical vulnerabilities in SolarWinds Serv-U MFT and FTP Server allow remote code execution, potentially leading to system compromise.
 date: "2026-02-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

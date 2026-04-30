@@ -5,6 +5,9 @@ description: An incorrect boundary condition in the Audio/Video Web Codecs compo
 date: "2026-03-24T13:16:05Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4695
   - firefox

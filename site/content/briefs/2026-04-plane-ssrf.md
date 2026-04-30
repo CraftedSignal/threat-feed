@@ -5,6 +5,9 @@ description: Plane project management tool versions before 1.3.0 are vulnerable 
 date: "2026-04-09T16:16:31Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - cve-2026-39843

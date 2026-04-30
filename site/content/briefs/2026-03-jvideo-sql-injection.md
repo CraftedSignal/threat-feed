@@ -3,9 +3,9 @@ title: ASP.NET jVideo Kit 1.0 SQL Injection Vulnerability
 slug: 2026-03-jvideo-sql-injection
 description: ASP.NET jVideo Kit 1.0 is vulnerable to SQL injection via the 'query' parameter in the search functionality, allowing unauthenticated attackers to inject malicious SQL payloads to extract sensitive database information.
 date: "2026-03-26T12:16:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

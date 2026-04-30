@@ -5,6 +5,9 @@ description: CVE-2026-25932 is a cross-site scripting vulnerability in GLPI vers
 date: "2026-04-06T15:17:06Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - xss
   - glpi

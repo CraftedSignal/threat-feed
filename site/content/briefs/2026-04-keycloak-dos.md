@@ -5,6 +5,9 @@ description: An unauthenticated attacker can cause a denial-of-service on Keyclo
 date: "2026-04-02T13:16:27Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4634
   - denial-of-service

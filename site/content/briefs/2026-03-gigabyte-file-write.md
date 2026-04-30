@@ -5,6 +5,9 @@ description: Gigabyte Control Center has an Arbitrary File Write vulnerability (
 date: "2026-03-30T08:16:18Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4415
   - arbitrary-file-write

@@ -5,6 +5,9 @@ description: EVerest versions before 2026.02.0 are vulnerable to a stack-based b
 date: "2026-03-26T15:16:31Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - everest
   - rce

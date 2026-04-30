@@ -3,9 +3,9 @@ title: cPanel/WHM Local Privilege Escalation Vulnerability
 slug: 2024-05-cpanel-privesc
 description: A local attacker can exploit a vulnerability in cPanel/WHM to escalate their privileges.
 date: "2026-04-01T09:24:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

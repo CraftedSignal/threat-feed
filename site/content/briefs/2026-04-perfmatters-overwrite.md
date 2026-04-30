@@ -5,6 +5,9 @@ description: The Perfmatters plugin for WordPress is vulnerable to arbitrary fil
 date: "2026-04-10T02:37:36Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - perfmatters

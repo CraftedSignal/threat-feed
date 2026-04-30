@@ -3,9 +3,9 @@ title: Group-Office JMAP Contact/Query SQL Injection Vulnerability
 slug: 2026-03-group-office-sqli
 description: An authenticated SQL Injection vulnerability in Group-Office's JMAP Contact/query endpoint allows data extraction, including session tokens, leading to account takeover if unpatched.
 date: "2026-03-27T15:16:57Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

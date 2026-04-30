@@ -3,9 +3,9 @@ title: OpenClaw Symlink Traversal via IDENTITY.md appendFile in agents.create/up
 slug: 2026-03-openclaw-symlink
 description: OpenClaw is vulnerable to symlink traversal via IDENTITY.md appendFile in agents.create/update. An attacker who can place a symlink in the agent workspace can hijack the IDENTITY.md path to append attacker-controlled content to arbitrary files on the system leading to remote code execution, persistent code execution, unauthorized SSH access, or service disruption.
 date: "2026-03-27T14:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

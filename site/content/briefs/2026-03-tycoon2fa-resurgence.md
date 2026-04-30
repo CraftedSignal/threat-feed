@@ -3,9 +3,9 @@ title: Tycoon2FA PhaaS Platform Resurgence After Takedown
 slug: 2026-03-tycoon2fa-resurgence
 description: The Tycoon2FA phishing-as-a-service (PhaaS) platform, disrupted in March 2026, has resurged with consistent tactics, employing adversary-in-the-middle (AITM) techniques to bypass MFA and compromise email accounts through phishing campaigns, credential theft, and session cookie hijacking.
 date: "2026-03-28T08:28:28Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

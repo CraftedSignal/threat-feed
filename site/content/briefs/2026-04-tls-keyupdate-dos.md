@@ -3,9 +3,9 @@ title: CVE-2026-32283 Unauthenticated TLS 1.3 KeyUpdate DoS Vulnerability
 slug: 2026-04-tls-keyupdate-dos
 description: CVE-2026-32283 is a vulnerability in crypto/tls that allows unauthenticated TLS 1.3 KeyUpdate records, leading to persistent connection retention and a denial-of-service condition.
 date: "2026-04-30T08:43:55Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

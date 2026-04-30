@@ -3,9 +3,9 @@ title: Remote Registry Lateral Movement via RPC Firewall
 slug: 2024-01-remote-registry-lateral-movement
 description: This brief details detection of lateral movement attempts using remote RPC calls to modify the registry, potentially leading to code execution, detected via RPC Firewall logs.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

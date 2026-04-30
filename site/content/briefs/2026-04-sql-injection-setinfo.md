@@ -5,6 +5,9 @@ description: An unauthenticated remote attacker can exploit a SQL Injection vuln
 date: "2026-04-02T10:16:16Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - vulnerability

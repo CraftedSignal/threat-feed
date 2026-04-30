@@ -3,9 +3,9 @@ title: Avo Framework Broken Access Control Vulnerability
 slug: 2024-01-03-avo-broken-access-control
 description: Avo framework version 3.x contains a critical Broken Access Control vulnerability in the ActionsController. Due to insecure action lookup logic, an authenticated user can execute any Action class on any resource, even if the action is not registered for that specific resource. This leads to Privilege Escalation and unauthorized data manipulation across the entire application. Version 3.31.2 remediates this issue.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

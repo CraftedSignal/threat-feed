@@ -5,6 +5,9 @@ description: GitLab CE/EE versions 14.3 before 18.8.7, 18.9 before 18.9.3, and 1
 date: "2026-03-30T00:16:01Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - gitlab
   - jira

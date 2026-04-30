@@ -3,9 +3,9 @@ title: LXD Backup Import Bypass Allows Privilege Escalation in Restricted Projec
 slug: 2026-04-lxd-backup-bypass
 description: A vulnerability in LXD allows an attacker with instance-creation rights in a restricted project to bypass project restrictions and escalate privileges by crafting a malicious backup archive.
 date: "2026-04-10T19:24:26Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

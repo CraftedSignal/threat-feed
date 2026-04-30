@@ -3,9 +3,9 @@ title: School Management System CMS 1.0 SQL Injection Vulnerability
 slug: 2026-03-school-mgmt-sql-injection
 description: School Management System CMS 1.0 is vulnerable to SQL injection in the admin login functionality, allowing attackers to bypass authentication by injecting SQL code through the username parameter.
 date: "2026-03-26T12:16:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -5,6 +5,9 @@ description: Specially crafted network traffic can cause Suricata to slow down, 
 date: "2026-04-02T14:16:28Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - dos
   - suricata

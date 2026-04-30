@@ -3,9 +3,9 @@ title: Moby Authorization Plugin Bypass via Oversized Request Bodies
 slug: 2026-04-moby-authz-bypass
 description: A vulnerability in Moby allows attackers to bypass authorization plugins by crafting API requests with oversized bodies, causing the Docker daemon to forward the request without the body to the plugin, potentially leading to unauthorized actions.
 date: "2026-03-27T17:44:58Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

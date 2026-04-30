@@ -5,6 +5,9 @@ description: The use of command-line tools like ping.exe or arp.exe with obfusca
 date: "2024-01-03T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - reconnaissance
   - evasion

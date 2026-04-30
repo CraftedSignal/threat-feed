@@ -5,6 +5,9 @@ description: A use-after-free vulnerability in Google Chrome's FedCM component (
 date: "2026-03-24T01:17:03Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-4680
   - use-after-free

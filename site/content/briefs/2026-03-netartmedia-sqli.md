@@ -3,9 +3,9 @@ title: Netartmedia Vlog System SQL Injection Vulnerability
 slug: 2026-03-netartmedia-sqli
 description: Netartmedia Vlog System is vulnerable to SQL injection, allowing unauthenticated attackers to manipulate database queries by injecting SQL code through the email parameter in the forgotten_password module.
 date: "2026-03-24T12:16:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

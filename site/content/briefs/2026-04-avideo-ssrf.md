@@ -5,6 +5,9 @@ description: WWBN AVideo is vulnerable to Server-Side Request Forgery (SSRF) due
 date: "2026-04-08T00:08:47Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - avideo

@@ -5,6 +5,9 @@ description: WWBN AVideo versions prior to 26.0 are vulnerable to a credential a
 date: "2026-03-23T14:16:33Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-33297
   - credential-access

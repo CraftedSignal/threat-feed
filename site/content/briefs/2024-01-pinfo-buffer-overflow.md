@@ -3,9 +3,9 @@ title: PInfo 0.6.9-5.1 Local Buffer Overflow Vulnerability
 slug: 2024-01-pinfo-buffer-overflow
 description: PInfo version 0.6.9-5.1 is susceptible to a local buffer overflow vulnerability, enabling local attackers to execute arbitrary code by providing an overly large argument to the '-m' parameter, ultimately allowing for shellcode execution with user privileges.
 date: "2026-03-28T12:16:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

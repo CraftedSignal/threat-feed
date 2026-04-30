@@ -5,6 +5,9 @@ description: A phishing technique, potentially still viable due to incomplete pa
 date: "2026-03-18T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - credential-access
   - netntlm

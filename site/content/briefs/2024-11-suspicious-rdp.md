@@ -3,9 +3,9 @@ title: Suspicious RDP File Execution
 slug: 2024-11-suspicious-rdp
 description: This rule identifies attempts to open a remote desktop file from suspicious paths, indicative of adversaries abusing RDP files for initial access via phishing.
 date: "2026-04-20T21:38:09Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -5,6 +5,9 @@ description: An unauthenticated, remote attacker can exploit an out-of-bounds wr
 date: "2026-03-24T06:16:22Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - out-of-bounds write

@@ -3,9 +3,9 @@ title: Okta End-User Reports Suspicious Account Activity
 slug: 2024-01-17-okta-suspicious-activity
 description: An Okta end-user reports potentially suspicious activity on their account, indicating possible compromise or unauthorized access.
 date: "2024-01-17T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

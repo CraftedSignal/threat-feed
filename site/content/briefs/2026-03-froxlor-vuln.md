@@ -3,9 +3,9 @@ title: Froxlor Vulnerability Allows File Manipulation and Information Disclosure
 slug: 2026-03-froxlor-vuln
 description: A vulnerability in Froxlor allows an attacker to manipulate files and disclose sensitive information, potentially leading to data breaches or system compromise.
 date: "2026-03-25T09:46:08Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

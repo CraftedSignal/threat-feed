@@ -3,9 +3,9 @@ title: GStreamer Multiple Vulnerabilities Allow for Remote Code Execution and De
 slug: 2024-05-gstreamer-multiple-vulnerabilities
 description: Multiple vulnerabilities in GStreamer allow a remote, anonymous attacker to cause a denial-of-service condition or execute arbitrary code.
 date: "2024-05-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

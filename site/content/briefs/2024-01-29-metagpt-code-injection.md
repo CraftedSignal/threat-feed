@@ -5,6 +5,9 @@ description: A code injection vulnerability exists in FoundationAgents MetaGPT <
 date: "2026-04-09T18:17:04Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - code-injection
   - vulnerability

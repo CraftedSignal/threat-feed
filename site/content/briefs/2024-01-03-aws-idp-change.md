@@ -3,9 +3,9 @@ title: AWS Identity Center Identity Provider Modification
 slug: 2024-01-03-aws-idp-change
 description: An adversary modifies the AWS Identity Center identity provider configuration, potentially leading to persistent access and privilege escalation through user impersonation.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

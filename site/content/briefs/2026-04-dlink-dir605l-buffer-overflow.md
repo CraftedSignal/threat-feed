@@ -5,6 +5,9 @@ description: A buffer overflow vulnerability exists in the D-Link DIR-605L route
 date: "2026-04-09T21:16:14Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - buffer_overflow

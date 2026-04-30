@@ -5,6 +5,9 @@ description: baserCMS versions prior to 5.2.3 are vulnerable to OS command injec
 date: "2026-03-31T01:19:59Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-21861
   - command-injection

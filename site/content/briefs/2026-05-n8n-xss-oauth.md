@@ -3,9 +3,9 @@ title: n8n MCP OAuth Client XSS Vulnerability
 slug: 2026-05-n8n-xss-oauth
 description: n8n is vulnerable to cross-site scripting (XSS) via a malicious MCP OAuth client, allowing an unauthenticated attacker to inject arbitrary JavaScript into an authenticated user's session.
 date: "2026-04-29T21:25:44Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

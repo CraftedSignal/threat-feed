@@ -3,9 +3,9 @@ title: Unsecured Outlook Credentials Access in Windows Registry
 slug: 2024-01-unsecured-outlook-credentials-access
 description: An attacker attempts to access unsecured Outlook credentials stored in the Windows registry, potentially leading to unauthorized access to email accounts and sensitive information.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

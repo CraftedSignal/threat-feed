@@ -5,6 +5,9 @@ description: A command injection vulnerability exists in Foreman's WebSocket pro
 date: "2026-03-26T13:16:27Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - rce

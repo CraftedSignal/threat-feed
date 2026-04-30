@@ -3,9 +3,9 @@ title: High Variance in RDP Session Duration Detected via Machine Learning
 slug: 2024-01-high-rdp-variance
 description: A machine learning job has detected unusually high variance of RDP session duration, potentially indicating lateral movement and session persistence by threat actors.
 date: "2024-01-02T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

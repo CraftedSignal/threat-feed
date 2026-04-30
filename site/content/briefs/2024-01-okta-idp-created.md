@@ -3,9 +3,9 @@ title: Okta Identity Provider Creation Detected
 slug: 2024-01-okta-idp-created
 description: An adversary may create a rogue identity provider within Okta to establish persistence and potentially escalate privileges by impersonating legitimate users or bypassing multi-factor authentication.
 date: "2024-01-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

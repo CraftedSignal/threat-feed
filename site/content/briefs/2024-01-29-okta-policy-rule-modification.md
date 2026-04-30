@@ -3,9 +3,9 @@ title: Okta Policy Rule Modification or Deletion
 slug: 2024-01-29-okta-policy-rule-modification
 description: An Okta policy rule was modified or deleted, potentially weakening security controls.
 date: "2024-01-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

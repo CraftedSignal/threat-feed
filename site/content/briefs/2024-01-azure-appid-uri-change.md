@@ -3,9 +3,9 @@ title: Detect Application AppID URI Configuration Changes in Azure
 slug: 2024-01-azure-appid-uri-change
 description: Detection of configuration changes to an application's AppID URI in Azure, potentially indicating malicious activity related to initial access, persistence, credential access, privilege escalation, or stealth.
 date: "2024-01-03T17:24:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

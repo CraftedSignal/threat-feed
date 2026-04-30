@@ -3,9 +3,9 @@ title: Okta FastPass Phishing Attempt Detection
 slug: 2024-01-okta-fastpass-phishing
 description: Okta FastPass detected and prevented a phishing attempt, indicating a user was likely targeted with a credential harvesting attack.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: A code injection vulnerability exists in PowerJob versions 5.1.0, 5
 date: "2026-04-07T20:16:34Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - code-injection
   - powerjob

@@ -3,9 +3,9 @@ title: Azure AD Account Created and Deleted Within a Close Time Frame
 slug: 2024-01-azure-short-lived-account
 description: Detection of Azure Active Directory accounts that are created and deleted within a short timeframe, potentially indicating malicious activity such as privilege escalation or persistence attempts.
 date: "2024-01-02T15:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

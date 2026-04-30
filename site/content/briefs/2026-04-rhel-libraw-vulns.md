@@ -3,9 +3,9 @@ title: Red Hat Enterprise Linux LibRaw Multiple Vulnerabilities Allow Code Execu
 slug: 2026-04-rhel-libraw-vulns
 description: Multiple vulnerabilities in Red Hat Enterprise Linux's LibRaw component allow a remote attacker to execute arbitrary code or cause a denial-of-service condition.
 date: "2026-04-29T09:54:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

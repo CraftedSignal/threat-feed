@@ -3,9 +3,9 @@ title: PowerShell Execution via Environment Variables
 slug: 2024-01-powershell-env-var-execution
 description: Adversaries use PowerShell to execute malicious code stored in environment variables, leveraging Invoke-Expression or its aliases to bypass static analysis and execute payloads dynamically, as seen in malware loaders and stagers like the VIP Keylogger.
 date: "2024-01-03T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

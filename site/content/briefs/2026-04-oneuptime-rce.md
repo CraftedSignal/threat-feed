@@ -5,6 +5,9 @@ description: OneUptime versions prior to 10.0.42 are vulnerable to unauthenticat
 date: "2026-04-02T19:21:33Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - cve
   - vulnerability

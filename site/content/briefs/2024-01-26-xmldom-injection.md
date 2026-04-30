@@ -3,9 +3,9 @@ title: xmldom XML Node Injection via Comment Serialization
 slug: 2024-01-26-xmldom-injection
 description: The xmldom library is vulnerable to XML node injection, allowing attackers to inject arbitrary XML nodes into serialized output by manipulating comment content; this is mitigated by using the `requireWellFormed` option in `serializeToString` after upgrading to version 0.8.13 or 0.9.10.
 date: "2024-01-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

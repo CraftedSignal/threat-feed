@@ -5,6 +5,9 @@ description: An Improper Restriction of Operations within the Bounds of a Memory
 date: "2026-03-24T06:16:22Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-33851
   - buffer-overflow

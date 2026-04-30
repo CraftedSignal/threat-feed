@@ -3,9 +3,9 @@ title: Unused Privileged Identity Management (PIM) Roles in Azure
 slug: 2024-01-azure-pim-role-not-used
 description: Detection of assigned but unused privileged roles in Azure's Privileged Identity Management (PIM) service, indicating potential misconfiguration, license overuse, or dormant privileged access that could be exploited.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -5,6 +5,9 @@ description: CVE-2026-35022 describes an OS command injection vulnerability in t
 date: "2026-04-06T20:16:25Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - command-injection
   - cve-2026-35022

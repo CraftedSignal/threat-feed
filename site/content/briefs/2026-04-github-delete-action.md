@@ -3,9 +3,9 @@ title: Detection of Github Delete Actions in Audit Logs
 slug: 2026-04-github-delete-action
 description: This brief focuses on detecting deletion actions within GitHub audit logs, specifically targeting the deletion of codespaces, environments, projects, and repositories, potentially indicating malicious activity or insider threats.
 date: "2026-04-28T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

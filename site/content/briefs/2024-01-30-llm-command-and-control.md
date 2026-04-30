@@ -3,9 +3,9 @@ title: Suspicious Processes Connecting to Large Language Model Endpoints
 slug: 2024-01-30-llm-command-and-control
 description: This rule detects DNS queries to known Large Language Model (LLM) domains by unsigned binaries or common Windows scripting utilities, indicating potential command and control activity leveraging LLMs for dynamic actions on compromised systems.
 date: "2026-04-22T16:34:10Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

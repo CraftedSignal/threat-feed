@@ -5,6 +5,9 @@ description: The Everest Forms plugin for WordPress is vulnerable to PHP Object 
 date: "2026-04-08T02:16:04Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - wordpress
   - php

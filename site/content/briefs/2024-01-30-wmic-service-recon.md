@@ -3,9 +3,9 @@ title: Service Reconnaissance via WMIC.exe
 slug: 2024-01-30-wmic-service-recon
 description: Adversaries use WMIC.exe to enumerate running services on remote devices, potentially identifying valuable targets or misconfigured systems.
 date: "2024-01-30T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

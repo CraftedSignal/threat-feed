@@ -3,9 +3,9 @@ title: Copeland XWEB and XWEB Pro Multiple Vulnerabilities
 slug: 2026-02-copeland-xweb-vulns
 description: Multiple vulnerabilities in Copeland XWEB and XWEB Pro versions 1.12.1 and earlier could allow attackers to bypass authentication, inject commands, and execute arbitrary code, leading to complete system compromise.
 date: "2026-02-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

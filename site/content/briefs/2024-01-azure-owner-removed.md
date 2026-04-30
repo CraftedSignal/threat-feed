@@ -3,9 +3,9 @@ title: Azure Owner Removed from Application or Service Principal
 slug: 2024-01-azure-owner-removed
 description: An adversary may remove an owner from an Azure application or service principal to weaken access controls, persist in the environment, or escalate privileges.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

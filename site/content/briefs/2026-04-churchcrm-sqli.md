@@ -5,6 +5,9 @@ description: ChurchCRM versions prior to 7.1.0 are vulnerable to SQL injection v
 date: "2026-04-07T16:16:29Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-35567
   - sql-injection

@@ -5,6 +5,9 @@ description: Adversaries delete critical scheduled tasks, such as those related 
 date: "2024-01-03T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - attack.impact
   - attack.t1489

@@ -5,6 +5,9 @@ description: The fast-jwt library is vulnerable to JWT Algorithm Confusion via W
 date: "2026-04-03T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - jwt
   - algorithm-confusion

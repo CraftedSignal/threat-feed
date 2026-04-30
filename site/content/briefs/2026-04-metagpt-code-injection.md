@@ -5,6 +5,9 @@ description: A code injection vulnerability, CVE-2026-5970, exists in Foundation
 date: "2026-04-09T18:17:04Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - code-injection
   - metagpt

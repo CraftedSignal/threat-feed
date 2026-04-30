@@ -3,9 +3,9 @@ title: Suspicious Child Processes Spawned by WScript or CScript
 slug: 2024-01-03-wscript-cscript-suspicious-child-process
 description: Detects suspicious processes spawned by WScript or CScript, a common technique used by adversaries to execute LOLBINs, PowerShell, or inject code into suspended processes for defense evasion.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

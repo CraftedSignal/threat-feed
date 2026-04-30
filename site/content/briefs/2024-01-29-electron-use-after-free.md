@@ -3,9 +3,9 @@ title: Electron Use-After-Free Vulnerability in PowerMonitor Module
 slug: 2024-01-29-electron-use-after-free
 description: A use-after-free vulnerability exists in the `powerMonitor` module of Electron applications on Windows and macOS. When the native `PowerMonitor` object is garbage-collected, dangling references are retained by OS-level resources. Subsequent session-change events on Windows or system shutdowns on macOS may dereference freed memory, potentially leading to a crash or memory corruption.
 date: "2026-04-03T02:39:52Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

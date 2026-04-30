@@ -5,6 +5,9 @@ description: A code injection vulnerability exists in provectus kafka-ui up to v
 date: "2026-04-05T11:16:56Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - code-injection
   - kafka-ui

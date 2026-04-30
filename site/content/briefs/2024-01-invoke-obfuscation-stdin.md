@@ -5,6 +5,9 @@ description: This brief outlines detection strategies for adversaries leveraging
 date: "2024-01-03T15:30:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - defense-evasion
   - obfuscation

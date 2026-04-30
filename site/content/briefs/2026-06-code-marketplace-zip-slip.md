@@ -3,9 +3,9 @@ title: Coder Code-Marketplace Zip Slip Vulnerability
 slug: 2026-06-code-marketplace-zip-slip
 description: A Zip Slip vulnerability in coder/code-marketplace allows authenticated users to upload malicious VSIX files containing path traversal entries, leading to arbitrary file writes outside the extension directory and potentially enabling persistence.
 date: "2026-04-04T06:29:50Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

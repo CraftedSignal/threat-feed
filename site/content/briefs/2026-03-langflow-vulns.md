@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Langflow Allow for Arbitrary Code Execution a
 slug: 2026-03-langflow-vulns
 description: Multiple vulnerabilities in Langflow could be exploited by an attacker to execute arbitrary program code, disclose information, and potentially manipulate data, leading to potential system compromise.
 date: "2026-03-25T09:46:08Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

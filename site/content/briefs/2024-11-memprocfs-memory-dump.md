@@ -3,9 +3,9 @@ title: MemProcFS Usage for Memory Dump Mounting and Credential Access
 slug: 2024-11-memprocfs-memory-dump
 description: Adversaries use MemProcFS, a memory forensics tool, to mount memory dumps as virtual file systems and extract sensitive information like credentials from LSASS or registry hives.
 date: "2024-11-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

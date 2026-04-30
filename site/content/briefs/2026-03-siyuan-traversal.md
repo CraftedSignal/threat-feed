@@ -3,9 +3,9 @@ title: SiYuan Note Taking Application Directory Traversal Vulnerability
 slug: 2026-03-siyuan-traversal
 description: SiYuan note taking application is vulnerable to a directory traversal via the /api/file/readDir endpoint, which does not require authentication, allowing an attacker to enumerate the directory structure and retrieve file names, potentially leading to arbitrary document reading.
 date: "2026-03-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

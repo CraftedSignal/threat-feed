@@ -3,9 +3,9 @@ title: Unusual Spike in Okta User Lifecycle Management Change Events
 slug: 2024-11-okta-user-lifecycle-spike
 description: A machine learning job has identified an unusual spike in Okta user lifecycle management change events, indicating potential privileged access activity where threat actors may manipulate user accounts to gain higher access rights or persist within the environment.
 date: "2024-11-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

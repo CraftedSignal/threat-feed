@@ -5,6 +5,9 @@ description: A memory exhaustion vulnerability (CVE-2026-33155) exists in a wide
 date: "2026-03-19T17:46:05Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - memory-exhaustion
   - vulnerability

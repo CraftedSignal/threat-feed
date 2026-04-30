@@ -3,9 +3,9 @@ title: OpenClaw RCE via Build Tool Environment Variable Injection
 slug: 2024-01-09-openclaw-rce
 description: OpenClaw versions prior to 2026.4.8 are vulnerable to remote code execution (RCE) via build tool environment variable injection due to missing denylist entries for HGRCPATH, CARGO_BUILD_RUSTC_WRAPPER, RUSTC_WRAPPER, and MAKEFLAGS, allowing hostile environment variables to influence host exec commands.
 date: "2026-04-09T14:22:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

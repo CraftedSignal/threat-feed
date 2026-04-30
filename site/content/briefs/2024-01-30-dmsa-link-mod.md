@@ -3,9 +3,9 @@ title: Potential Abuse of msDS-ManagedAccountPrecededByLink for Privilege Escala
 slug: 2024-01-30-dmsa-link-mod
 description: Detection of PowerShell scripts modifying the msDS-ManagedAccountPrecededByLink attribute, potentially indicating exploitation of the BadSuccessor privilege escalation vulnerability in Windows Server 2025.
 date: "2026-03-30T10:27:13Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

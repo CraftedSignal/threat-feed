@@ -3,9 +3,9 @@ title: AWS SSM Command Document Created by Rare User
 slug: 2024-11-aws-ssm-rare-user
 description: An AWS Systems Manager (SSM) command document creation by a user or role who does not typically perform this action, which can lead to unauthorized access, command and control, or data exfiltration.
 date: "2026-04-10T16:27:52Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

@@ -3,9 +3,9 @@ title: OpenClaw Credential Exposure via Leaked Pairing Codes
 slug: 2026-03-openclaw-credential-exposure
 description: OpenClaw before 2026.3.12 embeds long-lived shared gateway credentials in pairing setup codes, allowing attackers with access to leaked codes to reuse credentials and gain unauthorized access.
 date: "2026-03-29T13:17:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

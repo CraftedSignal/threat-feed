@@ -3,9 +3,9 @@ title: NICKEL ALLEY Targeting Developers with Fake Job Opportunities
 slug: 2026-05-nickel-alley
 description: NICKEL ALLEY, a North Korean threat group, is targeting technology professionals with fake job opportunities and malicious code repositories to deliver malware like PyLangGhost RAT and BeaverTail, aiming to steal cryptocurrency.
 date: "2026-03-25T10:25:17Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

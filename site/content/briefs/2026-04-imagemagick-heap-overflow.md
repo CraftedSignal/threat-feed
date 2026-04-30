@@ -5,6 +5,9 @@ description: ImageMagick versions before 7.1.2-19 and 6.9.13-44 are vulnerable t
 date: "2026-04-13T21:16:25Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - imagemagick
   - heap-buffer-overflow

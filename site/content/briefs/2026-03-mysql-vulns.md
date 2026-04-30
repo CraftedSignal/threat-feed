@@ -3,9 +3,9 @@ title: Oracle MySQL Multiple Vulnerabilities
 slug: 2026-03-mysql-vulns
 description: A remote attacker, either anonymous or authenticated, can exploit multiple vulnerabilities in Oracle MySQL to compromise confidentiality, integrity, and availability.
 date: "2026-03-24T12:40:50Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

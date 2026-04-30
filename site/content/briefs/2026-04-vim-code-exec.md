@@ -3,9 +3,9 @@ title: Vim Vulnerability Allows Local Code Execution
 slug: 2026-04-vim-code-exec
 description: A local attacker can exploit a vulnerability in Vim to execute arbitrary code on a vulnerable system.
 date: "2026-04-09T08:09:38Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

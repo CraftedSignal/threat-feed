@@ -3,9 +3,9 @@ title: rust-openssl AES Key Wrap Out-of-Bounds Write Vulnerability
 slug: 2024-01-openssl-oob-write
 description: The rust-openssl package is vulnerable to an out-of-bounds write due to an incorrect bounds assertion in the `aes::unwrap_key()` function, potentially leading to arbitrary code execution if attacker-controlled buffer sizes are permitted.
 date: "2024-01-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

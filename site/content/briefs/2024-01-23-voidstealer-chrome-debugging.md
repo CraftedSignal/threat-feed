@@ -3,9 +3,9 @@ title: VoidStealer Steals Secrets by Debugging Chrome
 slug: 2024-01-23-voidstealer-chrome-debugging
 description: VoidStealer leverages Chrome debugging capabilities to extract sensitive information, such as credentials and session cookies, directly from the browser's memory.
 date: "2026-03-20T05:48:21Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

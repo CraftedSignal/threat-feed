@@ -3,9 +3,9 @@ title: Asterisk and Digium Certified Asterisk Vulnerabilities
 slug: 2024-05-asterisk-vulns
 description: An authenticated remote attacker can exploit vulnerabilities in Asterisk and Digium Certified Asterisk to achieve arbitrary code execution, denial of service, or information disclosure.
 date: "2026-03-25T10:21:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

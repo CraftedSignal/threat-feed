@@ -3,9 +3,9 @@ title: EChat Server 3.1 Buffer Overflow Vulnerability in chat.ghp Endpoint
 slug: 2026-03-echat-buffer-overflow
 description: EChat Server 3.1 is vulnerable to a buffer overflow in the chat.ghp endpoint, allowing remote attackers to execute arbitrary code by sending a crafted GET request with an oversized username parameter.
 date: "2026-03-28T12:16:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

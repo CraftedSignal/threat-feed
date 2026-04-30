@@ -5,6 +5,9 @@ description: OpenProject versions before 17.2.3 are susceptible to SQL injection
 date: "2026-04-02T18:16:33Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - openproject
   - sqli

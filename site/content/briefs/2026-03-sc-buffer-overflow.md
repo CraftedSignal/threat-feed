@@ -5,6 +5,9 @@ description: SC v7.16 is vulnerable to a stack-based buffer overflow, allowing l
 date: "2026-03-28T12:16:02Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - buffer-overflow
   - code-execution

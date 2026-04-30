@@ -5,6 +5,9 @@ description: This threat involves the suspicious copying of files from or to Win
 date: "2024-01-03T12:00:00Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - defense-evasion
   - lolbin

@@ -5,6 +5,9 @@ description: A SQL injection vulnerability (CVE-2026-5575) exists in the Login c
 date: "2026-04-05T15:16:43Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - cve-2026-5575

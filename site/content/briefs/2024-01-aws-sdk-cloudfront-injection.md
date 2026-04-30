@@ -3,9 +3,9 @@ title: AWS SDK for PHP CloudFront Policy Document Injection via Special Characte
 slug: 2024-01-aws-sdk-cloudfront-injection
 description: A vulnerability exists in the AWS SDK for PHP CloudFront signing utilities where special characters in input values are not properly handled when creating policy documents, potentially leading to unintended access restrictions, affecting versions 3.11.7 through 3.371.3.
 date: "2026-03-27T19:54:58Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

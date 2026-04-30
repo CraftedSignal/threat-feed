@@ -3,9 +3,9 @@ title: AWS S3 Rapid Bucket Posture API Calls Indicate Reconnaissance
 slug: 2026-04-aws-s3-reconnaissance
 description: An AWS principal rapidly enumerates S3 bucket configurations using read-only APIs, potentially indicating reconnaissance activity by security scanners, CSPM tools, or malicious actors performing post-compromise enumeration.
 date: "2026-04-11T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

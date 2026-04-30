@@ -5,6 +5,9 @@ description: CVE-2026-4687 is a sandbox escape vulnerability in Firefox and Thun
 date: "2026-03-24T13:16:04Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - sandbox-escape
   - firefox

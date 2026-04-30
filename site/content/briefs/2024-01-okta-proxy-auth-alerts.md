@@ -3,9 +3,9 @@ title: Okta Alerts Following Unusual Proxy Authentication
 slug: 2024-01-okta-proxy-auth-alerts
 description: Attackers use proxy infrastructure to mask their origin when using stolen Okta credentials, and this rule correlates the first occurrence of an Okta user session started via a proxy with subsequent Okta security alerts for the same user.
 date: "2024-01-03T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

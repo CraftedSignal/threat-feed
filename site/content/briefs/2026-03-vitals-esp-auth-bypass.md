@@ -5,6 +5,9 @@ description: Vitals ESP developed by Galaxy Software Services suffers from a mis
 date: "2026-03-24T05:16:25Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4640
   - missing-authentication

@@ -3,9 +3,9 @@ title: Fileless Multi-Stage Remcos RAT via Phishing
 slug: 2024-01-remcos-fileless
 description: A fileless multi-stage Remcos RAT is delivered via phishing, achieving memory-resident execution, but specific technical details are not provided in this brief.
 date: "2026-03-15T15:34:12Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

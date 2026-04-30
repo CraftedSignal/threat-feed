@@ -3,9 +3,9 @@ title: Paperclip codex_local Unauthorized Gmail Access
 slug: 2024-02-paperclip-gmail-access
 description: A Paperclip-managed `codex_local` runtime can access and utilize Gmail connectors connected in the ChatGPT/OpenAI apps UI without explicit Paperclip configuration, allowing unauthorized mailbox access and email sending capabilities due to a trust-boundary failure and dangerous default runtime settings.
 date: "2026-04-16T22:47:40Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

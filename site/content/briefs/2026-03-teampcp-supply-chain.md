@@ -3,9 +3,9 @@ title: TeamPCP Supply Chain Attack via CI/CD Compromise
 slug: 2026-03-teampcp-supply-chain
 description: TeamPCP compromised CI/CD pipelines and GitHub accounts of multiple companies by deploying an infostealer to extract credentials from CI environments, .env files, and cloud tokens, impacting projects like Trivy, KICS, and LiteLLM.
 date: "2026-03-26T12:00:00Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

@@ -3,9 +3,9 @@ title: Vulnerabilities Disclosed in IP KVM Devices from Multiple Vendors
 slug: 2026-03-ip-kvm-vulns
 description: Researchers have disclosed unspecified vulnerabilities in IP KVM devices from four manufacturers, potentially allowing attackers to gain unauthorized access to connected systems.
 date: "2026-03-19T17:26:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

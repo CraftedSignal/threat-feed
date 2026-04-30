@@ -3,9 +3,9 @@ title: Kyverno Service Account Token Leak via API Call
 slug: 2026-04-kyverno-token-leak
 description: Kyverno's apiCall serviceCall helper implicitly injects the Kyverno controller service account token into requests when policies lack an explicit Authorization header, allowing exfiltration to attacker-controlled endpoints and unauthorized actions.
 date: "2026-04-14T20:09:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

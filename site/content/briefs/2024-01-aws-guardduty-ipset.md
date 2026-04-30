@@ -3,9 +3,9 @@ title: AWS GuardDuty IP Set Manipulation for Defense Impairment
 slug: 2024-01-aws-guardduty-ipset
 description: An attacker modifies AWS GuardDuty IP sets, potentially whitelisting malicious IPs to disable security alerts and impair defenses.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

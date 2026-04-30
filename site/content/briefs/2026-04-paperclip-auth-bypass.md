@@ -3,9 +3,9 @@ title: Paperclip Unauthenticated API Access Vulnerability
 slug: 2026-04-paperclip-auth-bypass
 description: Paperclip application suffers from multiple unauthenticated API access vulnerabilities allowing attackers to access sensitive data, gather reconnaissance, and potentially bypass authentication.
 date: "2026-04-17T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

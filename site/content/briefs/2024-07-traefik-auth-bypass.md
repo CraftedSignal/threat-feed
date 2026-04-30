@@ -3,9 +3,9 @@ title: Traefik ForwardAuth Authentication Bypass via X-Forwarded-Prefix Spoofing
 slug: 2024-07-traefik-auth-bypass
 description: A high-severity authentication bypass vulnerability exists in Traefik's `ForwardAuth` middleware when `trustForwardHeader=false` is configured and Traefik is deployed behind a trusted upstream proxy; Traefik fails to sanitize the `X-Forwarded-Prefix` header, allowing attackers to spoof a trusted prefix value and gain unauthorized access to protected backend routes.
 date: "2024-07-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

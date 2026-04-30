@@ -5,6 +5,9 @@ description: A remote, unauthenticated attacker can bypass authentication on Tot
 date: "2026-04-06T19:16:30Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-5676
   - authentication-bypass

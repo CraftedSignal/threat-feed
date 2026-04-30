@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Red Hat Enterprise Linux Fast Datapath
 slug: 2026-05-redhat-fast-datapath-vulns
 description: A remote, anonymous attacker can exploit multiple vulnerabilities in Fast Datapath for Red Hat Enterprise Linux to perform a denial-of-service attack or disclose sensitive information.
 date: "2026-04-30T09:57:14Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

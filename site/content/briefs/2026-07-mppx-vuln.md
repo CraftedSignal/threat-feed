@@ -5,6 +5,9 @@ description: A vulnerability exists in mppx TypeScript interface before version 
 date: "2026-03-31T15:21:06Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - vulnerability
   - payment-channel

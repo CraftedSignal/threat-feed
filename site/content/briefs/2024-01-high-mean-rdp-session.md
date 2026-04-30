@@ -3,9 +3,9 @@ title: Unusually High Mean of RDP Session Duration Detected by Machine Learning
 slug: 2024-01-high-mean-rdp-session
 description: A machine learning job detected an unusually high mean of RDP session duration, indicative of potential lateral movement or persistent access attempts by adversaries abusing RDP.
 date: "2024-01-24T18:10:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

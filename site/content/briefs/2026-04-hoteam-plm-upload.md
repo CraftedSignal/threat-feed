@@ -5,6 +5,9 @@ description: CVE-2026-5261 is an unrestricted file upload vulnerability in Shand
 date: "2026-04-01T09:16:17Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-5261
   - unrestricted-upload

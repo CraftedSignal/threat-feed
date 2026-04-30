@@ -5,6 +5,9 @@ description: A remote attacker can trigger an out-of-bounds memory read in Googl
 date: "2026-03-24T01:17:03Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - cve-2026-4677
   - chrome

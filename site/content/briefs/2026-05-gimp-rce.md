@@ -3,9 +3,9 @@ title: GIMP Multiple Vulnerabilities Allow Remote Code Execution
 slug: 2026-05-gimp-rce
 description: A remote, anonymous attacker can exploit multiple unspecified vulnerabilities in GIMP to achieve arbitrary code execution on a vulnerable system.
 date: "2026-04-30T09:18:57Z"
-type: threat
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - critical
 tags:

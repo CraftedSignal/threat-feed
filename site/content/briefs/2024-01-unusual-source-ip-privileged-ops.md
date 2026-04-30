@@ -3,9 +3,9 @@ title: Unusual Source IP for Windows Privileged Operations Detected via ML
 slug: 2024-01-unusual-source-ip-privileged-ops
 description: A machine learning job detected a user performing privileged operations in Windows from an uncommon source IP, potentially indicating account compromise or privilege escalation.
 date: "2024-01-02T15:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

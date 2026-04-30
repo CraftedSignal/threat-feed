@@ -5,6 +5,9 @@ description: OpenClaw before 2026.3.11 is vulnerable to privilege escalation in 
 date: "2026-03-29T13:17:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - privilege-escalation
   - remote-code-execution

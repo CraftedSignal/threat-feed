@@ -5,6 +5,9 @@ description: SciTokens versions prior to 1.9.6 incorrectly validate scope paths 
 date: "2026-03-31T03:17:16Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - authorization-bypass
   - scitokens

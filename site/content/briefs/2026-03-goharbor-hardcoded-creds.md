@@ -3,9 +3,9 @@ title: GoHarbor Harbor v2.15.0 and Below Vulnerable to Hardcoded Credentials
 slug: 2026-03-goharbor-hardcoded-creds
 description: GoHarbor Harbor version 2.15.0 and below is vulnerable to the use of hard-coded credentials, allowing an attacker to use the default password and gain unauthorized access to the web UI.
 date: "2026-03-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

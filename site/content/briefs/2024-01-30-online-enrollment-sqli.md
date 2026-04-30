@@ -3,9 +3,9 @@ title: SQL Injection Vulnerability in itsourcecode Online Enrollment System 1.0
 slug: 2024-01-30-online-enrollment-sqli
 description: A remote SQL injection vulnerability exists in itsourcecode Online Enrollment System 1.0 within the Parameter Handler component affecting the `/sms/grades/index.php` file, allowing unauthorized database access and has been publicly disclosed.
 date: "2026-03-26T05:16:41Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

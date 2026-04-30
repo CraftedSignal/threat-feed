@@ -3,9 +3,9 @@ title: OpenBao OIDC Direct Callback Authentication Bypass Vulnerability
 slug: 2026-04-17-openbao-oidc-bypass
 description: OpenBao versions before 2.5.2 lack user confirmation for OIDC direct callback mode, allowing attackers to perform remote phishing and bypass authentication.
 date: "2026-03-26T18:33:37Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

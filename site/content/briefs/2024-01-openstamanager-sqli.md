@@ -3,9 +3,9 @@ title: OpenSTAManager Time-Based Blind SQL Injection Vulnerability
 slug: 2024-01-openstamanager-sqli
 description: OpenSTAManager versions before 2.10.2 are susceptible to time-based blind SQL injection via the 'options[stato]' GET parameter, allowing authenticated attackers to extract sensitive database information.
 date: "2026-04-02T14:16:26Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

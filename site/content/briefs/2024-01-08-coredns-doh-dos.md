@@ -3,9 +3,9 @@ title: CoreDNS DoH GET Query Denial-of-Service
 slug: 2024-01-08-coredns-doh-dos
 description: CoreDNS is vulnerable to a denial-of-service attack where processing oversized DNS-over-HTTPS GET requests exhausts resources prior to returning an error.
 date: "2024-01-08T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

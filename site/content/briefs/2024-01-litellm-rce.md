@@ -3,9 +3,9 @@ title: LiteLLM Authenticated Command Execution via MCP stdio Test Endpoints
 slug: 2024-01-litellm-rce
 description: Authenticated users with low-privilege API keys could execute arbitrary commands on the host running LiteLLM via the `/mcp-rest/test/connection` and `/mcp-rest/test/tools/list` endpoints, by submitting a server configuration including command execution parameters.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

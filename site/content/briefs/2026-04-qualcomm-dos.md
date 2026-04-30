@@ -5,6 +5,9 @@ description: CVE-2026-21367 describes a transient denial-of-service vulnerabilit
 date: "2026-04-06T16:16:29Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - dos
   - qualcomm

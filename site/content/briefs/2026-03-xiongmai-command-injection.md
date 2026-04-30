@@ -5,6 +5,9 @@ description: Xiongmai DVR/NVR devices are vulnerable to root OS command injectio
 date: "2026-03-29T17:16:44Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - CVE-2026-34005
   - command-injection

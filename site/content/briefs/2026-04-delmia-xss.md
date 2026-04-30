@@ -5,6 +5,9 @@ description: A stored cross-site scripting (XSS) vulnerability in DELMIA Factory
 date: "2026-03-31T09:18:30Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - xss
   - vulnerability

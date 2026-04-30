@@ -3,9 +3,9 @@ title: CrowdStrike CNAPP Enhancements Prioritize Risk Based on Adversary Behavio
 slug: 2026-03-cnapp-adversary-prioritization
 description: CrowdStrike's CNAPP enhancements prioritize cloud risk based on adversary behavior, correlating application insights with cloud infrastructure telemetry to identify and address critical exposures targeted by specific threat actors like LABYRINTH CHOLLIMA and SCATTERED SPIDER.
 date: "2026-03-29T07:19:13Z"
-type: coverage
+type: threat
 types:
-  - coverage
+  - threat
 severities:
   - high
 actors:

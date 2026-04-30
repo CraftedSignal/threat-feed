@@ -3,9 +3,9 @@ title: Citrix NetScaler ADC and Gateway Vulnerabilities
 slug: 2026-03-citrix-netscaler-vulns
 description: Citrix has released a security advisory addressing multiple vulnerabilities in NetScaler ADC and NetScaler Gateway that could lead to sensitive information disclosure and user session mix-up under specific configurations.
 date: "2026-03-23T19:03:59Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

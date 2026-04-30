@@ -3,9 +3,9 @@ title: OpenEMR Missing Authorization Allows Unauthorized Data Deletion
 slug: 2026-03-openemr-auth-bypass
 description: OpenEMR versions before 8.0.0.3 contain a missing authorization vulnerability in the AJAX deletion endpoint that allows any authenticated user to delete patient data.
 date: "2026-03-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

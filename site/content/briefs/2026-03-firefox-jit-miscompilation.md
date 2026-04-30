@@ -5,6 +5,9 @@ description: A critical JIT miscompilation vulnerability (CVE-2026-4698) in the 
 date: "2026-03-24T13:16:05Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - firefox
   - thunderbird

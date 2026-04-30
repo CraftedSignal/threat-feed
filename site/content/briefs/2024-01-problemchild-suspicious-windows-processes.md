@@ -3,9 +3,9 @@ title: ProblemChild ML Detection of Suspicious Windows Processes
 slug: 2024-01-problemchild-suspicious-windows-processes
 description: The ProblemChild machine learning model has detected a user with suspicious Windows processes exhibiting unusually high malicious probability scores, potentially indicating defense evasion via masquerading or LOLbins.
 date: "2024-01-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

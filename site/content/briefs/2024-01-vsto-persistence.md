@@ -3,9 +3,9 @@ title: Persistence via Visual Studio Tools for Office (VSTO) Add-ins
 slug: 2024-01-vsto-persistence
 description: The Visual Studio Tools for Office (VSTO) add-ins can be abused by attackers to establish persistence in Microsoft Office applications by modifying registry keys.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

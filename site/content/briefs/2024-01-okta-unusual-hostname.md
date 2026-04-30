@@ -3,9 +3,9 @@ title: Okta Privileged Operations from Unusual Host Name Detected
 slug: 2024-01-okta-unusual-hostname
 description: A machine learning job detected a user performing privileged operations in Okta from an uncommon device, potentially indicating a compromised account or insider threat attempting privilege escalation.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - low
 tags:

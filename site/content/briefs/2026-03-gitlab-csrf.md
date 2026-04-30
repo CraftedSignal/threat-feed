@@ -5,6 +5,9 @@ description: CVE-2026-3857 describes a vulnerability in GitLab CE/EE versions 17
 date: "2026-03-26T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - gitlab
   - csrf

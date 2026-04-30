@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Vim Allow Local Code Execution and DoS
 slug: 2026-03-vim-vulns
 description: Multiple vulnerabilities in vim allow a local attacker to execute arbitrary code, cause a denial-of-service condition, or manipulate data.
 date: "2026-03-25T09:50:50Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

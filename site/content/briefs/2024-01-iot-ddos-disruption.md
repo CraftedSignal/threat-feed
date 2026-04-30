@@ -3,9 +3,9 @@ title: Disruption of Large IoT DDoS Botnets
 slug: 2024-01-iot-ddos-disruption
 description: Law enforcement has disrupted significant IoT botnets responsible for launching record-breaking distributed denial-of-service (DDoS) attacks, impacting the availability of targeted systems.
 date: "2026-03-20T05:50:09Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: Chamilo LMS versions prior to 2.0.0-RC.3 are vulnerable to remote c
 date: "2026-04-11T12:00:00Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - chamilo
   - rce

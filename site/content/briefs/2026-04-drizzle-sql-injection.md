@@ -5,6 +5,9 @@ description: Drizzle ORM versions before 0.45.2 and 1.0.0-beta.20 are vulnerable
 date: "2026-04-08T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - drizzle-orm

@@ -5,6 +5,9 @@ description: OpenSSH versions before 10.3 allow for the potential installation o
 date: "2026-04-02T17:16:27Z"
 severities:
   - medium
+type: advisory
+types:
+  - advisory
 tags:
   - openssh
   - scp

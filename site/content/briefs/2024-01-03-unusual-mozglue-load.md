@@ -3,9 +3,9 @@ title: Unusual Process Loading Mozilla NSS/Mozglue Module
 slug: 2024-01-03-unusual-mozglue-load
 description: Detection of processes loading Mozilla NSS/Mozglue libraries (mozglue.dll, nss3.dll) outside of known Mozilla applications, potentially indicating malware or unauthorized activity.
 date: "2024-01-03T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -5,6 +5,9 @@ description: A remote SQL injection vulnerability, CVE-2026-5736, exists in Powe
 date: "2026-04-07T19:16:48Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - sql-injection
   - vulnerability

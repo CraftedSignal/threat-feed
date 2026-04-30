@@ -3,9 +3,9 @@ title: xmldom Uncontrolled Recursion DoS Vulnerability
 slug: 2026-04-xmldom-dos
 description: The xmldom library is vulnerable to a denial-of-service (DoS) attack due to uncontrolled recursion in XML serialization leading to application crashes.
 date: "2026-04-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

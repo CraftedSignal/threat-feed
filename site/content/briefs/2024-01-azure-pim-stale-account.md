@@ -3,9 +3,9 @@ title: Azure PIM Account Stale Sign-in Alert
 slug: 2024-01-azure-pim-stale-account
 description: Detection of stale accounts in Azure Privileged Identity Management (PIM) through the 'staleSignInAlertIncident' event, indicating potential compromised or unused privileged accounts.
 date: "2024-01-03T18:42:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

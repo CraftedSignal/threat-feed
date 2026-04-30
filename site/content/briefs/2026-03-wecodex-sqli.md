@@ -3,9 +3,9 @@ title: Wecodex Hotel CMS 1.0 SQL Injection Vulnerability
 slug: 2026-03-wecodex-sqli
 description: Wecodex Hotel CMS 1.0 is vulnerable to SQL injection in the admin login functionality, allowing unauthenticated attackers to bypass authentication and potentially extract sensitive database information or gain administrative access by injecting SQL code through the username parameter in POST requests to index.php with action=processlogin.
 date: "2026-03-26T12:16:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

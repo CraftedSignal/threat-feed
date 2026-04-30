@@ -3,9 +3,9 @@ title: Execution of a Downloaded Windows Script
 slug: 2024-01-downloaded-script-execution
 description: This rule detects the execution of a Windows script downloaded from the internet, a technique adversaries may leverage for initial access and execution by using browsers or file utilities to download scripts and subsequently execute them with scripting tools like wscript or mshta.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

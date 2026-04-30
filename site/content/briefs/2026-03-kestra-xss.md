@@ -5,6 +5,9 @@ description: Kestra versions up to 1.3.3 are vulnerable to a cross-site scriptin
 date: "2026-03-27T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - kestra
   - xss

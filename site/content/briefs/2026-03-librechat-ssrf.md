@@ -5,6 +5,9 @@ description: LibreChat versions prior to 0.8.3 are vulnerable to Server-Side Req
 date: "2026-03-28T12:00:00Z"
 severities:
   - high
+type: advisory
+types:
+  - advisory
 tags:
   - ssrf
   - librechat

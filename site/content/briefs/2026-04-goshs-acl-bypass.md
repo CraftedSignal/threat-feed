@@ -5,6 +5,9 @@ description: Goshs is vulnerable to an authorization bypass (CVE-2026-40189) due
 date: "2026-04-10T20:02:46Z"
 severities:
   - critical
+type: advisory
+types:
+  - advisory
 tags:
   - authorization bypass
   - acl
