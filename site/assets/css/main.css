@@ -276,11 +276,11 @@ body {
   padding-bottom: 0 !important;
 }
 .pagefind-ui__search-input {
-  /* Right padding has to keep clearing the search-input gutter Pagefind
-     reserves; the magnifying-glass slot lives there even after we hide
-     the clear button below. Asymmetric padding keeps typed text from
-     sliding under it. */
-  padding: 0.5rem 2.5rem 0.5rem 0.75rem !important;
+  /* Both sides need padding for icons Pagefind renders inside the
+     input box: the magnifying-glass on the left, the (now-hidden)
+     clear button on the right. Without 2.5rem on each side the typed
+     query slides under the icons. */
+  padding: 0.5rem 2.5rem !important;
   font-size: 0.95rem !important;
 }
 /* Hide the trailing clear (×) button — the input clears on its own
