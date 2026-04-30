@@ -128,15 +128,22 @@ jobs:
       - name: Find new briefs in this push
         id: briefs
         run: |
-          # Files added under site/content/briefs/ in this push.
+          # Only dispatch for newly-ADDED brief files. Modifications
+          # are intentionally skipped — a content rewrite, taxonomy
+          # backfill, or classifier-driven re-render must NOT spam
+          # subscribers. The 1396-brief reclassification commit on
+          # 2026-04-30 sent ~50 emails because --diff-filter was AM.
+          # Update-class notifications (KEV flip, exploited:true, etc.)
+          # come through ti-bot's L3 dispatch path which has its own
+          # cooldown + opt-in gates — see internal/pipeline/notifier_dispatch.go.
           {
-            git diff --name-only --diff-filter=AM \
+            git diff --name-only --diff-filter=A \
               "${{ github.event.before }}" "${{ github.event.after }}" -- \
               'site/content/briefs/*.md' || true
           } > /tmp/changed.txt
           count=$(wc -l < /tmp/changed.txt | tr -d ' ')
           echo "count=$count" >> "$GITHUB_OUTPUT"
-          echo "Changed brief files: $count"
+          echo "Newly-added brief files: $count"
 
       - name: Set up Python
         if: steps.briefs.outputs.count != '0'
