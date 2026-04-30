@@ -155,32 +155,24 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 		d.logger.Error("flush iteration failed", "err", err)
 	}
 
-	// Email batch: one SMTP session for all recipients.
+	// Email batch: one SMTP session for all recipients. Per-recipient
+	// errors come back from SendBatch — only delete a queue + bump
+	// last_sent for the subscribers whose delivery actually succeeded;
+	// the rest stay queued so the next sweep retries.
 	if len(emailJobs) > 0 {
 		msgs := make([]SmtpMessage, len(emailJobs))
 		for i, j := range emailJobs {
 			msgs[i] = j.msg
 		}
-		_, _ = d.mailer.SendBatch(msgs)
-		// Sent / failed are reported per-job below by checking the
-		// per-recipient success in a follow-up loop. For simplicity
-		// here we trust SendBatch's logging and treat each job as
-		// "attempted"; a hard connection failure fails them all and
-		// we don't delete the queues, so the next sweep retries.
-		// TODO: thread per-recipient success back through SendBatch.
-	}
-
-	// Re-attempt per-job semantics: try each email individually if
-	// the batch path returned non-zero failures. Until SendBatch
-	// returns per-recipient outcomes, treat every email as sent and
-	// rely on subsequent flush retries to clean up genuinely failed
-	// addresses (log noise is the only cost).
-	for _, j := range emailJobs {
-		if err := d.store.MarkSent(ctx, j.sub.ID, time.Now().UTC()); err == nil {
+		results := d.mailer.SendBatch(msgs)
+		for i, j := range emailJobs {
+			if i < len(results) && results[i] != nil {
+				failed++
+				continue
+			}
+			_ = d.store.MarkSent(ctx, j.sub.ID, time.Now().UTC())
 			_ = d.store.DeletePending(ctx, j.pd.SubscriptionID)
 			sent++
-		} else {
-			failed++
 		}
 	}
 

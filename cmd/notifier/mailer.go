@@ -25,7 +25,12 @@ type mailer interface {
 	// recipient. Materially cuts auth-rate against Workspace's relay
 	// (~50 logins per IP per N-min) when the periodic flush drains
 	// many subscribers' queues at once.
-	SendBatch(messages []SmtpMessage) (sent int, failed int)
+	//
+	// Returns a slice of per-recipient errors (nil = delivered). Length
+	// always matches len(messages); a single hard failure (dial / TLS /
+	// AUTH) populates every slot with the same error so callers don't
+	// have to special-case the all-failed path.
+	SendBatch(messages []SmtpMessage) []error
 }
 
 // SmtpMessage carries the per-recipient bits of one delivery. Body is
@@ -87,19 +92,21 @@ func (m *smtpMailer) Send(to, subject, body string) error {
 
 // SendBatch opens one SMTP+STARTTLS+AUTH session and reuses it across
 // every message in the batch, issuing MAIL/RCPT/DATA per recipient.
-// Returns the count of successful and failed deliveries; failures are
-// logged with a non-reversible recipient hash. On a hard connection
-// failure (dial / TLS / AUTH) the entire batch fails fast.
-func (m *smtpMailer) SendBatch(messages []SmtpMessage) (sent int, failed int) {
+// Returns a per-recipient error slice. Hard connection / TLS / AUTH
+// failures fan the same error across every slot so callers can treat
+// the slice as authoritative without checking a separate flag.
+func (m *smtpMailer) SendBatch(messages []SmtpMessage) []error {
+	out := make([]error, len(messages))
 	if len(messages) == 0 {
-		return 0, 0
+		return out
 	}
 	addr := fmt.Sprintf("%s:%d", m.cfg.Host, m.cfg.Port)
 
 	conn, err := smtp.Dial(addr)
 	if err != nil {
 		m.logger.Error("smtp dial failed", "host", m.cfg.Host, "err", err)
-		return 0, len(messages)
+		fillAll(out, fmt.Errorf("smtp dial: %w", err))
+		return out
 	}
 	defer func() { _ = conn.Close() }()
 
@@ -109,28 +116,38 @@ func (m *smtpMailer) SendBatch(messages []SmtpMessage) (sent int, failed int) {
 	}
 	if err := conn.StartTLS(tlsCfg); err != nil {
 		m.logger.Error("smtp starttls failed", "err", err)
-		return 0, len(messages)
+		fillAll(out, fmt.Errorf("starttls: %w", err))
+		return out
 	}
 
 	auth := smtp.PlainAuth("", m.cfg.Username, m.cfg.Password, m.cfg.Host)
 	if err := conn.Auth(auth); err != nil {
 		m.logger.Error("smtp auth failed", "err", err)
-		return 0, len(messages)
+		fillAll(out, fmt.Errorf("auth: %w", err))
+		return out
 	}
 
-	for _, msg := range messages {
+	for i, msg := range messages {
 		if err := m.sendOne(conn, msg); err != nil {
 			m.logger.Error("smtp send failed", "to_hash", hashEmail(msg.To), "err", err)
-			failed++
+			out[i] = err
 			// Some servers reset MAIL FROM state after a hard error.
 			// RSET to be safe; ignore failure.
 			_ = conn.Reset()
 			continue
 		}
-		sent++
 	}
 	_ = conn.Quit()
-	return sent, failed
+	return out
+}
+
+// fillAll populates every slot of errs with the same error. Used when a
+// connection-level failure means none of the recipients can be retried
+// without first re-establishing the session.
+func fillAll(errs []error, err error) {
+	for i := range errs {
+		errs[i] = err
+	}
 }
 
 // sendOne issues MAIL FROM / RCPT TO / DATA on an already-authenticated
