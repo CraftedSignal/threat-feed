@@ -31,6 +31,11 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Hugo + Pagefind on ~2000 briefs runs in 2-4 minutes on this
+    # runner. Anything north of 15 minutes is a stuck worker (we hit
+    # one that ran for 4h+ without progress). Fail fast so the next
+    # queued run can claim the slot instead of dying behind a zombie.
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v6
