@@ -9,8 +9,17 @@ types:
 severities:
   - medium
 actors:
+  - Lazarus Group
+  - HIDDEN COBRA
   - LABYRINTH CHOLLIMA
-  - SCATTERED SPIDER
+  - Diamond Sleet
+  - Zinc
+  - Scattered Spider
+  - UNC3944
+  - Octo Tempest
+  - Roasted 0ktapus
+  - Muddled Libra
+  - Star Fraud
 tags:
   - cloud
   - cnapp

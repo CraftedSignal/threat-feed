@@ -10,6 +10,9 @@ severities:
   - high
 actors:
   - BlueNoroff
+  - STARDUST CHOLLIMA
+  - Sapphire Sleet
+  - TA444
 tags:
   - bluenoroff
   - spear-phishing

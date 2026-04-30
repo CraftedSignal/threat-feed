@@ -10,6 +10,8 @@ severities:
   - high
 actors:
   - FIN7
+  - Carbon Spider
+  - Sangria Tempest
 tags:
   - credential-access
   - threat-type

@@ -60,9 +60,14 @@
             {{- if gt (len $products) 1 }} +{{ sub (len $products) 1 }}{{ end -}}
           </span>
           {{ end }}
-          {{ range $actors }}
-          <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-accent/10 text-accent">{{ . }}</span>
+          {{/* Brief frontmatter now carries every alias of an actor
+               group (so search across "APT29" and "Cozy Bear" both
+               find the same brief). On the card we only show the
+               first one, then "+N", to keep the chip row tight. */}}
+          {{ range first 1 $actors }}
+          <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-accent/10 text-accent" title="{{ delimit $actors ", " }}">{{ . }}</span>
           {{ end }}
+          {{ if gt (len $actors) 1 }}<span class="text-accent">+{{ sub (len $actors) 1 }}</span>{{ end }}
           {{ range first 8 $tags }}
           <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-panel-2 text-muted">{{ . }}</span>
           {{ end }}

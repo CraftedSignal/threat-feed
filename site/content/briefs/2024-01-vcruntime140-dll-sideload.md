@@ -10,6 +10,11 @@ severities:
   - high
 actors:
   - APT29
+  - Cozy Bear
+  - NOBELIUM
+  - UNC2452
+  - Midnight Blizzard
+  - The Dukes
 tags:
   - dll-sideloading
   - vcruntime140.dll

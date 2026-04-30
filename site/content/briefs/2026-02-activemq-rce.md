@@ -7,6 +7,7 @@ severities:
   - critical
 actors:
   - LockBit
+  - BITWISE SPIDER
   - HelloKitty
 tags:
   - activemq

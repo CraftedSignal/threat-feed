@@ -1,0 +1,51 @@
+# Threat-actor naming equivalences. Each inner list is a single
+# real-world group, with every name a vendor / community uses for it.
+# Sourced from MITRE ATT&CK's Groups page (attack.mitre.org/groups)
+# and vendor codename pages.
+#
+# Used by:
+#   - ti-bot's publisher (cleanActors expands every name in a brief
+#     to the full group, so the brief tags every alias)
+#   - Hugo's actor term page (renders "Also known as" cross-links)
+#
+# Keep in sync with ti-bot/internal/publisher/actor_aliases.go.
+groups:
+  - [APT29, Cozy Bear, NOBELIUM, UNC2452, Midnight Blizzard, The Dukes]
+  - [APT28, Fancy Bear, Sofacy, STRONTIUM, Forest Blizzard, Sednit, Pawn Storm]
+  - [Lazarus Group, HIDDEN COBRA, LABYRINTH CHOLLIMA, Diamond Sleet, Zinc]
+  - [BlueNoroff, STARDUST CHOLLIMA, Sapphire Sleet, TA444]
+  - [Andariel, STONEFLY, Onyx Sleet, Plutonium]
+  - [Kimsuky, Black Banshee, Velvet Chollima, Emerald Sleet, Thallium]
+  - [APT41, Wicked Panda, BARIUM, Brass Typhoon, Winnti, Double Dragon]
+  - [APT40, Leviathan, BRONZE MOHAWK, Mulberry Typhoon, Gingham Typhoon]
+  - [APT35, Charming Kitten, TA453, Mint Sandstorm, Phosphorus]
+  - [APT34, OilRig, Hazel Sandstorm, Helix Kitten]
+  - [APT33, Refined Kitten, Peach Sandstorm, Elfin]
+  - [Turla, Snake, Venomous Bear, Secret Blizzard, Iron Hunter]
+  - [Sandworm, BlackEnergy, Voodoo Bear, Seashell Blizzard, IRIDIUM]
+  - [FIN7, Carbon Spider, Sangria Tempest]
+  - [FIN8, Syssphinx]
+  - [Scattered Spider, UNC3944, Octo Tempest, Roasted 0ktapus, Muddled Libra, Star Fraud]
+  - [Volt Typhoon, Vanguard Panda, Bronze Silhouette, Insidious Taurus]
+  - [Salt Typhoon, GhostEmperor, FamousSparrow, UNC5807]
+  - [Flax Typhoon, Ethereal Panda]
+  - [BlackCat, ALPHV, Noberus]
+  - [Conti, Wizard Spider]
+  - [Cl0p, TA505, FIN11, GRACEFUL SPIDER]
+  - [Black Basta, BlackBasta, UNC4393]
+  - [Akira]
+  - [Qilin, Agenda]
+  - [LockBit, BITWISE SPIDER]
+  - [Play, PlayCrypt]
+  - [BianLian]
+  - [RansomHub]
+  - [Royal, DEV-0569]
+  - [Medusa]
+  - [Hive]
+  - [REvil, Sodinokibi, GOLD SOUTHFIELD]
+  - [DarkSide, CARBON SPIDER]
+  - [TA577, Mustard Tempest, FIN-7-Adjacent]
+  - [TA571]
+  - [Storm-0501]
+  - [Storm-0978, RomCom, Tropical Scorpius]
+  - [TrueChaos]

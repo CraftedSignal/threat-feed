@@ -10,6 +10,10 @@ severities:
   - high
 actors:
   - Kimsuky
+  - Black Banshee
+  - Velvet Chollima
+  - Emerald Sleet
+  - Thallium
 tags:
   - kimsuky
   - dropbox

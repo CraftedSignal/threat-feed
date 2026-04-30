@@ -29,6 +29,33 @@
         RSS
       </a>
     </div>
+
+    {{/* Cross-link known aliases for actor terms. Each entry in
+         site.Data.actor_aliases.groups is one real-world group; if
+         the current term is anywhere in that group, surface the rest
+         as chips. */}}
+    {{ if eq $taxonomy "actor" }}
+      {{ $termLower := lower $term }}
+      {{ $aliases := slice }}
+      {{ range $.Site.Data.actor_aliases.groups }}
+        {{ $g := . }}
+        {{ $hit := false }}
+        {{ range $g }}{{ if eq (lower .) $termLower }}{{ $hit = true }}{{ end }}{{ end }}
+        {{ if $hit }}
+          {{ range $g }}
+            {{ if ne (lower .) $termLower }}{{ $aliases = $aliases | append . }}{{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if $aliases }}
+      <div class="flex flex-wrap items-center gap-1.5 text-xs text-muted">
+        <span>Also known as:</span>
+        {{ range $aliases }}
+        <a href="/actors/{{ . | urlize }}/" class="inline-flex items-center px-2 py-0.5 rounded font-mono uppercase tracking-wide text-[11px] bg-accent/10 text-accent hover:bg-accent/20 transition">{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    {{ end }}
   </div>
 </section>
 
