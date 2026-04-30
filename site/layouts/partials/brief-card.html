@@ -48,13 +48,14 @@
           {{ if $exploited }}
           <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-critical/10 text-sev-critical" title="Active exploitation observed in the wild">exploited</span>
           {{ end }}
-          {{ if $products }}
           {{/* Lead the chip row with the affected product — it's usually the
                most useful identifier on a glance. Strip version specifiers
                like "(<= 0.4.1)" so the chip reads cleanly; hover title
-               carries the full list. */}}
-          {{ $primaryProduct := index $products 0 }}
-          {{ $primaryProduct = trim (index (split $primaryProduct "(") 0) " " }}
+               carries the full list. Hoisted out of the `if` so the bare
+               name stays in scope for the dedup pass on tags below. */}}
+          {{ $primaryProduct := "" }}
+          {{ if $products }}
+          {{ $primaryProduct = trim (index (split (index $products 0) "(") 0) " " }}
           <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-panel-2 text-text" title="{{ delimit $products ", " }}">
             {{- $primaryProduct -}}
             {{- if gt (len $products) 1 }} +{{ sub (len $products) 1 }}{{ end -}}
@@ -68,10 +69,24 @@
           <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-accent/10 text-accent" title="{{ delimit $actors ", " }}">{{ . }}</span>
           {{ end }}
           {{ if gt (len $actors) 1 }}<span class="text-accent">+{{ sub (len $actors) 1 }}</span>{{ end }}
-          {{ range first 8 $tags }}
+          {{/* Filter out tag chips that visually duplicate the product
+               or any actor chip already rendered above (case-insensitive,
+               since chips are uppercased by CSS). Brief frontmatter
+               often carries the same name in both `products` and
+               `tags` (Chrome / chrome), and after we render the product
+               chip we don't want a near-identical tag chip right next
+               to it. */}}
+          {{ $skip := dict }}
+          {{ if $products }}{{ $skip = merge $skip (dict (lower $primaryProduct) true) }}{{ end }}
+          {{ range $actors }}{{ $skip = merge $skip (dict (lower .) true) }}{{ end }}
+          {{ $visibleTags := slice }}
+          {{ range $tags }}
+            {{ if not (index $skip (lower .)) }}{{ $visibleTags = $visibleTags | append . }}{{ end }}
+          {{ end }}
+          {{ range first 8 $visibleTags }}
           <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-panel-2 text-muted">{{ . }}</span>
           {{ end }}
-          {{ if gt (len $tags) 8 }}<span class="text-muted">+{{ sub (len $tags) 8 }}</span>{{ end }}
+          {{ if gt (len $visibleTags) 8 }}<span class="text-muted">+{{ sub (len $visibleTags) 8 }}</span>{{ end }}
         </div>
 
         <div class="flex items-center gap-3 flex-none whitespace-nowrap text-muted">
