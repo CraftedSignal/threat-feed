@@ -1,0 +1,5 @@
+{{- $items := slice -}}
+{{- range .Data.Terms.ByCount -}}
+  {{- $items = $items | append (dict "url" .Page.RelPermalink "title" .Page.Title "count" .Count) -}}
+{{- end -}}
+{{ $items | jsonify }}

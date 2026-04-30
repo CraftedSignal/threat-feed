@@ -279,16 +279,34 @@ function initLiveUpdate() {
 // /tags/ the page is itself a list of terms — full-site Pagefind is
 // the wrong tool because typing "Amaz" should narrow the visible
 // vendors to Amazon, not return every brief that mentions Amazon.
-// The list.html template emits an <input data-taxonomy-filter> and
-// tags each anchor with data-taxonomy-term=<lowercased title>.
+//
+// Two modes, picked per-page by the template:
+//   DOM mode (default): the rendered HTML contains every term card,
+//   filter just toggles `.hidden` on each card. Used for /types/ where
+//   the term list is small and complete.
+//
+//   JSON mode (`data-taxonomy-source="json"` on the input): HTML only
+//   renders the top-N terms. The filter pulls the full term list from
+//   the page's `index.json` on first keypress, then renders matching
+//   cards into `[data-taxonomy-results]` and hides the default block.
+//   Used for taxonomies that grow unboundedly (tags, vendors, products,
+//   actors).
 
 function initTaxonomyFilter() {
   const input = document.querySelector('[data-taxonomy-filter]');
   if (!input) return;
-  const cards = document.querySelectorAll('[data-taxonomy-term]');
   const empty = document.querySelector('[data-taxonomy-empty]');
-  if (!cards.length) return;
 
+  if (input.dataset.taxonomySource === 'json') {
+    initTaxonomyFilterJSON(input, empty);
+  } else {
+    initTaxonomyFilterDOM(input, empty);
+  }
+}
+
+function initTaxonomyFilterDOM(input, empty) {
+  const cards = document.querySelectorAll('[data-taxonomy-term]');
+  if (!cards.length) return;
   function apply() {
     const q = input.value.toLowerCase().trim();
     let visible = 0;
@@ -299,6 +317,65 @@ function initTaxonomyFilter() {
       if (match) visible++;
     });
     if (empty) empty.classList.toggle('hidden', visible > 0);
+  }
+  input.addEventListener('input', apply);
+}
+
+function initTaxonomyFilterJSON(input, empty) {
+  const defaultBlock = document.querySelector('[data-taxonomy-default]');
+  const results = document.querySelector('[data-taxonomy-results]');
+  if (!defaultBlock || !results) return;
+
+  let allTerms = null;
+  let loading = null;
+
+  function loadAll() {
+    if (allTerms) return Promise.resolve(allTerms);
+    if (loading) return loading;
+    const url = window.location.pathname.replace(/\/?$/, '/') + 'index.json';
+    loading = fetch(url, { credentials: 'omit' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        allTerms = Array.isArray(data) ? data : [];
+        return allTerms;
+      })
+      .catch(() => {
+        allTerms = [];
+        return allTerms;
+      });
+    return loading;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[c]));
+  }
+
+  function renderMatches(matches) {
+    results.innerHTML = matches.map((t) => (
+      '<a href="' + escapeHtml(t.url) + '" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 px-4 py-3 hover:border-accent/40 transition group">' +
+        '<span class="font-medium text-text group-hover:text-accent transition">' + escapeHtml(t.title) + '</span>' +
+        '<span class="font-mono text-sm text-muted">' + escapeHtml(t.count) + '</span>' +
+      '</a>'
+    )).join('');
+  }
+
+  async function apply() {
+    const q = input.value.toLowerCase().trim();
+    if (!q) {
+      defaultBlock.classList.remove('hidden');
+      results.classList.add('hidden');
+      results.innerHTML = '';
+      if (empty) empty.classList.add('hidden');
+      return;
+    }
+    const terms = await loadAll();
+    const matches = terms.filter((t) => (t.title || '').toLowerCase().includes(q));
+    defaultBlock.classList.add('hidden');
+    results.classList.remove('hidden');
+    renderMatches(matches);
+    if (empty) empty.classList.toggle('hidden', matches.length > 0);
   }
 
   input.addEventListener('input', apply);

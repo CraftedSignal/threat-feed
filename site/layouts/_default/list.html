@@ -24,9 +24,16 @@
   {{ if eq $taxonomy "severity" }}
     {{ partial "search.html" . }}
   {{ else }}
+  {{/* Tags/vendors/products/actors can have thousands of terms (and
+       grows linearly with ingestion). HTML default view is capped at
+       top-N by count; the filter input pulls the full term list from
+       index.json on demand and renders matches client-side. Type only
+       has 4 terms so the input falls through to the DOM-only filter. */}}
+  {{ $jsonMode := ne $taxonomy "type" }}
   <section class="px-4 md:px-0 py-3">
     <div class="max-w-6xl mx-auto">
       <input data-taxonomy-filter type="text" placeholder="Filter {{ $pluralLabel | lower }}…"
+             {{ if $jsonMode }}data-taxonomy-source="json"{{ end }}
              class="w-full rounded-xl border border-stroke bg-panel-2 px-3 py-2 text-sm font-mono focus:outline-none focus:border-accent placeholder:text-muted"
              aria-label="Filter {{ $pluralLabel | lower }}">
     </div>
@@ -110,14 +117,23 @@
         </div>
         <p data-taxonomy-empty class="hidden text-sm text-muted py-6">No matches.</p>
       {{ else }}
-        <div data-taxonomy-grid class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {{ range $terms }}
-          <a href="{{ .Page.RelPermalink }}" data-taxonomy-term="{{ .Page.Title | lower }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 px-4 py-3 hover:border-accent/40 transition group">
-            <span class="font-medium text-text group-hover:text-accent transition">{{ .Page.Title }}</span>
-            <span class="font-mono text-sm text-muted">{{ .Count }}</span>
-          </a>
+        {{ $top := 200 }}
+        {{ $totalTerms := len $terms }}
+        {{ $truncated := gt $totalTerms $top }}
+        <div data-taxonomy-default>
+          <div data-taxonomy-grid class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {{ range first $top $terms }}
+            <a href="{{ .Page.RelPermalink }}" data-taxonomy-term="{{ .Page.Title | lower }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 px-4 py-3 hover:border-accent/40 transition group">
+              <span class="font-medium text-text group-hover:text-accent transition">{{ .Page.Title }}</span>
+              <span class="font-mono text-sm text-muted">{{ .Count }}</span>
+            </a>
+            {{ end }}
+          </div>
+          {{ if $truncated }}
+          <p class="text-sm text-muted pt-6">Showing the top <span class="font-mono text-text">{{ $top }}</span> of <span class="font-mono text-text">{{ $totalTerms }}</span> {{ $taxLabel }}s by brief count. Use the filter above to find any {{ $taxLabel }}.</p>
           {{ end }}
         </div>
+        <div data-taxonomy-results class="hidden grid sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
         <p data-taxonomy-empty class="hidden text-sm text-muted py-6">No matches.</p>
       {{ end }}
     </div>
