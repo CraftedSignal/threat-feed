@@ -7,7 +7,19 @@ name: Notify on workflow failure
 
 on:
   workflow_run:
-    workflows: ['*']
+    # Only key off the workflows we actually want to monitor. Listening
+    # to '*' caused a flood of skipped runs (every chore commit fans out
+    # to 5+ workflow_run events) that polluted the Actions queue and
+    # made the page feel "stuck". Add a name here when you want a new
+    # workflow's failures tracked.
+    workflows:
+      - 'Site Deploy'
+      - 'CI'
+      - 'Test'
+      - 'Lint'
+      - 'CodeQL'
+      - 'Release Feed Bundle'
+      - 'Plaintext Brief Check'
     types: [completed]
 
 permissions:
@@ -16,10 +28,17 @@ permissions:
 
 jobs:
   open-issue:
+    # Self-exclusion: never react to our own failures or we'd recurse
+    # forever. The early version of this workflow tried to open issues
+    # while the repo had issues disabled — the failure produced a
+    # workflow_run event of its own kind, which retriggered, which
+    # failed again. Excluding by name breaks that cycle even if the
+    # underlying step starts erroring for an unrelated reason later.
     if: >-
       github.event.workflow_run.conclusion == 'failure' &&
       github.event.workflow_run.head_branch == 'main' &&
-      github.event.workflow_run.event == 'push'
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.name != 'Notify on workflow failure'
     runs-on: ubuntu-latest
     steps:
       - name: Open or comment on tracking issue
