@@ -15,14 +15,13 @@
     </div>
   </section>
 
-  {{/* For severity / type the index page has small, curated card
-       grids — full-site Pagefind is the right search UI there. For
-       open-ended taxonomies (vendors / actors / products / tags) the
-       page is itself a sortable list of terms; replace the global
-       search box with a client-side input that filters the list in
-       place, so typing "Amaz" on /vendors/ surfaces "Amazon" rather
-       than every brief that mentions Amazon. */}}
-  {{ if or (eq $taxonomy "severity") (eq $taxonomy "type") }}
+  {{/* Severity index has 5 curated cards with sparklines — keep
+       full-site Pagefind there. Every other taxonomy index (type,
+       vendor, actor, product, tag) is itself a sortable list of
+       terms; show a client-side filter input so typing "Amaz" on
+       /vendors/ narrows to "Amazon" instead of returning every
+       brief that mentions Amazon. */}}
+  {{ if eq $taxonomy "severity" }}
     {{ partial "search.html" . }}
   {{ else }}
   <section class="px-4 md:px-0 py-3">
@@ -96,19 +95,20 @@
       {{ else if eq $taxonomy "type" }}
         {{/* Custom order for type: threat → coverage → advisory → rumour */}}
         {{ $order := slice "threat" "coverage" "advisory" "rumour" }}
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div data-taxonomy-grid class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {{ range $order }}
             {{ $term := . }}
             {{ $termLabel := cond (eq $term "coverage") "rule" $term }}
             {{ $page := $.Site.GetPage (printf "/%s/%s" $plural $term) }}
             {{ if $page }}
-            <a href="{{ $page.RelPermalink }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 p-4 hover:border-accent/40 transition">
+            <a href="{{ $page.RelPermalink }}" data-taxonomy-term="{{ $termLabel | lower }}" class="flex items-center justify-between rounded-xl border border-stroke bg-panel/60 p-4 hover:border-accent/40 transition">
               <span class="type-badge type-{{ $term }}">{{ $termLabel }}</span>
               <span class="text-sm text-muted"><span class="font-mono text-text">{{ len $page.Pages }}</span> {{ if eq (len $page.Pages) 1 }}brief{{ else }}briefs{{ end }}</span>
             </a>
             {{ end }}
           {{ end }}
         </div>
+        <p data-taxonomy-empty class="hidden text-sm text-muted py-6">No matches.</p>
       {{ else }}
         <div data-taxonomy-grid class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {{ range $terms }}

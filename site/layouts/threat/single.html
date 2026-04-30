@@ -1,0 +1,222 @@
+{{ define "main" }}
+{{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
+{{ $sevClass := printf "sev-%s" $sev }}
+{{/* See partials/brief-card.html — same rationale. */}}
+{{ $type := .Params.type | default "threat" }}
+{{ $tags := .Params.tags | default slice }}
+{{ $actors := .Params.actors | default slice }}
+{{ $vendors := .Params.vendors | default slice }}
+{{ $products := .Params.products | default slice }}
+{{ $exploited := .Params.exploited | default false }}
+{{ $os := .Params.affected_os | default (.Params.affectedOs | default slice) }}
+{{ $ttps := .Params.mitre_ttps | default (.Params.mitreTtps | default slice) }}
+{{ $cves := .Params.cves | default slice }}
+{{ $rules := .Params.rules | default slice }}
+{{ $rulesCount := .Params.rules_count | default (.Params.rulesCount | default (len $rules)) }}
+{{ $iocs := .Params.iocs | default slice }}
+{{ $iocCounts := .Params.ioc_counts | default (.Params.iocCounts | default dict) }}
+{{ $refs := .Params.references | default slice }}
+
+<article class="px-4 md:px-0 py-10" data-pagefind-body>
+  <div class="max-w-6xl mx-auto space-y-8">
+
+    <header class="space-y-4">
+      <nav class="text-xs text-muted">
+        <a href="/" class="hover:text-accent">Home</a>
+        <span class="mx-1">/</span>
+        <a href="/briefs/" class="hover:text-accent">Briefs</a>
+      </nav>
+
+      <div class="flex flex-wrap items-center gap-2 text-xs">
+        <span class="sev-badge {{ $sevClass }}">{{ $sev }}</span>
+        {{ $typeLabel := cond (eq $type "coverage") "rule" $type }}
+        <a href="/types/{{ $type }}/" class="type-badge type-{{ $type }} hover:opacity-80 transition" title="See all {{ $typeLabel }} briefs">{{ $typeLabel }}</a>
+        {{ if $exploited }}<span class="exploited-badge" title="Active exploitation observed in the wild">exploited</span>{{ end }}
+        <time class="font-mono text-muted" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{ range $actors }}
+        <a href="/actors/{{ . | urlize }}/" class="inline-flex items-center px-2 py-0.5 rounded font-mono uppercase tracking-wide bg-accent/10 text-accent hover:bg-accent/20 transition" data-pagefind-filter="actor">{{ . }}</a>
+        {{ end }}
+      </div>
+
+      <h1 class="font-display text-3xl md:text-4xl font-semibold leading-tight">{{ .Title }}</h1>
+      {{ with .Params.description }}
+      <p class="text-lg text-muted leading-relaxed">{{ . }}</p>
+      {{ end }}
+
+      <div class="flex flex-wrap items-center gap-2 pt-2">
+        {{ range $tags }}
+        <a href="/tags/{{ . | urlize }}/" class="inline-flex px-2 py-0.5 rounded font-mono text-[11px] uppercase tracking-wide bg-panel-2 text-muted hover:text-accent transition" data-pagefind-filter="tag">{{ . }}</a>
+        {{ end }}
+      </div>
+    </header>
+
+    {{ if .Content }}
+    <section class="prose-feed">
+      {{ .Content }}
+      <p class="not-prose text-sm text-muted border-t border-stroke pt-4 mt-6">
+        This is a public summary. The full analysis, detection rule queries, and IOC values are available in the
+        <a class="text-accent hover:underline" href="{{ .Site.Params.appURL }}" target="_blank" rel="noopener noreferrer">CraftedSignal platform</a>.
+      </p>
+    </section>
+    {{ end }}
+
+    {{ if $ttps }}
+    <section class="space-y-3">
+      <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">MITRE ATT&CK</h2>
+      <div class="grid sm:grid-cols-2 gap-3">
+        {{ range $ttps }}
+        <div class="rounded-xl border border-stroke bg-panel/60 p-4">
+          <div class="flex items-center gap-2 text-xs font-mono">
+            <span class="text-accent">{{ .technique_id }}</span>
+            {{ with .subtechnique_id }}<span class="text-muted">.{{ . }}</span>{{ end }}
+            <span class="text-muted">·</span>
+            <span class="text-muted">{{ .tactic_id }}</span>
+          </div>
+          <p class="mt-1.5 text-sm text-text font-medium">{{ .technique_name }}</p>
+          {{ with .subtechnique_name }}<p class="text-sm text-muted">{{ . }}</p>{{ end }}
+          <p class="mt-1 text-xs text-muted">Tactic: {{ .tactic_name }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+
+    {{ if $cves }}
+    <section class="space-y-3">
+      <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">CVEs</h2>
+      <div class="rounded-xl border border-stroke bg-panel/60 overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="text-xs font-mono uppercase tracking-wider text-muted">
+            <tr class="border-b border-stroke">
+              <th class="text-left p-3">ID</th>
+              <th class="text-left p-3">CVSS</th>
+              <th class="text-left p-3">EPSS</th>
+              <th class="text-left p-3">KEV</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range $cves }}
+            <tr class="border-b border-stroke last:border-0">
+              <td class="p-3 font-mono"><a class="text-accent hover:underline" href="https://nvd.nist.gov/vuln/detail/{{ .id }}" target="_blank" rel="noopener noreferrer">{{ .id }}</a></td>
+              <td class="p-3 font-mono">{{ if .cvss }}{{ .cvss }}{{ else }}—{{ end }}</td>
+              <td class="p-3 font-mono">{{ if .epss }}{{ printf "%.2f" .epss }}{{ else }}—{{ end }}</td>
+              <td class="p-3">{{ if .kev }}<span class="sev-badge sev-critical">KEV</span>{{ else }}<span class="text-muted">—</span>{{ end }}</td>
+            </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {{ end }}
+
+    {{ if or $vendors $products $os }}
+    <section class="space-y-3">
+      <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Affected</h2>
+      <div class="grid sm:grid-cols-3 gap-3">
+        {{ if $vendors }}
+        <div class="rounded-xl border border-stroke bg-panel/60 p-4">
+          <p class="text-xs font-mono uppercase tracking-wider text-muted mb-1.5">Vendors</p>
+          <div class="flex flex-wrap gap-1.5">{{ range $vendors }}<a href="/vendors/{{ . | urlize }}/" class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2 hover:text-accent transition">{{ . }}</a>{{ end }}</div>
+        </div>
+        {{ end }}
+        {{ if $products }}
+        <div class="rounded-xl border border-stroke bg-panel/60 p-4">
+          <p class="text-xs font-mono uppercase tracking-wider text-muted mb-1.5">Products</p>
+          <div class="flex flex-wrap gap-1.5">{{ range $products }}<a href="/products/{{ . | urlize }}/" class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2 hover:text-accent transition">{{ . }}</a>{{ end }}</div>
+        </div>
+        {{ end }}
+        {{ if $os }}
+        <div class="rounded-xl border border-stroke bg-panel/60 p-4">
+          <p class="text-xs font-mono uppercase tracking-wider text-muted mb-1.5">Operating systems</p>
+          <div class="flex flex-wrap gap-1.5">{{ range $os }}<span class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2">{{ . }}</span>{{ end }}</div>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+
+    {{ if $rules }}
+    <section class="space-y-3">
+      <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Detection coverage <span class="text-text font-mono">{{ $rulesCount }}</span></h2>
+      <div class="grid gap-3">
+        {{ range $rules }}
+        <div class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-2">
+          <div class="flex items-start justify-between gap-3">
+            <p class="font-display text-sm font-semibold text-text">{{ .title }}</p>
+            {{ with .severity }}<span class="sev-badge sev-{{ . }}">{{ . }}</span>{{ end }}
+          </div>
+          {{ with .description }}<p class="text-sm text-muted">{{ . }}</p>{{ end }}
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted">
+            {{ with .platform }}<span><span class="font-mono uppercase tracking-wider text-text">{{ . }}</span></span>{{ end }}
+            {{ with .tactics }}<span>tactics: <span class="font-mono text-text">{{ delimit . ", " }}</span></span>{{ end }}
+            {{ with .techniques }}<span>techniques: <span class="font-mono text-text">{{ delimit . ", " }}</span></span>{{ end }}
+            {{ with .data_sources }}<span>sources: <span class="text-text">{{ delimit . ", " }}</span></span>{{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      <p class="text-xs text-muted">Detection queries are kept inside the platform. <a class="text-accent hover:underline" href="{{ .Site.Params.appURL }}" target="_blank" rel="noopener noreferrer">Get full rules →</a></p>
+    </section>
+    {{ end }}
+
+    {{ if or $iocs $iocCounts }}
+    <section class="space-y-3">
+      <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Indicators of compromise</h2>
+
+      {{ if $iocCounts }}
+      <div class="rounded-xl border border-stroke bg-panel/60 p-4">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+          {{ range $type, $count := $iocCounts }}
+          <div>
+            <p class="font-mono text-2xl text-text">{{ $count }}</p>
+            <p class="text-xs uppercase tracking-wider text-muted">{{ $type }}</p>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+
+      {{ if $iocs }}
+      <div class="rounded-xl border border-stroke bg-panel/60 overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="text-xs font-mono uppercase tracking-wider text-muted">
+            <tr class="border-b border-stroke">
+              <th class="text-left p-3 w-32">Type</th>
+              <th class="text-left p-3">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range $iocs }}
+            <tr class="border-b border-stroke last:border-0">
+              <td class="p-3"><span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[11px] bg-panel-2 text-muted">{{ .type }}</span></td>
+              <td class="p-3 font-mono text-text break-all">{{ .value }}</td>
+            </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+      {{ end }}
+    </section>
+    {{ end }}
+
+    {{ if $refs }}
+    <section class="space-y-3">
+      <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">References</h2>
+      <ul class="space-y-1.5 text-sm">
+        {{ range $refs }}
+        <li><a class="text-accent hover:underline break-all" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a></li>
+        {{ end }}
+      </ul>
+    </section>
+    {{ end }}
+
+    <section class="mt-16 pt-8 border-t border-stroke text-sm text-muted space-y-2">
+      <p>Want this in your SIEM? CraftedSignal compiles each brief into Sigma rules and ships them to Splunk, Sentinel, CrowdStrike, Elastic, and Rapid7 — with semantic-drift checks and noise budgets.</p>
+      <p>
+        <a class="text-muted hover:text-text border-b border-stroke hover:border-accent transition pb-0.5" href="{{ .Site.Params.appURL }}" target="_blank" rel="noopener noreferrer">Try CraftedSignal →</a>
+      </p>
+    </section>
+
+  </div>
+</article>
+{{ end }}
