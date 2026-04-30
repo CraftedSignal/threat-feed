@@ -161,8 +161,18 @@ jobs:
           NOTIFIER_URL: ${{ secrets.NOTIFIER_URL }}
           NOTIFIER_DISPATCH_TOKEN: ${{ secrets.NOTIFIER_DISPATCH_TOKEN }}
         run: |
+          # Use --url and -- so curl can't interpret a secret URL that
+          # happens to start with "-" as a CLI option. We saw a previous
+          # run fail with `curl: option --/dispatch: is unknown` because
+          # the URL was being treated as a flag.
+          if [ -z "$NOTIFIER_URL" ]; then
+            echo "NOTIFIER_URL is empty — skipping dispatch"
+            exit 0
+          fi
+          echo "Notifier URL configured (${#NOTIFIER_URL} chars)"
           curl -fsS --max-time 60 \
-            -X POST "$NOTIFIER_URL/dispatch" \
-            -H "Authorization: Bearer $NOTIFIER_DISPATCH_TOKEN" \
-            -H "Content-Type: application/json" \
+            --request POST \
+            --url "${NOTIFIER_URL%/}/dispatch" \
+            --header "Authorization: Bearer $NOTIFIER_DISPATCH_TOKEN" \
+            --header "Content-Type: application/json" \
             --data @/tmp/payload.json
