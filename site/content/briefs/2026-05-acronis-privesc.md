@@ -21,6 +21,11 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
+cves:
+  - id: CVE-2026-41220
+    cvss: 7.8
+  - id: CVE-2026-41952
+    cvss: 7.8
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1322
 rules:

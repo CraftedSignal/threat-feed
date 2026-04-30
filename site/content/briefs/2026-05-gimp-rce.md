@@ -21,6 +21,17 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1203
     technique_name: Exploitation for Client Execution
+cves:
+  - id: CVE-2026-4150
+    cvss: 7.8
+  - id: CVE-2026-4151
+    cvss: 7.8
+  - id: CVE-2026-4152
+    cvss: 7.8
+  - id: CVE-2026-4153
+    cvss: 7.8
+  - id: CVE-2026-4154
+    cvss: 7.8
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0802
 rules:

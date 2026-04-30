@@ -40,6 +40,9 @@ mitre_ttps:
     tactic_name: Command and Control
     technique_id: T1071.001
     technique_name: Application Layer Protocol
+cves:
+  - id: CVE-2026-39974
+    cvss: 8.5
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1251
 rules:

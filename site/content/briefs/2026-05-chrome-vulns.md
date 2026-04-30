@@ -40,6 +40,17 @@ mitre_ttps:
     tactic_name: Command and Control
     technique_id: T1573
     technique_name: Encrypted Channel
+cves:
+  - id: CVE-2026-6296
+    cvss: 9.6
+  - id: CVE-2026-6297
+    cvss: 8.3
+  - id: CVE-2026-6298
+    cvss: 4.3
+  - id: CVE-2026-6299
+    cvss: 8.8
+  - id: CVE-2026-6300
+    cvss: 8.8
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1304
 rules:

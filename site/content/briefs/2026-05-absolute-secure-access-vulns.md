@@ -30,6 +30,9 @@ mitre_ttps:
     tactic_name: Discovery
     technique_id: T1005
     technique_name: Data from Local System
+cves:
+  - id: CVE-2026-27668
+    cvss: 8.8
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1323
 rules:

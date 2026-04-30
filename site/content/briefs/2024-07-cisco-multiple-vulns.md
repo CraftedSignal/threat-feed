@@ -38,6 +38,12 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-33018
+    cvss: 7.0
+  - id: CVE-2026-33020
+    cvss: 7.1
+  - id: CVE-2026-41144
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-2142
 rules:

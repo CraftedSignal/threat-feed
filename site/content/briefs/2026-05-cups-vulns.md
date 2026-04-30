@@ -35,6 +35,9 @@ mitre_ttps:
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
+cves:
+  - id: CVE-2026-41079
+    cvss: 4.3
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0947
 rules:

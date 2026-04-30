@@ -30,6 +30,16 @@ mitre_ttps:
     tactic_name: Credential Access
     technique_id: T1003
     technique_name: OS Credential Dumping
+cves:
+  - id: CVE-2026-4878
+    cvss: 6.7
+  - id: CVE-2026-6042
+    cvss: 3.3
+  - id: CVE-2026-40200
+    cvss: 8.1
+  - id: CVE-2026-29013
+  - id: CVE-2026-31580
+    cvss: 7.8
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1300
 rules:

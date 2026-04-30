@@ -21,6 +21,9 @@ mitre_ttps:
     tactic_name: Command and Control
     technique_id: T1498
     technique_name: Denial of Service
+cves:
+  - id: CVE-2026-33254
+    cvss: 5.3
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1230
 rules:

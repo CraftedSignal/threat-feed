@@ -28,6 +28,17 @@ mitre_ttps:
     tactic_name: Command and Control
     technique_id: T1071
     technique_name: Application Layer Protocol
+cves:
+  - id: CVE-2026-40933
+    cvss: 9.9
+  - id: CVE-2026-41137
+    cvss: 8.8
+  - id: CVE-2026-41138
+    cvss: 8.8
+  - id: CVE-2026-41264
+    cvss: 9.8
+  - id: CVE-2026-41265
+    cvss: 9.8
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1145
 rules:

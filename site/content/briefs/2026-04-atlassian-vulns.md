@@ -37,6 +37,8 @@ mitre_ttps:
     tactic_name: Impact
     technique_id: T1489
     technique_name: Service Stop
+cves:
+  - id: CVE-2026-21571
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1229
 rules:

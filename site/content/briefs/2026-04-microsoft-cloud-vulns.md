@@ -33,6 +33,17 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2026-39361
+    cvss: 7.7
+  - id: CVE-2026-39974
+    cvss: 8.5
+  - id: CVE-2026-32168
+    cvss: 7.8
+  - id: CVE-2026-32171
+    cvss: 8.8
+  - id: CVE-2026-32192
+    cvss: 7.8
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1256
 rules:
