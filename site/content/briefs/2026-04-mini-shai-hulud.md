@@ -1,8 +1,8 @@
 ---
-title: Mini Shai-Hulud Supply Chain Attack Targets SAP-Related npm Packages
+title: Mini Shai-Hulud Supply Chain Attack Targets SAP NPM Packages
 slug: 2026-04-mini-shai-hulud
-description: The 'mini Shai-Hulud' campaign compromised SAP-related npm packages with credential-stealing malware, exfiltrating sensitive data to public GitHub repositories and propagating through developer workflows.
-date: "2026-04-29T16:26:00Z"
+description: The Mini Shai-Hulud campaign injected malicious code into SAP NPM packages, targeting credentials and cloud secrets related to SAP Cloud Application Programming (CAP) and SAP cloud deployment workflows, exfiltrating data through public GitHub repositories.
+date: "2026-04-30T14:27:36Z"
 type: threat
 types:
   - threat
@@ -13,87 +13,70 @@ actors:
 tags:
   - supply-chain
   - npm
+  - sap
   - credential-theft
-  - malware
-  - github
 vendors:
   - SAP
+  - GitHub
 products:
-  - SAP JavaScript
-  - SAP Cloud Application
+  - Cloud Application Programming (CAP)
+  - Cloud MTA Build Tool
+  - '@cap-js/db-service'
+  - '@cap-js/postgres'
+  - '@cap-js/sqlite'
+  - github.com
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
+  - tactic_id: TA0009
+    tactic_name: Supply Chain Compromise
     technique_id: T1195
     technique_name: Supply Chain Compromise
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1003
-    technique_name: OS Credential Dumping
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1547
-    technique_name: Boot or Logon Autostart Execution
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1027
-    technique_name: Obfuscated Files or Information
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
 references:
-  - https://thehackernews.com/2026/04/sap-npm-packages-compromised-by-mini.html
+  - https://www.securityweek.com/sap-npm-packages-targeted-in-supply-chain-attack/
 rules:
-  - title: Detect Mini Shai-Hulud Preinstall Script
-    description: Detects the execution of a malicious preinstall script in npm packages, which downloads and executes the Bun JavaScript runtime.
+  - title: Detect Bun Execution From NPM Package
+    description: Detects the execution of the Bun binary from an NPM package, which is an indicator of the Mini Shai-Hulud attack.
     platform: sigma
     severity: high
     tactics:
-      - defense_evasion
-      - initial_access
+      - execution
     techniques:
-      - T1027
-      - T1189
+      - T1213.002
     data_sources:
       - process_creation
       - windows
-  - title: Detect Mini Shai-Hulud Github Repo Creation
-    description: Detects the creation of public GitHub repositories with the specific description 'A Mini Shai-Hulud has Appeared', indicating potential exfiltration.
+  - title: GitHub Repository Description - Mini Shai-Hulud Exfiltration
+    description: Detects GitHub repositories created with the specific description used by the Mini Shai-Hulud malware for exfiltrating stolen data.
     platform: sigma
     severity: high
     tactics:
       - exfiltration
     techniques:
-      - T1567
+      - T1567.002
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-The "mini Shai-Hulud" campaign is a supply chain attack targeting SAP's JavaScript and cloud application development ecosystem. Active as of April 29, 2026, the campaign compromised multiple npm packages, including `mbt@1.2.48`, `@cap-js/db-service@2.10.1`, `@cap-js/postgres@2.2.2`, and `@cap-js/sqlite@2.2.2`. The compromised packages introduced a preinstall script that downloads and executes a platform-specific Bun binary from GitHub Releases. Wiz assesses this campaign likely links to the TeamPCP threat actor, due to similarities with previous operations. The malware harvests credentials and secrets from developers' local environments, GitHub Actions, and cloud platforms (AWS, Azure, GCP, Kubernetes), exfiltrating them to public GitHub repositories. The attack also self-propagates by injecting malicious GitHub Actions workflows into victim repositories to steal repository secrets and publish poisoned npm packages.
+The Mini Shai-Hulud campaign, active as of April 2026, targets SAP NPM packages used in the SAP Cloud Application Programming (CAP) ecosystem and SAP cloud deployment workflows. Four package versions were compromised: `mbt 1.2.48`, `@cap-js/db-service 2.10.1`, `@cap-js/postgres 2.2.2`, and `@cap-js/sqlite 2.2.2`. These packages, with over 500,000 combined weekly downloads, are essential for SAP's Cloud MTA Build Tool and database services for CAP software. The attackers injected a preinstall script that fetches and executes a Bun binary, bypassing security monitoring. The malicious versions were available for a short window of 2-4 hours before being unpublished and superseded by clean versions. Wiz attributes this activity to TeamPCP due to a shared RSA public key used to encrypt the exfiltrated secrets.
 
 ## Attack Chain
 
-1.  **Account Compromise:** Attackers compromised npm accounts, such as RoshniNaveenaS for the "@cap-js" packages and potentially "cloudmtabot" for the mbt package.
-2.  **Malicious Package Injection:** Modified workflows were pushed to non-main branches. For "@cap-js" packages, attackers exploited a misconfiguration in npm's OIDC trusted publisher setup.
-3.  **Preinstall Hook Execution:** The compromised npm packages included a malicious "preinstall" script within their `package.json` files.
-4.  **Bun Runtime Download and Execution:** The "preinstall" script downloads a platform-specific Bun JavaScript runtime from GitHub Releases. The implementation follows HTTP redirects without validation.
-5.  **Credential Stealing:** The downloaded Bun runtime executes a credential stealer ("execution.js") designed to harvest local developer credentials, GitHub and npm tokens, GitHub Actions secrets, and cloud secrets from AWS, Azure, GCP, and Kubernetes.
-6.  **Data Exfiltration:** Stolen credentials and secrets are encrypted using AES-256-GCM (with the key encapsulated using RSA-4096) and exfiltrated to public GitHub repositories created on the victim's own account, with the description "A Mini Shai-Hulud has Appeared."
-7.  **Self-Propagation:** The malware injects a malicious GitHub Actions workflow into the victim's repositories using stolen GitHub and npm tokens, allowing it to steal repository secrets and publish poisoned versions of the npm packages.
-8.  **Persistence:** The payload commits itself into every accessible GitHub repository by injecting a ".claude/settings.json" file (abusing Claude Code's SessionStart hook) and a ".vscode/tasks.json" file (with "runOn": "folderOpen") so that any attempt to open the infected repository in Microsoft Visual Studio Code (VS Code) or Claude Code causes the malware to be executed.
+1.  The attacker compromises an NPM token, possibly exposed through CircleCI.
+2.  The attacker injects a malicious `preinstall` script into the targeted SAP NPM packages (`mbt`, `@cap-js/db-service`, `@cap-js/postgres`, `@cap-js/sqlite`).
+3.  When a user installs the compromised package, the `preinstall` script executes.
+4.  The script fetches a Bun ZIP archive from a GitHub repository.
+5.  The script extracts the Bun archive and executes the included Bun binary.
+6.  The Bun binary steals local credentials, GitHub and NPM tokens, AWS, Azure, GCP, GitHub Action, and Kubernetes secrets.
+7.  The stolen data is exfiltrated to public GitHub repositories with the description "A Mini Shai-Hulud has Appeared".
+8.  The malware propagates by modifying package tarballs, updating versions, repackaging them, and publishing them using stolen GitHub Actions tokens.
 
 ## Impact
 
-The "mini Shai-Hulud" campaign compromises developer environments and CI/CD pipelines, leading to widespread credential theft and supply chain poisoning. Over 1,100 GitHub repositories have been identified with the "A Mini Shai-Hulud has Appeared" description, indicating a significant number of victims. Successful exploitation allows attackers to steal sensitive cloud and development credentials, potentially leading to data breaches, code tampering, and further supply chain attacks. The attack's self-propagation capabilities exacerbate the spread and impact.
+The Mini Shai-Hulud attack poses a significant threat to developers and organizations using SAP CAP, a framework for S/4HANA extensions, Fiori app backends, MTAs, and integration flows. With over 500,000 weekly downloads of the affected packages, a large number of systems could have been affected. Successful exploitation allows attackers to steal sensitive credentials and cloud secrets, potentially leading to unauthorized access to critical SAP systems, cloud infrastructure, and source code repositories. This access could be used for further malicious activities, including data breaches, financial fraud, and supply chain compromise.
 
 ## Recommendation
 
-*   Deploy the "Detect Mini Shai-Hulud Preinstall Script" Sigma rule to detect the execution of the malicious preinstall script during npm package installation.
-*   Deploy the "Detect Mini Shai-Hulud Github Repo Creation" Sigma rule to detect the creation of GitHub repositories with the description "A Mini Shai-Hulud has Appeared."
-*   Monitor npm package installations for the presence of suspicious `preinstall` scripts that download and execute external binaries.
-*   Review and harden npm OIDC trusted publisher configurations to ensure they only trust canonical release workflows on the main branch.
-*   Implement multi-factor authentication (MFA) on all developer accounts and CI/CD systems to prevent account compromise.
-*   Audit GitHub Actions workflows for suspicious activity, such as the injection of malicious steps.
+*   Organizations using SAP Business Technology Platform workflows, SAP CAP, or MTA-based deployment pipelines should immediately check if they installed the malicious package versions (`mbt 1.2.48`, `@cap-js/db-service 2.10.1`, `@cap-js/postgres 2.2.2`, `@cap-js/sqlite 2.2.2`) during the exposure window.
+*   Implement network monitoring rules to detect connections to unusual GitHub repositories created to host stolen data. Monitor for repositories with the description "A Mini Shai-Hulud has Appeared".
+*   Monitor process execution for the execution of `bun` binaries in unusual or unexpected locations to identify systems where compromised packages were installed. Deploy the Sigma rule `Detect Bun Execution From NPM Package` to detect this behavior.
