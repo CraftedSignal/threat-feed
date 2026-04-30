@@ -1,0 +1,51 @@
+name: Notify on workflow failure
+
+# Catch failed runs on the default branch and open (or update) a single
+# tracking issue. Replaces the in-session cron-based polling that died
+# with the Claude conversation. Keeping it scoped to main means we
+# don't get noise from feature-branch experimentation.
+
+on:
+  workflow_run:
+    workflows: ['*']
+    types: [completed]
+
+permissions:
+  issues: write
+  actions: read
+
+jobs:
+  open-issue:
+    if: >-
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open or comment on tracking issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          WF_NAME: ${{ github.event.workflow_run.name }}
+          WF_URL: ${{ github.event.workflow_run.html_url }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          HEAD_TITLE: ${{ github.event.workflow_run.display_title }}
+        run: |
+          set -euo pipefail
+          # Per-workflow tracking issue, keyed by a stable label so
+          # repeated failures don't open new issues — they just add
+          # comments to the existing one.
+          label="ci-failure:${WF_NAME}"
+          # Open issue search by label.
+          existing=$(gh issue list --repo "$REPO" --state open --label "$label" --limit 1 --json number --jq '.[0].number' || true)
+          body="**Workflow:** ${WF_NAME}\n**Commit:** ${HEAD_SHA}\n**Title:** ${HEAD_TITLE}\n**Run:** ${WF_URL}"
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo "$REPO" --body "$(printf '%b' "Another failure:\n$body")"
+          else
+            # Make sure the label exists.
+            gh label create "$label" --repo "$REPO" --color C0392B --description "Auto-created by notify-failures workflow" 2>/dev/null || true
+            gh issue create --repo "$REPO" \
+              --title "${WF_NAME} failed on main" \
+              --label "$label" \
+              --body "$(printf '%b' "$body\n\nAuto-opened by notify-failures.yml. Close this issue once the underlying problem is fixed; further failures will reopen / comment.")"
+          fi
