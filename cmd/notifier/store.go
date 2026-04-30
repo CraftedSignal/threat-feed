@@ -13,9 +13,9 @@ import (
 )
 
 const (
-	collSubscriptions    = "subscriptions"
-	collPending          = "pending_verifications"
-	collPendingDispatch  = "pending_dispatch"
+	collSubscriptions   = "subscriptions"
+	collPending         = "pending_verifications"
+	collPendingDispatch = "pending_dispatch"
 
 	pendingTTL = 24 * time.Hour
 
