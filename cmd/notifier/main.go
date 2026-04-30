@@ -47,7 +47,7 @@ func main() {
 		logger.Error("firestore init failed", "err", err)
 		os.Exit(1)
 	}
-	defer store.Close()
+	defer func() { _ = store.Close() }()
 
 	mailer := newSMTPMailer(cfg.SMTP, logger)
 

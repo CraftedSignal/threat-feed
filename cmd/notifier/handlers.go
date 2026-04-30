@@ -288,9 +288,9 @@ func (r subscribeRequest) toSubscription() (Subscription, error) {
 		}
 		sub.WebhookURL = r.WebhookURL
 	case ChannelTeams:
-		if !(strings.Contains(r.WebhookURL, "office.com/webhook") ||
-			strings.Contains(r.WebhookURL, ".webhook.office.com") ||
-			strings.Contains(r.WebhookURL, ".logic.azure.com")) {
+		if !strings.Contains(r.WebhookURL, "office.com/webhook") &&
+			!strings.Contains(r.WebhookURL, ".webhook.office.com") &&
+			!strings.Contains(r.WebhookURL, ".logic.azure.com") {
 			return sub, fmt.Errorf("invalid Teams webhook URL")
 		}
 		sub.WebhookURL = r.WebhookURL

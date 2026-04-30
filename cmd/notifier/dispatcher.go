@@ -10,6 +10,8 @@ import (
 	"time"
 
 	"golang.org/x/sync/errgroup"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 // dispatchConcurrency caps simultaneous outbound deliveries (SMTP + webhook
@@ -116,7 +118,7 @@ func (d *dispatcher) deliver(sub Subscription, b Brief, serviceURL string) error
 func emailSubject(b Brief) string {
 	prefix := "[" + strings.ToUpper(b.Severity) + "]"
 	if b.Type != "" {
-		prefix += " " + strings.Title(b.Type)
+		prefix += " " + cases.Title(language.English).String(b.Type)
 	}
 	return prefix + ": " + b.Title
 }
