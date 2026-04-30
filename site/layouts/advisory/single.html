@@ -54,10 +54,6 @@
         {{ if .Content }}
         <section class="prose-feed">
           {{ .Content }}
-          <p class="not-prose text-sm text-muted border-t border-stroke pt-4 mt-6">
-            This is a public summary. The full analysis, detection rule queries, and IOC values are available in the
-            <a class="text-accent hover:underline" href="{{ .Site.Params.appURL }}" target="_blank" rel="noopener noreferrer">CraftedSignal platform</a>.
-          </p>
         </section>
         {{ end }}
 
@@ -129,6 +125,42 @@
 
       <aside class="lg:col-span-4 space-y-4 lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto min-w-0">
 
+        {{ if or $vendors $products $os }}
+        <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-3">
+          <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Affected</h2>
+          {{ if $vendors }}
+          <div class="space-y-1.5">
+            <p class="text-[11px] font-mono uppercase tracking-wider text-muted">Vendors</p>
+            <div class="flex flex-wrap gap-1.5">
+              {{ range $vendors }}<a href="/vendors/{{ . | urlize }}/" class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2 hover:text-accent transition">{{ . }}</a>{{ end }}
+            </div>
+          </div>
+          {{ end }}
+          {{ if $products }}
+          <div class="space-y-1.5">
+            <p class="text-[11px] font-mono uppercase tracking-wider text-muted">Products</p>
+            <div class="space-y-1">
+              {{ range $products }}
+              {{ $bare := trim (index (split . "(") 0) " " }}
+              {{ $ver := "" }}
+              {{ if in . "(" }}{{ $ver = trim (replace (index (split . "(") 1) ")" "") " " }}{{ end }}
+              <div class="text-sm">
+                <a href="/products/{{ $bare | urlize }}/" class="font-mono text-text hover:text-accent transition break-all">{{ $bare }}</a>
+                {{ if $ver }}<span class="block text-[11px] font-mono text-muted">{{ $ver }}</span>{{ end }}
+              </div>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+          {{ if $os }}
+          <div class="space-y-1.5">
+            <p class="text-[11px] font-mono uppercase tracking-wider text-muted">Operating systems</p>
+            <div class="flex flex-wrap gap-1.5">{{ range $os }}<span class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2">{{ . }}</span>{{ end }}</div>
+          </div>
+          {{ end }}
+        </section>
+        {{ end }}
+
         {{ if $cves }}
         <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-3">
           <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">CVEs</h2>
@@ -144,6 +176,17 @@
             </div>
             {{ end }}
           </div>
+        </section>
+        {{ end }}
+
+        {{ if $refs }}
+        <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-2">
+          <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">References</h2>
+          <ul class="space-y-1.5 text-sm">
+            {{ range $refs }}
+            <li><a class="text-accent hover:underline break-all" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a></li>
+            {{ end }}
+          </ul>
         </section>
         {{ end }}
 
@@ -179,46 +222,6 @@
         </section>
         {{ end }}
 
-        {{ if or $vendors $products $os }}
-        <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-3">
-          <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Affected</h2>
-          {{ if $vendors }}
-          <div class="space-y-1.5">
-            <p class="text-[11px] font-mono uppercase tracking-wider text-muted">Vendors</p>
-            <div class="flex flex-wrap gap-1.5">
-              {{ range $vendors }}<a href="/vendors/{{ . | urlize }}/" class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2 hover:text-accent transition">{{ . }}</a>{{ end }}
-            </div>
-          </div>
-          {{ end }}
-          {{ if $products }}
-          <div class="space-y-1.5">
-            <p class="text-[11px] font-mono uppercase tracking-wider text-muted">Products</p>
-            <div class="space-y-1">
-              {{ range $products }}
-              {{/* Split "name (version)" so the version sits on its own
-                   line in the sidebar. The product name links to the
-                   taxonomy page (slugged from the bare name); the
-                   version text isn't a link. */}}
-              {{ $bare := trim (index (split . "(") 0) " " }}
-              {{ $ver := "" }}
-              {{ if in . "(" }}{{ $ver = trim (replace (index (split . "(") 1) ")" "") " " }}{{ end }}
-              <div class="text-sm">
-                <a href="/products/{{ $bare | urlize }}/" class="font-mono text-text hover:text-accent transition break-all">{{ $bare }}</a>
-                {{ if $ver }}<span class="block text-[11px] font-mono text-muted">{{ $ver }}</span>{{ end }}
-              </div>
-              {{ end }}
-            </div>
-          </div>
-          {{ end }}
-          {{ if $os }}
-          <div class="space-y-1.5">
-            <p class="text-[11px] font-mono uppercase tracking-wider text-muted">Operating systems</p>
-            <div class="flex flex-wrap gap-1.5">{{ range $os }}<span class="inline-flex px-2 py-0.5 rounded text-xs bg-panel-2">{{ . }}</span>{{ end }}</div>
-          </div>
-          {{ end }}
-        </section>
-        {{ end }}
-
         {{ if $tags }}
         <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-2">
           <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Tags</h2>
@@ -230,27 +233,9 @@
         </section>
         {{ end }}
 
-        {{ if $refs }}
-        <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-2">
-          <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">References</h2>
-          <ul class="space-y-1.5 text-sm">
-            {{ range $refs }}
-            <li><a class="text-accent hover:underline break-all" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a></li>
-            {{ end }}
-          </ul>
-        </section>
-        {{ end }}
-
       </aside>
 
     </div>
-
-    <section class="mt-16 pt-8 border-t border-stroke text-sm text-muted space-y-2">
-      <p>Want this in your SIEM? CraftedSignal compiles each brief into Sigma rules and ships them to Splunk, Sentinel, CrowdStrike, Elastic, and Rapid7 — with semantic-drift checks and noise budgets.</p>
-      <p>
-        <a class="text-muted hover:text-text border-b border-stroke hover:border-accent transition pb-0.5" href="{{ .Site.Params.appURL }}" target="_blank" rel="noopener noreferrer">Try CraftedSignal →</a>
-      </p>
-    </section>
 
   </div>
 </article>
