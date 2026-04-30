@@ -241,13 +241,56 @@ func (s *firestoreStore) EnqueuePending(ctx context.Context, subID string, brief
 	return overflow, err
 }
 
-// ForEachFlushablePending iterates pending_dispatch docs whose
-// first_queued_at is older than cutoff, decoding each into a
-// PendingDispatch. fn is called sequentially; the iteration unsubscribes
-// on the first error.
-func (s *firestoreStore) ForEachFlushablePending(ctx context.Context, cutoff time.Time, fn func(PendingDispatch) error) error {
+// ForEachFlushablePending iterates every pending_dispatch doc whose
+// first_queued_at is older than maxAge, OR whose last_queued_at is
+// older than idleAge. The two-condition gate implements a sliding
+// window: a queue stays open as long as new briefs keep arriving
+// (last_queued_at moves forward), but is capped at maxAge so a steady
+// drip can't delay delivery indefinitely.
+//
+// Note: Firestore disjunctive queries on different fields require two
+// reads with client-side de-dup. Both reads are cheap at our scale
+// (one doc per active subscriber).
+func (s *firestoreStore) ForEachFlushablePending(ctx context.Context, idleAge, maxAge time.Time, fn func(PendingDispatch) error) error {
+	seen := make(map[string]struct{})
+
+	emit := func(snap *firestore.DocumentSnapshot) error {
+		if _, dup := seen[snap.Ref.ID]; dup {
+			return nil
+		}
+		seen[snap.Ref.ID] = struct{}{}
+		var pd PendingDispatch
+		if err := snap.DataTo(&pd); err != nil {
+			return err
+		}
+		pd.SubscriptionID = snap.Ref.ID
+		return fn(pd)
+	}
+
+	// Pass 1: queues that have gone idle (no new briefs in idleAge).
 	iter := s.c.Collection(collPendingDispatch).
-		Where("first_queued_at", "<=", cutoff).
+		Where("last_queued_at", "<=", idleAge).
+		Documents(ctx)
+	for {
+		snap, err := iter.Next()
+		if errors.Is(err, iterator.Done) {
+			break
+		}
+		if err != nil {
+			iter.Stop()
+			return err
+		}
+		if err := emit(snap); err != nil {
+			iter.Stop()
+			return err
+		}
+	}
+	iter.Stop()
+
+	// Pass 2: queues older than maxAge regardless of recent arrivals.
+	// Catches the steady-drip case where last_queued_at always advances.
+	iter = s.c.Collection(collPendingDispatch).
+		Where("first_queued_at", "<=", maxAge).
 		Documents(ctx)
 	defer iter.Stop()
 	for {
@@ -258,15 +301,28 @@ func (s *firestoreStore) ForEachFlushablePending(ctx context.Context, cutoff tim
 		if err != nil {
 			return err
 		}
-		var pd PendingDispatch
-		if err := snap.DataTo(&pd); err != nil {
-			return err
-		}
-		pd.SubscriptionID = snap.Ref.ID
-		if err := fn(pd); err != nil {
+		if err := emit(snap); err != nil {
 			return err
 		}
 	}
+}
+
+// GetPending fetches the pending_dispatch doc for a subscription, used
+// by the overflow flush path. Returns ErrNotFound if no queue exists.
+func (s *firestoreStore) GetPending(ctx context.Context, subID string) (PendingDispatch, error) {
+	var pd PendingDispatch
+	snap, err := s.c.Collection(collPendingDispatch).Doc(subID).Get(ctx)
+	if err != nil {
+		if status.Code(err) == codes.NotFound {
+			return pd, ErrNotFound
+		}
+		return pd, err
+	}
+	if err := snap.DataTo(&pd); err != nil {
+		return pd, err
+	}
+	pd.SubscriptionID = snap.Ref.ID
+	return pd, nil
 }
 
 // DeletePending removes the queue doc for a subscription. Called after

@@ -104,7 +104,15 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 // Cleanup: queues are deleted only after a successful delivery and
 // MarkSent. Failures leave the queue intact so the next sweep retries.
 func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, serviceURL string) (sent int, failed int) {
-	cutoff := time.Now().UTC().Add(-debounce)
+	// Sliding-window gate. A queue is flushable when EITHER:
+	//   - no new briefs arrived in the last `debounce` (idle window) —
+	//     the natural end of an activity burst, or
+	//   - the oldest brief in the queue is older than `maxAge` — a
+	//     hard ceiling so a steady drip can't delay forever.
+	now := time.Now().UTC()
+	const maxAge = 30 * time.Minute
+	idleAge := now.Add(-debounce)
+	maxCutoff := now.Add(-maxAge)
 
 	// Collect everything first so SMTP gets one connection regardless
 	// of how many email subscribers have pending queues.
@@ -121,7 +129,7 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 	}
 	var webhookJobs []webhookJob
 
-	if err := d.store.ForEachFlushablePending(ctx, cutoff, func(pd PendingDispatch) error {
+	if err := d.store.ForEachFlushablePending(ctx, idleAge, maxCutoff, func(pd PendingDispatch) error {
 		if len(pd.Briefs) == 0 {
 			_ = d.store.DeletePending(ctx, pd.SubscriptionID)
 			return nil
@@ -206,18 +214,14 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 }
 
 // flushSubscription is the inline overflow path: fetch the queued
-// PendingDispatch, deliver, clear. Used when an /dispatch call tips
-// a single subscriber over the queue cap.
+// PendingDispatch by ID, deliver, clear. Used when an /dispatch call
+// tips a single subscriber over the queue cap.
 func (d *dispatcher) flushSubscription(ctx context.Context, subID string, serviceURL string) error {
-	// Re-query the queue — overflow was decided in the Set transaction
-	// above, but the deliverable shape lives in the doc.
-	var pd PendingDispatch
-	if err := d.store.ForEachFlushablePending(ctx, time.Now().UTC().Add(time.Hour), func(p PendingDispatch) error {
-		if p.SubscriptionID == subID {
-			pd = p
+	pd, err := d.store.GetPending(ctx, subID)
+	if err != nil {
+		if err == ErrNotFound {
+			return nil
 		}
-		return nil
-	}); err != nil {
 		return err
 	}
 	if len(pd.Briefs) == 0 {
