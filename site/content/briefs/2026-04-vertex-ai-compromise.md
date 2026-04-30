@@ -8,8 +8,6 @@ types:
   - threat
 severities:
   - critical
-actors:
-  - Palo Alto Networks Researchers (simulated)
 tags:
   - cloud
   - ai

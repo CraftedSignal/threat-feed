@@ -8,8 +8,6 @@ types:
   - threat
 severities:
   - medium
-actors:
-  - Unauthenticated Attacker
 tags:
   - wordpress
   - xss

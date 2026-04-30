@@ -9,7 +9,7 @@ types:
 severities:
   - critical
 actors:
-  - TeamPCP (Likely)
+  - TeamPCP
 tags:
   - supply-chain
   - credential-theft

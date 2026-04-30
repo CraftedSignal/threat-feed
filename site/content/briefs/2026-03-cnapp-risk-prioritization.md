@@ -9,7 +9,8 @@ types:
 severities:
   - medium
 actors:
-  - LABYRINTH CHOLLIMA and SCATTERED SPIDER
+  - LABYRINTH CHOLLIMA
+  - SCATTERED SPIDER
 tags:
   - cloud
   - cnapp

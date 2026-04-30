@@ -9,7 +9,7 @@ types:
 severities:
   - high
 actors:
-  - Russian APT (unspecified)
+  - Russian APT
 tags:
   - zimbra
   - xss

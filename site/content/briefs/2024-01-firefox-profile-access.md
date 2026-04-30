@@ -8,8 +8,6 @@ types:
   - threat
 severities:
   - high
-actors:
-  - Multiple threat actors
 tags:
   - credential-access
   - malware

@@ -6,7 +6,8 @@ date: "2026-02-25T09:22:01Z"
 severities:
   - critical
 actors:
-  - LockBit / HelloKitty
+  - LockBit
+  - HelloKitty
 tags:
   - activemq
   - rce

@@ -8,8 +8,6 @@ types:
   - threat
 severities:
   - high
-actors:
-  - Red Teams
 tags:
   - pentest
   - post-exploitation

@@ -9,7 +9,8 @@ types:
 severities:
   - high
 actors:
-  - LABYRINTH CHOLLIMA, SCATTERED SPIDER
+  - LABYRINTH CHOLLIMA
+  - SCATTERED SPIDER
 tags:
   - cloud_security
   - cnapp

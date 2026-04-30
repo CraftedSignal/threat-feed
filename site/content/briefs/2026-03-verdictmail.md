@@ -8,8 +8,6 @@ types:
   - coverage
 severities:
   - medium
-actors:
-  - Individual Developer
 tags:
   - email-security
   - threat-detection

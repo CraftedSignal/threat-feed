@@ -8,8 +8,6 @@ types:
   - threat
 severities:
   - high
-actors:
-  - China, Russia, North Korea, Iran (State-Sponsored)
 tags:
   - state-sponsored
   - apt

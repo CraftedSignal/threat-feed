@@ -6,7 +6,7 @@ date: "2026-04-02T12:00:00Z"
 severities:
   - high
 actors:
-  - Potentially Chinese-nexus threat actor (TrueChaos)
+  - TrueChaos
 exploited: true
 tags:
   - trueconf
