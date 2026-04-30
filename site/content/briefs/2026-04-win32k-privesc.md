@@ -3,9 +3,9 @@ title: Windows Win32K Untrusted Pointer Dereference Vulnerability (CVE-2026-3222
 slug: 2026-04-win32k-privesc
 description: CVE-2026-32222 is an untrusted pointer dereference vulnerability in the Windows Win32K ICOMP component, allowing a local attacker to escalate privileges.
 date: "2026-04-14T18:46:15Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

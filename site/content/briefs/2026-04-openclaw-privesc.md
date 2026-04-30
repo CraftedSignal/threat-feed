@@ -3,9 +3,9 @@ title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-42432)
 slug: 2026-04-openclaw-privesc
 description: OpenClaw before 2026.4.8 contains a privilege escalation vulnerability that allows previously paired nodes to reconnect and execute privileged commands without proper authorization, potentially leading to complete system compromise.
 date: "2026-04-28T19:37:47Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

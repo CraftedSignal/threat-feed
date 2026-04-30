@@ -3,9 +3,9 @@ title: Dell PowerProtect Data Domain BoostFS Credential Exposure Vulnerability (
 slug: 2024-07-dell-powerprotect-credential-exposure
 description: Dell PowerProtect Data Domain BoostFS versions 7.7.1.0 through 8.5, 8.3.1.0 through 8.3.1.20, and 7.13.1.0 through 7.13.1.50 are vulnerable to an insufficiently protected credentials vulnerability, allowing a low-privileged attacker with local access to expose credentials and potentially gain elevated privileges.
 date: "2026-04-17T09:16:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

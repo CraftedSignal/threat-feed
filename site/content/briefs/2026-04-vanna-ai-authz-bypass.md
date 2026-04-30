@@ -3,9 +3,9 @@ title: vanna-ai vanna Improper Authorization Vulnerability (CVE-2026-6977)
 slug: 2026-04-vanna-ai-authz-bypass
 description: An improper authorization vulnerability (CVE-2026-6977) exists in vanna-ai vanna up to version 2.0.2 due to manipulation of an unknown function within the Legacy Flask API, potentially allowing remote attackers to bypass intended access restrictions.
 date: "2026-04-25T11:16:19Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

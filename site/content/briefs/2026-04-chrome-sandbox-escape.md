@@ -3,9 +3,9 @@ title: Google Chrome Sandbox Escape via Uninitialized Use in Accessibility (CVE-
 slug: 2026-04-chrome-sandbox-escape
 description: A remote attacker who has compromised the renderer process in Google Chrome on Windows prior to version 147.0.7727.101 can potentially perform a sandbox escape via a crafted HTML page due to an uninitialized use in accessibility, as tracked by CVE-2026-6311.
 date: "2026-04-16T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Tenda F456 Router Buffer Overflow Vulnerability (CVE-2026-7101)
 slug: 2026-04-tenda-f456-buffer-overflow
 description: A buffer overflow vulnerability in Tenda F456 version 1.0.0.5 allows remote attackers to execute arbitrary code via a crafted request to the fromWrlclientSet function in the /goform/WrlclientSet file of the httpd component.
 date: "2026-04-27T09:19:31Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: Signal K Server Privilege Escalation via Unprotected /enableSecurity Endp
 slug: 2026-04-signalk-privesc
 description: The Signal K server is vulnerable to privilege escalation due to the /skServer/enableSecurity endpoint remaining active after initial setup, allowing unauthenticated users to inject a new admin account and gain full server control; this affects versions prior to 2.24.0-beta.4.
 date: "2026-04-04T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

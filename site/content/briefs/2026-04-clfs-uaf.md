@@ -3,9 +3,9 @@ title: 'CVE-2026-32070: Windows CLFS Driver Use-After-Free Privilege Escalation'
 slug: 2026-04-clfs-uaf
 description: A use-after-free vulnerability, CVE-2026-32070, exists in the Windows Common Log File System (CLFS) driver, enabling a locally authenticated attacker to escalate privileges on a vulnerable system.
 date: "2026-04-14T18:17:07Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

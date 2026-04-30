@@ -3,9 +3,9 @@ title: OpenClaw Information Disclosure via Telegram Bot Token Exposure
 slug: 2026-03-openclaw-token-leak
 description: OpenClaw before version 2026.3.13 exposes Telegram bot tokens in error messages due to the fetchRemoteMedia function embedding these tokens in MediaFetchError strings when media downloads fail.
 date: "2026-03-31T12:16:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Kentico Xperience Path Traversal Vulnerability (CVE-2025-2749)
 slug: 2024-01-kentico-traversal
 description: Kentico Xperience contains a path traversal vulnerability (CVE-2025-2749) that could allow an authenticated user's Staging Sync Server to upload arbitrary data to path relative locations, potentially leading to remote code execution or data compromise.
 date: "2024-01-30T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

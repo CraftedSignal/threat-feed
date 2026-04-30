@@ -3,9 +3,9 @@ title: SQL Injection Vulnerability in Easy Blog Site 1.0
 slug: 2026-04-easy-blog-sql-injection
 description: A SQL injection vulnerability exists in code-projects Easy Blog Site 1.0 within the login.php file, exploitable remotely by manipulating the username/password parameters, potentially leading to unauthorized database access.
 date: "2026-04-06T11:17:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

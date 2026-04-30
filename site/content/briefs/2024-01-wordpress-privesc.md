@@ -3,9 +3,9 @@ title: WordPress Custom Role Manager Plugin Privilege Escalation via CVE-2026-71
 slug: 2024-01-wordpress-privesc
 description: Highland Software's Custom Role Manager plugin for WordPress, versions 1.0.0 and earlier, contains a privilege escalation vulnerability (CVE-2026-7106) that allows authenticated users with subscriber-level access to modify user roles due to insufficient authorization checks in the hscrm_save_user_roles() function.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

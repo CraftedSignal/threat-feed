@@ -26,17 +26,6 @@
       {{/* Display "coverage" as "rule" — clearer to a casual reader. The
            data model, CSS class, and taxonomy URL stay coverage. */}}
       <span class="type-badge type-{{ $type }} justify-center">{{ cond (eq $type "coverage") "rule" $type }}</span>
-      {{ if $products }}
-      {{/* Strip version specifiers like "(<= 0.4.1)" / "(versions prior to 3.3)"
-           from the displayed product name — they read as noise in a badge.
-           Hover title still carries the unredacted list. */}}
-      {{ $primaryProduct := index $products 0 }}
-      {{ $primaryProduct = trim (index (split $primaryProduct "(") 0) " " }}
-      <span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[10px] bg-panel-2 text-muted truncate" title="{{ delimit $products ", " }}">
-        {{- $primaryProduct -}}
-        {{- if gt (len $products) 1 }} +{{ sub (len $products) 1 }}{{ end -}}
-      </span>
-      {{ end }}
     </div>
 
     <div class="flex-1 min-w-0">
@@ -58,6 +47,18 @@
         <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 min-w-0">
           {{ if $exploited }}
           <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-critical/10 text-sev-critical" title="Active exploitation observed in the wild">exploited</span>
+          {{ end }}
+          {{ if $products }}
+          {{/* Lead the chip row with the affected product — it's usually the
+               most useful identifier on a glance. Strip version specifiers
+               like "(<= 0.4.1)" so the chip reads cleanly; hover title
+               carries the full list. */}}
+          {{ $primaryProduct := index $products 0 }}
+          {{ $primaryProduct = trim (index (split $primaryProduct "(") 0) " " }}
+          <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-panel-2 text-text" title="{{ delimit $products ", " }}">
+            {{- $primaryProduct -}}
+            {{- if gt (len $products) 1 }} +{{ sub (len $products) 1 }}{{ end -}}
+          </span>
           {{ end }}
           {{ range $actors }}
           <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-accent/10 text-accent">{{ . }}</span>

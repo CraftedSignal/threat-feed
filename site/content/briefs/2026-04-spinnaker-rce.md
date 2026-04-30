@@ -3,9 +3,9 @@ title: Critical RCE Vulnerabilities in Spinnaker
 slug: 2026-04-spinnaker-rce
 description: Critical vulnerabilities CVE-2026-32613 and CVE-2026-32604 in Spinnaker allow authenticated attackers to execute arbitrary code due to insufficient input validation in expression parsing and gitrepo artifact handling, potentially leading to complete system compromise.
 date: "2026-04-22T14:46:46Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

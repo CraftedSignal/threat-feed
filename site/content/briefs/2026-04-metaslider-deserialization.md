@@ -3,9 +3,9 @@ title: MetaSlider Responsive Slider Plugin Deserialization Vulnerability (CVE-20
 slug: 2026-04-metaslider-deserialization
 description: A deserialization of untrusted data vulnerability in the MetaSlider Responsive Slider plugin for WordPress (versions up to 3.106.0) allows for unauthenticated object injection, potentially leading to remote code execution.
 date: "2026-04-21T10:16:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

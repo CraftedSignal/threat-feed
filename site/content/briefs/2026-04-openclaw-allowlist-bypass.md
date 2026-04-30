@@ -3,9 +3,9 @@ title: OpenClaw Exec Allowlist Bypass Vulnerability (CVE-2026-41390)
 slug: 2026-04-openclaw-allowlist-bypass
 description: OpenClaw before version 2026.3.28 contains an exec allowlist bypass vulnerability (CVE-2026-41390) that allows attackers to persist trust for wrapper binaries like /usr/bin/script to execute different underlying programs, potentially leading to privilege escalation.
 date: "2026-04-28T19:37:42Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

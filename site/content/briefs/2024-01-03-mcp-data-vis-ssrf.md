@@ -3,9 +3,9 @@ title: Server-Side Request Forgery in mcp-data-vis
 slug: 2024-01-03-mcp-data-vis-ssrf
 description: A server-side request forgery (SSRF) vulnerability exists in AlejandroArciniegas' mcp-data-vis due to improper handling of HTTP requests, potentially allowing remote attackers to make arbitrary requests through the vulnerable server.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

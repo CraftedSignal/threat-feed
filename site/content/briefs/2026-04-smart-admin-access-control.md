@@ -3,9 +3,9 @@ title: 1024-lab smart-admin Improper Access Control Vulnerability (CVE-2026-7468
 slug: 2026-04-smart-admin-access-control
 description: CVE-2026-7468 is an improper access control vulnerability in 1024-lab smart-admin up to version 3.30.0, affecting the /smart-admin-api/druid/index.html file, which can be exploited remotely.
 date: "2026-04-30T01:16:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

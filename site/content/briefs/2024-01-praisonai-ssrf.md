@@ -3,9 +3,9 @@ title: PraisonAI SSRF Vulnerability via Unvalidated Webhook URL
 slug: 2024-01-praisonai-ssrf
 description: PraisonAI versions prior to 4.5.128 are vulnerable to Server-Side Request Forgery (SSRF) due to a lack of URL validation on the webhook_url parameter in the /api/v1/runs endpoint, allowing unauthenticated attackers to send arbitrary POST requests from the server.
 date: "2026-04-09T22:16:35Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

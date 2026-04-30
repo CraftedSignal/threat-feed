@@ -3,9 +3,9 @@ title: File Browser Share Links Accessible After Permission Revocation
 slug: 2026-04-filebrowser-share-bypass
 description: File Browser share links remain accessible after Share/Download permissions are revoked, allowing continued access to shared files even after an administrator revokes the user's permissions.
 date: "2026-04-08T00:04:59Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

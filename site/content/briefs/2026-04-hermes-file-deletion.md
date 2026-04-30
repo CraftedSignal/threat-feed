@@ -3,9 +3,9 @@ title: Hermes WebUI Arbitrary File Deletion Vulnerability (CVE-2026-6832)
 slug: 2026-04-hermes-file-deletion
 description: Hermes WebUI is vulnerable to arbitrary file deletion via path traversal in the /api/session/delete endpoint due to insufficient validation of the session_id parameter, allowing authenticated attackers to delete writable JSON files on the host system.
 date: "2026-04-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

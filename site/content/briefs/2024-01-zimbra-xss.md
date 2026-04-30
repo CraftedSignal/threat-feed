@@ -3,9 +3,9 @@ title: Synacor Zimbra Collaboration Suite (ZCS) Cross-Site Scripting Vulnerabili
 slug: 2024-01-zimbra-xss
 description: A cross-site scripting (XSS) vulnerability in Synacor Zimbra Collaboration Suite (ZCS) could allow attackers to execute arbitrary JavaScript within a user's session, potentially leading to unauthorized access to sensitive information.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: WordPress HTTP Headers Plugin Remote Code Execution via File Path Manipul
 slug: 2026-04-wordpress-http-headers-rce
 description: The HTTP Headers WordPress plugin is vulnerable to remote code execution (RCE) due to insufficient validation of the htpasswd file path and lack of sanitization of the username, allowing authenticated administrators to write arbitrary code to the server.
 date: "2026-04-22T09:16:24Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

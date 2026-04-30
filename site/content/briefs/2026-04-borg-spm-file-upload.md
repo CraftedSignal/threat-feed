@@ -3,9 +3,9 @@ title: Borg SPM 2007 Arbitrary File Upload Vulnerability (CVE-2026-6885)
 slug: 2026-04-borg-spm-file-upload
 description: An unauthenticated remote attacker can exploit an arbitrary file upload vulnerability (CVE-2026-6885) in Borg SPM 2007 to upload and execute web shell backdoors, leading to arbitrary code execution on the server.
 date: "2026-04-23T10:16:18Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: SQL Server Untrusted Pointer Dereference Vulnerability (CVE-2026-33120)
 slug: 2026-04-sql-server-rce
 description: CVE-2026-33120 is an untrusted pointer dereference vulnerability in Microsoft SQL Server that allows an authenticated attacker to achieve remote code execution over a network.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

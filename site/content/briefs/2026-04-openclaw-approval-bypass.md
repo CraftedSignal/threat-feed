@@ -3,9 +3,9 @@ title: OpenClaw StrictInlineEval Approval Bypass Vulnerability (CVE-2026-42423)
 slug: 2026-04-openclaw-approval-bypass
 description: OpenClaw before 2026.4.8 contains an approval-timeout fallback mechanism that allows attackers to bypass strictInlineEval explicit-approval requirements on gateway and node exec hosts, leading to arbitrary command execution.
 date: "2026-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

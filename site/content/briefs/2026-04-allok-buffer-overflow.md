@@ -3,9 +3,9 @@ title: Allok AVI to DVD SVCD VCD Converter Buffer Overflow Vulnerability
 slug: 2026-04-allok-buffer-overflow
 description: Allok AVI to DVD SVCD VCD Converter 4.0.1217 is vulnerable to a SEH-based buffer overflow, allowing local attackers to execute arbitrary code by providing a malicious string in the License Name field.
 date: "2026-04-29T20:16:25Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

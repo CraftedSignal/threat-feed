@@ -3,9 +3,9 @@ title: ConnectWise ScreenConnect Path Traversal Vulnerability (CVE-2024-1708)
 slug: 2024-04-29-screenconnect-path-traversal
 description: CVE-2024-1708 is a path traversal vulnerability in ConnectWise ScreenConnect that could allow an attacker to execute remote code or directly impact confidential data and critical systems.
 date: "2024-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

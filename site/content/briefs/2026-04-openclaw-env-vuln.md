@@ -3,9 +3,9 @@ title: OpenClaw Incomplete Host Environment Variable Sanitization Vulnerability 
 slug: 2026-04-openclaw-env-vuln
 description: OpenClaw before 2026.3.22 is vulnerable to incomplete host environment variable sanitization, allowing attackers to redirect package resolution or runtime bootstrap to attacker-controlled infrastructure and execute trojanized content.
 date: "2026-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

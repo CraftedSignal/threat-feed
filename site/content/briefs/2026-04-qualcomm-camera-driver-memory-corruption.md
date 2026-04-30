@@ -3,9 +3,9 @@ title: Qualcomm Camera Driver Memory Corruption Vulnerability
 slug: 2026-04-qualcomm-camera-driver-memory-corruption
 description: A memory corruption vulnerability exists in Qualcomm camera sensor drivers due to insufficient output buffer size validation during IOCTL processing, potentially leading to arbitrary code execution.
 date: "2026-04-06T16:16:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

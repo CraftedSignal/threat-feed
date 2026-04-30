@@ -3,9 +3,9 @@ title: Windows LUAFV TOCTOU Vulnerability Allows Local Privilege Escalation (CVE
 slug: 2026-04-luafv-privesc
 description: CVE-2026-27929 is a time-of-check time-of-use (TOCTOU) race condition in Windows LUAFV that allows an authorized local attacker to elevate privileges.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

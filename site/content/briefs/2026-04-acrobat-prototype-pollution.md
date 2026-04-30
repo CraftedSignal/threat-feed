@@ -3,9 +3,9 @@ title: Adobe Acrobat Reader Prototype Pollution Vulnerability (CVE-2026-34622)
 slug: 2026-04-acrobat-prototype-pollution
 description: A prototype pollution vulnerability in Adobe Acrobat Reader versions 26.001.21411, 24.001.30360, 24.001.30362 and earlier (CVE-2026-34622) allows for arbitrary code execution when a user opens a specially crafted malicious file.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

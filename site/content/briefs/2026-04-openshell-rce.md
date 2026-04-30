@@ -3,9 +3,9 @@ title: OpenShell Arbitrary Code Execution Vulnerability (CVE-2026-41355)
 slug: 2026-04-openshell-rce
 description: OpenShell before 2026.3.28 is vulnerable to arbitrary code execution via mirror mode when converting untrusted sandbox files into workspace hooks, allowing attackers with mirror mode access to execute code during gateway startup.
 date: "2026-04-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

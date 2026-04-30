@@ -3,9 +3,9 @@ title: Nimiq Blockchain Timestamp Manipulation Vulnerability
 slug: 2026-04-nimiq-timestamp-inflation
 description: A vulnerability in nimiq-blockchain versions 1.3.0 and earlier allows malicious validators to manipulate block timestamps, leading to inflation of the monetary supply.
 date: "2026-04-09T21:16:11Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

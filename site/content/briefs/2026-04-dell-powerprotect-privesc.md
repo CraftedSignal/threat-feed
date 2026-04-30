@@ -3,9 +3,9 @@ title: Dell PowerProtect Data Domain Improper Certificate Validation Vulnerabili
 slug: 2026-04-dell-powerprotect-privesc
 description: Dell PowerProtect Data Domain versions 7.7.1.0 through 8.5, 8.3.1.0 through 8.3.1.20, and 7.13.1.0 through 7.13.1.60, contain an improper certificate validation vulnerability in certificate-based login, potentially leading to privilege escalation.
 date: "2026-04-17T10:16:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

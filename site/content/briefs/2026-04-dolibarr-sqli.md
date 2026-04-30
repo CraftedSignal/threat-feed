@@ -3,9 +3,9 @@ title: Dolibarr ERP-CRM 8.0.4 SQL Injection Vulnerability
 slug: 2026-04-dolibarr-sqli
 description: Dolibarr ERP-CRM 8.0.4 is vulnerable to SQL injection via the rowid parameter in the admin dict.php endpoint, allowing attackers to execute arbitrary SQL queries and extract sensitive database information.
 date: "2026-04-12T13:16:34Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

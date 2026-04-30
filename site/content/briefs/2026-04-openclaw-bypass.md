@@ -3,9 +3,9 @@ title: OpenClaw Security Bypass Vulnerability Allows Persistent Browser Profile 
 slug: 2026-04-openclaw-bypass
 description: OpenClaw before 2026.4.8 contains a security bypass vulnerability in node.invoke(browser.proxy) that allows attackers to circumvent the browser.request persistent profile-mutation guard and modify browser configurations.
 date: "2026-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

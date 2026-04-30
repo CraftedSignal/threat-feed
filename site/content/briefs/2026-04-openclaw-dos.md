@@ -3,9 +3,9 @@ title: OpenClaw Unauthenticated WebSocket Denial-of-Service Vulnerability
 slug: 2026-04-openclaw-dos
 description: OpenClaw before 2026.3.28 is vulnerable to a denial-of-service attack by accepting unbounded concurrent unauthenticated WebSocket upgrades, allowing attackers to exhaust server resources.
 date: "2026-04-28T19:37:43Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

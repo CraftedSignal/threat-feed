@@ -3,9 +3,9 @@ title: Algovate xhs-mcp Server-Side Request Forgery Vulnerability
 slug: 2024-01-algovate-ssrf
 description: A server-side request forgery (SSRF) vulnerability exists in Algovate xhs-mcp 0.8.11 within the xhs_publish_content function, allowing a remote attacker to manipulate the media_paths argument and potentially access internal resources.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

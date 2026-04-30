@@ -3,9 +3,9 @@ title: Google Chrome Proxy Use-After-Free Vulnerability (CVE-2026-6297)
 slug: 2026-04-chrome-use-after-free
 description: CVE-2026-6297 is a critical use-after-free vulnerability in the Proxy component of Google Chrome before version 147.0.7727.101, enabling a privileged network attacker to potentially achieve sandbox escape via a crafted HTML page.
 date: "2026-04-15T20:16:38Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

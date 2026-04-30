@@ -3,9 +3,9 @@ title: Google Chrome CSS Use-After-Free Vulnerability (CVE-2026-6300)
 slug: 2026-04-chrome-uaf
 description: A use-after-free vulnerability in Google Chrome's CSS engine (CVE-2026-6300) allows a remote attacker to execute arbitrary code within a sandbox by exploiting a crafted HTML page.
 date: "2026-04-16T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

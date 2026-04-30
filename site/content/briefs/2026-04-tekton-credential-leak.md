@@ -3,9 +3,9 @@ title: Tekton Pipelines Git Resolver API Token Leak via ServerURL Manipulation (
 slug: 2026-04-tekton-credential-leak
 description: Tekton Pipelines versions 1.0.0 to 1.10.0 are vulnerable to credential access, where the Git resolver in API mode transmits the system-configured Git API token to a user-controlled serverURL, enabling token exfiltration via a malicious server.
 date: "2026-04-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

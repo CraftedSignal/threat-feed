@@ -3,9 +3,9 @@ title: Democratization of Business Email Compromise (BEC) Attacks
 slug: 2026-04-democratized-bec
 description: Attackers are leveraging AI to rapidly reconnoiter and tailor content for smaller organizations, making it easier to execute business email compromise (BEC) scams and scam smaller sums from many victims, as demonstrated by a recent attack targeting a small community organization.
 date: "2026-04-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

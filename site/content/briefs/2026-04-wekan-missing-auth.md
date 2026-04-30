@@ -3,9 +3,9 @@ title: WeKan Missing Authorization Vulnerability in Integration REST API
 slug: 2026-04-wekan-missing-auth
 description: WeKan before 8.35 contains a missing authorization vulnerability in the Integration REST API endpoints, allowing authenticated board members to perform administrative actions without proper privilege verification, potentially leading to unauthorized data access and modification.
 date: "2026-04-23T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

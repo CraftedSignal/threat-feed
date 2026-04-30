@@ -3,9 +3,9 @@ title: tufantunc ssh-mcp Command Injection Vulnerability (CVE-2026-7039)
 slug: 2026-04-ssh-mcp-command-injection
 description: A command injection vulnerability exists in tufantunc ssh-mcp up to version 1.5.0 via manipulation of the Description argument in the shell.write function.
 date: "2026-04-27T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

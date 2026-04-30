@@ -3,9 +3,9 @@ title: OpenClaw QQ Bot Media Download SSRF Vulnerability
 slug: 2026-04-openclaw-ssrf
 description: OpenClaw before 2026.4.8 is vulnerable to server-side request forgery (SSRF) in QQ Bot media download paths, allowing attackers to bypass SSRF protections and access internal resources.
 date: "2026-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

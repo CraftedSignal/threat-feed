@@ -3,9 +3,9 @@ title: D-Link DIR-825 Buffer Overflow Vulnerability in miniupnpd
 slug: 2024-01-dlink-dir825-buffer-overflow
 description: A buffer overflow vulnerability (CVE-2026-7069) exists in the AddPortMapping function of the miniupnpd component within D-Link DIR-825 routers (up to version 3.00b32), potentially enabling attackers on the local network to execute arbitrary code.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

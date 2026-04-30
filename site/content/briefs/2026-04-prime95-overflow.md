@@ -3,9 +3,9 @@ title: Prime95 Local Buffer Overflow Vulnerability (CVE-2018-25299)
 slug: 2026-04-prime95-overflow
 description: Prime95 version 29.4b8 contains a local buffer overflow vulnerability, allowing attackers to execute arbitrary code by exploiting structured exception handling (SEH) mechanisms through a malicious payload in the PrimeNet proxy hostname field.
 date: "2026-04-29T20:16:25Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

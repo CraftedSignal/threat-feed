@@ -3,9 +3,9 @@ title: Windows Server Update Service (WSUS) Privilege Escalation via CVE-2026-26
 slug: 2026-04-wsus-privesc
 description: CVE-2026-26174 is a race condition vulnerability in Windows Server Update Service that allows an authorized attacker to elevate privileges locally.
 date: "2026-04-14T18:23:14Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

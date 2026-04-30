@@ -3,9 +3,9 @@ title: GitPilot-MCP Command Injection Vulnerability (CVE-2026-6980)
 slug: 2024-01-02-gitpilot-command-injection
 description: A command injection vulnerability (CVE-2026-6980) in Divyanshu-hash GitPilot-MCP up to version 9ed9f153ba4158a2ad230ee4871b25130da29ffd allows remote attackers to execute arbitrary commands by manipulating the 'command' argument in the repo_path function of main.py, and public exploit code is available.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

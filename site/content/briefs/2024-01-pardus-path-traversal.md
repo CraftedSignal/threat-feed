@@ -3,9 +3,9 @@ title: Pardus Software Center Path Traversal Vulnerability (CVE-2026-5166)
 slug: 2024-01-pardus-path-traversal
 description: CVE-2026-5166 is a path traversal vulnerability affecting TUBITAK BILGEM Software Technologies Research Institute Pardus Software Center before version 1.0.3, allowing attackers to bypass directory restrictions.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

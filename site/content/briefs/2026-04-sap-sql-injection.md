@@ -3,9 +3,9 @@ title: SAP Business Planning and Consolidation and Business Warehouse SQL Inject
 slug: 2026-04-sap-sql-injection
 description: CVE-2026-27681 describes an insufficient authorization check vulnerability in SAP Business Planning and Consolidation and SAP Business Warehouse that allows authenticated users to execute crafted SQL statements, leading to unauthorized data access, modification, and deletion.
 date: "2026-04-14T00:16:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

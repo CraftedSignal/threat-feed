@@ -3,9 +3,9 @@ title: JetBrains YouTrack RCE via Sandbox Bypass (CVE-2026-33392)
 slug: 2026-04-jetbrains-rce
 description: A high privileged user can achieve remote code execution via sandbox bypass in JetBrains YouTrack before version 2025.3.131383, identified as CVE-2026-33392, potentially leading to complete system compromise.
 date: "2026-04-17T08:16:17Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

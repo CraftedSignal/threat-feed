@@ -3,9 +3,9 @@ title: Emlog Path Traversal Vulnerability Leads to Remote Code Execution
 slug: 2024-01-emlog-rce
 description: Emlog versions 2.6.2 and prior are vulnerable to path traversal via crafted ZIP uploads, allowing authenticated admins to write arbitrary files and achieve remote code execution.
 date: "2026-04-03T23:17:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

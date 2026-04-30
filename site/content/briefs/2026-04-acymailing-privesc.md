@@ -3,9 +3,9 @@ title: AcyMailing Plugin Privilege Escalation Vulnerability (CVE-2026-3614)
 slug: 2026-04-acymailing-privesc
 description: The AcyMailing plugin for WordPress is vulnerable to privilege escalation (CVE-2026-3614), allowing authenticated attackers with subscriber-level access to gain administrative privileges.
 date: "2026-04-16T06:16:18Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

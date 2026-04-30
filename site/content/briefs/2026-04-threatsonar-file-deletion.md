@@ -3,9 +3,9 @@ title: ThreatSonar Anti-Ransomware Arbitrary File Deletion Vulnerability
 slug: 2026-04-threatsonar-file-deletion
 description: TeamT5's ThreatSonar Anti-Ransomware is vulnerable to arbitrary file deletion via path traversal, allowing authenticated remote attackers with web access to delete arbitrary files on the system.
 date: "2026-04-20T08:16:11Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

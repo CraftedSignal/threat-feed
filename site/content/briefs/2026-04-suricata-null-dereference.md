@@ -3,9 +3,9 @@ title: Suricata NULL Dereference Vulnerability
 slug: 2026-04-suricata-null-dereference
 description: Suricata versions 8.0.0 to before 8.0.4 are vulnerable to a NULL dereference crash when using the 'tls.alpn' rule keyword, potentially leading to a denial of service.
 date: "2026-04-02T14:16:28Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

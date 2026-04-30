@@ -3,9 +3,9 @@ title: Path Traversal Vulnerability in mail-mcp-bridge
 slug: 2026-04-mail-mcp-bridge-path-traversal
 description: A path traversal vulnerability exists in fatbobman mail-mcp-bridge version 1.3.3 and earlier, allowing a remote attacker to read arbitrary files by manipulating the message_ids argument in the src/mail_mcp_server.py file.
 date: "2026-04-29T16:16:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

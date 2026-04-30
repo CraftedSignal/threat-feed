@@ -3,9 +3,9 @@ title: WWBN AVideo Unauthenticated Path Traversal Vulnerability (CVE-2026-41058)
 slug: 2026-04-avideo-path-traversal
 description: WWBN AVideo versions 29.0 and below contain a path traversal vulnerability (CVE-2026-41058) in the CloneSite functionality, allowing unauthenticated attackers to delete arbitrary files via manipulation of the `deleteDump` parameter.
 date: "2026-04-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

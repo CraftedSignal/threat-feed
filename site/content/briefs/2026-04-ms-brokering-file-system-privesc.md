@@ -3,9 +3,9 @@ title: Microsoft Brokering File System Double Free Privilege Escalation (CVE-202
 slug: 2026-04-ms-brokering-file-system-privesc
 description: CVE-2026-32219 is a double free vulnerability in the Microsoft Brokering File System, allowing an authorized attacker to escalate privileges locally on a vulnerable Windows system.
 date: "2026-04-14T18:17:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

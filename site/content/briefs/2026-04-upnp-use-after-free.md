@@ -3,9 +3,9 @@ title: CVE-2026-32156 Use-After-Free Vulnerability in Windows UPnP Device Host
 slug: 2026-04-upnp-use-after-free
 description: CVE-2026-32156 is a use-after-free vulnerability in the Windows Universal Plug and Play (UPnP) Device Host service that allows an unauthorized attacker to execute code locally.
 date: "2026-04-14T18:39:36Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

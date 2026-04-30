@@ -3,9 +3,9 @@ title: D-Link DWM-222W USB Wi-Fi Adapter Brute-Force Protection Bypass Vulnerabi
 slug: 2026-04-dlink-brute-force-bypass
 description: D-Link DWM-222W USB Wi-Fi Adapter is vulnerable to brute-force attacks due to a protection bypass, allowing unauthenticated adjacent network attackers to gain control over the device by circumventing login attempt limits.
 date: "2026-04-24T04:16:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

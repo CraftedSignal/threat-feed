@@ -3,9 +3,9 @@ title: OpenClaw Remote Code Execution via Node Scope Gate Bypass (CVE-2026-41352
 slug: 2026-04-openclaw-rce
 description: OpenClaw before 2026.3.31 is vulnerable to remote code execution (CVE-2026-41352) because a device-paired node can bypass the node scope gate authentication mechanism, allowing attackers with device pairing credentials to execute arbitrary node commands.
 date: "2026-04-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

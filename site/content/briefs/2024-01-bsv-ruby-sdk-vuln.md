@@ -3,9 +3,9 @@ title: BSV Ruby SDK Improper ARC Response Handling
 slug: 2024-01-bsv-ruby-sdk-vuln
 description: BSV Ruby SDK versions before 0.8.2 improperly handle ARC responses, treating certain failure statuses as successful broadcasts, potentially tricking applications into trusting unaccepted transactions; version 0.8.2 resolves this vulnerability.
 date: "2026-04-09T18:17:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

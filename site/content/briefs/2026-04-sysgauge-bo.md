@@ -3,9 +3,9 @@ title: SysGauge Pro 4.6.12 Local Buffer Overflow Vulnerability (CVE-2018-25307)
 slug: 2026-04-sysgauge-bo
 description: SysGauge Pro 4.6.12 is vulnerable to a local buffer overflow in the Register function, allowing local attackers to overwrite the structured exception handler and execute arbitrary code by supplying a crafted unlock key during registration.
 date: "2026-04-29T20:16:26Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Allok Video to DVD Burner Stack-Based Buffer Overflow Vulnerability (CVE-
 slug: 2026-04-allok-video-buffer-overflow
 description: Allok Video to DVD Burner 2.6.1217 contains a stack-based buffer overflow vulnerability (CVE-2018-25303) in the License Name field, allowing a local attacker to execute arbitrary code by triggering a structured exception handler (SEH) overwrite.
 date: "2026-04-29T20:16:25Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

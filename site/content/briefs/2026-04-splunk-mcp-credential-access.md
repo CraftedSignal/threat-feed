@@ -3,9 +3,9 @@ title: Splunk MCP Server App Cleartext Credential Exposure (CVE-2026-20205)
 slug: 2026-04-splunk-mcp-credential-access
 description: A user with access to the `_internal` index or the `mcp_tool_admin` capability in Splunk MCP Server app versions below 1.0.3 can view user session and authorization tokens in clear text, leading to potential credential compromise.
 date: "2026-04-15T16:16:34Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

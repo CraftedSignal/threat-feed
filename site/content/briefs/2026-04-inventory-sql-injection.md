@@ -3,9 +3,9 @@ title: SQL Injection Vulnerability in code-projects Inventory Management System 
 slug: 2026-04-inventory-sql-injection
 description: A SQL injection vulnerability exists in code-projects Inventory Management System 1.0 within the Login component, specifically affecting the Username argument, where a remote attacker can manipulate the Username parameter, leading to unauthorized data access or modification.
 date: "2026-04-27T01:16:15Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

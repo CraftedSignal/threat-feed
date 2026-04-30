@@ -3,9 +3,9 @@ title: Esri Portal for ArcGIS Incorrect Authorization Vulnerability (CVE-2026-33
 slug: 2026-04-esri-privesc
 description: CVE-2026-33519 is a critical vulnerability in Esri Portal for ArcGIS 11.4, 11.5, and 12.0, where incorrect authorization checks on developer credentials can lead to unauthorized privilege escalation on Windows, Linux, and Kubernetes deployments.
 date: "2026-04-21T21:16:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: Allok Soft WMV Converter Buffer Overflow Vulnerability (CVE-2018-25314)
 slug: 2026-04-alloksoft-buffer-overflow
 description: Allok Soft WMV to AVI MPEG DVD WMV Converter 4.6.1217 is vulnerable to a buffer overflow, allowing local attackers to execute arbitrary code via a crafted License Name field.
 date: "2026-04-29T20:16:27Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

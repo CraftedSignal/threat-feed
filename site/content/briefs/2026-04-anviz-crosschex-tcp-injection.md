@@ -3,9 +3,9 @@ title: Anviz CrossChex Standard TCP Packet Injection Vulnerability
 slug: 2026-04-anviz-crosschex-tcp-injection
 description: Anviz CrossChex Standard lacks source verification in the client/server channel, enabling TCP packet injection by an attacker on the same network to alter or disrupt application traffic.
 date: "2026-04-17T20:16:36Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

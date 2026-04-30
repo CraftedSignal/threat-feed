@@ -3,9 +3,9 @@ title: SmythOS sre Authentication Bypass Vulnerability (CVE-2026-7022)
 slug: 2026-04-smythos-auth-bypass
 description: A remote improper authentication vulnerability exists in SmythOS sre up to version 0.0.15, allowing attackers to bypass authentication by manipulating the X-DEBUG-RUN/X-DEBUG-INJ arguments in the HTTP Header Handler component.
 date: "2026-04-26T06:16:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

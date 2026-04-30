@@ -3,9 +3,9 @@ title: Libsixel Use-After-Free Vulnerability (CVE-2026-33018)
 slug: 2026-04-libsixel-uaf
 description: A use-after-free vulnerability exists in libsixel versions 1.8.7 and prior when processing animated GIFs due to improper frame buffer management, potentially leading to code execution.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

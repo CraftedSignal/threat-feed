@@ -3,9 +3,9 @@ title: Multiple Critical Vulnerabilities in CISCO ISE Leading to Remote Code Exe
 slug: 2026-04-cisco-ise-rce
 description: Multiple critical vulnerabilities in CISCO ISE (CVE-2026-20186, CVE-2026-20147, CVE-2026-20180) allow remote attackers with low privileges to execute arbitrary commands, potentially escalating privileges to root and causing denial-of-service.
 date: "2026-04-17T08:45:05Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

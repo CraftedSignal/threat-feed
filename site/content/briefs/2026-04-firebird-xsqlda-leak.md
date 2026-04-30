@@ -3,9 +3,9 @@ title: Firebird FB3 Client Library Information Leak (CVE-2025-65104)
 slug: 2026-04-firebird-xsqlda-leak
 description: Firebird FB3 client library incorrectly handles data lengths when communicating with FB4+ servers, leading to an information leak exploitable by a local attacker.
 date: "2026-04-17T18:16:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Microsoft Excel Use-After-Free Vulnerability (CVE-2026-32189)
 slug: 2026-04-excel-uaf
 description: CVE-2026-32189 is a use-after-free vulnerability in Microsoft Excel that allows a local attacker to execute arbitrary code by exploiting memory corruption.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

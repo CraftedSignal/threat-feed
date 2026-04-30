@@ -3,9 +3,9 @@ title: Online Lot Reservation System SQL Injection Vulnerability
 slug: 2026-04-online-lot-sqli
 description: CVE-2026-7131 is a SQL injection vulnerability in code-projects Online Lot Reservation System up to version 1.0, affecting the /loginuser.php component via manipulation of the email/password arguments, which could allow remote attackers to execute arbitrary SQL queries.
 date: "2026-04-27T15:16:21Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

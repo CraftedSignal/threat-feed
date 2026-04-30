@@ -3,9 +3,9 @@ title: CVE-2026-31622 NFC-A Cascade Depth Bounds Check Failure
 slug: 2024-05-nfc-bounds-check-failure
 description: CVE-2026-31622 describes a vulnerability related to an NFC bounds check issue, specifically a failure to properly validate NFC-A cascade depth in the SDD response handler within Microsoft products, potentially leading to unexpected behavior or security compromise.
 date: "2026-04-26T07:28:13Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

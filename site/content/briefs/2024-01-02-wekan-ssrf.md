@@ -3,9 +3,9 @@ title: WeKan SSRF Vulnerability in Webhook Integration
 slug: 2024-01-02-wekan-ssrf
 description: WeKan before 8.35 is vulnerable to server-side request forgery (SSRF), allowing attackers with integration modification privileges to set webhook URLs to internal network addresses, leading to unauthorized HTTP POST requests and potential comment manipulation.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

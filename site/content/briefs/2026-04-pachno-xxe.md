@@ -3,9 +3,9 @@ title: Pachno 1.0.6 XML External Entity Injection Vulnerability
 slug: 2026-04-pachno-xxe
 description: Pachno 1.0.6 is vulnerable to XML external entity injection, allowing unauthenticated attackers to read arbitrary files by injecting malicious XML entities into wiki content due to unsafe XML parsing in the TextParser helper.
 date: "2026-04-14T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

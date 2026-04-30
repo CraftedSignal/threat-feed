@@ -3,9 +3,9 @@ title: SimpleHelp Missing Authorization Vulnerability Leads to Privilege Escalat
 slug: 2024-06-simplehelp-privesc
 description: A missing authorization vulnerability in SimpleHelp (CVE-2024-57726) allows low-privileged technicians to create API keys with excessive permissions, potentially escalating privileges to the server admin role.
 date: "2024-06-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

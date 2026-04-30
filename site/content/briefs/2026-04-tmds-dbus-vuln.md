@@ -3,9 +3,9 @@ title: Tmds.DBus Vulnerability Allows Signal Spoofing and Resource Exhaustion
 slug: 2026-04-tmds-dbus-vuln
 description: Tmds.DBus and Tmds.DBus.Protocol are vulnerable to signal spoofing, resource exhaustion, and application crashes due to malformed messages from malicious D-Bus peers on the same bus.
 date: "2026-04-09T17:16:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

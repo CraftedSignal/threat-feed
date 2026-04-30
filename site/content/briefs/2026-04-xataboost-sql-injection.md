@@ -3,9 +3,9 @@ title: XATABoost CMS 1.0.0 SQL Injection Vulnerability
 slug: 2026-04-xataboost-sql-injection
 description: XATABoost CMS 1.0.0 is vulnerable to union-based SQL injection, allowing unauthenticated attackers to manipulate database queries by injecting SQL code through the id parameter via GET requests to news.php, enabling extraction of sensitive database information.
 date: "2026-04-29T20:16:25Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

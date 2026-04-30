@@ -3,9 +3,9 @@ title: D-Link DIR-605L Router Buffer Overflow Vulnerability
 slug: 2026-04-dlink-dir605l-bo
 description: A remote buffer overflow vulnerability exists in the D-Link DIR-605L version 2.13B01 due to improper handling of the 'curTime' argument in the '/goform/formVirtualServ' POST request handler, potentially allowing attackers to execute arbitrary code.
 date: "2026-04-09T21:16:13Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

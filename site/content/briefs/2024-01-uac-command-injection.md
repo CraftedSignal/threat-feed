@@ -3,9 +3,9 @@ title: UAC (Unix-like Artifacts Collector) Command Injection Vulnerability
 slug: 2024-01-uac-command-injection
 description: UAC before 3.3.0-rc1 is vulnerable to command injection in the _run_command() function, allowing attackers to execute arbitrary commands with the privileges of the UAC process through manipulated input values.
 date: "2026-04-08T22:16:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

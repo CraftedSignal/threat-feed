@@ -3,9 +3,9 @@ title: CVE-2026-32224 Use-After-Free in Windows Server Update Service
 slug: 2024-01-02-wsus-privesc
 description: CVE-2026-32224 is a use-after-free vulnerability in the Windows Server Update Service that allows a locally authenticated attacker to elevate privileges.
 date: "2026-04-14T18:17:30Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

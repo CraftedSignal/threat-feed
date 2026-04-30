@@ -3,9 +3,9 @@ title: Windows Remote Desktop Spoofing Vulnerability (CVE-2026-26151)
 slug: 2026-04-rdp-spoofing
 description: CVE-2026-26151 is a spoofing vulnerability in Windows Remote Desktop due to an insufficient UI warning for dangerous operations, allowing an unauthorized attacker to perform spoofing over a network.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

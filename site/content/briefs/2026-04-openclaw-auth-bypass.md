@@ -3,9 +3,9 @@ title: OpenClaw Improper Authorization Vulnerability (CVE-2026-42426)
 slug: 2026-04-openclaw-auth-bypass
 description: OpenClaw before 2026.4.8 contains an improper authorization vulnerability (CVE-2026-42426) allowing attackers with `operator.write` permissions to bypass node pairing approval and gain unauthorized access to `exec`-capable nodes by exploiting the `node.pair.approve` method which incorrectly accepts the `operator.write` scope instead of the narrower `operator.pairing` scope.
 date: "2026-04-28T19:37:46Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

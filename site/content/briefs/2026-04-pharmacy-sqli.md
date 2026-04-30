@@ -3,9 +3,9 @@ title: SourceCodester Pharmacy Sales and Inventory System SQL Injection Vulnerab
 slug: 2026-04-pharmacy-sqli
 description: A remote SQL injection vulnerability exists in SourceCodester Pharmacy Sales and Inventory System 1.0 via manipulation of the ID parameter in the /ajax.php?action=delete_category endpoint, potentially leading to unauthorized data access or modification.
 date: "2026-04-28T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

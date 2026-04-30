@@ -3,9 +3,9 @@ title: Windows Push Notifications Race Condition Privilege Escalation (CVE-2026-
 slug: 2026-04-windows-push-notification-race-condition
 description: CVE-2026-32159 is a race condition vulnerability in Windows Push Notifications, allowing a local attacker with low privileges to elevate privileges by exploiting concurrent execution using a shared resource with improper synchronization.
 date: "2026-04-14T18:17:17Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

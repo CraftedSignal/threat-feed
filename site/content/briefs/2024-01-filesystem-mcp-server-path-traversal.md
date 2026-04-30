@@ -3,9 +3,9 @@ title: geekgod382 filesystem-mcp-server Path Traversal Vulnerability (CVE-2026-7
 slug: 2024-01-filesystem-mcp-server-path-traversal
 description: A path traversal vulnerability exists in geekgod382 filesystem-mcp-server version 1.0.0 allowing remote attackers to access unauthorized files due to insufficient path validation in the is_path_allowed function.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

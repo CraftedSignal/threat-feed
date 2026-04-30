@@ -3,9 +3,9 @@ title: KLiK SocialMediaWebsite SQL Injection Vulnerability (CVE-2026-7002)
 slug: 2026-04-klik-sqli
 description: KLiK SocialMediaWebsite up to version 1.0.1 is vulnerable to SQL injection via manipulation of the c_id argument in the /includes/get_message_ajax.php file, specifically affecting the Private Message Handler component, which can be exploited remotely.
 date: "2026-04-26T14:30:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

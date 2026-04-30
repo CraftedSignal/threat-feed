@@ -3,9 +3,9 @@ title: 'AI-Powered Honeypots: Deceptive Environments for Automated Threat Actors
 slug: 2026-04-ai-honeypots
 description: Generative AI can be used to rapidly deploy adaptive honeypot systems that simulate diverse environments, like Linux shells or IoT devices, to trick and observe AI-driven attacks that prioritize speed over stealth.
 date: "2026-04-29T10:00:42Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: ERB Deserialization Bypass via def_module/def_method/def_class
 slug: 2026-04-erb-deserialization
 description: A deserialization vulnerability exists in Ruby ERB versions before 4.0.3.1, version 4.0.4, ERB versions 5.0.0 before 6.0.1.1, and ERB versions 6.0.2 before 6.0.4. The `@_init` instance variable guard in `ERB#result` and `ERB#run` can be bypassed via `ERB#def_module`, `ERB#def_method`, and `ERB#def_class`, allowing arbitrary code execution when an ERB object is reconstructed via `Marshal.load` on untrusted data.
 date: "2026-04-25T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

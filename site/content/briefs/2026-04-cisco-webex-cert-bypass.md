@@ -3,9 +3,9 @@ title: Critical Certificate Validation Vulnerability in CISCO Webex Allows User 
 slug: 2026-04-cisco-webex-cert-bypass
 description: A critical improper certificate validation vulnerability in CISCO Webex versions 39.6 - 45.4 (CVE-2026-20184) allows a remote, unprivileged attacker to impersonate users, gain unauthorized access, and join meetings without authorization, potentially impacting confidentiality, integrity, and availability.
 date: "2026-04-17T09:19:48Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

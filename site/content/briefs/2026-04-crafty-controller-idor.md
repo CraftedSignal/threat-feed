@@ -3,9 +3,9 @@ title: Crafty Controller Users API Insecure Direct Object Reference Vulnerabilit
 slug: 2026-04-crafty-controller-idor
 description: Crafty Controller's Users API component contains an insecure direct object reference vulnerability, allowing a remote, authenticated attacker to perform unauthorized user modification actions due to improper API permissions validation (CVE-2026-5652).
 date: "2026-04-21T17:16:57Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

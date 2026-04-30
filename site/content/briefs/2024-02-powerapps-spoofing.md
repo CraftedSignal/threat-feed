@@ -3,9 +3,9 @@ title: CVE-2026-26149 Microsoft Power Apps Spoofing Vulnerability
 slug: 2024-02-powerapps-spoofing
 description: A spoofing vulnerability exists in Microsoft Power Apps, identified as CVE-2026-26149, potentially allowing an attacker to mislead users or gain unauthorized access.
 date: "2026-04-20T14:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

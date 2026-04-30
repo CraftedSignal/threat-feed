@@ -3,9 +3,9 @@ title: 'CVE-2026-32078: Windows Projected File System Use-After-Free Elevation o
 slug: 2026-04-projected-fs-uaf
 description: A use-after-free vulnerability, CVE-2026-32078, exists in the Windows Projected File System, allowing a locally authenticated attacker to escalate privileges.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Fortinet FortiAnalyzer and FortiManager Cloud Heap-Based Buffer Overflow 
 slug: 2026-04-fortinet-heap-overflow
 description: CVE-2026-22828 is a heap-based buffer overflow in Fortinet FortiAnalyzer and FortiManager Cloud versions 7.6.2 through 7.6.4, potentially allowing a remote unauthenticated attacker to execute arbitrary code with a significant preparation effort due to ASLR and network segmentation.
 date: "2026-04-14T16:16:37Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Juju Resource Poisoning Vulnerability Allows Unauthorized Resource Modifi
 slug: 2026-04-juju-resource-poisoning
 description: An authenticated user, machine, or controller within a Juju controller can modify application resources due to a lack of authorization checks, potentially leading to resource poisoning and privilege escalation by uploading malicious resources.
 date: "2026-04-04T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

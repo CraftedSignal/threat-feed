@@ -3,9 +3,9 @@ title: SINEC NMS Authentication Bypass Vulnerability (CVE-2026-24032)
 slug: 2026-04-sinecnms-auth-bypass
 description: An authentication bypass vulnerability (CVE-2026-24032) exists in SINEC NMS versions prior to V4.0 SP3 due to insufficient user identity validation in the UMC component, allowing unauthenticated remote attackers to gain unauthorized access.
 date: "2026-04-14T09:16:34Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

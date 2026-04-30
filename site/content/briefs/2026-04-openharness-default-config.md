@@ -3,9 +3,9 @@ title: HKUDS OpenHarness Insecure Default Configuration Vulnerability
 slug: 2026-04-openharness-default-config
 description: 'HKUDS OpenHarness prior to PR #147 remediation contains an insecure default configuration vulnerability where remote channels inherit permissive access, potentially leading to unauthorized file disclosure and read access.'
 date: "2026-04-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

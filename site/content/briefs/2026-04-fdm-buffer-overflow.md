@@ -3,9 +3,9 @@ title: Free Download Manager 2.0 Built 417 Local Buffer Overflow Vulnerability
 slug: 2026-04-fdm-buffer-overflow
 description: Free Download Manager 2.0 Built 417 contains a local buffer overflow vulnerability in the URL import functionality that allows attackers to trigger a structured exception handler (SEH) chain exploitation, leading to arbitrary code execution.
 date: "2026-04-29T20:16:25Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

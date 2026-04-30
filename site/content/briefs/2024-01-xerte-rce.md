@@ -3,9 +3,9 @@ title: Xerte Online Toolkits Unauthenticated Remote Code Execution via elFinder 
 slug: 2024-01-xerte-rce
 description: Xerte Online Toolkits versions 3.15 and earlier are vulnerable to unauthenticated remote code execution due to a missing authentication check in the elFinder connector, allowing arbitrary file operations that can be chained with other vulnerabilities.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

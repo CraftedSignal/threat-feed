@@ -3,9 +3,9 @@ title: Tenda CH22 Stack-Based Buffer Overflow Vulnerability
 slug: 2026-03-tenda-ch22-buffer-overflow
 description: A stack-based buffer overflow vulnerability exists in Tenda CH22 1.0.0.1/1.If allowing remote attackers to execute arbitrary code by manipulating the `funcname` argument in the `/goform/setcfm` endpoint.
 date: "2026-03-30T23:17:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

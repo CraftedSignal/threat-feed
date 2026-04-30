@@ -3,9 +3,9 @@ title: Tenda HG3 2.0 Command Injection Vulnerability
 slug: 2026-04-tenda-hg3-command-injection
 description: Tenda HG3 2.0 is vulnerable to command injection; by manipulating the datasize argument in the formTracert function of the /boaform/formTracert file, a remote attacker can inject commands.
 date: "2026-04-27T22:16:18Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

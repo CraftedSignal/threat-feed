@@ -3,9 +3,9 @@ title: CoreDNS DoQ Server Denial-of-Service Vulnerability
 slug: 2026-05-coredns-doq-dos
 description: CoreDNS' DNS-over-QUIC (DoQ) server can be driven into large goroutine and memory growth by a remote client that opens many QUIC streams and stalls after sending only 1 byte, leading to denial of service in versions before 1.14.3.
 date: "2026-04-28T22:41:50Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

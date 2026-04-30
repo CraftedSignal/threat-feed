@@ -3,9 +3,9 @@ title: Google Chrome V8 Type Confusion Vulnerability (CVE-2026-6363)
 slug: 2026-04-chrome-v8-type-confusion
 description: A type confusion vulnerability (CVE-2026-6363) in Google Chrome's V8 JavaScript engine before version 147.0.7727.101 allows a remote attacker to potentially perform out-of-bounds memory access via a crafted HTML page.
 date: "2026-04-16T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: FreePBX API Module Command Injection Vulnerability (CVE-2026-40520)
 slug: 2026-04-freepbx-command-injection
 description: FreePBX api module version 17.0.8 and prior contain a command injection vulnerability in the initiateGqlAPIProcess() function, allowing authenticated users to execute arbitrary commands via crafted GraphQL mutations.
 date: "2026-04-21T13:16:20Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

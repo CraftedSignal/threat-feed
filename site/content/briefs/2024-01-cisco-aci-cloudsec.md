@@ -3,9 +3,9 @@ title: Cisco ACI Multi-Site CloudSec Encryption Information Disclosure Vulnerabi
 slug: 2024-01-cisco-aci-cloudsec
 description: A vulnerability in Cisco ACI Multi-Site CloudSec encryption allows a remote attacker to read or modify intersite encrypted traffic due to a flaw in cipher implementation.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

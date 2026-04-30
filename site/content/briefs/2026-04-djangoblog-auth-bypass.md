@@ -3,9 +3,9 @@ title: liangliangyy DjangoBlog Authentication Bypass Vulnerability (CVE-2026-657
 slug: 2026-04-djangoblog-auth-bypass
 description: A critical authentication bypass vulnerability in liangliangyy DjangoBlog up to version 2.1.0.0 (CVE-2026-6577) allows remote attackers to inject arbitrary GPS data without authentication via the logtracks endpoint, potentially leading to data manipulation and unauthorized access.
 date: "2026-04-19T20:16:28Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

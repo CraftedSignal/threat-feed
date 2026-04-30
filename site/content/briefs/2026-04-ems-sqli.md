@@ -3,9 +3,9 @@ title: code-projects Employee Management System SQL Injection Vulnerability (CVE
 slug: 2026-04-ems-sqli
 description: CVE-2026-7063 is a SQL Injection vulnerability in code-projects Employee Management System 1.0 via the 'pwd' parameter in /370project/process/eprocess.php, enabling remote attackers to execute arbitrary SQL commands.
 date: "2026-04-26T23:16:21Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

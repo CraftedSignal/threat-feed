@@ -3,9 +3,9 @@ title: BridgeHead FileStore Unauthenticated Remote Code Execution via Apache Axi
 slug: 2026-04-bridgehead-filestore-rce
 description: BridgeHead FileStore versions prior to 24A are vulnerable to unauthenticated remote code execution via exposed Apache Axis2 administration module with default credentials, enabling attackers to upload malicious web services and execute arbitrary OS commands.
 date: "2026-04-24T16:16:36Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

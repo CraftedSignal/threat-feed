@@ -3,9 +3,9 @@ title: Wasmtime Winch Compiler Aarch64 Sandbox Escape Vulnerability
 slug: 2026-04-wasmtime-sandbox-escape
 description: A sandbox escape vulnerability exists in Wasmtime versions 25.0.0 to 36.0.7, 37.0.0 to 42.0.2, and version 43.0.0 when using the Winch compiler backend on aarch64 architecture, potentially allowing a Wasm guest to access host memory outside its sandbox, leading to denial of service, data leaks, or remote code execution.
 date: "2026-04-11T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

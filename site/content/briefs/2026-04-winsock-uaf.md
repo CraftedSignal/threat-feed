@@ -3,9 +3,9 @@ title: 'CVE-2026-33100: Windows WinSock Use-After-Free Privilege Escalation'
 slug: 2026-04-winsock-uaf
 description: CVE-2026-33100 is a use-after-free vulnerability in the Windows Ancillary Function Driver for WinSock, allowing a locally authorized attacker to elevate privileges.
 date: "2026-04-14T18:17:32Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

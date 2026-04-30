@@ -3,9 +3,9 @@ title: Microsoft Office Excel Use-After-Free Vulnerability (CVE-2026-32198)
 slug: 2026-04-excel-use-after-free
 description: CVE-2026-32198 is a use-after-free vulnerability in Microsoft Office Excel that allows an attacker to execute code locally on a vulnerable system.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

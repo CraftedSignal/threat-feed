@@ -3,9 +3,9 @@ title: radare2 PDB Parser Command Injection Vulnerability (CVE-2026-40517)
 slug: 2024-01-radare2-command-injection
 description: A command injection vulnerability exists in radare2 versions prior to 6.1.4, where a crafted PDB file with newline characters in symbol names can inject arbitrary radare2 commands, leading to arbitrary OS command execution.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

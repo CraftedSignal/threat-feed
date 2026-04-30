@@ -3,9 +3,9 @@ title: Tenda FH303/A300 DNS Hijacking Vulnerability (CVE-2018-25318)
 slug: 2024-01-tenda-dns-hijacking
 description: Tenda FH303/A300 firmware V5.07.68_EN contains a session weakness vulnerability (CVE-2018-25318) that allows unauthenticated attackers to modify DNS settings by exploiting insufficient cookie validation, potentially redirecting user traffic to malicious sites.
 date: "2024-01-03T18:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

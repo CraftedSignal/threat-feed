@@ -3,9 +3,9 @@ title: Eiceblue Spire-PDF-MCP-Server Path Traversal Vulnerability (CVE-2026-7315
 slug: 2026-04-spire-pdf-path-traversal
 description: A path traversal vulnerability exists in eiceblue spire-pdf-mcp-server version 0.1.1, allowing remote attackers to access arbitrary files via manipulation of the filepath argument in the get_pdf_path function.
 date: "2026-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

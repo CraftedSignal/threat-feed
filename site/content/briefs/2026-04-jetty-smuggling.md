@@ -3,9 +3,9 @@ title: Eclipse Jetty HTTP/1.1 Request Smuggling via Chunk Extensions (CVE-2026-2
 slug: 2026-04-jetty-smuggling
 description: Eclipse Jetty's HTTP/1.1 parser is vulnerable to request smuggling due to improper handling of chunk extensions, allowing attackers to inject malicious requests.
 date: "2026-04-14T12:16:21Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: 666ghj MiroFish REST API Authentication Bypass (CVE-2026-7042)
 slug: 2024-01-mirofish-auth-bypass
 description: A missing authentication vulnerability (CVE-2026-7042) exists in 666ghj MiroFish up to version 0.1.2, allowing remote attackers to bypass authentication via manipulation of the REST API Endpoint's create_app function.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

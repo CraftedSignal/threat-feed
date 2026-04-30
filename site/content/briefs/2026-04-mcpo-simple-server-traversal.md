@@ -3,9 +3,9 @@ title: Relative Path Traversal Vulnerability in mcpo-simple-server
 slug: 2026-04-mcpo-simple-server-traversal
 description: A relative path traversal vulnerability exists in getsimpletool mcpo-simple-server <= 0.2.0, allowing remote attackers to delete arbitrary files via manipulation of the `detail` argument in the `delete_shared_prompt` function.
 date: "2026-04-29T21:16:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

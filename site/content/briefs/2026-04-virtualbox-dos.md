@@ -3,9 +3,9 @@ title: Oracle VirtualBox Unauthenticated RDP Denial-of-Service Vulnerability (CV
 slug: 2026-04-virtualbox-dos
 description: An unauthenticated attacker with network access via RDP can exploit CVE-2026-35245 in Oracle VM VirtualBox version 7.2.6 to cause a denial-of-service (DOS) condition.
 date: "2026-04-21T21:16:40Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

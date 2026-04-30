@@ -3,9 +3,9 @@ title: InstructLab Arbitrary Code Execution via Malicious HuggingFace Model
 slug: 2026-04-instructlab-code-execution
 description: InstructLab is vulnerable to arbitrary code execution because the `linux_train.py` script hardcodes `trust_remote_code=True` when loading models from HuggingFace, allowing remote attackers to execute code by convincing a user to load a malicious model.
 date: "2026-04-22T14:17:07Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

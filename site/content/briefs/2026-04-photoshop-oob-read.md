@@ -3,9 +3,9 @@ title: Adobe Photoshop Out-of-Bounds Read Vulnerability (CVE-2026-27289)
 slug: 2026-04-photoshop-oob-read
 description: An out-of-bounds read vulnerability (CVE-2026-27289) in Adobe Photoshop Desktop versions 27.4 and earlier allows for potential code execution via a crafted file, requiring user interaction to trigger the exploit.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

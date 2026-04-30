@@ -3,9 +3,9 @@ title: CVE-2018-0735 ECDSA Signature Generation Timing Attack
 slug: 2024-01-ecdsa-timing-attack
 description: CVE-2018-0735 is a timing attack vulnerability in ECDSA signature generation affecting Microsoft products, potentially allowing attackers to recover private keys.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: pyLoad Arbitrary Code Execution via Malicious Session Deserialization
 slug: 2026-04-pyload-rce
 description: pyLoad is vulnerable to arbitrary code execution via an unprotected `storage_folder` configuration option, allowing an attacker with `SETTINGS` and `ADD` permissions to write a malicious pickle payload to the Flask session store and execute arbitrary code upon subsequent HTTP requests.
 date: "2026-04-04T06:43:37Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

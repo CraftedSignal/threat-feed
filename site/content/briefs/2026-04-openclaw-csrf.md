@@ -3,9 +3,9 @@ title: OpenClaw Cross-Site Request Forgery Vulnerability
 slug: 2026-04-openclaw-csrf
 description: OpenClaw before 2026.3.31 is vulnerable to cross-site request forgery (CSRF) attacks due to missing browser-origin validation in HTTP operator endpoints when operating in trusted-proxy mode, allowing attackers to perform unauthorized actions.
 date: "2026-04-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

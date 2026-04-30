@@ -3,9 +3,9 @@ title: 'CVE-2026-33824: Windows IKE Extension Double Free Vulnerability'
 slug: 2026-04-ike-double-free
 description: A double free vulnerability in the Windows IKE Extension, tracked as CVE-2026-33824, allows an unauthenticated remote attacker to execute arbitrary code over the network.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

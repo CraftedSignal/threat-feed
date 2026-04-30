@@ -3,9 +3,9 @@ title: NovumOS MemoryMapRange Privilege Escalation Vulnerability (CVE-2026-40572
 slug: 2024-01-28-novum-privesc
 description: A vulnerability exists in NovumOS versions prior to 0.24 where the MemoryMapRange syscall allows user-mode processes to map arbitrary virtual address ranges, including kernel structures, leading to privilege escalation.
 date: "2026-04-18T01:16:19Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

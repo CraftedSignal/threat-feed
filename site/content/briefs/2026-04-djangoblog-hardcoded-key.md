@@ -3,9 +3,9 @@ title: liangliangyy DjangoBlog Hardcoded Cryptographic Key Vulnerability (CVE-20
 slug: 2026-04-djangoblog-hardcoded-key
 description: CVE-2026-6580 describes a vulnerability in liangliangyy DjangoBlog up to version 2.1.0.0 where manipulation of the 'key' argument in the Amap API Call Handler leads to the use of a hard-coded cryptographic key, enabling remote exploitation.
 date: "2026-04-19T23:16:33Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

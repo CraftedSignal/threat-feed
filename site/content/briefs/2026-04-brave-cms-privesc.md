@@ -3,9 +3,9 @@ title: Brave CMS Missing Authorization Leads to Privilege Escalation
 slug: 2026-04-brave-cms-privesc
 description: Brave CMS versions prior to 2.0.6 are vulnerable to privilege escalation due to a missing authorization check in the update role endpoint, allowing any authenticated user to gain Super Admin privileges.
 date: "2026-04-06T20:16:26Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

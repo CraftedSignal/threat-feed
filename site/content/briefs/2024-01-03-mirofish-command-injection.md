@@ -3,9 +3,9 @@ title: MiroFish Command Injection Vulnerability (CVE-2026-7058)
 slug: 2024-01-03-mirofish-command-injection
 description: A command injection vulnerability exists in 666ghj MiroFish version 0.1.2 via the SimulationIPCClient.send_command function, allowing remote attackers to execute arbitrary commands.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

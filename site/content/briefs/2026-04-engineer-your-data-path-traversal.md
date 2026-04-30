@@ -3,9 +3,9 @@ title: Path Traversal Vulnerability in engineer-your-data
 slug: 2026-04-engineer-your-data-path-traversal
 description: A path traversal vulnerability (CVE-2026-7214) exists in eghuzefa's engineer-your-data up to version 0.1.3, allowing remote attackers to read or write arbitrary files by manipulating the WORKSPACE_PATH argument.
 date: "2026-04-28T02:16:08Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: OVN DHCPv6 Out-of-Bounds Read Vulnerability (CVE-2026-5367)
 slug: 2026-04-ovn-dhcpv6-oob-read
 description: A remote attacker can exploit an out-of-bounds read vulnerability in Open Virtual Network (OVN) by sending crafted DHCPv6 SOLICIT packets, leading to sensitive information disclosure.
 date: "2026-04-24T13:16:21Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

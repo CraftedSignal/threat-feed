@@ -3,9 +3,9 @@ title: OCaml opam Path Traversal Vulnerability (CVE-2026-41082)
 slug: 2026-04-opam-path-traversal
 description: OCaml opam before 2.5.1 is vulnerable to path traversal via a crafted .install file, potentially allowing attackers to overwrite arbitrary files.
 date: "2026-04-17T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Totolink A8000RU Command Injection Vulnerability (CVE-2026-7244)
 slug: 2026-04-totolink-command-injection
 description: A critical OS command injection vulnerability (CVE-2026-7244) exists in the setWiFiEasyGuestCfg function of the /cgi-bin/cstecgi.cgi file in Totolink A8000RU version 7.1cu.643_b20200521, allowing remote attackers to execute arbitrary commands.
 date: "2026-04-28T09:16:17Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

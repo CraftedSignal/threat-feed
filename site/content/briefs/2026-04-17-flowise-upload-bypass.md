@@ -3,9 +3,9 @@ title: FlowiseAI File Upload Validation Bypass Leads to RCE
 slug: 2026-04-17-flowise-upload-bypass
 description: A file upload validation bypass vulnerability exists in FlowiseAI, where the Chatflow configuration file upload settings can be modified to allow the application/javascript MIME type, enabling an attacker to upload .js files, store malicious Node.js web shells on the server, and potentially achieve Remote Code Execution (RCE).
 date: "2026-04-17T14:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

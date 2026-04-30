@@ -3,9 +3,9 @@ title: ImpressCMS 1.3.11 Time-Based Blind SQL Injection Vulnerability
 slug: 2026-04-impresscms-sqli
 description: ImpressCMS 1.3.11 contains a time-based blind SQL injection vulnerability allowing authenticated attackers to manipulate database queries by injecting SQL code through the 'bid' parameter via POST requests to the admin.php endpoint.
 date: "2026-04-12T13:16:33Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

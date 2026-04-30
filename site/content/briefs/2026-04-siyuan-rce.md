@@ -3,9 +3,9 @@ title: SiYuan Knowledge Management System RCE via Malicious Website
 slug: 2026-04-siyuan-rce
 description: SiYuan versions prior to 3.6.2 are vulnerable to remote code execution (RCE) via a malicious website exploiting a permissive CORS policy to inject a JavaScript snippet, leading to arbitrary code execution within the application's Node.js context.
 date: "2026-03-31T22:17:16Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

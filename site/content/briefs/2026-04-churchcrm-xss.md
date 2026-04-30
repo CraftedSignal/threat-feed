@@ -3,9 +3,9 @@ title: ChurchCRM Stored XSS Vulnerability in Person Property Management
 slug: 2026-04-churchcrm-xss
 description: A stored cross-site scripting (XSS) vulnerability in ChurchCRM versions prior to 7.0.0 allows authenticated users to inject arbitrary JavaScript code via dynamically assigned person properties, leading to potential session hijacking or account compromise when other users view the affected profile.
 date: "2026-04-08T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

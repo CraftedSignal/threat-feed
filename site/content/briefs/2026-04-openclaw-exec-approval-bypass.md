@@ -3,9 +3,9 @@ title: OpenClaw Execution Approval Bypass Vulnerability (CVE-2026-41380)
 slug: 2026-04-openclaw-exec-approval-bypass
 description: OpenClaw before 2026.3.28 contains an execution approval vulnerability in exec-approvals-allowlist.ts that allows attackers to bypass intended execution restrictions by exploiting trust relationships with wrapper carrier executables, leading to privilege escalation and defense evasion.
 date: "2026-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

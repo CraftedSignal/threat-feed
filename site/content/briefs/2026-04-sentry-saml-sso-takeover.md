@@ -3,9 +3,9 @@ title: Sentry SAML SSO Improper Authentication Vulnerability
 slug: 2026-04-sentry-saml-sso-takeover
 description: A critical vulnerability in Sentry's SAML SSO implementation allows account takeover by exploiting improper authentication when multiple organizations are configured, affecting versions 21.12.0 to 26.2.0 and requiring a malicious SAML Identity Provider and knowledge of the victim's email address.
 date: "2026-04-18T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

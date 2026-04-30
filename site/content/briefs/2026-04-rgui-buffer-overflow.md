@@ -3,9 +3,9 @@ title: RGui 3.5.0 Local Buffer Overflow Vulnerability
 slug: 2026-04-rgui-buffer-overflow
 description: RGui 3.5.0 contains a local buffer overflow vulnerability in the GUI preferences dialog that allows attackers to bypass DEP protections through structured exception handling exploitation, leading to arbitrary code execution.
 date: "2026-04-12T13:16:31Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: Marimo Pre-Authentication Remote Code Execution Vulnerability (CVE-2026-3
 slug: 2026-04-marimo-rce
 description: CVE-2026-39987 is a pre-authentication remote code execution vulnerability in Marimo, enabling unauthenticated attackers to execute arbitrary system commands.
 date: "2026-04-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

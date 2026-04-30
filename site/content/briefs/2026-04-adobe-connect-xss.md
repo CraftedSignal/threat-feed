@@ -3,9 +3,9 @@ title: Adobe Connect XSS Vulnerability Leading to Privilege Escalation
 slug: 2026-04-adobe-connect-xss
 description: Adobe Connect versions 2025.3, 12.10, and earlier are susceptible to a Cross-Site Scripting (XSS) vulnerability (CVE-2026-34617) that can lead to privilege escalation if a user interacts with a malicious URL or compromised web page.
 date: "2026-04-14T18:17:36Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

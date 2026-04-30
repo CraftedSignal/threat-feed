@@ -3,9 +3,9 @@ title: Microsoft PowerShell Improper Input Validation Vulnerability (CVE-2026-26
 slug: 2026-04-powershell-input-validation-bypass
 description: An improper input validation vulnerability (CVE-2026-26143) in Microsoft PowerShell allows an unauthorized local attacker to bypass security features.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

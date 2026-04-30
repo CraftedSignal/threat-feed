@@ -3,9 +3,9 @@ title: PolarVista xcode-mcp-server OS Command Injection Vulnerability
 slug: 2026-04-polarvista-command-injection
 description: PolarVista xcode-mcp-server 1.0.0 is vulnerable to remote OS command injection via manipulation of the Request argument in the `build_project/run_tests` function, allowing attackers to execute arbitrary commands on the server.
 date: "2026-04-29T22:16:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

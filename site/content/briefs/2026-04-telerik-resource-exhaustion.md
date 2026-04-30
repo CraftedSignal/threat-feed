@@ -3,9 +3,9 @@ title: Telerik UI for AJAX RadAsyncUpload Uncontrolled Resource Consumption (CVE
 slug: 2026-04-telerik-resource-exhaustion
 description: A vulnerability exists in Progress Telerik UI for AJAX prior to 2026.1.421, RadAsyncUpload, due to missing cumulative size enforcement during chunk reassembly, which allows file uploads to exceed the configured maximum size, leading to disk space exhaustion.
 date: "2026-04-22T08:16:12Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

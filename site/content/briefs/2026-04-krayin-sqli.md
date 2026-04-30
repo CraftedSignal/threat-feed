@@ -3,9 +3,9 @@ title: Krayin CRM v2.2.x SQL Injection Vulnerability
 slug: 2026-04-krayin-sqli
 description: Krayin CRM v2.2.x is vulnerable to SQL injection via the rotten_lead parameter in /Lead/LeadDataGrid.php, potentially allowing attackers to read sensitive data.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

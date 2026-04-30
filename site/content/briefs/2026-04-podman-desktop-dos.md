@@ -3,9 +3,9 @@ title: Unauthenticated Denial-of-Service and Information Disclosure in Podman De
 slug: 2026-04-podman-desktop-dos
 description: Podman Desktop versions prior to 1.26.2 expose an unauthenticated HTTP server, allowing remote attackers to trigger denial-of-service conditions by exhausting resources and extract sensitive information through verbose error responses.
 date: "2026-04-07T21:17:17Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

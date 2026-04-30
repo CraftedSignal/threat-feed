@@ -3,9 +3,9 @@ title: FreeScout Mass Assignment Vulnerability (CVE-2026-40569)
 slug: 2026-04-freescout-mass-assignment
 description: FreeScout versions prior to 1.8.213 contain a mass assignment vulnerability allowing authenticated admins to modify sensitive mailbox settings by injecting parameters into connection settings requests, leading to email exfiltration and account compromise.
 date: "2026-04-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

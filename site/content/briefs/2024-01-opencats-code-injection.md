@@ -3,9 +3,9 @@ title: OpenCATS PHP Code Injection Vulnerability (CVE-2026-27760)
 slug: 2024-01-opencats-code-injection
 description: Unauthenticated attackers can exploit a PHP code injection vulnerability in OpenCATS versions prior to commit 3002a29 by injecting malicious PHP code into the installer's AJAX endpoint, leading to arbitrary code execution.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

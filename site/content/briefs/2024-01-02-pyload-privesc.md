@@ -3,9 +3,9 @@ title: pyLoad Privilege Escalation Vulnerability (CVE-2026-41133)
 slug: 2024-01-02-pyload-privesc
 description: pyLoad versions up to 0.5.0b3.dev97 cache user roles and permissions in the session, leading to privilege escalation even after an admin revokes privileges.
 date: "2026-04-22T00:16:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Tenda F451 Router Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-tenda-f451-overflow
 description: Tenda F451 router version 1.0.0.7 is vulnerable to a stack-based buffer overflow in the frmL7ProtForm function, enabling remote attackers to execute arbitrary code by manipulating the 'page' argument.
 date: "2026-04-12T08:16:37Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

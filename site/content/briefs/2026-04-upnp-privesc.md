@@ -3,9 +3,9 @@ title: Windows UPnP Device Host Untrusted Pointer Dereference Vulnerability (CVE
 slug: 2026-04-upnp-privesc
 description: CVE-2026-27920 is a local privilege escalation vulnerability in the Windows Universal Plug and Play (UPnP) Device Host due to an untrusted pointer dereference.
 date: "2026-04-14T18:17:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Dell AppSync 4.6.0 Incorrect Permission Assignment Vulnerability
 slug: 2026-04-dell-appsync-privesc
 description: Dell AppSync version 4.6.0 contains an incorrect permission assignment vulnerability that allows a low-privileged attacker with local access to elevate privileges on the system.
 date: "2026-04-01T13:16:33Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

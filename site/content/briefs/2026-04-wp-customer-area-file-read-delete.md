@@ -3,9 +3,9 @@ title: WP Customer Area Plugin Arbitrary File Read and Deletion Vulnerability
 slug: 2026-04-wp-customer-area-file-read-delete
 description: The WP Customer Area plugin for WordPress is vulnerable to arbitrary file read and deletion due to insufficient file path validation, allowing authenticated attackers to read sensitive files or delete critical files leading to potential remote code execution.
 date: "2026-04-17T17:17:07Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

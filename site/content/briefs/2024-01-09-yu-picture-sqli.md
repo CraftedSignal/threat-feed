@@ -3,9 +3,9 @@ title: liyupi yu-picture SQL Injection Vulnerability (CVE-2026-7060)
 slug: 2024-01-09-yu-picture-sqli
 description: A SQL injection vulnerability (CVE-2026-7060) exists in liyupi yu-picture versions up to a053632c41340152bf75b66b3c543d129123d8ec, allowing a remote attacker to execute arbitrary SQL commands by manipulating the sortField argument in the PageRequest function of PictureServiceImpl.java.
 date: "2024-01-09T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

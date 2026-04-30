@@ -3,9 +3,9 @@ title: BigSweetPotatoStudio HyperChat AI Proxy Middleware Server-Side Request Fo
 slug: 2024-01-23-hyperchat-ssrf
 description: A server-side request forgery (SSRF) vulnerability exists in BigSweetPotatoStudio HyperChat up to version 2.0.0-alpha.63, allowing a remote attacker to manipulate the 'baseurl' argument in the 'fetch' function of the AI Proxy Middleware component to make arbitrary HTTP requests.
 date: "2024-01-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

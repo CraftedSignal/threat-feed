@@ -3,9 +3,9 @@ title: AlejandroArciniegas mcp-data-vis SQL Injection Vulnerability
 slug: 2026-04-mcp-sql-injection
 description: A SQL injection vulnerability exists in the MCP Handler component of AlejandroArciniegas mcp-data-vis, specifically in the Request function of src/servers/database/server.js, allowing remote attackers to execute arbitrary SQL commands.
 date: "2026-04-02T06:16:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

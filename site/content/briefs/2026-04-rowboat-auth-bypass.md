@@ -3,9 +3,9 @@ title: Rowboatlabs Rowboat Improper Authentication Vulnerability (CVE-2026-6635)
 slug: 2026-04-rowboat-auth-bypass
 description: An improper authentication vulnerability in rowboatlabs rowboat <=0.1.67 allows remote attackers to bypass authentication by manipulating the X-Tools-JWE argument in the tool_call function, potentially leading to unauthorized access and control.
 date: "2026-04-20T12:16:09Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Spinnaker Echo Service Vulnerable to Spring Expression Language Injection
 slug: 2026-04-spinnaker-spel
 description: Unrestricted access to the JVM via Spring Expression Language (SPeL) in Spinnaker's Echo service allows for arbitrary code execution, enabling attackers to invoke commands and access files.
 date: "2026-04-20T21:19:10Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

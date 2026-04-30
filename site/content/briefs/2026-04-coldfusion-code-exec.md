@@ -3,9 +3,9 @@ title: Adobe ColdFusion Improper Input Validation Vulnerability (CVE-2026-27306)
 slug: 2026-04-coldfusion-code-exec
 description: An improper input validation vulnerability in Adobe ColdFusion versions 2023.18, 2025.6, and earlier (CVE-2026-27306) could lead to arbitrary code execution if a privileged user opens a specially crafted malicious file.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

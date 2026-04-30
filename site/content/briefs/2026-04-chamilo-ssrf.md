@@ -3,9 +3,9 @@ title: Chamilo LMS SSRF Vulnerability in Social Wall Feature
 slug: 2026-04-chamilo-ssrf
 description: A Server-Side Request Forgery (SSRF) vulnerability exists in Chamilo LMS versions prior to 1.11.38 and 2.0.0-RC.3, allowing authenticated attackers to make arbitrary HTTP requests, scan internal ports, and access cloud instance metadata via the Social Wall feature.
 date: "2026-04-11T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

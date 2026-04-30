@@ -3,9 +3,9 @@ title: Kyverno ConfigMap Cross-Namespace Read RBAC Bypass (CVE-2026-22039 Incomp
 slug: 2026-04-kyverno-configmap-rbac-bypass
 description: CVE-2026-22039 incompletely fixed a cross-namespace privilege escalation vulnerability in Kyverno's apiCall context, as the ConfigMap context loader still lacks namespace validation, allowing a namespace admin to read ConfigMaps from any namespace using Kyverno's privileged service account, leading to a complete RBAC bypass in multi-tenant Kubernetes clusters.
 date: "2026-04-17T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

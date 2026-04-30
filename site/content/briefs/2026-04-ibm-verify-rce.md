@@ -3,9 +3,9 @@ title: IBM Verify Identity Access and Security Verify Access Command Injection V
 slug: 2026-04-ibm-verify-rce
 description: Unauthenticated command execution is possible in IBM Verify Identity Access Container and IBM Security Verify Access Container due to improper validation of user-supplied input, allowing arbitrary command execution with lower privileges.
 date: "2026-04-01T21:16:58Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

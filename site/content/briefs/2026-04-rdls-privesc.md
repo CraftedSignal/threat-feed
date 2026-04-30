@@ -3,9 +3,9 @@ title: Windows Remote Desktop Licensing Service Privilege Escalation via CVE-202
 slug: 2026-04-rdls-privesc
 description: CVE-2026-26159 allows a local attacker to escalate privileges on Windows systems due to a missing authentication check in the Remote Desktop Licensing Service (RDLS).
 date: "2026-04-14T18:16:48Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Tenda 4G300 Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-tenda-stack-overflow
 description: A remote stack-based buffer overflow vulnerability exists in the Tenda 4G300 router, version US_4G300V1.0Mt_V1.01.42_CN_TDC01, allowing an attacker to potentially execute arbitrary code by manipulating the 'page' argument to the sub_427C3C function in the /goform/SafeMacFilter file.
 date: "2026-04-30T03:16:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

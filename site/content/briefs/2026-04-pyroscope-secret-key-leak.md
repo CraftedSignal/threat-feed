@@ -3,9 +3,9 @@ title: Pyroscope Secret Key Exposure via Tencent COS Configuration (CVE-2025-411
 slug: 2026-04-pyroscope-secret-key-leak
 description: CVE-2025-41118 allows an attacker with direct access to the Pyroscope API, when configured with Tencent COS, to extract the secret_key configuration value, potentially leading to unauthorized access to the cloud storage backend.
 date: "2026-04-16T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

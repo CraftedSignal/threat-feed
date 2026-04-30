@@ -3,9 +3,9 @@ title: Pipecat Remote Code Execution via Pickle Deserialization in LivekitFrameS
 slug: 2024-01-pipecat-rce
 description: A critical vulnerability, CVE-2025-62373, exists in Pipecat's LivekitFrameSerializer where the deserialize() method uses Python's pickle.loads() on WebSocket data without validation, allowing a malicious WebSocket client to execute arbitrary code on the Pipecat server if LivekitFrameSerializer is explicitly enabled.
 date: "2024-01-02T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

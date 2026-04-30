@@ -3,9 +3,9 @@ title: Cisco Catalyst SD-WAN Manager Password Disclosure Vulnerability (CVE-2026
 slug: 2026-04-cisco-sdwan-password-disclosure
 description: Cisco Catalyst SD-WAN Manager stores passwords in a recoverable format, allowing an authenticated local attacker to gain DCA user privileges by accessing a credential file.
 date: "2026-04-21T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

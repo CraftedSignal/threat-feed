@@ -3,9 +3,9 @@ title: Piwigo Unauthenticated History Search Access
 slug: 2026-04-piwigo-history-search
 description: Piwigo versions prior to 16.3.0 expose the full browsing history of gallery visitors to unauthenticated users via the pwg.history.search API method due to a missing authorization check.
 date: "2026-04-03T22:16:25Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

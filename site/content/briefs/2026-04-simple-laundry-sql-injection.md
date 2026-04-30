@@ -3,9 +3,9 @@ title: code-projects Simple Laundry System 1.0 SQL Injection Vulnerability
 slug: 2026-04-simple-laundry-sql-injection
 description: A remote SQL Injection vulnerability exists in code-projects Simple Laundry System 1.0 within the /delmemberinfo.php file's userid parameter, potentially allowing attackers to execute arbitrary SQL commands.
 date: "2026-04-05T13:17:13Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

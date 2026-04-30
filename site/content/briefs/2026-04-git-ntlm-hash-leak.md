@@ -3,9 +3,9 @@ title: Git for Windows NTLM Hash Leak Vulnerability (CVE-2026-32631)
 slug: 2026-04-git-ntlm-hash-leak
 description: Git for Windows versions prior to 2.53.0.windows.3 are vulnerable to NTLM hash theft by attackers who can trick users into cloning malicious repositories or checking out malicious branches, leading to potential credential compromise.
 date: "2026-04-15T18:17:17Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

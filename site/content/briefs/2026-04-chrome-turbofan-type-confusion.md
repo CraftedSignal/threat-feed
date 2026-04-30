@@ -3,9 +3,9 @@ title: Google Chrome Turbofan Type Confusion Vulnerability (CVE-2026-6301)
 slug: 2026-04-chrome-turbofan-type-confusion
 description: A type confusion vulnerability in Google Chrome's Turbofan component (CVE-2026-6301) allows a remote attacker to execute arbitrary code within a sandbox by exploiting a crafted HTML page, impacting system integrity and availability.
 date: "2026-04-16T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Advance Gift Shop Pro Script 2.0.3 SQL Injection Vulnerability
 slug: 2026-04-advance-giftshop-sqli
 description: Advance Gift Shop Pro Script 2.0.3 is vulnerable to SQL injection via the 's' search parameter, allowing unauthenticated attackers to execute arbitrary SQL queries and extract sensitive database information.
 date: "2026-04-05T21:16:46Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

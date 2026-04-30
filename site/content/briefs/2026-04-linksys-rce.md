@@ -3,9 +3,9 @@ title: Linksys MR9600 Command Injection Vulnerability (CVE-2026-6992)
 slug: 2026-04-linksys-rce
 description: CVE-2026-6992 is a command injection vulnerability in the Linksys MR9600 router that allows remote attackers to execute arbitrary OS commands by manipulating the 'pin' argument in the BTRequestGetSmartConnectStatus function.
 date: "2026-04-26T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

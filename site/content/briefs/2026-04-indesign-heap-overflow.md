@@ -3,9 +3,9 @@ title: Adobe InDesign Heap-Based Buffer Overflow Vulnerability (CVE-2026-34629)
 slug: 2026-04-indesign-heap-overflow
 description: Adobe InDesign versions 20.5.2, 21.2 and earlier are vulnerable to a heap-based buffer overflow (CVE-2026-34629) that could lead to arbitrary code execution if a user opens a malicious file.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

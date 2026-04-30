@@ -3,9 +3,9 @@ title: PraisonAI Multiple Backends Vulnerable to SQL Injection via Unvalidated T
 slug: 2026-04-praisonai-sqli
 description: PraisonAI is vulnerable to SQL injection across nine database backends due to unsanitized `table_prefix` parameters, and in PostgreSQL due to an unsanitized `schema` parameter, enabling arbitrary SQL execution.
 date: "2026-04-18T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

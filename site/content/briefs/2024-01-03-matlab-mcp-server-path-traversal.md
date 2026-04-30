@@ -3,9 +3,9 @@ title: Path Traversal Vulnerability in WilliamCloudQi matlab-mcp-server
 slug: 2024-01-03-matlab-mcp-server-path-traversal
 description: A path traversal vulnerability exists in WilliamCloudQi matlab-mcp-server up to version ab88f6b9bf5f36f725e8628029f7f6dd0d9913ca, allowing a remote attacker to manipulate the scriptPath argument in the generate_matlab_code/execute_matlab_code function to access arbitrary files.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

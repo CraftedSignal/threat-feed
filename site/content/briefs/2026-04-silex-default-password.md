@@ -3,9 +3,9 @@ title: Silex Technology SD-330AC and AMC Manager Insecure Default Password Vulne
 slug: 2026-04-silex-default-password
 description: Silex Technology's SD-330AC and AMC Manager are vulnerable to insecure default initialization, allowing a null string password to be set upon initial network connection (CVE-2026-32965).
 date: "2026-04-20T04:16:45Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

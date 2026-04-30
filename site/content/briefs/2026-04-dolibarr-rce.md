@@ -3,9 +3,9 @@ title: Dolibarr OS Command Injection via MAIN_ODT_AS_PDF Configuration
 slug: 2026-04-dolibarr-rce
 description: Dolibarr versions 22.0.4 and earlier are vulnerable to OS Command Injection via the MAIN_ODT_AS_PDF configuration, allowing an authenticated administrator to inject a malicious payload, leading to arbitrary operating system command execution.
 date: "2026-04-18T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

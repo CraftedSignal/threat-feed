@@ -3,9 +3,9 @@ title: TencentCloudBase CloudBase-MCP Server-Side Request Forgery Vulnerability 
 slug: 2024-01-02-cloudbase-ssrf
 description: A server-side request forgery vulnerability exists in TencentCloudBase CloudBase-MCP up to version 2.17.0, allowing remote attackers to manipulate the `req.body.url` argument in the `openUrl` function of `mcp/src/interactive-server.ts` to conduct SSRF attacks.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Fortinet FortiSandbox OS Command Injection Vulnerability (CVE-2026-39808)
 slug: 2026-04-fortinet-os-command-injection
 description: Fortinet FortiSandbox versions 4.4.0 through 4.4.8 are vulnerable to OS Command Injection (CVE-2026-39808), potentially allowing unauthenticated attackers to execute arbitrary code or commands.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: Xerte Online Toolkits Path Traversal Vulnerability
 slug: 2024-01-xerte-path-traversal
 description: Xerte Online Toolkits 3.15 and earlier are vulnerable to relative path traversal, allowing attackers to move files and potentially achieve remote code execution.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

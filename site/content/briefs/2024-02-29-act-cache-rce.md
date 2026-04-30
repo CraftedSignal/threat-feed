@@ -3,9 +3,9 @@ title: act Project Cache Poisoning Vulnerability Leads to Potential RCE
 slug: 2024-02-29-act-cache-rce
 description: A vulnerability in versions prior to 0.2.86 of the act project allows remote attackers to create arbitrary caches, potentially leading to remote code execution within Docker containers by poisoning predicted cache keys.
 date: "2026-03-31T03:15:58Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

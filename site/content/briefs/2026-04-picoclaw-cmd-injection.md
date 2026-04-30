@@ -3,9 +3,9 @@ title: PicoClaw Web Launcher Management Plane Command Injection Vulnerability
 slug: 2026-04-picoclaw-cmd-injection
 description: PicoClaw version 0.2.4 is vulnerable to command injection via the /api/gateway/restart endpoint of the Web Launcher Management Plane, allowing a remote attacker to execute arbitrary commands by manipulating input.
 date: "2026-04-25T17:16:33Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

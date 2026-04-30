@@ -3,9 +3,9 @@ title: Breeze Cache Plugin Arbitrary File Upload Vulnerability (CVE-2026-3844)
 slug: 2026-04-breeze-cache-rce
 description: The Breeze Cache plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation, potentially leading to remote code execution.
 date: "2024-02-29T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

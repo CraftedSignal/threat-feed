@@ -3,9 +3,9 @@ title: HTML5 Video Player 1.2.5 Local Buffer Overflow Vulnerability
 slug: 2026-04-html5-video-player-buffer-overflow
 description: HTML5 Video Player version 1.2.5 is vulnerable to a local buffer overflow, allowing attackers to execute arbitrary code by providing an oversized key code string through the Help Register dialog.
 date: "2026-04-12T13:16:31Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

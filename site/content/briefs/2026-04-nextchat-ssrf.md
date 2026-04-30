@@ -3,9 +3,9 @@ title: ChatGPTNextWeb NextChat Server-Side Request Forgery Vulnerability
 slug: 2026-04-nextchat-ssrf
 description: A server-side request forgery (SSRF) vulnerability in ChatGPTNextWeb NextChat up to version 2.16.1 allows remote attackers to manipulate the proxyHandler function, potentially leading to unauthorized internal resource access.
 date: "2026-04-28T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

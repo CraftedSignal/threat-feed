@@ -3,9 +3,9 @@ title: OpenClaw Arbitrary Code Execution via Malicious .npmrc File
 slug: 2026-04-openclaw-code-exec
 description: OpenClaw before 2026.3.24 is vulnerable to arbitrary code execution via local plugin and hook installation, where an attacker can craft a .npmrc file with a git executable override to execute malicious code during npm install.
 date: "2026-04-10T17:17:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

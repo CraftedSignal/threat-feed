@@ -3,9 +3,9 @@ title: Totolink N300RT Buffer Overflow Vulnerability (CVE-2026-7219)
 slug: 2026-04-totolink-n300rt-bo
 description: A remote buffer overflow vulnerability exists in Totolink N300RT 3.4.0-B20250430 via manipulation of the 'entry_name' argument in the /boafrm/formIpQoS file, potentially leading to arbitrary code execution.
 date: "2026-04-28T04:16:23Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

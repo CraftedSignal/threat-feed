@@ -3,9 +3,9 @@ title: Dell PowerProtect Data Domain Weak Credentials Vulnerability (CVE-2026-23
 slug: 2026-04-dell-powerprotect-weak-creds
 description: Dell PowerProtect Data Domain with Data Domain Operating System (DD OS) versions 7.7.1.0 through 8.5, 8.3.1.0 through 8.3.1.20, and 7.13.1.0 through 7.13.1.50, contain a use of weak credentials vulnerability (CVE-2026-23853) that can lead to unauthorized access by a local attacker.
 date: "2026-04-17T08:16:16Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

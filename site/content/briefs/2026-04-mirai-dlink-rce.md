@@ -3,9 +3,9 @@ title: Mirai Campaign Exploiting CVE-2025-29635 in D-Link Routers
 slug: 2026-04-mirai-dlink-rce
 description: A new Mirai-based malware campaign is exploiting CVE-2025-29635, a command-injection vulnerability affecting D-Link DIR-823X routers, to enlist devices into the botnet.
 date: "2026-04-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

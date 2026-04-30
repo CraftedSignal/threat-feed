@@ -3,9 +3,9 @@ title: Cisco Catalyst SD-WAN Manager Information Disclosure Vulnerability (CVE-2
 slug: 2024-01-cisco-sdwan-info-disclosure
 description: Cisco Catalyst SD-WAN Manager contains an information disclosure vulnerability (CVE-2026-20133) that could allow remote attackers to view sensitive information on affected systems, requiring immediate patching or mitigation.
 date: "2024-01-19T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

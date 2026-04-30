@@ -3,9 +3,9 @@ title: WordPress Drag and Drop File Upload Plugin Vulnerable to Arbitrary File U
 slug: 2024-01-wordpress-plugin-upload
 description: The Drag and Drop File Upload for Contact Form 7 plugin for WordPress is vulnerable to arbitrary file upload in versions up to 1.1.3, allowing unauthenticated attackers to upload arbitrary PHP files by manipulating the file type parameter and exploiting extension sanitization vulnerabilities.
 date: "2024-01-03T18:23:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Tenda W308R DNS Hijacking Vulnerability (CVE-2018-25316)
 slug: 2026-04-tenda-dns-hijack
 description: Tenda W308R v2 V5.07.48 is vulnerable to cookie session weakness, allowing unauthenticated attackers to modify DNS settings via crafted GET requests to redirect user traffic to malicious sites.
 date: "2026-04-29T20:16:27Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

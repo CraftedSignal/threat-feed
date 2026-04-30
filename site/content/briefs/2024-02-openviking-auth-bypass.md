@@ -3,9 +3,9 @@ title: OpenViking Authentication Bypass Vulnerability (CVE-2026-40525)
 slug: 2024-02-openviking-auth-bypass
 description: OpenViking versions prior to commit c7bb167 are vulnerable to an authentication bypass that allows remote attackers to invoke privileged bot-control functionality without authentication when the api_key configuration is unset or empty, potentially leading to unauthorized access to downstream systems and data.
 date: "2026-04-17T19:16:39Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: LanSpy 2.0.1.159 Local Buffer Overflow Vulnerability
 slug: 2026-04-lanspy-buffer-overflow
 description: LanSpy 2.0.1.159 is vulnerable to a local buffer overflow, allowing an attacker to overwrite the instruction pointer by providing a crafted payload to the scan field, potentially leading to code execution.
 date: "2026-04-22T16:16:47Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

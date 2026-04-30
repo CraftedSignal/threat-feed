@@ -3,9 +3,9 @@ title: Industrial Edge Management Authentication Bypass Vulnerability (CVE-2026-
 slug: 2026-04-industrial-edge-auth-bypass
 description: CVE-2026-33892 allows an unauthenticated remote attacker to bypass authentication and impersonate a legitimate user in affected Industrial Edge Management Pro and Virtual versions by exploiting improper enforcement of user authentication on remote connections to devices, potentially enabling unauthorized access and control.
 date: "2026-04-14T09:16:36Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: CVE-2026-34303 Affecting Microsoft Products
 slug: 2026-04-msrc-placeholder
 description: CVE-2026-34303 is a vulnerability affecting an unspecified Microsoft product, requiring further investigation upon disclosure of details.
 date: "2026-04-23T07:27:47Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

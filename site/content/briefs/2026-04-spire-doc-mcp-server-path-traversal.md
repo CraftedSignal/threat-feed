@@ -3,9 +3,9 @@ title: eiceblue spire-doc-mcp-server Path Traversal Vulnerability
 slug: 2026-04-spire-doc-mcp-server-path-traversal
 description: A path traversal vulnerability exists in eiceblue spire-doc-mcp-server version 1.0.0, allowing a remote attacker to access arbitrary files by manipulating the 'document_name' argument in the 'get_doc_path' function.
 date: "2026-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

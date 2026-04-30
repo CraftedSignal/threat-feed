@@ -3,9 +3,9 @@ title: Movary Privilege Escalation Vulnerability (CVE-2026-40349)
 slug: 2026-04-movary-privesc
 description: Movary versions prior to 0.71.1 allow authenticated users to escalate privileges to administrator by manipulating the `isAdmin` field via a PUT request to the `/settings/users/{userId}` endpoint, due to missing authorization checks.
 date: "2026-04-18T00:16:38Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

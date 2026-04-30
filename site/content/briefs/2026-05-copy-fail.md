@@ -3,9 +3,9 @@ title: Linux Kernel 'Copy Fail' Vulnerability Enables Root Access
 slug: 2026-05-copy-fail
 description: A 9-year-old Linux kernel vulnerability, dubbed 'Copy Fail' (CVE-2026-31431), allows attackers to gain root access via a memory flaw in the algif_aead module by overwriting data in the page cache.
 date: "2026-04-30T07:26:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 actors:

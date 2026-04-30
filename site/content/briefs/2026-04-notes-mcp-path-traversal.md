@@ -3,9 +3,9 @@ title: edvardlindelof notes-mcp Path Traversal Vulnerability (CVE-2026-7212)
 slug: 2026-04-notes-mcp-path-traversal
 description: A path traversal vulnerability exists in edvardlindelof notes-mcp up to version 0.1.4, affecting the notes_mcp.py file, allowing a remote attacker to access sensitive files by manipulating the `root_dir/path` argument.
 date: "2026-04-28T02:16:08Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

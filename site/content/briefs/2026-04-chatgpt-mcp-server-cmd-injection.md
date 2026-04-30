@@ -3,9 +3,9 @@ title: Toowiredd chatgpt-mcp-server OS Command Injection Vulnerability
 slug: 2026-04-chatgpt-mcp-server-cmd-injection
 description: Toowiredd chatgpt-mcp-server up to version 0.1.0 is vulnerable to OS command injection via the file src/services/docker.service.ts of the component MCP/HTTP, allowing for remote exploitation.
 date: "2026-04-26T22:17:33Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

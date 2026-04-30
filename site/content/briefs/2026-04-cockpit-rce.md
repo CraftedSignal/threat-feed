@@ -3,9 +3,9 @@ title: Cockpit CMS Authenticated Remote Code Execution via Code Injection
 slug: 2026-04-cockpit-rce
 description: Cockpit CMS is vulnerable to authenticated remote code execution via PHP code injection in the /cockpit/collections/save_collection endpoint, enabling attackers with collection management privileges to execute arbitrary commands on the server.
 date: "2026-04-29T20:16:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: Tenda HG3 v2.0 Stack-Based Buffer Overflow in formUploadConfig
 slug: 2026-04-tenda-hg3-overflow
 description: A stack-based buffer overflow vulnerability in the formUploadConfig function of Tenda HG3 v2.0's /boaform/formIPv6Routing file allows remote attackers to execute arbitrary code by manipulating the destNet argument.
 date: "2026-04-28T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

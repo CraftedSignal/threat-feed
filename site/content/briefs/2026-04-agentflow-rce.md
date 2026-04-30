@@ -3,9 +3,9 @@ title: AgentFlow Arbitrary Code Execution via Pipeline Path Manipulation (CVE-20
 slug: 2026-04-agentflow-rce
 description: AgentFlow is vulnerable to arbitrary code execution (CVE-2026-7466) by manipulating the `pipeline_path` parameter in POST requests to `/api/runs` and `/api/runs/validate`, allowing attackers to execute arbitrary Python code.
 date: "2026-04-29T19:16:27Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

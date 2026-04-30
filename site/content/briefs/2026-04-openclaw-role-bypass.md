@@ -3,9 +3,9 @@ title: OpenClaw Role Bypass Vulnerability in device.token.rotate Function
 slug: 2026-04-openclaw-role-bypass
 description: OpenClaw before 2026.4.8 contains a role bypass vulnerability in the device.token.rotate function, allowing attackers to mint tokens for unapproved roles and bypass intended approval processes.
 date: "2026-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

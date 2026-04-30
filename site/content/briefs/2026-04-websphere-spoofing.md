@@ -3,9 +3,9 @@ title: IBM WebSphere Liberty Identity Spoofing Vulnerability (CVE-2026-3621)
 slug: 2026-04-websphere-spoofing
 description: IBM WebSphere Application Server Liberty versions 17.0.0.3 through 26.0.0.4 are susceptible to identity spoofing when applications are deployed without proper authentication and authorization configurations, potentially leading to unauthorized access and privilege escalation.
 date: "2026-04-23T00:18:31Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: Tenda Router DNS Hijacking via Cookie Session Weakness
 slug: 2026-04-tenda-dns-hijacking
 description: Tenda W3002R/A302/W309R routers with firmware V5.07.64_en are vulnerable to unauthenticated DNS hijacking, where attackers exploit a cookie session weakness to modify DNS settings via crafted GET requests.
 date: "2026-04-29T20:16:27Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

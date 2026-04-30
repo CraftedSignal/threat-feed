@@ -3,9 +3,9 @@ title: SQL Injection Vulnerability in Simple Content Management System 1.0
 slug: 2026-04-simple-cms-sqli
 description: A remote SQL injection vulnerability exists in code-projects Simple Content Management System 1.0, specifically affecting the /web/admin/login.php file where manipulation of the 'User' argument allows unauthenticated attackers to execute arbitrary SQL queries.
 date: "2026-04-13T15:17:49Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

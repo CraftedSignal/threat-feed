@@ -3,9 +3,9 @@ title: Binutils XCOFF Heap-Based Buffer Overflow Vulnerability (CVE-2026-6846)
 slug: 2026-04-binutils-xcoff-heap-overflow
 description: A heap-buffer-overflow vulnerability exists in binutils when processing a specially crafted XCOFF object file, potentially leading to arbitrary code execution or denial of service.
 date: "2026-04-22T09:16:27Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

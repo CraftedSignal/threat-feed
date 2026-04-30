@@ -3,9 +3,9 @@ title: Anviz CX2 Lite and CX7 Unauthenticated Remote Code Execution via Unverifi
 slug: 2026-04-anviz-rce
 description: Anviz CX2 Lite and CX7 devices are vulnerable to unverified update packages that allow for unauthenticated remote code execution by unpacking and executing a malicious script.
 date: "2026-04-17T20:16:35Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

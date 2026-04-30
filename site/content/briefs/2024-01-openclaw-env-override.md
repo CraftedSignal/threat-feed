@@ -3,9 +3,9 @@ title: OpenClaw Plugin Trust Verification Bypass via Environment Variable Overri
 slug: 2024-01-openclaw-env-override
 description: OpenClaw before 2026.3.31 allows attackers with control over workspace configuration to inject malicious plugins by overriding the OPENCLAW_BUNDLED_PLUGINS_DIR environment variable through workspace .env files, compromising plugin trust verification.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

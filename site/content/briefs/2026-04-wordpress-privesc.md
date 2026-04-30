@@ -3,9 +3,9 @@ title: Riaxe Product Customizer WordPress Plugin Privilege Escalation Vulnerabil
 slug: 2026-04-wordpress-privesc
 description: The Riaxe Product Customizer plugin for WordPress is vulnerable to privilege escalation, allowing unauthenticated attackers to update arbitrary WordPress options via a publicly accessible AJAX endpoint and escalate privileges to administrator.
 date: "2026-04-16T06:16:15Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: Smart Slider 3 Pro Compromised Update Leads to Remote Code Execution
 slug: 2026-04-smart-slider-rce
 description: Smart Slider 3 Pro version 3.5.1.35 for WordPress and Joomla contains a multi-stage remote access toolkit injected through a compromised update system allowing unauthenticated remote code execution and system takeover.
 date: "2026-04-09T23:17:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

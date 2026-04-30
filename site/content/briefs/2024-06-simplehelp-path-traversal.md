@@ -3,9 +3,9 @@ title: SimpleHelp Path Traversal Vulnerability (CVE-2024-57728)
 slug: 2024-06-simplehelp-path-traversal
 description: CVE-2024-57728 is a path traversal vulnerability in SimpleHelp that allows admin users to upload arbitrary files anywhere on the file system by uploading a crafted zip file, potentially leading to arbitrary code execution.
 date: "2024-06-25T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

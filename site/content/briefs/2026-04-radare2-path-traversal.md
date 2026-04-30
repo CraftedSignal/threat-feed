@@ -3,9 +3,9 @@ title: Radare2 Path Traversal Vulnerability in Project Deletion
 slug: 2026-04-radare2-path-traversal
 description: Radare2 versions prior to 6.1.4 are vulnerable to a path traversal in project deletion, allowing local attackers to recursively delete arbitrary directories by escaping the 'dir.projects' root, leading to integrity and availability loss.
 date: "2026-04-23T21:16:06Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

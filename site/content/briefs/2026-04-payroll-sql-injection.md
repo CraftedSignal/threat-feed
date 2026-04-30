@@ -3,9 +3,9 @@ title: itsourcecode Payroll Management System 1.0 SQL Injection Vulnerability
 slug: 2026-04-payroll-sql-injection
 description: itsourcecode Payroll Management System 1.0 is vulnerable to SQL injection via the ID parameter in /view_employee.php, allowing remote attackers to execute arbitrary SQL commands.
 date: "2026-04-01T00:16:02Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

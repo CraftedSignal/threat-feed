@@ -3,9 +3,9 @@ title: florensiawidjaja BioinfoMCP Path Traversal Vulnerability
 slug: 2024-01-03-bioinfomcp-path-traversal
 description: A path traversal vulnerability in florensiawidjaja BioinfoMCP allows remote attackers to write arbitrary files via manipulation of the 'Name' argument in the Upload function of app.py.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

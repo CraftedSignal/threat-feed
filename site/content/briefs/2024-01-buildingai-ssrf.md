@@ -3,9 +3,9 @@ title: BidingCC BuildingAI SSRF Vulnerability (CVE-2026-7065)
 slug: 2024-01-buildingai-ssrf
 description: A server-side request forgery (SSRF) vulnerability exists in BidingCC BuildingAI up to version 26.0.1, allowing remote attackers to manipulate the `url` argument in the `uploadRemoteFile` function of `file-storage.service.ts` to conduct SSRF attacks.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

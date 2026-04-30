@@ -3,9 +3,9 @@ title: Smart Post Show WordPress Plugin PHP Object Injection Vulnerability
 slug: 2026-04-smart-post-show-rce
 description: The Smart Post Show WordPress plugin versions 3.0.12 and earlier are vulnerable to PHP Object Injection via deserialization of untrusted input in the import_shortcodes() function, potentially leading to remote code execution if a suitable POP chain is present.
 date: "2026-04-14T06:17:10Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

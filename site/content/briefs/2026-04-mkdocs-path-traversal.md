@@ -3,9 +3,9 @@ title: mkdocs-mcp-plugin Path Traversal Vulnerability
 slug: 2026-04-mkdocs-path-traversal
 description: A path traversal vulnerability exists in douinc mkdocs-mcp-plugin up to version 0.4.1, allowing remote attackers to access unauthorized files through manipulation of the docs_dir/file_path argument in the read_document/list_documents functions within server.py.
 date: "2026-04-28T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Creolabs Gravity Heap Buffer Overflow Vulnerability (CVE-2026-40504)
 slug: 2026-04-creolabs-gravity-heap-overflow
 description: Creolabs Gravity before 0.9.6 is vulnerable to a heap buffer overflow in the gravity_vm_exec function, allowing attackers to achieve arbitrary code execution by crafting scripts with many string literals at global scope that exploit insufficient bounds checking in gravity_fiber_reassign().
 date: "2026-04-16T02:16:11Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

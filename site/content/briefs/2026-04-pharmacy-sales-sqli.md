@@ -3,9 +3,9 @@ title: SourceCodester Pharmacy Sales and Inventory System SQL Injection Vulnerab
 slug: 2026-04-pharmacy-sales-sqli
 description: SourceCodester Pharmacy Sales and Inventory System 1.0 is vulnerable to SQL injection by manipulating the ID argument in the /ajax.php?action=save_receiving file, allowing remote attackers to execute arbitrary SQL commands.
 date: "2026-04-27T06:16:03Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

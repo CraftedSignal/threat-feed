@@ -3,9 +3,9 @@ title: PraisonAI Unauthenticated Remote Session Hijacking Vulnerability (CVE-202
 slug: 2026-04-praisonai-rce
 description: PraisonAI versions before 4.5.139 and praisonaiagents versions before 1.5.140 are vulnerable to unauthenticated remote session hijacking due to missing authentication and a bypassable origin check on the /ws WebSocket endpoint, enabling unauthorized remote control and data leakage.
 date: "2026-04-14T04:18:47Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

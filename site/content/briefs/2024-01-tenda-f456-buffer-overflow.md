@@ -3,9 +3,9 @@ title: Tenda F456 Remote Buffer Overflow Vulnerability
 slug: 2024-01-tenda-f456-buffer-overflow
 description: A remote buffer overflow vulnerability exists in Tenda F456 version 1.0.0.5 via manipulation of the 'page' argument in the fromDhcpListClient function of the /goform/DhcpListClient component, potentially leading to arbitrary code execution.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

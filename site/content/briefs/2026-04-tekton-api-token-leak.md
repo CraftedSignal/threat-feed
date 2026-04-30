@@ -3,9 +3,9 @@ title: Tekton Pipelines Git Resolver API Token Leak via User-Controlled ServerUR
 slug: 2026-04-tekton-api-token-leak
 description: The Tekton Pipelines git resolver in API mode leaks the system-configured Git API token to a user-controlled `serverURL` when the user omits the `token` parameter, allowing an attacker with TaskRun or PipelineRun creation permissions to exfiltrate the shared API token.
 date: "2026-04-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

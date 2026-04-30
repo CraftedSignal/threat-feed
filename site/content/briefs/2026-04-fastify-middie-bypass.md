@@ -3,9 +3,9 @@ title: '@fastify/middie Middleware Bypass Vulnerability (CVE-2026-33804)'
 slug: 2026-04-fastify-middie-bypass
 description: A middleware bypass vulnerability (CVE-2026-33804) exists in @fastify/middie versions 9.3.1 and earlier when the deprecated Fastify ignoreDuplicateSlashes option is enabled, potentially allowing unauthorized access.
 date: "2026-04-16T15:17:34Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

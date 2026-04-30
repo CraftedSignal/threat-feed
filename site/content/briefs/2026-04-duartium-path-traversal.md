@@ -3,9 +3,9 @@ title: Duartium papers-mcp-server Path Traversal Vulnerability (CVE-2026-7205)
 slug: 2026-04-duartium-path-traversal
 description: A path traversal vulnerability exists in the `search_papers` function of `src/main.py` in duartium papers-mcp-server version 9ceb3812a6458ba7922ca24a7406f8807bc55598, allowing remote attackers to read arbitrary files by manipulating the `topic` argument, with a public exploit available.
 date: "2026-04-28T01:17:16Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Insecure Deserialization Vulnerability in Telerik UI for AJAX RadFilter C
 slug: 2026-04-telerik-rce
 description: An insecure deserialization vulnerability exists in Progress Telerik UI for AJAX's RadFilter control (versions 2024.4.1114 through 2026.1.421) allowing remote code execution via tampering with the filter state exposed to the client.
 date: "2026-04-22T08:16:13Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

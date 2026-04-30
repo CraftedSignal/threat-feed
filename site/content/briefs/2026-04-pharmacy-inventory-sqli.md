@@ -3,9 +3,9 @@ title: SourceCodester Pharmacy Sales and Inventory System SQL Injection Vulnerab
 slug: 2026-04-pharmacy-inventory-sqli
 description: A SQL injection vulnerability (CVE-2026-7199) exists in SourceCodester Pharmacy Sales and Inventory System 1.0, allowing remote attackers to execute arbitrary SQL commands by manipulating the 'ID' parameter in the `/ajax.php?action=delete_product` endpoint, potentially leading to data breach or system compromise.
 date: "2026-04-28T00:16:26Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

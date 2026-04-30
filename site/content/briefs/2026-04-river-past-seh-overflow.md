@@ -3,9 +3,9 @@ title: River Past Video Cleaner 7.6.3 SEH Buffer Overflow Vulnerability
 slug: 2026-04-river-past-seh-overflow
 description: River Past Video Cleaner 7.6.3 contains a structured exception handler buffer overflow vulnerability allowing local attackers to execute arbitrary code by providing a malicious string in the Lame_enc.dll field.
 date: "2026-04-05T21:16:44Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

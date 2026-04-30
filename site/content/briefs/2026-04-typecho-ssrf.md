@@ -3,9 +3,9 @@ title: Typecho <= 1.3.0 Server-Side Request Forgery Vulnerability (CVE-2026-7025
 slug: 2026-04-typecho-ssrf
 description: A server-side request forgery (SSRF) vulnerability exists in Typecho up to version 1.3.0, allowing remote attackers to manipulate the X-Pingback/link argument in the Service::sendPingHandle function to potentially make arbitrary HTTP requests.
 date: "2026-04-26T08:17:46Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

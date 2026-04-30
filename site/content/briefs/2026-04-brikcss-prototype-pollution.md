@@ -3,9 +3,9 @@ title: brikcss merge Prototype Pollution Vulnerability (CVE-2026-6594)
 slug: 2026-04-brikcss-prototype-pollution
 description: A prototype pollution vulnerability (CVE-2026-6594) in brikcss merge up to version 1.3.0 allows remote attackers to modify object prototype attributes by manipulating the __proto__/constructor.prototype/prototype argument.
 date: "2026-04-20T02:16:15Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

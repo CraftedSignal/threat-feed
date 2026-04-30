@@ -3,9 +3,9 @@ title: Tenda HG3 Router Command Injection Vulnerability (CVE-2026-7096)
 slug: 2024-01-tenda-hg3-command-injection
 description: A command injection vulnerability (CVE-2026-7096) exists in the Tenda HG3 2.0 300003070 router, allowing remote attackers to execute arbitrary OS commands by manipulating the 'fmgpon_loid' argument in the 'formgponConf' function of the '/boaform/admin/formgponConf' file due to insufficient input validation.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

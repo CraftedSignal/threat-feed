@@ -3,9 +3,9 @@ title: LearnPress WordPress Plugin Unauthorized Data Deletion Vulnerability (CVE
 slug: 2026-04-learnpress-data-deletion
 description: The LearnPress plugin for WordPress is vulnerable to unauthorized data deletion due to a missing capability check on the `delete_question_answer()` function, allowing unauthenticated attackers to delete quiz answer options.
 date: "2026-04-14T02:16:57Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: Jetty HTTP Request Smuggling via Chunked Extension Quoted-String Parsing
 slug: 2026-04-jetty-request-smuggling
 description: Jetty is vulnerable to HTTP request smuggling due to improper parsing of quoted strings in HTTP/1.1 chunked transfer encoding extension values, potentially allowing attackers to inject arbitrary HTTP requests, poison caches, and bypass security controls.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

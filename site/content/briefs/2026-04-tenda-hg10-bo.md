@@ -3,9 +3,9 @@ title: Tenda HG10 HG7_HG9_HG10re_300001138_en_xpon Buffer Overflow Vulnerability
 slug: 2026-04-tenda-hg10-bo
 description: A buffer overflow vulnerability in Tenda HG10 HG7_HG9_HG10re_300001138_en_xpon allows remote attackers to execute arbitrary code by manipulating the nextHop argument in the formRoute function of the /boaform/formRouting file, impacting device availability and integrity.
 date: "2026-04-25T18:18:16Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: '@sveltejs/adapter-node BODY_SIZE_LIMIT Bypass Vulnerability'
 slug: 2026-04-sveltekit-body-bypass
 description: A vulnerability exists in @sveltejs/adapter-node where requests could bypass the `BODY_SIZE_LIMIT` on SvelteKit applications, potentially leading to denial of service.
 date: "2026-04-11T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

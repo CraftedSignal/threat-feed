@@ -3,9 +3,9 @@ title: Windows Kerberos Improper Authorization Privilege Escalation (CVE-2026-27
 slug: 2026-04-kerberos-privesc
 description: CVE-2026-27912 describes an improper authorization vulnerability in Windows Kerberos, enabling an attacker on an adjacent network with valid credentials to elevate privileges.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

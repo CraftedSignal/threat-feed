@@ -3,9 +3,9 @@ title: Xerte Online Toolkits Unauthenticated Remote Code Execution via File Uplo
 slug: 2026-04-xerte-rce
 description: Xerte Online Toolkits 3.15 and earlier contain an incomplete input validation vulnerability allowing unauthenticated attackers to upload malicious PHP code with a '.php4' extension, leading to arbitrary operating system command execution on the server.
 date: "2026-04-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: VetCoders mcp-server-semgrep OS Command Injection Vulnerability
 slug: 2026-05-vetcoders-command-injection
 description: VetCoders mcp-server-semgrep version 1.0.0 is vulnerable to remote OS command injection due to manipulation of the ID argument in several functions of the MCP Interface component.
 date: "2026-04-30T00:17:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

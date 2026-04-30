@@ -3,9 +3,9 @@ title: WC Lovers WCFM Marketplace SQL Injection Vulnerability (CVE-2025-63029)
 slug: 2026-04-wcfm-sql-injection
 description: An SQL Injection vulnerability, identified as CVE-2025-63029, exists in the WC Lovers WCFM Marketplace WordPress plugin up to version 3.7.1, potentially allowing attackers to execute arbitrary SQL queries.
 date: "2026-04-15T17:17:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

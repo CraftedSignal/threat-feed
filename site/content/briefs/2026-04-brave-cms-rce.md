@@ -3,9 +3,9 @@ title: Brave CMS Unrestricted File Upload Leads to Remote Code Execution
 slug: 2026-04-brave-cms-rce
 description: Brave CMS versions prior to 2.0.6 contain an unrestricted file upload vulnerability within the CKEditor upload functionality in the ckupload method, allowing authenticated users to upload executable PHP scripts and achieve Remote Code Execution.
 date: "2026-04-06T18:16:42Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

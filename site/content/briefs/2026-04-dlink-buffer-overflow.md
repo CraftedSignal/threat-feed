@@ -3,9 +3,9 @@ title: D-Link DIR-825M Remote Buffer Overflow Vulnerability
 slug: 2026-04-dlink-buffer-overflow
 description: D-Link DIR-825M version 1.1.12 is vulnerable to a buffer overflow via manipulation of the submit-url argument in the /boafrm/formWanConfigSetup file's sub_414BA8 function, allowing a remote attacker to execute arbitrary code.
 date: "2026-04-28T15:16:37Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

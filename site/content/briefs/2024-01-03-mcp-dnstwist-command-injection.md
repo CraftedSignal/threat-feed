@@ -3,9 +3,9 @@ title: mcp-dnstwist OS Command Injection Vulnerability (CVE-2026-7443)
 slug: 2024-01-03-mcp-dnstwist-command-injection
 description: An OS command injection vulnerability exists in BurtTheCoder's mcp-dnstwist version 1.0.4 and earlier due to improper handling of the Request argument in the fuzz_domain function within src/index.ts, potentially allowing remote attackers to execute arbitrary commands.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

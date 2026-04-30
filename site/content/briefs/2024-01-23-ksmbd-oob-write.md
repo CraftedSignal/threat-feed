@@ -3,9 +3,9 @@ title: ksmbd Out-of-Bounds Write Vulnerability in QUERY_INFO (CVE-2026-31432)
 slug: 2024-01-23-ksmbd-oob-write
 description: CVE-2026-31432 is a critical out-of-bounds write vulnerability in ksmbd, specifically within the QUERY_INFO functionality when handling compound requests, potentially leading to code execution or denial of service.
 date: "2024-01-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

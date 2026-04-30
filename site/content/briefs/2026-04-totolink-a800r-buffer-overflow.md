@@ -3,9 +3,9 @@ title: Totolink A800R Remote Buffer Overflow Vulnerability
 slug: 2026-04-totolink-a800r-buffer-overflow
 description: A remote buffer overflow vulnerability exists in the Totolink A800R router version 4.1.2cu.5137_B20200730, allowing unauthenticated attackers to potentially execute arbitrary code by overflowing the apcliSsid argument in the setAppEasyWizardConfig function within the /lib/cste_modules/app.so library.
 date: "2026-04-13T04:26:40Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

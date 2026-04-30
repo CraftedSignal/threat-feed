@@ -3,9 +3,9 @@ title: choieastsea simple-openstack-mcp OS Command Injection Vulnerability (CVE-
 slug: 2024-01-simple-openstack-mcp-command-injection
 description: The choieastsea simple-openstack-mcp application is vulnerable to OS command injection via the exec_openstack function in server.py, allowing remote attackers to execute arbitrary commands.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

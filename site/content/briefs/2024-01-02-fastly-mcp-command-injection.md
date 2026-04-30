@@ -3,9 +3,9 @@ title: FastlyMCP Command Injection Vulnerability (CVE-2026-7220)
 slug: 2024-01-02-fastly-mcp-command-injection
 description: A command injection vulnerability (CVE-2026-7220) exists in jackwrichards FastlyMCP allowing remote attackers to execute arbitrary OS commands by manipulating the command argument in the fastly-mcp.mjs file.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

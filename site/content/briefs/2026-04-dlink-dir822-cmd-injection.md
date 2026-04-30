@@ -3,9 +3,9 @@ title: D-Link DIR-822 A_101 Command Injection via DHCP Hostname
 slug: 2026-04-dlink-dir822-cmd-injection
 description: A command injection vulnerability exists in D-Link DIR-822 A_101, specifically within the udhcpd DHCP service; by manipulating the Hostname argument, a remote attacker can inject commands, but the affected product is no longer supported.
 date: "2026-04-27T00:20:13Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

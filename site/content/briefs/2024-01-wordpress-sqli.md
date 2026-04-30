@@ -3,9 +3,9 @@ title: Riaxe Product Customizer WordPress Plugin SQL Injection Vulnerability
 slug: 2024-01-wordpress-sqli
 description: The Riaxe Product Customizer plugin for WordPress is vulnerable to SQL Injection via the 'options' parameter within 'product_data' of the `/wp-json/InkXEProductDesignerLite/add-item-to-cart` REST API endpoint, allowing unauthenticated attackers to extract sensitive information from the database.
 date: "2026-04-16T06:16:17Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

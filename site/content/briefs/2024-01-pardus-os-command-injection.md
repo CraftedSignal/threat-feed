@@ -3,9 +3,9 @@ title: Pardus OS My Computer OS Command Injection Vulnerability (CVE-2026-6849)
 slug: 2024-01-pardus-os-command-injection
 description: CVE-2026-6849 is an OS Command Injection vulnerability in TUBITAK BILGEM Software Technologies Research Institute Pardus OS My Computer versions <=0.7.5 before 0.8.0, allowing an attacker to execute arbitrary OS commands due to improper neutralization of special elements.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

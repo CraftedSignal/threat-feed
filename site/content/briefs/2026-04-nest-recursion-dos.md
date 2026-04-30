@@ -3,9 +3,9 @@ title: NestJS Uncontrolled Recursion Denial-of-Service Vulnerability (CVE-2026-4
 slug: 2026-04-nest-recursion-dos
 description: NestJS versions before 11.1.19 are susceptible to an uncontrolled recursion vulnerability (CVE-2026-40879) where sending many small JSON messages in a single TCP frame triggers a call stack overflow, resulting in a denial-of-service condition.
 date: "2026-04-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

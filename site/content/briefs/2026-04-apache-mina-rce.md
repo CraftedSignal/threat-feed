@@ -3,9 +3,9 @@ title: Apache MINA Arbitrary Code Execution Vulnerability
 slug: 2026-04-apache-mina-rce
 description: A critical arbitrary code execution vulnerability (CVE-2026-41635) exists in Apache MINA versions 2.0.0 through 2.0.27, 2.1.0 through 2.1.10, and 2.2.0 through 2.2.5 due to missing class validation in the AbstractIoBuffer.resolveClass() method, potentially allowing attackers to execute arbitrary code on applications using Apache MINA.
 date: "2026-04-27T16:09:56Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

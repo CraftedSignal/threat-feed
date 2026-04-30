@@ -3,9 +3,9 @@ title: Amazon Athena ODBC Driver Man-in-the-Middle Vulnerability
 slug: 2024-01-athena-odbc-mitm
 description: A man-in-the-middle vulnerability exists in Amazon Athena ODBC driver versions prior to 2.1.0.0 due to improper certificate validation, potentially allowing attackers to intercept authentication credentials when connecting to external identity providers.
 date: "2026-04-03T21:17:12Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

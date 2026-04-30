@@ -3,9 +3,9 @@ title: Easy MPEG to DVD Burner 1.7.11 SEH Buffer Overflow
 slug: 2026-04-easy-mpeg-seh-overflow
 description: Easy MPEG to DVD Burner 1.7.11 contains a structured exception handling (SEH) local buffer overflow vulnerability that allows local attackers to execute arbitrary code by supplying a malicious username string.
 date: "2026-04-29T20:16:25Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: Kaggle-MCP Path Traversal Vulnerability in prepare_kaggle_dataset Functio
 slug: 2024-01-kaggle-mcp-path-traversal
 description: A path traversal vulnerability exists in the prepare_kaggle_dataset function of kaggle-mcp up to version 406127ffcb2b91b8c10e20e6c2ca787fbc1dc92d, allowing remote attackers to access arbitrary files by manipulating the competition_id argument.
 date: "2024-01-09T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

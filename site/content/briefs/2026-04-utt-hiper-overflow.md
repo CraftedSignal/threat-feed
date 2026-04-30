@@ -3,9 +3,9 @@ title: UTT HiPER 1250GW Buffer Overflow Vulnerability
 slug: 2026-04-utt-hiper-overflow
 description: A remote buffer overflow vulnerability exists in the UTT HiPER 1250GW device due to improper handling of the 'Profile' argument in the NTP configuration, potentially allowing for arbitrary code execution.
 date: "2026-04-29T22:16:22Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

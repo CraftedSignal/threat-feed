@@ -3,9 +3,9 @@ title: CVE-2025-68146 filelock TOCTOU Race Condition Enables Symlink Attacks
 slug: 2024-05-filelock-symlink
 description: CVE-2025-68146 describes a Time-of-Check Time-of-Use (TOCTOU) race condition vulnerability in the filelock library that could allow for symlink attacks during lock file creation, potentially leading to unauthorized file access or modification.
 date: "2026-04-29T07:50:36Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

@@ -3,9 +3,9 @@ title: BuddyPress Xprofile Custom Fields Type 2.6.3 Remote Code Execution via Ar
 slug: 2026-04-buddypress-rce
 description: CVE-2018-25308 is a remote code execution vulnerability in BuddyPress Xprofile Custom Fields Type 2.6.3 that allows authenticated users to delete arbitrary files on the server by manipulating POST parameters.
 date: "2026-04-29T20:16:26Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

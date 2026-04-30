@@ -3,9 +3,9 @@ title: BrowserOperator Core Path Traversal Vulnerability (CVE-2026-7234)
 slug: 2026-04-browseroperator-path-traversal
 description: A path traversal vulnerability (CVE-2026-7234) exists in BrowserOperator browser-operator-core up to version 0.6.0, allowing remote attackers to read arbitrary files by manipulating the request.url argument in the startsWith function of scripts/component_server/server.js.
 date: "2026-04-28T07:16:04Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

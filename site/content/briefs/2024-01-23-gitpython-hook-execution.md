@@ -3,9 +3,9 @@ title: GitPython Vulnerability Allows Arbitrary Code Execution via Git Hooks
 slug: 2024-01-23-gitpython-hook-execution
 description: A vulnerability in GitPython versions prior to 3.1.47 allows for command execution during repository cloning by manipulating the `multi_options` parameter to inject malicious Git configurations, such as `core.hooksPath`, leading to the execution of attacker-controlled hooks.
 date: "2024-01-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

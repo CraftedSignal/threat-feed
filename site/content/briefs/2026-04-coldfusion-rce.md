@@ -3,9 +3,9 @@ title: Adobe ColdFusion Improper Input Validation RCE
 slug: 2026-04-coldfusion-rce
 description: Adobe ColdFusion versions 2023.18, 2025.6, and earlier are vulnerable to improper input validation, potentially leading to arbitrary code execution without user interaction.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

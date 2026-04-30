@@ -3,9 +3,9 @@ title: WordPress Create DB Tables Plugin Authorization Bypass Vulnerability (CVE
 slug: 2026-04-wordpress-create-db-tables-auth-bypass
 description: The Create DB Tables plugin for WordPress versions 1.2.1 and earlier is vulnerable to an authorization bypass, allowing authenticated users to create and delete database tables without proper checks, potentially leading to complete site destruction.
 date: "2026-04-22T09:16:49Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

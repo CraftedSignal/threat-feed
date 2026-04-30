@@ -3,9 +3,9 @@ title: Alloksoft Video Joiner Buffer Overflow Vulnerability (CVE-2018-25315)
 slug: 2026-04-alloksoft-overflow
 description: Alloksoft Video Joiner 4.6.1217 is vulnerable to a local buffer overflow (CVE-2018-25315) allowing attackers to execute arbitrary code via a crafted license name.
 date: "2026-04-29T20:16:27Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

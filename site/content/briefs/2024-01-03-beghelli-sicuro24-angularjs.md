@@ -3,9 +3,9 @@ title: Beghelli Sicuro24 SicuroWeb AngularJS Sandbox Escape via Template Injecti
 slug: 2024-01-03-beghelli-sicuro24-angularjs
 description: Beghelli Sicuro24 SicuroWeb is vulnerable to arbitrary JavaScript execution due to embedding an end-of-life AngularJS 1.5.2 component with known sandbox escape primitives combined with template injection, enabling attackers to compromise operator browser sessions via MITM attacks.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

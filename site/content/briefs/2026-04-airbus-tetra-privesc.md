@@ -3,9 +3,9 @@ title: AIRBUS PSS TETRA Connectivity Server Privilege Escalation via Incorrect P
 slug: 2026-04-airbus-tetra-privesc
 description: AIRBUS PSS TETRA Connectivity Server version 7.0 on Windows Server is vulnerable to incorrect default permissions, allowing local privilege escalation to SYSTEM by placing a malicious file in a specific directory.
 date: "2026-04-03T08:16:17Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

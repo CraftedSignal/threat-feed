@@ -3,9 +3,9 @@ title: SiYuan Path Traversal via Double URL Encoding in `/export/` Endpoint
 slug: 2026-04-siyuan-path-traversal
 description: SiYuan is vulnerable to path traversal via double URL encoding in the `/export/` endpoint, bypassing an incomplete fix for CVE-2026-30869; an authenticated attacker can exploit this vulnerability to traverse directories and read arbitrary workspace files, including the SQLite database (`siyuan.db`), kernel log, and user documents due to a redundant `url.PathUnescape()` call in `serveExport()`.
 date: "2026-04-22T20:55:31Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

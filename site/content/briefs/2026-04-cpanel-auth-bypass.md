@@ -3,9 +3,9 @@ title: cPanel and WHM Authentication Bypass Vulnerability (CVE-2026-41940)
 slug: 2026-04-cpanel-auth-bypass
 description: An authentication bypass vulnerability in cPanel and WHM versions prior to 11.110.0.97, 11.118.0.63, 11.126.0.54, 11.132.0.29, 11.134.0.20, and 11.136.0.5 allows unauthenticated remote attackers to gain unauthorized access to the control panel.
 date: "2026-04-29T16:16:25Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

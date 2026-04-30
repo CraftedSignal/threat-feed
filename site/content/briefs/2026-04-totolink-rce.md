@@ -3,9 +3,9 @@ title: Totolink A8000RU OS Command Injection Vulnerability
 slug: 2026-04-totolink-rce
 description: Totolink A8000RU version 7.1cu.643_b20200521 is vulnerable to OS command injection via manipulation of the `wifiOff` argument in the `setWiFiBasicCfg` function of the `/cgi-bin/cstecgi.cgi` CGI handler, allowing a remote attacker to execute arbitrary commands on the system.
 date: "2026-04-28T09:17:41Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

@@ -3,9 +3,9 @@ title: fast-jwt Library Vulnerability Allows crit Header Validation Bypass
 slug: 2026-04-fast-jwt-crit-validation-bypass
 description: The fast-jwt library fails to validate the 'crit' header, allowing attackers to bypass security policies and potentially achieve split-brain verification in mixed-library environments.
 date: "2026-04-03T22:01:25Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

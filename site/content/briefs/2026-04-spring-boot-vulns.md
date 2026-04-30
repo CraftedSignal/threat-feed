@@ -3,9 +3,9 @@ title: Multiple Vulnerabilities in Spring Boot Allow Authorization Bypass and Po
 slug: 2026-04-spring-boot-vulns
 description: Multiple vulnerabilities in Spring Boot, including CVE-2026-40976, CVE-2026-40973, and CVE-2026-40972, can allow attackers to bypass authorization, hijack sessions, or achieve remote code execution, potentially leading to data breaches and system compromise.
 date: "2026-04-29T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

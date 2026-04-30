@@ -3,9 +3,9 @@ title: ElectricSQL /v1/shape API SQL Injection Vulnerability
 slug: 2026-04-electric-sql-injection
 description: The ElectricSQL sync engine is vulnerable to SQL injection, potentially allowing authenticated users to read, write, and destroy the underlying PostgreSQL database.
 date: "2026-04-22T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

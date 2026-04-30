@@ -3,9 +3,9 @@ title: MLOps_MCP Path Traversal Vulnerability (CVE-2026-7213)
 slug: 2024-01-mlops-mcp-path-traversal
 description: A path traversal vulnerability exists in ef10007 MLOps_MCP version 1.0.0, allowing a remote attacker to manipulate the 'filename/destination' argument in the 'save_file Tool' component's 'fastmcp_server.py' file.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

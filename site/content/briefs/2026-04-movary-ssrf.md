@@ -3,9 +3,9 @@ title: Movary SSRF Vulnerability (CVE-2026-40348)
 slug: 2026-04-movary-ssrf
 description: Movary versions before 0.71.1 are vulnerable to server-side request forgery (SSRF) via the `/settings/jellyfin/server-url-verify` endpoint, allowing authenticated users to probe internal network resources.
 date: "2026-04-18T00:16:38Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

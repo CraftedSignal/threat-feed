@@ -3,9 +3,9 @@ title: EyouCMS SQL Injection Vulnerability (CVE-2026-7389)
 slug: 2026-04-eyoucms-sql-injection
 description: A remote SQL injection vulnerability (CVE-2026-7389) exists in EyouCMS versions up to 1.7.9 due to improper handling of the 'sort_asc' argument in the GetSortData function, potentially allowing attackers to execute arbitrary SQL commands.
 date: "2026-04-29T16:16:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

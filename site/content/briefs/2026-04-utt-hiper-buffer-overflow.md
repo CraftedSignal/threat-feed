@@ -3,9 +3,9 @@ title: UTT HiPER 1250GW Buffer Overflow Vulnerability (CVE-2026-7420)
 slug: 2026-04-utt-hiper-buffer-overflow
 description: A buffer overflow vulnerability in UTT HiPER 1250GW devices (versions up to 3.2.7-210907-180535) allows remote attackers to execute arbitrary code by manipulating the 'Profile' argument in the `strcpy` function of the `route/goform/ConfigAdvideo` file, due to insufficient bounds checking.
 date: "2026-04-29T23:16:20Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

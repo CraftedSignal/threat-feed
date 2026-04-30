@@ -3,9 +3,9 @@ title: Firebird Server Denial-of-Service Vulnerability (CVE-2026-28224)
 slug: 2026-04-firebird-dos
 description: An unauthenticated attacker can trigger a denial-of-service condition on vulnerable Firebird servers by sending a specially crafted op_crypt_key_callback packet, leading to a null pointer dereference and server crash.
 date: "2026-04-18T10:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

@@ -3,9 +3,9 @@ title: OpenTelemetry-Go Multi-Value Baggage Header Extraction DoS Vulnerability 
 slug: 2026-04-opentelemetry-dos
 description: A vulnerability in OpenTelemetry-Go related to the extraction of multi-value baggage headers can lead to excessive resource allocation, resulting in a remote denial-of-service amplification.
 date: "2026-04-29T07:33:41Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

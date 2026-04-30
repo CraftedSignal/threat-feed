@@ -3,9 +3,9 @@ title: itsourcecode Construction Management System SQL Injection Vulnerability
 slug: 2026-04-construction-management-sql-injection
 description: A SQL injection vulnerability exists in itsourcecode Construction Management System version 1.0, affecting the processing of the /locations.php file, allowing a remote attacker to inject SQL commands by manipulating the 'address' argument, with a publicly available exploit.
 date: "2026-04-27T02:16:01Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

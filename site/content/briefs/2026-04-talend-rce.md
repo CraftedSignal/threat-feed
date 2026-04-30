@@ -3,9 +3,9 @@ title: Critical Remote Code Execution Vulnerability in Talend JobServer and Tale
 slug: 2026-04-talend-rce
 description: CVE-2026-6264, a critical deserialization vulnerability in Talend JobServer and Runtime, allows unauthenticated remote code execution via the JMX monitoring port, leading to complete system compromise.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

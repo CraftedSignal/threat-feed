@@ -3,9 +3,9 @@ title: Fortinet FortiDDoS-F SQL Injection Vulnerability (CVE-2026-39815)
 slug: 2026-04-fortinet-sqli
 description: An SQL injection vulnerability (CVE-2026-39815) in Fortinet FortiDDoS-F versions 7.2.1 through 7.2.2 may allow a low-privilege attacker to execute unauthorized code or commands.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

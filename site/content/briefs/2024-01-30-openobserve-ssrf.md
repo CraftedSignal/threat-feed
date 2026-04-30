@@ -3,9 +3,9 @@ title: OpenObserve SSRF via Improper IPv6 Validation
 slug: 2024-01-30-openobserve-ssrf
 description: OpenObserve versions 0.70.3 and earlier are vulnerable to a server-side request forgery (SSRF) attack due to improper validation of IPv6 addresses in the validate_enrichment_url function, potentially allowing authenticated attackers to access internal services and retrieve sensitive cloud metadata.
 date: "2026-04-07T20:16:29Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

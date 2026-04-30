@@ -3,9 +3,9 @@ title: Weblate Improper Privilege Management via API Endpoint (CVE-2026-34393)
 slug: 2026-04-weblate-privilege-escalation
 description: Weblate versions prior to 5.17 are vulnerable to improper privilege management due to an API endpoint failing to properly limit the scope of edits, potentially leading to unauthorized modifications.
 date: "2026-04-16T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

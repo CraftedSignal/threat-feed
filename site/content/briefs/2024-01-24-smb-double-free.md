@@ -3,9 +3,9 @@ title: CVE-2026-31609 SMB Client Double-Free Vulnerability
 slug: 2024-01-24-smb-double-free
 description: CVE-2026-31609 is a critical double-free vulnerability in the SMB client, specifically within the smbd_free_send_io() function after smbd_send_batch_flush(), potentially leading to arbitrary code execution.
 date: "2024-01-24T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

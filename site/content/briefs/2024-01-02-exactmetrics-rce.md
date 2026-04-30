@@ -3,9 +3,9 @@ title: ExactMetrics WordPress Plugin Vulnerability Leads to Remote Code Executio
 slug: 2024-01-02-exactmetrics-rce
 description: The ExactMetrics plugin for WordPress is vulnerable to unauthorized arbitrary plugin installation and activation via a REST API endpoint, potentially leading to remote code execution by authenticated attackers.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

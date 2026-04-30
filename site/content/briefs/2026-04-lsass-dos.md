@@ -3,9 +3,9 @@ title: 'CVE-2026-32071: Windows LSASS Null Pointer Dereference DoS'
 slug: 2026-04-lsass-dos
 description: CVE-2026-32071 is a null pointer dereference vulnerability in the Windows Local Security Authority Subsystem Service (LSASS), allowing an unauthorized network attacker to cause a denial-of-service condition.
 date: "2026-04-15T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

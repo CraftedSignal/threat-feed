@@ -3,9 +3,9 @@ title: IBM Total Storage Service Console (TSSC) / TS4500 IMC Unauthenticated Rem
 slug: 2026-04-ibm-tssc-rce
 description: An unauthenticated user can execute arbitrary commands with normal user privileges on vulnerable IBM Total Storage Service Console (TSSC) / TS4500 IMC versions due to improper validation of user-supplied input, as identified by CVE-2026-5935.
 date: "2026-04-23T00:16:46Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

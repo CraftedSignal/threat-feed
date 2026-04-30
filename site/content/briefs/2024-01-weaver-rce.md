@@ -3,9 +3,9 @@ title: Weaver E-cology Unauthenticated RCE via Dubbo API Debug Endpoint
 slug: 2024-01-weaver-rce
 description: Weaver E-cology 10.0 before 20260312 is vulnerable to unauthenticated remote code execution, allowing attackers to execute arbitrary commands by crafting a POST request to the /papi/esearch/data/devops/dubboApi/debug/method endpoint.
 date: "2026-04-07T13:16:45Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

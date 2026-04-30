@@ -3,9 +3,9 @@ title: CrewAI Vulnerabilities Allow Remote Code Execution
 slug: 2026-04-crewai-rce
 description: Multiple vulnerabilities in CrewAI, an open-source multi-agent orchestration framework, can be exploited by attackers through prompt injection to execute arbitrary code and perform other malicious activities, potentially leading to system compromise.
 date: "2026-04-01T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:

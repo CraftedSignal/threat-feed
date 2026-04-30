@@ -3,9 +3,9 @@ title: Cisco Integrated Management Controller (IMC) Multiple XSS Vulnerabilities
 slug: 2026-04-cisco-imc-xss
 description: Multiple cross-site scripting (XSS) vulnerabilities in the web-based management interface of Cisco Integrated Management Controller (IMC) could allow a remote attacker to conduct an XSS attack against a user of the interface.
 date: "2026-04-23T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

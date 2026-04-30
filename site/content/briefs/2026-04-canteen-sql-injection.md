@@ -3,9 +3,9 @@ title: CodePanda Source canteen_management_system SQL Injection Vulnerability
 slug: 2026-04-canteen-sql-injection
 description: A SQL injection vulnerability exists in CodePanda Source canteen_management_system version 1.0 within the /api/login.php file by manipulating the Username argument, allowing remote attackers to execute arbitrary SQL commands.
 date: "2026-04-27T01:16:16Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

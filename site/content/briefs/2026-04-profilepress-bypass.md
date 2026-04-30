@@ -3,9 +3,9 @@ title: ProfilePress WordPress Plugin Membership Payment Bypass Vulnerability
 slug: 2026-04-profilepress-bypass
 description: The ProfilePress WordPress plugin before 4.16.12 is vulnerable to an unauthorized membership payment bypass, allowing authenticated attackers to obtain paid memberships without payment by manipulating subscription IDs during checkout.
 date: "2026-04-04T09:16:20Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

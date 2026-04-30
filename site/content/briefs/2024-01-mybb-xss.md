@@ -3,9 +3,9 @@ title: MyBB Recent Threads 17.0 Persistent Cross-Site Scripting Vulnerability (C
 slug: 2024-01-mybb-xss
 description: MyBB Recent threads 17.0 contains a persistent cross-site scripting vulnerability (CVE-2018-25309) that allows attackers to inject malicious scripts by creating threads with crafted subject lines, leading to arbitrary JavaScript execution in the browsers of users viewing the index page.
 date: "2024-01-02T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

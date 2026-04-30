@@ -3,9 +3,9 @@ title: rust-openssl Memory Leak via Unchecked Callback Length (CVE-2026-41898)
 slug: 2026-04-rust-openssl-leak
 description: CVE-2026-41898 describes a vulnerability in rust-openssl where unchecked callback-returned length in PSK and cookie generation can cause OpenSSL to leak adjacent memory to a network peer.
 date: "2026-04-29T07:33:41Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - medium
 tags:

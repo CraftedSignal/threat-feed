@@ -3,9 +3,9 @@ title: JoeCastrom mcp-chat-studio Server-Side Request Forgery Vulnerability
 slug: 2024-01-mcp-chat-studio-ssrf
 description: A server-side request forgery vulnerability exists in JoeCastrom mcp-chat-studio up to version 1.5.0 in the LLM Models API component, allowing remote attackers to manipulate the req.query.base_url argument and potentially conduct further attacks.
 date: "2024-01-03T12:00:00Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - high
 tags:

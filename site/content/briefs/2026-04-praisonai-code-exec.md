@@ -3,9 +3,9 @@ title: PraisonAI Arbitrary Code Execution Vulnerability
 slug: 2026-04-praisonai-code-exec
 description: PraisonAI versions 4.5.138 and below are vulnerable to arbitrary code execution due to the unsanitized import of a malicious tools.py file, leading to potential system compromise.
 date: "2026-04-14T04:18:15Z"
-type: coverage
+type: advisory
 types:
-  - coverage
+  - advisory
 severities:
   - critical
 tags:
