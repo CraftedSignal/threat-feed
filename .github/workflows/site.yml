@@ -156,7 +156,7 @@ jobs:
           jq '.briefs | length' /tmp/payload.json
 
       - name: POST /dispatch
-        if: steps.briefs.outputs.count != '0' && env.NOTIFIER_URL != '' && env.NOTIFIER_DISPATCH_TOKEN != ''
+        if: steps.briefs.outputs.count != '0' && startsWith(env.NOTIFIER_URL, 'http') && env.NOTIFIER_DISPATCH_TOKEN != ''
         env:
           NOTIFIER_URL: ${{ secrets.NOTIFIER_URL }}
           NOTIFIER_DISPATCH_TOKEN: ${{ secrets.NOTIFIER_DISPATCH_TOKEN }}
