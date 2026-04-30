@@ -22,6 +22,12 @@ type Filter struct {
 	Products   []string `firestore:"products,omitempty"   json:"products,omitempty"`
 	Tags       []string `firestore:"tags,omitempty"       json:"tags,omitempty"`
 	Exploited  bool     `firestore:"exploited,omitempty"  json:"exploited,omitempty"`
+
+	// IncludeUpdates opts the subscriber into "Update" dispatches that fire
+	// when an existing brief gains a KEV flag, an active-exploitation
+	// signal, or escalates to critical severity. Default false — most
+	// subscribers only want notifications for the initial publish.
+	IncludeUpdates bool `firestore:"include_updates,omitempty" json:"include_updates,omitempty"`
 }
 
 // Subscription — one delivery target with one filter.
@@ -48,7 +54,9 @@ type PendingVerification struct {
 }
 
 // Brief — minimal subset that the dispatcher needs from each new public
-// brief. Posted by the threat-feed Site Deploy workflow.
+// brief. Posted by the threat-feed Site Deploy workflow on initial
+// publish, and by ti-bot directly when a merge enriches an existing
+// brief with high-impact data (IsUpdate=true).
 type Brief struct {
 	Slug        string   `json:"slug"`
 	Title       string   `json:"title"`
@@ -61,4 +69,10 @@ type Brief struct {
 	Products    []string `json:"products,omitempty"`
 	Tags        []string `json:"tags,omitempty"`
 	Exploited   bool     `json:"exploited,omitempty"`
+
+	// IsUpdate flips the dispatcher into "update" mode: subject prefix
+	// becomes [UPDATE], body leads with UpdateSummary, and only
+	// subscribers with Filter.IncludeUpdates=true receive the message.
+	IsUpdate      bool   `json:"is_update,omitempty"`
+	UpdateSummary string `json:"update_summary,omitempty"`
 }

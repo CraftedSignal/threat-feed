@@ -59,6 +59,11 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 				if !sub.Filter.Matches(b) {
 					continue
 				}
+				// Update dispatches reach only subscribers who explicitly
+				// opted in. A new-brief dispatch ignores the toggle.
+				if b.IsUpdate && !sub.Filter.IncludeUpdates {
+					continue
+				}
 				select {
 				case jobs <- job{sub: sub, brief: b}:
 				case <-gctx.Done():
@@ -116,6 +121,12 @@ func (d *dispatcher) deliver(sub Subscription, b Brief, serviceURL string) error
 }
 
 func emailSubject(b Brief) string {
+	if b.IsUpdate {
+		// Updates carry their own marker so an inbox-rule on "[UPDATE]"
+		// works the way subscribers expect. Severity stays in the suffix
+		// so the recipient can still see how serious the change is.
+		return "[UPDATE] " + b.Title + " — " + strings.ToUpper(b.Severity)
+	}
 	prefix := "[" + strings.ToUpper(b.Severity) + "]"
 	if b.Type != "" {
 		prefix += " " + cases.Title(language.English).String(b.Type)
@@ -125,6 +136,11 @@ func emailSubject(b Brief) string {
 
 func emailBody(b Brief, serviceURL, unsubToken string) string {
 	var sb strings.Builder
+	if b.IsUpdate && b.UpdateSummary != "" {
+		sb.WriteString("Update: ")
+		sb.WriteString(b.UpdateSummary)
+		sb.WriteString("\n\n")
+	}
 	sb.WriteString(b.Title)
 	sb.WriteString("\n\n")
 	sb.WriteString(b.Description)

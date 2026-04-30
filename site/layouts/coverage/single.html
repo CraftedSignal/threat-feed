@@ -38,6 +38,14 @@
         <a href="/types/{{ $type }}/" class="type-badge type-{{ $type }} hover:opacity-80 transition" title="See all {{ $typeLabel }} briefs">{{ $typeLabel }}</a>
         {{ if $exploited }}<span class="exploited-badge" title="Active exploitation observed in the wild">exploited</span>{{ end }}
         <time class="font-mono text-muted" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{/* Updated pill mirrors brief-card.html: same 6h debounce + 7d
+             freshness window. Title carries the precise timestamp. */}}
+        {{ if and .Lastmod (gt (sub .Lastmod.Unix .Date.Unix) 21600) }}
+          {{ $age := sub now.Unix .Lastmod.Unix }}
+          {{ if and (lt $age 604800) (gt $age 0) }}
+          <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[10px] bg-accent/10 text-accent" title="Last updated {{ .Lastmod.Format "January 2, 2006 15:04 MST" }}">updated</span>
+          {{ end }}
+        {{ end }}
       </div>
 
       <h1 class="font-display text-3xl md:text-4xl font-semibold leading-tight">{{ .Title }}</h1>
@@ -54,6 +62,28 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
       <div class="lg:col-span-8 space-y-8 min-w-0">
+
+        {{/* "What's new" bar: rendered when a merge enriched this brief
+             with structured data from a later source. Reads from the
+             frontmatter `updates:` list; the publisher caps it at the
+             last 5 events so this stays compact. Only shows when there
+             is at least one event with a non-empty summary. */}}
+        {{ $updates := .Params.updates | default slice }}
+        {{ if $updates }}
+        <section class="rounded-xl border border-accent/30 bg-accent/5 p-4 space-y-2">
+          <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-accent">What's new</h2>
+          <ul class="space-y-1.5 text-sm">
+            {{ range $updates | collections.Reverse }}
+            <li class="flex items-baseline gap-2">
+              <span class="font-mono text-[11px] uppercase tracking-wider text-accent flex-none" title="{{ .level }}">{{ .level | lower }}</span>
+              <span class="text-text">{{ .summary }}</span>
+              {{ with .at }}<span class="font-mono text-[11px] text-muted flex-none" title="{{ . }}">{{ dateFormat "Jan 2, 15:04" (time . ) }}</span>{{ end }}
+              {{ with .sources }}<span class="font-mono text-[11px] text-muted flex-none">via {{ delimit . ", " }}</span>{{ end }}
+            </li>
+            {{ end }}
+          </ul>
+        </section>
+        {{ end }}
 
         {{ if .Content }}
         <section class="prose-feed">
