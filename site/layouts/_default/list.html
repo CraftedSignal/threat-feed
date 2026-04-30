@@ -81,7 +81,7 @@
 
               <a href="{{ $page.RelPermalink }}" class="flex flex-col gap-3 rounded-xl border border-stroke bg-panel/60 p-4 hover:border-accent/40 transition">
                 <div class="flex items-center justify-between gap-2">
-                  <span class="sev-badge sev-{{ $term }}">{{ $term }}</span>
+                  <span class="sev-badge sev-{{ $term }}">{{ if eq $term "informational" }}info{{ else }}{{ $term }}{{ end }}</span>
                   <span class="text-sm text-muted"><span class="font-mono text-text">{{ len $page.Pages }}</span> {{ if eq (len $page.Pages) 1 }}brief{{ else }}briefs{{ end }}</span>
                 </div>
                 {{/* Sparkline: 100×30 viewBox; one point per day. */}}

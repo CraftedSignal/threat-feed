@@ -22,7 +22,7 @@
   <div class="flex items-start gap-4">
 
     <div class="pt-0.5 flex-none flex flex-col items-stretch gap-1 min-w-[88px] max-w-[88px]">
-      <span class="sev-badge {{ $sevClass }} justify-center">{{ $sev }}</span>
+      <span class="sev-badge {{ $sevClass }} justify-center">{{ if eq $sev "informational" }}info{{ else }}{{ $sev }}{{ end }}</span>
       {{/* Display "coverage" as "rule" — clearer to a casual reader. The
            data model, CSS class, and taxonomy URL stay coverage. */}}
       <span class="type-badge type-{{ $type }} justify-center">{{ cond (eq $type "coverage") "rule" $type }}</span>

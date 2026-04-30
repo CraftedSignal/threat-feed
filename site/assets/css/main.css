@@ -169,6 +169,10 @@ body {
 .sev-medium   { background: rgb(var(--color-sev-medium)   / 0.12); color: rgb(var(--color-sev-medium)); }
 .sev-low      { background: rgb(var(--color-sev-low)      / 0.12); color: rgb(var(--color-sev-low)); }
 .sev-rumour   { background: rgb(var(--color-sev-rumour)   / 0.12); color: rgb(var(--color-sev-rumour)); }
+/* Informational rule severity reuses the rumour palette — slate, deliberately
+   muted so it doesn't compete with critical/high. The badge text itself is
+   shortened to "INFO" in templates. */
+.sev-informational { background: rgb(var(--color-sev-rumour) / 0.12); color: rgb(var(--color-sev-rumour)); }
 
 /* Type badge — orthogonal to severity. Describes WHAT the brief is. */
 .type-badge {

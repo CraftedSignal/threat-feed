@@ -15,7 +15,7 @@
     <p class="text-xs font-mono uppercase tracking-[0.18em] text-accent">{{ $taxLabel }}</p>
     <div class="flex flex-wrap items-center gap-3">
       {{ if eq $taxonomy "severity" }}
-        <span class="sev-badge sev-{{ $term }} text-base">{{ $term }}</span>
+        <span class="sev-badge sev-{{ $term }} text-base">{{ if eq $term "informational" }}info{{ else }}{{ $term }}{{ end }}</span>
       {{ else }}
         {{/* Relabel /types/coverage/ → "Rule" for clarity. Other taxonomy
              term pages keep Hugo's auto-titled heading. */}}
