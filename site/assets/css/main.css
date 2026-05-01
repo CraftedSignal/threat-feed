@@ -122,6 +122,12 @@ html[data-theme-loaded] *::after {
 /* Base */
 /* ---------------------------------------------------------------------- */
 
+/* Month anchors: JS sets --scroll-offset to the combined sticky header +
+   filter bar height at runtime so jump links land in the right spot. */
+[data-month-section] {
+  scroll-margin-top: var(--scroll-offset, 160px);
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: rgb(var(--color-base));
@@ -222,129 +228,27 @@ body {
 /* Pagefind UI overrides — match site theme */
 /* ---------------------------------------------------------------------- */
 
-:root,
-.pagefind-ui {
-  --pagefind-ui-scale: 0.85;
-  --pagefind-ui-primary: rgb(var(--color-accent));
-  --pagefind-ui-text: rgb(var(--color-text));
-  --pagefind-ui-background: rgb(var(--color-panel));
-  --pagefind-ui-border: rgb(var(--color-stroke));
-  --pagefind-ui-tag: rgb(var(--color-panel-2));
-  --pagefind-ui-border-width: 1px;
-  --pagefind-ui-border-radius: 12px;
-  --pagefind-ui-image-border-radius: 8px;
-  --pagefind-ui-image-box-ratio: 3 / 2;
-  --pagefind-ui-font: 'Inter', system-ui, sans-serif;
-}
-
-/* Force the input + result tiles to pick up our theme — Pagefind's defaults
-   sometimes win on specificity. */
-.pagefind-ui form .pagefind-ui__search-input {
-  background: rgb(var(--color-panel-2));
-  color: rgb(var(--color-text));
-  border-color: rgb(var(--color-stroke));
-}
-.pagefind-ui form .pagefind-ui__search-input::placeholder {
-  color: rgb(var(--color-muted));
-}
-.pagefind-ui .pagefind-ui__search-clear,
-.pagefind-ui .pagefind-ui__button {
-  color: rgb(var(--color-muted));
-}
-.pagefind-ui .pagefind-ui__result {
-  border-color: rgb(var(--color-stroke));
-}
-.pagefind-ui .pagefind-ui__result-title a {
-  color: rgb(var(--color-text));
-}
-.pagefind-ui .pagefind-ui__result-title a:hover {
-  color: rgb(var(--color-accent));
-}
-.pagefind-ui .pagefind-ui__result-excerpt {
-  color: rgb(var(--color-muted));
-}
-.pagefind-ui mark {
-  background: rgb(var(--color-accent) / 0.2);
-  color: inherit;
-}
-
-/* Tighten the Pagefind layout. Defaults inflate the input row, leave a
-   wide gutter between filters and results, and pad each result tile
-   heavily. Compact the spacing so the search panel feels in line with
-   the rest of the cards on the site. */
-.pagefind-ui {
-  --pagefind-ui-result-spacing: 0.5rem;
-}
-.pagefind-ui__form {
-  margin-bottom: 0.75rem !important;
-  padding-bottom: 0 !important;
-}
-.pagefind-ui__search-input {
-  /* Both sides need padding for icons Pagefind renders inside the
-     input box: the magnifying-glass on the left, the (now-hidden)
-     clear button on the right. Without 2.5rem on each side the typed
-     query slides under the icons. */
-  padding: 0.5rem 2.5rem !important;
-  font-size: 0.95rem !important;
-}
-/* Hide the trailing clear (×) button — the input clears on its own
-   when you backspace, the dedicated control was just visual noise. */
-.pagefind-ui__search-clear {
-  display: none !important;
-}
-.pagefind-ui__drawer {
-  gap: 0.5rem !important;
-  /* Single column — the filter panel below is hidden, give all
-     horizontal space to the results column. */
-  grid-template-columns: 1fr !important;
-}
-/* Hide the filter sidebar entirely — duplicates the chrome (severity /
-   actor / product nav already lives in the header) and just narrowed
-   the result column. */
-.pagefind-ui__filter-panel,
-.pagefind-ui__filter-block {
-  display: none !important;
-}
-.pagefind-ui__results-area {
-  padding-top: 0 !important;
-}
-.pagefind-ui__result {
-  padding: 0.5rem 0.25rem !important;
-  margin-bottom: 0 !important;
-}
-.pagefind-ui__result + .pagefind-ui__result {
-  border-top: 1px solid rgb(var(--color-stroke));
-}
-.pagefind-ui__result-title {
-  font-size: 0.95rem !important;
-  margin-bottom: 0.15rem !important;
-  line-height: 1.25 !important;
-}
-.pagefind-ui__result-excerpt {
-  font-size: 0.825rem !important;
-  margin: 0 !important;
-  line-height: 1.4 !important;
-}
-.pagefind-ui__result-thumb,
-.pagefind-ui__result-image {
-  display: none !important; /* showImages:false already, belt-and-suspenders */
-}
-.pagefind-ui__result-inner {
-  margin: 0 !important;
-}
-.pagefind-ui__result-nested {
-  padding: 0.25rem 0 0.25rem 0.75rem !important;
-  margin-top: 0.25rem !important;
-  border-left: 2px solid rgb(var(--color-stroke));
-}
-.pagefind-ui__filter-panel {
-  padding: 0 !important;
-}
-.pagefind-ui__message,
-.pagefind-ui__results-area > p {
-  font-size: 0.85rem !important;
-  margin: 0.5rem 0 !important;
-  color: rgb(var(--color-muted));
+/* Pagefind Component UI — map --pf-* tokens to the site's design system.
+   Both light and dark themes update automatically because --color-* changes
+   when .dark is applied to <html>. */
+:root {
+  --pf-font: 'Inter', system-ui, sans-serif;
+  --pf-text: rgb(var(--color-text));
+  --pf-text-secondary: rgb(var(--color-muted));
+  --pf-text-muted: rgb(var(--color-muted));
+  --pf-background: rgb(var(--color-panel));
+  --pf-border: rgb(var(--color-stroke));
+  --pf-border-focus: rgb(var(--color-accent));
+  --pf-hover: rgb(var(--color-panel-2));
+  --pf-outline-focus: rgb(var(--color-accent));
+  --pf-mark: rgb(var(--color-accent));
+  --pf-border-radius: 6px;
+  --pf-input-height: 38px;
+  --pf-input-font-size: 15px;
+  --pf-result-title-font-size: 14px;
+  --pf-result-excerpt-font-size: 13px;
+  --pf-summary-font-size: 12px;
+  --pf-results-gap: 4px;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -359,8 +263,95 @@ body {
   --tw-prose-bold:        rgb(var(--color-text));
   --tw-prose-bullets:     rgb(var(--color-muted));
   --tw-prose-quotes:      rgb(var(--color-muted));
-  --tw-prose-code:        rgb(var(--color-text));
+  --tw-prose-code:        rgb(var(--color-accent));
+  --tw-prose-pre-code:    rgb(var(--color-text));
+  --tw-prose-pre-bg:      rgb(var(--color-panel-2));
   --tw-prose-hr:          rgb(var(--color-stroke));
   --tw-prose-th-borders:  rgb(var(--color-stroke));
   --tw-prose-td-borders:  rgb(var(--color-stroke));
 }
+
+/* Inline code — suppress Tailwind Typography backtick pseudo-content and
+   style like the platform: accent text on panel-2 background. */
+.prose-feed :not(pre) > code::before,
+.prose-feed :not(pre) > code::after {
+  content: none;
+}
+.prose-feed :not(pre) > code {
+  color: rgb(var(--color-accent));
+  background: rgb(var(--color-panel-2));
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  border: 1px solid rgb(var(--color-stroke));
+}
+
+/* ---------------------------------------------------------------------- */
+/* Chroma syntax highlighting                                              */
+/* Background/text are handled by --tw-prose-pre-bg / --tw-prose-pre-code */
+/* so we omit the .chroma wrapper color/background-color here.             */
+/* ---------------------------------------------------------------------- */
+
+/* Light (github) */
+.chroma .lnlinks { outline:none;text-decoration:none;color:inherit }
+.chroma .lntd    { vertical-align:top;padding:0;margin:0;border:0 }
+.chroma .lntable { border-spacing:0;padding:0;margin:0;border:0 }
+.chroma .hl      { background-color:#dedede }
+.chroma .lnt     { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f }
+.chroma .ln      { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f }
+.chroma .line    { display:flex }
+.chroma .k,.chroma .kc,.chroma .kd,.chroma .kn,.chroma .kp,.chroma .kr,.chroma .kt { color:#cf222e }
+.chroma .na,.chroma .nc,.chroma .nx { color:#1f2328 }
+.chroma .no,.chroma .nd,.chroma .nt { color:#0550ae }
+.chroma .ni      { color:#6639ba }
+.chroma .nl      { color:#900;font-weight:bold }
+.chroma .nn      { color:#24292e }
+.chroma .nb,.chroma .nf,.chroma .fm { color:#6639ba }
+.chroma .bp      { color:#6a737d }
+.chroma .nv,.chroma .vc,.chroma .vg,.chroma .vi,.chroma .vm { color:#953800 }
+.chroma .s,.chroma .sa,.chroma .sb,.chroma .sc,.chroma .dl,.chroma .sd,
+.chroma .s2,.chroma .se,.chroma .sh,.chroma .si,.chroma .sx,.chroma .s1 { color:#0a3069 }
+.chroma .sr      { color:#0a3069 }
+.chroma .ss      { color:#032f62 }
+.chroma .m,.chroma .mb,.chroma .mf,.chroma .mh,.chroma .mi,.chroma .il,.chroma .mo { color:#0550ae }
+.chroma .o,.chroma .ow { color:#0550ae }
+.chroma .p       { color:#1f2328 }
+.chroma .c,.chroma .ch,.chroma .cm,.chroma .c1,.chroma .cs,.chroma .cp,.chroma .cpf { color:#57606a }
+.chroma .gd      { color:#82071e;background-color:#ffebe9 }
+.chroma .ge      { color:#1f2328 }
+.chroma .gi      { color:#116329;background-color:#dafbe1 }
+.chroma .gl      { text-decoration:underline }
+.chroma .err     { color:#f6f8fa;background-color:#82071e }
+
+/* Dark (nord) */
+.dark .chroma .hl  { background-color:#424853 }
+.dark .chroma .lnt,.dark .chroma .ln { color:#6c6f74 }
+.dark .chroma .k,.dark .chroma .kc,.dark .chroma .kd,.dark .chroma .kn,
+.dark .chroma .kr,.dark .chroma .kt { color:#81a1c1;font-weight:bold }
+.dark .chroma .kp  { color:#81a1c1 }
+.dark .chroma .na,.dark .chroma .nc,.dark .chroma .no,.dark .chroma .nl,
+.dark .chroma .nn,.dark .chroma .py { color:#8fbcbb }
+.dark .chroma .nd,.dark .chroma .ni { color:#d08770 }
+.dark .chroma .ne  { color:#bf616a }
+.dark .chroma .nt,.dark .chroma .nb,.dark .chroma .bp { color:#81a1c1 }
+.dark .chroma .nf,.dark .chroma .fm { color:#88c0d0 }
+.dark .chroma .s,.dark .chroma .sa,.dark .chroma .sb,.dark .chroma .sc,
+.dark .chroma .dl,.dark .chroma .sh,.dark .chroma .si,.dark .chroma .sx,
+.dark .chroma .s1,.dark .chroma .ss,.dark .chroma .s2 { color:#a3be8c }
+.dark .chroma .sd  { color:#616e87 }
+.dark .chroma .se,.dark .chroma .sr { color:#ebcb8b }
+.dark .chroma .m,.dark .chroma .mb,.dark .chroma .mf,.dark .chroma .mh,
+.dark .chroma .mi,.dark .chroma .il,.dark .chroma .mo { color:#b48ead }
+.dark .chroma .o,.dark .chroma .ow { color:#81a1c1 }
+.dark .chroma .p   { color:#eceff4 }
+.dark .chroma .c,.dark .chroma .ch,.dark .chroma .cm,.dark .chroma .c1,
+.dark .chroma .cs  { color:#616e87;font-style:italic }
+.dark .chroma .cp,.dark .chroma .cpf { color:#5e81ac;font-style:italic }
+.dark .chroma .gd  { color:#bf616a }
+.dark .chroma .ge  { font-style:italic }
+.dark .chroma .gr,.dark .chroma .gt { color:#bf616a }
+.dark .chroma .gh,.dark .chroma .gu { color:#88c0d0;font-weight:bold }
+.dark .chroma .gi  { color:#a3be8c }
+.dark .chroma .gp  { color:#4c566a;font-weight:bold }
+.dark .chroma .gs  { font-weight:bold }
+.dark .chroma .err { color:#bf616a }

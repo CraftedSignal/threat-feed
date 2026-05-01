@@ -30,7 +30,7 @@
 
     <div class="flex-1 min-w-0">
       <div class="flex items-baseline justify-between gap-3">
-        <h3 class="font-display text-base md:text-lg font-semibold text-text leading-snug group-hover:text-accent transition truncate">{{ .Title }}</h3>
+        <h3 class="font-display text-base md:text-lg font-semibold text-text leading-snug group-hover:text-accent transition line-clamp-2">{{ .Title }}</h3>
         <span class="hidden md:flex items-center gap-3 text-xs text-muted whitespace-nowrap">
           {{ if gt $rulesCount 0 }}<span><span class="font-mono text-text">{{ $rulesCount }}</span> {{ if eq $rulesCount 1 }}rule{{ else }}rules{{ end }}</span>{{ end }}
           {{ if gt $ttpCount 0 }}<span><span class="font-mono text-text">{{ $ttpCount }}</span> {{ if eq $ttpCount 1 }}TTP{{ else }}TTPs{{ end }}</span>{{ end }}
@@ -91,10 +91,10 @@
 
         <div class="flex items-center gap-3 flex-none whitespace-nowrap text-muted">
           <span class="md:hidden flex items-center gap-3">
-            {{ if gt $rulesCount 0 }}<span><span class="font-mono text-text">{{ $rulesCount }}</span>r</span>{{ end }}
-            {{ if gt $ttpCount 0 }}<span><span class="font-mono text-text">{{ $ttpCount }}</span>t</span>{{ end }}
-            {{ if gt $cveCount 0 }}<span><span class="font-mono text-text">{{ $cveCount }}</span>c</span>{{ end }}
-            {{ if gt $iocTotal 0 }}<span><span class="font-mono text-text">{{ $iocTotal }}</span>i</span>{{ end }}
+            {{ if gt $rulesCount 0 }}<span title="{{ $rulesCount }} {{ if eq $rulesCount 1 }}rule{{ else }}rules{{ end }}"><span class="font-mono text-text">{{ $rulesCount }}</span>r</span>{{ end }}
+            {{ if gt $ttpCount 0 }}<span title="{{ $ttpCount }} {{ if eq $ttpCount 1 }}TTP{{ else }}TTPs{{ end }}"><span class="font-mono text-text">{{ $ttpCount }}</span>t</span>{{ end }}
+            {{ if gt $cveCount 0 }}<span title="{{ $cveCount }} {{ if eq $cveCount 1 }}CVE{{ else }}CVEs{{ end }}"><span class="font-mono text-text">{{ $cveCount }}</span>c</span>{{ end }}
+            {{ if gt $iocTotal 0 }}<span title="{{ $iocTotal }} {{ if eq $iocTotal 1 }}IOC{{ else }}IOCs{{ end }}"><span class="font-mono text-text">{{ $iocTotal }}</span>i</span>{{ end }}
           </span>
           {{/* Show "Updated" pill when the brief has been enriched by a
                later source. Debounce: only render when lastmod is more
@@ -103,10 +103,7 @@
                near-publish drift (uninteresting) or stale enough that
                the pill stops being a meaningful signal. */}}
           {{ if and .Lastmod (gt (sub .Lastmod.Unix .Date.Unix) 21600) }}
-            {{ $age := sub now.Unix .Lastmod.Unix }}
-            {{ if and (lt $age 604800) (gt $age 0) }}
             <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[10px] bg-accent/10 text-accent" title="Last updated {{ .Lastmod.Format "January 2, 2006 15:04 MST" }}">updated</span>
-            {{ end }}
           {{ end }}
           <time class="font-mono" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ .Date.Format "January 2, 2006 15:04 MST" }}">{{ partial "relative-time.html" . }}</time>
         </div>

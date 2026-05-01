@@ -10,6 +10,8 @@ Every listing on this site doubles as a feed. Two formats: RSS 2.0 (`feed.xml`) 
 - RSS — `https://feed.craftedsignal.io/feed.xml`
 - JSON — `https://feed.craftedsignal.io/feed.json`
 
+Items are ordered newest-first. The RSS feed returns the 15 most recent briefs. The JSON feed returns 100 per page; if there are more, a `next_url` field in the response points to the next page.
+
 ## Filtered feeds
 
 Replace `<term>` and `<slug>` with the value you want.

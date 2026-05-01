@@ -37,7 +37,7 @@
     {{ if eq $taxonomy "actor" }}
       {{ $termLower := lower $term }}
       {{ $aliases := slice }}
-      {{ range $.Site.Data.actor_aliases.groups }}
+      {{ range hugo.Data.actor_aliases.groups }}
         {{ $g := . }}
         {{ $hit := false }}
         {{ range $g }}{{ if eq (lower .) $termLower }}{{ $hit = true }}{{ end }}{{ end }}

@@ -2,6 +2,7 @@
 {{ $allPages := .RegularPages.ByDate.Reverse }}
 {{ $paginator := .Paginate $allPages 30 }}
 {{ $byMonth := $paginator.Pages.GroupByDate "January 2006" }}
+{{ $hasMorePages := gt $paginator.TotalPages 1 }}
 
 <section class="px-4 md:px-0 pt-10 pb-4">
   <div class="max-w-6xl mx-auto space-y-3">
@@ -16,7 +17,7 @@
   <div class="max-w-6xl mx-auto">
 
     {{/* Date-window filters + month jump-to chips on the same row */}}
-    <nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar text-xs" aria-label="Filter and jump" data-date-filter-group>
+    <nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar text-xs" aria-label="Filter and jump" data-date-filter-group{{ if $hasMorePages }} data-paginated{{ end }}>
       <button data-date-filter="0"   class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-accent/40 bg-accent/10 text-text font-medium transition whitespace-nowrap">All time</button>
       <button data-date-filter="1"   class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Today</button>
       <button data-date-filter="7"   class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Last 7 days</button>
@@ -42,7 +43,7 @@
   <div class="max-w-6xl mx-auto space-y-10">
     {{ range $byMonth }}
     {{ $anchor := .Key | urlize }}
-    <div id="{{ $anchor }}" class="space-y-3 scroll-mt-40" data-month-section>
+    <div id="{{ $anchor }}" class="space-y-3" data-month-section>
       <h2 class="font-display text-lg font-semibold text-text whitespace-nowrap">{{ .Key }} <span class="text-xs text-muted font-mono font-normal">(<span data-month-count>{{ len .Pages }}</span>)</span></h2>
       <div class="space-y-3">
         {{ range .Pages }}
@@ -53,6 +54,7 @@
     {{ end }}
 
     <p class="text-sm text-muted text-center hidden" data-empty-message>No briefs in the selected window.</p>
+    <p class="text-sm text-muted text-center hidden" data-filter-pagination-warning>This filter only applies to the current page. Use <a href="/briefs/" class="text-accent hover:underline">search</a> or browse all pages to find matching briefs.</p>
 
     {{ if gt $paginator.TotalPages 1 }}
     <nav class="flex items-center justify-between border-t border-stroke pt-6 mt-4 text-sm text-muted" aria-label="Pagination">

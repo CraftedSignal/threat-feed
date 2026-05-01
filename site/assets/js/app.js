@@ -62,36 +62,27 @@ function initThemeToggle() {
 // Pagefind search
 
 function initSearch() {
-  const container = document.getElementById('search-ui');
-  if (!container) return;
+  const input = document.querySelector('pagefind-input');
+  if (!input) return;
 
-  // Pagefind UI is loaded as a regular <script> in head.html; the tag self-removes
-  // if /pagefind/pagefind-ui.js doesn't exist (no built index yet).
-  // After DOMContentLoaded the deferred script has executed, so window.PagefindUI
-  // is either defined (built) or absent (skip search wiring).
-  if (typeof window.PagefindUI === 'undefined') {
-    container.innerHTML = '<p class="px-4 py-3 text-sm text-muted">Search index missing. Run <code class="font-mono">make build</code> (or <code class="font-mono">make dev</code>) to generate it.</p>';
+  // pagefind-component-ui.js is loaded as a deferred <script> in head.html; the tag
+  // self-removes if the file doesn't exist (no built index yet), leaving
+  // window.PagefindComponents undefined.
+  if (typeof window.PagefindComponents === 'undefined') {
+    input.insertAdjacentHTML('beforebegin', '<p class="px-4 py-3 text-sm text-muted">Search index missing. Run <code class="font-mono">make build</code> (or <code class="font-mono">make dev</code>) to generate it.</p>');
     return;
   }
 
-  new window.PagefindUI({
-    element: '#search-ui',
-    showImages: false,
-    showSubResults: true,
-    resetStyles: false,
-    excerptLength: 24,
-    processTerm: (term) => term.toLowerCase(),
-    translations: {
-      placeholder: 'Search threats, actors, MITRE techniques…',
-      clear_search: 'Clear',
-      load_more: 'Load more',
-      search_label: 'Search',
-      filters_label: 'Filters',
-      zero_results: 'No briefs match "[SEARCH_TERM]"',
-      many_results: '[COUNT] briefs match "[SEARCH_TERM]"',
-      one_result: '1 brief matches "[SEARCH_TERM]"',
-      searching: 'Searching for "[SEARCH_TERM]"…',
-    },
+  const instance = window.PagefindComponents.getInstanceManager().getInstance('default');
+  instance.setTranslations({
+    clear_search: 'Clear',
+    load_more: 'Load more',
+    search_label: 'Search',
+    filters_label: 'Filters',
+    zero_results: 'No briefs match "[SEARCH_TERM]"',
+    many_results: '[COUNT] briefs match "[SEARCH_TERM]"',
+    one_result: '[COUNT] brief matches "[SEARCH_TERM]"',
+    searching: 'Searching for "[SEARCH_TERM]"…',
   });
 }
 
@@ -106,6 +97,8 @@ function initDateFilter() {
   const cards = document.querySelectorAll('[data-brief-date]');
   const sections = document.querySelectorAll('[data-month-section]');
   const empty = document.querySelector('[data-empty-message]');
+  const paginationWarning = document.querySelector('[data-filter-pagination-warning]');
+  const isPaginated = group.hasAttribute('data-paginated');
 
   function applyFilter(windowDays) {
     const now = Date.now() / 1000;
@@ -129,6 +122,9 @@ function initDateFilter() {
     });
 
     if (empty) empty.classList.toggle('hidden', totalVisible > 0);
+    if (paginationWarning) {
+      paginationWarning.classList.toggle('hidden', !(totalVisible === 0 && isPaginated && windowDays !== 0));
+    }
   }
 
   function setActive(activeBtn) {
@@ -150,6 +146,24 @@ function initDateFilter() {
       setActive(btn);
     });
   });
+}
+
+// ----------------------------------------------------------------------
+// Scroll offset CSS variable — keeps [data-month-section] scroll-margin-top
+// aligned with the actual combined height of the sticky header + filter bar.
+
+function initScrollOffset() {
+  const header = document.querySelector('header');
+  const filterBar = document.querySelector('[data-date-filter-group]')?.closest('section');
+  if (!header) return;
+
+  function update() {
+    const offset = header.offsetHeight + (filterBar ? filterBar.offsetHeight : 0) + 16;
+    document.documentElement.style.setProperty('--scroll-offset', offset + 'px');
+  }
+
+  update();
+  window.addEventListener('resize', update, { passive: true });
 }
 
 // ----------------------------------------------------------------------
@@ -385,6 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initSearch();
   initMobileMenu();
+  initScrollOffset();
   initDateFilter();
   initLiveUpdate();
   initTaxonomyFilter();

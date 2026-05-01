@@ -69,10 +69,10 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow">
 
-<!-- Pagefind UI styles load FIRST so our main.css can override them.
+<!-- Pagefind Component UI styles load FIRST so our main.css can override them.
      onerror detaches the tag silently if the index isn't built yet. -->
-<link rel="stylesheet" href="/pagefind/pagefind-ui.css" onerror="this.remove()">
-<script src="/pagefind/pagefind-ui.js" defer onerror="this.remove()"></script>
+<link rel="stylesheet" href="/pagefind/pagefind-component-ui.css" onerror="this.remove()">
+<script src="/pagefind/pagefind-component-ui.js" defer onerror="this.remove()"></script>
 
 {{ $css := resources.Get "css/main.css" | css.PostCSS | minify | fingerprint "sha384" }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous" />

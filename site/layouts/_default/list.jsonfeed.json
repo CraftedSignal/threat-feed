@@ -1,37 +1,45 @@
 {{- $items := slice -}}
-{{- /* Mirror RSS behaviour: home/section give briefs from the
-       configured mainSections; taxonomy term pages give that term's
-       pages directly. */ -}}
 {{- $pages := .Pages -}}
 {{- if .IsHome -}}
 {{-   $pages = where .Site.RegularPages "Section" "in" .Site.Params.mainSections -}}
 {{- end -}}
-{{- range first 100 ($pages.ByDate.Reverse) -}}
-{{-   $item := dict
-        "id"          .RelPermalink
-        "url"         .Permalink
-        "title"       .Title
-        "summary"     (or .Params.description .Summary)
-        "date"        (.Date.Format "2006-01-02T15:04:05Z07:00")
-        "type"        (or .Params.type "threat")
-        "severities"  (.Params.severities | default slice)
-        "products"    (.Params.products | default slice)
-        "vendors"     (.Params.vendors | default slice)
-        "actors"      (.Params.actors | default slice)
-        "tags"        (.Params.tags | default slice)
-        "exploited"   (.Params.exploited | default false) -}}
+{{- $paginator := .Paginate ($pages.ByDate.Reverse) 100 -}}
+{{- range $paginator.Pages -}}
 {{-   $cves := slice -}}
 {{-   range (.Params.cves | default slice) -}}
-{{-     $cves = $cves | append (dict "id" (.id | default "") "cvss" (.cvss | default 0)) -}}
+{{-     $cveItem := dict "id" (.id | default "") -}}
+{{-     if isset . "cvss" -}}
+{{-       $cveItem = merge $cveItem (dict "cvss" .cvss) -}}
+{{-     end -}}
+{{-     $cves = $cves | append $cveItem -}}
 {{-   end -}}
-{{-   $item = merge $item (dict "cves" $cves) -}}
+{{-   $item := dict
+        "id"              .RelPermalink
+        "url"             .Permalink
+        "title"           .Title
+        "summary"         (or .Params.description .Summary)
+        "content_html"    .Content
+        "date_published"  (.Date.Format "2006-01-02T15:04:05Z07:00")
+        "date_modified"   (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+        "_cs_type"        (or .Params.type "threat")
+        "_cs_severities"  (.Params.severities | default slice)
+        "_cs_products"    (.Params.products | default slice)
+        "_cs_vendors"     (.Params.vendors | default slice)
+        "_cs_actors"      (.Params.actors | default slice)
+        "_cs_tags"        (.Params.tags | default slice)
+        "_cs_exploited"   (.Params.exploited | default false)
+        "_cs_cves"        $cves -}}
 {{-   $items = $items | append $item -}}
 {{- end -}}
 {{- $feed := dict
-      "version"        "1.0"
+      "version"        "https://jsonfeed.org/version/1.1"
       "title"          (printf "%s — %s" .Site.Title (.Title | default "All briefs"))
-      "site_url"       .Site.Home.Permalink
+      "home_page_url"  .Site.Home.Permalink
       "feed_url"       .Permalink
       "description"    (or .Description .Site.Params.description)
+      "language"       .Language.Lang
       "items"          $items -}}
+{{- if $paginator.HasNext -}}
+{{-   $feed = merge $feed (dict "next_url" $paginator.Next.URL) -}}
+{{- end -}}
 {{- $feed | jsonify (dict "indent" "  ") | safeJS -}}
