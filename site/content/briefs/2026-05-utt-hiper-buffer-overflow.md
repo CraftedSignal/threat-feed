@@ -1,40 +1,39 @@
 ---
 title: UTT HiPER 1200GW Buffer Overflow Vulnerability
 slug: 2026-05-utt-hiper-buffer-overflow
-description: A remote buffer overflow vulnerability exists in UTT HiPER 1200GW up to version 2.5.3-1703 due to manipulation of the strcpy function in the /goform/formUser file, potentially leading to arbitrary code execution.
-date: "2026-05-01T00:17:28Z"
-type: advisory
+description: A buffer overflow vulnerability exists in UTT HiPER 1200GW devices up to version 2.5.3-170306, stemming from manipulation of the `strcpy` function in the `/goform/formRemoteControl` file, which allows remote attackers to execute arbitrary code.
+date: "2026-05-01T00:16:25Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
 tags:
   - buffer-overflow
-  - cve-2026-7512
   - iot
+  - router
+  - cve
 vendors:
   - UTT
 products:
-  - HiPER 1200GW
+  - HiPER 1200GW (<= 2.5.3-170306)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-7512
+  - id: CVE-2026-7513
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7512
-  - https://github.com/kirlic123/IOTvulner/tree/main/4035/3
-  - https://vuldb.com/submit/803995
-  - https://vuldb.com/vuln/360323
-  - https://vuldb.com/vuln/360323/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7513
+  - https://github.com/kirlic123/IOTvulner/blob/main/4035/4/4.md
+  - https://vuldb.com/vuln/360324
 rules:
-  - title: Detect UTT HiPER Buffer Overflow Attempt via formUser
-    description: Detects suspicious HTTP requests to the /goform/formUser endpoint indicative of a buffer overflow attempt.
+  - title: Detect Suspicious Requests to FormRemoteControl
+    description: Detects suspicious HTTP requests to the /goform/formRemoteControl endpoint, which is vulnerable to buffer overflow.
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - initial_access
     techniques:
@@ -42,40 +41,41 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect Shellcode in HTTP Request to formUser
-    description: Detects shellcode patterns in HTTP requests to the /goform/formUser endpoint, potentially indicating a buffer overflow exploit.
+  - title: Detect Large POST Requests to FormRemoteControl
+    description: Detects abnormally large POST requests to the /goform/formRemoteControl endpoint, indicating a potential buffer overflow attempt.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
-      - execution
+      - initial_access
     techniques:
-      - T1059.004
+      - T1190
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A buffer overflow vulnerability, identified as CVE-2026-7512, affects UTT HiPER 1200GW devices up to version 2.5.3-1703. The vulnerability lies within the `strcpy` function in the `/goform/formUser` file. A remote attacker can exploit this vulnerability by sending a crafted request that causes a buffer overflow, potentially leading to arbitrary code execution. Public exploits are available, increasing the risk of widespread exploitation. Successful exploitation could allow an attacker to gain complete control of the affected device.
+A buffer overflow vulnerability has been identified in UTT HiPER 1200GW devices with firmware versions up to 2.5.3-170306. The flaw resides within the `strcpy` function of the `/goform/formRemoteControl` file, which handles remote control functionalities. A remote attacker can exploit this vulnerability by sending a specially crafted request to trigger the buffer overflow, potentially leading to arbitrary code execution on the affected device. Publicly available exploit code exists, increasing the risk of exploitation. This vulnerability poses a significant threat to organizations using the affected UTT HiPER 1200GW devices, as it could allow attackers to gain unauthorized access and control over the device and potentially the network it is connected to.
 
 ## Attack Chain
 
-1.  The attacker identifies a vulnerable UTT HiPER 1200GW device running a firmware version up to 2.5.3-1703.
-2.  The attacker crafts a malicious HTTP request targeting the `/goform/formUser` endpoint.
-3.  The crafted request includes a payload designed to overflow the buffer when processed by the `strcpy` function.
-4.  The vulnerable `strcpy` function in `/goform/formUser` attempts to copy the overly long input into a fixed-size buffer.
-5.  The buffer overflow overwrites adjacent memory regions, potentially including return addresses or other critical data.
-6.  If the attacker successfully overwrites the return address, they can redirect execution to arbitrary code.
-7.  The attacker injects shellcode into the overflowed buffer or another accessible memory location.
-8.  The device executes the attacker-controlled shellcode, granting the attacker remote control.
+1.  Attacker identifies a vulnerable UTT HiPER 1200GW device exposed to the internet.
+2.  Attacker crafts a malicious HTTP request targeting the `/goform/formRemoteControl` endpoint.
+3.  The malicious request includes a payload designed to overflow the buffer when processed by the `strcpy` function.
+4.  The vulnerable `strcpy` function within `/goform/formRemoteControl` copies the attacker-controlled data without proper bounds checking.
+5.  The buffer overflow overwrites adjacent memory regions, potentially including critical program data or execution pointers.
+6.  The attacker leverages the overflow to inject and execute arbitrary code on the device.
+7.  The attacker gains control of the device, potentially escalating privileges.
+8.  The attacker uses the compromised device to pivot to other systems on the network, exfiltrate sensitive data, or cause further damage.
 
 ## Impact
 
-Successful exploitation of this vulnerability could allow a remote attacker to execute arbitrary code on the UTT HiPER 1200GW device. This could lead to complete system compromise, including data theft, device manipulation, or use of the device as part of a botnet. Given the availability of public exploits, the risk of widespread exploitation is high.
+Successful exploitation of this vulnerability could lead to complete compromise of the affected UTT HiPER 1200GW device. Attackers could gain unauthorized access to sensitive data, disrupt device functionality, or use the device as a foothold for further attacks within the network. Given that public exploits are available, the risk of widespread exploitation is high. While the exact number of affected devices is unknown, organizations using UTT HiPER 1200GW devices should take immediate action to mitigate this vulnerability.
 
 ## Recommendation
 
-*   Apply the Sigma rule `Detect UTT HiPER Buffer Overflow Attempt via formUser` to detect malicious requests targeting the vulnerable endpoint.
-*   Apply the Sigma rule `Detect Shellcode in HTTP Request to formUser` to detect shellcode in HTTP requests to the vulnerable endpoint.
-*   Monitor web server logs for suspicious activity related to the `/goform/formUser` endpoint using the `webserver` log source.
-*   Apply any available patches or firmware updates provided by UTT to address CVE-2026-7512.
+*   Apply available patches or firmware updates from UTT to address the buffer overflow vulnerability in UTT HiPER 1200GW devices.
+*   Monitor network traffic for suspicious requests targeting the `/goform/formRemoteControl` endpoint, and deploy the Sigma rule `Detect Suspicious Requests to FormRemoteControl` to identify potentially malicious activity.
+*   Implement input validation and sanitization measures to prevent buffer overflows in web applications.
+*   Consider network segmentation to limit the impact of a compromised device on other systems within the network.
+*   Review and restrict access to the device's web interface to only authorized personnel.
