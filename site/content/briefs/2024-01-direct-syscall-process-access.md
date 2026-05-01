@@ -1,0 +1,93 @@
+---
+title: Suspicious Process Access via Direct System Call
+slug: 2024-01-direct-syscall-process-access
+description: Detects suspicious process access events where the call trace does not originate from known Windows system DLLs, indicating potential defense evasion by bypassing hooked APIs via direct syscalls.
+date: "2024-01-03T15:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - defense-evasion
+  - execution
+  - windows
+vendors:
+  - Microsoft
+  - Cisco
+  - Adobe
+  - Symantec
+  - Malwarebytes
+products:
+  - EdgeWebView
+  - Acrobat DC
+  - AMP
+  - Symantec Endpoint Protection
+  - Malwarebytes Anti-Exploit
+affected_os:
+  - windows
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1027
+    technique_name: Obfuscated Files or Information
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1112
+    technique_name: Modify Registry
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+references:
+  - https://twitter.com/SBousseaden/status/1278013896440324096
+  - https://www.ired.team/offensive-security/defense-evasion/using-syscalls-directly-from-visual-studio-to-bypass-avs-edrs
+rules:
+  - title: Suspicious Process Access via Direct System Call
+    description: Detects process access where the call trace doesn't start with known system DLLs, indicating potential direct syscall usage.
+    platform: sigma
+    severity: high
+    tactics:
+      - defense_evasion
+      - execution
+    data_sources:
+      - process_creation
+      - windows
+  - title: Suspicious Process Access to LSASS via Direct System Call
+    description: Detects process access to lsass.exe where the call trace doesn't start with known system DLLs, indicating potential direct syscall usage for credential dumping.
+    platform: sigma
+    severity: critical
+    tactics:
+      - credential_access
+      - defense_evasion
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+This detection identifies suspicious process access events on Windows systems where a process attempts to access another process's memory via direct system calls, bypassing standard Windows API calls. Endpoint security solutions often hook userland Windows APIs to detect malicious code execution. Attackers can evade these hooks by directly invoking syscalls, which are lower-level instructions that interact directly with the operating system kernel. The rule specifically looks for process access events (Sysmon Event ID 10) where the call trace does not originate from known Windows system DLLs like ntdll.dll, indicating a potential attempt to bypass security measures. The rule excludes certain legitimate applications, such as Malwarebytes Anti-Exploit, Cisco AMP, Microsoft EdgeWebView, and Adobe Acrobat DC, to reduce false positives. This technique is often employed by advanced malware and red teams to evade detection.
+
+## Attack Chain
+
+1.  A malicious process is executed on the system, either through user interaction or exploitation of a vulnerability.
+2.  The process attempts to gain access to another process's memory space (Target Process).
+3.  Instead of using standard Windows API calls, the malicious process directly invokes system calls (syscalls) to access the target process's memory.
+4.  The `CallTrace` in the Sysmon event does not originate from expected system DLLs like `ntdll.dll`, `sysfer.dll`, `wow64cpu.dll`, `wow64win.dll`, or `win32u.dll`, indicating a direct syscall.
+5.  The process might attempt to read sensitive information such as credentials, inject malicious code, or manipulate the target process's behavior.
+6.  The malicious process performs actions within the context of the target process, such as executing injected code or accessing sensitive data.
+7.  The attacker leverages the compromised process to achieve their objectives, such as data exfiltration, lateral movement, or privilege escalation.
+8.  The attacker cleans up any traces of their activity and attempts to maintain persistence on the compromised system.
+
+## Impact
+
+Successful exploitation can lead to the compromise of sensitive data, the injection of malicious code into legitimate processes, and the complete takeover of the affected system. This can result in data breaches, financial loss, and reputational damage. The impact is especially significant if the target process holds sensitive credentials, browser secrets, or has security-product context.
+
+## Recommendation
+
+*   Enable Sysmon process access logging (Event ID 10) with call tracing and ingest the logs into your SIEM to activate the rules above ([https://ela.st/sysmon-event-10-setup](https://ela.st/sysmon-event-10-setup)).
+*   Deploy the Sigma rules provided in this brief to your SIEM and tune them for your environment to detect direct syscall process access.
+*   Investigate any alerts generated by these rules, focusing on the `SourceImage`, `TargetImage`, `GrantedAccess`, and `CallTrace` fields in the Sysmon event to determine the legitimacy of the process access attempt.
+*   Prioritize investigation of alerts where the target process is `lsass.exe` or other security-sensitive processes.
+*   Implement robust endpoint detection and response (EDR) solutions to detect and prevent malicious activity on endpoints.
+*   Monitor for suspicious process creation events originating from the flagged processes.
