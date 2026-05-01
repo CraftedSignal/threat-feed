@@ -1,0 +1,76 @@
+---
+title: Potential Root Effective Shell from Non-Standard Path via Auditd
+slug: 2024-01-potential-root-effective-shell
+description: This rule identifies process execution events where the effective user is root while the real user is not, the process arguments include the privileged shell flag commonly associated with setuid-capable shells, and the executable path is outside standard system binary directories, indicating potential privilege escalation.
+date: "2026-05-01T09:51:29Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - privilege-escalation
+  - linux
+  - auditd
+vendors:
+  - Elastic
+products:
+  - Auditd Manager
+mitre_ttps:
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1548
+    technique_name: Abuse Elevation Control Mechanism
+references:
+  - https://attack.mitre.org/techniques/T1548/001/
+  - https://gtfobins.github.io/gtfobins/bash/
+  - https://docs.elastic.co/integrations/auditd_manager
+rules:
+  - title: Potential Root Effective Shell from Non-Standard Path via Auditd
+    description: Detects process execution events where the effective user is root while the real user is not, the process arguments include the privileged shell flag commonly associated with setuid-capable shells, and the executable path is outside standard system binary directories.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1548.001
+    data_sources:
+      - process_creation
+      - linux
+  - title: Potential Root Effective Shell from Non-Standard Path via Auditd - Symlink
+    description: Detects process execution events where the effective user is root while the real user is not, the process arguments include the privileged shell flag commonly associated with setuid-capable shells, and the executable path is outside standard system binary directories, indicating the use of a symlink.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1548.001
+    data_sources:
+      - process_creation
+      - linux
+rules_count: 2
+---
+
+This detection identifies potential privilege escalation attempts on Linux systems by monitoring for processes with a root effective user ID (EUID) but a non-root real user ID (RUID), combined with the use of the `-p` flag (commonly used to preserve privileges in shells like bash or dash) and execution from a non-standard path (outside of `/bin`, `/sbin`, `/usr/bin`, etc.).  Attackers may copy or link setuid-capable shells or similar helpers into writable locations to regain a root context after local exploitation. This behavior is often associated with post-exploitation activities where attackers attempt to maintain or regain elevated privileges.  The rule relies on Auditd data to provide visibility into process execution events and user context. The original rule was published on 2026-04-24 by Elastic.
+
+## Attack Chain
+
+1.  Attacker gains initial access to the system with limited privileges (e.g., through exploiting a vulnerability or using stolen credentials).
+2.  Attacker identifies a writable directory outside of standard system binary paths (e.g., `/tmp`, `/var/tmp`).
+3.  Attacker copies or creates a symbolic link to a setuid-capable shell (e.g., `/bin/bash`, `/bin/dash`) into the identified writable directory. This copied shell retains the setuid bit.
+4.  Attacker executes the copied or linked shell from the non-standard path with the `-p` flag (e.g., `/tmp/bash -p`). The `-p` flag instructs the shell to preserve privileges, effectively running with the effective user ID (EUID) of root.
+5.  Auditd logs this process execution event, capturing the non-standard path, the use of the `-p` flag, the root EUID, and the non-root RUID.
+6.  The detection rule identifies the process execution event based on the criteria outlined above.
+7.  Attacker now has a root shell and can perform administrative tasks, install malware, or further compromise the system.
+
+## Impact
+
+A successful privilege escalation attack can grant an attacker complete control over the compromised system. This allows them to access sensitive data, install malicious software, modify system configurations, and potentially pivot to other systems on the network. This can lead to data breaches, system downtime, and significant financial losses.  The risk score for this type of activity is considered high due to the potential for significant impact.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Potential Root Effective Shell from Non-Standard Path via Auditd` to your SIEM and tune for your environment.
+*   Ensure that Auditd Manager or Auditbeat is properly configured to collect process execution events with relevant fields (`event.action`, `user.id`, `user.effective.id`, `process.args`, and `process.executable`) as described in the rule setup to enable the rule to function correctly.
+*   Investigate any alerts generated by this rule by inspecting `process.executable`, `process.args`, `process.parent`, and the full command line reconstructed in audit logs.
+*   Regularly audit all setuid binaries on the filesystem to identify any unauthorized or malicious setuid executables.
+*   Implement access controls and file integrity monitoring to prevent unauthorized modification of system binaries and writable directories.
