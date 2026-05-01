@@ -1,8 +1,8 @@
 ---
-title: Potential Credential Access via LSASS Memory Dump
+title: Potential LSASS Memory Dump via PssCaptureSnapShot
 slug: 2024-01-lsass-memory-dump
-description: This rule detects suspicious access to the LSASS process, indicative of an attempt to dump LSASS memory for credential access by monitoring process access events with call traces including dbgcore.dll or dbghelp.dll, which export MiniDumpWriteDump, while excluding known crash handlers.
-date: "2024-01-03T12:00:00Z"
+description: This rule detects suspicious access to an LSASS handle via PssCaptureSnapShot where two successive process accesses are performed by the same process and target two different instances of LSASS, potentially indicating an attempt to evade detection and dump LSASS memory for credential access.
+date: "2024-01-03T10:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,7 +10,8 @@ severities:
   - high
 tags:
   - credential-access
-  - threat-detection
+  - lsass
+  - memory-dump
   - windows
 vendors:
   - Microsoft
@@ -24,56 +25,55 @@ mitre_ttps:
     technique_id: T1003
     technique_name: OS Credential Dumping
 references:
-  - https://www.ired.team/offensive-security/credential-access-and-credential-dumping/dump-credentials-from-lsass-process-without-mimikatz
-  - https://www.elastic.co/security-labs/detect-credential-access
-  - https://www.elastic.co/security-labs/elastic-protects-against-data-wiper-malware-targeting-ukraine-hermeticwiper
+  - https://www.matteomalvica.com/blog/2019/12/02/win-defender-atp-cred-bypass/
+  - https://twitter.com/sbousseaden/status/1280619931516747777?lang=en
 rules:
-  - title: Potential Credential Access via LSASS Memory Dump using dbgcore
-    description: Detects suspicious access to LSASS handle from a call trace pointing to DBGCore.dll, indicating a potential LSASS memory dump.
+  - title: Suspicious LSASS Access via PssCaptureSnapShot
+    description: Detects suspicious process access to LSASS using PssCaptureSnapShot, potentially indicating credential dumping attempts.
     platform: sigma
     severity: high
     tactics:
       - credential_access
     techniques:
-      - T1003
+      - T1003.001
     data_sources:
       - process_creation
       - windows
-  - title: Potential Credential Access via LSASS Memory Dump using dbghelp
-    description: Detects suspicious access to LSASS handle from a call trace pointing to DBGHelp.dll, indicating a potential LSASS memory dump.
+  - title: Process Accessing Multiple LSASS Instances
+    description: Detects a single process accessing multiple LSASS instances, which may indicate an attempt to evade detection while dumping LSASS memory.
     platform: sigma
     severity: high
     tactics:
       - credential_access
     techniques:
-      - T1003
+      - T1003.001
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-This detection identifies suspicious attempts to dump the LSASS (Local Security Authority Subsystem Service) memory, a common technique used by attackers to gain access to credentials stored in memory. The rule focuses on process access events where the call trace includes either `dbgcore.dll` or `dbghelp.dll`, both of which export the `MiniDumpWriteDump` method. This method is frequently leveraged by attackers to create a memory dump of the LSASS process, which can then be analyzed offline to extract sensitive information such as usernames, passwords, and Kerberos tickets. The rule excludes legitimate system processes such as `WerFault.exe` to reduce false positives. The detection leverages Windows Sysmon event ID 10. This type of attack can lead to widespread compromise of systems and accounts if successful, making it critical for defenders to identify and respond to promptly.
+This detection rule identifies suspicious attempts to dump LSASS memory using PssCaptureSnapShot, a technique that can be used to steal credentials. The rule focuses on scenarios where a single process accesses two different instances of LSASS (lsass.exe) in succession, which is an uncommon behavior and may suggest an attempt to evade traditional memory dumping detection mechanisms. The rule is triggered by Windows Sysmon event ID 10, which logs process access events. Successful exploitation allows attackers to obtain sensitive credentials stored in LSASS memory, potentially leading to lateral movement and further compromise within the network.
 
 ## Attack Chain
 
-1. An attacker gains initial access to a system via phishing, exploiting a vulnerability, or other means.
-2. The attacker executes a malicious process or script on the compromised system.
-3. The malicious process attempts to access the LSASS process (lsass.exe).
-4. The process uses `dbgcore.dll` or `dbghelp.dll` to call the `MiniDumpWriteDump` function.
-5. A memory dump of the LSASS process is created on the file system.
-6. The attacker retrieves the LSASS memory dump file.
-7. The attacker uses credential harvesting tools to extract credentials from the dump file.
-8. The attacker uses the stolen credentials for lateral movement or to achieve other objectives, such as data exfiltration or ransomware deployment.
+1. An attacker gains initial access to a system, potentially through phishing or exploiting a vulnerability.
+2. The attacker executes a malicious program or script on the compromised system.
+3. The malicious code uses the PssCaptureSnapShot API to create a snapshot of the LSASS process memory.
+4. The same process attempts to access another instance of LSASS.
+5. The attacker extracts sensitive information, such as usernames, passwords, and Kerberos tickets, from the LSASS memory snapshot.
+6. The attacker uses the stolen credentials to escalate privileges or move laterally within the network.
+7. The attacker may attempt to establish persistence on other systems using the compromised credentials.
+8. The attacker achieves their objective, such as data exfiltration or ransomware deployment.
 
 ## Impact
 
-Successful exploitation can lead to the compromise of domain credentials, allowing attackers to move laterally within the network, escalate privileges, and potentially gain control of critical systems. This can lead to data breaches, financial loss, and reputational damage. The scope of the impact depends on the level of access granted to the compromised accounts and the sensitivity of the data they can access.
+Successful exploitation and LSASS memory dumping can lead to the compromise of domain credentials, enabling attackers to move laterally across the network and gain access to sensitive data. This can result in significant financial losses, reputational damage, and disruption of business operations. Depending on the environment, this could impact hundreds or thousands of users.
 
 ## Recommendation
 
-*   Enable Sysmon process-creation and process-access logging to activate the rules above.
-*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment.
-*   Monitor process access events (Sysmon Event ID 10) for access to `lsass.exe` where the call trace includes `dbgcore.dll`.
-*   Investigate any processes accessing LSASS with `MiniDumpWriteDump` that are not known and trusted system processes.
-*   Implement strong access controls to limit which processes and users can access the LSASS process.
+*   Enable Sysmon process access logging (Event ID 10) as required by the rule and documented in the [setup instructions](https://ela.st/sysmon-event-10-setup).
+*   Deploy the "Potential LSASS Memory Dump via PssCaptureSnapShot" Sigma rule to your SIEM and tune for your environment.
+*   Investigate any alerts generated by the rule, focusing on the process accessing LSASS and the context in which it is running.
+*   Review and harden LSASS protection configurations to mitigate the risk of credential dumping.
+*   Monitor for related alerts such as credential access, archive, lateral movement, or clone-related alerts on the same host or user.
