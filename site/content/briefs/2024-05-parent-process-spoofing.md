@@ -1,0 +1,90 @@
+---
+title: Windows Parent Process PID Spoofing Detection
+slug: 2024-05-parent-process-spoofing
+description: Adversaries use parent process PID spoofing to evade detection by creating processes with mismatched parent-child relationships, hindering process monitoring and potentially elevating privileges on Windows systems.
+date: "2024-05-09T14:22:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - defense-evasion
+  - process-injection
+  - windows
+vendors:
+  - Elastic
+products:
+  - Elastic Defend
+affected_os:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1553
+    technique_name: Subvert Trust Controls
+references:
+  - https://blog.didierstevens.com/2017/03/20/that-is-not-my-child-process/
+  - https://www.elastic.co/security-labs/elastic-security-labs-steps-through-the-r77-rootkit
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_parent_process_pid_spoofing.toml
+rules:
+  - title: Detect Suspicious Process Creation with PPID Spoofing
+    description: Detects suspicious process creation where the parent process ID (PPID) is spoofed, indicated by a mismatch between the reported parent and the actual creating process. This can be used to evade process monitoring and elevate privileges.
+    platform: sigma
+    severity: high
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1553.004
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect Process Executables from Suspicious Paths
+    description: Detects processes running from unusual locations such as temporary directories or user profiles, indicating potential malicious activity or PPID spoofing.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1027
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect parent process spoofing via Original File Name
+    description: Detects process creation events where the original file name of a process matches a list of commonly abused executables like Office applications, script hosts, and LOLBins.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1059.001
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 3
+---
+
+Parent process PID spoofing is a defense evasion technique where a process is created with a parent process ID (PPID) that differs from its actual creator. This can be used to circumvent process monitoring tools that rely on accurate parent-child relationships. Adversaries may leverage this technique to disguise malicious processes as legitimate system processes or to elevate privileges by associating malicious activities with trusted processes. The technique involves manipulating process creation APIs to set an arbitrary PPID. The Elastic Defend integration is designed to capture the necessary process telemetry to detect these discrepancies. This activity matters because it can allow attackers to hide their actions and persist on compromised systems undetected. The referenced Elastic detection rule was last updated on 2026/04/30, demonstrating continued relevance.
+
+## Attack Chain
+
+1.  Attacker gains initial access to the Windows system (e.g., via phishing or exploit).
+2.  Attacker executes a malicious process, such as a script or executable.
+3.  The malicious process uses API calls (e.g., `CreateProcess`, `NtCreateProcessEx`) to spawn a new process.
+4.  During process creation, the attacker modifies the PPID parameter to spoof a legitimate parent process.
+5.  The new process is launched with the spoofed PPID, appearing as a child of the chosen parent.
+6.  The spoofed process executes malicious code, potentially downloading additional payloads or establishing command and control.
+7.  The adversary leverages the trusted appearance of the spoofed process to evade detection by security tools.
+8.  The attacker achieves their final objective, such as data exfiltration, lateral movement, or persistence.
+
+## Impact
+
+Successful parent process PID spoofing can allow attackers to evade detection and maintain persistence on a compromised system. This can lead to data breaches, system compromise, and financial loss. While the number of victims and specific sectors targeted are not specified in the provided source material, the technique is applicable across various sectors and organizations utilizing Windows-based systems. The lack of detection can lead to prolonged dwell time, increasing the potential for significant damage.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Detect Suspicious Process Creation with PPID Spoofing` to your SIEM to identify potential parent process PID spoofing attempts based on process telemetry data.
+*   Enable and monitor process creation events with parent-child relationships using Elastic Defend to capture the necessary data for the provided rule.
+*   Investigate alerts generated by the Sigma rule by examining the process tree and verifying the legitimacy of parent-child relationships as outlined in the rule's description.
+*   Configure endpoint detection and response (EDR) solutions to identify and block suspicious processes spawned by common exploitation vectors like Office applications and script hosts, as these are often associated with PPID spoofing.
+*   Review and tune the Sigma rule, specifically the `process.pe.original_file_name` and `process.executable` lists, to match your organization's baseline and reduce false positives.
