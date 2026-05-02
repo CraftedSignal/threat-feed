@@ -1,7 +1,7 @@
 ---
-title: Gravity Forms Plugin Stored XSS Vulnerability (CVE-2026-5109)
+title: Gravity Forms Plugin Stored XSS Vulnerability (CVE-2026-5111)
 slug: 2026-05-gravityforms-xss
-description: A stored cross-site scripting (XSS) vulnerability exists in the Gravity Forms plugin for WordPress versions up to 2.10.0, allowing unauthenticated attackers to inject arbitrary web scripts into entry data that executes when administrators view entry details.
+description: A stored cross-site scripting (XSS) vulnerability, designated as CVE-2026-5111, affects the Gravity Forms plugin for WordPress versions up to and including 2.10.0, allowing unauthenticated attackers to inject arbitrary web scripts executed when an administrator views entry details.
 date: "2026-05-02T06:16:03Z"
 type: advisory
 types:
@@ -9,43 +9,38 @@ types:
 severities:
   - medium
 tags:
-  - wordpress
   - xss
-  - stored-xss
-  - cve-2026-5109
-  - gravity-forms
+  - stored xss
+  - wordpress
+  - gravity forms
 vendors:
   - WordPress
 products:
   - Gravity Forms plugin <= 2.10.0
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-5109
+  - id: CVE-2026-5111
     cvss: 7.2
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5109
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-5111
 rules:
-  - title: Detect Gravity Forms XSS via Product Option
-    description: Detects potential exploitation attempts targeting the Gravity Forms Product Option field to inject malicious JavaScript.
+  - title: Detect Gravity Forms XSS via Form Submission
+    description: Detects potential XSS attacks against Gravity Forms by looking for script tags or event handlers within POST requests.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
-      - initial_access
+      - persistence
     techniques:
       - T1059.007
     data_sources:
       - webserver
       - linux
-  - title: Detect Gravity Forms Order Summary XSS
-    description: Detects access to the Gravity Forms order summary page, potentially indicating exploitation of stored XSS.
+  - title: Detect Gravity Forms XSS via Repeater Field
+    description: Detects potential XSS attacks against Gravity Forms involving repeater fields by looking for script tags or event handlers within POST requests targeting repeater functionality.
     platform: sigma
     severity: medium
     tactics:
@@ -58,26 +53,25 @@ rules:
 rules_count: 2
 ---
 
-CVE-2026-5109 is a stored XSS vulnerability affecting the Gravity Forms plugin for WordPress, specifically versions up to and including 2.10.0. This flaw arises from inadequate validation and output escaping of Product Option field values. An unauthenticated attacker can exploit this by injecting malicious JavaScript code into the product option fields of a form submission. The vulnerability is triggered when an administrator views the entry details through the Order Summary section within the WordPress administration panel. This occurs because the application stores the raw, unsanitized value in the database and then directly outputs the `option_label` without proper escaping, leading to the execution of the injected script within the administrator's browser. This can lead to session hijacking, defacement, or other malicious activities within the context of the administrator's WordPress session.
+The Gravity Forms plugin for WordPress is susceptible to a stored cross-site scripting (XSS) vulnerability, identified as CVE-2026-5111, in versions up to and including 2.10.0. The flaw lies in the insufficient input validation and output escaping mechanisms for Hidden Product field values specifically when they are utilized within Repeater fields. This occurs because repeater subfields bypass standard state validation procedures, and the Hidden Product validate() method focuses solely on the quantity field. Consequently, the product name field, which is later rendered without proper escaping in the get_value_entry_detail() method, becomes a point of injection. Successful exploitation enables unauthenticated attackers to inject arbitrary web scripts by submitting malicious form data. These scripts are then executed whenever an administrator accesses and views the details of the compromised entry within the WordPress admin panel.
 
 ## Attack Chain
 
-1.  The attacker accesses a WordPress site running the vulnerable Gravity Forms plugin (<= 2.10.0).
-2.  The attacker identifies a Gravity Form with a Product Option field.
-3.  The attacker crafts a malicious payload containing JavaScript code and injects it into the Product Option field during form submission. This payload is designed to execute arbitrary code within an administrator's session.
-4.  The form is submitted with the malicious payload. The vulnerable validation logic accepts the malicious value because the `wp_kses()` sanitized version matches a legitimate option.
-5.  The raw, unsanitized value, including the malicious JavaScript, is stored in the WordPress database.
-6.  An administrator logs into the WordPress administration panel and navigates to the Gravity Forms entries.
-7.  The administrator views the details of the entry containing the malicious payload through the Order Summary section. Specifically, `view-order-summary.php` at line 32.
-8.  The `option_label` containing the injected JavaScript is output without proper escaping, causing the JavaScript code to execute within the administrator's browser session. This constitutes the stored XSS vulnerability, enabling the attacker to perform actions with the administrator's privileges.
+1. An unauthenticated attacker crafts a malicious form submission containing a Hidden Product field within a Repeater field.
+2. The malicious payload is injected into the product name field of the Hidden Product field.
+3. Due to bypassed state validation checks within Repeater fields, the injected payload bypasses the standard input validation.
+4. The Hidden Product field's `validate()` method only validates the quantity field, ignoring the malicious product name.
+5. The form submission is processed, and the malicious data is stored in the WordPress database.
+6. When an administrator views the form entry details, the `get_value_entry_detail()` method retrieves the stored malicious data.
+7. The `get_value_entry_detail()` method outputs the product name field without proper escaping.
+8. The injected JavaScript code is executed in the administrator's browser within the context of the WordPress admin session, potentially leading to account compromise or site defacement.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an unauthenticated attacker to execute arbitrary JavaScript code in the context of an administrator's browser session. This can lead to privilege escalation, session hijacking, defacement of the WordPress site, or the injection of malicious content into the website. Due to the wide usage of WordPress and the Gravity Forms plugin, a successful attack can have a broad impact, potentially affecting thousands of websites and their administrators. The CVSS v3.1 base score is 7.2, indicating a high severity vulnerability.
+Successful exploitation of this stored XSS vulnerability (CVE-2026-5111) allows unauthenticated attackers to execute arbitrary JavaScript code within the administrator's browser session when viewing the affected Gravity Forms entry. This can lead to a range of malicious activities, including stealing administrator cookies, defacing the WordPress site, or creating new administrative accounts. The severity is amplified by the unauthenticated nature of the attack, allowing anyone to submit malicious forms.
 
 ## Recommendation
 
-*   Upgrade the Gravity Forms plugin to a version greater than 2.10.0 to patch the vulnerability (CVE-2026-5109).
-*   Deploy the Sigma rule "Detect Gravity Forms XSS via Product Option" to detect potential exploitation attempts targeting Product Option fields.
-*   Implement input validation and output escaping on all user-supplied data within WordPress plugins to prevent XSS vulnerabilities.
-*   Enable web server logging and monitor for suspicious activity originating from WordPress admin interfaces.
+*   Upgrade the Gravity Forms plugin to a version greater than 2.10.0 to patch CVE-2026-5111 (see Affected Products).
+*   Deploy the Sigma rule "Detect Gravity Forms XSS via Form Submission" to detect potential exploitation attempts by monitoring for suspicious script injections in HTTP POST requests to the WordPress installation (see Rules).
+*   Implement additional input validation and output escaping mechanisms for all form fields, especially those within Repeater fields, to prevent similar XSS vulnerabilities in the future.
