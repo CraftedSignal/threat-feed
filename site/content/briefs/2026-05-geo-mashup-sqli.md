@@ -1,19 +1,17 @@
 ---
-title: Geo Mashup WordPress Plugin Time-Based SQL Injection
+title: Geo Mashup WordPress Plugin Vulnerable to Time-Based SQL Injection (CVE-2026-4062)
 slug: 2026-05-geo-mashup-sqli
-description: The Geo Mashup plugin for WordPress is vulnerable to Time-Based SQL Injection via the 'sort' parameter, allowing unauthenticated attackers to extract sensitive information from the database.
-date: "2026-05-02T12:16:15Z"
-type: threat
+description: The Geo Mashup WordPress plugin is vulnerable to Time-Based SQL Injection due to insufficient input sanitization, allowing unauthenticated attackers to extract sensitive database information.
+date: "2026-05-02T12:16:16Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
 tags:
   - sqli
   - wordpress
-  - ge Mashup
-  - cve-2026-4060
-  - cloud
+  - plugin
 vendors:
   - WordPress
 products:
@@ -24,13 +22,13 @@ mitre_ttps:
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-4060
+  - id: CVE-2026-4062
     cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-4060
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-4062
 rules:
-  - title: Detect Geo Mashup Time-Based SQL Injection Attempt
-    description: Detects potential time-based SQL injection attempts in the Geo Mashup plugin 'sort' parameter.
+  - title: Detect Geo Mashup Time-Based SQL Injection Attempts
+    description: Detects potential time-based SQL injection attempts in the Geo Mashup plugin via the 'object_ids' or 'exclude_object_ids' parameters by looking for SQL `SLEEP()` or `BENCHMARK()` functions.
     platform: sigma
     severity: high
     tactics:
@@ -40,8 +38,8 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect Geo Mashup SQL Injection Attempt via OR condition
-    description: Detects potential SQL injection attempts in the Geo Mashup plugin 'sort' parameter using OR conditions.
+  - title: Detect Geo Mashup SQL Error Messages
+    description: Detects potential SQL injection attempts by monitoring for SQL error messages in the web server logs related to Geo Mashup plugin requests.
     platform: sigma
     severity: medium
     tactics:
@@ -54,25 +52,25 @@ rules:
 rules_count: 2
 ---
 
-The Geo Mashup plugin for WordPress, in versions up to and including 1.13.18, is susceptible to Time-Based SQL Injection. This vulnerability stems from inadequate escaping of the 'sort' parameter, combined with insufficient preparation of the existing SQL query. While the `esc_sql()` function is used, its effectiveness is limited because the 'sort' value is not enclosed in quotes within the `ORDER BY` context. Additionally, a `sanitize_sort_arg()` sanitizer introduced in version 1.13.18 is only applied in the AJAX code path, neglecting `render-map.php` and template tag code paths. This oversight enables unauthenticated attackers to inject malicious SQL queries and extract sensitive data from the WordPress database through a time-based blind SQL injection technique. Successful exploitation allows unauthorized access to potentially sensitive data.
+The Geo Mashup plugin for WordPress, in versions up to and including 1.13.18, contains a Time-Based SQL Injection vulnerability (CVE-2026-4062). The vulnerability exists within the 'object_ids' and 'exclude_object_ids' parameters. Insufficient escaping of user-supplied input, specifically within the `IN(...)` and `NOT IN(...)` SQL context, coupled with inadequate preparation of the existing SQL query, allows for the injection. The `esc_sql()` function is applied but is rendered ineffective due to its inability to protect against parenthesis or SQL keyword injection within the unquoted `IN(...)` / `NOT IN(...)` context. A numeric-only sanitizer exists in `sanitize_query_args()`, but this is only applied in the AJAX code path and not in the `render-map.php` or template tag code paths. This flaw enables unauthenticated attackers to append malicious SQL queries, facilitating the extraction of sensitive information from the WordPress database through a time-based blind SQL injection technique.
 
 ## Attack Chain
 
-1. An unauthenticated attacker identifies a Geo Mashup plugin installation on a WordPress site.
-2. The attacker crafts a malicious HTTP request targeting a page that uses the `render-map.php` or template tag code paths.
-3. The crafted request includes the 'sort' parameter with a SQL injection payload designed to trigger a time delay based on a condition. For example: `http://example.com/wp-content/plugins/geo-mashup/render-map.php?sort=name) AND IF(substring(user(),1,1)='a',sleep(5),0)/*`.
-4. The WordPress application processes the request, passing the unsanitized 'sort' parameter to the SQL query without proper sanitization in the vulnerable code paths.
-5. The database executes the injected SQL query. If the injected condition is true (e.g., the first letter of the database user is 'a'), the `sleep(5)` function is executed, causing a noticeable delay.
-6. The attacker monitors the response time. A delay indicates a successful injection and allows the attacker to infer information about the database content.
-7. The attacker repeats steps 3-6 with different SQL injection payloads to extract further information character by character, performing a time-based blind SQL injection.
-8. The attacker exfiltrates sensitive information such as usernames, password hashes, API keys, and other confidential data stored in the WordPress database.
+1.  An unauthenticated attacker identifies the vulnerable Geo Mashup plugin running on a WordPress site.
+2.  The attacker crafts a malicious HTTP request targeting an endpoint that utilizes the 'object_ids' or 'exclude_object_ids' parameters.
+3.  The attacker injects a time-based SQL injection payload into the 'object_ids' or 'exclude_object_ids' parameter. This payload leverages SQL functions like `SLEEP()` or `BENCHMARK()` to introduce delays based on conditional SQL logic.
+4.  The vulnerable code fails to properly sanitize the injected SQL code due to the ineffective `esc_sql()` function in the `IN`/`NOT IN` context.
+5.  The injected SQL payload is appended to the existing SQL query executed by the Geo Mashup plugin.
+6.  The database server executes the combined query, including the injected time-based SQL injection.
+7.  The attacker monitors the response time of the HTTP request. A delayed response indicates that the injected SQL logic evaluated to true.
+8.  By repeatedly sending requests with different SQL injection payloads, the attacker can extract sensitive information from the database one character at a time.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows unauthenticated attackers to extract sensitive information from the WordPress database. This can lead to complete compromise of the WordPress site, including unauthorized access to user accounts, modification of content, and potential deployment of malware. The impact is significant for any website using the Geo Mashup plugin, potentially affecting thousands of sites until the vulnerability is patched. A CVSS v3.1 score of 7.5 indicates a high severity.
+Successful exploitation of this vulnerability can lead to the complete compromise of the WordPress database. An attacker can extract sensitive information such as user credentials, API keys, configuration details, and other confidential data. This can result in data breaches, unauthorized access to the WordPress site, and potential further attacks on connected systems. The CVSS v3.1 base score for this vulnerability is 7.5, indicating a high severity.
 
 ## Recommendation
 
-*   Deploy the following Sigma rule to detect exploitation attempts against the Geo Mashup plugin based on suspicious 'sort' parameter values in web server logs.
-*   Upgrade the Geo Mashup plugin to a version greater than 1.13.18, where the vulnerability is patched, ensuring that the fix covers all code paths, including `render-map.php` and template tags.
-*   Monitor web server logs for unusual delays or errors when accessing pages associated with the Geo Mashup plugin (category: webserver).
+*   Upgrade the Geo Mashup plugin to a version greater than 1.13.18 to remediate CVE-2026-4062.
+*   Deploy the Sigma rule `Detect Geo Mashup Time-Based SQL Injection Attempts` to identify potential exploitation attempts targeting the vulnerable parameters.
+*   Monitor web server logs for suspicious requests containing SQL injection payloads in the 'object_ids' or 'exclude_object_ids' parameters to detect exploitation attempts.
