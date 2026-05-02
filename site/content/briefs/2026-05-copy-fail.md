@@ -1,78 +1,60 @@
 ---
-title: Linux Kernel 'Copy Fail' Vulnerability Enables Root Access
+title: CVE-2026-31431 'Copy Fail' Linux Kernel Privilege Escalation
 slug: 2026-05-copy-fail
-description: A 9-year-old Linux kernel vulnerability, dubbed 'Copy Fail' (CVE-2026-31431), allows attackers to gain root access via a memory flaw in the algif_aead module by overwriting data in the page cache.
-date: "2026-04-30T07:26:29Z"
+description: The 'Copy Fail' vulnerability (CVE-2026-31431) in the Linux kernel allows a local attacker to escalate privileges to root, potentially leading to container breakout and lateral movement in cloud environments.
+date: "2026-05-02T03:06:08Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
-actors:
-  - Theori Xint Code Research Team
 tags:
-  - vulnerability
-  - privilege escalation
+  - privilege-escalation
   - linux
+  - kernel
 vendors:
-  - Linux
-  - Ubuntu
-  - Amazon
   - Red Hat
   - SUSE
+  - Ubuntu
+  - AWS
+  - Debian
+  - Fedora
 products:
-  - Linux Kernel
-  - Ubuntu 24.04 LTS
   - Amazon Linux 2023
-  - Red Hat Enterprise Linux 10.1
+  - Red Hat Enterprise Linux (RHEL 10.1)
   - SUSE 16
+  - Ubuntu 24.04 LTS
 affected_os:
-  - Ubuntu 24.04 LTS
-  - Amazon Linux 2023
-  - Red Hat Enterprise Linux 10.1
-  - SUSE 16
+  - linux
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.008
-    technique_name: 'Command and Scripting Interpreter: Python'
 cves:
   - id: CVE-2026-31431
     cvss: 7.8
-    epss: 8e-05
+    epss: 9e-05
 references:
-  - https://hackread.com/linux-kernel-vulnerability-copy-fail-full-root-access/
-iocs:
-  - type: url
-    value: https://copy.fail/public/demo.mp4
-ioc_counts:
-  url: 1
+  - https://www.microsoft.com/en-us/security/blog/2026/05/01/cve-2026-31431-copy-fail-vulnerability-enables-linux-root-privilege-escalation/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-31431
+  - https://www.cisa.gov/news-events/alerts/2026/05/01/cisa-adds-one-known-exploited-vulnerability-catalog
 rules:
-  - title: Detect Suspicious Python Cryptographic Module Usage
-    description: Detects execution of Python scripts that import and use cryptographic modules, which could indicate exploitation attempts related to CVE-2026-31431.
+  - title: Detect Execution from /tmp
+    description: Detects execution of binaries from /tmp, which can indicate exploit activity.
     platform: sigma
     severity: high
     tactics:
-      - execution
       - privilege_escalation
     techniques:
-      - T1059.008
       - T1068
     data_sources:
       - process_creation
       - linux
-  - title: Detect Modification of /usr/bin/su Memory via Page Cache
-    description: Detects suspicious attempts to modify the memory of the /usr/bin/su binary, indicating a potential exploitation of CVE-2026-31431.
+  - title: Detect Suspicious AF_ALG Socket Creation
+    description: Detects the creation of AF_ALG sockets, potentially indicating exploit attempts related to CVE-2026-31431.
     platform: sigma
-    severity: critical
+    severity: medium
     tactics:
       - privilege_escalation
     techniques:
@@ -83,24 +65,25 @@ rules:
 rules_count: 2
 ---
 
-The Theori Xint Code Research Team discovered a critical vulnerability, CVE-2026-31431, in the Linux kernel's cryptographic subsystem, specifically the algif_aead module. Dubbed "Copy Fail," this vulnerability has existed since 2017 and allows a regular user to gain full root access on a vulnerable system. The vulnerability stems from a flaw in the authencesn tool, where it incorrectly writes four bytes of information into the page cache due to a speed-up change introduced in 2017. This memory corruption can be exploited to modify privileged files, such as /usr/bin/su, leading to unauthorized privilege escalation. The researchers demonstrated the exploit using a 732-byte Python script, highlighting its simplicity and reliability across different Linux distributions.
+CVE-2026-31431, known as "Copy Fail," is a high-severity local privilege escalation vulnerability affecting the Linux kernel's cryptographic subsystem. The vulnerability resides within the algif_aead module of the AF_ALG (userspace crypto API) and results from improper memory handling during in-place operations. An unprivileged user can exploit this flaw to corrupt the cache of readable files, including setuid binaries, resulting in unauthorized root privilege escalation. This vulnerability impacts a wide range of Linux distributions, including Ubuntu 24.04 LTS, Amazon Linux 2023, Red Hat Enterprise Linux (RHEL 10.1), and SUSE 16, as well as other distributions like Debian, Fedora, and Arch Linux. The availability of a working proof-of-concept exploit has raised concerns about potential widespread exploitation, leading to its addition to the CISA KEV catalog.
 
 ## Attack Chain
 
-1. A normal user executes a malicious Python script (732 bytes).
-2. The script leverages the CVE-2026-31431 vulnerability in the algif_aead module.
-3. The vulnerability causes a four-byte write to an incorrect location in the page cache.
-4. This write corrupts the memory of a privileged file, such as /usr/bin/su.
-5. When /usr/bin/su is executed, it runs with the corrupted memory.
-6. The attacker gains an elevated (root) shell due to the modified /usr/bin/su binary.
-7. The attacker now has complete control over the system.
+1.  **Reconnaissance:** The attacker gains limited visibility into the environment (e.g., compromised CI runner, web container) and identifies the kernel version. Kernel version information is obtained without elevated privileges.
+2.  **Script Execution:** The attacker executes a compact Python script that interacts with standard kernel interfaces, without relying on networking, compilation, or third-party libraries.
+3.  **AF_ALG Abuse:** The script abuses an interaction between the AF_ALG (asynchronous crypto) socket interface, the splice() system call and improper error handling during a failed copy operation.
+4.  **Kernel Page Cache Corruption:** This interaction leads to a controlled 4-byte overwrite in the kernel page cache, corrupting sensitive kernel-managed data.
+5.  **Privilege Escalation:** By corrupting kernel structures associated with credentials or execution context, the attacker escalates their process to UID 0.
+6.  **Boundary Breach:** The system's privilege boundary is broken, neutralizing SELinux/AppArmor protections, and bypassing local security controls.
+7.  **Lateral Movement/Container Escape:** The attacker can now use the root privileges gained to perform lateral movement or escape the container.
 
 ## Impact
 
-Successful exploitation of the "Copy Fail" vulnerability (CVE-2026-31431) grants an attacker full root access to the compromised system. The vulnerability is present across multiple Linux distributions, including Ubuntu 24.04 LTS, Amazon Linux 2023, Red Hat Enterprise Linux 10.1, and SUSE 16, potentially affecting a large number of systems. The attack leaves minimal forensic traces, as the modifications occur in memory rather than on disk. This makes it difficult for traditional file integrity monitoring tools to detect the compromise.
+Successful exploitation of CVE-2026-31431 leads to full root privilege escalation, resulting in high impact to confidentiality, integrity, and availability. This could facilitate container breakout, multi-tenant compromise, and lateral movement within shared environments. The vulnerability's reliability, stealth (in-memory-only modification), and cross-platform applicability make it particularly dangerous in cloud, CI/CD, and Kubernetes environments.
 
 ## Recommendation
 
-*   Apply the latest kernel patch, specifically commit a664bf3d603d, to remediate CVE-2026-31431.
-*   If patching is not immediately feasible, disable the algif_aead module to mitigate the vulnerability, as suggested in the overview.
-*   Monitor for execution of unusual or suspicious python scripts, especially those interacting with cryptographic modules, using process creation logging and the "Detect Suspicious Python Cryptographic Module Usage" Sigma rule.
+*   Identify all instances of affected products and versions in your environment and prioritize patching (CVE-2026-31431).
+*   Deploy the Sigma rule for suspicious process execution under /tmp, often used in exploit PoCs, and tune for your environment.
+*   Monitor for suspicious AF_ALG socket creation events, as indicated in the Attack Chain, using the provided Sigma rule.
+*   If patches are unavailable, consider implementing network isolation and access controls as interim mitigation measures.
