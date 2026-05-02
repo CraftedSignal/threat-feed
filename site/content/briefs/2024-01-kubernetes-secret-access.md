@@ -1,30 +1,30 @@
 ---
-title: Kubernetes Secret Access via Unusual User Agent
+title: Kubernetes Secret Access by Node or Pod Service Account
 slug: 2024-01-kubernetes-secret-access
-description: This rule detects when secrets are accessed via an unusual user agent, user name, and source IP in a Kubernetes cluster, indicating potential credential access attempts by attackers seeking sensitive information.
-date: "2026-03-26T16:16:30Z"
+description: This rule detects Kubernetes audit events where a node or pod service account attempts to read secrets directly, which is often a sign of credential access.
+date: "2024-01-03T18:22:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
 tags:
   - kubernetes
   - credential-access
   - cloud
+products:
+  - kubernetes
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1552
     technique_name: Unsecured Credentials
 references:
-  - https://attack.mitre.org/techniques/T1552/
   - https://attack.mitre.org/techniques/T1552/007/
-  - https://attack.mitre.org/tactics/TA0006/
-  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/kubernetes/credential_access_get_secrets_access.toml
+  - https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens
 rules:
-  - title: Kubernetes Secret Accessed from Outside Pod
-    description: Detects secret access events originating from outside of a pod within the cluster.
+  - title: Kubernetes Secret GET/LIST by Node or Pod Service Account
+    description: Detects Kubernetes audit events where a node or pod service account attempts to read secrets, which is often a sign of credential access.
     platform: sigma
     severity: medium
     tactics:
@@ -32,43 +32,43 @@ rules:
     techniques:
       - T1552.007
     data_sources:
-      - network_connection
-      - kubernetes
-  - title: Kubernetes Secret Access via Unusual User Agent
-    description: Detects Kubernetes secret access events with unusual user agents.
+      - webserver
+      - linux
+  - title: Kubernetes API Secret Access via Audit Logs
+    description: Detects Kubernetes audit events indicating potential secret access by unauthorized entities based on user agent.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
       - credential_access
     techniques:
-      - T1552
+      - T1552.007
     data_sources:
       - webserver
-      - kubernetes
+      - linux
 rules_count: 2
 ---
 
-This detection rule focuses on identifying unusual access patterns to secrets within a Kubernetes environment. After gaining initial access to a Kubernetes cluster, attackers often target stored secrets to escalate privileges and access sensitive information such as credentials, API keys, and other confidential data. The rule leverages Kubernetes audit logs to monitor API requests for secret retrieval ("get" or "list" actions) and flags instances where the requests originate from an unexpected user agent, source IP, or user name. This helps identify potentially malicious actors attempting to compromise the cluster by exploiting unsecured credentials. The rule is designed to detect deviations from established access patterns.
+This detection rule identifies suspicious Kubernetes API access patterns indicative of credential access. Specifically, it focuses on `get` or `list` operations targeting the `secrets` resource performed by node identities (`system:node:*`) or pod service accounts (`system:serviceaccount:*`). Attackers who have compromised a pod service account or node credentials might attempt to enumerate secrets to discover sensitive information such as tokens, registry credentials, TLS keys, or application configurations. While legitimate controllers may read secrets, direct access from node or pod service accounts warrants investigation, especially when cross-namespace or involving high-value secrets. The rule is intended to be triaged based on namespace scope, user agent, RBAC, and relevance of the identity to the accessed secret.
 
 ## Attack Chain
 
-1.  Attacker gains initial access to a Kubernetes cluster, possibly through exploiting a vulnerability in a deployed application or by compromising a service account.
-2.  The attacker enumerates available resources within the cluster, including secrets, to identify potential targets for credential harvesting.
-3.  The attacker crafts an API request to retrieve the contents of a targeted secret. This request may use `kubectl` or the Kubernetes API directly.
-4.  The API request is sent to the Kubernetes API server, specifying the `get` or `list` verb and the name of the targeted secret resource.
-5.  Kubernetes audit logging captures the API request, including details about the source IP address, user agent, user name, and the requested resource.
-6.  The detection rule analyzes the audit log data and flags any requests originating from an unusual user agent, IP address, or user name that deviates from the established baseline.
-7.  If the API request is authorized, the API server retrieves the secret data from the etcd datastore and returns it to the attacker.
-8.  The attacker uses the retrieved secrets to gain access to other systems, services, or data within or outside the Kubernetes environment.
+1.  Attacker gains initial access to a Kubernetes cluster, possibly through compromising a pod or node.
+2.  Attacker obtains credentials for a service account associated with the compromised pod or accesses node credentials.
+3.  Attacker uses the stolen credentials to authenticate against the Kubernetes API.
+4.  The attacker attempts to enumerate secrets within the cluster using `kubectl get secrets --all-namespaces` or similar API calls.
+5.  The Kubernetes API server receives the request and generates an audit log entry.
+6.  This audit log entry contains details such as the user (`system:node:*` or `system:serviceaccount:*`), the action (`get` or `list`), and the resource (`secrets`).
+7.  The attacker identifies valuable secrets containing sensitive information such as API keys or database passwords.
+8.  Attacker exfiltrates the secrets, gaining unauthorized access to other systems or data.
 
 ## Impact
 
-Compromise of Kubernetes secrets can lead to widespread damage, including unauthorized access to sensitive data, lateral movement within the cluster, and exfiltration of confidential information. Successful exploitation can grant attackers persistent access to the environment and allow them to disrupt critical services. The severity of the impact depends on the sensitivity of the information stored in the compromised secrets.
+Compromised Kubernetes secrets can lead to a wide range of security breaches, including unauthorized access to sensitive data, lateral movement within the cluster, and compromised external services that rely on the exposed credentials. If successful, attackers could gain complete control over the cluster and its applications, leading to data breaches, service disruption, and reputational damage. The risk is elevated in environments where secrets are not properly managed or where RBAC is overly permissive.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Kubernetes Secret Access via Unusual User Agent" to your SIEM and tune the `new_terms_fields` value in the rule to match your environment.
-*   Investigate any alerts generated by the Sigma rule, paying close attention to the source IP address, user agent, and user name associated with the secret access attempt.
-*   Implement strong authentication and authorization controls for Kubernetes API access to prevent unauthorized users from retrieving secrets (reference: MITRE ATT&CK T1552.007).
-*   Regularly rotate Kubernetes secrets and store them securely using a dedicated secrets management solution.
-*   Monitor Kubernetes audit logs for suspicious activity related to secret access (Data Source: Kubernetes).
+*   Deploy the provided Sigma rule to your SIEM to detect unauthorized secret access attempts by node or pod service accounts in Kubernetes audit logs.
+*   Review RBAC configurations to ensure least privilege for service accounts and nodes, limiting their access to only necessary secrets.
+*   Investigate any alerts generated by the Sigma rule, focusing on cross-namespace access, high-value secret names, and unusual user agents.
+*   Implement a process for regularly rotating secrets and auditing access to sensitive resources within the Kubernetes cluster.
+*   Baseline normal secret access patterns for in-cluster operators, CSI drivers, and GitOps agents, and create allowlists to reduce false positives.
