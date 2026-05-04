@@ -1,42 +1,48 @@
 ---
-title: YunaiV yudao-cloud Improper Authentication Vulnerability (CVE-2026-7679)
+title: YunaiV yudao-cloud Authentication Bypass Vulnerability (CVE-2026-7710)
 slug: 2026-05-yunai-auth-bypass
-description: YunaiV yudao-cloud up to version 2026.01 is vulnerable to improper authentication due to a flaw in the getAccessToken function, allowing remote attackers to bypass authentication.
-date: "2026-05-03T05:15:59Z"
+description: YunaiV yudao-cloud up to version 3.8.0 is vulnerable to an authentication bypass (CVE-2026-7710) due to improper handling of the mock-token argument in the JwtAuthenticationTokenFilter.java file, allowing remote attackers to bypass authentication.
+date: "2026-05-04T00:16:39Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - cve
-  - authentication-bypass
-  - web-application
+  - authentication bypass
+  - cve-2026-7710
+  - web application
 vendors:
   - YunaiV
 products:
-  - yudao-cloud <= 2026.01
+  - yudao-cloud <= 3.8.0
+  - Ruoyi-Vue-Pro
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-7679
+  - id: CVE-2026-7710
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7679
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7710
 rules:
-  - title: Detect Unauthorized Access Token Request
-    description: Detects suspicious requests to the getAccessToken function indicative of CVE-2026-7679 exploitation.
+  - title: Detect Malicious Mock Token Argument
+    description: Detects attempts to exploit CVE-2026-7710 by identifying requests containing the 'mock-token' argument in web server logs.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
-      - T1586
+      - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect Exploitation Attempts of CVE-2026-7679
-    description: This rule detects exploitation attempts targeting the getAccessToken function in OAuth2TokenServiceImpl.java.
+  - title: Detect Mock Token Usage in URI
+    description: This rule detects the usage of 'mock-token' within the URI, potentially indicating an attempt to exploit authentication vulnerabilities.
     platform: sigma
-    severity: critical
+    severity: medium
     tactics:
       - initial_access
     techniques:
@@ -47,25 +53,24 @@ rules:
 rules_count: 2
 ---
 
-A critical security vulnerability, identified as CVE-2026-7679, affects YunaiV yudao-cloud software up to version 2026.01. The vulnerability resides within the `getAccessToken` function of the `yudao-module-system-biz/src/main/java/io/github/ruoyi/common/oauth2/service/impl/OAuth2TokenServiceImpl.java` file. Successful exploitation allows remote attackers to perform unauthorized actions due to improper authentication mechanisms. The exploit is publicly available, raising the risk of widespread exploitation. The vendor was notified but did not respond, leaving users vulnerable. This vulnerability poses a significant risk to organizations using affected versions of yudao-cloud.
+CVE-2026-7710 is an authentication bypass vulnerability affecting YunaiV's yudao-cloud, specifically versions up to 3.8.0. The vulnerability resides in the `doFilterInternal` function within the `JwtAuthenticationTokenFilter.java` file of the Ruoyi-Vue-Pro component. An attacker can exploit this vulnerability by manipulating the `mock-token` argument, leading to improper authentication. This allows a remote attacker to potentially gain unauthorized access to the application. Public exploits are available, increasing the risk of exploitation. The vendor was notified but has not responded.
 
 ## Attack Chain
 
-1.  Attacker identifies a vulnerable instance of YunaiV yudao-cloud (<= 2026.01) exposed to the internet.
-2.  Attacker crafts a malicious request targeting the `getAccessToken` function within `OAuth2TokenServiceImpl.java`.
-3.  The crafted request exploits the improper authentication flaw in the `getAccessToken` function.
-4.  The vulnerable function fails to properly validate the attacker's request.
-5.  The attacker bypasses authentication and gains unauthorized access.
-6.  Attacker leverages the unauthorized access to perform privileged actions, potentially including data modification or exfiltration.
-7.  The attacker could establish persistent access by creating rogue administrator accounts.
+1.  Attacker identifies a YunaiV yudao-cloud instance running a vulnerable version (<= 3.8.0).
+2.  Attacker crafts a malicious HTTP request targeting an endpoint protected by authentication.
+3.  The crafted request includes a manipulated `mock-token` argument designed to bypass the JWT authentication filter.
+4.  The `JwtAuthenticationTokenFilter.java` component processes the request and improperly validates the manipulated `mock-token`.
+5.  Due to the flawed authentication logic, the attacker is granted unauthorized access as an authenticated user.
+6.  Attacker gains access to protected resources and functionalities within the application.
+7.  Attacker performs privileged actions such as data modification, account takeover, or further exploitation of the system.
 
 ## Impact
 
-Successful exploitation of CVE-2026-7679 can lead to a complete compromise of the YunaiV yudao-cloud application. An attacker can gain unauthorized access to sensitive data, modify critical configurations, or disrupt services. Given that the exploit is publicly available, the risk of widespread exploitation is elevated. This could result in significant financial losses, reputational damage, and legal liabilities for affected organizations.
+Successful exploitation of CVE-2026-7710 allows attackers to bypass authentication and gain unauthorized access to YunaiV yudao-cloud applications. This can lead to the compromise of sensitive data, modification of application settings, and potentially full system takeover. Given the availability of public exploits, organizations using affected versions of yudao-cloud are at high risk. The CVSS v3.1 base score for this vulnerability is 7.3, indicating a high severity level.
 
 ## Recommendation
 
-*   Apply available patches or upgrade to a secure version of YunaiV yudao-cloud that addresses CVE-2026-7679 immediately.
-*   Monitor web server logs for suspicious requests targeting the `getAccessToken` function in `OAuth2TokenServiceImpl.java` using the provided Sigma rule.
-*   Implement strict input validation and authentication mechanisms in the `getAccessToken` function to prevent similar vulnerabilities in the future.
-*   Review and restrict network access to the yudao-cloud application, limiting access to authorized users and systems.
+*   Upgrade YunaiV yudao-cloud to a patched version that addresses CVE-2026-7710.
+*   Deploy the Sigma rule `Detect Malicious Mock Token Argument` to identify exploitation attempts by monitoring web server logs for the presence of a `mock-token` argument.
+*   Implement input validation on the server side to ensure that `mock-token` values conform to expected patterns.
