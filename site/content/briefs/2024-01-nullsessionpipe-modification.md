@@ -1,0 +1,103 @@
+---
+title: NullSessionPipe Registry Modification for Lateral Movement
+slug: 2024-01-nullsessionpipe-modification
+description: Attackers modify the NullSessionPipe registry setting in Windows to enable anonymous access to named pipes, potentially facilitating lateral movement and unauthorized access to network resources.
+date: "2024-01-03T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+tags:
+  - lateral-movement
+  - defense-evasion
+  - registry-modification
+vendors:
+  - Microsoft
+  - SentinelOne
+  - Crowdstrike
+  - Elastic
+products:
+  - M365 Defender
+  - Elastic Defend
+  - SentinelOne Cloud Funnel
+  - Sysmon
+affected_os:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021
+    technique_name: Remote Services
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1112
+    technique_name: Modify Registry
+references:
+  - https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-access-restrict-anonymous-access-to-named-pipes-and-shares
+rules:
+  - title: NullSessionPipe Registry Modification - Sysmon
+    description: Detects the creation or modification of the NullSessionPipes registry key, which can be used to allow anonymous access to named pipes.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+      - lateral_movement
+    techniques:
+      - T1021.002
+      - T1112
+    data_sources:
+      - registry_set
+      - windows
+  - title: NullSessionPipe Registry Modification - PowerShell
+    description: Detects PowerShell commands used to modify the NullSessionPipes registry key.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+      - lateral_movement
+    techniques:
+      - T1021.002
+      - T1112
+    data_sources:
+      - process_creation
+      - windows
+  - title: NullSessionPipe Registry Modification - reg.exe
+    description: Detects usage of reg.exe to modify NullSessionPipes.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+      - lateral_movement
+    techniques:
+      - T1021.002
+      - T1112
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 3
+---
+
+This detection rule identifies modifications to the `NullSessionPipe` registry setting in Windows. This setting defines named pipes that can be accessed without authentication, facilitating anonymous connections. Adversaries may exploit this by modifying the registry to enable lateral movement, allowing unauthorized access to network resources. By adding specific pipes to the `NullSessionPipes` registry key, an attacker can make services accessible without requiring authentication. This rule focuses on flagging modifications that introduce new accessible pipes, which could indicate malicious intent. The targeted configuration is located under `HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters`. The registry key `NullSessionPipes` is of particular interest when its values change.
+
+## Attack Chain
+
+1.  Initial compromise of a system within the network.
+2.  The attacker gains elevated privileges on the compromised system.
+3.  The attacker modifies the Windows Registry, specifically the `HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\NullSessionPipes` key. They add a new pipe name to this key, which will allow unauthenticated access to that named pipe.
+4.  The attacker uses `reg.exe` or PowerShell to modify the registry, potentially using commands like `reg add` or `Set-ItemProperty`.
+5.  A remote system attempts to connect to the newly accessible named pipe on the compromised system without authenticating.
+6.  The attacker exploits the now-accessible service or application associated with the named pipe to execute commands or transfer data.
+7.  The attacker leverages this access to move laterally within the network, compromising additional systems.
+
+## Impact
+
+Successful modification of the `NullSessionPipes` registry setting can lead to unauthorized access to sensitive resources and lateral movement within the network. By enabling anonymous access to named pipes, attackers can potentially bypass authentication mechanisms and gain control over critical systems. While the direct number of victims is not specified, the impact can be significant, particularly in organizations where shared resources and services rely on secure authentication protocols.
+
+## Recommendation
+
+*   Enable Windows Registry auditing to capture changes to the `NullSessionPipes` registry key. This will allow you to detect unauthorized modifications as described in the overview.
+*   Deploy the Sigma rule "NullSessionPipe Registry Modification" to your SIEM and tune for your environment to identify malicious activity related to named pipe modifications.
+*   Investigate any alerts generated by the Sigma rule, focusing on the specific named pipes being added or modified in the registry event details, as detailed in the rule's description.
+*   Regularly review and validate the legitimacy of existing entries in the `NullSessionPipes` registry key to identify and remove any unauthorized pipes.
