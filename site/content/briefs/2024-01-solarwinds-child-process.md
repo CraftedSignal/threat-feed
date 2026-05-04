@@ -1,8 +1,8 @@
 ---
-title: Suspicious Child Process Spawned by SolarWinds Process
+title: Suspicious SolarWinds Child Process Execution
 slug: 2024-01-solarwinds-child-process
-description: The rule detects the execution of cmd.exe or powershell.exe as a child process of SolarWinds executables, potentially indicating malicious activity stemming from a supply chain compromise.
-date: "2024-01-04T12:00:00Z"
+description: Detection of unusual child processes spawned by SolarWinds processes may indicate malicious program execution, potentially bypassing security controls.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,53 +10,52 @@ severities:
   - medium
 tags:
   - supply-chain
-  - solarwinds
   - execution
+  - solarwinds
 vendors:
-  - SolarWinds
-  - Microsoft
   - Elastic
+  - SolarWinds
   - SentinelOne
-  - Crowdstrike
+products:
+  - Elastic Defend
+  - SolarWinds.BusinessLayerHost.exe
+  - SolarWinds.BusinessLayerHostx64.exe
+  - SentinelOne Cloud Funnel
 affected_os:
-  - windows
+  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
+    technique_id: T1106
+    technique_name: Native API
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1195
     technique_name: Supply Chain Compromise
 references:
   - https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html
-  - https://github.com/mandiant/sunburst_countermeasures/blob/main/rules/SUNBURST/hxioc/SUNBURST%20SUSPICIOUS%20FILEWRITES%20(METHODOLOGY).ioc
+  - https://github.com/mandiant/sunburst_countermeasures/blob/main/rules/SUNBURST/hxioc/SUNBURST%20SUSPICIOUS%20CHILD%20PROCESSES%20(METHODOLOGY).ioc
 rules:
-  - title: SolarWinds Process Spawning Command Interpreter
-    description: Detects cmd.exe or powershell.exe spawned as child processes of SolarWinds executables.
+  - title: Suspicious SolarWinds Child Process - CommandLine
+    description: Detects suspicious command lines in child processes of SolarWinds BusinessLayerHost.exe
     platform: sigma
     severity: medium
     tactics:
       - execution
-      - initial_access
     techniques:
-      - T1059.003
+      - T1059.001
       - T1195.002
     data_sources:
       - process_creation
       - windows
-  - title: SolarWinds Process Creation
-    description: Detects any process creation events where SolarWinds executables are the parent process.
+  - title: Suspicious SolarWinds Child Process - Executable
+    description: Detects suspicious executable names in child processes of SolarWinds BusinessLayerHost.exe
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - initial_access
+      - execution
     techniques:
+      - T1059.001
       - T1195.002
     data_sources:
       - process_creation
@@ -64,28 +63,24 @@ rules:
 rules_count: 2
 ---
 
-This detection rule identifies suspicious command execution originating from SolarWinds processes. Adversaries may leverage compromised SolarWinds installations to execute arbitrary commands, often using cmd.exe or powershell.exe to perform malicious actions. The rule focuses on detecting instances where these command interpreters are spawned as child processes of specific SolarWinds executables, indicating potential misuse. This activity is associated with supply chain compromise attacks, similar to the SUNBURST campaign which impacted SolarWinds Orion Platform. Detecting this pattern can help identify and respond to potential compromises within SolarWinds environments. The rule is designed to detect post-compromise activity rather than the initial entry vector.
+This detection rule identifies suspicious child processes initiated by SolarWinds.BusinessLayerHost.exe or SolarWinds.BusinessLayerHostx64.exe, excluding known legitimate operations. Adversaries may exploit the trusted SolarWinds processes to execute unauthorized programs with elevated privileges, bypassing security controls. The rule focuses on Windows systems and is designed to detect activity indicative of post-compromise actions following a supply chain attack. This detection is crucial for organizations that utilize SolarWinds software, as malicious actors could leverage compromised SolarWinds installations to gain unauthorized access and execute arbitrary code within the network.
 
 ## Attack Chain
 
-1.  The attacker gains initial access via a supply chain compromise, such as the SUNBURST backdoor in SolarWinds Orion.
-2.  The compromised SolarWinds process executes commands on the system.
-3.  The SolarWinds process spawns a child process, either cmd.exe or powershell.exe.
-4.  The attacker uses cmd.exe or powershell.exe to perform reconnaissance.
-5.  The attacker uses cmd.exe or powershell.exe to move laterally within the network.
-6.  The attacker uses cmd.exe or powershell.exe to exfiltrate sensitive data.
-7.  The attacker may attempt to establish persistence on the system.
-8.  The final objective is data theft, system compromise, or further exploitation of the network.
+1. Initial compromise of the SolarWinds software supply chain (T1195.002).
+2. Malicious code is injected into SolarWinds.BusinessLayerHost.exe or SolarWinds.BusinessLayerHostx64.exe.
+3. The compromised SolarWinds process spawns a suspicious child process.
+4. The child process executes a malicious command or binary, attempting to evade detection.
+5. The child process leverages Native APIs (T1106) to perform privileged actions.
+6. Lateral movement or data exfiltration may occur from the compromised host.
 
 ## Impact
 
-A successful attack can result in widespread compromise of systems within the SolarWinds environment, potentially affecting thousands of organizations. The SUNBURST attack, for example, compromised numerous government agencies and private companies. Impacts include data theft, system disruption, and the potential for further attacks on connected networks. The severity of the impact depends on the extent of the attacker's access and the sensitivity of the data they can access.
+A successful attack can lead to the execution of arbitrary code on systems running SolarWinds software. This can result in data theft, system compromise, and further propagation of the attack throughout the network. Organizations in various sectors utilizing SolarWinds products are potentially at risk. The impact may include loss of sensitive data, disruption of critical services, and reputational damage.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `SolarWinds Process Spawning Command Interpreter` to your SIEM to detect suspicious command execution.
-*   Enable process creation logging with command line arguments to provide visibility for the Sigma rule to function correctly.
-*   Investigate any alerts generated by this rule, focusing on the command-line arguments used by the spawned processes.
-*   Review SolarWinds configurations for any unauthorized changes or modifications.
-*   Implement application whitelisting to prevent unauthorized execution of command-line interpreters from SolarWinds processes as mentioned in the overview.
-*   Refer to the references in this brief for more information on the SUNBURST attack and mitigation strategies.
+*   Deploy the Sigma rule `Suspicious SolarWinds Child Process - CommandLine` to detect potentially malicious child processes of SolarWinds.BusinessLayerHost.exe or SolarWinds.BusinessLayerHostx64.exe.
+*   Deploy the Sigma rule `Suspicious SolarWinds Child Process - Executable` to detect execution of unusual executables as child processes of SolarWinds.BusinessLayerHost.exe or SolarWinds.BusinessLayerHostx64.exe.
+*   Enable process creation logging with command line details on Windows systems to ensure the Sigma rules have sufficient data.
+*   Review and tune the rules for false positives based on legitimate SolarWinds child processes in your environment, updating the exclusion lists in the rules accordingly, referencing the "false_positives" section in the rule description.
