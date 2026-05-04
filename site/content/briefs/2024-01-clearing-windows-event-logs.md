@@ -1,47 +1,29 @@
 ---
-title: Windows Event Log Clearing Detected
+title: Windows Event Logs Cleared
 slug: 2024-01-clearing-windows-event-logs
-description: Attackers commonly clear or disable Windows event logs using `wevtutil.exe` or the `Clear-EventLog` PowerShell cmdlet in an attempt to evade detection and destroy forensic evidence on compromised systems.
-date: "2024-01-25T12:00:00Z"
+description: Attackers attempt to clear Windows event logs to evade detection and remove forensic evidence of their activities.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - low
 tags:
   - defense-evasion
   - windows
-  - event-logs
-vendors:
-  - Microsoft
-  - Elastic
-  - SentinelOne
-  - Crowdstrike
-products:
-  - Microsoft Defender XDR
-  - Elastic Defend
-  - SentinelOne Cloud Funnel
-  - CrowdStrike Falcon
 affected_os:
-  - Windows
+  - windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1070
     technique_name: Indicator Removal
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1562
-    technique_name: Impair Defenses
 references:
-  - https://www.elastic.co/security-labs/invisible-miners-unveiling-ghostengine
   - https://attack.mitre.org/techniques/T1070/
   - https://attack.mitre.org/techniques/T1070/001/
-  - https://attack.mitre.org/techniques/T1562/
-  - https://attack.mitre.org/techniques/T1562/002/
 rules:
-  - title: Detect Windows Event Log Clearing via Wevtutil
-    description: Detects the clearing of Windows event logs using wevtutil.exe, a common technique for defense evasion.
+  - title: Windows Event Logs Cleared
+    description: Detects attempts to clear Windows event logs by monitoring for specific event IDs associated with log clearing.
     platform: sigma
     severity: medium
     tactics:
@@ -49,12 +31,12 @@ rules:
     techniques:
       - T1070.001
     data_sources:
-      - process_creation
+      - event_audit
       - windows
-  - title: Detect Windows Event Log Clearing via PowerShell
-    description: Detects the clearing of Windows event logs using the Clear-EventLog PowerShell cmdlet.
+  - title: Suspicious Process Clearing Windows Event Logs
+    description: Detects suspicious processes that may be used to clear Windows event logs.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - defense_evasion
     techniques:
@@ -65,26 +47,24 @@ rules:
 rules_count: 2
 ---
 
-Attackers frequently target Windows Event Logs to cover their tracks after gaining access to a system. By clearing or disabling these logs, they aim to evade detection, hinder forensic investigations, and prolong their presence on the compromised network. This activity is typically performed using the `wevtutil.exe` utility or the `Clear-EventLog` PowerShell cmdlet. Elastic has observed and documented this technique, providing a rule that detects such attempts across various data sources, including endpoint telemetry and security event logs. The rule aims to identify malicious usage of these tools for defense evasion.
+Attackers often clear Windows event logs to cover their tracks and hinder forensic investigations. This technique is employed post-compromise to remove evidence of malicious activities, making it difficult for defenders to detect and respond to intrusions. This behavior is typically observed after an attacker has achieved their objectives and seeks to maintain persistence or further compromise the system. By clearing logs, attackers can evade detection and prolong their access to the compromised environment. This can occur through various means, but the end result is the deletion of Security or System event logs, which are critical for security monitoring. This activity aims to disrupt incident response and evade SIEM detections.
 
 ## Attack Chain
 
-1. Initial access is gained through methods such as phishing or exploiting vulnerabilities (not directly covered in the source).
-2. The attacker executes a privileged shell, such as `cmd.exe` or `powershell.exe`.
-3. The attacker uses `wevtutil.exe` with the `cl` or `clear-log` argument to clear specific event logs (e.g., Security, Application, System). Alternatively, the `/e:false` argument is used to disable specific event logs.
-4. If PowerShell is available, the attacker may use the `Clear-EventLog` cmdlet to achieve the same result.
-5. The attacker removes traces of their actions by deleting relevant command history files or modifying timestamps.
-6. The attacker continues lateral movement or other malicious activities, now with reduced risk of detection due to the cleared logs.
-7. The attacker exfiltrates data, deploys ransomware, or achieves other objectives.
+1. Initial compromise of the system via phishing, exploitation, or credential theft.
+2. Privilege escalation to gain administrative access to the system.
+3. Discovery of event log locations and tools for clearing logs.
+4. Execution of commands or tools to clear the Security or System event logs.
+5. Verification of event log clearance to confirm the action's success.
+6. Continued malicious activity without leaving obvious traces in the logs.
+7. Attempts to disable or tamper with security monitoring tools to prevent future detection.
 
 ## Impact
 
-Successful clearing of Windows Event Logs can severely impair an organization's ability to detect and respond to security incidents. Without proper logging, administrators lose visibility into malicious activities, making it difficult to identify compromised systems and understand the scope of an attack. This can lead to delayed incident response, increased dwell time for attackers, and greater potential for data loss or system damage. The rule has a risk score of 21, indicating a potentially serious compromise.
+The successful clearing of Windows event logs can severely impair an organization's ability to detect and respond to security incidents. The absence of log data hinders forensic investigations and prevents the identification of malicious activities. This can lead to prolonged intrusions, data breaches, and significant financial losses. The low severity reflects the fact that while impactful, this behavior often occurs post-compromise.
 
 ## Recommendation
 
-*   Deploy the provided Sigma rule to detect the execution of `wevtutil.exe` or `Clear-EventLog` with suspicious arguments in your SIEM, and tune for your environment.
-*   Enable Sysmon process-creation logging to capture command-line arguments for `wevtutil.exe` and `powershell.exe`, activating relevant portions of the Sigma rules.
-*   Investigate any alerts generated by this rule by examining process execution chains and user accounts to identify potentially malicious activity.
-*   Review and harden event log security policies to prevent unauthorized clearing or disabling of logs.
-*   Monitor Windows Security Event Logs for Event ID 1102 (Audit log was cleared) as an alternative detection method.
+*   Deploy the Sigma rule "Windows Event Logs Cleared" to your SIEM to detect attempts to clear event logs (rule.name).
+*   Investigate any alerts generated by the "Windows Event Logs Cleared" Sigma rule, focusing on the process execution chain and user accounts involved (rule.note).
+*   Enable Sysmon process creation logging to provide more detailed information about processes involved in clearing event logs (logsource.category).
