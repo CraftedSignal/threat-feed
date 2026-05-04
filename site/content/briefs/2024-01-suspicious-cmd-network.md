@@ -1,0 +1,104 @@
+---
+title: Suspicious Command Prompt Network Connection
+slug: 2024-01-suspicious-cmd-network
+description: This alert identifies suspicious network connections initiated by the command prompt (cmd.exe) when executed with arguments indicative of script execution, remote resource access, or originating from Microsoft Office applications, which is a common tactic for downloading payloads or establishing command and control.
+date: "2024-01-02T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - low
+tags:
+  - command-prompt
+  - network-connection
+  - windows
+  - execution
+  - command-and-control
+vendors:
+  - Microsoft
+  - Elastic
+  - SentinelOne
+products:
+  - Elastic Defend
+  - SentinelOne Cloud Funnel
+  - Excel
+  - MS Access
+  - MS Publisher
+  - PowerPoint
+  - Word
+  - Outlook
+affected_os:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0011
+    tactic_name: Command and Control
+    technique_id: T1071
+    technique_name: Application Layer Protocol
+  - tactic_id: TA0011
+    tactic_name: Command and Control
+    technique_id: T1105
+    technique_name: Ingress Tool Transfer
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+references:
+  - https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_command_prompt_connecting_to_the_internet.toml
+rules:
+  - title: Detect Command Prompt Connecting to Internet with Script Execution
+    description: Detects command prompt connecting to the internet while executing a script.
+    platform: sigma
+    severity: medium
+    tactics:
+      - command_and_control
+      - execution
+    techniques:
+      - T1059.003
+      - T1071
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect Command Prompt Network Connection from Office Application
+    description: Detects command prompt network connection spawned by Office applications.
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1059.003
+      - T1566.001
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+This detection identifies suspicious network connections initiated by the command prompt (cmd.exe) on Windows systems. The rule focuses on cmd.exe processes executed with specific arguments, such as those indicating script execution (e.g., *.bat, *.cmd), access to remote resources (e.g., URLs), or those spawned by Microsoft Office applications (Excel, Word, etc.). Attackers frequently abuse cmd.exe to download malicious payloads, execute commands, or establish command and control channels. This detection aims to identify such potentially malicious activity by correlating process creation events with subsequent network connections. The rule excludes common private and reserved IP address ranges to reduce false positives. The targeted systems are Windows endpoints where adversaries attempt to leverage cmd.exe for malicious purposes.
+
+## Attack Chain
+
+1. A user opens a malicious document (e.g., Word, Excel) or executes a seemingly benign application.
+2. The document or application contains a macro or script that initiates a cmd.exe process.
+3. The cmd.exe process is launched with arguments indicating script execution (`/c`, `/k`) and referencing a remote resource (e.g., a URL) or a local batch file.
+4. The cmd.exe process attempts to download a payload from a remote server using protocols like HTTP, HTTPS, or FTP.
+5. The downloaded payload is saved to disk, often with a disguised filename.
+6. The cmd.exe process executes the downloaded payload, initiating further malicious actions.
+7. The malicious payload establishes a command and control (C2) channel with a remote server.
+8. The attacker uses the C2 channel to send commands to the compromised system, potentially leading to data exfiltration or other malicious activities.
+
+## Impact
+
+Successful exploitation can lead to the compromise of Windows endpoints, potentially enabling attackers to download and execute malicious payloads, establish command and control channels, and perform further malicious activities such as data theft, lateral movement, or ransomware deployment. While this detection has a low severity, it serves as an early warning sign of potential compromise and should be investigated promptly.
+
+## Recommendation
+
+*   Enable process creation logging with command line arguments to capture the full context of cmd.exe executions.
+*   Monitor network connections from cmd.exe processes, focusing on connections to external IP addresses, using a network monitoring solution.
+*   Deploy the Sigma rules provided in this brief to your SIEM to detect suspicious cmd.exe network connections.
+*   Investigate any alerts generated by the Sigma rules, focusing on cmd.exe processes spawned by Office applications or those executing scripts from remote URLs.
