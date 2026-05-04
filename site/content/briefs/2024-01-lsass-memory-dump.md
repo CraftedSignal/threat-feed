@@ -1,13 +1,13 @@
 ---
-title: Potential LSASS Memory Dump via PssCaptureSnapShot
+title: LSASS Memory Dump Handle Access Detection
 slug: 2024-01-lsass-memory-dump
-description: This rule detects suspicious access to an LSASS handle via PssCaptureSnapShot where two successive process accesses are performed by the same process and target two different instances of LSASS, potentially indicating an attempt to evade detection and dump LSASS memory for credential access.
-date: "2024-01-03T10:00:00Z"
+description: This rule detects handle requests for LSASS object access with specific access masks (0x1fffff, 0x1010, 0x120089, 0x1F3FFF) indicative of memory dumping, commonly employed by tools like SharpDump, Procdump, Mimikatz, and Comsvcs to extract credentials from the LSASS process on Windows systems.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - medium
 tags:
   - credential-access
   - lsass
@@ -17,21 +17,23 @@ vendors:
   - Microsoft
 products:
   - Windows
-affected_os:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1003
     technique_name: OS Credential Dumping
 references:
-  - https://www.matteomalvica.com/blog/2019/12/02/win-defender-atp-cred-bypass/
-  - https://twitter.com/sbousseaden/status/1280619931516747777?lang=en
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
+  - https://twitter.com/jsecurity101/status/1227987828534956033?s=20
+  - https://attack.mitre.org/techniques/T1003/001/
+  - https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-170105221010.html
+  - http://findingbad.blogspot.com/2017/
+  - https://www.elastic.co/security-labs/detect-credential-access
 rules:
-  - title: Suspicious LSASS Access via PssCaptureSnapShot
-    description: Detects suspicious process access to LSASS using PssCaptureSnapShot, potentially indicating credential dumping attempts.
+  - title: LSASS Memory Dump Handle Access
+    description: Detects handle requests to LSASS process with access masks indicative of memory dumping.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - credential_access
     techniques:
@@ -39,8 +41,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Process Accessing Multiple LSASS Instances
-    description: Detects a single process accessing multiple LSASS instances, which may indicate an attempt to evade detection while dumping LSASS memory.
+  - title: LSASS Memory Read via OpenProcess
+    description: Detects programs opening LSASS with PROCESS_VM_READ and other memory access rights
     platform: sigma
     severity: high
     tactics:
@@ -53,27 +55,27 @@ rules:
 rules_count: 2
 ---
 
-This detection rule identifies suspicious attempts to dump LSASS memory using PssCaptureSnapShot, a technique that can be used to steal credentials. The rule focuses on scenarios where a single process accesses two different instances of LSASS (lsass.exe) in succession, which is an uncommon behavior and may suggest an attempt to evade traditional memory dumping detection mechanisms. The rule is triggered by Windows Sysmon event ID 10, which logs process access events. Successful exploitation allows attackers to obtain sensitive credentials stored in LSASS memory, potentially leading to lateral movement and further compromise within the network.
+The Local Security Authority Subsystem Service (LSASS) is a critical Windows process responsible for enforcing security policy and handling user authentication. Attackers often target LSASS to steal credentials for lateral movement and privilege escalation. This detection identifies attempts to access LSASS memory using specific access masks (0x1fffff, 0x1010, 0x120089, 0x1F3FFF) that are commonly used by tools designed to dump LSASS memory. The rule is designed to be tool-agnostic, detecting the underlying behavior rather than specific tool signatures. It has been validated against various LSASS dumping tools, including SharpDump, Procdump, Mimikatz, and Comsvcs. The rule triggers on Windows systems where handle manipulation is enabled and generates security event logs.
 
 ## Attack Chain
 
-1. An attacker gains initial access to a system, potentially through phishing or exploiting a vulnerability.
-2. The attacker executes a malicious program or script on the compromised system.
-3. The malicious code uses the PssCaptureSnapShot API to create a snapshot of the LSASS process memory.
-4. The same process attempts to access another instance of LSASS.
-5. The attacker extracts sensitive information, such as usernames, passwords, and Kerberos tickets, from the LSASS memory snapshot.
-6. The attacker uses the stolen credentials to escalate privileges or move laterally within the network.
-7. The attacker may attempt to establish persistence on other systems using the compromised credentials.
-8. The attacker achieves their objective, such as data exfiltration or ransomware deployment.
+1. An attacker gains initial access to a Windows system, potentially through phishing or exploiting a vulnerability.
+2. The attacker elevates privileges to an administrative account or SYSTEM, necessary for accessing LSASS memory.
+3. The attacker executes a credential dumping tool, such as Mimikatz, SharpDump, or Procdump.
+4. The tool attempts to open a handle to the LSASS process (lsass.exe) with a specific access mask (0x1fffff, 0x1010, 0x120089, 0x1F3FFF) required for memory dumping.
+5. Windows Security Event ID 4656 is generated, logging the handle request to the LSASS object.
+6. The tool reads the memory contents of the LSASS process.
+7. The dumped memory is parsed to extract sensitive information, such as passwords, NTLM hashes, and Kerberos tickets.
+8. The attacker uses the stolen credentials to move laterally to other systems or access sensitive data.
 
 ## Impact
 
-Successful exploitation and LSASS memory dumping can lead to the compromise of domain credentials, enabling attackers to move laterally across the network and gain access to sensitive data. This can result in significant financial losses, reputational damage, and disruption of business operations. Depending on the environment, this could impact hundreds or thousands of users.
+Successful LSASS memory dumping allows attackers to steal user credentials, enabling lateral movement and privilege escalation within the network. This can lead to widespread compromise, data breaches, and significant disruption of services. Stolen credentials can be used to access sensitive data, control critical systems, and maintain a persistent presence within the environment.
 
 ## Recommendation
 
-*   Enable Sysmon process access logging (Event ID 10) as required by the rule and documented in the [setup instructions](https://ela.st/sysmon-event-10-setup).
-*   Deploy the "Potential LSASS Memory Dump via PssCaptureSnapShot" Sigma rule to your SIEM and tune for your environment.
-*   Investigate any alerts generated by the rule, focusing on the process accessing LSASS and the context in which it is running.
-*   Review and harden LSASS protection configurations to mitigate the risk of credential dumping.
-*   Monitor for related alerts such as credential access, archive, lateral movement, or clone-related alerts on the same host or user.
+*   Enable Audit Handle Manipulation to generate the necessary events for this rule to function, as described in the [setup instructions](https://ela.st/audit-handle-manipulation).
+*   Deploy the Sigma rule `LSASS Memory Dump Handle Access` to your SIEM and tune the exceptions based on your environment to minimize false positives.
+*   Investigate any alerts generated by this rule, focusing on the process execution chain (parent process tree) to identify the source of the LSASS handle request.
+*   Review the processes excluded in the rule (WmiPrvSE.exe, dllhost.exe, svchost.exe, msiexec.exe, explorer.exe) and ensure these exclusions are valid for your environment.
+*   Implement strong password policies and multi-factor authentication to mitigate the impact of credential theft.
