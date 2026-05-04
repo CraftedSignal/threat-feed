@@ -1,0 +1,90 @@
+---
+title: Windows Subsystem for Linux Distribution Installed via Registry Modification
+slug: 2024-01-wsl-registry-modification
+description: This rule detects registry modifications indicative of a new Windows Subsystem for Linux (WSL) distribution installation, a technique adversaries may leverage to evade detection by utilizing Linux environments within Windows.
+date: "2024-01-03T16:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+tags:
+  - wsl
+  - defense-evasion
+  - windows
+vendors:
+  - Microsoft
+  - Elastic
+  - Crowdstrike
+  - SentinelOne
+products:
+  - Windows Subsystem for Linux
+  - Elastic Defend
+  - Microsoft Defender XDR
+  - SentinelOne Cloud Funnel
+  - CrowdStrike FDR
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1112
+    technique_name: Modify Registry
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1202
+    technique_name: Indirect Command Execution
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+references:
+  - https://learn.microsoft.com/en-us/windows/wsl/wsl-config
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_wsl_registry_modification.toml
+rules:
+  - title: Detect WSL Installation via Registry Modification
+    description: Detects the installation of a new Windows Subsystem for Linux distribution by monitoring registry changes related to PackageFamilyName.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1112
+    data_sources:
+      - registry_set
+      - windows
+  - title: Detect WSL Installation via Registry Path Creation
+    description: Detects the installation of a new Windows Subsystem for Linux distribution by monitoring registry path creation related to Lxss.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1112
+    data_sources:
+      - registry_set
+      - windows
+rules_count: 2
+---
+
+Attackers may leverage the Windows Subsystem for Linux (WSL) to evade detection by operating within a Linux environment on a Windows host. The installation of a new WSL distribution involves specific registry modifications. This rule identifies such modifications, providing an alert when a new WSL distribution is installed. This is important for defenders as it could signal an attacker setting up a persistent and potentially hidden environment for malicious activities. WSL allows attackers to utilize Linux tools and techniques on a Windows system, potentially bypassing traditional Windows-based security measures.
+
+## Attack Chain
+
+1.  Initial Access: The attacker gains initial access to the Windows system through existing vulnerabilities or compromised credentials.
+2.  Privilege Escalation: The attacker elevates their privileges to perform system-level changes, including registry modifications.
+3.  WSL Installation: The attacker initiates the installation of a WSL distribution. This may involve downloading and executing a WSL installer package.
+4.  Registry Modification: During installation, the system modifies the registry to configure and register the new WSL distribution. Specifically, keys under `HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Lxss\\` are created/modified.
+5.  WSL Environment Setup: The attacker configures the installed WSL distribution, potentially installing additional tools and software needed for their objectives.
+6.  Execution of Malicious Activities: The attacker executes malicious commands and scripts within the WSL environment, leveraging Linux tools to perform actions such as lateral movement, data exfiltration, or persistence.
+7.  Defense Evasion: The attacker utilizes WSL to evade detection, as traditional Windows-based security tools may not effectively monitor or analyze activity within the Linux subsystem.
+8.  Persistence: The attacker establishes persistence within the WSL environment, ensuring continued access to the compromised system even after reboots or security updates.
+
+## Impact
+
+Successful exploitation allows attackers to establish a hidden and persistent environment within the compromised Windows system. This can lead to data theft, system compromise, and further propagation of the attack within the network. The number of victims and affected sectors depends on the scope and objectives of the attacker. The use of WSL for malicious purposes can significantly complicate incident response and remediation efforts.
+
+## Recommendation
+
+*   Deploy the Sigma rule "Detect WSL Installation via Registry Modification" to your SIEM to detect new WSL installations by monitoring registry changes.
+*   Enable Sysmon registry event logging to capture the necessary data for the Sigma rule to function correctly (see setup instructions in the rule description).
+*   Investigate any alerts generated by the Sigma rule to determine the legitimacy of the WSL installation and identify potential malicious activities.
+*   Monitor for execution of suspicious processes within WSL environments, as described in "Execution via Windows Subsystem for Linux - db7dbad5-08d2-4d25-b9b1-d3a1e4a15efd".
