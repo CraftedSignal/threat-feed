@@ -1,0 +1,107 @@
+---
+title: Suspicious Process Execution via Renamed PsExec Executable
+slug: 2024-01-renamed-psexec
+description: Detects suspicious PsExec activity where the PsExec service component is executed using a custom name, indicating an attempt to evade detections that look for the default PsExec service component name.
+date: "2024-01-03T10:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+tags:
+  - psexec
+  - lateral-movement
+  - execution
+  - defense-evasion
+  - windows
+vendors:
+  - Microsoft
+  - Elastic
+products:
+  - Elastic Defend
+  - Microsoft Defender XDR
+  - Sysmon
+affected_os:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1569
+    technique_name: System Services
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1036
+    technique_name: Masquerading
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021
+    technique_name: Remote Services
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_suspicious_psexesvc.toml
+  - https://attack.mitre.org/techniques/T1569/
+  - https://attack.mitre.org/techniques/T1569/002/
+  - https://attack.mitre.org/tactics/TA0002/
+  - https://attack.mitre.org/techniques/T1036/
+  - https://attack.mitre.org/techniques/T1036/003/
+  - https://attack.mitre.org/tactics/TA0005/
+  - https://attack.mitre.org/techniques/T1021/
+  - https://attack.mitre.org/techniques/T1021/002/
+  - https://attack.mitre.org/tactics/TA0008/
+rules:
+  - title: Suspicious Process Execution via Renamed PsExec Executable
+    description: Identifies suspicious psexec activity which is executing from the psexec service that has been renamed, possibly to evade detection.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+      - execution
+      - lateral_movement
+    techniques:
+      - T1021.002
+      - T1036.003
+      - T1569.002
+    data_sources:
+      - process_creation
+      - windows
+  - title: PsExec Service Executed from Non-Standard Location
+    description: Detects the execution of the PsExec service (psexesvc.exe) from a non-standard location, which could indicate malicious activity.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+      - execution
+      - lateral_movement
+    techniques:
+      - T1021.002
+      - T1036.003
+      - T1569.002
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+PsExec is a legitimate remote administration tool developed by Microsoft as part of the Sysinternals Suite, enabling the execution of commands with both regular and SYSTEM privileges on Windows systems. It functions by executing a service component, `Psexecsvc.exe`, on a remote system, which then runs a specified process and returns the results to the local system. While commonly used by administrators, adversaries frequently abuse PsExec for lateral movement and to execute commands as SYSTEM, effectively disabling defenses and bypassing security protections. This detection identifies instances where the PsExec service component is executed using a custom name, a tactic employed to evade security controls or detections targeting the default PsExec service component name. The rule was last updated on 2026-05-04 and covers Elastic Defend, Windows, M365 Defender, and Crowdstrike data sources.
+
+## Attack Chain
+
+1.  An attacker gains initial access to a system within the network (e.g., via phishing or exploiting a public-facing application).
+2.  The attacker uploads a renamed version of `psexesvc.exe` to a compromised host.
+3.  The attacker uses a tool like the standard `PsExec.exe` to initiate a remote connection to a target system.
+4.  PsExec attempts to copy the renamed `psexesvc.exe` to the ADMIN$ share on the target system.
+5.  The renamed `psexesvc.exe` is executed as a service on the remote host.
+6.  The renamed service executes commands specified by the attacker with SYSTEM privileges.
+7.  The results of the commands are returned to the originating system.
+8.  The attacker leverages the command execution for lateral movement, data exfiltration, or further compromise of the environment.
+
+## Impact
+
+A successful attack can lead to complete compromise of the target system and potentially the entire network. By executing commands with SYSTEM privileges, attackers can disable security controls, install malware, steal sensitive data, or move laterally to other critical systems. The use of a renamed PsExec executable demonstrates an attempt to evade detection, increasing the likelihood of a successful breach.
+
+## Recommendation
+
+*   Deploy the Sigma rule "Suspicious Process Execution via Renamed PsExec Executable" to your SIEM and tune for your environment to detect the execution of renamed `psexesvc.exe` executables.
+*   Enable Sysmon process creation logging (Event ID 1) to capture the necessary process execution details for the Sigma rule.
+*   Investigate any alerts generated by this rule promptly, focusing on the commands executed and the target systems involved.
+*   Review and enforce the principle of least privilege to minimize the potential impact of compromised accounts.
+*   Monitor network traffic for SMB connections originating from unusual or untrusted systems, which could indicate PsExec usage.
