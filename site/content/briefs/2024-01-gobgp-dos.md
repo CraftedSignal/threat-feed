@@ -1,74 +1,74 @@
 ---
 title: GoBGP Remote Denial of Service via Malformed BGP Update Message
 slug: 2024-01-gobgp-dos
-description: A denial-of-service vulnerability exists in GoBGP version 4.3.0 where a malformed BGP UPDATE message containing an unrecognized Well-known Path Attribute triggers a nil pointer dereference, causing the BGP daemon to crash.
-date: "2024-01-03T12:00:00Z"
+description: GoBGP version 4.4.0 is vulnerable to a remote denial-of-service attack where a malformed BGP UPDATE message triggers a nil pointer dereference, crashing the GoBGP process.
+date: "2024-01-09T18:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
 tags:
-  - gobgp
-  - dos
   - bgp
-  - routing
+  - denial-of-service
+  - networking
 vendors:
-  - GoBGP
+  - osrg
 products:
-  - GoBGP
+  - gobgp/v4 (4.4.0)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
-    technique_id: T1499
-    technique_name: Endpoint Denial of Service
+    technique_id: T1498
+    technique_name: Denial of Service
 references:
-  - https://github.com/advisories/GHSA-7235-89m6-f4px
+  - https://github.com/advisories/GHSA-p3w2-64xm-833j
 rules:
-  - title: Detect GoBGP Malformed BGP Update
-    description: Detects BGP UPDATE messages with unrecognized Well-known Path Attributes, potentially indicating a DoS attack against GoBGP.
-    platform: sigma
-    severity: high
-    tactics:
-      - availability
-    techniques:
-      - T1499.004
-    data_sources:
-      - network_connection
-      - zeek
-  - title: Detect GoBGP Crash via System Logs
-    description: Detects GoBGP process crashes indicated by specific error messages in system logs.
+  - title: Detect GoBGP Crash via Nil Pointer Dereference
+    description: Detects GoBGP crashes resulting from nil pointer dereference during BGP update processing.
     platform: sigma
     severity: critical
     tactics:
       - availability
     techniques:
-      - T1499.004
+      - T1498
     data_sources:
-      - system
+      - process_creation
+      - linux
+  - title: Detect Malformed BGP Update Messages
+    description: Detects malformed BGP Update messages by analyzing GoBGP log data for specific warning messages related to attribute validation failures.
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial_access
+    techniques:
+      - T1595
+    data_sources:
+      - webserver
       - linux
 rules_count: 2
 ---
 
-GoBGP version 4.3.0 is susceptible to a denial-of-service (DoS) vulnerability triggered by malformed BGP UPDATE messages. Specifically, when GoBGP receives an UPDATE message containing an unrecognized Path Attribute marked as "Well-known" (Optional bit set to 0), the daemon fails to properly handle the error. This leads to a nil pointer dereference, resulting in a panic and subsequent crash of the entire GoBGP process. This vulnerability, disclosed in GHSA-7235-89m6-f4px, can be exploited by any BGP peer, internal or external, sending such a malformed message. This poses a significant risk to network stability as it can disrupt BGP routing and connectivity.
+GoBGP version 4.4.0 is susceptible to a denial-of-service (DoS) vulnerability that can be exploited by unauthenticated remote BGP peers. This flaw arises from improper handling of malformed BGP UPDATE messages, specifically those containing inconsistent attribute lengths. When a GoBGP server receives such a message, it incorrectly transitions to a "withdraw" action, leading to a nil pointer dereference in the `AdjRib.Update` function. This dereference causes a fatal panic, crashing the entire GoBGP process and resulting in a complete loss of BGP service availability. This vulnerability allows an attacker to disrupt network routing and potentially cause significant network outages.
 
 ## Attack Chain
 
-1. An attacker establishes a standard BGP session with the targeted GoBGP instance, completing the OPEN/KEEPALIVE exchange.
-2. The attacker crafts a malicious BGP UPDATE message.
-3. This UPDATE message includes a Path Attribute with the Optional bit set to 0 (Well-known).
-4. The Path Attribute Type Code is set to an unrecognized value (e.g., 0xEE or 0xFF).
-5. The parsing logic in GoBGP identifies the unrecognized Well-known attribute.
-6. The `recvMessageloop` function in `pkg/server/fsm.go` fails to halt execution after identifying the malformed attribute.
-7. The code attempts to dereference a nil pointer associated with the invalid message body.
-8. This results in a "panic: runtime error: invalid memory address or nil pointer dereference", causing the GoBGP daemon to crash, disrupting BGP routing.
+1. An unauthenticated remote BGP peer establishes a BGP connection with the vulnerable GoBGP server.
+2. The attacker crafts a malicious BGP UPDATE message with inconsistent attribute lengths.
+3. The crafted UPDATE message is sent to the GoBGP server over the established BGP session.
+4. The `handleUpdate` function in `pkg/server/peer.go` processes the received message.
+5. Due to the malformed attributes, the message is treated as a withdrawal.
+6. The `AdjRib.Update` function in `internal/pkg/table/adj.go` is called.
+7. At line 127 of `adj.go`, the code attempts to access a member of a nil pointer, causing a panic.
+8. The GoBGP process crashes, resulting in a denial of service.
 
 ## Impact
 
-The vulnerability allows a remote attacker to cause a denial-of-service condition on GoBGP deployments. A single malformed UPDATE message is sufficient to trigger the crash, affecting all GoBGP instances peering with potentially malicious or compromised BGP speakers. This can lead to routing instability, network outages, and potential data plane disruptions. The affected version, 4.3.0, may be widely deployed in various network environments, making it a significant concern for network operators.
+Successful exploitation of this vulnerability results in a complete denial of BGP service, as the GoBGP process crashes. This can disrupt network routing, potentially leading to significant network outages and impacting any services relying on BGP. The vulnerability affects GoBGP version 4.4.0. While the exact number of affected installations is unknown, any network relying on a vulnerable GoBGP instance is at risk.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect GoBGP Malformed BGP Update` to identify crafted BGP UPDATE messages containing unrecognized Well-known Path Attributes via network traffic analysis.
-*   Monitor BGP peer sessions for unexpected disconnects or restarts, which may indicate exploitation of this vulnerability.
-*   Consider implementing BGP route filtering and validation mechanisms to mitigate the impact of malformed or malicious UPDATE messages.
+*   Upgrade to a patched version of GoBGP that addresses CVE-2026-42285.
+*   Implement the Sigma rule "Detect GoBGP Crash via Nil Pointer Dereference" to detect exploitation attempts in real-time based on log messages.
+*   Monitor BGP sessions from IP 192.168.31.195, as this address was involved in the proof-of-concept exploit.
+*   Deploy the Sigma rule "Detect Malformed BGP Update Messages" to identify potentially malicious BGP UPDATE messages.
