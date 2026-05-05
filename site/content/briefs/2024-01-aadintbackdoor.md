@@ -1,0 +1,99 @@
+---
+title: Detection of ConvertTo-AADIntBackdoor Execution via PowerShell
+slug: 2024-01-aadintbackdoor
+description: This brief outlines the detection of the ConvertTo-AADIntBackdoor command execution via PowerShell Script Block Logging, a technique used to create a backdoor in federated Azure AD domains by modifying federation settings and allowing attackers to control the authentication process.
+date: "2024-01-03T15:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - critical
+tags:
+  - azure-ad
+  - backdoor
+  - powershell
+  - persistence
+  - privilege-escalation
+vendors:
+  - Microsoft
+products:
+  - Azure Active Directory
+affected_os:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1482
+    technique_name: Domain Trust Modification
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1212
+    technique_name: Exploitation for Credential Access
+  - tactic_id: TA0011
+    tactic_name: Command and Control
+    technique_id: T1071
+    technique_name: Application Layer Protocol
+references:
+  - https://atomicredteam.io/privilege-escalation/T1484.002/#atomic-test-1---add-federation-to-azure-ad
+rules:
+  - title: Detect ConvertTo-AADIntBackdoor Execution via PowerShell Script Block Logging
+    description: Detects the execution of the ConvertTo-AADIntBackdoor command within PowerShell scripts, indicating a potential attempt to create a backdoor in Azure AD federation settings.
+    platform: sigma
+    severity: critical
+    tactics:
+      - persistence
+      - privilege_escalation
+    techniques:
+      - T1071.001
+      - T1078
+      - T1212
+      - T1482
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect PowerShell Script Block Logging with ConvertTo-AADIntBackdoor
+    description: Detects instances of ConvertTo-AADIntBackdoor within PowerShell Script Block Logging (Event ID 4104), indicating potential backdoor creation attempts in Azure AD federation settings.
+    platform: sigma
+    severity: critical
+    tactics:
+      - persistence
+      - privilege_escalation
+    techniques:
+      - T1071.001
+      - T1078
+      - T1212
+      - T1482
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+The ConvertTo-AADIntBackdoor command is a component of the AADInternals toolkit, designed for security testing and administrative functions within Azure Active Directory (Azure AD) environments. When executed, this command manipulates the federation settings of a domain, adding or altering the federation configuration to grant attackers control over the authentication procedure. This allows for the forging of security tokens, enabling impersonation of any user within the Azure AD tenant. Such manipulation allows attackers to bypass Multi-Factor Authentication (MFA), escalate privileges, and establish persistent access to the Azure AD environment. Defenders should monitor PowerShell Script Block Logging for this activity, as it poses a significant risk to Azure AD environments.
+
+## Attack Chain
+
+1.  Attacker gains initial access to a system with privileges to execute PowerShell scripts.
+2.  Attacker executes a PowerShell script containing the `ConvertTo-AADIntBackdoor` command.
+3.  The `ConvertTo-AADIntBackdoor` command modifies the federation settings of an Azure AD domain.
+4.  The federation configuration is altered to allow the attacker to control the authentication process.
+5.  The attacker can now create security tokens to impersonate any user within the Azure AD tenant.
+6.  Multi-Factor Authentication (MFA) is bypassed using the forged security tokens.
+7.  The attacker escalates privileges within the Azure AD environment.
+8.  The attacker maintains persistent access to the Azure AD environment, potentially exfiltrating data or causing further damage.
+
+## Impact
+
+Successful execution of the `ConvertTo-AADIntBackdoor` command allows attackers to gain persistent, unauthorized access to Azure AD environments, bypass MFA, and escalate privileges. This can lead to significant data breaches, service disruption, and reputational damage. The scope of impact is tenant-wide, potentially affecting all users and resources within the Azure AD environment.
+
+## Recommendation
+
+*   Enable and monitor PowerShell Script Block Logging (Event ID 4104) to detect the execution of suspicious commands, as outlined in the overview.
+*   Deploy the Sigma rule provided to detect the execution of `ConvertTo-AADIntBackdoor` in PowerShell scripts and tune for your environment.
+*   Review and audit Azure AD federation settings regularly to identify any unauthorized modifications.
+*   Implement strict access controls and monitoring for accounts with permissions to modify Azure AD federation settings.
+*   Investigate any alerts generated by the provided Sigma rule, prioritizing incidents involving privileged accounts.
