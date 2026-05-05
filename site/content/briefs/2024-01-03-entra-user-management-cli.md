@@ -1,0 +1,96 @@
+---
+title: Detect Windows Entra User Management Via Azure CLI
+slug: 2024-01-03-entra-user-management-cli
+description: This analytic detects the usage of the Azure CLI to interact with user accounts, such as creating or deleting a user, potentially indicating malicious activity aimed at maintaining persistence and evading detection within an Entra ID environment.
+date: "2024-01-03T15:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+tags:
+  - azure
+  - entra-id
+  - user-management
+  - persistence
+  - windows
+vendors:
+  - Microsoft
+  - Splunk
+products:
+  - Azure CLI
+  - Splunk Enterprise
+  - Splunk Enterprise Security
+  - Splunk Cloud
+mitre_ttps:
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1136
+    technique_name: Create Account
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1098
+    technique_name: Account Manipulation
+references:
+  - https://atomicredteam.io/persistence/T1136.003/#atomic-test-3---azure-ad---create-a-new-user-via-azure-cli
+  - https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
+rules:
+  - title: Detect Entra User Management via Azure CLI
+    description: Detects the creation or modification of Entra ID users via the Azure CLI on Windows systems, indicating potential malicious activity.
+    platform: sigma
+    severity: medium
+    tactics:
+      - credential_access
+      - defense_evasion
+      - persistence
+    techniques:
+      - T1078.004
+      - T1098
+      - T1136
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect Azure CLI User Creation with Unusual Parent Process
+    description: Detects Azure CLI commands used to create users when launched from unusual parent processes.
+    platform: sigma
+    severity: high
+    tactics:
+      - persistence
+    techniques:
+      - T1078.004
+      - T1136
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+This detection identifies the use of the Azure CLI on Windows systems to manage Entra ID user accounts. Threat actors may leverage the Azure CLI to create or manipulate user accounts for persistence, privilege escalation, or to maintain a covert presence within a compromised environment. This activity may be part of a larger attack chain targeting cloud resources and sensitive data. While legitimate administrative use of the Azure CLI is expected, anomalous execution patterns, unexpected users, or unusual parent processes should be carefully scrutinized. The detection focuses on the `az.cmd` and `azure.cli` processes, filtering for command-line arguments related to Active Directory (`ad`) and user management (`user`). Successful exploitation can lead to unauthorized access, data breaches, and long-term compromise of cloud resources.
+
+## Attack Chain
+
+1. An attacker gains initial access to a compromised Windows system, potentially through phishing or exploitation of a software vulnerability.
+2. The attacker installs or leverages an existing installation of the Azure CLI.
+3. The attacker authenticates to Azure using compromised credentials or a service principal.
+4. The attacker executes the `az ad user create` command to create a new user account in Entra ID.
+5. The attacker assigns the newly created user account elevated privileges, such as Global Administrator, using `az ad role assignment create`.
+6. The attacker uses the newly created account to access sensitive cloud resources, such as Azure VMs, storage accounts, or databases.
+7. The attacker may modify existing user accounts using `az ad user update` to add backdoors or modify authentication methods.
+8. The attacker uses these accounts for lateral movement and further exploitation within the Azure environment, bypassing MFA if possible.
+
+## Impact
+
+Successful exploitation allows attackers to create rogue accounts within the Entra ID environment, granting them persistent access even if the original compromised account is disabled. This can lead to unauthorized access to sensitive data, disruption of services, and long-term compromise of the organization's cloud infrastructure. The impact can range from data breaches and financial loss to reputational damage and legal liabilities. Depending on the permissions granted to the attacker-created users, the blast radius can encompass the entire Entra ID tenant and connected resources.
+
+## Recommendation
+
+*   Enable Sysmon process-creation logging with command-line auditing to capture the execution of Azure CLI commands (Sysmon EventID 1).
+*   Deploy the Sigma rule `Detect Entra User Management via Azure CLI` to your SIEM and tune for your environment.
+*   Monitor Windows Event Log Security events with ID 4688 for process creation events related to Azure CLI.
+*   Investigate any alerts generated by the Sigma rule, focusing on unusual parent processes, unexpected users, and anomalous execution patterns.
+*   Implement multi-factor authentication (MFA) for all user accounts, including administrative accounts, to mitigate the risk of credential compromise.
+*   Review and restrict Azure AD role assignments to follow the principle of least privilege.
