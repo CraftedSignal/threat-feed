@@ -1,7 +1,7 @@
 ---
-title: GitHub Enterprise Branch Ruleset Deletion
+title: GitHub Organizations Branch Ruleset Deletion
 slug: 2024-01-github-branch-ruleset-deletion
-description: Detection of GitHub Enterprise branch ruleset deletion, which may indicate an attempt to bypass code review requirements and security controls, potentially leading to unauthorized code changes and backdoors.
+description: Detection of GitHub Organizations branch ruleset deletions, which could indicate attempts to bypass code review requirements and introduce unauthorized code changes.
 date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
@@ -11,46 +11,49 @@ severities:
 tags:
   - github
   - supply-chain
-  - cloud
+  - branch-protection
 vendors:
   - GitHub
   - Splunk
 products:
-  - GitHub Enterprise
+  - github.com
   - Splunk Enterprise
   - Splunk Enterprise Security
   - Splunk Cloud
+  - Splunk Add-on for Github
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1562
     technique_name: Impair Defenses
-  - tactic_id: TA0040
-    tactic_name: Impact
+  - tactic_id: TA0007
+    tactic_name: Discovery
     technique_id: T1195
     technique_name: Supply Chain Compromise
 references:
+  - https://splunk.github.io/splunk-add-on-for-github-audit-log-monitoring/Install/
   - https://www.googlecloudcommunity.com/gc/Community-Blog/Monitoring-for-Suspicious-GitHub-Activity-with-Google-Security/ba-p/763610
-  - https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#setting-up-streaming-to-splunk
 rules:
-  - title: GitHub Enterprise Branch Ruleset Deletion Detected
-    description: Detects when a branch ruleset is deleted in GitHub Enterprise, potentially indicating a bypass of code review requirements.
+  - title: GitHub Branch Ruleset Deletion
+    description: Detects the deletion of branch rulesets in GitHub Organizations, which could indicate malicious activity.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
     techniques:
+      - T1195
       - T1562.001
     data_sources:
       - webserver
       - linux
-  - title: GitHub Enterprise Audit Log - Branch Ruleset Deletion
-    description: Detects branch ruleset deletion events in GitHub Enterprise audit logs based on the 'repository_ruleset.destroy' action.
+  - title: GitHub Actor Deleting Ruleset
+    description: Detects specific actor deleting github ruleset
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - defense_evasion
     techniques:
+      - T1195
       - T1562.001
     data_sources:
       - webserver
@@ -58,28 +61,28 @@ rules:
 rules_count: 2
 ---
 
-This threat brief focuses on the detection of branch ruleset deletions within GitHub Enterprise environments. Attackers might target these rulesets to weaken security controls, enabling them to introduce unauthorized code changes or backdoors into protected branches. This activity undermines code review processes and compromises the integrity of the software supply chain. The monitoring of GitHub Enterprise audit logs is crucial for identifying and responding to such malicious activities. The observed technique directly impacts code integrity and can lead to significant security breaches if left undetected. The described activity is extracted from Splunk's security content and reflects a detection strategy for this specific attack vector.
+This threat brief focuses on the detection of branch ruleset deletions within GitHub Organizations. Threat actors might disable or delete branch rulesets to bypass code review requirements and directly introduce unauthorized code changes or backdoors into protected branches. The deletion of branch rulesets is a critical security concern because these rulesets enforce crucial security controls like code review, prevention of force pushes, and maintenance of code quality. This activity, if successful, could lead to code tampering, bypass of security reviews, the introduction of vulnerabilities or malicious code, and the compromise of software supply chain integrity. The provided Splunk analytic is designed to identify such events by monitoring GitHub Organizations audit logs.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to a GitHub Enterprise account with sufficient privileges to modify repository settings, potentially through compromised credentials or insider access.
-2.  The attacker navigates to the repository settings within the GitHub Enterprise interface.
-3.  The attacker identifies the existing branch rulesets that enforce code review and other security policies.
-4.  The attacker initiates the deletion of one or more branch rulesets. This action is logged as a `repository_ruleset.destroy` event in the GitHub Enterprise audit logs.
-5.  Upon successful deletion, the protections enforced by the ruleset, such as required reviews or restrictions on force pushes, are removed.
-6.  The attacker makes unauthorized code changes or introduces backdoors into the protected branches, bypassing the previously enforced security controls.
-7.  The malicious code is merged into the main codebase, potentially compromising the entire application or system.
-8.  The attacker may attempt to further conceal their activities by deleting audit logs or modifying other security settings.
+1. An attacker gains initial access to a GitHub Organization account with sufficient privileges to manage branch rulesets.
+2. The attacker authenticates to GitHub using compromised credentials or by exploiting a session vulnerability.
+3. The attacker identifies a target repository within the GitHub Organization that has branch rulesets enabled.
+4. The attacker navigates to the repository settings and accesses the branch rulesets configuration.
+5. The attacker selects one or more branch rulesets to disable or delete.
+6. The attacker confirms the deletion of the selected branch rulesets, removing the enforced code review and protection policies.
+7. With the branch rulesets disabled, the attacker directly pushes unauthorized code changes or backdoors to the protected branches.
+8. The attacker's malicious code is integrated into the codebase, potentially compromising the software supply chain.
 
 ## Impact
 
-The successful deletion of branch rulesets in GitHub Enterprise can lead to significant code tampering, allowing attackers to introduce vulnerabilities or malicious code into the software supply chain. This can result in the compromise of sensitive data, system instability, or complete system takeover. The impact includes potential bypass of security reviews, introduction of vulnerabilities or malicious code, and compromise of software supply chain integrity. It's critical to maintain visibility over branch ruleset configurations to prevent such attacks.
+The deletion of branch rulesets can have severe consequences, including allowing unauthorized code changes to be merged into production, potentially introducing vulnerabilities or backdoors. This could lead to the compromise of the software supply chain and a loss of trust in the organization's software. The impact extends to the potential exposure of sensitive data, system compromise, and reputational damage, though the specific number of victims and sectors targeted is presently unknown.
 
 ## Recommendation
 
-*   Ingest GitHub Enterprise audit logs using Audit log streaming into your SIEM as described in the GitHub documentation to gain visibility into branch ruleset deletion events.
-*   Deploy the provided Sigma rule to detect `repository_ruleset.destroy` events in your SIEM and tune it for your environment.
-*   Investigate any alerts generated by the Sigma rule, paying close attention to the `actor`, `repo`, and `ruleset_name` fields in the logs to determine the scope and impact of the deletion.
-*   Monitor user activity related to repository settings changes for any anomalous behavior.
-*   Implement multi-factor authentication (MFA) to protect GitHub Enterprise accounts from compromise.
-*   Regularly review and validate existing branch rulesets to ensure they are correctly configured and prevent unintended bypasses.
+*   Implement the provided Splunk search query (`github_organizations vendor_action=repository_ruleset.destroy`) to monitor for branch ruleset deletion events in GitHub Organizations audit logs.
+*   Deploy the Sigma rule `GitHub Branch Ruleset Deletion` to your SIEM and tune for your environment.
+*   Investigate any alerts generated by the Sigma rule, focusing on the actor, repository, and time of the deletion to determine if the activity is legitimate or malicious.
+*   Ensure proper access controls are in place within GitHub Organizations to limit the ability to modify or delete branch rulesets.
+*   Regularly review GitHub Organizations audit logs for suspicious activity, referencing the provided documentation link.
+*   Implement multi-factor authentication (MFA) for all GitHub accounts, especially those with administrative privileges.
