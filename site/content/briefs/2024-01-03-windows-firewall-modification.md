@@ -1,82 +1,69 @@
 ---
-title: Windows Firewall Modification via Netsh
+title: Windows Firewall Rule Modification Detection
 slug: 2024-01-03-windows-firewall-modification
-description: Detection of 'netsh' processes deleting or modifying Windows Firewall configurations, often used by malware like NJRAT to evade detection and persist within a network.
+description: This detection identifies instances where a Windows Firewall rule has been modified, potentially indicating an attempt to weaken security policies and allow malicious traffic or prevent legitimate communications.
 date: "2024-01-03T12:00:00Z"
-type: threat
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
-  - high
-actors:
-  - NJRAT
+  - medium
 tags:
-  - defense-evasion
-  - windows
-  - njrat
   - firewall
+  - windows
+  - anomaly
 vendors:
+  - Microsoft
   - Splunk
 products:
+  - Windows
   - Splunk Enterprise
   - Splunk Enterprise Security
   - Splunk Cloud
-affected_os:
-  - Windows
-mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1562
-    technique_name: Impair Defenses
 references:
-  - https://malpedia.caad.fkie.fraunhofer.de/details/win.njrat
-  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_delete_or_modify_system_firewall.yml
+  - https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4947
 rules:
-  - title: Detect Netsh Firewall Rule Deletion
-    description: Detects the use of netsh to delete firewall rules, which is a common tactic used by malware to evade detection.
-    platform: sigma
-    severity: high
-    tactics:
-      - defense_evasion
-    techniques:
-      - T1562.004
-    data_sources:
-      - process_creation
-      - windows
-  - title: Detect Netsh Firewall Rule Modification
-    description: Detects the use of netsh to modify firewall rules, potentially weakening system security.
+  - title: Windows Firewall Rule Modification
+    description: Detects modifications to Windows Firewall rules based on Event ID 4947
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
-    techniques:
-      - T1562.004
+    data_sources:
+      - process_creation
+      - windows
+  - title: Suspicious Process Modifying Firewall Rule
+    description: Detects suspicious processes modifying Windows Firewall rules by monitoring for Event ID 4947 and filtering known legitimate processes
+    platform: sigma
+    severity: high
+    tactics:
+      - defense_evasion
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-This threat brief focuses on the detection of suspicious `netsh` commands used to modify or delete Windows Firewall configurations. This activity is often associated with malware, such as NJRAT, which attempts to weaken or disable firewall rules to evade detection and establish persistence. The detection logic relies on analyzing process telemetry from Endpoint Detection and Response (EDR) solutions, specifically targeting command-line executions that contain keywords indicative of firewall manipulation. This behavior is critical to monitor as successful modification or deletion of firewall rules can lead to a significant compromise, allowing attackers to move laterally and exfiltrate sensitive data. The original Splunk analytic was published in May 2026, indicating that this technique has been observed in the wild for some time.
+The modification of Windows Firewall rules can indicate malicious activity, as attackers may attempt to weaken security policies to facilitate unauthorized access or evade detection. Windows Event Log Security event ID 4947 is generated when a firewall rule is modified. Monitoring these events and correlating them with other security incidents can help security teams identify and respond to potential threats. This activity is leveraged by threat actors post-compromise to enable lateral movement and command and control traffic. This activity is associated with ransomware campaigns such as ShrinkLocker and Medusa.
 
 ## Attack Chain
 
-1.  **Initial Access:** The attacker gains initial access to the system, potentially through phishing or exploiting vulnerabilities.
-2.  **Execution:** The attacker executes malicious code, often delivered as part of a payload.
-3.  **Discovery:** The malware may perform discovery actions to identify the presence of the Windows Firewall.
-4.  **Defense Evasion:** The malware leverages the `netsh` command-line tool to modify or delete existing firewall rules. For example, commands like `netsh firewall delete ...` or `netsh advfirewall firewall set ...` are used.
-5.  **Persistence:** By weakening the firewall, the attacker ensures continued access to the compromised system.
-6.  **Lateral Movement:** With the firewall weakened or disabled, the attacker moves laterally within the network, compromising additional systems.
-7.  **Command and Control:** A compromised host communicates with an external C2 server.
-8.  **Exfiltration/Impact:** The attacker exfiltrates sensitive data or achieves their final objective, such as deploying ransomware.
+1. An attacker gains initial access to a system through various means, such as phishing or exploiting a vulnerability.
+2. The attacker escalates privileges to gain administrative rights, which are necessary to modify firewall rules.
+3. The attacker uses built-in Windows tools or custom scripts to modify existing firewall rules or create new ones.
+4. The modification might involve opening specific ports to allow unauthorized inbound traffic.
+5. Or, disabling rules that block outbound communication to a command-and-control server.
+6. The attacker validates that the firewall rule changes have been successfully implemented.
+7. The attacker leverages the modified firewall rules to facilitate lateral movement within the network.
+8. The attacker achieves their objective, such as data exfiltration or deploying ransomware.
 
 ## Impact
 
-Successful modification or deletion of firewall rules can have severe consequences. Attackers can disable security measures, move laterally within the network, and exfiltrate sensitive data. The number of victims and affected sectors can vary, but a successful attack can result in significant financial losses, reputational damage, and data breaches. NJRAT, in particular, is known to use this technique to establish a foothold in compromised systems, allowing for further exploitation.
+Successful modification of Windows Firewall rules can significantly weaken a system's security posture. This can lead to unauthorized access, data breaches, and malware infections. The impact can range from individual system compromise to widespread network infiltration, potentially affecting hundreds or thousands of systems within an organization. This activity is observed in ransomware campaigns, such as ShrinkLocker and Medusa.
 
 ## Recommendation
 
-*   Deploy the Sigma rules provided below to detect suspicious `netsh` commands related to firewall modification and deletion (Sigma rules).
-*   Enable process-creation logging with command-line auditing to capture the necessary data for the Sigma rules (Sysmon EventID 1, Windows Event Log Security 4688).
-*   Investigate any alerts generated by the Sigma rules, focusing on processes that have the `netsh` command-line tool as a parent process.
-*   Review and harden existing firewall rules to prevent unauthorized modifications (Windows Firewall configuration).
+*   Enable Windows Security Event Log collection with Event ID 4947 to monitor firewall rule modifications.
+*   Deploy the Sigma rule "Windows Firewall Rule Modification" to your SIEM (Splunk) and tune for your environment.
+*   Investigate any unexpected or unauthorized firewall rule modifications, correlating them with other security events.
+*   Implement strict access controls to limit the ability to modify firewall rules to authorized personnel only.
