@@ -1,0 +1,83 @@
+---
+title: Scheduled Task Creation via Group Policy Object
+slug: 2024-01-gpo-scheduled-task
+description: Detects the creation of scheduled tasks within a Group Policy Object (GPO) by monitoring for the creation of the ScheduledTasks.xml file in the SYSVOL share, potentially indicating malicious persistence.
+date: "2024-01-03T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+tags:
+  - scheduled-task
+  - gpo
+  - persistence
+  - windows
+vendors:
+  - Microsoft
+  - Splunk
+products:
+  - Splunk Enterprise
+  - Splunk Enterprise Security
+  - Splunk Cloud
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1053
+    technique_name: Scheduled Task/Job
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1484
+    technique_name: Group Policy Modification
+references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5145
+rules:
+  - title: Scheduled Task Created in Group Policy Object
+    description: Detects the creation of scheduled tasks via Group Policy Objects by monitoring for specific file creation events in the SYSVOL share.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1053.005
+    data_sources:
+      - file_event
+      - windows
+  - title: Suspicious AccessList Value for Scheduled Task XML
+    description: Detects potentially malicious scheduled task creation in a GPO based on the AccessList value in Windows event 5145, which may indicate unusual permissions or access patterns.
+    platform: sigma
+    severity: low
+    tactics:
+      - persistence
+    techniques:
+      - T1053.005
+    data_sources:
+      - file_event
+      - windows
+rules_count: 2
+---
+
+This detection identifies a potential method for establishing persistence on Windows systems by monitoring the creation of scheduled tasks through Group Policy Objects (GPOs). Threat actors may abuse GPOs to deploy malicious scheduled tasks across numerous machines in a domain. When a scheduled task is created via GPO, a ScheduledTasks.xml file, containing its configuration, is created within a specific folder of the SYSVOL share. The detection leverages Windows Event ID 5145 looking for file creation events related to these scheduled tasks. While legitimate GPO scheduled task creation can occur, the relative infrequency of this activity makes it a valuable indicator of potential compromise. This technique allows attackers to maintain access to systems and execute commands at specified intervals, blending in with legitimate administrative activities and making detection more challenging.
+
+## Attack Chain
+
+1. The attacker gains initial access to a system or obtains credentials with sufficient privileges to modify GPOs.
+2. The attacker navigates to the Group Policy Management Console (GPMC) on a domain controller or a system with RSAT installed.
+3. The attacker identifies an existing GPO or creates a new GPO to target specific systems or users.
+4. Within the GPO settings, the attacker navigates to the Scheduled Tasks section under Computer Configuration or User Configuration.
+5. The attacker creates a new scheduled task, defining its properties, such as the trigger (time, event, etc.), the action to be performed (execute a program, send an email, etc.), and the user account under which the task will run.
+6. When the GPO is applied to the target systems, the ScheduledTasks.xml file is created in the `\\<DOMAIN>\SYSVOL\<DOMAIN>\Policies\{<GPO_GUID>}\Machine\Preferences\ScheduledTasks\ScheduledTasks.xml` path.
+7. The target system processes the GPO, creating the scheduled task according to the settings defined in the XML file.
+8. The scheduled task executes at the specified trigger, carrying out the malicious action defined by the attacker (e.g., executing malware, running scripts, or establishing persistence).
+
+## Impact
+
+Successful exploitation allows attackers to establish persistent access to targeted systems. By creating malicious scheduled tasks through GPOs, attackers can execute arbitrary code, deploy malware, or perform other malicious activities at specified intervals. The broad deployment capabilities of GPOs can lead to widespread compromise across the domain, affecting numerous systems and users. This technique can be used to maintain a foothold in the environment, even after initial compromises are remediated. The use of legitimate system administration tools and processes makes detection more difficult, allowing attackers to operate with a lower risk of being detected.
+
+## Recommendation
+
+*   Enable and monitor Windows Event Log Security events, specifically Event ID 5145, to capture file access events on network shares.
+*   Deploy the provided Sigma rule `Scheduled Task Created in Group Policy Object` to identify suspicious ScheduledTasks.xml creation events in the SYSVOL share.
+*   Investigate any alerts generated by the Sigma rule, focusing on the source computer (`Computer`) and the targeted file (`RelativeTargetName`).
+*   Filter known false positives by creating exceptions for approved GPO deployments as mentioned in `known_false_positives`.
