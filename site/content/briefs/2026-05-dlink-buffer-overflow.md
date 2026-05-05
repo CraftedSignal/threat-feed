@@ -1,7 +1,7 @@
 ---
-title: D-Link DI-8100 Buffer Overflow Vulnerability
+title: D-Link DI-8100 HTTP Request Handler Buffer Overflow
 slug: 2026-05-dlink-buffer-overflow
-description: A buffer overflow vulnerability (CVE-2026-7854) exists in D-Link DI-8100 version 16.07.26A1 affecting the `url_rule_asp` function, allowing remote attackers to execute arbitrary code.
+description: A buffer overflow vulnerability (CVE-2026-7855) in D-Link DI-8100 version 16.07.26A1 allows remote attackers to execute arbitrary code by manipulating the 'Name' argument in the tggl_asp function of the /tggl.asp file in the HTTP Request Handler.
 date: "2026-05-05T19:16:23Z"
 type: advisory
 types:
@@ -11,8 +11,7 @@ severities:
 tags:
   - buffer-overflow
   - router
-  - remote-code-execution
-  - cve-2026-7854
+  - web-application
 vendors:
   - D-Link
 products:
@@ -23,15 +22,15 @@ mitre_ttps:
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-7854
-    cvss: 9.8
+  - id: CVE-2026-7855
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7854
-  - https://github.com/draw-ctf/report/blob/main/DI-8100/url_rule_asp_overflow.md
-  - https://vuldb.com/vuln/361131
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7855
+  - https://github.com/draw-ctf/report/blob/main/DI-8100/tggl_asp_overflow.md
+  - https://vuldb.com/vuln/361132
 rules:
-  - title: Detect Suspicious POST Request to url_rule.asp
-    description: Detects potentially malicious POST requests to url_rule.asp, indicating a possible exploit attempt for CVE-2026-7854.
+  - title: Detect Suspiciously Long Name Parameter in tggl.asp Request
+    description: Detects HTTP requests to /tggl.asp with an abnormally long Name parameter, indicating a potential buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -41,8 +40,8 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect Large POST Request to url_rule.asp
-    description: Detects large POST request to url_rule.asp, indicative of buffer overflow attempts.
+  - title: Detect HTTP 414 Errors on /tggl.asp Endpoint
+    description: Detects HTTP 414 Request-URI Too Long errors when accessing the /tggl.asp endpoint, which may indicate a buffer overflow attempt using an excessively long URL.
     platform: sigma
     severity: medium
     tactics:
@@ -55,24 +54,25 @@ rules:
 rules_count: 2
 ---
 
-A critical buffer overflow vulnerability has been identified in D-Link DI-8100 routers running firmware version 16.07.26A1. The vulnerability, designated CVE-2026-7854, resides in the `url_rule_asp` function within the `/url_rule.asp` component's POST Parameter Handler. A remote attacker can exploit this flaw by sending a specially crafted POST request, leading to a buffer overflow. Publicly available exploits exist, increasing the risk of widespread exploitation. Successful exploitation can allow an unauthenticated attacker to execute arbitrary code on the affected device.
+A buffer overflow vulnerability, CVE-2026-7855, has been identified in D-Link DI-8100 router version 16.07.26A1. The vulnerability resides within the HTTP Request Handler, specifically in the tggl_asp function of the /tggl.asp file. By manipulating the 'Name' argument sent to this function, an attacker can trigger a buffer overflow. This allows the attacker to potentially overwrite memory and execute arbitrary code on the device. The exploit is publicly available, increasing the risk of widespread exploitation. This vulnerability poses a significant threat to users of the affected D-Link router, as it could lead to complete device compromise.
 
 ## Attack Chain
 
-1.  Attacker identifies a vulnerable D-Link DI-8100 router with firmware version 16.07.26A1.
-2.  Attacker crafts a malicious POST request targeting the `/url_rule.asp` endpoint.
-3.  The POST request contains a payload designed to overflow the buffer in the `url_rule_asp` function.
-4.  The router's web server processes the crafted POST request without proper input validation.
-5.  The overflowed buffer overwrites adjacent memory regions, including the return address.
-6.  Upon returning from the `url_rule_asp` function, control is transferred to the attacker-controlled memory.
-7.  The attacker executes arbitrary code on the router, potentially gaining full control of the device.
+1. The attacker identifies a vulnerable D-Link DI-8100 router running firmware version 16.07.26A1.
+2. The attacker crafts a malicious HTTP request targeting the /tggl.asp endpoint.
+3. The crafted HTTP request includes a specially designed 'Name' argument containing an overly long string.
+4. The router's HTTP Request Handler receives the malicious request and passes the 'Name' argument to the tggl_asp function.
+5. The tggl_asp function attempts to copy the 'Name' argument into a fixed-size buffer without proper bounds checking.
+6. The overly long 'Name' argument overflows the buffer, overwriting adjacent memory regions.
+7. The attacker gains arbitrary code execution on the device.
+8. The attacker leverages code execution to establish persistence and potentially pivot to other network devices.
 
 ## Impact
 
-Successful exploitation of this buffer overflow vulnerability allows a remote, unauthenticated attacker to execute arbitrary code on the D-Link DI-8100 router. This could lead to complete compromise of the device, allowing the attacker to intercept network traffic, modify router settings, or use the router as a pivot point for further attacks within the network. Given the wide usage of D-Link routers, a large number of devices are potentially vulnerable.
+Successful exploitation of this buffer overflow vulnerability could allow a remote attacker to execute arbitrary code on the affected D-Link DI-8100 device. This could result in complete control of the router, allowing the attacker to modify device settings, intercept network traffic, or use the router as a launching point for further attacks within the network. Given the availability of a public exploit, a widespread exploitation is possible.
 
 ## Recommendation
 
-*   Apply available patches or firmware updates for D-Link DI-8100 version 16.07.26A1 to remediate CVE-2026-7854.
-*   Deploy the following Sigma rule to detect malicious POST requests to `/url_rule.asp` that may indicate exploitation attempts.
-*   Monitor web server logs for suspicious POST requests targeting the `/url_rule.asp` endpoint (see rule below, log source `webserver`).
+*   Apply available patches or firmware updates from D-Link to remediate CVE-2026-7855.
+*   Monitor webserver logs for suspicious requests to `/tggl.asp` with unusually long `Name` parameters using the provided Sigma rule.
+*   Implement network intrusion detection system (IDS) rules to detect and block exploitation attempts targeting CVE-2026-7855.
