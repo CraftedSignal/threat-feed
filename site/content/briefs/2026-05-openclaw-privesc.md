@@ -1,29 +1,40 @@
 ---
-title: OpenClaw Incomplete Scope Clearing Allows Privilege Escalation
+title: OpenClaw Privilege Escalation via Untrusted Webhook Wake Events (CVE-2026-43566)
 slug: 2026-05-openclaw-privesc
-description: An incomplete fix in OpenClaw versions 2026.3.28 and earlier allows for operator.admin privilege escalation via trusted-proxy authentication mode, which is fixed in version 2026.3.31.
-date: "2026-04-03T03:06:12Z"
-type: advisory
+description: OpenClaw versions 2026.4.7 before 2026.4.14 contain a privilege escalation vulnerability (CVE-2026-43566) where heartbeat owner downgrade logic skips webhook wake events carrying untrusted content, allowing attackers to preserve owner-like execution context.
+date: "2026-05-05T12:16:20Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
-  - high
+  - critical
 tags:
   - privilege-escalation
-  - web-application
-  - openclaw
+  - webhook
+  - cve-2026-43566
+vendors:
+  - OpenClaw
+products:
+  - OpenClaw
+  - OpenClaw versions 2026.4.7 before 2026.4.14
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
+cves:
+  - id: CVE-2026-43566
+    cvss: 9.1
 references:
-  - https://github.com/advisories/GHSA-g374-mggx-p6xc
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-43566
+  - https://github.com/openclaw/openclaw/commit/31281bc92f55796817a92bc43f722cba1e77ab42
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-g2hm-779g-vm32
+  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-untrusted-webhook-wake-events
 rules:
-  - title: Detect OpenClaw operator.admin Escalation via Trusted Proxy
-    description: Detects potential privilege escalation attempts in OpenClaw by monitoring for unauthorized access attempts to sensitive API endpoints after trusted proxy authentication.
+  - title: Detect Suspicious Webhook Activity
+    description: Detects potentially malicious webhook activity based on request characteristics. This rule looks for specific URI patterns and HTTP methods commonly associated with webhook interactions.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - privilege_escalation
     techniques:
@@ -31,38 +42,41 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect OpenClaw Failed Admin Access after Trusted Proxy Auth
-    description: Detects potential failed privilege escalation attempts in OpenClaw by monitoring for failed access attempts to sensitive API endpoints after trusted proxy authentication (may indicate reconnaissance).
+  - title: Detect Webhook POST with Long URI
+    description: Detects unusually long URI access using the POST method. This could be used to inject a payload via a webhook.
     platform: sigma
     severity: medium
     tactics:
-      - discovery
       - privilege_escalation
+    techniques:
+      - T1068
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A high-severity vulnerability exists in the OpenClaw npm package, specifically affecting versions 2026.3.28 and earlier. This vulnerability arises from an incomplete fix related to scope clearing within the trusted-proxy authentication mode. The flaw allows attackers to escalate their privileges to operator.admin, potentially gaining unauthorized access to sensitive data or system functionalities. The vulnerability was reported by @north-echo and patched in version 2026.3.31, with the fix committed on March 30, 2026. This issue is critical for organizations utilizing OpenClaw with trusted-proxy authentication, as it could lead to significant security breaches. Defenders should prioritize upgrading to version 2026.3.31 or later to mitigate this risk.
+OpenClaw versions 2026.4.7 through 2026.4.13 are vulnerable to a privilege escalation flaw, identified as CVE-2026-43566. This vulnerability stems from a failure in the heartbeat owner downgrade logic, which incorrectly skips webhook wake events that contain untrusted content. By exploiting this flaw, a malicious actor can craft and send untrusted webhook wake events, effectively maintaining an elevated, owner-like execution context even when the system should have downgraded privileges. This could allow unauthorized access and control within the OpenClaw environment.
 
 ## Attack Chain
 
-1.  Attacker identifies an OpenClaw instance running a vulnerable version (<=2026.3.28) using trusted-proxy authentication.
-2.  Attacker gains initial access with limited privileges, potentially via compromised credentials or another vulnerability.
-3.  Attacker authenticates via the trusted proxy, declaring a set of operator scopes.
-4.  Due to the incomplete scope clearing, the attacker's declared operator scopes are not properly sanitized by the system.
-5.  The system incorrectly grants the attacker elevated privileges associated with the self-declared operator scopes.
-6.  Attacker exploits the elevated operator.admin privileges to access restricted resources or functionalities.
-7.  Attacker performs unauthorized actions, such as data modification, configuration changes, or lateral movement within the system.
+1. An attacker identifies a vulnerable OpenClaw instance running versions 2026.4.7 - 2026.4.13.
+2. The attacker crafts a malicious webhook wake event containing untrusted content.
+3. The attacker sends the malicious webhook wake event to the targeted OpenClaw instance.
+4. The OpenClaw instance receives the webhook wake event.
+5. Due to the flawed heartbeat owner downgrade logic, the event is processed without proper privilege downgrading.
+6. The attacker's process or script continues to execute with the privileges of the owner, rather than a more restricted user.
+7. The attacker leverages the elevated privileges to access sensitive data or execute unauthorized commands.
+8. The attacker maintains persistent access or further escalates privileges within the system.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to escalate their privileges to operator.admin within the OpenClaw environment. This could lead to unauthorized access to sensitive data, modification of critical system configurations, and potential disruption of services. The impact is especially significant for organizations that rely on OpenClaw for critical operations and have not yet upgraded to the patched version. The attacker could leverage the escalated privileges to perform a wide range of malicious activities, potentially compromising the entire system.
+Successful exploitation of CVE-2026-43566 allows attackers to bypass intended security controls and gain unauthorized access to sensitive resources within the OpenClaw environment. This privilege escalation could lead to data breaches, system compromise, and other malicious activities. The number of affected installations is currently unknown, but any OpenClaw instance running a vulnerable version is at risk.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.3.31 or later to remediate the vulnerability (Affected Packages / Versions).
-*   Monitor OpenClaw logs for suspicious activity related to trusted-proxy authentication and privilege escalation (logsource: "webserver", product: "linux").
-*   Implement strict access controls and regularly review user permissions to minimize the impact of potential privilege escalation attacks.
-*   Deploy the Sigma rule provided below to detect potential exploitation attempts targeting this vulnerability.
+*   Upgrade OpenClaw to version 2026.4.14 or later to patch CVE-2026-43566.
+*   Implement input validation and sanitization for all webhook wake events to prevent the injection of untrusted content.
+*   Monitor OpenClaw logs for suspicious webhook activity and unexpected privilege escalations.
+*   Deploy the Sigma rule "Detect Suspicious Webhook Activity" to identify potentially malicious webhook events.
+*   Consider using a Web Application Firewall (WAF) to filter malicious requests, potentially blocking crafted webhook events before they reach the OpenClaw instance.
