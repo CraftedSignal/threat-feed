@@ -1,7 +1,7 @@
 ---
-title: Windows Filtering Platform Policy Tampering to Block EDR Processes
+title: Windows Filtering Platform Policy Added to Block EDR Process
 slug: 2024-01-wfp-edr-block
-description: Attackers modify Windows Filtering Platform policies to block Endpoint Detection and Response (EDR) processes, impairing security tools and concealing malicious activity.
+description: Attackers modify the Windows Filtering Platform (WFP) policy to block the communication of endpoint detection and response (EDR) processes, impairing their functionality and hindering detection of malicious activities.
 date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
@@ -9,22 +9,35 @@ types:
 severities:
   - high
 tags:
+  - edr-bypass
   - defense-evasion
-  - impair-defenses
-  - windows-filtering-platform
+  - wfp
 vendors:
-  - Splunk
+  - Cylance
+  - Elastic
+  - Fortinet
+  - Qualys
+  - SentinelOne
+  - Tanium
+  - Trend Micro
 products:
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
-affected_os:
-  - Windows
+  - CylanceSvc.exe
+  - elastic-agent.exe
+  - elastic-endpoint.exe
+  - fortiedr.exe
+  - QualysAgent.exe
+  - SentinelAgent.exe
+  - SentinelAgentWorker.exe
+  - SentinelBrowserNativeHost.exe
+  - SentinelHelperService.exe
+  - SentinelServiceHost.exe
+  - SentinelStaticEngine.exe
+  - SentinelStaticEngineScanner.exe
+  - TaniumClient.exe
+  - TaniumCX.exe
+  - TaniumDetectEngine.exe
+  - Trend Micro products
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1562
-    technique_name: Impair Defenses
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1562
@@ -33,8 +46,8 @@ references:
   - https://unit42.paloaltonetworks.com/edr-bypass-extortion-attempt-thwarted/
   - https://github.com/wavestone-cdt/EDRSandblast?tab=readme-ov-file
 rules:
-  - title: Detect WFP Registry Policy Modification to Block EDR
-    description: Detects modification of the Windows Filtering Platform policy to block EDR processes by monitoring registry changes.
+  - title: Detect Windows Filtering Platform Policy Added to Block EDR
+    description: Detects the modification of a Windows Filtering Platform Policy to block the communication of known EDR processes.
     platform: sigma
     severity: high
     tactics:
@@ -44,10 +57,10 @@ rules:
     data_sources:
       - registry_set
       - windows
-  - title: Detect WFP Process Blocking Specific EDR Tools
-    description: Detects the use of Windows Filtering Platform (WFP) to block specific EDR tools by monitoring process creation events. This can be used by attackers to impair the functionality of these tools and to hide their activities on the machine.
+  - title: Detect Windows Filtering Platform Policy Created
+    description: Detects the creation of a Windows Filtering Platform Policy rule that blocks processes
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - defense_evasion
     techniques:
@@ -58,27 +71,25 @@ rules:
 rules_count: 2
 ---
 
-Attackers are increasingly targeting Endpoint Detection and Response (EDR) solutions to evade detection and maintain persistence within compromised environments. One method involves manipulating Windows Filtering Platform (WFP) policies to block communication and execution of EDR processes. By modifying specific registry keys and values related to firewall rules, attackers can effectively prevent EDR tools from functioning correctly. This technique is used to blind security teams, allowing malicious actors to operate with reduced visibility. This attack matters because successful disabling of EDR can lead to prolonged breaches, data exfiltration, and ransomware deployment. The described technique can be used on Windows systems where the attacker has obtained sufficient privileges to modify system-level firewall policies through registry modifications.
+Attackers may attempt to disable or impair endpoint detection and response (EDR) solutions to evade detection and maintain persistence on compromised systems. One method to achieve this is by manipulating the Windows Filtering Platform (WFP) to block network communication of EDR processes. This involves adding or modifying WFP policies to prevent EDR agents from sending telemetry or receiving updates. The technique is used to blind security tools, giving attackers more time to operate undetected. This brief focuses on detecting modifications to WFP policies that specifically target known EDR processes.
 
 ## Attack Chain
 
-1. **Initial Access:** The attacker gains initial access through methods like phishing or exploiting vulnerabilities (not specified in source).
-2. **Privilege Escalation:** The attacker escalates privileges to obtain administrative rights, necessary to modify WFP policies.
-3. **Discovery:** The attacker identifies the processes associated with installed EDR solutions, such as `AmSvc.exe`, `cb.exe`, `elastic-agent.exe`, etc.
-4. **Policy Modification:** The attacker modifies the registry key `*\Parameters\FirewallPolicy\FirewallRules*` to add a new firewall rule.
-5. **Blocking Rule Creation:** Within the rule, the `Action` is set to `Block` to prevent the targeted EDR process from communicating or executing.
-6. **EDR Process Targeting:** The `App` value is set to the path of the EDR process they intend to block (e.g., `C:\Program Files\EDR\AmSvc.exe`).
-7. **Persistence:** This WFP policy change persists across reboots, ensuring continuous impairment of the EDR solution.
-8. **Lateral Movement & Objectives:** With the EDR blinded, the attacker moves laterally, executes malicious payloads, exfiltrates sensitive data, or deploys ransomware.
+1.  The attacker gains initial access to the target system through methods such as phishing or exploiting a vulnerability.
+2.  The attacker elevates privileges to gain administrative access, allowing them to modify system-level configurations.
+3.  The attacker uses a command-line tool like `netsh` or PowerShell to interact with the Windows Filtering Platform (WFP).
+4.  The attacker creates or modifies a WFP policy rule targeting specific EDR processes (e.g., `SentinelAgent.exe`, `CylanceSvc.exe`).
+5.  The WFP policy is configured to block network traffic associated with the targeted EDR processes. The registry key `HKLM\SYSTEM\CurrentControlSet\Services\BFE\Parameters\Policy\FirewallPolicy\FirewallRules` is modified with the new policy.
+6.  The EDR processes are effectively isolated from the network, preventing them from sending telemetry or receiving updates.
+7.  The attacker continues their malicious activities, such as lateral movement or data exfiltration, with reduced risk of detection by the impaired EDR solution.
 
 ## Impact
 
-Successful modification of WFP policies to block EDR processes can severely limit an organization's ability to detect and respond to threats. This can lead to extended dwell time for attackers, enabling them to carry out their objectives without interference. The impact includes potential data breaches, financial losses, reputational damage, and operational disruption. The linked Unit42 report references EDR bypasses in extortion attempts.
+Successful manipulation of the Windows Filtering Platform to block EDR processes can severely degrade the security posture of an organization. Attackers can operate with impunity, leading to data breaches, ransomware deployment, or other malicious outcomes. The number of affected systems depends on the scope of the attack, but even a single compromised endpoint can serve as a beachhead for further intrusion. Organizations in all sectors are at risk, particularly those with valuable data or critical infrastructure.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect WFP Registry Policy Modification to Block EDR` to your SIEM and tune for your environment to detect suspicious modifications of Windows Filtering Platform policies.
-*   Monitor registry modifications to the `*\Parameters\FirewallPolicy\FirewallRules*` path for unexpected changes using a dedicated registry monitoring tool.
-*   Regularly audit and validate the integrity of WFP policies to ensure they have not been tampered with.
-*   Investigate any alerts generated by the Sigma rule, especially if they correlate with other suspicious activity on the endpoint.
-*   Review the references provided, particularly the Unit42 report and the EDRSandblast tool, to understand attacker techniques and potential bypass strategies.
+*   Enable Sysmon Event ID 13 to log Registry modifications, which is essential for detecting changes to WFP policies as shown in the rule `Detect Windows Filtering Platform Policy Added to Block EDR`.
+*   Deploy the Sigma rule `Detect Windows Filtering Platform Policy Added to Block EDR` to your SIEM and tune the included list of commonly targeted EDR processes for your specific environment.
+*   Review registry events associated with `HKLM\SYSTEM\CurrentControlSet\Services\BFE\Parameters\Policy\FirewallPolicy\FirewallRules` for unexpected modifications, particularly those containing "Action=Block" and targeting security-related processes.
+*   Investigate any alerts generated by the Sigma rule, and verify the legitimacy of any WFP policy changes with authorized IT personnel.
