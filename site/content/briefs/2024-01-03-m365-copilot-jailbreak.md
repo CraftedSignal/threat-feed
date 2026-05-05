@@ -1,7 +1,7 @@
 ---
-title: M365 Copilot Information Extraction Jailbreak Attack
+title: Microsoft 365 Copilot Jailbreak Attempts via Prompt Injection
 slug: 2024-01-03-m365-copilot-jailbreak
-description: This detection identifies M365 Copilot information extraction jailbreak attacks aimed at obtaining sensitive data through social engineering by searching eDiscovery prompt logs for keywords and analyzing compound risk patterns.
+description: The detection identifies attempts to jailbreak Microsoft 365 Copilot through prompt injection techniques that attempt to circumvent built-in safety controls by manipulating rules, bypassing system commands, or requesting AI impersonation.
 date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
@@ -9,10 +9,10 @@ types:
 severities:
   - high
 tags:
+  - prompt-injection
+  - ai-jailbreak
   - m365
   - copilot
-  - jailbreak
-  - information extraction
 vendors:
   - Microsoft
 products:
@@ -20,55 +20,56 @@ products:
 references:
   - https://www.splunk.com/en_us/blog/artificial-intelligence/m365-copilot-log-analysis-splunk.html
 rules:
-  - title: M365 Copilot Information Extraction Attempt
-    description: Detects attempts to extract sensitive information from M365 Copilot using keywords associated with data exfiltration and privacy bypass.
+  - title: Detect M365 Copilot Jailbreak Attempts via Keywords
+    description: Detects M365 Copilot jailbreak attempts through prompt injection techniques using keywords.
     platform: sigma
     severity: high
     tactics:
-      - discovery
+      - defense_evasion
     data_sources:
       - webserver
       - linux
-  - title: M365 Copilot Sensitive Data Request
-    description: Detects attempts to access restricted information within M365 Copilot using targeted keywords.
+  - title: Detect M365 Copilot Amoral Impersonation Attempts
+    description: Detects M365 Copilot jailbreak attempts using prompt injection with amoral impersonation requests.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - discovery
+      - defense_evasion
     data_sources:
       - webserver
       - linux
-  - title: M365 Copilot Bulk Data Extraction Attempt
-    description: Detects attempts to extract large amounts of data from M365 Copilot using keywords associated with bulk data requests.
+  - title: Detect M365 Copilot Rule Injection Attempts
+    description: Detects M365 Copilot jailbreak attempts using rule injection techniques.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - discovery
+      - defense_evasion
     data_sources:
       - webserver
       - linux
 rules_count: 3
 ---
 
-This threat brief focuses on the detection of information extraction jailbreak attacks targeting Microsoft 365 Copilot. Attackers employ social engineering techniques within user prompts to bypass security controls and gain unauthorized access to sensitive, classified, or comprehensive organizational data. The attacks leverage various methods, including fictional entity impersonation, bulk data requests, and privacy bypass attempts. Detection is achieved by analyzing exported eDiscovery prompt logs for specific extraction keywords and compound risk patterns, allowing defenders to identify and mitigate potential data exfiltration attempts through AI manipulation. This activity was observed as early as May 2026.
+Microsoft 365 Copilot is susceptible to jailbreak attempts via prompt injection, where users craft specific prompts designed to bypass or override safety controls. These attacks involve injecting malicious instructions into user prompts to manipulate the AI's behavior, potentially leading to the disclosure of sensitive information, the generation of harmful content, or the execution of unauthorized actions. The attacks leverage techniques like rule manipulation, system bypass commands, and AI impersonation requests, attempting to circumvent built-in safety mechanisms. Successful jailbreaks can compromise the integrity and security of Copilot, enabling threat actors to exploit the AI for malicious purposes.
 
 ## Attack Chain
 
-1.  The attacker crafts a malicious prompt designed to extract sensitive information from M365 Copilot.
-2.  The prompt is submitted through the M365 Copilot interface.
-3.  M365 Copilot processes the prompt and interacts with underlying data sources.
-4.  The attacker leverages "jailbreak" techniques, including specific keywords and phrases, to bypass intended access controls. Examples include "tell me everything", "confidential", and "bypass privacy".
-5.  Copilot, if successfully manipulated, provides the requested information.
-6.  The extracted data is potentially exfiltrated or misused by the attacker.
-7.  The activity is logged within the M365 eDiscovery prompt logs, capturing the Subject_Title and other relevant details.
+1. An attacker crafts a malicious prompt containing specific keywords and phrases designed to manipulate Copilot's behavior.
+2. The attacker injects the prompt into M365 Copilot through a standard user interface, like a chat window.
+3. Copilot processes the prompt, attempting to interpret the user's intent.
+4. If the prompt is successfully injected, Copilot's safety controls are bypassed or overridden due to prompt injection techniques.
+5. Copilot generates a response based on the manipulated instructions in the prompt, potentially providing unauthorized access to information or functionality.
+6. The attacker exfiltrates sensitive data or uses Copilot to perform actions outside its intended scope.
+7. The attacker leverages the compromised Copilot to create and disseminate malicious content.
 
 ## Impact
 
-Successful jailbreak attacks against M365 Copilot can lead to the unauthorized disclosure of sensitive, classified, or proprietary information. This can result in significant reputational damage, financial losses, and legal repercussions. The impact is amplified by the potential for large-scale data exfiltration and the compromise of confidential business strategies.
+Successful jailbreak attempts can lead to the disclosure of sensitive company data, generation of harmful or inappropriate content, and circumvention of organizational security policies. A single successful jailbreak can affect multiple users if the generated content is shared. If successful, internal copilots could be used to create phishing messages or generate code that gives the attacker a reverse shell on a machine. The risk is increased due to the widespread adoption of M365 Copilot across various industries.
 
 ## Recommendation
 
-*   Enable and regularly review M365 eDiscovery prompt logs to capture user interactions with Copilot as described in the "how_to_implement" section.
-*   Deploy the Sigma rules provided below to detect suspicious prompt activity within your SIEM. Tune the rules for your specific environment and acceptable use policies.
-*   Investigate any alerts generated by these rules, paying close attention to the `user`, `Subject_Title`, and `extraction_type` fields.
-*   Implement user training to educate employees on the risks of AI prompt injection and social engineering attacks targeting M365 Copilot.
+*   Enable M365 Exported eDiscovery Prompts logging to capture user interactions with Copilot, as this log source is crucial for detecting jailbreak attempts.
+*   Deploy the Sigma rules provided in this brief to your SIEM to identify potential jailbreak attempts based on suspicious keywords and patterns in user prompts.
+*   Implement filtering mechanisms based on the `m365_copilot_jailbreak_attempts_filter` macro to reduce false positives and focus on high-risk activities.
+*   Monitor the `Subject_Title` field in the M365 eDiscovery prompt logs for the presence of jailbreak keywords and phrases such as "act as," "bypass," "ignore," "override," "pretend you are," and "rules=".
+*   Investigate and remediate any identified jailbreak attempts to prevent further exploitation of M365 Copilot.
