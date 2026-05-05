@@ -1,82 +1,91 @@
 ---
-title: Grav CMS Remote Code Execution via Malicious Plugin Upload
+title: Grav CMS Multiple RCE Vulnerabilities
 slug: 2024-01-grav-rce
-description: A remote code execution vulnerability exists in Grav CMS versions prior to 2.0.0-beta.2, allowing an authenticated administrator to upload a malicious plugin via a ZIP file, leading to arbitrary PHP code execution and web shell deployment.
-date: "2024-01-02T12:00:00Z"
-type: advisory
+description: Multiple critical and high severity remote code execution vulnerabilities exist in Grav CMS due to unsafe unserialize functions, command injection in git clone, and an SSTI blocklist bypass, impacting versions prior to 2.0.0-beta.2.
+date: "2024-01-09T12:00:00Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
 tags:
   - rce
-  - gravcms
-  - plugin upload
+  - unserialize
+  - command-injection
+  - ssti
 vendors:
-  - getgrav
+  - Grav
 products:
-  - grav (< 2.0.0-beta.2)
+  - Grav CMS
+  - composer/getgrav/grav (< 2.0.0-beta.2)
 mitre_ttps:
+  - tactic_id: TA0006
+    tactic_name: Execution
+    technique_id: T1202
+    technique_name: Indirect Command Execution
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1505
-    technique_name: Server-Side Component
+    technique_id: T1059.004
+    technique_name: 'Command and Scripting Interpreter: Unix Shell'
 references:
-  - https://github.com/advisories/GHSA-w48r-jppp-rcfw
-iocs:
-  - type: url
-    value: http://127.0.0.1/shell.php?cmd=id
-  - type: url
-    value: http://127.0.0.1/shell.php?cmd=whoami
-ioc_counts:
-  url: 2
+  - https://github.com/advisories/GHSA-vj3m-2g9h-vm4p
 rules:
-  - title: Detect Grav CMS Malicious Plugin Installation via Direct Install
-    description: Detects the upload of ZIP files containing PHP files to the /user/plugins/ directory via the direct install endpoint.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-      - persistence
-    techniques:
-      - T1189
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect Web Shell Creation via Malicious Plugin
-    description: Detects the creation of a shell.php file in the web root directory, indicative of web shell deployment via malicious plugin.
+  - title: Detect Unsafe PHP Unserialize
+    description: Detects potential exploitation attempts of PHP unserialize vulnerabilities in web server logs.
     platform: sigma
     severity: critical
     tactics:
-      - persistence
+      - execution
     techniques:
-      - T1505.003
+      - T1202
     data_sources:
-      - file_event
+      - webserver
       - linux
-rules_count: 2
+  - title: Detect Git Clone Command Injection
+    description: Detects potential command injection attempts via git clone commands executed by the web server.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1059.004
+    data_sources:
+      - process_creation
+      - linux
+  - title: Detect Twig SSTI attempts via Array Reduce
+    description: Detects usage of twig_array_reduce function to bypass SSTI blocklists
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1059.004
+    data_sources:
+      - webserver
+      - linux
+rules_count: 3
 ---
 
-The vulnerability, CVE-2026-42607, resides in Grav CMS, a flat-file content management system. An authenticated user with administrative privileges can exploit a flaw in the "Direct Install" feature of the Admin plugin to achieve Remote Code Execution (RCE). This is accomplished by uploading a specially crafted ZIP file containing a malicious plugin. While the system attempts to block direct .php file uploads, it does not properly inspect the contents of uploaded ZIP archives. This allows an attacker to bypass security measures and inject arbitrary PHP code, potentially leading to complete server compromise. The vulnerability affects Grav versions prior to 2.0.0-beta.2, with a partial fix addressing path traversal issues but not the core issue of malicious plugin code execution.
+Multiple remote code execution (RCE) vulnerabilities have been identified in Grav CMS, a flat-file content management system. These vulnerabilities, including unsafe unserialize functions in JobQueue, FileCache, and Session, a command injection in git clone, and a server-side template injection (SSTI) blocklist bypass, allow attackers to execute arbitrary code on affected systems. The vulnerabilities are present in Grav CMS versions prior to 2.0.0-beta.2 and were patched in commit c66dfeb5f and 38685ac25. Successful exploitation of these vulnerabilities could lead to complete system compromise, data theft, and disruption of service. The most concerning are the unserialize issues, as they do not require admin access and can be triggered by any file write primitive.
 
 ## Attack Chain
 
-1.  Attacker authenticates to the Grav admin panel with valid administrative credentials, or exploits a separate vulnerability (CSRF/Session Hijacking) to act as an admin.
-2.  Attacker navigates to the "Direct Install" tool within the Admin plugin, typically found under the tools section of the admin panel (/admin/tools/direct-install).
-3.  Attacker prepares a malicious plugin, including a shellplugin.php file designed to create a web shell (shell.php) with system command execution capabilities.
-4.  The malicious plugin and associated files (blueprints.yaml, shellplugin.yaml) are compressed into a ZIP archive (shellplugin.zip).
-5.  Attacker uploads the malicious ZIP archive (shellplugin.zip) through the direct install form, bypassing client-side and initial server-side checks.
-6.  The server extracts the contents of the ZIP archive directly into the `/user/plugins/` directory without proper validation of the PHP files within the archive.
-7.  The attacker triggers the execution of the malicious plugin by accessing the base URL. The plugin creates a web shell named `shell.php` in the GRAV_ROOT directory.
-8.  The attacker leverages the dropped web shell (shell.php) to execute arbitrary system commands on the server, achieving Remote Code Execution (RCE).
+1. An attacker gains the ability to write files to the Grav CMS server, either through an existing vulnerability (e.g., file upload) or misconfiguration.
+2. The attacker crafts a serialized PHP object containing malicious code.
+3. For JobQueue or FileCache exploitation, the attacker writes this serialized object to the appropriate cache file location. For Session exploitation, the attacker sets a crafted serialized object within a session variable.
+4. The Grav CMS application deserializes the crafted object using `unserialize()`, without proper input validation.
+5. The deserialization process instantiates the malicious object, triggering the execution of arbitrary code. Specifically, the JobQueue vulnerability allows direct RCE via `Job::exec → call_user_func_array`.
+6. For the git clone command injection, an administrator attempts to install a malicious plugin or theme. The attacker injects commands into the `branch`, `url`, or `path` parameters within the plugin's or theme's configuration.
+7. The `InstallCommand.php` script executes a `git clone` command, incorporating the attacker-controlled parameters without proper sanitization.
+8. The injected commands are executed on the server, granting the attacker arbitrary code execution.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to execute arbitrary PHP code on the target server. This can lead to a full system compromise, including the ability to read sensitive data, modify files, install malware, and pivot to other systems on the network. The vulnerability impacts any Grav installation with the Admin plugin enabled where an attacker has gained administrative access. The impact is critical, potentially leading to complete server control and significant data loss or service disruption. While a partial fix addresses path traversal, the ability to upload and execute malicious PHP code remains a significant risk.
+Successful exploitation of these vulnerabilities can lead to complete system compromise. An attacker could gain unauthorized access to sensitive data, modify website content, install backdoors, or use the compromised server as a launchpad for further attacks. The unserialize vulnerabilities are especially critical as they do not require administrative privileges if an attacker can write to the cache directory. The impact includes potential data theft, service disruption, and reputational damage.
 
 ## Recommendation
 
-*   Upgrade Grav CMS to version 2.0.0-beta.2 or later to incorporate the partial fix that addresses path traversal vulnerabilities described in the overview.
-*   Implement the Sigma rule "Detect Grav CMS Malicious Plugin Installation via Direct Install" to identify attempts to upload ZIP files containing suspicious PHP code to `/user/plugins/` directory.
-*   Monitor web server logs for access to `/shell.php` with `cmd` parameters, as this indicates potential exploitation, as seen in the IOCs.
-*   Restrict administrative access to trusted users and implement multi-factor authentication to prevent unauthorized access to the Grav admin panel.
+*   Upgrade Grav CMS to version 2.0.0-beta.2 or later to patch the vulnerabilities described in this brief.
+*   Implement the Sigma rule `Detect Unsafe PHP Unserialize` to identify attempts to exploit the unserialize vulnerabilities in web server logs.
+*   Review and harden file upload and file management functionalities to prevent unauthorized file writes to the Grav CMS server.
+*   Monitor process creation events for git commands executed by the web server user, using the Sigma rule `Detect Git Clone Command Injection`.
