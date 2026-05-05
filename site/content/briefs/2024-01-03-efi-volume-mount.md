@@ -1,8 +1,8 @@
 ---
 title: Windows EFI Volume Mount Attempt via Mountvol
 slug: 2024-01-03-efi-volume-mount
-description: Detection of attempts to mount the EFI volume on a Windows system, potentially indicating malicious activity aimed at modifying the system's boot process.
-date: "2024-01-03T12:00:00Z"
+description: Detection of attempts to mount the EFI volume on Windows systems using mountvol.exe, potentially leading to system compromise.
+date: "2024-01-03T15:00:00Z"
 type: advisory
 types:
   - advisory
@@ -11,52 +11,50 @@ severities:
 tags:
   - efi
   - mountvol
-  - privilege-escalation
+  - windows
   - persistence
-  - bootkit
+  - defense-evasion
 vendors:
   - Splunk
 products:
   - Splunk Enterprise
   - Splunk Enterprise Security
   - Splunk Cloud
-affected_os:
-  - Windows
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1542
-    technique_name: Pre-OS Boot
   - tactic_id: TA0005
     tactic_name: Defense Evasion
-    technique_id: T1562.009
-    technique_name: 'Impair System Defenses: Safe Boot Mode'
+    technique_id: T1542
+    technique_name: Pre-OS Boot
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1542
+    technique_name: Pre-OS Boot
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1204.002
-    technique_name: 'User Execution: Malicious File'
+    technique_name: User Execution
 references:
   - https://www.binarly.io/blog/pkfail-untrusted-platform-keys-undermine-secure-boot-on-uefi-ecosystem
 rules:
   - title: Detect EFI Volume Mount via Mountvol
-    description: Detects attempts to mount the EFI volume using mountvol.exe with specific command-line arguments.
+    description: Detects attempts to mount the EFI volume using mountvol.exe
     platform: sigma
     severity: high
     tactics:
+      - defense_evasion
       - persistence
-      - privilege_escalation
     techniques:
       - T1542
     data_sources:
       - process_creation
       - windows
-  - title: Detect EFI Volume Mount via Mountvol - Alternate File Name
-    description: Detects attempts to mount the EFI volume using MOUNTVOL.EXE with specific command-line arguments. This rule detects the alternate file name.
+  - title: Detect EFI Volume Mount via Original Filename
+    description: Detects attempts to mount the EFI volume by original filename
     platform: sigma
     severity: high
     tactics:
+      - defense_evasion
       - persistence
-      - privilege_escalation
     techniques:
       - T1542
     data_sources:
@@ -65,28 +63,27 @@ rules:
 rules_count: 2
 ---
 
-The EFI system partition (ESP) is a critical component of modern Windows systems, containing bootloaders, device drivers, and system utilities necessary for the system to boot. Attackers may attempt to mount this volume to modify its contents, potentially compromising the boot process and gaining persistent control over the system. The `mountvol.exe` utility is a legitimate Windows tool that can be used to manage volume mount points, but its use to mount the EFI volume is uncommon and can be indicative of malicious activity. This activity is often seen with attacks such as PKFail. Defenders should monitor for the execution of `mountvol.exe` with command-line arguments that target the EFI system partition.
+This detection identifies attempts to mount the EFI volume on Windows systems using the `mountvol.exe` utility. The EFI system partition (ESP) is a special partition crucial for system booting. Unauthorized modification of the ESP can compromise system integrity, allowing attackers to modify the system on boot. This technique is associated with attacks like PKFail. The scope of this threat involves potential compromise of Windows systems and the ability to modify the boot process for malicious purposes, affecting system integrity and security. The detection leverages process monitoring to identify suspicious use of `mountvol.exe`.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to a Windows system, potentially through social engineering or exploiting a software vulnerability.
-2.  The attacker escalates privileges to administrator or system level to allow the mounting of volumes.
-3.  The attacker executes `mountvol.exe` with the `/s` switch or other parameters to mount the EFI system partition (ESP).
-4.  The attacker modifies the contents of the ESP, such as replacing bootloaders or injecting malicious drivers.
-5.  The attacker unmounts the volume to avoid detection.
-6.  The system is rebooted, and the attacker's malicious code is executed during the boot process.
-7.  The attacker gains persistent control over the system.
-8.  The attacker performs lateral movement or data exfiltration.
+1.  An attacker gains initial access to the system, potentially through social engineering or exploitation of a vulnerability.
+2.  The attacker executes `mountvol.exe` with the `-S` or `/S` parameter to mount the EFI volume.
+3.  The attacker gains write access to the EFI system partition.
+4.  The attacker modifies bootloaders or other EFI executables.
+5.  The attacker may install malicious drivers or backdoors into the EFI partition.
+6.  The system is rebooted, triggering the malicious code within the EFI partition.
+7.  The malicious code compromises the operating system during the boot process.
+8.  The attacker achieves persistence and control over the system.
 
 ## Impact
 
-Successful mounting of the EFI volume can allow attackers to compromise the boot process, install rootkits, or disable security features. This can lead to persistent malware infections that are difficult to detect and remove. The modifications to the boot process can allow attackers to bypass security controls and gain complete control over the compromised system, leading to data theft, system disruption, or further attacks on the network.
+Successful exploitation can lead to persistent malware installation, allowing attackers to maintain control over the compromised system even after reboots or OS reinstalls. The impact includes potential data theft, system corruption, and the ability to install rootkits that are difficult to detect. If successful, the attacker can gain complete control over the system.
 
 ## Recommendation
 
 *   Deploy the Sigma rule `Detect EFI Volume Mount via Mountvol` to your SIEM and tune for your environment.
-*   Monitor process creation events for instances of `mountvol.exe` executing with the `-S` flag using Sysmon Event ID 1, as covered by the provided Sigma rule.
-*   Review parent processes of `mountvol.exe` executions for suspicious or unauthorized activity.
-*   Implement application control policies to restrict the execution of `mountvol.exe` to authorized users and processes.
-*   Investigate systems where `mountvol.exe` has been used to mount the EFI volume for signs of compromise.
-*   Monitor Windows Event Log Security 4688 for process creation events related to `mountvol.exe`.
+*   Monitor process execution logs for instances of `mountvol.exe` being executed with the `-S` or `/S` parameters.
+*   Investigate any alerts generated by the Sigma rule, paying close attention to the parent processes and user accounts involved.
+*   Implement strict access controls on the EFI system partition to prevent unauthorized modifications.
+*   Regularly scan systems for signs of EFI-based rootkits or other malicious modifications.
