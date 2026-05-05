@@ -1,8 +1,8 @@
 ---
-title: Multi-Stage 'Code of Conduct' Phishing Campaign Leads to AiTM Token Compromise
+title: Sophisticated AitM Phishing Campaign Targeting US Organizations
 slug: 2026-05-aitm-phishing
-description: A widespread phishing campaign utilized 'code of conduct' lures, a multi-step attack chain, and legitimate email services to distribute authenticated messages from attacker-controlled domains, ultimately leading to adversary-in-the-middle (AiTM) token compromise, primarily targeting US-based organizations.
-date: "2026-05-04T15:00:00Z"
+description: A sophisticated phishing campaign targeting US organizations uses a 'code of conduct review' theme to lure victims to a malicious website, employing adversary-in-the-middle (AitM) techniques to capture authentication tokens and gain account access.
+date: "2026-05-06T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,17 +10,15 @@ severities:
   - high
 tags:
   - phishing
-  - credential-theft
-  - AiTM
-  - token-compromise
+  - aitm
+  - credential-access
+  - initial-access
 vendors:
   - Microsoft
   - Cloudflare
-  - Paubox
 products:
-  - Microsoft Defender for Office 365
-affected_os:
-  - Windows
+  - Microsoft account
+  - Cloudflare CAPTCHA
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -28,66 +26,59 @@ mitre_ttps:
     technique_name: Phishing
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1133
-    technique_name: External Remote Services
+    technique_id: T1566
+    technique_name: Phishing
 references:
-  - https://www.microsoft.com/en-us/security/blog/2026/05/04/breaking-the-code-multi-stage-code-of-conduct-phishing-campaign-leads-to-aitm-token-compromise/
-iocs:
-  - type: domain
-    value: acceptable-use-policy-calendly.de
-  - type: domain
-    value: compliance-protectionoutlook.de
-ioc_counts:
-  domain: 2
+  - https://www.securityweek.com/microsoft-warns-of-sophisticated-phishing-campaign-targeting-us-organizations/
 rules:
-  - title: Detect Suspicious PDF Opening via Uncommon Applications
-    description: Detects PDF files being opened by applications that are not commonly associated with PDF viewing, which could indicate malicious execution.
+  - title: Detect Phishing Email Redirection to CAPTCHA
+    description: Detects potential phishing attempts where a link in an email redirects to a CAPTCHA challenge, often used as a gating mechanism in sophisticated phishing campaigns.
     platform: sigma
     severity: medium
     tactics:
+      - credential_access
       - initial_access
     techniques:
+      - T1566
       - T1566.001
     data_sources:
-      - file_event
-      - windows
-  - title: Detect Access to Known Phishing Landing Pages
-    description: Detects network connections to known attacker-controlled domains used in the AiTM phishing campaign.
+      - webserver
+      - linux
+  - title: Detect Microsoft Account AitM Phishing Login Page
+    description: Detects access to Microsoft login pages immediately after CAPTCHA verification, potentially indicating AitM phishing activity.
     platform: sigma
     severity: high
     tactics:
-      - command_and_control
-      - initial_access
+      - credential_access
     techniques:
-      - T1566.001
-      - T1568
+      - T1566
     data_sources:
-      - network_connection
-      - windows
+      - webserver
+      - linux
 rules_count: 2
 ---
 
-Between April 14 and 16, 2026, Microsoft Defender Research observed a sophisticated, large-scale phishing campaign targeting over 35,000 users across more than 13,000 organizations in 26 countries, predominantly in the United States (92%). The campaign, which did not focus on a single vertical, impacted a range of industries, with Healthcare & life sciences (19%), Financial services (18%), Professional services (11%), and Technology & software (11%) being the most affected. Attackers employed code of conduct-themed lures delivered via emails that appeared as internal compliance or regulatory communications. The campaign utilized a multi-step attack chain, including CAPTCHA challenges and intermediate staging pages, to reinforce legitimacy and filter out automated defenses, ultimately leading to an adversary-in-the-middle (AiTM) phishing flow.
+Microsoft has warned of a sophisticated phishing campaign primarily targeting US organizations, with 92% of observed attempts focused within the United States. The campaign, active between April 14 and 16, 2026, involved over 35,000 phishing attempts across approximately 13,000 organizations spanning 26 countries. The phishing emails masquerade as internal regulatory or compliance messages, using display names like ‘Team Conduct Report’ and subject lines such as ‘Reminder: employer opened a non-compliance case log.’ The targeted sectors include healthcare, life sciences, financial services, professional services, and technology/software. The attackers are leveraging a legitimate email delivery service and likely attacker-controlled domains to send the malicious emails. This campaign is significant because it employs AitM phishing, bypassing traditional MFA protections.
 
 ## Attack Chain
 
-1.  The attack begins with phishing emails posing as internal compliance communications, using subjects like "Internal case log issued under conduct policy".
-2.  The emails contain a PDF attachment (e.g., "Awareness Case Log File – Tuesday 14th, April 2026.pdf") that claims a "code of conduct review" has been initiated.
-3.  Recipients are instructed to click a “Review Case Materials” link within the PDF.
-4.  Clicking the link redirects the user to one of the attacker-controlled domains (e.g., acceptable-use-policy-calendly[.]de).
-5.  The landing page displays a Cloudflare CAPTCHA to validate the user and impede automated analysis.
-6.  After CAPTCHA completion, the user is redirected to an intermediate site that informs them the requested documentation is encrypted and requires account authentication.
-7.  The user is presented with a legitimate-looking sign-in experience, part of an AiTM phishing flow.
-8.  The attackers proxy the authentication session in real time and capture authentication tokens, granting immediate account access.
+1.  The victim receives a phishing email purporting to be an internal regulatory or compliance message, with subjects related to conduct reports or non-compliance.
+2.  The email instructs the recipient to open a personalized attachment (PDF document) to review case materials.
+3.  The attachment contains a link, such as "Review Case Materials," that the user is directed to click.
+4.  Clicking the link redirects the user to a Cloudflare CAPTCHA page, likely to thwart automated analysis.
+5.  The user is then directed to a page indicating that documents need review and signature.
+6.  The victim is prompted to enter their email address, followed by a second CAPTCHA page.
+7.  After successful verification, the user is asked to sign in to their Microsoft account.
+8.  This final step uses AitM phishing, where the attacker proxies the session in real-time to capture authentication tokens and gain immediate access to the targeted account.
 
 ## Impact
 
-This campaign resulted in the compromise of authentication tokens, enabling attackers to gain unauthorized access to user accounts and bypass multifactor authentication. With more than 35,000 users targeted across over 13,000 organizations, the potential for widespread data breaches, financial fraud, and further malicious activities is significant. The targeting of sectors like Healthcare and Financial Services indicates a focus on high-value targets with sensitive data.
+This phishing campaign can lead to unauthorized access to Microsoft accounts, potentially enabling data theft, business email compromise (BEC), and further malicious activities within the compromised organization. With 35,000 attempts observed in a short period, the potential scale of compromise is significant. The targeting of healthcare, financial services, and technology sectors suggests a focus on high-value targets. Successful attacks can result in financial losses, reputational damage, and regulatory penalties.
 
 ## Recommendation
 
-*   Educate users about phishing lures, especially those using social engineering tactics and enterprise-style HTML templates.
-*   Deploy the Sigma rule "Detect Suspicious PDF Opening via Uncommon Applications" to identify unusual PDF execution paths, based on the 'file_event' log source.
-*   Configure email security settings in Microsoft Defender for Office 365 to filter out phishing emails effectively.
-*   Enable network protection to leverage SmartScreen as a host-based web proxy.
-*   Block access to the attacker-controlled domains, such as acceptable-use-policy-calendly[.]de, at the DNS resolver level.
+*   Deploy the "Detect Phishing Email Redirection to CAPTCHA" Sigma rule to identify potential phishing attempts leading to CAPTCHA challenges (rules).
+*   Implement the "Detect Microsoft Account AitM Phishing Login Page" Sigma rule to detect access to Microsoft login pages after CAPTCHA verification, indicating potential AitM activity (rules).
+*   Review email gateway configurations to ensure robust filtering of emails with subjects related to compliance or conduct reports (overview).
+*   Educate users about the risks of AitM phishing and the importance of verifying the authenticity of login pages, especially after CAPTCHA challenges (overview).
+*   Leverage Microsoft's threat-hunting queries and indicators of compromise (IoCs) to proactively search for related activity within your environment (overview).
