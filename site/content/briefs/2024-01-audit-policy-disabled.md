@@ -1,42 +1,54 @@
 ---
-title: Windows Audit Policy Sub-Category Disabled
+title: Windows Audit Policy Disabled
 slug: 2024-01-audit-policy-disabled
-description: This rule identifies attempts to disable auditing for security-sensitive audit policy sub-categories on Windows systems, often employed by attackers to evade detection and forensic analysis.
-date: "2024-01-02T12:00:00Z"
+description: Detection of disabled important audit policies via Windows EventCode 4719, indicating potential attacker attempts to evade detection on a compromised domain controller, leading to data theft, privilege escalation, and network compromise.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
+  - audit-policy
   - defense-evasion
   - windows
-  - audit-policy
 vendors:
   - Microsoft
+  - Splunk
 products:
-  - Windows Security Event Logs
-mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1070
-    technique_name: Indicator Removal
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1562
-    technique_name: Impair Defenses
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1562
-    technique_name: Impair Defenses
+  - Splunk Enterprise
+  - Splunk Enterprise Security
+  - Splunk Cloud
 references:
-  - https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4719
-  - https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gpac/77878370-0712-47cd-997d-b07053429f6d
+  - https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4719
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_important_audit_policy_disabled.yml
 rules:
-  - title: Audit Policy Change - Sensitive Subcategory Disabled
-    description: Detects Event ID 4719 indicating that a sensitive audit policy subcategory has been disabled.
+  - title: Auditpol Execution with Disable Argument
+    description: Detects the execution of auditpol.exe with arguments that disable audit settings.
+    platform: sigma
+    severity: high
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1562.001
+    data_sources:
+      - process_creation
+      - windows
+  - title: Windows Audit Policy Change via Registry Modification
+    description: Detects changes to audit policy via registry modification.
     platform: sigma
     severity: medium
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1562.001
+    data_sources:
+      - registry_set
+      - windows
+  - title: Detect Clearing of Windows Event Logs
+    description: Detects the clearing of Windows Event Logs, a common technique used to evade detection.
+    platform: sigma
+    severity: high
     tactics:
       - defense_evasion
     techniques:
@@ -44,41 +56,31 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Audit Policy Change via PowerShell
-    description: Detects audit policy changes via PowerShell commands.
-    platform: sigma
-    severity: medium
-    tactics:
-      - defense_evasion
-    techniques:
-      - T1562.002
-    data_sources:
-      - process_creation
-      - windows
-rules_count: 2
+rules_count: 3
 ---
 
-Attackers may disable auditing on a system in order to evade detection and forensic analysis. This is often done after initial compromise, to prevent security tools from logging their actions. This rule identifies attempts to disable auditing for specific security-sensitive audit policy sub-categories, providing defenders with insight into potential malicious activity. The rule leverages Windows Security Event Logs and specifically focuses on Event ID 4719, which indicates changes to the audit policy. It aggregates policy changes within 5-minute windows to identify removals of audit policies that are not re-enabled within the same timeframe, reducing false positives from temporary or legitimate policy changes. This detection logic is implemented using ES|QL in Elastic Stack version 9.3.0 and later.
+This analytic detects the disabling of important audit policies in Windows environments, using Windows Security Event Logs and EventCode 4719. The disabling of these policies is a critical indicator of potential attacker activity, as it suggests an adversary has gained unauthorized access to a domain controller and is actively trying to evade detection by tampering with audit configurations. The detection focuses on identifying changes where success or failure auditing is removed from critical policy subcategories. This activity, if confirmed as malicious, can lead to severe consequences, including data theft, privilege escalation, and ultimately, complete network compromise. Splunk Enterprise, Splunk Enterprise Security, and Splunk Cloud can be used to implement this detection.
 
 ## Attack Chain
 
-1. **Initial Access:** The attacker gains initial access to the system through various means (e.g., phishing, exploitation of vulnerabilities).
-2. **Privilege Escalation:** The attacker escalates their privileges to gain administrative or system-level access.
-3. **Discovery:** The attacker performs reconnaissance to identify the current audit policy settings and determine which sub-categories are enabled.
-4. **Defense Evasion:** The attacker executes commands or scripts to disable specific audit policy sub-categories, such as Logon, Audit Policy Change, Process Creation, Other System Events, Security Group Management, and User Account Management, using tools like `auditpol.exe` or modifying Group Policy Objects.
-5. **Activity Execution:** With auditing disabled, the attacker performs malicious activities without generating relevant security logs.
-6. **Persistence:** The attacker establishes persistence mechanisms to maintain access to the system, such as creating scheduled tasks or modifying registry keys.
-7. **Lateral Movement:** The attacker moves laterally to other systems on the network, potentially disabling auditing on those systems as well.
-8. **Objective Completion:** The attacker achieves their objective, which could include data theft, system disruption, or ransomware deployment.
+1.  **Initial Compromise:** An attacker gains initial access to a system within the target environment, potentially through phishing or exploiting a vulnerability.
+2.  **Privilege Escalation:** The attacker escalates privileges to gain administrative access to a domain controller.
+3.  **Identify Audit Policies:** The attacker identifies important audit policies that are currently enabled and generating logs.
+4.  **Disable Audit Policies:** The attacker disables targeted audit policies using tools like `auditpol.exe` or by directly modifying the Group Policy Objects (GPOs). This generates Windows Security Event Log 4719.
+5.  **Evade Detection:** By disabling these policies, the attacker aims to prevent their malicious activities from being logged and detected.
+6.  **Lateral Movement:** The attacker leverages their privileged access to move laterally across the network, compromising additional systems and resources.
+7.  **Data Exfiltration/Ransomware Deployment:** The attacker exfiltrates sensitive data or deploys ransomware to encrypt critical systems.
+8.  **Persistence:** The attacker establishes persistence mechanisms to maintain long-term access to the compromised environment, potentially re-enabling disabled audit policies after completing malicious activity to hide tracks.
 
 ## Impact
 
-Successful disabling of audit policies can severely impair an organization's ability to detect and respond to security incidents. Without proper logging, malicious activities can go unnoticed, leading to prolonged compromises and increased damage. Disabling auditing can impact incident response efforts, making it difficult to determine the scope and impact of an attack. The risk score associated with this activity is 47, indicating a significant potential impact on security posture.
+Successful disabling of important audit policies can have devastating consequences. Attackers can operate undetected within the environment, leading to data theft, financial losses, and reputational damage. The lack of audit logs hinders incident response efforts, making it difficult to identify the scope of the compromise and recover effectively. Affected sectors include any organization reliant on Windows Active Directory for authentication and authorization, including government, finance, healthcare, and critical infrastructure.
 
 ## Recommendation
 
-*   Enable Audit Policy Change auditing to generate the necessary events for this rule as described in the [setup instructions](https://ela.st/audit-policy-change).
-*   Deploy the provided Sigma rule to your SIEM to detect attempts to disable sensitive audit policy sub-categories. Tune the rule as necessary based on your environment and baseline activity.
-*   Investigate any alerts generated by the Sigma rule to determine the legitimacy of the audit policy changes and identify potential malicious activity.
-*   Review the [references](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4719) to understand the significance of Event ID 4719 and its implications for security monitoring.
-*   Consider enabling Sysmon process creation logging with command line auditing to detect the use of tools such as `auditpol.exe` to modify audit policies.
+*   Enable the audit policy subcategory "Audit Audit Policy Change" to generate EventCode 4719 in the Windows Security Event Logs.
+*   Deploy the Sigma rule "Windows Important Audit Policy Disabled" to your SIEM (Splunk) and tune it for your environment.
+*   Investigate any instances of EventCode 4719 where critical audit policies are disabled, focusing on the source process (`process_id`) and affected system (`dest`).
+*   Review and update the `important_audit_policy_subcategory_guids` macro to accurately reflect the audit subcategories that are most important for your environment.
+*   Monitor for unusual or unauthorized use of `auditpol.exe`, a command-line tool often used to manage audit policies.
+*   Use the provided drilldown searches in Splunk to pivot to related risk events and detection results for further investigation.
