@@ -1,7 +1,7 @@
 ---
-title: OpenClaw Improper Access Control Leads to SSRF Vulnerability
+title: OpenClaw SSRF Policy Bypass Vulnerability
 slug: 2026-05-openclaw-ssrf
-description: OpenClaw before 2026.4.14 is vulnerable to server-side request forgery (SSRF) due to improper access control in browser snapshot, screenshot, and tab routes, allowing authenticated attackers to bypass SSRF restrictions and expose internal or disallowed page content.
+description: OpenClaw before version 2026.4.10 is vulnerable to a server-side request forgery (SSRF) policy bypass, allowing attackers to perform unauthorized tab navigation operations by exploiting the /tabs/action endpoint.
 date: "2026-05-05T12:16:18Z"
 type: advisory
 types:
@@ -10,60 +10,72 @@ severities:
   - high
 tags:
   - ssrf
-  - access-control
+  - cve-2026-42439
   - openclaw
 vendors:
   - OpenClaw
 products:
   - OpenClaw
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1199
+    technique_name: Server-Side Request Forgery
 cves:
-  - id: CVE-2026-42436
-    cvss: 7.7
+  - id: CVE-2026-42439
+    cvss: 8.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-42436
-  - https://github.com/openclaw/openclaw/commit/b75ad800a59009fc47eaa3471410f69046150e59
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-c4qm-58hj-j6pj
-  - https://www.vulncheck.com/advisories/openclaw-internal-page-content-exposure-via-browser-snapshot-and-screenshot-routes
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-42439
+  - https://github.com/openclaw/openclaw/commit/48c0347921b7e9438af0312968fc360ca88023f3
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-rj2p-j66c-mgqh
+  - https://www.vulncheck.com/advisories/openclaw-ssrf-policy-bypass-in-browser-tabs-action-routes
 rules:
-  - title: Detect OpenClaw SSRF Attempt via Navigation
-    description: Detects potential SSRF attempts in OpenClaw by monitoring requests to the snapshot, screenshot, or tab routes where the target URL redirects to an internal IP address.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect OpenClaw SSRF Attempt via Internal Hostname
-    description: Detects potential SSRF attempts in OpenClaw by monitoring requests to the snapshot, screenshot, or tab routes where the target URL resolves to a local hostname.
+  - title: Detect Suspicious OpenClaw Tab Action Requests
+    description: Detects suspicious requests to the /tabs/action endpoint in OpenClaw, potentially indicating an SSRF attempt.
     platform: sigma
     severity: medium
     tactics:
       - initial_access
+    techniques:
+      - T1199
+      - T1595
     data_sources:
-      - dns_query
-      - windows
+      - webserver
+      - linux
+  - title: Detect OpenClaw SSRF via External URL in Tab Action
+    description: Detects attempts to trigger SSRF in OpenClaw by using the /tabs/action endpoint to access external URLs. This rule looks for common URL patterns associated with external connections.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1199
+      - T1595
+    data_sources:
+      - webserver
+      - linux
 rules_count: 2
 ---
 
-OpenClaw before version 2026.4.14 is susceptible to an improper access control vulnerability that can be exploited to bypass server-side request forgery (SSRF) restrictions. This flaw resides within the browser snapshot, screenshot, and tab routes, where the application fails to consistently validate the final browser target after navigation. An authenticated attacker can manipulate route-driven navigation, without proper policy re-validation, to access internal or otherwise disallowed page content. This vulnerability poses a significant risk to organizations using OpenClaw, as it can lead to the exposure of sensitive information and potentially compromise internal systems.
+OpenClaw before version 2026.4.10 is susceptible to a server-side request forgery (SSRF) policy bypass vulnerability. This flaw resides in the browser tabs action select and close routes, specifically within the `/tabs/action` endpoint. An unauthenticated attacker can leverage this vulnerability to circumvent configured SSRF policy protections. This allows them to initiate unauthorized tab navigation actions, potentially gaining access to internal resources or performing other malicious activities within the context of the OpenClaw application. The vulnerability was reported by VulnCheck and assigned CVE-2026-42439. Successful exploitation could lead to the exposure of sensitive information and compromise of internal services.
 
 ## Attack Chain
 
-1. An attacker authenticates to the OpenClaw application.
-2. The attacker crafts a request to the browser snapshot, screenshot, or tab route with an initial target URL that passes the initial access control checks.
-3. The target URL redirects or navigates to an internal or disallowed URL.
-4. OpenClaw fails to re-validate the final target URL after the navigation.
-5. The application retrieves content from the internal or disallowed URL.
-6. OpenClaw displays the content from the internal URL to the attacker.
-7. The attacker gains unauthorized access to sensitive information or internal services.
+1.  The attacker identifies an OpenClaw instance running a version prior to 2026.4.10.
+2.  The attacker crafts a malicious request targeting the `/tabs/action` endpoint.
+3.  The crafted request is designed to bypass the configured SSRF policy protections.
+4.  The attacker injects a URL pointing to an internal resource or an external malicious site.
+5.  The OpenClaw application processes the request without proper validation, initiating a request to the attacker-controlled URL.
+6.  The server-side component of OpenClaw unwittingly fetches the content from the specified URL.
+7.  The attacker gains access to potentially sensitive information from internal resources if the request was directed internally.
+8.  The attacker uses the unauthorized tab navigation to further compromise the application or network.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows authenticated attackers to bypass SSRF restrictions and gain unauthorized access to internal or disallowed page content. This could lead to the exposure of sensitive information, such as internal configurations, API keys, or customer data. The improper access control could potentially allow an attacker to interact with internal services, leading to further compromise of the affected system and network.
+Successful exploitation of this SSRF vulnerability could allow attackers to bypass configured SSRF policy protections. This may lead to unauthorized access to internal resources, information disclosure, or the ability to pivot to other internal systems. Given the nature of SSRF, the impact could range from reading sensitive configuration files to executing arbitrary commands on backend servers, depending on the internal network configuration and the services accessible from the OpenClaw server.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.14 or later to patch the improper access control vulnerability (CVE-2026-42436).
-*   Deploy the Sigma rule `Detect OpenClaw SSRF Attempt via Navigation` to identify potential exploitation attempts by monitoring requests to snapshot/screenshot/tab routes.
-*   Implement strict input validation and sanitization on all user-supplied URLs to prevent manipulation of route-driven navigation.
+*   Upgrade OpenClaw to version 2026.4.10 or later to patch CVE-2026-42439.
+*   Deploy the Sigma rule `Detect Suspicious OpenClaw Tab Action Requests` to identify potential exploitation attempts targeting the `/tabs/action` endpoint.
+*   Monitor web server logs for suspicious activity related to the `/tabs/action` endpoint, specifically requests with unusual URLs or parameters, to detect and respond to potential exploitation attempts.
