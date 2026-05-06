@@ -1,50 +1,38 @@
 ---
-title: OpenClaw Authentication Bypass in Feishu Webhook and Card Actions
+title: OpenClaw Bearer Token Validation Bypass via Stale SecretRef Resolution
 slug: 2026-05-openclaw-auth-bypass
-description: OpenClaw before version 2026.4.15 contains an authentication bypass vulnerability (CVE-2026-44109) in Feishu webhook and card-action validation, allowing unauthenticated requests to execute arbitrary commands due to insecure default configurations.
+description: OpenClaw before 2026.4.15 captures resolved bearer-auth configuration at startup, allowing revoked tokens to remain valid after SecretRef rotation, leading to unauthorized gateway access via stale bearer tokens.
 date: "2026-05-06T20:16:34Z"
 type: advisory
 types:
   - advisory
 severities:
-  - critical
+  - high
 tags:
-  - authentication bypass
-  - webhook
-  - card action
-  - cve-2026-44109
+  - authentication-bypass
+  - credential-access
+  - vulnerability
 vendors:
   - OpenClaw
 products:
   - OpenClaw
-  - Feishu webhook
+  - OpenClaw Gateway
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1555
     technique_name: Credentials from Password Stores
 cves:
-  - id: CVE-2026-44109
-    cvss: 9.8
+  - id: CVE-2026-43585
+    cvss: 8.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-44109
-  - https://github.com/openclaw/openclaw/commit/c8003f1b33ed2924be5f62131bd28742c5a41aae
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-xh72-v6v9-mwhc
-  - https://www.vulncheck.com/advisories/openclaw-authentication-bypass-in-feishu-webhook-and-card-action-validation
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-43585
+  - https://github.com/openclaw/openclaw/commit/acd4e0a32f12e1ad85f3130f63b42443ce90f094
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-xmxx-7p24-h892
+  - https://www.vulncheck.com/advisories/openclaw-bearer-token-validation-bypass-via-stale-secretref-resolution
 rules:
-  - title: Detect OpenClaw Unauthenticated Webhook Request
-    description: Detects requests to OpenClaw's Feishu webhook endpoints lacking proper authentication, indicating a potential CVE-2026-44109 exploitation attempt.
-    platform: sigma
-    severity: critical
-    tactics:
-      - credential_access
-    techniques:
-      - T1555
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect OpenClaw Missing encryptKey Configuration
-    description: Detects requests where callback_token is present but encryptKey is missing, indicative of a misconfigured OpenClaw instance vulnerable to CVE-2026-44109.
+  - title: Detect OpenClaw Authentication Bypass via Stale Token
+    description: Detects potential exploitation of OpenClaw authentication bypass by monitoring for bearer token usage after SecretRef rotation.
     platform: sigma
     severity: high
     tactics:
@@ -54,29 +42,38 @@ rules:
     data_sources:
       - webserver
       - linux
+  - title: Detect OpenClaw WebSocket Connection with Bearer Token
+    description: Detects WebSocket connections potentially using stale bearer tokens in OpenClaw.
+    platform: sigma
+    severity: medium
+    tactics:
+      - credential_access
+    techniques:
+      - T1555
+    data_sources:
+      - network_connection
+      - linux
 rules_count: 2
 ---
 
-OpenClaw before version 2026.4.15 is vulnerable to an authentication bypass in its Feishu webhook and card-action validation mechanisms. This vulnerability, identified as CVE-2026-44109, allows unauthenticated requests to reach command dispatch. The root cause lies in the application's handling of missing `encryptKey` configurations and blank callback tokens. Instead of rejecting requests lacking proper authentication, the system fails open, effectively bypassing signature verification and replay protection. This flaw enables attackers to execute arbitrary commands within the OpenClaw environment. This is a critical vulnerability due to the potential for unauthorized command execution leading to data manipulation, system compromise, or other malicious activities.
+OpenClaw, a gateway application, is vulnerable to an authentication bypass issue. Specifically, versions prior to 2026.4.15 exhibit a flaw where the bearer-auth configuration is resolved only at startup. This means that after a SecretRef rotation (when tokens are intended to be revoked), the gateway's HTTP and WebSocket handlers do not re-resolve authentication per request. Consequently, an attacker could potentially leverage rotated-out bearer tokens to gain unauthorized access to the gateway. This vulnerability allows an attacker to bypass authentication mechanisms and gain unauthorized access to resources protected by the OpenClaw gateway.
 
 ## Attack Chain
 
-1. An attacker crafts a malicious request targeting the Feishu webhook or card-action endpoint within OpenClaw.
-2. The attacker omits or provides a blank callback token and does not provide a valid `encryptKey`.
-3. OpenClaw's authentication mechanism incorrectly validates the request due to the fail-open behavior when the `encryptKey` is missing or the callback token is blank.
-4. The request bypasses signature verification and replay protection, normally intended to ensure request integrity and prevent tampering.
-5. The unauthenticated request is passed to the command dispatch component.
-6. The command dispatch component executes the attacker-supplied command without proper authorization checks.
-7. The attacker achieves arbitrary command execution within the OpenClaw environment.
-8. The attacker can then perform actions such as modifying data, accessing sensitive information, or compromising the OpenClaw system.
+1.  An attacker obtains a valid bearer token for OpenClaw gateway access.
+2.  The organization rotates the SecretRef, which should invalidate the attacker's token.
+3.  OpenClaw gateway, due to the vulnerability, does not re-resolve authentication per-request.
+4.  The attacker attempts to access a protected resource using the previously valid, now rotated-out bearer token via an HTTP or WebSocket request.
+5.  The gateway, still using the old configuration, incorrectly validates the token.
+6.  The attacker gains unauthorized access to the protected resource.
+7.  The attacker performs actions they are not authorized to perform, potentially exfiltrating data or modifying configurations.
 
 ## Impact
 
-Successful exploitation of CVE-2026-44109 allows unauthenticated attackers to execute arbitrary commands on OpenClaw systems. The impact is high, potentially leading to unauthorized access to sensitive data, modification of system configurations, or complete system compromise. Due to the nature of webhooks, this could potentially allow attackers to pivot to other systems integrated with OpenClaw, creating a significant security breach.
+Successful exploitation of CVE-2026-43585 allows attackers to bypass authentication and gain unauthorized access to resources protected by the OpenClaw gateway. This can lead to the exposure of sensitive data, unauthorized modification of configurations, and other malicious activities. The severity is rated as high with a CVSS v3.1 score of 8.1, indicating significant potential for damage. The number of victims and specific sectors targeted are currently unknown.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.15 or later to patch CVE-2026-44109.
-*   Ensure that a strong `encryptKey` is properly configured for Feishu webhook and card-action validation.
-*   Deploy the Sigma rule `Detect OpenClaw Unauthenticated Webhook Request` to identify exploitation attempts (CVE-2026-44109).
-*   Review and restrict access to Feishu webhook and card-action endpoints to only authorized sources.
+*   Upgrade OpenClaw to version 2026.4.15 or later to patch CVE-2026-43585.
+*   Monitor webserver logs for HTTP and WebSocket requests using bearer tokens after SecretRef rotation; deploy the Sigma rule `Detect OpenClaw Authentication Bypass via Stale Token` to detect potential exploitation attempts.
+*   Implement robust monitoring and alerting for unauthorized access attempts to protected resources to detect post-exploitation activity.
