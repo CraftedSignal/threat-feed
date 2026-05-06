@@ -1,8 +1,8 @@
 ---
-title: OpenClaw SSRF Policy Bypass Vulnerability (CVE-2026-43573)
+title: OpenClaw Server-Side Request Forgery Vulnerability
 slug: 2026-05-openclaw-ssrf
-description: OpenClaw before version 2026.4.10 is vulnerable to a server-side request forgery (SSRF) policy bypass, allowing attackers to bypass navigation guards and interact with unauthorized targets.
-date: "2026-05-05T12:16:21Z"
+description: OpenClaw before 2026.4.5 is vulnerable to server-side request forgery (SSRF) via the CDP /json/version WebSocket endpoint by not properly validating the webSocketDebuggerUrl response field, enabling attackers to redirect connections to arbitrary hosts and perform SSRF-style attacks to pivot to untrusted second-hop targets.
+date: "2026-05-06T20:16:33Z"
 type: advisory
 types:
   - advisory
@@ -10,28 +10,29 @@ severities:
   - high
 tags:
   - ssrf
-  - cve-2026-43573
-  - vulnerability
+  - cve-2026-43576
+  - openclaw
 vendors:
   - OpenClaw
 products:
   - OpenClaw
+  - OpenClaw CDP /json/version WebSocket endpoint
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-43573
+  - id: CVE-2026-43576
     cvss: 7.7
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-43573
-  - https://github.com/openclaw/openclaw/commit/daeb74920d5ad986cb600625180037e23221e93a
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-527m-976r-jf79
-  - https://www.vulncheck.com/advisories/openclaw-ssrf-policy-bypass-in-existing-session-browser-interaction-routes
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-43576
+  - https://github.com/openclaw/openclaw/commit/bc356cc8c2beaa747c71dd86cceab8f804699665
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-f7fh-qg34-x2xh
+  - https://www.vulncheck.com/advisories/openclaw-second-hop-ssrf-via-cdp-json-version-websocket-url
 rules:
-  - title: OpenClaw SSRF Attempt
-    description: Detects potential SSRF attacks against OpenClaw by monitoring for suspicious requests in web server logs.
+  - title: Detect OpenClaw SSRF Attempt via Modified WebSocket Debugger URL
+    description: Detects attempts to exploit the OpenClaw SSRF vulnerability by monitoring requests to the /json/version endpoint with a suspicious webSocketDebuggerUrl.
     platform: sigma
     severity: high
     tactics:
@@ -41,8 +42,8 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: OpenClaw SSRF - Suspicious Referer Header
-    description: Detects potential SSRF attempts against OpenClaw by monitoring for requests with a suspicious Referer header pointing to an internal resource.
+  - title: Detect OpenClaw SSRF Response with External WebSocket URL
+    description: Detects OpenClaw responses to the /json/version endpoint containing an external webSocketDebuggerUrl, potentially indicating an SSRF attempt.
     platform: sigma
     severity: medium
     tactics:
@@ -55,25 +56,25 @@ rules:
 rules_count: 2
 ---
 
-OpenClaw versions prior to 2026.4.10 are susceptible to a server-side request forgery (SSRF) policy bypass vulnerability, identified as CVE-2026-43573. This flaw exists in the existing-session browser interaction routes, enabling attackers to circumvent SSRF navigation guards. Successful exploitation allows an attacker to interact with or navigate to unauthorized targets without the intended policy enforcement. This vulnerability could lead to the exposure of sensitive information, unauthorized access to internal resources, or further exploitation of other system components. Defenders need to ensure OpenClaw instances are updated to the latest version to mitigate this risk.
+OpenClaw versions prior to 2026.4.5 are susceptible to a server-side request forgery (SSRF) vulnerability. The vulnerability resides in the CDP /json/version WebSocket endpoint. Insufficient validation of the `webSocketDebuggerUrl` response field allows attackers to manipulate connections to arbitrary hosts. This flaw enables attackers to perform SSRF attacks, effectively pivoting to internal, untrusted second-hop targets. The vulnerability was reported on May 6, 2026, and poses a significant risk to systems running affected versions of OpenClaw by potentially exposing internal resources and services to unauthorized access.
 
 ## Attack Chain
 
-1. An attacker identifies an OpenClaw instance running a version prior to 2026.4.10.
-2. The attacker crafts a malicious request targeting an existing user session within the OpenClaw application.
-3. The crafted request is designed to exploit the SSRF policy bypass in the browser interaction routes.
-4. The vulnerable code fails to properly enforce SSRF navigation guards during browser interaction.
-5. The attacker is able to bypass the intended SSRF protections and initiate requests to unauthorized internal or external targets.
-6. The OpenClaw server processes the attacker-initiated request without proper validation.
-7. The attacker interacts with or navigates to unauthorized targets, potentially gaining access to sensitive information or internal resources.
-8. The attacker may leverage the compromised session to further escalate privileges or perform other malicious activities within the network.
+1. An attacker identifies an OpenClaw instance running a version prior to 2026.4.5.
+2. The attacker sends a request to the `/json/version` WebSocket endpoint.
+3. The OpenClaw server responds with a JSON payload that includes the `webSocketDebuggerUrl` field.
+4. The attacker intercepts and modifies the `webSocketDebuggerUrl` field in the response to point to an internal or external host controlled by the attacker.
+5. A user or application attempts to use the WebSocket debugger URL.
+6. The connection is redirected to the attacker-controlled host due to the manipulated URL.
+7. The attacker can now proxy requests through the OpenClaw server, effectively performing an SSRF attack against the target host.
+8. The attacker can potentially access internal resources or exploit other vulnerabilities on the second-hop target.
 
 ## Impact
 
-Successful exploitation of CVE-2026-43573 allows attackers to bypass SSRF protections in OpenClaw, potentially leading to unauthorized access to sensitive data or internal resources. The impact depends on the specific configurations and network architecture of the affected OpenClaw deployment, but could include exposure of confidential information, disruption of services, or further compromise of internal systems.
+Successful exploitation of this SSRF vulnerability allows an attacker to pivot to internal, untrusted second-hop targets. This can lead to the exposure of sensitive information, unauthorized access to internal services, and further exploitation of vulnerabilities on internal systems. The CVSS v3.1 base score is rated as 7.7 (High), reflecting the potential for significant impact. There is no information about the number of victims or sectors targeted in the source material.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.10 or later to patch the SSRF policy bypass vulnerability (CVE-2026-43573).
-*   Deploy the Sigma rule "OpenClaw SSRF Attempt" to detect exploitation attempts targeting the vulnerable browser interaction routes.
-*   Review and harden existing session management policies in OpenClaw to prevent unauthorized session access.
+*   Upgrade OpenClaw to version 2026.4.5 or later to patch the vulnerability (CVE-2026-43576).
+*   Implement network segmentation to limit the impact of potential SSRF attacks.
+*   Monitor web server logs for requests to the `/json/version` endpoint that contain suspicious or unexpected URLs in the `webSocketDebuggerUrl` field. Deploy the provided Sigma rule to detect this activity.
