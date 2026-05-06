@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32080
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32080
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious WalletService Process Creation
     description: Detects suspicious process creation events originating from the WalletService process, which could indicate exploitation of CVE-2026-32080.

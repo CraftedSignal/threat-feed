@@ -23,8 +23,6 @@ references:
   - https://www.hscripts.com/scripts/php/downloads/quiz-maker.zip
   - https://www.hscripts.com/scripts/php/quiz-maker.php
   - https://www.vulncheck.com/advisories/online-quiz-maker-sql-injection-via-catid-parameter
-ioc_counts:
-  url: 4
 rules:
   - title: SQL Injection in Online Quiz Maker
     description: Detects potential SQL injection attempts in Online Quiz Maker via POST requests to quiz-system.php or add-category.php

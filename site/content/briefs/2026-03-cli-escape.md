@@ -25,8 +25,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-3587
   - https://certvde.com/de/advisories/VDE-2026-020
-ioc_counts:
-  url: 1
 rules:
   - title: Detect Potential CLI Escape via Process Creation
     description: Detects suspicious process creation events originating from the CLI, which could indicate an attempt to escape the restricted environment and execute arbitrary commands.

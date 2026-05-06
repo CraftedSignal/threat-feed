@@ -32,10 +32,7 @@ references:
 iocs:
   - type: url
     value: https://www.dell.com/support/kbdoc/en-us/000450699/dsa-2026-060-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
   url: 1
 rules:
   - title: Detect Login Attempts with Default Usernames on Dell PowerProtect

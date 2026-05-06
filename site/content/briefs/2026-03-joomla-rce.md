@@ -22,9 +22,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32968
   - https://certvde.com/de/advisories/VDE-2026-024
   - https://certvde.com/de/advisories/VDE-2026-025
-ioc_counts:
-  email: 1
-  url: 2
 rules:
   - title: Detect Joomla com_mb24sysapi Command Injection Attempt
     description: Detects attempts to exploit command injection vulnerability in the Joomla com_mb24sysapi module by looking for suspicious parameters in HTTP requests.

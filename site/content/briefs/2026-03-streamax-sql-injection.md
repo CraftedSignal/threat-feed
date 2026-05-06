@@ -24,9 +24,6 @@ references:
   - https://vuldb.com/?ctiid.353661
   - https://vuldb.com/?id.353661
   - https://vuldb.com/?submit.777507
-ioc_counts:
-  email: 1
-  url: 4
 rules:
   - title: Detect SQL Injection Attempt in Streamax RemoteFormat.do
     description: Detects potential SQL injection attempts targeting the /RemoteFormat.do endpoint by looking for SQL keywords in the State parameter.

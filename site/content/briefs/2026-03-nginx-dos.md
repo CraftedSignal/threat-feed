@@ -25,8 +25,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-27651
   - https://my.f5.com/manage/s/article/K000160383
-ioc_counts:
-  url: 1
 rules:
   - title: NGINX Worker Process Termination
     description: Detects sudden NGINX worker process terminations, which may indicate exploitation of CVE-2026-27651.

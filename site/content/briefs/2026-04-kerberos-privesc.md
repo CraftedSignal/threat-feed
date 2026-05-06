@@ -24,13 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-27912
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-27912
-iocs:
-  - type: email
-    value: '[email protected]'
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Detect Kerberos Ticket Request with Elevated Privileges
     description: Detects attempts to request Kerberos tickets with elevated privileges that may indicate exploitation of CVE-2026-27912

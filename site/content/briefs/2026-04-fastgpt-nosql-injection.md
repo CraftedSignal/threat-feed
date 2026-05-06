@@ -26,15 +26,6 @@ references:
   - https://github.com/labring/FastGPT/commit/bd966d479fbe414d02679cf79f9eaaab3d100a2d
   - https://github.com/labring/FastGPT/releases/tag/v4.14.9.5
   - https://github.com/labring/FastGPT/security/advisories/GHSA-x8mx-2mr7-h9xg
-iocs:
-  - type: url
-    value: https://github.com/labring/FastGPT/commit/bd966d479fbe414d02679cf79f9eaaab3d100a2d
-  - type: url
-    value: https://github.com/labring/FastGPT/releases/tag/v4.14.9.5
-  - type: url
-    value: https://github.com/labring/FastGPT/security/advisories/GHSA-x8mx-2mr7-h9xg
-ioc_counts:
-  url: 3
 rules:
   - title: Detect FastGPT NoSQL Injection Attempt
     description: Detects attempts to exploit the NoSQL injection vulnerability in FastGPT by searching for MongoDB query operators in POST requests to the login endpoint.

@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-26183
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26183
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Potential Exploitation of CVE-2026-26183 via Suspicious Process Creation
     description: Detects suspicious process creations by low-privileged users that might be related to the exploitation of CVE-2026-26183. This rule looks for unusual processes being spawned by standard users which could indicate privilege escalation attempts.

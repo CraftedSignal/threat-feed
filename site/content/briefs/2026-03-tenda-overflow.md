@@ -22,8 +22,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5046
   - https://github.com/Litengzheng/vul_db/blob/main/FH1201/vul_44/README.md
   - https://vuldb.com/vuln/353969
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspiciously Long GO Parameter in Tenda FH1201 Request
     description: Detects HTTP POST requests to /goform/WrlExtraSet with a GO parameter exceeding a reasonable length, indicating a potential buffer overflow attempt.

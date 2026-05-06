@@ -18,8 +18,6 @@ references:
   - https://github.com/openemr/openemr/commit/67e1702c41cf486af0069bdafce19860e2cd9a11
   - https://github.com/openemr/openemr/releases/tag/v8_0_0_3
   - https://github.com/openemr/openemr/security/advisories/GHSA-9757-3cfj-wc8q
-ioc_counts:
-  email: 1
 rules:
   - title: Detect XXE Attempt via xi:include Tag
     description: Detects potential XXE attacks by identifying requests containing the `xi:include` tag in the URI query.

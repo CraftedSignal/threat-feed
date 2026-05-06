@@ -32,17 +32,9 @@ iocs:
     value: https://code-projects.org/
   - type: url
     value: https://github.com/ahmadmarz10-hub/CVEsMarz/blob/main/SQL%20Injection%20in%20Online%20FIR%20System%20PHP%20email%20Parameter.md
-  - type: url
-    value: https://vuldb.com/submit/786310
-  - type: url
-    value: https://vuldb.com/vuln/355488
-  - type: url
-    value: https://vuldb.com/vuln/355488/cti
-  - type: email
-    value: '[email protected]'
+    context: Proof-of-concept exploit code
 ioc_counts:
-  email: 1
-  url: 5
+  url: 2
 rules:
   - title: Detect SQL Injection Attempts in Online FIR System Login
     description: Detects potential SQL injection attempts targeting the /Login/checklogin.php endpoint by searching for common SQL injection keywords in the email or password parameters.

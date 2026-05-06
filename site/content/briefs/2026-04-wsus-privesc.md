@@ -24,13 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-26174
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26174
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Detect Suspicious WSUS Child Processes
     description: Detects unusual child processes spawned by the WSUS process (w3wp.exe), which could indicate exploitation.

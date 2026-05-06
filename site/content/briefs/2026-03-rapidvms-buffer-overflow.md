@@ -24,8 +24,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33847
   - https://github.com/linkingvision/rapidvms/pull/98
-ioc_counts:
-  email: 1
 rules:
   - title: Detect rapidvms Suspicious Child Process
     description: Detects rapidvms spawning a shell, indicating potential exploitation.

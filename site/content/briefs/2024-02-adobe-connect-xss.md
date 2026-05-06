@@ -25,15 +25,10 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-27245
   - https://helpx.adobe.com/security/products/connect/apsb26-37.html
 iocs:
-  - type: email
-    value: '[email&#160;protected]'
-  - type: url
-    value: https://nvd.nist.gov
   - type: url
     value: https://helpx.adobe.com/security/products/connect/apsb26-37.html
 ioc_counts:
-  email: 1
-  url: 2
+  url: 1
 rules:
   - title: Detect Adobe Connect XSS Attempt via URI
     description: Detects potential reflected XSS attempts targeting Adobe Connect by looking for JavaScript-like syntax in the URI.

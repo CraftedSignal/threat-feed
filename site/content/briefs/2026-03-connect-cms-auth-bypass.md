@@ -22,8 +22,6 @@ references:
   - https://github.com/opensource-workshop/connect-cms/security/advisories/GHSA-62ch-j6x7-722j
   - https://github.com/opensource-workshop/connect-cms/releases/tag/v1.41.1
   - https://github.com/opensource-workshop/connect-cms/releases/tag/v2.41.1
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Connect-CMS Unauthorized Page Access
     description: Detects potential unauthorized access to Connect-CMS pages due to CVE-2026-32299. Monitor for suspicious requests to page retrieval endpoints.

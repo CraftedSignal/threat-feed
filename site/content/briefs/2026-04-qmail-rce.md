@@ -37,11 +37,6 @@ references:
   - https://github.com/sagredo-dev/qmail/commit/749f607f6885e3d01b36f2647d7a1db88f1ef741
   - https://github.com/sagredo-dev/qmail/pull/42
   - https://github.com/sagredo-dev/qmail/releases/tag/v2026.04.07
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Qmail Remote Execution via popen
     description: Detects potential remote code execution attempts in Qmail by monitoring for process execution originating from qmail-remote invoking shell commands through popen.

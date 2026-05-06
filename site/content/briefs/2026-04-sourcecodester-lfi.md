@@ -31,18 +31,9 @@ iocs:
   - type: url
     value: https://medium.com/@hemantrajbhati5555/local-file-inclusion-lfi-in-leave-application-system-php-sqlite3-4e095bb7ee40
   - type: url
-    value: https://vuldb.com/submit/780419
-  - type: url
-    value: https://vuldb.com/vuln/354346
-  - type: url
-    value: https://vuldb.com/vuln/354346/cti
-  - type: url
     value: https://www.sourcecodester.com/
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
-  url: 5
+  url: 2
 rules:
   - title: Detect LFI Attempts via Page Parameter
     description: Detects attempts to exploit LFI vulnerabilities by analyzing the 'page' parameter in HTTP requests.

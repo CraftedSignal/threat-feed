@@ -33,8 +33,10 @@ iocs:
     value: https://github.com/kyverno/kyverno/blob/17aeb52337fd66adb0c8126213ba076612a287a7/pkg/engine/apicall/apiCall.go#L67-L83
   - type: url
     value: https://github.com/user-attachments/files/25352288/poc.zip
+    context: Proof-of-concept exploit code
   - type: url
     value: https://github.com/user-attachments/files/25352289/PR_DESCRIPTION.md
+    context: Proof-of-concept exploit code
 ioc_counts:
   url: 5
 rules:

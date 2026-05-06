@@ -25,11 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-57834
   - https://semiconductor.samsung.com/support/quality-support/product-security-updates/
   - https://semiconductor.samsung.com/support/quality-support/product-security-updates/cve-2025-54328/
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Repeated Connections to a Potentially Vulnerable Device
     description: Detects a high number of connections to a device that might be running a vulnerable Exynos processor, indicating a potential denial of service attempt.

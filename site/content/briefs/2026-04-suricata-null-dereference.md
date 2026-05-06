@@ -28,13 +28,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-31931
   - https://github.com/OISF/suricata/security/advisories/GHSA-gr22-4784-xvw3
   - https://redmine.openinfosecfoundation.org/issues/8294
-iocs:
-  - type: email
-    value: '[email protected]'
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Suricata Process Crash Due to SIGSEGV
     description: Detects Suricata process crashing due to a segmentation fault (SIGSEGV), which could be caused by CVE-2026-31931.

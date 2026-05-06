@@ -31,11 +31,6 @@ references:
   - https://vuldb.com/submit/800978
   - https://vuldb.com/vuln/359730
   - https://vuldb.com/vuln/359730/cti
-iocs:
-  - type: email
-    value: '[email&#160protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect SQL Injection Attempt via Login
     description: Detects potential SQL injection attempts targeting the /loginuser.php endpoint by identifying SQL syntax in the email or password parameters.

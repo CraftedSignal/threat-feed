@@ -22,8 +22,6 @@ cves:
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34209
-ioc_counts:
-  email: 2
 rules:
   - title: Detect Mismatched Close Voucher Amounts
     description: Detects close voucher submissions where the voucher amount equals the settled amount, potentially indicating exploitation of CVE-2026-34209.

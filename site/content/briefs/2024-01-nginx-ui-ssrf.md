@@ -23,11 +23,6 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
 references:
   - https://github.com/advisories/GHSA-wr32-99hh-6f35
-iocs:
-  - type: ip
-    value: 169.254.169.254
-ioc_counts:
-  ip: 1
 rules:
   - title: Detect Nginx-UI SSRF via X-Node-ID Header
     description: Detects potential SSRF attempts in Nginx-UI by monitoring for requests with the X-Node-ID header, indicating the use of the proxy middleware.

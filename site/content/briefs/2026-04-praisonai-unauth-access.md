@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-39889
   - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-f292-66h9-fpmf
-iocs:
-  - type: url
-    value: https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-f292-66h9-fpmf
-ioc_counts:
-  url: 1
 rules:
   - title: Detect Unauthenticated Access to PraisonAI A2U Endpoints
     description: Detects unauthenticated HTTP GET requests to PraisonAI A2U endpoints, indicating potential exploitation of CVE-2026-39889.

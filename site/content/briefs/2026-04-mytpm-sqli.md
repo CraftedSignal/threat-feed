@@ -31,12 +31,8 @@ iocs:
     value: https://manageyourteam.net/
   - type: url
     value: https://sourceforge.net/projects/myt/
-  - type: url
-    value: https://www.exploit-db.com/exploits/46084
-  - type: url
-    value: https://www.vulncheck.com/advisories/myt-pm-sql-injection-via-charge-group-total-parameter
 ioc_counts:
-  url: 4
+  url: 2
 rules:
   - title: Detect SQL Injection Attempts in MyT-PM Charge Endpoint
     description: Detects potential SQL injection attempts targeting the /charge/admin endpoint in MyT-PM through the Charge[group_total] parameter.

@@ -47,11 +47,9 @@ iocs:
   - type: url
     value: https://filecenter.deltaww.com/news/download/doc/Delta-PCSA-2026-00007_ASDA-Soft%20Stack-based%20Buffer%20Overflow%20Vulnerability%20(CVE-2026-5726).pdf
   - type: email
-    value: vul@nist.gov
-  - type: email
     value: soc@us-cert.gov
 ioc_counts:
-  email: 2
+  email: 1
   url: 1
 rules:
   - title: Detect Unusual ASDA-Soft Process Execution

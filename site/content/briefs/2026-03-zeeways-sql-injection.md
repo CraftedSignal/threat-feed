@@ -25,15 +25,8 @@ references:
 iocs:
   - type: url
     value: http://www.zeeways.com/matrimony-cms/4/productdetail
-  - type: url
-    value: https://www.exploit-db.com/exploits/46603
-  - type: url
-    value: https://www.vulncheck.com/advisories/zeeways-matrimony-cms-lastest-sql-injection-via-profile-list
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
-  url: 3
+  url: 1
 rules:
   - title: Detect SQL Injection Attempts in Zeeways Matrimony CMS via profile_list
     description: Detects potential SQL injection attempts targeting the profile_list endpoint in Zeeways Matrimony CMS through suspicious parameters.

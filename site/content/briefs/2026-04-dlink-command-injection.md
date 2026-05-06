@@ -28,10 +28,7 @@ references:
 iocs:
   - type: url
     value: https://files.catbox.moe/ei31k1.zip
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
   url: 1
 rules:
   - title: Detect D-Link DIR-882 Command Injection Attempt

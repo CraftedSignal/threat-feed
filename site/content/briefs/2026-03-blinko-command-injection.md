@@ -22,18 +22,6 @@ references:
   - https://github.com/blinkospace/blinko/commit/bef6b770743e87c630db2d00d7049dabd96bfe85
   - https://github.com/blinkospace/blinko/releases/tag/1.8.4
   - https://github.com/blinkospace/blinko/security/advisories/GHSA-59r2-82p8-c56v
-iocs:
-  - type: url
-    value: https://github.com/blinkospace/blinko/commit/bef6b770743e87c630db2d00d7049dabd96bfe85
-  - type: url
-    value: https://github.com/blinkospace/blinko/releases/tag/1.8.4
-  - type: url
-    value: https://github.com/blinkospace/blinko/security/advisories/GHSA-59r2-82p8-c56v
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: Detect Blinko MCP Server Creation with Suspicious Commands
     description: Detects Blinko processes creating MCP servers with command injection attempts by looking for suspicious commands within the process command line.

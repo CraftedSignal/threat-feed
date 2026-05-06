@@ -24,13 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32200
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32200
-iocs:
-  - type: email
-    value: '[email protected]'
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Detect Suspicious PowerPoint Child Processes
     description: Detects suspicious child processes spawned by PowerPoint, indicating potential exploitation.

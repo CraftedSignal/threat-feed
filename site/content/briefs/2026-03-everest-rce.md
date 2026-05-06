@@ -21,8 +21,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-22790
   - https://github.com/EVerest/EVerest/security/advisories/GHSA-wh8w-7cfc-gq7m
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Large SLAC Payloads to EVerest
     description: Detects network connections with unusually large payloads potentially targeting the EVerest stack buffer overflow.

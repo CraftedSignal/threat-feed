@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5652
   - https://gitlab.com/crafty-controller/crafty-4/-/work_items/705
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious User Modification via API
     description: Detects attempts to modify user accounts via the Users API using IDs that don't match the authenticated user.

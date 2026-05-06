@@ -22,9 +22,6 @@ references:
   - https://github.com/openclaw/openclaw/commit/095d522099653367e1b76fa5bb09d4ddf7c8a57c
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-vr7j-g7jv-h5mp
   - https://www.vulncheck.com/advisories/openclaw-insufficient-file-permissions-in-session-transcript-files
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: Detect Unauthorized Access to OpenClaw Session Transcripts
     description: Detects unauthorized processes accessing OpenClaw session transcript files, indicating potential exploitation of CVE-2026-33572.

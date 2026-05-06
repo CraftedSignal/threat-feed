@@ -25,18 +25,6 @@ references:
   - https://github.com/freescout-help-desk/freescout/commit/414878eb79be7cb01a3ae124df6efcd23729275f
   - https://github.com/freescout-help-desk/freescout/releases/tag/1.8.215
   - https://github.com/freescout-help-desk/freescout/security/advisories/GHSA-vj2p-2789-3747
-iocs:
-  - type: url
-    value: https://github.com/freescout-help-desk/freescout/commit/414878eb79be7cb01a3ae124df6efcd23729275f
-  - type: url
-    value: https://github.com/freescout-help-desk/freescout/releases/tag/1.8.215
-  - type: url
-    value: https://github.com/freescout-help-desk/freescout/security/advisories/GHSA-vj2p-2789-3747
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: Detect FreeScout Save Draft Abuse
     description: Detects POST requests to the save_draft endpoint in FreeScout, potentially indicating an attempt to exploit CVE-2026-41190

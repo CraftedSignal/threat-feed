@@ -21,9 +21,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32914
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-r7vr-gr74-94p8
   - https://www.vulncheck.com/advisories/openclaw-insufficient-access-control-in-config-and-debug-endpoints
-ioc_counts:
-  email: 1
-  url: 2
 rules:
   - title: Detect OpenClaw Unauthorized Config Access
     description: Detects attempts to access the /config endpoint in OpenClaw without proper authorization, indicating potential exploitation of CVE-2026-32914.

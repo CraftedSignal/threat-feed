@@ -24,11 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4525
   - https://discuss.hashicorp.com/t/hcsec-2026-07-vault-may-expose-tokens-to-auth-plugins-due-to-incorrect-header-sanitization/77344
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Unauthorized Vault Authentication via Auth Path
     description: Detects attempts to authenticate to Vault using a specific auth path after a potential token compromise.

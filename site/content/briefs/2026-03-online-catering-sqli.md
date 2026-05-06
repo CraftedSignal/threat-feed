@@ -24,8 +24,6 @@ references:
   - https://vuldb.com/?id.352479
   - https://vuldb.com/?submit.775735
   - https://www.sourcecodester.com/
-ioc_counts:
-  url: 5
 rules:
   - title: Detect SQL Injection Attempts in Online Catering Reservation
     description: Detects potential SQL injection attempts targeting the /search.php endpoint by looking for SQL keywords in the rcode parameter.

@@ -24,11 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-27304
   - https://helpx.adobe.com/security/products/coldfusion/apsb26-38.html
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious ColdFusion URI Access
     description: Detects suspicious URI access to ColdFusion server

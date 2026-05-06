@@ -29,11 +29,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6310
   - https://chromereleases.googleblog.com/2026/04/stable-channel-update-for-desktop_15.html
   - https://issues.chromium.org/issues/497969820
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Chrome Renderer Process Spawning Unusual Processes
     description: Detects unusual processes spawned by the Chrome renderer process, which may indicate a sandbox escape attempt following exploitation of CVE-2026-6310.

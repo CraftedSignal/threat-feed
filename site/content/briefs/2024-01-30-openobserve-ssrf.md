@@ -23,11 +23,6 @@ cves:
     cvss: 7.7
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-39361
-iocs:
-  - type: ip
-    value: 169.254.169.254
-ioc_counts:
-  ip: 1
 rules:
   - title: Detect OpenObserve SSRF Attempt via AWS IMDS Access
     description: Detects network connections from OpenObserve servers to the AWS IMDSv1 endpoint (169.254.169.254), indicating a potential SSRF attempt to steal IAM credentials.

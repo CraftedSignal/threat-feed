@@ -30,8 +30,6 @@ references:
   - https://www.mozilla.org/security/advisories/mfsa2026-22/
   - https://www.mozilla.org/security/advisories/mfsa2026-23/
   - https://www.mozilla.org/security/advisories/mfsa2026-24/
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Firefox Thunderbird Memory Safety Exploitation
     description: Detects potential exploitation attempts of memory safety vulnerabilities in Firefox and Thunderbird by monitoring for unexpected child processes.

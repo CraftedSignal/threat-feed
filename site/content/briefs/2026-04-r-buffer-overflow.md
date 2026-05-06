@@ -36,16 +36,9 @@ iocs:
   - type: url
     value: https://cran.r-project.org/bin/windows/base/old/3.5.0/R-3.5.0-win.exe
   - type: url
-    value: https://www.exploit-db.com/exploits/46288
-  - type: url
     value: https://www.r-project.org/
-  - type: url
-    value: https://www.vulncheck.com/advisories/r-i386-local-buffer-overflow-seh
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
-  url: 4
+  url: 2
 rules:
   - title: Detect R application executing with long command line arguments
     description: Detects R application executing with unusually long command line arguments, potentially indicating a buffer overflow attempt.

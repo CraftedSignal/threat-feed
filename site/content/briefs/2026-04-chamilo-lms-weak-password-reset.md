@@ -25,11 +25,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33707
   - https://github.com/chamilo/chamilo-lms/security/advisories/GHSA-f27g-66gq-g7v2
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect High Volume Password Reset Requests
     description: Detects a high number of password reset requests from the same IP address, which could indicate an attempt to exploit CVE-2026-33707 by brute-forcing email addresses.

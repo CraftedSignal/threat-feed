@@ -22,9 +22,6 @@ references:
   - https://www.exploit-db.com/exploits/46593
   - https://www.inoutscripts.com/products/inout-article-base/
   - https://www.vulncheck.com/advisories/inout-article-base-cms-lastest-sql-injection-via-portallogin-php
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: Inout Article Base CMS portalLogin.php SQL Injection Attempt
     description: Detects potential SQL injection attempts targeting portalLogin.php in Inout Article Base CMS by identifying XOR-based SQL injection patterns.

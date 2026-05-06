@@ -26,11 +26,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-31932
   - https://github.com/OISF/suricata/security/advisories/GHSA-rp9m-jcpw-hggr
   - https://redmine.openinfosecfoundation.org/issues/8305
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect High KRB5 Traffic Volume
     description: Detects a high volume of KRB5 network traffic, which may indicate an attempt to exploit CVE-2026-31932 against Suricata.

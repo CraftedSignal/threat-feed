@@ -24,8 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32877
   - https://github.com/randombit/botan/security/advisories/GHSA-7jj6-4r42-w9h6
-ioc_counts:
-  email: 2
 rules:
   - title: Detect Process Loading Vulnerable Botan Library
     description: Detects processes loading a vulnerable version of the Botan library (2.3.0 - 3.10.x)

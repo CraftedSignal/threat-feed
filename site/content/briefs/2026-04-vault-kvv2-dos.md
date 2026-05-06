@@ -24,11 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-3605
   - https://discuss.hashicorp.com/t/hcsec-2026-05-vault-kvv2-metadata-and-secret-deletion-policy-bypass-denial-of-service/77342
-iocs:
-  - type: email
-    value: nvd@nist.gov
-ioc_counts:
-  email: 1
 rules:
   - title: Vault Secret Deletion by User with Glob Policy
     description: Detects secret deletion operations in Vault audit logs performed by users with policies containing glob patterns, potentially indicating exploitation of CVE-2026-3605.

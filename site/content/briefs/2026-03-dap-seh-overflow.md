@@ -28,12 +28,8 @@ iocs:
     value: http://www.speedbit.com/dap/
   - type: url
     value: http://www.speedbit.com/dap/download/downloading.asp
-  - type: url
-    value: https://www.exploit-db.com/exploits/46673
-  - type: url
-    value: https://www.vulncheck.com/advisories/download-accelerator-plus-dap-seh-buffer-overflow
 ioc_counts:
-  url: 4
+  url: 2
 rules:
   - title: Detect Access to Exploit-DB URL related to DAP SEH Overflow
     description: Detects HTTP requests to the Exploit-DB URL associated with the Download Accelerator Plus SEH overflow exploit.

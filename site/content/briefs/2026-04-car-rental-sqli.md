@@ -26,20 +26,6 @@ references:
   - https://vuldb.com/submit/785863
   - https://vuldb.com/vuln/355422
   - https://vuldb.com/vuln/355422/cti
-iocs:
-  - type: url
-    value: https://github.com/eqiya17/collection-of-vulnerabilities/issues/12
-  - type: url
-    value: https://vuldb.com/submit/785863
-  - type: url
-    value: https://vuldb.com/vuln/355422
-  - type: url
-    value: https://vuldb.com/vuln/355422/cti
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
-  url: 4
 rules:
   - title: Detect SQL Injection Attempts in Car Rental Project via fname Parameter
     description: Detects potential SQL injection attempts in the /book_car.php endpoint by monitoring for SQL syntax in the fname parameter.

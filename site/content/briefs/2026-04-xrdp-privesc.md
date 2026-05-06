@@ -29,11 +29,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32107
   - https://github.com/neutrinolabs/xrdp/releases/tag/v0.10.6
   - https://github.com/neutrinolabs/xrdp/security/advisories/GHSA-p5m6-7m43-pjv9
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Suspicious Process Execution from xrdp Session
     description: Detects suspicious processes spawned from an xrdp session, potentially indicating exploitation of CVE-2026-32107.

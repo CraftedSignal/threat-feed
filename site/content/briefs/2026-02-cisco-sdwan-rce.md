@@ -27,8 +27,6 @@ references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa-EHchtZk
   - https://www.cyber.gov.au/sites/default/files/2026-02/ACSC-led%20Cisco%20SD-WAN%20Hunt%20Guide.pdf
   - https://blog.talosintelligence.com/uat-8616-sd-wan/
-ioc_counts:
-  url: 4
 rules:
   - title: Detect NETCONF Access from Non-Standard Locations
     description: Detects NETCONF access attempts originating from unusual or unexpected source IP addresses, potentially indicating unauthorized access following exploitation of CVE-2026-20127.

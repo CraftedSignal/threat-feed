@@ -22,8 +22,6 @@ references:
   - https://github.com/vllm-project/vllm/commit/00bd08edeee5dd4d4c13277c0114a464011acf72
   - https://github.com/vllm-project/vllm/pull/36192
   - https://github.com/vllm-project/vllm/security/advisories/GHSA-7972-pg2x-xr59
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Outbound Network Connection from vLLM to Uncommon Destinations
     description: Detects suspicious outbound network connections initiated from vLLM processes, potentially indicating a compromised instance attempting to download malicious model components or exfiltrate data.

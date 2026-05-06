@@ -21,8 +21,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-59032
   - https://documentation.open-xchange.com/dovecot/security/advisories/csaf/2026/oxdc-adv-2026-0001.json
-ioc_counts:
-  email: 1
 rules:
   - title: Detect ManageSieve Service Crashes
     description: Detects repeated crashes of the ManageSieve service, potentially indicating exploitation of CVE-2025-59032.

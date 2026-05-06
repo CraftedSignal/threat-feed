@@ -21,8 +21,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33852
   - https://github.com/MolotovCherry/Android-ImageMagick7/pull/191
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Android ImageMagick Memory Growth
     description: Detects unusual memory growth of processes using Android-ImageMagick7, potentially indicating a memory leak.

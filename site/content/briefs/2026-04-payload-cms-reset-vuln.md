@@ -25,11 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34751
   - https://github.com/payloadcms/payload/releases/tag/v3.79.1
   - https://github.com/payloadcms/payload/security/advisories/GHSA-hp5w-3hxx-vmwf
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Payload CMS Password Reset Abuse
     description: Detects potential abuse of the Payload CMS password reset functionality by monitoring for unusual patterns of password reset requests.

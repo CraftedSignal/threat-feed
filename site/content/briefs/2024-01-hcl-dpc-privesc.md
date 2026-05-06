@@ -20,8 +20,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-55261
   - https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0129793
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious HCL DPC Access Attempts
     description: Detects attempts to access sensitive HCL DPC resources without proper authorization based on HTTP response codes.

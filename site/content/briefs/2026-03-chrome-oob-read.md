@@ -21,9 +21,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4674
   - https://chromereleases.googleblog.com/2026/03/stable-channel-update-for-desktop_23.html
   - https://issues.chromium.org/issues/488188166
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect Suspicious Chrome Process Accessing Network
     description: Detects network connections initiated by the Chrome process, which may indicate exploitation of CVE-2026-4674 leading to arbitrary code execution and command and control.

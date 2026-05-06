@@ -23,13 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-40154
   - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-pv9q-275h-rh7x
-iocs:
-  - type: email
-    value: '[email protected]'
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Detect PraisonAI Template File Download
     description: Detects network connections to download template files by PraisonAI, which may indicate an exploitation attempt of CVE-2026-40154.

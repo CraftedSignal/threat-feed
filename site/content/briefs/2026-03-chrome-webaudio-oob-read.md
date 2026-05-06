@@ -22,8 +22,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4677
   - https://chromereleases.googleblog.com/2026/03/stable-channel-update-for-desktop_23.html
   - https://issues.chromium.org/issues/490533968
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious WebAudio Usage
     description: Detects potentially malicious HTML pages using WebAudio features aggressively, possibly indicative of CVE-2026-4677 exploitation attempts.

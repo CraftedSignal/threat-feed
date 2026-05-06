@@ -24,13 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-39813
   - https://fortiguard.fortinet.com/psirt/FG-IR-26-112
-iocs:
-  - type: email
-    value: '[email protected]'
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Detect Fortinet FortiSandbox Path Traversal Attempt
     description: Detects path traversal attempts targeting Fortinet FortiSandbox using '../filedir' in web server logs, indicating potential CVE-2026-39813 exploitation.

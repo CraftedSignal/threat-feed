@@ -26,10 +26,7 @@ references:
 iocs:
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-27910
-  - type: email
-    value: '[email&#160;protected]'
 ioc_counts:
-  email: 1
   url: 1
 rules:
   - title: Detect Suspicious MSIEXEC Execution

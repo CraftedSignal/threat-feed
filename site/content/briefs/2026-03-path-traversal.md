@@ -20,9 +20,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-2328
   - https://certvde.com/de/advisories/VDE-2026-010
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect Path Traversal Attempts in HTTP Requests
     description: Detects suspicious HTTP requests containing path traversal sequences.

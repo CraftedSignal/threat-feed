@@ -35,11 +35,6 @@ cves:
     cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6846
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Binutils Invocation
     description: Detects suspicious invocations of binutils tools that might indicate exploitation attempts.

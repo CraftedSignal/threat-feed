@@ -29,10 +29,7 @@ iocs:
     value: https://help.runzero.com/docs/release-notes/#402602020
   - type: url
     value: https://www.runzero.com/advisories/runzero-platform-su-privesc-cve-2026-5373/
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
   url: 2
 rules:
   - title: Detect runZero Superuser Privilege Escalation Attempt

@@ -26,11 +26,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33095
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33095
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Child Process of Word
     description: Detects suspicious child processes spawned by Microsoft Word, which may indicate exploitation attempts.

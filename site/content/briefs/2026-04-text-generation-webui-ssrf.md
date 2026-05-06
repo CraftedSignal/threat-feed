@@ -24,14 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35486
   - https://github.com/oobabooga/text-generation-webui/security/advisories/GHSA-jvrj-w5hq-6cp2
-iocs:
-  - type: url
-    value: https://github.com/oobabooga/text-generation-webui/security/advisories/GHSA-jvrj-w5hq-6cp2
-  - type: email
-    value: nvd@nist.gov
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect text-generation-webui SSRF Attempt
     description: Detects attempts to exploit the text-generation-webui SSRF vulnerability (CVE-2026-35486) by monitoring requests to cloud metadata endpoints.

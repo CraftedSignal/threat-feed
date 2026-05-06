@@ -36,11 +36,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32864
   - https://www.ni.com/en/support/security/available-critical-and-security-updates-for-ni-software/2026/memory-corruption-vulnerabilities-in-ni-labview.html
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: LabVIEW Suspicious VI File Open
     description: Detects the opening of LabVIEW VI files from unusual locations, potentially indicating a malicious file.

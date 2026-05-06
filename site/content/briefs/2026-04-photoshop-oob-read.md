@@ -32,13 +32,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-27289
   - https://helpx.adobe.com/security/products/photoshop/apsb26-40.html
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Detect Photoshop Opening Files From Suspicious Locations
     description: Detects Photoshop opening files from locations commonly associated with downloads or temporary storage, which could indicate a user opening a malicious file.

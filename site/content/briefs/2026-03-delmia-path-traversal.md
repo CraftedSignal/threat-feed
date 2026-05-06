@@ -24,8 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-10559
   - https://www.3ds.com/trust-center/security/security-advisories/cve-2025-10559
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Path Traversal Attempts in DELMIA Factory Resource Manager
     description: Detects potential path traversal attacks against DELMIA Factory Resource Manager by identifying suspicious file path patterns in web server logs.

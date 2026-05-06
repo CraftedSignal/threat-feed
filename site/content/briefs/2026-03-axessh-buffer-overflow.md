@@ -34,16 +34,8 @@ iocs:
     value: http://www.labf.com
   - type: url
     value: http://www.labf.com/download/axessh.exe
-  - type: url
-    value: https://www.exploit-db.com/exploits/46858
-  - type: url
-    value: https://www.exploit-db.com/exploits/46922
-  - type: url
-    value: https://www.exploit-db.com/shellcodes/46281
-  - type: url
-    value: https://www.vulncheck.com/advisories/axessh-local-stack-based-buffer-overflow-via-log-file-name
 ioc_counts:
-  url: 6
+  url: 2
 rules:
   - title: Detect Suspiciously Long Log Filenames
     description: Detects the creation of log files with excessively long names, potentially indicating a buffer overflow attempt.

@@ -24,11 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33826
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33826
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Process Creation from Active Directory Processes
     description: Detects potential exploitation attempts by monitoring process creations initiated by Active Directory processes.

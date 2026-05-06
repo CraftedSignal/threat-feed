@@ -26,8 +26,6 @@ references:
   - https://ccb.belgium.be/advisories/warning-severe-vulnerabilities-vmware-products-including-vmware-aria-operations-could-be
   - https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/36947
   - https://knowledge.broadcom.com/external/article/430349
-ioc_counts:
-  url: 3
 rules:
   - title: Detect Connection to VMware Advisory URL
     description: Detects connections to the VMware security advisory URL, which may indicate research or reconnaissance activity related to the vulnerability.

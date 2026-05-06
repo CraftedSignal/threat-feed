@@ -22,8 +22,6 @@ references:
   - https://www.reddit.com/r/blueteamsec/comments/1ryccv6/cve202620963_sharepoint_deserialization_hit_the/
   - https://www.cisa.gov/news-events/alerts/2026/03/18/cisa-adds-one-known-exploited-vulnerability-catalog-0
   - http://ktlystlabs.com/signals
-ioc_counts:
-  url: 1
 rules:
   - title: Detect Suspicious Deserialization Activity in SharePoint (Generic)
     description: Detects potential exploitation attempts of deserialization vulnerabilities in SharePoint by monitoring for specific process creation events associated with deserialization processes.

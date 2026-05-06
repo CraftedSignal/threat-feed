@@ -24,8 +24,6 @@ references:
   - https://access.redhat.com/errata/RHSA-2026:2695
   - https://access.redhat.com/security/cve/CVE-2025-12805
   - https://bugzilla.redhat.com/show_bug.cgi?id=2413101
-ioc_counts:
-  email: 2
 rules:
   - title: Detect Direct Network Connection to Llama Stack Service from Different Namespace
     description: Detects network connections to the llama-stack service endpoint originating from a different OpenShift namespace, indicating potential unauthorized access attempts.

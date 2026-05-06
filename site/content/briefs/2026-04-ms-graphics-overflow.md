@@ -28,11 +28,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32221
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32221
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Suspicious Process Creation After Graphics Component Error
     description: Detects process creation events immediately following a graphics component error or crash, which may indicate exploitation of CVE-2026-32221.

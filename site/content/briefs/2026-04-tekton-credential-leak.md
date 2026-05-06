@@ -25,18 +25,6 @@ references:
   - https://github.com/tektoncd/pipeline/issues/9608
   - https://github.com/tektoncd/pipeline/issues/9609
   - https://github.com/tektoncd/pipeline/security/advisories/GHSA-wjxp-xrpv-xpff
-iocs:
-  - type: url
-    value: https://github.com/tektoncd/pipeline/issues/9608
-  - type: url
-    value: https://github.com/tektoncd/pipeline/issues/9609
-  - type: url
-    value: https://github.com/tektoncd/pipeline/security/advisories/GHSA-wjxp-xrpv-xpff
-  - type: email
-    value: NVD@nist.gov
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: Tekton Pipeline Suspicious ServerURL Connection
     description: Detects network connections from Tekton Pipeline pods to unusual serverURL destinations, potentially indicating CVE-2026-40161 exploitation.

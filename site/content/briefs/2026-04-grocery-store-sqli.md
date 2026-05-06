@@ -26,10 +26,8 @@ references:
 iocs:
   - type: url
     value: https://github.com/TREXNEGRO/Security-Advisories/tree/main/CVE-2025-63939
-  - type: email
-    value: '[email protected]'
+    context: Proof-of-concept exploit code
 ioc_counts:
-  email: 1
   url: 1
 rules:
   - title: Detecting SQL Injection Attempts via sitem_name Parameter

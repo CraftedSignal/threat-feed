@@ -15,11 +15,6 @@ tags:
   - cve-2026-34774
 references:
   - https://github.com/advisories/GHSA-532v-xpq5-8h95
-iocs:
-  - type: email
-    value: security@electronjs.org
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Electron App with Offscreen Rendering Enabled
     description: Detects Electron applications launched with the --enable-features=OffscreenRendering flag, which indicates offscreen rendering is enabled and the application may be vulnerable.

@@ -24,11 +24,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-24164
   - https://nvidia.custhelp.com/app/answers/detail/a_id/5808
   - https://www.cve.org/CVERecord?id=CVE-2026-24164
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious BioNeMo Deserialization Attempts
     description: Detects suspicious POST requests potentially exploiting deserialization vulnerabilities in NVIDIA BioNeMo.

@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-41055
   - https://github.com/WWBN/AVideo/commit/8d8fc0cadb425835b4861036d589abcea4d78ee8
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious AVideo SSRF Attempt
     description: Detects potential SSRF attempts against AVideo by looking for requests with specific URI patterns indicative of the LiveLinks proxy feature.

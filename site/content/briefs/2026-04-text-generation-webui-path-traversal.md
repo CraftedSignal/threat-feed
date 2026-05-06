@@ -31,11 +31,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35050
   - https://github.com/oobabooga/text-generation-webui/security/advisories/GHSA-jg96-p5p6-q3cv
-iocs:
-  - type: url
-    value: https://github.com/oobabooga/text-generation-webui/security/advisories/GHSA-jg96-p5p6-q3cv
-ioc_counts:
-  url: 1
 rules:
   - title: Detect File Creation in Web Application Root Directory
     description: Detects file creation events within web application root directories, potentially indicating path traversal exploitation.

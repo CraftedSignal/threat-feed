@@ -24,11 +24,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35476
   - https://github.com/inventree/InvenTree/security/advisories/GHSA-r8q5-3595-3jh2
   - https://docs.inventree.org/en/stable/concepts/threat_model/#assumed-trust
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: InvenTree User Staff Status Modification via API
     description: Detects POST requests to the InvenTree API that attempt to modify a user's staff status.

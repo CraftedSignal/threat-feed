@@ -145,7 +145,7 @@
                 {{ range $iocs }}
                 <tr class="border-b border-stroke last:border-0">
                   <td class="p-3"><span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[11px] bg-panel-2 text-muted">{{ .type }}</span></td>
-                  <td class="p-3 font-mono text-text break-all">{{ .value }}</td>
+                  <td class="p-3 font-mono text-text break-all">{{ .value }}{{ with .context }}<span class="block text-xs text-muted mt-1 font-sans not-italic">{{ . }}</span>{{ end }}</td>
                 </tr>
                 {{ end }}
               </tbody>

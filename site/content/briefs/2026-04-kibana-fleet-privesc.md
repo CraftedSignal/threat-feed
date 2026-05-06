@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4498
   - https://discuss.elastic.co/t/kibana-8-19-14-9-2-8-9-3-3-security-update-esa-2026-21/385811
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Kibana Fleet Plugin Debug Route Access
     description: Detects access to the Kibana Fleet plugin debug routes, which may indicate exploitation of CVE-2026-4498.

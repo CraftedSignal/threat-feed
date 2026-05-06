@@ -23,14 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35567
   - https://github.com/ChurchCRM/CRM/security/advisories/GHSA-5f97-jgg4-gqwr
-iocs:
-  - type: url
-    value: https://github.com/ChurchCRM/CRM/security/advisories/GHSA-5f97-jgg4-gqwr
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect Suspicious POST Requests to MemberRoleChange.php with SQL Injection Patterns
     description: Detects POST requests to MemberRoleChange.php with SQL injection patterns in the NewRole parameter.

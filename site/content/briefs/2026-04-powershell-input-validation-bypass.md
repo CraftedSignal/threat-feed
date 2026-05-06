@@ -25,13 +25,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-26143
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26143
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Detect Suspicious PowerShell Input Validation Bypass
     description: Detects potential attempts to bypass security features in PowerShell by exploiting input validation vulnerabilities.

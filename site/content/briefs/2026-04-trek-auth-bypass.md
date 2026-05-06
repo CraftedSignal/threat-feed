@@ -25,11 +25,6 @@ references:
   - https://github.com/mauriceboe/TREK/commit/16277a3811a00c2983f7486fee83c112986cb179
   - https://github.com/mauriceboe/TREK/releases/tag/v2.7.2
   - https://github.com/mauriceboe/TREK/security/advisories/GHSA-pcr3-6647-jh72
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious TREK Photo Route Access
     description: Detects potential unauthorized access to Immich trip photo management routes in TREK, indicating a possible CVE-2026-40185 exploitation attempt.

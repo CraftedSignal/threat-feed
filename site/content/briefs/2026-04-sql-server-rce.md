@@ -23,13 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33120
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33120
-iocs:
-  - type: email
-    value: '[email protected]'
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Detect Suspicious SQL Server Process Creation
     description: Detects suspicious process creation events originating from SQL Server processes, potentially indicating exploitation attempts.

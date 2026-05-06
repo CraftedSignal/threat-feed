@@ -24,11 +24,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-31937
   - https://github.com/OISF/suricata/security/advisories/GHSA-86vg-w8vm-m3gg
   - https://redmine.openinfosecfoundation.org/issues/8304
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect High Volume of DCERPC Traffic
     description: Detects a high volume of DCERPC traffic which may indicate a DoS attack against Suricata.

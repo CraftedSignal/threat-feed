@@ -26,11 +26,6 @@ references:
   - https://github.com/khyrenz/parseusbs/pull/10
   - https://mobasi.ai/sentinel
   - https://www.vulncheck.com/advisories/parseusbs-command-injection-via-volume-path-argument
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Parseusbs Command Line Arguments
     description: Detects suspicious command line arguments passed to parseusbs that may indicate command injection attempts.

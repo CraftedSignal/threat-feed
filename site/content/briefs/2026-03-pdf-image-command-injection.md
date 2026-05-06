@@ -23,8 +23,6 @@ references:
   - https://github.com/mooz/node-pdf-image
   - https://github.com/zebbernCVE/CVE-2026-26830
   - https://www.npmjs.com/package/pdf-image
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious PDF Image Command Execution
     description: Detects potential command injection attempts in pdf-image library by monitoring for suspicious child processes spawned by node processes.

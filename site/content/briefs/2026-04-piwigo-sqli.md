@@ -25,11 +25,6 @@ references:
   - https://github.com/Piwigo/Piwigo/commit/c172d284e11eab4a5dbadd2844d26f734d5c8c72
   - https://github.com/Piwigo/Piwigo/security/advisories/GHSA-wfmr-9hg8-jh3m
   - https://piwigo.org/release-16.3.0
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detecting SQL Injection Attempts in Piwigo
     description: Detects potential SQL injection attempts targeting Piwigo Activity List API endpoint by looking for common SQL keywords in the request URI.

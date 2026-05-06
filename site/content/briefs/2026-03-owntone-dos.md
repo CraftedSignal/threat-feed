@@ -26,8 +26,6 @@ references:
   - https://github.com/archersec/security-advisories/blob/master/owntone-server/owntone-server-advisory-2026.md
   - https://github.com/owntone/owntone-server/commit/9ac54f0b42491c4862791db4c5368ff80c4000d3
   - https://github.com/owntone/owntone-server/issues/1961
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious DAAP Requests
     description: Detects suspicious DAAP requests based on HTTP request characteristics.

@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32159
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32159
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Push Notification Processes
     description: Detects suspicious processes interacting with Windows Push Notifications, potentially indicating an exploit attempt of CVE-2026-32159

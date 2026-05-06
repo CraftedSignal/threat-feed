@@ -28,11 +28,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32156
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32156
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect UPnP Service Launching Suspicious Processes
     description: Detects suspicious child processes spawned by the UPnP Device Host service (upnphost.dll), which could indicate exploitation of CVE-2026-32156.

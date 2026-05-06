@@ -22,9 +22,6 @@ references:
   - http://www.zeeways.com/jobsite-cms/1/productdetail
   - https://www.exploit-db.com/exploits/46602
   - https://www.vulncheck.com/advisories/zeeways-jobsite-cms-lastest-sql-injection-via-id-parameter
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: Zeeways Jobsite CMS SQL Injection Attempt
     description: Detects potential SQL injection attempts targeting Zeeways Jobsite CMS via the 'id' parameter

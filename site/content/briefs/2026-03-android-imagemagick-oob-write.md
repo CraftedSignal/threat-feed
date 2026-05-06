@@ -21,8 +21,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33854
   - https://github.com/MolotovCherry/Android-ImageMagick7/pull/184
-ioc_counts:
-  email: 1
 rules:
   - title: Detect ImageMagick Image Processing via HTTP
     description: Detects requests to ImageMagick processing endpoints that could be indicative of exploitation attempts.

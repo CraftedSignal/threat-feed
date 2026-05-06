@@ -24,11 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-22564
   - https://community.ui.com/releases/Security-Advisory-Bulletin-063/e468dd4b-5090-4ef8-89d8-939903c08e83
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect SSH Login to UniFi Play Devices
     description: Detects successful SSH login events to UniFi Play devices, potentially indicating exploitation of CVE-2026-22564.

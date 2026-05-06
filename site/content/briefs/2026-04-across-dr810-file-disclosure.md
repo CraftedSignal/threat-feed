@@ -29,15 +29,8 @@ references:
 iocs:
   - type: url
     value: http://www.ac.i8i.ir/
-  - type: url
-    value: https://www.exploit-db.com/exploits/46132
-  - type: url
-    value: https://www.vulncheck.com/advisories/across-dr-810-rom-0-unauthenticated-file-disclosure
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
-  url: 3
+  url: 1
 rules:
   - title: Across DR-810 Rom-0 File Disclosure Attempt
     description: Detects attempts to download the rom-0 backup file from Across DR-810 routers.

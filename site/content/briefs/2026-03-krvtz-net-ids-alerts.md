@@ -33,8 +33,6 @@ mitre_ttps:
     technique_name: Network Sniffing
 references:
   - https://www.circl.lu/doc/misp/feed-osint/d6292c9e-e1c1-4697-8a72-3d50562a29bb.json
-ioc_counts:
-  ip: 13
 rules:
   - title: Detect Suspicious User Agent Strings
     description: Detects requests with suspicious user agent strings such as '_TEST_' and 'InfoBot'.

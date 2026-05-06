@@ -34,18 +34,6 @@ references:
   - https://github.com/Josh-XT/AGiXT/commit/2079ea5a88fa671a921bf0b5eba887a5a1b73d5f
   - https://github.com/Josh-XT/AGiXT/releases/tag/v1.9.2
   - https://github.com/Josh-XT/AGiXT/security/advisories/GHSA-5gfj-64gh-mgmw
-iocs:
-  - type: url
-    value: https://github.com/Josh-XT/AGiXT/commit/2079ea5a88fa671a921bf0b5eba887a5a1b73d5f
-  - type: url
-    value: https://github.com/Josh-XT/AGiXT/releases/tag/v1.9.2
-  - type: url
-    value: https://github.com/Josh-XT/AGiXT/security/advisories/GHSA-5gfj-64gh-mgmw
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: Detect AGiXT Path Traversal Attempt via Web Logs
     description: Detects potential path traversal attempts targeting AGiXT by monitoring web server logs for suspicious URL patterns.

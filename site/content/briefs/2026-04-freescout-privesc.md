@@ -25,11 +25,6 @@ references:
   - https://github.com/freescout-help-desk/freescout/commit/2e2fe37111d92ac665b9ad8806eac94a1a3e502c
   - https://github.com/freescout-help-desk/freescout/releases/tag/1.8.214
   - https://github.com/freescout-help-desk/freescout/security/advisories/GHSA-mv55-3mgv-fxwr
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: FreeScout Hidden Customer Data Disclosure
     description: Detects potential attempts to exploit CVE-2026-40589 by monitoring web server logs for requests that may lead to hidden customer data disclosure in FreeScout.

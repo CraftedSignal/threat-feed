@@ -24,13 +24,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2019-25671
   - https://www.exploit-db.com/exploits/46348
   - https://www.vulncheck.com/advisories/va-max-remote-code-execution-via-changeip-php
-iocs:
-  - type: url
-    value: https://www.exploit-db.com/exploits/46348
-  - type: url
-    value: https://www.vulncheck.com/advisories/va-max-remote-code-execution-via-changeip-php
-ioc_counts:
-  url: 2
 rules:
   - title: Detect RCE attempt via changeip.php
     description: Detects attempts to exploit CVE-2019-25671 by injecting shell metacharacters into the mtu_eth0 parameter in a POST request to changeip.php

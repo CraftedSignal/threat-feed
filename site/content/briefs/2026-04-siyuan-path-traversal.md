@@ -30,6 +30,7 @@ references:
 iocs:
   - type: url
     value: https://github.com/user-attachments/files/26866234/poc.zip
+    context: Proof-of-concept exploit code
 ioc_counts:
   url: 1
 rules:

@@ -23,13 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33105
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33105
-iocs:
-  - type: email
-    value: '[email protected]'
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Suspicious Process Connecting to Kubernetes API Server
     description: Detects processes not typically associated with Kubernetes API server access

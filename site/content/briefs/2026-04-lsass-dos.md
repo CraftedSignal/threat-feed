@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32071
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32071
-iocs:
-  - type: email
-    value: NVD@nist.gov
-ioc_counts:
-  email: 1
 rules:
   - title: Detect LSASS Process Crash
     description: Detects LSASS process termination which may indicate a denial-of-service attack

@@ -31,15 +31,8 @@ iocs:
     value: http://www.impresscms.org/
   - type: url
     value: https://sourceforge.net/projects/impresscms/files/v1.3.11/impresscms_1.3.11.zip
-  - type: url
-    value: https://www.exploit-db.com/exploits/46239
-  - type: url
-    value: https://www.vulncheck.com/advisories/impresscms-sql-injection-via-bid-parameter
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
-  url: 4
+  url: 2
 rules:
   - title: Detect ImpressCMS SQL Injection Attempt via bid Parameter
     description: Detects potential SQL injection attempts in ImpressCMS admin.php via the 'bid' parameter based on common SQL syntax.

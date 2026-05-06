@@ -33,10 +33,7 @@ iocs:
     value: https://github.zebbernCVE/CVE-2026-26832
   - type: url
     value: https://www.npmjs.com/package/node-tesseract-ocr
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
   url: 4
 rules:
   - title: Suspicious Process Execution from Node.js

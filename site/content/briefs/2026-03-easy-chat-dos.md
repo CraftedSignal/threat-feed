@@ -21,9 +21,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2019-25613
   - https://www.exploit-db.com/exploits/46806
   - https://www.vulncheck.com/advisories/easy-chat-server-denial-of-service-via-message-parameter
-ioc_counts:
-  email: 1
-  url: 4
 rules:
   - title: Detect POST Requests to body2.ghp with Large Message Parameter
     description: Detects POST requests to body2.ghp with a message parameter exceeding a defined threshold, indicating a potential denial-of-service attempt.

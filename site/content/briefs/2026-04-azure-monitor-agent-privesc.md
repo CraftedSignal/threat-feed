@@ -24,11 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32168
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32168
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Azure Monitor Agent Process Execution
     description: Detects unexpected processes spawned by the Azure Monitor Agent which may indicate privilege escalation abuse.

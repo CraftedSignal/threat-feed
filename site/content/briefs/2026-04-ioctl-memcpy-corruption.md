@@ -26,11 +26,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-21372
   - https://docs.qualcomm.com/product/publicresources/securitybulletin/april-2026-bulletin.html
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Potential IOCTL Heap Overflow Attempt
     description: Detects potential attempts to exploit heap overflows via IOCTL calls by monitoring memcpy operations in proximity to IOCTL calls within a short timeframe.

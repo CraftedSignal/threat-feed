@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-26159
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26159
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious RDLS Process Creation
     description: Detects suspicious process creation events related to the Remote Desktop Licensing Service that may indicate exploitation of CVE-2026-26159.

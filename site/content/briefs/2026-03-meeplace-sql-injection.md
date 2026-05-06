@@ -21,9 +21,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2019-25638
   - https://www.exploit-db.com/exploits/46592
   - https://www.vulncheck.com/advisories/meeplace-business-review-script-lastest-sql-injection-via-addclick-php
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: Detect Meeplace SQL Injection Attempt
     description: Detects potential SQL injection attempts targeting the addclick.php endpoint in Meeplace Business Review Script.

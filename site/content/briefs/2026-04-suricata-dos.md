@@ -25,11 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-31933
   - https://github.com/OISF/suricata/security/advisories/GHSA-hvp5-gpr6-j4gp
   - https://redmine.openinfosecfoundation.org/issues/8272
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect High Packet Rate
     description: Detects a high rate of network packets, potentially indicating a denial-of-service attack

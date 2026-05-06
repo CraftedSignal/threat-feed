@@ -39,11 +39,6 @@ references:
   - https://appcraze.co/
   - https://github.com/Secsys-FDU/AF_CVEs/issues/27
   - https://secsys.fudan.edu.cn/
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious File Import Overwrite
     description: Detects potential arbitrary file overwrite attempts during file import operations by monitoring for unusual file creation or modification events in sensitive directories.

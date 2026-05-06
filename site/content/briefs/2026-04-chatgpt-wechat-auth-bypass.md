@@ -24,11 +24,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6129
   - https://github.com/zhayujie/chatgpt-on-wechat/issues/2741
   - https://vuldb.com/vuln/356992
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect ChatGPT WeChat CowAgent Authentication Bypass Attempt
     description: Detects potential exploitation attempts of CVE-2026-6129 by monitoring web server logs for suspicious requests targeting the Agent Mode Service.

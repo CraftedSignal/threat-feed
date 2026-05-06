@@ -25,9 +25,6 @@ references:
   - https://github.com/scitokens/scitokens/commit/7a237c0f642efb9e8c36ac564b745895cca83583
   - https://github.com/scitokens/scitokens/releases/tag/v1.9.6
   - https://github.com/scitokens/scitokens/security/advisories/GHSA-w8fp-g9rh-34jh
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: SciTokens Authorization Bypass Attempt (Path Prefix)
     description: Detects attempts to access resources with path prefixes, potentially indicating exploitation of CVE-2026-32716.

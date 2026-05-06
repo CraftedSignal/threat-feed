@@ -22,8 +22,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4680
   - https://chromereleases.googleblog.com/2026/03/stable-channel-update-for-desktop_23.html
   - https://issues.chromium.org/issues/491869946
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Chrome Process Argument
     description: Detects potentially malicious Chrome processes based on command-line arguments often used in exploitation attempts.

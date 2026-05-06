@@ -19,11 +19,6 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
 references:
   - https://github.com/advisories/GHSA-x6m9-gxvr-7jpv
-iocs:
-  - type: ip
-    value: 169.254.169.254
-ioc_counts:
-  ip: 1
 rules:
   - title: Detect PraisonAI SSRF Attempt via api_base to Metadata Service
     description: Detects attempts to exploit the PraisonAI SSRF vulnerability by monitoring for connections to the EC2 metadata service IP address in the api_base parameter.

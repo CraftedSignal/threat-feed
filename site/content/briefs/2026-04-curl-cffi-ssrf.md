@@ -24,15 +24,10 @@ cves:
 references:
   - https://github.com/advisories/GHSA-qw2m-4pqf-rmpp
 iocs:
-  - type: ip
-    value: 169.254.0.0
-  - type: ip
-    value: 169.254.169.254
   - type: domain
     value: attacker.example
 ioc_counts:
   domain: 1
-  ip: 2
 rules:
   - title: Detect curl_cffi Process Accessing Metadata Endpoint
     description: Detects processes using curl_cffi making network connections to the cloud metadata endpoint.

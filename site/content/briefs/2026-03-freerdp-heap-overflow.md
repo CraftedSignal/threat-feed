@@ -33,8 +33,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33982
   - https://github.com/FreeRDP/FreeRDP/commit/a48dbde2c8a5b8b70a9d1c045d969a71afd6284c
   - https://github.com/FreeRDP/FreeRDP/security/advisories/GHSA-8jm9-2925-g4v2
-ioc_counts:
-  email: 1
 rules:
   - title: Detect FreeRDP Heap Buffer Overflow
     description: Detects potential exploitation attempts of FreeRDP heap buffer overflow vulnerability CVE-2026-33982 by monitoring for FreeRDP process creation.

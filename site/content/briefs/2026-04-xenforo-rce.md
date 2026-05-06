@@ -25,11 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35056
   - https://www.vulncheck.com/advisories/xenforo-remote-code-execution-via-authenticated-admin
   - https://xenforo.com/community/threads/xenforo-2-3-9-inc-xfmg-2-2-18-released-security-fix.235659/
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Command Execution from Web Server Process
     description: Detects command execution attempts originating from the web server process, which could indicate exploitation of a web application vulnerability.

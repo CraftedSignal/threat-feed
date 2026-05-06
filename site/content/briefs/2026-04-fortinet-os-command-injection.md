@@ -24,11 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-39808
   - https://fortiguard.fortinet.com/psirt/FG-IR-26-100
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Potential OS Command Injection Attempts via Web Logs
     description: Detects potential OS command injection attempts in web server logs by looking for common command injection characters.

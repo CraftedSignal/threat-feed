@@ -25,18 +25,6 @@ references:
   - https://github.com/freescout-help-desk/freescout/commit/cdadaf621bb1e1d017315df20d743671f7eae7a9
   - https://github.com/freescout-help-desk/freescout/releases/tag/1.8.215
   - https://github.com/freescout-help-desk/freescout/security/advisories/GHSA-4h5p-7f5c-q7gj
-iocs:
-  - type: email
-    value: '[email protected]'
-  - type: url
-    value: https://github.com/freescout-help-desk/freescout/commit/cdadaf621bb1e1d017315df20d743671f7eae7a9
-  - type: url
-    value: https://github.com/freescout-help-desk/freescout/releases/tag/1.8.215
-  - type: url
-    value: https://github.com/freescout-help-desk/freescout/security/advisories/GHSA-4h5p-7f5c-q7gj
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: FreeScout Unauthorized Thread Edit Attempt
     description: Detects attempts to edit customer threads in FreeScout by users without proper authorization based on HTTP POST requests to specific endpoints.

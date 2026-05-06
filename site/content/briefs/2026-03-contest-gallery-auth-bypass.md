@@ -28,8 +28,6 @@ mitre_ttps:
     technique_name: 'Boot or Logon Autostart Execution: WMI Event Subscription'
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4021
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Contest Gallery Authentication Bypass Attempt via AJAX
     description: Detects attempts to exploit CVE-2026-4021 by monitoring for suspicious POST requests to the WordPress AJAX endpoint with the 'post_cg1l_login_user_by_key' action.

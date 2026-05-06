@@ -29,14 +29,9 @@ references:
 iocs:
   - type: url
     value: https://github.com/shiky8/my--cve-vulnerability-research/blob/main/my_VulnDB_cves/CVE-TECHNOSTROBE-05-FileUpload.md
-  - type: url
-    value: https://vuldb.com/submit/783326
-  - type: url
-    value: https://vuldb.com/vuln/355343
-  - type: url
-    value: https://vuldb.com/vuln/355343/cti
+    context: Proof-of-concept exploit code
 ioc_counts:
-  url: 4
+  url: 1
 rules:
   - title: Detect Suspicious cwd Parameter Manipulation in /fs Endpoint
     description: Detects attempts to manipulate the `cwd` parameter in requests to the `/fs` endpoint, potentially indicating an exploitation attempt for CVE-2026-5573.

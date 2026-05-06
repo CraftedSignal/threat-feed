@@ -27,8 +27,6 @@ references:
   - https://vuldb.com/vuln/354248
   - https://vuldb.com/vuln/354248/cti
   - https://www.sourcecodester.com/
-ioc_counts:
-  url: 5
 rules:
   - title: Detect SQL Injection Attempts in Simple Doctors Appointment System
     description: Detects potential SQL injection attempts targeting the /admin/ajax.php endpoint in Simple Doctors Appointment System

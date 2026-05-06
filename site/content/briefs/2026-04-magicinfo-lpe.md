@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-25203
   - https://security.samsungtv.com/securityUpdates
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect MagicINFO Process Creation with Suspicious Arguments
     description: Detects potential exploitation attempts where MagicINFO processes are spawned with unusual command-line arguments indicative of privilege escalation.

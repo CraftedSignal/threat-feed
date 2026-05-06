@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5551
   - https://vuldb.com/vuln/355315
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect SQL Injection in Free Hotel Reservation System Login
     description: Detects potential SQL injection attempts in the /hotel/admin/login.php page by looking for SQL keywords in the email parameter.

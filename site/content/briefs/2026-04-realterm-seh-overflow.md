@@ -28,11 +28,6 @@ references:
   - https://sourceforge.net/projects/realterm/files/
   - https://www.exploit-db.com/exploits/46441
   - https://www.vulncheck.com/advisories/realterm-serial-terminal-buffer-overflow-seh
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: RealTerm SEH Overflow Attempt
     description: Detects potential SEH overflow attempts in RealTerm by monitoring for Realterm.exe processes being launched with unusually long command-line arguments, which may indicate a buffer overflow payload.

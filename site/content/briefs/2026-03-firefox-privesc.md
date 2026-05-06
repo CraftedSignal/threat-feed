@@ -25,8 +25,6 @@ references:
   - https://www.mozilla.org/security/advisories/mfsa2026-22/
   - https://www.mozilla.org/security/advisories/mfsa2026-23/
   - https://www.mozilla.org/security/advisories/mfsa2026-24/
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Exploitation Attempts of CVE-2026-4717 via Web Logs
     description: Detects potential exploitation attempts of CVE-2026-4717 based on suspicious HTTP requests targeting Firefox, Firefox ESR, or Thunderbird.

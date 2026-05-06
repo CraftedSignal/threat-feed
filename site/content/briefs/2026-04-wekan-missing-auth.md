@@ -30,18 +30,6 @@ references:
   - https://github.com/wekan/wekan/commit/2cd702f48df2b8aef0e7381685f8e089986a18a4
   - https://github.com/wekan/wekan/releases/tag/v8.35
   - https://www.vulncheck.com/advisories/wekan-missing-authorization-via-integration-rest-api
-iocs:
-  - type: url
-    value: https://github.com/wekan/wekan/commit/2cd702f48df2b8aef0e7381685f8e089986a18a4
-  - type: url
-    value: https://github.com/wekan/wekan/releases/tag/v8.35
-  - type: url
-    value: https://www.vulncheck.com/advisories/wekan-missing-authorization-via-integration-rest-api
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: Detect WeKan Integration API Abuse
     description: Detects potential abuse of WeKan Integration REST API endpoints by non-admin users.

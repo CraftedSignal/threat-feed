@@ -23,14 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32178
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32178
-iocs:
-  - type: url
-    value: https://nvd.nist.gov
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect Potential .NET Spoofing Attempts via Network Request
     description: Detects suspicious network requests indicative of CVE-2026-32178 exploitation attempts targeting .NET applications by looking for unusual characters or patterns in HTTP request parameters.

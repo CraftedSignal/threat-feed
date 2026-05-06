@@ -25,13 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2023-54359
   - https://www.exploit-db.com/exploits/51655
   - https://www.vulncheck.com/advisories/wordpress-adivaha-travel-plugin-sql-injection-via-pid
-iocs:
-  - type: url
-    value: https://www.exploit-db.com/exploits/51655
-  - type: url
-    value: https://www.vulncheck.com/advisories/wordpress-adivaha-travel-plugin-sql-injection-via-pid
-ioc_counts:
-  url: 2
 rules:
   - title: Detect Suspicious adivaha Travel Plugin SQL Injection Attempt
     description: Detects potential SQL injection attempts targeting the adivaha Travel Plugin by monitoring the 'pid' parameter in requests to the /mobile-app/v3/ endpoint.

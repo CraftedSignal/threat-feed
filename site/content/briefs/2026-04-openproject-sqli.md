@@ -25,11 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34717
   - https://github.com/opf/openproject/releases/tag/v17.2.3
   - https://github.com/opf/openproject/security/advisories/GHSA-5rrm-6qmq-2364
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect OpenProject SQL Injection Attempt
     description: Detects potential SQL injection attempts targeting OpenProject instances by identifying suspicious patterns in HTTP requests.

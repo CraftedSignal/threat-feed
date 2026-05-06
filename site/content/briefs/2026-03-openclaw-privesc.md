@@ -25,8 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32922
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-4jpw-hj22-2xmc
   - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-unvalidated-scope-in-device-token-rotate
-ioc_counts:
-  email: 2
 rules:
   - title: Detect OpenClaw Token Rotation Exploit Attempt
     description: Detects attempts to exploit CVE-2026-32922 by monitoring HTTP POST requests to the /device.token.rotate endpoint, potentially indicating unauthorized token minting.

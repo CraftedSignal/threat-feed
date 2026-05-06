@@ -25,14 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-71278
   - https://www.vulncheck.com/advisories/xenforo-oauth2-unauthorized-scope-request
   - https://xenforo.com/community/threads/xenforo-2-3-5-includes-security-fix-add-ons-released.228812/
-iocs:
-  - type: url
-    value: https://nvd.nist.gov
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect Suspicious OAuth2 Scope Request
     description: Detects OAuth2 authorization requests containing unusual or excessive scopes, potentially indicating an attempt to exploit CVE-2025-71278.

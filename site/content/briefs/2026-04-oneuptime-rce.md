@@ -26,11 +26,6 @@ references:
   - https://github.com/OneUptime/oneuptime/commit/9adbd04538714740506708d6fa610e433be4d2a4
   - https://github.com/OneUptime/oneuptime/releases/tag/10.0.42
   - https://github.com/OneUptime/oneuptime/security/advisories/GHSA-q253-6wcm-h8hp
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Unauthenticated OneUptime Notification Test Access
     description: Detects unauthenticated access attempts to the OneUptime notification test endpoint, indicative of CVE-2026-34758 exploitation.

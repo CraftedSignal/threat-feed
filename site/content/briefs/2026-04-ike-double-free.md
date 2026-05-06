@@ -33,11 +33,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33824
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33824
-iocs:
-  - type: email
-    value: NVD@nist.gov
-ioc_counts:
-  email: 1
 rules:
   - title: Detect IKE Service Spawning Suspicious Processes
     description: Detects the IKE service (IKEEXT.DLL) spawning processes, which could indicate exploitation of CVE-2026-33824.

@@ -28,8 +28,6 @@ references:
   - https://about.gitlab.com/releases/2026/03/25/patch-release-gitlab-18-10-1-released/
   - https://gitlab.com/gitlab-org/gitlab/-/work_items/589635
   - https://hackerone.com/reports/3522829
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Jira Connect Activity
     description: Detects potential exploitation attempts related to Jira Connect by monitoring for unusual requests to Jira Connect endpoints.

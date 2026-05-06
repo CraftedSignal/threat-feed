@@ -27,20 +27,6 @@ references:
   - https://github.com/openclaw/openclaw/commit/630f1479c44f78484dfa21bb407cbe6f171dac87
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-wq58-2pvg-5h4f
   - https://www.vulncheck.com/advisories/openclaw-insufficient-access-control-in-gateway-agent-session-reset
-iocs:
-  - type: url
-    value: https://github.com/openclaw/openclaw/commit/50f6a2f136fed85b58548a38f7a3dbb98d2cd1a0
-  - type: url
-    value: https://github.com/openclaw/openclaw/commit/630f1479c44f78484dfa21bb407cbe6f171dac87
-  - type: url
-    value: https://github.com/openclaw/openclaw/security/advisories/GHSA-wq58-2pvg-5h4f
-  - type: url
-    value: https://www.vulncheck.com/advisories/openclaw-insufficient-access-control-in-gateway-agent-session-reset
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
-  url: 4
 rules:
   - title: Detect OpenClaw Session Reset Attempt
     description: Detects attempts to reset admin sessions in OpenClaw via the /reset endpoint, exploiting CVE-2026-35660.

@@ -25,8 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34505
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-5m9r-p9g7-679c
   - https://www.vulncheck.com/advisories/openclaw-webhook-rate-limiting-bypass-via-pre-authentication-secret-validation
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Excessive Webhook Authentication Failures
     description: Detects excessive failed authentication attempts to webhook endpoints, potentially indicating a brute-force attack against OpenClaw (CVE-2026-34505).

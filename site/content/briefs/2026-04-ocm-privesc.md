@@ -27,11 +27,6 @@ references:
   - https://access.redhat.com/security/cve/CVE-2026-4740
   - https://blog.arfevrier.fr/open-cluster-management-cross-cluster-escape/
   - https://bugzilla.redhat.com/show_bug.cgi?id=2450590
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Kubernetes Certificate Creation
     description: Detects the creation of Kubernetes certificates, which could be related to CVE-2026-4740 exploitation.

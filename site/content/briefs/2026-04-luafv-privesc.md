@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-27929
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-27929
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Potential LUAFV Privilege Escalation via File Replacement
     description: Detects attempts to replace system files, potentially exploiting the TOCTOU vulnerability in LUAFV. This is a generic rule to identify file replacements in the Windows directory, which may be an attempt to exploit this vulnerability.

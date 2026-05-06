@@ -30,10 +30,8 @@ iocs:
     value: https://docs.sharefile.com/en-us/storage-zones-controller/5-0/security-vulnerability-feb26
   - type: url
     value: https://github.com/watchtowrlabs/watchTowr-vs-Progress-ShareFile-CVE-2026-2699
-  - type: email
-    value: '[email protected]'
+    context: Proof-of-concept exploit code
 ioc_counts:
-  email: 1
   url: 2
 rules:
   - title: Detect Unauthorized Access to ShareFile SZC Configuration Pages

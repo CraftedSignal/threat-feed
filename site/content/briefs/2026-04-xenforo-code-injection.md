@@ -28,11 +28,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-71281
   - https://www.vulncheck.com/advisories/xenforo-template-method-call-restriction-bypass
   - https://xenforo.com/community/threads/xenforo-2-3-7-released-includes-security-fixes.232121/
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Template Modification
     description: Detects modifications to XenForo templates, which could indicate exploitation of CVE-2025-71281

@@ -27,8 +27,6 @@ references:
   - https://about.gitlab.com/releases/2026/03/25/patch-release-gitlab-18-10-1-released/
   - https://gitlab.com/gitlab-org/gitlab/-/work_items/592828
   - https://hackerone.com/reports/3584382
-ioc_counts:
-  email: 1
 rules:
   - title: Detect GitLab GraphQL CSRF Attempt via Referer
     description: Detects potential CSRF attacks against GitLab GraphQL endpoint based on Referer header anomalies. An attacker hosted page would trigger this.

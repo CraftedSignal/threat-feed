@@ -31,16 +31,9 @@ references:
   - https://www.cisa.gov/news-events/ics-advisories/icsa-26-106-03
 iocs:
   - type: url
-    value: https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-106-03.json
-  - type: url
     value: https://www.anviz.com/contact-us.html
-  - type: url
-    value: https://www.cisa.gov/news-events/ics-advisories/icsa-26-106-03
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
-  url: 3
+  url: 1
 rules:
   - title: Detect Suspicious TCP Traffic to CrossChex Server
     description: Detects TCP packets to the CrossChex server from unexpected sources, indicating potential packet injection.

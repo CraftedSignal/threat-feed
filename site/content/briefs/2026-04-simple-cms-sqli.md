@@ -32,14 +32,9 @@ iocs:
     value: https://code-projects.org/
   - type: url
     value: https://github.com/Xmyronn/simple-cms-sqli-login-bypass-CVE-HUNT-
-  - type: url
-    value: https://vuldb.com/submit/797263
-  - type: url
-    value: https://vuldb.com/vuln/357105
-  - type: url
-    value: https://vuldb.com/vuln/357105/cti
+    context: Proof-of-concept exploit code
 ioc_counts:
-  url: 5
+  url: 2
 rules:
   - title: Detect SQL Injection Attempts in Simple CMS Login
     description: Detects potential SQL injection attempts in requests to the /web/admin/login.php endpoint by looking for common SQL keywords in the User parameter.

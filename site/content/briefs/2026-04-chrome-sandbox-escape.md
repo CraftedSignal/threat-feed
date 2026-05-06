@@ -25,11 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6311
   - https://chromereleases.googleblog.com/2026/04/stable-channel-update-for-desktop_15.html
   - https://issues.chromium.org/issues/498201025
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Chrome Sandbox Escape via Child Process
     description: Detects suspicious child processes spawned by the Chrome renderer process, indicative of a successful sandbox escape.

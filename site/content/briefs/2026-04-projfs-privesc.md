@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-26184
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26184
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious ProjFS Activity
     description: Detects potential exploitation attempts of CVE-2026-26184 by monitoring for unusual activity related to the ProjFS driver.

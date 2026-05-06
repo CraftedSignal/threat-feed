@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4788
   - https://www.ibm.com/support/pages/node/7268267
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Access to Tivoli Netcool Impact Log Files
     description: Detects suspicious processes attempting to read Tivoli Netcool Impact log files, indicating potential exploitation of CVE-2026-4788

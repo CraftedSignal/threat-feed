@@ -28,19 +28,8 @@ references:
 iocs:
   - type: url
     value: https://github.com/assafelovic/gpt-researcher/
-  - type: url
-    value: https://github.com/assafelovic/gpt-researcher/issues/1696
-  - type: url
-    value: https://vuldb.com/submit/785876
-  - type: url
-    value: https://vuldb.com/vuln/355421
-  - type: url
-    value: https://vuldb.com/vuln/355421/cti
-  - type: email
-    value: '[email&#160;protected]'
 ioc_counts:
-  email: 1
-  url: 5
+  url: 1
 rules:
   - title: Detect GPT Researcher SSRF Attempt via URL Parameter
     description: Detects potential SSRF attempts against GPT Researcher by monitoring for suspicious URL patterns in the source_urls parameter.

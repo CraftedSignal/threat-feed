@@ -20,8 +20,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-22739
   - https://spring.io/security/cve-2026-22739
-ioc_counts:
-  url: 1
 rules:
   - title: Detect Path Traversal in Spring Cloud Config Server Profile Parameter
     description: Detects path traversal attempts in requests to Spring Cloud Config Server by looking for '../' sequences in the profile parameter.

@@ -31,17 +31,8 @@ references:
 iocs:
   - type: url
     value: http://www.openwall.com/lists/oss-security/2026/04/01/1
-  - type: url
-    value: https://github.com/vim/vim/commit/75661a66a1db1e1f3f1245c615
-  - type: url
-    value: https://github.com/vim/vim/releases/tag/v9.2.0276
-  - type: url
-    value: https://github.com/vim/vim/security/advisories/GHSA-8h6p-m6gr-mpw9
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
-  url: 4
+  url: 1
 rules:
   - title: Detect Suspicious Vim Process Execution
     description: Detects the execution of Vim with suspicious arguments indicative of potential exploitation attempts.

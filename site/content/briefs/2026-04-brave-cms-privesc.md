@@ -24,11 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35182
   - https://github.com/Ajax30/BraveCMS-2.0/security/advisories/GHSA-g58h-mvjw-f4hv
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Brave CMS Unauthorized Role Update
     description: Detects POST requests to the /rights/update-role endpoint without proper authorization, indicating potential privilege escalation attempts in Brave CMS.

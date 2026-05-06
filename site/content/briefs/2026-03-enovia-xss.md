@@ -23,8 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-10551
   - https://www.3ds.com/trust-center/security/security-advisories/cve-2025-10551
-ioc_counts:
-  url: 1
 rules:
   - title: Detect Suspicious URI Containing HTML Script Tags
     description: Detects suspicious URI requests that contain HTML script tags, potentially indicating XSS attacks.

@@ -24,11 +24,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35641
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-m3mh-3mpg-37hw
   - https://www.vulncheck.com/advisories/openclaw-arbitrary-code-execution-via-npmrc-in-local-plugin-hook-installation
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect npm spawning git from unusual locations via npmrc
     description: Detects npm executing 'git' (or a renamed copy) from unexpected paths, which may indicate exploitation of CVE-2026-35641 via a malicious .npmrc file.

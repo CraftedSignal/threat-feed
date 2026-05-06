@@ -34,18 +34,13 @@ cves:
 references:
   - https://github.com/advisories/GHSA-rggm-jjmc-3394
 iocs:
-  - type: ip
-    value: 169.254.169.254
   - type: domain
     value: internal-api.kube-system.svc.cluster.local
-  - type: email
-    value: igor.stepansky@orca.security
   - type: email
     value: stepanskyigor@gmail.com
 ioc_counts:
   domain: 1
-  email: 2
-  ip: 1
+  email: 1
 rules:
   - title: Detect Kyverno NamespacedValidatingPolicy Using http.Get/http.Post
     description: Detects the creation of a NamespacedValidatingPolicy that uses the http.Get or http.Post functions, which could indicate a potential SSRF attempt.

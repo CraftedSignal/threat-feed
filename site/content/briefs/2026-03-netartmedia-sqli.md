@@ -24,13 +24,9 @@ references:
   - https://www.vulncheck.com/advisories/netartmedia-vlog-system-lastest-sql-injection-via-email-parameter
 iocs:
   - type: url
-    value: https://www.exploit-db.com/exploits/46583
-  - type: url
     value: https://www.netartmedia.net/vlogsystem/
-  - type: url
-    value: https://www.vulncheck.com/advisories/netartmedia-vlog-system-lastest-sql-injection-via-email-parameter
 ioc_counts:
-  url: 3
+  url: 1
 rules:
   - title: Detect Netartmedia Vlog System SQL Injection Attempt
     description: Detects potential SQL injection attempts against the Netartmedia Vlog System by monitoring POST requests to index.php with suspicious characters in the email parameter.

@@ -25,11 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34790
   - https://help.endian.com/hc/en-us/sections/360004371358-Community
   - https://www.vulncheck.com/advisories/endian-firewall-cgi-bin-backup-cgi-remove-archive-directory-traversal
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Endian Firewall Path Traversal Attempt
     description: Detects potential path traversal attempts in the remove ARCHIVE parameter of /cgi-bin/backup.cgi on Endian Firewall.

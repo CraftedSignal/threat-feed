@@ -20,8 +20,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-23514
   - https://github.com/kiteworks/security-advisories/security/advisories/GHSA-5gqr-cpr6-wvm5
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Kiteworks Unauthorized Access Attempt
     description: Detects attempts to access specific Kiteworks file paths that might indicate an exploit of CVE-2026-23514

@@ -24,12 +24,8 @@ references:
 iocs:
   - type: url
     value: http://bootstrapy.com
-  - type: url
-    value: https://www.exploit-db.com/exploits/46590
-  - type: url
-    value: https://www.vulncheck.com/advisories/bootstrapy-cms-lastest-multiple-sql-injection-via-forum-and-contact-modules
 ioc_counts:
-  url: 3
+  url: 1
 rules:
   - title: Detect SQL Injection Attempt in Bootstrapy CMS forum-thread.php
     description: Detects potential SQL injection attempts in Bootstrapy CMS by monitoring POST requests to forum-thread.php with suspicious SQL syntax in the thread_id parameter.

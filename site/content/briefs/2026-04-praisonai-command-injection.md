@@ -24,11 +24,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-40088
   - https://github.com/MervinPraison/PraisonAI/releases/tag/v4.5.121
   - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-2763-cj5r-c79m
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect PraisonAI Command Injection Attempts via Workflow
     description: Detects command injection attempts in PraisonAI workflows by monitoring for shell metacharacters in process creation events originating from the PraisonAI process.

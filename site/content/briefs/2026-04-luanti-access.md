@@ -25,11 +25,6 @@ references:
   - https://github.com/luanti-org/luanti/commit/0faf529bc4b89e70a275ed1162047815118f2413
   - https://github.com/luanti-org/luanti/commit/827fd4cf7f989482b2dad381fa4afd642ea73e8c
   - https://github.com/luanti-org/luanti/security/advisories/GHSA-22c4-238c-m5j4
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious HTTP Requests from Unusual Luanti Mods
     description: Detects potentially malicious HTTP requests originating from uncommon or newly deployed Luanti mods

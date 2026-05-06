@@ -30,9 +30,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2023-7338
   - https://support.ruckuswireless.com/security_bulletins/320
   - https://www.vulncheck.com/advisories/ruckus-unleashed-authenticated-rce-in-gateway-mode
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect Suspicious Ruckus Unleashed HTTP Requests
     description: Detects suspicious HTTP requests to Ruckus Unleashed web interface indicative of potential exploitation attempts of CVE-2023-7338

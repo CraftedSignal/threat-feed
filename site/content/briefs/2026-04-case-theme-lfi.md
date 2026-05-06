@@ -24,11 +24,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-5804
   - https://patchstack.com/database/wordpress/plugin/case-theme-user/vulnerability/wordpress-case-theme-user-1-0-4-local-file-inclusion-vulnerability?_s_id=cve
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Case Theme User LFI Attempt
     description: Detects potential Local File Inclusion (LFI) attempts targeting the Case Theme User WordPress plugin by monitoring HTTP requests containing directory traversal sequences.

@@ -31,8 +31,6 @@ references:
   - https://vuldb.com/submit/779123
   - https://vuldb.com/vuln/353965
   - https://vuldb.com/vuln/353965/cti
-ioc_counts:
-  url: 4
 rules:
   - title: Detect Suspiciously Long GET Request to formCrossBandSwitch
     description: Detects unusually long GET requests to the /goform/formCrossBandSwitch endpoint, indicative of a buffer overflow attempt.

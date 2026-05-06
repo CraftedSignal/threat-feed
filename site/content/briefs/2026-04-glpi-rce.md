@@ -32,11 +32,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-26026
   - https://github.com/glpi-project/glpi/security/advisories/GHSA-2c98-648q-h27h
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect GLPI Template Injection Attempts
     description: Detects potential template injection attempts in GLPI by monitoring for specific patterns in HTTP requests to template management endpoints.

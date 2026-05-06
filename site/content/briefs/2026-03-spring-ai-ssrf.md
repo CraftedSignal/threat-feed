@@ -21,9 +21,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-22742
   - https://spring.io/security/cve-2026-22742
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect Suspicious Outbound Connection from Spring AI
     description: Detects outbound network connections from the Spring AI application server to unusual or internal IP addresses, indicating potential SSRF exploitation.

@@ -27,6 +27,7 @@ references:
 iocs:
   - type: url
     value: https://github.com/user-attachments/files/26318786/dwa_scanline_exrcheck.zip
+    context: Proof-of-concept exploit code
 ioc_counts:
   url: 1
 rules:

@@ -24,8 +24,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4753
   - https://github.com/slajerek/RetroDebugger/pull/97
-ioc_counts:
-  email: 1
 rules:
   - title: Detect RetroDebugger Out-of-Bounds Read Attempt
     description: Detects potential exploitation of CVE-2026-4753 based on RetroDebugger process crashes.

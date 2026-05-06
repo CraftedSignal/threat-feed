@@ -49,10 +49,7 @@ iocs:
     value: https://felib.fujielectric.co.jp/en/M10010/M20060/document_detail/5d9dd71d-9494-41a4-aa5c-8e6b8b21066b?region=en-glb
   - type: url
     value: https://jvn.jp/en/vu/JVNVU90448293/
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
   url: 2
 rules:
   - title: Detect VS-FT opening unusual files

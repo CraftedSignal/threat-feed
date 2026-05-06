@@ -21,9 +21,6 @@ references:
   - https://www.twcert.org.tw/en/cp-139-10795-25784-2.html
   - https://www.twcert.org.tw/tw/cp-132-10794-704a2-1.html
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4640
-ioc_counts:
-  email: 1
-  url: 2
 rules:
   - title: Detect Vitals ESP Unauthenticated Access
     description: Detects HTTP requests to Vitals ESP that lack authentication headers, indicating potential exploitation of CVE-2026-4640.

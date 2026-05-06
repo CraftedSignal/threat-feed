@@ -24,11 +24,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-65104
   - https://github.com/FirebirdSQL/firebird/releases/tag/v4.0.0
   - https://github.com/FirebirdSQL/firebird/security/advisories/GHSA-mfpr-9886-xjhg
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Firebird Client Process Creation
     description: Detects the creation of a Firebird client process, which may indicate exploitation attempts related to CVE-2025-65104.

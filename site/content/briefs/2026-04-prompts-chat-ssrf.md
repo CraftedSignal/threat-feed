@@ -28,13 +28,9 @@ references:
   - https://www.vulncheck.com/advisories/prompts-chat-ssrf-via-fal-ai-media-status-polling
 iocs:
   - type: url
-    value: https://www.vulncheck.com/advisories/prompts-chat-ssrf-via-fal-ai-media-status-polling
-  - type: url
     value: https://gist.github.com/mdisec/27c0cac0ec6a8f3c8f85a18987ddb942
-  - type: url
-    value: https://github.com/f/prompts.chat/commit/30a8f0470e0ba45e6be9c9f55220f4a9a6b91c99
 ioc_counts:
-  url: 3
+  url: 1
 rules:
   - title: Detect prompts.chat SSRF via Suspicious Token Parameter
     description: Detects potential SSRF attempts in prompts.chat by identifying HTTP requests with a token parameter containing a suspicious URL.

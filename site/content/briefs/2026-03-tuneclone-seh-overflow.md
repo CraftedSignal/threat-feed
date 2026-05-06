@@ -24,8 +24,6 @@ references:
   - http://www.tuneclone.com/tuneclone_setup.exe
   - https://www.exploit-db.com/exploits/47012
   - https://www.vulncheck.com/advisories/tuneclone-structured-exception-handler-buffer-overflow
-ioc_counts:
-  url: 4
 rules:
   - title: Detect TuneClone SEH Buffer Overflow
     description: Detects potential SEH buffer overflow exploitation attempts against TuneClone 2.20 by monitoring for process creation with suspicious command-line arguments indicating crafted license key injection.

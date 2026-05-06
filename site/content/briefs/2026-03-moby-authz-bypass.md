@@ -29,9 +29,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34040
   - https://github.com/moby/moby/releases/tag/docker-v29.3.1
   - https://github.com/moby/moby/security/advisories/GHSA-x744-4wpc-v9h2
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect Moby AuthZ Bypass Attempt
     description: Detects potential attempts to bypass authorization plugins in Moby by monitoring API requests.

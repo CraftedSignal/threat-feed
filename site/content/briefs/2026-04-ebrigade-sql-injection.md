@@ -31,15 +31,8 @@ iocs:
     value: https://ebrigade.net/
   - type: url
     value: https://netcologne.dl.sourceforge.net/project/ebrigade/ebrigade/eBrigade%204.5/ebrigade_4.5.zip
-  - type: url
-    value: https://www.exploit-db.com/exploits/46117
-  - type: url
-    value: https://www.vulncheck.com/advisories/ebrigade-erp-sql-injection-via-pdf-php
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
-  url: 4
+  url: 2
 rules:
   - title: Detect SQL Injection Attempts in eBrigade ERP pdf.php
     description: Detects potential SQL injection attempts targeting the pdf.php endpoint in eBrigade ERP 4.5 by identifying suspicious SQL syntax within the 'id' parameter of GET requests.

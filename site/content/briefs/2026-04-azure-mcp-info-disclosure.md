@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32211
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32211
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious HTTP Request to Azure MCP Server
     description: Detects suspicious HTTP requests to Azure MCP Server which may indicate CVE-2026-32211 exploitation.

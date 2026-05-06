@@ -45,9 +45,6 @@ references:
   - https://basercms.net/security/JVN_20837860
   - https://github.com/baserproject/basercms/releases/tag/5.2.3
   - https://github.com/baserproject/basercms/security/advisories/GHSA-hv78-cwp4-8r7r
-ioc_counts:
-  email: 1
-  url: 3
 rules:
   - title: Detect baserCMS Restore Function Access
     description: Detects access to the baserCMS restore function, potentially indicating an attempted exploit of CVE-2025-32957.

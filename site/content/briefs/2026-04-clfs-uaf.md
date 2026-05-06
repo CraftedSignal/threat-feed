@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32070
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32070
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious CLFS Driver Interaction
     description: Detects processes interacting with the CLFS driver (clfs.sys) from unusual locations, which may indicate exploitation attempts.

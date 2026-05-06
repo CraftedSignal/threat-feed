@@ -29,10 +29,7 @@ iocs:
     value: https://certvde.com/de/advisories/VDE-2026-030
   - type: url
     value: https://mbconnectline.csaf-tp.certvde.com/.well-known/csaf/white/2026/vde-2026-030.json
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
   url: 2
 rules:
   - title: Detect Potential SQL Injection in setinfo Endpoint

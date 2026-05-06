@@ -23,18 +23,11 @@ references:
   - https://blog.talosintelligence.com/weaponizing-saas-notification-pipelines/
 iocs:
   - type: domain
-    value: github.com
-  - type: domain
     value: esa1.hc6633-79.iphmx.com
-  - type: domain
-    value: smtp.github.com
   - type: ip
     value: 192.30.252.211
-  - type: email
-    value: noreply@github.com
 ioc_counts:
-  domain: 3
-  email: 1
+  domain: 1
   ip: 1
 rules:
   - title: GitHub Commit Message Phishing Lure

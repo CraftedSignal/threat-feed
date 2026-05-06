@@ -26,8 +26,6 @@ references:
   - https://github.com/openclaw/openclaw/commit/1803d16d5cec970c54b0e1ac46b31b1cbade335c
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-63f5-hhc7-cx6p
   - https://www.vulncheck.com/advisories/openclaw-bootstrap-setup-code-replay-via-device-pairing
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Repeated Bootstrap Code Verification
     description: Detects multiple attempts to verify the same bootstrap code within a short time frame, indicative of a replay attack.

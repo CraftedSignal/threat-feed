@@ -27,19 +27,8 @@ references:
 iocs:
   - type: url
     value: https://code-projects.org/
-  - type: url
-    value: https://github.com/kbloow/CVE/issues/1
-  - type: url
-    value: https://vuldb.com/?ctiid.353155
-  - type: url
-    value: https://vuldb.com/?id.353155
-  - type: url
-    value: https://vuldb.com/?submit.776184
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
-  url: 5
+  url: 1
 rules:
   - title: Detect Suspicious checkregisitem.php SQL Injection Attempt
     description: Detects potential SQL injection attempts targeting the checkregisitem.php endpoint by looking for common SQL keywords in the Long-arm-shirtVol parameter.

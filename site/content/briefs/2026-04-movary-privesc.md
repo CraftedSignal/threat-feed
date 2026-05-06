@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-40349
   - https://github.com/leepeuker/movary/security/advisories/GHSA-mcfq-8rx7-w25v
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Movary Admin Privilege Escalation Attempt
     description: Detects attempts to escalate privileges in Movary by sending a PUT request to the /settings/users endpoint with isAdmin=true.

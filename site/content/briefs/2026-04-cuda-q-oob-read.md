@@ -25,11 +25,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-24189
   - https://nvidia.custhelp.com/app/answers/detail/a_id/5820
   - https://www.cve.org/CVERecord?id=CVE-2026-24189
-iocs:
-  - type: email
-    value: NVD@nist.gov
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious CUDA-Q HTTP Requests
     description: Detects potentially malicious HTTP requests targeting CUDA-Q endpoints that may indicate an out-of-bounds read attempt.

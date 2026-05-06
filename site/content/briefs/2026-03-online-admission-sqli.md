@@ -27,19 +27,11 @@ references:
 iocs:
   - type: url
     value: https://github.com/WHOAMI-xiaoyu/CVE/blob/main/CVE_7.md
-  - type: url
-    value: https://vuldb.com/?ctiid.352493
-  - type: url
-    value: https://vuldb.com/?id.352493
-  - type: url
-    value: https://vuldb.com/?submit.775788
+    context: Proof-of-concept exploit code
   - type: url
     value: https://www.sourcecodester.com/
-  - type: email
-    value: '[email&#160;protected]'
 ioc_counts:
-  email: 1
-  url: 5
+  url: 2
 rules:
   - title: Detect SQL Injection Attempts in SourceCodester Online Admission System
     description: Detects potential SQL injection attempts targeting the /programmes.php endpoint in SourceCodester Online Admission System 1.0

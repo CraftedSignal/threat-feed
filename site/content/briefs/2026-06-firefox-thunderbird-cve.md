@@ -52,8 +52,6 @@ references:
   - https://bugzilla.mozilla.org/buglist.cgi?bug_id=1944033%2C1997282%2C2009213%2C2011412%2C2021925%2C2022034
   - https://www.mozilla.org/security/advisories/mfsa2026-20/
   - https://www.mozilla.org/security/advisories/mfsa2026-23/
-ioc_counts:
-  email: 1
 rules:
   - title: Firefox Thunderbird User Agent Detected
     description: Detects HTTP requests with user agents indicating vulnerable Firefox or Thunderbird versions.

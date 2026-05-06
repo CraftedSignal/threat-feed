@@ -32,10 +32,8 @@ iocs:
     value: https://github.com/code16/sharp
   - type: url
     value: https://laravel.com/docs/13.x/filesystem
-  - type: url
-    value: https://github.com/code16/sharp/pull/714
 ioc_counts:
-  url: 5
+  url: 4
 rules:
   - title: Detect Sharp File Upload Bypass Attempt
     description: Detects attempts to bypass file upload restrictions in Sharp Laravel admin panel by manipulating the validation_rule parameter.

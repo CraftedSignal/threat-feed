@@ -1,0 +1,26 @@
+name: Validate IoCs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/content/briefs/**'
+  pull_request:
+    paths:
+      - 'site/content/briefs/**'
+
+jobs:
+  validate:
+    name: Check IoC quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - run: pip install pyyaml
+
+      - name: Check for invalid IoCs
+        run: python3 scripts/cleanup_iocs.py --check -v

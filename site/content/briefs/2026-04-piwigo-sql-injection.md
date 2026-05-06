@@ -25,11 +25,6 @@ references:
   - https://github.com/Piwigo/Piwigo/commit/9df471f16243371dc3725c5262e1632d23c8218a
   - https://github.com/Piwigo/Piwigo/security/advisories/GHSA-5jwg-cr5q-vjq2
   - https://piwigo.org/release-16.3.0
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Piwigo SQL Injection Attempt via pwg.users.getList API
     description: Detects potential SQL injection attempts targeting the pwg.users.getList API in Piwigo by looking for specific SQL keywords in the filter parameter of POST requests to api.php.

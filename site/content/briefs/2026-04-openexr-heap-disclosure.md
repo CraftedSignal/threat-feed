@@ -29,6 +29,7 @@ references:
 iocs:
   - type: url
     value: https://github.com/user-attachments/files/26002361/poc.zip
+    context: Proof-of-concept exploit code
   - type: url
     value: https://github.com/AcademySoftwareFoundation/openexr.git
 ioc_counts:

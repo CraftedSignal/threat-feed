@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35610
   - https://github.com/polarnl/PolarLearn/security/advisories/GHSA-8hww-w7cc-77rj
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect PolarLearn Privilege Escalation
     description: Detects attempts to exploit the PolarLearn privilege escalation vulnerability (CVE-2026-35610) by monitoring for requests to the setCustomPassword function from non-admin users.

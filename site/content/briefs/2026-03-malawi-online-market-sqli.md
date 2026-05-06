@@ -24,9 +24,6 @@ references:
   - https://vuldb.com/?id.353141
   - https://vuldb.com/?submit.776081
   - https://www.sourcecodester.com/
-ioc_counts:
-  email: 1
-  url: 5
 rules:
   - title: Detect Suspicious URI Access to display.php with SQL Injection Attempts
     description: Detects potential SQL injection attempts by monitoring URI access to the /display.php endpoint with suspicious SQL-related keywords.

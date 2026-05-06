@@ -19,11 +19,6 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
 references:
   - https://github.com/advisories/GHSA-vj2p-7pgw-g2wf
-iocs:
-  - type: ip
-    value: 169.254.169.254
-ioc_counts:
-  ip: 1
 rules:
   - title: Detect SSRF Attempt to AWS IMDS
     description: Detects attempts to exploit SSRF vulnerabilities to access the AWS Instance Metadata Service (IMDS) endpoint.

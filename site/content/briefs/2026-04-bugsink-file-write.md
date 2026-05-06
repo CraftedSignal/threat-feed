@@ -24,11 +24,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-40162
   - https://github.com/bugsink/bugsink/releases/tag/2.1.1
   - https://github.com/bugsink/bugsink/security/advisories/GHSA-8hw4-fhww-273g
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious BugSink File Write
     description: Detects potential exploitation of the BugSink authenticated file write vulnerability (CVE-2026-40162) by monitoring for suspicious POST requests.

@@ -27,13 +27,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-21367
   - https://docs.qualcomm.com/product/publicresources/securitybulletin/april-2026-bulletin.html
-iocs:
-  - type: email
-    value: '[email protected]'
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Detect FILS Discovery Frames with Large Action Sizes
     description: Detects network connections with potentially malicious FILS Discovery Frames based on abnormally large action sizes.

@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32155
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32155
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Interaction with Desktop Window Manager
     description: Detects processes attempting to interact with dwm.exe in unusual ways, which could indicate exploit activity.

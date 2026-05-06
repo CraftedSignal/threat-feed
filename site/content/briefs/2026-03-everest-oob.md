@@ -25,9 +25,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-26008
   - https://github.com/EVerest/EVerest/security/advisories/GHSA-vw95-6jj7-3fv9
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect Suspicious UpdateAllowedEnergyTransferModes Messages
     description: Detects potentially malicious UpdateAllowedEnergyTransferModes messages sent to EVerest instances.

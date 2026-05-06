@@ -28,11 +28,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32157
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32157
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious RDP Client Process Creation
     description: Detects unusual process creation by the Remote Desktop Client (mstsc.exe) that may indicate exploitation of CVE-2026-32157

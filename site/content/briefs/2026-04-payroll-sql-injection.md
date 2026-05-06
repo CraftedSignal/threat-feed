@@ -29,14 +29,8 @@ iocs:
     value: https://github.com/K4ptor/itsourcecode-Payroll-Management-System-V1.0-SQL-Injection2
   - type: url
     value: https://itsourcecode.com/
-  - type: url
-    value: https://vuldb.com/submit/780475
-  - type: url
-    value: https://vuldb.com/vuln/354389
-  - type: url
-    value: https://vuldb.com/vuln/354389/cti
 ioc_counts:
-  url: 5
+  url: 2
 rules:
   - title: Detect SQL Injection Attempt in itsourcecode Payroll Management System
     description: Detects potential SQL injection attempts targeting the /view_employee.php page by looking for SQL keywords in the ID parameter.

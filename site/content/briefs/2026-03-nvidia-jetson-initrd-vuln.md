@@ -43,11 +43,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-24154
   - https://nvidia.custhelp.com/app/answers/detail/a_id/5797
   - https://www.cve.org/CVERecord?id=CVE-2026-24154
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Modified Kernel Command Line
     description: Detects modifications to the kernel command line, potentially indicating an attempt to inject malicious arguments during the boot process.

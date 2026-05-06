@@ -26,12 +26,8 @@ iocs:
     value: http://download.aida64.com/aida64extreme599.exe
   - type: url
     value: https://www.aida64.com
-  - type: url
-    value: https://www.exploit-db.com/exploits/46660
-  - type: url
-    value: https://www.vulncheck.com/advisories/aida64-extreme-seh-buffer-overflow-via-logging
 ioc_counts:
-  url: 4
+  url: 2
 rules:
   - title: Detect AIDA64 Suspicious Log File Access
     description: Detects AIDA64 accessing potentially malicious CSV log files, indicating a possible buffer overflow attempt.

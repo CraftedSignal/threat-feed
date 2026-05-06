@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-27914
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-27914
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious MMC Command Line Arguments
     description: Detects suspicious command line arguments used with mmc.exe which may indicate exploitation of privilege escalation vulnerabilities.

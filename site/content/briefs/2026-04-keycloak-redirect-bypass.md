@@ -26,11 +26,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-3872
   - https://access.redhat.com/security/cve/CVE-2026-3872
   - https://bugzilla.redhat.com/show_bug.cgi?id=2445988
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Keycloak Redirect URI Bypass Attempt
     description: Detects potential attempts to exploit the Keycloak redirect URI bypass vulnerability (CVE-2026-3872) by identifying suspicious patterns in HTTP request URIs.

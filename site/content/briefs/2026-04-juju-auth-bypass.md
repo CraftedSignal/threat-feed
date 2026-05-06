@@ -22,11 +22,6 @@ cves:
     cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5412
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Juju CloudSpec API Access
     description: Detects unauthorized access to the Juju CloudSpec API endpoint, indicating a potential attempt to exploit CVE-2026-5412.

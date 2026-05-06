@@ -24,8 +24,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-31943
   - https://github.com/danny-avila/LibreChat/security/advisories/GHSA-w5r7-4f94-vp4c
-ioc_counts:
-  ip: 1
 rules:
   - title: LibreChat SSRF Attempt via IPv6
     description: Detects potential SSRF attempts in LibreChat by identifying HTTP requests containing IPv4-mapped IPv6 addresses.

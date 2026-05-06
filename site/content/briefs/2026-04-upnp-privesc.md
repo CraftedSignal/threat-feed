@@ -23,13 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-27920
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-27920
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 2
 rules:
   - title: Suspicious Svchost Child Process Creation
     description: Detects suspicious child processes created by svchost.exe which may indicate privilege escalation attempts.

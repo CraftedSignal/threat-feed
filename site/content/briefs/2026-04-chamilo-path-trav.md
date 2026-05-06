@@ -25,11 +25,6 @@ references:
   - https://github.com/chamilo/chamilo-lms/commit/4dddcc19d36119da27b7c49eb84a035800abae78
   - https://github.com/chamilo/chamilo-lms/releases/tag/v1.11.38
   - https://github.com/chamilo/chamilo-lms/security/advisories/GHSA-8q8c-v75x-q2hx
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Chamilo LMS Path Traversal Attempt in savescores.php
     description: Detects attempts to exploit the path traversal vulnerability (CVE-2026-31939) in Chamilo LMS by monitoring HTTP requests to savescores.php containing path traversal sequences.

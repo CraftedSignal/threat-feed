@@ -23,11 +23,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32222
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32222
-iocs:
-  - type: email
-    value: '[email protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious Win32K ICOMP Calls
     description: Detects potentially malicious calls to the Win32K ICOMP component, indicative of CVE-2026-32222 exploitation attempts.

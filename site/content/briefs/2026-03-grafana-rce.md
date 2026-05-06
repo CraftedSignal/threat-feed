@@ -24,9 +24,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-27876
   - https://grafana.com/security/security-advisories/cve-2026-27876
-ioc_counts:
-  email: 1
-  url: 1
 rules:
   - title: Detect Suspicious Grafana SQL Expression Usage
     description: Detects potential exploitation attempts leveraging SQL Expressions in Grafana by identifying unusual SQL queries within Grafana logs.

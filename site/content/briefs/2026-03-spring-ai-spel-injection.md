@@ -21,8 +21,6 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-22738
   - https://spring.io/security/cve-2026-22738
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious SpEL Expression in HTTP URI
     description: Detects suspicious SpEL expressions in HTTP URI, indicative of potential SpEL injection attempts.

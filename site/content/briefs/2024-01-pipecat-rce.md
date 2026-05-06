@@ -26,11 +26,6 @@ cves:
     cvss: 9.8
 references:
   - https://github.com/advisories/GHSA-c2jg-5cp7-6wc7
-iocs:
-  - type: ip
-    value: 0.0.0.0
-ioc_counts:
-  ip: 1
 rules:
   - title: Detect Pipecat WebSocket Connections from Non-Localhost
     description: Detects WebSocket connections to Pipecat servers that are not bound to localhost, which is a prerequisite for exploiting CVE-2025-62373 when LivekitFrameSerializer is used.

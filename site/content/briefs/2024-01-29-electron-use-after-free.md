@@ -22,11 +22,6 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
 references:
   - https://github.com/advisories/GHSA-jjp3-mq3x-295m
-iocs:
-  - type: email
-    value: security@electronjs.org
-ioc_counts:
-  email: 1
 rules:
   - title: Electron PowerMonitor Use-After-Free - Process Crash
     description: Detects process crashes in Electron applications that may be related to the PowerMonitor use-after-free vulnerability.

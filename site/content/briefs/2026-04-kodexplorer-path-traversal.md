@@ -29,18 +29,9 @@ references:
   - https://vulnplus-note.wetolink.com/share/JyHBnRUaoOY2
 iocs:
   - type: url
-    value: https://vuldb.com/submit/789981
-  - type: url
-    value: https://vuldb.com/vuln/358202
-  - type: url
-    value: https://vuldb.com/vuln/358202/cti
-  - type: url
     value: https://vulnplus-note.wetolink.com/share/JyHBnRUaoOY2
-  - type: email
-    value: '[email&#160;protected]'
 ioc_counts:
-  email: 1
-  url: 4
+  url: 1
 rules:
   - title: Detect KodExplorer Path Traversal Attempt
     description: Detects path traversal attempts targeting the KodExplorer share.class.php endpoint

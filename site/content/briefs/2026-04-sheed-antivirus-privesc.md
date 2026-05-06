@@ -31,12 +31,8 @@ iocs:
     value: http://dl.sheedantivirus.ir/setup.exe
   - type: url
     value: http://sheedantivirus.ir/
-  - type: url
-    value: https://www.exploit-db.com/exploits/40497
-  - type: url
-    value: https://www.vulncheck.com/advisories/sheed-antivirus-unquoted-service-path-privilege-escalation
 ioc_counts:
-  url: 4
+  url: 2
 rules:
   - title: Detect Suspicious Process Creation in Unquoted Path
     description: Detects process creation events where the executable path contains a space and is not enclosed in quotes, indicating a potential unquoted service path exploitation attempt.

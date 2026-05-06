@@ -26,8 +26,6 @@ references:
   - https://www.mozilla.org/security/advisories/mfsa2026-22/
   - https://www.mozilla.org/security/advisories/mfsa2026-23/
   - https://www.mozilla.org/security/advisories/mfsa2026-24/
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Firefox/Thunderbird Crash Events
     description: Detects crash events related to Firefox or Thunderbird processes, which could indicate exploitation of CVE-2026-4697.

@@ -31,14 +31,9 @@ references:
   - https://www.zeroscience.mk/en/vulnerabilities/ZSL-2026-5984.php
 iocs:
   - type: url
-    value: https://www.vulncheck.com/advisories/pachno-wiki-textparser-xml-external-entity-injection
-  - type: url
     value: https://www.zeroscience.mk/en/vulnerabilities/ZSL-2026-5984.php
-  - type: email
-    value: '[email protected]'
 ioc_counts:
-  email: 1
-  url: 2
+  url: 1
 rules:
   - title: Detect XML External Entity Injection Attempts via URI
     description: Detects potential XML External Entity (XXE) injection attempts by identifying requests containing XML entity declarations in the URI.
