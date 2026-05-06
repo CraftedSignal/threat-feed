@@ -1,78 +1,79 @@
 ---
-title: OpenClaw Authentication Bypass Vulnerability (CVE-2026-43569)
+title: OpenClaw Authentication Bypass Vulnerability in noVNC Helper Route
 slug: 2026-05-openclaw-auth-bypass
-description: OpenClaw before 2026.4.9 is vulnerable to an authentication bypass, allowing attackers to auto-enable malicious workspace plugins during non-interactive onboarding, leading to potential arbitrary code execution and data compromise.
-date: "2026-05-05T12:16:20Z"
+description: OpenClaw versions before 2026.4.10 contain an authentication bypass vulnerability (CVE-2026-43575) in the sandbox noVNC helper route, allowing attackers to access interactive browser session credentials without proper authentication.
+date: "2026-05-06T20:16:33Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
-  - authentication bypass
-  - plugin vulnerability
-  - cve-2026-43569
+  - authentication-bypass
+  - web-application
+  - cve-2026-43575
 vendors:
   - OpenClaw
 products:
   - OpenClaw
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1548
-    technique_name: Abuse Elevation Control Mechanism
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
 cves:
-  - id: CVE-2026-43569
-    cvss: 8.8
+  - id: CVE-2026-43575
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-43569
-  - https://github.com/openclaw/openclaw/commit/2d97eae53e212ae26f3aebcd6a50ffc6877f770d
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-939r-rj45-g2rj
-  - https://www.vulncheck.com/advisories/openclaw-untrusted-provider-plugin-auto-enablement-via-workspace-provider-auth
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-43575
+  - https://github.com/openclaw/openclaw/commit/8dfbf3268bd224b7377d1ecca77a445100746085
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-92jp-89mq-4374
+  - https://www.vulncheck.com/advisories/openclaw-authentication-bypass-in-sandbox-novnc-helper-route
 rules:
-  - title: Detect Suspicious OpenClaw Plugin Installation
-    description: Detects the creation of new files in the OpenClaw plugin directory, which could indicate the installation of a malicious plugin.
-    platform: sigma
-    severity: medium
-    tactics:
-      - initial_access
-    data_sources:
-      - file_event
-      - linux
-  - title: Detect OpenClaw Authentication Bypass Attempt
-    description: Detects unusual log entries indicating a potential authentication bypass in OpenClaw related to plugin loading.
+  - title: Detect Access to OpenClaw noVNC Helper Route
+    description: Detects unauthorized access attempts to the OpenClaw noVNC helper route.
     platform: sigma
     severity: high
     tactics:
-      - initial_access
+      - credential_access
     techniques:
       - T1190
+      - T1555
+    data_sources:
+      - webserver
+      - linux
+  - title: Detect Github Commit Referenced in CVE-2026-43575
+    description: Detects user agents requesting the specific Github commit referenced in CVE-2026-43575, possibly indicating reconnaissance activity.
+    platform: sigma
+    severity: low
+    tactics:
+      - discovery
+    techniques:
+      - T1595
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-OpenClaw versions prior to 2026.4.9 are susceptible to an authentication bypass vulnerability (CVE-2026-43569). This flaw stems from the auto-enablement of untrusted workspace plugins during non-interactive onboarding processes, specifically when provider authentication choices are shadowed. An attacker can exploit this by crafting malicious workspace plugins, which are then automatically selected and enabled during the authentication setup, without requiring explicit user consent. This vulnerability poses a significant risk as it could lead to arbitrary code execution, data theft, or other malicious activities within the affected OpenClaw environment.
+OpenClaw versions 2026.2.21 before 2026.4.10 are vulnerable to an authentication bypass (CVE-2026-43575) in the sandbox noVNC helper route. This vulnerability allows an attacker to bypass bridge authentication and gain unauthorized access to interactive browser sessions. The vulnerability stems from missing authorization checks within the noVNC helper route. Successful exploitation could allow an attacker to view or control the browser session and potentially access sensitive information. The vulnerability was reported and patched in OpenClaw version 2026.4.10.
 
 ## Attack Chain
 
-1.  Attacker crafts a malicious OpenClaw workspace plugin.
-2.  The attacker deploys or hosts the malicious plugin in a location accessible to the OpenClaw instance.
-3.  A user initiates a non-interactive onboarding process within OpenClaw.
-4.  During the onboarding, the system attempts to authenticate via a provider where authentication choices are shadowed.
-5.  The malicious plugin is automatically selected and enabled due to the authentication bypass vulnerability.
-6.  The malicious plugin executes arbitrary code within the OpenClaw environment.
-7.  The attacker gains unauthorized access to sensitive data or system resources.
+1.  Attacker identifies an OpenClaw instance running a vulnerable version (prior to 2026.4.10).
+2.  Attacker crafts a malicious request targeting the `/novnc_helper` route.
+3.  The request bypasses the expected bridge authentication mechanism due to the missing authorization check (CWE-862).
+4.  The server processes the request without proper authentication, granting access to the noVNC helper.
+5.  Attacker gains access to interactive browser session credentials exposed through the noVNC helper.
+6.  Attacker uses the stolen credentials to access and interact with the active browser session.
+7.  Attacker monitors the browser session and intercepts sensitive information (e.g., credentials, API keys, personal data).
 
 ## Impact
 
-Successful exploitation of CVE-2026-43569 allows attackers to execute arbitrary code within the OpenClaw environment. This can lead to the compromise of sensitive data, disruption of services, and potential complete system takeover. The lack of explicit user consent during plugin enablement makes this vulnerability particularly dangerous, as users may be unaware of the risks posed by the malicious plugin.
+Successful exploitation of this vulnerability allows attackers to gain unauthorized access to interactive browser sessions within OpenClaw. This can lead to the theft of sensitive information displayed or entered within the browser, such as user credentials, API keys, or personal data. Given the critical nature of the affected component, organizations using vulnerable versions of OpenClaw are at high risk of data breaches and unauthorized access to their systems.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.9 or later to patch CVE-2026-43569.
-*   Monitor OpenClaw instances for the installation and auto-enablement of new workspace plugins, especially during onboarding processes.
-*   Implement strict plugin validation and vetting procedures to prevent the introduction of malicious plugins into the OpenClaw environment.
-*   Deploy the Sigma rule `Detect Suspicious OpenClaw Plugin Installation` to identify potentially malicious plugin installations based on file creation events.
-*   Enable and review OpenClaw's audit logging to track plugin installations and configuration changes.
+*   Upgrade OpenClaw installations to version 2026.4.10 or later to patch CVE-2026-43575.
+*   Monitor web server logs for suspicious requests to the `/novnc_helper` route, using the Sigma rule provided below.
+*   Implement network segmentation to limit the blast radius of potential exploitation.
