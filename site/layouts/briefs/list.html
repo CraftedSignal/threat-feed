@@ -41,6 +41,7 @@
 
 <section class="px-4 md:px-0 pt-6 pb-12">
   <div class="max-w-6xl mx-auto space-y-10">
+    {{ partial "briefs-pagination.html" $paginator }}
     {{ range $byMonth }}
     {{ $anchor := .Key | urlize }}
     <div id="{{ $anchor }}" class="space-y-3" data-month-section>
@@ -56,26 +57,7 @@
     <p class="text-sm text-muted text-center hidden" data-empty-message>No briefs in the selected window.</p>
     <p class="text-sm text-muted text-center hidden" data-filter-pagination-warning>This filter only applies to the current page. Use <a href="/briefs/" class="text-accent hover:underline">search</a> or browse all pages to find matching briefs.</p>
 
-    {{ if gt $paginator.TotalPages 1 }}
-    <nav class="flex items-center justify-between border-t border-stroke pt-6 mt-4 text-sm text-muted" aria-label="Pagination">
-      <div>
-        Page <span class="font-mono text-text">{{ $paginator.PageNumber }}</span> of <span class="font-mono text-text">{{ $paginator.TotalPages }}</span>
-        · <span class="font-mono text-text">{{ len $allPages }}</span> briefs total
-      </div>
-      <div class="flex items-center gap-2">
-        {{ if $paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL }}" class="px-3 py-1.5 rounded-lg border border-stroke hover:text-text hover:border-accent/40 transition">← Newer</a>
-        {{ else }}
-        <span class="px-3 py-1.5 rounded-lg border border-stroke/50 opacity-40 cursor-not-allowed">← Newer</span>
-        {{ end }}
-        {{ if $paginator.HasNext }}
-        <a href="{{ $paginator.Next.URL }}" class="px-3 py-1.5 rounded-lg border border-stroke hover:text-text hover:border-accent/40 transition">Older →</a>
-        {{ else }}
-        <span class="px-3 py-1.5 rounded-lg border border-stroke/50 opacity-40 cursor-not-allowed">Older →</span>
-        {{ end }}
-      </div>
-    </nav>
-    {{ end }}
+    {{ partial "briefs-pagination.html" $paginator }}
   </div>
 </section>
 {{ end }}

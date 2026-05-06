@@ -1,0 +1,20 @@
+{{ $p := . }}
+{{ if gt $p.TotalPages 1 }}
+<nav class="flex items-center justify-between border-t border-stroke pt-6 mt-4 text-sm text-muted" aria-label="Pagination">
+  <div>
+    Page <span class="font-mono text-text">{{ $p.PageNumber }}</span> of <span class="font-mono text-text">{{ $p.TotalPages }}</span>
+  </div>
+  <div class="flex items-center gap-2">
+    {{ if $p.HasPrev }}
+    <a href="{{ $p.Prev.URL }}" class="px-3 py-1.5 rounded-lg border border-stroke hover:text-text hover:border-accent/40 transition">← Newer</a>
+    {{ else }}
+    <span class="px-3 py-1.5 rounded-lg border border-stroke/50 opacity-40 cursor-not-allowed">← Newer</span>
+    {{ end }}
+    {{ if $p.HasNext }}
+    <a href="{{ $p.Next.URL }}" class="px-3 py-1.5 rounded-lg border border-stroke hover:text-text hover:border-accent/40 transition">Older →</a>
+    {{ else }}
+    <span class="px-3 py-1.5 rounded-lg border border-stroke/50 opacity-40 cursor-not-allowed">Older →</span>
+    {{ end }}
+  </div>
+</nav>
+{{ end }}
