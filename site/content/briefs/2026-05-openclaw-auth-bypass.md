@@ -1,7 +1,7 @@
 ---
-title: OpenClaw Bearer Token Validation Bypass via Stale SecretRef Resolution
+title: OpenClaw Authorization Bypass Vulnerability (CVE-2026-44110)
 slug: 2026-05-openclaw-auth-bypass
-description: OpenClaw before 2026.4.15 captures resolved bearer-auth configuration at startup, allowing revoked tokens to remain valid after SecretRef rotation, leading to unauthorized gateway access via stale bearer tokens.
+description: OpenClaw before 2026.4.15 contains an authorization bypass vulnerability that allows attackers with DM-paired sender IDs to execute room control commands without being in configured allowlists, potentially enabling privileged OpenClaw behavior by posting in bot rooms.
 date: "2026-05-06T20:16:34Z"
 type: advisory
 types:
@@ -9,71 +9,70 @@ types:
 severities:
   - high
 tags:
-  - authentication-bypass
-  - credential-access
-  - vulnerability
+  - authorization bypass
+  - matrix
+  - bot
 vendors:
   - OpenClaw
 products:
   - OpenClaw
-  - OpenClaw Gateway
 mitre_ttps:
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1555
-    technique_name: Credentials from Password Stores
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
 cves:
-  - id: CVE-2026-43585
-    cvss: 8.1
+  - id: CVE-2026-44110
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-43585
-  - https://github.com/openclaw/openclaw/commit/acd4e0a32f12e1ad85f3130f63b42443ce90f094
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-xmxx-7p24-h892
-  - https://www.vulncheck.com/advisories/openclaw-bearer-token-validation-bypass-via-stale-secretref-resolution
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-44110
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-2gvc-4f3c-2855
+  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-in-matrix-room-control-commands-via-dm-pairing-store
 rules:
-  - title: Detect OpenClaw Authentication Bypass via Stale Token
-    description: Detects potential exploitation of OpenClaw authentication bypass by monitoring for bearer token usage after SecretRef rotation.
+  - title: Detect OpenClaw Room Control Command Abuse
+    description: Detects suspicious Matrix messages indicative of OpenClaw room control command abuse
     platform: sigma
     severity: high
     tactics:
-      - credential_access
+      - privilege_escalation
     techniques:
-      - T1555
+      - T1068
     data_sources:
       - webserver
       - linux
-  - title: Detect OpenClaw WebSocket Connection with Bearer Token
-    description: Detects WebSocket connections potentially using stale bearer tokens in OpenClaw.
+  - title: Detect OpenClaw DM Pairing Activity
+    description: Detects direct messages to the OpenClaw bot that might indicate pairing activity.
     platform: sigma
     severity: medium
     tactics:
-      - credential_access
-    techniques:
-      - T1555
+      - initial_access
     data_sources:
-      - network_connection
+      - webserver
       - linux
 rules_count: 2
 ---
 
-OpenClaw, a gateway application, is vulnerable to an authentication bypass issue. Specifically, versions prior to 2026.4.15 exhibit a flaw where the bearer-auth configuration is resolved only at startup. This means that after a SecretRef rotation (when tokens are intended to be revoked), the gateway's HTTP and WebSocket handlers do not re-resolve authentication per request. Consequently, an attacker could potentially leverage rotated-out bearer tokens to gain unauthorized access to the gateway. This vulnerability allows an attacker to bypass authentication mechanisms and gain unauthorized access to resources protected by the OpenClaw gateway.
+OpenClaw, a Matrix bot, is vulnerable to an authorization bypass (CVE-2026-44110) affecting versions prior to 2026.4.15. This vulnerability stems from the Matrix room control-command authorization logic trusting DM pairing-store entries without proper validation against configured allowlists. An attacker who has established a DM pairing with the bot can exploit this flaw to execute room control commands by posting in bot rooms, even if they are not explicitly authorized. This can lead to unauthorized modification of room settings or execution of other privileged bot functionalities. The vulnerability was reported by VulnCheck and patched in version 2026.4.15. Defenders should upgrade to the latest version of OpenClaw to mitigate this risk.
 
 ## Attack Chain
 
-1.  An attacker obtains a valid bearer token for OpenClaw gateway access.
-2.  The organization rotates the SecretRef, which should invalidate the attacker's token.
-3.  OpenClaw gateway, due to the vulnerability, does not re-resolve authentication per-request.
-4.  The attacker attempts to access a protected resource using the previously valid, now rotated-out bearer token via an HTTP or WebSocket request.
-5.  The gateway, still using the old configuration, incorrectly validates the token.
-6.  The attacker gains unauthorized access to the protected resource.
-7.  The attacker performs actions they are not authorized to perform, potentially exfiltrating data or modifying configurations.
+1.  Attacker establishes a direct message (DM) pairing with the OpenClaw bot.
+2.  The bot stores the DM pairing information.
+3.  Attacker identifies a bot room where OpenClaw is active.
+4.  Attacker crafts a room control command, such as a command to change room settings.
+5.  Attacker posts the malicious command within the bot room.
+6.  OpenClaw receives the command and incorrectly trusts the DM pairing-store entry for authorization.
+7.  OpenClaw executes the room control command with elevated privileges, bypassing configured allowlists.
+8.  The attacker successfully modifies the room settings or triggers other privileged behavior.
 
 ## Impact
 
-Successful exploitation of CVE-2026-43585 allows attackers to bypass authentication and gain unauthorized access to resources protected by the OpenClaw gateway. This can lead to the exposure of sensitive data, unauthorized modification of configurations, and other malicious activities. The severity is rated as high with a CVSS v3.1 score of 8.1, indicating significant potential for damage. The number of victims and specific sectors targeted are currently unknown.
+Successful exploitation of CVE-2026-44110 allows unauthorized users to execute privileged commands within Matrix rooms controlled by OpenClaw. This could result in significant disruption, including unauthorized modification of room settings, disclosure of sensitive information, or other malicious activities enabled by OpenClaw's functionality. The severity is compounded by the ease of exploitation, requiring only a pre-existing DM pairing with the bot. The impact depends on the specific functionalities and permissions granted to the OpenClaw bot within the affected Matrix environment.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.15 or later to patch CVE-2026-43585.
-*   Monitor webserver logs for HTTP and WebSocket requests using bearer tokens after SecretRef rotation; deploy the Sigma rule `Detect OpenClaw Authentication Bypass via Stale Token` to detect potential exploitation attempts.
-*   Implement robust monitoring and alerting for unauthorized access attempts to protected resources to detect post-exploitation activity.
+*   Upgrade OpenClaw to version 2026.4.15 or later to patch CVE-2026-44110 (see References).
+*   Review and restrict the permissions granted to the OpenClaw bot within Matrix rooms to minimize potential impact from unauthorized command execution.
+*   Implement the Sigma rule "Detect OpenClaw Room Control Command Abuse" to identify suspicious command activity within bot rooms.
+*   Monitor Matrix room activity logs for unauthorized modifications or actions performed by the OpenClaw bot.
+*   Enable logging of Matrix bot commands to aid in investigation and auditing of potential authorization bypass attempts.
