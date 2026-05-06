@@ -15,13 +15,21 @@
 {{ else }}
   {{ $countLabel = printf "%d" $totalCount }}
 {{ end }}
-{{/* Latest briefs excludes rumour-tier — those have their own section above */}}
-{{ $latestPool := slice }}
+{{/* Split briefs by type for the two homepage sections. Rumour excluded from both. */}}
+{{ $threatPool := slice }}
+{{ $advisoryPool := slice }}
 {{ range $briefs }}
   {{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
-  {{ if ne $sev "rumour" }}{{ $latestPool = $latestPool | append . }}{{ end }}
+  {{ if ne $sev "rumour" }}
+    {{ if eq .Params.type "threat" }}
+      {{ $threatPool = $threatPool | append . }}
+    {{ else }}
+      {{ $advisoryPool = $advisoryPool | append . }}
+    {{ end }}
+  {{ end }}
 {{ end }}
-{{ $latest := first 12 $latestPool }}
+{{ $latestThreats   := first 6 $threatPool }}
+{{ $latestAdvisories := first 6 $advisoryPool }}
 
 <section class="px-4 md:px-0 pt-10 md:pt-16 pb-12">
   <div class="max-w-6xl mx-auto space-y-5">
@@ -47,19 +55,36 @@
 {{ partial "search.html" . }}
 
 <section class="px-4 md:px-0 py-10">
-  <div class="max-w-6xl mx-auto space-y-6">
-    <div class="flex items-end justify-between gap-4">
-      <h2 class="font-display text-xl md:text-2xl font-semibold">Latest briefs</h2>
-      <a href="/briefs/" class="text-sm text-muted hover:text-accent transition">View all →</a>
+  <div class="max-w-6xl mx-auto space-y-12">
+
+    <div class="space-y-6">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="font-display text-xl md:text-2xl font-semibold">Latest threats</h2>
+        <a href="/types/threat/" class="text-sm text-muted hover:text-accent transition">View all →</a>
+      </div>
+      <div class="space-y-3">
+        {{ range $latestThreats }}
+          {{ partial "brief-card.html" . }}
+        {{ else }}
+          <p class="text-sm text-muted">No threat briefs yet — check back soon.</p>
+        {{ end }}
+      </div>
     </div>
 
-    <div class="space-y-3">
-      {{ range $latest }}
-        {{ partial "brief-card.html" . }}
-      {{ else }}
-        <p class="text-sm text-muted">No briefs published yet.</p>
-      {{ end }}
+    <div class="space-y-6">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="font-display text-xl md:text-2xl font-semibold">Latest advisories</h2>
+        <a href="/types/advisory/" class="text-sm text-muted hover:text-accent transition">View all →</a>
+      </div>
+      <div class="space-y-3">
+        {{ range $latestAdvisories }}
+          {{ partial "brief-card.html" . }}
+        {{ else }}
+          <p class="text-sm text-muted">No advisories published yet.</p>
+        {{ end }}
+      </div>
     </div>
+
   </div>
 </section>
 {{ end }}
