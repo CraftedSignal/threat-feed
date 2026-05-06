@@ -1,8 +1,8 @@
 ---
-title: OpenClaw Server-Side Request Forgery Vulnerability
+title: OpenClaw SSRF Vulnerability in Zalo Plugin (CVE-2026-44116)
 slug: 2026-05-openclaw-ssrf
-description: OpenClaw before 2026.4.5 is vulnerable to server-side request forgery (SSRF) via the CDP /json/version WebSocket endpoint by not properly validating the webSocketDebuggerUrl response field, enabling attackers to redirect connections to arbitrary hosts and perform SSRF-style attacks to pivot to untrusted second-hop targets.
-date: "2026-05-06T20:16:33Z"
+description: OpenClaw before 2026.4.22 is vulnerable to server-side request forgery (SSRF) due to improper validation of outbound photo URLs in the Zalo plugin's sendPhoto function, allowing attackers to potentially access internal resources by providing malicious photo URLs to the Zalo Bot API.
+date: "2026-05-06T20:16:35Z"
 type: advisory
 types:
   - advisory
@@ -10,29 +10,30 @@ severities:
   - high
 tags:
   - ssrf
-  - cve-2026-43576
+  - cve-2026-44116
   - openclaw
+  - zalo
 vendors:
   - OpenClaw
 products:
   - OpenClaw
-  - OpenClaw CDP /json/version WebSocket endpoint
+  - Zalo plugin
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-43576
-    cvss: 7.7
+  - id: CVE-2026-44116
+    cvss: 8.6
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-43576
-  - https://github.com/openclaw/openclaw/commit/bc356cc8c2beaa747c71dd86cceab8f804699665
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-f7fh-qg34-x2xh
-  - https://www.vulncheck.com/advisories/openclaw-second-hop-ssrf-via-cdp-json-version-websocket-url
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-44116
+  - https://github.com/openclaw/openclaw/commit/a65eb1b864b7630c1242a82de9e5799b80583c3f
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-2hh7-c75g-qj2r
+  - https://www.vulncheck.com/advisories/openclaw-server-side-request-forgery-in-zalo-photo-url-validation
 rules:
-  - title: Detect OpenClaw SSRF Attempt via Modified WebSocket Debugger URL
-    description: Detects attempts to exploit the OpenClaw SSRF vulnerability by monitoring requests to the /json/version endpoint with a suspicious webSocketDebuggerUrl.
+  - title: Detect OpenClaw Zalo Plugin SSRF Attempt
+    description: Detects potential Server-Side Request Forgery (SSRF) attempts originating from an OpenClaw server by monitoring requests to internal IP addresses or domains.
     platform: sigma
     severity: high
     tactics:
@@ -42,10 +43,10 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect OpenClaw SSRF Response with External WebSocket URL
-    description: Detects OpenClaw responses to the /json/version endpoint containing an external webSocketDebuggerUrl, potentially indicating an SSRF attempt.
+  - title: Detect OpenClaw Zalo Plugin SSRF Attempt - Internal Domain
+    description: Detects potential Server-Side Request Forgery (SSRF) attempts originating from an OpenClaw server by monitoring requests to internal domains.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - initial_access
     techniques:
@@ -56,25 +57,24 @@ rules:
 rules_count: 2
 ---
 
-OpenClaw versions prior to 2026.4.5 are susceptible to a server-side request forgery (SSRF) vulnerability. The vulnerability resides in the CDP /json/version WebSocket endpoint. Insufficient validation of the `webSocketDebuggerUrl` response field allows attackers to manipulate connections to arbitrary hosts. This flaw enables attackers to perform SSRF attacks, effectively pivoting to internal, untrusted second-hop targets. The vulnerability was reported on May 6, 2026, and poses a significant risk to systems running affected versions of OpenClaw by potentially exposing internal resources and services to unauthorized access.
+OpenClaw, a web application, is susceptible to a server-side request forgery (SSRF) vulnerability (CVE-2026-44116) affecting versions prior to 2026.4.22. The vulnerability resides within the Zalo plugin's sendPhoto function, specifically in how it validates outbound photo URLs. The absence of proper SSRF guard validation allows a malicious actor to craft photo URLs that, when processed by the Zalo Bot API, can bypass intended security controls. This can lead to unauthorized access to internal resources that would otherwise be protected. Successful exploitation enables an attacker to make requests on behalf of the server, potentially exposing sensitive data or enabling further malicious activity within the internal network.
 
 ## Attack Chain
 
-1. An attacker identifies an OpenClaw instance running a version prior to 2026.4.5.
-2. The attacker sends a request to the `/json/version` WebSocket endpoint.
-3. The OpenClaw server responds with a JSON payload that includes the `webSocketDebuggerUrl` field.
-4. The attacker intercepts and modifies the `webSocketDebuggerUrl` field in the response to point to an internal or external host controlled by the attacker.
-5. A user or application attempts to use the WebSocket debugger URL.
-6. The connection is redirected to the attacker-controlled host due to the manipulated URL.
-7. The attacker can now proxy requests through the OpenClaw server, effectively performing an SSRF attack against the target host.
-8. The attacker can potentially access internal resources or exploit other vulnerabilities on the second-hop target.
+1.  Attacker identifies an OpenClaw instance running a version prior to 2026.4.22 with the Zalo plugin enabled.
+2.  The attacker crafts a malicious photo URL designed to target an internal resource.
+3.  The attacker utilizes the Zalo Bot API to send a request including the crafted malicious photo URL to the sendPhoto function.
+4.  The sendPhoto function attempts to retrieve the photo from the attacker-controlled URL without proper SSRF validation.
+5.  The OpenClaw server makes an HTTP request to the internal resource specified in the malicious URL.
+6.  The internal resource responds to the OpenClaw server, potentially disclosing sensitive information.
+7.  The attacker retrieves the response from the internal resource, gaining unauthorized access to sensitive data.
 
 ## Impact
 
-Successful exploitation of this SSRF vulnerability allows an attacker to pivot to internal, untrusted second-hop targets. This can lead to the exposure of sensitive information, unauthorized access to internal services, and further exploitation of vulnerabilities on internal systems. The CVSS v3.1 base score is rated as 7.7 (High), reflecting the potential for significant impact. There is no information about the number of victims or sectors targeted in the source material.
+Successful exploitation of CVE-2026-44116 can lead to the exposure of sensitive internal resources. An attacker could potentially access internal databases, configuration files, or other services that are not intended to be exposed to the public internet. The specific impact depends on the nature of the internal resources accessible and could range from information disclosure to remote code execution if coupled with other vulnerabilities. The lack of specific victim numbers or targeted sectors in the report makes quantification difficult, but the high CVSS score suggests a significant potential for damage.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.5 or later to patch the vulnerability (CVE-2026-43576).
-*   Implement network segmentation to limit the impact of potential SSRF attacks.
-*   Monitor web server logs for requests to the `/json/version` endpoint that contain suspicious or unexpected URLs in the `webSocketDebuggerUrl` field. Deploy the provided Sigma rule to detect this activity.
+*   Upgrade OpenClaw to version 2026.4.22 or later to patch the SSRF vulnerability in the Zalo plugin's sendPhoto function as stated in the vulnerability description.
+*   Deploy the Sigma rule `Detect OpenClaw Zalo Plugin SSRF Attempt` to monitor for suspicious requests to internal resources originating from the OpenClaw server.
+*   Review and harden internal network segmentation to limit the impact of potential SSRF vulnerabilities as the successful exploitation could expose internal resources.
