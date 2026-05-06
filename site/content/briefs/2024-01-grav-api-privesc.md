@@ -1,70 +1,76 @@
 ---
-title: Grav API Plugin Privilege Escalation Vulnerability
+title: Grav CMS API Blueprint Upload Privilege Escalation
 slug: 2024-01-grav-api-privesc
-description: A privilege escalation vulnerability in the Grav API plugin allows authenticated users with basic API access to elevate their privileges to Super Administrator, leading to full system compromise and potential remote code execution.
-date: "2024-01-03T12:00:00Z"
+description: A low-privileged authenticated API user with `api.media.write` can abuse `/api/v1/blueprint-upload` in Grav CMS to write an arbitrary YAML file into `user/accounts/`, enabling creation of a super-admin account and leading to full administrative compromise of the Grav API.
+date: "2026-05-06T21:19:21Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
+  - gravcms
   - privilege-escalation
-  - web-application
-  - grav
+  - yaml-injection
 vendors:
   - getgrav
 products:
-  - grav-plugin-api (< 1.0.0-beta.15)
+  - grav
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
 references:
-  - https://github.com/advisories/GHSA-r945-h4vm-h736
+  - https://github.com/advisories/GHSA-6xx2-m8wv-756h
 rules:
-  - title: Detect Grav API User Permission Escalation Attempt
-    description: Detects attempts to escalate user privileges in Grav CMS by sending PATCH requests to the /api/v1/users/ endpoint to modify the 'access' parameter.
+  - title: Detect Grav CMS Malicious Blueprint Upload
+    description: Detects attempts to upload malicious blueprints to the user/accounts directory in Grav CMS via the API, indicating potential privilege escalation.
     platform: sigma
     severity: high
     tactics:
       - privilege_escalation
     techniques:
-      - T1068
+      - T1555
+      - T1555.003
     data_sources:
       - webserver
       - linux
-  - title: Detect Grav API Authentication for User
-    description: Detects authentication to the Grav API for a specific user.
+  - title: Detect Grav CMS New Admin User Creation via API
+    description: Detects the creation of a new admin user via the API endpoint, which could be a result of the blueprint upload vulnerability.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - initial_access
+      - privilege_escalation
+    techniques:
+      - T1555
+      - T1555.003
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-A critical vulnerability exists within the Grav API plugin (`composer/getgrav/grav-plugin-api`) versions prior to 1.0.0-beta.15. This vulnerability, identified as CVE-2026-42843, allows any authenticated user with the `api.access` permission to escalate their privileges to Super Administrator. The flaw is due to an insecure direct object reference and logic error in the `UsersController::update` method, specifically in how user permissions are updated via the API. By sending a crafted PATCH request, a low-privileged user can modify their own access control list (ACL) to include `admin.super` and `api.super` permissions. Successful exploitation grants the attacker full control over the Grav CMS instance.
+A vulnerability in Grav CMS version `2.0.0-beta.2` allows a low-privileged, authenticated API user to escalate privileges to a super administrator. This flaw resides in the `/api/v1/blueprint-upload` endpoint. By manipulating the `destination` and `scope` parameters, an attacker can write an arbitrary YAML file into the `user/accounts/` directory. This circumvents intended access controls, allowing the creation of a new administrator account with `api.super` privileges. Exploitation requires only `api.media.write` access. Successful exploitation leads to complete control over the CMS management API, potentially enabling further attacks such as code execution. This vulnerability was disclosed on May 6, 2026, and poses a significant threat to Grav CMS installations using the API plugin.
 
 ## Attack Chain
 
-1. Attacker obtains a low-privileged user account with `api.access` permission on the Grav CMS.
-2. The attacker authenticates to the Grav API using the obtained credentials to receive a valid JWT access token via a POST request to `/api/v1/auth/token`.
-3. The attacker crafts a malicious PATCH request to the `/api/v1/users/{username}` endpoint, targeting their own username.
-4. The PATCH request includes a JSON payload that modifies the user's `access` field, specifically setting `admin.super` and `api.super` to `true`. For example: `{"access":{"admin":{"login":true,"super":true},"api":{"access":true,"super":true},"site":{"login":true}}}`.
-5. The attacker sends the crafted PATCH request to the target Grav CMS instance, including the JWT access token in the `X-API-Token` header.
-6. The vulnerable `UsersController::update` method in `user/plugins/api/classes/Api/Controllers/UsersController.php` processes the request without properly validating the user's authority to modify their own permissions.
-7. The user's `access` field is updated with the malicious payload, granting them Super Administrator privileges.
-8. The attacker logs into the Grav Admin panel using the compromised user credentials and now has full control over the Grav CMS, able to modify content, install plugins, and potentially execute arbitrary code.
+1. Attacker authenticates to the Grav CMS API using a low-privileged account with `api.media.write` permissions.
+2. The attacker crafts a malicious HTTP POST request to `/api/v1/blueprint-upload`.
+3. The request includes multipart form data with the `destination` parameter set to `self@:` and the `scope` parameter set to `users/anything`.
+4. The request includes a `file` parameter containing a YAML file crafted to create a new admin user, including setting a plaintext password and `api.super` access.
+5. The Grav CMS API resolves the file path based on the `destination` and `scope` parameters, writing the malicious YAML file to the `user/accounts/` directory.
+6. The attacker authenticates to the Grav CMS API using the newly created admin user credentials defined in the YAML file.
+7. The attacker successfully logs in as a super administrator, gaining full access to the Grav CMS management API.
+8. The attacker leverages their elevated privileges to modify content, alter configurations, manage users, or install malicious plugins/themes, ultimately achieving complete CMS compromise.
 
 ## Impact
 
-This privilege escalation vulnerability (CVE-2026-42843) allows any low-privileged user to gain complete control over a Grav CMS instance. An attacker can modify website content, inject malicious code, install backdoors, and potentially achieve remote code execution (RCE) on the underlying server by modifying Twig templates. This can lead to data breaches, website defacement, and complete compromise of the affected system.
+Successful exploitation grants an attacker full control over the Grav CMS instance.  An attacker can modify website content, alter configurations, manage users (including creating additional administrator accounts), install or update plugins/themes, and access system-level administration features. This can lead to complete CMS compromise, potentially resulting in data theft, defacement, or further exploitation, such as server-side code execution. The vulnerability allows any user with limited API access (`api.media.write`) to create a super administrator account, drastically increasing the attack surface and potential for widespread damage.
 
 ## Recommendation
 
-*   Upgrade the `composer/getgrav/grav-plugin-api` package to version 1.0.0-beta.15 or later to patch CVE-2026-42843.
-*   Deploy the Sigma rule "Detect Grav API User Permission Escalation Attempt" to identify attempted exploitation of this vulnerability by monitoring for PATCH requests to `/api/v1/users/` with modified access parameters.
+*   Upgrade Grav CMS to version `2.0.0-beta.4` or later to patch the vulnerability as per the advisory (https://github.com/advisories/GHSA-6xx2-m8wv-756h).
+*   Deploy the Sigma rule `Detect Grav CMS Malicious Blueprint Upload` to detect attempts to exploit this vulnerability by monitoring for suspicious blueprint uploads to the `user/accounts` directory.
+*   Implement the Sigma rule `Detect Grav CMS New Admin User Creation via API` to identify the creation of new admin users via the API endpoint.
+*   Restrict `api.media.write` permissions to only trusted users, reducing the potential attack surface.
