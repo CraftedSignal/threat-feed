@@ -24,11 +24,6 @@ references:
   - https://vuldb.com/?ctiid.353155
   - https://vuldb.com/?id.353155
   - https://vuldb.com/?submit.776184
-iocs:
-  - type: url
-    value: https://code-projects.org/
-ioc_counts:
-  url: 1
 rules:
   - title: Detect Suspicious checkregisitem.php SQL Injection Attempt
     description: Detects potential SQL injection attempts targeting the checkregisitem.php endpoint by looking for common SQL keywords in the Long-arm-shirtVol parameter.

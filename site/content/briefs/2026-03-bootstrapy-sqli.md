@@ -21,11 +21,6 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2019-25642
   - https://www.exploit-db.com/exploits/46590
   - https://www.vulncheck.com/advisories/bootstrapy-cms-lastest-multiple-sql-injection-via-forum-and-contact-modules
-iocs:
-  - type: url
-    value: http://bootstrapy.com
-ioc_counts:
-  url: 1
 rules:
   - title: Detect SQL Injection Attempt in Bootstrapy CMS forum-thread.php
     description: Detects potential SQL injection attempts in Bootstrapy CMS by monitoring POST requests to forum-thread.php with suspicious SQL syntax in the thread_id parameter.

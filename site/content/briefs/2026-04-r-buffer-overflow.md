@@ -35,10 +35,8 @@ references:
 iocs:
   - type: url
     value: https://cran.r-project.org/bin/windows/base/old/3.5.0/R-3.5.0-win.exe
-  - type: url
-    value: https://www.r-project.org/
 ioc_counts:
-  url: 2
+  url: 1
 rules:
   - title: Detect R application executing with long command line arguments
     description: Detects R application executing with unusually long command line arguments, potentially indicating a buffer overflow attempt.

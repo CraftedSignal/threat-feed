@@ -29,10 +29,8 @@ references:
 iocs:
   - type: url
     value: http://dl.sheedantivirus.ir/setup.exe
-  - type: url
-    value: http://sheedantivirus.ir/
 ioc_counts:
-  url: 2
+  url: 1
 rules:
   - title: Detect Suspicious Process Creation in Unquoted Path
     description: Detects process creation events where the executable path contains a space and is not enclosed in quotes, indicating a potential unquoted service path exploitation attempt.

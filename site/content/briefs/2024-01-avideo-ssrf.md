@@ -19,13 +19,10 @@ products:
 references:
   - https://github.com/advisories/GHSA-2hch-c97c-g99x
 iocs:
-  - type: ip
-    value: 169.254.169.254
   - type: domain
     value: rebind.attacker.com
 ioc_counts:
   domain: 1
-  ip: 1
 rules:
   - title: Detect AVideo SSRF Attempt via Internal IP in Request URI
     description: Detects potential SSRF attempts in AVideo by monitoring web server logs for requests containing internal IP addresses in the URI.

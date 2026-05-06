@@ -29,11 +29,6 @@ mitre_ttps:
     technique_name: External Remote Services
 references:
   - https://github.com/advisories/GHSA-fqvv-jvhr-g5jc
-iocs:
-  - type: ip
-    value: 169.254.169.254
-ioc_counts:
-  ip: 1
 rules:
   - title: Detect Outbound Connection to Cloud Metadata Endpoint
     description: Detects connections from the FireFighter server to the cloud metadata endpoint, which could indicate SSRF exploitation.

@@ -27,11 +27,6 @@ mitre_ttps:
     technique_name: Remote System Discovery
 references:
   - https://github.com/advisories/GHSA-ph6f-2cvq-79hq
-iocs:
-  - type: ip
-    value: 169.254.169.254
-ioc_counts:
-  ip: 1
 rules:
   - title: Detect MagicMirror CORS Endpoint SSRF Attempt
     description: Detects attempts to exploit the MagicMirror² SSRF vulnerability by monitoring requests to the /cors endpoint targeting metadata services or internal IPs.

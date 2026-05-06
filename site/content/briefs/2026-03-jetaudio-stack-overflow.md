@@ -28,11 +28,9 @@ references:
   - https://www.vulncheck.com/advisories/jetaudio-jetcast-server-local-seh-buffer-overflow
 iocs:
   - type: url
-    value: http://www.jetaudio.com/
-  - type: url
     value: http://www.jetaudio.com/download/5fc01426-741d-41b8-a120-d890330ec672/jetAudio/Download/jetCast/build/JCS2000.exe
 ioc_counts:
-  url: 2
+  url: 1
 rules:
   - title: Detect JetCast Server Spawning Suspicious Processes
     description: Detects unusual processes spawned by JetCast Server which may indicate code execution after exploiting CVE-2019-25609

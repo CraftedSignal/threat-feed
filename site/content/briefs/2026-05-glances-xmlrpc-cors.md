@@ -30,11 +30,9 @@ references:
   - https://github.com/advisories/GHSA-7p93-6934-f4q7
 iocs:
   - type: url
-    value: http://evil-attacker.com
-  - type: url
     value: http://TARGET_IP:61209/RPC2
 ioc_counts:
-  url: 2
+  url: 1
 rules:
   - title: Detect Glances XML-RPC getAll Request
     description: Detects requests to the Glances XML-RPC endpoint with the getAll method, indicating potential exploitation of the CORS vulnerability.

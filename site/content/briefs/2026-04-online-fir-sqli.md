@@ -29,12 +29,10 @@ references:
   - https://vuldb.com/vuln/355488/cti
 iocs:
   - type: url
-    value: https://code-projects.org/
-  - type: url
     value: https://github.com/ahmadmarz10-hub/CVEsMarz/blob/main/SQL%20Injection%20in%20Online%20FIR%20System%20PHP%20email%20Parameter.md
     context: Proof-of-concept exploit code
 ioc_counts:
-  url: 2
+  url: 1
 rules:
   - title: Detect SQL Injection Attempts in Online FIR System Login
     description: Detects potential SQL injection attempts targeting the /Login/checklogin.php endpoint by searching for common SQL injection keywords in the email or password parameters.

@@ -24,10 +24,8 @@ references:
 iocs:
   - type: url
     value: http://download.aida64.com/aida64extreme599.exe
-  - type: url
-    value: https://www.aida64.com
 ioc_counts:
-  url: 2
+  url: 1
 rules:
   - title: Detect AIDA64 Suspicious Log File Access
     description: Detects AIDA64 accessing potentially malicious CSV log files, indicating a possible buffer overflow attempt.

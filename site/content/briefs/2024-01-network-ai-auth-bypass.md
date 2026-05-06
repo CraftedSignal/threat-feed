@@ -28,10 +28,7 @@ iocs:
     value: http://localhost:13001/tools
   - type: url
     value: http://localhost:13001/mcp
-  - type: ip
-    value: 0.0.0.0
 ioc_counts:
-  ip: 1
   url: 2
 rules:
   - title: Detect Unauthenticated Access to Network-AI MCP Endpoint

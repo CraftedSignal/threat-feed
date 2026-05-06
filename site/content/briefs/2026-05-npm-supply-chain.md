@@ -55,14 +55,9 @@ references:
   - https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/
 iocs:
   - type: domain
-    value: github.com
-  - type: domain
     value: audit.checkmarx[.]cx
-  - type: email
-    value: claude@users.noreply.github.com
 ioc_counts:
-  domain: 2
-  email: 1
+  domain: 1
 rules:
   - title: Detect Suspicious Bun Process Execution
     description: Detects the execution of the Bun JavaScript runtime from temporary directories, which is indicative of the Mini Shai-Hulud campaign.

@@ -43,7 +43,13 @@ INVALID_URL_SUBSTRINGS = [
 
 # Path markers that indicate a GitHub URL is a PoC / exploit / research repo
 # rather than a vendor's own software repo.
-_POC_MARKERS = ["poc", "exploit", "cve", "vulnerability", "advisory", "user-attachments/files"]
+_POC_MARKERS = [
+    "poc", "exploit", "cve", "vulnerability", "advisory",
+    "user-attachments/files",
+    # Common vuln-class terms that appear in research repo names/paths
+    "overflow", "injection", "-rce", "-lfi", "-rfi", "-ssrf", "-xss",
+    "-sqli", "-idor", "-xxe", "disclosure", "report",
+]
 
 INVALID_EMAIL_DOMAINS = [
     "nist.gov",
@@ -75,6 +81,16 @@ def _is_private_ip(value: str) -> bool:
         return False
 
 
+def _is_bare_homepage(url: str) -> bool:
+    """Return True for URLs that are just a vendor homepage (no meaningful path)."""
+    try:
+        from urllib.parse import urlparse
+        p = urlparse(url)
+        return p.path in ("", "/", "//") and not p.query and not p.fragment
+    except Exception:
+        return False
+
+
 def _should_remove(ioc: dict) -> tuple[bool, str]:
     t = ioc.get("type", "").lower()
     v = str(ioc.get("value", ""))
@@ -84,6 +100,8 @@ def _should_remove(ioc: dict) -> tuple[bool, str]:
     if t == "url":
         if any(s in v for s in INVALID_URL_SUBSTRINGS):
             return True, "reference/advisory URL"
+        if _is_bare_homepage(v):
+            return True, "bare vendor homepage"
     elif t == "email":
         domain = v.split("@")[-1].lower() if "@" in v else ""
         if any(domain.endswith(d) for d in INVALID_EMAIL_DOMAINS):

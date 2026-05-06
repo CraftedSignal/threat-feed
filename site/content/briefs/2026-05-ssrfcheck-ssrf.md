@@ -23,23 +23,6 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
 references:
   - https://github.com/advisories/GHSA-j4rj-2jr5-m439
-iocs:
-  - type: url
-    value: http://[::ffff:127.0.0.1]/
-  - type: url
-    value: http://[::ffff:169.254.169.254]/
-  - type: url
-    value: http://[::ffff:192.168.1.1]/
-  - type: url
-    value: http://[::ffff:10.0.0.1]/
-  - type: url
-    value: http://[::ffff:172.16.0.1]/
-  - type: url
-    value: http://[::ffff:7f00:1]/
-  - type: url
-    value: http://[0:0:0:0:0:ffff:127.0.0.1]/
-ioc_counts:
-  url: 7
 rules:
   - title: Detect SSRF Attempt via IPv4-mapped IPv6 Address
     description: Detects potential SSRF attempts by identifying HTTP requests containing IPv4-mapped IPv6 addresses.

@@ -29,11 +29,9 @@ references:
   - https://github.com/advisories/GHSA-jgfx-74g2-9r6g
 iocs:
   - type: url
-    value: https://localhost:8000/
-  - type: url
     value: https://127.0.0.1:8000/shareable.txt?token=gMP-w0hXRs-Q-FEZku63kA
 ioc_counts:
-  url: 2
+  url: 1
 rules:
   - title: Goshs Authentication Bypass Attempt via WebSocket
     description: Detects attempts to bypass authentication in Goshs by using a share token in conjunction with a WebSocket request.

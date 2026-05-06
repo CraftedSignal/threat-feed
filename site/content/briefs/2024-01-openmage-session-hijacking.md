@@ -25,11 +25,9 @@ references:
   - https://github.com/advisories/GHSA-2cwr-gcf9-pvxr
 iocs:
   - type: url
-    value: http://demo.openmage.org/
-  - type: url
     value: https://github.com/OpenMage/magento-lts/blob/main/app/code/core/Mage/Api/Model/Session.php
 ioc_counts:
-  url: 2
+  url: 1
 rules:
   - title: Detect OpenMage API Session Hijacking Attempts via XML-RPC
     description: Detects attempts to exploit the OpenMage API session hijacking vulnerability by monitoring POST requests to the `/api/xmlrpc/` endpoint with a large number of requests from the same IP address within a short timeframe, indicating potential brute-force activity.

@@ -34,16 +34,9 @@ references:
 iocs:
   - type: url
     value: https://github.com/draw-ctf/report/blob/main/DI-8100/url_member_asp_overflow.md
-  - type: url
-    value: https://vuldb.com/submit/807849
-  - type: url
-    value: https://vuldb.com/vuln/361133
-  - type: url
-    value: https://vuldb.com/vuln/361133/cti
-  - type: url
-    value: https://www.dlink.com/
+    context: Proof-of-concept exploit code
 ioc_counts:
-  url: 5
+  url: 1
 rules:
   - title: Detect D-Link DI-8100 Buffer Overflow Attempt
     description: Detects attempts to exploit a buffer overflow vulnerability in D-Link DI-8100 routers via the /url_member.asp endpoint using an overly long name parameter.

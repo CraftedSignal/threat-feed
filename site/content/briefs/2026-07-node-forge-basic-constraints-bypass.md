@@ -28,11 +28,6 @@ mitre_ttps:
     technique_name: Unsecured Credentials
 references:
   - https://github.com/advisories/GHSA-2328-f5f3-gj25
-iocs:
-  - type: url
-    value: https://doruk.ch
-ioc_counts:
-  url: 1
 rules:
   - title: Detect Node-Forge Execution with Vulnerable Version
     description: Detects the execution of node-forge with a version vulnerable to the basicConstraints bypass vulnerability (CVE-2026-33896).

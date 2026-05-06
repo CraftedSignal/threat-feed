@@ -33,11 +33,6 @@ mitre_ttps:
 references:
   - https://attack.mitre.org/techniques/T1552/005/
   - https://hardenedsecurity.io/blog/aws-imds-vulnerabilities-and-mitigations/
-iocs:
-  - type: ip
-    value: 169.254.169.254
-ioc_counts:
-  ip: 1
 rules:
   - title: Kubernetes Pod Exec IMDS Access
     description: Detects Kubernetes pod exec sessions accessing cloud instance metadata endpoints.
