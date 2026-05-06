@@ -1,97 +1,85 @@
 ---
-title: Palo Alto PAN-OS Unauthenticated Root RCE via User-ID Authentication Portal
+title: 'Palo Alto Networks PAN-OS: Remote Code Execution Vulnerability'
 slug: 2026-05-panos-rce
-description: CVE-2026-0300 is a critical vulnerability in Palo Alto PAN-OS User-ID Authentication Portal that allows unauthenticated attackers to execute arbitrary code with root privileges on PA-Series and VM-Series firewalls configured to use the portal, with limited exploitation observed.
-date: "2026-05-06T08:44:57Z"
-type: advisory
+description: A remote, anonymous attacker can exploit a vulnerability in Palo Alto Networks PAN-OS to execute arbitrary code with administrator privileges.
+date: "2026-05-06T10:36:03Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
 tags:
-  - cve-2026-0300
-  - palo alto
   - pan-os
   - rce
-  - network
+  - paloalto
 vendors:
-  - Palo Alto
+  - Palo Alto Networks
 products:
-  - PA-Series
-  - VM-Series
-  - PAN-OS versions prior to 12.1.4-h5
-  - PAN-OS versions prior to 12.1.7
-  - PAN-OS versions prior to 11.2.4-h17
-  - PAN-OS versions prior to 11.2.7-h13
-  - PAN-OS versions prior to 11.2.10-h6
-  - PAN-OS versions prior to 11.2.12
-  - PAN-OS versions prior to 11.1.4-h33
-  - PAN-OS versions prior to 11.1.6-h32
-  - PAN-OS versions prior to 11.1.7-h6
-  - PAN-OS versions prior to 11.1.10-h25
-  - PAN-OS versions prior to 11.1.13-h5
-  - PAN-OS versions prior to 11.1.15
-  - PAN-OS versions prior to 10.2.7-h34
-  - PAN-OS versions prior to 10.2.10-h36
-  - PAN-OS versions prior to 10.2.13-h21
-  - PAN-OS versions prior to 10.2.16-h7
-  - PAN-OS versions prior to 10.2.18-h6
+  - PAN-OS
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 references:
-  - https://cert.europa.eu/publications/security-advisories/2026-006/
-  - https://security.paloaltonetworks.com/CVE-2026-0300
-iocs:
-  - type: email
-    value: services@cert.europa.eu
-ioc_counts:
-  email: 1
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1366
 rules:
-  - title: PAN-OS User-ID Authentication Portal Buffer Overflow Attempt
-    description: Detects potential attempts to exploit the buffer overflow vulnerability (CVE-2026-0300) in the PAN-OS User-ID Authentication Portal by monitoring for unusual traffic patterns.
+  - title: Detect PAN-OS Exploitation via Web Access Logs
+    description: Detects potential exploitation attempts by monitoring web access logs for suspicious patterns.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
       - execution
     techniques:
-      - T1203
+      - T1059.004
     data_sources:
-      - network_connection
-      - windows
-  - title: PAN-OS Emergency Contact Email
-    description: Detects connections to the PAN-OS Emergency contact email
+      - webserver
+      - linux
+  - title: Detect PAN-OS Reverse Shell Connection
+    description: Detects a potential reverse shell connection initiated from a PAN-OS device.
     platform: sigma
     severity: high
+    tactics:
+      - command_and_control
+    techniques:
+      - T1071.001
     data_sources:
       - network_connection
       - windows
-rules_count: 2
+  - title: Detect PAN-OS System Command Execution
+    description: Detects execution of system commands via CLI
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+    techniques:
+      - T1059.004
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 3
 ---
 
-On May 6, 2026, Palo Alto Networks disclosed CVE-2026-0300, a critical vulnerability affecting PAN-OS. This vulnerability is a buffer overflow located in the User-ID Authentication Portal (Captive Portal) service. Successful exploitation allows an unauthenticated attacker to execute arbitrary code with root privileges on affected PA-Series and VM-Series firewalls. The vulnerability impacts firewalls configured to utilize the User-ID Authentication Portal feature. Palo Alto Networks has noted limited exploitation of this vulnerability. Immediate patching is advised upon release, alongside implementing provided workarounds.
+A vulnerability exists in Palo Alto Networks PAN-OS that allows a remote, anonymous attacker to execute arbitrary code with administrator privileges. The vulnerability allows an attacker to gain complete control over the affected system. Due to the severity of the vulnerability and the potential for widespread impact, organizations using PAN-OS should apply necessary patches immediately. This vulnerability poses a significant risk to network infrastructure, potentially leading to data breaches, service disruptions, and other severe consequences.
 
 ## Attack Chain
 
-1.  The attacker identifies a vulnerable PA-Series or VM-Series firewall with the User-ID Authentication Portal enabled.
-2.  The attacker crafts a malicious packet designed to exploit the buffer overflow in the User-ID Authentication Portal service.
-3.  The attacker sends the specially crafted packet to the vulnerable firewall's User-ID Authentication Portal endpoint.
-4.  The buffer overflow occurs, allowing the attacker to overwrite memory and inject malicious code.
-5.  The injected code executes with root privileges on the firewall.
-6.  The attacker establishes persistence on the firewall, potentially through creating a new user account or modifying system configurations.
-7.  The attacker uses their root access to move laterally within the network or exfiltrate sensitive data.
-8.  The attacker achieves their objective, which could include data theft, disruption of services, or further exploitation of internal systems.
+1.  Attacker identifies a vulnerable PAN-OS instance exposed to the internet.
+2.  Attacker crafts a malicious request targeting the vulnerable component within PAN-OS.
+3.  The crafted request bypasses authentication or authorization checks due to the vulnerability.
+4.  The vulnerable PAN-OS component processes the malicious request, leading to arbitrary code execution.
+5.  The attacker executes shell commands with administrator privileges.
+6.  Attacker establishes a persistent backdoor for continued access.
+7.  Attacker moves laterally within the network, compromising other systems.
+8.  Attacker exfiltrates sensitive data or deploys ransomware.
 
 ## Impact
 
-Successful exploitation of CVE-2026-0300 grants an unauthenticated attacker complete control over the affected Palo Alto Networks firewalls. This can lead to significant data breaches, disruption of network services, and the potential for lateral movement to other systems within the network. Given the role of firewalls in network security, a successful attack could compromise the entire protected network. Palo Alto Networks has reported limited exploitation, but the severity and ease of exploitation make this a high-priority vulnerability to address.
+Successful exploitation of this vulnerability allows a remote attacker to execute arbitrary code with administrator privileges on the PAN-OS device. This can lead to complete compromise of the firewall, allowing the attacker to intercept network traffic, modify security policies, and pivot to other internal systems. The lack of specific victim counts or sector targeting in the provided source suggests the potential scope is broad, affecting any organization utilizing vulnerable PAN-OS versions.
 
 ## Recommendation
 
-*   Apply the security patches released by Palo Alto Networks as soon as they become available to remediate CVE-2026-0300.
-*   Restrict User-ID Authentication Portal access to only trusted zones as a mitigation measure described in the advisory.
-*   Disable the User-ID Authentication Portal if it is not required, as suggested in the advisory.
-*   Monitor network traffic for unusual patterns targeting the User-ID Authentication Portal using network connection logs.
-*   Deploy the Sigma rule "PAN-OS User-ID Authentication Portal Buffer Overflow Attempt" to detect potential exploitation attempts.
+*   Investigate and apply the appropriate patches or mitigations provided by Palo Alto Networks for the identified PAN-OS vulnerability.
+*   Deploy the Sigma rules provided in this brief to your SIEM to detect potential exploitation attempts against PAN-OS devices.
+*   Monitor web server logs on PAN-OS devices for suspicious activity, specifically focusing on unusual requests and HTTP status codes.
+*   Review network traffic for any anomalous outbound connections originating from PAN-OS devices, which could indicate a compromised system.
