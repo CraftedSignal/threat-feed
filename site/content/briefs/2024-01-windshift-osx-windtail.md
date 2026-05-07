@@ -1,8 +1,8 @@
 ---
-title: WindShift OSX.WindTail Mac Implant Targeting Middle Eastern Governments
+title: WindShift APT Targeting Middle East with OSX.WindTail macOS Implant
 slug: 2024-01-windshift-osx-windtail
-description: The APT group WindShift is targeting Middle Eastern governments with the OSX.WindTail Mac implant, which copies itself to the ~/Library/ directory, achieves persistence via login items, and has a remotely triggered self-deletion capability.
-date: "2024-01-03T15:00:00Z"
+description: The WindShift APT group is targeting Middle Eastern governments with a first-stage macOS implant called OSX.WindTail, abusing custom URL schemes for initial infection and establishing persistence via login items, while decrypting embedded strings to identify file extensions of interest.
+date: "2024-01-03T12:00:00Z"
 type: threat
 types:
   - threat
@@ -11,77 +11,74 @@ severities:
 actors:
   - WindShift
 tags:
-  - macos
-  - apt
   - windshift
   - osx.windtail
+  - macos
+  - apt
+  - cyber-espionage
 vendors:
+  - Microsoft
   - Apple
 products:
-  - macOS
+  - OSX.WindTail
+  - Excel
+  - MacOS
 affected_os:
-  - macOS
+  - MacOS 10.7
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1547
     technique_name: Boot or Logon Autostart Execution
 references:
-  - https://objective-see.org/blog/blog_0x3D.html
-iocs:
-  - type: domain
-    value: flux2key.com
-  - type: domain
-    value: string2me.com
-ioc_counts:
-  domain: 2
+  - https://objective-see.org/blog/blog_0x3B.html
 rules:
-  - title: Detect OSX.WindTail Installation
-    description: Detects OSX.WindTail malware installation by monitoring for process creation within the ~/Library/ directory.
+  - title: Detect Suspicious macOS Application Bundle with Revoked Certificate
+    description: Detects macOS application bundles with revoked signing certificates, potentially indicating malicious applications.
+    platform: sigma
+    severity: high
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1553.005
+    data_sources:
+      - process_creation
+      - macos
+  - title: Detect Execution of Persisted Copy via Open Command
+    description: Detects the execution of a persisted copy of a malicious application from the /Users/user/Library/ directory using the open command.
     platform: sigma
     severity: medium
     tactics:
+      - execution
       - persistence
     techniques:
       - T1547.001
     data_sources:
       - process_creation
       - macos
-  - title: Detect OSX.WindTail C2 Beacon
-    description: Detects network connection attempts to known OSX.WindTail command and control servers.
-    platform: sigma
-    severity: high
-    tactics:
-      - command_and_control
-    techniques:
-      - T1071.001
-    data_sources:
-      - network_connection
-      - macos
 rules_count: 2
 ---
 
-The APT group WindShift has been actively targeting Middle Eastern governments with a sophisticated macOS implant known as OSX.WindTail. This implant, analyzed in a two-part series, employs several techniques to establish persistence, maintain stealth, and potentially exfiltrate sensitive data. The malware uses custom URL schemes for initial infection and establishes persistence through login items. A notable feature of OSX.WindTail is its self-deletion capability, which can be triggered remotely by a command and control (C2) server. This analysis focuses on a specific sample named Final_Presentation.app (SHA1: 758F10BD7C69BD2C0B38FD7D523A816DB4ADDD90). The malware's C2 servers include flux2key.com and string2me.com. Defenders should prioritize detection and prevention measures to mitigate the risk posed by WindShift's OSX.WindTail.
+The WindShift APT group is actively targeting government departments and critical infrastructure across the Middle East with a custom macOS implant known as OSX.WindTail. Discovered in 2018, this campaign utilizes malicious applications disguised as Microsoft Office documents to compromise macOS systems. The initial infection vector involves the abuse of custom URL schemes, allowing attackers to remotely infect Macs. Once installed, OSX.WindTail establishes persistence via login items and decrypts embedded strings indicating file types of interest for espionage purposes. The use of revoked signing certificates highlights a lapse in standard security measures, yet the malware exhibits a low detection rate, posing a significant threat to targeted entities.
 
 ## Attack Chain
 
-1. **Initial Infection:** The user clicks a link with a custom URL scheme, triggering the malware execution.
-2. **Installation:** The malware copies itself from its initial location (e.g., Desktop) to the `~/Library/` directory.
-3. **Persistence:** The malware creates a login item to ensure it automatically restarts upon user login.
-4. **Decryption and Configuration:** The malware decrypts strings containing file extensions of interest and C2 server information.
-5. **File Enumeration:** The malware enumerates files on the system, potentially searching for files matching the decrypted file extensions (doc, docx, ppt, pdf, xls, xlsx, db, txt, rtf, pptx).
-6. **C2 Communication:** The malware connects to its C2 server (`flux2key.com`) to receive commands or exfiltrate data.
-7. **Self-Deletion (Conditional):** If the C2 server responds with the string "1", the malware deletes itself from the system.
-8. **Termination:** After self-deletion (or if self-deletion fails), the malware terminates its process.
+1. The attacker sends a spearphishing email containing a malicious ZIP archive (e.g., Meeting_Agenda.zip) to a target within a Middle Eastern government or critical infrastructure organization.
+2. The target opens the ZIP archive, revealing a malicious application disguised with a Microsoft Office icon (e.g., Final_Presentation.app).
+3. The target executes the malicious application, initiating the OSX.WindTail implant.
+4. The implant leverages a custom URL scheme (e.g., openurl2622007) to gain initial access, exploiting a weakness in macOS URL handling.
+5. The malware adds itself as a login item using the LSSharedFileListInsertItemURL API to ensure persistence across reboots.
+6. The implant generates a unique identifier for the compromised system by creating and writing to a file named `date.txt` within its application bundle (`Contents/Resources/date.txt`).
+7. The implant moves itself to `/Users/user/Library/` and executes the persisted copy using the `open` command.
+8. The `tuffel` method decrypts embedded strings related to file extensions of interest using AES decryption with a hardcoded key, enabling targeted data exfiltration.
 
 ## Impact
 
-Successful infection by OSX.WindTail could allow attackers to gain persistent access to sensitive government systems. This could result in the exfiltration of documents, spreadsheets, and other data. The self-deletion capability adds a layer of complexity, potentially hindering forensic investigations. The targeting of Middle Eastern governments suggests an espionage motive.
+Successful exploitation by the WindShift APT group can lead to significant data breaches within targeted Middle Eastern government departments and critical infrastructure organizations. The exfiltration of sensitive information can compromise national security, disrupt essential services, and provide attackers with valuable intelligence for further malicious activities. The low detection rate of the OSX.WindTail implant allows the attackers to maintain a persistent presence on compromised systems, increasing the potential for long-term damage and espionage.
 
 ## Recommendation
 
-*   Monitor process creation events for applications running from the `~/Library/` directory, which is an unusual location for legitimate applications (see Sigma rule: "Detect OSX.WindTail Installation").
-*   Detect network connections to the known C2 domains (`flux2key.com`, `string2me.com`) using network monitoring tools or firewall logs.
-*   Implement file integrity monitoring to detect changes to login items, which OSX.WindTail uses for persistence.
-*   Inspect HTTP requests to `flux2key.com` for the URI path `/liaROelcOeVvfjN/fsfSQNrIyxeRvXH.php` which is used for self-deletion triggering.
-*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment.
+*   Deploy the Sigma rule `Detect Suspicious macOS Application Bundle with Revoked Certificate` to identify applications with revoked signing certificates.
+*   Monitor process creation events for executions of `open` command launching applications from the `/Users/user/Library/` directory, as seen in the attack chain.
+*   Inspect network traffic for connections originating from processes related to the identified malicious applications (OSX.WindTail) or the `usrnode` executable.
+*   Block the identified SHA-1 hashes (`4613f5b1e172cb08d6a2e7f2186e2fdd875b24e5`, `df2a83dc0ae09c970e7318b93d95041395976da7`, `6d1614617732f106d5ab01125cb8e57119f29d91`, `da342c4ca1b2ab31483c6f2d43cdcc195dfe481b`) at the endpoint and network levels.
