@@ -1,8 +1,8 @@
 ---
-title: VM2 Sandbox Escape Vulnerability via SuppressedError
+title: vm2 Sandbox Escape Vulnerability Leading to RCE
 slug: 2024-01-vm2-sandbox-escape
-description: A sandbox escape vulnerability exists in vm2 version 3.10.4 running on Node.js v24.13.0, leveraging `SuppressedError` to allow attackers to execute arbitrary code on the host system.
-date: "2024-01-03T12:00:00Z"
+description: A sandbox escape vulnerability exists in the vm2 npm package, specifically in versions 3.10.5 and earlier, allowing an attacker to reach BaseHandler.getPrototypeOf via util.inspect, potentially leading to arbitrary prototype access and remote code execution (RCE).
+date: "2026-05-07T03:54:34Z"
 type: advisory
 types:
   - advisory
@@ -10,67 +10,71 @@ severities:
   - critical
 tags:
   - sandbox-escape
-  - code-execution
+  - rce
   - vm2
+  - javascript
 vendors:
   - npm
 products:
-  - vm2 (<= 3.10.4)
+  - vm2 (<= 3.10.5)
 mitre_ttps:
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1202
-    technique_name: Indirect Command Execution
-cves:
-  - id: CVE-2026-26332
-    cvss: 9.8
+    technique_id: T1059.004
+    technique_name: 'Command and Scripting Interpreter: JavaScript'
 references:
-  - https://github.com/advisories/GHSA-55hx-c926-fr95
+  - https://github.com/advisories/GHSA-qcp4-v2jj-fjx8
 rules:
-  - title: Detect Suspicious Node.js Child Processes
-    description: Detects suspicious child processes spawned by Node.js, potentially indicating a sandbox escape or code execution vulnerability.
+  - title: Detect vm2 Sandbox Escape - Suspicious util.inspect Usage
+    description: Detects suspicious usage of util.inspect with showHidden and showProxy options, which is indicative of attempts to exploit the vm2 sandbox escape vulnerability.
     platform: sigma
     severity: high
     tactics:
       - execution
+      - privilege_escalation
     techniques:
-      - T1202
+      - T1068
     data_sources:
       - process_creation
-      - windows
-  - title: Detect Shell Commands Executed via Node.js Child Processes
-    description: Detects shell commands executed via Node.js child processes, potentially indicating malicious activity.
+      - linux
+  - title: Detect vm2 Sandbox Escape - child_process.execSync in WebAssembly
+    description: Detects the execution of child_process.execSync within a WebAssembly module, which is a strong indicator of a sandbox escape attempt in vm2.
     platform: sigma
-    severity: medium
+    severity: critical
     tactics:
       - execution
+      - privilege_escalation
     techniques:
-      - T1059.001
+      - T1068
     data_sources:
       - process_creation
-      - windows
+      - linux
 rules_count: 2
 ---
 
-A critical sandbox escape vulnerability, CVE-2026-26332, has been identified in vm2 version 3.10.4 when used with Node.js v24.13.0. The vulnerability stems from improper handling of `SuppressedError` objects within the vm2 sandbox environment. An attacker can exploit this flaw to bypass the sandbox restrictions and execute arbitrary code on the host system. This can lead to complete compromise of the host machine if untrusted code is executed within the vulnerable vm2 sandbox. The proof-of-concept exploit demonstrates the ability to execute shell commands, highlighting the severity of the vulnerability. Defenders should prioritize patching or mitigating this vulnerability to prevent potential system compromise.
+The vm2 npm package, a sandbox for executing untrusted JavaScript code, is vulnerable to a sandbox escape that can lead to remote code execution (RCE). This vulnerability, affecting versions 3.10.5 and earlier, stems from the ability to reach `BaseHandler.getPrototypeOf` through manipulation of `util.inspect`. By exploiting this flaw, an attacker can gain access to arbitrary prototypes within the vm2 sandbox, bypassing security restrictions and ultimately executing arbitrary code on the host system. The vulnerability was reported on May 7, 2026, and poses a significant risk to applications relying on vm2 for secure JavaScript execution. Successful exploitation allows attackers to break out of the sandbox environment and compromise the underlying system.
 
 ## Attack Chain
 
-1.  The attacker provides malicious JavaScript code to the vm2 sandbox.
-2.  The code creates a `DisposableStack` object to trigger the vulnerability.
-3.  The `defer` method of `DisposableStack` is used to schedule functions that throw errors.
-4.  An error object is created with its `name` property set to a Symbol, manipulating error handling.
-5.  The `dispose` method of `DisposableStack` is called within a try-catch block.
-6.  The `SuppressedError` object is caught in the catch block.
-7.  The attacker accesses the constructor of the suppressed error, obtaining a Function constructor.
-8.  The attacker uses the Function constructor to access the `process` object and execute arbitrary commands on the host system using `node:child_process`.
+1.  The attacker crafts a malicious JavaScript payload designed to exploit the `util.inspect` function within the vm2 sandbox.
+2.  The payload leverages the `subarray` and `slice` properties of the `Buffer.prototype` to trigger the `inspect` function.
+3.  The `showHidden` and `showProxy` options are enabled in `util.inspect` to expose internal properties and proxies.
+4.  Within the `stylize` function, the attacker gains access to the `BaseHandler.getPrototypeOf` method.
+5.  Using `getPrototypeOf`, the attacker retrieves the prototype of the `Buffer` object multiple times to reach the `HObjectProto` and subsequently its constructor `HObject`.
+6.  The attacker retrieves a symbol from the `Buffer.prototype` using `HObject.getOwnPropertySymbols`.
+7.  A new object is created with the retrieved symbol as a key, whose value is a function that retrieves the `child_process` module.
+8.  Finally, the attacker uses `child_process.execSync` to execute arbitrary commands on the host system, escaping the vm2 sandbox and achieving RCE.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to execute arbitrary code on the host system. This can lead to complete system compromise, including data theft, installation of malware, and denial-of-service. The vulnerability affects any application using vm2 to sandbox untrusted JavaScript code. The specific number of affected applications is unknown, but the widespread use of vm2 makes this a significant threat.
+Successful exploitation of this vulnerability allows attackers to bypass the vm2 sandbox and execute arbitrary commands on the host system. This can lead to complete system compromise, including data theft, malware installation, and denial of service. The vulnerability affects any application using vm2 versions 3.10.5 or earlier, potentially impacting a wide range of projects that rely on secure JavaScript execution. Given the severity (critical) and the potential for RCE, immediate action is required to mitigate this risk.
 
 ## Recommendation
 
-*   Upgrade to a patched version of `vm2` that addresses CVE-2026-26332.
-*   Monitor process creation events for suspicious child processes spawned by Node.js using the "Detect Suspicious Node.js Child Processes" Sigma rule.
-*   Consider implementing input validation and sanitization on code submitted to the vm2 sandbox to prevent the injection of malicious payloads.
+*   Upgrade the `vm2` npm package to a version greater than 3.10.5 to patch the vulnerability (CVE-2026-44006).
+*   Monitor application logs for suspicious activity related to `util.inspect` and `Buffer` manipulation, which may indicate exploitation attempts.
+*   Implement strict input validation and sanitization to prevent attackers from injecting malicious JavaScript code into the vm2 sandbox.
