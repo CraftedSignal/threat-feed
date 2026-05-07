@@ -1,8 +1,8 @@
 ---
-title: Suspicious Windows Processes Querying Public IP Discovery Services via DNS
+title: Suspicious Process Performing Public IP Address Discovery via DNS
 slug: 2024-01-public-ip-discovery
-description: Detection of suspicious Windows processes using DNS queries to public IP address lookup services can indicate reconnaissance activity or command and control preparation by threat actors.
-date: "2024-01-09T17:30:00Z"
+description: Detection of suspicious Windows processes using DNS queries to determine the external IP address, potentially indicating reconnaissance or preparation for command and control activity.
+date: "2024-01-03T18:23:00Z"
 type: advisory
 types:
   - advisory
@@ -12,15 +12,13 @@ tags:
   - discovery
   - command-and-control
   - windows
-  - public-ip
+  - dns
 vendors:
   - Elastic
-  - SentinelOne
-  - Crowdstrike
+  - Microsoft
 products:
   - Elastic Defend
-  - SentinelOne Cloud Funnel
-  - Crowdstrike
+  - Windows Defender
 affected_os:
   - Windows
 mitre_ttps:
@@ -111,8 +109,8 @@ iocs:
 ioc_counts:
   domain: 36
 rules:
-  - title: Suspicious Processes Querying Public IP Discovery Services
-    description: Detects suspicious Windows processes querying known public IP address lookup services via DNS.
+  - title: Suspicious Process Public IP Discovery via DNS Query
+    description: Detects suspicious processes querying public IP address lookup services via DNS.
     platform: sigma
     severity: high
     tactics:
@@ -123,41 +121,42 @@ rules:
     data_sources:
       - dns_query
       - windows
-  - title: Suspicious Processes Code Signature Check
-    description: Detects suspicious processes that are unsigned or signed by untrusted authority making DNS requests.
+  - title: Suspicious Process Public IP Discovery via DNS Query (Unsigned)
+    description: Detects unsigned processes querying public IP address lookup services via DNS.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - defense_evasion
+      - command_and_control
+      - discovery
     techniques:
-      - T1027
+      - T1016
     data_sources:
-      - process_creation
+      - dns_query
       - windows
 rules_count: 2
 ---
 
-This detection identifies instances where suspicious Windows processes use DNS queries to resolve well-known public IP address lookup services. Attackers may leverage these services to determine the external IP address of a compromised host, which is a common reconnaissance step before further malicious activity. This activity is often associated with initial access, privilege escalation, or establishing command and control channels. The processes monitored include scripting engines (powershell.exe, wscript.exe), installers (msiexec.exe), and other LOLBins (bitsadmin.exe, rundll32.exe) often abused by threat actors. The rule also flags unsigned or untrusted executables making these DNS requests. Defenders should monitor for this behavior to identify potentially compromised systems early in the attack chain. The detection logic is derived from Elastic detection rule 642ce354-4252-4d43-80c9-6603f16571c1.
+This rule identifies Windows processes querying known public IP address lookup services through DNS. This behavior is often associated with reconnaissance activities, where attackers attempt to determine the external IP address of a compromised system before proceeding with further malicious actions. Attackers may use this information to tailor their attacks, establish command and control channels, or exfiltrate data. The rule focuses on detecting queries originating from processes such as `MSBuild.exe`, `mshta.exe`, `powershell.exe`, and others that are commonly abused by attackers. It also flags unsigned processes, or those signed by untrusted entities, as well as processes running from user-writable directories, increasing the likelihood of detecting malicious activity. The rule excludes queries originating from Windows Defender to reduce false positives. This activity matters to defenders because successful discovery of the public IP can aid attackers in further exploitation and lateral movement.
 
 ## Attack Chain
 
-1. A user inadvertently executes a malicious file or script (e.g., via phishing or drive-by download).
-2. The malicious code executes using a scripting engine like PowerShell or a LOLBin such as mshta.exe.
-3. The executing process initiates a DNS query to resolve a public IP address lookup service (e.g., api.ipify.org, icanhazip.com).
-4. The DNS query resolves successfully, providing the external IP address of the host.
-5. The malicious process stores the external IP address for later use.
-6. The attacker uses the discovered external IP address to identify the target for subsequent attacks or to establish a command and control channel.
-7. The compromised host communicates with a C2 server, providing system information, including the external IP address.
-8. The attacker leverages the C2 channel to deploy additional malware, escalate privileges, or exfiltrate data.
+1.  A user inadvertently downloads and executes a malicious payload (e.g., via phishing or drive-by download).
+2.  The malicious payload, disguised as a legitimate application or script, executes on the compromised system.
+3.  The executed payload spawns a suspicious process such as `powershell.exe`, `mshta.exe`, or `rundll32.exe`.
+4.  The spawned process initiates a DNS query to a known public IP address lookup service (e.g., `api.ipify.org`, `icanhazip.com`).
+5.  The DNS query resolves to the IP address of the lookup service, providing the compromised host's external IP address.
+6.  The malicious process may then use the obtained IP address to establish a command and control (C2) channel with a remote server.
+7.  The attacker uses the C2 channel to deliver further instructions, exfiltrate data, or deploy additional payloads.
+8.  The attacker may then perform lateral movement within the network using the compromised system as a pivot point.
 
 ## Impact
 
-Successful exploitation can lead to an attacker gaining knowledge of the target's external IP address, enabling them to perform reconnaissance, launch targeted attacks, and potentially compromise the entire network. If an attacker gains access to the external IP they can perform scans for exposed services and devices, this can be used to gain an initial foothold in the network. There is no specific victim count available, but this type of reconnaissance is common across various sectors.
+A successful attack may result in the compromise of sensitive data, the establishment of a persistent foothold within the network, and lateral movement to other systems. Attackers can use the obtained public IP address to tailor their attacks, bypass security measures, or identify targets within the network. Organizations may experience data breaches, financial losses, and reputational damage. The number of victims and the extent of the damage vary depending on the sophistication of the attacker and the effectiveness of the organization's security controls.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Suspicious Processes Querying Public IP Discovery Services` to your SIEM and tune for your environment.
-*   Block the C2 domains listed in the IOC table at the DNS resolver.
-*   Enable Sysmon Event ID 22 (DNS Query) logging to ensure proper visibility for the detections in this brief.
-*   Investigate any alerts generated by the Sigma rule to determine the legitimacy of the DNS queries and the associated processes.
-*   Monitor for network connections originating from processes that have queried public IP address services.
+*   Deploy the "Suspicious Process Public IP Discovery via DNS Query" Sigma rule to your SIEM and tune it to your environment.
+*   Monitor DNS query logs for any suspicious processes querying the IOC domains (e.g., `api.ipify.org`, `icanhazip.com`) listed in this brief.
+*   Investigate any alerts triggered by the Sigma rule, focusing on the process lineage, network connections, and any follow-on activity.
+*   Block the C2 domains listed in the IOC table at the DNS resolver to disrupt attacker communications.
+*   Enable Sysmon DNS query logging (Event ID 22) to improve visibility into DNS activity on Windows endpoints.
