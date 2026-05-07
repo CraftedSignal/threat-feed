@@ -1,8 +1,8 @@
 ---
-title: VM2 Sandbox Escape via Promise Species Manipulation
+title: vm2 Sandbox Escape via Host Object Access
 slug: 2026-05-vm2-sandbox-escape
-description: A vulnerability in vm2 versions 3.10.3 and earlier allows attackers to bypass a previous sandbox escape fix by manipulating Promise species, leading to arbitrary code execution on the host system.
-date: "2026-05-06T12:00:00Z"
+description: A critical sandbox escape vulnerability exists in vm2 versions 3.10.5 and earlier, allowing attackers to bypass sandbox restrictions and execute arbitrary code on the host system by manipulating the host Object.
+date: "2026-05-07T04:00:19Z"
 type: advisory
 types:
   - advisory
@@ -12,69 +12,83 @@ tags:
   - sandbox-escape
   - rce
   - javascript
+  - vm2
 vendors:
   - npm
 products:
-  - vm2 (<= 3.10.3)
+  - vm2 (<= 3.10.5)
 mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1202
-    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1611
+    technique_name: Escape to Host
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-cves:
-  - id: CVE-2026-24120
-    cvss: 9.8
+    technique_id: T1611
+    technique_name: Escape to Host
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1611
+    technique_name: Escape to Host
 references:
-  - https://github.com/advisories/GHSA-qvjj-29qf-hp7p
+  - https://github.com/advisories/GHSA-47x8-96vw-5wg6
 rules:
-  - title: Detect Object.defineProperty Redefinition in VM2
-    description: Detects attempts to redefine the Object.defineProperty function, potentially indicating a sandbox escape attempt in VM2.
+  - title: Detect vm2 Sandbox Escape via child_process
+    description: Detects the execution of child_process.execSync within the vm2 sandbox, indicative of a sandbox escape attempt.
+    platform: sigma
+    severity: critical
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1611
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect WebAssembly Compilation with Suspicious Object
+    description: Detects WebAssembly compilation events that include a suspicious object containing the Symbol(nodejs.util.inspect.custom) property, potentially indicating a sandbox escape attempt.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
     techniques:
-      - T1070
+      - T1611
     data_sources:
       - process_creation
       - windows
-  - title: Detect Suspicious Process Creation from Node.js with vm2
-    description: Detects suspicious process creation events originating from Node.js processes potentially running vm2, indicating a possible sandbox escape.
+  - title: Detect vm2 Sandbox Escape via HostObject.getOwnPropertySymbols
+    description: Detects the use of HostObject.getOwnPropertySymbols which could lead to a sandbox escape in vm2.
     platform: sigma
     severity: high
     tactics:
-      - execution
+      - defense_evasion
     techniques:
-      - T1059.001
+      - T1611
     data_sources:
       - process_creation
       - windows
-rules_count: 2
+rules_count: 3
 ---
 
-A critical vulnerability exists within the vm2 npm package, specifically in versions 3.10.3 and earlier. This vulnerability stems from an insufficient fix for a prior sandbox escape issue (GHSA-cchq-frgv-rjh5). Attackers can bypass the intended security measures by manipulating the `species` property of Promise objects. The flaw lies in the ability to overwrite native JavaScript functions like `[].includes` and `Object.defineProperty`, which are used in the `resetPromiseSpecies` function. By preventing the proper resetting of the Promise species, attackers can achieve arbitrary code execution on the host system, effectively breaking out of the vm2 sandbox. This vulnerability was reported in GHSA-qvjj-29qf-hp7p, published May 5, 2026.
+The vm2 library, a JavaScript sandbox environment, is vulnerable to a sandbox escape that can lead to remote code execution (RCE) on the host machine. This vulnerability, tracked as CVE-2026-43997, allows a malicious actor to gain access to the host's `Object` and bypass the intended security restrictions of the vm2 sandbox. While a previous attempt to mitigate this issue was implemented in commit ebcfe94ad2f864f0bc35e78cff1d921107cfd160, the fix was incomplete, leaving the sandbox vulnerable. Attackers can leverage this vulnerability to execute arbitrary code, potentially leading to complete system compromise. This issue affects vm2 versions 3.10.5 and earlier.
 
 ## Attack Chain
 
-1. The attacker provides JavaScript code to be executed within the vm2 sandbox.
-2. The code redefines `Object.defineProperty` to prevent modification of the `species` property.
-3. The code defines an asynchronous function that returns an Error object with a Symbol as its name.
-4. The `constructor` of the Promise is overwritten with a custom class that defines a specific `Symbol.species`.
-5. The custom `Symbol.species` utilizes an executor that calls the reject function.
-6. The reject function executes arbitrary code on the host system via `child_process.execSync`.
-7. The attacker triggers the Promise's `then()` method.
-8. The host system executes arbitrary commands, such as creating a file named "pwned".
+1.  The attacker gains initial access to the vm2 sandbox, likely through a web application or other service that utilizes the library.
+2.  The attacker executes JavaScript code within the sandbox to obtain the host `Object` using techniques such as `__lookupGetter__`.
+3.  The attacker calls `Buffer.apply` to get the `__proto__` of the Buffer object.
+4.  The attacker retrieves the constructor of the `Object`.
+5.  The attacker uses `HObject.getOwnPropertySymbols(Buffer.prototype)` to obtain the `Symbol(nodejs.util.inspect.custom)`.
+6.  The attacker crafts a malicious object that overrides the `Symbol(nodejs.util.inspect.custom)` property.
+7.  The attacker uses `WebAssembly.compileStreaming` to trigger the execution of the malicious code within the overridden `Symbol(nodejs.util.inspect.custom)` handler.
+8.  This results in arbitrary code execution on the host machine outside of the intended sandbox environment.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows attackers to perform Remote Code Execution (RCE) on the host system. Given the nature of vm2 as a sandbox environment for running untrusted code, this vulnerability represents a significant security risk. If an attacker can run arbitrary code inside the context of a vm2 sandbox, they can leverage this vulnerability to compromise the underlying host system, potentially leading to data theft, system takeover, or other malicious activities.
+Successful exploitation of this vulnerability allows an attacker to escape the vm2 sandbox and execute arbitrary code on the host system. This can lead to a complete compromise of the host, including data theft, system modification, and denial of service. Given the widespread use of vm2 in various applications, a successful attack could have a significant impact.
 
 ## Recommendation
 
-*   Upgrade to a patched version of the `vm2` package that addresses CVE-2026-24120.
-*   Deploy the provided Sigma rule detecting attempts to redefine `Object.defineProperty` within the vm2 environment to your SIEM.
-*   Monitor for unexpected process creation events originating from the vm2 process using the provided Sigma rule.
+*   Upgrade to a patched version of vm2 that addresses CVE-2026-43997 to remediate the vulnerability.
+*   Monitor process creation events for unexpected `child_process.execSync` calls originating from within the vm2 sandbox environment using the rule "Detect vm2 Sandbox Escape via child_process".
+*   Implement strict input validation and sanitization to prevent the injection of malicious JavaScript code into the vm2 sandbox.
+*   Enable auditing of WebAssembly compilation events to detect suspicious activity related to the `WebAssembly.compileStreaming` API, as shown in the rule "Detect WebAssembly Compilation with Suspicious Object".
