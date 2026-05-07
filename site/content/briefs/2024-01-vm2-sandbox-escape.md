@@ -1,80 +1,80 @@
 ---
-title: vm2 Sandbox Escape Vulnerability Leading to RCE
+title: vm2 Sandbox Escape via Promise Constructor Unhandled Rejection
 slug: 2024-01-vm2-sandbox-escape
-description: A sandbox escape vulnerability exists in the vm2 npm package, specifically in versions 3.10.5 and earlier, allowing an attacker to reach BaseHandler.getPrototypeOf via util.inspect, potentially leading to arbitrary prototype access and remote code execution (RCE).
-date: "2026-05-07T03:54:34Z"
+description: A sandbox escape vulnerability exists in vm2 versions 3.10.5 and earlier that allows sandboxed code to crash the host Node.js process via a Promise constructor that triggers an unhandled rejection, leading to a denial-of-service condition.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - critical
+  - high
 tags:
-  - sandbox-escape
-  - rce
   - vm2
-  - javascript
+  - sandbox-escape
+  - denial-of-service
+  - nodejs
 vendors:
   - npm
 products:
   - vm2 (<= 3.10.5)
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.004
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+cves:
+  - id: CVE-2026-22709
+    cvss: 9.8
+    epss: 0.00046
 references:
-  - https://github.com/advisories/GHSA-qcp4-v2jj-fjx8
+  - https://github.com/advisories/GHSA-hw58-p9xv-2mjh
 rules:
-  - title: Detect vm2 Sandbox Escape - Suspicious util.inspect Usage
-    description: Detects suspicious usage of util.inspect with showHidden and showProxy options, which is indicative of attempts to exploit the vm2 sandbox escape vulnerability.
+  - title: Detect vm2 Sandbox Escape Attempt via Symbol Error Name
+    description: Detects attempts to exploit the vm2 sandbox escape vulnerability by identifying code that sets Error.name to a Symbol within a vm2 process.
     platform: sigma
     severity: high
     tactics:
-      - execution
-      - privilege_escalation
+      - denial_of_service
     techniques:
-      - T1068
+      - T1499.004
     data_sources:
       - process_creation
       - linux
-  - title: Detect vm2 Sandbox Escape - child_process.execSync in WebAssembly
-    description: Detects the execution of child_process.execSync within a WebAssembly module, which is a strong indicator of a sandbox escape attempt in vm2.
+  - title: Detect vm2 Sandbox Escape Attempt via Unhandled Rejection
+    description: 'Detects attempts to exploit the vm2 sandbox escape vulnerability by monitoring for unhandled promise rejections containing ''TypeError: Cannot convert a Symbol value to a string''.'
     platform: sigma
     severity: critical
     tactics:
-      - execution
-      - privilege_escalation
+      - denial_of_service
     techniques:
-      - T1068
+      - T1499.004
     data_sources:
-      - process_creation
+      - file_event
       - linux
 rules_count: 2
 ---
 
-The vm2 npm package, a sandbox for executing untrusted JavaScript code, is vulnerable to a sandbox escape that can lead to remote code execution (RCE). This vulnerability, affecting versions 3.10.5 and earlier, stems from the ability to reach `BaseHandler.getPrototypeOf` through manipulation of `util.inspect`. By exploiting this flaw, an attacker can gain access to arbitrary prototypes within the vm2 sandbox, bypassing security restrictions and ultimately executing arbitrary code on the host system. The vulnerability was reported on May 7, 2026, and poses a significant risk to applications relying on vm2 for secure JavaScript execution. Successful exploitation allows attackers to break out of the sandbox environment and compromise the underlying system.
+A sandbox escape vulnerability has been identified in vm2 versions 3.10.5 and earlier. This vulnerability enables malicious sandboxed code to crash the host Node.js process through a crafted `Promise` constructor that triggers an unhandled rejection. The root cause lies in the fact that Promise executor errors are not adequately caught and sanitized before they can propagate as unhandled rejections to the host process. This results in an immediate process crash, effectively causing a denial-of-service condition. Notably, the `allowAsync: false` setting, intended to mitigate asynchronous code execution, does not prevent this vulnerability and, paradoxically, can exacerbate the issue by blocking `.catch()` handlers, thereby guaranteeing that rejections remain unhandled. The CVE-2026-22709 patch (v3.10.2) only sanitized `.then()` and `.catch()` callback chains but left the executor-to-unhandledRejection path completely open.
 
 ## Attack Chain
 
-1.  The attacker crafts a malicious JavaScript payload designed to exploit the `util.inspect` function within the vm2 sandbox.
-2.  The payload leverages the `subarray` and `slice` properties of the `Buffer.prototype` to trigger the `inspect` function.
-3.  The `showHidden` and `showProxy` options are enabled in `util.inspect` to expose internal properties and proxies.
-4.  Within the `stylize` function, the attacker gains access to the `BaseHandler.getPrototypeOf` method.
-5.  Using `getPrototypeOf`, the attacker retrieves the prototype of the `Buffer` object multiple times to reach the `HObjectProto` and subsequently its constructor `HObject`.
-6.  The attacker retrieves a symbol from the `Buffer.prototype` using `HObject.getOwnPropertySymbols`.
-7.  A new object is created with the retrieved symbol as a key, whose value is a function that retrieves the `child_process` module.
-8.  Finally, the attacker uses `child_process.execSync` to execute arbitrary commands on the host system, escaping the vm2 sandbox and achieving RCE.
+1.  Attacker crafts malicious JavaScript code designed to be executed within a vm2 sandbox.
+2.  The malicious code constructs a `Promise` object using the `Promise` constructor.
+3.  Within the `Promise` executor function, an `Error` object is created.
+4.  The `Error` object's `name` property is set to a `Symbol()`.
+5.  The code then attempts to access the `stack` property of the `Error` object, triggering V8's internal `FormatStackTrace` function.
+6.  `FormatStackTrace` attempts `Symbol.toString()`, resulting in a host-realm `TypeError`.
+7.  Because no `.catch()` handler is attached, the error becomes an unhandled rejection.
+8.  The unhandled rejection propagates to the host Node.js process, causing it to crash.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows attackers to bypass the vm2 sandbox and execute arbitrary commands on the host system. This can lead to complete system compromise, including data theft, malware installation, and denial of service. The vulnerability affects any application using vm2 versions 3.10.5 or earlier, potentially impacting a wide range of projects that rely on secure JavaScript execution. Given the severity (critical) and the potential for RCE, immediate action is required to mitigate this risk.
+Successful exploitation of this vulnerability leads to a denial-of-service (DoS) condition. A single malicious request can crash the entire host Node.js process, disrupting service for all concurrent users. The persistent nature of this DoS, coupled with the ease of triggering it, renders the application unavailable even with standard recovery mechanisms like Docker restart policies or Kubernetes liveness probes. The attacker only needs to send a small request (approximately 150 bytes) to bring down the entire server, demonstrating a high amplification factor. All applications using vm2 are vulnerable, regardless of the `allowAsync` setting.
 
 ## Recommendation
 
-*   Upgrade the `vm2` npm package to a version greater than 3.10.5 to patch the vulnerability (CVE-2026-44006).
-*   Monitor application logs for suspicious activity related to `util.inspect` and `Buffer` manipulation, which may indicate exploitation attempts.
-*   Implement strict input validation and sanitization to prevent attackers from injecting malicious JavaScript code into the vm2 sandbox.
+*   Upgrade to a patched version of vm2 that addresses this vulnerability. As of this writing, no patched version exists, but monitor the project for updates.
+*   Implement rate limiting on API endpoints that execute user-provided JavaScript code to reduce the impact of DoS attacks.
+*   Deploy the Sigma rule "Detect vm2 Sandbox Escape Attempt via Symbol Error Name" to identify attempts to exploit this vulnerability within your environment.
+*   Monitor application logs for unhandled promise rejections, which could indicate exploitation attempts.
+*   Consider implementing a custom error handler within the vm2 sandbox to catch and sanitize errors before they can propagate to the host process.
