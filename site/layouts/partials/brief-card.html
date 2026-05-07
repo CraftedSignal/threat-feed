@@ -12,6 +12,7 @@
 {{ $products := .Params.products | default slice }}
 {{ $exploited := .Params.exploited | default false }}
 {{ $hasPOC := .Params.has_poc | default false }}
+{{ $pocRefs := .Params.poc_references | default slice }}
 {{ $cveCount := len (.Params.cves | default slice) }}
 {{ $ttpCount := len (.Params.mitre_ttps | default slice) }}
 {{ $rulesCount := .Params.rules_count | default (len (.Params.rules | default slice)) }}
@@ -50,7 +51,11 @@
           <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-critical/10 text-sev-critical" title="Active exploitation observed in the wild">exploited</span>
           {{ end }}
           {{ if $hasPOC }}
+          {{ if $pocRefs }}
+          <a href="{{ index $pocRefs 0 }}" target="_blank" rel="noopener noreferrer" class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-high/10 text-sev-high border border-sev-high/30 hover:bg-sev-high/20 transition" title="Public proof-of-concept or exploit available — click to view source">PoC</a>
+          {{ else }}
           <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-high/10 text-sev-high border border-sev-high/30" title="Public proof-of-concept or exploit available">PoC</span>
+          {{ end }}
           {{ end }}
           {{/* Lead the chip row with the affected product — it's usually the
                most useful identifier on a glance. Strip version specifiers
