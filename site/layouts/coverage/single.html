@@ -228,7 +228,7 @@
             {{ $version := index $parts 5 }}
             {{ $slug := printf "%s:%s" $vendor $product }}
             {{ if and $version (ne $version "*") (ne $version "-") }}{{ $slug = printf "%s:%s" $slug $version }}{{ end }}
-            <a href="https://nvd.nist.gov/products/cpe/search/results?keyword={{ . | urlquery }}" target="_blank" rel="noopener noreferrer" class="block font-mono text-[11px] text-muted hover:text-accent transition break-all" title="{{ . }}">{{ $slug }}</a>
+            <a href="/cpes/{{ . | urlize }}/" class="block font-mono text-[11px] text-muted hover:text-accent transition break-all" title="{{ . }}">{{ $slug }}</a>
             {{ end }}
           </div>
         </section>
