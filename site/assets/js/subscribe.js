@@ -77,6 +77,7 @@
       products: listFromCSV(data.get('products')),
       tags: listFromCSV(data.get('tags')),
       exploited: data.get('exploited') === '1',
+      has_poc: data.get('has_poc') === '1',
       include_updates: data.get('include_updates') === '1',
     };
     const body = {

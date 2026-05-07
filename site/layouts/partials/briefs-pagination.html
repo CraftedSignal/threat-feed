@@ -1,6 +1,6 @@
 {{ $p := . }}
 {{ if gt $p.TotalPages 1 }}
-<nav class="flex items-center justify-between border-t border-stroke pt-6 mt-4 text-sm text-muted" aria-label="Pagination">
+<nav class="flex items-center justify-between border-t border-stroke pt-6 mt-4 text-sm text-muted" aria-label="Pagination" data-briefs-pagination>
   <div>
     Page <span class="font-mono text-text">{{ $p.PageNumber }}</span> of <span class="font-mono text-text">{{ $p.TotalPages }}</span>
   </div>

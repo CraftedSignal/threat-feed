@@ -9,7 +9,7 @@
     <div class="flex items-center justify-between gap-4">
       <h1 class="font-display text-3xl md:text-4xl font-semibold">{{ .Title | default "Briefs" }}</h1>
       {{ if gt $paginator.TotalPages 1 }}
-      <div class="flex items-center gap-2 text-sm text-muted flex-none">
+      <div class="flex items-center gap-2 text-sm text-muted flex-none" data-briefs-pagination>
         {{ if $paginator.HasPrev }}
         <a href="{{ $paginator.Prev.URL }}" class="px-3 py-1.5 rounded-lg border border-stroke hover:text-text hover:border-accent/40 transition">← Newer</a>
         {{ else }}
@@ -30,26 +30,53 @@
 {{ partial "search.html" . }}
 
 <section class="px-4 md:px-0 pt-2 pb-3 sticky top-[57px] z-20 bg-base/85 backdrop-blur border-b border-stroke">
-  <div class="max-w-6xl mx-auto">
+  <div class="max-w-6xl mx-auto space-y-2">
 
-    {{/* Date-window filters + month jump-to chips on the same row */}}
-    <nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar text-xs" aria-label="Filter and jump" data-date-filter-group{{ if $hasMorePages }} data-paginated{{ end }}>
-      <button data-date-filter="0"   class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-accent/40 bg-accent/10 text-text font-medium transition whitespace-nowrap">All time</button>
-      <button data-date-filter="1"   class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Today</button>
-      <button data-date-filter="7"   class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Last 7 days</button>
-      <button data-date-filter="30"  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Last 30 days</button>
-      <button data-date-filter="90"  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Last 90 days</button>
+    {{/* Single filter bar: dropdowns as direct flex children (not inside overflow), chips in scrollable inner div */}}
+    <nav class="flex items-start gap-1.5 text-xs min-w-0" aria-label="Filter" data-date-filter-group{{ if $hasMorePages }} data-paginated{{ end }} data-attr-filter-group>
 
-      {{ if $byMonth }}
-      <span class="mx-1 h-5 w-px bg-stroke flex-none" aria-hidden="true"></span>
-      {{ range $byMonth }}
-        {{ $anchor := .Key | urlize }}
-        <a href="#{{ $anchor }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">
-          <span>{{ .Key }}</span>
-          <span class="font-mono text-[10px] text-text bg-panel-2 rounded px-1 py-0.5">{{ len .Pages }}</span>
-        </a>
-      {{ end }}
-      {{ end }}
+      {{/* Date dropdown — outside overflow so absolute menu is not clipped */}}
+      <div class="relative flex-none" data-date-dropdown>
+        <button data-date-trigger class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">
+          <span data-date-label>All time</span><span class="text-[9px] opacity-60">▾</span>
+        </button>
+        <div data-date-menu class="hidden absolute top-full left-0 mt-1 z-30 min-w-[10rem] rounded-xl border border-stroke bg-base shadow-soft p-1.5 space-y-0.5">
+          <button data-date-filter="0"  class="w-full text-left px-2.5 py-1 rounded-lg text-xs text-muted hover:text-text hover:bg-panel transition whitespace-nowrap font-medium">All time</button>
+          <button data-date-filter="1"  class="w-full text-left px-2.5 py-1 rounded-lg text-xs text-muted hover:text-text hover:bg-panel transition whitespace-nowrap">Today</button>
+          <button data-date-filter="7"  class="w-full text-left px-2.5 py-1 rounded-lg text-xs text-muted hover:text-text hover:bg-panel transition whitespace-nowrap">Last 7 days</button>
+          <button data-date-filter="30" class="w-full text-left px-2.5 py-1 rounded-lg text-xs text-muted hover:text-text hover:bg-panel transition whitespace-nowrap">Last 30 days</button>
+          <button data-date-filter="90" class="w-full text-left px-2.5 py-1 rounded-lg text-xs text-muted hover:text-text hover:bg-panel transition whitespace-nowrap">Last 90 days</button>
+        </div>
+      </div>
+
+      <span class="h-4 w-px bg-stroke flex-none mx-0.5" aria-hidden="true"></span>
+
+      {{/* Severity dropdown — outside overflow so absolute menu is not clipped */}}
+      <div class="relative flex-none" data-sev-dropdown>
+        <button data-sev-trigger class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">
+          <span data-sev-label>Severity</span><span class="text-[9px] opacity-60">▾</span>
+        </button>
+        <div data-sev-menu class="hidden absolute top-full left-0 mt-1 z-30 min-w-[9rem] rounded-xl border border-stroke bg-base shadow-soft p-1.5 space-y-0.5">
+          <button data-attr-sev="critical" class="w-full text-left flex items-center gap-2 px-2.5 py-1 rounded-lg text-xs text-muted hover:text-text hover:bg-panel transition whitespace-nowrap"><span class="w-1.5 h-1.5 rounded-full bg-sev-critical flex-none"></span>Critical</button>
+          <button data-attr-sev="high"     class="w-full text-left flex items-center gap-2 px-2.5 py-1 rounded-lg text-xs text-muted hover:text-text hover:bg-panel transition whitespace-nowrap"><span class="w-1.5 h-1.5 rounded-full bg-sev-high flex-none"></span>High</button>
+          <button data-attr-sev="medium"   class="w-full text-left flex items-center gap-2 px-2.5 py-1 rounded-lg text-xs text-muted hover:text-text hover:bg-panel transition whitespace-nowrap"><span class="w-1.5 h-1.5 rounded-full bg-sev-medium flex-none"></span>Medium</button>
+          <button data-attr-sev="low"      class="w-full text-left flex items-center gap-2 px-2.5 py-1 rounded-lg text-xs text-muted hover:text-text hover:bg-panel transition whitespace-nowrap"><span class="w-1.5 h-1.5 rounded-full bg-sev-low flex-none"></span>Low</button>
+          <button data-attr-sev="informational" class="w-full text-left flex items-center gap-2 px-2.5 py-1 rounded-lg text-xs text-muted hover:text-text hover:bg-panel transition whitespace-nowrap"><span class="w-1.5 h-1.5 rounded-full bg-panel-2 border border-stroke flex-none"></span>Info</button>
+        </div>
+      </div>
+
+      <span class="h-4 w-px bg-stroke flex-none mx-0.5" aria-hidden="true"></span>
+
+      {{/* Chip row — type + flag chips. flex-wrap lets them collapse to a second line on narrow viewports. */}}
+      <div class="flex flex-1 min-w-0 items-center flex-wrap gap-x-1.5 gap-y-1">
+        <button data-attr-type="advisory" class="inline-flex items-center px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Advisory</button>
+        <button data-attr-type="threat"   class="inline-flex items-center px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Threat</button>
+        <button data-attr-type="rumour"   class="inline-flex items-center px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Rumour</button>
+        <span class="h-4 w-px bg-stroke flex-none mx-0.5" aria-hidden="true"></span>
+        <button data-attr-flag="poc"       class="inline-flex items-center px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">PoC</button>
+        <button data-attr-flag="exploited" class="inline-flex items-center px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Exploited</button>
+        <button data-attr-flag="ioc"       class="inline-flex items-center px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">IOCs</button>
+      </div>
     </nav>
 
   </div>

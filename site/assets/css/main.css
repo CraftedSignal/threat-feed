@@ -238,25 +238,38 @@ body {
 
 /* Pagefind Component UI — map --pf-* tokens to the site's design system.
    Both light and dark themes update automatically because --color-* changes
-   when .dark is applied to <html>. */
+   when .dark is applied to <html>.
+   Result cards use transparent background/border so they read as a flat list;
+   hover shows a subtle panel-2 fill instead of a framed box. */
 :root {
   --pf-font: 'Inter', system-ui, sans-serif;
   --pf-text: rgb(var(--color-text));
   --pf-text-secondary: rgb(var(--color-muted));
   --pf-text-muted: rgb(var(--color-muted));
-  --pf-background: rgb(var(--color-panel));
-  --pf-border: rgb(var(--color-stroke));
-  --pf-border-focus: rgb(var(--color-accent));
+  --pf-background: transparent;
+  --pf-border: transparent;
+  --pf-border-focus: rgb(var(--color-stroke));
   --pf-hover: rgb(var(--color-panel-2));
   --pf-outline-focus: rgb(var(--color-accent));
   --pf-mark: rgb(var(--color-accent));
+  --pf-shadow-sm: none;
   --pf-border-radius: 6px;
   --pf-input-height: 38px;
   --pf-input-font-size: 15px;
   --pf-result-title-font-size: 14px;
   --pf-result-excerpt-font-size: 13px;
   --pf-summary-font-size: 12px;
-  --pf-results-gap: 4px;
+  --pf-results-gap: 2px;
+}
+
+/* Skeleton placeholder while pagefind JS is still registering the custom
+   element — prevents a blank gap on first load. */
+pagefind-input:not(:defined) {
+  display: block;
+  height: 38px;
+  border: 1px solid rgb(var(--color-stroke));
+  border-radius: 6px;
+  background: rgb(var(--color-panel));
 }
 
 /* ---------------------------------------------------------------------- */

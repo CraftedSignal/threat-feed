@@ -87,34 +87,54 @@ function initSearch() {
 }
 
 // ----------------------------------------------------------------------
-// Date-window filter on the briefs listing.
+// Brief listing filters: date-window + attribute (type/severity/flags).
+// Both filters contribute to visibility independently; a card is shown
+// only when it passes both. Pagination nav is hidden when any filter
+// narrows the view (since Hugo pagination is server-rendered and the
+// filter only applies to the current page).
 
-function initDateFilter() {
-  const group = document.querySelector('[data-date-filter-group]');
-  if (!group) return;
+function initBriefFilters() {
+  const dateGroup = document.querySelector('[data-date-filter-group]');
+  const attrGroup = document.querySelector('[data-attr-filter-group]');
+  if (!dateGroup && !attrGroup) return;
 
-  const buttons = group.querySelectorAll('[data-date-filter]');
-  const cards = document.querySelectorAll('[data-brief-date]');
-  const sections = document.querySelectorAll('[data-month-section]');
-  const empty = document.querySelector('[data-empty-message]');
+  const cards        = [...document.querySelectorAll('[data-brief-date]')];
+  const sections     = [...document.querySelectorAll('[data-month-section]')];
+  const empty        = document.querySelector('[data-empty-message]');
+  const paginationEls = [...document.querySelectorAll('[data-briefs-pagination]')];
   const paginationWarning = document.querySelector('[data-filter-pagination-warning]');
-  const isPaginated = group.hasAttribute('data-paginated');
+  const isPaginated  = dateGroup?.hasAttribute('data-paginated');
 
-  function applyFilter(windowDays) {
+  // Track filter state.
+  let activeDateDays = 0;          // 0 = all time
+  const activeTypes  = new Set();  // e.g. 'advisory', 'threat'
+  const activeSevs   = new Set();  // e.g. 'critical', 'high'
+  const activeFlags  = new Set();  // e.g. 'poc', 'exploited', 'ioc'
+
+  function isFiltered() {
+    return activeDateDays !== 0 || activeTypes.size > 0 || activeSevs.size > 0 || activeFlags.size > 0;
+  }
+
+  function recalc() {
     const now = Date.now() / 1000;
-    const cutoff = windowDays === 0 ? 0 : now - (windowDays * 86400);
+    const cutoff = activeDateDays === 0 ? 0 : now - activeDateDays * 86400;
 
     cards.forEach((card) => {
-      const ts = +card.dataset.briefDate;
-      const visible = windowDays === 0 || ts >= cutoff;
-      card.style.display = visible ? '' : 'none';
+      const dateOk = activeDateDays === 0 || (+card.dataset.briefDate) >= cutoff;
+      const typeOk = activeTypes.size === 0 || activeTypes.has(card.dataset.briefType);
+      const sevOk  = activeSevs.size  === 0 || activeSevs.has(card.dataset.briefSev);
+      const pocOk      = !activeFlags.has('poc')      || card.dataset.briefPoc      === '1';
+      const exploitedOk= !activeFlags.has('exploited')|| card.dataset.briefExploited=== '1';
+      const iocOk      = !activeFlags.has('ioc')      || card.dataset.briefIoc      === '1';
+      card.style.display = (dateOk && typeOk && sevOk && pocOk && exploitedOk && iocOk) ? '' : 'none';
     });
 
     let totalVisible = 0;
     sections.forEach((sec) => {
-      const visibleCards = sec.querySelectorAll('[data-brief-date]');
       let count = 0;
-      visibleCards.forEach((c) => { if (c.style.display !== 'none') count++; });
+      sec.querySelectorAll('[data-brief-date]').forEach((c) => {
+        if (c.style.display !== 'none') count++;
+      });
       sec.style.display = count === 0 ? 'none' : '';
       const counter = sec.querySelector('[data-month-count]');
       if (counter) counter.textContent = count;
@@ -122,31 +142,146 @@ function initDateFilter() {
     });
 
     if (empty) empty.classList.toggle('hidden', totalVisible > 0);
+
+    // Hide pagination nav when any filter is active — it only applies to
+    // the current page so Older/Newer links are misleading when filtered.
+    paginationEls.forEach((el) => el.classList.toggle('hidden', isFiltered()));
+
     if (paginationWarning) {
-      paginationWarning.classList.toggle('hidden', !(totalVisible === 0 && isPaginated && windowDays !== 0));
+      paginationWarning.classList.toggle(
+        'hidden',
+        !(totalVisible === 0 && isPaginated && isFiltered()),
+      );
     }
   }
 
-  function setActive(activeBtn) {
-    buttons.forEach((b) => {
-      const active = b === activeBtn;
-      b.classList.toggle('border-accent/40', active);
-      b.classList.toggle('bg-accent/10', active);
-      b.classList.toggle('text-text', active);
-      b.classList.toggle('font-medium', active);
-      b.classList.toggle('border-stroke', !active);
-      b.classList.toggle('text-muted', !active);
+  // Active/inactive styling helpers.
+  function chipActive(btn) {
+    btn.classList.add('border-accent/40', 'bg-accent/10', 'text-text', 'font-medium');
+    btn.classList.remove('border-stroke', 'text-muted');
+  }
+  function chipInactive(btn) {
+    btn.classList.remove('border-accent/40', 'bg-accent/10', 'text-text', 'font-medium');
+    btn.classList.add('border-stroke', 'text-muted');
+  }
+
+
+  // Shared dropdown helper — menus use position:absolute relative to their
+  // .relative wrapper, so no positioning calculation needed here.
+  function openDropdown(_trigger, menu) {
+    menu.classList.remove('hidden');
+  }
+  function closeAllDropdowns() {
+    document.querySelectorAll('[data-date-menu],[data-sev-menu]').forEach((m) => m.classList.add('hidden'));
+  }
+  document.addEventListener('click', closeAllDropdowns);
+
+  // Date dropdown.
+  const dateDropdown = document.querySelector('[data-date-dropdown]');
+  const dateTrigger  = document.querySelector('[data-date-trigger]');
+  const dateMenu     = document.querySelector('[data-date-menu]');
+  const dateLabel    = document.querySelector('[data-date-label]');
+
+  if (dateTrigger && dateMenu) {
+    dateTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const wasHidden = dateMenu.classList.contains('hidden');
+      closeAllDropdowns();
+      if (wasHidden) openDropdown(dateTrigger, dateMenu);
     });
   }
 
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const days = parseInt(btn.dataset.dateFilter, 10) || 0;
-      applyFilter(days);
-      setActive(btn);
+  if (dateGroup) {
+    const dateBtns = dateGroup.querySelectorAll('[data-date-filter]');
+    dateBtns.forEach((btn) => {
+      if (btn.dataset.dateFilter === '0') btn.classList.add('font-medium', 'text-text');
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        activeDateDays = parseInt(btn.dataset.dateFilter, 10) || 0;
+        dateBtns.forEach((b) => {
+          b.classList.toggle('font-medium', b === btn);
+          b.classList.toggle('text-text', b === btn);
+          b.classList.toggle('text-muted', b !== btn);
+        });
+        if (dateLabel) dateLabel.textContent = btn.textContent.trim();
+        if (dateTrigger) {
+          if (activeDateDays === 0) chipInactive(dateTrigger);
+          else chipActive(dateTrigger);
+        }
+        dateMenu?.classList.add('hidden');
+        recalc();
+      });
     });
-  });
+  }
+
+  // Attribute filter — type and severity are multi-select OR within group;
+  // flags are independent toggles.
+  if (attrGroup) {
+    attrGroup.querySelectorAll('[data-attr-type]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.attrType;
+        if (activeTypes.has(val)) { activeTypes.delete(val); chipInactive(btn); }
+        else                      { activeTypes.add(val);    chipActive(btn);   }
+        recalc();
+      });
+    });
+
+    // Severity dropdown wiring.
+    const sevDropdown = attrGroup.querySelector('[data-sev-dropdown]');
+    const sevTrigger  = attrGroup.querySelector('[data-sev-trigger]');
+    const sevMenu     = attrGroup.querySelector('[data-sev-menu]');
+    const sevLabel    = attrGroup.querySelector('[data-sev-label]');
+
+    if (sevTrigger && sevMenu) {
+      sevTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const wasHidden = sevMenu.classList.contains('hidden');
+        closeAllDropdowns();
+        if (wasHidden) openDropdown(sevTrigger, sevMenu);
+      });
+    }
+
+    function updateSevTrigger() {
+      if (!sevLabel) return;
+      if (activeSevs.size === 0) {
+        sevLabel.textContent = 'Severity';
+        if (sevTrigger) chipInactive(sevTrigger);
+      } else {
+        sevLabel.textContent = 'Severity · ' + activeSevs.size;
+        if (sevTrigger) chipActive(sevTrigger);
+      }
+    }
+
+    attrGroup.querySelectorAll('[data-attr-sev]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.attrSev;
+        if (activeSevs.has(val)) {
+          activeSevs.delete(val);
+          btn.classList.remove('text-text', 'font-medium');
+          btn.classList.add('text-muted');
+        } else {
+          activeSevs.add(val);
+          btn.classList.add('text-text', 'font-medium');
+          btn.classList.remove('text-muted');
+        }
+        updateSevTrigger();
+        recalc();
+      });
+    });
+
+    attrGroup.querySelectorAll('[data-attr-flag]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.attrFlag;
+        if (activeFlags.has(val)) { activeFlags.delete(val); chipInactive(btn); }
+        else                      { activeFlags.add(val);    chipActive(btn);   }
+        recalc();
+      });
+    });
+  }
 }
+
+// Keep legacy name wired so DOMContentLoaded still works.
+function initDateFilter() { initBriefFilters(); }
 
 // ----------------------------------------------------------------------
 // Scroll offset CSS variable — keeps [data-month-section] scroll-margin-top

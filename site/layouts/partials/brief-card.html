@@ -20,7 +20,7 @@
 {{ $iocTotal := 0 }}
 {{ range $k, $v := $ioc }}{{ $iocTotal = add $iocTotal $v }}{{ end }}
 
-<a href="{{ .RelPermalink }}" class="block rounded-xl border border-stroke bg-panel/70 hover:bg-panel hover:border-accent/40 p-5 transition group" data-pagefind-ignore data-brief-date="{{ .Date.Unix }}">
+<a href="{{ .RelPermalink }}" class="block rounded-xl border border-stroke bg-panel/70 hover:bg-panel hover:border-accent/40 p-5 transition group" data-pagefind-ignore data-brief-date="{{ .Date.Unix }}" data-brief-type="{{ $type }}" data-brief-sev="{{ $sev }}" data-brief-poc="{{ if $hasPOC }}1{{ else }}0{{ end }}" data-brief-exploited="{{ if $exploited }}1{{ else }}0{{ end }}" data-brief-ioc="{{ if gt $iocTotal 0 }}1{{ else }}0{{ end }}">
   <div class="flex items-start gap-4">
 
     <div class="pt-0.5 flex-none flex flex-col items-stretch gap-1 min-w-[88px] max-w-[88px]">
