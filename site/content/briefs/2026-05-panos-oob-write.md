@@ -27,6 +27,7 @@ mitre_ttps:
 references:
   - https://www.cisa.gov/news-events/alerts/2026/05/06/cisa-adds-one-known-exploited-vulnerability-catalog
   - https://www.cve.org/CVERecord?id=CVE-2026-0300
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1366
 rules:
   - title: Detect Potential CVE-2026-0300 Exploitation Attempts
     description: Detects potential attempts to exploit the PAN-OS out-of-bounds write vulnerability (CVE-2026-0300) based on suspicious HTTP requests. This rule requires web server logs from PAN-OS.
@@ -50,7 +51,18 @@ rules:
     data_sources:
       - process_creation
       - linux
-rules_count: 2
+  - title: Detect PAN-OS Reverse Shell Connection
+    description: Detects a potential reverse shell connection initiated from a PAN-OS device following exploitation.
+    platform: sigma
+    severity: high
+    tactics:
+      - command_and_control
+    techniques:
+      - T1071.001
+    data_sources:
+      - network_connection
+      - linux
+rules_count: 3
 ---
 
 CISA added CVE-2026-0300, an out-of-bounds write vulnerability in Palo Alto Networks PAN-OS, to its Known Exploited Vulnerabilities (KEV) Catalog on May 6, 2026, indicating active exploitation in the wild. The vulnerability poses a significant risk, especially to federal enterprises, and CISA has urged all organizations to prioritize its remediation. An out-of-bounds write vulnerability allows an attacker to write data outside the intended memory boundaries, which can lead to arbitrary code execution, denial of service, or information disclosure. Successful exploitation could enable attackers to gain unauthorized access to systems and networks protected by PAN-OS. Given its inclusion in the KEV catalog, prompt action is required to mitigate this risk.
@@ -77,3 +89,4 @@ Successful exploitation of CVE-2026-0300 could lead to complete compromise of th
 *   Deploy the Sigma rule provided below to detect potential exploitation attempts targeting CVE-2026-0300.
 *   Monitor network traffic for suspicious patterns indicative of out-of-bounds write exploitation, specifically focusing on traffic to and from PAN-OS devices.
 *   Review PAN-OS access logs for any unusual or unauthorized activity following the patch deployment.
+
