@@ -125,7 +125,7 @@
             <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Indicators of compromise</h2>
             {{ if $iocs }}
             {{ $iocValues := slice }}{{ range $iocs }}{{ $iocValues = $iocValues | append .value }}{{ end }}
-            <button class="text-[11px] font-mono text-muted hover:text-accent transition" data-iocs="{{ $iocValues | jsonify | htmlEscape }}" onclick="(function(b){var v=JSON.parse(b.dataset.iocs).join('\n');navigator.clipboard.writeText(v).then(function(){var t=b.textContent;b.textContent='copied!';setTimeout(function(){b.textContent=t},1500)});})(this)">copy all</button>
+            <button class="text-[11px] font-mono text-muted hover:text-accent transition" data-iocs="{{ $iocValues | jsonify }}" onclick="(function(b){var v=JSON.parse(b.dataset.iocs).join('\n');navigator.clipboard.writeText(v).then(function(){var t=b.textContent;b.textContent='copied!';setTimeout(function(){b.textContent=t},1500)});})(this)">copy all</button>
             {{ end }}
           </div>
 
