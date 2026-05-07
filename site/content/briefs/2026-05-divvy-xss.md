@@ -27,11 +27,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6002
   - https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0182
-iocs:
-  - type: email
-    value: '[email&#160;protected]'
-ioc_counts:
-  email: 1
 rules:
   - title: Detect Suspicious URI containing script tag
     description: Detects suspicious URI requests containing script tags, indicative of potential XSS attacks.
