@@ -272,6 +272,21 @@ pagefind-input:not(:defined) {
   background: rgb(var(--color-panel));
 }
 
+/* When a result's title contains the match, the body excerpt is redundant —
+   hide it so each result reads as a single clean hit, not a double match.
+   !important is required to override pagefind's high-specificity ID trick. */
+.pf-result-content:has(.pf-result-title mark) .pf-result-excerpt {
+  display: none !important;
+}
+
+/* Title matches: don't highlight the matched words — the title itself is
+   already prominent enough; marks would add visual clutter. */
+.pf-result-title mark {
+  background: none !important;
+  color: inherit !important;
+  font-weight: inherit !important;
+}
+
 /* ---------------------------------------------------------------------- */
 /* Prose — Hugo's rendered Markdown */
 /* ---------------------------------------------------------------------- */
