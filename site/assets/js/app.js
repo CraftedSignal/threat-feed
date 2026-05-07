@@ -84,6 +84,22 @@ function initSearch() {
     one_result: '[COUNT] brief matches "[SEARCH_TERM]"',
     searching: 'Searching for "[SEARCH_TERM]"…',
   });
+
+  // When a result's title already highlights the match, suppress the body
+  // excerpt — it's a redundant double-match on the same content.
+  // MutationObserver is used because pagefind adds results dynamically.
+  const resultsEl = document.querySelector('pagefind-results');
+  if (resultsEl) {
+    const suppressExcerpts = () => {
+      resultsEl.querySelectorAll('.pf-result-content').forEach((content) => {
+        if (content.querySelector('.pf-result-title mark')) {
+          const excerpt = content.querySelector('.pf-result-excerpt');
+          if (excerpt) excerpt.style.display = 'none';
+        }
+      });
+    };
+    new MutationObserver(suppressExcerpts).observe(resultsEl, { childList: true, subtree: true });
+  }
 }
 
 // ----------------------------------------------------------------------
