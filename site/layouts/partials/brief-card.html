@@ -11,6 +11,7 @@
 {{ $actors := .Params.actors | default slice }}
 {{ $products := .Params.products | default slice }}
 {{ $exploited := .Params.exploited | default false }}
+{{ $hasPOC := .Params.has_poc | default false }}
 {{ $cveCount := len (.Params.cves | default slice) }}
 {{ $ttpCount := len (.Params.mitre_ttps | default slice) }}
 {{ $rulesCount := .Params.rules_count | default (len (.Params.rules | default slice)) }}
@@ -47,6 +48,9 @@
         <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 min-w-0">
           {{ if $exploited }}
           <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-critical/10 text-sev-critical" title="Active exploitation observed in the wild">exploited</span>
+          {{ end }}
+          {{ if $hasPOC }}
+          <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-high/10 text-sev-high border border-sev-high/30" title="Public proof-of-concept or exploit available">PoC</span>
           {{ end }}
           {{/* Lead the chip row with the affected product — it's usually the
                most useful identifier on a glance. Strip version specifiers

@@ -13,6 +13,7 @@
 {{ $vendors := .Params.vendors | default slice }}
 {{ $products := .Params.products | default slice }}
 {{ $exploited := .Params.exploited | default false }}
+{{ $hasPOC := .Params.has_poc | default false }}
 {{ $os := .Params.affected_os | default (.Params.affectedOs | default slice) }}
 {{ $ttps := .Params.mitre_ttps | default (.Params.mitreTtps | default slice) }}
 {{ $cves := .Params.cves | default slice }}
@@ -37,6 +38,7 @@
         <span class="sev-badge {{ $sevClass }}">{{ $sevLabel }}</span>
         <a href="/types/{{ $type }}/" class="type-badge type-{{ $type }} hover:opacity-80 transition" title="See all {{ $typeLabel }} briefs">{{ $typeLabel }}</a>
         {{ if $exploited }}<span class="exploited-badge" title="Active exploitation observed in the wild">exploited</span>{{ end }}
+        {{ if $hasPOC }}<span class="poc-badge" title="Public proof-of-concept or exploit available">PoC</span>{{ end }}
         <time class="font-mono text-muted" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
         {{/* Updated pill mirrors brief-card.html: same 6h debounce + 7d
              freshness window. Title carries the precise timestamp. */}}

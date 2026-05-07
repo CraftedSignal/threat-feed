@@ -212,6 +212,14 @@ body {
   100% { box-shadow: 0 0 0 0 rgb(var(--color-sev-critical) / 0); }
 }
 
+/* PoC available — orange, static (no pulse), distinct from active exploitation */
+.poc-badge {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono font-semibold uppercase tracking-wide;
+  background: rgb(var(--color-sev-high) / 0.10);
+  color: rgb(var(--color-sev-high));
+  border: 1px solid rgb(var(--color-sev-high) / 0.35);
+}
+
 /* ---------------------------------------------------------------------- */
 /* Theme toggle — show only the icon matching the stored mode */
 /* ---------------------------------------------------------------------- */
