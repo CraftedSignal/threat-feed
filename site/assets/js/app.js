@@ -85,20 +85,36 @@ function initSearch() {
     searching: 'Searching for "[SEARCH_TERM]"…',
   });
 
-  // When a result's title already highlights the match, suppress the body
-  // excerpt — it's a redundant double-match on the same content.
-  // MutationObserver is used because pagefind adds results dynamically.
+  // Pagefind returns one result card per matching heading section, so a single
+  // brief can appear 4-5 times. Deduplicate by base URL (strip anchor fragment),
+  // keeping whichever entry has a title match; fall back to the first entry.
+  // For the kept result, also suppress the excerpt when the title already shows
+  // the match (redundant double-hit on the same page).
   const resultsEl = document.querySelector('pagefind-results');
   if (resultsEl) {
-    const suppressExcerpts = () => {
-      resultsEl.querySelectorAll('.pf-result-content').forEach((content) => {
-        if (content.querySelector('.pf-result-title mark')) {
-          const excerpt = content.querySelector('.pf-result-excerpt');
-          if (excerpt) excerpt.style.display = 'none';
-        }
+    const dedupeResults = () => {
+      const byPage = new Map();
+      resultsEl.querySelectorAll('.pf-result').forEach((result) => {
+        const link = result.querySelector('.pf-result-link');
+        if (!link) return;
+        const baseUrl = link.href.split('#')[0];
+        if (!byPage.has(baseUrl)) byPage.set(baseUrl, []);
+        byPage.get(baseUrl).push({ result, hasTitle: !!result.querySelector('.pf-result-title mark') });
+      });
+
+      byPage.forEach((entries) => {
+        const keeper = entries.find((e) => e.hasTitle) || entries[0];
+        entries.forEach(({ result, hasTitle }) => {
+          if (result !== keeper.result) {
+            result.style.display = 'none';
+          } else if (keeper.hasTitle) {
+            const excerpt = result.querySelector('.pf-result-excerpt');
+            if (excerpt) excerpt.style.display = 'none';
+          }
+        });
       });
     };
-    new MutationObserver(suppressExcerpts).observe(resultsEl, { childList: true, subtree: true });
+    new MutationObserver(dedupeResults).observe(resultsEl, { childList: true, subtree: true });
   }
 }
 
