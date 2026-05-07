@@ -30,6 +30,7 @@
         "_cs_exploited"       (.Params.exploited | default false)
         "_cs_has_poc"         (.Params.has_poc | default false)
         "_cs_poc_references"  (.Params.poc_references | default slice)
+        "_cs_cpes"            (.Params.cpes | default slice)
         "_cs_cves"            $cves -}}
 {{-   $items = $items | append $item -}}
 {{- end -}}

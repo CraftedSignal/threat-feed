@@ -15,6 +15,7 @@
 {{ $exploited := .Params.exploited | default false }}
 {{ $hasPOC := .Params.has_poc | default false }}
 {{ $pocRefs := .Params.poc_references | default slice }}
+{{ $cpes := .Params.cpes | default slice }}
 {{ $os := .Params.affected_os | default (.Params.affectedOs | default slice) }}
 {{ $ttps := .Params.mitre_ttps | default (.Params.mitreTtps | default slice) }}
 {{ $cves := .Params.cves | default slice }}
@@ -120,7 +121,13 @@
 
         {{ if or $iocs $iocCounts }}
         <section class="space-y-3">
-          <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Indicators of compromise</h2>
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Indicators of compromise</h2>
+            {{ if $iocs }}
+            {{ $iocValues := slice }}{{ range $iocs }}{{ $iocValues = $iocValues | append .value }}{{ end }}
+            <button class="text-[11px] font-mono text-muted hover:text-accent transition" data-iocs="{{ $iocValues | jsonify | htmlEscape }}" onclick="(function(b){var v=JSON.parse(b.dataset.iocs).join('\n');navigator.clipboard.writeText(v).then(function(){var t=b.textContent;b.textContent='copied!';setTimeout(function(){b.textContent=t},1500)});})(this)">copy all</button>
+            {{ end }}
+          </div>
 
           {{ if $iocCounts }}
           <div class="rounded-xl border border-stroke bg-panel/60 p-4">
@@ -219,7 +226,23 @@
         </section>
         {{ end }}
 
-        {{ $pocRefs := .Params.poc_references | default slice }}
+        {{ if $cpes }}
+        <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-2">
+          <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">CPE identifiers</h2>
+          <div class="space-y-1">
+            {{ range $cpes }}
+            {{ $parts := split . ":" }}
+            {{ $vendor := index $parts 3 }}
+            {{ $product := index $parts 4 }}
+            {{ $version := index $parts 5 }}
+            {{ $slug := printf "%s:%s" $vendor $product }}
+            {{ if and $version (ne $version "*") (ne $version "-") }}{{ $slug = printf "%s:%s" $slug $version }}{{ end }}
+            <a href="https://nvd.nist.gov/products/cpe/search/results?keyword={{ . | urlquery }}" target="_blank" rel="noopener noreferrer" class="block font-mono text-[11px] text-muted hover:text-accent transition break-all" title="{{ . }}">{{ $slug }}</a>
+            {{ end }}
+          </div>
+        </section>
+        {{ end }}
+
         {{ if $pocRefs }}
         <section class="rounded-xl border border-sev-high/30 bg-sev-high/5 p-4 space-y-2">
           <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-sev-high">PoC / Exploit Sources</h2>
