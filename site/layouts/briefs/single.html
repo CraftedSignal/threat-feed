@@ -216,6 +216,24 @@
         </section>
         {{ end }}
 
+        {{ $cpes := .Params.cpes | default slice }}
+        {{ if $cpes }}
+        <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-2">
+          <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">CPE identifiers</h2>
+          <div class="space-y-1">
+            {{ range $cpes }}
+            {{ $parts := split . ":" }}
+            {{ $vendor := index $parts 3 }}
+            {{ $product := index $parts 4 }}
+            {{ $version := index $parts 5 }}
+            {{ $slug := printf "%s:%s" $vendor $product }}
+            {{ if and $version (ne $version "*") (ne $version "-") }}{{ $slug = printf "%s:%s" $slug $version }}{{ end }}
+            <a href="https://nvd.nist.gov/products/cpe/search/results?keyword={{ . | urlquery }}" target="_blank" rel="noopener noreferrer" class="block font-mono text-[11px] text-muted hover:text-accent transition break-all" title="{{ . }}">{{ $slug }}</a>
+            {{ end }}
+          </div>
+        </section>
+        {{ end }}
+
         {{ if $refs }}
         <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-2">
           <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">References</h2>
