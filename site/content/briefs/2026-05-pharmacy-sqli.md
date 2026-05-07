@@ -1,8 +1,8 @@
 ---
 title: SourceCodester Pharmacy Sales and Inventory System SQL Injection Vulnerability
 slug: 2026-05-pharmacy-sqli
-description: SourceCodester Pharmacy Sales and Inventory System 1.0 is vulnerable to remote SQL injection via the ID parameter in the /ajax.php?action=delete_customer endpoint, allowing attackers to potentially read, modify, or delete database information.
-date: "2026-05-01T05:16:03Z"
+description: A remote SQL injection vulnerability exists in SourceCodester Pharmacy Sales and Inventory System 1.0 via manipulation of the ID argument in the /ajax.php?action=save_user file, potentially allowing attackers to execute arbitrary SQL queries.
+date: "2026-05-07T19:16:02Z"
 type: advisory
 types:
   - advisory
@@ -11,7 +11,7 @@ severities:
 tags:
   - sql-injection
   - web-application
-  - vulnerability
+  - cve-2026-8083
 vendors:
   - SourceCodester
 products:
@@ -20,59 +20,58 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+    technique_name: Exploit Public Fasing Application
 cves:
-  - id: CVE-2026-7549
+  - id: CVE-2026-8083
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7549
-  - https://github.com/khairulazly760530-cell/cves/issues/3
-  - https://vuldb.com/vuln/360359
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-8083
+  - https://github.com/zhi-cyber/cve-2/issues/1
+  - https://vuldb.com/vuln/361837
 rules:
-  - title: Detect SQL Injection Attempts in Pharmacy Sales System
-    description: Detects potential SQL injection attempts targeting the /ajax.php?action=delete_customer endpoint.
+  - title: Detect Pharmacy Sales SQL Injection in Save User
+    description: Detects SQL injection attempts in the /ajax.php?action=save_user endpoint by identifying suspicious characters and keywords commonly used in SQL injection payloads.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
+      - T1595.002
     data_sources:
       - webserver
       - linux
-  - title: Detect SQL Injection Error Messages in Web Server Logs
-    description: Detects SQL injection attempts based on common error messages returned by the database.
+  - title: Detect Pharmacy Sales SQL Injection via POST
+    description: Detects SQL injection attempts via POST data in the /ajax.php?action=save_user endpoint by identifying suspicious characters and keywords commonly used in SQL injection payloads.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
+      - T1595.002
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-On May 1, 2026, a SQL injection vulnerability, CVE-2026-7549, was disclosed in SourceCodester Pharmacy Sales and Inventory System version 1.0. The vulnerability resides in the `/ajax.php?action=delete_customer` endpoint, where the `ID` parameter is susceptible to manipulation, enabling remote attackers to inject arbitrary SQL commands. Publicly available exploit code exists, increasing the risk of exploitation. Successful exploitation can lead to unauthorized data access, modification, or deletion within the application's database. This vulnerability is particularly concerning due to the sensitive nature of pharmacy data, potentially impacting confidentiality, integrity, and availability.
+SourceCodester Pharmacy Sales and Inventory System 1.0 is vulnerable to SQL injection. The vulnerability, identified as CVE-2026-8083, resides within the /ajax.php?action=save_user file. By manipulating the ID argument, a remote attacker can inject arbitrary SQL code, potentially leading to unauthorized data access, modification, or deletion. The exploit has been publicly disclosed, increasing the risk of exploitation. This vulnerability poses a significant threat to organizations using the affected software, as it can compromise the integrity and confidentiality of sensitive pharmacy and inventory data.
 
 ## Attack Chain
 
-1.  Attacker identifies the vulnerable `/ajax.php?action=delete_customer` endpoint in SourceCodester Pharmacy Sales and Inventory System 1.0.
-2.  Attacker crafts a malicious HTTP request targeting the vulnerable endpoint.
-3.  The malicious request includes a manipulated `ID` parameter containing a SQL injection payload.
-4.  The application fails to properly sanitize the `ID` parameter before incorporating it into a SQL query.
-5.  The injected SQL code is executed against the application's database.
-6.  The attacker gains unauthorized access to sensitive data, such as customer information, prescription details, or inventory levels.
-7.  The attacker may modify or delete data within the database, potentially disrupting pharmacy operations or causing data integrity issues.
+1.  Attacker identifies the vulnerable endpoint: `/ajax.php?action=save_user`.
+2.  Attacker crafts a malicious SQL payload, injecting it into the `ID` parameter of the request.
+3.  The vulnerable application fails to properly sanitize the input provided by the attacker.
+4.  The application executes the crafted SQL query against the database.
+5.  The attacker gains the ability to read sensitive data from the database, such as user credentials, patient information, or inventory details.
+6.  The attacker modifies or deletes data within the database, potentially disrupting pharmacy operations or altering financial records.
 
 ## Impact
 
-Successful exploitation of this SQL injection vulnerability (CVE-2026-7549) can lead to the complete compromise of the SourceCodester Pharmacy Sales and Inventory System database. Attackers could potentially exfiltrate sensitive patient data, modify prescription information, or disrupt pharmacy operations by deleting critical data. The vulnerability has a CVSS v3.1 score of 7.3 (HIGH), indicating a significant risk. The number of victims and specific sectors targeted remain unknown, but any pharmacy using the affected version is potentially at risk.
+Successful exploitation of this SQL injection vulnerability could lead to significant data breaches, including unauthorized access to sensitive patient information, financial records, and inventory data. This could result in regulatory fines, reputational damage, and disruption of pharmacy operations. Given the public availability of the exploit, organizations using SourceCodester Pharmacy Sales and Inventory System 1.0 are at increased risk.
 
 ## Recommendation
 
-*   Apply input validation and sanitization to all user-supplied input, especially the `ID` parameter in `/ajax.php?action=delete_customer`, to prevent SQL injection (CWE-89).
-*   Deploy the Sigma rule "Detect SQL Injection Attempts in Pharmacy Sales System" to identify and block malicious requests targeting the vulnerable endpoint.
-*   Upgrade to a patched version of SourceCodester Pharmacy Sales and Inventory System that addresses CVE-2026-7549 once available.
-*   Monitor web server logs for suspicious activity, such as unusual requests to `/ajax.php?action=delete_customer`, to detect potential exploitation attempts.
+*   Deploy the Sigma rule `Detect_Pharmacy_SQLi_Save_User` to identify attempts to exploit the SQL injection vulnerability in the `/ajax.php?action=save_user` endpoint.
+*   Apply input validation and sanitization to the `ID` parameter in `/ajax.php?action=save_user` to prevent SQL injection, mitigating CVE-2026-8083.
