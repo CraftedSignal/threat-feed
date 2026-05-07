@@ -27,8 +27,10 @@
         "_cs_vendors"     (.Params.vendors | default slice)
         "_cs_actors"      (.Params.actors | default slice)
         "_cs_tags"        (.Params.tags | default slice)
-        "_cs_exploited"   (.Params.exploited | default false)
-        "_cs_cves"        $cves -}}
+        "_cs_exploited"       (.Params.exploited | default false)
+        "_cs_has_poc"         (.Params.has_poc | default false)
+        "_cs_poc_references"  (.Params.poc_references | default slice)
+        "_cs_cves"            $cves -}}
 {{-   $items = $items | append $item -}}
 {{- end -}}
 {{- $feed := dict
