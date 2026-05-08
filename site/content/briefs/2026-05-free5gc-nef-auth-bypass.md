@@ -1,8 +1,8 @@
 ---
-title: free5GC NEF Unauthenticated OAM Route Group
+title: free5GC NEF 3gpp-traffic-influence API Unauthenticated Access
 slug: 2026-05-free5gc-nef-auth-bypass
-description: free5GC's NEF (Network Exposure Function) has an unauthenticated OAM (Operations, Administration, and Maintenance) route group, allowing unauthorized access to OAM functionalities because the `nnef-oam` route group lacks inbound OAuth2/bearer-token authorization, enabling network attackers to access the OAM route without any authentication.
-date: "2026-05-09T10:00:00Z"
+description: An unauthenticated API vulnerability in free5GC's NEF component allows attackers to create, read, patch, and delete traffic-influence subscriptions, potentially redirecting traffic and disrupting network services; the issue affects free5GC v4.2.1 and nef versions <= 1.2.3.
+date: "2026-05-09T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,68 +10,74 @@ severities:
   - critical
 tags:
   - free5GC
-  - NEF
+  - nef
   - authentication bypass
-  - CWE-306
-  - CWE-862
-  - unauthenticated access
+  - traffic influence
+  - cwe-306
+  - cwe-862
 vendors:
   - free5GC
 products:
-  - nef
+  - nef (<= 1.2.3)
+  - free5GC
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1586
-    technique_name: Compromise Appliance
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1555
+    technique_name: Credentials on Network Shares
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1068
+    technique_name: Exploitation for Information Discovery
 references:
-  - https://github.com/advisories/GHSA-cmpj-2x3g-m7g3
-  - https://github.com/free5gc/free5gc/issues/861
+  - https://github.com/advisories/GHSA-3p28-73q7-45xp
+  - https://github.com/free5gc/free5gc/issues/859
   - https://github.com/free5gc/nef/pull/23
 rules:
-  - title: Detect CVE-2026-44327 Attempt — Unauthenticated Access to NEF OAM Route
-    description: Detects CVE-2026-44327 attempt — Unauthenticated GET requests to the NEF OAM route (`/nnef-oam/v1/`) without an Authorization header.
+  - title: Detect Unauthorized Traffic Influence Subscription Creation
+    description: Detects the creation of traffic influence subscriptions without a valid authorization header, indicating a potential authentication bypass.
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - initial_access
     techniques:
-      - T1586.002
+      - T1189
     data_sources:
       - webserver
-  - title: Detect CVE-2026-44327 Successful Access — Unauthenticated 200 OK Response from NEF OAM Route
-    description: Detects CVE-2026-44327 exploitation — 200 OK response from the NEF OAM route (`/nnef-oam/v1/`) following a GET request without an Authorization header.
+  - title: Detect Unauthorized Traffic Influence Subscription Modification
+    description: Detects modification (PATCH) or deletion (DELETE) of traffic influence subscriptions without a valid authorization header, indicating a potential authentication bypass.
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
-      - initial_access
+      - persistence
     techniques:
-      - T1586.002
+      - T1098
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-free5GC's Network Exposure Function (NEF) is vulnerable to an authentication bypass in its Operations, Administration, and Maintenance (OAM) route group. The vulnerability, identified in version v4.2.1, stems from the `nnef-oam` route group being mounted without any inbound OAuth2/bearer-token authorization. This allows a network attacker, who can reach the NEF on the Service Based Interface (SBI), to access the OAM route without providing any authentication credentials. Although the current OAM handler is a stub that returns null, the core issue is the absence of authentication middleware at the route group level. This means that any future OAM operations added to this route group will inherit the same missing authentication boundary, posing a significant risk of unauthorized access to sensitive OAM functionalities. This vulnerability was validated against the NEF container in the official Docker compose lab using the `free5gc/nef:v4.2.0` Docker image and runtime NEF commit `5ce35eab` on 2026-03-11. The reported CVE is CVE-2026-44327.
+free5GC's Network Exposure Function (NEF) component is vulnerable to an unauthenticated API access issue. Specifically, the `3gpp-traffic-influence` API lacks inbound OAuth2/bearer-token authorization, allowing a network attacker with SBI access to create, read, patch, and delete traffic-influence subscriptions without proper authentication. This includes creating `AnyUeInd=true` subscriptions, affecting traffic steering for groups or all UEs. The vulnerability exists even when the service is supposedly disabled via configuration. This issue was validated against NEF container in the official Docker compose lab, source repo tag `v4.2.1`, running Docker image `free5gc/nef:v4.2.0`, runtime NEF commit `5ce35eab` and discovered on 2026-03-11. Successful exploitation can lead to significant disruption of network services.
 
 ## Attack Chain
 
-1. An attacker identifies the NEF service running on the SBI, typically on port 8000.
-2. The attacker sends a GET request to the `/nnef-oam/v1/` endpoint without any `Authorization` header.
-3. The NEF server, lacking inbound authentication middleware for the OAM route group, accepts the request without authentication.
-4. The OAM handler, currently a stub, processes the request and returns a `200 OK` response with a `null` payload.
-5. The attacker probes and enumerates the available OAM route surface to identify potential future endpoints.
-6. If future OAM endpoints are added to the vulnerable route group, the attacker can access them without authentication.
-7. The attacker can potentially perform unauthorized operations such as reading configuration data, modifying settings, or restarting services, depending on the functionality of the future OAM endpoints.
-8. Successful exploitation allows the attacker to compromise the availability and integrity of the 5GC network.
+1. The attacker gains network access to the SBI interface of the free5GC NEF.
+2. The attacker sends a POST request to the `/:afID/subscriptions` endpoint of the `3gpp-traffic-influence` API to create a new traffic-influence subscription. The request may contain no `Authorization` header or a forged bearer token.
+3. The NEF processes the request without authentication, allocating AF/subscription state and writing traffic-influence data, as defined in `NFs/nef/internal/sbi/processor/ti.go:50`.
+4. The attacker sends a PATCH request to `/:afID/subscriptions/:subID` with a forged bearer token to modify the subscription.
+5. The NEF processes the PATCH request, looking up and updating the subscription data, then attempts to call UDR/PCF, as defined in `NFs/nef/internal/sbi/processor/ti.go:279`. While this call might fail, the authentication bypass is confirmed.
+6. Alternatively, the attacker sends a DELETE request to `/:afID/subscriptions/:subID` with a forged bearer token to remove the subscription.
+7. The NEF processes the DELETE request, looking up and removing the subscription, as defined in `NFs/nef/internal/sbi/processor/ti.go:355`.
+8. The attacker successfully manipulates traffic-steering policies, potentially redirecting traffic to attacker-controlled destinations or denying service.
 
 ## Impact
 
-This vulnerability (CVE-2026-44327) allows unauthorized access to the NEF's OAM functionalities. While the current OAM handler is a stub, the lack of authentication on the route group means any future OAM operations will be exposed. An attacker could probe the OAM route surface and access sensitive OAM functionalities in the future. This could allow an attacker to gain unauthorized control over the NEF, potentially disrupting or compromising the 5GC network it supports. Operators who assume OAuth2 is enforced on all NEF interfaces are misled by the `OAuth2 setting receive from NRF: true` configuration, which does not apply to this specific OAM route group.
+This vulnerability allows unauthorized manipulation of traffic-steering policies in the 5GC network. An attacker can create subscriptions to redirect AF traffic, read existing subscriptions to leak policy data, patch subscriptions to modify traffic steering, or delete subscriptions to cause denial of service. The fact that the `3gpp-traffic-influence` route group is reachable even when disabled via the `ServiceList` configuration exacerbates the risk. This can impact all users of the affected free5GC installation.
 
 ## Recommendation
 
-*   Apply the upstream fix available at [https://github.com/free5gc/nef/pull/23](https://github.com/free5gc/nef/pull/23) to remediate the vulnerability.
-*   Monitor network traffic to the NEF SBI for requests to the `/nnef-oam/v1/` endpoint without an `Authorization` header using the provided Sigma rule.
-*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment.
-*   Apply any available patches from free5GC to address CVE-2026-44327 on affected NEF deployments.
+*   Apply the upstream fix available at https://github.com/free5gc/nef/pull/23 to address the authentication bypass.
+*   Deploy the Sigma rule "Detect Unauthorized Traffic Influence Subscription Creation" to detect unauthorized subscription creation attempts (see rule below).
+*   Monitor web server logs for POST, PATCH, and DELETE requests to the `/3gpp-traffic-influence/v1/` endpoint without a valid `Authorization` header, using the example curl commands from the PoC as a baseline.
+*   Block the listed malicious IPs (10.100.200.19, 192.0.2.40, 198.51.100.0, 10.60.0.1, 192.0.2.20, 10.60.0.2) on network devices to prevent potential exploitation attempts.
+*   Ensure that the NEF service is properly configured and secured according to the latest free5GC security guidelines.
