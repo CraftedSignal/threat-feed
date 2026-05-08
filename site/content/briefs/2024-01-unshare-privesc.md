@@ -1,8 +1,8 @@
 ---
-title: Potential Privilege Escalation via unshare and UID Change
+title: Potential Privilege Escalation via unshare Followed by Root Process
 slug: 2024-01-unshare-privesc
-description: This rule detects potential privilege escalation attempts on Linux systems by identifying suspicious use of the `unshare` command to create user namespaces followed by a UID change to root, indicative of local privilege escalation.
-date: "2024-01-09T18:23:00Z"
+description: The rule detects a sequence of events indicating a potential privilege escalation attempt on Linux systems where a non-root user performs namespace activity using unshare, followed by the execution of a root process shortly after.
+date: "2024-01-29T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -11,33 +11,26 @@ severities:
 tags:
   - privilege-escalation
   - linux
-  - unshare
-  - namespace
+  - auditd
 vendors:
   - Elastic
-  - Ubuntu
 products:
-  - Elastic Defend
-  - Elastic Endpoint
-affected_os:
-  - Linux
+  - Auditd Manager
+  - Auditbeat
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1548
-    technique_name: Abuse Elevation Control Mechanism
 references:
-  - https://www.wiz.io/blog/ubuntu-overlayfs-vulnerability
-  - https://twitter.com/liadeliyahu/status/1684841527959273472
+  - https://github.com/elastic/detection-rules/blob/main/rules/linux/privilege_escalation_unshare_to_root_process_auditd_sequence.toml
+  - https://docs.elastic.co/integrations/auditd_manager
+  - https://attack.mitre.org/techniques/T1068/
 rules:
-  - title: Detect Potential Privilege Escalation via unshare and UID Change
-    description: Detects potential privilege escalation attempts by identifying the execution of `unshare` with user namespace arguments followed by a UID change to root.
+  - title: Detect unshare Command Execution by Non-Root User
+    description: Detects execution of the `unshare` command by a non-root user, which may indicate the start of a privilege escalation attempt.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - privilege_escalation
     techniques:
@@ -45,10 +38,10 @@ rules:
     data_sources:
       - process_creation
       - linux
-  - title: Detect unshare Execution from Suspicious Locations
-    description: Detects `unshare` execution from user-writable directories like /tmp or /dev/shm.
+  - title: Detect Root Process Started After unshare
+    description: Detects a root process started shortly after an unshare event, potentially indicating privilege escalation.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - privilege_escalation
     techniques:
@@ -59,27 +52,26 @@ rules:
 rules_count: 2
 ---
 
-This detection rule identifies potential privilege escalation attempts on Linux systems by monitoring the use of the `unshare` command and subsequent UID changes to root. The `unshare` command is used to create new namespaces, including user namespaces, which can be leveraged in exploit chains. Attackers may use `unshare` with user namespace flags as a preliminary step before escalating privileges to root. This behavior can indicate successful exploitation of vulnerabilities, such as those related to OverlayFS, or other local privilege escalation techniques. This detection is intentionally generic to surface multiple local privilege escalation patterns beyond a single CVE. The rule focuses on detecting a sequence of events where a non-root user executes `unshare` with user-namespace related arguments followed by a UID change event indicating the user has become root.
+This detection rule, created by Elastic on May 8, 2026, identifies potential privilege escalation attempts on Linux systems. It focuses on a specific sequence of events where a non-root user utilizes the `unshare` command or syscall to manipulate namespaces, a technique often associated with privilege escalation. Shortly after this namespace activity, a process running as root is executed. This sequence raises suspicion as it could indicate a successful privilege escalation attempt, where a user gains unauthorized root access by exploiting namespace vulnerabilities. This is relevant for defenders as it helps detect and prevent unauthorized access and maintain system integrity. The rule relies on Auditd Manager or Auditbeat telemetry.
 
 ## Attack Chain
 
-1. A non-root user executes the `unshare` command with arguments indicating the creation of a new user namespace (e.g., `-U`, `--user`, `-r`, `-rm`, `m`).
-2. The `unshare` command creates a new user namespace context for the process.
-3. Within the newly created namespace, the attacker attempts to change the user ID (UID) to 0 (root).
-4. The system logs a `uid_change` event, indicating that the user's UID has been changed to 0 within the namespace.
-5. The attacker executes further commands as root within the new namespace.
-6. These commands may involve exploiting vulnerabilities, modifying system files, or installing malicious software.
-7. The attacker may attempt to escape the namespace to gain root privileges on the host system.
-8. The final objective is to gain persistent root access to the system, allowing for complete control and potential data exfiltration or system compromise.
+1. A non-root user executes the `unshare` command or syscall to create or join a new namespace. This is often done to isolate processes and resources.
+2. The `unshare` command is executed with arguments like `--user`, `--map-root-user`, or `--map-current-user`, indicating an attempt to manipulate user namespaces.
+3. The Auditd logs capture the `unshare` syscall with class "namespace" and specific arguments (a0) related to namespace manipulation.
+4. Shortly after the `unshare` activity, a process is spawned that executes with root privileges (UID 0).
+5. The root process could be a common utility like `su`, `sudo`, `pkexec`, `passwd`, `bash`, or `python`.
+6. The attacker leverages the elevated privileges to perform malicious actions, such as installing malware or modifying system configurations.
+7. The attacker attempts to establish persistence by modifying system files or creating new user accounts.
+8. The attacker gains complete control over the compromised system.
 
 ## Impact
 
-Successful exploitation can lead to complete system compromise, allowing the attacker to perform any action with root privileges. This can result in data theft, system disruption, or the installation of backdoors for persistent access. The number of victims can vary depending on the scope of the attack, but even a single successful privilege escalation can have severe consequences. Targeted sectors are broad, including any Linux-based system where unprivileged users have access to the `unshare` command, such as cloud workloads and traditional endpoints.
+A successful privilege escalation can grant an attacker complete control over a Linux system. This allows them to access sensitive data, install malware, modify system configurations, and potentially compromise other systems on the network. The number of victims depends on the scope of the initial compromise and the attacker's objectives. Sectors targeted could include any organization running Linux systems, particularly those with sensitive data or critical infrastructure.
 
 ## Recommendation
 
-*   Deploy the provided Sigma rule to your SIEM to detect suspicious `unshare` usage followed by UID changes (`Potential Privilege Escalation via unshare and UID Change`).
-*   Investigate any detected instances of `unshare` usage with user namespace arguments and subsequent UID changes to root, as described in the rule description.
-*   Review and restrict the use of `unshare` and user namespaces if not required in your environment to mitigate the risk of privilege escalation.
-*   Enable Elastic Defend integration to collect the necessary process and event data required for the Sigma rule to function effectively (Elastic Defend integration).
-*   Monitor process execution for commands run after the `uid_change` event to identify potentially malicious activities.
+*   Enable Auditd Manager or Auditbeat with rules that capture process execution events, namespace-related activity, and privilege transitions as described in the rule [setup section](#setup).
+*   Deploy the provided Sigma rules to your SIEM to detect potential privilege escalation attempts via `unshare`. Tune the rules based on your environment and baseline legitimate `unshare` usage.
+*   Investigate any alerts generated by these rules promptly. Review the auditd logs, process command lines, and network connections associated with the events to determine if the activity is malicious.
+*   Implement additional security measures to prevent privilege escalation, such as principle of least privilege and regular security audits.
