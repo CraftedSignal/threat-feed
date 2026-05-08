@@ -1,91 +1,77 @@
 ---
-title: free5GC NEF Unauthenticated PFD Management API
+title: free5GC NEF Unauthenticated OAM Route Group
 slug: 2026-05-free5gc-nef-auth-bypass
-description: free5GC's NEF component has an unauthenticated API endpoint allowing attackers to create, read, and delete PFD management transactions by bypassing authentication, leading to policy poisoning, data leaks, and denial of service; this affects versions up to v4.2.1.
+description: free5GC's NEF (Network Exposure Function) has an unauthenticated OAM (Operations, Administration, and Maintenance) route group, allowing unauthorized access to OAM functionalities because the `nnef-oam` route group lacks inbound OAuth2/bearer-token authorization, enabling network attackers to access the OAM route without any authentication.
 date: "2026-05-09T10:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - critical
 tags:
   - free5GC
-  - authentication-bypass
-  - pfd-management
-  - network
+  - NEF
+  - authentication bypass
+  - CWE-306
+  - CWE-862
+  - unauthenticated access
 vendors:
   - free5GC
 products:
-  - nef (<=v4.2.1)
+  - nef
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1555
-    technique_name: Credentials from Password Stores
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1555
-    technique_name: Credentials from Password Stores
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1068
-    technique_name: Exploitation for Credential Access
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1586
+    technique_name: Compromise Appliance
 references:
-  - https://github.com/advisories/GHSA-5f62-53r8-qrqf
-  - https://github.com/free5gc/free5gc/issues/858
+  - https://github.com/advisories/GHSA-cmpj-2x3g-m7g3
+  - https://github.com/free5gc/free5gc/issues/861
   - https://github.com/free5gc/nef/pull/23
-iocs:
-  - type: url
-    value: http://10.100.200.19:8000/3gpp-traffic-influence/v1/af-poc-pfd2/subscriptions
-  - type: url
-    value: http://10.100.200.19:8000/3gpp-pfd-management/v1/af-poc-pfd2/transactions
-ioc_counts:
-  url: 2
 rules:
-  - title: Detect free5GC NEF Unauthenticated PFD Transaction Creation
-    description: Detects CVE-2026-44315 exploitation — Creation of PFD transactions in free5GC NEF without proper authentication by monitoring POST requests to the /transactions endpoint with suspicious authorization headers.
+  - title: Detect CVE-2026-44327 Attempt — Unauthenticated Access to NEF OAM Route
+    description: Detects CVE-2026-44327 attempt — Unauthenticated GET requests to the NEF OAM route (`/nnef-oam/v1/`) without an Authorization header.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
       - initial_access
     techniques:
-      - T1190
+      - T1586.002
     data_sources:
       - webserver
-  - title: Detect free5GC NEF Unauthenticated PFD Management Access
-    description: Detects CVE-2026-44315 exploitation — Attempts to access PFD management API endpoints in free5GC NEF without proper authentication by monitoring GET and DELETE requests to /transactions/{transID} endpoint with suspicious authorization headers.
+  - title: Detect CVE-2026-44327 Successful Access — Unauthenticated 200 OK Response from NEF OAM Route
+    description: Detects CVE-2026-44327 exploitation — 200 OK response from the NEF OAM route (`/nnef-oam/v1/`) following a GET request without an Authorization header.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
       - initial_access
     techniques:
-      - T1190
+      - T1586.002
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-The free5GC NEF (Network Exposure Function) component, in versions up to v4.2.1, exposes a critical security vulnerability in its `3gpp-pfd-management` API. This API lacks proper inbound authentication and authorization controls. A network attacker who can reach the NEF on the SBI (Service Based Interface) can exploit this flaw to create, read, and delete PFD (PFD-management) transaction states using arbitrary bearer tokens. The route group remains accessible even when operators attempt to disable it via configuration settings. This issue was validated against the NEF container in the official Docker compose lab, specifically version v4.2.0 with runtime commit `5ce35eab`.  The vulnerability allows attackers to manipulate policy and traffic routing within the 5G network.
+free5GC's Network Exposure Function (NEF) is vulnerable to an authentication bypass in its Operations, Administration, and Maintenance (OAM) route group. The vulnerability, identified in version v4.2.1, stems from the `nnef-oam` route group being mounted without any inbound OAuth2/bearer-token authorization. This allows a network attacker, who can reach the NEF on the Service Based Interface (SBI), to access the OAM route without providing any authentication credentials. Although the current OAM handler is a stub that returns null, the core issue is the absence of authentication middleware at the route group level. This means that any future OAM operations added to this route group will inherit the same missing authentication boundary, posing a significant risk of unauthorized access to sensitive OAM functionalities. This vulnerability was validated against the NEF container in the official Docker compose lab using the `free5gc/nef:v4.2.0` Docker image and runtime NEF commit `5ce35eab` on 2026-03-11. The reported CVE is CVE-2026-44327.
 
 ## Attack Chain
 
-1.  Attacker gains network access to the SBI of the free5GC NEF.
-2.  Attacker crafts a malicious HTTP POST request to `/3gpp-traffic-influence/v1/af-poc-pfd2/subscriptions` with a forged bearer token to seed an AF context.
-3.  Attacker crafts a malicious HTTP POST request to `/3gpp-pfd-management/v1/af-poc-pfd2/transactions` with a forged bearer token, containing attacker-controlled PFD data, to create a new PFD transaction.
-4.  The NEF, lacking authentication, accepts the forged token and creates the PFD transaction, writing the data to the UDR (User Data Repository).
-5.  Attacker crafts a malicious HTTP GET request to `/3gpp-pfd-management/v1/af-poc-pfd2/transactions/{transID}` with a forged bearer token to read the created transaction.
-6.  Attacker crafts a malicious HTTP DELETE request to `/3gpp-pfd-management/v1/af-poc-pfd2/transactions/{transID}` with a forged bearer token to delete the PFD transaction.
-7.  The NEF, lacking authorization, processes the DELETE request, removing the PFD transaction state from the UDR.
-8.  Downstream components (SMF/UPF) now use poisoned policy state based on the forged PFD transactions, leading to traffic misclassification or denial of service.
+1. An attacker identifies the NEF service running on the SBI, typically on port 8000.
+2. The attacker sends a GET request to the `/nnef-oam/v1/` endpoint without any `Authorization` header.
+3. The NEF server, lacking inbound authentication middleware for the OAM route group, accepts the request without authentication.
+4. The OAM handler, currently a stub, processes the request and returns a `200 OK` response with a `null` payload.
+5. The attacker probes and enumerates the available OAM route surface to identify potential future endpoints.
+6. If future OAM endpoints are added to the vulnerable route group, the attacker can access them without authentication.
+7. The attacker can potentially perform unauthorized operations such as reading configuration data, modifying settings, or restarting services, depending on the functionality of the future OAM endpoints.
+8. Successful exploitation allows the attacker to compromise the availability and integrity of the 5GC network.
 
 ## Impact
 
-The unauthenticated `3gpp-pfd-management` API allows attackers to manipulate PFD transactions within the free5GC NEF, potentially affecting all subscribers. By creating attacker-controlled PFD transactions, they can poison policy state used by SMF/UPF for traffic classification. Attackers can also read existing PFD transactions to leak AF-supplied policy data or delete PFD transactions to cause denial of service. The fact that the API is reachable even when disabled via configuration increases the attack surface and the risk. Successful exploitation could lead to widespread service disruption, data breaches, and financial losses.
+This vulnerability (CVE-2026-44327) allows unauthorized access to the NEF's OAM functionalities. While the current OAM handler is a stub, the lack of authentication on the route group means any future OAM operations will be exposed. An attacker could probe the OAM route surface and access sensitive OAM functionalities in the future. This could allow an attacker to gain unauthorized control over the NEF, potentially disrupting or compromising the 5GC network it supports. Operators who assume OAuth2 is enforced on all NEF interfaces are misled by the `OAuth2 setting receive from NRF: true` configuration, which does not apply to this specific OAM route group.
 
 ## Recommendation
 
-*   Apply the official patch available in the upstream fix [https://github.com/free5gc/nef/pull/23](https://github.com/free5gc/nef/pull/23) to remediate the vulnerability.
-*   Deploy the Sigma rule "Detect free5GC NEF Unauthenticated PFD Transaction Creation" to identify attempts to create PFD transactions with forged tokens.
-*   Deploy the Sigma rule "Detect free5GC NEF Unauthenticated PFD Management Access" to detect unauthorized access attempts to the PFD management API.
-*   Monitor network traffic to the NEF on the SBI for suspicious activity and forged authorization headers, specifically using the IOCs provided in this brief.
-*   Ensure that the NEF is properly configured with appropriate firewall rules to restrict access to authorized entities only.
+*   Apply the upstream fix available at [https://github.com/free5gc/nef/pull/23](https://github.com/free5gc/nef/pull/23) to remediate the vulnerability.
+*   Monitor network traffic to the NEF SBI for requests to the `/nnef-oam/v1/` endpoint without an `Authorization` header using the provided Sigma rule.
+*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment.
+*   Apply any available patches from free5GC to address CVE-2026-44327 on affected NEF deployments.
