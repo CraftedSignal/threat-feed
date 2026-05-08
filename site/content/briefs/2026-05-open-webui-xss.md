@@ -1,71 +1,63 @@
 ---
-title: Open-WebUI Stored XSS Vulnerability via Model Description
+title: Open WebUI Stored XSS Vulnerability in Excel File Preview
 slug: 2026-05-open-webui-xss
-description: 'Open-WebUI is vulnerable to stored cross-site scripting (XSS) where an authenticated user with model creation permissions can inject a malicious model description containing a javascript: URI within a markdown link that, when clicked, executes arbitrary JavaScript in another user''s browser, potentially leading to session hijacking; this affects versions v0.3.5 through v0.8.12.'
-date: "2026-05-08T19:00:28Z"
-type: advisory
+description: Open WebUI is vulnerable to stored XSS when previewing Excel files; a crafted XLSX file can embed an XSS payload into the generated HTML, leading to arbitrary code execution when the file is previewed, allowing attackers to create weaponized chats and potentially compromise user sessions or gain RCE.
+date: "2026-05-09T12:00:00Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
-cpes:
-  - cpe:2.3:a:openwebui:open_webui:0.3.8:*:*:*:*:*:*:*
 tags:
   - xss
+  - stored-xss
   - open-webui
-  - web-application
 vendors:
-  - npm
-  - pip
+  - Open WebUI
 products:
-  - open-webui (<= 0.8.12)
-cves:
-  - id: CVE-2024-7990
-    cvss: 8.4
-    epss: 0.00293
+  - open-webui (<= 0.7.2)
 references:
-  - https://github.com/advisories/GHSA-gf5m-wcrh-7928
+  - https://github.com/advisories/GHSA-jwf8-pv5p-vhmc
 rules:
-  - title: Detect Open-WebUI Model Creation with Javascript URI
-    description: 'Detects the creation of Open-WebUI models with descriptions containing javascript: URIs, indicating a potential XSS attack.'
+  - title: Detects CVE-2026-44549 Exploitation — Open WebUI Excel File XSS
+    description: Detects CVE-2026-44549 exploitation — attempts to exploit the Open WebUI Excel file XSS vulnerability by searching for script tags or onerror attributes in the server response.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     data_sources:
       - webserver
-  - title: Detect Open-WebUI Token Exfiltration via HTTP Server Logs
-    description: Detects potential Open-WebUI access token exfiltration attempts by monitoring HTTP server logs for access attempts containing 'localStorage.token'.
+  - title: Detects CVE-2026-44549 Exploitation — Open WebUI Excel File XSS with alert
+    description: Detects CVE-2026-44549 exploitation — attempts to trigger an alert box in Open WebUI by exploiting the Excel file XSS vulnerability.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - exfiltration
-    techniques:
-      - T1041
+      - initial_access
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-Open-WebUI versions v0.3.5 through v0.8.12 are susceptible to a stored cross-site scripting (XSS) vulnerability. This flaw allows authenticated users with model creation permissions to inject malicious JavaScript code into the model description field. When other users, including administrators, view the affected model's description in the chat UI and click the specially crafted markdown link, the injected JavaScript code executes within their browsers. This can lead to session hijacking, sensitive data theft, or other unauthorized actions. The vulnerability stems from insufficient sanitization of user-supplied model descriptions before rendering them in the user interface. The issue is resolved in version v0.9.0. This vulnerability is distinct from CVE-2024-7990, as it leverages a different bypass mechanism involving markdown links with javascript: URIs.
+Open WebUI is susceptible to a stored cross-site scripting (XSS) vulnerability due to unsafe handling of Excel file previews. Specifically, a maliciously crafted XLSX file can inject arbitrary HTML and JavaScript code into the generated preview, which is then executed in the user's browser. This is due to the `sheet_to_html` function from the sheetjs library not sanitizing the HTML output. An attacker can exploit this vulnerability by crafting a weaponized chat with a malicious XLSX attachment, which when previewed by a victim, triggers the XSS payload. Versions of Open WebUI up to and including 0.7.2 are affected. Successful exploitation could lead to session hijacking and potentially remote code execution on the server.
 
 ## Attack Chain
 
-1. An attacker authenticates to the Open-WebUI instance with an account that has model creation permissions (workspace.models).
-2. The attacker crafts a malicious model description containing a markdown link with a `javascript:` URI (e.g., `[text](javascript:alert())`).
-3. The attacker uses the `/api/v1/models/create` endpoint to create a new model with the malicious description.
-4. The Open-WebUI application stores the unsanitized model description in the database.
-5. A victim user (including an administrator) navigates to the chat UI and views the model with the malicious description.
-6. The application retrieves the model description from the database and renders it using `sanitizeResponseContent`, `replaceAll('\n', '<br>')`, `marked.parse()`, and `{@html ...}`.
-7. The `marked.parse()` function converts the markdown link into an `<a href="javascript:...">` HTML element.
-8. The victim user clicks on the malicious link, triggering the execution of the JavaScript code within their browser. This could exfiltrate the user's access token via a crafted `javascript:` url.
+1. An attacker crafts a malicious XLSX file containing an XSS payload within a cell using a tool like xlsxwriter.
+2. The attacker uploads this malicious XLSX file as an attachment in Open WebUI.
+3. The attacker shares the chat or sends the file directly to the victim.
+4. The victim opens the chat containing the malicious attachment.
+5. The victim clicks on the attachment to open the file modal.
+6. The victim selects the preview tab in the file modal, triggering the XLSX to HTML conversion.
+7. The vulnerable `sheet_to_html` function processes the XLSX file and embeds the malicious XSS payload into the generated HTML.
+8. The generated HTML, now containing the XSS payload, is injected into the DOM unsanitized, causing the payload to execute. The payload can then perform actions such as stealing session cookies or executing arbitrary JavaScript code.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to execute arbitrary JavaScript code within the context of a victim's browser. This can lead to a variety of malicious outcomes, including session hijacking, theft of sensitive information (such as access tokens), defacement of the user interface, and potentially, remote code execution if combined with other vulnerabilities. Given the ability to steal admin tokens, attackers can create new tools to execute arbitrary code, which impacts all Open-WebUI users.
+Successful exploitation of this vulnerability allows an attacker to execute arbitrary JavaScript code in the context of the victim's browser within the Open WebUI application. This can lead to session hijacking, where the attacker gains control of the victim's account. Furthermore, administrators are at risk of remote code execution (RCE) on the server by chaining this vulnerability with other vulnerabilities in Open WebUI. The impact affects all users of Open WebUI up to version 0.7.2 who interact with shared files.
 
 ## Recommendation
 
-*   Upgrade Open-WebUI to version v0.9.0 or later, where the output of `marked.parse()` is wrapped with `DOMPurify.sanitize()` to mitigate the XSS vulnerability.
-*   Deploy the Sigma rule "Detect Open-WebUI Model Creation with Javascript URI" to identify attempts to create models with malicious descriptions.
-*   Review existing model descriptions for suspicious content, particularly markdown links with `javascript:` URIs, and remove or sanitize any identified malicious entries.
+*   Apply the vendor-provided patch or upgrade to a version of Open WebUI greater than 0.7.2.
+*   Deploy the following Sigma rule to detect attempts to exploit CVE-2026-44549 by detecting malicious script tags in the response HTML.
+*   Implement input sanitization using DOMPurify or a similar library to sanitize the HTML generated from XLSX files before rendering it in the DOM, as recommended in the advisory.
+*   Educate users about the risks of opening attachments from untrusted sources, even within trusted applications.
