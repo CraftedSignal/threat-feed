@@ -14,7 +14,6 @@ tags:
   - privilege_escalation
   - web_application
 vendors:
-  - GitHub
   - l3montree-dev
 products:
   - devguard

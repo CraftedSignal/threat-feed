@@ -12,8 +12,6 @@ tags:
   - jupyterlab
   - command-execution
   - html-injection
-vendors:
-  - GitHub
 products:
   - jupyterlab (<= 4.5.6)
   - notebook (>= 7.0.0, <= 7.5.5)

@@ -17,7 +17,6 @@ vendors:
   - Elastic
   - Microsoft
   - Atlassian
-  - GitHub
 products:
   - Copilot
   - Cursor

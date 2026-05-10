@@ -13,8 +13,6 @@ tags:
   - javascript
   - marked
   - vulnerability
-vendors:
-  - npm
 products:
   - marked
 mitre_ttps:

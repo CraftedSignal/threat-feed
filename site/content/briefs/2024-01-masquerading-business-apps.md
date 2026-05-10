@@ -28,7 +28,6 @@ vendors:
   - Google
   - Okta
   - Brave
-  - GitHub
   - Notion
 products:
   - Elastic Defend

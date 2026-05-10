@@ -18,7 +18,6 @@ tags:
   - pypi
   - email-bombing
 vendors:
-  - npm
   - Microsoft
   - ConnectWise
 products:

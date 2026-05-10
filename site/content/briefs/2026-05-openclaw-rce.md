@@ -12,8 +12,6 @@ tags:
   - rce
   - supply-chain
   - javascript
-vendors:
-  - npm
 products:
   - openclaw
 mitre_ttps:

@@ -12,8 +12,6 @@ tags:
   - ssrf
   - magicmirror
   - cve-2026-42281
-vendors:
-  - npm
 products:
   - magicmirror (<= 2.35.0)
 mitre_ttps:

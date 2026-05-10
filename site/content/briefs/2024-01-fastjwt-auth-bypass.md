@@ -13,8 +13,6 @@ tags:
   - authentication-bypass
   - vulnerability
   - fast-jwt
-vendors:
-  - npm
 products:
   - fast-jwt (<= 6.2.3)
 mitre_ttps:

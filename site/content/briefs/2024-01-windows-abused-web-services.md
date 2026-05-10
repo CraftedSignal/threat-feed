@@ -14,7 +14,6 @@ tags:
   - initial-access
   - windows
 vendors:
-  - GitHub
   - Dropbox
   - NGROK
   - Cloudflare

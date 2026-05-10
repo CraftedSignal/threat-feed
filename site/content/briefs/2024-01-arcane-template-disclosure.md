@@ -12,8 +12,6 @@ tags:
   - information-disclosure
   - vulnerability
   - arcane
-vendors:
-  - GitHub
 products:
   - Arcane (before 1.18.0)
 mitre_ttps:

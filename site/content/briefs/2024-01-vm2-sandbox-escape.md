@@ -13,8 +13,6 @@ tags:
   - sandbox-escape
   - denial-of-service
   - nodejs
-vendors:
-  - npm
 products:
   - vm2 (<= 3.10.5)
 mitre_ttps:

@@ -15,8 +15,6 @@ tags:
   - cve-2026-42035
   - authentication-bypass
   - privilege-escalation
-vendors:
-  - npm
 products:
   - axios (>= 1.0.0, < 1.15.1)
   - axios (<= 0.31.0)

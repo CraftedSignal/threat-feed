@@ -13,8 +13,6 @@ tags:
   - dos
   - memory-exhaustion
   - vm2
-vendors:
-  - npm
 products:
   - vm2 (<= 3.10.5)
 mitre_ttps:

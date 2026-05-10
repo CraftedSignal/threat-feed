@@ -13,8 +13,6 @@ tags:
   - oauth
   - id_collision
   - vulnerability
-vendors:
-  - GitHub
 products:
   - auth
   - auth/v2

@@ -13,8 +13,6 @@ tags:
   - oauth
   - n8n
   - CVE-2026-42235
-vendors:
-  - npm
 products:
   - n8n
 mitre_ttps:

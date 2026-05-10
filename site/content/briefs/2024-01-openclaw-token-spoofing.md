@@ -12,8 +12,6 @@ tags:
   - vulnerability
   - npm
   - token spoofing
-vendors:
-  - npm
 products:
   - openclaw
 mitre_ttps:

@@ -13,8 +13,6 @@ tags:
   - vulnerability
   - ipv6
   - defense-evasion
-vendors:
-  - npm
 products:
   - dssrf (< 1.3.0)
 references:

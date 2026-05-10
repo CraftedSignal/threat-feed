@@ -13,8 +13,6 @@ tags:
   - xxe
   - dom
   - xmldom
-vendors:
-  - npm
 products:
   - '@xmldom/xmldom'
   - xmldom

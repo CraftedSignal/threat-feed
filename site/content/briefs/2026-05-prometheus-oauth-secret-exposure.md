@@ -12,8 +12,6 @@ tags:
   - credential-access
   - configuration-exposure
   - cloud
-vendors:
-  - GitHub
 products:
   - prometheus/prometheus
 mitre_ttps:

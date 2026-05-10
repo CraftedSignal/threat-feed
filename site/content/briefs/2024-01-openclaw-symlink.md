@@ -13,8 +13,6 @@ tags:
   - symlink
   - race-condition
   - npm
-vendors:
-  - npm
 products:
   - openclaw (<= 2026.4.21)
 mitre_ttps:

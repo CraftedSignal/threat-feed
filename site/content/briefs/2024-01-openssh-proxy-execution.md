@@ -15,7 +15,6 @@ tags:
   - application-control-bypass
 vendors:
   - Elastic
-  - Microsoft
   - SentinelOne
   - Crowdstrike
 products:

@@ -24,7 +24,6 @@ vendors:
   - Telegram
   - Facebook
   - Trello
-  - GitHub
   - Supabase
 products:
   - Elastic Defend

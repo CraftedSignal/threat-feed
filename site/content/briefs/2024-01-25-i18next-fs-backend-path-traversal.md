@@ -14,8 +14,6 @@ tags:
   - arbitrary-file-read
   - arbitrary-file-write
   - code-execution
-vendors:
-  - npm
 products:
   - i18next-fs-backend
 mitre_ttps:

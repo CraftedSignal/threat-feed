@@ -13,8 +13,6 @@ tags:
   - http-response-splitting
   - denial-of-service
   - i18next
-vendors:
-  - npm
 products:
   - i18next-http-middleware
 mitre_ttps:

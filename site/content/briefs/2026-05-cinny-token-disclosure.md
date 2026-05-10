@@ -12,8 +12,6 @@ tags:
   - credential-access
   - web-application
   - token-theft
-vendors:
-  - GitHub
 products:
   - cinny
 mitre_ttps:

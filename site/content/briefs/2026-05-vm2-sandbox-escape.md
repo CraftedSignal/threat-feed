@@ -12,8 +12,6 @@ tags:
   - sandbox-escape
   - prototype-pollution
   - javascript
-vendors:
-  - npm
 products:
   - vm2 (3.9.6 - 3.10.5)
 mitre_ttps:

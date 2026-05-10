@@ -16,7 +16,6 @@ tags:
   - credential-theft
   - github
 vendors:
-  - npm
   - GitHub
   - SAP
   - Bitwarden

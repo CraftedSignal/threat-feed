@@ -12,8 +12,6 @@ tags:
   - sandbox-escape
   - vm2
   - code-execution
-vendors:
-  - npm
 products:
   - vm2 (<= 3.11.0)
 mitre_ttps:

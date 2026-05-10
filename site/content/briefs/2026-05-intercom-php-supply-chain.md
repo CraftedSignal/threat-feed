@@ -16,7 +16,6 @@ tags:
   - github
 vendors:
   - Intercom
-  - GitHub
 products:
   - intercom-php
 mitre_ttps:

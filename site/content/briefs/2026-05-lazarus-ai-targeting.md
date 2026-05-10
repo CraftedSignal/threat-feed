@@ -22,7 +22,6 @@ tags:
   - north-korea
 vendors:
   - Anthropic
-  - GitHub
   - LinkedIn
   - Bybit
 products:

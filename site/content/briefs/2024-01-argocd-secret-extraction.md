@@ -13,8 +13,6 @@ tags:
   - secret-extraction
   - kubernetes
   - credential-access
-vendors:
-  - GitHub
 products:
   - argo-cd
 mitre_ttps:

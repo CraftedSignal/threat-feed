@@ -13,8 +13,6 @@ tags:
   - daptin
   - github
   - fuzzy-search
-vendors:
-  - GitHub
 products:
   - daptin/daptin
 mitre_ttps:

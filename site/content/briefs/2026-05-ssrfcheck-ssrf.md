@@ -12,8 +12,6 @@ tags:
   - ssrf
   - vulnerability
   - node.js
-vendors:
-  - npm
 products:
   - ssrfcheck (<= 1.3.0)
 mitre_ttps:

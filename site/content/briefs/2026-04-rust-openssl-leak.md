@@ -13,8 +13,6 @@ tags:
   - memory-leak
   - tls
   - cve
-vendors:
-  - Microsoft
 cves:
   - id: CVE-2026-41898
     cvss: 9.8

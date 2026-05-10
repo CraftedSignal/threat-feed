@@ -12,8 +12,6 @@ tags:
   - ldap
   - denial-of-service
   - rust
-vendors:
-  - GitHub
 products:
   - ldap3_proto (< 0.7.1)
 mitre_ttps:

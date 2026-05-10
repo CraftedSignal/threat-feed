@@ -12,8 +12,6 @@ tags:
   - argument-injection
   - exiftool
   - cve-2026-43893
-vendors:
-  - npm
 products:
   - exiftool-vendored (<= 35.18.0)
 mitre_ttps:

@@ -14,8 +14,6 @@ tags:
   - npm
   - npx
   - supply-chain
-vendors:
-  - npm
 products:
   - '@evomap/evolver (<= 1.70.0-beta.4)'
 mitre_ttps:

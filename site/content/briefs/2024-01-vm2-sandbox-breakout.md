@@ -10,10 +10,7 @@ severities:
   - critical
 tags:
   - sandbox-escape
-  - rce
   - javascript
-vendors:
-  - npm
 products:
   - vm2 (<= 3.11.1)
 mitre_ttps:

@@ -13,7 +13,6 @@ tags:
   - credential-theft
   - npm
 vendors:
-  - npm
   - GitHub
   - Amazon
   - Google

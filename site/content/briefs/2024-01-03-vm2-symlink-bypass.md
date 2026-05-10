@@ -12,8 +12,6 @@ tags:
   - sandbox-escape
   - remote-code-execution
   - symlink
-vendors:
-  - npm
 products:
   - vm2 (3.10.5)
 mitre_ttps:

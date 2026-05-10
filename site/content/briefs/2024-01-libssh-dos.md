@@ -13,8 +13,6 @@ tags:
   - libssh
   - CVE-2026-0967
   - defense-evasion
-vendors:
-  - Microsoft
 products:
   - libssh
 affected_os:

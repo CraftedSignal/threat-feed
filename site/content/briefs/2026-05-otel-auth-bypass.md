@@ -15,7 +15,6 @@ tags:
   - jwt
 vendors:
   - Microsoft
-  - GitHub
   - OpenTelemetry
 products:
   - opentelemetry-collector-contrib

@@ -17,7 +17,6 @@ vendors:
   - Splunk
   - Elastic
   - Cloudflare
-  - GitHub
 products:
   - Splunk
   - Elasticsearch
