@@ -14,7 +14,7 @@
 {{-     $cves = $cves | append $cveItem -}}
 {{-   end -}}
 {{-   $item := dict
-        "id"              .RelPermalink
+        "id"              .Permalink
         "url"             .Permalink
         "title"           .Title
         "summary"         (or .Params.description .Summary)
@@ -34,11 +34,12 @@
         "_cs_cves"            $cves -}}
 {{-   $items = $items | append $item -}}
 {{- end -}}
+{{- $feedURL := (.OutputFormats.Get "jsonfeed").Permalink -}}
 {{- $feed := dict
       "version"        "https://jsonfeed.org/version/1.1"
       "title"          (printf "%s — %s" .Site.Title (.Title | default "All briefs"))
       "home_page_url"  .Site.Home.Permalink
-      "feed_url"       .Permalink
+      "feed_url"       $feedURL
       "description"    (or .Description .Site.Params.description)
       "language"       .Language.Lang
       "items"          $items -}}
