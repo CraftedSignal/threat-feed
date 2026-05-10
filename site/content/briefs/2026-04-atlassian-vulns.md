@@ -124,7 +124,7 @@ Atlassian's April 21, 2026 security bulletin patches 26 CVEs across Bamboo, Bitb
 
 ## Attack Chain
 
-1.  **Initial Access:** An attacker identifies a vulnerable Atlassian product instance (Bamboo, Bitbucket, Confluence, or Jira) accessible over the network.
+1.  **Initial Access:** An attacker identifies a vulnerable Atlassian product instance (Bamboo, Bitbucket, Confluence, Jira, or Jira Service Management) accessible over the network.
 2.  **Vulnerability Exploitation:** The attacker leverages an unknown vulnerability to inject malicious code into the application, possibly through a crafted HTTP request.
 3.  **Code Execution:** The injected code executes within the context of the Atlassian application, allowing the attacker to run arbitrary commands on the server.
 4.  **Privilege Escalation:** The attacker leverages the initial code execution to escalate privileges, potentially gaining root or administrator access.
@@ -141,5 +141,5 @@ Successful exploitation of these vulnerabilities could result in significant dam
 
 *   Deploy the Sigma rules provided in this brief to detect potential exploitation attempts targeting Atlassian products.
 *   Monitor web server logs for suspicious activity, especially HTTP requests targeting Atlassian applications, to detect potential vulnerability exploitation.
-*   Enable and review audit logs within Atlassian products (Bamboo, Bitbucket, Confluence, Jira) for suspicious activity.
+*   Enable and review audit logs within Atlassian products (Bamboo, Bitbucket, Confluence, Jira, Jira Service Management) for suspicious activity.
 *   Implement network segmentation to limit the potential impact of a successful breach originating from a compromised Atlassian server.
