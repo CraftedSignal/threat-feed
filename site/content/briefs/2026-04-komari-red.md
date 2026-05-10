@@ -18,7 +18,6 @@ tags:
 vendors:
   - Microsoft
   - Fortinet
-  - GitHub
 products:
   - Defender
   - FortiGate

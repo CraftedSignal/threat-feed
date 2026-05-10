@@ -12,8 +12,6 @@ tags:
   - path-traversal
   - defense-evasion
   - javascript
-vendors:
-  - npm
 products:
   - fast-uri (<= 3.1.0)
 mitre_ttps:

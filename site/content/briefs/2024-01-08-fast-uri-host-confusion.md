@@ -13,8 +13,6 @@ tags:
   - url-parsing
   - fast-uri
   - cve-2026-6322
-vendors:
-  - npm
 products:
   - fast-uri (<= 3.1.1)
 mitre_ttps:

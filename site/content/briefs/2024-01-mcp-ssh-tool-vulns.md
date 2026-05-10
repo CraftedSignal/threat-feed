@@ -11,9 +11,6 @@ severities:
 tags:
   - path-traversal
   - timing-attack
-  - npm
-vendors:
-  - npm
 products:
   - mcp-ssh-tool
 references:

@@ -13,8 +13,6 @@ tags:
   - redirect_bypass
   - account_takeover
   - web_application
-vendors:
-  - GitHub
 products:
   - github.com/lin-snow/Ech0 (< 1.4.8-0.20260503040728-a7e8b8e84bd1)
 mitre_ttps:

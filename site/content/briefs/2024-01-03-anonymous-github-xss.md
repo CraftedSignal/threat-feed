@@ -13,8 +13,6 @@ tags:
   - github
   - unsanitized-input
   - client-side-vulnerability
-vendors:
-  - GitHub
 products:
   - github.com
   - '@tdurieux/anonymous_github (vulnerable: = 2.2.0)'

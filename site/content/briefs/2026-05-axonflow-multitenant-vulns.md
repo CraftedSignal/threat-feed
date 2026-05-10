@@ -16,7 +16,6 @@ tags:
   - vulnerability
 vendors:
   - AxonFlow
-  - GitHub
 products:
   - axonflow platform
   - try.getaxonflow.com

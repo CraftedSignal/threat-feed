@@ -12,8 +12,6 @@ tags:
   - path-traversal
   - file-deletion
   - web-application
-vendors:
-  - GitHub
 products:
   - filebrowser
   - github.com

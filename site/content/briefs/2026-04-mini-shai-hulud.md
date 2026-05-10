@@ -17,7 +17,6 @@ tags:
   - credential-theft
 vendors:
   - SAP
-  - GitHub
 products:
   - Cloud Application Programming (CAP)
   - Cloud MTA Build Tool

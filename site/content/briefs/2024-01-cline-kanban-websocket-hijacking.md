@@ -15,7 +15,6 @@ tags:
   - infoleak
   - dos
 vendors:
-  - npm
   - cline
 products:
   - cline

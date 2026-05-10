@@ -14,7 +14,6 @@ tags:
   - rce
   - supply_chain
 vendors:
-  - GitHub
   - sherlock-project
 products:
   - sherlock-project/sherlock

@@ -14,7 +14,6 @@ tags:
   - pelican
 vendors:
   - Pelican
-  - GitHub
 products:
   - pelicanplatform/pelican
   - github.com

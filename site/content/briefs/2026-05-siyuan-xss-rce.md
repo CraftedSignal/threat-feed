@@ -13,8 +13,6 @@ tags:
   - rce
   - siyuan
   - cve-2026-44670
-vendors:
-  - GitHub
 products:
   - siyuan-note/siyuan/kernel
 mitre_ttps:

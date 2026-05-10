@@ -12,8 +12,6 @@ tags:
   - jwt
   - account-takeover
   - vulnerability
-vendors:
-  - GitHub
 products:
   - note-mark/backend
 mitre_ttps:
