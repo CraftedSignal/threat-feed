@@ -16,7 +16,9 @@ vendors:
   - Jenkins
   - Microsoft
 products:
-  - Credentials Binding PluginPluginBranch Source Plugin
+  - Credentials Binding Plugin
+  - GitHub Plugin
+  - GitHub Branch Source Plugin
   - HTML Publisher Plugin
   - Matrix Authorization Strategy Plugin
   - Microsoft Entra ID (previously Azure AD) Plugin
