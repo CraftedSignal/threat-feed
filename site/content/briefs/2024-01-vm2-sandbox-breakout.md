@@ -10,6 +10,7 @@ severities:
   - critical
 tags:
   - sandbox-escape
+  - rce
   - javascript
 products:
   - vm2 (<= 3.11.1)

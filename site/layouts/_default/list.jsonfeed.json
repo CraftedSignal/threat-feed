@@ -44,6 +44,6 @@
       "language"       .Language.Lang
       "items"          $items -}}
 {{- if $paginator.HasNext -}}
-{{-   $feed = merge $feed (dict "next_url" $paginator.Next.URL) -}}
+{{-   $feed = merge $feed (dict "next_url" ($paginator.Next.URL | absURL)) -}}
 {{- end -}}
 {{- $feed | jsonify (dict "indent" "  ") | safeJS -}}
