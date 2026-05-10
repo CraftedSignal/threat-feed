@@ -39,7 +39,59 @@ mitre_ttps:
     technique_name: Service Stop
 cves:
   - id: CVE-2026-21571
+    cvss: 9.4
+  - id: CVE-2022-1471
+    cvss: 9.8
+  - id: CVE-2024-47875
+    cvss: 10.0
+  - id: CVE-2021-31597
+    cvss: 9.4
+  - id: CVE-2026-25547
+    cvss: 9.2
+  - id: CVE-2026-33871
+    cvss: 8.7
+  - id: CVE-2026-24880
+    cvss: 7.5
+  - id: CVE-2026-33870
+    cvss: 7.5
+  - id: CVE-2026-24734
+    cvss: 7.5
+  - id: CVE-2026-25639
+    cvss: 7.5
+  - id: CVE-2024-45801
+    cvss: 7.3
+  - id: CVE-2022-25927
+    cvss: 7.5
+  - id: CVE-2026-23950
+    cvss: 8.8
+  - id: CVE-2026-29063
+    cvss: 8.7
+  - id: CVE-2026-23745
+    cvss: 8.2
+  - id: CVE-2026-24842
+    cvss: 8.2
+  - id: CVE-2026-31802
+    cvss: 8.2
+  - id: CVE-2026-22029
+    cvss: 8.0
+  - id: CVE-2026-26960
+    cvss: 7.1
+  - id: CVE-2025-66020
+    cvss: 7.5
+  - id: CVE-2024-29371
+    cvss: 7.5
+  - id: CVE-2023-48631
+    cvss: 7.5
+  - id: CVE-2025-48734
+    cvss: 8.8
+  - id: CVE-2021-0341
+    cvss: 7.5
+  - id: CVE-2023-1370
+    cvss: 7.5
+  - id: CVE-2023-3635
+    cvss: 7.5
 references:
+  - https://confluence.atlassian.com/security/security-bulletin-april-21-2026-1770913890.html
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1229
 rules:
   - title: Detect Suspicious HTTP Requests to Atlassian Products
@@ -67,7 +119,7 @@ rules:
 rules_count: 2
 ---
 
-Multiple vulnerabilities exist in Atlassian's Bamboo, Bitbucket, Confluence, and Jira products. While specific CVEs are not detailed in this advisory, the potential impact is significant. An attacker exploiting these vulnerabilities could achieve arbitrary code execution, allowing for complete system compromise. They could also bypass security measures, potentially disabling logging or other security controls. Data manipulation and disclosure could lead to sensitive information compromise and unauthorized modifications. Cross-site scripting (XSS) attacks could be leveraged to steal user credentials or perform actions on behalf of unsuspecting users. Defenders need to ensure the Atlassian suite is fully patched and monitored.
+Atlassian's April 21, 2026 security bulletin patches 26 CVEs across Bamboo, Bitbucket, Confluence, Jira, and Jira Service Management — including four rated Critical. The highest-severity issue is CVE-2024-47875 (CVSS 10.0), a mutation XSS vulnerability in the dompurify dependency affecting Jira and JSM. CVE-2022-1471 (CVSS 9.8) enables remote code execution via a YAML deserialization flaw in org.yaml:snakeyaml, affecting Confluence, Jira, and JSM. CVE-2026-21571 (CVSS 9.4) allows OS command injection in Bamboo Data Center and Server. CVE-2021-31597 (CVSS 9.4) is a man-in-the-middle vulnerability in Jira Service Management via the xmlhttprequest dependency. The remaining 22 vulnerabilities are rated High and cover DoS (netty, axios, okio, brace-expansion, snakeyaml), HTTP request smuggling (Tomcat, Netty), path traversal and file inclusion (node-tar), and additional XSS issues. All vulnerabilities stem from third-party dependencies bundled in Atlassian products.
 
 ## Attack Chain
 
