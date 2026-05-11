@@ -1,72 +1,74 @@
 ---
 title: IBM App Connect Enterprise Multiple Vulnerabilities
 slug: 2026-05-ibm-app-connect-vulns
-description: Multiple vulnerabilities in IBM App Connect Enterprise could allow an attacker to execute arbitrary code, bypass security measures, perform cross-site scripting, and manipulate data.
-date: "2026-05-08T10:11:25Z"
+description: A remote, anonymous attacker can exploit multiple vulnerabilities in IBM App Connect Enterprise to bypass security measures, manipulate data, and disclose confidential information, enabling further attacks.
+date: "2026-05-11T11:03:25Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - medium
 tags:
   - vulnerability
-  - code-execution
-  - xss
+  - data-manipulation
+  - information-disclosure
 vendors:
   - IBM
 products:
   - App Connect Enterprise
 mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.004
-    technique_name: Command and Scripting Interpreter
   - tactic_id: TA0005
     tactic_name: Defense Evasion
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1157
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1450
 rules:
-  - title: Detect Potential Code Execution Attempts on IBM App Connect Enterprise
-    description: Detects potential attempts to exploit code execution vulnerabilities in IBM App Connect Enterprise via suspicious HTTP requests.
-    platform: sigma
-    severity: high
-    tactics:
-      - defense_evasion
-      - execution
-    data_sources:
-      - webserver
-  - title: Detect Potential XSS Attempts on IBM App Connect Enterprise
-    description: Detects potential attempts to exploit XSS vulnerabilities in IBM App Connect Enterprise via suspicious HTTP requests.
+  - title: Detect Suspicious Requests to IBM App Connect Enterprise
+    description: Detects suspicious HTTP requests to IBM App Connect Enterprise endpoints indicative of potential vulnerability exploitation.
     platform: sigma
     severity: medium
     tactics:
-      - defense_evasion
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+  - title: Detect Unusual HTTP Methods on IBM App Connect Enterprise
+    description: Detects unusual HTTP methods used on IBM App Connect Enterprise, which could indicate malicious activity.
+    platform: sigma
+    severity: low
+    tactics:
+      - discovery
+    techniques:
+      - T1068
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-Multiple vulnerabilities exist within IBM App Connect Enterprise that could be exploited by an attacker to achieve various malicious objectives. These include the ability to execute arbitrary code, circumvent security protocols, perform cross-site scripting (XSS) attacks, and manipulate sensitive data. Successful exploitation of these vulnerabilities could lead to significant compromise of the affected system and the information it processes. Defenders should apply appropriate mitigations to prevent potential exploitation.
+Multiple vulnerabilities exist within IBM App Connect Enterprise, potentially allowing an unauthenticated remote attacker to bypass security measures, manipulate data, and disclose sensitive information. These actions could then be leveraged to facilitate further attacks. The vulnerabilities stem from insufficient input validation and authentication controls within the application. IBM App Connect Enterprise is an integration platform that allows businesses to connect applications and data across a variety of environments. Exploitation could lead to significant data breaches and disruption of business operations. Defenders should apply necessary patches and monitor for suspicious activity.
 
 ## Attack Chain
 
-1.  The attacker identifies a vulnerable IBM App Connect Enterprise instance.
-2.  The attacker crafts a malicious request targeting a specific vulnerability, such as a code execution flaw.
-3.  The request is sent to the targeted App Connect Enterprise instance via HTTP/HTTPS.
-4.  If successful, arbitrary code is executed on the server hosting App Connect Enterprise.
-5.  The attacker leverages the code execution vulnerability to bypass existing security measures.
-6.  The attacker injects malicious scripts into web pages served by App Connect Enterprise, leading to XSS.
-7.  The XSS vulnerability is used to manipulate data displayed to users, potentially stealing credentials or sensitive information.
-8.  The attacker exploits the vulnerabilities to gain unauthorized access and manipulate data within the application.
+1. An unauthenticated attacker identifies a vulnerable endpoint within IBM App Connect Enterprise.
+2. The attacker sends a crafted request to the vulnerable endpoint, exploiting an input validation flaw.
+3. The application processes the malicious request, bypassing authentication checks due to the vulnerability.
+4. The attacker leverages the bypassed authentication to access sensitive data within the application.
+5. The attacker modifies data within the application due to insufficient authorization controls.
+6. The attacker gains unauthorized access to additional internal systems or resources.
+7. The attacker exfiltrates sensitive information obtained through the compromised application.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities could result in arbitrary code execution, allowing attackers to gain full control of the affected systems. The ability to bypass security measures can lead to further compromise and data breaches. Cross-site scripting vulnerabilities can be used to steal user credentials or inject malicious content, potentially impacting all users of the application. The manipulation of data could lead to financial loss or reputational damage for the affected organization.
+Successful exploitation of these vulnerabilities can lead to security bypass, data manipulation, and sensitive information disclosure. This could result in unauthorized access to internal systems, data breaches, and significant disruption to business operations. While the number of potential victims is currently unknown, any organization using a vulnerable version of IBM App Connect Enterprise is at risk.
 
 ## Recommendation
 
-*   Deploy the Sigma rule detecting potential code execution attempts targeting IBM App Connect Enterprise to your SIEM environment and tune accordingly.
-*   Deploy the Sigma rule detecting potential XSS attempts targeting IBM App Connect Enterprise to your SIEM environment and tune accordingly.
-*   Monitor web server logs for suspicious activity and patterns related to exploitation attempts, as detected by the Sigma rules.
+*   Deploy the Sigma rule that detects suspicious requests to IBM App Connect Enterprise endpoints to identify potential exploitation attempts.
+*   Monitor network traffic for unusual data flows originating from IBM App Connect Enterprise servers to detect potential data exfiltration.
+*   Review IBM App Connect Enterprise access logs for suspicious activity indicative of unauthorized access.
