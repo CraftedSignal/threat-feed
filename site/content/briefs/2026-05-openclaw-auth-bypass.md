@@ -1,78 +1,72 @@
 ---
-title: OpenClaw Authorization Bypass Vulnerability (CVE-2026-44110)
+title: OpenClaw Improper Authentication Vulnerability (CVE-2026-8305)
 slug: 2026-05-openclaw-auth-bypass
-description: OpenClaw before 2026.4.15 contains an authorization bypass vulnerability that allows attackers with DM-paired sender IDs to execute room control commands without being in configured allowlists, potentially enabling privileged OpenClaw behavior by posting in bot rooms.
-date: "2026-05-06T20:16:34Z"
+description: OpenClaw versions up to 2026.1.24 are vulnerable to improper authentication in the handleBlueBubblesWebhookRequest function, allowing remote exploitation and requiring an upgrade to version 2026.2.12 or application of patch a6653be0265f1f02b9de46c06f52ea7c81a836e6 to remediate CVE-2026-8305.
+date: "2026-05-11T18:21:45Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - authorization bypass
-  - matrix
-  - bot
-vendors:
-  - OpenClaw
+  - cve-2026-8305
+  - authentication-bypass
+  - openclaw
 products:
-  - OpenClaw
+  - OpenClaw <= 2026.1.24
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public Fasing Application
 cves:
-  - id: CVE-2026-44110
-    cvss: 8.8
+  - id: CVE-2026-8305
+    cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-44110
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-2gvc-4f3c-2855
-  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-in-matrix-room-control-commands-via-dm-pairing-store
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-8305
 rules:
-  - title: Detect OpenClaw Room Control Command Abuse
-    description: Detects suspicious Matrix messages indicative of OpenClaw room control command abuse
+  - title: Detects CVE-2026-8305 Exploitation Attempt — OpenClaw BlueBubbles Webhook Authentication Bypass
+    description: Detects CVE-2026-8305 exploitation attempt — Monitors web server logs for requests targeting the handleBlueBubblesWebhookRequest endpoint, potentially indicating an authentication bypass attempt.
     platform: sigma
     severity: high
     tactics:
-      - privilege_escalation
+      - initial_access
     techniques:
-      - T1068
+      - T1190
+      - T1555.003
     data_sources:
       - webserver
-      - linux
-  - title: Detect OpenClaw DM Pairing Activity
-    description: Detects direct messages to the OpenClaw bot that might indicate pairing activity.
+  - title: Detects CVE-2026-8305 Exploitation Attempt - OpenClaw handleBlueBubblesWebhookRequest
+    description: Detects CVE-2026-8305 exploitation attempt - Monitors web server logs for requests containing 'handleBlueBubblesWebhookRequest' in the URI, potentially indicating an authentication bypass attempt.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - initial_access
+    techniques:
+      - T1190
+      - T1555.003
     data_sources:
       - webserver
-      - linux
 rules_count: 2
 ---
 
-OpenClaw, a Matrix bot, is vulnerable to an authorization bypass (CVE-2026-44110) affecting versions prior to 2026.4.15. This vulnerability stems from the Matrix room control-command authorization logic trusting DM pairing-store entries without proper validation against configured allowlists. An attacker who has established a DM pairing with the bot can exploit this flaw to execute room control commands by posting in bot rooms, even if they are not explicitly authorized. This can lead to unauthorized modification of room settings or execution of other privileged bot functionalities. The vulnerability was reported by VulnCheck and patched in version 2026.4.15. Defenders should upgrade to the latest version of OpenClaw to mitigate this risk.
+OpenClaw versions up to 2026.1.24 are susceptible to an improper authentication vulnerability, identified as CVE-2026-8305. The flaw resides in the `handleBlueBubblesWebhookRequest` function within the `extensions/bluebubbles/src/monitor.ts` file of the bluebubbles Webhook component. Successful exploitation allows a remote attacker to bypass authentication mechanisms. Public exploits are available, increasing the urgency for remediation. Users are advised to upgrade to version 2026.2.12 or apply the patch `a6653be0265f1f02b9de46c06f52ea7c81a836e6` to mitigate the risk. This vulnerability poses a significant threat due to the potential for unauthorized access and control over affected systems.
 
 ## Attack Chain
 
-1.  Attacker establishes a direct message (DM) pairing with the OpenClaw bot.
-2.  The bot stores the DM pairing information.
-3.  Attacker identifies a bot room where OpenClaw is active.
-4.  Attacker crafts a room control command, such as a command to change room settings.
-5.  Attacker posts the malicious command within the bot room.
-6.  OpenClaw receives the command and incorrectly trusts the DM pairing-store entry for authorization.
-7.  OpenClaw executes the room control command with elevated privileges, bypassing configured allowlists.
-8.  The attacker successfully modifies the room settings or triggers other privileged behavior.
+1.  Attacker identifies an OpenClaw instance running a vulnerable version (<= 2026.1.24).
+2.  Attacker crafts a malicious request targeting the `handleBlueBubblesWebhookRequest` function.
+3.  The crafted request exploits the improper authentication vulnerability (CVE-2026-8305) within the `extensions/bluebubbles/src/monitor.ts` file.
+4.  The vulnerable function fails to properly validate the request, allowing the attacker to bypass authentication.
+5.  The attacker gains unauthorized access to sensitive functionalities or data.
+6.  Attacker performs malicious actions, such as modifying system settings or exfiltrating data.
 
 ## Impact
 
-Successful exploitation of CVE-2026-44110 allows unauthorized users to execute privileged commands within Matrix rooms controlled by OpenClaw. This could result in significant disruption, including unauthorized modification of room settings, disclosure of sensitive information, or other malicious activities enabled by OpenClaw's functionality. The severity is compounded by the ease of exploitation, requiring only a pre-existing DM pairing with the bot. The impact depends on the specific functionalities and permissions granted to the OpenClaw bot within the affected Matrix environment.
+Successful exploitation of CVE-2026-8305 can lead to unauthorized access to OpenClaw instances. This can result in a compromise of sensitive data, modification of system configurations, and potential disruption of services. The availability of public exploits increases the likelihood of widespread attacks, potentially affecting any OpenClaw instance running a vulnerable version. Organizations using OpenClaw should prioritize patching or upgrading to mitigate this vulnerability.
 
 ## Recommendation
 
-*   Upgrade OpenClaw to version 2026.4.15 or later to patch CVE-2026-44110 (see References).
-*   Review and restrict the permissions granted to the OpenClaw bot within Matrix rooms to minimize potential impact from unauthorized command execution.
-*   Implement the Sigma rule "Detect OpenClaw Room Control Command Abuse" to identify suspicious command activity within bot rooms.
-*   Monitor Matrix room activity logs for unauthorized modifications or actions performed by the OpenClaw bot.
-*   Enable logging of Matrix bot commands to aid in investigation and auditing of potential authorization bypass attempts.
+*   Upgrade OpenClaw to version 2026.2.12 or apply the patch `a6653be0265f1f02b9de46c06f52ea7c81a836e6` to remediate CVE-2026-8305.
+*   Monitor web server logs for suspicious requests targeting the `handleBlueBubblesWebhookRequest` function. Deploy the Sigma rule targeting cs-uri-stem to detect potential exploitation attempts.
+*   Implement network segmentation to limit the impact of a successful breach.
