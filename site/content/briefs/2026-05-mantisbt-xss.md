@@ -1,8 +1,8 @@
 ---
-title: MantisBT Stored HTML Injection/XSS Vulnerability in Clone Issue Form (CVE-2026-34463)
+title: MantisBT Stored XSS Vulnerability in Saved-Filter Owner Column (CVE-2026-40607)
 slug: 2026-05-mantisbt-xss
-description: MantisBT versions 2.28.1 and earlier are vulnerable to stored HTML injection/XSS in the clone issue form, where improper escaping of the source project name allows attackers with manager or administrator access to inject malicious HTML when cloning issues from different projects, although this is mitigated by CSP.
-date: "2026-05-11T19:36:12Z"
+description: MantisBT versions 2.1.0 through 2.28.1 are vulnerable to stored cross-site scripting (XSS) due to improper escaping of the saved-filter owner field, allowing attackers with Manager access or higher to inject arbitrary HTML when the `$g_show_user_realname` configuration option is enabled.
+date: "2026-05-11T19:38:13Z"
 type: advisory
 types:
   - advisory
@@ -10,66 +10,58 @@ severities:
   - high
 tags:
   - xss
-  - html-injection
+  - stored-xss
   - mantisbt
-  - CVE-2026-34463
+  - cve-2026-40607
 vendors:
   - composer
   - MantisBT
 products:
-  - mantisbt/mantisbt (<= 2.28.1)
-  - MantisBT
-mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+  - mantisbt/mantisbt (>= 2.1.0, <= 2.28.1)
 references:
-  - https://github.com/advisories/GHSA-fvjf-68wh-rwp2
-  - CVE-2026-34463
+  - https://github.com/advisories/GHSA-f633-865q-2mhh
+  - CVE-2026-40607
 rules:
-  - title: Detect MantisBT Project Name Modification with HTML Injection (CVE-2026-34463)
-    description: Detects CVE-2026-34463 exploitation — modification of MantisBT project names to include HTML tags, indicative of potential XSS vulnerability exploitation.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-  - title: Detect MantisBT Clone Issue Form Request with HTML in Project Name (CVE-2026-34463)
-    description: Detects CVE-2026-34463 exploitation — HTTP request to the MantisBT clone issue form where the project name contains HTML.
+  - title: Detect MantisBT Stored XSS Attempt
+    description: Detects CVE-2026-40607 exploitation — Detects creation of a saved filter containing potentially malicious JavaScript code in the owner realname.
     platform: sigma
     severity: medium
     tactics:
       - initial_access
-    techniques:
-      - T1190
     data_sources:
       - webserver
+  - title: Detect MantisBT show_user_realname Configuration
+    description: Detects attempts to set the `$g_show_user_realname` setting to 'ON' or similar values that might expose real names and trigger XSS.
+    platform: sigma
+    severity: low
+    tactics:
+      - defense_evasion
+    data_sources:
+      - file_event
+      - linux
 rules_count: 2
 ---
 
-MantisBT versions 2.28.1 and earlier are susceptible to a stored HTML injection/cross-site scripting (XSS) vulnerability in the clone issue form. This flaw arises when cloning an issue from a project different from the current one. The `bug_report_page.php` script prepends the source project's name to the category selector without proper escaping. An attacker with sufficient privileges (typically *manager* or *administrator* level) to modify a project's name can inject arbitrary HTML. This injected HTML is then rendered in the clone issue form, potentially leading to XSS attacks. The vulnerability is identified as CVE-2026-34463. Note that the impact is somewhat mitigated by the presence of Content Security Policy (CSP), which restricts script execution.
+MantisBT versions 2.1.0 to 2.28.1 are susceptible to a stored cross-site scripting (XSS) vulnerability (CVE-2026-40607) within the saved filter functionality. This vulnerability arises from the improper sanitization of the filter owner's name when `$g_show_user_realname` is enabled, which leads to arbitrary HTML injection. By default, only users with Manager access level or above can save filters publicly, making them the primary targets or vectors for exploitation. Successful exploitation allows attackers to execute malicious JavaScript code within the context of other users' sessions, potentially leading to session hijacking, defacement, or sensitive information disclosure. The vulnerability was discovered and reported by siunam (Tang Cheuk Hei).
 
 ## Attack Chain
 
-1. Attacker gains *manager* or *administrator* access to a MantisBT project.
-2. Attacker modifies the project name to include malicious HTML, such as `<script>alert('XSS')</script>`.
-3. A user views an issue in a different project than the project whose name has been modified.
-4. The user attempts to clone the issue using the clone issue form (`bug_report_page.php`).
-5. The clone issue form prepends the malicious project name to the category selector without proper escaping.
-6. The injected HTML is rendered in the user's browser.
-7. If CSP is not properly configured or can be bypassed, the injected script executes, potentially allowing the attacker to steal cookies, redirect the user, or deface the application.
-8. The attacker could potentially escalate privileges or gain unauthorized access to sensitive information.
+1. An attacker with Manager or Administrator privileges logs into a vulnerable MantisBT instance.
+2. The attacker creates a new saved filter.
+3. In the filter creation process, the attacker crafts a malicious payload containing JavaScript code within their user realname field in their profile settings.
+4. The attacker saves the filter, which stores the malicious payload in the database due to insufficient output escaping.
+5. Another user with access to the saved filter views the list of saved filters.
+6. The MantisBT application retrieves the saved filter data from the database, including the attacker's crafted payload within the owner's real name.
+7. Because `$g_show_user_realname` is enabled, the application displays the filter owner's real name without proper sanitization, executing the malicious JavaScript code in the victim's browser.
+8. The attacker successfully executes arbitrary JavaScript code in the victim's session, potentially stealing cookies, redirecting to malicious sites, or performing other unauthorized actions.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows attackers with *manager* or *administrator* privileges to inject arbitrary HTML and potentially execute malicious JavaScript code in the context of other users' browsers. This could lead to session hijacking, defacement of the MantisBT application, or unauthorized access to sensitive information. The impact is mitigated to some extent by the presence of Content Security Policy (CSP), which limits the actions that injected scripts can perform. The number of victims and sectors targeted is dependent on the specific MantisBT instance and its user base.
+Successful exploitation of this XSS vulnerability could lead to account compromise, sensitive data leakage, and website defacement. Since the vulnerability requires Manager or Admin access to create a malicious filter, it could lead to privilege escalation if an attacker compromises a Manager account. The number of potential victims depends on the MantisBT instance's user base. Organizations using vulnerable versions of MantisBT for bug tracking and project management are at risk.
 
 ## Recommendation
 
-*   Upgrade MantisBT to a version later than 2.28.1, which includes the patch `df22697ae497ddd93f3d9132fdf4979db8d081cd` to remediate the vulnerability.
-*   As a workaround, ensure that project names in MantisBT do not contain any HTML tags, as mentioned in the advisory.
-*   Deploy the Sigma rule "Detect MantisBT Project Name Modification with HTML Injection (CVE-2026-34463)" to detect attempts to inject HTML into project names.
+*   Upgrade MantisBT to a patched version beyond 2.28.1 to remediate CVE-2026-40607.
+*   As a workaround, disable the display of users' real names by setting `$g_show_user_realname = OFF;` in the MantisBT configuration to prevent the XSS payload from rendering.
+*   Restrict the ability to store filters by setting `$g_stored_query_create_threshold` and `$g_stored_query_create_shared_threshold` to `NOBODY` to prevent unauthorized users from creating malicious filters.
+*   Deploy the Sigma rule "Detect MantisBT Stored XSS Attempt" to identify potential exploitation attempts through filter creation containing suspicious JavaScript code.
