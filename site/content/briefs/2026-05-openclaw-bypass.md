@@ -1,68 +1,80 @@
 ---
-title: OpenClaw Vulnerability Allows Security Bypass
+title: OpenClaw Gateway Config Mutation Guard Bypass (CVE-2026-45001)
 slug: 2026-05-openclaw-bypass
-description: A remote, authenticated attacker can exploit a vulnerability in OpenClaw to bypass security measures, potentially leading to unauthorized access or control.
-date: "2026-05-06T06:11:07Z"
+description: OpenClaw before 2026.4.20 contains a guard bypass vulnerability in the agent-facing gateway config.patch and config.apply endpoints, allowing a prompt-injected model with access to the owner-only gateway tool to persist unauthorized changes to protected operator settings.
+date: "2026-05-11T18:18:40Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
-  - defense-evasion
+  - cve
   - vulnerability
 vendors:
   - OpenClaw
 products:
   - OpenClaw
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1555
-    technique_name: Credentials from Password Stores
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+cves:
+  - id: CVE-2026-45001
+    cvss: 7.1
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1174
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-45001
+  - https://github.com/openclaw/openclaw/commit/fe30b31a97a917ecc6e92f6c85378b6b20352422
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-7jm2-g593-4qrc
+  - https://www.vulncheck.com/advisories/openclaw-gateway-config-mutation-guard-bypass-via-agent-tool-access
 rules:
-  - title: Detect OpenClaw Security Bypass Attempt
-    description: Detects attempts to bypass security measures in OpenClaw based on abnormal requests.
+  - title: Detect OpenClaw Unauthorized Configuration Change via config.patch/config.apply
+    description: Detects CVE-2026-45001 exploitation — HTTP POST to config.patch or config.apply endpoints indicating potential unauthorized configuration changes
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+  - title: Detect OpenClaw Gateway Tool Access
+    description: Detects access to the OpenClaw gateway tool, which is required for exploiting CVE-2026-45001.
     platform: sigma
     severity: medium
     tactics:
-      - defense_evasion
+      - privilege_escalation
+    techniques:
+      - T1068
     data_sources:
       - webserver
-      - linux
-  - title: Detect OpenClaw Security Bypass Authentication Anomalies
-    description: Detects attempts to bypass security measures in OpenClaw based on authentication anomalies.
-    platform: sigma
-    severity: low
-    tactics:
-      - defense_evasion
-    data_sources:
-      - webserver
-      - linux
 rules_count: 2
 ---
 
-A vulnerability exists within OpenClaw that allows a remote, authenticated attacker to bypass implemented security precautions. This means that an attacker who has already gained some level of access or credentials can leverage this flaw to escalate privileges, access restricted functionalities, or circumvent other security controls designed to protect the OpenClaw system. The specific details of the vulnerability are not provided, but successful exploitation could have serious implications for the security and integrity of systems relying on OpenClaw. Defenders should prioritize identifying and patching this vulnerability to prevent potential exploitation.
+OpenClaw before version 2026.4.20 is vulnerable to a guard bypass in its agent-facing gateway. The vulnerability resides in the `config.patch` and `config.apply` endpoints. This flaw allows a prompt-injected model that has access to the owner-only gateway tool to bypass intended restrictions. By exploiting this vulnerability, an attacker can modify operator-trusted settings, which includes sandbox policy, plugin enablement, gateway authentication and TLS configuration, hook routing, MCP server configuration, SSRF policy, and filesystem hardening measures. This bypass could lead to significant compromise of the OpenClaw environment, enabling unauthorized access and control.
 
 ## Attack Chain
 
-1. The attacker gains initial access to a system running OpenClaw through legitimate credentials or by exploiting another vulnerability.
-2. The attacker authenticates to the OpenClaw application.
-3. The attacker crafts a specific request to trigger the vulnerability in OpenClaw.
-4. The OpenClaw application processes the malicious request, failing to properly enforce security controls.
-5. The attacker bypasses intended access restrictions due to the vulnerability.
-6. The attacker gains unauthorized access to sensitive data or functionalities within the OpenClaw system.
-7. The attacker may escalate privileges to gain further control over the OpenClaw environment.
+1. An attacker gains initial access to an OpenClaw system.
+2. The attacker identifies a prompt injection vulnerability within a model accessible to the gateway tool.
+3. The attacker crafts a malicious prompt that exploits the injection vulnerability.
+4. The attacker uses the compromised model to access the owner-only gateway tool.
+5. The attacker leverages the `config.patch` or `config.apply` endpoints to submit unauthorized configuration changes.
+6. The bypassed guard allows the unauthorized configuration changes to persist.
+7. The attacker modifies critical settings such as sandbox policy, plugin enablement, or gateway authentication.
+8. The attacker establishes persistent control over the OpenClaw environment, potentially leading to data exfiltration or further attacks.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to bypass security measures implemented within OpenClaw. This can lead to unauthorized access to sensitive data, modification of critical system settings, or complete compromise of the OpenClaw application. The impact is highly dependent on the specific role and permissions of the compromised account and the security controls that are bypassed.
+Successful exploitation of CVE-2026-45001 can lead to a complete compromise of the OpenClaw environment. Attackers can modify security policies, enable malicious plugins, bypass authentication mechanisms, and reconfigure server settings. The consequences include unauthorized access to sensitive data, the introduction of malicious functionality, and the potential for lateral movement to other systems.
 
 ## Recommendation
 
-*   Investigate OpenClaw systems for unusual activity and unauthorized access attempts.
-*   Monitor authentication logs for suspicious login patterns related to OpenClaw.
-*   Apply any available patches or updates for OpenClaw as soon as they are released by the vendor.
-*   Implement the Sigma rule provided below to detect potential exploitation attempts.
+*   Upgrade OpenClaw to version 2026.4.20 or later to patch CVE-2026-45001.
+*   Implement the Sigma rule "Detect OpenClaw Unauthorized Configuration Change via config.patch/config.apply" to identify potential exploitation attempts based on HTTP endpoint access.
+*   Enforce strict access controls to the owner-only gateway tool, limiting access to authorized personnel only.
