@@ -1,67 +1,72 @@
 ---
-title: MantisBT Stored XSS Vulnerability in Saved-Filter Owner Column (CVE-2026-40607)
+title: MantisBT Vulnerable to Stored XSS in File Download
 slug: 2026-05-mantisbt-xss
-description: MantisBT versions 2.1.0 through 2.28.1 are vulnerable to stored cross-site scripting (XSS) due to improper escaping of the saved-filter owner field, allowing attackers with Manager access or higher to inject arbitrary HTML when the `$g_show_user_realname` configuration option is enabled.
-date: "2026-05-11T19:38:13Z"
-type: advisory
+description: MantisBT is vulnerable to stored cross-site scripting (XSS) via file_download.php by using the `show_inline=1` parameter with a valid CSRF token to upload a crafted XHTML attachment referencing a JavaScript attachment, leading to arbitrary code execution.
+date: "2026-05-11T19:42:20Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 tags:
   - xss
-  - stored-xss
   - mantisbt
-  - cve-2026-40607
+  - github advisory
 vendors:
   - composer
-  - MantisBT
 products:
-  - mantisbt/mantisbt (>= 2.1.0, <= 2.28.1)
+  - mantisbt/mantisbt (<= 2.28.1)
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1055
+    technique_name: Process Injection
 references:
-  - https://github.com/advisories/GHSA-f633-865q-2mhh
-  - CVE-2026-40607
+  - https://github.com/advisories/GHSA-p6fr-rxq7-xcg8
+  - CVE-2026-44657
 rules:
-  - title: Detect MantisBT Stored XSS Attempt
-    description: Detects CVE-2026-40607 exploitation — Detects creation of a saved filter containing potentially malicious JavaScript code in the owner realname.
+  - title: Detect MantisBT XSS via file_download.php
+    description: Detects CVE-2026-44657 exploitation - Suspicious access to file_download.php with show_inline parameter, potentially indicative of XSS attempts.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1055
+    data_sources:
+      - webserver
+  - title: Detect MantisBT Suspicious Attachment Uploads
+    description: Detects suspicious attachment uploads to MantisBT with potential XSS vectors. This looks for XHTML files referencing JavaScript files which are common XSS attack vectors.
     platform: sigma
     severity: medium
     tactics:
       - initial_access
+    techniques:
+      - T1189
     data_sources:
       - webserver
-  - title: Detect MantisBT show_user_realname Configuration
-    description: Detects attempts to set the `$g_show_user_realname` setting to 'ON' or similar values that might expose real names and trigger XSS.
-    platform: sigma
-    severity: low
-    tactics:
-      - defense_evasion
-    data_sources:
-      - file_event
-      - linux
 rules_count: 2
 ---
 
-MantisBT versions 2.1.0 to 2.28.1 are susceptible to a stored cross-site scripting (XSS) vulnerability (CVE-2026-40607) within the saved filter functionality. This vulnerability arises from the improper sanitization of the filter owner's name when `$g_show_user_realname` is enabled, which leads to arbitrary HTML injection. By default, only users with Manager access level or above can save filters publicly, making them the primary targets or vectors for exploitation. Successful exploitation allows attackers to execute malicious JavaScript code within the context of other users' sessions, potentially leading to session hijacking, defacement, or sensitive information disclosure. The vulnerability was discovered and reported by siunam (Tang Cheuk Hei).
+MantisBT, a web-based bug tracking system, is vulnerable to a stored cross-site scripting (XSS) attack. The vulnerability exists in the `file_download.php` script. By exploiting this flaw, an attacker can inject malicious JavaScript code into the application, which will be executed in the context of other users' browsers when they access the affected functionality. The vulnerability is triggered when processing file downloads, specifically when the `show_inline=1` parameter is used in conjunction with a valid `file_show_inline_token` CSRF token. This allows an attacker to upload a crafted XHTML attachment that references a JavaScript attachment. The vulnerability affects MantisBT versions 2.28.1 and earlier. This can lead to account takeover, sensitive data leakage, and other malicious activities.
 
 ## Attack Chain
 
-1. An attacker with Manager or Administrator privileges logs into a vulnerable MantisBT instance.
-2. The attacker creates a new saved filter.
-3. In the filter creation process, the attacker crafts a malicious payload containing JavaScript code within their user realname field in their profile settings.
-4. The attacker saves the filter, which stores the malicious payload in the database due to insufficient output escaping.
-5. Another user with access to the saved filter views the list of saved filters.
-6. The MantisBT application retrieves the saved filter data from the database, including the attacker's crafted payload within the owner's real name.
-7. Because `$g_show_user_realname` is enabled, the application displays the filter owner's real name without proper sanitization, executing the malicious JavaScript code in the victim's browser.
-8. The attacker successfully executes arbitrary JavaScript code in the victim's session, potentially stealing cookies, redirecting to malicious sites, or performing other unauthorized actions.
+1.  Attacker authenticates to MantisBT as a user with permissions to upload attachments.
+2.  Attacker crafts a malicious JavaScript file (e.g., `evil.js`) containing the XSS payload.
+3.  Attacker crafts a malicious XHTML file (e.g., `evil.xhtml`) that includes the JavaScript file using `<script src="evil.js"></script>`.
+4.  Attacker obtains a valid CSRF token for the `file_show_inline_token` parameter.
+5.  Attacker uploads both the `evil.js` and `evil.xhtml` files as attachments to a MantisBT issue.
+6.  Attacker crafts a request to `file_download.php` with the `show_inline=1` parameter, the valid CSRF token, and the file IDs of the uploaded `evil.xhtml` attachment.
+7.  A victim user clicks a link (or is redirected) to the crafted `file_download.php` URL.
+8.  The server serves the `evil.xhtml` file inline, which executes the embedded `evil.js` JavaScript in the victim's browser, allowing the attacker to perform actions on behalf of the victim.
 
 ## Impact
 
-Successful exploitation of this XSS vulnerability could lead to account compromise, sensitive data leakage, and website defacement. Since the vulnerability requires Manager or Admin access to create a malicious filter, it could lead to privilege escalation if an attacker compromises a Manager account. The number of potential victims depends on the MantisBT instance's user base. Organizations using vulnerable versions of MantisBT for bug tracking and project management are at risk.
+Successful exploitation of this vulnerability allows an attacker to execute arbitrary JavaScript code in the context of a victim's browser. This can lead to a variety of malicious activities, including session hijacking, defacement of the MantisBT interface, theft of sensitive information, or further exploitation of the MantisBT server or the victim's machine. Given the nature of bug tracking systems, successful exploitation could impact multiple users within an organization, potentially leading to widespread compromise.
 
 ## Recommendation
 
-*   Upgrade MantisBT to a patched version beyond 2.28.1 to remediate CVE-2026-40607.
-*   As a workaround, disable the display of users' real names by setting `$g_show_user_realname = OFF;` in the MantisBT configuration to prevent the XSS payload from rendering.
-*   Restrict the ability to store filters by setting `$g_stored_query_create_threshold` and `$g_stored_query_create_shared_threshold` to `NOBODY` to prevent unauthorized users from creating malicious filters.
-*   Deploy the Sigma rule "Detect MantisBT Stored XSS Attempt" to identify potential exploitation attempts through filter creation containing suspicious JavaScript code.
+*   Apply the patch provided by MantisBT (26647b2e68ba30b9d7987d4e03d7a16416684bc2) to remediate the vulnerability.
+*   Deploy the Sigma rule "Detect MantisBT XSS via file_download.php" to identify potential exploitation attempts.
+*   Monitor web server logs for requests to `file_download.php` with the `show_inline=1` parameter and potentially malicious content in the request.
