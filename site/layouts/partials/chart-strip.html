@@ -80,7 +80,7 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-5 gap-3 pt-2 border-t border-stroke">
+  <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 pt-2 border-t border-stroke">
     {{ range $sev := slice "critical" "high" "medium" "low" "rumour" }}
       {{ $count := $scratch.Get (printf "tot_%s" $sev) | default 0 }}
       <a href="/severities/{{ $sev }}/" class="group flex items-baseline gap-2 hover:text-text transition" title="View all {{ $sev }} briefs">
