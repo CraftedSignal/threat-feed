@@ -16,6 +16,7 @@ const (
 	collSubscriptions   = "subscriptions"
 	collPending         = "pending_verifications"
 	collPendingDispatch = "pending_dispatch"
+	collConfig          = "config"
 
 	pendingTTL = 24 * time.Hour
 
@@ -333,5 +334,35 @@ func (s *firestoreStore) DeletePending(ctx context.Context, subID string) error 
 	if status.Code(err) == codes.NotFound {
 		return nil
 	}
+	return err
+}
+
+// GetSmtpBackoffUntil returns the time until which SMTP sends should be
+// suppressed. Returns a zero time (treat as "no backoff") when the doc
+// doesn't exist or the field is unset.
+func (s *firestoreStore) GetSmtpBackoffUntil(ctx context.Context) (time.Time, error) {
+	snap, err := s.c.Collection(collConfig).Doc("smtp_backoff").Get(ctx)
+	if err != nil {
+		if status.Code(err) == codes.NotFound {
+			return time.Time{}, nil
+		}
+		return time.Time{}, err
+	}
+	var doc struct {
+		Until time.Time `firestore:"until"`
+	}
+	if err := snap.DataTo(&doc); err != nil {
+		return time.Time{}, err
+	}
+	return doc.Until, nil
+}
+
+// SetSmtpBackoffUntil persists the time until which SMTP sends should
+// be suppressed. Called after an all-connection-error batch to prevent
+// hammering a rate-limited relay.
+func (s *firestoreStore) SetSmtpBackoffUntil(ctx context.Context, until time.Time) error {
+	_, err := s.c.Collection(collConfig).Doc("smtp_backoff").Set(ctx, map[string]any{
+		"until": until,
+	})
 	return err
 }

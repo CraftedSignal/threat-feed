@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"log/slog"
 	"strings"
@@ -19,9 +20,28 @@ import (
 // past Cloud Run's request budget.
 const dispatchConcurrency = 10
 
+// smtpBackoffDuration matches Google Workspace's documented recovery window
+// for the "Too many login attempts" rate limit. While in backoff, flush
+// sweeps skip SMTP entirely instead of hammering the locked-out relay.
+const smtpBackoffDuration = 2 * time.Hour
+
+// dispatchStore is the store surface that dispatcher needs. Extracted
+// as an interface so the dispatcher can be unit-tested with a mock.
+type dispatchStore interface {
+	ForEachVerified(ctx context.Context, fn func(Subscription) error) error
+	EnqueuePending(ctx context.Context, subID string, briefs []Brief) (overflow bool, err error)
+	GetPending(ctx context.Context, subID string) (PendingDispatch, error)
+	DeletePending(ctx context.Context, subID string) error
+	ForEachFlushablePending(ctx context.Context, idleAge, maxCutoff time.Time, fn func(PendingDispatch) error) error
+	GetSubscription(ctx context.Context, id string) (Subscription, error)
+	MarkSent(ctx context.Context, id string, t time.Time) error
+	GetSmtpBackoffUntil(ctx context.Context) (time.Time, error)
+	SetSmtpBackoffUntil(ctx context.Context, until time.Time) error
+}
+
 // dispatcher fans new briefs out to matching subscriptions.
 type dispatcher struct {
-	store  *firestoreStore
+	store  dispatchStore
 	mailer mailer
 	logger *slog.Logger
 }
@@ -78,11 +98,53 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 		d.logger.Error("dispatch iteration failed", "err", err)
 	}
 
-	// Force-flush any subscriber whose queue overflowed the cap. This
-	// is rare — ti-bot's normal cadence is well under 50 briefs in a
-	// debounce window — but when it happens we don't want the queue
-	// silently bouncing later writes.
+	// Force-flush overflowed queues. Email subscribers are batched into
+	// one SendBatch call (same pattern as FlushPending) to avoid the
+	// per-login rate limit that caused the original Workspace lockout.
+	// Webhook subscribers keep per-subscription delivery.
+	var emailOvf, webhookOvf []overflow
 	for _, o := range overflows {
+		if o.sub.Channel == ChannelEmail {
+			emailOvf = append(emailOvf, o)
+		} else {
+			webhookOvf = append(webhookOvf, o)
+		}
+	}
+
+	if len(emailOvf) > 0 {
+		type emailOvfJob struct {
+			sub Subscription
+			pd  PendingDispatch
+		}
+		var jobs []emailOvfJob
+		var msgs []SmtpMessage
+		for _, o := range emailOvf {
+			pd, err := d.store.GetPending(ctx, o.sub.ID)
+			if err != nil || len(pd.Briefs) == 0 {
+				continue
+			}
+			jobs = append(jobs, emailOvfJob{sub: o.sub, pd: pd})
+			msgs = append(msgs, SmtpMessage{
+				To:      o.sub.Email,
+				Subject: emailSubjectBatch(pd.Briefs),
+				Body:    emailBodyBatch(pd.Briefs, serviceURL, o.sub.UnsubscribeToken),
+			})
+		}
+		if len(msgs) > 0 {
+			results := d.mailer.SendBatch(msgs)
+			for i, job := range jobs {
+				if i < len(results) && results[i] != nil {
+					d.logger.Error("overflow flush failed", "sub_id", job.sub.ID, "err", results[i])
+					continue
+				}
+				_ = d.store.DeletePending(ctx, job.pd.SubscriptionID)
+				_ = d.store.MarkSent(ctx, job.sub.ID, time.Now().UTC())
+				flushedN.Add(1)
+			}
+		}
+	}
+
+	for _, o := range webhookOvf {
 		if err := d.flushSubscription(ctx, o.sub.ID, serviceURL); err != nil {
 			d.logger.Error("overflow flush failed", "sub_id", o.sub.ID, "err", err)
 			continue
@@ -163,24 +225,51 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 		d.logger.Error("flush iteration failed", "err", err)
 	}
 
-	// Email batch: one SMTP session for all recipients. Per-recipient
-	// errors come back from SendBatch — only delete a queue + bump
-	// last_sent for the subscribers whose delivery actually succeeded;
-	// the rest stay queued so the next sweep retries.
+	// Email batch: one SMTP session for all recipients. Check the
+	// backoff flag first — a connection-level failure (e.g. Workspace
+	// rate-limit lockout) sets it so subsequent sweeps don't hammer the
+	// relay while it recovers. Per-recipient errors come back from
+	// SendBatch; only delete a queue + bump last_sent for recipients
+	// whose delivery actually succeeded.
 	if len(emailJobs) > 0 {
-		msgs := make([]SmtpMessage, len(emailJobs))
-		for i, j := range emailJobs {
-			msgs[i] = j.msg
-		}
-		results := d.mailer.SendBatch(msgs)
-		for i, j := range emailJobs {
-			if i < len(results) && results[i] != nil {
-				failed++
-				continue
+		backoff, _ := d.store.GetSmtpBackoffUntil(ctx)
+		if time.Now().Before(backoff) {
+			d.logger.Warn("smtp in backoff, skipping email flush", "backoff_until", backoff)
+			failed += len(emailJobs)
+		} else {
+			msgs := make([]SmtpMessage, len(emailJobs))
+			for i, j := range emailJobs {
+				msgs[i] = j.msg
 			}
-			_ = d.store.MarkSent(ctx, j.sub.ID, time.Now().UTC())
-			_ = d.store.DeletePending(ctx, j.pd.SubscriptionID)
-			sent++
+			results := d.mailer.SendBatch(msgs)
+
+			// All slots filled with a connection error → relay is down.
+			// Set a backoff so future sweeps skip SMTP until it recovers.
+			connFails := 0
+			for _, r := range results {
+				var ce *smtpConnError
+				if r != nil && errors.As(r, &ce) {
+					connFails++
+				}
+			}
+			if connFails == len(results) {
+				backoffUntil := time.Now().Add(smtpBackoffDuration)
+				if err := d.store.SetSmtpBackoffUntil(ctx, backoffUntil); err != nil {
+					d.logger.Warn("smtp backoff persist failed", "err", err)
+				} else {
+					d.logger.Warn("smtp connection failed, backing off", "duration", smtpBackoffDuration, "until", backoffUntil)
+				}
+			}
+
+			for i, j := range emailJobs {
+				if i < len(results) && results[i] != nil {
+					failed++
+					continue
+				}
+				_ = d.store.MarkSent(ctx, j.sub.ID, time.Now().UTC())
+				_ = d.store.DeletePending(ctx, j.pd.SubscriptionID)
+				sent++
+			}
 		}
 	}
 

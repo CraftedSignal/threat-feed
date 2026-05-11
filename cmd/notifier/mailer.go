@@ -41,6 +41,14 @@ type SmtpMessage struct {
 	Body    string
 }
 
+// smtpConnError wraps a connection-level SMTP failure (dial, STARTTLS,
+// or AUTH). Distinct from per-recipient errors so callers can set a
+// backoff instead of retrying every flush sweep.
+type smtpConnError struct{ err error }
+
+func (e *smtpConnError) Error() string { return e.err.Error() }
+func (e *smtpConnError) Unwrap() error { return e.err }
+
 type smtpMailer struct {
 	cfg    smtpConfig
 	logger *slog.Logger
@@ -105,7 +113,7 @@ func (m *smtpMailer) SendBatch(messages []SmtpMessage) []error {
 	conn, err := smtp.Dial(addr)
 	if err != nil {
 		m.logger.Error("smtp dial failed", "host", m.cfg.Host, "err", err)
-		fillAll(out, fmt.Errorf("smtp dial: %w", err))
+		fillAll(out, &smtpConnError{err: fmt.Errorf("smtp dial: %w", err)})
 		return out
 	}
 	defer func() { _ = conn.Close() }()
@@ -116,14 +124,14 @@ func (m *smtpMailer) SendBatch(messages []SmtpMessage) []error {
 	}
 	if err := conn.StartTLS(tlsCfg); err != nil {
 		m.logger.Error("smtp starttls failed", "err", err)
-		fillAll(out, fmt.Errorf("starttls: %w", err))
+		fillAll(out, &smtpConnError{err: fmt.Errorf("starttls: %w", err)})
 		return out
 	}
 
 	auth := smtp.PlainAuth("", m.cfg.Username, m.cfg.Password, m.cfg.Host)
 	if err := conn.Auth(auth); err != nil {
 		m.logger.Error("smtp auth failed", "err", err)
-		fillAll(out, fmt.Errorf("auth: %w", err))
+		fillAll(out, &smtpConnError{err: fmt.Errorf("auth: %w", err)})
 		return out
 	}
 
