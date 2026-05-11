@@ -1,73 +1,75 @@
 ---
-title: Next.js Middleware/Proxy Bypass via Segment Prefetch
+title: Next.js Middleware Authorization Bypass via Dynamic Route Parameter Injection (CVE-2026-44574)
 slug: 2026-05-nextjs-middleware-bypass
-description: Next.js is vulnerable to a middleware/proxy bypass in App Router applications. Specially crafted `.rsc` and segment-prefetch URLs can resolve to the same page without being matched by the intended middleware rule, allowing protected content to be reached without the expected authorization check. The vulnerability affects Next.js versions greater than or equal to 15.2.0 and less than 15.5.16, as well as versions greater than or equal to 16.0.0 and less than 16.2.5.
-date: "2026-05-11T15:56:24Z"
+description: A vulnerability in Next.js (CVE-2026-44574) allows for authorization bypass in applications that use middleware to protect dynamic routes, enabling attackers to render protected content without proper authorization by crafting specific query parameters.
+date: "2026-05-11T15:56:36Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - next.js
-  - middleware bypass
+  - nextjs
+  - middleware
   - authorization
-  - CVE-2026-44575
+  - bypass
+  - CVE-2026-44574
+  - cloud
 vendors:
-  - Next.js
+  - npm
 products:
-  - next.js (>= 15.2.0, < 15.5.16)
-  - next.js (>= 16.0.0, < 16.2.5)
+  - next (>= 15.4.0, < 15.5.16)
+  - next (>= 16.0.0, < 16.2.5)
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
-    technique_id: T1210
-    technique_name: Exploitation of Remote Services
+    technique_id: T1068
+    technique_name: Exploitation for Defense Evasion
 references:
-  - https://github.com/advisories/GHSA-267c-6grr-h53f
-  - CVE-2026-44575
+  - https://github.com/advisories/GHSA-492v-c6pp-mqqv
 rules:
-  - title: Detect Next.js Middleware Bypass Attempt via .rsc Extension
-    description: Detects CVE-2026-44575 exploitation — attempts to bypass Next.js middleware by requesting .rsc resources.
+  - title: Detect CVE-2026-44574 Exploitation Attempt — Next.js Middleware Bypass
+    description: Detects CVE-2026-44574 exploitation attempt — suspicious HTTP requests to dynamic Next.js routes with encoded characters or unusual query parameters, potentially indicating a middleware bypass attempt.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
     techniques:
-      - T1210
+      - T1068
     data_sources:
       - webserver
-  - title: Detect Next.js Middleware Bypass Attempt via Segment Prefetch
-    description: Detects CVE-2026-44575 exploitation — attempts to bypass Next.js middleware by using segment prefetch routes.
+  - title: Detect suspicious slash encoding in URI
+    description: Detects requests with a slash encoding (%2F) in the URI
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - defense_evasion
     techniques:
-      - T1210
+      - T1068
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-Next.js, a React framework for building web applications, is susceptible to a middleware/proxy bypass vulnerability within its App Router implementation. This vulnerability, identified as CVE-2026-44575, allows attackers to potentially circumvent authorization checks intended to protect specific content. The issue arises from the framework's handling of transport-specific route variants used for segment prefetching. The versions affected are Next.js versions greater than or equal to 15.2.0 and less than 15.5.16, as well as versions greater than or equal to 16.0.0 and less than 16.2.5. This can lead to unauthorized access to sensitive data or functionalities if middleware or proxy-based authorization is the sole means of protection.
+A high-severity vulnerability, CVE-2026-44574, affects Next.js applications that rely on middleware for authorization of dynamic routes. This flaw allows attackers to bypass middleware checks by manipulating query parameters to alter the perceived route, granting access to protected content without proper authentication or authorization. This issue impacts Next.js versions 15.4.0 through 15.5.15 and 16.0.0 through 16.2.4. Successful exploitation leads to unauthorized access to sensitive data and functionalities within the affected application. Defenders should prioritize patching or implementing workarounds to mitigate the risk of exploitation.
 
 ## Attack Chain
 
-1. An attacker identifies a Next.js application using the App Router with middleware-protected routes.
-2. The attacker crafts a special URL targeting a protected resource, appending the `.rsc` extension or using segment prefetch routes.
-3. The crafted URL bypasses the middleware checks, which are not correctly applied to these transport-specific variants.
-4. The Next.js application processes the request for the `.rsc` or segment-prefetch route without invoking the authorization middleware.
-5. The application retrieves the protected content associated with the route.
-6. The application sends the protected content back to the attacker, effectively bypassing the intended access controls.
-7. The attacker gains unauthorized access to the protected resource.
+1. The attacker identifies a Next.js application using middleware for route protection.
+2. The attacker discovers a dynamic route protected by middleware (e.g., `/dashboard/[id]`).
+3. The attacker crafts a malicious URL containing manipulated query parameters designed to alter the dynamic route value. For example, `/dashboard/evil%2Fpath?param=value`.
+4. The manipulated URL is sent to the Next.js application.
+5. The application's routing logic incorrectly interprets the altered route value, bypassing the middleware check intended for the original route.
+6. The application renders the protected content associated with the manipulated route.
+7. The attacker gains unauthorized access to sensitive information or functionalities.
 
 ## Impact
 
-Successful exploitation of this vulnerability, CVE-2026-44575, can lead to unauthorized access to sensitive information or functionalities within Next.js applications. The impact is highly dependent on the specifics of the application and the data it handles, but could include data breaches, privilege escalation, or other security compromises. The number of affected applications could be substantial, given Next.js's widespread adoption for modern web development.
+Successful exploitation of CVE-2026-44574 allows attackers to bypass authorization checks in Next.js applications that rely on middleware for route protection. This can lead to unauthorized access to sensitive data, such as user profiles, financial records, or confidential documents. The impact is highly dependent on the specific application and the data it handles. Organizations using vulnerable Next.js versions should consider the potential for data breaches and unauthorized access to critical functionalities.
 
 ## Recommendation
 
-*   Upgrade to Next.js version 15.5.16 or 16.2.5 or later to patch CVE-2026-44575, as recommended by the vendor.
-*   Deploy the Sigma rule "Detect Next.js Middleware Bypass Attempt via .rsc Extension" to detect malicious requests attempting to exploit this vulnerability.
-*   If an immediate upgrade is not possible, enforce authorization checks within the underlying route or page logic as a workaround, as recommended by the vendor.
+*   Upgrade Next.js to version 15.5.16 or later, or 16.2.5 or later, to remediate CVE-2026-44574.
+*   If immediate upgrading is not possible, enforce authorization checks within the route or page logic itself, instead of relying solely on middleware path matching as recommended in the advisory.
+*   Deploy the Sigma rule "Detect CVE-2026-44574 Exploitation Attempt — Next.js Middleware Bypass" to identify potential exploitation attempts in web server logs.
+*   Monitor web server logs for suspicious URL patterns containing encoded characters or unusual query parameters targeting dynamic routes.
