@@ -1,8 +1,8 @@
 ---
-title: Gotenberg Unauthenticated SSRF Vulnerability
+title: Gotenberg SSRF via Chromium URL Endpoint with Redirect Bypass
 slug: 2026-05-gotenberg-ssrf
-description: Gotenberg version 8.29.1 is vulnerable to Server-Side Request Forgery (SSRF) due to an unfiltered webhook URL, allowing unauthenticated attackers to force outbound HTTP POST requests to arbitrary destinations, enabling internal network probing and interaction with internal services.
-date: "2026-04-30T17:24:55Z"
+description: Gotenberg's Chromium URL-to-PDF conversion endpoint is vulnerable to SSRF due to a lack of default protection against HTTP/HTTPS-based requests, allowing attackers to target internal IPs and cloud metadata endpoints, which can be bypassed via HTTP redirects.
+date: "2026-05-11T13:51:35Z"
 type: advisory
 types:
   - advisory
@@ -11,74 +11,72 @@ severities:
 tags:
   - ssrf
   - gotenberg
-  - cve-2026-39383
+  - cve-2026-42595
+  - cloud-metadata
 vendors:
-  - gotenberg
+  - GitHub
 products:
-  - Gotenberg (8.29.1)
+  - Gotenberg/v8 (< 8.32.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+    technique_id: T1199
+    technique_name: Server-Side Request Forgery
 references:
-  - https://github.com/advisories/GHSA-5vh4-rgv7-p9g4
+  - https://github.com/advisories/GHSA-chwh-f6gm-r836
+  - https://github.com/advisories/GHSA-pjrr-jgp4-v2fm
+  - https://github.com/advisories/GHSA-pcrp-7g9h-7qhp
+iocs:
+  - type: ip
+    value: 169.254.169.254
+ioc_counts:
+  ip: 1
 rules:
-  - title: Detect Gotenberg SSRF via Webhook URL Header
-    description: Detects attempts to exploit the Gotenberg SSRF vulnerability by identifying POST requests to the conversion endpoint with a webhook URL pointing to a private IP range.
+  - title: Detect Gotenberg SSRF via Chromium URL Endpoint
+    description: Detects CVE-2026-42595 exploitation — SSRF attempts via Gotenberg's Chromium URL endpoint by monitoring HTTP POST requests with suspicious URLs.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
-      - T1190
+      - T1199
     data_sources:
       - webserver
-      - linux
-  - title: Detect Outbound Connection from Gotenberg to Internal IP
-    description: Detects outbound network connections from a Gotenberg instance to internal IP ranges, which could indicate SSRF exploitation.
+  - title: Detect Gotenberg SSRF Redirect Bypass
+    description: Detects Gotenberg SSRF redirect bypass attempts by monitoring for connections to potential redirect servers.
     platform: sigma
     severity: medium
     tactics:
       - initial_access
     techniques:
-      - T1190
+      - T1199
     data_sources:
       - network_connection
       - linux
-  - title: Gotenberg - Detect Webhook Error URL Usage
-    description: Detects use of the Gotenberg-Webhook-Error-Url header, which may be used to confirm exploitability of the SSRF.
-    platform: sigma
-    severity: informational
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-      - linux
-rules_count: 3
+rules_count: 2
 ---
 
-Gotenberg version 8.29.1, as distributed in the default `gotenberg/gotenberg:8` Docker image, contains an unauthenticated Server-Side Request Forgery (SSRF) vulnerability. Discovered on April 4, 2026, this flaw allows an attacker with network access to the Gotenberg instance to specify an arbitrary URL via the `Gotenberg-Webhook-Url` request header, forcing the server to make outbound HTTP POST requests. This is a blind SSRF vulnerability, where the attacker cannot directly read the response body, but can infer information based on the success or failure of the request. The vulnerability exists due to an insecure default in the `FilterDeadline` function, which, when unconfigured, permits all webhook URLs. The impact includes internal network probing, forced POST requests to internal services, and cloud metadata interaction.
+A server-side request forgery (SSRF) vulnerability exists in Gotenberg, an open-source PDF conversion tool. Specifically, the Chromium URL-to-PDF conversion endpoint (`/forms/chromium/convert/url`) lacks default protection against HTTP/HTTPS-based SSRF, while the default deny-list only blocks `file://` URIs. This allows unauthenticated attackers to target internal IPs, RFC 1918 ranges, and cloud metadata endpoints, receiving the response rendered as a PDF. Furthermore, even when operators configure a custom deny-list, the protection is bypassed via HTTP redirects. The Gotenberg instance follows `302` redirects from attacker-controlled external URLs to internal targets without re-validating the redirect destination against the deny-list. Version 8.30.1 of Gotenberg is confirmed to be vulnerable.
 
 ## Attack Chain
 
-1. The attacker identifies a vulnerable Gotenberg instance exposed on the network (default port 3000).
-2. The attacker crafts an HTTP POST request to the `/forms/chromium/convert/url` endpoint.
-3. The attacker includes the `Gotenberg-Webhook-Url` header, setting it to an internal IP address and port (e.g., `http://192.168.1.10:8080/`).
-4. The attacker may also set the `Gotenberg-Webhook-Error-Url` to an attacker-controlled server to monitor for request failures.
-5. Gotenberg's `FilterDeadline` function fails to properly validate the supplied webhook URL due to an insecure default.
-6. Gotenberg makes an outbound HTTP POST request to the specified internal IP address and port using the retryablehttp client, potentially retrying the request up to 4 times.
-7. If the internal target responds with a 2xx status code, the attacker infers that the host and port are open and accepting POST requests. The error URL is NOT called.
-8. If the internal target responds with a 4xx/5xx status code, times out, or rejects the connection, the attacker receives a request at the `Gotenberg-Webhook-Error-Url` endpoint, indicating the port is likely closed or the service is unavailable.
+1.  The attacker identifies a Gotenberg instance accessible over the network, which requires no authentication by default.
+2.  The attacker crafts a malicious HTTP POST request to the `/forms/chromium/convert/url` endpoint.
+3.  The POST request includes a `url` parameter pointing to an internal resource (e.g., `http://127.0.0.1:3000/health` or `http://169.254.169.254/latest/meta-data/`).
+4.  Alternatively, the POST request includes a `url` parameter pointing to an external redirect server (e.g., `http://172.17.0.1:9999/`).
+5.  If using a redirect, the external server responds with a `302` redirect to an internal target (e.g., `http://127.0.0.1:3000/health`).
+6.  The Gotenberg server, using a headless Chromium instance, fetches the URL (or follows the redirect) without proper validation.
+7.  The response from the internal resource is rendered as a PDF document.
+8.  The PDF document containing the sensitive information is returned to the attacker. The attacker exfiltrates the data.
 
 ## Impact
 
-The SSRF vulnerability in Gotenberg 8.29.1 allows attackers to probe internal networks, potentially mapping out internal infrastructure by observing the success or failure of requests. Attackers can also force Gotenberg to send POST requests to internal services that perform actions upon receiving such requests, potentially triggering unintended behavior. Although the attacker cannot directly read response bodies, the ability to determine reachability and trigger actions makes this a significant security risk. The retry mechanism amplifies the probing effect, as each request generates up to 4 attempts.
+Successful exploitation allows an attacker to make the Gotenberg server fetch arbitrary internal resources and receive the rendered content as a PDF. This can lead to cloud credential theft by accessing cloud metadata endpoints, internal service access by reaching admin panels or databases, and internal port scanning. The redirect bypass further exacerbates the risk, rendering custom deny-lists ineffective. This vulnerability affects Gotenberg deployments that have broad internal network access.
 
 ## Recommendation
 
-*   Apply the recommended configuration to either set `--env GOTENBERG_API_WEBHOOK_ALLOW_LIST` or `--env GOTENBERG_API_WEBHOOK_DENY_LIST` to restrict or block internal ranges to mitigate the SSRF vulnerability.
-*   Monitor web server logs for POST requests to `/forms/chromium/convert/url` with the `Gotenberg-Webhook-Url` header containing suspicious internal IP addresses or domains using the provided Sigma rule.
-*   Deploy the Sigma rule to detect suspicious outbound network connections originating from the Gotenberg process to internal IP ranges or cloud metadata endpoints.
+*   Deploy the Sigma rule `Detect Gotenberg SSRF via Chromium URL Endpoint` to identify attempts to exploit this vulnerability by monitoring for HTTP POST requests to the `/forms/chromium/convert/url` endpoint with potentially malicious URLs.
+*   Deploy the Sigma rule `Detect Gotenberg SSRF Redirect Bypass` to detect connections to external redirect servers that may be used to bypass SSRF protections.
+*   Upgrade Gotenberg to version 8.32.0 or later to patch CVE-2026-42595.
+*   Implement network segmentation to limit the Gotenberg instance's access to internal resources, mitigating the impact of a successful SSRF attack.
+*   Configure a custom deny-list on the Chromium URL endpoint to explicitly block access to internal IPs, RFC 1918 ranges, and cloud metadata endpoints.
