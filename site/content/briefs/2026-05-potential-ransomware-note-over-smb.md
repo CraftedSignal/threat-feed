@@ -1,0 +1,102 @@
+---
+title: Potential Ransomware Note File Dropped via SMB
+slug: 2026-05-potential-ransomware-note-over-smb
+description: The rule identifies the creation of files resembling ransomware notes via SMB, potentially indicating a remote ransomware attack on Windows systems.
+date: "2026-05-12T15:36:23Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - ransomware
+  - smb
+  - impact
+  - windows
+vendors:
+  - Elastic
+products:
+  - Elastic Defend
+affected_os:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1485
+    technique_name: Data Destruction
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1486
+    technique_name: Data Encrypted for Impact
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1490
+    technique_name: Inhibit System Recovery
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021
+    technique_name: Remote Services
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/impact_ransomware_note_file_over_smb.toml
+  - https://attack.mitre.org/techniques/T1485/
+  - https://attack.mitre.org/techniques/T1486/
+  - https://attack.mitre.org/techniques/T1490/
+  - https://attack.mitre.org/techniques/T1021/
+  - https://attack.mitre.org/techniques/T1021/002/
+  - https://attack.mitre.org/tactics/TA0040/
+  - https://attack.mitre.org/tactics/TA0008/
+rules:
+  - title: Detect Potential Ransomware Note Creation via SMB
+    description: Detects the creation of a file with a name similar to ransomware note files after an SMB connection is established on a Windows host. This may indicate a remote ransomware attack via the SMB protocol.
+    platform: sigma
+    severity: high
+    tactics:
+      - impact
+      - lateral_movement
+    techniques:
+      - T1021.002
+      - T1486
+    data_sources:
+      - file_event
+      - windows
+  - title: Detect SMB Connection Followed by Potential Ransomware Note
+    description: This rule detects an incoming SMB connection followed by the creation of a potential ransomware note file. It focuses on IPv4 connections and filters out local connections.
+    platform: sigma
+    severity: high
+    tactics:
+      - impact
+      - lateral_movement
+    techniques:
+      - T1021.002
+      - T1486
+    data_sources:
+      - network_connection
+      - windows
+rules_count: 2
+---
+
+This rule detects a potential ransomware attack by identifying the creation of files resembling ransomware notes via Server Message Block (SMB) protocol on Windows systems. The rule focuses on identifying an incoming SMB connection (port 445) followed by the creation of files with names commonly associated with ransomware notes, such as "readme", "lock", "recover", and others. This activity is indicative of an attacker attempting to place ransom notes on a compromised system after gaining initial access, often as a precursor to or in conjunction with data encryption. The detection logic leverages Elastic Endpoint data, which provides detailed file creation and network connection events. The rule is designed to catch attackers who are attempting to deploy ransomware remotely via SMB, where they might place ransom notes to inform victims of the attack and provide instructions for recovery. The rule is intended for production environments and covers file events within user profile paths after an SMB connection is established.
+
+## Attack Chain
+
+1. The attacker gains initial access to a system on the network (e.g., through phishing, exploitation of a vulnerability, or stolen credentials).
+2. The attacker uses the compromised system to initiate an SMB connection to a target Windows host on port 445.
+3. The target Windows host accepts the incoming SMB connection.
+4. The attacker leverages the SMB connection to write files to the target host.
+5. The attacker creates files within user profile directories (e.g., C:\Users\*) with names resembling ransomware notes (e.g., "readme.txt", "how_to_decrypt.hta").
+6. The files are written by the kernel process with PID 4, indicating SMB I/O.
+7. The user accesses the created file, discovering the ransomware note.
+8. The attacker proceeds with encrypting data, deleting shadow copies, and other ransomware activities (not directly detected by this rule, but likely to follow).
+
+## Impact
+
+A successful attack can lead to data encryption, data loss, financial losses due to ransom demands, reputational damage, and business disruption. Depending on the scope of the attack, multiple systems and users could be affected. The rule detects only the placement of ransom notes, which usually precedes full system compromise. Organizations across all sectors are at risk, particularly those with lax security practices or unpatched vulnerabilities.
+
+## Recommendation
+
+*   Deploy the provided EQL rule to your Elastic Security environment to detect potential ransomware note drops via SMB.
+*   Investigate any alerts generated by the EQL rule, focusing on the SMB connection source IP, the user ID associated with the file creation, and the contents of the created file.
+*   Enable Elastic Defend to collect the necessary file and network events for the rule to function correctly, as described in the [setup instructions](https://ela.st/install-elastic-defend).
+*   Review historical SMB connection and file creation events to identify any existing patterns of benign activity that may cause false positives, as described in the [false positive analysis](#false-positive-analysis) section of the rule's documentation.
+*   Implement network segmentation and access control policies to limit the exposure of SMB shares and prevent lateral movement within the network.
+*   Consider blocking connections from untrusted IP addresses to prevent potentially malicious SMB connections, based on the identified SMB connection [source.ip].
