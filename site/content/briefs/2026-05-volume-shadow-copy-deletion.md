@@ -1,30 +1,22 @@
 ---
-title: Volume Shadow Copy Deletion or Resized via VssAdmin
+title: Volume Shadow Copy Deletion via PowerShell
 slug: 2026-05-volume-shadow-copy-deletion
-description: This rule detects the use of vssadmin.exe to delete or resize volume shadow copies on Windows endpoints, a common tactic used in ransomware and other destructive attacks to inhibit system recovery.
-date: "2026-05-12T15:36:37Z"
+description: Detects the use of PowerShell to delete volume shadow copies, a tactic commonly employed by ransomware and other destructive attacks to hinder data recovery efforts.
+date: "2026-05-12T15:36:55Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - volume-shadow-copy
-  - vssadmin
-  - ransomware
   - impact
+  - windows
+  - powershell
+  - volume shadow copy
+  - ransomware
 vendors:
   - Microsoft
-  - Crowdstrike
-  - SentinelOne
 products:
-  - Microsoft Defender XDR
-  - Sysmon
-  - Windows Security Event Logs
-  - Crowdstrike
-  - SentinelOne Cloud Funnel
-  - Elastic Defend
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0040
@@ -32,11 +24,12 @@ mitre_ttps:
     technique_id: T1490
     technique_name: Inhibit System Recovery
 references:
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/impact_volume_shadow_copy_deletion_or_resized_via_vssadmin.toml
-  - https://attack.mitre.org/techniques/T1490/
+  - https://docs.microsoft.com/en-us/previous-versions/windows/desktop/vsswmi/win32-shadowcopy
+  - https://powershell.one/wmi/root/cimv2/win32_shadowcopy
+  - https://www.fortinet.com/blog/threat-research/stomping-shadow-copies-a-second-look-into-deletion-methods
 rules:
-  - title: Detect Volume Shadow Copy Deletion via VssAdmin
-    description: Detects the deletion of volume shadow copies using vssadmin.exe.
+  - title: Detect Volume Shadow Copy Deletion via PowerShell
+    description: Detects PowerShell commands used to delete volume shadow copies using WMI or CIM.
     platform: sigma
     severity: high
     tactics:
@@ -46,10 +39,10 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detect Volume Shadow Copy Resizing via VssAdmin
-    description: Detects the resizing of volume shadow copies using vssadmin.exe.
+  - title: Detect Suspicious PowerShell Shadow Copy Deletion with Alternate Methods
+    description: Detects PowerShell commands that may delete volume shadow copies using less common methods.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - impact
     techniques:
@@ -60,28 +53,27 @@ rules:
 rules_count: 2
 ---
 
-The use of `vssadmin.exe` to delete or resize volume shadow copies on Windows endpoints is a tactic commonly employed by ransomware and other destructive attacks to inhibit system recovery. Volume Shadow Copy Service (VSS) is a Windows service that creates backups or snapshots of computer files or volumes, even when they are in use. By deleting or resizing these shadow copies, attackers can prevent victims from restoring their systems to a previous state, increasing the likelihood of a successful ransomware attack or causing significant data loss. This activity is a strong indicator of malicious intent and should be investigated promptly. The Elastic detection rule was last updated on 2026/05/03.
+Attackers frequently delete volume shadow copies (VSS) to prevent victims from recovering their data after a ransomware attack or other destructive event. This tactic involves using legitimate system administration tools like PowerShell to remove shadow copies, which are essentially snapshots of data volumes at a specific point in time. This activity is often performed in tandem with ransomware deployment or other destructive actions, making it a critical indicator of potential malicious activity. This rule identifies the use of the Win32_ShadowCopy class and related cmdlets to achieve shadow copy deletion.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to the system, typically through phishing, exploiting vulnerabilities, or compromised credentials.
-2.  The attacker elevates privileges to gain administrative access, allowing them to execute commands with elevated permissions.
-3.  The attacker executes `vssadmin.exe` with arguments to delete volume shadow copies. Example commands include `vssadmin.exe delete shadows /all /quiet` or `vssadmin.exe resize shadowstorage /for=C: /on=C: /maxsize=1GB`.
-4.  The command is executed, removing or resizing the shadow copies, which inhibits system recovery.
-5.  The attacker may also use other commands to disable or delete backups, such as `wbadmin delete catalog -quiet` or `wmic shadowcopy delete`.
-6.  The attacker proceeds to encrypt the system's files, rendering them inaccessible without a decryption key.
-7.  A ransom note is dropped on the system, demanding payment for the decryption key.
-8.  The victim is left with an encrypted system and no readily available backups for restoration.
+1.  Attacker gains initial access to the system (e.g., via phishing or exploit).
+2.  Attacker executes PowerShell with elevated privileges.
+3.  PowerShell is used to enumerate shadow copies using `Get-WmiObject` (gwmi) or `Get-CimInstance` (gcim) and the `Win32_ShadowCopy` class.
+4.  The attacker filters the shadow copies to be deleted, potentially targeting all available copies.
+5.  PowerShell executes the deletion of shadow copies using `.Delete()`, `Remove-WmiObject` (rwmi), or `Remove-CimInstance` (rcim) methods.
+6.  The system's recovery options are significantly reduced or eliminated.
+7.  Ransomware is deployed, encrypting files.
+8.  Victim is unable to restore from shadow copies, increasing the likelihood of paying the ransom.
 
 ## Impact
 
-Successful deletion or resizing of volume shadow copies severely hinders a victim's ability to recover from a ransomware attack or other destructive events. Without shadow copies, restoring the system to a previous state becomes significantly more challenging, often requiring reliance on external backups, which may not be available or up-to-date. This can lead to prolonged downtime, data loss, and significant financial impact for the affected organization.
+Successful deletion of volume shadow copies significantly hinders or eliminates data recovery options for victims of ransomware or other destructive attacks. This can lead to substantial data loss, prolonged downtime, and increased financial impact, potentially forcing victims to pay ransoms. Organizations without viable backups may face critical business disruptions.
 
 ## Recommendation
 
-*   Enable Sysmon process-creation logging to capture the execution of `vssadmin.exe` with relevant command-line arguments to enable the rules below.
-*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment.
-*   Investigate alerts generated by the Sigma rules, focusing on the command-line arguments used with `vssadmin.exe`, the parent process, and any associated file activity.
-*   Restrict VSS management workflows on sensitive hosts and limit backup administration rights.
-*   Consider using application control solutions to restrict the execution of `vssadmin.exe` to authorized users and processes only.
-*   Monitor Windows Security Event Logs for events related to VSS operations, such as shadow copy creation, deletion, and resizing to supplement process monitoring.
+*   Deploy the Sigma rule `Detect Volume Shadow Copy Deletion via PowerShell` to your SIEM to detect this behavior.
+*   Enable Sysmon process creation logging with command line auditing to ensure proper logging of PowerShell activity for the Sigma rule.
+*   Monitor PowerShell execution for commands targeting `Win32_ShadowCopy` with deletion methods based on the Sigma rule's logic.
+*   Investigate any alerts generated by the Sigma rule, prioritizing those with unusual parent processes or user contexts as described in the rule's false positive analysis.
+*   Implement strict access controls and monitoring for administrative accounts to limit the ability of attackers to execute PowerShell commands related to shadow copy deletion.
