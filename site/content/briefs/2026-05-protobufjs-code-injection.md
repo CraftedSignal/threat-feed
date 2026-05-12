@@ -1,8 +1,8 @@
 ---
-title: protobuf.js Code Injection Vulnerability in pbjs Static Output
+title: protobuf.js Code Injection via Crafted Bytes Field Defaults (CVE-2026-44293)
 slug: 2026-05-protobufjs-code-injection
-description: Code injection vulnerability exists in protobuf.js (protobufjs-cli) due to insufficient sanitization of schema-controlled names during static code generation using `pbjs`, allowing attacker-controlled code injection into the generated JavaScript output.
-date: "2026-05-12T15:07:32Z"
+description: protobuf.js is vulnerable to code injection (CVE-2026-44293); by crafting a protobuf descriptor with a non-string default value for a `bytes` field, an attacker can inject arbitrary Javascript code into the generated `toObject` conversion function if default values are enabled, requiring the application to load an attacker-controlled schema and convert a message of the affected type with defaults enabled.
+date: "2026-05-12T15:07:49Z"
 type: advisory
 types:
   - advisory
@@ -11,65 +11,68 @@ severities:
 tags:
   - code-injection
   - protobufjs
-  - pbjs
-vendors:
-  - npm
+  - CVE-2026-44293
+  - javascript
 products:
-  - protobufjs-cli (<= 1.2.0)
-  - protobufjs-cli (>= 2.0.0, <= 2.0.1)
+  - protobufjs
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1189
-    technique_name: Drive-by Compromise
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 references:
-  - https://github.com/advisories/GHSA-6r35-46g8-jcw9
-  - CVE-2026-44295
+  - https://github.com/advisories/GHSA-66ff-xgx4-vchm
+  - https://www.cve.org/CVERecord?id=CVE-2026-44293
 rules:
-  - title: Detect CVE-2026-44295 Exploitation Attempt — pbjs Code Generation with Suspicious Schema Names
-    description: Detects attempts to exploit CVE-2026-44295 by identifying calls to pbjs with command-line arguments containing potentially malicious characters in schema names during static code generation.
+  - title: Detect CVE-2026-44293 Exploitation — Protobuf.js Code Injection
+    description: Detects CVE-2026-44293 exploitation — Monitors for suspicious code execution patterns during protobuf processing, potentially indicating exploitation via a crafted `bytes` field default.
     platform: sigma
     severity: high
     tactics:
+      - execution
       - initial_access
     techniques:
-      - T1189
+      - T1059.001
+      - T1592.002
     data_sources:
       - process_creation
-      - linux
-  - title: Detect CVE-2026-44295 Exploitation Attempt — pbjs Code Generation with Suspicious Schema Names (Windows)
-    description: Detects attempts to exploit CVE-2026-44295 by identifying calls to pbjs with command-line arguments containing potentially malicious characters in schema names during static code generation on Windows.
+      - windows
+  - title: Detect CVE-2026-44293 Exploitation — Protobuf.js Code Generation with Suspicious Bytes Default
+    description: Detects CVE-2026-44293 exploitation — Monitors file modifications where a Protobuf schema is being written with 'bytes' field including suspicious Javascript code inside default value.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
+      - execution
       - initial_access
     techniques:
-      - T1189
+      - T1059.001
+      - T1592.002
     data_sources:
-      - process_creation
+      - file_event
       - windows
 rules_count: 2
 ---
 
-A code injection vulnerability exists within the protobuf.js library, specifically affecting the `pbjs` static code generation tool. This vulnerability arises from insufficient sanitization of schema-controlled names during the process of generating static JavaScript code. When a crafted schema or JSON descriptor, influenced by a malicious actor, is used as input for `pbjs`, it can lead to the injection of attacker-controlled code into the resulting JavaScript output. This injected code is then executed if the generated file is later executed or imported by an application or build process. This vulnerability impacts applications that use `pbjs` to generate static code from potentially untrusted schemas. Affected versions include protobufjs-cli versions 1.2.0 and earlier, as well as versions 2.0.0 up to and including 2.0.1.
+protobuf.js versions 7.5.5 and earlier, and 8.0.0 through 8.0.1 are vulnerable to code injection (CVE-2026-44293). The vulnerability stems from the way protobuf.js generates JavaScript code for `toObject` conversion. A malicious actor can craft a protobuf descriptor that contains a `bytes` field with a default value that is not a string. When the `toObject` function is generated, this non-string default value is included as an unsafe expression, leading to the injection of attacker-controlled code into the generated function if default values are enabled. This poses a risk when applications load untrusted protobuf schemas or descriptors, allowing for arbitrary JavaScript execution within the application's context.
 
 ## Attack Chain
 
-1. An attacker crafts a malicious protobuf schema or JSON descriptor.
-2. The attacker includes specially crafted schema names (e.g., namespace, enum, service names) designed to inject JavaScript code.
-3. The attacker provides the malicious schema to an application or build process that uses `pbjs` for static code generation.
-4. `pbjs` processes the malicious schema, incorporating the attacker's code into the generated JavaScript output due to insufficient sanitization.
-5. The application or build process imports or executes the generated JavaScript file.
-6. The injected JavaScript code is executed within the context of the application or build process.
-7. The attacker gains control over the application's execution flow.
-8. The attacker achieves arbitrary code execution, potentially leading to data exfiltration or system compromise.
+1. An attacker crafts a malicious protobuf descriptor. This descriptor includes a `bytes` field that has a non-string default value, such as JavaScript code.
+2. The attacker delivers the malicious protobuf descriptor to a vulnerable application. This could be achieved by hosting the descriptor on a server or sending it directly to the application.
+3. The application loads and parses the attacker-controlled protobuf descriptor, generating code using the protobuf.js library.
+4. During code generation, protobuf.js incorporates the attacker-controlled, non-string default value into the `toObject` conversion function.
+5. The application calls the `toObject` function with default values enabled for the affected type.
+6. When the `toObject` function is executed, the injected JavaScript code from the malicious default value is executed within the application's process.
+7. The attacker achieves arbitrary JavaScript execution within the context of the application.
+8. The attacker may then leverage this code execution to perform unauthorized actions, such as accessing sensitive data or compromising the system.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to inject and execute arbitrary code within an application that uses `protobufjs-cli` to generate static JavaScript code from untrusted schemas. The consequences of this code execution could range from data theft and denial of service to complete system compromise. This impacts applications and build processes that rely on `pbjs` to handle protobuf schemas provided or influenced by external entities, and can potentially affect any system where this generated JavaScript code is later executed.
+Successful exploitation of this vulnerability (CVE-2026-44293) allows an attacker to execute arbitrary JavaScript code within the context of a vulnerable application using protobuf.js. This could lead to sensitive data exposure, unauthorized access to system resources, or complete system compromise. The impact is especially severe if the application processes untrusted protobuf schemas.
 
 ## Recommendation
 
-- Do not run affected versions of `pbjs` static code generation on untrusted schemas or descriptors, as mentioned in the advisory.
-- If untrusted schemas must be accepted, validate schema names before code generation and run generation in an isolated environment, as recommended in the advisory.
-- Upgrade to a patched version of `protobufjs-cli` that addresses CVE-2026-44295.
+- Upgrade to protobuf.js version 8.0.2 or later to remediate the vulnerability.
+- Avoid loading protobuf schemas or JSON descriptors from untrusted sources as described in the overview.
+- Validate or restrict field options before loading schemas from untrusted sources, and run schema processing in an isolated environment as described in the workaround section.
+- Deploy the Sigma rule "Detect CVE-2026-44293 Exploitation — Protobuf.js Code Injection" to identify potential exploitation attempts by monitoring for unexpected code execution during protobuf processing.
