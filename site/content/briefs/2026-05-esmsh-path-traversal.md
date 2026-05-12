@@ -1,81 +1,75 @@
 ---
-title: esm.sh Legacy Route Path Traversal Leads to Remote Code Execution
+title: esm.sh Path Traversal Vulnerability via package.json Browser Field
 slug: 2026-05-esmsh-path-traversal
-description: A path traversal vulnerability in esm.sh allows an attacker to write arbitrary files to the server leading to privilege escalation and potentially remote code execution via CVE-2026-44593.
-date: "2026-05-12T22:24:49Z"
+description: A local file inclusion (LFI) vulnerability exists in the esbuild plugin's handling of the `browser` field in `package.json` within esm.sh, allowing an attacker to publish a malicious npm package that causes the server to read arbitrary files from the host filesystem.
+date: "2026-05-12T22:25:25Z"
 type: advisory
 types:
   - advisory
 severities:
-  - critical
+  - high
 tags:
   - path traversal
-  - remote code execution
-  - cve-2026-44593
-  - privilege escalation
+  - local file inclusion
+  - npm
+  - esbuild
 vendors:
-  - GitHub
+  - esm-dev
 products:
   - esm.sh
-  - github.com/esm-dev/esm.sh
 mitre_ttps:
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1552
-    technique_name: Uncommonly Used File Binding
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 references:
-  - https://github.com/advisories/GHSA-3636-h3vx-6465
+  - https://github.com/advisories/GHSA-rg65-45m7-hq57
+  - https://www.npmjs.com/package/chess-sec-utils1
 rules:
-  - title: Detect CVE-2026-44593 Exploitation -- Web Request with Path Traversal
-    description: Detects CVE-2026-44593 exploitation -- HTTP requests containing path traversal sequences targeting the esm.sh server.
+  - title: Detect esm.sh Path Traversal Attempt via Package Request
+    description: Detects attempts to exploit CVE-2026-44594 by identifying requests to esm.sh for packages with suspicious path traversal sequences in the package name or version.
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-44593 Exploitation -- Arbitrary File Write via Path Traversal
-    description: Detects CVE-2026-44593 exploitation -- File creation events in unexpected directories resulting from path traversal exploitation attempts.
+  - title: Detect esm.sh Path Traversal via Browser Field Remapping
+    description: Detects CVE-2026-44594 exploitation — Monitors process creation for esbuild invoking commands with package.json files that contain browser field remappings to suspicious file paths.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
-      - persistence
-      - privilege_escalation
+      - initial_access
+    techniques:
+      - T1190
     data_sources:
-      - file_event
+      - process_creation
       - linux
 rules_count: 2
 ---
 
-A critical path traversal vulnerability, CVE-2026-44593, exists in esm.sh, potentially leading to remote code execution. Discovered by splitline from DEVCORE Research Team, the vulnerability allows an attacker to write arbitrary files to the server by exploiting insufficient path sanitization in the legacy router. The issue stems from the server's handling of crafted URLs containing path traversal sequences. By manipulating the request path, an attacker can bypass intended security measures and write data to locations outside the intended storage directory. This flaw impacts versions prior to commit 1960055e1d53 on May 8, 2026, and could be exploited to overwrite critical system files, ultimately granting the attacker elevated privileges and the ability to execute arbitrary code.
+A local file inclusion (LFI) vulnerability, tracked as CVE-2026-44594, has been identified in esm.sh, specifically in the esbuild plugin's handling of the `browser` field within `package.json` files. An attacker can exploit this flaw by publishing a malicious npm package. This package, when processed by the esm.sh server during a build, allows the attacker to read arbitrary files from the server's filesystem. The vulnerability arises because the `browser` field remaps module paths to attacker-controlled values with `../` sequences, bypassing validation checks. The issue affects versions prior to commit 0593516c4cfa. Successful exploitation can lead to the exposure of sensitive information such as npm registry authentication tokens and S3 storage credentials stored in the esm.sh `config.json` file.
 
 ## Attack Chain
 
-1. An attacker crafts a malicious URL containing path traversal sequences, such as `..%2f`, targeting the esm.sh server. An example: `http://ESM_SH_HOST/v111/react@19.2.0/esnext/..%2f..%2f..%2fgh/<attacker>/exp@1171e85d5d/foo.md%23%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2ftmp%2fpwned`
-2. The esm.sh server receives the crafted request and forwards it to the legacy server.
-3. The legacy server attempts to retrieve a file from a specified GitHub repository based on the URL. In the example, it attempts to fetch `foo.md` from `https://github.com/<attacker>/exp`.
-4. The server constructs a storage path by concatenating the components of the request path without proper sanitization.
-5. Path normalization occurs, resolving relative segments (e.g., `../../../`) in the constructed storage path, which can lead to writing to an arbitrary file path, like `/tmp/pwned`.
-6. The content retrieved from the GitHub repository is written to the attacker-controlled file path on the esm.sh server.
-7. The attacker repeats this process to overwrite critical binaries or scripts on the server.
-8. Upon execution of the overwritten binaries/scripts, the attacker achieves remote code execution with the server's privileges.
+1. An attacker crafts a malicious npm package containing a `package.json` file.
+2. The `package.json` includes a `browser` field that remaps local module paths to paths outside the intended package directory using `../` sequences.
+3. The attacker publishes the malicious package to the npm registry. The package name is chess-sec-utils1, version 1.0.6.
+4. A user (or automated system) requests the malicious package (e.g., `chess-sec-utils1@1.0.6`) from an esm.sh instance.
+5. The esm.sh server's esbuild plugin resolves module paths during the build process.
+6. The plugin uses the `browser` field remapping, which replaces the validated module path with the attacker-controlled path.
+7. The server reads the file specified in the remapped path from its filesystem, subject to esbuild's loader selection (e.g., `.json`, `.txt`, `.js`).
+8. The contents of the file are included in the generated JavaScript bundle and/or the source map (`sourcesContent` array), which is then served to the user.
 
 ## Impact
 
-Successful exploitation allows attackers to write arbitrary files to the server. This can lead to privilege escalation by overwriting system binaries or scripts. The end result is remote code execution with the privileges of the esm.sh server process. While the exact number of victims is not specified, any esm.sh instance running a vulnerable version is susceptible to this attack.
+Successful exploitation of this vulnerability allows an attacker to read arbitrary files from the esm.sh server. This includes the `config.json` file, which may contain sensitive data such as npm registry authentication tokens and S3 storage credentials. The exposure of these credentials could allow the attacker to compromise the esm.sh infrastructure or gain unauthorized access to other resources. The proof of concept shows reading /etc/hostname, /etc/os-release and /etc/environment.
 
 ## Recommendation
 
-*   Upgrade the `go/github.com/esm-dev/esm.sh` package to a version equal to or greater than `0.0.0-20260508100112-1960055e1d53` to remediate CVE-2026-44593.
-*   Deploy the Sigma rule "Detect CVE-2026-44593 Exploitation -- Web Request with Path Traversal" to detect attempts to exploit this vulnerability in web server logs.
-*   Monitor web server logs for suspicious URL patterns containing path traversal sequences like `..%2f` and `../` in the request path, as these may indicate exploitation attempts.
+*   Apply the patch suggested by the advisory to add a path validation check after the `browser` field remapping to prevent path traversal (reference: advisory content).
+*   Monitor npm package installations for packages with suspicious `browser` field entries containing `../` sequences (reference: advisory content).
+*   Deploy the Sigma rule to detect requests to esm.sh for packages that attempt path traversal (reference: the Sigma rule).
+*   Update `go/github.com/esm-dev/esm.sh` to a version >= 0.0.0-20250616164159-0593516c4cfa.
