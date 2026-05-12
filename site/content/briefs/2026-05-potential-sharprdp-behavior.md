@@ -1,0 +1,97 @@
+---
+title: Potential SharpRDP Behavior
+slug: 2026-05-potential-sharprdp-behavior
+description: This rule detects potential SharpRDP behavior, a tool used for authenticated command execution against a remote target via Remote Desktop Protocol (RDP) for lateral movement by identifying incoming RDP connections followed by RunMRU registry value modifications and subsequent process execution.
+date: "2026-05-12T17:46:58Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - lateral-movement
+  - execution
+  - windows
+  - sharprdp
+vendors:
+  - Microsoft
+  - Elastic
+products:
+  - Elastic Defend
+  - Windows
+affected_os:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021
+    technique_name: Remote Services
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+references:
+  - https://posts.specterops.io/revisiting-remote-desktop-lateral-movement-8fb905cb46c3
+  - https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES/blob/master/Lateral%20Movement/LM_sysmon_3_12_13_1_SharpRDP.evtx
+  - https://www.elastic.co/security-labs/hunting-for-lateral-movement-using-event-query-language
+rules:
+  - title: Potential SharpRDP Behavior - RunMRU Registry Modification
+    description: Detects potential SharpRDP behavior by monitoring RunMRU registry key modifications with suspicious command strings.
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+      - lateral_movement
+    techniques:
+      - T1021.001
+      - T1059.001
+      - T1059.003
+    data_sources:
+      - registry_set
+      - windows
+  - title: Potential SharpRDP Behavior - Process Execution from RDP Session
+    description: Detects potential SharpRDP behavior by monitoring process execution with a parent process of cmd.exe, powershell.exe or taskmgr.exe after RDP login
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+      - lateral_movement
+    techniques:
+      - T1021.001
+      - T1059.001
+      - T1059.003
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+This detection rule identifies potential behavior associated with SharpRDP, a tool used to perform authenticated command execution against a remote target via Remote Desktop Protocol (RDP), often for lateral movement. The rule focuses on detecting incoming RDP connections to a Windows host, followed by the modification of the RunMRU registry key to include commands such as "cmd.exe", "powershell.exe", "taskmgr.exe", or network paths like "\\tsclient\*.exe\". A subsequent process execution with a parent process matching one of these commands, within a short timeframe, raises suspicion. This behavior can indicate unauthorized remote command execution. This rule helps defenders identify potential lateral movement activities within their Windows environments. The references link to more information about SharpRDP and related techniques.
+
+## Attack Chain
+
+1.  An attacker establishes an RDP connection to a target Windows system via `svchost.exe` on port 3389.
+2.  The attacker interacts with the system, potentially using the Run dialog (Win+R) or similar methods.
+3.  `explorer.exe` modifies the `RunMRU` registry key, adding command strings like `cmd.exe`, `powershell.exe`, `taskmgr.exe`, or network paths like `\\\\tsclient\\*.exe`.
+4.  The attacker executes a command or script via one of the modified `RunMRU` entries.
+5.  A new process is spawned with a parent process like `cmd.exe`, `powershell.exe`, or `taskmgr.exe`, or executes a file from a mapped drive using the `\\\\tsclient\\*.exe` path.
+6.  The spawned process executes malicious code or performs lateral movement activities.
+7.  The attacker leverages the established RDP session for further reconnaissance or exploitation.
+8.  The ultimate objective is to gain unauthorized access to sensitive data or systems within the network.
+
+## Impact
+
+A successful SharpRDP attack can lead to unauthorized access to sensitive systems and data within the target network. Attackers can leverage the compromised system for lateral movement, escalating privileges, and deploying malware or ransomware. The severity of the impact depends on the attacker's objectives and the value of the compromised assets. Successfully identifying and responding to SharpRDP activity can prevent significant data breaches and system compromises.
+
+## Recommendation
+
+*   Deploy the EQL rule "Potential SharpRDP Behavior" to your Elastic SIEM to detect the described behavior, tuning the `from` time frame as needed for your environment.
+*   Enable Elastic Defend on all Windows endpoints to provide the necessary process, registry, and network event data for the EQL rule to function.
+*   Investigate any alerts generated by the rule, focusing on the source IP address, user account, RunMRU registry modifications, and subsequent process executions.
+*   Review the investigation guide included in the rule's `note` section for detailed triage and analysis steps.
+*   Monitor network connections for incoming RDP traffic (destination port 3389) from unexpected source IP addresses, as this could indicate potential SharpRDP activity.
+*   Implement restrictions on RDP access to controlled jump hosts and limit drive redirection where it is not required, per the post-incident hardening recommendations in the rule's `note` section.
