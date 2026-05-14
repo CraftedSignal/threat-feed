@@ -1,8 +1,8 @@
 ---
-title: Crabbox Coordinator Authentication Bypass Vulnerability (CVE-2026-45223)
+title: Crabbox Authentication Bypass via Header Spoofing (CVE-2026-8621)
 slug: 2026-05-crabbox-auth-bypass
-description: 'Crabbox before 0.9.0 is vulnerable to an authentication bypass (CVE-2026-45223) in the coordinator user-token verification, allowing attackers with a non-admin token to escalate privileges to full coordinator admin access by crafting a malicious user-token with an ''admin: true'' claim.'
-date: "2026-05-11T19:17:44Z"
+description: Crabbox prior to v0.12.0 contains an authentication bypass vulnerability (CVE-2026-8621) that allows non-admin shared-token callers to impersonate other owners or organizations by spoofing identity headers, granting unauthorized access to lease operations.
+date: "2026-05-14T19:18:12Z"
 type: advisory
 types:
   - advisory
@@ -10,68 +10,70 @@ severities:
   - high
 tags:
   - authentication-bypass
-  - privilege-escalation
-  - cve
+  - header-spoofing
+  - cve-2026-8621
 vendors:
-  - Crabbox
+  - openclaw
 products:
-  - Crabbox
-  - Crabbox Coordinator (< 0.9.0)
+  - Crabbox < v0.12.0
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1548
-    technique_name: Abuse Elevation Control Mechanism
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-45223
+  - id: CVE-2026-8621
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-45223
-  - CVE-2026-45223
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-8621
+  - https://github.com/openclaw/crabbox/commit/b657323f1d1c954cefc8444571fa6c45a8896e7f
+  - https://github.com/openclaw/crabbox/pull/70
+  - https://github.com/openclaw/crabbox/releases/tag/v0.12.0
+  - https://www.vulncheck.com/advisories/crabbox-authentication-bypass-via-header-spoofing
 rules:
-  - title: Detect Crabbox Coordinator Admin Claim Forgery
-    description: Detects CVE-2026-45223 exploitation — monitors for abnormal user-token payloads containing an admin claim being presented to Crabbox Coordinator admin routes.
+  - title: Detect Crabbox Authentication Bypass Attempt via Spoofed Headers
+    description: Detects CVE-2026-8621 exploitation attempt — monitors for HTTP requests containing both `X-Crabbox-Owner` and `X-Crabbox-Org` headers, indicating potential header spoofing for authentication bypass.
     platform: sigma
     severity: high
     tactics:
-      - privilege_escalation
+      - initial_access
     techniques:
-      - T1548
+      - T1190
     data_sources:
       - webserver
-  - title: Detect Crabbox Coordinator Forced Release Operations
-    description: Detects suspicious activity related to forced release operations performed by unauthorized users on the Crabbox Coordinator.
+  - title: Detect Crabbox Authentication Bypass Attempt via HTTP Method
+    description: Detects CVE-2026-8621 exploitation attempt — monitors for HTTP POST or PUT requests containing both `X-Crabbox-Owner` and `X-Crabbox-Org` headers, as this may indicate an attempt to modify data with spoofed credentials.
     platform: sigma
     severity: medium
     tactics:
-      - impact
+      - initial_access
     techniques:
-      - T1485
+      - T1190
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-Crabbox, a data management system, contains an authentication bypass vulnerability, tracked as CVE-2026-45223, affecting versions prior to 0.9.0. The vulnerability lies within the coordinator's user-token verification process. Specifically, the `verifyUserToken()` function fails to properly validate user tokens, allowing an attacker possessing a valid, but non-administrative, user token to forge an administrative token. By crafting a user-token payload containing the `admin: true` claim and signing it with HMAC-SHA256, an attacker can bypass authentication checks on admin-only coordinator routes. This grants them unauthorized access to sensitive coordinator functions, enabling them to view leases, manage pool states, and perform forced release operations. This vulnerability poses a significant risk to organizations using Crabbox, as it allows for complete takeover of the coordinator component and associated data management functions.
+Crabbox, a currently unspecified software, before version v0.12.0, is vulnerable to an authentication bypass. This flaw, identified as CVE-2026-8621, allows attackers using non-admin shared tokens to impersonate other owners or organizations. By injecting malicious `X-Crabbox-Owner` and `X-Crabbox-Org` headers, attackers can bypass authorization checks. This vulnerability was reported on May 14, 2026, and it impacts any Crabbox installations running versions prior to the fix in v0.12.0. Successful exploitation allows unauthorized access to owner/org-scoped lease operations belonging to victim accounts, leading to potential data breaches or service disruption.
 
 ## Attack Chain
 
-1.  Attacker obtains a valid, non-administrative user token for the Crabbox coordinator. This could be achieved through legitimate user registration or compromise of an existing user account.
-2.  Attacker crafts a malicious user-token payload. The payload includes the `admin: true` claim, which indicates administrative privileges.
-3.  Attacker signs the crafted payload using HMAC-SHA256, leveraging knowledge of the signing key (potentially obtained through other vulnerabilities or exposures).
-4.  Attacker presents the crafted and signed user token to an admin-only coordinator route.
-5.  The `verifyUserToken()` function fails to reject the payload due to the presence of the `admin: true` claim, bypassing the intended authentication restrictions.
-6.  The coordinator grants the attacker full administrator access based on the forged token.
-7.  Attacker leverages the elevated privileges to access sensitive information, such as lease visibility and pool state management.
-8.  Attacker performs unauthorized actions, such as forced release operations or manipulation of pool configurations, leading to data corruption or service disruption.
+1.  Attacker obtains a non-admin shared token for a Crabbox instance prior to v0.12.0.
+2.  Attacker crafts a malicious HTTP request targeting owner/org-scoped lease operations.
+3.  The attacker injects `X-Crabbox-Owner` and `X-Crabbox-Org` headers into the HTTP request, spoofing the identity of a victim owner or organization.
+4.  The attacker authenticates the request using the compromised shared token.
+5.  Crabbox fails to properly validate the injected headers against the authenticated token.
+6.  The authorization check is bypassed due to the spoofed identity headers.
+7.  The attacker gains unauthorized access to the victim's owner/org-scoped lease operations.
+8.  The attacker performs malicious actions, such as modifying or deleting lease information, potentially leading to data loss or service disruption.
 
 ## Impact
 
-Successful exploitation of CVE-2026-45223 allows an attacker to gain complete control over the Crabbox coordinator component. This grants the attacker access to sensitive data management functions, including lease visibility, pool state management, and forced release operations. The attacker can manipulate pool configurations, potentially leading to data corruption or service disruption. Given the high CVSS score of 8.8, this vulnerability poses a significant risk to organizations using Crabbox. The number of potential victims is directly related to the number of Crabbox deployments using versions prior to 0.9.0. The sectors most affected would be those relying on Crabbox for critical data management processes.
+Successful exploitation of CVE-2026-8621 allows unauthorized access to sensitive lease operations within the Crabbox system. This can result in data breaches, data manipulation, or service disruption depending on the specific functions exposed and the scope of the lease operations. While the specific number of potential victims is unknown, any organization using Crabbox versions prior to v0.12.0 with shared token authentication enabled is at risk.
 
 ## Recommendation
 
-*   Upgrade Crabbox to version 0.9.0 or later to patch CVE-2026-45223.
-*   Implement monitoring and alerting for suspicious activity on the Crabbox coordinator, such as unexpected changes to pool configurations or unauthorized forced release operations.
-*   Deploy the Sigma rule "Detect Crabbox Coordinator Admin Claim Forgery" to detect attempts to forge admin tokens.
-*   Review access controls and ensure that only authorized users have access to the Crabbox coordinator.
+*   Upgrade Crabbox to version v0.12.0 or later to patch CVE-2026-8621 (reference: <https://github.com/openclaw/crabbox/releases/tag/v0.12.0>).
+*   Deploy the Sigma rule "Detect Crabbox Authentication Bypass Attempt via Spoofed Headers" to identify exploitation attempts by monitoring for the presence of `X-Crabbox-Owner` and `X-Crabbox-Org` headers in requests.
+*   Review and restrict the usage of shared tokens in Crabbox to minimize the attack surface.
+*   Implement input validation on the `X-Crabbox-Owner` and `X-Crabbox-Org` headers if shared tokens are required, ensuring they match the authenticated user's expected identity.
