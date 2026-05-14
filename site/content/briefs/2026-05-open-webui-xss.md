@@ -1,42 +1,69 @@
 ---
-title: Open WebUI Stored XSS Vulnerability in Banner Component
+title: Open WebUI Stored XSS Vulnerability via OAuth Profile Picture
 slug: 2026-05-open-webui-xss
-description: Open WebUI versions 0.7.2 and earlier are vulnerable to stored cross-site scripting (XSS) in the banner component due to improper sanitization order, allowing a compromised administrator to inject malicious code, escalate privileges, and potentially steal session tokens from other users, including administrators.
-date: "2026-05-14T20:31:08Z"
+description: Open WebUI is vulnerable to stored cross-site scripting (XSS) via OAuth profile picture handling, allowing an attacker to inject malicious SVG code and potentially takeover user accounts by exfiltrating JWT tokens.
+date: "2026-05-14T20:31:48Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:openwebui:open_webui:*:*:*:*:*:*:*:*
 tags:
+  - xss
   - stored-xss
-  - privilege-escalation
+  - oauth
   - open-webui
 vendors:
-  - open-webui
+  - pip
 products:
-  - open-webui (<= 0.7.2)
+  - open-webui (<= 0.9.4)
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2025-64496
+    cvss: 7.3
+    epss: 0.00139
+  - id: CVE-2025-64495
+    cvss: 8.7
+    epss: 8e-05
 references:
-  - https://github.com/advisories/GHSA-cqp4-qqvg-3787
-  - CVE-2026-45665
+  - https://github.com/advisories/GHSA-3wgj-c2hg-vm6q
+  - backend/open_webui/utils/oauth.py:1318-1351
+  - backend/open_webui/utils/oauth.py:1536-1574
+  - backend/open_webui/utils/validate.py:10-36
+  - backend/open_webui/models/users.py:575-588
+  - backend/open_webui/routers/users.py:504-528
+  - backend/open_webui/utils/security_headers.py:16-61
+  - CVE-2025-64496
+  - CVE-2025-64495
+iocs:
+  - type: url
+    value: https://attacker.example/p.svg
+  - type: url
+    value: https://attacker.example/x?c=
+  - type: url
+    value: https://target.example/api/v1/users/<attacker-user-id>/profile/image
+ioc_counts:
+  url: 3
 rules:
-  - title: Detect Open WebUI Stored XSS Payload
-    description: Detects CVE-2026-45665 exploitation — identifies stored XSS payloads in Open WebUI banner content.
+  - title: Detect Open WebUI Profile Image XSS via SVG Upload
+    description: Detects attempts to upload SVG files as profile images in Open WebUI, which can lead to stored XSS (CVE-2025-64496, CVE-2025-64495, GHSA-3wgj-c2hg-vm6q).
     platform: sigma
     severity: high
     tactics:
-      - privilege_escalation
+      - execution
+      - initial_access
     techniques:
-      - T1068
+      - T1190
     data_sources:
       - webserver
-  - title: Detect Open WebUI Malicious Banner Injection
-    description: Detects attempts to inject malicious markdown with JavaScript into Open WebUI banners
+  - title: Detect Open WebUI OAuth Profile Picture with SVG MIME Type
+    description: Detects the storage of SVG MIME types in profile images in Open WebUI via the OAuth flow, indicating a potential XSS vulnerability (GHSA-3wgj-c2hg-vm6q).
     platform: sigma
     severity: medium
     tactics:
@@ -48,25 +75,26 @@ rules:
 rules_count: 2
 ---
 
-Open WebUI versions 0.7.2 and earlier are susceptible to a stored XSS vulnerability within the banner component. The vulnerability stems from an improper order of sanitization, where DOMPurify is executed before the `marked` library. This flaw allows an attacker with administrator privileges to inject a malicious payload into the global banner. The injected banner is displayed to all users, including Super Administrators, making privilege escalation possible by compromising their sessions. Successful exploitation can bypass existing security mechanisms, allowing for the theft of sensitive information, such as the Super Admin's session token. Version 0.8.0 and later are not affected due to the correction of the sanitization order. This vulnerability impacts all platforms where Open WebUI is deployed. The vulnerability is tracked as CVE-2026-45665.
+Open WebUI versions 0.9.4 and earlier are vulnerable to a stored cross-site scripting (XSS) attack due to improper validation of profile images when users sign in via OAuth. The application fetches a URL provided in the OAuth `picture` claim, infers the MIME type from the URL extension, and stores it as a data URI without proper sanitization. Specifically, an attacker can host a malicious SVG file and set their profile picture URL to that file. When a victim clicks the link to the attacker's profile image, the browser executes the SVG code, potentially leading to account takeover by exfiltrating the victim's JWT token. This vulnerability is similar to CVE-2025-64496 and CVE-2025-64495, which highlights trust boundary errors in Open WebUI.
 
 ## Attack Chain
 
-1. An attacker gains unauthorized access to an Open WebUI administrator account.
-2. The attacker navigates to the administrative settings panel within Open WebUI.
-3. The attacker locates the UI banner configuration section, specifically under **Settings > Interface > UI > Banners**.
-4. The attacker crafts a malicious payload using Markdown syntax with a JavaScript injection, such as `[Click for Security Update](javascript:alert(localStorage.token))`, and inputs it into the banner content field.
-5. The attacker saves the configuration, which stores the malicious payload in the system.
-6. A victim user, especially a Primary Admin, logs into Open WebUI and views the dashboard.
-7. The malicious banner is rendered on the dashboard, displaying the crafted link.
-8. When the victim clicks the link, the injected JavaScript code executes within the victim's session, potentially exfiltrating sensitive information like session tokens.
+1. The attacker crafts a malicious SVG file containing JavaScript code to exfiltrate `localStorage.token`.
+2. The attacker hosts the malicious SVG file on a publicly accessible server (e.g., `https://attacker.example/p.svg`).
+3. The attacker configures their OAuth profile picture URL to point to the malicious SVG file.
+4. The attacker signs in to Open WebUI via OAuth, triggering the application to fetch and store the SVG data URI as their profile image.
+5. The attacker crafts a URL to their profile image endpoint (e.g., `https://target.example/api/v1/users/<attacker-user-id>/profile/image`) and shares it with a victim.
+6. The authenticated victim clicks on the link.
+7. The server serves the attacker-controlled SVG with `Content-Type: image/svg+xml` and `Content-Disposition: inline`.
+8. The victim's browser renders the SVG, executes the embedded JavaScript, and exfiltrates the victim's JWT token to the attacker's server.
 
 ## Impact
 
-Successful exploitation of this stored XSS vulnerability allows an attacker to compromise administrator accounts, including those with the highest privileges, on Open WebUI instances version 0.7.2 and earlier. By injecting malicious JavaScript, attackers can steal session tokens, bypass authentication controls, and gain unauthorized access to sensitive data and functionality. The vulnerability could lead to a complete compromise of the Open WebUI system.
+Successful exploitation can lead to account takeover of any authenticated user who clicks the malicious link. The attacker can then access the victim's chats, API keys, and potentially achieve remote code execution (RCE) via installed tools if the victim has the `workspace.tools` permission. Furthermore, the lack of SSRF protection allows an attacker to potentially read internal resources by pointing the `picture` claim at internal URLs.
 
 ## Recommendation
 
-*   Upgrade Open WebUI to version 0.8.0 or later to remediate CVE-2026-45665, where the sanitization order has been corrected.
-*   Deploy the Sigma rule "Detect Open WebUI Stored XSS Payload" to identify attempts to inject malicious JavaScript code into banner content.
-*   Monitor webserver logs for HTTP requests containing suspicious markdown syntax or JavaScript code in banner-related parameters using the "Detect Open WebUI Malicious Banner Injection" Sigma rule.
+*   Implement server-side MIME type validation in `_process_picture_url` (`utils/oauth.py:1336-1345`) to only allow `image/png`, `image/jpeg`, `image/gif`, and `image/webp`. Use the `Content-Type` response header instead of the URL extension.
+*   Enforce a MIME whitelist in `get_user_profile_image_by_id` (`routers/users.py:504-528`) before building the `StreamingResponse`.
+*   Apply the `validate_profile_image_url` validator at the model layer (`Users.update_user_profile_image_url_by_id`), not just at the Pydantic form layer, to ensure all profile image updates are validated.
+*   Enable `X-Content-Type-Options: nosniff` and set a default Content Security Policy (CSP) to mitigate XSS attacks by setting the appropriate environment variables.
