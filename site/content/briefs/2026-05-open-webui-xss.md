@@ -1,11 +1,11 @@
 ---
-title: Open WebUI Stored XSS Vulnerability in Excel File Preview
+title: Open WebUI Stored XSS Vulnerability (CVE-2026-45303)
 slug: 2026-05-open-webui-xss
-description: Open WebUI is vulnerable to stored XSS when previewing Excel files; a crafted XLSX file can embed an XSS payload into the generated HTML, leading to arbitrary code execution when the file is previewed, allowing attackers to create weaponized chats and potentially compromise user sessions or gain RCE.
-date: "2026-05-09T12:00:00Z"
-type: threat
+description: Open WebUI versions before 0.6.5 are vulnerable to stored cross-site scripting (XSS) due to improper sanitization of HTML content displayed within an iFrame, potentially allowing an attacker to inject malicious scripts into chat messages and steal sensitive information like user tokens with some user interaction.
+date: "2026-05-14T20:17:31Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
 tags:
@@ -13,51 +13,66 @@ tags:
   - stored-xss
   - open-webui
 vendors:
-  - Open WebUI
+  - pip
 products:
-  - open-webui (<= 0.7.2)
+  - open-webui (< 0.6.5)
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
 references:
-  - https://github.com/advisories/GHSA-jwf8-pv5p-vhmc
+  - https://github.com/advisories/GHSA-4vrc-m9ch-6m3r
+  - CVE-2026-45303
+iocs:
+  - type: url
+    value: https://www.attacker.local/?
+ioc_counts:
+  url: 1
 rules:
-  - title: Detects CVE-2026-44549 Exploitation — Open WebUI Excel File XSS
-    description: Detects CVE-2026-44549 exploitation — attempts to exploit the Open WebUI Excel file XSS vulnerability by searching for script tags or onerror attributes in the server response.
+  - title: Detect Open WebUI XSS Payload via Attacker Domain
+    description: Detects XSS attempts in Open WebUI by identifying network connections to the attacker's domain after a chat message is rendered, indicating potential token theft.
     platform: sigma
     severity: high
     tactics:
       - initial_access
+    techniques:
+      - T1189
     data_sources:
-      - webserver
-  - title: Detects CVE-2026-44549 Exploitation — Open WebUI Excel File XSS with alert
-    description: Detects CVE-2026-44549 exploitation — attempts to trigger an alert box in Open WebUI by exploiting the Excel file XSS vulnerability.
+      - network_connection
+      - windows
+  - title: Detect Open WebUI XSS Payload via Script Tag in Chat Message
+    description: Detects XSS attempts in Open WebUI by identifying script tags in chat messages indicative of potential XSS payload injection.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - initial_access
+    techniques:
+      - T1189
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-Open WebUI is susceptible to a stored cross-site scripting (XSS) vulnerability due to unsafe handling of Excel file previews. Specifically, a maliciously crafted XLSX file can inject arbitrary HTML and JavaScript code into the generated preview, which is then executed in the user's browser. This is due to the `sheet_to_html` function from the sheetjs library not sanitizing the HTML output. An attacker can exploit this vulnerability by crafting a weaponized chat with a malicious XLSX attachment, which when previewed by a victim, triggers the XSS payload. Versions of Open WebUI up to and including 0.7.2 are affected. Successful exploitation could lead to session hijacking and potentially remote code execution on the server.
+Open WebUI versions before 0.6.5 are susceptible to a stored cross-site scripting (XSS) vulnerability, identified as CVE-2026-45303. This flaw arises from insufficient sanitization of HTML content within chat messages. The frontend provides a function to visualize HTML content of a current chat. The content is embedded in an iFrame with the following permissive sandbox directive: `sandbox="allow-scripts allow-forms allow-same-origin"`. This iFrame configuration allows scripts to execute and access the parent's data, effectively negating the intended security benefits of the sandbox. The vulnerability was discovered during a penetration test and is believed to stem from a core issue within Open WebUI's code. Successful exploitation could lead to the theft of sensitive user data, such as tokens.
 
 ## Attack Chain
 
-1. An attacker crafts a malicious XLSX file containing an XSS payload within a cell using a tool like xlsxwriter.
-2. The attacker uploads this malicious XLSX file as an attachment in Open WebUI.
-3. The attacker shares the chat or sends the file directly to the victim.
-4. The victim opens the chat containing the malicious attachment.
-5. The victim clicks on the attachment to open the file modal.
-6. The victim selects the preview tab in the file modal, triggering the XLSX to HTML conversion.
-7. The vulnerable `sheet_to_html` function processes the XLSX file and embeds the malicious XSS payload into the generated HTML.
-8. The generated HTML, now containing the XSS payload, is injected into the DOM unsanitized, causing the payload to execute. The payload can then perform actions such as stealing session cookies or executing arbitrary JavaScript code.
+1. An attacker crafts a malicious HTML message containing a JavaScript payload designed to steal user tokens.
+2. The attacker injects the malicious HTML message into a chat within Open WebUI, either by directly entering it or via chat sharing functionality.
+3. The victim views the chat containing the attacker's message.
+4. Open WebUI renders the message and embeds the attacker's HTML content, including the malicious JavaScript, within an iFrame.
+5. The iFrame's sandbox configuration allows the JavaScript code to execute.
+6. The attacker's JavaScript code accesses the victim's local storage, retrieves the user's token.
+7. The JavaScript sends the stolen token to an attacker-controlled domain, such as `https://www.attacker.local/?`.
+8. The attacker receives the stolen token and can use it to impersonate the victim.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to execute arbitrary JavaScript code in the context of the victim's browser within the Open WebUI application. This can lead to session hijacking, where the attacker gains control of the victim's account. Furthermore, administrators are at risk of remote code execution (RCE) on the server by chaining this vulnerability with other vulnerabilities in Open WebUI. The impact affects all users of Open WebUI up to version 0.7.2 who interact with shared files.
+This vulnerability is fundamentally a self-XSS, but the impact can be extended under certain conditions. While the exploitability is considered low due to the high attack complexity, successful exploitation can lead to sensitive information disclosure, specifically the theft of user tokens. A successful attack allows the attacker to impersonate the victim and potentially gain unauthorized access to the victim's account and data. Attack vectors include tricking users into entering malicious input, chat sharing, uploading malicious files, and importing malicious chat conversations.
 
 ## Recommendation
 
-*   Apply the vendor-provided patch or upgrade to a version of Open WebUI greater than 0.7.2.
-*   Deploy the following Sigma rule to detect attempts to exploit CVE-2026-44549 by detecting malicious script tags in the response HTML.
-*   Implement input sanitization using DOMPurify or a similar library to sanitize the HTML generated from XLSX files before rendering it in the DOM, as recommended in the advisory.
-*   Educate users about the risks of opening attachments from untrusted sources, even within trusted applications.
+*   Restrict the iFrame sandbox to prevent scripts from executing with access to the parent’s data, mitigating the XSS vulnerability.
+*   Deploy the Sigma rule `Detect Open WebUI XSS Payload via Attacker Domain` to identify instances where the attacker's domain is present in network connections originating from Open WebUI.
+*   Upgrade Open WebUI to version 0.6.5 or later to patch CVE-2026-45303.
