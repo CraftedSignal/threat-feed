@@ -1,40 +1,33 @@
 ---
-title: Open WebUI SSRF Vulnerability via OAuth Profile Picture URL (CVE-2026-45338)
+title: Open WebUI SSRF Vulnerability via URL Parsing Discrepancy (CVE-2026-45400)
 slug: 2026-05-open-webui-ssrf
-description: Open WebUI is vulnerable to Server-Side Request Forgery (SSRF) via the `_process_picture_url()` function in `oauth.py`. The function fetches arbitrary URLs from OAuth `picture` claims without validating the URL, allowing an attacker to force the server to make HTTP requests to internal resources and exfiltrate the full response. This vulnerability requires `ENABLE_OAUTH_SIGNUP=true` or `OAUTH_UPDATE_PICTURE_ON_LOGIN=true` to be exploitable.
-date: "2026-05-14T20:23:45Z"
-type: advisory
+description: Open WebUI versions 0.9.4 and earlier are vulnerable to Server-Side Request Forgery (SSRF) due to a parsing difference between the urlparse and requests libraries in the `validate_url` function, allowing attackers to bypass URL validation and make requests to internal IP addresses.
+date: "2026-05-14T20:37:19Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 tags:
   - ssrf
+  - cve-2026-45400
   - open-webui
-  - oauth
-  - cve-2026-45338
+  - web-application
+  - github-advisory
 vendors:
-  - open-webui
+  - pip
 products:
-  - open-webui (<= 0.8.12)
+  - open-webui (<= 0.9.4)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 references:
-  - https://github.com/advisories/GHSA-24c9-2m8q-qhmh
-  - CVE-2026-45338
-iocs:
-  - type: url
-    value: http://host.docker.internal:9000/canary
-  - type: url
-    value: http://localhost:3000/api/v1/auths/
-ioc_counts:
-  url: 2
+  - https://github.com/advisories/GHSA-8w7q-q5jp-jvgx
 rules:
-  - title: Detect Open WebUI SSRF via OAuth Picture URL
-    description: Detects CVE-2026-45338 exploitation — Outbound connection to internal resources from Open WebUI server during OAuth profile picture processing.
+  - title: Detect Open WebUI SSRF Attempt via Malicious URL
+    description: Detects CVE-2026-45400 exploitation — Attempts to exploit the Open WebUI SSRF vulnerability by detecting URLs with embedded IP addresses and @ symbols
     platform: sigma
     severity: high
     tactics:
@@ -42,46 +35,40 @@ rules:
     techniques:
       - T1190
     data_sources:
-      - network_connection
-      - windows
-  - title: Detect Open WebUI OAuth Profile Image Exfiltration
-    description: Detects exfiltration of data via profile_image_url field in Open WebUI API responses, indicating potential SSRF (CVE-2026-45338).
+      - webserver
+  - title: Detect Requests to Private IP Addresses
+    description: Detects requests originating from the server to RFC1918 private IP addresses
     platform: sigma
     severity: medium
     tactics:
-      - exfiltration
+      - discovery
     techniques:
-      - T1041
+      - T1018
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-A Server-Side Request Forgery (SSRF) vulnerability exists in Open WebUI, specifically in the `_process_picture_url()` function located in `backend/open_webui/utils/oauth.py` around line 1338. This function is responsible for fetching profile pictures from OAuth providers. Due to a missing `validate_url()` call, the function fetches arbitrary URLs from OAuth `picture` claims without proper validation. An attacker can exploit this to force the Open WebUI server to make HTTP requests to internal resources, such as cloud metadata endpoints or internal network services. The vulnerability is triggered during new user OAuth signup or when updating an existing user's picture on login if `OAUTH_UPDATE_PICTURE_ON_LOGIN=true`. Open WebUI versions up to and including 0.8.12 are affected. This vulnerability is identified as CVE-2026-45338.
+Open WebUI versions 0.9.4 and earlier contain a server-side request forgery (SSRF) vulnerability (CVE-2026-45400) in the `validate_url` function. The vulnerability arises from inconsistent URL parsing between the `urlparse` and `requests` libraries. Specifically, `urlparse` may interpret a URL like `http://127.0.0.1:6666\@1.1.1.1` as pointing to the public IP address `1.1.1.1`, while the `requests` library interprets it as the internal IP address `127.0.0.1:6666`. This discrepancy allows an attacker to bypass the intended URL validation and make unauthorized requests to internal resources. Successful exploitation can lead to information disclosure or further internal network compromise. The vulnerability was reported on May 14, 2026.
 
 ## Attack Chain
 
-1. The attacker configures a malicious OIDC server that includes a `picture` claim with a URL pointing to an internal resource (e.g., `http://host.docker.internal:9000/canary`).
-2. The attacker initiates OAuth signup on the Open WebUI instance by clicking "Continue with [OAuth Provider]" on the login page when `ENABLE_OAUTH_SIGNUP=true`.
-3. Open WebUI receives the OAuth response containing the malicious `picture` claim.
-4. The `_process_picture_url()` function in `backend/open_webui/utils/oauth.py` is called with the attacker-controlled URL.
-5. The function fetches the URL without validation using `aiohttp.ClientSession`.
-6. The server fetches the attacker-controlled URL and reads the response.
-7. The response is base64-encoded and stored as the user's `profile_image_url`.
-8. The attacker can retrieve the base64-encoded data via the `/api/v1/auths/` endpoint, completing the SSRF and allowing exfiltration of the targeted resource's content.
+1. The attacker crafts a malicious URL with the format `http://127.0.0.1:6666\@public.ip.address`.
+2. The user provides the crafted URL to Open WebUI, which uses the `validate_url` function to validate the URL.
+3. The `validate_url` function uses `urllib.parse.urlparse` to parse the hostname of the URL.
+4. `urllib.parse.urlparse` incorrectly identifies the hostname as `public.ip.address` due to the presence of the `@` symbol after the internal IP address.
+5. The validation logic considers `public.ip.address` as a public IP and approves the URL.
+6. The application then uses the `requests.get` function to make a request to the validated URL.
+7. `requests.get` interprets the URL differently and sends the request to the internal IP address `127.0.0.1:6666`.
+8. The attacker successfully makes a request to the internal IP address, achieving SSRF and potentially gaining access to sensitive information or internal services.
 
 ## Impact
 
-Successful exploitation allows an attacker to force the Open WebUI server to make HTTP requests to internal or external resources. This can lead to:
-
-- **Stealing cloud metadata:** Accessing AWS IMDSv1 (`http://169.254.169.254/latest/meta-data/iam/security-credentials/`) to obtain IAM credentials.
-- **Accessing internal network services:** Interacting with services not exposed to the internet.
-- **Exploiting localhost-bound services:** Interacting with Redis, Elasticsearch, or internal APIs.
-
-The attacker exfiltrates the full HTTP response body via the base64-encoded `profile_image_url` field, providing full-read SSRF capabilities.
+Successful exploitation of this SSRF vulnerability (CVE-2026-45400) in Open WebUI can allow an attacker to bypass URL validation and make unauthorized requests to internal resources. This may lead to information disclosure, access to internal services, or further compromise of the internal network. The severity is rated as high due to the potential for significant impact on confidentiality and integrity. Affected organizations may experience data breaches or service disruptions.
 
 ## Recommendation
 
-*   Apply the suggested fix by adding `validate_url()` before fetching in the `_process_picture_url` function, as detailed in the advisory, to remediate CVE-2026-45338.
-*   Deploy the Sigma rule `Detect Open WebUI SSRF via OAuth Picture URL` to detect attempts to exploit CVE-2026-45338 by monitoring network connections from the Open WebUI server to internal or unexpected external resources.
-*   Monitor web server logs for requests containing `userinfo` with suspicious URLs in the `picture` claim to detect potential SSRF attempts, using the IOC `http://host.docker.internal:9000/canary` as a test case.
+*   Upgrade to a patched version of Open WebUI that addresses the URL parsing discrepancy.
+*   Deploy the Sigma rule `Detect Open WebUI SSRF Attempt via Malicious URL` to detect attempts to exploit this vulnerability.
+*   Review and harden URL validation logic within the Open WebUI application to ensure consistent parsing across different libraries.
+*   Implement network segmentation and access controls to limit the impact of potential SSRF vulnerabilities.
