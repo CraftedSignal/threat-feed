@@ -1,70 +1,110 @@
 ---
-title: Tenable Releases Security Advisory for Network Monitor Vulnerabilities
+title: Multiple Vulnerabilities in Tenable Network Monitor
 slug: 2026-05-tenable-network-monitor-vulns
-description: Tenable released a security advisory on May 14, 2026, addressing critical vulnerabilities in Tenable Network Monitor versions prior to 6.5.4, urging users to apply necessary updates to mitigate potential risks.
-date: "2026-05-14T20:09:38Z"
+description: Multiple vulnerabilities in Tenable Network Monitor versions prior to 6.5.4 can lead to remote denial of service, security policy bypass, and unspecified security issues.
+date: "2026-05-15T12:23:29Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:haxx:curl:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:sqlite:sqlite:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:sqlite:sqlite:3.49.0:*:*:*:*:*:*:*
 tags:
   - vulnerability
-  - patch
-  - tenable
+  - dos
+  - security-bypass
 vendors:
   - Tenable
 products:
-  - Tenable Network Monitor (< 6.5.4)
+  - Network Monitor (versions prior to 6.5.4)
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1071
+    technique_name: Application Layer Protocol
+cves:
+  - id: CVE-2025-15079
+    cvss: 5.3
+    epss: 0.00047
+  - id: CVE-2025-15224
+    cvss: 3.1
+    epss: 0.00098
+  - id: CVE-2025-29087
+    cvss: 3.2
+    epss: 0.00218
+  - id: CVE-2025-29088
+    cvss: 5.6
+    epss: 0.00062
+  - id: CVE-2025-3277
+    cvss: 9.8
+    epss: 0.00744
 references:
-  - https://cyber.gc.ca/en/alerts-advisories/tenable-security-advisory-av26-472
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0592/
   - https://www.tenable.com/security/tns-2026-14
-  - https://www.tenable.com/security
+  - https://www.cve.org/CVERecord?id=CVE-2025-13034
+  - https://www.cve.org/CVERecord?id=CVE-2025-14017
+  - https://www.cve.org/CVERecord?id=CVE-2025-14524
+  - https://www.cve.org/CVERecord?id=CVE-2025-14819
+  - https://www.cve.org/CVERecord?id=CVE-2025-15079
+  - https://www.cve.org/CVERecord?id=CVE-2025-15224
+  - https://www.cve.org/CVERecord?id=CVE-2025-29087
+  - https://www.cve.org/CVERecord?id=CVE-2025-29088
+  - https://www.cve.org/CVERecord?id=CVE-2025-3277
 rules:
-  - title: Detect Possible Exploitation of Tenable Network Monitor via URI Access
-    description: Detects possible exploitation attempts targeting Tenable Network Monitor by monitoring access to specific URIs potentially related to exploitation attempts.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-  - title: Detect Possible Exploitation of Tenable Network Monitor via User Agent
-    description: Detects possible exploitation attempts targeting Tenable Network Monitor by monitoring suspicious user agents that may be indicative of exploitation.
+  - title: Detect Potential DoS against Tenable Network Monitor via Malformed Packets
+    description: Detects unusual network traffic patterns indicative of DoS attacks against Tenable Network Monitor. This may detect exploitation attempts against CVE-2025-13034, CVE-2025-14017, CVE-2025-14524, CVE-2025-14819, CVE-2025-15079, CVE-2025-15224, CVE-2025-29087, CVE-2025-29088, CVE-2025-3277.
     platform: sigma
     severity: medium
     tactics:
-      - initial_access
+      - impact
     techniques:
-      - T1190
+      - T1499.001
     data_sources:
-      - webserver
+      - network_connection
+      - windows
+  - title: Detect Possible Policy Bypass Attempt on TNM
+    description: Detects possible policy bypass attempt on TNM server. This may detect exploitation attempts against CVE-2025-13034, CVE-2025-14017, CVE-2025-14524, CVE-2025-14819, CVE-2025-15079, CVE-2025-15224, CVE-2025-29087, CVE-2025-29088, CVE-2025-3277.
+    platform: sigma
+    severity: low
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1071.001
+    data_sources:
+      - network_connection
+      - windows
 rules_count: 2
 ---
 
-On May 14, 2026, Tenable published a security advisory highlighting critical vulnerabilities affecting Tenable Network Monitor (TNM) versions prior to 6.5.4. The advisory urges users and administrators to promptly review the details and apply the recommended updates to mitigate potential risks. These vulnerabilities, if exploited, could lead to significant security breaches, potentially compromising network monitoring capabilities and data integrity. Defenders should prioritize patching vulnerable TNM instances to prevent unauthorized access and maintain the security posture of their monitored networks.
+Tenable Network Monitor versions prior to 6.5.4 are susceptible to multiple vulnerabilities. According to Tenable's security advisory tns-2026-14, released on May 14, 2026, these vulnerabilities can allow an attacker to perform a remote denial of service (DoS), bypass security policies, and exploit unspecified security issues. The affected software is a network monitoring tool used within organizations to observe network traffic and identify potential security threats. Successful exploitation of these vulnerabilities could lead to network outages, unauthorized access, or other security breaches.
 
 ## Attack Chain
 
-Due to the lack of specific vulnerability details, a generic attack chain is provided based on common network monitoring tool vulnerabilities:
+Due to lack of specific details about individual CVE exploitation, the following attack chain is generalized:
 
-1.  Initial Access: An attacker identifies a vulnerable Tenable Network Monitor instance running a version prior to 6.5.4.
-2.  Vulnerability Exploitation: The attacker leverages a vulnerability (e.g., remote code execution, SQL injection, or authentication bypass) present in the TNM software.
-3.  Privilege Escalation: If the initial exploit provides limited privileges, the attacker attempts to escalate privileges within the TNM system.
-4.  Credential Access: The attacker attempts to dump credentials or access stored credentials within the TNM configuration.
-5.  Lateral Movement: Using compromised credentials or exploiting further vulnerabilities, the attacker moves laterally to other systems within the monitored network.
-6.  Data Exfiltration: The attacker leverages the compromised TNM instance to gain access to sensitive network data and exfiltrates it.
-7.  System Compromise: The attacker compromises critical systems on the network, potentially leading to denial of service or further data breaches.
-8.  Impact: The attacker achieves their objective, which may include data theft, disruption of services, or further propagation of the attack.
+1.  Attacker identifies a vulnerable Tenable Network Monitor instance running a version prior to 6.5.4.
+2.  Attacker crafts a malicious network packet or request targeting one of the vulnerabilities (CVE-2025-13034, CVE-2025-14017, CVE-2025-14524, CVE-2025-14819, CVE-2025-15079, CVE-2025-15224, CVE-2025-29087, CVE-2025-29088, CVE-2025-3277).
+3.  The malicious packet is sent to the TNM server via network protocols (TCP/UDP).
+4.  The TNM server processes the malformed packet, triggering the vulnerability.
+5.  Depending on the specific vulnerability, this may cause a denial-of-service condition, preventing legitimate monitoring activity.
+6.  Alternatively, it may bypass security policies, allowing unauthorized access to network data.
+7.  The attacker may be able to execute arbitrary code on the TNM server, potentially gaining full control of the system (depending on the unspecified vulnerabilities).
+8.  The attacker leverages compromised TNM to further compromise network.
 
 ## Impact
 
-Successful exploitation of vulnerabilities in Tenable Network Monitor could lead to unauthorized access to sensitive network data, compromise of monitored systems, and disruption of network monitoring services. This could result in data breaches, financial losses, and reputational damage. The severity of the impact depends on the specific vulnerabilities exploited and the attacker's objectives.
+Successful exploitation of these vulnerabilities could lead to a denial of service, preventing administrators from monitoring network traffic and detecting threats. A security policy bypass could allow unauthorized access to sensitive network data. Unspecified vulnerabilities could lead to remote code execution, granting attackers complete control over the affected system. The number of potential victims is dependent on the install base of Tenable Network Monitor, but organizations relying on TNM for network security are at risk.
 
 ## Recommendation
 
-*   Immediately update Tenable Network Monitor to version 6.5.4 or later, as recommended in the Tenable security advisory [R1].
-*   Deploy the provided Sigma rules to detect potential exploitation attempts targeting vulnerable Tenable Network Monitor instances.
-*   Enable network monitoring logs on systems running Tenable Network Monitor to facilitate detection and investigation of suspicious activity.
+*   Upgrade Tenable Network Monitor to version 6.5.4 or later to remediate the vulnerabilities (Tenable Security Advisory tns-2026-14).
+*   Monitor network traffic for unusual patterns or large volumes of traffic directed towards Tenable Network Monitor servers (network_connection log source).
+*   Deploy the provided Sigma rule to detect potential exploitation attempts targeting these vulnerabilities.
+*   Review and harden network segmentation to limit the impact of a successful compromise.
