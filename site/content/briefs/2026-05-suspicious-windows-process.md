@@ -1,0 +1,95 @@
+---
+title: User Detected with Suspicious Windows Process(es)
+slug: 2026-05-suspicious-windows-process
+description: A machine learning job combination has identified a user with one or more suspicious Windows processes exhibiting unusually high malicious probability scores, potentially involving LOLbins for defense evasion.
+date: "2026-05-15T18:08:39Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - low
+tags:
+  - 'Domain: Endpoint'
+  - 'OS: Windows'
+  - 'Use Case: Living off the Land Attack Detection'
+  - 'Rule Type: ML'
+  - 'Rule Type: Machine Learning'
+  - 'Tactic: Defense Evasion'
+  - 'Resources: Investigation Guide'
+  - defense-evasion
+vendors:
+  - Elastic
+  - Microsoft
+products:
+  - Elastic Defend
+  - Winlogbeat
+  - Windows Management Instrumentation (WMI)
+  - PowerShell
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1036
+    technique_name: Masquerading
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1218
+    technique_name: System Binary Proxy Execution
+references:
+  - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
+  - https://docs.elastic.co/en/integrations/problemchild
+  - https://www.elastic.co/security-labs/detecting-living-off-the-land-attacks-with-new-elastic-integration
+  - https://attack.mitre.org/techniques/T1036/
+  - https://attack.mitre.org/techniques/T1218/
+  - https://attack.mitre.org/tactics/TA0005/
+rules:
+  - title: Detect Suspicious WMI Process Creation
+    description: Detects suspicious WMI process creations that may be indicative of LOLBin abuse. (T1036, T1218)
+    platform: sigma
+    severity: low
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1036
+      - T1218
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect Suspicious PowerShell Process Creation
+    description: Detects suspicious powershell.exe process creations with unusual parent processes that may be indicative of LOLBin abuse. (T1036, T1218)
+    platform: sigma
+    severity: low
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1036
+      - T1218
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+A machine learning job combination has flagged users with suspicious Windows processes exhibiting unusually high malicious probability scores. This detection leverages the ProblemChild supervised ML model to identify processes classified as malicious in several ways. Anomalies containing clusters of suspicious processes, each with the same username, have an aggregate score calculated to be unusually high by an unsupervised ML model. Such clusters often contain suspicious or malicious activity, possibly involving LOLbins, that may be resistant to detection using conventional search rules. The rule requires the Living off the Land (LotL) Attack Detection integration assets to be installed, as well as Windows process events collected by integrations such as Elastic Defend or Winlogbeat.
+
+## Attack Chain
+
+1. An attacker gains initial access to a Windows system.
+2. The attacker uses a LOLBin (Living Off The Land Binary) such as PowerShell or WMI to execute malicious commands.
+3. The LOLBin spawns one or more child processes, creating a cluster of processes associated with the same user.
+4. A supervised machine learning model, ProblemChild, identifies these processes as having a high probability of being malicious.
+5. An unsupervised machine learning model calculates an unusually high aggregate score for the event cluster.
+6. The detection triggers based on the combination of supervised and unsupervised ML scores.
+7. The attacker leverages the LOLBin for defense evasion, bypassing conventional search rule detections.
+8. The attacker achieves their objective, such as lateral movement or data exfiltration.
+
+## Impact
+
+A successful attack leveraging LOLbins can lead to significant system compromise, including data theft, system disruption, and lateral movement within the network. While this detection has low severity, it identifies potential malicious activity that may be resistant to traditional detection methods. False positives from legitimate administrative tools and software updates may occur.
+
+## Recommendation
+
+*   Install and configure the Living off the Land (LotL) Attack Detection integration assets as outlined in the [setup instructions](#setup).
+*   Ensure Windows process events are being collected by integrations such as Elastic Defend or Winlogbeat as described in the [setup instructions](#setup).
+*   Review and tune the machine learning job identified by `machine_learning_job_id: problem_child_high_sum_by_user_ea` to minimize false positives, focusing on legitimate administrative tools like PowerShell and WMI.
+*   Implement enhanced monitoring and detection rules to identify similar patterns of behavior, focusing on the specific tactics and techniques used in this incident.
+*   Investigate alerts generated by this rule using the [investigation guide](#note) to determine the scope of the incident and any potential compromise.
