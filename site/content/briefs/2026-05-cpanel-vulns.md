@@ -1,88 +1,85 @@
 ---
-title: cPanel & WHM Multiple Vulnerabilities
+title: Multiple Vulnerabilities in cPanel/WHM Allow Privilege Escalation and Data Manipulation
 slug: 2026-05-cpanel-vulns
-description: cPanel released security advisories addressing vulnerabilities in cPanel & WebHost Manager (WHM) software versions prior to 11.86.0.44, 11.94.0.31, 11.102.0.42, 11.110.0.118, 11.118.0.67, 11.124.0.38, 11.126.0.59, 11.130.0.23, 11.132.0.32, 11.134.0.26, 11.136.0.10 and WP Squared 11.136.1.12.
-date: "2026-05-13T18:41:54Z"
-type: advisory
+description: Multiple vulnerabilities in cPanel/WHM allow an attacker to escalate privileges, perform SQL injection with root privileges, manipulate data, or disclose sensitive information.
+date: "2026-05-15T10:22:55Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
-  - medium
+  - high
 tags:
   - cpanel
-  - vulnerability
-  - webserver
+  - privilege-escalation
+  - sql-injection
+  - data manipulation
 vendors:
   - cPanel
 products:
-  - cPanel & WebHost Manager (WHM) software < 11.86.0.44
-  - cPanel & WebHost Manager (WHM) software < 11.94.0.31
-  - cPanel & WebHost Manager (WHM) software < 11.102.0.42
-  - cPanel & WebHost Manager (WHM) software < 11.110.0.118
-  - cPanel & WebHost Manager (WHM) software < 11.118.0.67
-  - cPanel & WebHost Manager (WHM) software < 11.124.0.38
-  - cPanel & WebHost Manager (WHM) software < 11.126.0.59
-  - cPanel & WebHost Manager (WHM) software < 11.130.0.23
-  - cPanel & WebHost Manager (WHM) software < 11.132.0.32
-  - cPanel & WebHost Manager (WHM) software < 11.134.0.26
-  - cPanel & WebHost Manager (WHM) software < 11.136.0.10
-  - WP Squared 11.136.1.12
+  - cPanel/WHM
+affected_os:
+  - linux
+mitre_ttps:
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1003
+    technique_name: OS Credential Dumping
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1083
+    technique_name: File and Directory Discovery
 references:
-  - https://cyber.gc.ca/en/alerts-advisories/cpanel-security-advisory-av26-464
-  - https://support.cpanel.net/hc/en-us/sections/360007088193-Security
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1538
 rules:
-  - title: Detect Potential cPanel Brute Force Attacks
-    description: Detects potential brute force attacks against cPanel login pages based on multiple failed login attempts from the same IP address.
+  - title: Detect cPanel/WHM SQL Injection Attempts via Web Logs
+    description: Detects potential SQL injection attempts against cPanel/WHM servers by analyzing web server logs for common SQL injection payloads.
     platform: sigma
-    severity: low
+    severity: high
     tactics:
-      - credential_access
+      - initial_access
+      - persistence
     techniques:
-      - T1110
+      - T1190
+      - T1505
     data_sources:
       - webserver
-  - title: Detect Access to cPanel Configuration Files
-    description: Detects attempts to access sensitive cPanel configuration files, potentially indicating an information disclosure attempt.
-    platform: sigma
-    severity: medium
-    tactics:
-      - discovery
-    techniques:
-      - T1592.002
-    data_sources:
-      - webserver
-  - title: Detecting requests to cPanel backups
-    description: Detects access to potential backup files on the webserver.
+  - title: Detect cPanel/WHM Privilege Escalation Attempts via Audit Logs
+    description: Detects potential privilege escalation attempts in cPanel/WHM by monitoring audit logs for unexpected or unauthorized privilege changes.
     platform: sigma
     severity: medium
     tactics:
-      - discovery
+      - privilege_escalation
     techniques:
-      - T1083
+      - T1068
     data_sources:
-      - webserver
-rules_count: 3
+      - process_creation
+      - linux
+rules_count: 2
 ---
 
-On May 13, 2026, cPanel published security advisories addressing multiple vulnerabilities affecting cPanel & WebHost Manager (WHM) software. These vulnerabilities impact versions prior to 11.86.0.44, 11.94.0.31, 11.102.0.42, 11.110.0.118, 11.118.0.67, 11.124.0.38, 11.126.0.59, 11.130.0.23, 11.132.0.32, 11.134.0.26, 11.136.0.10, and WP Squared 11.136.1.12. Successful exploitation of these vulnerabilities could lead to various impacts, including unauthorized access, information disclosure, or remote code execution, depending on the specific flaw. System administrators are urged to apply the necessary updates as soon as possible to mitigate potential risks. The specific nature of the vulnerabilities is not detailed in this advisory.
+Multiple vulnerabilities have been identified in cPanel/WHM, a widely used web hosting control panel. An attacker exploiting these vulnerabilities could gain elevated privileges within the system, potentially leading to full root access. The exploitation could allow for the execution of arbitrary SQL queries with root privileges, enabling unauthorized data manipulation and modification. Successful exploitation may also lead to the disclosure of sensitive information stored within the cPanel/WHM environment. These vulnerabilities pose a significant risk to organizations and individuals relying on cPanel/WHM for managing their web hosting infrastructure, potentially leading to data breaches, service disruptions, and complete system compromise.
 
 ## Attack Chain
 
-1.  Attacker identifies a vulnerable cPanel & WHM instance running an outdated version.
-2.  Attacker leverages publicly available exploit code or develops a custom exploit based on disclosed vulnerability details.
-3.  Attacker sends a malicious HTTP request to the targeted cPanel & WHM server, triggering the vulnerability.
-4.  If successful, the attacker gains unauthorized access to the cPanel & WHM system.
-5.  Attacker escalates privileges within the cPanel & WHM environment, potentially gaining root access.
-6.  Attacker deploys a web shell or other persistent backdoor for continued access and control.
-7.  Attacker uses the compromised system to launch further attacks, such as defacement, data exfiltration, or malware distribution.
-8.  Attacker attempts to move laterally within the network, compromising other systems and resources.
+1.  The attacker gains initial access to a cPanel/WHM server, possibly through compromised credentials or exploiting a separate vulnerability.
+2.  The attacker identifies an exploitable vulnerability within the cPanel/WHM software (T1505).
+3.  The attacker crafts a malicious request to trigger the vulnerability, such as a SQL injection point.
+4.  If successful, the attacker escalates privileges to gain root access.
+5.  With root privileges, the attacker can execute arbitrary SQL queries, allowing them to read, modify, or delete sensitive data within the cPanel/WHM database.
+6.  The attacker exfiltrates sensitive information, such as user credentials, database configurations, or customer data.
+7.  The attacker manipulates data within the cPanel/WHM system, potentially disrupting services or causing financial harm.
+8.  The attacker installs persistent backdoors to maintain long-term access to the compromised server.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities in cPanel & WHM could lead to significant consequences for web hosting providers and their customers. Impacts may include unauthorized access to sensitive data, defacement of websites, disruption of services, and potential financial losses. The number of affected systems is potentially large, given the widespread use of cPanel & WHM in the web hosting industry.
+Successful exploitation of these vulnerabilities could lead to significant data breaches, service disruptions, and complete system compromise. Attackers could gain access to sensitive customer data, including usernames, passwords, and financial information. The ability to manipulate data within the cPanel/WHM system could lead to website defacement, denial of service, or the injection of malicious content. The widespread use of cPanel/WHM makes it an attractive target for attackers, potentially impacting a large number of websites and their users.
 
 ## Recommendation
 
-*   Immediately upgrade cPanel & WebHost Manager (WHM) software to the latest versions (11.86.0.44, 11.94.0.31, 11.102.0.42, 11.110.0.118, 11.118.0.67, 11.124.0.38, 11.126.0.59, 11.130.0.23, 11.132.0.32, 11.134.0.26, 11.136.0.10 and WP Squared 11.136.1.12 or later) as recommended in the cPanel Security advisory.
-*   Monitor web server logs for suspicious activity that may indicate exploitation attempts, focusing on unusual HTTP requests and error codes (webserver category).
-*   Implement a web application firewall (WAF) with rulesets designed to detect and block common cPanel & WHM exploits (webserver category).
+*   Deploy the Sigma rule detecting SQL injection attempts in cPanel/WHM based on web server logs to identify potential exploitation attempts.
+*   Monitor cPanel/WHM logs for suspicious activity, such as unexpected privilege escalations or unauthorized data access.
+*   Apply any available patches from cPanel to remediate the identified vulnerabilities as soon as possible.
