@@ -1,8 +1,8 @@
 ---
-title: Budibase SSRF via Trivial .tar.gz Substring Bypass in Plugin URL Upload
+title: Budibase SSRF Vulnerability in AI Extract File Automation Step
 slug: 2026-05-budibase-ssrf
-description: Budibase is vulnerable to Server-Side Request Forgery (SSRF) due to insufficient validation of the plugin URL upload endpoint (`/api/plugin`), which checks for the presence of `.tar.gz` as a substring, enabling attackers to potentially access internal services and sensitive information.
-date: "2026-05-11T16:22:24Z"
+description: Budibase is vulnerable to server-side request forgery (SSRF) due to a missing IP blacklist validation (CVE-2026-45548) in the AI Extract File automation step, potentially allowing an authenticated user with builder permissions to access internal resources and cloud metadata.
+date: "2026-05-15T17:48:29Z"
 type: advisory
 types:
   - advisory
@@ -11,21 +11,28 @@ severities:
 tags:
   - ssrf
   - budibase
-  - vulnerability
+  - cloud
 vendors:
   - Budibase
 products:
-  - Budibase (Self-Hosted)
+  - '@budibase/server (< 3.34.8)'
+  - Budibase Cloud
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 references:
-  - https://github.com/advisories/GHSA-xh5j-727m-w6gg
+  - https://github.com/advisories/GHSA-rpj4-7x2v-wjrf
+  - CVE-2026-45548
+iocs:
+  - type: url
+    value: http://169.254.169.254/latest/meta-data/
+ioc_counts:
+  url: 1
 rules:
-  - title: Detect Budibase SSRF Attempt via Plugin URL - Direct Access
-    description: Detects Budibase SSRF attempts via the plugin URL upload endpoint by checking for requests to internal IP addresses with the `.tar.gz` bypass.
+  - title: Detect Budibase SSRF Attempt via AI Extract File
+    description: Detects CVE-2026-45548 exploitation — outbound connection from Budibase server to private IP ranges indicating a potential SSRF attempt via the AI Extract File automation step.
     platform: sigma
     severity: high
     tactics:
@@ -33,9 +40,10 @@ rules:
     techniques:
       - T1190
     data_sources:
-      - webserver
-  - title: Detect Budibase SSRF Attempt via Plugin URL - Open Redirect
-    description: Detects Budibase SSRF attempts via the plugin URL upload endpoint by checking for requests that might involve an open redirect to internal IPs, identified by the presence of `.tar.gz` in the initial URL.
+      - network_connection
+      - windows
+  - title: Detect Budibase API Automation Creation with SSRF Payload
+    description: Detects attempts to create Budibase automations via the API with a SSRF payload in the 'fileUrl' field, indicative of CVE-2026-45548 exploitation.
     platform: sigma
     severity: medium
     tactics:
@@ -47,26 +55,25 @@ rules:
 rules_count: 2
 ---
 
-Budibase, a self-hosted low-code platform, is vulnerable to Server-Side Request Forgery (SSRF) in versions 3.34.11 and earlier. The vulnerability resides in the Plugin URL upload endpoint (`/api/plugin`), which utilizes a weak URL validation check that only verifies the presence of the `.tar.gz` substring anywhere in the provided URL. This insufficient validation allows attackers with low privileges (Global Builder role) to bypass intended security measures and potentially access internal services, such as AWS IMDS, CouchDB, and Redis. This is especially critical in deployments where the default SSRF blacklist has been disabled or bypassed, as demonstrated by the BLACKLIST_IPS bypass. Successful exploitation could lead to the disclosure of sensitive information including IAM credentials, application databases, and session tokens.
+Budibase is vulnerable to a Server-Side Request Forgery (SSRF) vulnerability in the AI Extract File automation step. This vulnerability (CVE-2026-45548) exists because the `processUrlFile` function in `packages/server/src/automations/steps/ai/extract.ts` lacks the IP blacklist validation that is applied to all other automation steps. An authenticated user with builder permissions can exploit this vulnerability to make requests to internal network addresses. This oversight allows attackers to bypass intended security controls and potentially access sensitive information or resources within the internal network or cloud environment. This vulnerability affects @budibase/server versions prior to 3.34.8.
 
 ## Attack Chain
 
-1. An attacker gains access to a Budibase instance with Global Builder privileges.
-2. The attacker crafts a malicious URL containing the `.tar.gz` substring, such as `http://169.254.169.254/.tar.gz` to target the AWS IMDS endpoint.
-3. The attacker sends a `POST` request to the `/api/plugin` endpoint with the crafted URL in the `url` parameter.
-4. The Budibase server-side code checks if the URL includes `.tar.gz`. The malicious URL passes this check.
-5. The `downloadUnzipTarball` function attempts to download and unzip the tarball from the provided URL.
-6. The `fetchWithBlacklist` function is called to fetch the URL, potentially bypassing the intended SSRF protection.
-7. If the blacklist is disabled or bypassed (as with BLACKLIST_IPS="" or a redirect), the request is sent to the attacker-specified internal target.
-8. The target system (e.g., AWS IMDS) responds, potentially revealing sensitive information.
+1.  Attacker logs into a Budibase instance as an authenticated user with builder permissions.
+2.  The attacker creates or opens an existing application within Budibase.
+3.  The attacker navigates to the Automations section and initiates a "New Automation."
+4.  An "App Action" trigger is added to start the automation workflow.
+5.  An "AI > Extract File Data" step is added to the automation workflow.
+6.  The attacker configures the "Source" as "URL" and sets the "File URL" to an internal IP address (e.g., `http://169.254.169.254/latest/meta-data/`).
+7.  The attacker executes the automation by clicking "Run Test," triggering the `processUrlFile` function.
+8.  Due to the missing IP blacklist validation, the server makes an outbound HTTP request to the specified internal IP address, potentially exposing internal resources or cloud metadata.
 
 ## Impact
 
-Successful exploitation of this SSRF vulnerability could lead to the exposure of sensitive data within the internal network. In a chained attack, where the `BLACKLIST_IPS` is empty, attackers can directly access AWS IMDS, CouchDB, and Redis instances, potentially obtaining IAM credentials, application databases, and session tokens. Even with the default blacklist active, attackers might be able to exploit open redirect chains to reach internal IPs. The number of affected instances depends on the prevalence of self-hosted Budibase deployments and the configuration of their SSRF protections.
+Successful exploitation of this SSRF vulnerability (CVE-2026-45548) can lead to several critical impacts. An attacker can access cloud metadata endpoints, potentially exposing sensitive information such as AWS IAM credentials, GCP service tokens, or Azure IMDS. The attacker can also scan internal network services and ports to discover vulnerable or misconfigured services. Access to internal APIs not intended for external access is also possible, potentially allowing the attacker to perform unauthorized actions. Furthermore, the attacker can exfiltrate data from internal services via the automation response. In the context of Budibase Cloud (SaaS), this could be leveraged to steal cloud provider credentials, leading to full infrastructure compromise.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Detect Budibase SSRF Attempt via Plugin URL - Direct Access" to identify direct access attempts to internal IP addresses via the plugin URL upload (`/api/plugin`) endpoint using the `.tar.gz` bypass.
-*   Deploy the Sigma rule "Detect Budibase SSRF Attempt via Plugin URL - Open Redirect" to identify attempts to exploit open redirects to reach internal IPs via the plugin URL upload.
-*   Implement the recommended fixes from the advisory, specifically replacing the substring check with proper URL parsing and extension validation, as detailed in the "Recommended Fixes" section of this brief.
-*   If you must allow plugin uploads from URLs, implement a hostname allowlist as described in "Fix 3" in the advisory, and restrict plugin URL downloads to explicitly approved domains.
+*   Upgrade @budibase/server to version 3.34.8 or later to patch CVE-2026-45548, addressing the missing IP blacklist validation in the AI Extract File automation step.
+*   Deploy the Sigma rule "Detect Budibase SSRF Attempt via AI Extract File" to identify potential exploitation attempts by monitoring for outbound connections from the Budibase server to private IP ranges.
+*   Review and restrict network access controls to internal resources to minimize the impact of potential SSRF attacks, limiting the exposure of sensitive services and data.
