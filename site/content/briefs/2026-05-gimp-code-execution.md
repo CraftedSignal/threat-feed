@@ -1,8 +1,8 @@
 ---
-title: GIMP Vulnerability Allows Remote Code Execution
+title: Multiple Vulnerabilities in GIMP Allow Code Execution
 slug: 2026-05-gimp-code-execution
-description: A remote, anonymous attacker can exploit a vulnerability in GIMP to execute arbitrary code, potentially leading to system compromise.
-date: "2026-05-18T10:01:28Z"
+description: Multiple vulnerabilities in GIMP allow an attacker to execute arbitrary program code, potentially leading to complete system compromise.
+date: "2026-05-18T10:01:40Z"
 type: advisory
 types:
   - advisory
@@ -11,7 +11,7 @@ severities:
 tags:
   - code-execution
   - gimp
-  - vulnerability
+  - bsi
 vendors:
   - GIMP
 products:
@@ -19,55 +19,57 @@ products:
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1204
-    technique_name: User Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-2449
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-2129
 rules:
-  - title: Detect Suspicious GIMP Child Processes
-    description: Detects suspicious child processes spawned by GIMP, indicating potential code execution.
+  - title: Detect Suspicious Process Execution from GIMP
+    description: Detects suspicious processes spawned by GIMP, indicative of potential code execution exploits.
     platform: sigma
     severity: high
     tactics:
       - execution
     techniques:
-      - T1059.001
+      - T1059.004
     data_sources:
       - process_creation
       - windows
-  - title: Detect Suspicious GIMP Network Connections
-    description: Detects network connections originating from GIMP to unusual or suspicious remote hosts.
+  - title: Detect Suspicious Process Execution from GIMP (Linux)
+    description: Detects suspicious processes spawned by GIMP on Linux systems, indicative of potential code execution exploits.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - command_and_control
+      - execution
     techniques:
-      - T1071.001
+      - T1059.004
     data_sources:
-      - network_connection
-      - windows
+      - process_creation
+      - linux
 rules_count: 2
 ---
 
-A vulnerability exists in GIMP that allows a remote, anonymous attacker to execute arbitrary code. The exact nature of the vulnerability is not detailed in the advisory. This could allow an attacker to compromise the system where GIMP is installed, potentially leading to data theft, system disruption, or further lateral movement within a network. This vulnerability requires user interaction as GIMP is an application that requires the user to open a malicious file. The advisory was published on 2026-05-18.
+Multiple vulnerabilities exist within GIMP that could be exploited by a malicious actor to achieve arbitrary code execution. The exact nature and triggering conditions of these vulnerabilities are not specified in detail, but their exploitation could allow an attacker to run malicious code on the affected system with the privileges of the user running GIMP. This can lead to a variety of negative outcomes, including data theft, malware installation, or complete system compromise. While the specific attack vector remains unspecified, users should be aware of the potential risks associated with opening untrusted image files or interacting with potentially malicious GIMP plugins.
 
 ## Attack Chain
 
-1. The attacker crafts a malicious image file or uses a GIMP project file designed to exploit the vulnerability.
-2. The attacker delivers the malicious file to the victim, potentially via email, website download, or other file-sharing mechanisms.
-3. The victim opens the malicious file with GIMP.
-4. GIMP processes the malicious file, triggering the vulnerability.
-5. The vulnerability allows the attacker to execute arbitrary code within the context of the GIMP process.
-6. The attacker's code establishes a reverse shell connection to an attacker-controlled server.
-7. The attacker gains control of the victim's system and can perform actions such as installing malware or exfiltrating sensitive data.
+Given the limited information, the following attack chain is inferred based on common software exploitation scenarios:
+
+1.  An attacker crafts a malicious image file or plugin specifically designed to exploit a vulnerability in GIMP.
+2.  The victim opens the malicious image file using GIMP or installs the malicious plugin.
+3.  GIMP parses the malicious image file or executes the malicious plugin, triggering the vulnerability.
+4.  The vulnerability leads to memory corruption or other unexpected behavior within GIMP.
+5.  The attacker leverages the memory corruption to inject and execute arbitrary code.
+6.  The attacker's code executes with the privileges of the GIMP process, typically the user's privileges.
+7.  The attacker gains control of the user's account.
+8.  The attacker installs malware, steals data, or performs other malicious actions.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows a remote attacker to execute arbitrary code on the victim's system. This can result in complete system compromise, data theft, or the installation of malware. The number of potential victims is high, as GIMP is a widely used open-source image editing software. Targeted sectors could include any organization or individual that uses GIMP for image editing purposes.
+Successful exploitation of these vulnerabilities could allow an attacker to execute arbitrary code on the targeted system. Depending on the user's privileges, this could lead to complete system compromise, data theft, or the installation of malware. Given the lack of specific details, the scope of the impact is difficult to quantify, but all GIMP users are potentially at risk.
 
 ## Recommendation
 
-*   Investigate GIMP usage within the organization and identify systems where it is installed.
-*   Monitor process execution for suspicious child processes spawned by `gimp.exe`, such as command interpreters or scripting engines (see the "Detect Suspicious GIMP Child Processes" Sigma rule).
-*   Monitor network connections originating from `gimp.exe` for connections to unusual or suspicious remote hosts (see the "Detect Suspicious GIMP Network Connections" Sigma rule).
-*   Implement application control policies to restrict the execution of unauthorized or untrusted executables within the GIMP process.
+*   Monitor process execution for unusual activity originating from GIMP processes (see Sigma rule "Detect Suspicious Process Execution from GIMP").
+*   Implement application control policies to restrict the execution of unauthorized code within the GIMP process.
+*   Stay informed about future security advisories related to GIMP and apply patches promptly when they become available.
