@@ -1,8 +1,8 @@
 ---
-title: Fox Tempest Malware-Signing-as-a-Service Operation
+title: Fox Tempest Malware-Signing-as-a-Service Disrupted
 slug: 2026-05-fox-tempest-msaas
-description: Fox Tempest is a financially motivated threat actor operating a malware-signing-as-a-service (MSaaS) used by other cybercriminals to distribute malicious code, including ransomware, by abusing Microsoft Artifact Signing to generate fraudulent code-signing certificates and evade security controls.
-date: "2026-05-19T16:01:22Z"
+description: Microsoft disrupted a malware-signing-as-a-service (MSaaS) operation run by Fox Tempest that abused the Azure Artifact Signing service to generate fraudulent code-signing certificates, enabling malware to bypass security controls.
+date: "2026-05-19T21:48:34Z"
 type: threat
 types:
   - threat
@@ -11,77 +11,85 @@ severities:
 actors:
   - Fox Tempest
 tags:
+  - code-signing
   - malware-signing
-  - ransomware
   - supply-chain
+  - azure
 vendors:
   - Microsoft
+  - Cloudzy
+  - AnyDesk
+  - Webex
 products:
-  - Artifact Signing
-  - Microsoft Defender
+  - Azure Artifact Signing
+  - Microsoft Teams
+  - AnyDesk
+  - PuTTY
+  - Webex
+affected_os:
+  - windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1588
-    technique_name: Obtain Capabilities
+    technique_id: T1566
+    technique_name: Phishing
   - tactic_id: TA0005
     tactic_name: Defense Evasion
-    technique_id: T1036
-    technique_name: Masquerading
+    technique_id: T1588
+    technique_name: Obtain Capabilities
 references:
-  - https://www.microsoft.com/en-us/security/blog/2026/05/19/exposing-fox-tempest-a-malware-signing-service-operation/
+  - https://www.bleepingcomputer.com/news/security/cybercrime-service-disrupted-for-abusing-microsoft-platform-to-sign-malware/
 iocs:
   - type: domain
     value: signspace[.]cloud
 ioc_counts:
   domain: 1
 rules:
-  - title: Detect Signed Executables from Suspicious Paths
-    description: Detects execution of signed executables from suspicious or unusual file paths, potentially indicating malware masquerading as legitimate software.
+  - title: Detect Signed Executables Impersonating Legitimate Software
+    description: Detects the execution of signed executables impersonating legitimate software like Microsoft Teams, AnyDesk, PuTTY, and Webex, potentially indicating malware signed by the Fox Tempest MSaaS.
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
     techniques:
-      - T1036
-      - T1036.005
+      - T1588.004
     data_sources:
       - process_creation
       - windows
-  - title: Detect Azure Artifact Signing Abuse
-    description: Detects suspicious activity related to Azure Artifact Signing, potentially indicating abuse by threat actors to sign malicious code.
+  - title: Detect Uncommon Process Execution from Downloads Folder
+    description: Detects executables running from the Downloads folder which are signed, but lack a valid digital signature.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - defense_evasion
+      - execution
     techniques:
-      - T1588.004
+      - T1566.001
     data_sources:
-      - cloudtrail
-      - aws
+      - process_creation
+      - windows
 rules_count: 2
 ---
 
-Fox Tempest is a financially motivated threat actor operating a malware-signing-as-a-service (MSaaS) since at least May 2025. They provide fraudulent code-signing certificates to other cybercriminals, enabling them to distribute malicious code, including ransomware, more effectively. Fox Tempest abuses Microsoft Artifact Signing to generate short-lived, fraudulent code-signing certificates to appear legitimately signed, which allows malware to evade security controls. Microsoft has tracked Fox Tempest since September 2025 and disrupted their MSaaS offering in May 2026. The group has created over a thousand certificates and established hundreds of Azure tenants and subscriptions to support its operations. The group's activities enable the deployment of ransomware, such as Rhysida, and distribution of malware families like Lumma Stealer.
+In May 2026, Microsoft disrupted a malware-signing-as-a-service (MSaaS) operation run by the threat actor Fox Tempest. This operation abused the Azure Artifact Signing service (formerly Trusted Signing) to generate fraudulent code-signing certificates. These certificates were then used by cybercriminals, including ransomware gangs, to sign malware, making it appear legitimate to users and operating systems. Fox Tempest created over 1,000 certificates and hundreds of Azure tenants and subscriptions to support its operation. The service was linked to numerous malware and ransomware campaigns, including Oyster, Lumma Stealer, Vidar, Rhysida, Akira, INC, and BlackByte. The MSaaS platform was promoted on a Telegram channel named "EV Certs for Sale by SamCodeSign," with prices ranging from $5,000 to $9,000 in Bitcoin.
 
 ## Attack Chain
 
-1. Fox Tempest establishes infrastructure on Azure, creating hundreds of tenants and subscriptions.
-2. They fraudulently obtain short-lived (72-hour) code-signing certificates through Microsoft Artifact Signing by likely using stolen identities to pass the identity validation process.
-3. Fox Tempest operates the SignSpace[.]cloud service, offering it to other cybercriminals.
-4. Customers (other threat actors) upload malicious files to the SignSpace service to be signed using Fox Tempest-controlled certificates.
-5. The SignSpace service uses the fraudulently obtained certificates to sign the uploaded malware.
-6. Threat actors distribute the signed malware through various methods, including legitimate purchased advertisements, malvertising, and SEO poisoning, leveraging the trusted signature to bypass security controls.
-7. Users download and execute the signed malware, believing it to be legitimate software such as AnyDesk, Teams, Putty, or Webex.
-8. The executed malware leads to further compromise, potentially including ransomware deployment, credential theft, and data exfiltration.
+1. Fox Tempest creates hundreds of Azure tenants and subscriptions.
+2. The threat actor abuses the Azure Artifact Signing service to generate short-lived (72-hour) code-signing certificates.
+3. Cybercriminal customers upload malicious files to the MSaaS platform through signspace[.]cloud or pre-configured virtual machines hosted on Cloudzy infrastructure.
+4. Fox Tempest signs the uploaded malware using the fraudulently obtained certificates.
+5. Attackers distribute signed malware, impersonating legitimate software such as Microsoft Teams, AnyDesk, PuTTY, and Webex.
+6. Unsuspecting victims execute the falsely named installer files.
+7. The installers deliver a malicious loader, which installs the fraudulently signed malware, such as Oyster.
+8. The malware deploys ransomware, such as Rhysida, or steals credentials and sensitive information using Lumma Stealer or Vidar.
 
 ## Impact
 
-Fox Tempest's MSaaS enables the distribution of malware, including ransomware, across a broad range of industry sectors, including healthcare, education, government, and financial services. Organizations globally, including those in the United States, France, India, and China, have been impacted. Cryptocurrency analysis has linked Fox Tempest to ransomware affiliates responsible for delivering several prominent ransomware families, including INC, Qilin, and Akira, with observed proceeds in the millions. Successful attacks can lead to data breaches, financial losses, and disruption of services.
+The Fox Tempest MSaaS operation enabled cybercriminals to sign their malware with certificates trusted by the Windows operating system, allowing them to bypass security controls and infect systems more easily. This led to successful ransomware attacks and data theft, causing significant financial losses and reputational damage for victim organizations. Microsoft believes the operation generated millions of dollars in profits.
 
 ## Recommendation
 
-*   Monitor network traffic for connections to known malware distribution domains and IPs used in campaigns leveraging fraudulently signed binaries.
-*   Implement application control policies to only allow execution of signed binaries from trusted vendors. Prioritize blocking certificates revoked by Microsoft (see Overview).
-*   Monitor process creation events for execution of signed binaries from untrusted or unexpected locations (see rule: "Detect Signed Executables from Suspicious Paths").
-*   Deploy the Sigma rule "Detect Azure Artifact Signing Abuse" to identify potential abuse of Azure Artifact Signing within your environment.
+*   Block the domain `signspace[.]cloud` at the DNS resolver to prevent access to the MSaaS platform.
+*   Deploy the Sigma rules below to your SIEM to detect the execution of signed malware installers that impersonate legitimate software.
+*   Monitor for suspicious Azure tenant and subscription creation activities that may indicate abuse of the Artifact Signing service.
