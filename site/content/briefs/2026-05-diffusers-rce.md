@@ -1,17 +1,17 @@
 ---
-title: Diffusers trust_remote_code Bypass Leads to Remote Code Execution
+title: Diffusers TOCTOU Vulnerability Leads to Remote Code Execution
 slug: 2026-05-diffusers-rce
-description: A `trust_remote_code` bypass vulnerability exists in the `DiffusionPipeline.from_pretrained` function of the diffusers library, allowing for arbitrary remote code execution when using `custom_pipeline` and local custom components, even when `trust_remote_code=False` is set.
-date: "2026-05-07T05:31:17Z"
+description: A Time-of-Check Time-of-Use (TOCTOU) vulnerability in the `diffusers` package allows arbitrary code execution via a race condition when loading pipelines from the Hugging Face Hub, bypassing trust checks.
+date: "2026-05-20T15:32:30Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - remote-code-execution
-  - diffusers
-  - trust_remote_code
+  - toctou
+  - rce
+  - huggingface
 vendors:
   - Hugging Face
 products:
@@ -21,72 +21,55 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1205
-    technique_name: Traffic Signaling
 references:
-  - https://github.com/advisories/GHSA-98h9-4798-4q5v
-  - https://github.com/huggingface/diffusers/pull/13448
-  - https://github.com/huggingface/diffusers/issues/13446
-  - https://github.com/huggingface/diffusers/releases/tag/v0.38.0
-  - https://cwe.mitre.org/data/definitions/94.html
+  - https://github.com/advisories/GHSA-7wx4-6vff-v64p
+  - CVE-2026-45804
 rules:
-  - title: Detect Python Execution from Suspicious Paths
-    description: Detects the execution of Python files from world-writable directories, which may indicate a trust_remote_code bypass attack
-    platform: sigma
-    severity: high
-    tactics:
-      - execution
-    techniques:
-      - T1059.008
-    data_sources:
-      - process_creation
-      - linux
-  - title: Detect Suspicious File Creation in Diffusers Cache Directories
-    description: Detects the creation of suspicious files (e.g., *.py) in Diffusers cache directories, indicating a potential `trust_remote_code` bypass.
+  - title: Detect Diffusers from_pretrained without trust_remote_code
+    description: Detects calls to DiffusionPipeline.from_pretrained without explicit trust_remote_code, which may indicate a potential TOCTOU exploit attempt targeting CVE-2026-45804.
     platform: sigma
     severity: medium
     tactics:
-      - defense_evasion
-    techniques:
-      - T1027
-    data_sources:
-      - file_event
-      - linux
-  - title: Detect Diffusers Loading Remote Pipelines with Trust Disabled
-    description: Detects the loading of remote custom pipelines in Diffusers while trust_remote_code is disabled or not explicitly enabled. This can indicate a potential vulnerability exploitation attempt.
-    platform: sigma
-    severity: high
-    tactics:
       - execution
     techniques:
-      - T1204.002
+      - T1059.004
     data_sources:
       - process_creation
-      - linux
-rules_count: 3
+      - windows
+  - title: Detect Suspicious Network Connection from Diffusers Process
+    description: Detects network connections initiated by processes related to the diffusers library, potentially indicating command and control activity after CVE-2026-45804 exploitation.
+    platform: sigma
+    severity: low
+    tactics:
+      - command_and_control
+    techniques:
+      - T1071.001
+    data_sources:
+      - network_connection
+      - windows
+rules_count: 2
 ---
 
-A `trust_remote_code` bypass in `DiffusionPipeline.from_pretrained` allows arbitrary remote code execution despite the user passing `trust_remote_code=False` (or omitting it, which is the default). The vulnerability, impacting diffusers versions before 0.38.0, stems from the `trust_remote_code` gate being implemented inside `DiffusionPipeline.download()` rather than at the actual dynamic-module load site. This allows for bypasses using cross-repo `custom_pipeline`, local snapshots with Hub `custom_pipeline`, and local snapshots with custom components. Successful exploitation results in silent remote code execution on the victim's machine, affecting anyone calling `DiffusionPipeline.from_pretrained` with custom pipelines. The vulnerability is tracked as CVE-2026-44513.
+A TOCTOU vulnerability exists in the `diffusers` package (versions prior to 0.38.0), a library used for diffusion models. The vulnerability resides within the `DiffusionPipeline.from_pretrained` function, which is responsible for loading pipelines from the Hugging Face Hub. This function has a `trust_remote_code` guard intended to prevent the execution of untrusted code from custom pipelines. However, a race condition between two HTTP calls (`hf_hub_download` and `snapshot_download`) allows an attacker to introduce malicious code into the repository between the calls, effectively bypassing the trust check and enabling remote code execution. This occurs because the vulnerability allows arbitrary code to be loaded through the custom pipeline flow from a Hub repo, even without explicitly passing `custom_pipeline` or `trust_remote_code` arguments.
 
 ## Attack Chain
 
-1. A user calls `DiffusionPipeline.from_pretrained` with a malicious `custom_pipeline` pointing to an attacker's repository (repoB) while setting `trust_remote_code=False`.
-2. The `DiffusionPipeline.download()` function is invoked, but the trust check is performed against the primary repository (repoA) instead of the attacker's repository (repoB).
-3. Alternatively, the user calls `DiffusionPipeline.from_pretrained` with a local snapshot directory and a malicious `custom_pipeline` pointing to an attacker's repository. The local-path branch bypasses the `download()` function, thus skipping the `trust_remote_code` gate.
-4. As another alternative, the user calls `DiffusionPipeline.from_pretrained` with a local snapshot directory containing custom component files (e.g., `unet/my_unet_model.py`) referenced from `model_index.json`. The local path bypasses `download()`.
-5. The attacker's `pipeline.py` or custom component files are loaded as dynamic modules.
-6. The attacker's code is executed, granting the attacker arbitrary code execution privileges on the victim's machine.
-7. The attacker can then perform various malicious activities, such as installing malware, stealing data, or compromising the system.
+1. An attacker creates a Hugging Face Hub repository with a `model_index.json` file containing a plain string `_class_name` value, indicating no custom pipeline code.
+2. A user attempts to load the pipeline using `DiffusionPipeline.from_pretrained("attacker/repo")`.
+3. The `hf_hub_download` function fetches the `model_index.json` file (commit A) and the trust check passes because no custom pipeline is detected.
+4. Before the `snapshot_download` function is called, the attacker pushes a new commit (commit B) to the repository, modifying the `model_index.json` file to use a list `_class_name` and adding a malicious `pipeline.py` file.
+5. The `snapshot_download` function fetches commit B, including the malicious `pipeline.py` file.
+6. The `_resolve_custom_pipeline_and_cls` function reads the updated `model_index.json` and resolves the custom pipeline to the local path of the `pipeline.py` file.
+7. The `_get_pipeline_class` function imports the malicious `pipeline.py` file without any further trust checks.
+8. The malicious code within `pipeline.py` is executed, resulting in arbitrary code execution on the user's machine.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows for arbitrary remote code execution on the victim's machine. This could lead to complete system compromise, data theft, or other malicious activities. All users of diffusers versions before 0.38.0 who call `DiffusionPipeline.from_pretrained` with custom pipelines are potentially affected.
+Successful exploitation of this vulnerability allows an attacker to execute arbitrary code on the victim's machine. The vulnerability is a silent RCE meaning that the from_pretrained call succeeds and returns a fully functional pipeline even when malicious code has been injected. This could lead to data exfiltration, system compromise, or other malicious activities. The impact is significant as it undermines the trust mechanisms designed to protect users from running untrusted code.
 
 ## Recommendation
 
-*   Upgrade to diffusers version 0.38.0 or later to remediate the vulnerability. The fix moves the `trust_remote_code` gate to `get_cached_module_file` in `src/diffusers/utils/dynamic_modules_utils.py` ([https://github.com/huggingface/diffusers/pull/13448](https://github.com/huggingface/diffusers/pull/13448)).
-*   If upgrading is not immediately possible, only call `from_pretrained` with `pretrained_model_name_or_path`, `custom_pipeline`, and local snapshot directories from fully trusted sources that have been audited.
-*   If a local snapshot is used, inspect it for unexpected `*.py` files, especially under component subdirectories (`unet/`, `scheduler/`, etc.) and at the snapshot root before calling `from_pretrained`.
-*   Deploy the Sigma rule to detect execution of unexpected python files.
+*   Upgrade to `diffusers` version 0.38.0 or later to patch the vulnerability.
+*   When using `DiffusionPipeline.from_pretrained`, pin the `revision` argument to a specific commit hash to avoid race conditions, as described in the overview.
+*   Deploy the Sigma rule "Detect Diffusers from_pretrained with trust_remote_code" to detect potential exploitation attempts by identifying calls to `DiffusionPipeline.from_pretrained` without explicit trust settings.
+*   Monitor network connections for unexpected outbound traffic originating from processes associated with the `diffusers` library, using the network connection Sigma rule in this brief to identify potential command and control activity.
