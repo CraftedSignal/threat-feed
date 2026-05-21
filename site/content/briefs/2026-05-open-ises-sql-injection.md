@@ -1,78 +1,81 @@
 ---
-title: Open ISES Tickets SQL Injection Vulnerability (CVE-2026-48236)
+title: Open ISES Tickets SQL Injection Vulnerability (CVE-2026-48237)
 slug: 2026-05-open-ises-sql-injection
-description: Open ISES Tickets before version 3.44.2 contains a SQL injection vulnerability in the db_loader.php component due to unsanitized concatenation of POST parameters into mysqli connection arguments, allowing authenticated attackers to read, modify, or destroy database contents.
-date: "2026-05-21T18:19:51Z"
+description: Open ISES Tickets before 3.44.2 is vulnerable to SQL injection via the frm_ticket_id and frm_resp_id POST parameters in message.php, allowing authenticated attackers to manipulate database queries.
+date: "2026-05-21T18:20:06Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
+  - cve
   - sql-injection
-  - cve-2026-48236
   - web-application
 vendors:
   - openises
 products:
   - Tickets
-  - Tickets < 3.44.2
+  - Tickets <= 3.44.2
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-48236
+  - id: CVE-2026-48237
     cvss: 7.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-48236
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48237
   - https://github.com/openises/tickets/commit/ecfeb406a016766cae81c749e14b5145a9f2dbff
   - https://github.com/openises/tickets/releases/tag/v3.44.2
-  - https://www.vulncheck.com/advisories/open-ises-tickets-sql-injection-via-db-loader-php-multiple-parameters
+  - https://www.vulncheck.com/advisories/open-ises-tickets-sql-injection-via-message-php-frm-ticket-id-and-frm-resp-id-parameters
 rules:
-  - title: Detect CVE-2026-48236 Exploitation — Open ISES Tickets SQL Injection
-    description: Detects CVE-2026-48236 exploitation — SQL injection attempts in Open ISES Tickets via db_loader.php POST requests containing SQL metacharacters in connection parameters.
+  - title: Detect CVE-2026-48237 Exploitation Attempt via message.php
+    description: Detects CVE-2026-48237 exploitation — HTTP POST to message.php with SQL injection attempts in frm_ticket_id or frm_resp_id parameters
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
+      - T1505.003
     data_sources:
       - webserver
-  - title: Detect Open ISES Tickets db_loader.php Access
-    description: Detects access to the db_loader.php page in Open ISES Tickets, which may indicate reconnaissance or attempts to exploit CVE-2026-48236.
+  - title: Detect Potential SQL Injection in POST Request
+    description: Detects a POST request containing potential SQL injection attempts.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - reconnaissance
+      - initial_access
     techniques:
-      - T1595
+      - T1190
+      - T1505.003
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-Open ISES Tickets before version 3.44.2 is vulnerable to SQL injection in the `db_loader.php` file. The vulnerability, identified as CVE-2026-48236, arises from the unsafe concatenation of POST parameters (`ticketsdb`, `ticketshost`, `ticketsuser`, `ticketspassword`) directly into mysqli connection arguments and dynamic SQL queries. This lack of sanitization allows an authenticated attacker to manipulate query semantics, potentially leading to unauthorized access, modification, or deletion of sensitive database information. The vulnerability was reported on 2026-05-21 and patched in version 3.44.2. Successful exploitation could compromise the integrity and confidentiality of the data stored within the Open ISES Tickets database.
+Open ISES Tickets before version 3.44.2 is susceptible to SQL injection attacks. The vulnerability resides in the `message.php` file, where the `frm_ticket_id` and `frm_resp_id` POST parameters are directly concatenated into the WHERE clauses of SELECT and UPDATE SQL statements. This improper sanitization allows authenticated attackers to inject arbitrary SQL code by crafting malicious requests. Successful exploitation can lead to unauthorized data access, modification, or deletion within the Open ISES Tickets database. This vulnerability was reported by VulnCheck and assigned CVE-2026-48237.
 
 ## Attack Chain
 
-1. An attacker authenticates to the Open ISES Tickets application.
-2. The attacker crafts a malicious HTTP POST request to `db_loader.php`.
-3. The POST request includes crafted values in the `ticketsdb`, `ticketshost`, `ticketsuser`, and `ticketspassword` parameters designed to inject SQL code.
-4. The `db_loader.php` script concatenates these POST parameters into mysqli connection arguments without proper sanitization.
-5. This results in the execution of attacker-controlled SQL queries against the database.
-6. The attacker manipulates the query to bypass intended access controls.
-7. The attacker extracts sensitive data from the database or modifies existing data.
-8. The attacker can potentially escalate privileges or gain complete control over the database.
+1.  An authenticated attacker identifies the vulnerable `message.php` endpoint.
+2.  The attacker crafts a malicious HTTP POST request targeting `message.php`.
+3.  The crafted POST request includes SQL injection payloads within the `frm_ticket_id` and/or `frm_resp_id` parameters.
+4.  The server-side application (`message.php`) receives the request and concatenates the unsanitized parameters into SQL queries.
+5.  The modified SQL query is executed against the Open ISES Tickets database.
+6.  The injected SQL code alters the query's intended logic, potentially allowing the attacker to bypass authentication checks, extract sensitive data (e.g., usernames, passwords, ticket details), modify existing records, or even drop tables.
+7.  The database server processes the injected SQL commands.
+8.  The attacker gains unauthorized access to the database or manipulates data according to the injected SQL code.
 
 ## Impact
 
-Successful exploitation of this SQL injection vulnerability (CVE-2026-48236) can lead to severe consequences, including unauthorized access to sensitive ticket data, modification or deletion of critical information, and potential compromise of the entire Open ISES Tickets system. The vulnerability affects Open ISES Tickets installations prior to version 3.44.2, potentially impacting any organization using this software for issue tracking.
+Successful exploitation of this SQL injection vulnerability (CVE-2026-48237) can lead to severe consequences, including unauthorized access to sensitive ticket information, modification or deletion of critical data, and potential compromise of the entire Open ISES Tickets system. Authenticated attackers could exploit this to escalate privileges or disrupt service availability.
 
 ## Recommendation
 
-*   Upgrade Open ISES Tickets to version 3.44.2 or later to patch CVE-2026-48236.
-*   Deploy the Sigma rule `Detect CVE-2026-48236 Exploitation — Open ISES Tickets SQL Injection` to detect exploitation attempts.
-*   Implement input validation and sanitization on all user-supplied data, especially the `ticketsdb`, `ticketshost`, `ticketsuser`, and `ticketspassword` parameters in `db_loader.php`.
+*   Upgrade Open ISES Tickets to version 3.44.2 or later to patch CVE-2026-48237 as recommended by the vendor.
+*   Deploy the Sigma rule "Detect CVE-2026-48237 Exploitation Attempt via message.php" to detect suspicious POST requests containing SQL injection payloads in the `frm_ticket_id` and `frm_resp_id` parameters.
+*   Implement input validation and sanitization for all user-supplied data, especially within SQL queries.
+*   Monitor web server logs for unusual activity and potential SQL injection attempts targeting `message.php`.
