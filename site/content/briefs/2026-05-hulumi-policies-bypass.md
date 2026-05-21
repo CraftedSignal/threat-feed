@@ -1,69 +1,73 @@
 ---
-title: '@hulumi/policies SecureBucket Parent Spoof Bypass Vulnerability'
+title: '@hulumi/policies GitHub OIDC Trust Policy Bypass via AWS Set-Qualified Condition Operators'
 slug: 2026-05-hulumi-policies-bypass
-description: A spoofing vulnerability exists in @hulumi/policies versions before 1.3.2, allowing attackers to spoof SecureBucket parent evidence for HULUMI-H1, potentially bypassing policy evaluation and leading to unsafe bucket shapes.
-date: "2026-05-21T20:45:22Z"
+description: '@hulumi/policies versions before 1.3.2 are vulnerable to a critical trust policy bypass where set-qualified operators such as ForAnyValue:StringLike could hide wildcard GitHub Actions OIDC sub conditions from the mandatory guardrail, potentially allowing unauthorized access to AWS resources.'
+date: "2026-05-21T20:48:15Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
-  - spoofing
-  - policy bypass
-  - npm package
+  - github
+  - aws
+  - iam
+  - oidc
+  - trust-policy
 vendors:
   - GitHub
+  - AWS
 products:
-  - '@hulumi/policies'
-  - github.com
+  - '@hulumi/policies (< 1.3.2)'
+  - GitHub Actions
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1199
+    technique_name: Trusted Relationship
 references:
-  - https://github.com/advisories/GHSA-g43v-9x7q-83pq
+  - https://github.com/advisories/GHSA-q2f7-m237-v562
 rules:
-  - title: Detect Suspicious @hulumi/policies Policy Evaluation
-    description: Detects suspicious policy evaluation processes potentially related to SecureBucket parent spoofing in @hulumi/policies.
+  - title: Detect AWS IAM Role Trust Policy Creation with Set-Qualified Operators Bypassing OIDC Sub Validation
+    description: Detects the creation or modification of AWS IAM role trust policies that use set-qualified operators (e.g., ForAnyValue:StringLike) in a way that could bypass the intended validation of GitHub OIDC sub conditions.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - defense_evasion
-    techniques:
-      - T1562.001
+      - initial_access
     data_sources:
-      - process_creation
-      - linux
-  - title: Detect Malicious SecureBucket Configuration via NPM
-    description: Detects attempts to install or configure SecureBucket with potentially malicious code via NPM, possibly related to the @hulumi/policies spoofing vulnerability.
+      - cloudtrail
+      - cloudtrail
+  - title: Detect AWS IAM Role Trust Policy Modification with Set-Qualified Operators Bypassing OIDC Sub Validation
+    description: Detects the modification of AWS IAM role trust policies to use set-qualified operators (e.g., ForAnyValue:StringLike) in a way that could bypass the intended validation of GitHub OIDC sub conditions.
     platform: sigma
-    severity: low
+    severity: high
     tactics:
-      - resource_development
-    techniques:
-      - T1588
+      - persistence
     data_sources:
-      - process_creation
-      - linux
+      - cloudtrail
+      - cloudtrail
 rules_count: 2
 ---
 
-A spoofing vulnerability has been identified in the @hulumi/policies package, affecting versions prior to 1.3.2. This flaw allows an attacker to provide spoofed SecureBucket parent evidence during HULUMI-H1 policy evaluation. The vulnerability stems from a lack of proper correlation between the evidence provided and the expected component/resource relationship within the policy validation process. Successfully exploiting this vulnerability can lead to policy evaluations that miss unsafe bucket shapes, potentially compromising the security of the affected application. The issue was addressed in version 1.3.2, which includes enhanced validation and regression coverage.
+@hulumi/policies versions before 1.3.2 contain a critical vulnerability related to AWS IAM trust policies. The vulnerability arises because the software's trust policy inspector only checks for exact AWS IAM `StringLike` and `StringEquals` condition operator keys. Attackers can bypass the intended security checks by using set-qualified operators such as `ForAnyValue:StringLike`. These set-qualified operators can obscure wildcard GitHub Actions OIDC `sub` conditions, which are supposed to be validated by the mandatory guardrail. This bypass can potentially lead to unauthorized access to AWS resources. The vulnerability is patched in version 1.3.2, which introduces proper evaluation of set-qualified string operators and rejects unsafe GitHub OIDC `sub` conditions.
 
 ## Attack Chain
 
-1. An attacker identifies an application utilizing a vulnerable version of the @hulumi/policies package (versions < 1.3.2).
-2. The attacker crafts malicious SecureBucket parent evidence. This evidence is designed to spoof the expected component/resource relationship.
-3. The attacker submits the spoofed evidence to the application during HULUMI-H1 policy evaluation.
-4. Due to the vulnerability, the validator in @hulumi/policies fails to properly correlate the spoofed evidence with the actual component/resource relationship.
-5. The policy evaluation proceeds without accurately assessing the bucket shape, potentially overlooking unsafe configurations.
-6. The application, based on the flawed policy evaluation, may then incorrectly configure a SecureBucket, creating an exploitable vulnerability.
-7. The attacker leverages the misconfigured SecureBucket to perform unauthorized actions.
-8. The attacker successfully bypasses intended security controls, potentially gaining unauthorized access or control over resources.
+1. An attacker gains control of a GitHub Actions workflow.
+2. The attacker modifies the workflow to request an OIDC token from the GitHub Actions environment.
+3. The attacker crafts a malicious AWS IAM role trust policy using a set-qualified condition operator (e.g., `ForAnyValue:StringLike`) to bypass the guardrail implemented by @hulumi/policies. This crafted policy obscures the intended `StringLike` or `StringEquals` checks on the `sub` claim of the OIDC token.
+4. The attacker's workflow uses the AWS CLI or SDK with the crafted trust policy to assume the IAM role.
+5. Due to the bypassed validation, the attacker's request succeeds, and the workflow obtains temporary AWS credentials associated with the IAM role.
+6. The attacker leverages the acquired AWS credentials to perform unauthorized actions within the AWS environment.
+7. The attacker may exfiltrate sensitive data, modify infrastructure configurations, or deploy malicious resources, depending on the permissions granted to the assumed IAM role.
 
 ## Impact
 
-The successful exploitation of this vulnerability could allow attackers to bypass intended security controls related to SecureBucket configurations. This could lead to the creation of buckets with unsafe shapes, potentially exposing sensitive data or resources. The GitHub advisory database rated this vulnerability as high severity, emphasizing the importance of applying the patch.
+Successful exploitation of this vulnerability allows attackers to bypass the intended OIDC-based access controls for AWS resources. This can lead to unauthorized access to sensitive data, infrastructure modifications, or deployment of malicious resources within the AWS environment. The severity is critical because it directly undermines the trust relationship between GitHub Actions and AWS, potentially affecting any organization using @hulumi/policies for managing these integrations.
 
 ## Recommendation
 
-*   Upgrade the @hulumi/policies package to version 1.3.2 or later to remediate the vulnerability as recommended in the advisory.
-*   Deploy the Sigma rules provided below to detect attempts to exploit this vulnerability by monitoring for suspicious policy evaluations or evidence submissions.
-*   Review and validate existing SecureBucket configurations to ensure they align with intended security policies in case exploitation occurred prior to patching.
+*   Upgrade `@hulumi/policies` to version 1.3.2 or later to incorporate the patch that properly evaluates set-qualified string operators.
+*   Manually review existing AWS IAM role trust policies that rely on @hulumi/policies to identify and remediate any instances where set-qualified operators are used in a way that could bypass the intended validation of GitHub OIDC `sub` conditions.
+*   Implement monitoring and alerting on AWS IAM role assumption events to detect any suspicious activity that may indicate exploitation attempts, using the principle of least privilege to limit the impact of compromised roles.
+*   Consider using tools and services that provide continuous monitoring of IAM configurations and compliance with security best practices.
