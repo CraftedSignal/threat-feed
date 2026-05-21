@@ -1,81 +1,62 @@
 ---
-title: 'CVE-2026-24425: Twig Sandbox Bypass Vulnerability'
+title: Twig Sandbox Bypass via Object Destructuring Assignment (CVE-2026-46639)
 slug: 2026-05-twig-sandbox-bypass
-description: Twig versions 2.16.x and 3.9.0 through 3.25.x contain a sandbox bypass vulnerability (CVE-2026-24425) when using a SourcePolicyInterface, allowing attackers to pass arbitrary PHP callables and execute arbitrary code when the sandbox is enabled through a source policy rather than globally.
-date: "2026-05-20T14:17:58Z"
-type: threat
+description: A vulnerability in Twig versions 3.24.0 to 3.26.0 (CVE-2026-46639) allows an attacker with write access to a sandboxed Twig template to bypass security policy restrictions by exploiting object-destructuring assignment to read any public property or invoke any public getter on objects passed to the template engine.
+date: "2026-05-21T21:32:33Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
 tags:
   - twig
   - sandbox-bypass
-  - code-execution
-  - cve-2026-24425
+  - cve-2026-46639
 vendors:
-  - Twigphp
+  - Twig
 products:
-  - Twig (2.16.x)
-  - Twig (3.9.0 through 3.25.x)
+  - twig/twig (>= 3.24.0, < 3.26.0)
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-cves:
-  - id: CVE-2026-24425
-    cvss: 8.8
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-24425
-  - https://github.com/twigphp/Twig/releases/tag/v3.26.0
-  - https://github.com/twigphp/Twig/security/advisories/GHSA-2q52-x2ff-qgfr
-  - https://www.vulncheck.com/advisories/twig-x-x-sandbox-bypass-via-sourcepolicyinterface
+  - https://github.com/advisories/GHSA-mm6w-gr99-p3jj
+  - CVE-2026-46639
 rules:
-  - title: Detect Twig Sandbox Bypass Attempt via PHP Callable
-    description: Detects CVE-2026-24425 exploitation — an attempt to bypass the Twig sandbox by using a PHP callable function within Twig template filters.
+  - title: Detect Twig Sandbox Bypass via getAttribute
+    description: Detects CVE-2026-46639 exploitation — Calls to `CoreExtension::getAttribute` with the `$sandboxed` argument set to `false`, indicating a potential sandbox bypass.
     platform: sigma
     severity: high
     tactics:
-      - execution
+      - privilege_escalation
     techniques:
-      - T1203
+      - T1068
     data_sources:
       - webserver
-  - title: Detect Twig SourcePolicyInterface Usage
-    description: Detects usage of SourcePolicyInterface which is required to exploit CVE-2026-24425
-    platform: sigma
-    severity: informational
-    tactics:
-      - initial_access
-    data_sources:
-      - webserver
-rules_count: 2
+rules_count: 1
 ---
 
-Twig, a flexible template engine for PHP, is susceptible to a sandbox bypass vulnerability identified as CVE-2026-24425. This flaw affects versions 2.16.x and 3.9.0 through 3.25.x. The vulnerability resides within the SourcePolicyInterface, which is intended to enforce security restrictions on template execution. However, a flaw in the runtime check allows attackers with template rendering capabilities to circumvent these restrictions. Specifically, attackers can pass arbitrary PHP callables to `sort`, `filter`, `map`, and `reduce` filters, leading to arbitrary code execution if the sandbox is enabled via a source policy. This bypass occurs because the runtime check fails to use the current template source, allowing malicious code to be injected and executed.
+Twig versions 3.24.0 to 3.26.0 contain a sandbox bypass vulnerability (CVE-2026-46639) due to the object-destructuring assignment syntax introduced in version 3.24.0. This syntax generates a call to `CoreExtension::getAttribute()` with the `$sandboxed` argument hardcoded to `false`, effectively disabling property and method policy checks. An attacker with write access to a sandboxed Twig template can exploit this to read any public property or invoke any public getter on objects passed to the template engine, bypassing the intended `SecurityPolicy` restrictions. The exploit requires only the `{% do %}` tag to be in `allowedTags`, a common configuration in many Twig deployments. This bypass allows attackers to potentially gain sensitive information or execute arbitrary code depending on the objects passed to the template.
 
 ## Attack Chain
 
-1. An attacker gains the ability to render Twig templates, often through a web application vulnerability such as template injection.
-2. The application uses a SourcePolicyInterface to enable a security sandbox for Twig templates.
-3. The attacker crafts a malicious Twig template that leverages the `sort`, `filter`, `map`, or `reduce` filters.
-4. Within these filters, the attacker provides an arbitrary PHP callable function.
-5. The vulnerable runtime check fails to properly validate the source of the template.
-6. The arbitrary PHP callable is executed without proper sandbox restrictions.
-7. The attacker achieves arbitrary code execution on the server.
+1. An attacker gains write access to a Twig template file within a sandboxed environment.
+2. The attacker injects a Twig template containing an object-destructuring assignment expression, such as `{% set { foo, bar } = my_object %}`.
+3. The Twig template engine parses and compiles the modified template.
+4. During compilation, the `ObjectDestructuringSetBinary::compile()` function is invoked.
+5. `ObjectDestructuringSetBinary::compile()` generates a call to `CoreExtension::getAttribute()` with the `$sandboxed` argument set to `false`.
+6. When the template is rendered, the `getAttribute()` function is executed without enforcing the sandbox's property and method access restrictions.
+7. The attacker is able to read public properties and invoke public getters of `my_object` that would normally be blocked by the `SecurityPolicy`.
+8. The attacker leverages the ability to access sensitive data or trigger unintended behavior, potentially escalating privileges or gaining further access to the system.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows attackers with template rendering capabilities to bypass the intended security sandbox and execute arbitrary code on the server. This can lead to complete system compromise, data theft, or denial of service. While the specific number of affected installations is unknown, any application using Twig within the specified version range and relying on SourcePolicyInterface for sandboxing is potentially vulnerable.
+Successful exploitation of this vulnerability (CVE-2026-46639) allows attackers to bypass the Twig sandbox, potentially leading to information disclosure or arbitrary code execution. The number of affected installations is unknown, but any Twig application using versions 3.24.0 to 3.26.0 with a sandboxed environment is vulnerable if an attacker can modify the template files. The primary impact is a loss of confidentiality and integrity within the application, as attackers can access sensitive data or modify application behavior.
 
 ## Recommendation
 
-*   Upgrade Twig to version 3.26.0 or later, which contains a fix for CVE-2026-24425.
-*   If upgrading is not immediately feasible, avoid using SourcePolicyInterface for sandboxing and rely on global sandbox settings instead.
-*   Monitor web server logs for suspicious activity related to template rendering, particularly the use of `sort`, `filter`, `map`, and `reduce` filters.
-*   Deploy the Sigma rule "Detect Twig Sandbox Bypass Attempt via PHP Callable" to identify potential exploitation attempts in web server logs.
+*   Upgrade to Twig version 3.26.0 or later to patch CVE-2026-46639.
+*   Implement strict access controls to prevent unauthorized modification of Twig template files.
+*   Deploy the Sigma rule `Detect Twig Sandbox Bypass via getAttribute` to detect exploitation attempts based on the vulnerable `getAttribute()` calls.
