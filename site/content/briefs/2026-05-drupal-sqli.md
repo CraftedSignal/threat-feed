@@ -1,83 +1,84 @@
 ---
-title: Drupal Core SQL Injection Vulnerability
+title: Drupal Core PostgreSQL SQL Injection Vulnerability (CVE-2026-9082) Exploit Available
 slug: 2026-05-drupal-sqli
-description: A remote, anonymous attacker can exploit a vulnerability in Drupal Core to perform an SQL injection, potentially leading to information disclosure, privilege escalation, or remote code execution depending on the database configuration.
-date: "2026-05-21T10:43:16Z"
-type: advisory
+description: A public exploit is available for CVE-2026-9082, a SQL injection vulnerability in Drupal Core affecting PostgreSQL-backed sites running versions 8.0 through 11.3.9, allowing unauthenticated users to potentially achieve data exfiltration, privilege escalation, and remote code execution.
+date: "2026-05-21T11:02:28Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
 tags:
-  - sql-injection
+  - cve
+  - sql injection
   - drupal
-  - privilege-escalation
+  - web application
 vendors:
   - Drupal
 products:
-  - Drupal Core
+  - Drupal Core (8.0.0 - 11.3.9)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1548
-    technique_name: Abuse Elevation Control Mechanism
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2026-9082
+    cvss: 6.5
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1620
+  - https://sploitus.com/exploit?id=89259320-7066-518A-B075-CE8CD77E926F&utm_source=rss&utm_medium=rss
+  - SA-CORE-2026-004
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=89259320-7066-518A-B075-CE8CD77E926F&utm_source=rss&utm_medium=rss
+  - type: url
+    value: https://github.com/7h30th3r0n3/CVE-2026-9082-Drupal-PoC.git
+ioc_counts:
+  url: 2
 rules:
-  - title: Detect Drupal Core SQL Injection Attempt
-    description: Detects potential SQL injection attempts against Drupal Core by identifying suspicious SQL syntax in HTTP request parameters.
+  - title: Detect CVE-2026-9082 Exploitation Attempt — Drupal SQL Injection via JSON:API
+    description: Detects CVE-2026-9082 exploitation attempt — HTTP request to the Drupal JSON:API endpoint with SQL injection patterns in the filter parameters.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
-      - T1213
     data_sources:
       - webserver
-  - title: Detect Drupal Core Malicious File Upload via SQL Injection
-    description: Detects potential file uploads resulting from SQL injection in Drupal Core by monitoring process creation for web processes writing to disk
+  - title: Detect CVE-2026-9082 Exploitation Attempt — Drupal SQL Injection via JSON:API (Boolean Based)
+    description: Detects CVE-2026-9082 exploitation attempt — HTTP request to the Drupal JSON:API endpoint with boolean based SQL injection patterns in the filter parameters.
     platform: sigma
-    severity: critical
+    severity: medium
     tactics:
-      - execution
+      - initial_access
     techniques:
-      - T1059.001
-      - T1505
+      - T1190
     data_sources:
-      - process_creation
-      - windows
+      - webserver
 rules_count: 2
 ---
 
-Drupal Core is susceptible to a SQL injection vulnerability that can be exploited by a remote, anonymous attacker. The vulnerability stems from insufficient input sanitization, allowing for malicious SQL queries to be injected into database interactions. Successful exploitation can result in a range of outcomes, from sensitive information disclosure and unauthorized privilege escalation, to potentially achieving remote code execution on the underlying server. This vulnerability poses a significant threat to Drupal-based websites and applications, potentially impacting data confidentiality, integrity, and availability.
+A proof-of-concept exploit has been published for CVE-2026-9082, a critical SQL injection vulnerability affecting Drupal Core when using a PostgreSQL database backend. The vulnerability impacts Drupal versions 8.0.0 through 11.3.9. The vulnerability resides in the PostgreSQL Entity Query Condition handler. The issue can be exploited by unauthenticated users through the JSON:API module, which is enabled by default since Drupal 9. Successful exploitation could lead to unauthorized data access, privilege escalation, and potentially remote code execution in certain server configurations. The existence of a public exploit increases the risk to unpatched Drupal installations.
 
 ## Attack Chain
 
-1.  The attacker identifies a Drupal Core instance with a publicly accessible endpoint.
-2.  The attacker crafts a malicious HTTP request containing SQL injection payloads in a request parameter (e.g., a GET or POST parameter).
-3.  Drupal Core processes the request without proper sanitization of the input.
-4.  The injected SQL code is passed to the database server (likely PostgreSQL in the specified case).
-5.  The database server executes the injected SQL code, potentially allowing the attacker to bypass authentication and authorization controls.
-6.  The attacker uses the SQL injection to extract sensitive data from the database, such as user credentials or configuration information.
-7.  Alternatively, the attacker elevates their privileges within the database to gain administrative access.
-8.  With elevated privileges, the attacker can potentially execute arbitrary code on the server or modify critical system files to achieve remote code execution.
+1. An unauthenticated attacker sends a crafted HTTP request to a vulnerable Drupal server using the JSON:API endpoint.
+2. The request includes malicious SQL code embedded within the array keys of the filter conditions in the URL parameters.
+3. Drupal's PostgreSQL Entity Query Condition handler processes the request and iterates over the provided array keys.
+4. The `translateCondition()` method constructs PDO placeholder names using the attacker-controlled array keys.
+5. Due to insufficient sanitization, the malicious SQL code is injected into the PDO placeholder name.
+6. The injected SQL code bypasses the intended query sanitization mechanisms.
+7. The database executes the injected SQL code, allowing the attacker to manipulate database queries.
+8. The attacker can extract sensitive data, escalate privileges, or potentially execute arbitrary code on the server (RCE) in certain configurations.
 
 ## Impact
 
-Successful exploitation of this SQL injection vulnerability in Drupal Core can lead to a variety of negative consequences. Attackers could gain unauthorized access to sensitive data stored in the Drupal database, including user credentials, financial records, and confidential business information. Privilege escalation could allow attackers to take control of the Drupal website and modify its content, install malicious modules, or redirect users to phishing sites. In the most severe cases, attackers could achieve remote code execution on the server, allowing them to completely compromise the system and use it for malicious purposes.
+Successful exploitation of CVE-2026-9082 can lead to significant consequences for affected Drupal websites. Attackers can exfiltrate sensitive data from the database, including user credentials, personally identifiable information (PII), and other confidential data. Privilege escalation allows attackers to gain administrative access to the Drupal site, enabling them to modify content, install malicious modules, or compromise the entire server. In some server configurations, the vulnerability can be leveraged to achieve remote code execution (RCE), granting the attacker complete control over the system. Given the broad usage of Drupal, a successful widespread attack could impact numerous organizations across various sectors.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect Drupal Core SQL Injection Attempt` to identify potential exploitation attempts by monitoring for suspicious SQL syntax in HTTP requests (log source `webserver`).
-*   Review and harden Drupal's database configuration to minimize the impact of SQL injection attacks, following the principle of least privilege.
-*   Implement and enforce strict input validation and sanitization measures within Drupal Core to prevent SQL injection vulnerabilities from occurring in the first place.
-*   Monitor web server logs for suspicious activity related to potential SQL injection attempts, focusing on requests with unusual characters or patterns (log source `webserver`).
+*   Apply the patches provided in Drupal SA-CORE-2026-004 to address CVE-2026-9082. Upgrade to Drupal Core versions 11.3.10, 11.2.12, 10.6.9, or 10.5.10 depending on your current branch to remediate the vulnerability.
+*   Monitor web server logs for suspicious HTTP requests targeting the JSON:API endpoint (`/jsonapi`) with unusual filter parameters containing SQL metacharacters, as described in the Attack Chain (webserver category).
+*   Deploy the Sigma rule "Detect CVE-2026-9082 Exploitation Attempt — Drupal SQL Injection via JSON:API" to detect potential exploitation attempts in real-time.
+*   Block access to the identified malicious Git repository URL (`https://github.com/7h30th3r0n3/CVE-2026-9082-Drupal-PoC.git`) to prevent internal systems from downloading the exploit code (IOC).
