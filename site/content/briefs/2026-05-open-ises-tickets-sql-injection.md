@@ -1,8 +1,8 @@
 ---
-title: Open ISES Tickets SQL Injection Vulnerability (CVE-2026-48232)
+title: Open ISES Tickets SQL Injection Vulnerability (CVE-2026-48235)
 slug: 2026-05-open-ises-tickets-sql-injection
-description: Open ISES Tickets before version 3.44.2 is vulnerable to SQL injection in the ajax/fullsit_incidents.php file via the offset GET parameter, allowing authenticated attackers to manipulate SQL queries.
-date: "2026-05-21T18:19:01Z"
+description: Open ISES Tickets versions before 3.44.2 are vulnerable to SQL injection (CVE-2026-48235) due to unsanitized GPS data, allowing attackers to manipulate responder data by compromising the GPS tracker endpoint.
+date: "2026-05-21T18:19:38Z"
 type: advisory
 types:
   - advisory
@@ -10,23 +10,23 @@ severities:
   - high
 tags:
   - sql-injection
-  - cve-2026-48232
+  - cve-2026-48235
   - web-application
-vendors:
-  - Open ISES
 products:
-  - Tickets
+  - Open ISES Tickets < 3.44.2
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-48232
-    cvss: 7.1
+  - id: CVE-2026-48235
+    cvss: 8.2
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-48232
-  - https://github.com/openises/tickets/commit/ecfeb406a016766cae81c749e14b5145a9f2dbff
-  - https://github.com/openises/tickets/releases/tag/v3.44.2
-  - https://www.vulncheck.com/advisories/open-ises-tickets-sql-injection-via-ajax-fullsit-incidents-php-offset-parameter
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48235
 rules:
-  - title: Detect SQL Injection Attempts in Open ISES Tickets via Offset Parameter
-    description: Detects SQL injection attempts in Open ISES Tickets by monitoring requests to ajax/fullsit_incidents.php with a suspicious offset parameter.
+  - title: Detect Suspicious GPS Data in Web Requests
+    description: Detects CVE-2026-48235 exploitation - attempts to inject SQL commands via GPS data in web requests to Open ISES Tickets.
     platform: sigma
     severity: high
     tactics:
@@ -35,8 +35,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect potentially successful SQL injection in Open ISES Tickets
-    description: Detects potentially successful SQL injection in Open ISES Tickets based on HTTP response codes after a suspicious offset parameter is used.
+  - title: Detect SQL Injection Characters in HTTP POST Requests
+    description: Detects common SQL injection characters in HTTP POST requests, potentially indicating exploitation attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -48,26 +48,26 @@ rules:
 rules_count: 2
 ---
 
-Open ISES Tickets, a web-based ticketing system, is vulnerable to SQL injection (CVE-2026-48232) in versions prior to 3.44.2. The vulnerability lies within the `ajax/fullsit_incidents.php` script, where the `offset` GET parameter is directly incorporated into the `LIMIT` clause of a SQL `SELECT` statement without proper sanitization. This flaw allows authenticated attackers to inject malicious SQL code by crafting specific HTTP GET requests. Successful exploitation enables attackers to potentially read, modify, or even destroy database contents. Defenders should upgrade to version 3.44.2 or apply provided patches as soon as possible.
+Open ISES Tickets versions before 3.44.2 are susceptible to a SQL injection vulnerability (CVE-2026-48235) stemming from the processing of GPS data. The vulnerability lies in `incs/remotes.inc.php`, where latitude, longitude, callsign, mph, altitude, and timestamp values extracted from external GPS tracking services (InstaMapper and Google Latitude) are directly concatenated into SQL queries. This lack of sanitization creates an opportunity for attackers who can compromise or impersonate the remote GPS tracker endpoint to inject arbitrary SQL commands, potentially leading to unauthorized data modification within the responder location, tracks, and assignment tables. Exploitation could enable malicious actors to manipulate responder deployments and track data.
 
 ## Attack Chain
 
-1. An authenticated attacker logs into the Open ISES Tickets application.
-2. The attacker crafts a malicious HTTP GET request targeting the `/ajax/fullsit_incidents.php` endpoint.
-3. The malicious request includes the `offset` parameter containing SQL injection payloads. For example: `offset=1 UNION SELECT password FROM users--`.
-4. The application server receives the request and executes the vulnerable SQL query against the database, incorporating the attacker-supplied `offset` value.
-5. The injected SQL code manipulates the original query, potentially extracting sensitive data like user passwords.
-6. The database server executes the modified SQL query and returns the results to the application.
-7. The application displays the results, potentially revealing sensitive information to the attacker.
-8. The attacker uses extracted credentials or data to further compromise the application or gain access to other systems.
+1. The attacker identifies an Open ISES Tickets instance using InstaMapper or Google Latitude integration.
+2. The attacker gains control over, or impersonates, the remote GPS tracker endpoint.
+3. The attacker crafts malicious XML/JSON responses containing SQL injection payloads in the latitude, longitude, callsign, mph, altitude, or timestamp fields.
+4. The Open ISES Tickets server parses the crafted XML/JSON response from the compromised GPS tracker.
+5. The server concatenates the unsanitized data into UPDATE or INSERT SQL statements within `incs/remotes.inc.php`.
+6. The injected SQL code is executed against the Open ISES Tickets database.
+7. The attacker manipulates responder location, tracks, and assignment data within the database.
+8. The attacker achieves their objective, such as diverting responders or falsifying tracking information.
 
 ## Impact
 
-Successful exploitation of this SQL injection vulnerability (CVE-2026-48232) can lead to complete database compromise, including unauthorized data access, modification, and deletion. An attacker can potentially steal sensitive information such as user credentials, customer data, or proprietary business information. The number of victims will depend on the specific installation base of Open ISES Tickets. Affected sectors would likely include any organization using Open ISES Tickets for their IT support or help desk operations.
+Successful exploitation of this SQL injection vulnerability (CVE-2026-48235) could allow an attacker to manipulate responder deployments, tracks, and assignments. This could lead to incorrect responder dispatches, delayed response times, or complete disruption of the incident management system. The impact is significant, potentially affecting public safety and emergency response operations that rely on accurate location data.
 
 ## Recommendation
 
-*   Upgrade Open ISES Tickets to version 3.44.2 or later to remediate CVE-2026-48232, as mentioned in the overview.
-*   Deploy the Sigma rule "Detect SQL Injection Attempts in Open ISES Tickets via Offset Parameter" to identify malicious requests targeting the `/ajax/fullsit_incidents.php` endpoint.
-*   Monitor web server logs for unusual activity and SQL injection attempts targeting the `/ajax/fullsit_incidents.php` endpoint, as described in the Attack Chain.
-*   Implement input validation and sanitization on all user-supplied data, including the `offset` parameter in `ajax/fullsit_incidents.php`, to prevent future SQL injection vulnerabilities.
+*   Upgrade Open ISES Tickets to version 3.44.2 or later to patch CVE-2026-48235.
+*   Implement input validation and sanitization on all GPS data received from external sources to prevent SQL injection, focusing on the latitude, longitude, callsign, mph, altitude, and timestamp fields.
+*   Deploy the Sigma rule `Detect Suspicious GPS Data in Web Requests` to identify potential SQL injection attempts.
+*   Harden the GPS tracker endpoint by implementing strong authentication and authorization controls to prevent unauthorized access and impersonation.
