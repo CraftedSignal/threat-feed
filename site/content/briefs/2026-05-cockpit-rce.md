@@ -1,78 +1,70 @@
 ---
-title: 'CVE-2026-4802: Cockpit Command Injection Vulnerability'
+title: Cockpit 359 Remote Code Execution Vulnerability
 slug: 2026-05-cockpit-rce
-description: CVE-2026-4802 is a command injection vulnerability in Cockpit's system logs UI that allows a remote attacker to execute arbitrary commands on the host by exploiting unsanitized user-controlled parameters in crafted links.
-date: "2026-05-11T14:17:09Z"
-type: advisory
+description: Cockpit version 359 is vulnerable to remote code execution, and a public exploit is available on Exploit-DB, increasing the risk for unpatched systems.
+date: "2026-05-21T13:31:32Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 tags:
-  - command injection
   - rce
-  - web application
-vendors:
-  - Red Hat
+  - webapps
+  - exploit
 products:
-  - Cockpit
+  - Cockpit 359
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-cves:
-  - id: CVE-2026-4802
-    cvss: 8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-4802
-  - https://access.redhat.com/security/cve/CVE-2026-4802
-  - https://bugzilla.redhat.com/show_bug.cgi?id=2451155
-  - https://github.com/cockpit-project/cockpit/blob/e204cd130/pkg/systemd/logsJournal.jsx#L206-L210
+  - https://www.exploit-db.com/exploits/52572
 rules:
-  - title: Detect CVE-2026-4802 Exploitation Attempt via Crafted URL
-    description: Detects CVE-2026-4802 exploitation — Attempts to inject shell metacharacters into Cockpit system logs UI via crafted URLs.
+  - title: Detect Cockpit 359 RCE Attempt
+    description: Detects potential exploitation attempts of the RCE vulnerability in Cockpit 359 based on suspicious HTTP requests.
     platform: sigma
     severity: high
     tactics:
       - execution
     techniques:
-      - T1059.004
+      - T1059.001
     data_sources:
       - webserver
-  - title: Detect CVE-2026-4802 Exploitation Attempt via Systemd LogsJournal.jsx
-    description: Detects CVE-2026-4802 exploitation — Identifies requests to the Systemd LogsJournal.jsx with suspicious characters indicative of command injection.
+  - title: Detect Suspicious Cockpit Process Execution
+    description: Detects execution of unusual processes spawned by the Cockpit web server process.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - execution
     techniques:
       - T1059.004
     data_sources:
-      - webserver
+      - process_creation
+      - linux
 rules_count: 2
 ---
 
-CVE-2026-4802 is a command injection vulnerability affecting Cockpit, a web-based interface for system administration. The vulnerability stems from the system logs UI, where user-controlled parameters within crafted links are not properly sanitized. An attacker can exploit this flaw by injecting shell metacharacters and command substitutions into these parameters, leading to the execution of arbitrary shell commands on the affected system. Successful exploitation can result in a complete system compromise, allowing the attacker to gain full control of the targeted machine. This vulnerability poses a significant risk to systems utilizing Cockpit for remote administration.
+A remote code execution (RCE) vulnerability affects Cockpit version 359. A public exploit (EDB-52572) demonstrating the vulnerability has been published on Exploit-DB. Cockpit is a web-based system administration interface. The existence of a public exploit significantly raises the risk to systems running unpatched instances of Cockpit 359. Attackers can leverage this exploit to execute arbitrary code on the target system, potentially leading to complete system compromise. Defenders should prioritize patching or mitigating this vulnerability.
 
 ## Attack Chain
 
-1.  The attacker crafts a malicious link containing shell metacharacters and command substitutions within user-controlled parameters.
-2.  The attacker delivers the crafted link to a user with access to the Cockpit system logs UI, possibly through phishing or social engineering.
-3.  The user clicks on the malicious link, which is processed by the Cockpit system logs UI.
-4.  The Cockpit application fails to properly sanitize the user-controlled parameters within the link.
-5.  The unsanitized parameters are passed to a system command.
-6.  The injected shell metacharacters and command substitutions are interpreted by the shell.
-7.  Arbitrary shell commands are executed on the host system with the privileges of the Cockpit process.
-8.  The attacker gains control of the system and can perform actions such as installing malware, exfiltrating data, or disrupting services.
+1. Attacker identifies a vulnerable Cockpit 359 instance accessible over the network.
+2. Attacker crafts a malicious HTTP request containing the RCE exploit.
+3. The malicious request is sent to the vulnerable Cockpit instance.
+4. The Cockpit application processes the request, triggering the RCE vulnerability.
+5. The attacker executes arbitrary code on the server, such as injecting a web shell.
+6. The attacker uses the web shell for further reconnaissance within the compromised network.
+7. The attacker escalates privileges to gain administrative access.
+8. The attacker deploys malware or exfiltrates sensitive data.
 
 ## Impact
 
-Successful exploitation of CVE-2026-4802 allows a remote attacker to achieve arbitrary command execution on the host system. This can lead to a complete system compromise, potentially affecting all data and services hosted on the system. The lack of sanitization can allow an attacker to perform any action that the compromised Cockpit instance can, including installing malicious software, creating new user accounts, or accessing sensitive data.
+Successful exploitation of the RCE vulnerability in Cockpit 359 allows attackers to execute arbitrary code on the affected system. This can lead to complete system compromise, data breaches, and further lateral movement within the network. The availability of a public exploit makes this vulnerability easily exploitable by both sophisticated and unsophisticated threat actors. Organizations using Cockpit 359 are at high risk until they apply the necessary patches or implement mitigation measures.
 
 ## Recommendation
 
-*   Apply available patches for Cockpit from Red Hat to remediate CVE-2026-4802.
-*   Deploy the Sigma rule "Detect CVE-2026-4802 Exploitation Attempt via Crafted URL" to identify potential exploitation attempts in webserver logs.
-*   Implement strict input validation and sanitization for all user-supplied parameters within Cockpit's system logs UI.
-*   Regularly review and audit Cockpit logs for suspicious activity or unauthorized access.
+*   Deploy the Sigma rule `Detect Cockpit 359 RCE Attempt` to your SIEM to identify potential exploitation attempts.
+*   Apply available patches for Cockpit 359 to remediate the RCE vulnerability.
+*   Monitor web server logs for suspicious activity targeting Cockpit instances to detect unusual requests.
