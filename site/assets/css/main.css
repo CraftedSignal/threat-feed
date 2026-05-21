@@ -236,55 +236,129 @@ body {
 /* Pagefind UI overrides — match site theme */
 /* ---------------------------------------------------------------------- */
 
-/* Pagefind Component UI — map --pf-* tokens to the site's design system.
-   Both light and dark themes update automatically because --color-* changes
-   when .dark is applied to <html>.
-   Result cards use transparent background/border so they read as a flat list;
-   hover shows a subtle panel-2 fill instead of a framed box. */
-:root {
-  --pf-font: 'Inter', system-ui, sans-serif;
-  --pf-text: rgb(var(--color-text));
-  --pf-text-secondary: rgb(var(--color-muted));
-  --pf-text-muted: rgb(var(--color-muted));
-  --pf-background: transparent;
-  --pf-border: transparent;
-  --pf-border-focus: rgb(var(--color-stroke));
-  --pf-hover: rgb(var(--color-panel-2));
-  --pf-outline-focus: rgb(var(--color-accent));
-  --pf-mark: rgb(var(--color-accent));
-  --pf-shadow-sm: none;
-  --pf-border-radius: 6px;
-  --pf-input-height: 38px;
-  --pf-input-font-size: 15px;
-  --pf-result-title-font-size: 14px;
-  --pf-result-excerpt-font-size: 13px;
-  --pf-summary-font-size: 12px;
-  --pf-results-gap: 2px;
+:root,
+.pagefind-ui {
+  --pagefind-ui-scale: 0.85;
+  --pagefind-ui-primary: rgb(var(--color-accent));
+  --pagefind-ui-text: rgb(var(--color-text));
+  --pagefind-ui-background: rgb(var(--color-panel));
+  --pagefind-ui-border: rgb(var(--color-stroke));
+  --pagefind-ui-tag: rgb(var(--color-panel-2));
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 12px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: 'Inter', system-ui, sans-serif;
 }
 
-/* Skeleton placeholder while pagefind JS is still registering the custom
-   element — prevents a blank gap on first load. */
-pagefind-input:not(:defined) {
-  display: block;
-  height: 38px;
-  border: 1px solid rgb(var(--color-stroke));
-  border-radius: 6px;
-  background: rgb(var(--color-panel));
+/* Force the input + result tiles to pick up our theme — Pagefind's defaults
+   sometimes win on specificity. */
+.pagefind-ui form .pagefind-ui__search-input {
+  background: rgb(var(--color-panel-2));
+  color: rgb(var(--color-text));
+  border-color: rgb(var(--color-stroke));
+}
+.pagefind-ui form .pagefind-ui__search-input::placeholder {
+  color: rgb(var(--color-muted));
+}
+.pagefind-ui .pagefind-ui__search-clear,
+.pagefind-ui .pagefind-ui__button {
+  color: rgb(var(--color-muted));
+}
+.pagefind-ui .pagefind-ui__result {
+  border-color: rgb(var(--color-stroke));
+}
+.pagefind-ui .pagefind-ui__result-title a {
+  color: rgb(var(--color-text));
+}
+.pagefind-ui .pagefind-ui__result-title a:hover {
+  color: rgb(var(--color-accent));
+}
+.pagefind-ui .pagefind-ui__result-excerpt {
+  color: rgb(var(--color-muted));
+}
+.pagefind-ui mark {
+  background: rgb(var(--color-accent) / 0.2);
+  color: inherit;
 }
 
-/* When a result's title contains the match, the body excerpt is redundant —
-   hide it so each result reads as a single clean hit, not a double match.
-   !important is required to override pagefind's high-specificity ID trick. */
-.pf-result-content:has(.pf-result-title mark) .pf-result-excerpt {
+/* Tighten the Pagefind layout. Defaults inflate the input row, leave a
+   wide gutter between filters and results, and pad each result tile
+   heavily. Compact the spacing so the search panel feels in line with
+   the rest of the cards on the site. */
+.pagefind-ui {
+  --pagefind-ui-result-spacing: 0.5rem;
+}
+.pagefind-ui__form {
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0 !important;
+}
+.pagefind-ui__search-input {
+  /* Both sides need padding for icons Pagefind renders inside the
+     input box: the magnifying-glass on the left, the (now-hidden)
+     clear button on the right. Without 2.5rem on each side the typed
+     query slides under the icons. */
+  padding: 0.5rem 2.5rem !important;
+  font-size: 0.95rem !important;
+}
+/* Hide the trailing clear (×) button — the input clears on its own
+   when you backspace, the dedicated control was just visual noise. */
+.pagefind-ui__search-clear {
   display: none !important;
 }
-
-/* Title matches: don't highlight the matched words — the title itself is
-   already prominent enough; marks would add visual clutter. */
-.pf-result-title mark {
-  background: none !important;
-  color: inherit !important;
-  font-weight: inherit !important;
+.pagefind-ui__drawer {
+  gap: 0.5rem !important;
+  /* Single column — the filter panel below is hidden, give all
+     horizontal space to the results column. */
+  grid-template-columns: 1fr !important;
+}
+/* Hide the filter sidebar entirely — duplicates the chrome (severity /
+   actor / product nav already lives in the header) and just narrowed
+   the result column. */
+.pagefind-ui__filter-panel,
+.pagefind-ui__filter-block {
+  display: none !important;
+}
+.pagefind-ui__results-area {
+  padding-top: 0 !important;
+}
+.pagefind-ui__result {
+  padding: 0.5rem 0.25rem !important;
+  margin-bottom: 0 !important;
+}
+.pagefind-ui__result + .pagefind-ui__result {
+  border-top: 1px solid rgb(var(--color-stroke));
+}
+.pagefind-ui__result-title {
+  font-size: 0.95rem !important;
+  margin-bottom: 0.15rem !important;
+  line-height: 1.25 !important;
+}
+.pagefind-ui__result-excerpt {
+  font-size: 0.825rem !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+.pagefind-ui__result-thumb,
+.pagefind-ui__result-image {
+  display: none !important; /* showImages:false already, belt-and-suspenders */
+}
+.pagefind-ui__result-inner {
+  margin: 0 !important;
+}
+.pagefind-ui__result-nested {
+  padding: 0.25rem 0 0.25rem 0.75rem !important;
+  margin-top: 0.25rem !important;
+  border-left: 2px solid rgb(var(--color-stroke));
+}
+.pagefind-ui__filter-panel {
+  padding: 0 !important;
+}
+.pagefind-ui__message,
+.pagefind-ui__results-area > p {
+  font-size: 0.85rem !important;
+  margin: 0.5rem 0 !important;
+  color: rgb(var(--color-muted));
 }
 
 /* ---------------------------------------------------------------------- */

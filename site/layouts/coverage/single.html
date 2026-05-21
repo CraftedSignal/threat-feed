@@ -37,7 +37,7 @@
         <span class="sev-badge {{ $sevClass }}">{{ $sevLabel }}</span>
         <a href="/types/{{ $type }}/" class="type-badge type-{{ $type }} hover:opacity-80 transition" title="See all {{ $typeLabel }} briefs">{{ $typeLabel }}</a>
         {{ if $exploited }}<span class="exploited-badge" title="Active exploitation observed in the wild">exploited</span>{{ end }}
-        <time class="font-mono text-muted" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        <time class="font-mono text-muted" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" data-pagefind-sort="date[datetime]">{{ .Date.Format "January 2, 2006" }}</time>
         {{/* Updated pill mirrors brief-card.html: same 6h debounce + 7d
              freshness window. Title carries the precise timestamp. */}}
         {{ if and .Lastmod (gt (sub .Lastmod.Unix .Date.Unix) 21600) }}

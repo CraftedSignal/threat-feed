@@ -62,60 +62,43 @@ function initThemeToggle() {
 // Pagefind search
 
 function initSearch() {
-  const input = document.querySelector('pagefind-input');
-  if (!input) return;
+  const container = document.getElementById('search-ui');
+  if (!container) return;
 
-  // pagefind-component-ui.js is loaded as a deferred <script> in head.html; the tag
-  // self-removes if the file doesn't exist (no built index yet), leaving
-  // window.PagefindComponents undefined.
-  if (typeof window.PagefindComponents === 'undefined') {
-    input.insertAdjacentHTML('beforebegin', '<p class="px-4 py-3 text-sm text-muted">Search index missing. Run <code class="font-mono">make build</code> (or <code class="font-mono">make dev</code>) to generate it.</p>');
+  // pagefind-ui.js is loaded as a deferred <script> in head.html; the tag
+  // self-removes if /pagefind/pagefind-ui.js doesn't exist (no built index
+  // yet). After DOMContentLoaded the deferred script has run, so
+  // window.PagefindUI is either defined (built) or absent (skip wiring).
+  if (typeof window.PagefindUI === 'undefined') {
+    container.innerHTML = '<p class="px-4 py-3 text-sm text-muted">Search index missing. Run <code class="font-mono">make build</code> (or <code class="font-mono">make dev</code>) to generate it.</p>';
     return;
   }
 
-  const instance = window.PagefindComponents.getInstanceManager().getInstance('default');
-  instance.setTranslations({
-    clear_search: 'Clear',
-    load_more: 'Load more',
-    search_label: 'Search',
-    filters_label: 'Filters',
-    zero_results: 'No briefs match "[SEARCH_TERM]"',
-    many_results: '[COUNT] briefs match "[SEARCH_TERM]"',
-    one_result: '[COUNT] brief matches "[SEARCH_TERM]"',
-    searching: 'Searching for "[SEARCH_TERM]"…',
+  new window.PagefindUI({
+    element: '#search-ui',
+    showImages: false,
+    showSubResults: true,
+    resetStyles: false,
+    excerptLength: 24,
+    // Order every result set by brief date, newest first. With `sort` set,
+    // Pagefind uses the query purely as a filter and drops relevance ranking,
+    // so results always read chronologically — matching the briefs listing.
+    // Depends on data-pagefind-sort="date[datetime]" in the brief single-page
+    // templates; the Pagefind index must be rebuilt (make build) to pick it up.
+    sort: { date: 'desc' },
+    processTerm: (term) => term.toLowerCase(),
+    translations: {
+      placeholder: 'Search threats, actors, MITRE techniques…',
+      clear_search: 'Clear',
+      load_more: 'Load more',
+      search_label: 'Search',
+      filters_label: 'Filters',
+      zero_results: 'No briefs match "[SEARCH_TERM]"',
+      many_results: '[COUNT] briefs match "[SEARCH_TERM]"',
+      one_result: '1 brief matches "[SEARCH_TERM]"',
+      searching: 'Searching for "[SEARCH_TERM]"…',
+    },
   });
-
-  // Pagefind returns one result card per matching heading section, so a single
-  // brief can appear 4-5 times. Deduplicate by base URL (strip anchor fragment),
-  // keeping whichever entry has a title match; fall back to the first entry.
-  // For the kept result, also suppress the excerpt when the title already shows
-  // the match (redundant double-hit on the same page).
-  const resultsEl = document.querySelector('pagefind-results');
-  if (resultsEl) {
-    const dedupeResults = () => {
-      const byPage = new Map();
-      resultsEl.querySelectorAll('.pf-result').forEach((result) => {
-        const link = result.querySelector('.pf-result-link');
-        if (!link) return;
-        const baseUrl = link.href.split('#')[0];
-        if (!byPage.has(baseUrl)) byPage.set(baseUrl, []);
-        byPage.get(baseUrl).push({ result, hasTitle: !!result.querySelector('.pf-result-title mark') });
-      });
-
-      byPage.forEach((entries) => {
-        const keeper = entries.find((e) => e.hasTitle) || entries[0];
-        entries.forEach(({ result, hasTitle }) => {
-          if (result !== keeper.result) {
-            result.style.display = 'none';
-          } else if (keeper.hasTitle) {
-            const excerpt = result.querySelector('.pf-result-excerpt');
-            if (excerpt) excerpt.style.display = 'none';
-          }
-        });
-      });
-    };
-    new MutationObserver(dedupeResults).observe(resultsEl, { childList: true, subtree: true });
-  }
 }
 
 // ----------------------------------------------------------------------
