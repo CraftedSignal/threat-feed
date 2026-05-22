@@ -1,81 +1,71 @@
 ---
-title: Royal Elementor Addons Plugin Stored XSS Vulnerability
+title: Royal Elementor Addons Vulnerability Allows Cross-Site Scripting
 slug: 2026-05-royal-elementor-xss
-description: The Royal Elementor Addons plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) via the 'status' parameter in the wpr_update_form_action_meta AJAX action, allowing unauthenticated attackers to inject arbitrary web scripts into pages.
-date: "2026-05-05T04:16:18Z"
-type: advisory
+description: A remote, unauthenticated attacker can exploit a cross-site scripting (XSS) vulnerability in the Royal Elementor Addons plugin for WordPress.
+date: "2026-05-22T09:21:11Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - medium
 tags:
-  - wordpress
   - xss
-  - stored-xss
-  - cve-2026-4803
-  - royal-elementor
+  - wordpress
+  - royal-elementor-addons
 vendors:
-  - WordPress
+  - WP Royal
 products:
-  - Royal Elementor Addons plugin <= 1.7.1056
+  - Royal Elementor Addons
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-cves:
-  - id: CVE-2026-4803
-    cvss: 7.2
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-4803
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1644
 rules:
-  - title: Detect Royal Elementor Addons XSS Attempt via AJAX
-    description: Detects attempts to exploit the Royal Elementor Addons XSS vulnerability by monitoring POST requests to the WordPress AJAX endpoint with potentially malicious JavaScript in the status parameter.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-      - persistence
-    techniques:
-      - T1068
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect Royal Elementor Addons XSS Attempt via AJAX - No Script Tag
-    description: Detects attempts to exploit the Royal Elementor Addons XSS vulnerability by monitoring POST requests to the WordPress AJAX endpoint with potentially malicious JavaScript in the status parameter, even if no <script> tag is present.
+  - title: Detect Royal Elementor Addons XSS Attempt via URI
+    description: Detects XSS attempts targeting Royal Elementor Addons via malicious JavaScript in the URI.
     platform: sigma
     severity: medium
     tactics:
       - initial_access
-      - persistence
     techniques:
-      - T1068
+      - T1190
     data_sources:
       - webserver
-      - linux
+  - title: Detect Royal Elementor Addons XSS Attempt via POST Body
+    description: Detects XSS attempts targeting Royal Elementor Addons via malicious JavaScript in the POST request body.
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
 rules_count: 2
 ---
 
-The Royal Elementor Addons plugin for WordPress, in versions up to and including 1.7.1056, contains a stored Cross-Site Scripting (XSS) vulnerability. This vulnerability stems from a combination of insufficient input sanitization and output escaping of the 'status' parameter within the wpr_update_form_action_meta AJAX action. Critically, the plugin also includes a publicly leaked nonce, granting unauthenticated access to the AJAX handler. An unauthenticated attacker can exploit this flaw to inject malicious JavaScript code into WordPress pages. When a user visits a page containing the injected script, the script executes within the user's browser, potentially leading to session hijacking, defacement, or other malicious actions. This vulnerability poses a significant risk to WordPress sites utilizing the Royal Elementor Addons plugin.
+A cross-site scripting (XSS) vulnerability exists within the Royal Elementor Addons plugin for WordPress. This vulnerability allows a remote, unauthenticated attacker to inject arbitrary JavaScript code into web pages viewed by other users. The specific version affected is not detailed in the provided source, highlighting the need for defenders to assess their plugin versions to determine vulnerability. The attack originates remotely and does not require prior authentication, which broadens the potential attacker pool. Successful exploitation could lead to account takeover, data theft, or redirection to malicious sites.
 
 ## Attack Chain
 
-1. An unauthenticated attacker identifies a WordPress site using a vulnerable version (<= 1.7.1056) of the Royal Elementor Addons plugin.
-2. The attacker crafts a malicious HTTP POST request targeting the WordPress AJAX endpoint (wp-admin/admin-ajax.php).
-3. The POST request includes the action parameter set to 'wpr_update_form_action_meta'.
-4. The attacker includes the publicly leaked nonce value to bypass authentication checks for the AJAX action.
-5. The attacker injects malicious JavaScript code within the 'status' parameter of the POST request. The code is not properly sanitized by the plugin.
-6. The server processes the request and stores the malicious script in the WordPress database.
-7. A legitimate user visits a page where the injected content is displayed.
-8. The malicious JavaScript code is executed within the user's browser, enabling the attacker to perform actions such as stealing cookies, redirecting the user, or defacing the website.
+1. Attacker identifies a vulnerable endpoint in the Royal Elementor Addons plugin.
+2. Attacker crafts a malicious URL containing JavaScript code within a parameter.
+3. Attacker delivers the malicious URL to a target user, often through phishing or social engineering.
+4. Target user clicks the malicious URL, causing the injected JavaScript to execute in their browser.
+5. The injected JavaScript code steals the user's session cookies or other sensitive information.
+6. Attacker uses the stolen cookies to hijack the user's session and gain unauthorized access to their account.
+7. Attacker injects malicious content, such as a fake login form, into the website.
+8. Unsuspecting users enter their credentials into the fake form, allowing the attacker to harvest them.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows unauthenticated attackers to inject arbitrary web scripts into WordPress pages. This can lead to a variety of malicious outcomes, including session hijacking, website defacement, and the execution of arbitrary code within the context of a user's browser. Given the widespread use of WordPress and the Royal Elementor Addons plugin, a successful mass exploitation could impact numerous websites and their users, leading to data breaches and reputational damage.
+Successful exploitation of this XSS vulnerability allows attackers to execute arbitrary JavaScript code in the context of a user's browser. This can lead to account takeover, defacement of websites, or the theft of sensitive information. The number of potential victims is dependent on the number of websites using the vulnerable Royal Elementor Addons plugin. This vulnerability could impact any sector utilizing WordPress and the vulnerable plugin.
 
 ## Recommendation
 
-*   Upgrade the Royal Elementor Addons plugin to the latest version, which includes a fix for CVE-2026-4803.
-*   Implement a web application firewall (WAF) rule to filter requests to wp-admin/admin-ajax.php containing suspicious JavaScript code in the 'status' parameter.
-*   Deploy the Sigma rule to detect exploitation attempts by monitoring for POST requests to the AJAX endpoint with malicious script content.
-*   Review and audit existing WordPress installations for signs of compromise, such as unexpected script injections in pages or database entries.
+*   Deploy the Sigma rule detecting XSS attempts against Royal Elementor Addons to your SIEM and tune for your environment.
+*   Review WordPress logs for suspicious GET or POST requests containing common XSS payloads in the URI or body to identify potential exploitation attempts (log source: webserver).
+*   Consider using a Web Application Firewall (WAF) to filter out malicious requests targeting this vulnerability.
