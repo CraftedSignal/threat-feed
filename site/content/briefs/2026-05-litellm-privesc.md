@@ -1,8 +1,8 @@
 ---
-title: LiteLLM Privilege Escalation via /user/update Endpoint (CVE-2026-47102)
+title: LiteLLM Multiple Vulnerabilities Allow Privilege Escalation
 slug: 2026-05-litellm-privesc
-description: CVE-2026-47102 describes a privilege escalation vulnerability in LiteLLM versions prior to 1.83.10, where the /user/update endpoint allows users to modify their own user_role, potentially escalating their privileges to proxy_admin.
-date: "2026-05-21T21:18:40Z"
+description: A remote, authenticated attacker can exploit multiple vulnerabilities in LiteLLM to escalate their privileges.
+date: "2026-05-25T19:14:24Z"
 type: advisory
 types:
   - advisory
@@ -10,65 +10,66 @@ severities:
   - high
 tags:
   - privilege-escalation
-  - CVE-2026-47102
-  - web-application
+  - vulnerability
+  - litellm
 vendors:
   - LiteLLM
 products:
-  - LiteLLM < 1.83.10
+  - LiteLLM
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-cves:
-  - id: CVE-2026-47102
-    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-47102
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1647
 rules:
-  - title: Detect CVE-2026-47102 Exploitation — LiteLLM User Role Update
-    description: Detects CVE-2026-47102 exploitation — attempts to modify the user_role field via the /user/update endpoint in LiteLLM.
+  - title: Detect Suspicious LiteLLM API Requests
+    description: Detects suspicious API requests to LiteLLM that may indicate a privilege escalation attempt.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - privilege_escalation
     techniques:
       - T1068
     data_sources:
       - webserver
-  - title: Detect CVE-2026-47102 Exploitation — LiteLLM User Role Update via request body
-    description: Detects CVE-2026-47102 exploitation — attempts to modify the user_role field via the /user/update endpoint in LiteLLM using a JSON request body.
+  - title: Detect LiteLLM Process Spawning Suspicious Child Processes
+    description: Detects LiteLLM processes spawning shell processes, which could indicate command execution following a privilege escalation.
     platform: sigma
     severity: high
     tactics:
+      - execution
       - privilege_escalation
     techniques:
-      - T1068
+      - T1059.004
     data_sources:
-      - webserver
+      - process_creation
+      - linux
 rules_count: 2
 ---
 
-LiteLLM versions prior to 1.83.10 are vulnerable to a privilege escalation via the `/user/update` endpoint (CVE-2026-47102). The vulnerability stems from insufficient access controls on the fields that users can modify within their own account profile. While the endpoint correctly restricts users to only updating their own account, it fails to prevent modification of the `user_role` field. By exploiting this flaw, a standard user can elevate their privileges to `proxy_admin`, gaining unrestricted administrative control over LiteLLM, including all users, teams, keys, models, and prompt history. Users with the `org_admin` role can exploit this vulnerability without chaining any additional flaws, making internal threat actors a significant risk.
+Multiple vulnerabilities exist in LiteLLM that can be exploited by a remote, authenticated attacker to escalate privileges. LiteLLM is an open-source library providing a unified interface for interacting with various large language models (LLMs). Successful exploitation of these vulnerabilities could allow an attacker to gain unauthorized access to sensitive data, modify system configurations, or perform other malicious actions with elevated privileges within the LiteLLM environment. Defenders should apply appropriate security measures to mitigate the risk of exploitation.
 
 ## Attack Chain
 
-1. An attacker authenticates to the LiteLLM application with standard user credentials.
-2. The attacker crafts a malicious HTTP request targeting the `/user/update` endpoint.
-3. The HTTP request includes a modified `user_role` field set to `proxy_admin`.
-4. The attacker sends the crafted HTTP request to the LiteLLM server.
-5. The LiteLLM server, lacking proper input validation, accepts the modified `user_role` value.
-6. The attacker's account is updated with the `proxy_admin` role in the LiteLLM database.
-7. The attacker logs out and logs back in to refresh their permissions.
-8. The attacker, now with `proxy_admin` privileges, can access and control all aspects of the LiteLLM platform.
+1. The attacker authenticates to the LiteLLM instance using compromised or valid credentials.
+2. The attacker leverages a vulnerability in the LiteLLM API to bypass authentication checks.
+3. The attacker injects malicious code into a request processed by LiteLLM.
+4. The malicious code exploits a vulnerability that allows arbitrary code execution within the LiteLLM server.
+5. The attacker gains elevated privileges within the LiteLLM server process.
+6. The attacker leverages these elevated privileges to access sensitive data stored within the LiteLLM environment.
+7. The attacker modifies system configurations, granting themselves persistent access.
+8. The attacker uses the compromised system to launch further attacks on other systems within the network.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to gain full administrative control over the LiteLLM platform. This includes the ability to manage all users, teams, API keys, models, and prompt history. The attacker could potentially exfiltrate sensitive data, modify models, create new administrative accounts, or disrupt the service for all users. The vulnerability poses a significant risk to the confidentiality, integrity, and availability of the LiteLLM platform.
+Successful exploitation of these vulnerabilities could result in significant damage, including unauthorized access to sensitive data, modification of system configurations, and the potential compromise of other systems within the network. The specific impact depends on the privileges granted to the LiteLLM process and the sensitivity of the data it handles.
 
 ## Recommendation
 
-*   Upgrade to LiteLLM version 1.83.10 or later to patch CVE-2026-47102.
-*   Deploy the Sigma rule "Detect CVE-2026-47102 Exploitation — LiteLLM User Role Update" to monitor for malicious attempts to modify the `user_role` field via the `/user/update` endpoint.
-*   Review access logs for unusual activity related to the `/user/update` endpoint, specifically focusing on POST requests with modifications to user roles.
+*   Apply the latest security patches and updates provided by LiteLLM to address the identified vulnerabilities.
+*   Implement strong authentication and authorization mechanisms to prevent unauthorized access to LiteLLM instances.
+*   Regularly monitor LiteLLM logs for suspicious activity indicative of potential exploitation attempts.
+*   Deploy the Sigma rules to your SIEM and tune for your environment to detect potential privilege escalation attempts.
+*   Harden the LiteLLM server environment by restricting access to sensitive resources and minimizing the attack surface.
