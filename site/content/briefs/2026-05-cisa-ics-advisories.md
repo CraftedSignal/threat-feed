@@ -1,8 +1,8 @@
 ---
-title: CISA ICS Advisories Address Vulnerabilities in Multiple Products
+title: CISA ICS Security Advisories Address Vulnerabilities in Multiple Vendor Products
 slug: 2026-05-cisa-ics-advisories
-description: CISA published ICS advisories addressing vulnerabilities in ABB B&R Automation Runtime and Studio, ABB B&R PVI, Hitachi Energy PCM600, Johnson Controls CEM AC2000, and MAXHUB Pivot Client Application, advising users to apply necessary updates and mitigations.
-date: "2026-05-11T15:47:31Z"
+description: CISA published ICS advisories addressing vulnerabilities in products from ABB, Hitachi Energy, Kieback & Peter, ScadaBR, Siemens, and ZKTeco, recommending mitigations and updates.
+date: "2026-05-25T14:23:22Z"
 type: advisory
 types:
   - advisory
@@ -10,71 +10,77 @@ severities:
   - medium
 tags:
   - ics
-  - vulnerability
   - scada
+  - vulnerability
 vendors:
   - ABB
   - Hitachi Energy
-  - Johnson Controls
-  - MAXHUB
+  - Kieback & Peter
+  - ScadaBR
+  - Siemens
+  - ZKTeco
 products:
-  - Automation Runtime
-  - Automation Studio
-  - PVI
-  - PCM600
-  - CEM AC2000
-  - Pivot Client Application
+  - B&R Automation Runtime (< 6.4)
+  - B&R Automation Studio (< 6.5)
+  - B&R PCs
+  - CoreSense HM (<= 2.3.1)
+  - CoreSense M10 (<= 1.4.1.12)
+  - Terra AC Wallbox (JP) (<= 1.8.33)
+  - GMS600 (1.3.0 to 1.3.1)
+  - DDC Building Controllers
+  - ScadaBR (1.2.0)
+  - RUGGEDCOM APE1808
+  - CCTV Cameras (< V5.0.1.2.20260421)
 references:
-  - https://cyber.gc.ca/en/alerts-advisories/control-systems-cisa-ics-security-advisories-av26-441
   - https://www.cisa.gov/news-events/cybersecurity-advisories
+  - https://cyber.gc.ca/en/alerts-advisories/control-systems-cisa-ics-security-advisories-av26-506
 rules:
-  - title: Detect ABB B&R Automation Studio Process Creation
-    description: Detects process creation related to ABB B&R Automation Studio, potentially indicating unauthorized use or malicious activity.
+  - title: Detect Outdated ZKTeco CCTV Camera Firmware
+    description: Detects network requests originating from ZKTeco CCTV cameras with firmware versions prior to V5.0.1.2.20260421.
     platform: sigma
     severity: low
     tactics:
-      - discovery
+      - reconnaissance
     techniques:
-      - T1068
+      - T1595.002
     data_sources:
-      - process_creation
+      - network_connection
       - windows
-  - title: Detect Hitachi Energy PCM600 Process Creation
-    description: Detects process creation related to Hitachi Energy PCM600, potentially indicating unauthorized use or malicious activity.
+  - title: Detect ABB Automation Studio Process Creation
+    description: Detects execution of ABB Automation Studio-related processes.
     platform: sigma
-    severity: low
+    severity: informational
     tactics:
       - discovery
     techniques:
-      - T1068
+      - T1082
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-On May 11, 2026, CISA published multiple ICS advisories addressing security vulnerabilities in several industrial control systems and related products. The affected vendors include ABB, Hitachi Energy, Johnson Controls, and MAXHUB. The advisories cover a range of products, including ABB B&R Automation Runtime and Studio, ABB B&R PVI, Hitachi Energy PCM600, Johnson Controls CEM AC2000, and MAXHUB Pivot Client Application. These vulnerabilities could potentially allow attackers to compromise affected systems, leading to disruption of industrial processes, unauthorized access, or data breaches. The advisories urge users and administrators to review the specific details for each product, apply suggested mitigations, and install available updates to remediate the identified risks.
+On May 25, 2026, CISA published multiple ICS security advisories addressing vulnerabilities across a range of industrial control systems and related products. The advisories, released between May 18 and May 24, 2026, cover products from vendors including ABB, Hitachi Energy, Kieback & Peter, ScadaBR, Siemens, and ZKTeco. These vulnerabilities span a variety of product types, including automation runtimes, building controllers, and CCTV cameras. Successful exploitation of these vulnerabilities could allow attackers to disrupt industrial processes, compromise building automation systems, or gain unauthorized access to surveillance systems. Defenders should review the specific advisories and apply the recommended mitigations and updates to protect their environments.
 
 ## Attack Chain
 
-Due to the breadth of products covered and lack of specific vulnerability details, a generalized attack chain is described below, which may vary based on the specific vulnerability and product:
+Given the variety of products and vulnerabilities, a generalized attack chain is described below. Specific steps will vary depending on the targeted product and vulnerability.
 
-1. **Initial Access:** An attacker identifies a vulnerable ICS product exposed to a network.
-2. **Vulnerability Exploitation:** The attacker exploits a vulnerability in the targeted product.
-3. **Privilege Escalation:** The attacker escalates privileges within the compromised system.
-4. **Lateral Movement:** The attacker moves laterally to other systems within the ICS network.
-5. **Data Collection:** The attacker gathers sensitive information about the ICS environment and processes.
-6. **System Manipulation:** The attacker manipulates ICS parameters or control logic.
-7. **Denial of Service:** The attacker causes a denial-of-service condition, disrupting industrial operations.
-8. **Impact:** The attack results in disruption of industrial processes, equipment damage, or safety incidents.
+1.  **Initial Access:** An attacker identifies a vulnerable ICS product exposed to a network, either directly or through a connected system.
+2.  **Vulnerability Exploitation:** The attacker crafts a specific exploit tailored to the identified vulnerability (e.g., remote code execution in ABB B&R Automation Runtime or Siemens RUGGEDCOM APE1808).
+3.  **Privilege Escalation:** Once initial access is gained, the attacker attempts to escalate privileges within the system to gain broader control.
+4.  **Lateral Movement:** The attacker leverages their elevated privileges to move laterally within the OT network, targeting other critical systems.
+5.  **System Compromise:** The attacker compromises targeted systems, potentially including HMIs, engineering workstations, or other control devices.
+6.  **Impact:** The attacker manipulates ICS processes, leading to disruption of operations, equipment damage, or data theft. For example, a compromised ZKTeco CCTV camera system could be used for surveillance or denial of service.
+7. **Persistence:** The attacker establishes persistent access to the compromised ICS environment.
 
 ## Impact
 
-Successful exploitation of vulnerabilities in ICS products can have significant consequences, including disruption of critical infrastructure, financial losses, safety hazards, and reputational damage. The specific impact depends on the nature of the targeted system and the attacker's objectives. While the number of affected installations is unknown, the widespread use of these products in various industries suggests a potentially broad attack surface. Failure to apply necessary updates and mitigations could leave organizations vulnerable to attacks targeting these known weaknesses.
+The successful exploitation of vulnerabilities in these ICS products could have significant consequences, including disruption of industrial processes, compromise of building automation systems, and unauthorized access to surveillance systems. Depending on the specific vulnerability and targeted system, the impact could range from localized equipment damage to widespread operational outages and data breaches. Sectors that rely heavily on ICS, such as manufacturing, energy, and transportation, are particularly at risk.
 
 ## Recommendation
 
-*   Review the CISA ICS advisories linked in the references for detailed information on each affected product.
-*   Apply the suggested mitigations and necessary updates for ABB B&R Automation Runtime (versions prior to 6.5 and prior to R4.93), ABB B&R Automation Studio (versions prior to 6.5), ABB B&R PVI (versions prior to 6.5.0), Hitachi Energy PCM600 (multiple versions), Johnson Controls CEM AC2000 (versions 12.0, 11.0 and 10.6), and MAXHUB Pivot Client Application (versions prior to v1.36.2).
-*   Monitor network traffic for suspicious activity related to the affected products (network_connection log source).
-*   Implement strong access controls and network segmentation to limit the potential impact of a successful attack.
+*   Review the CISA ICS Advisories linked in the references and prioritize patching ABB B&R Automation Runtime (versions prior to 6.4) and ABB B&R Automation Studio (versions prior to 6.5).
+*   Apply the necessary updates provided by the respective vendors (ABB, Hitachi Energy, Kieback & Peter, ScadaBR, Siemens, and ZKTeco) for the affected products.
+*   Monitor network traffic for unusual activity related to the affected products, such as unauthorized access attempts or unexpected data transfers.
+*   Implement network segmentation to limit the potential impact of a successful compromise, following industry best practices for ICS security.
