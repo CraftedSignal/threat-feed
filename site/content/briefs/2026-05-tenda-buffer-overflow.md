@@ -1,82 +1,83 @@
 ---
-title: Tenda F456 Router Buffer Overflow Vulnerability (CVE-2026-9389)
+title: Tenda F1202 Stack-Based Buffer Overflow Vulnerability (CVE-2026-9431)
 slug: 2026-05-tenda-buffer-overflow
-description: Tenda F456 version 1.0.0.5 is vulnerable to a buffer overflow in the frmL7ImForm function of the /goform/L7Im file, allowing a remote attacker to execute arbitrary code by manipulating the 'page' argument.
-date: "2026-05-26T13:49:07Z"
+description: A remote stack-based buffer overflow vulnerability (CVE-2026-9431) exists in the fromPptpUserAdd function of the /goform/PptpUserAdd file in Tenda F1202 firmware version 1.2.0.20(408), allowing unauthenticated attackers to potentially execute arbitrary code.
+date: "2026-05-26T14:10:28Z"
 type: threat
 types:
   - threat
 severities:
-  - high
+  - critical
 exploited: true
 tags:
-  - buffer-overflow
-  - router
   - cve
+  - buffer-overflow
   - tenda
+  - router
+  - rce
 vendors:
   - Tenda
 products:
-  - F456 1.0.0.5
+  - F1202 1.2.0.20(408)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1189
     technique_name: Drive-by Compromise
 cves:
-  - id: CVE-2026-9389
+  - id: CVE-2026-9431
     cvss: 8.8
     epss: 0.00046
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9389
-  - https://github.com/Litengzheng/vuldb_new/blob/main/F456/vul_2/README.md
-  - https://vuldb.com/submit/813444
-  - https://vuldb.com/vuln/365352
-  - https://vuldb.com/vuln/365352/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9431
+  - https://github.com/Litengzheng/vuldb_new2/blob/main/F1202/vul_35/README.md
+  - https://vuldb.com/submit/813916
+  - https://vuldb.com/vuln/365412
+  - https://vuldb.com/vuln/365412/cti
   - https://www.tenda.com.cn/
 rules:
-  - title: Detects CVE-2026-9389 Exploitation Attempt - Tenda F456 Buffer Overflow
-    description: Detects CVE-2026-9389 exploitation attempt — Monitor for abnormally long page parameters in POST requests to /goform/L7Im, indicative of a buffer overflow attempt.
+  - title: Detect Tenda F1202 Buffer Overflow Attempt
+    description: Detects CVE-2026-9431 exploitation — attempts to exploit the stack-based buffer overflow in Tenda F1202 via a long opttype parameter in a POST request to /goform/PptpUserAdd.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
-      - T1190
+      - T1189
     data_sources:
       - webserver
-  - title: Detects CVE-2026-9389 Exploitation Attempt - Tenda F456 HTTP POST with Potential Shell Command
-    description: Detects CVE-2026-9389 exploitation attempt — Detects potential shell command injection attempts within the 'page' parameter of HTTP POST requests to /goform/L7Im.
+  - title: Detect Tenda F1202 Goform Directory Access
+    description: Detects access to the /goform directory on Tenda F1202 devices, which is often targeted by exploit attempts.
     platform: sigma
-    severity: medium
+    severity: low
     tactics:
-      - initial_access
+      - discovery
     techniques:
-      - T1190
+      - T1068
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-A buffer overflow vulnerability, identified as CVE-2026-9389, exists in Tenda F456 version 1.0.0.5. This flaw resides within the `frmL7ImForm` function of the `/goform/L7Im` file. By carefully crafting the `page` argument, a remote attacker can trigger a buffer overflow, potentially leading to arbitrary code execution on the affected device. The vulnerability can be exploited remotely and has a publicly available exploit, increasing the risk of exploitation in the wild. This vulnerability poses a significant threat to users of the Tenda F456 router, potentially allowing attackers to gain unauthorized access to the network and connected devices.
+A stack-based buffer overflow vulnerability, CVE-2026-9431, has been identified in Tenda F1202 router firmware version 1.2.0.20(408). The vulnerability resides in the `fromPptpUserAdd` function within the `/goform/PptpUserAdd` file. By manipulating the `opttype` argument, an attacker can trigger a buffer overflow, potentially leading to arbitrary code execution on the device. This vulnerability can be exploited remotely without authentication. Publicly available exploit code exists, increasing the risk of exploitation in the wild. This issue poses a significant threat to network security, potentially allowing attackers to gain control of vulnerable devices.
 
 ## Attack Chain
 
-1.  Attacker identifies a Tenda F456 router running firmware version 1.0.0.5.
-2.  Attacker crafts a malicious HTTP request targeting the `/goform/L7Im` endpoint.
-3.  The HTTP request includes a `page` argument with a payload designed to overflow the buffer in the `frmL7ImForm` function.
-4.  The router processes the malicious HTTP request, passing the `page` argument to the vulnerable function.
-5.  The `frmL7ImForm` function copies the attacker-controlled `page` argument into a fixed-size buffer without proper bounds checking.
-6.  The oversized `page` argument overflows the buffer, overwriting adjacent memory regions, including return addresses or function pointers.
-7.  The overwritten return address is used when the `frmL7ImForm` function returns, redirecting execution to attacker-controlled code.
-8.  The attacker gains arbitrary code execution on the router, potentially leading to full system compromise and control over network traffic.
+1.  Attacker identifies a Tenda F1202 router running firmware version 1.2.0.20(408).
+2.  Attacker sends a crafted HTTP POST request to the `/goform/PptpUserAdd` endpoint.
+3.  The POST request includes the `opttype` argument with a value exceeding the buffer size allocated in the `fromPptpUserAdd` function.
+4.  The `fromPptpUserAdd` function processes the malicious `opttype` argument without proper bounds checking.
+5.  The oversized `opttype` value overflows the stack buffer, overwriting adjacent memory locations.
+6.  The attacker crafts the overflow to overwrite the return address on the stack, redirecting execution flow.
+7.  The overwritten return address points to attacker-controlled code, which is injected into the overflow.
+8.  The attacker-controlled code executes with the privileges of the `fromPptpUserAdd` function, allowing the attacker to execute arbitrary commands on the router.
 
 ## Impact
 
-Successful exploitation of this vulnerability could allow an attacker to gain complete control over the Tenda F456 router. This could lead to a variety of malicious activities, including eavesdropping on network traffic, injecting malicious code into web pages, or using the router as a botnet node. Given the widespread use of Tenda routers in home and small office environments, a large number of devices could be at risk.
+Successful exploitation of CVE-2026-9431 allows a remote, unauthenticated attacker to execute arbitrary code on the Tenda F1202 router. This can lead to complete device compromise, including modification of router settings, interception of network traffic, and use of the router as a botnet node. Given the publicly available exploit code, widespread exploitation is possible, potentially impacting numerous home and small business networks using the vulnerable Tenda F1202 model.
 
 ## Recommendation
 
-*   Monitor web server logs for suspicious POST requests to `/goform/L7Im` with abnormally long `page` parameters to detect potential exploitation attempts, using the `webserver` category in the Sigma rule below.
-*   Apply firmware updates from Tenda as soon as they become available to patch CVE-2026-9389.
-*   Deploy the Sigma rules provided in this brief to your SIEM to detect exploitation attempts in your environment.
+*   Monitor web server logs for suspicious POST requests to `/goform/PptpUserAdd` with unusually long `opttype` values to detect potential exploitation attempts.
+*   Deploy the Sigma rule `Detect Tenda F1202 Buffer Overflow Attempt` to your SIEM to identify suspicious requests.
+*   Consider deploying a web application firewall (WAF) rule to block requests with excessively long `opttype` values sent to `/goform/PptpUserAdd`.
