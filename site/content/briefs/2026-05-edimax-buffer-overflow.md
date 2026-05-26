@@ -1,17 +1,18 @@
 ---
-title: Edimax EW-7438RPn Stack-Based Buffer Overflow Vulnerability (CVE-2026-9461)
+title: Edimax EW-7438RPn Stack-Based Buffer Overflow Vulnerability (CVE-2026-9480)
 slug: 2026-05-edimax-buffer-overflow
-description: A stack-based buffer overflow vulnerability (CVE-2026-9461) exists in the formRadius function of the /goform/formRadius file in Edimax EW-7438RPn version 1.31, which can be exploited remotely by manipulating the submit-url argument.
-date: "2026-05-26T14:12:54Z"
+description: A stack-based buffer overflow vulnerability (CVE-2026-9480) exists in Edimax EW-7438RPn version 1.31 due to improper handling of the 'submit-url' argument in the 'formrefresh' function, allowing remote attackers to execute arbitrary code.
+date: "2026-05-26T14:24:36Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - cve-2026-9461
-  - buffer-overflow
-  - network-device
+  - cve
+  - buffer overflow
+  - remote code execution
+  - web application
 vendors:
   - Edimax
 products:
@@ -20,20 +21,20 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+    technique_name: Exploit Public Fasing Application
 cves:
-  - id: CVE-2026-9461
+  - id: CVE-2026-9480
     cvss: 8.8
     epss: 0.00041
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9461
-  - https://github.com/wudipjq/my_vuln/blob/main/Edimax/vuln_14/14.md
-  - https://vuldb.com/submit/813898
-  - https://vuldb.com/vuln/365442
-  - https://vuldb.com/vuln/365442/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9480
+  - https://github.com/wudipjq/my_vuln/blob/main/Edimax/vuln_18/18.md
+  - https://vuldb.com/submit/813902
+  - https://vuldb.com/vuln/365461
+  - https://vuldb.com/vuln/365461/cti
 rules:
-  - title: Detect CVE-2026-9461 Exploitation Attempt via Long Submit-URL
-    description: Detects CVE-2026-9461 exploitation attempts by monitoring for abnormally long submit-url parameters in requests to /goform/formRadius.
+  - title: Detect CVE-2026-9480 Exploitation Attempt
+    description: Detects CVE-2026-9480 exploitation attempt - a long submit-url parameter in a request to /goform/formrefresh indicating a possible buffer overflow attempt
     platform: sigma
     severity: high
     tactics:
@@ -42,8 +43,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9461 Exploitation - POST to formRadius
-    description: Detects CVE-2026-9461 exploitation — Monitors for POST requests to the /goform/formRadius endpoint, potentially indicating an exploitation attempt.
+  - title: Detect CVE-2026-9480 Exploitation - HTTP POST to /goform/formrefresh
+    description: Detects CVE-2026-9480 exploitation - detects HTTP POST requests to the /goform/formrefresh endpoint, which may be indicative of an exploit attempt targeting this vulnerability.
     platform: sigma
     severity: medium
     tactics:
@@ -55,25 +56,24 @@ rules:
 rules_count: 2
 ---
 
-A stack-based buffer overflow vulnerability, CVE-2026-9461, has been identified in Edimax EW-7438RPn version 1.31. The vulnerability resides in the `formRadius` function within the `/goform/formRadius` file. An attacker can exploit this vulnerability by manipulating the `submit-url` argument, leading to arbitrary code execution. The attack can be initiated remotely, making it a significant threat. Public disclosure of the exploit increases the likelihood of exploitation. The vendor was notified but has not responded.
+A stack-based buffer overflow vulnerability, identified as CVE-2026-9480, affects Edimax EW-7438RPn version 1.31. The vulnerability resides in the `formrefresh` function within the `/goform/formrefresh` file. By manipulating the `submit-url` argument, a remote attacker can trigger a buffer overflow, potentially leading to arbitrary code execution. The vulnerability is publicly known and an exploit is available. The vendor was unresponsive to disclosure attempts. This vulnerability poses a significant risk to Edimax EW-7438RPn devices as it allows unauthenticated remote attackers to compromise the device.
 
 ## Attack Chain
 
-1.  Attacker sends a crafted HTTP request to the Edimax EW-7438RPn device.
-2.  The HTTP request targets the `/goform/formRadius` endpoint.
-3.  The request includes the `submit-url` argument with a payload exceeding the buffer size.
-4.  The `formRadius` function processes the `submit-url` argument without proper bounds checking.
-5.  The excessive data overwrites the stack, including the return address.
-6.  The overwritten return address points to attacker-controlled code.
-7.  Upon function return, control is transferred to the attacker's code.
-8.  Attacker gains arbitrary code execution on the device, potentially leading to full system compromise.
+1.  The attacker identifies a vulnerable Edimax EW-7438RPn device running firmware version 1.31.
+2.  The attacker crafts a malicious HTTP request targeting the `/goform/formrefresh` endpoint.
+3.  The HTTP request includes a `submit-url` parameter with a value exceeding the buffer size allocated for it in the `formrefresh` function.
+4.  The vulnerable `formrefresh` function processes the malicious `submit-url` parameter without proper bounds checking.
+5.  The excessive data in the `submit-url` argument overflows the stack-based buffer, overwriting adjacent memory regions, including the return address.
+6.  The attacker carefully crafts the overflowed data to replace the return address with the address of malicious code.
+7.  When the `formrefresh` function returns, it jumps to the attacker-controlled address, executing arbitrary code on the device.
+8.  The attacker gains control of the Edimax device and can perform unauthorized actions.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows a remote attacker to execute arbitrary code on the affected Edimax EW-7438RPn device. This could lead to complete device compromise, allowing the attacker to control the device, steal sensitive information, or use it as a bot in a larger attack. Given that this is a network device often used in home and small business environments, a successful attack could have significant consequences for the affected users.
+Successful exploitation of CVE-2026-9480 allows a remote, unauthenticated attacker to execute arbitrary code on the Edimax EW-7438RPn device. This can lead to complete device compromise, including modification of device settings, installation of malware, and potential use of the device as part of a botnet. Given the nature of the vulnerability and the function impacted, a successful exploit would likely be exploitable by an unauthenticated attacker on the local network.
 
 ## Recommendation
 
-*   Monitor web server logs for requests to `/goform/formRadius` with abnormally long `submit-url` arguments using the "Detect CVE-2026-9461 Exploitation Attempt via Long Submit-URL" Sigma rule.
-*   Inspect network traffic for unusually large HTTP POST requests targeting the `/goform/formRadius` endpoint.
-*   Implement input validation and sanitization on the Edimax EW-7438RPn device to prevent buffer overflows.
+*   Monitor web server logs for requests to `/goform/formrefresh` with unusually long `submit-url` parameters, using the "Detect CVE-2026-9480 Exploitation Attempt" Sigma rule.
+*   Implement rate limiting for requests to `/goform/formrefresh` to reduce the impact of potential exploitation attempts.
