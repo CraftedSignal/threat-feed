@@ -1,17 +1,16 @@
 ---
-title: Edimax EW-7438RPn Stack-Based Buffer Overflow Vulnerability (CVE-2026-9480)
+title: Edimax EW-7438RPn Stack-Based Buffer Overflow Vulnerability (CVE-2026-9482)
 slug: 2026-05-edimax-buffer-overflow
-description: A stack-based buffer overflow vulnerability (CVE-2026-9480) exists in Edimax EW-7438RPn version 1.31 due to improper handling of the 'submit-url' argument in the 'formrefresh' function, allowing remote attackers to execute arbitrary code.
-date: "2026-05-26T14:24:36Z"
-type: advisory
+description: A stack-based buffer overflow vulnerability (CVE-2026-9482) exists in Edimax EW-7438RPn version 1.31 within the formSDHCP function of the /goform/formSDHCP file, allowing a remote attacker to potentially execute arbitrary code by manipulating the submit-url argument.
+date: "2026-05-26T14:26:19Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 tags:
-  - cve
   - buffer overflow
-  - remote code execution
+  - cve-2026-9482
   - web application
 vendors:
   - Edimax
@@ -21,20 +20,20 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-9480
+  - id: CVE-2026-9482
     cvss: 8.8
     epss: 0.00041
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9480
-  - https://github.com/wudipjq/my_vuln/blob/main/Edimax/vuln_18/18.md
-  - https://vuldb.com/submit/813902
-  - https://vuldb.com/vuln/365461
-  - https://vuldb.com/vuln/365461/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9482
+  - https://github.com/wudipjq/my_vuln/blob/main/Edimax/vuln_20/20.md
+  - https://vuldb.com/submit/813904
+  - https://vuldb.com/vuln/365463
+  - https://vuldb.com/vuln/365463/cti
 rules:
-  - title: Detect CVE-2026-9480 Exploitation Attempt
-    description: Detects CVE-2026-9480 exploitation attempt - a long submit-url parameter in a request to /goform/formrefresh indicating a possible buffer overflow attempt
+  - title: Detects CVE-2026-9482 Exploitation Attempt — Edimax Buffer Overflow
+    description: Detects CVE-2026-9482 exploitation attempt —  monitors web server logs for POST requests to /goform/formSDHCP with a long submit-url, potentially indicating a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -43,8 +42,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9480 Exploitation - HTTP POST to /goform/formrefresh
-    description: Detects CVE-2026-9480 exploitation - detects HTTP POST requests to the /goform/formrefresh endpoint, which may be indicative of an exploit attempt targeting this vulnerability.
+  - title: Detects CVE-2026-9482 Exploitation Attempt — Abnormal POST Request
+    description: Detects CVE-2026-9482 exploitation attempt — monitors web server logs for requests to /goform/formSDHCP with encoded characters in the submit-url argument, which could indicate an attempt to exploit the buffer overflow vulnerability.
     platform: sigma
     severity: medium
     tactics:
@@ -56,24 +55,26 @@ rules:
 rules_count: 2
 ---
 
-A stack-based buffer overflow vulnerability, identified as CVE-2026-9480, affects Edimax EW-7438RPn version 1.31. The vulnerability resides in the `formrefresh` function within the `/goform/formrefresh` file. By manipulating the `submit-url` argument, a remote attacker can trigger a buffer overflow, potentially leading to arbitrary code execution. The vulnerability is publicly known and an exploit is available. The vendor was unresponsive to disclosure attempts. This vulnerability poses a significant risk to Edimax EW-7438RPn devices as it allows unauthenticated remote attackers to compromise the device.
+A stack-based buffer overflow vulnerability, identified as CVE-2026-9482, has been discovered in Edimax EW-7438RPn version 1.31. The vulnerability resides within the `formSDHCP` function of the `/goform/formSDHCP` file. Successful exploitation of this flaw could allow a remote attacker to execute arbitrary code on the affected device. The vulnerability was publicly disclosed, and a proof-of-concept exploit is available, increasing the risk of exploitation. The vendor was notified about the vulnerability but did not respond.
 
 ## Attack Chain
 
-1.  The attacker identifies a vulnerable Edimax EW-7438RPn device running firmware version 1.31.
-2.  The attacker crafts a malicious HTTP request targeting the `/goform/formrefresh` endpoint.
-3.  The HTTP request includes a `submit-url` parameter with a value exceeding the buffer size allocated for it in the `formrefresh` function.
-4.  The vulnerable `formrefresh` function processes the malicious `submit-url` parameter without proper bounds checking.
-5.  The excessive data in the `submit-url` argument overflows the stack-based buffer, overwriting adjacent memory regions, including the return address.
-6.  The attacker carefully crafts the overflowed data to replace the return address with the address of malicious code.
-7.  When the `formrefresh` function returns, it jumps to the attacker-controlled address, executing arbitrary code on the device.
-8.  The attacker gains control of the Edimax device and can perform unauthorized actions.
+1.  The attacker identifies an Edimax EW-7438RPn device running firmware version 1.31 exposed to the internet.
+2.  The attacker crafts a malicious HTTP request targeting the `/goform/formSDHCP` endpoint.
+3.  The attacker includes a long string in the `submit-url` parameter within the HTTP request.
+4.  The webserver processes the request and passes the attacker-controlled `submit-url` value to the `formSDHCP` function without proper bounds checking.
+5.  The `formSDHCP` function copies the excessively long `submit-url` string into a fixed-size buffer on the stack, causing a buffer overflow.
+6.  The buffer overflow overwrites adjacent memory on the stack, including the return address.
+7.  When the `formSDHCP` function returns, the overwritten return address is used, diverting execution to attacker-controlled code.
+8.  The attacker gains arbitrary code execution on the device, potentially leading to full system compromise.
 
 ## Impact
 
-Successful exploitation of CVE-2026-9480 allows a remote, unauthenticated attacker to execute arbitrary code on the Edimax EW-7438RPn device. This can lead to complete device compromise, including modification of device settings, installation of malware, and potential use of the device as part of a botnet. Given the nature of the vulnerability and the function impacted, a successful exploit would likely be exploitable by an unauthenticated attacker on the local network.
+Successful exploitation of CVE-2026-9482 allows a remote attacker to execute arbitrary code on the Edimax EW-7438RPn device. This could result in complete loss of confidentiality, integrity, and availability of the device. The affected devices are typically used in home or small office environments, potentially exposing sensitive network traffic and data to unauthorized access.
 
 ## Recommendation
 
-*   Monitor web server logs for requests to `/goform/formrefresh` with unusually long `submit-url` parameters, using the "Detect CVE-2026-9480 Exploitation Attempt" Sigma rule.
-*   Implement rate limiting for requests to `/goform/formrefresh` to reduce the impact of potential exploitation attempts.
+*   Monitor web server logs for suspicious POST requests to `/goform/formSDHCP` with abnormally long `submit-url` parameters. Deploy the provided Sigma rule targeting this behavior to your SIEM.
+*   Apply any available patches or firmware updates from Edimax to address CVE-2026-9482 as soon as they become available.
+*   Implement network segmentation to limit the impact of a compromised device.
+*   Consider using a web application firewall (WAF) to filter malicious requests targeting the `/goform/formSDHCP` endpoint.
