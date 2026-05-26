@@ -1,52 +1,52 @@
 ---
-title: Totolink A8000RU OS Command Injection via Web Management Interface (CVE-2026-9478)
+title: Totolink N300RH Command Injection Vulnerability (CVE-2026-9543)
 slug: 2026-05-totolink-rce
-description: CVE-2026-9478 is an OS command injection vulnerability in the setParentalRules function of the Totolink A8000RU version 7.1cu.643_b20200521 web management interface, allowing remote attackers to execute arbitrary commands by manipulating the 'enable' argument.
-date: "2026-05-26T14:04:58Z"
-type: threat
+description: Totolink N300RH version 6.1c.1353_B20190305 is vulnerable to remote command injection via manipulation of the 'admpass' argument in the setPasswordCfg function of the /cgi-bin/cstecgi.cgi file within the Web Management Interface, allowing for remote code execution.
+date: "2026-05-26T14:20:53Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - critical
 tags:
   - cve
   - command injection
-  - router
+  - rce
+  - totolink
 vendors:
   - Totolink
 products:
-  - A8000RU 7.1cu.643_b20200521
+  - N300RH 6.1c.1353_B20190305
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-9478
+  - id: CVE-2026-9543
     cvss: 9.8
-    epss: 0.00892
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9478
-  - https://github.com/Litengzheng/vuldb_new2/blob/main/A8000RU/vul_352/README.md
-  - https://vuldb.com/submit/813463
-  - https://vuldb.com/vuln/365459
-  - https://vuldb.com/vuln/365459/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9543
+  - https://github.com/A1ester/TOTOLINK-N300RH-Command-Injection
+  - https://vuldb.com/submit/815068
+  - https://vuldb.com/vuln/365607
+  - https://vuldb.com/vuln/365607/cti
   - https://www.totolink.net/
 rules:
-  - title: Detect Totolink CVE-2026-9478 Command Injection Attempt
-    description: Detects CVE-2026-9478 exploitation — HTTP requests to /cgi-bin/cstecgi.cgi with shell metacharacters in the enable parameter indicative of a command injection attempt.
+  - title: Detect CVE-2026-9543 Exploitation -- Command Injection in Totolink N300RH
+    description: Detects CVE-2026-9543 exploitation -- Attempts to exploit command injection vulnerability in Totolink N300RH via requests to /cgi-bin/cstecgi.cgi
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - execution
     techniques:
       - T1059.004
     data_sources:
       - webserver
-  - title: Detect Totolink setParentalRules Command Injection via Web Management Interface
-    description: Detects attempts to exploit CVE-2026-9478 by identifying suspicious requests to setParentalRules via the web management interface.
+  - title: Detect CVE-2026-9543 Exploitation -- Shell Metacharacters in admpass Parameter
+    description: Detects CVE-2026-9543 exploitation -- HTTP requests with shell metacharacters in the admpass parameter, indicative of command injection attempts.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
       - execution
     techniques:
@@ -56,26 +56,25 @@ rules:
 rules_count: 2
 ---
 
-A critical vulnerability, CVE-2026-9478, has been discovered in the Totolink A8000RU router, specifically version 7.1cu.643_b20200521. The flaw resides within the Web Management Interface in the `/cgi-bin/cstecgi.cgi` file, affecting the `setParentalRules` function. By manipulating the `enable` argument, a remote attacker can inject arbitrary operating system commands. Publicly available exploits exist, increasing the likelihood of exploitation. This vulnerability allows unauthenticated remote attackers to gain complete control over the affected router, potentially leading to network compromise and data exfiltration. Given the ease of exploitation and the potential for widespread impact, this vulnerability poses a significant threat.
+A critical vulnerability, CVE-2026-9543, has been identified in Totolink N300RH router firmware version 6.1c.1353_B20190305. The vulnerability resides within the Web Management Interface, specifically in the `/cgi-bin/cstecgi.cgi` file's `setPasswordCfg` function. By manipulating the `admpass` argument, a remote attacker can inject arbitrary operating system commands. Publicly available exploit code exists, increasing the risk of exploitation. This vulnerability allows unauthenticated attackers to execute commands on the underlying operating system of the router.
 
 ## Attack Chain
 
-1. The attacker identifies a vulnerable Totolink A8000RU router running firmware version 7.1cu.643_b20200521.
-2. The attacker sends a crafted HTTP request to the `/cgi-bin/cstecgi.cgi` endpoint.
-3. The HTTP request targets the `setParentalRules` function within the CGI script.
-4. The attacker injects malicious OS commands into the `enable` argument of the `setParentalRules` function.
-5. The CGI script executes the injected OS commands due to insufficient input validation.
-6. The attacker gains remote code execution on the router's operating system.
-7. The attacker uses the compromised router as a pivot point to access other devices on the network.
-8. The attacker may install malware, exfiltrate sensitive data, or disrupt network services.
+1.  An unauthenticated attacker identifies a vulnerable Totolink N300RH router running firmware version 6.1c.1353_B20190305.
+2.  The attacker crafts a malicious HTTP request targeting the `/cgi-bin/cstecgi.cgi` endpoint.
+3.  Within the HTTP request, the attacker manipulates the `admpass` argument in the `setPasswordCfg` function to include OS command injection payloads.
+4.  The web server processes the request and passes the `admpass` argument to the underlying system.
+5.  The injected OS commands are executed with the privileges of the web server process.
+6.  The attacker can then execute commands to gain shell access, modify router configurations, or install malware.
+7.  The attacker uses the gained access to pivot to other devices on the network or to maintain persistence on the router.
 
 ## Impact
 
-Successful exploitation of CVE-2026-9478 allows a remote attacker to execute arbitrary operating system commands on the affected Totolink A8000RU router. This can lead to complete compromise of the device, allowing the attacker to modify router settings, intercept network traffic, or use the router as a botnet node. Given the wide deployment of Totolink routers in homes and small businesses, a successful widespread attack could have significant impact, affecting potentially thousands of users.
+Successful exploitation of CVE-2026-9543 allows an unauthenticated remote attacker to execute arbitrary operating system commands on the affected Totolink N300RH device. This can lead to complete compromise of the device, potentially enabling attackers to eavesdrop on network traffic, modify router settings, or use the device as a point of entry for further attacks on the internal network. Given the high CVSS score (9.8), this vulnerability poses a significant risk.
 
 ## Recommendation
 
-*   Apply available firmware updates from Totolink to patch CVE-2026-9478.
-*   Deploy the Sigma rule "Detect Totolink CVE-2026-9478 Command Injection Attempt" to identify exploitation attempts in web server logs.
-*   Monitor web server logs for requests to `/cgi-bin/cstecgi.cgi` containing shell metacharacters in the `enable` parameter, as detected by the Sigma rule.
-*   Implement network segmentation to limit the impact of a compromised router on other network devices.
+*   Deploy the Sigma rule to detect command injection attempts targeting the `/cgi-bin/cstecgi.cgi` endpoint (see rule `Detect CVE-2026-9543 Exploitation -- Command Injection in Totolink N300RH`).
+*   Monitor web server logs for requests containing shell metacharacters in the `admpass` parameter (see rule `Detect CVE-2026-9543 Exploitation -- Shell Metacharacters in admpass Parameter`).
+*   Apply any available firmware updates released by Totolink to address this vulnerability.
+*   If firmware updates are not available, consider disabling remote access to the router's web management interface or implementing access control lists to restrict access to trusted IP addresses.
