@@ -1,13 +1,14 @@
 ---
-title: Edimax BR-6675nD Buffer Overflow Vulnerability (CVE-2026-9380)
+title: Edimax BR-6675nD Buffer Overflow Vulnerability (CVE-2026-9382)
 slug: 2026-05-edimax-buffer-overflow
-description: A buffer overflow vulnerability (CVE-2026-9380) exists in Edimax BR-6675nD version 1.12, allowing a remote attacker to execute arbitrary code by manipulating the L2TPUserName argument in the formL2TPSetup function.
-date: "2026-05-26T13:47:53Z"
-type: advisory
+description: A buffer overflow vulnerability exists in Edimax BR-6675nD 1.12 within the formPPTPSetup function of the POST Request Handler component, allowing a remote attacker to execute arbitrary code by manipulating the pptpUserName argument in a POST request to /goform/formPPTPSetup.
+date: "2026-05-26T13:48:31Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 tags:
   - buffer-overflow
   - router
@@ -22,30 +23,30 @@ mitre_ttps:
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-9380
+  - id: CVE-2026-9382
     cvss: 8.8
     epss: 0.00041
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9380
-  - https://lavender-bicycle-a5a.notion.site/EDIMAX-BR-6675nD-formL2TPSetup-34b53a41781f805abdfbdcbe930ad70a?source=copy_link
-  - https://vuldb.com/submit/811558
-  - https://vuldb.com/vuln/365343
-  - https://vuldb.com/vuln/365343/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9382
+  - https://lavender-bicycle-a5a.notion.site/EDIMAX-BR-6675nD-formPPTPSetup-34b53a41781f80e6ab7df78a28ffe568?source=copy_link
+  - https://vuldb.com/submit/811560
+  - https://vuldb.com/vuln/365345
+  - https://vuldb.com/vuln/365345/cti
 rules:
-  - title: Detect CVE-2026-9380 Exploitation Attempt — Long L2TPUserName
-    description: Detects CVE-2026-9380 exploitation attempt — an HTTP POST request to /goform/formL2TPSetup with a very long L2TPUserName parameter, indicating a potential buffer overflow attempt.
+  - title: Edimax BR-6675nD Suspicious PPTP Username Length
+    description: Detects CVE-2026-9382 exploitation — HTTP POST requests to the /goform/formPPTPSetup endpoint with a suspiciously long pptpUserName, indicating a potential buffer overflow attempt.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - initial_access
     techniques:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9380 Exploitation Attempt — Abnormal HTTP Status Code
-    description: Detects CVE-2026-9380 exploitation attempt — an HTTP POST request to /goform/formL2TPSetup resulting in a server error (5xx status code) after a request with long L2TPUserName, suggesting a buffer overflow caused a crash.
+  - title: Edimax BR-6675nD formPPTPSetup Access
+    description: Detects access to the Edimax BR-6675nD formPPTPSetup endpoint, which is vulnerable to CVE-2026-9382.
     platform: sigma
-    severity: medium
+    severity: low
     tactics:
       - initial_access
     techniques:
@@ -55,25 +56,26 @@ rules:
 rules_count: 2
 ---
 
-A buffer overflow vulnerability, identified as CVE-2026-9380, affects Edimax BR-6675nD router version 1.12. The vulnerability resides within the `formL2TPSetup` function located in the `/goform/formL2TPSetup` file, part of the POST Request Handler component. An attacker can exploit this flaw by crafting a malicious POST request with an overly long `L2TPUserName` argument. This leads to a buffer overflow, potentially allowing the attacker to execute arbitrary code on the device. The vulnerability can be exploited remotely and a proof-of-concept exploit has been publicly disclosed. The vendor was notified, but has not responded.
+A buffer overflow vulnerability, CVE-2026-9382, has been identified in Edimax BR-6675nD version 1.12. The vulnerability resides in the `formPPTPSetup` function of the `/goform/formPPTPSetup` endpoint, specifically within the POST Request Handler. Successful exploitation allows a remote attacker to cause a buffer overflow by manipulating the `pptpUserName` argument in a POST request. Publicly available exploits exist, increasing the risk of active exploitation. The vendor has not responded to disclosure attempts, potentially leaving users vulnerable. This vulnerability allows an attacker to gain unauthorized access to the device.
 
 ## Attack Chain
 
 1.  The attacker identifies an Edimax BR-6675nD router running firmware version 1.12.
-2.  The attacker crafts a malicious HTTP POST request targeting the `/goform/formL2TPSetup` endpoint.
-3.  The POST request includes the `L2TPUserName` parameter with a value exceeding the expected buffer size.
-4.  The router's web server processes the POST request and passes the `L2TPUserName` value to the `formL2TPSetup` function.
-5.  The `formL2TPSetup` function copies the overly long `L2TPUserName` value into a fixed-size buffer without proper bounds checking.
-6.  This buffer overflow overwrites adjacent memory regions, potentially including function return addresses or other critical data.
-7.  The attacker gains the ability to execute arbitrary code on the device by controlling the overwritten return address.
-8.  Successful exploitation leads to full control of the device, allowing the attacker to potentially eavesdrop on network traffic, modify router settings, or use the device as a botnet node.
+2.  The attacker crafts a malicious HTTP POST request targeting the `/goform/formPPTPSetup` endpoint.
+3.  Within the POST request, the `pptpUserName` parameter is set to a string exceeding the buffer's expected size.
+4.  The router's web server receives the crafted POST request and passes the `pptpUserName` argument to the `formPPTPSetup` function.
+5.  The `formPPTPSetup` function copies the oversized `pptpUserName` string into a fixed-size buffer without proper bounds checking.
+6.  The buffer overflow corrupts adjacent memory regions, potentially overwriting critical data or code pointers.
+7.  The overwritten code pointer is executed, allowing the attacker to inject and execute arbitrary code on the device.
+8.  The attacker gains control of the device, potentially enabling further malicious activities such as configuration changes, network sniffing, or use as a botnet node.
 
 ## Impact
 
-Successful exploitation of CVE-2026-9380 allows a remote attacker to gain complete control of the affected Edimax BR-6675nD router. This could lead to sensitive information disclosure, modification of router configurations, or the use of the compromised device in distributed denial-of-service (DDoS) attacks. Given the widespread use of such routers, a large number of devices are potentially vulnerable if unpatched.
+Successful exploitation of CVE-2026-9382 leads to arbitrary code execution on the Edimax BR-6675nD device. This compromises the device's confidentiality, integrity, and availability. An attacker could potentially gain complete control of the router, intercept network traffic, modify DNS settings, or use the compromised device as part of a botnet. Given the widespread use of these routers in home and small office environments, a successful attack could impact a significant number of users.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect CVE-2026-9380 Exploitation Attempt — Long L2TPUserName` to detect attempts to exploit this vulnerability in web server logs.
-*   Inspect web server logs for POST requests to `/goform/formL2TPSetup` with unusually long `L2TPUserName` values, as detected by the Sigma rule.
-*   Apply available firmware updates from Edimax to patch CVE-2026-9380.
+*   Monitor web server logs for POST requests to `/goform/formPPTPSetup` with unusually long `pptpUserName` parameters using the provided Sigma rule `Edimax BR-6675nD Suspicious PPTP Username Length`.
+*   Implement rate limiting on the `/goform/formPPTPSetup` endpoint to mitigate brute-force exploitation attempts.
+*   Since the vendor is unresponsive, consider alternative router solutions until a patch becomes available.
+*   Deploy the Sigma rule `Edimax BR-6675nD formPPTPSetup Access` to detect access to the vulnerable endpoint.
