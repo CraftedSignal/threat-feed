@@ -1,79 +1,81 @@
 ---
-title: Totolink NR1800X Command Injection Vulnerability
+title: Totolink A8000RU OS Command Injection via Web Management Interface (CVE-2026-9404)
 slug: 2026-05-totolink-command-injection
-description: A command injection vulnerability exists in Totolink NR1800X version 9.1.0u.6279_B20210910, affecting the function sub_41A68C of the file /cgi-bin/cstecgi.cgi; by manipulating the argument setUssd, a remote attacker can inject commands, and an exploit is publicly available.
-date: "2026-05-01T03:16:01Z"
-type: advisory
+description: CVE-2026-9404 is an OS command injection vulnerability in the setDdnsCfg function of the Totolink A8000RU version 7.1cu.643_b20200521 Web Management Interface, allowing remote attackers to execute arbitrary commands by manipulating the 'provider' argument.
+date: "2026-05-26T13:57:54Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
 tags:
-  - command-injection
+  - cve
+  - command injection
   - router
-  - network
 vendors:
   - Totolink
 products:
-  - NR1800X 9.1.0u.6279_B20210910
+  - A8000RU 7.1cu.643_b20200521
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1059.004
+    technique_id: T1059
     technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-7548
-    cvss: 8.8
+  - id: CVE-2026-9404
+    cvss: 9.8
+    epss: 0.00892
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7548
-  - https://github.com/newym/cve/blob/main/totolink%20nr1800x%20command%20injection.md
-  - https://vuldb.com/vuln/360358
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9404
+  - https://github.com/Litengzheng/vuldb_new2/blob/main/A8000RU/vul_336/README.md
+  - https://vuldb.com/submit/813439
+  - https://vuldb.com/vuln/365385
+  - https://vuldb.com/vuln/365385/cti
+  - https://www.totolink.net/
 rules:
-  - title: Detect Totolink NR1800X Command Injection Attempt
-    description: Detects command injection attempts in the setUssd parameter of the /cgi-bin/cstecgi.cgi endpoint.
+  - title: Detect CVE-2026-9404 Exploitation - Totolink Command Injection
+    description: Detects CVE-2026-9404 exploitation - Attempts to exploit the Totolink A8000RU command injection vulnerability by detecting shell metacharacters in the provider argument of the setDdnsCfg function.
     platform: sigma
     severity: critical
     tactics:
       - execution
     techniques:
       - T1059.004
-      - T1550
     data_sources:
       - webserver
-      - linux
-  - title: Detect suspicious characters in URI query
-    description: Detects the presence of suspicious characters indicative of command injection attempts within URI queries.
+  - title: Detect CVE-2026-9404 Exploitation - Totolink Command Injection Response Code
+    description: Detects CVE-2026-9404 exploitation - Monitors for 200 response code after attempting exploitation of command injection vulnerability.
     platform: sigma
     severity: high
     tactics:
       - execution
     techniques:
-      - T1059
+      - T1059.004
     data_sources:
       - webserver
-      - linux
 rules_count: 2
 ---
 
-A command injection vulnerability, identified as CVE-2026-7548, affects Totolink NR1800X router version 9.1.0u.6279_B20210910. The vulnerability resides within the `sub_41A68C` function of the `/cgi-bin/cstecgi.cgi` file. By manipulating the `setUssd` argument, a remote attacker can inject arbitrary commands into the system. Publicly available exploit code makes exploitation easier. This vulnerability poses a significant risk as it allows unauthenticated remote attackers to execute arbitrary commands on the affected device, potentially leading to full system compromise.
+A critical vulnerability, CVE-2026-9404, affects Totolink A8000RU router firmware version 7.1cu.643_b20200521. The vulnerability resides in the `setDdnsCfg` function within the `/cgi-bin/cstecgi.cgi` file, part of the Web Management Interface. By manipulating the `provider` argument, a remote attacker can inject and execute arbitrary operating system commands on the underlying system. The vulnerability is remotely exploitable without authentication and has a publicly available exploit. This allows unauthenticated attackers to gain full control of the device.
 
 ## Attack Chain
 
-1.  The attacker identifies a vulnerable Totolink NR1800X device running firmware version 9.1.0u.6279_B20210910.
-2.  The attacker sends a crafted HTTP request to the `/cgi-bin/cstecgi.cgi` endpoint.
-3.  The HTTP request includes the `setUssd` argument with a malicious payload designed to inject a command.
-4.  The `sub_41A68C` function processes the `setUssd` argument without proper sanitization.
-5.  The injected command is executed by the system with the privileges of the web server process.
-6.  The attacker gains initial access and can execute arbitrary commands on the device.
-7.  The attacker may then use the command execution to escalate privileges, install malware, or pivot to other devices on the network.
+1.  The attacker identifies a vulnerable Totolink A8000RU router running firmware version 7.1cu.643_b20200521.
+2.  The attacker sends a crafted HTTP request to `/cgi-bin/cstecgi.cgi`, targeting the `setDdnsCfg` function.
+3.  The HTTP request includes a malicious payload within the `provider` argument designed for OS command injection.
+4.  The `setDdnsCfg` function fails to properly sanitize the `provider` argument.
+5.  The unsanitized input is passed to a system call.
+6.  The injected OS command executes with the privileges of the web server.
+7.  The attacker establishes a reverse shell or modifies router configuration.
+8.  The attacker gains complete control over the compromised device.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to execute arbitrary commands on the affected Totolink NR1800X router. This could lead to complete compromise of the device, allowing the attacker to control network traffic, modify router settings, or use the router as a pivot point to attack other devices on the network. Given the wide usage of Totolink routers, a large number of devices could be vulnerable.
+Successful exploitation of CVE-2026-9404 allows an unauthenticated remote attacker to execute arbitrary commands on the affected Totolink A8000RU device. This can lead to complete system compromise, including modification of device configuration, installation of malware, and potential use of the device as part of a botnet. Given the wide usage of home routers, a successful widespread exploitation could affect thousands of devices, leading to significant disruption and security breaches.
 
 ## Recommendation
 
-*   Monitor web server logs for requests to `/cgi-bin/cstecgi.cgi` containing suspicious characters or command injection attempts in the `setUssd` parameter, using the Sigma rule provided below.
-*   Implement rate limiting on the `/cgi-bin/cstecgi.cgi` endpoint to mitigate brute-force exploitation attempts.
-*   Apply available patches provided by Totolink to address the CVE-2026-7548 vulnerability.
-*   Deploy the Sigma rule to your SIEM and tune for your environment.
+*   Apply any available patches or firmware updates provided by Totolink to address CVE-2026-9404.
+*   Monitor web server logs for suspicious POST requests to `/cgi-bin/cstecgi.cgi` with shell metacharacters in the `provider` argument, as covered by the Sigma rule "Detect CVE-2026-9404 Exploitation - Totolink Command Injection".
+*   Implement network intrusion detection system (IDS) rules to detect attempts to exploit CVE-2026-9404 based on the attack chain described above.
+*   Place routers behind firewalls and restrict access to management interfaces from the public internet to limit exposure.
