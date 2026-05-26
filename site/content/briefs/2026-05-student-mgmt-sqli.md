@@ -1,17 +1,17 @@
 ---
-title: SQL Injection Vulnerability in StudentManagementSystem (CVE-2026-9470)
+title: SQL Injection Vulnerability in StudentManagementSystem (CVE-2026-9474)
 slug: 2026-05-student-mgmt-sqli
-description: A SQL injection vulnerability (CVE-2026-9470) exists in the confirm_logged_in function of student_trans.php in StudentManagementSystem, allowing remote attackers to manipulate FIRST_NAME, Last_Name, or EMAIL arguments to potentially gain unauthorized access or manipulate data.
-date: "2026-05-26T14:23:15Z"
+description: A SQL injection vulnerability (CVE-2026-9474) exists in the StudentManagementSystem application, specifically affecting the confirm_logged_in function within the /studentdel.php file, allowing remote attackers to execute arbitrary SQL commands by manipulating the ID parameter.
+date: "2026-05-26T14:23:34Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - sql-injection
-  - cve-2026-9470
-  - web-application
+  - cve
+  - sql injection
+  - web application
 products:
   - StudentManagementSystem
 mitre_ttps:
@@ -20,14 +20,15 @@ mitre_ttps:
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-9470
+  - id: CVE-2026-9474
     cvss: 7.3
     epss: 0.0003
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9470
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9474
+  - CVE-2026-9474
 rules:
-  - title: Detect CVE-2026-9470 Exploitation — StudentManagementSystem SQL Injection
-    description: Detects CVE-2026-9470 exploitation — SQL injection attempts against student_trans.php by detecting common SQL injection payloads in the FIRST_NAME, Last_Name, or EMAIL parameters.
+  - title: Detects CVE-2026-9474 Exploitation — SQL Injection Attempt in StudentManagementSystem
+    description: Detects CVE-2026-9474 exploitation — SQL injection attempts targeting the /studentdel.php endpoint by identifying common SQL injection payloads in the ID parameter.
     platform: sigma
     severity: high
     tactics:
@@ -36,10 +37,10 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect Suspicious Characters in URI Query
-    description: Detects suspicious characters in the URI query, which could indicate a SQL injection or other web application attack.
+  - title: Detects CVE-2026-9474 Exploitation — Student Management System SQL Injection via POST Request
+    description: Detects CVE-2026-9474 exploitation — Identifies SQL injection attempts targeting the /studentdel.php endpoint using POST requests with suspicious characters.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - initial_access
     techniques:
@@ -49,24 +50,28 @@ rules:
 rules_count: 2
 ---
 
-A SQL injection vulnerability, identified as CVE-2026-9470, has been discovered in the StudentManagementSystem cb2f558ddf8d19396de0f92abf2d224d46a0a203. The vulnerability resides within the `confirm_logged_in` function of the `student_trans.php` file. Attackers can remotely exploit this flaw by manipulating the `FIRST_NAME`, `Last_Name`, or `EMAIL` arguments in a crafted request. The vulnerability has been publicly disclosed, making it more likely to be exploited. The vendor uses rolling releases, so specific affected versions are not available. The project has been notified but has not yet responded.
+A SQL injection vulnerability, identified as CVE-2026-9474, has been discovered in the StudentManagementSystem application, affecting versions up to commit cb2f558ddf8d19396de0f92abf2d224d46a0a203. The vulnerability is located in the `confirm_logged_in` function of the `/studentdel.php` file. An attacker can remotely exploit this vulnerability by manipulating the `ID` argument passed to the function, enabling them to inject and execute arbitrary SQL commands. While the vulnerability has been publicly disclosed, the vendor has not yet responded to the report. Given the continuous delivery model, specific affected or updated version details are unavailable, increasing the risk for deployments relying on this system.
 
 ## Attack Chain
 
-1.  Attacker identifies a vulnerable StudentManagementSystem instance exposed to the internet.
-2.  Attacker crafts a malicious HTTP request targeting the `student_trans.php` file.
-3.  The crafted request includes a SQL injection payload within the `FIRST_NAME`, `Last_Name`, or `EMAIL` parameters. For instance, `FIRST_NAME=admin'--`.
-4.  The `student_trans.php` script processes the request and passes the malicious input to the `confirm_logged_in` function without proper sanitization.
-5.  The unsanitized input is incorporated into a SQL query, leading to SQL injection.
-6.  The injected SQL code allows the attacker to bypass authentication, extract sensitive data, or modify database records.
-7.  The attacker gains unauthorized access to the application.
+1. An attacker identifies an instance of StudentManagementSystem running a vulnerable version (<= cb2f558ddf8d19396de0f92abf2d224d46a0a203).
+2. The attacker crafts a malicious HTTP request targeting the `/studentdel.php` endpoint.
+3. The crafted request includes a manipulated `ID` parameter containing SQL injection payloads (e.g., `1' OR '1'='1`).
+4. The `confirm_logged_in` function in `/studentdel.php` receives the tainted `ID` parameter without proper sanitization.
+5. The application executes a SQL query that incorporates the attacker-controlled `ID` value.
+6. The injected SQL code modifies the original query, allowing the attacker to bypass authentication or access unauthorized data.
+7. The application returns sensitive data or allows the attacker to perform administrative actions.
+8. The attacker gains unauthorized access to the database, potentially exfiltrating data or modifying application settings.
 
 ## Impact
 
-Successful exploitation of this SQL injection vulnerability (CVE-2026-9470) can lead to unauthorized access to sensitive student data within the StudentManagementSystem. Attackers could potentially modify student records, extract personal information, or even gain administrative privileges. Given the lack of version details, a wide range of deployments are potentially affected. The lack of response from the vendor increases the risk of widespread exploitation.
+Successful exploitation of this SQL injection vulnerability (CVE-2026-9474) can lead to unauthorized access to sensitive student data, modification of records, or complete database compromise. The lack of versioning information due to the rolling release nature of the application makes patching and mitigation challenging. The vulnerability allows attackers to bypass authentication and potentially escalate privileges. While the exact number of affected installations is unknown, any system running a vulnerable version is at risk of data breaches and service disruption.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect CVE-2026-9470 Exploitation — StudentManagementSystem SQL Injection` to your SIEM to identify potential exploitation attempts targeting the `student_trans.php` endpoint.
-*   Apply input validation and sanitization to the `confirm_logged_in` function within the `student_trans.php` file to prevent SQL injection attacks.
-*   Monitor web server logs for suspicious activity related to the `student_trans.php` file, particularly requests with unusual characters or SQL syntax in the `FIRST_NAME`, `Last_Name`, or `EMAIL` parameters.
+*   Deploy the provided Sigma rule to your SIEM to detect potential SQL injection attempts targeting `/studentdel.php` and the `ID` parameter.
+*   Implement input validation and sanitization for the `ID` parameter in the `confirm_logged_in` function within `/studentdel.php` to prevent SQL injection.
+*   Monitor web server logs for suspicious requests to `/studentdel.php` containing SQL injection payloads.
+*   Consider using a web application firewall (WAF) to filter out malicious requests targeting the vulnerable endpoint.
+*   Follow secure coding practices to prevent SQL injection vulnerabilities in future releases of StudentManagementSystem.
+*   Apply any available patches or updates released by the vendor as soon as they become available, even without version numbers.
