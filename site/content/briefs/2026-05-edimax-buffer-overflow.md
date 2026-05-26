@@ -1,81 +1,71 @@
 ---
-title: Edimax BR-6675nD Buffer Overflow Vulnerability (CVE-2026-9382)
+title: Edimax BR-6428NS Buffer Overflow Vulnerability (CVE-2026-9295)
 slug: 2026-05-edimax-buffer-overflow
-description: A buffer overflow vulnerability exists in Edimax BR-6675nD 1.12 within the formPPTPSetup function of the POST Request Handler component, allowing a remote attacker to execute arbitrary code by manipulating the pptpUserName argument in a POST request to /goform/formPPTPSetup.
-date: "2026-05-26T13:48:31Z"
+description: A buffer overflow vulnerability (CVE-2026-9295) exists in the formWirelessTbl function of the /goform/formWirelessTbl file in Edimax BR-6428NS 1.10, caused by manipulating the vapurl argument via a POST request, allowing remote attackers to execute arbitrary code.
+date: "2026-05-26T14:05:11Z"
 type: threat
 types:
   - threat
 severities:
-  - high
+  - critical
 exploited: true
 tags:
   - buffer-overflow
   - router
-  - cve
+  - web-application
 vendors:
   - Edimax
 products:
-  - BR-6675nD 1.12
+  - BR-6428NS 1.10
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+    technique_name: Exploit Public Fasing Application
 cves:
-  - id: CVE-2026-9382
+  - id: CVE-2026-9295
     cvss: 8.8
-    epss: 0.00041
+    epss: 0.00015
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9382
-  - https://lavender-bicycle-a5a.notion.site/EDIMAX-BR-6675nD-formPPTPSetup-34b53a41781f80e6ab7df78a28ffe568?source=copy_link
-  - https://vuldb.com/submit/811560
-  - https://vuldb.com/vuln/365345
-  - https://vuldb.com/vuln/365345/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9295
+  - https://lavender-bicycle-a5a.notion.site/EDIMAX-BR-6428NS-formWirelessTbl-34b53a41781f80a89cadcc9b5293086e?source=copy_link
+  - https://vuldb.com/submit/811534
+  - https://vuldb.com/vuln/365242
+  - https://vuldb.com/vuln/365242/cti
 rules:
-  - title: Edimax BR-6675nD Suspicious PPTP Username Length
-    description: Detects CVE-2026-9382 exploitation — HTTP POST requests to the /goform/formPPTPSetup endpoint with a suspiciously long pptpUserName, indicating a potential buffer overflow attempt.
+  - title: Detects CVE-2026-9295 Exploitation Attempt — Edimax BR-6428NS Buffer Overflow
+    description: Detects CVE-2026-9295 exploitation attempt — HTTP POST request to /goform/formWirelessTbl with an overly long vapurl parameter, indicating a potential buffer overflow attempt
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
     data_sources:
       - webserver
-  - title: Edimax BR-6675nD formPPTPSetup Access
-    description: Detects access to the Edimax BR-6675nD formPPTPSetup endpoint, which is vulnerable to CVE-2026-9382.
-    platform: sigma
-    severity: low
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-rules_count: 2
+rules_count: 1
 ---
 
-A buffer overflow vulnerability, CVE-2026-9382, has been identified in Edimax BR-6675nD version 1.12. The vulnerability resides in the `formPPTPSetup` function of the `/goform/formPPTPSetup` endpoint, specifically within the POST Request Handler. Successful exploitation allows a remote attacker to cause a buffer overflow by manipulating the `pptpUserName` argument in a POST request. Publicly available exploits exist, increasing the risk of active exploitation. The vendor has not responded to disclosure attempts, potentially leaving users vulnerable. This vulnerability allows an attacker to gain unauthorized access to the device.
+A buffer overflow vulnerability has been identified in Edimax BR-6428NS version 1.10. The vulnerability resides within the `formWirelessTbl` function of the `/goform/formWirelessTbl` file, specifically in the POST Request Handler component. Successful exploitation of this vulnerability, designated as CVE-2026-9295, allows remote attackers to execute arbitrary code due to insufficient bounds checking when handling the `vapurl` argument. A publicly available exploit exists, increasing the risk of active exploitation. The vendor was notified but did not respond.
 
 ## Attack Chain
 
-1.  The attacker identifies an Edimax BR-6675nD router running firmware version 1.12.
-2.  The attacker crafts a malicious HTTP POST request targeting the `/goform/formPPTPSetup` endpoint.
-3.  Within the POST request, the `pptpUserName` parameter is set to a string exceeding the buffer's expected size.
-4.  The router's web server receives the crafted POST request and passes the `pptpUserName` argument to the `formPPTPSetup` function.
-5.  The `formPPTPSetup` function copies the oversized `pptpUserName` string into a fixed-size buffer without proper bounds checking.
-6.  The buffer overflow corrupts adjacent memory regions, potentially overwriting critical data or code pointers.
-7.  The overwritten code pointer is executed, allowing the attacker to inject and execute arbitrary code on the device.
-8.  The attacker gains control of the device, potentially enabling further malicious activities such as configuration changes, network sniffing, or use as a botnet node.
+1.  Attacker identifies an Edimax BR-6428NS router running firmware version 1.10.
+2.  Attacker crafts a malicious POST request targeting the `/goform/formWirelessTbl` endpoint.
+3.  The POST request includes the `vapurl` argument with a value exceeding the expected buffer size.
+4.  The `formWirelessTbl` function processes the crafted POST request without proper bounds checking.
+5.  The oversized `vapurl` value overflows the buffer, overwriting adjacent memory regions.
+6.  The attacker carefully crafts the overflow to overwrite the return address on the stack.
+7.  Upon returning from the `formWirelessTbl` function, execution is redirected to the attacker-controlled address.
+8.  The attacker gains arbitrary code execution on the router, potentially leading to full system compromise.
 
 ## Impact
 
-Successful exploitation of CVE-2026-9382 leads to arbitrary code execution on the Edimax BR-6675nD device. This compromises the device's confidentiality, integrity, and availability. An attacker could potentially gain complete control of the router, intercept network traffic, modify DNS settings, or use the compromised device as part of a botnet. Given the widespread use of these routers in home and small office environments, a successful attack could impact a significant number of users.
+Successful exploitation of CVE-2026-9295 can lead to complete compromise of the Edimax BR-6428NS router. Attackers can leverage this vulnerability to execute arbitrary code, potentially installing malware, creating backdoors, or using the compromised router as part of a botnet. Given the widespread use of such routers in home and small business networks, this vulnerability poses a significant risk to network security and data confidentiality.
 
 ## Recommendation
 
-*   Monitor web server logs for POST requests to `/goform/formPPTPSetup` with unusually long `pptpUserName` parameters using the provided Sigma rule `Edimax BR-6675nD Suspicious PPTP Username Length`.
-*   Implement rate limiting on the `/goform/formPPTPSetup` endpoint to mitigate brute-force exploitation attempts.
-*   Since the vendor is unresponsive, consider alternative router solutions until a patch becomes available.
-*   Deploy the Sigma rule `Edimax BR-6675nD formPPTPSetup Access` to detect access to the vulnerable endpoint.
+*   Apply a network-level block to prevent access to the /goform/formWirelessTbl endpoint from untrusted sources (firewall).
+*   Monitor web server logs for POST requests to `/goform/formWirelessTbl` containing abnormally long `vapurl` parameters (webserver rule).
+*   Deploy the provided Sigma rule to detect potential exploitation attempts targeting the vulnerable endpoint.
+*   Consider replacing the Edimax BR-6428NS 1.10 router with a more secure alternative from a vendor that provides timely security updates if a patch is unavailable.
