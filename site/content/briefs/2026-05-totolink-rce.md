@@ -1,17 +1,17 @@
 ---
-title: Totolink A8000RU Remote Command Injection Vulnerability
+title: Totolink A8000RU OS Command Injection Vulnerability (CVE-2026-9384)
 slug: 2026-05-totolink-rce
-description: A remote command injection vulnerability exists in the Totolink A8000RU router, specifically in the setAppFilterCfg function, allowing attackers to execute arbitrary commands by manipulating the 'enable' argument.
-date: "2026-05-05T05:16:01Z"
+description: A remote attacker can inject OS commands by manipulating the 'ip' argument in the setDiagnosisCfg function within the /cgi-bin/cstecgi.cgi file of the Totolink A8000RU version 7.1cu.643_b20200521 Web Management Interface.
+date: "2026-05-26T13:56:08Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
 tags:
-  - command-injection
+  - command injection
   - rce
-  - totolink
+  - cve-2026-9384
 vendors:
   - Totolink
 products:
@@ -22,56 +22,60 @@ mitre_ttps:
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-7823
+  - id: CVE-2026-9384
     cvss: 9.8
+    epss: 0.00892
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7823
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9384
+  - https://github.com/Litengzheng/vuldb_new2/blob/main/A8000RU/vul_331/README.md
+  - https://vuldb.com/submit/813429
+  - https://vuldb.com/vuln/365347
+  - https://vuldb.com/vuln/365347/cti
+  - https://www.totolink.net/
 rules:
-  - title: Detect Totolink RCE Attempt via setAppFilterCfg
-    description: Detects potential remote command injection attempts targeting the setAppFilterCfg function in Totolink routers.
+  - title: Detect CVE-2026-9384 Exploitation — Totolink Command Injection
+    description: Detects CVE-2026-9384 exploitation — HTTP requests to /cgi-bin/cstecgi.cgi with shell metacharacters in the ip parameter indicating a command injection attempt.
     platform: sigma
     severity: critical
     tactics:
       - execution
     techniques:
-      - T1059.002
+      - T1059.004
     data_sources:
       - webserver
-      - linux
-  - title: Detect Common Command Injection Payloads in URI
-    description: Detects common command injection payloads within URI parameters, which may indicate exploitation attempts.
+  - title: Detect Totolink cstecgi.cgi Access
+    description: Detects access to the Totolink cstecgi.cgi file which is often targeted in exploits.
     platform: sigma
-    severity: high
+    severity: low
     tactics:
-      - execution
+      - initial_access
     techniques:
-      - T1059.002
+      - T1190
     data_sources:
       - webserver
-      - linux
 rules_count: 2
 ---
 
-A critical security flaw, CVE-2026-7823, has been identified in the Totolink A8000RU router, version 7.1cu.643_b20200521. The vulnerability resides within the `setAppFilterCfg` function located in the `/cgi-bin/cstecgi.cgi` file. An attacker can exploit this vulnerability by remotely manipulating the `enable` argument, leading to arbitrary OS command injection. This exploit is publicly available, increasing the risk of widespread exploitation. Successful exploitation grants the attacker the ability to execute commands with elevated privileges on the affected device, potentially leading to full system compromise. The vulnerable device is a widely used home router model.
+A command injection vulnerability, identified as CVE-2026-9384, affects Totolink A8000RU router version 7.1cu.643_b20200521. The vulnerability resides within the Web Management Interface, specifically in the `setDiagnosisCfg` function of the `/cgi-bin/cstecgi.cgi` file. By manipulating the `ip` argument, an unauthenticated attacker can execute arbitrary operating system commands on the affected device. Public exploits for this vulnerability are available, increasing the risk of exploitation. This vulnerability allows for complete system compromise and control, therefore defenders should apply mitigations immediately.
 
 ## Attack Chain
 
-1. The attacker identifies a vulnerable Totolink A8000RU router exposed to the internet.
-2. The attacker crafts a malicious HTTP request targeting the `/cgi-bin/cstecgi.cgi` endpoint.
-3. The request includes the `setAppFilterCfg` function call with a manipulated `enable` argument containing an OS command injection payload.
-4. The router processes the request without proper input validation.
-5. The injected OS command is executed by the router's operating system.
-6. The attacker gains remote code execution on the router.
-7. The attacker can then use the compromised router as a pivot point to attack other devices on the network or establish a persistent backdoor.
-8. The attacker can exfiltrate sensitive data or disrupt network services.
+1.  An unauthenticated attacker sends a crafted HTTP request to the `/cgi-bin/cstecgi.cgi` endpoint.
+2.  The HTTP request targets the `setDiagnosisCfg` function with a malicious `ip` argument.
+3.  The `ip` argument contains OS command injection payloads, such as shell metacharacters (`;`, `|`, `&&`).
+4.  The `setDiagnosisCfg` function fails to properly sanitize or validate the `ip` argument.
+5.  The unsanitized `ip` argument is passed to a system call, resulting in OS command execution.
+6.  The attacker can then execute commands to gain shell access, modify system configurations, or install malware.
+7.  The attacker pivots to other devices on the network or exfiltrates sensitive data.
+8.  The final objective is complete control over the router and potentially the entire network.
 
 ## Impact
 
-Successful exploitation of CVE-2026-7823 allows a remote attacker to execute arbitrary commands on the affected Totolink A8000RU router. This can lead to complete compromise of the device, including the ability to modify router settings, intercept network traffic, or use the router as a bot in a botnet. Given the widespread use of Totolink routers, a large number of devices are potentially vulnerable, making this a high-impact security issue.
+Successful exploitation of CVE-2026-9384 allows unauthenticated remote attackers to execute arbitrary commands on the affected Totolink A8000RU routers. This can lead to full device compromise, allowing attackers to modify router settings, intercept network traffic, or use the router as a pivot point for further attacks within the network. Given the availability of public exploits, a wide range of threat actors may target this vulnerability.
 
 ## Recommendation
 
-*   Monitor web server logs for requests to `/cgi-bin/cstecgi.cgi` containing suspicious characters or command injection attempts in the `enable` parameter (see Sigma rule: "Detect Totolink RCE Attempt via setAppFilterCfg").
-*   Apply any available firmware updates from Totolink to patch CVE-2026-7823 when they become available.
-*   Implement network segmentation to limit the impact of a compromised router on other devices on the network.
-*   Deploy the Sigma rule "Detect Common Command Injection Payloads in URI" to identify generic command injection attempts against web applications.
+*   Apply vendor-provided patches or firmware updates for Totolink A8000RU version 7.1cu.643_b20200521 to mitigate CVE-2026-9384.
+*   Deploy the Sigma rule "Detect CVE-2026-9384 Exploitation — Totolink Command Injection" to identify exploitation attempts in web server logs.
+*   Monitor web server logs for suspicious requests to `/cgi-bin/cstecgi.cgi` containing shell metacharacters in the `ip` argument, per the attack chain detailed above.
+*   Implement network segmentation to limit the impact of compromised devices on the internal network.
