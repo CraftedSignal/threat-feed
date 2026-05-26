@@ -1,18 +1,19 @@
 ---
-title: GNUTLS Certificate Validation Bypass Vulnerability (CVE-2026-42011)
+title: 'CVE-2026-42013: gnutls Certificate Validation Bypass via Oversized SAN'
 slug: 2026-05-gnutls-cert-bypass
-description: A flaw in gnutls allows a remote attacker to bypass critical name constraint checks during certificate validation by exploiting incorrect handling of permitted name constraints when previous CAs only had excluded name constraints, leading to potential spoofing or man-in-the-middle attacks.
-date: "2026-05-07T15:16:09Z"
-type: advisory
+description: A vulnerability in gnutls (CVE-2026-42013) allows a remote attacker to bypass certificate validation by providing an oversized Subject Alternative Name (SAN), causing the validation process to fall back to the Common Name (CN) field, potentially leading to spoofing or man-in-the-middle attacks.
+date: "2026-05-26T22:18:53Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 tags:
-  - certificate-validation
-  - man-in-the-middle
+  - certificate validation
   - spoofing
+  - man-in-the-middle
   - gnutls
+  - CVE-2026-42013
 vendors:
   - Red Hat
 products:
@@ -20,75 +21,62 @@ products:
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1552.004
-    technique_name: Credentials in Files
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
     technique_id: T1588
     technique_name: Obtain Capabilities
 cves:
-  - id: CVE-2026-42011
-    cvss: 7.4
+  - id: CVE-2026-42013
+    cvss: 8.2
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-42011
-  - https://access.redhat.com/security/cve/CVE-2026-42011
-  - https://bugzilla.redhat.com/show_bug.cgi?id=2467437
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-42013
+  - https://access.redhat.com/security/cve/CVE-2026-42013
+  - https://bugzilla.redhat.com/show_bug.cgi?id=2467448
 rules:
-  - title: Detect Failed TLS Handshake
-    description: Detects failed TLS handshakes, which might indicate a certificate validation issue related to CVE-2026-42011 exploitation attempts.
+  - title: Detect GnuTLS Certificate Validation Bypass - Large SAN
+    description: Detects CVE-2026-42013 exploitation — monitors network traffic for TLS connections using certificates with unusually large Subject Alternative Name (SAN) fields, which could indicate an attempt to bypass certificate validation.
     platform: sigma
     severity: medium
     tactics:
       - credential_access
-      - defense_evasion
+      - cve-2026-42013
     techniques:
-      - T1552.004
       - T1588.004
     data_sources:
       - network_connection
       - windows
-  - title: Detect gnutls process with unusual network activity
-    description: Detects gnutls processes initiating outbound connections to uncommon ports.
+  - title: Detect GnuTLS Certificate Validation Bypass - Fallback to CN
+    description: Detects CVE-2026-42013 exploitation — This rule detects potential exploitation of CVE-2026-42013 by monitoring for certificate validation events where a fallback to the Common Name (CN) field occurs after encountering an issue with the Subject Alternative Name (SAN).
     platform: sigma
     severity: low
     tactics:
-      - command_and_control
+      - credential_access
+      - cve-2026-42013
     techniques:
-      - T1071.001
+      - T1588.004
     data_sources:
-      - network_connection
+      - process_creation
       - linux
-  - title: Detect process attempting to load gnutls library from unusual location
-    description: Detects processes attempting to load the gnutls library from non-standard paths, which could indicate malicious activity
-    platform: sigma
-    severity: medium
-    tactics:
-      - defense_evasion
-    data_sources:
-      - image_load
-      - linux
-rules_count: 3
+rules_count: 2
 ---
 
-A vulnerability, identified as CVE-2026-42011, has been discovered in gnutls. This flaw stems from the improper handling of permitted name constraints when previous Certificate Authorities (CAs) have only excluded name constraints. An attacker can exploit this to bypass critical name constraint checks during certificate validation. Successful exploitation can lead to the acceptance of invalid certificates. This vulnerability was published on 2026-05-07 and could be leveraged to conduct spoofing or man-in-the-middle attacks. This poses a significant risk to systems relying on gnutls for secure communication.
+CVE-2026-42013 describes a certificate validation bypass vulnerability within the gnutls library. The vulnerability occurs when gnutls encounters an oversized Subject Alternative Name (SAN) during certificate validation. Instead of properly rejecting the certificate, the validation process incorrectly falls back to checking the Common Name (CN) field. This fallback behavior allows a remote attacker to potentially bypass certificate validation. An attacker could exploit this flaw to perform spoofing or man-in-the-middle attacks by presenting a certificate with a valid CN but a manipulated SAN. This vulnerability was published on 2026-05-26.
 
 ## Attack Chain
 
-1.  Attacker identifies a vulnerable gnutls instance.
-2.  Attacker crafts a malicious certificate with name constraints designed to exploit the vulnerability.
-3.  The malicious certificate is signed by a compromised or attacker-controlled Certificate Authority.
-4.  The attacker initiates a connection to a service protected by the vulnerable gnutls instance.
-5.  The gnutls instance attempts to validate the certificate chain, including the malicious certificate.
-6.  Due to the flaw, the permitted name constraints are incorrectly ignored, bypassing critical checks.
-7.  The gnutls instance accepts the invalid certificate.
-8.  The attacker successfully spoofs the legitimate service or intercepts communications via a man-in-the-middle attack.
+1.  Attacker crafts a malicious certificate with an oversized Subject Alternative Name (SAN) field.
+2.  The attacker sets the Common Name (CN) field in the certificate to a value they wish to impersonate (e.g., a legitimate domain).
+3.  The attacker initiates a TLS connection to a target server or client using the crafted certificate.
+4.  The gnutls library on the target attempts to validate the presented certificate.
+5.  Due to the oversized SAN, the gnutls library fails to properly process the SAN field.
+6.  The gnutls library incorrectly falls back to validating the CN field.
+7.  The CN field matches the expected value, and the gnutls library incorrectly considers the certificate valid.
+8.  The attacker successfully bypasses certificate validation, enabling potential spoofing or man-in-the-middle attacks.
 
 ## Impact
 
-Successful exploitation of CVE-2026-42011 allows attackers to bypass certificate validation, potentially leading to man-in-the-middle attacks and spoofing. This can compromise sensitive communications and data transmitted over affected systems. The vulnerability affects systems using gnutls for secure communication. The CVSS v3.1 base score is 7.4, indicating a high severity.
+Successful exploitation of CVE-2026-42013 allows a remote attacker to bypass certificate validation, potentially leading to spoofing or man-in-the-middle attacks. This could allow the attacker to intercept sensitive data, inject malicious content, or compromise the confidentiality and integrity of communications. The CVSS v3.1 base score is 8.2, indicating a high severity.
 
 ## Recommendation
 
-*   Apply available patches or updates for gnutls provided by Red Hat to address CVE-2026-42011.
-*   Monitor systems for unexpected certificate validation failures or anomalies in TLS/SSL handshakes, which may indicate exploitation attempts (see rule "Detect Failed TLS Handshake").
-*   Implement network intrusion detection systems to identify and block suspicious network traffic associated with potential man-in-the-middle attacks.
+*   Apply the necessary patches or updates provided by Red Hat to address CVE-2026-42013 on systems using the affected gnutls library.
+*   Monitor network traffic for TLS connections using certificates with unusually large SAN fields, as these could indicate exploitation attempts. Consider implementing a network connection rule targeting connections utilizing certificates with large SAN sizes.
+*   Deploy the Sigma rule `Detect GnuTLS Certificate Validation Bypass - Large SAN` to identify potential exploitation attempts based on process execution patterns and network connections.
