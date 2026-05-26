@@ -1,75 +1,76 @@
 ---
-title: FUXA Pre-auth RCE via Path Manipulation and Configuration Injection
+title: FUXA Unauthenticated Remote Code Execution via Script Test Mode Authorization Bypass (CVE-2026-43947)
 slug: 2026-05-fuxa-rce
-description: A critical vulnerability in FUXA (versions 1.2.11 to 1.3.0) allows an unauthenticated remote attacker to achieve remote code execution as root by bypassing authentication checks on protected Node-RED endpoints using path manipulation.
-date: "2026-05-26T23:44:32Z"
+description: FUXA version 1.3.0 is vulnerable to unauthenticated remote code execution (CVE-2026-43947) because the /api/runscript endpoint, when in test mode, executes attacker-supplied code without proper authorization, allowing execution of arbitrary commands if a server-side script exists with permissive permissions.
+date: "2026-05-26T23:48:51Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - path-traversal
   - rce
-  - authentication-bypass
+  - unauthenticated
+  - cve-2026-43947
 vendors:
-  - frangoteam
+  - npm
 products:
-  - fuxa
+  - fuxa-server (1.3.0)
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1202
+    technique_name: CommandLine Interface
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
 references:
-  - https://github.com/advisories/GHSA-p69w-mmfv-xrfj
-  - CVE-2026-43945
+  - https://github.com/advisories/GHSA-rg3m-cfq7-g6h6
+  - CVE-2026-43947
 rules:
-  - title: Detect CVE-2026-43945 Exploitation Attempt
-    description: Detects CVE-2026-43945 exploitation attempt — HTTP request to /nodered/* with socket.io in the query string
+  - title: Detect FUXA Unauthenticated RCE Attempt via Script Test Mode (CVE-2026-43947)
+    description: Detects CVE-2026-43947 exploitation — Attempts to execute arbitrary code on a FUXA server via the /api/runscript endpoint with test mode enabled without authentication.
     platform: sigma
     severity: high
     tactics:
       - execution
-      - initial_access
+      - privilege_escalation
     techniques:
-      - T1190
+      - T1202
     data_sources:
       - webserver
-  - title: Detect CVE-2026-43945 Exploitation Attempt - POST Request
-    description: Detects CVE-2026-43945 exploitation attempt via POST request to /nodered/* endpoint with socket.io in the query
+  - title: Detect FUXA Project Info Disclosure Attempt
+    description: Detects attempts to retrieve FUXA project information without authentication, which could precede CVE-2026-43947 exploitation.
     platform: sigma
-    severity: high
+    severity: low
     tactics:
-      - execution
-      - initial_access
-    techniques:
-      - T1190
+      - discovery
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-FUXA, a SCADA platform, is vulnerable to a pre-authentication remote code execution (RCE) flaw. This vulnerability, impacting versions 1.2.11 through 1.3.0, allows an unauthenticated attacker to bypass authentication on protected `/nodered/*` endpoints. The root cause is a path confusion issue in the authentication middleware that relies on `req.originalUrl` for routing decisions. By appending `?x=/socket.io` to administrative requests, the middleware is tricked into treating the request as a public WebSocket handshake, bypassing secureEnabled and nodeRedAuthMode checks entirely. Successful exploitation grants access to Node-RED administrative endpoints, potentially leading to RCE depending on the Node-RED configuration and installed nodes. This vulnerability is tracked as CVE-2026-43945.
+FUXA version 1.3.0 contains an unauthenticated remote code execution vulnerability (CVE-2026-43947) that can be exploited if the `secureEnabled` setting is set to `true`. The vulnerability lies in the `/api/runscript` endpoint, where, under test mode (`test: true`), the application bypasses the intended authorization checks for stored scripts and directly executes attacker-supplied code. This allows unauthenticated attackers knowing a valid script ID and name to execute arbitrary code, provided that at least one server-side script exists within the project and is accessible without restrictive permissions. This flaw allows a threat actor to gain remote code execution capabilities on the FUXA server, potentially leading to further compromise.
 
 ## Attack Chain
 
-1.  Attacker sends a crafted HTTP request to the FUXA server.
-2.  The request targets a protected `/nodered/*` endpoint.
-3.  The request includes a query parameter designed to exploit the path confusion vulnerability, such as `?x=/socket.io`.
-4.  The FUXA server's authentication middleware incorrectly identifies the request as a public WebSocket handshake due to the flawed `url.includes('/socket.io')` check.
-5.  The security checks for `secureEnabled` and `nodeRedAuthMode` are bypassed.
-6.  The attacker gains unauthorized access to the Node-RED administrative interface.
-7.  The attacker leverages Node-RED's capabilities to execute arbitrary code on the server, depending on the configuration and installed nodes.
-8.  The attacker achieves remote code execution as root within the container context.
+1. The attacker sends a `GET` request to `/api/project` to retrieve script IDs and names. This endpoint does not require authentication.
+2. The server responds with a JSON payload containing a list of scripts, including their IDs, names, and permissions.
+3. The attacker identifies a script ID and name with permissive permissions or no permissions set. This is required for the authorization bypass to succeed.
+4. The attacker crafts a `POST` request to `/api/runscript`, setting the `test` parameter to `true` and including malicious code in the `code` parameter. The script ID and name from the previous step are also included in the request.
+5. The server's `verifyToken` middleware automatically generates a valid guest JWT if no token is provided in the request, effectively authenticating the attacker as a guest user.
+6. The `isAuthorised` function retrieves the stored script by ID and validates the stored script's permissions. If the script has no permission field set (or `permission: 0`), the check passes for any user, including guests.
+7. The `runTestScript` function takes the attacker's `code` from the request body and compiles it into a Node.js module using `Module._compile`.
+8. The compiled code is then executed with full access to `require`, `child_process`, `fs`, and the entire Node.js runtime, resulting in remote code execution.
 
 ## Impact
 
-Successful exploitation of CVE-2026-43945 allows an unauthenticated attacker to gain full control over the SCADA server. This can lead to interception of industrial data (MQTT/OPC-UA), manipulation of PLC tags, and the ability to pivot into the internal OT network. The vulnerability can result in complete system compromise and significant disruption to industrial processes.
+Successful exploitation allows any network-reachable attacker to achieve Remote Code Execution on the FUXA server without authentication. The attacker can execute arbitrary commands on the host, potentially accessing configured device connections, credentials, and compromising industrial control functionality managed by the FUXA instance. This vulnerability requires the presence of an existing server-side script with permissive permissions configured, but it can have severe implications for the security and integrity of affected systems.
 
 ## Recommendation
 
-*   Apply the vendor-supplied patch to upgrade FUXA to a version >= 1.3.1 to remediate CVE-2026-43945.
-*   Deploy the Sigma rule "Detect CVE-2026-43945 Exploitation Attempt" to your SIEM to detect exploitation attempts.
-*   Monitor web server logs for requests containing the `/socket.io` string in the query parameters targeting `/nodered/*` endpoints.
-*   Review Node-RED configurations to minimize the risk of RCE via privileged or command-execution capable nodes, if Node-RED is enabled.
+*   Deploy the Sigma rule titled "Detect FUXA Unauthenticated RCE Attempt via Script Test Mode (CVE-2026-43947)" to your SIEM to identify exploitation attempts targeting the `/api/runscript` endpoint.
+*   Apply access controls to the `/api/runscript` endpoint and require authentication for all script execution requests.
+*   Monitor web server logs for unusual POST requests to `/api/runscript` containing the parameter `test: true`.
+*   Inspect running FUXA instances to determine if the fuxa-server package version is 1.3.0.
