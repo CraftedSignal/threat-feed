@@ -1,83 +1,66 @@
 ---
-title: Acrel ECEMS SQL Injection Vulnerability
+title: Acrel Electrical EEMS Enterprise Power Operation and Maintenance Cloud Platform SQL Injection Vulnerability (CVE-2026-9523)
 slug: 2026-05-acrel-sql-injection
-description: A SQL injection vulnerability in Acrel Electrical ECEMS Enterprise Microgrid Energy Efficiency Management System 1.3.0 allows remote attackers to execute arbitrary SQL commands by manipulating the 'fCircuitids' argument in the '/SubstationWEBV2/main/elecMaxMinAvgValue' file.
-date: "2026-05-03T12:15:59Z"
-type: advisory
+description: A SQL injection vulnerability (CVE-2026-9523) exists in Acrel Electrical EEMS Enterprise Power Operation and Maintenance Cloud Platform 3000WEBV2, where manipulating the 'sort' argument in the '/SubstationWEBV2/app/..;/calc/getCalcmeterDetailDayListTree' file leads to remote code execution, and is publicly known and actively exploited.
+date: "2026-05-26T14:27:03Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 tags:
   - sql-injection
-  - cve-2026-7694
-  - webserver
+  - cve-2026-9523
+  - web-application
 vendors:
   - Acrel Electrical
 products:
-  - ECEMS Enterprise Microgrid Energy Efficiency Management System 1.3.0
+  - EEMS Enterprise Power Operation and Maintenance Cloud Platform 3000WEBV2
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+    technique_id: T1595
+    technique_name: Active Scanning
 cves:
-  - id: CVE-2026-7694
+  - id: CVE-2026-9523
     cvss: 7.3
+    epss: 0.00028
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-7694
-  - https://ucn9h68n9289.feishu.cn/wiki/WZMewApmsiT3PMkCJfzcASEznOb
-  - https://vuldb.com/submit/803271
-  - https://vuldb.com/vuln/360863
-  - https://vuldb.com/vuln/360863/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9523
 rules:
-  - title: Detect Acrel ECEMS SQL Injection Attempt
-    description: Detects potential SQL injection attempts targeting the Acrel ECEMS application by monitoring HTTP requests to the vulnerable endpoint and looking for common SQL injection payloads in the 'fCircuitids' parameter.
+  - title: Detect CVE-2026-9523 Exploitation Attempt via Malicious sort Parameter
+    description: Detects CVE-2026-9523 exploitation attempt via a malicious sort parameter containing SQL injection payloads
     platform: sigma
     severity: high
     tactics:
       - initial_access
-      - persistence
-    techniques:
-      - T1190
-      - T1505.003
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect SQL Injection Error Messages
-    description: Detects common SQL injection error messages in web server logs, which can indicate successful or attempted SQL injection attacks.
-    platform: sigma
-    severity: medium
-    tactics:
-      - initial_access
     techniques:
       - T1190
     data_sources:
       - webserver
-      - linux
-rules_count: 2
+rules_count: 1
 ---
 
-Acrel Electrical's ECEMS Enterprise Microgrid Energy Efficiency Management System version 1.3.0 is vulnerable to SQL injection. The vulnerability resides in the `/SubstationWEBV2/main/elecMaxMinAvgValue` file, where manipulation of the `fCircuitids` argument allows for the injection of arbitrary SQL commands. The vulnerability, identified as CVE-2026-7694, can be exploited remotely without authentication, posing a significant risk to systems exposed to the network. The vendor was notified but did not respond, and a public exploit is available, increasing the likelihood of exploitation. This flaw allows attackers to potentially access, modify, or delete sensitive data within the ECEMS database.
+Acrel Electrical's EEMS Enterprise Power Operation and Maintenance Cloud Platform 3000WEBV2 is vulnerable to SQL injection. The vulnerability, identified as CVE-2026-9523, allows an attacker to execute arbitrary SQL commands by manipulating the `sort` argument in a specific file path. This flaw was found in the `/SubstationWEBV2/app/..;/calc/getCalcmeterDetailDayListTree` endpoint. The vulnerability is remotely exploitable and has a CVSS v3.1 base score of 7.3. This issue is considered high risk because successful exploitation can lead to unauthorized data access, modification, or even complete system compromise. Despite attempts to contact the vendor, no response has been received, leaving users vulnerable to potential attacks. Public availability of the exploit code increases the risk of widespread exploitation.
 
 ## Attack Chain
 
-1.  Attacker identifies an accessible instance of Acrel ECEMS 1.3.0.
-2.  Attacker crafts a malicious SQL payload designed to extract sensitive information or modify the database.
-3.  The attacker sends a crafted HTTP request to `/SubstationWEBV2/main/elecMaxMinAvgValue` with the SQL payload embedded in the `fCircuitids` parameter.
-4.  The ECEMS application fails to properly sanitize the `fCircuitids` input.
-5.  The application executes the attacker-supplied SQL query against the database.
-6.  The database server processes the malicious query, potentially returning sensitive data or executing harmful commands.
-7.  The attacker receives the output of the injected SQL query.
-8.  The attacker uses the extracted information for further malicious activities, such as data exfiltration, privilege escalation, or denial of service.
+1. The attacker identifies a vulnerable instance of Acrel Electrical EEMS Enterprise Power Operation and Maintenance Cloud Platform 3000WEBV2.
+2. The attacker crafts a malicious HTTP GET or POST request targeting the `/SubstationWEBV2/app/..;/calc/getCalcmeterDetailDayListTree` endpoint.
+3. The crafted request includes a manipulated `sort` parameter containing a SQL injection payload.
+4. The application fails to properly sanitize the `sort` parameter, passing the malicious SQL code to the database.
+5. The database executes the attacker-supplied SQL code.
+6. The attacker retrieves sensitive information from the database, such as user credentials or system configurations.
+7. The attacker may escalate privileges by injecting SQL code to create new administrative accounts.
+8. The attacker gains full control of the application and underlying system, potentially leading to data exfiltration or service disruption.
 
 ## Impact
 
-Successful exploitation of this SQL injection vulnerability could allow an attacker to read sensitive information from the ECEMS database, modify existing data, or even gain administrative access to the system. This could lead to the compromise of energy efficiency management data, potentially impacting grid stability and financial records. Given the lack of vendor response and the availability of a public exploit, organizations using the affected software are at high risk. The impact includes potential data breaches, system outages, and reputational damage.
+Successful exploitation of this vulnerability can lead to a full compromise of the affected Acrel Electrical EEMS Enterprise Power Operation and Maintenance Cloud Platform 3000WEBV2. This can result in unauthorized access to sensitive data, including customer information, operational data, and system configurations. Attackers can modify or delete data, disrupt services, or use the compromised system as a launchpad for further attacks. The lack of vendor response exacerbates the risk, as users are left without official patches or mitigation guidance. The public availability of exploit code increases the likelihood of widespread attacks.
 
 ## Recommendation
 
-*   Inspect web server logs for suspicious requests to `/SubstationWEBV2/main/elecMaxMinAvgValue` containing potentially malicious SQL syntax within the `fCircuitids` parameter (see Sigma rule "Detect Acrel ECEMS SQL Injection Attempt").
-*   Deploy the Sigma rule "Detect SQL Injection Error Messages" to identify potential SQL injection attempts across all web applications.
-*   Apply input validation and sanitization to all user-supplied input, especially the `fCircuitids` parameter in `/SubstationWEBV2/main/elecMaxMinAvgValue`, to prevent SQL injection.
-*   Consider deploying a web application firewall (WAF) to filter out malicious requests targeting this vulnerability.
+*   Inspect web server logs for requests targeting `/SubstationWEBV2/app/..;/calc/getCalcmeterDetailDayListTree` with suspicious characters or SQL keywords in the `sort` parameter to detect potential exploitation attempts.
+*   Deploy the Sigma rule "Detect CVE-2026-9523 Exploitation Attempt via Malicious sort Parameter" to identify suspicious HTTP requests.
+*   Implement input validation and sanitization on the `sort` parameter to prevent SQL injection attacks.
