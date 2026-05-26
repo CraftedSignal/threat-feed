@@ -1,18 +1,18 @@
 ---
-title: Edimax BR-6478AC Buffer Overflow Vulnerability (CVE-2026-9442)
+title: Edimax BR-6478AC Buffer Overflow Vulnerability (CVE-2026-9443)
 slug: 2026-05-edimax-buffer-overflow
-description: A buffer overflow vulnerability (CVE-2026-9442) exists in Edimax BR-6478AC version 1.23 in the formiNICSiteSurvey function of the /goform/formiNICSiteSurvey POST Request Handler, allowing a remote attacker to manipulate the selSSID argument to trigger a buffer overflow.
-date: "2026-05-26T14:10:46Z"
-type: threat
+description: A buffer overflow vulnerability (CVE-2026-9443) exists in Edimax BR-6478AC version 1.23 in the formL2TPSetup function within the /goform/formL2TPSetup file, allowing a remote attacker to trigger a buffer overflow by manipulating the L2TPUserName argument, with public exploits available.
+date: "2026-05-26T14:11:07Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
 tags:
   - cve
   - buffer overflow
   - edimax
-  - router
+  - network device
 vendors:
   - Edimax
 products:
@@ -21,33 +21,33 @@ products:
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
+    technique_id: T1189
+    technique_name: Drive-by Compromise
 cves:
-  - id: CVE-2026-9442
+  - id: CVE-2026-9443
     cvss: 8.8
     epss: 0.00041
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9442
-  - https://lavender-bicycle-a5a.notion.site/EDIMAX-BR6478ACV2-formiNICSiteSurvey-34b53a41781f8083b8dff46a2f02978f?source=copy_link
-  - https://vuldb.com/submit/818451
-  - https://vuldb.com/vuln/365423
-  - https://vuldb.com/vuln/365423/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9443
+  - https://lavender-bicycle-a5a.notion.site/EDIMAX-BR6478ACV2-formL2TPSetup-34b53a41781f809e9c30c1260cc5d92e?source=copy_link
+  - https://vuldb.com/submit/818452
+  - https://vuldb.com/vuln/365424
+  - https://vuldb.com/vuln/365424/cti
 rules:
-  - title: Detect CVE-2026-9442 Exploitation Attempt — Long selSSID Parameter
-    description: Detects CVE-2026-9442 exploitation attempt — monitors web server logs for POST requests to /goform/formiNICSiteSurvey with an abnormally long selSSID parameter, indicating a potential buffer overflow exploit.
+  - title: Detect CVE-2026-9443 Exploitation Attempt — Malicious L2TPUserName Parameter
+    description: Detects CVE-2026-9443 exploitation attempt —  identifies HTTP POST requests to /goform/formL2TPSetup with an unusually long L2TPUserName parameter, suggesting a buffer overflow attack
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9442 Exploitation Attempt — POST to formiNICSiteSurvey
-    description: Detects CVE-2026-9442 exploitation attempt — monitors web server logs for POST requests to /goform/formiNICSiteSurvey which is the vulnerable endpoint.
+  - title: Detect CVE-2026-9443 Exploitation Attempt — Suspicious POST Request to formL2TPSetup
+    description: Detects CVE-2026-9443 exploitation attempt — identifies HTTP POST requests to /goform/formL2TPSetup with L2TPUserName exceeding normal bounds.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - initial_access
     techniques:
@@ -57,27 +57,25 @@ rules:
 rules_count: 2
 ---
 
-A buffer overflow vulnerability, identified as CVE-2026-9442, affects Edimax BR-6478AC version 1.23. The vulnerability resides within the `formiNICSiteSurvey` function in the `/goform/formiNICSiteSurvey` component, specifically a POST Request Handler. By manipulating the `selSSID` argument, a remote attacker can trigger a buffer overflow. The exploit is publicly available, increasing the risk of exploitation. The vendor, Edimax, was notified about the vulnerability but did not respond. This poses a significant risk to users of the affected device, potentially leading to arbitrary code execution or denial of service.
+A buffer overflow vulnerability, identified as CVE-2026-9443, has been discovered in the Edimax BR-6478AC router, specifically version 1.23. This vulnerability resides within the `formL2TPSetup` function of the `/goform/formL2TPSetup` file, which is part of the POST Request Handler component. Successful exploitation allows a remote attacker to execute arbitrary code on the affected device by overflowing a buffer. The vulnerability is triggered by manipulating the `L2TPUserName` argument in a crafted POST request. A public exploit for this vulnerability is available, increasing the risk of exploitation. The vendor was notified but did not respond.
 
 ## Attack Chain
 
-1. The attacker identifies an Edimax BR-6478AC router running firmware version 1.23.
-2. The attacker crafts a malicious HTTP POST request targeting the `/goform/formiNICSiteSurvey` endpoint.
-3. The POST request includes the `selSSID` parameter with a value exceeding the expected buffer size.
-4. The router's web server processes the POST request and passes the `selSSID` value to the `formiNICSiteSurvey` function.
-5. Due to the insufficient buffer size and lack of input validation, the `selSSID` value overflows the buffer.
-6. The buffer overflow overwrites adjacent memory regions, potentially including critical program data or execution pointers.
-7. If the attacker carefully crafts the overflowed data, they can redirect execution to an attacker-controlled memory location.
-8. The attacker gains the ability to execute arbitrary code on the router, potentially compromising the device and network.
+1. The attacker identifies an Edimax BR-6478AC router version 1.23 exposed to the internet.
+2. The attacker crafts a malicious HTTP POST request targeting the `/goform/formL2TPSetup` endpoint.
+3. The POST request includes the `L2TPUserName` argument with a string exceeding the buffer's allocated size.
+4. The `formL2TPSetup` function processes the request without proper bounds checking.
+5. The excessive data written to the `L2TPUserName` buffer overflows into adjacent memory regions, potentially overwriting critical data or code.
+6. The overwritten memory may include function return addresses or other control data.
+7. When the `formL2TPSetup` function returns, the overwritten return address redirects execution to attacker-controlled code.
+8. The attacker gains arbitrary code execution on the router, potentially allowing for device takeover or denial of service.
 
 ## Impact
 
-Successful exploitation of this vulnerability could allow an attacker to execute arbitrary code on the Edimax BR-6478AC router. This could lead to complete device compromise, allowing the attacker to modify router settings, intercept network traffic, or use the router as a pivot point for further attacks within the network. Given the public availability of the exploit, affected devices are at high risk of being targeted.
+Successful exploitation of this buffer overflow vulnerability (CVE-2026-9443) in Edimax BR-6478AC 1.23 routers can lead to complete compromise of the device. This could allow attackers to perform a variety of malicious actions, including eavesdropping on network traffic, modifying router configurations, using the router as part of a botnet, or causing a denial-of-service condition. Given the availability of public exploits, unpatched routers are at high risk. The number of potentially affected devices is unknown but could be significant given the popularity of Edimax routers.
 
 ## Recommendation
 
-*   Apply available patches from Edimax if they become available.
-*   Monitor web server logs for suspicious POST requests to `/goform/formiNICSiteSurvey` with abnormally long `selSSID` values using the provided Sigma rule "Detect CVE-2026-9442 Exploitation Attempt — Long selSSID Parameter".
-*   Implement rate limiting on POST requests to the `/goform/formiNICSiteSurvey` endpoint to mitigate potential denial-of-service attacks.
-*   Consider disabling remote administration access to the router to reduce the attack surface.
-*   Deploy the Sigma rule "Detect CVE-2026-9442 Exploitation Attempt — POST to formiNICSiteSurvey" to your SIEM to identify potential exploit attempts.
+*   Deploy the Sigma rule `Detect CVE-2026-9443 Exploitation Attempt — Malicious L2TPUserName Parameter` to your SIEM to identify potential exploitation attempts based on the length of the L2TPUserName parameter.
+*   Deploy the Sigma rule `Detect CVE-2026-9443 Exploitation Attempt — Suspicious POST Request to formL2TPSetup` to detect POST requests with overly long L2TPUserName values sent to the vulnerable endpoint.
+*   Monitor web server logs for HTTP POST requests to `/goform/formL2TPSetup` with unusually long `L2TPUserName` parameters, as this is indicative of a potential buffer overflow attempt.
