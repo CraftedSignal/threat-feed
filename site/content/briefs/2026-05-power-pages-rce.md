@@ -1,17 +1,18 @@
 ---
-title: Microsoft Power Pages Vulnerability Enables Remote Code Execution
+title: CVE-2026-23652 - Microsoft Power Pages Command Injection
 slug: 2026-05-power-pages-rce
-description: A remote, anonymous attacker can exploit a vulnerability in Microsoft Power Pages to execute arbitrary program code.
-date: "2026-05-22T08:25:09Z"
+description: CVE-2026-23652 is a critical command injection vulnerability in Microsoft Power Pages, allowing an unauthorized attacker to execute arbitrary code over the network by injecting commands.
+date: "2026-05-26T13:52:54Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
 tags:
-  - remote-code-execution
-  - vulnerability
-  - cloud
+  - cve
+  - command injection
+  - remote code execution
+  - microsoft
 vendors:
   - Microsoft
 products:
@@ -21,53 +22,57 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2026-23652
+    cvss: 10
+    epss: 0.00075
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1634
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-23652
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-23652
 rules:
-  - title: Detect Suspicious Power Pages Requests
-    description: Detects suspicious HTTP requests to Microsoft Power Pages that may indicate exploitation attempts.
+  - title: Detect CVE-2026-23652 Exploitation Attempt via Command Injection
+    description: Detects CVE-2026-23652 exploitation attempt — suspicious HTTP request containing shell metacharacters in the query string
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
-      - execution
       - initial_access
     techniques:
-      - T1059
-      - T1566
+      - T1190
     data_sources:
       - webserver
-  - title: Detect Power Pages Request with Base64 Encoded Data
-    description: Detects requests to Microsoft Power Pages with base64 encoded data in the query string, which might be used to obfuscate malicious commands.
+  - title: Detect CVE-2026-23652 Exploitation Attempt via POST Request
+    description: Detects CVE-2026-23652 exploitation attempt — suspicious HTTP POST request containing shell metacharacters
     platform: sigma
-    severity: medium
+    severity: critical
     tactics:
-      - defense_evasion
+      - initial_access
     techniques:
-      - T1027
+      - T1190
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-A vulnerability exists within Microsoft Power Pages that allows for remote code execution. The vulnerability can be exploited by an unauthenticated, remote attacker. This allows the attacker to execute arbitrary code within the context of the Power Pages application. Successful exploitation of this vulnerability could lead to a complete compromise of the application, including data theft, modification, or denial of service. The specific details of the vulnerability are not described in the source document, but defenders should be aware of potential risks associated with unpatched Power Pages instances.
+CVE-2026-23652 describes a command injection vulnerability affecting Microsoft Power Pages. This flaw allows an unauthenticated, remote attacker to execute arbitrary code on the system by injecting malicious commands into the application. The vulnerability stems from improper neutralization of special elements used within a command. Successful exploitation results in full compromise of the Power Pages instance. Defenders should apply available patches immediately.
 
 ## Attack Chain
 
-1. An unauthenticated, remote attacker identifies a vulnerable Microsoft Power Pages instance.
-2. The attacker crafts a malicious request targeting the specific vulnerability in Power Pages.
-3. The request is sent to the Power Pages application.
-4. The vulnerable Power Pages instance processes the malicious request without proper validation.
-5. The attacker's code is injected into the Power Pages application.
-6. The injected code executes within the context of the Power Pages application.
-7. The attacker gains control of the Power Pages application.
-8. The attacker performs malicious activities, such as data theft, modification, or denial of service.
+1.  The attacker identifies a vulnerable Microsoft Power Pages instance exposed to the network.
+2.  The attacker crafts a malicious HTTP request containing a command injection payload within a user-supplied input field.
+3.  The Power Pages application fails to properly sanitize the input, passing the attacker-controlled data to a system command.
+4.  The injected command is executed by the underlying operating system with the privileges of the Power Pages application.
+5.  The attacker leverages the command execution to establish a reverse shell to an attacker-controlled server.
+6.  The attacker uses the reverse shell to gain interactive access to the compromised server.
+7.  The attacker performs reconnaissance to discover sensitive data and credentials.
+8.  The attacker uses the gained access to pivot to other systems on the network and potentially exfiltrate sensitive information or cause further damage.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows a remote attacker to execute arbitrary code on the Microsoft Power Pages platform. This can lead to a complete compromise of the affected application, potentially impacting sensitive data, business operations, and overall system security. The lack of specific details makes it difficult to quantify the potential damage, but the risk is significant due to the critical nature of code execution vulnerabilities.
+Successful exploitation of CVE-2026-23652 can lead to complete compromise of the affected Microsoft Power Pages instance. This can result in unauthorized access to sensitive data, modification of website content, and potential lateral movement to other systems on the network. Given the critical severity and ease of exploitation (AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H), organizations using Power Pages are at high risk.
 
 ## Recommendation
 
-*   Monitor web server logs for suspicious requests targeting Microsoft Power Pages, looking for unusual patterns or attempts to inject code (see Sigma rule "Detect Suspicious Power Pages Requests").
-*   Apply the latest security patches and updates provided by Microsoft for Power Pages to remediate the vulnerability.
-*   Implement web application firewall (WAF) rules to filter out malicious requests targeting the Power Pages application.
+*   Apply the security update provided by Microsoft to patch CVE-2026-23652 on all Power Pages instances immediately, as referenced in the advisory URL.
+*   Implement input validation and sanitization measures to prevent command injection attacks, particularly in user-supplied input fields in Power Pages.
+*   Deploy the Sigma rule "Detect CVE-2026-23652 Exploitation Attempt via Command Injection" to monitor for exploitation attempts.
+*   Monitor web server logs for suspicious HTTP requests containing shell metacharacters.
