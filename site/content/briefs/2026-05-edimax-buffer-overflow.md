@@ -1,40 +1,49 @@
 ---
-title: Edimax BR-6675nD Buffer Overflow Vulnerability (CVE-2026-9403)
+title: Edimax EW-7438RPn Stack-Based Buffer Overflow Vulnerability (CVE-2026-9427)
 slug: 2026-05-edimax-buffer-overflow
-description: A buffer overflow vulnerability exists in Edimax BR-6675nD version 1.12 within the formWlSiteSurvey function of the /goform/formWlSiteSurvey file, triggered by manipulating the selSSID argument in a POST request, enabling remote exploitation.
-date: "2026-05-26T14:06:44Z"
+description: A stack-based buffer overflow vulnerability (CVE-2026-9427) exists in Edimax EW-7438RPn version 1.31, allowing a remote attacker to execute arbitrary code by manipulating the selSSID/submit-url argument in the /goform/formWlSiteSurvey file.
+date: "2026-05-26T14:07:37Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
+  - cve
   - buffer overflow
-  - cve-2026-9403
   - edimax
-  - router
 vendors:
   - Edimax
 products:
-  - BR-6675nD 1.12
+  - EW-7438RPn 1.31
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1189
-    technique_name: Drive-by Compromise
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-9403
+  - id: CVE-2026-9427
     cvss: 8.8
     epss: 0.00041
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9403
-  - https://lavender-bicycle-a5a.notion.site/EDIMAX-BR-6675nD-formWlSiteSurvey-34b53a41781f80608091f104f17e1e9b?source=copy_link
-  - https://vuldb.com/submit/811566
-  - https://vuldb.com/vuln/365384
-  - https://vuldb.com/vuln/365384/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9427
+  - https://github.com/wudipjq/my_vuln/blob/main/Edimax/vuln_11/11.md
+  - https://vuldb.com/submit/813895
+  - https://vuldb.com/vuln/365408
+  - https://vuldb.com/vuln/365408/cti
 rules:
-  - title: Detect CVE-2026-9403 Exploitation Attempt
-    description: Detects CVE-2026-9403 exploitation attempt — HTTP POST to /goform/formWlSiteSurvey with an overly long selSSID value indicating a buffer overflow attempt.
+  - title: Detect CVE-2026-9427 Exploitation Attempt — Edimax Buffer Overflow
+    description: Detects CVE-2026-9427 exploitation attempt — Suspiciously long selSSID or submit-url parameters in requests to /goform/formWlSiteSurvey indicating potential buffer overflow attempt
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+  - title: Detect CVE-2026-9427 Exploitation Attempt — Overflow in formWlSiteSurvey User-Agent
+    description: Detects CVE-2026-9427 exploitation attempt through a long User-Agent string to the /goform/formWlSiteSurvey file.
     platform: sigma
     severity: high
     tactics:
@@ -43,40 +52,28 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9403 - Suspicious process from vulnerable device
-    description: Detects CVE-2026-9403 exploitation leading to unexpected process execution on a network device
-    platform: sigma
-    severity: medium
-    tactics:
-      - execution
-    techniques:
-      - T1059.004
-    data_sources:
-      - process_creation
-      - linux
 rules_count: 2
 ---
 
-A buffer overflow vulnerability, CVE-2026-9403, has been identified in Edimax BR-6675nD router firmware version 1.12. The flaw resides in the `formWlSiteSurvey` function located within the `/goform/formWlSiteSurvey` file. This function, responsible for handling POST requests related to Wi-Fi site surveys, is susceptible to a buffer overflow when processing the `selSSID` argument. A remote attacker can exploit this vulnerability to potentially execute arbitrary code on the device. Public exploits are available, increasing the risk of exploitation. The vendor was notified but has not responded.
+A stack-based buffer overflow vulnerability, tracked as CVE-2026-9427, has been identified in Edimax EW-7438RPn version 1.31. The vulnerability resides within the `formWlSiteSurvey` function located in the `/goform/formWlSiteSurvey` file, part of the webs component. By crafting a malicious request and manipulating the `selSSID` and `submit-url` arguments, a remote attacker can trigger a buffer overflow, potentially leading to arbitrary code execution. Publicly available exploit code exists, increasing the risk of exploitation. The vendor was notified but has not responded.
 
 ## Attack Chain
 
-1.  The attacker sends a crafted HTTP POST request to the `/goform/formWlSiteSurvey` endpoint on the Edimax BR-6675nD router.
-2.  The POST request includes the `selSSID` argument, designed to carry the selected SSID for the site survey.
-3.  The attacker provides an overly long string as the value for the `selSSID` argument, exceeding the buffer size allocated for it.
-4.  The `formWlSiteSurvey` function processes the POST request without proper bounds checking on the length of the `selSSID` value.
-5.  The excessive data written to the `selSSID` buffer overflows into adjacent memory regions on the stack.
-6.  The overflow overwrites critical data structures, such as return addresses or function pointers, stored on the stack.
-7.  When the `formWlSiteSurvey` function attempts to return, the overwritten return address is used, redirecting execution flow to an attacker-controlled address.
-8.  The attacker gains arbitrary code execution on the router, potentially leading to full device compromise.
+1.  The attacker identifies an Edimax EW-7438RPn device running firmware version 1.31.
+2.  The attacker crafts a malicious HTTP GET or POST request targeting the `/goform/formWlSiteSurvey` endpoint.
+3.  The crafted request includes excessively long strings in the `selSSID` and/or `submit-url` parameters.
+4.  The web server processes the request and passes the parameters to the `formWlSiteSurvey` function.
+5.  Due to insufficient bounds checking, the long strings overflow the stack buffer allocated for these parameters.
+6.  The buffer overflow overwrites adjacent memory on the stack, including the return address.
+7.  The attacker controls the overwritten return address to redirect execution to attacker-controlled code.
+8.  The attacker gains arbitrary code execution on the device, potentially leading to full system compromise.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows a remote attacker to execute arbitrary code on the Edimax BR-6675nD router. This can lead to complete compromise of the device, potentially allowing the attacker to gain control of the network, intercept traffic, or use the router as a foothold for further attacks within the network. Given the widespread use of such routers, a large number of devices could be at risk.
+Successful exploitation of CVE-2026-9427 allows a remote attacker to execute arbitrary code on the vulnerable Edimax EW-7438RPn device. This can lead to a complete compromise of the device, potentially enabling the attacker to eavesdrop on network traffic, modify device settings, or use the device as a foothold for further attacks on the network. Given the lack of vendor response, affected devices are likely to remain vulnerable, increasing the potential for widespread exploitation.
 
 ## Recommendation
 
-*   Monitor webserver logs for POST requests to `/goform/formWlSiteSurvey` with abnormally long `selSSID` values to detect potential exploitation attempts (see Sigma rule `Detect CVE-2026-9403 Exploitation Attempt`).
-*   Implement network intrusion detection system (IDS) rules to identify and block malicious POST requests targeting this endpoint.
-*   Since no patch is available, consider replacing the affected device with a more secure alternative if possible.
-*   Monitor for unexpected processes or network connections originating from Edimax BR-6675nD devices, as this may indicate successful exploitation.
+*   Deploy the Sigma rule `Detect CVE-2026-9427 Exploitation Attempt — Edimax Buffer Overflow` to your SIEM to identify potential exploitation attempts.
+*   Block access to the `/goform/formWlSiteSurvey` endpoint from untrusted networks using firewall rules to prevent unauthorized access.
+*   Monitor web server logs for abnormally long `selSSID` or `submit-url` parameters in requests to `/goform/formWlSiteSurvey`.
