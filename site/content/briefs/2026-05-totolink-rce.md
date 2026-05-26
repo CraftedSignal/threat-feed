@@ -1,18 +1,18 @@
 ---
-title: Totolink A8000RU OS Command Injection Vulnerability (CVE-2026-9386)
+title: Totolink A8000RU OS Command Injection (CVE-2026-9387)
 slug: 2026-05-totolink-rce
-description: A remote attacker can execute arbitrary OS commands on a Totolink A8000RU router by injecting commands into the 'lang' argument of the setLanguageCfg function within the web management interface.
-date: "2026-05-26T13:56:47Z"
+description: CVE-2026-9387 is an OS command injection vulnerability in Totolink A8000RU version 7.1cu.643_b20200521, allowing remote attackers to execute arbitrary commands by manipulating the resetFlags argument in the setUpgradeFW function.
+date: "2026-05-26T13:57:04Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
 tags:
-  - command-injection
-  - rce
-  - router
   - cve
+  - command injection
+  - rce
+  - totolink
 vendors:
   - Totolink
 products:
@@ -23,65 +23,61 @@ mitre_ttps:
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-9386
+  - id: CVE-2026-9387
     cvss: 9.8
     epss: 0.00892
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9386
-  - https://github.com/Litengzheng/vuldb_new2/blob/main/A8000RU/vul_333/README.md
-  - https://vuldb.com/submit/813432
-  - https://vuldb.com/vuln/365349
-  - https://vuldb.com/vuln/365349/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9387
+  - https://github.com/Litengzheng/vuldb_new2/blob/main/A8000RU/vul_334/README.md
+  - https://vuldb.com/submit/813433
+  - https://vuldb.com/vuln/365350
+  - https://vuldb.com/vuln/365350/cti
   - https://www.totolink.net/
 rules:
-  - title: Detects CVE-2026-9386 Exploitation — Totolink A8000RU Command Injection
-    description: Detects CVE-2026-9386 exploitation attempts by identifying suspicious requests to /cgi-bin/cstecgi.cgi with OS command injection payloads in the lang parameter.
+  - title: Detect CVE-2026-9387 Exploitation via Crafted HTTP Request
+    description: Detects CVE-2026-9387 exploitation — Monitors HTTP requests to /cgi-bin/cstecgi.cgi with command injection attempts in the resetFlags parameter
     platform: sigma
     severity: critical
     tactics:
       - execution
-      - initial_access
     techniques:
       - T1059.004
-      - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-9386 Exploitation Attempt - POST Request
-    description: Detects CVE-2026-9386 exploitation attempts using POST requests with command injection in the lang parameter.
+  - title: Detect CVE-2026-9387 Exploitation Attempt via POST Request
+    description: Detects CVE-2026-9387 exploitation — Monitors HTTP POST requests to /cgi-bin/cstecgi.cgi with suspicious characters in the resetFlags parameter
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - execution
-      - initial_access
     techniques:
       - T1059.004
-      - T1190
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-CVE-2026-9386 describes a critical OS command injection vulnerability affecting Totolink A8000RU routers running firmware version 7.1cu.643_b20200521. The vulnerability resides in the `setLanguageCfg` function within the `/cgi-bin/cstecgi.cgi` file, which is part of the web management interface. An unauthenticated, remote attacker can exploit this vulnerability by injecting arbitrary OS commands into the `lang` argument. The attacker can then execute commands with elevated privileges on the device, potentially leading to complete system compromise. Publicly available exploit code exists, increasing the risk of widespread exploitation. This vulnerability poses a significant threat to home and small business networks using the affected Totolink router model.
+A security flaw, CVE-2026-9387, was discovered in Totolink A8000RU router firmware version 7.1cu.643_b20200521. This vulnerability resides within the Web Management Interface, specifically in the `/cgi-bin/cstecgi.cgi` file and the `setUpgradeFW` function. Successful exploitation enables remote attackers to inject and execute arbitrary operating system commands. The vulnerability is triggered through manipulation of the `resetFlags` argument. Publicly available exploit code exists, increasing the risk of exploitation. This poses a significant threat to exposed Totolink A8000RU devices, potentially leading to complete compromise of the device and the network it serves.
 
 ## Attack Chain
 
-1.  An attacker identifies a vulnerable Totolink A8000RU router exposed to the internet.
-2.  The attacker sends a crafted HTTP request to `/cgi-bin/cstecgi.cgi`.
-3.  The HTTP request targets the `setLanguageCfg` function.
-4.  The request includes the `lang` argument with a malicious payload containing OS commands.
-5.  The web server processes the request and passes the `lang` argument to the vulnerable function.
-6.  The `setLanguageCfg` function fails to properly sanitize the input, allowing the injected OS commands to be executed.
-7.  The injected OS commands are executed with the privileges of the web server process.
-8.  The attacker gains remote code execution, allowing them to perform actions such as modifying system settings, installing malware, or establishing a persistent backdoor.
+1.  The attacker identifies a vulnerable Totolink A8000RU device running firmware version 7.1cu.643_b20200521.
+2.  The attacker sends a crafted HTTP request to the `/cgi-bin/cstecgi.cgi` endpoint.
+3.  The request targets the `setUpgradeFW` function.
+4.  The attacker manipulates the `resetFlags` argument within the HTTP request.
+5.  The manipulated `resetFlags` argument contains OS command injection payloads.
+6.  The `setUpgradeFW` function processes the malicious `resetFlags` argument without proper sanitization.
+7.  The injected OS commands are executed with elevated privileges on the router's operating system.
+8.  The attacker gains remote code execution, allowing them to control the device, potentially leading to further network compromise or data exfiltration.
 
 ## Impact
 
-Successful exploitation of CVE-2026-9386 allows a remote, unauthenticated attacker to execute arbitrary OS commands on the affected Totolink A8000RU router. This can lead to a complete compromise of the device, allowing the attacker to steal sensitive information, disrupt network services, or use the router as a jumping-off point for further attacks on the internal network. Given the publicly available exploit, widespread exploitation is possible, potentially affecting a large number of users.
+Successful exploitation of CVE-2026-9387 allows a remote, unauthenticated attacker to execute arbitrary commands on the affected Totolink A8000RU device. This could lead to complete device compromise, allowing the attacker to modify router settings, intercept network traffic, or use the device as a pivot point for further attacks within the network. The vulnerability has a CVSS v3.1 score of 9.8, indicating a critical severity. Given the availability of public exploits, vulnerable devices are at immediate risk.
 
 ## Recommendation
 
-*   Apply available patches or firmware updates from Totolink to address CVE-2026-9386.
-*   Monitor web server logs for suspicious requests targeting the `/cgi-bin/cstecgi.cgi` endpoint with unusual characters or commands in the `lang` parameter. Use the Sigma rule provided below to detect potential exploitation attempts.
-*   Disable remote access to the router's web management interface to reduce the attack surface.
-*   Implement network segmentation to limit the impact of a successful compromise.
-*   Deploy the Sigma rule in this brief to your SIEM and tune for your environment.
+*   Apply available patches or firmware updates released by Totolink to address CVE-2026-9387.
+*   Deploy the Sigma rule `Detect CVE-2026-9387 Exploitation via Crafted HTTP Request` to identify exploitation attempts in web server logs.
+*   Monitor web server logs for requests to `/cgi-bin/cstecgi.cgi` with suspicious characters or command injection attempts in the `resetFlags` parameter.
+*   Implement network segmentation to limit the potential impact of a compromised router on other network segments.
+*   Consider placing routers behind a firewall and restricting access to the management interface from the public internet.
