@@ -1,8 +1,8 @@
 ---
-title: Smartshop 1 SQL Injection Vulnerability (CVE-2018-25341)
+title: Smartshop 1 Time-Based Blind SQL Injection Vulnerability (CVE-2018-25342)
 slug: 2026-05-smartshop-sqli
-description: Smartshop version 1 is vulnerable to SQL injection (CVE-2018-25341), allowing unauthenticated attackers to execute arbitrary SQL queries via the id parameter in product.php, potentially leading to sensitive data extraction.
-date: "2026-05-26T13:36:43Z"
+description: Smartshop 1 is vulnerable to time-based blind SQL injection via the 'searched' parameter in search.php, allowing unauthenticated attackers to inject SQL code to extract sensitive information.
+date: "2026-05-26T13:37:23Z"
 type: advisory
 types:
   - advisory
@@ -10,20 +10,24 @@ severities:
   - high
 tags:
   - sql-injection
-  - cve
   - web-application
+  - cve-2018-25342
 products:
   - Smartshop 1
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2018-25342
+    cvss: 8.2
+    epss: 0.00068
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2018-25341
+  - https://nvd.nist.gov/vuln/detail/CVE-2018-25342
 rules:
-  - title: Detect CVE-2018-25341 Exploitation — Smartshop SQL Injection Attempt
-    description: Detects CVE-2018-25341 exploitation — SQL injection attempts in Smartshop product.php via the id parameter
+  - title: Detect Smartshop Time-Based SQL Injection Attempt
+    description: Detects CVE-2018-25342 exploitation — Attempts to inject time-based SQL commands (e.g., SLEEP) into the 'searched' parameter of search.php.
     platform: sigma
     severity: high
     tactics:
@@ -32,8 +36,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2018-25341 Exploitation — Smartshop SQL Injection with Comments
-    description: Detects CVE-2018-25341 exploitation — SQL injection attempts in Smartshop product.php using comments
+  - title: Detect SQL Injection Attempt via Union Based Exploitation
+    description: Detects SQL injection attempts using UNION-based techniques on search.php
     platform: sigma
     severity: medium
     tactics:
@@ -45,25 +49,26 @@ rules:
 rules_count: 2
 ---
 
-Smartshop version 1 is vulnerable to SQL injection, as identified by CVE-2018-25341. This vulnerability allows an unauthenticated attacker to execute arbitrary SQL queries by injecting malicious SQL code into the `id` parameter of the `product.php` page via a GET request. The vulnerability exists due to insufficient input validation and sanitization of the `id` parameter. Successful exploitation can lead to the extraction of sensitive database information, including usernames and database names. This poses a significant risk to the confidentiality and integrity of the application's data. Defenders should prioritize patching or mitigating this vulnerability to prevent potential data breaches and unauthorized access.
+Smartshop 1 is susceptible to a time-based blind SQL injection vulnerability in the search.php script. Unauthenticated attackers can exploit this flaw to inject arbitrary SQL code into database queries through the 'searched' parameter. By crafting malicious GET requests containing SQL payloads, such as SLEEP commands, attackers can infer information about the database structure and extract sensitive data. The vulnerability, identified as CVE-2018-25342, poses a significant risk as it enables attackers to bypass authentication mechanisms and directly interact with the underlying database. Successful exploitation can lead to the disclosure of product details, system data, and potentially other critical information stored within the database. This vulnerability highlights the importance of input validation and parameterized queries to prevent SQL injection attacks.
 
 ## Attack Chain
 
-1.  The attacker identifies a Smartshop version 1 instance.
-2.  The attacker crafts a malicious GET request targeting the `product.php` endpoint.
-3.  The GET request includes a SQL injection payload within the `id` parameter.
-4.  The application fails to properly sanitize the `id` parameter.
-5.  The unsanitized `id` parameter is passed directly into an SQL query.
-6.  The attacker leverages a UNION-based SQL injection technique to extract data.
-7.  The SQL query executes, returning database usernames or database names.
-8.  The attacker obtains sensitive information from the database.
+1.  The attacker identifies the 'searched' parameter in the `search.php` script as a potential injection point.
+2.  The attacker crafts a malicious GET request targeting `search.php` with a SQL payload embedded in the 'searched' parameter. For example: `search.php?searched=test'+OR+SLEEP(5)+--`.
+3.  The web server processes the request and executes the SQL query with the injected payload against the database.
+4.  Due to the time-based nature of the injection, the attacker observes the response time of the server.
+5.  If the injected SQL payload includes a `SLEEP()` function, the server will pause for the specified duration.
+6.  By analyzing the response times, the attacker can infer the results of conditional SQL queries (e.g., checking database version, table names, or data).
+7.  The attacker iteratively refines their SQL injection payload to extract specific data from the database, such as usernames, passwords, or product details.
+8.  Finally, the attacker exfiltrates the sensitive data obtained through the SQL injection vulnerability.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to extract sensitive information from the Smartshop database. This may include usernames, passwords, customer data, or other confidential information. The impact can range from unauthorized data access to potential data breaches and financial losses. The vulnerability could be exploited by a wide range of attackers due to the lack of authentication requirements.
+Successful exploitation of this vulnerability allows unauthenticated attackers to access sensitive data stored in the Smartshop 1 database. This may include customer information, product details, system configurations, and other confidential data. The vulnerability affects all installations of Smartshop 1 that do not have adequate input validation or parameterized queries implemented. The impact could lead to data breaches, financial losses, reputational damage, and potential legal liabilities for the affected organization.
 
 ## Recommendation
 
-*   Deploy the Sigma rule to detect exploitation attempts against the `product.php` endpoint targeting the `id` parameter, and tune for your environment.
-*   Apply input validation and sanitization to the `id` parameter in `product.php` to prevent SQL injection.
-*   Monitor web server logs for suspicious GET requests to `product.php` containing SQL injection payloads.
+*   Deploy the Sigma rule `Detect Smartshop Time-Based SQL Injection Attempt` to identify potential exploitation attempts based on the presence of `SLEEP()` functions or similar time-delaying SQL commands in web requests targeting `search.php`.
+*   Apply input validation and sanitization to the 'searched' parameter in `search.php` to prevent SQL injection attacks. Consider using parameterized queries or prepared statements to mitigate the risk.
+*   Upgrade to a patched version of Smartshop that addresses CVE-2018-25342 or implement a web application firewall (WAF) rule to filter out malicious SQL payloads in HTTP requests.
+*   Monitor web server logs for suspicious activity, such as unusual HTTP requests targeting `search.php` or error messages indicating SQL injection attempts. Enable webserver logging to activate the rules above.
