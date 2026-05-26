@@ -1,87 +1,75 @@
 ---
-title: FUXA 1.2.9 Unauthenticated Remote Code Execution
+title: FUXA Pre-auth RCE via Path Manipulation and Configuration Injection
 slug: 2026-05-fuxa-rce
-description: A remote code execution (RCE) vulnerability exists in FUXA version 1.2.9 and earlier due to an unauthenticated path traversal issue in the /api/upload endpoint, allowing attackers to write arbitrary files and execute code.
-date: "2026-05-21T13:32:38Z"
-type: threat
+description: A critical vulnerability in FUXA (versions 1.2.11 to 1.3.0) allows an unauthenticated remote attacker to achieve remote code execution as root by bypassing authentication checks on protected Node-RED endpoints using path manipulation.
+date: "2026-05-26T23:44:32Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
-  - critical
-cpes:
-  - cpe:2.3:a:frangoteam:fuxa:*:*:*:*:*:*:*:*
+  - high
 tags:
+  - path-traversal
   - rce
-  - path traversal
-  - cve-2026-25895
-  - fuxa
+  - authentication-bypass
 vendors:
   - frangoteam
 products:
-  - FUXA
-affected_os:
-  - Ubuntu Server
+  - fuxa
 mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-cves:
-  - id: CVE-2026-25895
-    cvss: 9.8
-    epss: 0.0007
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 references:
-  - https://www.exploit-db.com/exploits/52568
-  - CVE-2026-25895
+  - https://github.com/advisories/GHSA-p69w-mmfv-xrfj
+  - CVE-2026-43945
 rules:
-  - title: Detect CVE-2026-25895 Exploitation — FUXA Unauthenticated Path Traversal
-    description: Detects CVE-2026-25895 exploitation — HTTP POST to /api/upload with path traversal sequences in the destination parameter, indicating a path traversal attempt.
+  - title: Detect CVE-2026-43945 Exploitation Attempt
+    description: Detects CVE-2026-43945 exploitation attempt — HTTP request to /nodered/* with socket.io in the query string
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - execution
       - initial_access
     techniques:
       - T1190
-      - T1566.001
     data_sources:
       - webserver
-  - title: Detect CVE-2026-25895 Exploitation - FUXA Settings.js Overwrite
-    description: Detects CVE-2026-25895 exploitation - Detects the creation or modification of settings.js with suspicious content in FUXA
+  - title: Detect CVE-2026-43945 Exploitation Attempt - POST Request
+    description: Detects CVE-2026-43945 exploitation attempt via POST request to /nodered/* endpoint with socket.io in the query
     platform: sigma
     severity: high
     tactics:
-      - persistence
-      - privilege_escalation
+      - execution
+      - initial_access
     techniques:
-      - T1547.001
+      - T1190
     data_sources:
-      - file_event
-      - linux
+      - webserver
 rules_count: 2
 ---
 
-FUXA version 1.2.9 and earlier is vulnerable to an unauthenticated remote code execution (RCE) vulnerability, tracked as CVE-2026-25895. The vulnerability stems from a path traversal flaw in the `/api/upload` endpoint, which lacks proper authentication and input validation. An attacker can exploit this vulnerability to write arbitrary files to the server, potentially leading to code execution. Publicly available exploit code (EDB-52568) increases the risk to unpatched FUXA instances. The vulnerability exists because the `/api/upload` route is registered without authentication middleware. The `destination` parameter in the JSON body is concatenated into a file path without sufficient sanitization, allowing directory traversal.
+FUXA, a SCADA platform, is vulnerable to a pre-authentication remote code execution (RCE) flaw. This vulnerability, impacting versions 1.2.11 through 1.3.0, allows an unauthenticated attacker to bypass authentication on protected `/nodered/*` endpoints. The root cause is a path confusion issue in the authentication middleware that relies on `req.originalUrl` for routing decisions. By appending `?x=/socket.io` to administrative requests, the middleware is tricked into treating the request as a public WebSocket handshake, bypassing secureEnabled and nodeRedAuthMode checks entirely. Successful exploitation grants access to Node-RED administrative endpoints, potentially leading to RCE depending on the Node-RED configuration and installed nodes. This vulnerability is tracked as CVE-2026-43945.
 
 ## Attack Chain
 
-1.  The attacker sends a POST request to the `/api/upload` endpoint without any authentication.
-2.  The request body includes a JSON payload with a `destination` field containing a path traversal sequence (e.g., `a/../../../../<target>`).
-3.  The `filename` field in the JSON payload specifies the name of the file to be written.
-4.  The `resource.data` field contains the base64-encoded content of the file to be written.
-5.  The server concatenates the `destination` value with the application directory path without proper sanitization using `path.resolve()`.
-6.  The server writes the file specified by `filename` to the attacker-controlled path using `fs.writeFileSync()`.
-7.  The attacker writes a malicious file (e.g., a JavaScript file containing code to execute commands) to a known location on the server.
-8.  If the uploaded file is a settings.js file, the attacker can achieve RCE on the next application startup by overwriting the existing settings.js file with a malicious one containing Javascript code that executes commands upon loading.
+1.  Attacker sends a crafted HTTP request to the FUXA server.
+2.  The request targets a protected `/nodered/*` endpoint.
+3.  The request includes a query parameter designed to exploit the path confusion vulnerability, such as `?x=/socket.io`.
+4.  The FUXA server's authentication middleware incorrectly identifies the request as a public WebSocket handshake due to the flawed `url.includes('/socket.io')` check.
+5.  The security checks for `secureEnabled` and `nodeRedAuthMode` are bypassed.
+6.  The attacker gains unauthorized access to the Node-RED administrative interface.
+7.  The attacker leverages Node-RED's capabilities to execute arbitrary code on the server, depending on the configuration and installed nodes.
+8.  The attacker achieves remote code execution as root within the container context.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an unauthenticated attacker to execute arbitrary code on the FUXA server. This can lead to complete system compromise, data theft, or denial of service. The availability of public exploit code significantly increases the likelihood of exploitation. The target application is running on Ubuntu Server.
+Successful exploitation of CVE-2026-43945 allows an unauthenticated attacker to gain full control over the SCADA server. This can lead to interception of industrial data (MQTT/OPC-UA), manipulation of PLC tags, and the ability to pivot into the internal OT network. The vulnerability can result in complete system compromise and significant disruption to industrial processes.
 
 ## Recommendation
 
-*   Apply the patch to upgrade FUXA to version 1.2.10 or later to address CVE-2026-25895.
-*   Deploy the Sigma rule "Detect CVE-2026-25895 Exploitation — FUXA Unauthenticated Path Traversal" to detect exploitation attempts.
-*   Monitor web server logs for POST requests to `/api/upload` with suspicious path traversal sequences in the `cs-uri-query` or `cs-uri-stem` fields, as described in the Sigma rule and the overview.
-*   Implement input validation and sanitization on the `/api/upload` endpoint to prevent path traversal attacks.
-*   Enforce authentication and authorization controls on the `/api/upload` endpoint to restrict access to authorized users only.
+*   Apply the vendor-supplied patch to upgrade FUXA to a version >= 1.3.1 to remediate CVE-2026-43945.
+*   Deploy the Sigma rule "Detect CVE-2026-43945 Exploitation Attempt" to your SIEM to detect exploitation attempts.
+*   Monitor web server logs for requests containing the `/socket.io` string in the query parameters targeting `/nodered/*` endpoints.
+*   Review Node-RED configurations to minimize the risk of RCE via privileged or command-execution capable nodes, if Node-RED is enabled.
