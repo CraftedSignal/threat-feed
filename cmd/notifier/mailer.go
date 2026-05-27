@@ -18,6 +18,14 @@ func hashEmail(addr string) string {
 	return "sha256:" + hex.EncodeToString(sum[:])[:16]
 }
 
+// sanitizeHeaderValue removes CR/LF to prevent header injection when
+// constructing RFC822 headers manually.
+func sanitizeHeaderValue(v string) string {
+	v = strings.ReplaceAll(v, "\r", "")
+	v = strings.ReplaceAll(v, "\n", "")
+	return strings.TrimSpace(v)
+}
+
 type mailer interface {
 	Send(to, subject, body string) error
 	// SendBatch delivers a slice of (to, subject, body) triples over a
@@ -65,10 +73,14 @@ func (m *smtpMailer) Send(to, subject, body string) error {
 
 	auth := smtp.PlainAuth("", m.cfg.Username, m.cfg.Password, m.cfg.Host)
 
+	safeFrom := sanitizeHeaderValue(m.cfg.From)
+	safeTo := sanitizeHeaderValue(to)
+	safeSubject := sanitizeHeaderValue(subject)
+
 	headers := map[string]string{
-		"From":         m.cfg.From,
-		"To":           to,
-		"Subject":      subject,
+		"From":         safeFrom,
+		"To":           safeTo,
+		"Subject":      safeSubject,
 		"MIME-Version": "1.0",
 		"Content-Type": "text/plain; charset=utf-8",
 	}
@@ -91,7 +103,7 @@ func (m *smtpMailer) Send(to, subject, body string) error {
 	}
 	_ = tlsCfg // reserved for explicit dial if we ever switch to net.Dial+tls.Client
 
-	if err := smtp.SendMail(addr, auth, m.cfg.From, []string{to}, []byte(msg.String())); err != nil {
+	if err := smtp.SendMail(addr, auth, m.cfg.From, []string{safeTo}, []byte(msg.String())); err != nil {
 		m.logger.Error("smtp send failed", "to_hash", hashEmail(to), "err", err)
 		return fmt.Errorf("smtp send: %w", err)
 	}
