@@ -1,0 +1,91 @@
+---
+title: Windows AD Dangerous Group ACL Modification
+slug: 2026-05-windows-ad-acl-modification
+description: This detection identifies modifications to Active Directory group object ACLs that grant dangerous rights, such as full control, potentially indicating privilege escalation or malicious activity.
+date: "2026-05-28T17:57:53Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - active-directory
+  - acl
+  - privilege-escalation
+  - persistence
+vendors:
+  - Microsoft
+  - Splunk
+products:
+  - Active Directory
+  - Splunk Enterprise
+  - Splunk Enterprise Security
+  - Splunk Cloud
+affected_os:
+  - Windows Server
+mitre_ttps:
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1222
+    technique_name: Permissions Groups Discovery
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1484
+    technique_name: Domain Policy Modification
+references:
+  - https://learn.microsoft.com/en-us/windows/win32/secauthz/ace-strings
+  - https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/1522b774-6464-41a3-87a5-1e5633c3fbbb
+  - https://trustedsec.com/blog/a-hitchhackers-guide-to-dacl-based-detections-part-1-a
+  - https://lantern.splunk.com/Security/Product_Tips/Enterprise_Security/Enabling_an_audit_trail_from_Active_Directory
+rules:
+  - title: Detect Suspicious AD Group ACL Modification
+    description: Detects suspicious modifications to Active Directory group ACLs by monitoring Windows Event ID 5136 for the addition of dangerous permissions.
+    platform: sigma
+    severity: high
+    tactics:
+      - persistence
+      - privilege_escalation
+    techniques:
+      - T1222.001
+      - T1484
+    data_sources:
+      - windows
+      - windows
+  - title: Detect Suspicious AD Group ACL Modification - SD (Security Descriptor)
+    description: Detects suspicious modifications to Active Directory group ACLs using the Security Descriptor via Windows Event ID 5136 for the addition of dangerous permissions.
+    platform: sigma
+    severity: high
+    tactics:
+      - persistence
+      - privilege_escalation
+    techniques:
+      - T1222.001
+      - T1484
+    data_sources:
+      - windows
+      - windows
+rules_count: 2
+---
+
+This detection focuses on identifying potentially malicious modifications to Active Directory (AD) group Access Control Lists (ACLs). Attackers may modify group ACLs to gain elevated privileges, control critical resources, or establish persistence within the AD environment. The detection specifically monitors the addition of highly permissive ACLs, including "Full control", "All extended rights", "All validated writes", "Create all child objects", "Delete all child objects", "Delete subtree", "Delete", "Modify permissions", "Modify owner", and "Write all properties". These changes, when unauthorized, can lead to significant security breaches. The detection leverages Windows Event Log Security event ID 5136 to identify such modifications and trigger alerts for immediate investigation. This detection is sourced from Splunk ES Content as of May 2026.
+
+## Attack Chain
+
+1.  The attacker gains initial access to a system with sufficient privileges to modify Active Directory objects, potentially through compromised credentials or exploiting a vulnerability.
+2.  The attacker uses AD management tools (e.g., PowerShell with AD modules, ADSI Edit) to locate a target group object within Active Directory.
+3.  The attacker modifies the Discretionary Access Control List (DACL) of the target group object.
+4.  The attacker adds Access Control Entries (ACEs) to the DACL, granting specific user or group accounts excessive permissions, such as "Full control", "Write all properties", or "Modify permissions".
+5.  The changes are applied to the Active Directory database, affecting the permissions of the targeted group.
+6.  Windows generates Security Event ID 5136, logging the ACL modification event, including the modified object, account, and new permissions.
+7.  The attacker leverages the newly granted permissions to perform unauthorized actions, such as accessing sensitive resources or escalating privileges further within the domain.
+
+## Impact
+
+Successful modification of AD group ACLs can result in significant damage. Attackers can escalate privileges, gain control over critical resources, compromise sensitive data, and establish persistent access to the Active Directory environment. The potential impact includes domain-wide compromise, data breaches, and disruption of critical business services. This type of attack can be difficult to detect without specific monitoring and alerting mechanisms.
+
+## Recommendation
+
+*   Enable Windows Event Log Security auditing for event ID 5136 to capture Active Directory object modifications.
+*   Deploy the Sigma rule `Detect Suspicious AD Group ACL Modification` to your SIEM and tune for your environment.
+*   Investigate any alerts generated by the Sigma rule, focusing on the source user, target group, and the specific permissions granted.
+*   Consider implementing additional monitoring and alerting for other critical AD object modifications, such as changes to group memberships and password policies.
