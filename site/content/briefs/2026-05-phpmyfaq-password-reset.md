@@ -1,43 +1,49 @@
 ---
-title: phpMyFAQ Unauthenticated Password Reset Vulnerability
+title: phpMyFAQ Unauthenticated Password Reset Vulnerability (CVE-2026-35676)
 slug: 2026-05-phpmyfaq-password-reset
-description: phpMyFAQ versions prior to 4.1.3 are vulnerable to an unauthenticated password reset vulnerability that allows attackers to enumerate valid accounts and forcibly change user passwords by exploiting the password reset API without token validation.
-date: "2026-05-20T15:47:42Z"
+description: phpMyFAQ before 4.1.3 is vulnerable to an unauthenticated password reset, allowing attackers to change account passwords without token validation by sending crafted PUT requests to the /api/index.php/user/password/update endpoint.
+date: "2026-05-28T16:18:40Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
 tags:
-  - phpMyFAQ
-  - password-reset
-  - account-enumeration
+  - cve
+  - vulnerability
+  - password reset
+  - unauthenticated
 vendors:
   - phpMyFAQ
 products:
-  - phpMyFAQ < 4.1.3
+  - phpMyFAQ
 mitre_ttps:
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1586
-    technique_name: Compromise Accounts
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
+cves:
+  - id: CVE-2026-35676
+    cvss: 8.2
 references:
-  - https://github.com/advisories/GHSA-9qv9-8xv6-5p35
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-35676
+  - https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-9qv9-8xv6-5p35
+  - https://www.vulncheck.com/advisories/phpmyfaq-unauthenticated-password-reset-via-user-password-update-endpoint
 rules:
   - title: Detect phpMyFAQ Password Reset Attempt
-    description: Detects attempts to exploit the phpMyFAQ unauthenticated password reset vulnerability by monitoring for PUT requests to the password update endpoint.
+    description: Detects CVE-2026-35676 exploitation — an unauthenticated password reset attempt in phpMyFAQ via PUT requests to /api/index.php/user/password/update.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
     data_sources:
       - webserver
-  - title: Detect phpMyFAQ Failed Password Reset Attempt
-    description: Detects failed attempts to exploit the phpMyFAQ unauthenticated password reset vulnerability by monitoring for 409 Conflict responses after a PUT request to the password update endpoint.
+  - title: Detect phpMyFAQ Password Reset from Uncommon Source IP
+    description: Detects CVE-2026-35676 exploitation — an unauthenticated password reset attempt in phpMyFAQ via PUT requests to /api/index.php/user/password/update from uncommon source IPs
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
       - initial_access
     techniques:
@@ -47,26 +53,26 @@ rules:
 rules_count: 2
 ---
 
-phpMyFAQ versions prior to 4.1.3 are vulnerable to an unauthenticated password reset vulnerability. The vulnerability resides in the password reset API, which lacks proper authentication and authorization checks. An attacker can exploit this by sending a crafted request to the `/api/index.php/user/password/update` endpoint with a valid username and email combination. Upon receiving this request, the application immediately generates a new password, updates the user's account, and sends the new password to the user's email address. This bypasses the intended password reset flow, allowing attackers to forcibly change passwords without any out-of-band confirmation or token validation. This issue was confirmed in a local Docker deployment.
+phpMyFAQ before version 4.1.3 is susceptible to an unauthenticated password reset vulnerability (CVE-2026-35676). This flaw resides in the user password update API endpoint, specifically within the `/api/index.php/user/password/update` path. Attackers can exploit this vulnerability by sending crafted PUT requests to the vulnerable endpoint, bypassing token validation. Successful exploitation allows threat actors to change the passwords of existing accounts, leading to account disruption, denial of service, and potential unauthorized access. This vulnerability can be exploited without authentication, making it critical for defenders to address.
 
 ## Attack Chain
 
-1.  The attacker identifies a potential target username and email address.
-2.  The attacker crafts a PUT request to `/api/index.php/user/password/update` with the target's username and email in the JSON body.
-3.  The phpMyFAQ application receives the request at `phpmyfaq/src/phpMyFAQ/Controller/Frontend/Api/UnauthorizedUserController.php`.
-4.  The application checks if the provided username and email combination exists.
-5.  If the username and email are valid, the application generates a new password.
-6.  The application updates the user's password in the database with the newly generated password.
-7.  The application sends the new password to the user's email address.
-8.  The attacker has now forced a password reset, effectively locking the user out of their account using the original password.
+1.  Attacker identifies a phpMyFAQ instance running a version prior to 4.1.3.
+2.  Attacker enumerates valid usernames and associated email addresses.
+3.  Attacker crafts a PUT request targeting the `/api/index.php/user/password/update` endpoint. The request body contains the target username, email address, and the attacker's desired new password.
+4.  Attacker sends the crafted PUT request to the vulnerable endpoint.
+5.  The phpMyFAQ application, lacking proper token validation, updates the user's password to the attacker-specified value.
+6.  The legitimate user's password is now changed without their consent or knowledge.
+7.  Attacker uses the new password to log into the compromised account.
+8.  Attacker gains unauthorized access to the user's account and any associated sensitive data.
 
 ## Impact
 
-The unauthenticated password reset vulnerability in phpMyFAQ allows attackers to enumerate valid usernames and email addresses. More critically, it enables attackers to forcibly reset user passwords, leading to account disruption and potential denial of service. An attacker knowing a valid username/email pair can trigger an immediate password change without any confirmation, invalidating the old password. While the attacker might not gain immediate access to the account if they lack access to the email, the forced password reset disrupts the victim's access and could lead to further exploitation if the attacker can intercept the new password.
+Successful exploitation of this vulnerability allows attackers to take complete control of user accounts in affected phpMyFAQ installations. This can lead to data breaches, denial of service, or further malicious activities within the application. Given the ease of exploitation and lack of authentication required, this vulnerability poses a significant risk to organizations utilizing vulnerable phpMyFAQ versions. There is no specified victim count for this CVE.
 
 ## Recommendation
 
-*   Apply the provided patch or upgrade to phpMyFAQ version 4.1.3 or later to remediate the vulnerability.
-*   Deploy the Sigma rule `Detect phpMyFAQ Password Reset Attempt` to monitor for suspicious PUT requests to the password update endpoint.
-*   Implement rate limiting on the `/api/index.php/user/password/update` endpoint to mitigate brute-force attempts to enumerate valid username/email pairs.
-*   Change the password recovery flow to a token-based design as outlined in the source document, generating reset tokens and validating those tokens before resetting the password.
+*   Upgrade phpMyFAQ to version 4.1.3 or later to patch CVE-2026-35676.
+*   Deploy the Sigma rule `Detect phpMyFAQ Password Reset Attempt` to your SIEM to identify exploitation attempts targeting the `/api/index.php/user/password/update` endpoint.
+*   Monitor web server logs for unusual PUT requests to the `/api/index.php/user/password/update` endpoint, as this is the primary attack vector.
+*   Implement rate limiting on the password reset endpoint to mitigate brute-force enumeration attempts.
