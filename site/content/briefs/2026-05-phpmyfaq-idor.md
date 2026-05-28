@@ -1,18 +1,17 @@
 ---
-title: phpMyFAQ IDOR Allows Admin Account Takeover
+title: phpMyFAQ Insecure Direct Object Reference Allows Privilege Escalation (CVE-2026-35671)
 slug: 2026-05-phpmyfaq-idor
-description: An IDOR vulnerability in phpMyFAQ's Admin API allows any authenticated administrator to change the password of any user account, including SuperAdmin accounts, without authorization verification, leading to privilege escalation.
-date: "2026-05-20T15:47:28Z"
+description: phpMyFAQ before 4.1.3 contains an insecure direct object reference vulnerability in the admin API user password endpoint that allows authenticated administrators to change any user's password without authorization verification, leading to privilege escalation.
+date: "2026-05-28T16:18:03Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - phpMyFAQ
-  - IDOR
+  - idor
   - privilege-escalation
-  - account-takeover
+  - web-application
 vendors:
   - phpMyFAQ
 products:
@@ -20,52 +19,54 @@ products:
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1555
-    technique_name: Credentials from Password Stores
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+cves:
+  - id: CVE-2026-35671
+    cvss: 8.8
 references:
-  - https://github.com/advisories/GHSA-xvp4-phqj-cjr3
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-35671
+  - CVE-2026-35671
 rules:
-  - title: Detect phpMyFAQ Admin Password Overwrite
-    description: Detects phpMyFAQ admin password overwrite attempts by monitoring PUT requests to the /admin/api/user/overwrite-password endpoint with a userId of 1, indicating a potential IDOR attack targeting the SuperAdmin account.
+  - title: Detect CVE-2026-35671 Exploitation — phpMyFAQ Password Overwrite Attempt
+    description: Detects CVE-2026-35671 exploitation — attempts to overwrite user passwords via the phpMyFAQ admin API without proper authorization.
     platform: sigma
     severity: high
     tactics:
       - privilege_escalation
     techniques:
-      - T1555
+      - T1068
     data_sources:
       - webserver
-  - title: Detect phpMyFAQ Admin API Access
-    description: Detects access to the phpMyFAQ admin API endpoints.
+  - title: Detect CVE-2026-35671 Exploitation — phpMyFAQ Admin API Access
+    description: Detects CVE-2026-35671 exploitation — monitor access to phpMyFAQ admin API endpoints which may indicate potential exploitation of IDOR vulnerabilities.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
-      - discovery
+      - privilege_escalation
+    techniques:
+      - T1068
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-An Insecure Direct Object Reference (IDOR) vulnerability exists in phpMyFAQ versions prior to 4.1.3. The vulnerability is located in the Admin API within the `overwritePassword()` method, which lacks proper authorization checks. Any authenticated administrator, even those with low privileges (USER_EDIT permission), can change the password of any user account, including the SuperAdmin account (userId=1). By manipulating the `userId` parameter in a PUT request to `/admin/api/user/overwrite-password`, an attacker can escalate their privileges to full SuperAdmin control. This poses a significant risk to organizations with multiple admin users and environments requiring privilege separation or multi-tenancy.
+phpMyFAQ before 4.1.3 is vulnerable to an insecure direct object reference (IDOR) flaw within its admin API. This vulnerability allows an authenticated administrator with low privileges to escalate their privileges to SuperAdmin. The vulnerability resides in the user password overwrite endpoint. By manipulating the `userId` parameter during an API request to overwrite a password, a low-privilege administrator can change the password of any other user, including a SuperAdmin account. This can lead to complete control of the phpMyFAQ instance.
 
 ## Attack Chain
 
-1. The attacker gains access to a low-privilege admin account, either through legitimate means or by exploiting a separate vulnerability.
-2. The attacker identifies the `overwritePassword()` endpoint `/admin/api/user/overwrite-password` and its lack of authorization checks.
-3. The attacker requests a CSRF token from an admin page using `curl` and `grep`.
-4. The attacker crafts a PUT request to the `/admin/api/user/overwrite-password` endpoint. The request body includes a JSON payload with the target `userId` set to '1' (SuperAdmin), a valid CSRF token, and the desired new password for the SuperAdmin account.
-5. The phpMyFAQ application receives the PUT request and, due to the IDOR vulnerability, does not validate whether the requesting admin has permission to modify the target user's password.
-6. The `overwritePassword()` method changes the SuperAdmin's password to the attacker-supplied password.
-7. The attacker logs in as the SuperAdmin using the newly set password.
-8. The attacker now has full control of the phpMyFAQ application and can perform any administrative task.
+1. Attacker authenticates to phpMyFAQ as a low-privilege administrator.
+2. Attacker identifies the `overwrite-password` API endpoint.
+3. Attacker crafts a malicious API request to the `overwrite-password` endpoint, modifying the `userId` parameter to target a SuperAdmin account.
+4. The API request bypasses authorization checks and allows the attacker to set a new password for the targeted SuperAdmin account.
+5. Attacker uses the newly set password to authenticate as the SuperAdmin.
+6. Attacker gains full administrative control over the phpMyFAQ instance.
 
 ## Impact
 
-Successful exploitation of this IDOR vulnerability allows an attacker to gain complete control of the phpMyFAQ application. This can lead to data breaches, defacement of the FAQ content, and unauthorized modification of system configurations. Organizations with multiple admin users, where not all should have SuperAdmin access, are particularly vulnerable. In multi-tenant environments, this vulnerability could allow an attacker to compromise all tenants managed by the phpMyFAQ instance.
+Successful exploitation of this vulnerability allows a low-privilege administrator to gain SuperAdmin access, leading to a complete compromise of the phpMyFAQ instance. This could result in unauthorized data access, modification, or deletion, as well as the potential for further malicious activities within the affected system. This vulnerability affects phpMyFAQ installations prior to version 4.1.3.
 
 ## Recommendation
 
-*   Upgrade phpMyFAQ to version 4.1.3 or later to patch the IDOR vulnerability.
-*   Implement the Sigma rule `Detect phpMyFAQ Admin Password Overwrite` to detect potential exploitation attempts (see below).
-*   Review and restrict admin privileges based on the principle of least privilege to limit the impact of potential account compromises.
-*   Enable multi-factor authentication for all admin accounts to further mitigate the risk of unauthorized access.
+*   Upgrade phpMyFAQ to version 4.1.3 or later to patch CVE-2026-35671.
+*   Deploy the Sigma rules provided below to detect potential exploitation attempts targeting the `overwrite-password` API endpoint.
