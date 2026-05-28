@@ -1,32 +1,37 @@
 ---
-title: phpMyFAQ Authentication Bypass via Default Empty API Token
+title: phpMyFAQ Authentication Bypass via Empty API Token (CVE-2026-35672)
 slug: 2026-05-phpmyfaq-auth-bypass
-description: phpMyFAQ versions 4.1.2 and earlier are vulnerable to an authentication bypass via a default empty API token, allowing unauthenticated users to create and modify FAQ entries, categories, and questions via the REST API.
-date: "2026-05-20T15:47:14Z"
-type: threat
+description: phpMyFAQ before 4.1.3 contains an authentication bypass vulnerability in API v4.0, allowing unauthenticated users to create and modify FAQ entries by sending an empty x-pmf-token header, tracked as CVE-2026-35672.
+date: "2026-05-28T16:18:15Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
 tags:
-  - authentication-bypass
-  - phpmyfaq
-  - rest-api
-  - injection
+  - cve
+  - authentication bypass
+  - web application
+  - phpMyFAQ
 vendors:
   - phpMyFAQ
 products:
-  - phpMyFAQ (<= 4.1.2)
+  - phpMyFAQ
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-35672
+    cvss: 7.5
 references:
-  - https://github.com/advisories/GHSA-gp95-j463-vv28
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-35672
+  - https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-gp95-j463-vv28
+  - https://www.vulncheck.com/advisories/phpmyfaq-authentication-bypass-via-empty-api-token
 rules:
-  - title: Detect phpMyFAQ Authentication Bypass via Empty Token
-    description: Detects phpMyFAQ authentication bypass attempts by monitoring for HTTP requests with an empty `x-pmf-token` header to sensitive API endpoints.
+  - title: Detect phpMyFAQ Authentication Bypass via Empty Token Header
+    description: Detects CVE-2026-35672 exploitation — phpMyFAQ authentication bypass attempts by sending an empty x-pmf-token header to vulnerable API endpoints.
     platform: sigma
     severity: high
     tactics:
@@ -35,39 +40,27 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect phpMyFAQ Faq Modification via Empty Token
-    description: Detects phpMyFAQ Faq modification attempts by monitoring for HTTP requests with an empty `x-pmf-token` header to the Faq update endpoint.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-rules_count: 2
+rules_count: 1
 ---
 
-phpMyFAQ versions 4.1.2 and earlier contain an authentication bypass vulnerability. The issue stems from the default configuration where the `api.apiClientToken` setting is initialized to an empty string during installation. The `hasValidToken()` function fails to properly differentiate between a missing token and an explicitly empty token provided by an attacker. Consequently, by sending an HTTP request with an empty `x-pmf-token` header, an attacker can bypass authentication checks and gain unauthorized access to API endpoints intended for administrative purposes, such as creating and modifying FAQ entries and categories. This vulnerability affects any phpMyFAQ instance running with the default configuration, as the REST API is enabled by default.
+phpMyFAQ, a PHP-based FAQ management system, is vulnerable to an authentication bypass (CVE-2026-35672) affecting versions prior to 4.1.3. This flaw resides within the API v4.0 implementation. The default configuration uses an empty `api.apiClientToken`, which permits unauthenticated users to bypass token validation. An attacker can leverage this by sending HTTP POST requests with an empty `x-pmf-token` header to vulnerable API endpoints, effectively gaining the ability to create and modify FAQ content without proper authorization. This vulnerability was publicly disclosed on May 28, 2026. Exploitation can lead to unauthorized modification of website content, potentially injecting malicious scripts or misinformation.
 
 ## Attack Chain
 
-1. The attacker identifies a phpMyFAQ instance running with the default configuration (API enabled, empty API token).
-2. The attacker crafts an HTTP POST request to `/api/v4.0/faq/create` to create a new FAQ entry.
-3. The attacker includes the `x-pmf-token` header in the request, setting its value to an empty string.
-4. The server-side `hasValidToken()` function evaluates `'' !== ''` as `false`, bypassing the authentication check.
-5. The request proceeds to the `faq/create` endpoint, allowing the attacker to inject arbitrary content into the FAQ database.
-6. The attacker crafts a similar request to `/api/v4.0/category` to create a new category.
-7. The empty `x-pmf-token` header bypasses authentication.
-8. The injected FAQ and category content is now publicly accessible, potentially leading to phishing, SEO spam, or distribution of malicious links.
+1.  Attacker identifies a phpMyFAQ instance running a version prior to 4.1.3.
+2.  Attacker crafts an HTTP POST request targeting one of the vulnerable API endpoints: `/api/v4.0/faq/create`, `/api/v4.0/category`, or `/api/v4.0/question`.
+3.  The POST request includes an `x-pmf-token` header with an empty value.
+4.  The phpMyFAQ server, due to the default empty `api.apiClientToken` configuration, fails to properly validate the token.
+5.  The attacker includes malicious content within the POST request body, such as crafted FAQ entries or category modifications.
+6.  The server processes the POST request, creating or modifying FAQ content based on the attacker's input without authentication.
+7.  The attacker's injected content is now visible on the phpMyFAQ website, potentially leading to further compromise or misinformation.
 
 ## Impact
 
-This authentication bypass vulnerability allows unauthenticated attackers to create and modify content within phpMyFAQ installations running with the default configuration. This impacts organizations that rely on phpMyFAQ as a knowledge base, as attackers can inject malicious or misleading information, leading to potential phishing attacks, SEO spam, reputation damage, and the spread of malicious links. The vulnerability is present in all installations where the administrator has not explicitly set a non-empty API client token, which is the default state after installation, impacting potentially a significant number of deployments.
+Successful exploitation of this vulnerability (CVE-2026-35672) allows unauthenticated attackers to modify FAQ content, potentially injecting malicious scripts or misinformation into the phpMyFAQ instance. This can lead to website defacement, cross-site scripting (XSS) attacks against website visitors, or the spread of false information, damaging the reputation of the organization hosting the FAQ. The impact is high due to the ease of exploitation and the potential for widespread content manipulation.
 
 ## Recommendation
 
-*   Apply available patches or upgrade to a secure version of phpMyFAQ to remediate the vulnerability.
-*   Explicitly set a strong, non-empty value for the `api.apiClientToken` configuration setting to prevent the authentication bypass.
-*   Deploy the Sigma rule "Detect phpMyFAQ Authentication Bypass via Empty Token" to detect exploitation attempts in real-time.
-*   Monitor web server logs for POST requests to `/api/v4.0/faq/create` and `/api/v4.0/category` with an empty `x-pmf-token` header to identify potential exploitation attempts.
+*   Upgrade phpMyFAQ to version 4.1.3 or later to patch the authentication bypass vulnerability (CVE-2026-35672).
+*   Deploy the Sigma rule `Detect phpMyFAQ Authentication Bypass via Empty Token Header` to identify exploitation attempts targeting the vulnerable API endpoints.
+*   Monitor web server logs for POST requests to `/api/v4.0/faq/create`, `/api/v4.0/category`, and `/api/v4.0/question` with empty `x-pmf-token` headers.
