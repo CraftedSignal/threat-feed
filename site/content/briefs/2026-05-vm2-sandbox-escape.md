@@ -1,8 +1,8 @@
 ---
-title: vm2 Sandbox Escape Vulnerability (CVE-2026-47131)
+title: VM2 Sandbox Escape via JSPI Promise .finally() Species Bypass (CVE-2026-47210)
 slug: 2026-05-vm2-sandbox-escape
-description: A sandbox escape vulnerability exists in vm2 versions 3.11.3 and earlier, allowing attackers to execute arbitrary code on the host system by manipulating the prototype chain and exploiting Node.js error handling.
-date: "2026-05-29T17:34:43Z"
+description: A sandbox escape vulnerability, CVE-2026-47210, in `vm2` allows arbitrary code execution in the host process when untrusted code is executed with async support on runtimes exposing WebAssembly JSPI, bypassing Promise-species hardening and exposing a host-originated rejection object to attacker-controlled species logic.
+date: "2026-05-29T17:51:55Z"
 type: advisory
 types:
   - advisory
@@ -11,71 +11,69 @@ severities:
 tags:
   - sandbox-escape
   - rce
-  - javascript
-vendors:
   - vm2
+vendors:
+  - npm
 products:
   - vm2 (<= 3.11.3)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1202
+    technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1202
-    technique_name: Exploitation for Privilege Escalation
+    technique_name: Indirect Command Execution
 references:
-  - https://github.com/advisories/GHSA-v6mx-mf47-r5wg
-  - CVE-2026-47131
+  - https://github.com/advisories/GHSA-6j2x-vhqr-qr7q
+  - CVE-2026-47210
 rules:
-  - title: Detect vm2 Sandbox Escape - Process Creation
-    description: Detects CVE-2026-47131 exploitation — creation of suspicious processes by node.js after sandbox escape
+  - title: Detect Suspicious Child Process from Node.js
+    description: Detects unusual child processes spawned from Node.js processes, potentially indicating command execution after a vm2 sandbox escape.
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
       - execution
+    techniques:
+      - T1202
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect vm2 WebAssembly Promise .finally()
+    description: Detects vm2 activity involving WebAssembly, Promises, and the .finally() method, indicating potential exploitation of CVE-2026-47210.
+    platform: sigma
+    severity: medium
+    tactics:
       - privilege_escalation
     techniques:
       - T1202
     data_sources:
       - process_creation
       - windows
-  - title: Detect vm2 Sandbox Escape - WASM CompileStreaming Error
-    description: Detects CVE-2026-47131 exploitation — WASM compile streaming error followed by prototype manipulation attempts in node.js
-    platform: sigma
-    severity: high
-    tactics:
-      - execution
-      - privilege_escalation
-    techniques:
-      - T1202
-    data_sources:
-      - process_creation
-      - linux
 rules_count: 2
 ---
 
-A critical sandbox escape vulnerability, tracked as CVE-2026-47131, has been identified in vm2, a popular Node.js sandbox environment. This flaw allows malicious code executed within the vm2 sandbox to break out and execute arbitrary commands on the host system. The vulnerability stems from the ability to manipulate JavaScript prototypes within the sandbox, specifically targeting the `Buffer` object and Node.js's error handling mechanisms. The exploit leverages the combination of `Buffer.call.call({}.__lookupGetter__, Buffer, "__proto__")`, `Buffer.call.call({}.__lookupSetter__, Buffer, "__proto__")`, and the `ERR_INVALID_ARG_TYPE` error to gain access to the host's `TypeError` constructor, ultimately leading to code execution outside the sandbox. This vulnerability impacts vm2 versions 3.11.3 and earlier.
+A critical sandbox escape vulnerability exists in `vm2` (versions 3.11.3 and earlier) that allows for arbitrary code execution on the host system. This vulnerability, assigned CVE-2026-47210, occurs when `vm2` is used with Node.js runtimes (specifically Node 26) that expose WebAssembly JSPI features (`WebAssembly.promising` / `WebAssembly.Suspending`). By exploiting the interaction between JSPI-backed Promises and the `.finally()` method, an attacker can bypass the intended sandbox protection and gain access to the host process. This bypass exposes a host-originated TypeError during JSPI processing which exposes a usable host constructor chain within attacker-controlled species logic. This can lead to full compromise of services relying on `vm2` isolation.
 
 ## Attack Chain
 
-1.  The attacker injects malicious JavaScript code into the vm2 sandbox.
-2.  The injected code uses `Buffer.call.call({}.__lookupGetter__, Buffer, "__proto__")` to obtain the prototype getter of the `Buffer` object.
-3.  The injected code uses `Buffer.call.call({}.__lookupSetter__, Buffer, "__proto__")` to obtain the prototype setter of the `Buffer` object.
-4.  The code triggers a `TypeError` by attempting an invalid WebAssembly compilation via `WebAssembly.compileStreaming()`.
-5.  The prototype of the `TypeError` object is then manipulated using the previously obtained getter and setter methods.
-6.  A second attempt to compile invalid WebAssembly triggers another `TypeError`.
-7.  The constructor of this second `TypeError` is used to access the `HostFunction` constructor.
-8.  The `HostFunction` constructor is used to create a function that returns the `process` object, which is then used to execute arbitrary commands on the host system, bypassing the sandbox.
+1.  Attacker provides untrusted JavaScript code to the `vm2` sandbox environment.
+2.  The JavaScript code leverages WebAssembly JSPI features, specifically `WebAssembly.promising` and `WebAssembly.Suspending`, to create JSPI-backed Promises.
+3.  The attacker manipulates the JSPI-backed Promise to reach the `Promise.prototype.finally()` method.
+4.  The `finally()` method is triggered, leading to execution of attacker-controlled species logic.
+5.  A host-originated `TypeError` is generated during JSPI processing due to the Promise rejection.
+6.  The rejection object from the TypeError exposes a host constructor chain to the attacker.
+7.  The attacker utilizes the host constructor chain to gain access to the host `process` object.
+8.  The attacker leverages the `process` object (e.g., `process.mainModule.require('child_process').execSync`) to execute arbitrary commands on the host system, escaping the sandbox.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows attackers to execute arbitrary code on the host system running the vm2 sandbox. This could lead to complete system compromise, data theft, or denial of service. Given the widespread use of vm2 in various applications, including CI/CD pipelines and online code execution environments, this vulnerability poses a significant risk. The vulnerability affects all users of vm2 versions 3.11.3 and earlier.
+This vulnerability allows for a complete sandbox escape, leading to arbitrary code execution in the host process. This poses a significant risk to applications relying on `vm2` for security isolation. Successful exploitation can result in arbitrary command execution, unauthorized file access (read/write), theft of sensitive data (secrets, tokens, credentials), and full compromise of services utilizing `vm2`. This issue affects applications using `vm2` to execute untrusted JavaScript, especially those running on Node.js 26.
 
 ## Recommendation
 
-*   Upgrade vm2 to a version greater than 3.11.3 to patch CVE-2026-47131.
-*   Monitor for suspicious process creation events originating from Node.js processes to detect potential exploitation attempts using the Sigma rule "Detect vm2 Sandbox Escape - Process Creation".
-*   Implement strict input validation and sanitization to prevent the injection of malicious JavaScript code into the vm2 sandbox.
-*   Review and restrict the use of `WebAssembly.compileStreaming()` to prevent abuse, as demonstrated in the PoC.
+*   Upgrade `vm2` to a version greater than 3.11.3 to patch CVE-2026-47210.
+*   Apply the following rules to detect potential exploitation attempts targeting `vm2` sandboxes.
+*   Monitor process creation events for unexpected child processes spawned from Node.js processes, especially if they involve command execution (Rule: "Detect Suspicious Child Process from Node.js").
+*   Monitor `vm2` for suspicious activity related to WebAssembly and Promise handling (Rule: "Detect vm2 WebAssembly Promise .finally()").
