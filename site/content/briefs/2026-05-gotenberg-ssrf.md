@@ -1,82 +1,81 @@
 ---
-title: Gotenberg SSRF via Chromium URL Endpoint with Redirect Bypass
+title: Gotenberg SSRF via IPv6 Address Confusion (CVE-2026-45741)
 slug: 2026-05-gotenberg-ssrf
-description: Gotenberg's Chromium URL-to-PDF conversion endpoint is vulnerable to SSRF due to a lack of default protection against HTTP/HTTPS-based requests, allowing attackers to target internal IPs and cloud metadata endpoints, which can be bypassed via HTTP redirects.
-date: "2026-05-11T13:51:35Z"
+description: Gotenberg's `IsPublicIP` function incorrectly classifies IPv6 6to4, NAT64, and deprecated site-local addresses as public IPs, enabling an unauthenticated attacker to reach internal destinations such as cloud metadata services.
+date: "2026-05-29T16:52:16Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:lfprojects:mcp_registry:*:*:*:*:*:*:*:*
 tags:
   - ssrf
   - gotenberg
-  - cve-2026-42595
-  - cloud-metadata
+  - ipv6
+  - cve-2026-45741
 vendors:
   - GitHub
 products:
-  - Gotenberg/v8 (< 8.32.0)
+  - gotenberg/gotenberg/v8
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1199
-    technique_name: Server-Side Request Forgery
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-44430
+    cvss: 4
+    epss: 0.00027
 references:
-  - https://github.com/advisories/GHSA-chwh-f6gm-r836
-  - https://github.com/advisories/GHSA-pjrr-jgp4-v2fm
-  - https://github.com/advisories/GHSA-pcrp-7g9h-7qhp
-iocs:
-  - type: ip
-    value: 169.254.169.254
-ioc_counts:
-  ip: 1
+  - https://github.com/advisories/GHSA-86m8-88fq-xfxp
 rules:
-  - title: Detect Gotenberg SSRF via Chromium URL Endpoint
-    description: Detects CVE-2026-42595 exploitation — SSRF attempts via Gotenberg's Chromium URL endpoint by monitoring HTTP POST requests with suspicious URLs.
+  - title: Detect Gotenberg SSRF Attempt via IPv6 Prefixes
+    description: Detects CVE-2026-45741 exploitation — Outbound HTTP requests to specific IPv4 addresses embedded in IPv6 prefixes known to bypass Gotenberg's private IP protection.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
-      - T1199
+      - T1190
     data_sources:
-      - webserver
-  - title: Detect Gotenberg SSRF Redirect Bypass
-    description: Detects Gotenberg SSRF redirect bypass attempts by monitoring for connections to potential redirect servers.
+      - network_connection
+      - windows
+  - title: Detect Gotenberg SSRF Attempt via IPv6 Prefixes (Process Creation)
+    description: Detects CVE-2026-45741 exploitation — Process creation with command line arguments that may trigger SSRF via IPv6 prefixes.
     platform: sigma
     severity: medium
     tactics:
       - initial_access
     techniques:
-      - T1199
+      - T1190
     data_sources:
-      - network_connection
-      - linux
+      - process_creation
+      - windows
 rules_count: 2
 ---
 
-A server-side request forgery (SSRF) vulnerability exists in Gotenberg, an open-source PDF conversion tool. Specifically, the Chromium URL-to-PDF conversion endpoint (`/forms/chromium/convert/url`) lacks default protection against HTTP/HTTPS-based SSRF, while the default deny-list only blocks `file://` URIs. This allows unauthenticated attackers to target internal IPs, RFC 1918 ranges, and cloud metadata endpoints, receiving the response rendered as a PDF. Furthermore, even when operators configure a custom deny-list, the protection is bypassed via HTTP redirects. The Gotenberg instance follows `302` redirects from attacker-controlled external URLs to internal targets without re-validating the redirect destination against the deny-list. Version 8.30.1 of Gotenberg is confirmed to be vulnerable.
+A vulnerability exists in Gotenberg version 8 up to 8.32.0 where the `IsPublicIP` function within `pkg/gotenberg/outbound.go` fails to properly classify certain IPv6 addresses, specifically those using 6to4 (RFC 3056), NAT64 (RFC 6052 & RFC 8215), and deprecated site-local (RFC 3879) prefixes. Due to this misclassification, addresses intended for internal or private networks are incorrectly treated as public. This flaw allows an unauthenticated attacker to bypass intended restrictions and potentially access sensitive internal resources. The vulnerability is a variant of CVE-2026-44430 and has been assigned CVE-2026-45741. This poses a risk to deployments that rely on `WithDenyPrivateIPs(true)` to prevent access to internal IPs, particularly when hosted in dual-stack or NAT64-enabled cloud environments.
 
 ## Attack Chain
 
-1.  The attacker identifies a Gotenberg instance accessible over the network, which requires no authentication by default.
-2.  The attacker crafts a malicious HTTP POST request to the `/forms/chromium/convert/url` endpoint.
-3.  The POST request includes a `url` parameter pointing to an internal resource (e.g., `http://127.0.0.1:3000/health` or `http://169.254.169.254/latest/meta-data/`).
-4.  Alternatively, the POST request includes a `url` parameter pointing to an external redirect server (e.g., `http://172.17.0.1:9999/`).
-5.  If using a redirect, the external server responds with a `302` redirect to an internal target (e.g., `http://127.0.0.1:3000/health`).
-6.  The Gotenberg server, using a headless Chromium instance, fetches the URL (or follows the redirect) without proper validation.
-7.  The response from the internal resource is rendered as a PDF document.
-8.  The PDF document containing the sensitive information is returned to the attacker. The attacker exfiltrates the data.
+1. An attacker crafts a DNS AAAA record that resolves to an IPv6 address using a 6to4, NAT64, or site-local prefix (e.g., `2002:a9fe:a9fe::`).
+2. The attacker sends a request to Gotenberg, specifying a URL with a hostname that resolves to the crafted IPv6 address.
+3. Gotenberg's `IsPublicIP` function is called to validate the IP address.
+4. The `IsPublicIP` function fails to recognize the IPv6 prefix as internal due to inadequate checks beyond `addr.Unmap()`.
+5. The function incorrectly classifies the IPv6 address as a public IP.
+6. Gotenberg proceeds to make an outbound HTTP request to the internal IPv4 address embedded within the IPv6 address (e.g., `169.254.169.254`).
+7. The target service (e.g., AWS IMDS) responds with sensitive data such as IAM credentials.
+8. The Chromium URL convert route within Gotenberg returns the full response as a PDF, exfiltrating the sensitive data to the attacker (full-read SSRF).
 
 ## Impact
 
-Successful exploitation allows an attacker to make the Gotenberg server fetch arbitrary internal resources and receive the rendered content as a PDF. This can lead to cloud credential theft by accessing cloud metadata endpoints, internal service access by reaching admin panels or databases, and internal port scanning. The redirect bypass further exacerbates the risk, rendering custom deny-lists ineffective. This vulnerability affects Gotenberg deployments that have broad internal network access.
+This SSRF vulnerability allows an unauthenticated attacker to access internal resources, such as cloud metadata services (AWS IMDS, GCP metadata server, Azure Instance Metadata Service), and potentially leak sensitive information, including IAM credentials. This can lead to privilege escalation, data breaches, and unauthorized access to cloud resources. The vulnerability affects Gotenberg deployments configured to deny private IPs (`WithDenyPrivateIPs(true)`) and hosted in dual-stack or NAT64-enabled environments.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect Gotenberg SSRF via Chromium URL Endpoint` to identify attempts to exploit this vulnerability by monitoring for HTTP POST requests to the `/forms/chromium/convert/url` endpoint with potentially malicious URLs.
-*   Deploy the Sigma rule `Detect Gotenberg SSRF Redirect Bypass` to detect connections to external redirect servers that may be used to bypass SSRF protections.
-*   Upgrade Gotenberg to version 8.32.0 or later to patch CVE-2026-42595.
-*   Implement network segmentation to limit the Gotenberg instance's access to internal resources, mitigating the impact of a successful SSRF attack.
-*   Configure a custom deny-list on the Chromium URL endpoint to explicitly block access to internal IPs, RFC 1918 ranges, and cloud metadata endpoints.
+*   Apply the patch or upgrade to a version of Gotenberg greater than 8.32.0 that includes the fix for CVE-2026-45741 to mitigate the IPv6 address misclassification.
+*   Deploy the Sigma rule "Detect Gotenberg SSRF Attempt via IPv6 Prefixes" to detect attempts to exploit this vulnerability by monitoring outbound requests to known internal IP ranges via IPv6 addresses with the specified prefixes.
+*   Review and harden network configurations to prevent or limit the impact of successful SSRF attacks, even if the application-level vulnerability is present.
+*   Implement network segmentation to limit the blast radius of any potential SSRF attack and restrict access to sensitive internal resources.
