@@ -1,8 +1,8 @@
 ---
-title: Amazon Redshift JDBC Driver RCE via Unsafe Class Loading (CVE-2026-8178)
+title: Amazon Redshift Python Driver Remote Code Execution via eval() Injection (CVE-2026-8838)
 slug: 2026-05-redshift-rce
-description: A remote code execution vulnerability exists in Amazon Redshift JDBC Driver versions prior to 2.2.2 due to unsafe class loading via connection URL parameters, potentially leading to arbitrary code execution within the application's JVM process.
-date: "2026-05-14T13:12:31Z"
+description: The amazon-redshift-python-driver versions 2.1.13 and earlier is vulnerable to remote code execution (CVE-2026-8838) due to insufficient validation of server data during query result processing, potentially allowing a rogue server or man-in-the-middle to execute arbitrary code on the client.
+date: "2026-05-29T19:33:17Z"
 type: advisory
 types:
   - advisory
@@ -10,72 +10,77 @@ severities:
   - critical
 tags:
   - rce
-  - jdbc
   - redshift
-  - cve-2026-8178
+  - python
+  - injection
 vendors:
   - Amazon
 products:
-  - Redshift JDBC Driver
+  - redshift-connector
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1218
-    technique_name: System Binary Proxy Execution
+    technique_id: T1059.005
+    technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-8178
-    cvss: 8.1
-    epss: 0.00066
+  - id: CVE-2026-8838
+    cvss: 9.8
+    epss: 0.00076
 references:
-  - https://github.com/advisories/GHSA-wmmv-vvg5-993q
-  - https://github.com/aws/amazon-redshift-jdbc-driver/releases/tag/v2.2.2
-  - https://aws.amazon.com/security/vulnerability-reporting
+  - https://github.com/advisories/GHSA-29h4-r29x-hchv
+  - CVE-2026-8838
+iocs:
+  - type: email
+    value: aws-security@amazon.com
+ioc_counts:
+  email: 1
 rules:
-  - title: Detect JDBC Connection String with Suspicious Parameters
-    description: Detects JDBC connection strings containing suspicious parameters indicative of CVE-2026-8178 exploitation attempts.
+  - title: Detect Suspicious Redshift Connection via Unrecognized Client Drivers
+    description: Detects suspicious connections to Redshift based on unusual or unrecognized client drivers by inspecting the user-agent string of network connections. This can help identify clients running vulnerable driver versions or rogue connections.
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - network_connection
+      - windows
+  - title: Detect Python Script Invoking Eval Function with Network Data
+    description: Detects Python scripts using the `eval` function with arguments derived from network operations, a potential indicator of code injection vulnerabilities like CVE-2026-8838.
     platform: sigma
     severity: high
     tactics:
       - execution
     techniques:
-      - T1218
-    data_sources:
-      - process_creation
-      - windows
-  - title: Detect Suspicious Class Loading in Java Processes
-    description: Detects suspicious class loading activities within Java processes, which could indicate exploitation of vulnerabilities like CVE-2026-8178.
-    platform: sigma
-    severity: medium
-    tactics:
-      - execution
-    techniques:
-      - T1218
+      - T1059.005
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-The Amazon Redshift JDBC Driver, a Type 4 driver facilitating database connectivity, is susceptible to a critical remote code execution (RCE) vulnerability. Specifically, versions prior to 2.2.2 are affected by an unsafe class loading issue. This flaw arises during the processing of certain connection URL parameters, where the driver may load arbitrary classes. A malicious actor capable of influencing the JDBC connection URL can exploit this vulnerability to execute arbitrary code within the context of the application's JVM process. This vulnerability was reported and patched in May 2026. Successful exploitation grants the attacker the ability to read sensitive data, modify the application's state, or disrupt the service, all with the privileges of the compromised application process. This issue is tracked as CVE-2026-8178.
+The amazon-redshift-python-driver, the official Python connector for Amazon Redshift, is susceptible to a critical vulnerability (CVE-2026-8838) stemming from inadequate input validation. Specifically, versions 2.1.13 and earlier fail to properly validate data received from the server during query result processing. This flaw allows a malicious actor operating a rogue server or positioned as a man-in-the-middle to inject arbitrary code into the client process. Successful exploitation leads to arbitrary code execution within the client application's security context. Amazon Redshift addressed this vulnerability in version 2.1.14. It is strongly recommended to upgrade immediately and ensure that any forked or derived codebases are also patched.
 
 ## Attack Chain
 
-1. An attacker identifies an application utilizing the vulnerable Amazon Redshift JDBC Driver (versions prior to 2.2.2).
-2. The attacker gains the ability to influence the JDBC connection URL used by the application. This might be achieved through methods such as exploiting a separate vulnerability in the application or through social engineering.
-3. The attacker crafts a malicious JDBC connection URL containing specific parameters designed to trigger the unsafe class loading. This crafted URL points to a malicious class available on the application's classpath.
-4. The application attempts to establish a database connection using the attacker-controlled JDBC URL.
-5. The vulnerable driver processes the malicious URL, leading to the loading and instantiation of the attacker-specified class.
-6. The attacker-supplied class executes arbitrary code within the application's JVM process.
-7. The attacker gains control of the application, allowing them to perform actions such as reading sensitive data, modifying application state, or disrupting service availability.
-8. The attacker maintains persistence and expands their access within the compromised environment.
+1.  Attacker sets up a rogue PostgreSQL server or intercepts traffic to an existing Redshift server (Man-in-the-Middle).
+2.  Victim's client application, using amazon-redshift-python-driver <= 2.1.13, initiates a connection to the attacker-controlled server.
+3.  The attacker's server responds with a specially crafted query response.
+4.  The vulnerable driver processes this response without proper validation, specifically when using the `eval()` function on unvalidated server data.
+5.  The injected code is executed within the context of the `eval()` function call inside the driver's code.
+6.  The attacker gains arbitrary code execution on the client machine, potentially escalating privileges if the client application has elevated permissions.
+7.  Attacker leverages code execution to perform malicious actions such as command execution, file system access, or credential theft.
+8.  The attacker can then use stolen credentials to gain further access to the victim's environment or exfiltrate sensitive data.
 
 ## Impact
 
-Successful exploitation of CVE-2026-8178 can result in a complete compromise of the application using the vulnerable Amazon Redshift JDBC driver. An attacker could gain unauthorized access to sensitive data, including database credentials and application secrets. They could also modify application logic, inject malicious code, or cause a denial-of-service condition, severely impacting business operations and potentially leading to significant financial losses. The severity is rated critical due to the potential for unauthenticated remote code execution.
+Successful exploitation of CVE-2026-8838 can lead to complete compromise of the client machine running the vulnerable amazon-redshift-python-driver. The attacker could gain access to sensitive data, including Redshift credentials, and execute arbitrary commands. The number of potential victims is dependent on the number of client applications utilizing the vulnerable driver version. Industries relying heavily on data warehousing and analytics, such as finance, healthcare, and e-commerce, are particularly at risk. If the attack succeeds, attackers can steal sensitive business data, disrupt operations, and cause significant financial and reputational damage.
 
 ## Recommendation
 
-*   Immediately upgrade the Amazon Redshift JDBC Driver to version 2.2.2 or later to remediate CVE-2026-8178.
-*   Deploy the Sigma rule "Detect JDBC Connection String with Suspicious Parameters" to identify attempts to exploit this vulnerability (see rules section).
-*   Review and restrict access to JDBC connection string parameters to prevent unauthorized modification by untrusted sources.
-*   Monitor application logs for unusual class loading activities that may indicate exploitation attempts.
+*   Upgrade the amazon-redshift-python-driver to version 2.1.14 or later to remediate CVE-2026-8838.
+*   Deploy the Sigma rule "Detect Suspicious Redshift Connection via Unrecognized Client Drivers" to identify potentially vulnerable client connections based on user-agent strings in network connections.
+*   Monitor network traffic for connections to unusual or untrusted PostgreSQL servers, as this is the initial stage of the attack chain.
+*   Implement strong input validation and sanitization measures in applications that process data received from Redshift to prevent future eval() injection vulnerabilities.
+*   Block connections to known malicious IP addresses related to past PostgreSQL attacks using IOCs from external threat feeds.
