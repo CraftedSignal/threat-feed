@@ -1,8 +1,8 @@
 ---
-title: vm2 Sandbox Escape via Prototype Pollution
+title: vm2 Sandbox Escape Vulnerability (CVE-2026-47131)
 slug: 2026-05-vm2-sandbox-escape
-description: A vulnerability in vm2 versions 3.9.6 through 3.10.5 allows attacker-controlled JavaScript running in a default VM or inherited NodeVM to mutate shared host prototypes from inside the sandbox, leading to sandbox escape and prototype pollution.
-date: "2026-05-07T04:07:05Z"
+description: A sandbox escape vulnerability exists in vm2 versions 3.11.3 and earlier, allowing attackers to execute arbitrary code on the host system by manipulating the prototype chain and exploiting Node.js error handling.
+date: "2026-05-29T17:34:43Z"
 type: advisory
 types:
   - advisory
@@ -10,69 +10,72 @@ severities:
   - critical
 tags:
   - sandbox-escape
-  - prototype-pollution
+  - rce
   - javascript
+vendors:
+  - vm2
 products:
-  - vm2 (3.9.6 - 3.10.5)
+  - vm2 (<= 3.11.3)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1068
+    technique_id: T1202
     technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1068
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1202
     technique_name: Exploitation for Privilege Escalation
 references:
-  - https://github.com/advisories/GHSA-vwrp-x96c-mhwq
+  - https://github.com/advisories/GHSA-v6mx-mf47-r5wg
+  - CVE-2026-47131
 rules:
-  - title: Detect VM2 Prototype Access
-    description: Detects attempts to access the __proto__ property within a vm2 sandbox, which may indicate a prototype pollution attack.
-    platform: sigma
-    severity: high
-    tactics:
-      - defense_evasion
-      - privilege_escalation
-    techniques:
-      - T1068
-    data_sources:
-      - process_creation
-      - linux
-  - title: Detect VM2 Prototype Modification
-    description: Detects modifications to the Object.prototype, Array.prototype, or Function.prototype within a vm2 sandbox.
+  - title: Detect vm2 Sandbox Escape - Process Creation
+    description: Detects CVE-2026-47131 exploitation — creation of suspicious processes by node.js after sandbox escape
     platform: sigma
     severity: critical
     tactics:
-      - defense_evasion
+      - execution
       - privilege_escalation
     techniques:
-      - T1068
+      - T1202
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect vm2 Sandbox Escape - WASM CompileStreaming Error
+    description: Detects CVE-2026-47131 exploitation — WASM compile streaming error followed by prototype manipulation attempts in node.js
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+      - privilege_escalation
+    techniques:
+      - T1202
     data_sources:
       - process_creation
       - linux
 rules_count: 2
 ---
 
-The vm2 library, a popular sandbox environment for Node.js, is vulnerable to a prototype pollution attack. Versions 3.9.6 through 3.10.5 are affected. This vulnerability allows malicious JavaScript code running within the vm2 sandbox to escape the sandbox and modify the prototypes of core JavaScript objects (Object, Array, Function) in the host environment. This is possible due to the library's bridge implementation, which exposes mutable proxies for host-realm intrinsic prototypes, and forwards sandbox writes into the underlying host objects. The vulnerability, identified as CVE-2026-44005, poses a significant risk to applications relying on vm2 for secure code execution, as it can lead to arbitrary code execution in the host environment.
+A critical sandbox escape vulnerability, tracked as CVE-2026-47131, has been identified in vm2, a popular Node.js sandbox environment. This flaw allows malicious code executed within the vm2 sandbox to break out and execute arbitrary commands on the host system. The vulnerability stems from the ability to manipulate JavaScript prototypes within the sandbox, specifically targeting the `Buffer` object and Node.js's error handling mechanisms. The exploit leverages the combination of `Buffer.call.call({}.__lookupGetter__, Buffer, "__proto__")`, `Buffer.call.call({}.__lookupSetter__, Buffer, "__proto__")`, and the `ERR_INVALID_ARG_TYPE` error to gain access to the host's `TypeError` constructor, ultimately leading to code execution outside the sandbox. This vulnerability impacts vm2 versions 3.11.3 and earlier.
 
 ## Attack Chain
 
-1. Attacker provides malicious JavaScript code to the vm2 sandbox environment.
-2. The malicious code uses `__lookupGetter__` to access the `__proto__` property of a sandboxed object.
-3. The `BaseHandler.get()` function in `lib/bridge.js` returns the host-side descriptor or proxy target prototype for `__proto__`.
-4. The attacker abuses the host `__lookupGetter__('__proto__')` accessor repeatedly, walking up the prototype chain.
-5. This walk eventually leads to a proxy of a host intrinsic prototype, such as `Object.prototype`, `Array.prototype`, or `Function.prototype`.
-6. The malicious code uses `BaseHandler.set()` or `BaseHandler.defineProperty()` to write attacker-controlled data into the host intrinsic prototype.
-7. `otherReflectSet` or `otherReflectDefineProperty` then propagates the changes to the host environment, bypassing the sandbox.
-8. Successful prototype pollution allows the attacker to execute arbitrary code in the host environment, escaping the vm2 sandbox.
+1.  The attacker injects malicious JavaScript code into the vm2 sandbox.
+2.  The injected code uses `Buffer.call.call({}.__lookupGetter__, Buffer, "__proto__")` to obtain the prototype getter of the `Buffer` object.
+3.  The injected code uses `Buffer.call.call({}.__lookupSetter__, Buffer, "__proto__")` to obtain the prototype setter of the `Buffer` object.
+4.  The code triggers a `TypeError` by attempting an invalid WebAssembly compilation via `WebAssembly.compileStreaming()`.
+5.  The prototype of the `TypeError` object is then manipulated using the previously obtained getter and setter methods.
+6.  A second attempt to compile invalid WebAssembly triggers another `TypeError`.
+7.  The constructor of this second `TypeError` is used to access the `HostFunction` constructor.
+8.  The `HostFunction` constructor is used to create a function that returns the `process` object, which is then used to execute arbitrary commands on the host system, bypassing the sandbox.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to escape the vm2 sandbox and pollute the prototypes of core JavaScript objects in the host environment. This can lead to a variety of consequences, including arbitrary code execution in the host process. This vulnerability affects applications using vm2 versions 3.9.6 through 3.10.5, potentially impacting a wide range of systems that rely on sandboxed JavaScript execution. The prototype pollution can compromise the integrity and security of the host application.
+Successful exploitation of this vulnerability allows attackers to execute arbitrary code on the host system running the vm2 sandbox. This could lead to complete system compromise, data theft, or denial of service. Given the widespread use of vm2 in various applications, including CI/CD pipelines and online code execution environments, this vulnerability poses a significant risk. The vulnerability affects all users of vm2 versions 3.11.3 and earlier.
 
 ## Recommendation
 
-*   Upgrade to a patched version of vm2 that addresses CVE-2026-44005.
-*   Monitor for attempts to access `__proto__` via `__lookupGetter__` within vm2 sandboxes using the `Detect VM2 Prototype Access` Sigma rule.
-*   Implement additional input validation and sanitization to prevent malicious JavaScript code from being executed in the vm2 sandbox.
-*   Consider alternative sandboxing solutions or code review practices to mitigate the risk of sandbox escape vulnerabilities.
+*   Upgrade vm2 to a version greater than 3.11.3 to patch CVE-2026-47131.
+*   Monitor for suspicious process creation events originating from Node.js processes to detect potential exploitation attempts using the Sigma rule "Detect vm2 Sandbox Escape - Process Creation".
+*   Implement strict input validation and sanitization to prevent the injection of malicious JavaScript code into the vm2 sandbox.
+*   Review and restrict the use of `WebAssembly.compileStreaming()` to prevent abuse, as demonstrated in the PoC.
