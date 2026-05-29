@@ -1,0 +1,84 @@
+---
+title: External User Added to Google Workspace Group
+slug: 2026-05-external-user-added-to-google-workspace-group
+description: Detects an external Google Workspace user account being added to an existing group, potentially allowing adversaries to intercept shared files or emails.
+date: "2026-05-29T15:14:51Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+tags:
+  - google_workspace
+  - initial_access
+  - persistence
+  - cloud
+vendors:
+  - Google
+products:
+  - Google Workspace
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1098
+    technique_name: Account Manipulation
+references:
+  - https://support.google.com/a/answer/33329
+  - https://www.elastic.co/security-labs/google-workspace-attack-surface-part-one
+  - https://www.elastic.co/security-labs/google-workspace-attack-surface-part-two
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/google_workspace/initial_access_external_user_added_to_google_workspace_group.toml
+rules:
+  - title: Detect External User Added to Google Workspace Group
+    description: Detects when an external user is added to a Google Workspace group, which could indicate unauthorized access or data interception.
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial_access
+      - persistence
+    techniques:
+      - T1078.004
+      - T1098
+    data_sources:
+      - webserver
+  - title: Detect ADD_GROUP_MEMBER event with external target domain
+    description: Detects event.action ADD_GROUP_MEMBER with user.target.domain not ending with group.domain in Google Workspace admin logs
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial_access
+      - persistence
+    techniques:
+      - T1078.004
+      - T1098
+    data_sources:
+      - webserver
+rules_count: 2
+---
+
+This detection rule identifies instances where an external user account is added to an existing Google Workspace group within an organization. Adversaries may leverage this technique to gain unauthorized access to shared resources, intercept sensitive communications, or potentially weaponize documents shared with editorial privileges for further intrusion. The rule focuses on identifying scenarios where the domain name of the user being added does not match the Google Workspace domain of the target organization, indicating an external user account. This activity can be indicative of initial access or persistence attempts by malicious actors seeking to compromise an organization's Google Workspace environment. The rule is designed to run every 10 minutes with a lookback time of 130 minutes, accounting for potential lag times in Google Workspace event logs.
+
+## Attack Chain
+
+1.  **Initial Compromise:** An attacker compromises a legitimate user account within the organization or uses social engineering to trick an administrator.
+2.  **Privilege Escalation (if needed):** The attacker may attempt to escalate privileges to gain the necessary permissions to add users to Google Workspace groups.
+3.  **Target Group Selection:** The attacker identifies a Google Workspace group containing valuable information or critical communications.
+4.  **External Account Creation:** The attacker creates an external Google account (e.g., a @gmail.com account) or uses a pre-existing one.
+5.  **Group Membership Modification:** The attacker adds the external account to the selected Google Workspace group using the compromised or tricked admin account.
+6.  **Data Interception:** The external account now receives all communications and has access to resources shared with the group, allowing the attacker to intercept data.
+7.  **Lateral Movement/Further Exploitation:** The attacker uses the intercepted data to gain further access to the organization's systems, launch further attacks, or exfiltrate sensitive information.
+
+## Impact
+
+A successful attack can lead to unauthorized access to sensitive data shared within the Google Workspace group, including confidential documents, internal communications, and proprietary information. This can result in data breaches, financial losses, reputational damage, and potential legal liabilities. The compromise can also serve as a stepping stone for further attacks, such as lateral movement within the organization's network or the deployment of malware. The severity depends on the sensitivity of the data shared within the compromised group.
+
+## Recommendation
+
+*   Deploy the provided Sigma rule to your SIEM to detect external users being added to Google Workspace groups, and tune the rule based on your environment (see rule titled "Detect External User Added to Google Workspace Group").
+*   Review the permissions assigned to users who have the ability to add members to Google Workspace groups, ensuring that the principle of least privilege is followed.
+*   Investigate any alerts generated by this rule by reviewing the `user.name` or `user.email` and `user.target.email` fields to identify the user who added the external member and the external user added.
+*   Monitor Google Workspace logs for other suspicious activity, such as unauthorized access attempts or unusual changes to group memberships.
+*   Implement security defaults as [provided by Google](https://cloud.google.com/security-command-center/docs/how-to-investigate-threats).
