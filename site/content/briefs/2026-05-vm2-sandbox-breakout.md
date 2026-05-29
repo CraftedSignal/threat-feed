@@ -1,74 +1,73 @@
 ---
-title: VM2 Sandbox Breakout via Async Generator
+title: VM2 Sandbox Breakout Vulnerability via Promise Species Manipulation (CVE-2026-47208)
 slug: 2026-05-vm2-sandbox-breakout
-description: A sandbox breakout vulnerability exists in vm2, tracked as CVE-2026-45411, allowing attackers to execute arbitrary commands on the host system by manipulating async generators to catch host exceptions, leading to remote code execution.
-date: "2026-05-14T21:16:46Z"
+description: VM2 is vulnerable to a sandbox breakout vulnerability (CVE-2026-47208) that allows attackers to execute arbitrary commands on the host system by manipulating Promise species and escaping the sandbox context.
+date: "2026-05-29T17:41:49Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
-cpes:
-  - cpe:2.3:a:vm2_project:vm2:*:*:*:*:*:node.js:*:*
 tags:
+  - vm2
   - sandbox-escape
   - rce
-  - vm2
 vendors:
-  - NPM
+  - npm
 products:
-  - vm2 (<= 3.11.2)
+  - vm2 (<= 3.11.3)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1202
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1202
-    technique_name: Exploitation for Privilege Escalation
-cves:
-  - id: CVE-2026-45411
-    cvss: 9.8
-    epss: 0.00054
+    technique_id: T1218.007
+    technique_name: Signed Binary Proxy Execution
 references:
-  - https://github.com/advisories/GHSA-248r-7h7q-cr24
-  - CVE-2026-45411
+  - https://github.com/advisories/GHSA-76w7-j9cq-rx2j
 rules:
-  - title: Detect VM2 Sandbox Breakout via Async Generator
-    description: Detects CVE-2026-45411 exploitation — Attempts to exploit VM2 sandbox breakout using async generators and exception handling to execute arbitrary code on the host system.
+  - title: Detect VM2 Sandbox Escape via Promise Species Manipulation
+    description: Detects CVE-2026-47208 exploitation — execution of `child_process.execSync` within the vm2 sandbox indicating a sandbox escape attempt.
     platform: sigma
     severity: critical
     tactics:
       - execution
-      - privilege_escalation
     techniques:
-      - T1202
+      - T1218.007
     data_sources:
       - process_creation
       - linux
-rules_count: 1
+  - title: Detect VM2 Sandbox Escape via Promise Species Manipulation (Windows)
+    description: Detects CVE-2026-47208 exploitation — execution of `child_process.execSync` within the vm2 sandbox on Windows, indicating a sandbox escape attempt.
+    platform: sigma
+    severity: critical
+    tactics:
+      - execution
+    techniques:
+      - T1218.007
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
 ---
 
-A critical sandbox breakout vulnerability has been identified in vm2, a popular Node.js sandbox environment. This flaw, identified as CVE-2026-45411, allows malicious code to escape the confines of the vm2 sandbox and execute arbitrary commands on the host system. The vulnerability stems from the improper handling of exceptions within async generators, specifically when using the `yield*` expression. This allows attackers to catch host exceptions and manipulate the execution flow to achieve code execution outside the sandbox. The affected versions are vm2 versions 3.11.2 and earlier. This vulnerability poses a significant risk to applications relying on vm2 for secure code execution, potentially leading to complete system compromise.
+A critical sandbox breakout vulnerability (CVE-2026-47208) has been identified in vm2 versions 3.11.3 and earlier. This flaw allows an attacker with the ability to execute arbitrary code within the vm2 sandbox to escape the sandbox and achieve arbitrary code execution on the host system. The vulnerability arises due to a missing `resetPromiseSpecies` call within the `localPromise` constructor when handling rejected promises, leading to the possibility of injecting a custom promise with a specially crafted reject method. This bypasses the intended security boundaries of the vm2 sandbox.
 
 ## Attack Chain
 
-1. The attacker provides malicious JavaScript code to the vm2 sandbox.
-2. The malicious code defines an async generator function that utilizes the `yield*` expression.
-3. The code triggers a host exception within the sandbox environment.
-4. The exception is caught within the async generator using a specially crafted iterator.
-5. The attacker manipulates the caught exception object to access host objects and functions.
-6. This access is used to bypass the sandbox restrictions.
-7. The attacker gains access to the `child_process` module.
-8. The attacker executes arbitrary commands on the host system using `child_process.execSync()`.
+1.  Attacker gains initial code execution within the vm2 sandbox environment.
+2.  Attacker defines a custom `FakePromise` class with a getter for `Symbol.species` that returns a custom constructor `ct`.
+3.  Attacker defines a function `doCatch` that takes a function `f` as input and creates a new Promise using `Promise.withResolvers()`.
+4.  The custom constructor `ct` is assigned to the `Symbol.species` of the `FakePromise` class within the `doCatch` function. The `ct` constructor defines how the promise will be resolved or rejected, intercepting errors.
+5.  The `FakePromise` constructor is called with a resolver function, allowing the custom reject method in `ct` to get called when a promise is rejected.
+6.  The attacker triggers an error within the sandbox (e.g., a `RangeError` by overflowing the stack). The custom reject method in `ct` intercepts the error, determines if it is a `RangeError` and not a standard Error object, and then executes host commands using `child_process.execSync('touch pwned')`.
+7.  A file named `pwned` is created on the host system, demonstrating successful code execution outside the sandbox.
+8.  The attacker now has arbitrary code execution on the host system.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows attackers to perform Remote Code Execution (RCE) on the host system. This can lead to a complete compromise of the affected system, including data theft, system corruption, and further propagation of malicious activity. Given the popularity of vm2 in sandboxing untrusted JavaScript code, a wide range of applications and systems could be at risk if they are using versions 3.11.2 or earlier.
+Successful exploitation of CVE-2026-47208 allows an attacker to bypass the vm2 sandbox and execute arbitrary code on the host system. This can lead to complete system compromise, data theft, or denial-of-service. The severity is critical due to the ease of exploitation and the potential for widespread impact on applications relying on vm2 for sandboxing untrusted code. The number of victims depends on the adoption of the vulnerable vm2 package.
 
 ## Recommendation
 
-*   Upgrade to vm2 version 3.11.3 or later to patch CVE-2026-45411.
-*   Deploy the Sigma rule "Detect VM2 Sandbox Breakout via Async Generator" to your SIEM to detect potential exploitation attempts.
-*   Implement strict input validation and sanitization to minimize the risk of malicious code being introduced into the vm2 sandbox.
+*   Upgrade to vm2 version 3.11.4 or later to patch CVE-2026-47208.
+*   Deploy the Sigma rule "Detect VM2 Sandbox Escape via Promise Species Manipulation" to detect exploitation attempts by monitoring for the execution of `child_process.execSync` within the vm2 sandbox.
+*   Review and restrict the use of vm2 in environments where untrusted code execution is a significant risk.
