@@ -1,8 +1,8 @@
 ---
-title: AiOPMSD Final 1.0.0 Unauthenticated SQL Injection Vulnerability (CVE-2018-25414)
+title: AiOPMSD Final 1.0.0 Unauthenticated SQL Injection Vulnerability (CVE-2018-25415)
 slug: 2026-05-aiopmsd-sql-injection
-description: AiOPMSD Final 1.0.0 is vulnerable to SQL injection (CVE-2018-25414), allowing unauthenticated attackers to execute arbitrary SQL queries by injecting malicious code through the actor parameter, leading to sensitive data extraction.
-date: "2026-05-30T16:19:41Z"
+description: AiOPMSD Final 1.0.0 is vulnerable to SQL injection (CVE-2018-25415), allowing unauthenticated attackers to execute arbitrary SQL queries by injecting malicious code through the director parameter in GET requests, potentially leading to sensitive data extraction.
+date: "2026-05-30T16:19:55Z"
 type: advisory
 types:
   - advisory
@@ -10,23 +10,27 @@ severities:
   - high
 tags:
   - sql-injection
-  - vulnerability
+  - cve-2018-25415
   - web-application
 products:
-  - AiOPMSD Final
+  - AiOPMSD Final 1.0.0
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2018-25414
+  - id: CVE-2018-25415
     cvss: 8.2
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2018-25414
+  - https://nvd.nist.gov/vuln/detail/CVE-2018-25415
+  - https://aiopmsd.sourceforge.io/
+  - https://sourceforge.net/projects/aiopmsd/files/latest/download
+  - https://www.exploit-db.com/exploits/45690
+  - https://www.vulncheck.com/advisories/aiopmsd-final-sql-injection-via-director-parameter
 rules:
-  - title: Detect CVE-2018-25414 Exploitation — AiOPMSD SQL Injection Attempt
-    description: Detects CVE-2018-25414 exploitation — attempts to exploit the SQL injection vulnerability in AiOPMSD Final 1.0.0 by detecting suspicious GET requests to `actor.php` with potential SQL injection payloads in the `actor` parameter.
+  - title: Detect CVE-2018-25415 Exploitation — SQL Injection via director.php
+    description: Detects CVE-2018-25415 exploitation — HTTP GET request to director.php with suspicious SQL syntax in the director parameter indicating a SQL injection attempt.
     platform: sigma
     severity: high
     tactics:
@@ -35,8 +39,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2018-25414 Exploitation — AiOPMSD SQL Injection - Error Based
-    description: Detects CVE-2018-25414 exploitation — attempts to trigger SQL errors using the actor parameter in AiOPMSD Final 1.0.0.
+  - title: Detect Suspicious SQL Injection Attempts via director.php
+    description: Detects HTTP GET requests to director.php containing potential SQL injection attempts based on common SQL keywords and syntax.
     platform: sigma
     severity: medium
     tactics:
@@ -48,26 +52,25 @@ rules:
 rules_count: 2
 ---
 
-AiOPMSD Final version 1.0.0 is susceptible to SQL injection attacks. This vulnerability, identified as CVE-2018-25414, allows unauthenticated remote attackers to inject malicious SQL queries via the 'actor' parameter in HTTP GET requests. Successful exploitation enables attackers to extract sensitive information directly from the application database. The lack of authentication required to trigger the vulnerability makes it particularly dangerous for internet-facing AiOPMSD deployments. The impact includes potential disclosure of database usernames, database names, and underlying version details, potentially aiding in further compromise of the system.
+AiOPMSD Final 1.0.0 is susceptible to SQL injection, as detailed in CVE-2018-25415. Unauthenticated attackers can exploit this vulnerability by injecting malicious SQL code through the `director` parameter in HTTP GET requests to the `director.php` script. The vulnerability allows attackers to execute arbitrary SQL queries, potentially leading to the extraction of sensitive database information. Successful exploitation could allow attackers to retrieve usernames, database names, version details, and other sensitive data stored within the application's database. This vulnerability poses a significant risk to organizations using AiOPMSD Final 1.0.0, as it can lead to data breaches and unauthorized access to confidential information.
 
 ## Attack Chain
 
-1. The attacker identifies a publicly accessible AiOPMSD Final 1.0.0 instance.
-2. The attacker crafts a malicious SQL injection payload. This payload targets the `actor` parameter in a GET request to `actor.php`.
-3. The attacker sends the crafted GET request to the `actor.php` endpoint.
-4. The vulnerable application fails to properly sanitize the input provided via the `actor` parameter.
-5. The application executes the attacker-controlled SQL query against the database.
-6. The database returns sensitive information, such as usernames, database names, or version details.
-7. The attacker receives the database response containing the extracted information.
-8. The attacker uses the extracted information to further compromise the system, such as gaining unauthorized access or escalating privileges.
+1. An unauthenticated attacker identifies an AiOPMSD Final 1.0.0 instance.
+2. The attacker crafts a malicious SQL payload designed to extract sensitive information.
+3. The attacker constructs a GET request targeting `director.php`, embedding the SQL payload within the `director` parameter (e.g., `director.php?director=malicious_sql`).
+4. The web server processes the request and passes the `director` parameter to the vulnerable SQL query.
+5. The malicious SQL payload is executed against the database.
+6. The database executes the attacker's SQL query, potentially leaking sensitive data.
+7. The extracted data, such as usernames, database names, or version information, is returned in the HTTP response.
+8. The attacker parses the HTTP response to retrieve the extracted sensitive information, gaining unauthorized access to confidential data.
 
 ## Impact
 
-Successful exploitation of this SQL injection vulnerability (CVE-2018-25414) in AiOPMSD Final 1.0.0 can lead to the unauthorized disclosure of sensitive database information. This includes usernames, database names, and version details. The CVSS v3.1 base score for this vulnerability is 8.2, indicating a high severity. The extracted information can be used to further compromise the system, potentially leading to data breaches, account takeovers, or other malicious activities. The lack of authentication means any exposed instance is vulnerable.
+Successful exploitation of this SQL injection vulnerability (CVE-2018-25415) in AiOPMSD Final 1.0.0 can result in the disclosure of sensitive information, including usernames, database names, and version details. An attacker could use this information to gain further access to the system, escalate privileges, or perform other malicious activities. Given a CVSS v3.1 score of 8.2, this vulnerability poses a high risk.
 
 ## Recommendation
 
-*   Apply available patches or upgrades to AiOPMSD to address the SQL injection vulnerability.
-*   Deploy the Sigma rule `Detect CVE-2018-25414 Exploitation — AiOPMSD SQL Injection Attempt` to monitor for exploitation attempts targeting the `actor.php` endpoint.
-*   Implement input validation and sanitization on all user-supplied input, especially the `actor` parameter, to prevent SQL injection attacks.
-*   Enable webserver logging and monitor for suspicious GET requests to the `actor.php` endpoint containing SQL syntax.
+*   Deploy the Sigma rule `Detect CVE-2018-25415 Exploitation` to detect potential exploitation attempts against the `director.php` endpoint.
+*   Inspect web server logs for HTTP GET requests to `director.php` containing suspicious SQL syntax within the `director` parameter, as covered by the `Detect Suspicious SQL Injection Attempts via director.php` Sigma rule.
+*   Implement input validation and sanitization on the `director` parameter to prevent SQL injection, according to secure coding practices.
