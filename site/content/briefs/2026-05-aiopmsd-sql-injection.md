@@ -1,79 +1,85 @@
 ---
-title: AiOPMSD Final 1.0.0 Unauthenticated SQL Injection Vulnerability (CVE-2018-25417)
+title: AiOPMSD Final 1.0.0 SQL Injection Vulnerability (CVE-2018-25418)
 slug: 2026-05-aiopmsd-sql-injection
-description: AiOPMSD Final 1.0.0 is vulnerable to SQL injection (CVE-2018-25417), allowing unauthenticated attackers to execute arbitrary SQL queries via the 'quality' parameter in quality.php, potentially leading to sensitive data exposure.
-date: "2026-05-30T16:20:20Z"
-type: advisory
+description: AiOPMSD Final 1.0.0 is vulnerable to SQL injection (CVE-2018-25418) via the `year` parameter in `year.php`, allowing unauthenticated attackers to execute arbitrary SQL queries and extract sensitive information.
+date: "2026-05-30T16:20:34Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 tags:
   - sql-injection
-  - cve-2018-25417
-  - network
+  - cve-2018-25418
+  - web-application
+vendors:
+  - AiOPMSD
 products:
-  - AiOPMSD Final
+  - AiOPMSD Final 1.0.0
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1082
+    technique_name: System Information Discovery
 cves:
-  - id: CVE-2018-25417
+  - id: CVE-2018-25418
     cvss: 8.2
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2018-25417
+  - https://nvd.nist.gov/vuln/detail/CVE-2018-25418
   - https://aiopmsd.sourceforge.io/
   - https://sourceforge.net/projects/aiopmsd/files/latest/download
   - https://www.exploit-db.com/exploits/45690
-  - https://www.vulncheck.com/advisories/aiopmsd-final-sql-injection-via-quality-php
+  - https://www.vulncheck.com/advisories/aiopmsd-final-sql-injection-via-year-php
 rules:
-  - title: Detect AiOPMSD SQL Injection Attempt via quality.php
-    description: Detects CVE-2018-25417 exploitation — SQL injection attempt via the quality parameter in quality.php
+  - title: Detect AiOPMSD SQL Injection Attempt via Year Parameter
+    description: Detects CVE-2018-25418 exploitation — SQL injection attempts in AiOPMSD Final 1.0.0 by monitoring the `year` parameter for suspicious characters.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
       - T1190
-      - T1595.002
+      - T1505.003
     data_sources:
       - webserver
-  - title: Detect AiOPMSD SQL Injection Attempt - String functions
-    description: Detects CVE-2018-25417 exploitation — use of string manipulation functions often used to bypass weak SQL injection filters.
+  - title: Detect AiOPMSD Version Disclosure via SQL Injection
+    description: Detects CVE-2018-25418 exploitation — Attempts to retrieve database version information via SQL injection in the `year` parameter.
     platform: sigma
     severity: medium
     tactics:
-      - initial_access
+      - discovery
     techniques:
-      - T1190
-      - T1595.002
+      - T1082
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-AiOPMSD Final 1.0.0 is susceptible to an unauthenticated SQL injection vulnerability. This vulnerability allows remote attackers to inject arbitrary SQL code through the `quality` parameter in the `quality.php` script. Successful exploitation could lead to the extraction of sensitive database information, including usernames, database names, and version details. The vulnerability was reported on 2026-05-30 and is identified as CVE-2018-25417. Publicly available exploits exist, increasing the risk of exploitation. This vulnerability poses a significant threat to organizations using the affected software, potentially leading to unauthorized access to sensitive data.
+AiOPMSD Final 1.0.0 is susceptible to an SQL injection vulnerability (CVE-2018-25418) that allows unauthenticated attackers to execute arbitrary SQL queries. The vulnerability exists within the `year.php` script and can be exploited by injecting malicious SQL code into the `year` parameter via a GET request. Successful exploitation allows attackers to extract sensitive database information, including usernames, database names, and version details. This poses a significant risk as it could lead to complete database compromise and further malicious activities. The vulnerability was reported in 2026, but the CVE was assigned in 2018.
 
 ## Attack Chain
 
-1. An unauthenticated attacker identifies an AiOPMSD Final 1.0.0 instance.
-2. The attacker crafts a malicious SQL payload.
-3. The attacker sends an HTTP GET request to `quality.php`.
-4. The attacker injects the SQL payload into the `quality` parameter of the GET request.
-5. The web server processes the request and executes the injected SQL query against the database.
-6. The database returns the results of the query to the web server.
-7. The web server displays the results, potentially including sensitive data.
-8. The attacker extracts sensitive data such as usernames, database names, and version details.
+1.  An unauthenticated attacker identifies an AiOPMSD Final 1.0.0 instance.
+2.  The attacker crafts a malicious SQL payload designed to extract sensitive database information.
+3.  The attacker sends a GET request to `/year.php` with the crafted SQL payload injected into the `year` parameter (e.g., `year.php?year=malicious_sql_payload`).
+4.  The `year.php` script processes the GET request and concatenates the `year` parameter value into an SQL query without proper sanitization.
+5.  The malicious SQL query is executed against the AiOPMSD database.
+6.  The database returns results based on the injected SQL code, potentially including usernames, database names, and version information.
+7.  The attacker receives the database response containing the extracted sensitive information.
+8.  The attacker uses the extracted information for further malicious activities, such as gaining unauthorized access or compromising other systems.
 
 ## Impact
 
-Successful exploitation of this SQL injection vulnerability could allow an attacker to extract sensitive information from the AiOPMSD Final 1.0.0 database. This information could include user credentials, configuration details, and other sensitive data. The impact could range from unauthorized data access to potential lateral movement within the network if the compromised credentials are reused. Given the publicly available exploits and the ease of exploitation, a successful attack could have severe consequences for organizations using AiOPMSD Final 1.0.0.
+Successful exploitation of this SQL injection vulnerability (CVE-2018-25418) allows unauthenticated attackers to extract sensitive information from the AiOPMSD Final 1.0.0 database. This can lead to the exposure of usernames, passwords, database configurations, and other confidential data. The CVSS v3.1 base score is 8.2, indicating a high severity vulnerability. This could lead to full database compromise and unauthorized access to the affected system.
 
 ## Recommendation
 
-*   Apply any available patches or updates to AiOPMSD Final 1.0.0 to address CVE-2018-25417.
-*   Deploy the Sigma rule `Detect AiOPMSD SQL Injection Attempt via quality.php` to your SIEM to identify potential exploitation attempts.
-*   Inspect web server logs for suspicious GET requests to `quality.php` containing SQL keywords, to detect exploitation attempts targeting CVE-2018-25417.
-*   Monitor network traffic for unusual database activity originating from the web server, which could indicate successful SQL injection and data exfiltration.
+*   Deploy the Sigma rule `Detect AiOPMSD SQL Injection Attempt via Year Parameter` to identify potential exploitation attempts by monitoring for suspicious characters in the `cs-uri-query` field in web server logs.
+*   Apply input validation and sanitization to the `year` parameter in the `year.php` script to prevent SQL injection attacks, according to secure coding practices.
+*   Restrict access to the AiOPMSD database from untrusted networks.
+*   Monitor web server logs for any unusual activity or requests to `year.php` that contain suspicious SQL syntax.
+*   Review and update the AiOPMSD Final 1.0.0 codebase for other potential vulnerabilities.
