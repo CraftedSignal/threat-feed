@@ -1,80 +1,81 @@
 ---
-title: Totolink N300RH Command Injection Vulnerability (CVE-2026-9543)
+title: Totolink N300RH Stack-Based Buffer Overflow Vulnerability (CVE-2026-10187)
 slug: 2026-05-totolink-rce
-description: Totolink N300RH version 6.1c.1353_B20190305 is vulnerable to remote command injection via manipulation of the 'admpass' argument in the setPasswordCfg function of the /cgi-bin/cstecgi.cgi file within the Web Management Interface, allowing for remote code execution.
-date: "2026-05-26T14:20:53Z"
-type: advisory
+description: A stack-based buffer overflow vulnerability, CVE-2026-10187, exists in the setWiFiBasicConfig function of the wireless.so file in the Web Management Interface of Totolink N300RH version 6.1c.1353_B20190305, allowing a remote attacker to execute arbitrary code by manipulating the KeyStr argument.
+date: "2026-05-31T15:18:40Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
 tags:
-  - cve
-  - command injection
-  - rce
-  - totolink
+  - stack-buffer-overflow
+  - remote-code-execution
+  - router
 vendors:
   - Totolink
 products:
   - N300RH 6.1c.1353_B20190305
 mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-9543
+  - id: CVE-2026-10187
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-9543
-  - https://github.com/A1ester/TOTOLINK-N300RH-Command-Injection
-  - https://vuldb.com/submit/815068
-  - https://vuldb.com/vuln/365607
-  - https://vuldb.com/vuln/365607/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-10187
+  - https://vuldb.com/cve/CVE-2026-10187
+  - https://vuldb.com/submit/819971
+  - https://vuldb.com/submit/820133
+  - https://vuldb.com/vuln/367468
+  - https://vuldb.com/vuln/367468/cti
   - https://www.totolink.net/
+  - https://wx.mail.qq.com/s?k=iXbjuHnfMwoD0oWW3v
 rules:
-  - title: Detect CVE-2026-9543 Exploitation -- Command Injection in Totolink N300RH
-    description: Detects CVE-2026-9543 exploitation -- Attempts to exploit command injection vulnerability in Totolink N300RH via requests to /cgi-bin/cstecgi.cgi
+  - title: Detect CVE-2026-10187 Exploitation Attempt via Long KeyStr
+    description: Detects CVE-2026-10187 exploitation attempt by monitoring for HTTP POST requests to setWiFiBasicConfig with excessively long KeyStr values, indicating a potential buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
-      - execution
+      - initial_access
     techniques:
-      - T1059.004
+      - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9543 Exploitation -- Shell Metacharacters in admpass Parameter
-    description: Detects CVE-2026-9543 exploitation -- HTTP requests with shell metacharacters in the admpass parameter, indicative of command injection attempts.
+  - title: Detect CVE-2026-10187 Exploitation Attempt via setWiFiBasicConfig
+    description: Detects CVE-2026-10187 exploitation attempt by monitoring HTTP POST requests to the web management interface specifically targeting the `setWiFiBasicConfig` function in the wireless settings.
     platform: sigma
-    severity: critical
+    severity: medium
     tactics:
-      - execution
+      - initial_access
     techniques:
-      - T1059.004
+      - T1190
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-A critical vulnerability, CVE-2026-9543, has been identified in Totolink N300RH router firmware version 6.1c.1353_B20190305. The vulnerability resides within the Web Management Interface, specifically in the `/cgi-bin/cstecgi.cgi` file's `setPasswordCfg` function. By manipulating the `admpass` argument, a remote attacker can inject arbitrary operating system commands. Publicly available exploit code exists, increasing the risk of exploitation. This vulnerability allows unauthenticated attackers to execute commands on the underlying operating system of the router.
+A stack-based buffer overflow vulnerability has been identified in Totolink N300RH router, version 6.1c.1353_B20190305. The vulnerability resides in the `setWiFiBasicConfig` function within the `wireless.so` file, a component of the device's web management interface. Publicly available exploits demonstrate that a remote attacker can leverage this vulnerability by manipulating the `KeyStr` argument passed to the vulnerable function, resulting in arbitrary code execution on the device. The affected version was released in March 2019, suggesting that many devices are potentially vulnerable due to lack of updates. This poses a significant risk, as successful exploitation could allow attackers to gain full control of the router, compromise connected devices, and intercept network traffic.
 
 ## Attack Chain
 
-1.  An unauthenticated attacker identifies a vulnerable Totolink N300RH router running firmware version 6.1c.1353_B20190305.
-2.  The attacker crafts a malicious HTTP request targeting the `/cgi-bin/cstecgi.cgi` endpoint.
-3.  Within the HTTP request, the attacker manipulates the `admpass` argument in the `setPasswordCfg` function to include OS command injection payloads.
-4.  The web server processes the request and passes the `admpass` argument to the underlying system.
-5.  The injected OS commands are executed with the privileges of the web server process.
-6.  The attacker can then execute commands to gain shell access, modify router configurations, or install malware.
-7.  The attacker uses the gained access to pivot to other devices on the network or to maintain persistence on the router.
+1.  The attacker identifies a vulnerable Totolink N300RH router running firmware version 6.1c.1353_B20190305.
+2.  The attacker sends a crafted HTTP request to the router's web management interface.
+3.  The HTTP request targets the `setWiFiBasicConfig` function.
+4.  The request includes a malicious payload in the `KeyStr` argument, designed to overflow the stack buffer.
+5.  The `wireless.so` library processes the request without proper bounds checking on the `KeyStr` argument.
+6.  The buffer overflow overwrites critical memory regions, including the return address.
+7.  Upon returning from the function, execution jumps to the attacker-controlled address, allowing for arbitrary code execution.
+8.  The attacker gains a shell on the router and can perform malicious actions.
 
 ## Impact
 
-Successful exploitation of CVE-2026-9543 allows an unauthenticated remote attacker to execute arbitrary operating system commands on the affected Totolink N300RH device. This can lead to complete compromise of the device, potentially enabling attackers to eavesdrop on network traffic, modify router settings, or use the device as a point of entry for further attacks on the internal network. Given the high CVSS score (9.8), this vulnerability poses a significant risk.
+Successful exploitation of CVE-2026-10187 can lead to full compromise of the Totolink N300RH router. Attackers can leverage this access to intercept network traffic, modify DNS settings, create backdoors, and potentially compromise other devices on the network. Due to the high CVSS score (9.8), the impact is considered critical, allowing for complete control over the affected device. Given the nature of routers as network gateways, this vulnerability can serve as an entry point for wider attacks on home or small business networks.
 
 ## Recommendation
 
-*   Deploy the Sigma rule to detect command injection attempts targeting the `/cgi-bin/cstecgi.cgi` endpoint (see rule `Detect CVE-2026-9543 Exploitation -- Command Injection in Totolink N300RH`).
-*   Monitor web server logs for requests containing shell metacharacters in the `admpass` parameter (see rule `Detect CVE-2026-9543 Exploitation -- Shell Metacharacters in admpass Parameter`).
-*   Apply any available firmware updates released by Totolink to address this vulnerability.
-*   If firmware updates are not available, consider disabling remote access to the router's web management interface or implementing access control lists to restrict access to trusted IP addresses.
+*   Deploy the Sigma rule `Detect CVE-2026-10187 Exploitation Attempt via Long KeyStr` to identify suspicious HTTP requests targeting the `setWiFiBasicConfig` function with abnormally long `KeyStr` arguments.
+*   Block or investigate any traffic to the `setWiFiBasicConfig` endpoint originating from unexpected IP addresses, based on observed network connections.
+*   Monitor webserver logs for POST requests to the `setWiFiBasicConfig` endpoint, based on webserver log source.
