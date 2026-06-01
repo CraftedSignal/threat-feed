@@ -1,13 +1,13 @@
 {
   "type": "bundle",
-  "id": "bundle--b648f3df-b4c3-5d45-9095-7b773bf2ca68",
+  "id": "bundle--b6a35b22-d52b-5394-a11c-4de4a499bf34",
   "objects": [
     {
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--58070ea8-d3e1-55ac-ba4a-774d0fd0250d",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "domain: cloudcharge.se",
       "pattern": "[domain-name:value = 'cloudcharge.se']",
       "pattern_type": "stix",
@@ -17,8 +17,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--3b3ccb99-ba8e-5df7-b970-aa710b5af3e0",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--ab1eb7a2-0ae8-527b-aab5-44cacc0f18bb",
       "target_ref": "indicator--58070ea8-d3e1-55ac-ba4a-774d0fd0250d"
@@ -27,8 +27,8 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--eb91e157-9698-5a4f-b799-dcaea5645c99",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "url: https://cloudcharge.tech/support/contact/",
       "pattern": "[url:value = 'https://cloudcharge.tech/support/contact/']",
       "pattern_type": "stix",
@@ -38,8 +38,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--975bde05-95b8-5615-a6d7-78fd35daf52b",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--ab1eb7a2-0ae8-527b-aab5-44cacc0f18bb",
       "target_ref": "indicator--eb91e157-9698-5a4f-b799-dcaea5645c99"
@@ -48,8 +48,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -63,8 +63,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--08bd3f2c-50e7-52e7-b574-dc0afa4c75bb",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--ab1eb7a2-0ae8-527b-aab5-44cacc0f18bb",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -73,8 +73,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Steal Web Session Cookie",
       "external_references": [
         {
@@ -88,8 +88,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--1d802b53-280e-5c65-bea6-fd8882d2a2c0",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--ab1eb7a2-0ae8-527b-aab5-44cacc0f18bb",
       "target_ref": "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a"
@@ -98,8 +98,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Endpoint Denial of Service",
       "external_references": [
         {
@@ -113,8 +113,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--42ba2b46-8f37-54b0-8a0c-819916553442",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--ab1eb7a2-0ae8-527b-aab5-44cacc0f18bb",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -123,8 +123,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--ab1eb7a2-0ae8-527b-aab5-44cacc0f18bb",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "CloudCharge Vulnerabilities Allow Charging Station Impersonation and DoS",
       "description": "## Overview\n\nMultiple vulnerabilities have been identified in CloudCharge cloudcharge.se, a charging station management platform. These vulnerabilities, including CVE-2026-20781, CVE-2026-25114, CVE-2026-27652, and CVE-2026-20733, could allow attackers to compromise charging stations and backend systems. Specifically, the lack of proper authentication and session management in the WebSocket API enables unauthorized access and control. Given that the vulnerable software is used within the Energy and Transportation Systems sectors worldwide, successful exploitation could disrupt critical infrastructure. The vendor has not responded to coordination requests.\n\n## Attack Chain\n\n1. An attacker identifies a publicly accessible charging station identifier via web-based mapping platforms (CVE-2026-20733).\n2. The attacker connects to the OCPP WebSocket endpoint of a CloudCharge charging station using the discovered identifier (CVE-2026-20781).\n3. Due to the missing authentication mechanisms, the attacker successfully impersonates a legitimate charger (CVE-2026-20781).\n4. The attacker exploits the lack of rate limiting and floods the authentication endpoint with requests, causing a denial-of-service condition by suppressing legitimate charger telemetry (CVE-2026-25114).\n5. Alternatively, the attacker exploits the predictable session identifiers and attempts to hijack an existing charging session (CVE-2026-27652).\n6. The attacker sends malicious OCPP commands to manipulate charging processes or corrupt charging network data reported to the backend (CVE-2026-20781).\n7. The attacker displaces the legitimate charging station's connection, receiving backend commands intended for the original station (CVE-2026-27652).\n8. The ultimate objective is to disrupt charging services, manipulate billing information, or gain persistent access to the charging infrastructure backend.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities could have significant consequences, particularly in the Energy and Transportation Systems sectors. Attackers could disrupt electric vehicle charging services, leading to widespread outages and transportation delays. Compromised charging stations could be used to manipulate billing information, causing financial losses for both customers and charging station operators. A large-scale denial-of-service attack could overwhelm the CloudCharge backend, rendering entire charging networks inoperable. Given the worldwide deployment of CloudCharge, the impact could be felt across multiple countries.\n\n## Recommendation\n\n*   Monitor network connections to the CloudCharge infrastructure for suspicious WebSocket traffic originating from unexpected sources, using the `Detect Suspicious CloudCharge WebSocket Connection` Sigma rule.\n*   Implement rate limiting on authentication requests to the CloudCharge WebSocket API to mitigate denial-of-service attempts, referencing the information about CVE-2026-25114.\n*   Monitor logs for multiple connections using the same charging station identifier, indicating potential session hijacking attempts, using the `Detect CloudCharge Session Hijacking` Sigma rule and the context for CVE-2026-27652.\n*   Review and restrict access to web-based mapping platforms that may expose charging station authentication identifiers, mitigating the risk associated with CVE-2026-20733.\n*   Contact CloudCharge directly via their support page (https://cloudcharge.tech/support/contact/) to inquire about available patches or mitigations for CVE-2026-20781, CVE-2026-25114, CVE-2026-27652, and CVE-2026-20733.\n",
       "published": "2026-06-13T12:00:00Z",
@@ -169,8 +169,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Impair Defenses",
       "external_references": [
         {
@@ -184,8 +184,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--2a55aac5-299d-5a36-918b-9bd3616a383c",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--bf067bb7-4c90-54a0-8a6f-0cc9543fdd90",
       "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
@@ -194,8 +194,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--bf067bb7-4c90-54a0-8a6f-0cc9543fdd90",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Singularity SysRq Hook for Defense Evasion",
       "description": "## Overview\n\nThis brief addresses a technique where attackers abuse the Singularity container platform to intercept and manipulate SysRq (System Request) commands. The SysRq mechanism is often used by incident responders as a \"panic button\" to trigger actions like system reboots or kernel dumps during security incidents. By hooking into SysRq within a Singularity container, an attacker could potentially disable or modify these critical functions, hindering incident response efforts and prolonging their access to a compromised system. The specific version of Singularity and the exact method of hooking SysRq are not detailed in the initial report, but the overall concept presents a significant defense evasion tactic. This technique is relevant to organizations using Singularity containers in their infrastructure.\n\n## Attack Chain\n\n1.  **Initial Access:** The attacker gains initial access to a host system, potentially through vulnerabilities in applications or services running on the host.\n2.  **Privilege Escalation:** The attacker escalates privileges on the host system to a level where they can interact with the Singularity container platform.\n3.  **Container Deployment/Modification:** The attacker deploys a malicious Singularity container or modifies an existing container to include a SysRq hook.\n4.  **SysRq Hook Installation:** The attacker implements code within the container that intercepts SysRq commands before they reach the host kernel. This could involve modifying `/proc/sysrq-trigger` or using `ptrace` to intercept kernel calls.\n5.  **Command Interception:** When an administrator attempts to use SysRq (e.g., triggering a kernel panic or reboot), the malicious hook intercepts the command.\n6.  **Action Modification/Suppression:** Instead of allowing the SysRq command to execute, the hook either modifies the command (e.g., prevents a reboot) or suppresses it entirely.\n7.  **Continued Malicious Activity:** With the SysRq mechanism disabled or modified, the attacker can continue their malicious activities (e.g., data exfiltration, lateral movement) without immediate interruption.\n\n## Impact\n\nThe successful exploitation of a SysRq hook within a Singularity container can severely impede incident response efforts. By preventing administrators from using SysRq to quickly contain or analyze a compromised system, attackers gain a significant advantage. This can lead to prolonged data breaches, increased damage to systems, and a greater financial impact on the organization. The impact is particularly high in environments where rapid response and system recovery are critical.\n",
       "published": "2026-06-24T12:00:00Z",
@@ -224,8 +224,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -239,8 +239,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--1229913e-ad8c-56c2-b6c7-2d56c7a32140",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--c21a9a4a-1b10-5a81-bdae-e2cbae948285",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -249,8 +249,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--c21a9a4a-1b10-5a81-bdae-e2cbae948285",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "GoClaw OS Command Injection Vulnerability (CVE-2026-10219)",
       "description": "## Overview\n\nnextlevelbuilder GoClaw, a tool up to version 3.11.3, contains an OS command injection vulnerability in the `FsBridge.WriteFile` function within the `internal/sandbox/fsbridge.go` file, which is part of the `write_file` tool component. This vulnerability (CVE-2026-10219) allows remote attackers to inject and execute arbitrary operating system commands by manipulating input to the affected function. Publicly available exploits exist, increasing the risk of exploitation. While a pull request has been submitted to address this vulnerability, it is still awaiting acceptance. Defenders should prioritize detection and mitigation measures to prevent potential compromise.\n\n## Attack Chain\n\n1.  An attacker identifies a GoClaw instance running a vulnerable version (\u003c= 3.11.3).\n2.  The attacker crafts a malicious request targeting the `FsBridge.WriteFile` function of the `write_file` tool.\n3.  The malicious request includes specially crafted input designed to inject OS commands.\n4.  The `FsBridge.WriteFile` function fails to properly sanitize the attacker-controlled input.\n5.  The vulnerable function executes the injected OS commands on the server.\n6.  The attacker gains arbitrary code execution on the GoClaw server.\n7.  The attacker can then perform actions such as installing malware, accessing sensitive data, or pivoting to other systems on the network.\n\n## Impact\n\nSuccessful exploitation of this vulnerability could allow an attacker to execute arbitrary commands on the GoClaw server, potentially leading to complete system compromise. The attacker could gain unauthorized access to sensitive data, disrupt services, or use the compromised system as a launchpad for further attacks within the network. The severity is heightened by the existence of a public exploit, increasing the likelihood of exploitation.\n\n## Recommendation\n\n*   Deploy the Sigma rule to detect potential exploitation attempts targeting the `FsBridge.WriteFile` function.\n*   Monitor web server logs for suspicious requests containing shell metacharacters indicative of command injection attacks.\n*   Apply any available patches or updates for GoClaw to address the vulnerability once the pull request is accepted.\n*   Implement input validation and sanitization measures to prevent command injection vulnerabilities.\n*   Review and harden the configuration of GoClaw instances to minimize the attack surface.\n",
       "published": "2026-06-01T04:17:42Z",
@@ -302,8 +302,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -317,8 +317,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c0604b9c-375e-5b65-9a08-412efecdded5",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--71471224-8efd-566c-82f4-baf265bbe9d5",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -327,8 +327,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--71471224-8efd-566c-82f4-baf265bbe9d5",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "NousResearch hermes-agent Remote Code Injection Vulnerability (CVE-2026-10220)",
       "description": "## Overview\n\nA remote code injection vulnerability, CVE-2026-10220, affects NousResearch hermes-agent up to version 2026.4.30. The vulnerability resides within the `_serve_plugin_skill/skill_view` function of the `tools/skills_tool.py` file. Exploitation of this flaw could enable a remote attacker to inject arbitrary code into the application. The exploit has been publicly disclosed, increasing the risk of active exploitation. The vendor was contacted but did not respond. This vulnerability poses a significant risk to systems running affected versions of hermes-agent, potentially leading to unauthorized access, data breaches, or complete system compromise.\n\n## Attack Chain\n\n1. An attacker identifies a vulnerable hermes-agent instance running a version prior to 2026.4.30.\n2. The attacker crafts a malicious request targeting the `_serve_plugin_skill/skill_view` function within `tools/skills_tool.py`.\n3. This request includes specially crafted input designed to exploit the code injection vulnerability.\n4. The vulnerable function fails to properly sanitize the input, allowing the attacker's code to be injected.\n5. The injected code is then executed by the hermes-agent application.\n6. The attacker leverages the injected code to gain unauthorized access to the system.\n7. The attacker may then escalate privileges, install malware, or exfiltrate sensitive data.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10220 allows for remote code injection, potentially leading to complete system compromise. This could result in unauthorized data access, modification, or deletion, as well as the installation of malware and further propagation of attacks. The lack of vendor response exacerbates the risk, as no official patch or mitigation is available. Organizations using NousResearch hermes-agent are at significant risk until the vulnerability is addressed.\n\n## Recommendation\n\n*   Monitor network traffic for suspicious requests targeting the `_serve_plugin_skill/skill_view` function as a proactive measure.\n*   Deploy the Sigma rule provided below to detect potential exploitation attempts against the vulnerable function.\n*   Consider implementing input validation and sanitization measures within the `_serve_plugin_skill/skill_view` function if source code access is available, to mitigate the vulnerability.\n*   Monitor for unexpected process execution originating from the hermes-agent application.\n",
       "published": "2026-06-01T04:17:54Z",
@@ -372,8 +372,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -387,8 +387,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--cc1d3967-7a32-510d-ba7d-0b2f38011ad9",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--a8b18aae-ae11-5495-a0ca-9347622aa3ac",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -397,8 +397,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--a8b18aae-ae11-5495-a0ca-9347622aa3ac",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "NousResearch hermes-agent \u003c= 0.12.0 Code Injection Vulnerability (CVE-2026-10221)",
       "description": "## Overview\n\nA code injection vulnerability, tracked as CVE-2026-10221, affects NousResearch hermes-agent versions up to 0.12.0. The vulnerability resides within the `_compress_context` function of the `run_agent.py` file, allowing for potential code injection through manipulation of input. Remote exploitation is possible, and a public exploit is reportedly available. The vendor was notified but has not responded. This vulnerability allows an attacker to execute arbitrary code on systems running a vulnerable version of hermes-agent.\n\n## Attack Chain\n\n1.  Attacker identifies a vulnerable instance of NousResearch hermes-agent running version 0.12.0 or earlier.\n2.  Attacker crafts a malicious input string designed to exploit the code injection vulnerability in the `_compress_context` function within `run_agent.py`.\n3.  The attacker sends the malicious input to the vulnerable function, likely through a network request, triggering the injection point.\n4.  The `_compress_context` function processes the attacker-controlled input without proper sanitization or validation.\n5.  The malicious input is interpreted as code and executed by the hermes-agent application, potentially granting the attacker control over the system.\n6.  Attacker leverages the injected code to establish persistence on the compromised system, allowing for continued access.\n7.  Attacker pivots to other internal systems and attempts to access or exfiltrate sensitive data.\n\n## Impact\n\nSuccessful exploitation of this vulnerability could lead to arbitrary code execution on the affected system. This could allow an attacker to gain complete control over the hermes-agent instance, potentially leading to data theft, system compromise, or further lateral movement within the network. Due to the nature of the software, this is especially dangerous in AI/ML environments.\n\n## Recommendation\n\n*   Apply appropriate input validation and sanitization to the `_compress_context` function in `run_agent.py` (reference CVE-2026-10221).\n*   Deploy the Sigma rule `Detect CVE-2026-10221 Exploitation Attempt via run_agent.py` to your SIEM and tune for your environment to detect exploitation attempts targeting the vulnerable function.\n*   Monitor network traffic for suspicious activity targeting NousResearch hermes-agent, especially related to calls to the `_compress_context` function.\n",
       "published": "2026-06-01T04:18:07Z",
@@ -442,8 +442,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Exploit Public Fasing Application",
       "external_references": [
         {
@@ -457,8 +457,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--1ef8dfbe-a036-5787-a27e-16a57495b88a",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--f2ba438a-e640-51f6-a34e-d896305541a4",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -467,8 +467,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--f2ba438a-e640-51f6-a34e-d896305541a4",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "SQL Injection Vulnerability in student_management_system_by_php (CVE-2026-10225)",
       "description": "## Overview\n\nA SQL injection vulnerability, identified as CVE-2026-10225, has been discovered in the raisulislamg4 student_management_system_by_php. This vulnerability affects versions up to commit 310d950e09013d5133c6b9210aff9444382d16d1. The vulnerability is located within the login_check.php file, specifically in the Login component, where the Username argument is susceptible to SQL injection. A remote attacker can exploit this vulnerability to execute arbitrary SQL commands on the system. The exploit is now public, increasing the risk of active exploitation. The project was notified but has not responded, and due to the rolling release model, specific affected versions are not available.\n\n## Attack Chain\n\n1.  The attacker identifies a student_management_system_by_php instance running a vulnerable version.\n2.  The attacker crafts a malicious HTTP request targeting the login_check.php file.\n3.  The request includes a manipulated 'Username' parameter containing SQL injection payloads (e.g., `admin' OR '1'='1'--`).\n4.  The vulnerable login_check.php script processes the crafted 'Username' parameter without proper sanitization.\n5.  The unsanitized input is incorporated into a SQL query executed against the database.\n6.  The injected SQL code manipulates the query logic, potentially bypassing authentication.\n7.  The attacker gains unauthorized access to the system with elevated privileges.\n8.  The attacker may then proceed to exfiltrate sensitive data, modify database records, or escalate privileges further to compromise the entire system.\n\n## Impact\n\nSuccessful exploitation of this SQL injection vulnerability (CVE-2026-10225) allows a remote attacker to execute arbitrary SQL commands. This can lead to unauthorized access to sensitive student data, modification or deletion of records, and complete compromise of the database server. Given that the exploit is public, student_management_system_by_php installations are at high risk of being targeted. The lack of a timely patch exacerbates the threat.\n\n## Recommendation\n\n*   Inspect web server logs for suspicious POST requests to `login_check.php` with potentially malicious SQL syntax in the `Username` parameter to detect exploitation attempts (see Sigma rule \"Detect SQL Injection Attempts in Login Check\").\n*   Implement input validation and sanitization on the 'Username' parameter in `login_check.php` to prevent SQL injection.\n*   Monitor database logs for unusual SQL queries originating from the web application (see Sigma rule \"Detect Anomalous SQL Queries\").\n*   Apply security best practices for SQL database configuration, including principle of least privilege.\n*   Upgrade to a patched version of student_management_system_by_php as soon as one is released.\n",
       "published": "2026-06-01T06:17:43Z",
@@ -492,8 +492,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -507,8 +507,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--e99ca40a-689c-5133-8dab-adbd5246000b",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--95db7754-0f27-5e73-8412-e46e572ea74b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -517,8 +517,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--95db7754-0f27-5e73-8412-e46e572ea74b",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "CVE-2026-10227: SQL Injection Vulnerability in student_management_system_by_php",
       "description": "## Overview\n\nA SQL injection vulnerability, identified as CVE-2026-10227, has been discovered in the student_management_system_by_php software. The vulnerability resides within the `add_user_check.php` file, specifically affecting the User Creation Handler component. An attacker can remotely exploit this flaw by manipulating the `role` argument to inject malicious SQL code. The software uses a rolling release approach, so specific vulnerable versions cannot be identified. Public exploit code is available, increasing the risk of active exploitation. The developers were notified of the issue, but have not yet provided a response.\n\n## Attack Chain\n\n1.  An attacker identifies an instance of student_management_system_by_php running on a server.\n2.  The attacker crafts a malicious HTTP request targeting `add_user_check.php`.\n3.  The attacker injects SQL code into the `role` parameter of the HTTP request.\n4.  The web server processes the request and passes the `role` parameter to the vulnerable SQL query.\n5.  The injected SQL code is executed against the database, allowing the attacker to read, modify, or delete data.\n6.  The attacker may use the SQL injection to create a new administrative user.\n7.  The attacker logs in as the newly created administrative user.\n8.  The attacker leverages the administrative privileges to compromise the entire system or exfiltrate sensitive data.\n\n## Impact\n\nSuccessful exploitation of this vulnerability can lead to unauthorized access to sensitive data, including student records, financial information, and system configurations. An attacker could potentially gain full control of the affected system, leading to data breaches, system downtime, and reputational damage. The lack of specific versioning information makes it difficult to assess the full scope of affected installations.\n\n## Recommendation\n\n*   Apply input validation and sanitization to the `role` parameter in `add_user_check.php` to prevent SQL injection, addressing CVE-2026-10227.\n*   Monitor web server logs for suspicious requests targeting `add_user_check.php` with potentially malicious SQL code in the `role` parameter using the provided Sigma rule.\n*   Implement parameterized queries or prepared statements to prevent SQL injection attacks.\n",
       "published": "2026-06-01T06:18:08Z",
@@ -542,8 +542,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Command and Scripting Interpreter",
       "external_references": [
         {
@@ -557,8 +557,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--a13c7534-8e70-55b5-8dab-b6bf50aa9a5d",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--e2e5e144-944d-5e86-ad78-efb754efe613",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -567,8 +567,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--e2e5e144-944d-5e86-ad78-efb754efe613",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Notepad++ Vulnerability Allows Code Execution",
       "description": "## Overview\n\nA vulnerability exists within Notepad++ that allows a remote, anonymous attacker to execute arbitrary code. The exact nature of the vulnerability is not specified in the source, but its exploitation could lead to a full compromise of the affected system. Given the widespread use of Notepad++ as a text editor, this vulnerability poses a significant risk to a broad range of users and organizations. Successful exploitation could allow attackers to install malware, steal sensitive data, or disrupt critical systems.\n\n## Attack Chain\n\n1. The attacker identifies a vulnerable version of Notepad++ running on a target system.\n2. The attacker crafts a malicious file or input designed to exploit the vulnerability within Notepad++.\n3. The attacker delivers the malicious file or input to the target system, potentially through social engineering or other means.\n4. Notepad++ processes the malicious file or input, triggering the vulnerability.\n5. The vulnerability allows the attacker to execute arbitrary code within the context of the Notepad++ process.\n6. The attacker's code executes, potentially escalating privileges or accessing sensitive data.\n7. The attacker establishes persistence on the system, ensuring continued access even after the initial compromise.\n8. The attacker deploys additional malware, exfiltrates data, or performs other malicious activities, depending on their objectives.\n\n## Impact\n\nSuccessful exploitation of this vulnerability can lead to arbitrary code execution, allowing attackers to gain complete control over the affected system. This can result in data theft, malware installation, system disruption, and other malicious activities. The wide use of Notepad++ means a large number of systems could be affected, posing a significant risk to both individuals and organizations.\n\n## Recommendation\n\n- Deploy the Sigma rule to detect suspicious process creation events originating from Notepad++ to identify potential exploitation attempts.\n- Monitor file system events for unusual file modifications or creations in directories associated with Notepad++ installations, as an attacker might plant malicious payloads (see Sigma rules).\n- Review and harden the security configuration of systems running Notepad++ to minimize the attack surface and reduce the risk of successful exploitation.\n",
       "published": "2026-06-01T06:39:59Z",
@@ -593,8 +593,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "Exploitation for Client Execution",
       "external_references": [
         {
@@ -608,8 +608,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--3983592a-a1a3-5bdb-ae65-82c52e021c58",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "relationship_type": "uses",
       "source_ref": "report--2690995d-3b5d-51e0-9506-81dc57ae1655",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -618,8 +618,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--2690995d-3b5d-51e0-9506-81dc57ae1655",
-      "created": "2026-06-01T07:26:19Z",
-      "modified": "2026-06-01T07:26:19Z",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
       "name": "LibTiff Vulnerability Allows Code Execution",
       "description": "## Overview\n\nA vulnerability exists within the LibTiff library that could be exploited by a remote, anonymous attacker to achieve code execution. The specifics of the vulnerability are not detailed in this advisory, however, successful exploitation could lead to a compromise of the affected system. Defenders should prioritize identifying and mitigating any potential attack vectors targeting LibTiff installations.\n\n## Attack Chain\n\n1.  Attacker identifies a vulnerable LibTiff installation.\n2.  Attacker crafts a malicious TIFF image file.\n3.  The malicious TIFF image is sent to the target system (e.g., via email, web upload, or network share).\n4.  A user or service on the target system processes the malicious TIFF image using LibTiff.\n5.  The vulnerability within LibTiff is triggered during the image processing.\n6.  The attacker gains the ability to execute arbitrary code on the target system.\n7.  Attacker establishes persistence or moves laterally within the network.\n8.  Attacker achieves their objective, such as data exfiltration or system disruption.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker to execute arbitrary code on the targeted system. This could lead to a variety of negative outcomes, including complete system compromise, data theft, denial of service, or further propagation within the network. The lack of specifics regarding affected versions limits the scope assessment.\n\n## Recommendation\n\n*   Monitor process creation events for processes spawned by applications utilizing LibTiff, using the provided Sigma rule.\n*   Inspect network connections originating from processes that use LibTiff for unexpected or malicious traffic, using the provided Sigma rule.\n*   Since the specifics of the vulnerability are unknown, analyze any crash dumps or error logs associated with LibTiff for potential indicators of compromise.\n",
       "published": "2026-06-01T07:23:13Z",
@@ -635,6 +635,55 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-2110"
+        }
+      ],
+      "confidence": 80
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
+      "name": "Exploitation for Privilege Escalation",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1068",
+          "url": "https://attack.mitre.org/techniques/T1068"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ea9eee86-026b-5a4a-bd7f-79de5ce30128",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b598e5d1-9e39-52f5-98bf-e417e170e1bf",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b598e5d1-9e39-52f5-98bf-e417e170e1bf",
+      "created": "2026-06-01T09:47:01Z",
+      "modified": "2026-06-01T09:47:01Z",
+      "name": "Red Hat Enterprise Linux (crun) Privilege Escalation Vulnerability",
+      "description": "## Overview\n\nA vulnerability exists within the crun package in Red Hat Enterprise Linux that could allow a local attacker to escalate their privileges on the system. While the specific technical details of the vulnerability are not provided, successful exploitation would grant elevated permissions, potentially up to root. This vulnerability impacts systems where crun is installed and accessible to local users. It is crucial to investigate the affected versions and apply the necessary patches to mitigate the risk of unauthorized privilege escalation.\n\n## Attack Chain\n\n1.  Attacker gains initial access to the target RHEL system with limited user privileges.\n2.  Attacker identifies the vulnerable version of `crun` installed on the system.\n3.  Attacker crafts a malicious input or utilizes an exploit specific to the identified `crun` vulnerability.\n4.  Attacker executes the malicious input/exploit using `crun`.\n5.  The vulnerable `crun` binary processes the malicious input, triggering the privilege escalation.\n6.  The attacker's process now runs with elevated privileges (e.g., root).\n7.  Attacker leverages the elevated privileges to perform unauthorized actions, such as installing malware, modifying system configurations, or accessing sensitive data.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows a local attacker to gain elevated privileges on the affected system. This can lead to complete system compromise, including unauthorized access to sensitive data, modification of system configurations, and installation of malicious software. The impact is significant for systems handling sensitive information or critical infrastructure components.\n\n## Recommendation\n\n*   Investigate the `crun` version installed on all RHEL systems and compare them to Red Hat's security advisories for known vulnerable versions.\n*   Apply the necessary patches provided by Red Hat to remediate the vulnerability in `crun`.\n*   Monitor process execution for unexpected or unauthorized use of the `crun` binary, as highlighted in the Sigma rules below.\n",
+      "published": "2026-06-01T07:25:47Z",
+      "labels": [
+        "privilege-escalation",
+        "linux"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+      ],
+      "external_references": [
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0966"
         }
       ],
       "confidence": 80
