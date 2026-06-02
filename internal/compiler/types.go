@@ -54,10 +54,13 @@ type IOC struct {
 
 // TTP is a MITRE ATT&CK technique.
 type TTP struct {
-	TacticID         string `yaml:"tactic_id"`
-	TacticName       string `yaml:"tactic_name"`
-	TechniqueID      string `yaml:"technique_id"`
-	TechniqueName    string `yaml:"technique_name"`
-	SubtechniqueID   string `yaml:"subtechnique_id"`
-	SubtechniqueName string `yaml:"subtechnique_name"`
+	TacticID         string  `yaml:"tactic_id"`
+	TacticName       string  `yaml:"tactic_name"`
+	TechniqueID      string  `yaml:"technique_id"`
+	TechniqueName    string  `yaml:"technique_name"`
+	SubtechniqueID   string  `yaml:"subtechnique_id"`
+	SubtechniqueName string  `yaml:"subtechnique_name"`
+	Evidence         string  `yaml:"evidence,omitempty"`
+	Confidence       float64 `yaml:"confidence,omitempty"`
+	ConfidenceBand   string  `yaml:"confidence_band,omitempty"`
 }

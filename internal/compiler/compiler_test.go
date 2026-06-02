@@ -197,6 +197,20 @@ func TestCompile_MaxAgeCutoff(t *testing.T) {
 	}
 }
 
+func TestBundleTTPConversionCarriesEvidenceConfidence(t *testing.T) {
+	ttp := TTP{
+		TacticID:       "TA0001",
+		TechniqueID:    "T1566",
+		Evidence:       "spearphishing email observed",
+		Confidence:     0.9,
+		ConfidenceBand: "high",
+	}
+	bt := BundleTTP(ttp) // direct conversion must compile and copy the new fields
+	if bt.Evidence != "spearphishing email observed" || bt.Confidence != 0.9 || bt.ConfidenceBand != "high" {
+		t.Errorf("conversion dropped fields: %+v", bt)
+	}
+}
+
 func TestEncrypt_InvalidKey(t *testing.T) {
 	content := &BundleContent{Briefs: []BundleBrief{{ID: "b1"}}}
 

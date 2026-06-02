@@ -102,12 +102,15 @@ type BundleIOC struct {
 
 // BundleTTP matches the backend.
 type BundleTTP struct {
-	TacticID         string `json:"tactic_id"`
-	TacticName       string `json:"tactic_name,omitempty"`
-	TechniqueID      string `json:"technique_id"`
-	TechniqueName    string `json:"technique_name,omitempty"`
-	SubtechniqueID   string `json:"subtechnique_id,omitempty"`
-	SubtechniqueName string `json:"subtechnique_name,omitempty"`
+	TacticID         string  `json:"tactic_id"`
+	TacticName       string  `json:"tactic_name,omitempty"`
+	TechniqueID      string  `json:"technique_id"`
+	TechniqueName    string  `json:"technique_name,omitempty"`
+	SubtechniqueID   string  `json:"subtechnique_id,omitempty"`
+	SubtechniqueName string  `json:"subtechnique_name,omitempty"`
+	Evidence         string  `json:"evidence,omitempty"`
+	Confidence       float64 `json:"confidence,omitempty"`
+	ConfidenceBand   string  `json:"confidence_band,omitempty"`
 }
 
 // LoadBriefs reads all YAML files from the given directory.
