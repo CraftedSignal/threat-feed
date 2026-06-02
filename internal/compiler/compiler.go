@@ -16,6 +16,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/craftedsignal/threat-feed/internal/mitre"
 	"gopkg.in/yaml.v3"
 )
 
@@ -184,6 +185,27 @@ func validateBrief(b *Brief, filename string) error {
 		}
 		if r.Platform == "" {
 			return fmt.Errorf("%s: rule[%d] %q: missing platform", filename, i, r.Title)
+		}
+	}
+	if err := ValidateBriefTTPs(*b); err != nil {
+		return fmt.Errorf("%s: %w", filename, err)
+	}
+	return nil
+}
+
+// ValidateBriefTTPs returns an error if any TTP references a tactic,
+// technique, or sub-technique ID not in the ATT&CK catalog. Gives
+// human-authored briefs the same ID check ti-bot's automated path enforces.
+func ValidateBriefTTPs(b Brief) error {
+	for i, ttp := range b.TTPs {
+		if ttp.TacticID != "" && !mitre.ValidTactic(ttp.TacticID) {
+			return fmt.Errorf("brief %q ttp #%d: invalid tactic_id %q", b.ID, i, ttp.TacticID)
+		}
+		if !mitre.ValidTechnique(ttp.TechniqueID) {
+			return fmt.Errorf("brief %q ttp #%d: invalid technique_id %q", b.ID, i, ttp.TechniqueID)
+		}
+		if ttp.SubtechniqueID != "" && !mitre.ValidTechnique(ttp.SubtechniqueID) {
+			return fmt.Errorf("brief %q ttp #%d: invalid subtechnique_id %q", b.ID, i, ttp.SubtechniqueID)
 		}
 	}
 	return nil

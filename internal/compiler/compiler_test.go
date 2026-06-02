@@ -211,6 +211,28 @@ func TestBundleTTPConversionCarriesEvidenceConfidence(t *testing.T) {
 	}
 }
 
+func TestCompilerRejectsInvalidTechnique(t *testing.T) {
+	b := Brief{
+		ID:    "brief-bad",
+		Title: "t",
+		TTPs:  []TTP{{TacticID: "TA0001", TechniqueID: "T9999"}}, // T9999 is not a real technique
+	}
+	if err := ValidateBriefTTPs(b); err == nil {
+		t.Error("expected invalid technique T9999 to be rejected")
+	}
+}
+
+func TestCompilerAcceptsValidTechnique(t *testing.T) {
+	b := Brief{
+		ID:    "brief-ok",
+		Title: "t",
+		TTPs:  []TTP{{TacticID: "TA0001", TechniqueID: "T1566", SubtechniqueID: "T1566.001"}},
+	}
+	if err := ValidateBriefTTPs(b); err != nil {
+		t.Errorf("valid brief rejected: %v", err)
+	}
+}
+
 func TestEncrypt_InvalidKey(t *testing.T) {
 	content := &BundleContent{Briefs: []BundleBrief{{ID: "b1"}}}
 
