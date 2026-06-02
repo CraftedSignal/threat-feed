@@ -298,6 +298,8 @@
               <p class="text-text">{{ .technique_name }}</p>
               {{ with .subtechnique_name }}<p class="text-xs text-muted">{{ . }}</p>{{ end }}
               <p class="text-[11px] text-muted">{{ .tactic_name }}</p>
+              {{ with .confidence_band }}<span class="ttp-band ttp-band-{{ . }} inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[10px] bg-panel-2 text-muted mt-1">{{ . }}</span>{{ end }}
+              {{ with .evidence }}<blockquote class="ttp-evidence text-[11px] text-muted italic border-l-2 border-stroke pl-2 mt-1">{{ . }}</blockquote>{{ end }}
             </div>
             {{ end }}
           </div>
