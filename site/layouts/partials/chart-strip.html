@@ -1,9 +1,15 @@
-{{/* Activity strip. One column per day for the last N days, colored by
-     dominant severity. Reads like a barcode/threat-weather strip.
-     Rumour is excluded from the strip - it gets its own section below. */}}
+{{/* Activity strip. One combined chart for the last N days: briefs/day as
+     bars, with critical and vulnerability counts overlaid as lines.
+     Rumour is excluded from the chart - it gets its own section below. */}}
 {{ $window := 30 }}
-{{ $cutoff := now.AddDate 0 0 (mul -1 $window) }}
-{{ $allRecent := where (where .Site.RegularPages "Section" "briefs") "Date" "ge" $cutoff }}
+{{ $briefsAll := where .Site.RegularPages "Section" "briefs" }}
+{{/* Anchor the window to the most recent brief at or before now - ignore any
+     future-dated drafts surfaced by `hugo server --buildFuture` - so the chart
+     never trails off into empty days when the feed lags. */}}
+{{ $anchor := now }}
+{{ with (where $briefsAll "Date" "le" now).ByDate.Reverse }}{{ $anchor = (index . 0).Date }}{{ end }}
+{{ $cutoff := $anchor.AddDate 0 0 (mul -1 $window) }}
+{{ $allRecent := where $briefsAll "Date" "ge" $cutoff }}
 
 {{ $scratch := newScratch }}
 {{/* Aggregate per-severity totals across ALL severities (incl. rumour) for the legend */}}
@@ -12,7 +18,7 @@
   {{ $scratch.Add (printf "tot_%s" $sev) 1 }}
 {{ end }}
 
-{{/* Strip excludes rumour - those get their own section. Build the per-day index from non-rumour briefs only. */}}
+{{/* Chart excludes rumour - those get their own section. Build the per-day index from non-rumour briefs only. */}}
 {{ $recent := slice }}
 {{ range $allRecent }}
   {{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
@@ -33,17 +39,17 @@
   {{ end }}
 {{ end }}
 {{ $critTotal := $scratch.Get "tot_critical" | default 0 }}
-{{ $hours := mul (float $window) 24.0 }}
-{{ $briefRate := div (float $total) $hours }}
-{{ $vulnRate := div (float $vulnTotal) $hours }}
-{{ $critRate := div (float $critTotal) $hours }}
+{{ $days := float $window }}
+{{ $briefRate := div (float $total) $days }}
+{{ $vulnRate := div (float $vulnTotal) $days }}
+{{ $critRate := div (float $critTotal) $days }}
 
 {{ $maxDay := 0 }}
 {{ $maxVulnDay := 0 }}
 {{ $maxCritDay := 0 }}
 {{ range $i := seq $window }}
   {{ $offset := sub $window $i }}
-  {{ $key := (now.AddDate 0 0 (mul -1 $offset)).Format "2006-01-02" }}
+  {{ $key := ($anchor.AddDate 0 0 (mul -1 $offset)).Format "2006-01-02" }}
   {{ $t := $scratch.Get (printf "%s_total" $key) | default 0 }}
   {{ $v := $scratch.Get (printf "%s_vulns" $key) | default 0 }}
   {{ $c := $scratch.Get (printf "%s_crits" $key) | default 0 }}
@@ -55,113 +61,77 @@
 {{ $denomVulnDay := math.Max $maxVulnDay 1 }}
 {{ $denomCritDay := math.Max $maxCritDay 1 }}
 
+{{/* Build SVG polyline points for the crit + vuln overlays. viewBox is
+     0 0 $window 100, one column per day, value mapped into the 5..95 band. */}}
+{{ $critPts := slice }}
+{{ $vulnPts := slice }}
+{{ range $i := seq $window }}
+  {{ $offset := sub $window $i }}
+  {{ $key := ($anchor.AddDate 0 0 (mul -1 $offset)).Format "2006-01-02" }}
+  {{ $c := $scratch.Get (printf "%s_crits" $key) | default 0 }}
+  {{ $v := $scratch.Get (printf "%s_vulns" $key) | default 0 }}
+  {{ $x := sub (float $i) 0.5 }}
+  {{ $cy := sub 95.0 (div (mul (float $c) 90.0) $denomCritDay) }}
+  {{ $vy := sub 95.0 (div (mul (float $v) 90.0) $denomVulnDay) }}
+  {{ $critPts = $critPts | append (printf "%.2f,%.2f" $x $cy) }}
+  {{ $vulnPts = $vulnPts | append (printf "%.2f,%.2f" $x $vy) }}
+{{ end }}
+{{ $critPoints := delimit $critPts " " }}
+{{ $vulnPoints := delimit $vulnPts " " }}
+
 <div class="rounded-2xl border border-stroke bg-panel/60 p-5 md:p-6 space-y-5">
   <div class="flex items-baseline justify-between gap-3">
-    <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Activity, last {{ $window }} days</h2>
+    <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Recent activity</h2>
     <span class="text-xs font-mono text-muted"><span class="text-text">{{ $total }}</span> {{ if eq $total 1 }}brief{{ else }}briefs{{ end }}</span>
   </div>
 
-  <div class="grid gap-5 md:grid-cols-3">
-    <div class="activity-rate">
-      <div class="flex items-start justify-between gap-3">
-        <div>
-          <div class="text-[10px] uppercase tracking-wider text-muted">briefs/hour</div>
-          <div class="font-mono text-2xl leading-none text-text">{{ printf "%.2f" $briefRate }}</div>
-        </div>
-        <span class="activity-rate-note">{{ $total }} briefs</span>
-      </div>
-      <div class="activity-sparkline" aria-label="Brief volume trend over the last 30 days">
-        {{ range $i := seq $window }}
-          {{ $offset := sub $window $i }}
-          {{ $date := now.AddDate 0 0 (mul -1 $offset) }}
-          {{ $key := $date.Format "2006-01-02" }}
-          {{ $value := $scratch.Get (printf "%s_total" $key) | default 0 }}
-          {{ $heightPct := 8 }}
-          {{ if gt $value 0 }}{{ $heightPct = add 14 (div (mul $value 86.0) $denomDay) }}{{ end }}
-          <span class="activity-spark-bar activity-spark-briefs" style="height: {{ $heightPct }}%" title="{{ $date.Format "Mon Jan 2" }} - {{ $value }} briefs"></span>
-        {{ end }}
-      </div>
+  {{/* Compact rate readouts - keep the numbers, drop the per-metric charts */}}
+  <div class="flex flex-wrap items-baseline gap-x-7 gap-y-2">
+    <div class="flex items-baseline gap-2">
+      <span class="w-2.5 h-2.5 rounded-sm self-center" style="background: rgb(var(--color-accent))"></span>
+      <span class="font-mono text-2xl leading-none text-text">{{ strings.TrimSuffix ".0" (printf "%.1f" $briefRate) }}</span>
+      <span class="text-[10px] uppercase tracking-wider text-muted">briefs/day</span>
     </div>
-    <div class="activity-rate">
-      <div class="flex items-start justify-between gap-3">
-        <div>
-          <div class="text-[10px] uppercase tracking-wider text-muted">vulns/hour</div>
-          <div class="font-mono text-2xl leading-none text-text">{{ printf "%.2f" $vulnRate }}</div>
-        </div>
-        <span class="activity-rate-note">{{ $vulnTotal }} CVEs</span>
-      </div>
-      <div class="activity-sparkline" aria-label="Vulnerability volume trend over the last 30 days">
-        {{ range $i := seq $window }}
-          {{ $offset := sub $window $i }}
-          {{ $date := now.AddDate 0 0 (mul -1 $offset) }}
-          {{ $key := $date.Format "2006-01-02" }}
-          {{ $value := $scratch.Get (printf "%s_vulns" $key) | default 0 }}
-          {{ $heightPct := 8 }}
-          {{ if gt $value 0 }}{{ $heightPct = add 14 (div (mul $value 86.0) $denomVulnDay) }}{{ end }}
-          <span class="activity-spark-bar activity-spark-vulns" style="height: {{ $heightPct }}%" title="{{ $date.Format "Mon Jan 2" }} - {{ $value }} CVEs"></span>
-        {{ end }}
-      </div>
+    <div class="flex items-baseline gap-2">
+      <span class="w-2.5 h-2.5 rounded-sm self-center" style="background: rgb(var(--color-sev-medium))"></span>
+      <span class="font-mono text-2xl leading-none text-text">{{ strings.TrimSuffix ".0" (printf "%.1f" $vulnRate) }}</span>
+      <span class="text-[10px] uppercase tracking-wider text-muted">vulns/day</span>
     </div>
-    <div class="activity-rate">
-      <div class="flex items-start justify-between gap-3">
-        <div>
-          <div class="text-[10px] uppercase tracking-wider text-muted">crits/hour</div>
-          <div class="font-mono text-2xl leading-none text-text">{{ printf "%.2f" $critRate }}</div>
-        </div>
-        <span class="activity-rate-note">{{ $critTotal }} critical</span>
-      </div>
-      <div class="activity-sparkline" aria-label="Critical brief trend over the last 30 days">
-        {{ range $i := seq $window }}
-          {{ $offset := sub $window $i }}
-          {{ $date := now.AddDate 0 0 (mul -1 $offset) }}
-          {{ $key := $date.Format "2006-01-02" }}
-          {{ $value := $scratch.Get (printf "%s_crits" $key) | default 0 }}
-          {{ $heightPct := 8 }}
-          {{ if gt $value 0 }}{{ $heightPct = add 14 (div (mul $value 86.0) $denomCritDay) }}{{ end }}
-          <span class="activity-spark-bar activity-spark-crits" style="height: {{ $heightPct }}%" title="{{ $date.Format "Mon Jan 2" }} - {{ $value }} critical"></span>
-        {{ end }}
-      </div>
+    <div class="flex items-baseline gap-2">
+      <span class="w-2.5 h-2.5 rounded-sm self-center" style="background: rgb(var(--color-sev-critical))"></span>
+      <span class="font-mono text-2xl leading-none text-text">{{ strings.TrimSuffix ".0" (printf "%.1f" $critRate) }}</span>
+      <span class="text-[10px] uppercase tracking-wider text-muted">crits/day</span>
     </div>
   </div>
 
-  <div class="space-y-2">
-    <div class="flex items-end gap-[2px] h-12">
+  {{/* One combined chart: briefs/day bars + crit line (red) + vuln line */}}
+  <div class="activity-chart" aria-label="Briefs, vulnerabilities and critical trend over the last {{ $window }} days">
+    <div class="activity-chart-bars">
       {{ range $i := seq $window }}
         {{ $offset := sub $window $i }}
-        {{ $date := now.AddDate 0 0 (mul -1 $offset) }}
+        {{ $date := $anchor.AddDate 0 0 (mul -1 $offset) }}
         {{ $key := $date.Format "2006-01-02" }}
-        {{ $crit := $scratch.Get (printf "%s_critical" $key) | default 0 }}
-        {{ $high := $scratch.Get (printf "%s_high"     $key) | default 0 }}
-        {{ $med  := $scratch.Get (printf "%s_medium"   $key) | default 0 }}
-        {{ $low  := $scratch.Get (printf "%s_low"      $key) | default 0 }}
-        {{ $dayTotal := add (add (add $crit $high) $med) $low }}
-
-        {{ $dom := "" }}
-        {{ if gt $crit 0 }}{{ $dom = "critical" }}
-        {{ else if gt $high 0 }}{{ $dom = "high" }}
-        {{ else if gt $med  0 }}{{ $dom = "medium" }}
-        {{ else if gt $low  0 }}{{ $dom = "low" }}
-        {{ end }}
-
-        {{ $heightPct := 12 }}
-        {{ if gt $dayTotal 0 }}{{ $heightPct = add 25 (div (mul $dayTotal 75.0) $denomDay) }}{{ end }}
-
-        {{ $title := printf "%s - %d briefs" ($date.Format "Mon Jan 2") $dayTotal }}
-
-        <div class="flex-1 flex items-end h-full" title="{{ $title }}">
-          {{ if eq $dom "" }}
-          <div class="w-full bg-panel-2/40 rounded-sm" style="height: 8%"></div>
-          {{ else }}
-          <div class="w-full bg-sev-{{ $dom }} rounded-sm" style="height: {{ $heightPct }}%"></div>
-          {{ end }}
-        </div>
+        {{ $value := $scratch.Get (printf "%s_total" $key) | default 0 }}
+        {{ $c := $scratch.Get (printf "%s_crits" $key) | default 0 }}
+        {{ $v := $scratch.Get (printf "%s_vulns" $key) | default 0 }}
+        {{ $heightPct := 4 }}
+        {{ if gt $value 0 }}{{ $heightPct = add 8 (div (mul $value 90.0) $denomDay) }}{{ end }}
+        <span class="activity-spark-bar activity-spark-briefs" style="height: {{ $heightPct }}%" title="{{ $date.Format "Mon Jan 2" }} - {{ $value }} briefs, {{ $v }} CVEs, {{ $c }} critical"></span>
       {{ end }}
     </div>
+    <svg class="activity-chart-lines" viewBox="0 0 {{ $window }} 100" preserveAspectRatio="none" aria-hidden="true">
+      <polyline class="activity-line activity-line-vulns" vector-effect="non-scaling-stroke" points="{{ $vulnPoints }}"></polyline>
+      <polyline class="activity-line activity-line-crits" vector-effect="non-scaling-stroke" points="{{ $critPoints }}"></polyline>
+    </svg>
+  </div>
 
-    <div class="flex justify-between text-[10px] font-mono uppercase tracking-wider text-muted">
-      <span>{{ (now.AddDate 0 0 (mul -1 (sub $window 1))).Format "Jan 2" }}</span>
-      <span>today</span>
-    </div>
+  <div class="flex items-center justify-between gap-3 text-[10px] font-mono uppercase tracking-wider text-muted">
+    <span>{{ ($anchor.AddDate 0 0 (mul -1 (sub $window 1))).Format "Jan 2" }}</span>
+    <span class="flex items-center gap-3">
+      <span class="flex items-center gap-1"><span class="w-3 h-px" style="background: rgb(var(--color-sev-critical))"></span>crits</span>
+      <span class="flex items-center gap-1"><span class="w-3 h-px" style="background: rgb(var(--color-sev-medium))"></span>vulns</span>
+    </span>
+    <span>{{ $anchor.Format "Jan 2" }}</span>
   </div>
 
   <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 pt-2 border-t border-stroke">

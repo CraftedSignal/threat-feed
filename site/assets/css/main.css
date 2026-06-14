@@ -374,47 +374,48 @@ body {
 /* Activity strip                                                          */
 /* ---------------------------------------------------------------------- */
 
-.activity-rate {
-  min-width: 0;
-  padding-top: 1rem;
-  border-top: 1px solid rgb(var(--color-stroke) / 0.72);
+.activity-chart {
+  position: relative;
+  height: 11rem;
+  margin-top: 0.25rem;
+  background:
+    linear-gradient(to top, rgb(var(--color-stroke) / 0.24) 1px, transparent 1px) 0 100% / 100% 33.34%,
+    linear-gradient(to top, rgb(var(--color-stroke) / 0.12) 1px, transparent 1px) 0 100% / 100% 16.67%;
 }
 
-@media (min-width: 768px) {
-  .activity-rate {
-    padding-top: 0;
-    padding-left: 1.25rem;
-    border-top: 0;
-    border-left: 1px solid rgb(var(--color-stroke) / 0.72);
-  }
-
-  .activity-rate:first-child {
-    padding-left: 0;
-    border-left: 0;
-  }
-}
-
-.activity-rate-note {
-  flex: none;
-  margin-top: 0.15rem;
-  color: rgb(var(--color-muted));
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.6875rem;
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.activity-sparkline {
+.activity-chart-bars {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: flex-end;
   gap: 2px;
-  height: 3.5rem;
-  margin-top: 0.85rem;
-  padding: 0.35rem 0;
-  background:
-    linear-gradient(to top, rgb(var(--color-stroke) / 0.28) 1px, transparent 1px) 0 100% / 100% 50%,
-    linear-gradient(to top, rgb(var(--color-stroke) / 0.16) 1px, transparent 1px) 0 50% / 100% 50%;
+}
+
+.activity-chart-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.activity-line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.activity-line-crits {
+  stroke: rgb(var(--color-sev-critical));
+}
+
+.activity-line-vulns {
+  stroke: rgb(var(--color-sev-medium));
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+  opacity: 0.85;
 }
 
 .activity-spark-bar {
@@ -422,25 +423,17 @@ body {
   flex: 1 1 0;
   min-width: 2px;
   border-radius: 999px 999px 2px 2px;
-  opacity: 0.88;
   transform-origin: bottom;
 }
 
 .activity-spark-bar:hover {
   opacity: 1;
-  transform: scaleY(1.06);
+  transform: scaleY(1.02);
 }
 
 .activity-spark-briefs {
-  background: linear-gradient(to top, rgb(var(--color-accent) / 0.7), rgb(var(--color-accent2) / 0.95));
-}
-
-.activity-spark-vulns {
-  background: linear-gradient(to top, rgb(var(--color-sev-medium) / 0.66), rgb(var(--color-sev-high) / 0.9));
-}
-
-.activity-spark-crits {
-  background: linear-gradient(to top, rgb(var(--color-sev-high) / 0.75), rgb(var(--color-sev-critical) / 0.95));
+  background: linear-gradient(to top, rgb(var(--color-accent) / 0.5), rgb(var(--color-accent2) / 0.6));
+  opacity: 0.78;
 }
 
 /* ---------------------------------------------------------------------- */
