@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7634
 rules:
   - title: Detect SlimStat User-Agent Header XSS Attempt
-    description: Detects CVE-2026-7634 exploitation — attempts to inject XSS payloads into the User-Agent header targeting the SlimStat Analytics plugin for WordPress.
+    description: Detects CVE-2026-7634 exploitation - attempts to inject XSS payloads into the User-Agent header targeting the SlimStat Analytics plugin for WordPress.
     platform: sigma
     severity: medium
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect SlimStat User-Agent in URI
-    description: Detects CVE-2026-7634 exploitation — User-Agent strings in URI parameters can be used to inject malicious code
+    description: Detects CVE-2026-7634 exploitation - User-Agent strings in URI parameters can be used to inject malicious code
     platform: sigma
     severity: low
     tactics:

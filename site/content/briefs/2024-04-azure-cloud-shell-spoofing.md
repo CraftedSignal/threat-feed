@@ -24,8 +24,8 @@ mitre_ttps:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-35428
 rules:
-  - title: Detect CVE-2026-35428 Exploitation Attempt — Command Injection in Azure Cloud Shell
-    description: Detects CVE-2026-35428 exploitation attempt — suspicious requests to Azure Cloud Shell with command injection payloads
+  - title: Detect CVE-2026-35428 Exploitation Attempt - Command Injection in Azure Cloud Shell
+    description: Detects CVE-2026-35428 exploitation attempt - suspicious requests to Azure Cloud Shell with command injection payloads
     platform: sigma
     severity: medium
     tactics:
@@ -56,7 +56,7 @@ Successful exploitation of CVE-2026-35428 can allow attackers to perform network
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect CVE-2026-35428 Exploitation Attempt — Command Injection in Azure Cloud Shell` to identify potential exploitation attempts in web server logs.
+*   Deploy the Sigma rule `Detect CVE-2026-35428 Exploitation Attempt - Command Injection in Azure Cloud Shell` to identify potential exploitation attempts in web server logs.
 *   Implement input validation and sanitization measures within Azure Cloud Shell to prevent command injection attacks.
 *   Monitor network traffic for suspicious activity originating from Azure Cloud Shell instances.
 *   Review and update Azure Cloud Shell configurations to minimize the attack surface.

@@ -32,8 +32,8 @@ references:
   - https://vuldb.com/vuln/361851
   - https://vuldb.com/vuln/361851/cti
 rules:
-  - title: Detect CVE-2026-8098 Exploitation — SQL Injection in code-projects Feedback System
-    description: Detects CVE-2026-8098 exploitation — HTTP POST to /admin/checklogin.php with SQL injection attempts in the email parameter
+  - title: Detect CVE-2026-8098 Exploitation - SQL Injection in code-projects Feedback System
+    description: Detects CVE-2026-8098 exploitation - HTTP POST to /admin/checklogin.php with SQL injection attempts in the email parameter
     platform: sigma
     severity: high
     tactics:
@@ -76,7 +76,7 @@ Successful exploitation of this SQL injection vulnerability (CVE-2026-8098) in c
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect CVE-2026-8098 Exploitation — SQL Injection in code-projects Feedback System` to your SIEM to identify exploitation attempts targeting the vulnerable endpoint `/admin/checklogin.php`.
+*   Deploy the Sigma rule `Detect CVE-2026-8098 Exploitation - SQL Injection in code-projects Feedback System` to your SIEM to identify exploitation attempts targeting the vulnerable endpoint `/admin/checklogin.php`.
 *   Apply input validation and sanitization to the `email` parameter in `/admin/checklogin.php` to prevent SQL injection, addressing the root cause of CVE-2026-8098.
 *   Monitor web server logs for suspicious POST requests to `/admin/checklogin.php` containing SQL keywords or syntax in the `email` parameter.
 *   Upgrade to a patched version of code-projects Feedback System that addresses this SQL injection vulnerability as soon as it becomes available.

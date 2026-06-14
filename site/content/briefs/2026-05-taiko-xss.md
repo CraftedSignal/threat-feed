@@ -29,7 +29,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9144
 rules:
   - title: Detect Taiko AG1000-01A Fragmented XSS Attempt
-    description: Detects CVE-2026-9144 exploitation — attempts to inject malicious JavaScript by fragmenting payloads across multiple administrative form fields
+    description: Detects CVE-2026-9144 exploitation - attempts to inject malicious JavaScript by fragmenting payloads across multiple administrative form fields
     platform: sigma
     severity: medium
     tactics:
@@ -39,7 +39,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Taiko AG1000-01A Stored XSS via Admin Forms
-    description: Detects CVE-2026-9144 exploitation — stored XSS attempts through administrative forms by searching for common XSS vectors in POST requests
+    description: Detects CVE-2026-9144 exploitation - stored XSS attempts through administrative forms by searching for common XSS vectors in POST requests
     platform: sigma
     severity: medium
     tactics:

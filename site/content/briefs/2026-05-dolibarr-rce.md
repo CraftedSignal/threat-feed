@@ -37,8 +37,8 @@ references:
   - https://www.exploit-db.com/exploits/44964
   - https://www.vulncheck.com/advisories/dolibarr-erp-crm-remote-code-evaluation-via-install-step1-php
 rules:
-  - title: Detects CVE-2018-25357 Exploitation — Dolibarr ERP CRM Remote Code Execution via install/step1.php
-    description: Detects CVE-2018-25357 exploitation — HTTP POST to /install/step1.php with PHP code injection attempt in the db_name parameter
+  - title: Detects CVE-2018-25357 Exploitation - Dolibarr ERP CRM Remote Code Execution via install/step1.php
+    description: Detects CVE-2018-25357 exploitation - HTTP POST to /install/step1.php with PHP code injection attempt in the db_name parameter
     platform: sigma
     severity: critical
     tactics:
@@ -47,8 +47,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2018-25357 Exploitation — Dolibarr ERP CRM Command Execution via check.php
-    description: Detects CVE-2018-25357 exploitation — HTTP GET request to /check.php with a cmd parameter indicating command injection attempt after successful RCE via install
+  - title: Detects CVE-2018-25357 Exploitation - Dolibarr ERP CRM Command Execution via check.php
+    description: Detects CVE-2018-25357 exploitation - HTTP GET request to /check.php with a cmd parameter indicating command injection attempt after successful RCE via install
     platform: sigma
     severity: high
     tactics:

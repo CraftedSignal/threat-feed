@@ -30,7 +30,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42901
 rules:
   - title: Detect CVE-2026-42901 Exploitation Attempt - Forged Origin Header
-    description: Detects CVE-2026-42901 exploitation attempt — suspicious requests with forged or missing origin headers targeting Entra ID endpoints.
+    description: Detects CVE-2026-42901 exploitation attempt - suspicious requests with forged or missing origin headers targeting Entra ID endpoints.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-42901 Exploitation Attempt - Missing Origin Header
-    description: Detects CVE-2026-42901 exploitation attempt — requests to Entra ID endpoints with a missing Origin header.
+    description: Detects CVE-2026-42901 exploitation attempt - requests to Entra ID endpoints with a missing Origin header.
     platform: sigma
     severity: medium
     tactics:

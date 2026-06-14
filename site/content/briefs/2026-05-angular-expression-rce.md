@@ -25,8 +25,8 @@ references:
   - https://github.com/advisories/GHSA-pw8r-6689-xvf4
   - CVE-2026-44643
 rules:
-  - title: Detect CVE-2026-44643 Exploitation — angular-expressions Sandbox Escape
-    description: Detects CVE-2026-44643 exploitation — Attempts to exploit the angular-expressions sandbox escape vulnerability by detecting the use of '__proto__' in expressions.
+  - title: Detect CVE-2026-44643 Exploitation - angular-expressions Sandbox Escape
+    description: Detects CVE-2026-44643 exploitation - Attempts to exploit the angular-expressions sandbox escape vulnerability by detecting the use of '__proto__' in expressions.
     platform: sigma
     severity: critical
     tactics:
@@ -35,8 +35,8 @@ rules:
       - T1203
     data_sources:
       - webserver
-  - title: Detect CVE-2026-44643 Exploitation — angular-expressions SyntaxError
-    description: Detects CVE-2026-44643 exploitation — Error resulting from attempts to exploit the angular-expressions sandbox escape vulnerability by detecting the 'Unexpected identifier Object' error.
+  - title: Detect CVE-2026-44643 Exploitation - angular-expressions SyntaxError
+    description: Detects CVE-2026-44643 exploitation - Error resulting from attempts to exploit the angular-expressions sandbox escape vulnerability by detecting the 'Unexpected identifier Object' error.
     platform: sigma
     severity: high
     tactics:
@@ -68,6 +68,6 @@ Successful exploitation of this vulnerability allows an attacker to execute arbi
 ## Recommendation
 
 *   Upgrade the `angular-expressions` library to version 1.5.2 or later to patch CVE-2026-44643.
-*   Deploy the Sigma rule `Detect CVE-2026-44643 Exploitation — angular-expressions Sandbox Escape` to detect attempts to exploit the vulnerability in web server logs.
+*   Deploy the Sigma rule `Detect CVE-2026-44643 Exploitation - angular-expressions Sandbox Escape` to detect attempts to exploit the vulnerability in web server logs.
 *   Implement input validation to prevent the injection of malicious expressions into applications using `angular-expressions`.
 *   Continuously monitor web server logs for suspicious activity related to expression compilation.

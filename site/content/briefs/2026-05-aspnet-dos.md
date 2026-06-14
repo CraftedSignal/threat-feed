@@ -28,8 +28,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42899
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42899
 rules:
-  - title: Detects CVE-2026-42899 Exploitation Attempt — High CPU Usage by ASP.NET Core
-    description: Detects CVE-2026-42899 exploitation — Monitors for sustained high CPU usage by the ASP.NET Core process, which could indicate an infinite loop.
+  - title: Detects CVE-2026-42899 Exploitation Attempt - High CPU Usage by ASP.NET Core
+    description: Detects CVE-2026-42899 exploitation - Monitors for sustained high CPU usage by the ASP.NET Core process, which could indicate an infinite loop.
     platform: sigma
     severity: medium
     tactics:
@@ -40,7 +40,7 @@ rules:
       - process_creation
       - windows
   - title: Detects CVE-2026-42899 Exploitation Attempt - Excessive Requests to Specific Endpoint
-    description: Detects CVE-2026-42899 exploitation — Tracks the number of requests to a specific endpoint, triggering an alert if a threshold is exceeded, which could indicate an attempt to trigger an infinite loop.
+    description: Detects CVE-2026-42899 exploitation - Tracks the number of requests to a specific endpoint, triggering an alert if a threshold is exceeded, which could indicate an attempt to trigger an infinite loop.
     platform: sigma
     severity: medium
     tactics:

@@ -26,7 +26,7 @@ references:
   - https://github.com/advisories/GHSA-45vw-wh46-2vx8
 rules:
   - title: Detect Twig RCE via Macro Injection (CVE-2026-46640)
-    description: Detects CVE-2026-46640 exploitation — attempts to inject PHP code via Twig macro injection by identifying suspicious patterns in HTTP requests targeting Twig templates.
+    description: Detects CVE-2026-46640 exploitation - attempts to inject PHP code via Twig macro injection by identifying suspicious patterns in HTTP requests targeting Twig templates.
     platform: sigma
     severity: high
     tactics:
@@ -36,7 +36,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Twig RCE via eval-like Functions (CVE-2026-46640)
-    description: Detects CVE-2026-46640 exploitation — usage of eval, assert, or create_function within Twig templates, indicating a potential RCE attempt
+    description: Detects CVE-2026-46640 exploitation - usage of eval, assert, or create_function within Twig templates, indicating a potential RCE attempt
     platform: sigma
     severity: high
     tactics:

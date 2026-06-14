@@ -16,16 +16,16 @@ The CraftedSignal Threat Feed is a continuously refreshed catalog of trending th
 
 ## What's not here
 
-Detection rule queries (Sigma / SPL / KQL / FQL / LEQL), individual IOC values, full rule test data, and the complete brief body live inside the [CraftedSignal platform](https://app.craftedsignal.io/). The platform compiles each brief into ready-to-deploy SIEM rules with semantic-drift checks, noise budgets, and rollback automation.
+Full detection rule queries (Sigma / SPL / KQL / FQL / LEQL), rule test data, and platform workflows live inside the [CraftedSignal platform](https://app.craftedsignal.io/). Public briefs include IOC counts, and individual IOC values appear on the brief page when they are available.
 
 ## How to subscribe
 
 Every page that lists briefs has its own RSS feed. The most useful entry points:
 
-- [All briefs](/feed.xml) — everything
+- [All briefs](/feed.xml) - everything
 - [Critical only](/severities/critical/feed.xml)
 - [High and above](/severities/high/feed.xml)
-- Per [tag](/tags/) or [threat actor](/threat-actors/) — every term page links to its own feed
+- Per [tag](/tags/) or [threat actor](/threat-actors/) - every term page links to its own feed
 
 For email digests, paste any of these RSS URLs into a service like Buttondown, Feedrabbit, or Follow.it.
 

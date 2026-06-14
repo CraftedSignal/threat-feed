@@ -30,7 +30,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26147
 rules:
   - title: Detect CVE-2026-26147 Exploitation Attempts via Suspicious Request Parameters
-    description: Detects CVE-2026-26147 exploitation attempts — Monitors for suspicious API requests to Azure Compute Gallery potentially indicating attempts to exploit the improper input validation vulnerability.
+    description: Detects CVE-2026-26147 exploitation attempts - Monitors for suspicious API requests to Azure Compute Gallery potentially indicating attempts to exploit the improper input validation vulnerability.
     platform: sigma
     severity: medium
     tactics:
@@ -40,7 +40,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-26147 Exploitation - High Volume of Errors from Azure Compute Gallery
-    description: Detects CVE-2026-26147 exploitation attempts — Monitors for an unusually high volume of server errors originating from the Azure Compute Gallery, potentially indicating an attempted exploit.
+    description: Detects CVE-2026-26147 exploitation attempts - Monitors for an unusually high volume of server errors originating from the Azure Compute Gallery, potentially indicating an attempted exploit.
     platform: sigma
     severity: low
     tactics:

@@ -29,8 +29,8 @@ references:
   - https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-pm8c-3qq3-72w7
   - https://www.vulncheck.com/advisories/phpmyfaq-sql-injection-in-currentuser-settokendata-via-unescaped-oauth-token-fields
 rules:
-  - title: Detects CVE-2026-46359 Exploitation — phpMyFAQ SQL Injection via OAuth Token
-    description: Detects CVE-2026-46359 exploitation — Attempts to inject SQL commands into OAuth token claims processed by phpMyFAQ's CurrentUser::setTokenData function
+  - title: Detects CVE-2026-46359 Exploitation - phpMyFAQ SQL Injection via OAuth Token
+    description: Detects CVE-2026-46359 exploitation - Attempts to inject SQL commands into OAuth token claims processed by phpMyFAQ's CurrentUser::setTokenData function
     platform: sigma
     severity: high
     tactics:
@@ -39,8 +39,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-46359 Exploitation — phpMyFAQ SQL Injection via Azure AD Display Name
-    description: Detects CVE-2026-46359 exploitation — Azure AD display names with SQL metacharacters being processed by phpMyFAQ
+  - title: Detects CVE-2026-46359 Exploitation - phpMyFAQ SQL Injection via Azure AD Display Name
+    description: Detects CVE-2026-46359 exploitation - Azure AD display names with SQL metacharacters being processed by phpMyFAQ
     platform: sigma
     severity: high
     tactics:

@@ -28,8 +28,8 @@ references:
   - https://github.com/advisories/GHSA-rrmm-9v76-h3p4
   - CVE-2026-44848
 rules:
-  - title: Detect CVE-2026-44848 Exploitation — Portainer Unauthorized Plugin Pull
-    description: Detects CVE-2026-44848 exploitation — attempts to pull Docker plugins via the Portainer API without proper authorization.
+  - title: Detect CVE-2026-44848 Exploitation - Portainer Unauthorized Plugin Pull
+    description: Detects CVE-2026-44848 exploitation - attempts to pull Docker plugins via the Portainer API without proper authorization.
     platform: sigma
     severity: high
     tactics:
@@ -39,8 +39,8 @@ rules:
       - T1611
     data_sources:
       - webserver
-  - title: Detect CVE-2026-44848 Exploitation — Portainer Unauthorized Plugin Enable
-    description: Detects CVE-2026-44848 exploitation — attempts to enable Docker plugins via the Portainer API without proper authorization.
+  - title: Detect CVE-2026-44848 Exploitation - Portainer Unauthorized Plugin Enable
+    description: Detects CVE-2026-44848 exploitation - attempts to enable Docker plugins via the Portainer API without proper authorization.
     platform: sigma
     severity: high
     tactics:

@@ -31,7 +31,7 @@ references:
   - https://github.com/JohannesLks/CVE-2026-35333
 rules:
   - title: Detect Strongswan CVE-2026-35333 DoS Exploit
-    description: Detects CVE-2026-35333 exploitation — crafted RADIUS Access-Request packets with a zero-length User-Name attribute
+    description: Detects CVE-2026-35333 exploitation - crafted RADIUS Access-Request packets with a zero-length User-Name attribute
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
       - network_connection
       - zeek
   - title: Detect Strongswan CVE-2026-35333 High CPU Utilization
-    description: Detects CVE-2026-35333 — High CPU usage by charon process indicating potential DoS
+    description: Detects CVE-2026-35333 - High CPU usage by charon process indicating potential DoS
     platform: sigma
     severity: medium
     tactics:

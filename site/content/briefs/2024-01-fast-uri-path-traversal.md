@@ -27,7 +27,7 @@ references:
   - https://github.com/advisories/GHSA-q3j6-qgpj-74h6
 rules:
   - title: Detect fast-uri Path Traversal Attempts via URL Normalization
-    description: Detects CVE-2026-6321 exploitation — HTTP requests with percent-encoded dot segments or path separators in the URI, potentially indicating path traversal attempts against applications using fast-uri.
+    description: Detects CVE-2026-6321 exploitation - HTTP requests with percent-encoded dot segments or path separators in the URI, potentially indicating path traversal attempts against applications using fast-uri.
     platform: sigma
     severity: high
     tactics:

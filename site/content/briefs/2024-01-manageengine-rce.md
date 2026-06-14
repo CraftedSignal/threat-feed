@@ -59,8 +59,8 @@ references:
   - https://www.exploit-db.com/exploits/48793
   - https://manageengine.co.uk/products/applications_manager/security-updates/security-updates-cve-2020-14008.html
 rules:
-  - title: Detects CVE-2020-14008 Exploitation — Malicious JAR Upload
-    description: Detects CVE-2020-14008 exploitation — Suspicious JAR file upload to ManageEngine Applications Manager webserver
+  - title: Detects CVE-2020-14008 Exploitation - Malicious JAR Upload
+    description: Detects CVE-2020-14008 exploitation - Suspicious JAR file upload to ManageEngine Applications Manager webserver
     platform: sigma
     severity: high
     tactics:
@@ -70,8 +70,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2020-14008 Exploitation — Java Process in weblogic directory
-    description: Detects CVE-2020-14008 exploitation — Java process execution from the weblogic directory
+  - title: Detects CVE-2020-14008 Exploitation - Java Process in weblogic directory
+    description: Detects CVE-2020-14008 exploitation - Java process execution from the weblogic directory
     platform: sigma
     severity: high
     tactics:

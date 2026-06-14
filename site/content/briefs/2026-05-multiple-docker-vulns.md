@@ -28,8 +28,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-5817
   - https://www.cve.org/CVERecord?id=CVE-2026-5843
 rules:
-  - title: Detect CVE-2026-5817 and CVE-2026-5843 Exploitation — Suspicious Docker Desktop Process Creation
-    description: Detects CVE-2026-5817 and CVE-2026-5843 exploitation — Monitors for the creation of suspicious processes by Docker Desktop, indicative of remote code execution.
+  - title: Detect CVE-2026-5817 and CVE-2026-5843 Exploitation - Suspicious Docker Desktop Process Creation
+    description: Detects CVE-2026-5817 and CVE-2026-5843 exploitation - Monitors for the creation of suspicious processes by Docker Desktop, indicative of remote code execution.
     platform: sigma
     severity: high
     tactics:
@@ -39,8 +39,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detect CVE-2026-5817 and CVE-2026-5843 Exploitation — Docker Desktop Network Connection to External IP
-    description: Detects CVE-2026-5817 and CVE-2026-5843 exploitation — Monitors for Docker Desktop making network connections to external IP addresses after suspicious activity.
+  - title: Detect CVE-2026-5817 and CVE-2026-5843 Exploitation - Docker Desktop Network Connection to External IP
+    description: Detects CVE-2026-5817 and CVE-2026-5843 exploitation - Monitors for Docker Desktop making network connections to external IP addresses after suspicious activity.
     platform: sigma
     severity: medium
     tactics:

@@ -25,8 +25,8 @@ references:
   - https://github.com/advisories/GHSA-qqq4-5773-pmw5
   - CVE-2026-45152
 rules:
-  - title: Detect CVE-2026-45152 Exploitation — Uniget Command Injection via Bash Execution
-    description: Detects CVE-2026-45152 exploitation — execution of bash with -c parameter and commands originating from the uniget metadata cache directory indicating a command injection attempt.
+  - title: Detect CVE-2026-45152 Exploitation - Uniget Command Injection via Bash Execution
+    description: Detects CVE-2026-45152 exploitation - execution of bash with -c parameter and commands originating from the uniget metadata cache directory indicating a command injection attempt.
     platform: sigma
     severity: high
     tactics:
@@ -36,7 +36,7 @@ rules:
     data_sources:
       - process_creation
       - linux
-  - title: Detect CVE-2026-45152 Attempt — Uniget Metadata Cache Modification
+  - title: Detect CVE-2026-45152 Attempt - Uniget Metadata Cache Modification
     description: Detects attempts to create or modify Uniget metadata cache files, potentially indicating malicious activity associated with CVE-2026-45152 exploitation.
     platform: sigma
     severity: medium

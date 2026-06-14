@@ -26,7 +26,7 @@ references:
   - https://github.com/electerm/electerm/releases
 rules:
   - title: Detect Electerm Malicious Payload Delivery
-    description: Detects CVE-2026-45353 exploitation — Suspicious processes attempting to interact with Electerm's single-instance socket/pipe using interprocess communication.
+    description: Detects CVE-2026-45353 exploitation - Suspicious processes attempting to interact with Electerm's single-instance socket/pipe using interprocess communication.
     platform: sigma
     severity: high
     tactics:
@@ -37,7 +37,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Electerm Suspicious Child Processes
-    description: Detects CVE-2026-45353 exploitation — Electerm spawning suspicious child processes, potentially indicating code execution.
+    description: Detects CVE-2026-45353 exploitation - Electerm spawning suspicious child processes, potentially indicating code execution.
     platform: sigma
     severity: high
     tactics:

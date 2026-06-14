@@ -42,10 +42,10 @@ func (s *server) handleFavicon(w http.ResponseWriter, _ *http.Request) {
 	_, _ = w.Write(faviconSVG)
 }
 
-// POST /subscribe — JSON body: {channel, email|webhook_url, filter}.
-// On success, stores a pending verification and emails (or — for
-// webhook channels — directly issues a confirmation token in the
-// response body, since webhooks don't have an inbox to verify into).
+// POST /subscribe - JSON body: {channel, email|webhook_url, filter}.
+// On success, stores a pending verification and emails (or - for
+// webhook channels - posts a confirmation message to prove the
+// destination is reachable before storing the subscription).
 func (s *server) handleSubscribe(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
@@ -79,17 +79,21 @@ func (s *server) handleSubscribe(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "internal error", http.StatusInternalServerError)
 			return
 		}
-		body := s.verifyEmailBody(verifyToken)
-		if err := s.mailer.Send(sub.Email, "Confirm your CraftedSignal feed subscription", body); err != nil {
+		body := s.verifyEmailContent(verifyToken)
+		if err := s.mailer.Send(sub.Email, "Confirm your CraftedSignal feed subscription", body.Text, body.HTML); err != nil {
 			s.logger.Error("verification mail failed", "err", err)
 			http.Error(w, "email send failed", http.StatusBadGateway)
 			return
 		}
 	case ChannelSlack, ChannelTeams:
 		// Webhook channels can't receive an email-style confirmation.
-		// The webhook URL itself is the secret — possessing it means
-		// you can post into the destination, which we treat as
-		// implicit consent. Skip pending; verify immediately.
+		// Post a small confirmation first so validation, DNS checks,
+		// provider auth, and delivery all happen before persistence.
+		if err := SendWebhookWelcome(sub.Channel, sub.WebhookURL, s.cfg.SiteOrigin); err != nil {
+			s.logger.Error("webhook verification failed", "channel", sub.Channel, "err", err)
+			http.Error(w, "webhook verification failed", http.StatusBadGateway)
+			return
+		}
 		sub.VerifiedAt = time.Now().UTC()
 		if err := s.store.SaveSubscription(ctx, sub); err != nil {
 			s.logger.Error("save sub failed", "err", err)
@@ -107,7 +111,7 @@ func (s *server) handleSubscribe(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// GET /verify?token=… — confirm an emailed subscription.
+// GET /verify?token=… - confirm an emailed subscription.
 func (s *server) handleVerify(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		s.redirectSiteError(w, r)
@@ -133,11 +137,11 @@ func (s *server) handleVerify(w http.ResponseWriter, r *http.Request) {
 	// The pending doc serialized the Subscription with `firestore:"-"`
 	// on ID, so the value set in handleSubscribe was dropped on the
 	// way through Firestore. ID is purely the doc key in the verified
-	// collection — re-mint one here.
+	// collection - re-mint one here.
 	sub.ID = newToken()
 	// Re-subscribing should replace, not duplicate. Drop any prior
 	// verified row for this address+channel before writing the new one
-	// — if the cleanup fails we still try the write so a Firestore
+	// - if the cleanup fails we still try the write so a Firestore
 	// hiccup doesn't block the user; worst case they end up with a
 	// duplicate, which the dispatcher already tolerates.
 	if sub.Email != "" {
@@ -192,7 +196,7 @@ func (s *server) handleUnsubscribe(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, dest.String(), http.StatusSeeOther)
 }
 
-// POST /dispatch — bearer-authed; body is { briefs: [...] }. Called by
+// POST /dispatch - bearer-authed; body is { briefs: [...] }. Called by
 // the threat-feed Site Deploy workflow on every successful build.
 func (s *server) handleDispatch(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
@@ -227,7 +231,7 @@ func (s *server) handleDispatch(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// POST /flush-pending — bearer-authed; called periodically by Cloud
+// POST /flush-pending - bearer-authed; called periodically by Cloud
 // Scheduler. Drains every queue with first_queued_at older than the
 // debounce window, batching all matched briefs per subscriber into
 // one delivery. The debounce window is fixed at 5 min server-side
@@ -265,27 +269,6 @@ func (s *server) checkDispatchAuth(r *http.Request) bool {
 	return subtle.ConstantTimeCompare(got, want) == 1
 }
 
-func (s *server) verifyEmailBody(token string) string {
-	base := s.cfg.ServiceURL
-	if base == "" {
-		// No SERVICE_URL set yet — degrade gracefully, ship the token
-		// inline so the user can construct the link manually if needed.
-		return fmt.Sprintf(`Your CraftedSignal Threat Feed subscription is awaiting confirmation.
-
-Verification token: %s
-
-(SERVICE_URL not yet configured; please contact the operator.)
-`, token)
-	}
-	verifyURL := fmt.Sprintf("%s/verify?token=%s", base, token)
-	return fmt.Sprintf(`Confirm your CraftedSignal Threat Feed subscription:
-
-%s
-
-This link expires in 24 hours. If you didn't request this, ignore the email.
-`, verifyURL)
-}
-
 // ---------------------------------------------------------------------------
 // Request shapes
 
@@ -310,17 +293,17 @@ func (r subscribeRequest) toSubscription() (Subscription, error) {
 		}
 		sub.Email = strings.ToLower(addr.Address)
 	case ChannelSlack:
-		if !strings.HasPrefix(r.WebhookURL, "https://hooks.slack.com/") {
-			return sub, fmt.Errorf("invalid Slack webhook URL")
+		webhookURL, err := validateWebhookURL(r.WebhookURL, ch)
+		if err != nil {
+			return sub, fmt.Errorf("invalid Slack webhook URL: %w", err)
 		}
-		sub.WebhookURL = r.WebhookURL
+		sub.WebhookURL = webhookURL
 	case ChannelTeams:
-		if !strings.Contains(r.WebhookURL, "office.com/webhook") &&
-			!strings.Contains(r.WebhookURL, ".webhook.office.com") &&
-			!strings.Contains(r.WebhookURL, ".logic.azure.com") {
-			return sub, fmt.Errorf("invalid Teams webhook URL")
+		webhookURL, err := validateWebhookURL(r.WebhookURL, ch)
+		if err != nil {
+			return sub, fmt.Errorf("invalid Teams webhook URL: %w", err)
 		}
-		sub.WebhookURL = r.WebhookURL
+		sub.WebhookURL = webhookURL
 	default:
 		return sub, fmt.Errorf("channel must be one of: email, slack, teams")
 	}
@@ -353,13 +336,13 @@ func respondJSON(w http.ResponseWriter, status int, v any) {
 
 func withCORSAndLog(next http.Handler, origin string, logger *slog.Logger) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// HSTS — every response served over HTTPS by the LB; tell
+		// HSTS - every response served over HTTPS by the LB; tell
 		// browsers to never downgrade.
 		w.Header().Set("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
 		w.Header().Set("X-Content-Type-Options", "nosniff")
 		w.Header().Set("Referrer-Policy", "no-referrer")
 
-		// CORS for /subscribe — only the configured origin.
+		// CORS for /subscribe - only the configured origin.
 		w.Header().Set("Vary", "Origin")
 		if r.Header.Get("Origin") == origin {
 			w.Header().Set("Access-Control-Allow-Origin", origin)

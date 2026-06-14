@@ -35,8 +35,8 @@ references:
   - https://www.impresscms.org/modules/downloads/
   - https://www.vulncheck.com/advisories/impresscms-remote-code-execution-via-autotasks
 rules:
-  - title: Detects CVE-2021-47938 Exploitation — ImpressCMS Autotasks RCE Attempt
-    description: Detects CVE-2021-47938 exploitation — HTTP POST requests to /modules/system/admin.php with suspicious PHP code injection attempts in the sat_code parameter
+  - title: Detects CVE-2021-47938 Exploitation - ImpressCMS Autotasks RCE Attempt
+    description: Detects CVE-2021-47938 exploitation - HTTP POST requests to /modules/system/admin.php with suspicious PHP code injection attempts in the sat_code parameter
     platform: sigma
     severity: high
     tactics:
@@ -45,8 +45,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2021-47938 Exploitation — ImpressCMS Autotasks RCE Webshell Access
-    description: Detects CVE-2021-47938 exploitation — HTTP GET requests accessing potential webshell file created via sat_code
+  - title: Detects CVE-2021-47938 Exploitation - ImpressCMS Autotasks RCE Webshell Access
+    description: Detects CVE-2021-47938 exploitation - HTTP GET requests accessing potential webshell file created via sat_code
     platform: sigma
     severity: high
     tactics:

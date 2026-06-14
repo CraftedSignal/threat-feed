@@ -27,7 +27,7 @@ references:
   - CVE-2026-43977
 rules:
   - title: Detect Unauthorized Workout Logs Access
-    description: Detects CVE-2026-43977 exploitation — unauthorized access to workout logs via /api/v2/routine/{id}/logs/ by non-owners.
+    description: Detects CVE-2026-43977 exploitation - unauthorized access to workout logs via /api/v2/routine/{id}/logs/ by non-owners.
     platform: sigma
     severity: high
     tactics:
@@ -37,7 +37,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Unauthorized Workout Statistics Access
-    description: Detects CVE-2026-43977 exploitation — unauthorized access to workout statistics via /api/v2/routine/{id}/stats/ by non-owners.
+    description: Detects CVE-2026-43977 exploitation - unauthorized access to workout statistics via /api/v2/routine/{id}/stats/ by non-owners.
     platform: sigma
     severity: high
     tactics:

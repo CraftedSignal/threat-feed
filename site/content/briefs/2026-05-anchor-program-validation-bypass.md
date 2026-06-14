@@ -27,7 +27,7 @@ references:
   - CVE-2026-45137
 rules:
   - title: Detect Anchor Program ID Validation Bypass
-    description: Detects CVE-2026-45137 — Exploitation attempts where a program attempts to invoke another program by passing in an incorrect program ID, specifically looking for the ComputeBudget program being passed as the System program.
+    description: Detects CVE-2026-45137 - Exploitation attempts where a program attempts to invoke another program by passing in an incorrect program ID, specifically looking for the ComputeBudget program being passed as the System program.
     platform: sigma
     severity: high
     tactics:

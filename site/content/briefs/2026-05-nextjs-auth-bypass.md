@@ -27,7 +27,7 @@ references:
   - CVE-2026-44573
 rules:
   - title: Detect Next.js i18n Auth Bypass Attempt
-    description: Detects CVE-2026-44573 exploitation — attempts to bypass authentication on Next.js applications using i18n by requesting `/_next/data` without locale prefix.
+    description: Detects CVE-2026-44573 exploitation - attempts to bypass authentication on Next.js applications using i18n by requesting `/_next/data` without locale prefix.
     platform: sigma
     severity: high
     tactics:

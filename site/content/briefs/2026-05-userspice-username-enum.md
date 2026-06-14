@@ -31,7 +31,7 @@ references:
   - https://www.vulncheck.com/advisories/userspice-username-enumeration-via-existingusernamecheck-php
 rules:
   - title: Detect userSpice Username Enumeration via existingUsernameCheck.php
-    description: Detects CVE-2018-25350 exploitation — An unauthenticated attacker attempts to enumerate userSpice usernames by sending POST requests to the existingUsernameCheck.php endpoint.
+    description: Detects CVE-2018-25350 exploitation - An unauthenticated attacker attempts to enumerate userSpice usernames by sending POST requests to the existingUsernameCheck.php endpoint.
     platform: sigma
     severity: medium
     tactics:
@@ -41,7 +41,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect userSpice Username Enumeration Response
-    description: Detects CVE-2018-25350 exploitation — Detects a server response containing 'taken' after a POST request to the existingUsernameCheck.php endpoint, indicating a valid username.
+    description: Detects CVE-2018-25350 exploitation - Detects a server response containing 'taken' after a POST request to the existingUsernameCheck.php endpoint, indicating a valid username.
     platform: sigma
     severity: low
     tactics:

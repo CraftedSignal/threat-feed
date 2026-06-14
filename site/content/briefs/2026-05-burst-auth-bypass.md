@@ -29,7 +29,7 @@ references:
   - CVE-2026-8181
 rules:
   - title: Detect Burst Statistics Authentication Bypass
-    description: Detects CVE-2026-8181 exploitation — Attempts to access wp-admin endpoints with an Authorization header using Basic Authentication and a username indicative of an admin user.
+    description: Detects CVE-2026-8181 exploitation - Attempts to access wp-admin endpoints with an Authorization header using Basic Authentication and a username indicative of an admin user.
     platform: sigma
     severity: critical
     tactics:

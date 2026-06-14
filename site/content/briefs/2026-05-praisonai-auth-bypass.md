@@ -32,7 +32,7 @@ references:
   - CVE-2026-44338
 rules:
   - title: Detect Unauthenticated Access to PraisonAI Agents Endpoint
-    description: Detects CVE-2026-44338 exploitation — GET requests to the /agents endpoint without authentication headers, indicating a potential authentication bypass attempt.
+    description: Detects CVE-2026-44338 exploitation - GET requests to the /agents endpoint without authentication headers, indicating a potential authentication bypass attempt.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Unauthenticated Chat Request to PraisonAI API Server
-    description: Detects CVE-2026-44338 exploitation — POST requests to the /chat endpoint without authentication headers, indicating a potential authentication bypass and workflow trigger attempt.
+    description: Detects CVE-2026-44338 exploitation - POST requests to the /chat endpoint without authentication headers, indicating a potential authentication bypass and workflow trigger attempt.
     platform: sigma
     severity: high
     tactics:

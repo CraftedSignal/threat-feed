@@ -30,7 +30,7 @@ references:
   - https://github.com/elixir-plug/plug/commit/d878b42efea9f12b243dc3e362a2ed048a798203
 rules:
   - title: Detect Suspicious Multipart Form Request
-    description: Detects CVE-2026-8468 attempt — Identifies HTTP requests with multipart/form-data content type and excessively long header fields, potentially indicating a denial-of-service attack.
+    description: Detects CVE-2026-8468 attempt - Identifies HTTP requests with multipart/form-data content type and excessively long header fields, potentially indicating a denial-of-service attack.
     platform: sigma
     severity: medium
     tactics:

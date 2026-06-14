@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46819
   - CVE-2026-46819
 rules:
-  - title: Detects CVE-2026-46819 Exploitation Attempts — Oracle Internet Procurement Connector Unauthenticated Access
+  - title: Detects CVE-2026-46819 Exploitation Attempts - Oracle Internet Procurement Connector Unauthenticated Access
     description: Detects CVE-2026-46819 exploitation attempts by identifying HTTP requests to Oracle Internet Procurement Connector that bypass authentication.
     platform: sigma
     severity: critical

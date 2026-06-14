@@ -25,8 +25,8 @@ mitre_ttps:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33109
 rules:
-  - title: Detects CVE-2026-33109 Exploitation Attempt — Suspicious Network Activity to Cassandra Instance
-    description: Detects CVE-2026-33109 exploitation attempt — Monitors for suspicious network connections to the Cassandra instance indicative of unauthorized access or code execution.
+  - title: Detects CVE-2026-33109 Exploitation Attempt - Suspicious Network Activity to Cassandra Instance
+    description: Detects CVE-2026-33109 exploitation attempt - Monitors for suspicious network connections to the Cassandra instance indicative of unauthorized access or code execution.
     platform: sigma
     severity: high
     tactics:
@@ -36,8 +36,8 @@ rules:
     data_sources:
       - network_connection
       - azure
-  - title: Detects CVE-2026-33109 Exploitation Attempt — Unusual Process Execution in Azure Cassandra
-    description: Detects CVE-2026-33109 exploitation attempt — Monitors for unusual process execution within the Azure Cassandra environment that could be indicative of successful exploitation.
+  - title: Detects CVE-2026-33109 Exploitation Attempt - Unusual Process Execution in Azure Cassandra
+    description: Detects CVE-2026-33109 exploitation attempt - Monitors for unusual process execution within the Azure Cassandra environment that could be indicative of successful exploitation.
     platform: sigma
     severity: critical
     tactics:

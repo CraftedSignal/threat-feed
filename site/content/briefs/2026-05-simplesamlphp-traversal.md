@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-jrrg-99xh-5j2q
 rules:
   - title: Detect SimpleSAMLphp FileSystemTicketStore Path Traversal Attempt
-    description: Detects CVE-2026-46491 exploitation — attempts to exploit path traversal in SimpleSAMLphp FileSystemTicketStore by looking for 'ticket' or 'pgt' parameters containing '..'.
+    description: Detects CVE-2026-46491 exploitation - attempts to exploit path traversal in SimpleSAMLphp FileSystemTicketStore by looking for 'ticket' or 'pgt' parameters containing '..'.
     platform: sigma
     severity: high
     tactics:

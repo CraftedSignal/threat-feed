@@ -31,7 +31,7 @@ references:
   - CVE-2026-37459
 rules:
   - title: Detect Suspicious BGP UPDATE Messages
-    description: Detects CVE-2026-37459 exploitation — Monitors for BGP UPDATE messages from unusual sources
+    description: Detects CVE-2026-37459 exploitation - Monitors for BGP UPDATE messages from unusual sources
     platform: sigma
     severity: low
     tactics:

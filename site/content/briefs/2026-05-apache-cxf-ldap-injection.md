@@ -33,8 +33,8 @@ references:
   - https://lists.apache.org/thread/c1zqxppo1m5z3kbdhjn5p991zk09ynkh
   - http://www.openwall.com/lists/oss-security/2026/05/22/9
 rules:
-  - title: Detects CVE-2026-44930 Exploitation — Malicious LDAP Query
-    description: Detects CVE-2026-44930 exploitation — suspicious LDAP-related requests containing injection attempts
+  - title: Detects CVE-2026-44930 Exploitation - Malicious LDAP Query
+    description: Detects CVE-2026-44930 exploitation - suspicious LDAP-related requests containing injection attempts
     platform: sigma
     severity: high
     tactics:
@@ -43,8 +43,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-44930 Exploitation — LDAP URI in HTTP Request
-    description: Detects CVE-2026-44930 exploitation — HTTP requests containing an LDAP URI indicating potential injection
+  - title: Detects CVE-2026-44930 Exploitation - LDAP URI in HTTP Request
+    description: Detects CVE-2026-44930 exploitation - HTTP requests containing an LDAP URI indicating potential injection
     platform: sigma
     severity: medium
     tactics:
@@ -75,5 +75,5 @@ Successful exploitation of CVE-2026-44930 can lead to the unauthorized disclosur
 ## Recommendation
 
 *   Upgrade to Apache CXF versions 4.2.1, 4.1.6, or 3.6.11 to remediate the LDAP injection vulnerability as advised in the advisory ([https://lists.apache.org/thread/c1zqxppo1m5z3kbdhjn5p991zk09ynkh](https://lists.apache.org/thread/c1zqxppo1m5z3kbdhjn5p991zk09ynkh)).
-*   Deploy the Sigma rule "Detects CVE-2026-44930 Exploitation — Malicious LDAP Query" to identify potential exploitation attempts.
+*   Deploy the Sigma rule "Detects CVE-2026-44930 Exploitation - Malicious LDAP Query" to identify potential exploitation attempts.
 *   Monitor web server logs for unusual LDAP-related requests targeting the XKMS service.

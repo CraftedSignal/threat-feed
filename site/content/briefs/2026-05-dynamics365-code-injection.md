@@ -30,7 +30,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42898
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42898
 rules:
-  - title: Detects CVE-2026-42898 Exploitation — Suspicious URI Parameters
+  - title: Detects CVE-2026-42898 Exploitation - Suspicious URI Parameters
     description: Detects CVE-2026-42898 exploitation attempts via suspicious characters in URI parameters targeting Dynamics 365 (on-premises)
     platform: sigma
     severity: high
@@ -41,7 +41,7 @@ rules:
       - T1059.001
     data_sources:
       - webserver
-  - title: Detects CVE-2026-42898 Exploitation — Suspicious POST Request Body
+  - title: Detects CVE-2026-42898 Exploitation - Suspicious POST Request Body
     description: Detects CVE-2026-42898 exploitation attempts via suspicious characters in POST request bodies targeting Dynamics 365 (on-premises)
     platform: sigma
     severity: high

@@ -36,7 +36,7 @@ references:
   - https://cwe.mitre.org/data/definitions/552.html
 rules:
   - title: Detect Dalfox Unauthenticated File Read via API
-    description: Detects CVE-2026-45088 exploitation — monitors HTTP POST requests to the /scan endpoint with the custom-payload-file parameter, indicating a potential file read attempt.
+    description: Detects CVE-2026-45088 exploitation - monitors HTTP POST requests to the /scan endpoint with the custom-payload-file parameter, indicating a potential file read attempt.
     platform: sigma
     severity: high
     tactics:

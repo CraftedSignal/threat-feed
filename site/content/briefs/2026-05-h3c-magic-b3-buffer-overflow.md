@@ -37,7 +37,7 @@ references:
   - https://vuldb.com/vuln/364389/cti
 rules:
   - title: Detect CVE-2026-8764 Exploitation Attempt
-    description: Detects CVE-2026-8764 exploitation attempt — HTTP POST request to /goform/aspForm with an overly long 'param' argument, indicating a potential buffer overflow attempt.
+    description: Detects CVE-2026-8764 exploitation attempt - HTTP POST request to /goform/aspForm with an overly long 'param' argument, indicating a potential buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -48,7 +48,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-8764 - Suspicious Characters in UpdateWanParams
-    description: Detects CVE-2026-8764 exploitation attempt — Looks for shell metacharacters being passed in the param field during an update to UpdateWanParams
+    description: Detects CVE-2026-8764 exploitation attempt - Looks for shell metacharacters being passed in the param field during an update to UpdateWanParams
     platform: sigma
     severity: medium
     tactics:

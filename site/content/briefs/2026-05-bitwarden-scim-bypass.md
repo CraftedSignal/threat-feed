@@ -32,8 +32,8 @@ references:
   - https://sanjokkarki.com.np/blog/bitwarden-scim-key-bypass
   - https://www.vulncheck.com/advisories/bitwarden-server-authentication-bypass-via-scim-api-key
 rules:
-  - title: Detects CVE-2026-43640 Exploitation Attempt — SCIM API Key Retrieval without MFA
-    description: Detects CVE-2026-43640 exploitation attempt — Monitors for requests to the SCIM API key retrieval endpoint without a corresponding MFA challenge in Bitwarden Server logs.
+  - title: Detects CVE-2026-43640 Exploitation Attempt - SCIM API Key Retrieval without MFA
+    description: Detects CVE-2026-43640 exploitation attempt - Monitors for requests to the SCIM API key retrieval endpoint without a corresponding MFA challenge in Bitwarden Server logs.
     platform: sigma
     severity: high
     tactics:
@@ -43,8 +43,8 @@ rules:
       - T1555.005
     data_sources:
       - webserver
-  - title: Detects CVE-2026-43640 Exploitation Attempt — SCIM API Key Rotation without MFA
-    description: Detects CVE-2026-43640 exploitation attempt — Monitors for requests to rotate the SCIM API key without a corresponding MFA challenge in Bitwarden Server logs.
+  - title: Detects CVE-2026-43640 Exploitation Attempt - SCIM API Key Rotation without MFA
+    description: Detects CVE-2026-43640 exploitation attempt - Monitors for requests to rotate the SCIM API key without a corresponding MFA challenge in Bitwarden Server logs.
     platform: sigma
     severity: high
     tactics:

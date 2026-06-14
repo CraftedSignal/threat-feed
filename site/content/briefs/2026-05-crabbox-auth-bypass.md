@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/crabbox-authentication-bypass-via-header-spoofing
 rules:
   - title: Detect Crabbox Authentication Bypass Attempt via Spoofed Headers
-    description: Detects CVE-2026-8621 exploitation attempt — monitors for HTTP requests containing both `X-Crabbox-Owner` and `X-Crabbox-Org` headers, indicating potential header spoofing for authentication bypass.
+    description: Detects CVE-2026-8621 exploitation attempt - monitors for HTTP requests containing both `X-Crabbox-Owner` and `X-Crabbox-Org` headers, indicating potential header spoofing for authentication bypass.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Crabbox Authentication Bypass Attempt via HTTP Method
-    description: Detects CVE-2026-8621 exploitation attempt — monitors for HTTP POST or PUT requests containing both `X-Crabbox-Owner` and `X-Crabbox-Org` headers, as this may indicate an attempt to modify data with spoofed credentials.
+    description: Detects CVE-2026-8621 exploitation attempt - monitors for HTTP POST or PUT requests containing both `X-Crabbox-Owner` and `X-Crabbox-Org` headers, as this may indicate an attempt to modify data with spoofed credentials.
     platform: sigma
     severity: medium
     tactics:

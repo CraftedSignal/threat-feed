@@ -30,8 +30,8 @@ references:
   - https://www.exploit-db.com/exploits/44261
   - https://www.vulncheck.com/advisories/redaxo-cms-addon-myevents-sql-injection-via-event-add-php
 rules:
-  - title: Detect CVE-2018-25319 Exploitation — Redaxo MyEvents SQL Injection
-    description: Detects CVE-2018-25319 exploitation — SQL injection attempts in Redaxo MyEvents Addon via crafted GET requests to event_add.php.
+  - title: Detect CVE-2018-25319 Exploitation - Redaxo MyEvents SQL Injection
+    description: Detects CVE-2018-25319 exploitation - SQL injection attempts in Redaxo MyEvents Addon via crafted GET requests to event_add.php.
     platform: sigma
     severity: high
     tactics:
@@ -72,7 +72,7 @@ Successful exploitation of this SQL injection vulnerability (CVE-2018-25319) can
 ## Recommendation
 
 *   Apply any available patches or updates for the Redaxo CMS MyEvents Addon to remediate CVE-2018-25319.
-*   Deploy the Sigma rule `Detect CVE-2018-25319 Exploitation — Redaxo MyEvents SQL Injection` to identify exploitation attempts in web server logs.
+*   Deploy the Sigma rule `Detect CVE-2018-25319 Exploitation - Redaxo MyEvents SQL Injection` to identify exploitation attempts in web server logs.
 *   Monitor web server logs for suspicious GET requests to `/redaxo/index.php?addon=myevents&page=event_add` with unusual characters in the `myevents_id` parameter (see IOCs).
 *   Implement input validation and sanitization for all user-supplied data, especially for parameters used in database queries.
 *   Enforce least privilege principles to limit the impact of potential SQL injection attacks.

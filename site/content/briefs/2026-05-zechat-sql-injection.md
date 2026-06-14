@@ -30,8 +30,8 @@ references:
   - https://www.exploit-db.com/exploits/44685
   - https://www.vulncheck.com/advisories/zechat-sql-injection-via-v-parameter-time-based-blind
 rules:
-  - title: Detect CVE-2018-25339 Exploitation — Zechat SQL Injection
-    description: Detects CVE-2018-25339 exploitation — Attempts to exploit SQL injection in Zechat 1.5 via the 'v' parameter with time-based blind SQL injection techniques.
+  - title: Detect CVE-2018-25339 Exploitation - Zechat SQL Injection
+    description: Detects CVE-2018-25339 exploitation - Attempts to exploit SQL injection in Zechat 1.5 via the 'v' parameter with time-based blind SQL injection techniques.
     platform: sigma
     severity: high
     tactics:
@@ -40,8 +40,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2018-25339 Exploitation — Zechat SQL Injection with Comments
-    description: Detects CVE-2018-25339 exploitation — Attempts to exploit SQL injection in Zechat 1.5 via the 'v' parameter with SQL comments.
+  - title: Detect CVE-2018-25339 Exploitation - Zechat SQL Injection with Comments
+    description: Detects CVE-2018-25339 exploitation - Attempts to exploit SQL injection in Zechat 1.5 via the 'v' parameter with SQL comments.
     platform: sigma
     severity: medium
     tactics:
@@ -73,6 +73,6 @@ Successful exploitation of this SQL injection vulnerability (CVE-2018-25339) can
 ## Recommendation
 
 *   Apply available patches or upgrade to a secure version of Zechat to remediate CVE-2018-25339.
-*   Deploy the Sigma rule "Detect CVE-2018-25339 Exploitation — Zechat SQL Injection" to your SIEM to detect exploitation attempts.
+*   Deploy the Sigma rule "Detect CVE-2018-25339 Exploitation - Zechat SQL Injection" to your SIEM to detect exploitation attempts.
 *   Implement input validation and sanitization for all user-supplied data, including the `v` parameter, to prevent SQL injection attacks.
 *   Monitor web server logs for suspicious HTTP requests containing SQL injection payloads.

@@ -23,7 +23,7 @@ references:
   - https://github.com/advisories/GHSA-m5j3-4634-c2vq
 rules:
   - title: Detect Dasel Trailing Backslash Panic (CVE-2026-46377)
-    description: Detects CVE-2026-46377 exploitation — Go runtime panic in dasel due to trailing backslash in quoted string selector
+    description: Detects CVE-2026-46377 exploitation - Go runtime panic in dasel due to trailing backslash in quoted string selector
     platform: sigma
     severity: high
     tactics:
@@ -34,7 +34,7 @@ rules:
       - process_creation
       - linux
   - title: Detect Dasel Trailing Backslash Panic (CVE-2026-46377) - macOS
-    description: Detects CVE-2026-46377 exploitation — Go runtime panic in dasel due to trailing backslash in quoted string selector
+    description: Detects CVE-2026-46377 exploitation - Go runtime panic in dasel due to trailing backslash in quoted string selector
     platform: sigma
     severity: high
     tactics:

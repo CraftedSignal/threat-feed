@@ -37,7 +37,7 @@ references:
   - https://vuldb.com/vuln/365344/cti
 rules:
   - title: Detect CVE-2026-9381 Exploitation Attempt via Long pppUserName
-    description: Detects CVE-2026-9381 exploitation — Monitors web server logs for POST requests to /goform/formPPPoESetup with unusually long pppUserName values, indicating a potential buffer overflow attempt.
+    description: Detects CVE-2026-9381 exploitation - Monitors web server logs for POST requests to /goform/formPPPoESetup with unusually long pppUserName values, indicating a potential buffer overflow attempt.
     platform: sigma
     severity: medium
     tactics:
@@ -47,7 +47,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-9381 Exploitation Success via Shell Spawn
-    description: Detects CVE-2026-9381 exploitation — Monitors process creation for shell processes spawned from a process associated with web requests, potentially indicating command execution following a buffer overflow.
+    description: Detects CVE-2026-9381 exploitation - Monitors process creation for shell processes spawned from a process associated with web requests, potentially indicating command execution following a buffer overflow.
     platform: sigma
     severity: high
     tactics:

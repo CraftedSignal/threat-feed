@@ -31,7 +31,7 @@ references:
   - CVE-2026-45260
 rules:
   - title: Detect Pimcore WebDAV Unauthorized Asset MOVE
-    description: Detects CVE-2026-45260 exploitation — WebDAV MOVE requests to the /asset/webdav endpoint indicating potential unauthorized asset deletion
+    description: Detects CVE-2026-45260 exploitation - WebDAV MOVE requests to the /asset/webdav endpoint indicating potential unauthorized asset deletion
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Pimcore WebDAV Asset MOVE with Overwrite
-    description: Detects CVE-2026-45260 exploitation — WebDAV MOVE requests to the /asset/webdav endpoint with the Overwrite header set, indicating potential unauthorized asset replacement.
+    description: Detects CVE-2026-45260 exploitation - WebDAV MOVE requests to the /asset/webdav endpoint with the Overwrite header set, indicating potential unauthorized asset replacement.
     platform: sigma
     severity: high
     tactics:

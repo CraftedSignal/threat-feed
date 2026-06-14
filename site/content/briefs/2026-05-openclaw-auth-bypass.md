@@ -25,8 +25,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8305
 rules:
-  - title: Detects CVE-2026-8305 Exploitation Attempt — OpenClaw BlueBubbles Webhook Authentication Bypass
-    description: Detects CVE-2026-8305 exploitation attempt — Monitors web server logs for requests targeting the handleBlueBubblesWebhookRequest endpoint, potentially indicating an authentication bypass attempt.
+  - title: Detects CVE-2026-8305 Exploitation Attempt - OpenClaw BlueBubbles Webhook Authentication Bypass
+    description: Detects CVE-2026-8305 exploitation attempt - Monitors web server logs for requests targeting the handleBlueBubblesWebhookRequest endpoint, potentially indicating an authentication bypass attempt.
     platform: sigma
     severity: high
     tactics:

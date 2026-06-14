@@ -36,8 +36,8 @@ references:
   - https://github.com/BerriAI/litellm/releases/tag/v1.83.7-stable
   - https://docs.litellm.ai/docs/mcp
 rules:
-  - title: Detect CVE-2026-42271 Exploitation Attempt — LiteLLM MCP Stdio Command Injection
-    description: Detects CVE-2026-42271 exploitation attempt — POST request to /mcp-rest endpoints with stdio transport and suspicious command arguments
+  - title: Detect CVE-2026-42271 Exploitation Attempt - LiteLLM MCP Stdio Command Injection
+    description: Detects CVE-2026-42271 exploitation attempt - POST request to /mcp-rest endpoints with stdio transport and suspicious command arguments
     platform: sigma
     severity: high
     tactics:
@@ -47,7 +47,7 @@ rules:
       - T1059.004
     data_sources:
       - webserver
-  - title: Detect CVE-2026-42271 Post-Exploitation — File Creation in /tmp
+  - title: Detect CVE-2026-42271 Post-Exploitation - File Creation in /tmp
     description: Detects CVE-2026-42271 post-exploitation activity by detecting file creation in /tmp directory by the webserver process
     platform: sigma
     severity: medium

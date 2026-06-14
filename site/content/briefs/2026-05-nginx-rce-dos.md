@@ -35,7 +35,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-9256
 rules:
   - title: Detects CVE-2026-9256 Exploitation Attempt via Malicious URI
-    description: Detects CVE-2026-9256 exploitation attempt — suspicious URI pattern indicative of code injection
+    description: Detects CVE-2026-9256 exploitation attempt - suspicious URI pattern indicative of code injection
     platform: sigma
     severity: high
     tactics:

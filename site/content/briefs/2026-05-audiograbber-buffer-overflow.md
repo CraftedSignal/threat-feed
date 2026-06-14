@@ -36,7 +36,7 @@ references:
   - https://www.vulncheck.com/advisories/audiograbber-local-buffer-overflow-via-seh
 rules:
   - title: Detect Audiograbber Buffer Overflow via SEH Overwrite
-    description: Detects CVE-2018-25355 exploitation — Monitors process creation events originating from Audiograbber.exe, indicating potential buffer overflow exploitation via SEH overwrite.
+    description: Detects CVE-2018-25355 exploitation - Monitors process creation events originating from Audiograbber.exe, indicating potential buffer overflow exploitation via SEH overwrite.
     platform: sigma
     severity: high
     tactics:

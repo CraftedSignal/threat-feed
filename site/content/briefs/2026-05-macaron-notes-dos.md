@@ -30,7 +30,7 @@ references:
   - https://www.vulncheck.com/advisories/macaron-notes-denial-of-service-via-buffer-overflow
 rules:
   - title: Detect Macaron Notes Long String DoS Attempt
-    description: Detects CVE-2021-47970 exploitation — an attempt to crash Macaron Notes by creating notes with excessively long character strings.
+    description: Detects CVE-2021-47970 exploitation - an attempt to crash Macaron Notes by creating notes with excessively long character strings.
     platform: sigma
     severity: medium
     tactics:

@@ -33,7 +33,7 @@ references:
   - https://vuldb.com/vuln/362454/cti
 rules:
   - title: Detect CVE-2026-8234 Exploitation Attempt
-    description: Detects CVE-2026-8234 exploitation attempt — HTTP request to WifiBasicSet with an overly long security_5g parameter indicating a stack buffer overflow attempt.
+    description: Detects CVE-2026-8234 exploitation attempt - HTTP request to WifiBasicSet with an overly long security_5g parameter indicating a stack buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:

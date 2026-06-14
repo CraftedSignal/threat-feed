@@ -29,7 +29,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5229
 rules:
   - title: Detect WordPress Form Notify Authentication Bypass via Malicious Cookie
-    description: Detects CVE-2026-5229 exploitation — Authentication bypass in WordPress Form Notify plugin due to malicious form_notify_line_email cookie
+    description: Detects CVE-2026-5229 exploitation - Authentication bypass in WordPress Form Notify plugin due to malicious form_notify_line_email cookie
     platform: sigma
     severity: critical
     tactics:

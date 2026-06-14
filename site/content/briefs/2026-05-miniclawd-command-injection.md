@@ -40,7 +40,7 @@ rules:
       - process_creation
       - windows
   - title: Detect miniclawd Command Injection Attempt
-    description: Detects CVE-2026-9453 exploitation — attempts to exploit command injection in miniclawd via manipulation of requires.bins in /src/application/skills-loader.ts.
+    description: Detects CVE-2026-9453 exploitation - attempts to exploit command injection in miniclawd via manipulation of requires.bins in /src/application/skills-loader.ts.
     platform: sigma
     severity: high
     tactics:

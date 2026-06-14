@@ -26,7 +26,7 @@ references:
   - CVE-2026-44705
 rules:
   - title: Detect Suspicious tmp NPM Package Path Traversal via Prefix/Postfix
-    description: Detects CVE-2026-44705 exploitation — Path traversal attempts in command lines invoking tmp.file with suspicious prefix or postfix options.
+    description: Detects CVE-2026-44705 exploitation - Path traversal attempts in command lines invoking tmp.file with suspicious prefix or postfix options.
     platform: sigma
     severity: high
     tactics:
@@ -37,7 +37,7 @@ rules:
       - process_creation
       - linux
   - title: Detect Suspicious tmp NPM Package Path Traversal via Absolute Dir
-    description: Detects CVE-2026-44705 exploitation — tmp.file or tmp.dir being called with an absolute path specified via the dir argument.
+    description: Detects CVE-2026-44705 exploitation - tmp.file or tmp.dir being called with an absolute path specified via the dir argument.
     platform: sigma
     severity: medium
     tactics:

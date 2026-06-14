@@ -34,7 +34,7 @@ references:
   - https://github.com/symfony/symfony/commit/ccb3f724c7ff55670a6fe3521c7bf1514cceb478
 rules:
   - title: Detect Symfony X509Authenticator Authentication Bypass
-    description: Detects CVE-2026-45063 exploitation — Monitors for requests with a manipulated SSL_CLIENT_S_DN value containing 'emailAddress=' within the CN, indicating a potential authentication bypass attempt.
+    description: Detects CVE-2026-45063 exploitation - Monitors for requests with a manipulated SSL_CLIENT_S_DN value containing 'emailAddress=' within the CN, indicating a potential authentication bypass attempt.
     platform: sigma
     severity: high
     tactics:

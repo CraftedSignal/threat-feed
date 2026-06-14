@@ -27,8 +27,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-3718
 rules:
-  - title: Detect CVE-2026-3718 Exploitation — ManageWP Worker Stored XSS
-    description: Detects CVE-2026-3718 exploitation — HTTP requests with a 'MWP-Key-Name' header containing Javascript code.
+  - title: Detect CVE-2026-3718 Exploitation - ManageWP Worker Stored XSS
+    description: Detects CVE-2026-3718 exploitation - HTTP requests with a 'MWP-Key-Name' header containing Javascript code.
     platform: sigma
     severity: medium
     tactics:
@@ -70,6 +70,6 @@ Successful exploitation of this Stored XSS vulnerability (CVE-2026-3718) within 
 ## Recommendation
 
 *   Upgrade the ManageWP Worker plugin to the latest version, which addresses CVE-2026-3718 (per vendor advisory).
-*   Deploy the provided Sigma rule "Detect CVE-2026-3718 Exploitation — ManageWP Worker Stored XSS" to identify exploitation attempts.
+*   Deploy the provided Sigma rule "Detect CVE-2026-3718 Exploitation - ManageWP Worker Stored XSS" to identify exploitation attempts.
 *   Monitor web server logs for HTTP requests containing the 'MWP-Key-Name' header with suspicious JavaScript payloads (see IOCs).
 *   Enable output escaping for HTTP headers processed by WordPress plugins to prevent XSS vulnerabilities.

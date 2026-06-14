@@ -26,7 +26,7 @@ references:
   - https://github.com/electerm/electerm/releases
 rules:
   - title: Detect Suspicious Electerm Bookmark Import
-    description: Detects CVE-2026-45058 exploitation — Suspicious command line arguments when importing electerm bookmarks
+    description: Detects CVE-2026-45058 exploitation - Suspicious command line arguments when importing electerm bookmarks
     platform: sigma
     severity: high
     tactics:
@@ -37,7 +37,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Suspicious Electerm Sync
-    description: Detects CVE-2026-45058 exploitation — Connections to unusual domains when syncing Electerm settings
+    description: Detects CVE-2026-45058 exploitation - Connections to unusual domains when syncing Electerm settings
     platform: sigma
     severity: medium
     tactics:

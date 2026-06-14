@@ -31,7 +31,7 @@ references:
   - https://github.com/electerm/electerm/commit/24ce7103e264cffe6eb5476c0506a2379e6f8333
 rules:
   - title: Detect Electerm RCE via Filename
-    description: Detects CVE-2026-43943 exploitation — execution of shell commands within the Electerm application context due to unsanitized filenames.
+    description: Detects CVE-2026-43943 exploitation - execution of shell commands within the Electerm application context due to unsanitized filenames.
     platform: sigma
     severity: high
     tactics:

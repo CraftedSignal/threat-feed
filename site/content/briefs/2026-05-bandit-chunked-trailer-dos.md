@@ -29,7 +29,7 @@ references:
   - https://github.com/mtrudel/bandit/commit/e73e379ab59840e8561b5730878f16e29ab06217
 rules:
   - title: Detect Bandit Chunked Trailer DoS Attempt
-    description: Detects CVE-2026-39806 exploitation — HTTP POST requests with chunked transfer encoding and trailer fields sent to a Bandit server, indicating a potential denial-of-service attempt.
+    description: Detects CVE-2026-39806 exploitation - HTTP POST requests with chunked transfer encoding and trailer fields sent to a Bandit server, indicating a potential denial-of-service attempt.
     platform: sigma
     severity: high
     tactics:

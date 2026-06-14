@@ -32,7 +32,7 @@ references:
   - https://yot.sourceforge.io/
 rules:
   - title: Detect Yot CMS SQL Injection Attempt via GET Parameters
-    description: Detects CVE-2018-25425 exploitation — SQL injection attempts in Yot CMS 3.3.1 via aid or cid parameters in GET requests to index.php
+    description: Detects CVE-2018-25425 exploitation - SQL injection attempts in Yot CMS 3.3.1 via aid or cid parameters in GET requests to index.php
     platform: sigma
     severity: high
     tactics:

@@ -36,7 +36,7 @@ references:
   - https://github.com/nicolasjulian/bouncer-overflow
 rules:
   - title: Detect CVE-2026-6664 Exploitation Attempt - Malformed SCRAM Packet
-    description: Detects CVE-2026-6664 exploitation attempt — monitors for abnormally large or malformed SCRAM authentication packets sent to PgBouncer instances.
+    description: Detects CVE-2026-6664 exploitation attempt - monitors for abnormally large or malformed SCRAM authentication packets sent to PgBouncer instances.
     platform: sigma
     severity: high
     tactics:

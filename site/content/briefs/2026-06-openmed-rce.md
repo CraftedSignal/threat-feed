@@ -26,7 +26,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47117
 rules:
   - title: Detect Suspicious OpenMed Model Loading via Hugging Face (CVE-2026-47117)
-    description: Detects CVE-2026-47117 exploitation — Suspicious OpenMed model loading via Hugging Face by monitoring network connections for requests with potentially malicious model names.
+    description: Detects CVE-2026-47117 exploitation - Suspicious OpenMed model loading via Hugging Face by monitoring network connections for requests with potentially malicious model names.
     platform: sigma
     severity: high
     tactics:

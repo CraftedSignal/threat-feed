@@ -35,7 +35,7 @@
     {{/* Single filter bar: dropdowns as direct flex children (not inside overflow), chips in scrollable inner div */}}
     <nav class="flex items-start gap-1.5 text-xs min-w-0" aria-label="Filter" data-date-filter-group{{ if $hasMorePages }} data-paginated{{ end }} data-attr-filter-group>
 
-      {{/* Date dropdown — outside overflow so absolute menu is not clipped */}}
+      {{/* Date dropdown - outside overflow so absolute menu is not clipped */}}
       <div class="relative flex-none" data-date-dropdown>
         <button data-date-trigger class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">
           <span data-date-label>All time</span><span class="text-[9px] opacity-60">▾</span>
@@ -51,7 +51,7 @@
 
       <span class="h-4 w-px bg-stroke flex-none mx-0.5" aria-hidden="true"></span>
 
-      {{/* Severity dropdown — outside overflow so absolute menu is not clipped */}}
+      {{/* Severity dropdown - outside overflow so absolute menu is not clipped */}}
       <div class="relative flex-none" data-sev-dropdown>
         <button data-sev-trigger class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">
           <span data-sev-label>Severity</span><span class="text-[9px] opacity-60">▾</span>
@@ -67,7 +67,7 @@
 
       <span class="h-4 w-px bg-stroke flex-none mx-0.5" aria-hidden="true"></span>
 
-      {{/* Chip row — type + flag chips. flex-wrap lets them collapse to a second line on narrow viewports. */}}
+      {{/* Chip row - type + flag chips. flex-wrap lets them collapse to a second line on narrow viewports. */}}
       <div class="flex flex-1 min-w-0 items-center flex-wrap gap-x-1.5 gap-y-1">
         <button data-attr-type="advisory" class="inline-flex items-center px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Advisory</button>
         <button data-attr-type="threat"   class="inline-flex items-center px-2.5 py-1 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition whitespace-nowrap">Threat</button>

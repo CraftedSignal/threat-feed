@@ -37,7 +37,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8834
   - https://www.ibm.com/support/pages/node/7274065
 rules:
-  - title: Detects CVE-2026-8834 Exploitation Attempt — Malicious Request to Administration Server
+  - title: Detects CVE-2026-8834 Exploitation Attempt - Malicious Request to Administration Server
     description: Detects CVE-2026-8834 exploitation attempts by identifying suspicious requests to the Administration Server with potential buffer overflow payloads.
     platform: sigma
     severity: high
@@ -47,7 +47,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-8834 Exploitation Attempt — Abnormal HTTP Request Size to Administration Server
+  - title: Detects CVE-2026-8834 Exploitation Attempt - Abnormal HTTP Request Size to Administration Server
     description: Detects CVE-2026-8834 exploitation attempts by identifying abnormally large HTTP requests to the Administration Server, which may indicate a buffer overflow attack.
     platform: sigma
     severity: medium

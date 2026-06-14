@@ -29,7 +29,7 @@ references:
   - https://chromereleases.googleblog.com/2026
 rules:
   - title: Detect CVE-2026-7925 Exploitation Attempt - Unusual Chrome Child Process
-    description: Detects CVE-2026-7925 exploitation — Monitors for unusual child processes spawned by Chrome, which could indicate code execution following a use-after-free.
+    description: Detects CVE-2026-7925 exploitation - Monitors for unusual child processes spawned by Chrome, which could indicate code execution following a use-after-free.
     platform: sigma
     severity: medium
     tactics:
@@ -40,7 +40,7 @@ rules:
       - process_creation
       - windows
   - title: Detect CVE-2026-7925 Exploitation Attempt - Unusual Edge Child Process
-    description: Detects CVE-2026-7925 exploitation — Monitors for unusual child processes spawned by Edge, which could indicate code execution following a use-after-free.
+    description: Detects CVE-2026-7925 exploitation - Monitors for unusual child processes spawned by Edge, which could indicate code execution following a use-after-free.
     platform: sigma
     severity: medium
     tactics:

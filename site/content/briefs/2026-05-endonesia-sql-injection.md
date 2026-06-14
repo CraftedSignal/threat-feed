@@ -27,8 +27,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2018-25405
 rules:
-  - title: Detects CVE-2018-25405 Exploitation — eNdonesia Portal SQL Injection Attempt
-    description: Detects CVE-2018-25405 exploitation — SQL injection attempts in eNdonesia Portal 8.7 through vulnerable parameters in mod.php
+  - title: Detects CVE-2018-25405 Exploitation - eNdonesia Portal SQL Injection Attempt
+    description: Detects CVE-2018-25405 exploitation - SQL injection attempts in eNdonesia Portal 8.7 through vulnerable parameters in mod.php
     platform: sigma
     severity: high
     tactics:
@@ -37,8 +37,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2018-25405 Exploitation — eNdonesia Portal SQL Injection Error Responses
-    description: Detects CVE-2018-25405 exploitation — HTTP error responses indicative of SQL injection attempts in eNdonesia Portal 8.7
+  - title: Detects CVE-2018-25405 Exploitation - eNdonesia Portal SQL Injection Error Responses
+    description: Detects CVE-2018-25405 exploitation - HTTP error responses indicative of SQL injection attempts in eNdonesia Portal 8.7
     platform: sigma
     severity: medium
     tactics:

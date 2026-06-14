@@ -43,7 +43,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2025-11498
 rules:
   - title: Detect ABB B&R Automation Runtime CVE-2025-3448 XSS Attempt
-    description: Detects CVE-2025-3448 exploitation — Reflected XSS attempts targeting ABB B&R Automation Runtime System Diagnostics Manager (SDM) via suspicious URL parameters.
+    description: Detects CVE-2025-3448 exploitation - Reflected XSS attempts targeting ABB B&R Automation Runtime System Diagnostics Manager (SDM) via suspicious URL parameters.
     platform: sigma
     severity: medium
     tactics:
@@ -53,7 +53,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect ABB B&R Automation Runtime CVE-2025-11498 CSV Injection Attempt
-    description: Detects CVE-2025-11498 exploitation — formula injection attempt within the CSV file downloaded.
+    description: Detects CVE-2025-11498 exploitation - formula injection attempt within the CSV file downloaded.
     platform: sigma
     severity: medium
     tactics:

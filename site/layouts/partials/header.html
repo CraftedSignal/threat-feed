@@ -23,7 +23,6 @@
     </nav>
 
     <div class="ml-auto flex items-center gap-2">
-      <a href="/subscribe/" class="hidden sm:inline-flex px-3 py-1.5 rounded-lg border border-accent/40 bg-accent/10 text-accent text-sm font-semibold hover:bg-accent/15 transition" title="Subscribe to alerts">Subscribe</a>
       <a href="/api/" class="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition" title="Feeds and API" aria-label="Feeds and API">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M17.25 6.75 22.5 12l-5.25 5.25M6.75 17.25 1.5 12l5.25-5.25M14.5 4 9.5 20"/>
@@ -33,24 +32,24 @@
       <button data-theme-toggle data-theme-state="auto" aria-pressed="false" aria-label="Cycle theme: auto, light, dark"
               class="theme-toggle inline-flex items-center justify-center w-9 h-9 rounded-lg border border-stroke text-muted hover:text-text hover:border-accent/40 transition"
               title="Cycle theme: auto / light / dark">
-        {{/* AUTO — half-filled circle (system follows OS). */}}
+        {{/* AUTO - half-filled circle (system follows OS). */}}
         <svg class="theme-icon-auto w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/>
           <path d="M12 3 a9 9 0 0 1 0 18 z" fill="currentColor"/>
         </svg>
-        {{/* LIGHT — sun. */}}
+        {{/* LIGHT - sun. */}}
         <svg class="theme-icon-light w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="4"/>
           <path stroke-linecap="round" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
         </svg>
-        {{/* DARK — moon. */}}
+        {{/* DARK - moon. */}}
         <svg class="theme-icon-dark w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
         <span data-theme-label class="sr-only">Auto</span>
       </button>
 
-      <a class="hidden sm:inline-flex px-3 py-1.5 rounded-lg bg-accent text-white text-sm font-semibold shadow-soft hover:scale-[1.01] transition" href="{{ .Site.Params.marketingURL }}">Get full feed</a>
+      <a href="/subscribe/" class="inline-flex px-3 py-1.5 rounded-lg bg-accent text-white text-sm font-semibold shadow-soft hover:scale-[1.01] transition" title="Subscribe to alerts">Subscribe</a>
     </div>
   </div>
 
@@ -64,7 +63,6 @@
       <a href="/tags/" class="py-2 text-muted hover:text-text transition">Tags</a>
       <a href="/actors/" class="py-2 text-muted hover:text-text transition">Actors</a>
       <a href="/subscribe/" class="py-2 text-accent hover:underline">Subscribe to alerts</a>
-      <a href="{{ .Site.Params.marketingURL }}" class="py-2 text-accent hover:underline">Get full feed →</a>
     </div>
   </nav>
 </header>

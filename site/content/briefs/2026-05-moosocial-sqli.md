@@ -32,7 +32,7 @@ references:
   - https://www.exploit-db.com/exploits/45330
   - https://www.vulncheck.com/advisories/moosocial-store-plugin-sql-injection-via-product-parameter
 rules:
-  - title: Detects CVE-2018-25371 Exploitation — MooSocial Store Plugin SQL Injection Attempt
+  - title: Detects CVE-2018-25371 Exploitation - MooSocial Store Plugin SQL Injection Attempt
     description: Detects CVE-2018-25371 exploitation attempts in MooSocial Store Plugin 2.6 by identifying SQL injection payloads in the 'product' parameter of HTTP requests.
     platform: sigma
     severity: high
@@ -44,7 +44,7 @@ rules:
       - T1505.003
     data_sources:
       - webserver
-  - title: Detects CVE-2018-25371 Exploitation — MooSocial Store Plugin SQL Injection Attempt (Time-Based)
+  - title: Detects CVE-2018-25371 Exploitation - MooSocial Store Plugin SQL Injection Attempt (Time-Based)
     description: Detects CVE-2018-25371 exploitation attempts in MooSocial Store Plugin 2.6 by identifying time-based SQL injection payloads in the 'product' parameter of HTTP requests.
     platform: sigma
     severity: high

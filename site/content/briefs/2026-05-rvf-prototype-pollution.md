@@ -26,8 +26,8 @@ references:
   - https://github.com/advisories/GHSA-c567-44rc-m5hq
   - CVE-2026-44483
 rules:
-  - title: Detect CVE-2026-44483 Exploitation Attempt — Prototype Pollution via __proto__ in Form Data
-    description: Detects CVE-2026-44483 exploitation attempt — HTTP POST requests with form data containing `__proto__` in the field name, indicative of prototype pollution attempts.
+  - title: Detect CVE-2026-44483 Exploitation Attempt - Prototype Pollution via __proto__ in Form Data
+    description: Detects CVE-2026-44483 exploitation attempt - HTTP POST requests with form data containing `__proto__` in the field name, indicative of prototype pollution attempts.
     platform: sigma
     severity: high
     tactics:
@@ -36,8 +36,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-44483 Exploitation Attempt — Prototype Pollution via __proto__ in cs-uri-stem
-    description: Detects CVE-2026-44483 exploitation attempt — HTTP POST requests with `__proto__` in the URI path, indicative of prototype pollution attempts.
+  - title: Detect CVE-2026-44483 Exploitation Attempt - Prototype Pollution via __proto__ in cs-uri-stem
+    description: Detects CVE-2026-44483 exploitation attempt - HTTP POST requests with `__proto__` in the URI path, indicative of prototype pollution attempts.
     platform: sigma
     severity: high
     tactics:

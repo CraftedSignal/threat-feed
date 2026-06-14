@@ -9,7 +9,7 @@
 /* ---------------------------------------------------------------------- */
 
 :root {
-  /* Light theme — calm, professional, high contrast for long reading sessions. */
+  /* Light theme - calm, professional, high contrast for long reading sessions. */
   --color-base:     247 249 252;   /* #f7f9fc page background */
   --color-panel:    255 255 255;   /* card/panel surface */
   --color-panel-2:  241 245 249;   /* subtle alt panel */
@@ -19,19 +19,19 @@
   --color-muted:     71  85 105;   /* secondary text */
   --color-text:      15  23  42;   /* primary text */
 
-  /* Severity scale — tuned for light backgrounds */
+  /* Severity scale - tuned for light backgrounds */
   --color-sev-critical: 220  38  38;  /* red-600 */
   --color-sev-high:     234  88  12;  /* orange-600 */
   --color-sev-medium:   202 138   4;  /* yellow-600 */
   --color-sev-low:       22 163  74;  /* green-600 */
-  --color-sev-rumour:   100 116 139;  /* slate-500 — unconfirmed/low-confidence */
+  --color-sev-rumour:   100 116 139;  /* slate-500 - unconfirmed/low-confidence */
 
   --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.06);
   color-scheme: light;
 }
 
 .dark {
-  /* Dark theme — mirrors craftedsignal.io palette. */
+  /* Dark theme - mirrors craftedsignal.io palette. */
   --color-base:       7  11  18;    /* #070b12 */
   --color-panel:     14  20  33;    /* #0e1421 */
   --color-panel-2:   18  26  43;
@@ -41,12 +41,12 @@
   --color-muted:    155 170 192;
   --color-text:     228 234 245;
 
-  /* Severity — slightly brighter on dark */
+  /* Severity - slightly brighter on dark */
   --color-sev-critical: 248 113 113;  /* red-400 */
   --color-sev-high:     251 146  60;  /* orange-400 */
   --color-sev-medium:   250 204  21;  /* yellow-400 */
   --color-sev-low:       74 222 128;  /* green-400 */
-  --color-sev-rumour:   148 163 184;  /* slate-400 — unconfirmed/low-confidence */
+  --color-sev-rumour:   148 163 184;  /* slate-400 - unconfirmed/low-confidence */
 
   --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.28);
   color-scheme: dark;
@@ -175,12 +175,12 @@ body {
 .sev-medium   { background: rgb(var(--color-sev-medium)   / 0.12); color: rgb(var(--color-sev-medium)); }
 .sev-low      { background: rgb(var(--color-sev-low)      / 0.12); color: rgb(var(--color-sev-low)); }
 .sev-rumour   { background: rgb(var(--color-sev-rumour)   / 0.12); color: rgb(var(--color-sev-rumour)); }
-/* Informational rule severity reuses the rumour palette — slate, deliberately
+/* Informational rule severity reuses the rumour palette - slate, deliberately
    muted so it doesn't compete with critical/high. The badge text itself is
    shortened to "INFO" in templates. */
 .sev-informational { background: rgb(var(--color-sev-rumour) / 0.12); color: rgb(var(--color-sev-rumour)); }
 
-/* Type badge — orthogonal to severity. Describes WHAT the brief is. */
+/* Type badge - orthogonal to severity. Describes WHAT the brief is. */
 .type-badge {
   @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono font-semibold uppercase tracking-wide;
 }
@@ -189,7 +189,7 @@ body {
 .type-advisory { background: rgb(var(--color-sev-medium)   / 0.10); color: rgb(var(--color-sev-medium)); }
 .type-rumour   { background: rgb(var(--color-sev-rumour)   / 0.10); color: rgb(var(--color-sev-rumour)); }
 
-/* Exploited-in-wild — distinct from severity; outlined "warning" pill. */
+/* Exploited-in-wild - distinct from severity; outlined "warning" pill. */
 .exploited-badge {
   @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono font-semibold uppercase tracking-wide;
   background: rgb(var(--color-sev-critical) / 0.08);
@@ -212,7 +212,7 @@ body {
   100% { box-shadow: 0 0 0 0 rgb(var(--color-sev-critical) / 0); }
 }
 
-/* PoC available — orange, static (no pulse), distinct from active exploitation */
+/* PoC available - orange, static (no pulse), distinct from active exploitation */
 .poc-badge {
   @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono font-semibold uppercase tracking-wide;
   background: rgb(var(--color-sev-high) / 0.10);
@@ -221,7 +221,7 @@ body {
 }
 
 /* ---------------------------------------------------------------------- */
-/* Theme toggle — show only the icon matching the stored mode */
+/* Theme toggle - show only the icon matching the stored mode */
 /* ---------------------------------------------------------------------- */
 
 .theme-toggle .theme-icon-auto,
@@ -233,7 +233,7 @@ body {
 .theme-toggle[data-theme-state="dark"]  .theme-icon-dark  { display: inline; }
 
 /* ---------------------------------------------------------------------- */
-/* Pagefind UI overrides — match site theme */
+/* Pagefind UI overrides - match site theme */
 /* ---------------------------------------------------------------------- */
 
 :root,
@@ -251,7 +251,7 @@ body {
   --pagefind-ui-font: 'Inter', system-ui, sans-serif;
 }
 
-/* Force the input + result tiles to pick up our theme — Pagefind's defaults
+/* Force the input + result tiles to pick up our theme - Pagefind's defaults
    sometimes win on specificity. */
 .pagefind-ui form .pagefind-ui__search-input {
   background: rgb(var(--color-panel-2));
@@ -289,6 +289,9 @@ body {
 .pagefind-ui {
   --pagefind-ui-result-spacing: 0.5rem;
 }
+.search-panel {
+  background: transparent;
+}
 .pagefind-ui__form {
   margin-bottom: 0.75rem !important;
   padding-bottom: 0 !important;
@@ -300,19 +303,25 @@ body {
      query slides under the icons. */
   padding: 0.5rem 2.5rem !important;
   font-size: 0.95rem !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
 }
-/* Hide the trailing clear (×) button — the input clears on its own
+.pagefind-ui__search-input:focus {
+  border-color: rgb(var(--color-accent)) !important;
+  box-shadow: 0 0 0 1px rgb(var(--color-accent) / 0.18) !important;
+}
+/* Hide the trailing clear (×) button - the input clears on its own
    when you backspace, the dedicated control was just visual noise. */
 .pagefind-ui__search-clear {
   display: none !important;
 }
 .pagefind-ui__drawer {
   gap: 0.5rem !important;
-  /* Single column — the filter panel below is hidden, give all
+  /* Single column - the filter panel below is hidden, give all
      horizontal space to the results column. */
   grid-template-columns: 1fr !important;
 }
-/* Hide the filter sidebar entirely — duplicates the chrome (severity /
+/* Hide the filter sidebar entirely - duplicates the chrome (severity /
    actor / product nav already lives in the header) and just narrowed
    the result column. */
 .pagefind-ui__filter-panel,
@@ -362,7 +371,80 @@ body {
 }
 
 /* ---------------------------------------------------------------------- */
-/* Prose — Hugo's rendered Markdown */
+/* Activity strip                                                          */
+/* ---------------------------------------------------------------------- */
+
+.activity-rate {
+  min-width: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(var(--color-stroke) / 0.72);
+}
+
+@media (min-width: 768px) {
+  .activity-rate {
+    padding-top: 0;
+    padding-left: 1.25rem;
+    border-top: 0;
+    border-left: 1px solid rgb(var(--color-stroke) / 0.72);
+  }
+
+  .activity-rate:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+.activity-rate-note {
+  flex: none;
+  margin-top: 0.15rem;
+  color: rgb(var(--color-muted));
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6875rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.activity-sparkline {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 3.5rem;
+  margin-top: 0.85rem;
+  padding: 0.35rem 0;
+  background:
+    linear-gradient(to top, rgb(var(--color-stroke) / 0.28) 1px, transparent 1px) 0 100% / 100% 50%,
+    linear-gradient(to top, rgb(var(--color-stroke) / 0.16) 1px, transparent 1px) 0 50% / 100% 50%;
+}
+
+.activity-spark-bar {
+  display: block;
+  flex: 1 1 0;
+  min-width: 2px;
+  border-radius: 999px 999px 2px 2px;
+  opacity: 0.88;
+  transform-origin: bottom;
+}
+
+.activity-spark-bar:hover {
+  opacity: 1;
+  transform: scaleY(1.06);
+}
+
+.activity-spark-briefs {
+  background: linear-gradient(to top, rgb(var(--color-accent) / 0.7), rgb(var(--color-accent2) / 0.95));
+}
+
+.activity-spark-vulns {
+  background: linear-gradient(to top, rgb(var(--color-sev-medium) / 0.66), rgb(var(--color-sev-high) / 0.9));
+}
+
+.activity-spark-crits {
+  background: linear-gradient(to top, rgb(var(--color-sev-high) / 0.75), rgb(var(--color-sev-critical) / 0.95));
+}
+
+/* ---------------------------------------------------------------------- */
+/* Prose - Hugo's rendered Markdown */
 /* ---------------------------------------------------------------------- */
 
 .prose-feed {
@@ -381,7 +463,7 @@ body {
   --tw-prose-td-borders:  rgb(var(--color-stroke));
 }
 
-/* Inline code — suppress Tailwind Typography backtick pseudo-content and
+/* Inline code - suppress Tailwind Typography backtick pseudo-content and
    style like the platform: accent text on panel-2 background. */
 .prose-feed :not(pre) > code::before,
 .prose-feed :not(pre) > code::after {

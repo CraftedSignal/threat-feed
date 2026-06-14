@@ -29,7 +29,7 @@ references:
   - https://my.f5.com/manage/s/article/K000160975
 rules:
   - title: Detect Suspicious BIG-IP Configuration Changes
-    description: Detects CVE-2026-41953 exploitation — Alerts on configuration changes made by Resource Administrators that could lead to privilege escalation in F5 BIG-IP systems.
+    description: Detects CVE-2026-41953 exploitation - Alerts on configuration changes made by Resource Administrators that could lead to privilege escalation in F5 BIG-IP systems.
     platform: sigma
     severity: high
     tactics:

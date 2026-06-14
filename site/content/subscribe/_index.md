@@ -1,8 +1,8 @@
 ---
 title: "Subscribe"
-description: "Get filtered alerts when matching briefs land — by email, Slack, or Microsoft Teams."
+description: "Get alerts by email, Slack, or Microsoft Teams when new briefs match your filters."
 layout: subscribe
-intro: "Pick a delivery channel and the filters you care about. We'll send a notification when a brief matches every filter you've selected. The simplest case — get every critical threat — is two clicks. Beyond that, every filter narrows the feed (AND across categories, OR within each)."
+intro: "Choose a channel, then choose the filters that matter. Start with critical threats, or narrow by type, severity, actor, vendor, product, and tag. Filters use AND across groups and OR inside each group."
 ---
 
-If you don't need compound filters, every taxonomy term has its own [RSS / JSON feed](/api/) — paste any of those URLs into a Slack channel, Teams connector, or email aggregator and skip the form entirely.
+For a simple one-field subscription, use the [RSS or JSON feeds](/api/) instead. Open any taxonomy page, copy its feed URL, and add it to Slack, Teams, or an email-to-RSS service.

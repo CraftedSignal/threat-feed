@@ -29,7 +29,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-40417
 rules:
   - title: Detect Suspicious Dynamics Business Central Process Elevation
-    description: Detects CVE-2026-40417 exploitation — Monitors process creation events for processes running with elevated privileges within Dynamics Business Central.
+    description: Detects CVE-2026-40417 exploitation - Monitors process creation events for processes running with elevated privileges within Dynamics Business Central.
     platform: sigma
     severity: high
     tactics:
@@ -40,7 +40,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Suspicious Dynamics Business Central Authentication Followed by Process Creation
-    description: Detects CVE-2026-40417 exploitation — Monitors for authentication events followed by process creation events within a short timeframe, which could indicate an attacker leveraging elevated privileges.
+    description: Detects CVE-2026-40417 exploitation - Monitors for authentication events followed by process creation events within a short timeframe, which could indicate an attacker leveraging elevated privileges.
     platform: sigma
     severity: medium
     tactics:

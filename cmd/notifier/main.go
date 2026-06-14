@@ -1,12 +1,12 @@
-// feed-notifier — public threat-feed alert subscription service.
+// feed-notifier - public threat-feed alert subscription service.
 //
 // HTTP API (Cloud Run):
 //
-//	POST /subscribe                — start subscription, send magic-link verification
-//	GET  /verify?token=…           — confirm subscription
-//	GET  /unsubscribe?token=…      — remove subscription
-//	POST /dispatch                 — bearer-authed; threat-feed CI POSTs new briefs here
-//	GET  /healthz                  — liveness
+//	POST /subscribe                - start subscription, send magic-link verification
+//	GET  /verify?token=…           - confirm subscription
+//	GET  /unsubscribe?token=…      - remove subscription
+//	POST /dispatch                 - bearer-authed; threat-feed CI POSTs new briefs here
+//	GET  /healthz                  - liveness
 //
 // Storage: Firestore Native, collection "subscriptions".
 // Email: SMTP (Workspace relay) configured via env (SMTP_*).

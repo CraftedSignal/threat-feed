@@ -51,7 +51,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Malicious Command Execution via Feature Key Injection
-    description: Detects CVE-2025-40947 exploitation — execution of commands indicative of exploitation via feature key injection on RUGGEDCOM devices.
+    description: Detects CVE-2025-40947 exploitation - execution of commands indicative of exploitation via feature key injection on RUGGEDCOM devices.
     platform: sigma
     severity: high
     tactics:

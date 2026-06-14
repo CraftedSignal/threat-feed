@@ -30,7 +30,7 @@ references:
   - CVE-2026-47397
 rules:
   - title: Detect PraisonAI Arbitrary File Write via Web Crawl
-    description: Detects CVE-2026-47397 exploitation — PraisonAI agents calling write_file with attacker-controlled file paths from web crawling tasks.
+    description: Detects CVE-2026-47397 exploitation - PraisonAI agents calling write_file with attacker-controlled file paths from web crawling tasks.
     platform: sigma
     severity: high
     tactics:

@@ -29,7 +29,7 @@ references:
   - CVE-2026-39803
 rules:
   - title: Detect Bandit Chunked Request DoS Attempt
-    description: 'Detects CVE-2026-39803 exploitation — HTTP POST requests with ''Transfer-Encoding: chunked'' and large request sizes, potentially indicating a denial-of-service attempt against Bandit servers.'
+    description: 'Detects CVE-2026-39803 exploitation - HTTP POST requests with ''Transfer-Encoding: chunked'' and large request sizes, potentially indicating a denial-of-service attempt against Bandit servers.'
     platform: sigma
     severity: medium
     tactics:

@@ -30,8 +30,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9284
 rules:
-  - title: Detect CVE-2026-9284 Exploitation — Unauthorized Access to WooCommerce PayPal Endpoints
-    description: Detects CVE-2026-9284 exploitation — unauthorized access to the `ppc-create-order` or `ppc-get-order` WC-AJAX endpoints in the WooCommerce PayPal Payments plugin.
+  - title: Detect CVE-2026-9284 Exploitation - Unauthorized Access to WooCommerce PayPal Endpoints
+    description: Detects CVE-2026-9284 exploitation - unauthorized access to the `ppc-create-order` or `ppc-get-order` WC-AJAX endpoints in the WooCommerce PayPal Payments plugin.
     platform: sigma
     severity: high
     tactics:
@@ -40,8 +40,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9284 Exploitation — POST Request to ppc-create-order
-    description: Detects CVE-2026-9284 exploitation — HTTP POST request to `ppc-create-order` WC-AJAX endpoint indicating potential unauthorized order creation.
+  - title: Detect CVE-2026-9284 Exploitation - POST Request to ppc-create-order
+    description: Detects CVE-2026-9284 exploitation - HTTP POST request to `ppc-create-order` WC-AJAX endpoint indicating potential unauthorized order creation.
     platform: sigma
     severity: medium
     tactics:
@@ -73,5 +73,5 @@ Successful exploitation of this vulnerability allows unauthenticated attackers t
 ## Recommendation
 
 *   Upgrade the WooCommerce PayPal Payments plugin to the latest version, which contains a patch for CVE-2026-9284.
-*   Monitor web server logs for suspicious POST requests to the `ppc-create-order` and `ppc-get-order` WC-AJAX endpoints (see Sigma rule "Detect CVE-2026-9284 Exploitation — Unauthorized Access to WooCommerce PayPal Endpoints").
+*   Monitor web server logs for suspicious POST requests to the `ppc-create-order` and `ppc-get-order` WC-AJAX endpoints (see Sigma rule "Detect CVE-2026-9284 Exploitation - Unauthorized Access to WooCommerce PayPal Endpoints").
 *   Implement rate limiting on the `ppc-create-order` and `ppc-get-order` endpoints to mitigate potential abuse.

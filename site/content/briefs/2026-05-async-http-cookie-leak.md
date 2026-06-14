@@ -30,7 +30,7 @@ references:
   - https://github.com/AsyncHttpClient/async-http-client/commit/3b0e3e9e
 rules:
   - title: Detect AsyncHttpClient Cookie Leak via Redirect
-    description: Detects CVE-2026-45300 — Detects potential cookie leakage during cross-origin redirects, indicated by a redirect followed by a request containing cookie data to a different domain.
+    description: Detects CVE-2026-45300 - Detects potential cookie leakage during cross-origin redirects, indicated by a redirect followed by a request containing cookie data to a different domain.
     platform: sigma
     severity: medium
     tactics:

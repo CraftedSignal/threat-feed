@@ -31,7 +31,7 @@ references:
   - https://url.sap/sapsecuritypatchday
 rules:
   - title: Detect CVE-2026-34263 Exploitation Attempt via Malicious Configuration Upload
-    description: Detects CVE-2026-34263 exploitation — attempts to upload malicious configurations to SAP Commerce Cloud via a POST request.
+    description: Detects CVE-2026-34263 exploitation - attempts to upload malicious configurations to SAP Commerce Cloud via a POST request.
     platform: sigma
     severity: high
     tactics:

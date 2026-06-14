@@ -30,7 +30,7 @@ references:
   - https://www.vulncheck.com/advisories/mailenable-enterprise-premium-authorization-bypass-via-webadmin
 rules:
   - title: Detect MailEnable WebAdmin Authentication Bypass Attempt
-    description: Detects CVE-2026-44400 exploitation — monitors for HTTP requests to the WebAdmin portal containing AuthenticationToken cookies potentially obtained from low-privileged WebMail sessions
+    description: Detects CVE-2026-44400 exploitation - monitors for HTTP requests to the WebAdmin portal containing AuthenticationToken cookies potentially obtained from low-privileged WebMail sessions
     platform: sigma
     severity: high
     tactics:

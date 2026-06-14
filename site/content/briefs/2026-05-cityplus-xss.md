@@ -29,8 +29,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5783
   - https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0263
 rules:
-  - title: Detect CVE-2026-5783 Exploitation — Suspicious URI Query Parameters
-    description: Detects CVE-2026-5783 exploitation — suspicious URI query parameters indicative of reflected XSS attempts.
+  - title: Detect CVE-2026-5783 Exploitation - Suspicious URI Query Parameters
+    description: Detects CVE-2026-5783 exploitation - suspicious URI query parameters indicative of reflected XSS attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -39,8 +39,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-5783 Exploitation — Script Tag in URL
-    description: Detects CVE-2026-5783 exploitation — looking for script tags directly in the URL.
+  - title: Detect CVE-2026-5783 Exploitation - Script Tag in URL
+    description: Detects CVE-2026-5783 exploitation - looking for script tags directly in the URL.
     platform: sigma
     severity: medium
     tactics:
@@ -71,5 +71,5 @@ Successful exploitation of the reflected XSS vulnerability (CVE-2026-5783) in Ci
 ## Recommendation
 
 *   Upgrade CityPLus to version V24.29750.1.0 or later to patch CVE-2026-5783.
-*   Deploy the Sigma rule "Detect CVE-2026-5783 Exploitation — Suspicious URI Query Parameters" to identify potential exploitation attempts.
+*   Deploy the Sigma rule "Detect CVE-2026-5783 Exploitation - Suspicious URI Query Parameters" to identify potential exploitation attempts.
 *   Educate users about the risks of clicking on suspicious links in emails or on social media to prevent initial access.

@@ -26,7 +26,7 @@ references:
   - CVE-2026-43946
 rules:
   - title: Detect Unauthenticated FUXA Tag Value Access
-    description: Detects CVE-2026-43946 — Unauthenticated access to FUXA's /api/getTagValue endpoint by monitoring requests lacking authorization headers
+    description: Detects CVE-2026-43946 - Unauthenticated access to FUXA's /api/getTagValue endpoint by monitoring requests lacking authorization headers
     platform: sigma
     severity: high
     tactics:
@@ -36,7 +36,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect FUXA Tag Value Access with Missing Script
-    description: Detects CVE-2026-43946 — Attempts to access FUXA's /api/getTagValue endpoint with a non-existent sourceScriptName, indicating potential exploitation
+    description: Detects CVE-2026-43946 - Attempts to access FUXA's /api/getTagValue endpoint with a non-existent sourceScriptName, indicating potential exploitation
     platform: sigma
     severity: medium
     tactics:

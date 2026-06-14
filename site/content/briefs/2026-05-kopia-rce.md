@@ -29,8 +29,8 @@ references:
   - https://github.com/kopia/kopia/blob/v0.22.3/repo/blob/sftp/sftp_storage.go#L448-L468
   - https://github.com/kopia/kopia/pull/5354
 rules:
-  - title: Detects CVE-2026-45695 Exploitation — Kopia Unauthenticated RCE via SSH ProxyCommand Injection
-    description: Detects CVE-2026-45695 exploitation — HTTP POST to /api/v1/repo/exists with ProxyCommand in the request body indicating command injection attempt
+  - title: Detects CVE-2026-45695 Exploitation - Kopia Unauthenticated RCE via SSH ProxyCommand Injection
+    description: Detects CVE-2026-45695 exploitation - HTTP POST to /api/v1/repo/exists with ProxyCommand in the request body indicating command injection attempt
     platform: sigma
     severity: high
     tactics:
@@ -40,7 +40,7 @@ rules:
       - T1552
     data_sources:
       - webserver
-  - title: Detects CVE-2026-45695 Exploitation — Suspicious SSH Command Line Arguments
+  - title: Detects CVE-2026-45695 Exploitation - Suspicious SSH Command Line Arguments
     description: Detects suspicious process executions of ssh with ProxyCommand or other potentially malicious command line arguments.
     platform: sigma
     severity: medium

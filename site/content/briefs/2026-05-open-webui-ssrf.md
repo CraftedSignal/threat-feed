@@ -27,7 +27,7 @@ references:
   - https://github.com/advisories/GHSA-8w7q-q5jp-jvgx
 rules:
   - title: Detect Open WebUI SSRF Attempt via Malicious URL
-    description: Detects CVE-2026-45400 exploitation — Attempts to exploit the Open WebUI SSRF vulnerability by detecting URLs with embedded IP addresses and @ symbols
+    description: Detects CVE-2026-45400 exploitation - Attempts to exploit the Open WebUI SSRF vulnerability by detecting URLs with embedded IP addresses and @ symbols
     platform: sigma
     severity: high
     tactics:

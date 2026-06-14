@@ -21,7 +21,7 @@ references:
   - CVE-2026-45012
 rules:
   - title: Detect ApostropheCMS SSRF via validate-widget
-    description: Detects CVE-2026-45012 exploitation — POST requests to /api/v1/@apostrophecms/area/validate-widget with suspicious img src URLs
+    description: Detects CVE-2026-45012 exploitation - POST requests to /api/v1/@apostrophecms/area/validate-widget with suspicious img src URLs
     platform: sigma
     severity: high
     tactics:

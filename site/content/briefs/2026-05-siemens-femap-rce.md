@@ -33,7 +33,7 @@ references:
   - https://support.sw.siemens.com/product/275652363/
 rules:
   - title: Detect Suspicious File Opening via Simcenter Femap
-    description: Detects potential exploitation of CVE-2025-12659 — suspicious process execution by Simcenter Femap when opening files from untrusted locations
+    description: Detects potential exploitation of CVE-2025-12659 - suspicious process execution by Simcenter Femap when opening files from untrusted locations
     platform: sigma
     severity: medium
     tactics:
@@ -45,7 +45,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Femap executing from unusual locations
-    description: Detects potential exploitation of CVE-2025-12659 — Femap executed from unusual locations.
+    description: Detects potential exploitation of CVE-2025-12659 - Femap executed from unusual locations.
     platform: sigma
     severity: low
     tactics:

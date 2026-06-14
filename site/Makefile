@@ -17,7 +17,7 @@ install:
 	npm ci || npm install
 
 # Dev: build + Pagefind + static server, so search works locally.
-# Re-run `make dev` after content changes (no hot reload — search wins).
+# Re-run `make dev` after content changes (no hot reload - search wins).
 dev: clean
 	hugo --buildDrafts --buildFuture --gc
 	npx pagefind --site public
@@ -26,7 +26,7 @@ dev: clean
 	@echo ""
 	cd public && python3 -m http.server 1313
 
-# Hot-reload dev (no search index — fallback message will show).
+# Hot-reload dev (no search index - fallback message will show).
 dev-fast:
 	hugo server --buildDrafts --buildFuture --disableFastRender
 

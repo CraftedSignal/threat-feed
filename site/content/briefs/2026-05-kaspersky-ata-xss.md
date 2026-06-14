@@ -40,8 +40,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-28348
   - https://www.cve.org/CVERecord?id=CVE-2026-28350
 rules:
-  - title: Detects CVE-2026-28348 and CVE-2026-28350 Exploitation — Suspicious URI Containing Scripting Keywords
-    description: Detects CVE-2026-28348 and CVE-2026-28350 exploitation — Suspicious URI access containing common scripting keywords indicative of XSS attempts.
+  - title: Detects CVE-2026-28348 and CVE-2026-28350 Exploitation - Suspicious URI Containing Scripting Keywords
+    description: Detects CVE-2026-28348 and CVE-2026-28350 exploitation - Suspicious URI access containing common scripting keywords indicative of XSS attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -51,8 +51,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-28348 and CVE-2026-28350 Exploitation — Suspicious POST Data Containing Scripting Keywords
-    description: Detects CVE-2026-28348 and CVE-2026-28350 exploitation — Suspicious POST data containing common scripting keywords indicative of XSS attempts.
+  - title: Detects CVE-2026-28348 and CVE-2026-28350 Exploitation - Suspicious POST Data Containing Scripting Keywords
+    description: Detects CVE-2026-28348 and CVE-2026-28350 exploitation - Suspicious POST data containing common scripting keywords indicative of XSS attempts.
     platform: sigma
     severity: medium
     tactics:

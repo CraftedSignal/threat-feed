@@ -67,7 +67,7 @@ Fastify v5.x (specifically versions 5.3.2 through 5.8.4) contains a vulnerabilit
 
 ## Impact
 
-This vulnerability affects Fastify applications using `schema.body.content` for request body validation. By prepending a single space to the Content-Type header, attackers can bypass these validations. Successful exploitation allows an attacker to inject malicious payloads, leading to data corruption, unauthorized access, or other security breaches. While the exact number of victims is unknown, any application within the vulnerable version range is susceptible. This vulnerability requires no authentication and has zero complexity — it is a single-character modification to an HTTP header.
+This vulnerability affects Fastify applications using `schema.body.content` for request body validation. By prepending a single space to the Content-Type header, attackers can bypass these validations. Successful exploitation allows an attacker to inject malicious payloads, leading to data corruption, unauthorized access, or other security breaches. While the exact number of victims is unknown, any application within the vulnerable version range is susceptible. This vulnerability requires no authentication and has zero complexity - it is a single-character modification to an HTTP header.
 
 ## Recommendation
 

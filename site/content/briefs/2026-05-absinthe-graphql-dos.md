@@ -31,7 +31,7 @@ references:
   - https://github.com/absinthe-graphql/absinthe/commit/0b46e3bcc06c0d3797bacd64761b908a84646c1d#diff-e540120c6a98cc1013be110d08e9d029511b9aabd26ad5f7f643c36834caac14
 rules:
   - title: Detect Absinthe GraphQL Excessive Fragments (CVE-2026-43967)
-    description: Detects CVE-2026-43967 exploitation attempt — Monitors web server logs for GraphQL requests containing an excessive number of fragment definitions, indicating a potential denial-of-service attack.
+    description: Detects CVE-2026-43967 exploitation attempt - Monitors web server logs for GraphQL requests containing an excessive number of fragment definitions, indicating a potential denial-of-service attack.
     platform: sigma
     severity: medium
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Large GraphQL Query Size (CVE-2026-43967)
-    description: Detects CVE-2026-43967 exploitation attempt — Monitors web server logs for GraphQL requests with abnormally large request sizes, which could indicate a denial-of-service attack by sending a large number of fragments.
+    description: Detects CVE-2026-43967 exploitation attempt - Monitors web server logs for GraphQL requests with abnormally large request sizes, which could indicate a denial-of-service attack by sending a large number of fragments.
     platform: sigma
     severity: medium
     tactics:

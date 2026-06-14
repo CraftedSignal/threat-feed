@@ -31,7 +31,7 @@ references:
   - CVE-2026-42863
 rules:
   - title: Detect FlowiseAI Chatflow Mass Assignment Attempt via API
-    description: Detects CVE-2026-42863 exploitation — Attempts to modify restricted fields in FlowiseAI's chatflow update API endpoint, indicating a mass assignment vulnerability exploitation attempt.
+    description: Detects CVE-2026-42863 exploitation - Attempts to modify restricted fields in FlowiseAI's chatflow update API endpoint, indicating a mass assignment vulnerability exploitation attempt.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect FlowiseAI Chatflow Mass Assignment Successful Modification
-    description: Detects CVE-2026-42863 exploitation — Monitors successful modification of server-controlled fields. Requires correlation with other logs.
+    description: Detects CVE-2026-42863 exploitation - Monitors successful modification of server-controlled fields. Requires correlation with other logs.
     platform: sigma
     severity: medium
     tactics:

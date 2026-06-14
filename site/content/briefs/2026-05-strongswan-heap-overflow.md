@@ -33,7 +33,7 @@ references:
   - https://github.com/JohannesLks/CVE-2026-35330
 rules:
   - title: Detect strongSwan libsimaka Heap Overflow Attempt
-    description: Detects CVE-2026-35330 exploitation — monitors for EAP-SIM/AKA messages with a zero-length AT_RAND attribute, indicating a heap overflow attempt.
+    description: Detects CVE-2026-35330 exploitation - monitors for EAP-SIM/AKA messages with a zero-length AT_RAND attribute, indicating a heap overflow attempt.
     platform: sigma
     severity: critical
     tactics:
@@ -44,7 +44,7 @@ rules:
       - process_creation
       - linux
   - title: Detect strongSwan libsimaka Crash - ASan Heap Overflow Write
-    description: Detects CVE-2026-35330 exploitation — monitors process creation output for AddressSanitizer heap-buffer-overflow WRITE when processing EAP-SIM/AKA payloads.
+    description: Detects CVE-2026-35330 exploitation - monitors process creation output for AddressSanitizer heap-buffer-overflow WRITE when processing EAP-SIM/AKA payloads.
     platform: sigma
     severity: high
     tactics:

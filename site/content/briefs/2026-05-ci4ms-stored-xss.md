@@ -40,7 +40,7 @@ ioc_counts:
   url: 1
 rules:
   - title: Detect CI4MS Pages Module Stored XSS Attempt via HTTP POST
-    description: Detects CVE-2026-45270 exploitation — attempts to exploit the CI4MS Pages module stored XSS vulnerability via HTTP POST requests.
+    description: Detects CVE-2026-45270 exploitation - attempts to exploit the CI4MS Pages module stored XSS vulnerability via HTTP POST requests.
     platform: sigma
     severity: high
     tactics:
@@ -50,7 +50,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CI4MS Pages Module Stored XSS Payload in HTTP POST Data
-    description: Detects CVE-2026-45270 exploitation — identifies potential stored XSS payloads being submitted to the CI4MS Pages module via HTTP POST requests.
+    description: Detects CVE-2026-45270 exploitation - identifies potential stored XSS payloads being submitted to the CI4MS Pages module via HTTP POST requests.
     platform: sigma
     severity: medium
     tactics:

@@ -45,7 +45,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33000
 rules:
   - title: Detect UniFi OS Path Traversal Attempt
-    description: Detects CVE-2026-34909 exploitation — Path Traversal vulnerability attempt in UniFi OS via web server logs.
+    description: Detects CVE-2026-34909 exploitation - Path Traversal vulnerability attempt in UniFi OS via web server logs.
     platform: sigma
     severity: high
     tactics:
@@ -55,7 +55,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect UniFi OS Command Injection Attempt
-    description: Detects CVE-2026-34910 and CVE-2026-33000 exploitation — Command Injection vulnerability attempt in UniFi OS via web server logs.
+    description: Detects CVE-2026-34910 and CVE-2026-33000 exploitation - Command Injection vulnerability attempt in UniFi OS via web server logs.
     platform: sigma
     severity: high
     tactics:

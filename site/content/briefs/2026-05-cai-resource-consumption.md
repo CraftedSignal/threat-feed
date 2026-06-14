@@ -28,8 +28,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34665
   - https://helpx.adobe.com/security/products/content-authenticity-sdk/apsb26-53.html
 rules:
-  - title: Detects CVE-2026-34665 Exploitation — Excessive Memory Allocation
-    description: Detects CVE-2026-34665 exploitation — monitors for a process exhibiting a significant increase in memory allocation, potentially indicating exploitation of the uncontrolled resource consumption vulnerability.
+  - title: Detects CVE-2026-34665 Exploitation - Excessive Memory Allocation
+    description: Detects CVE-2026-34665 exploitation - monitors for a process exhibiting a significant increase in memory allocation, potentially indicating exploitation of the uncontrolled resource consumption vulnerability.
     platform: sigma
     severity: medium
     tactics:
@@ -39,8 +39,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detects CVE-2026-34665 Exploitation — High CPU Usage
-    description: Detects CVE-2026-34665 exploitation — monitors for a process exhibiting high CPU utilization, potentially indicating exploitation of the uncontrolled resource consumption vulnerability.
+  - title: Detects CVE-2026-34665 Exploitation - High CPU Usage
+    description: Detects CVE-2026-34665 exploitation - monitors for a process exhibiting high CPU utilization, potentially indicating exploitation of the uncontrolled resource consumption vulnerability.
     platform: sigma
     severity: medium
     tactics:

@@ -29,8 +29,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-41948
   - CVE-2026-41948
 rules:
-  - title: Detect CVE-2026-41948 Exploitation Attempts — Path Traversal in Dify API
-    description: Detects CVE-2026-41948 exploitation attempts — HTTP requests to Dify API endpoints containing path traversal sequences, indicating potential unauthorized access to internal resources.
+  - title: Detect CVE-2026-41948 Exploitation Attempts - Path Traversal in Dify API
+    description: Detects CVE-2026-41948 exploitation attempts - HTTP requests to Dify API endpoints containing path traversal sequences, indicating potential unauthorized access to internal resources.
     platform: sigma
     severity: high
     tactics:

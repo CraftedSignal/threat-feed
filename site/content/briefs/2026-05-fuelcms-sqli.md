@@ -32,8 +32,8 @@ references:
   - https://www.getfuelcms.com/
   - https://www.vulncheck.com/advisories/fuel-cms-blind-sql-injection-via-col-parameter
 rules:
-  - title: Detects CVE-2021-47980 Exploitation — Fuel CMS Activity Log SQL Injection Attempt
-    description: Detects CVE-2021-47980 exploitation — SQL injection attempts in the 'col' parameter of requests to the Fuel CMS Activity Log interface.
+  - title: Detects CVE-2021-47980 Exploitation - Fuel CMS Activity Log SQL Injection Attempt
+    description: Detects CVE-2021-47980 exploitation - SQL injection attempts in the 'col' parameter of requests to the Fuel CMS Activity Log interface.
     platform: sigma
     severity: medium
     tactics:
@@ -42,8 +42,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2021-47980 Exploitation — Fuel CMS Activity Log SQL Injection Attempt (Time Based)
-    description: Detects CVE-2021-47980 exploitation — Time-based SQL injection attempts in the 'col' parameter of requests to the Fuel CMS Activity Log interface.
+  - title: Detects CVE-2021-47980 Exploitation - Fuel CMS Activity Log SQL Injection Attempt (Time Based)
+    description: Detects CVE-2021-47980 exploitation - Time-based SQL injection attempts in the 'col' parameter of requests to the Fuel CMS Activity Log interface.
     platform: sigma
     severity: medium
     tactics:

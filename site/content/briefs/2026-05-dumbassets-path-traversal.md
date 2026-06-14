@@ -25,8 +25,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-45230
 rules:
-  - title: Detects CVE-2026-45230 Exploitation — DumbAssets Path Traversal
-    description: Detects CVE-2026-45230 exploitation — POST requests to /api/delete-file with path traversal sequences in the filename.
+  - title: Detects CVE-2026-45230 Exploitation - DumbAssets Path Traversal
+    description: Detects CVE-2026-45230 exploitation - POST requests to /api/delete-file with path traversal sequences in the filename.
     platform: sigma
     severity: critical
     tactics:
@@ -35,8 +35,8 @@ rules:
       - T1565
     data_sources:
       - webserver
-  - title: Detects CVE-2026-45230 Exploitation — DumbAssets Attempted Path Traversal (status 4xx)
-    description: Detects CVE-2026-45230 exploitation — Detects attempted path traversal attacks against DumbAssets by monitoring 4xx status codes when accessing the /api/delete-file endpoint with path traversal sequences.
+  - title: Detects CVE-2026-45230 Exploitation - DumbAssets Attempted Path Traversal (status 4xx)
+    description: Detects CVE-2026-45230 exploitation - Detects attempted path traversal attacks against DumbAssets by monitoring 4xx status codes when accessing the /api/delete-file endpoint with path traversal sequences.
     platform: sigma
     severity: high
     tactics:

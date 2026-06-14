@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46366
 rules:
   - title: Detect phpMyFAQ Unauthenticated FAQ Enumeration
-    description: Detects CVE-2026-46366 exploitation — monitors HTTP 302 redirects from /solution_id_{id}.html, indicating potential unauthenticated enumeration of restricted FAQ entries.
+    description: Detects CVE-2026-46366 exploitation - monitors HTTP 302 redirects from /solution_id_{id}.html, indicating potential unauthenticated enumeration of restricted FAQ entries.
     platform: sigma
     severity: medium
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect phpMyFAQ FAQ Title Disclosure in Redirect Location Header
-    description: Detects CVE-2026-46366 exploitation — monitors HTTP 302 redirects with Location headers containing phpMyFAQ FAQ titles, potentially revealing sensitive information.
+    description: Detects CVE-2026-46366 exploitation - monitors HTTP 302 redirects with Location headers containing phpMyFAQ FAQ titles, potentially revealing sensitive information.
     platform: sigma
     severity: medium
     tactics:

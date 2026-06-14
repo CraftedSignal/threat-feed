@@ -32,8 +32,8 @@ references:
   - https://www.exploit-db.com/exploits/44891
   - https://www.vulncheck.com/advisories/redaxo-cms-mediapool-addon-arbitrary-file-upload
 rules:
-  - title: Detects CVE-2018-25353 Exploitation — Suspicious File Extension Access in Redaxo Mediapool
-    description: Detects CVE-2018-25353 exploitation — Access to files with suspicious extensions (e.g., php71, php53) within the Redaxo Mediapool directory.
+  - title: Detects CVE-2018-25353 Exploitation - Suspicious File Extension Access in Redaxo Mediapool
+    description: Detects CVE-2018-25353 exploitation - Access to files with suspicious extensions (e.g., php71, php53) within the Redaxo Mediapool directory.
     platform: sigma
     severity: high
     tactics:
@@ -42,8 +42,8 @@ rules:
       - T1203
     data_sources:
       - webserver
-  - title: Detects CVE-2018-25353 Attempt — Redaxo Mediapool File Upload with Suspicious Extension
-    description: Detects CVE-2018-25353 attempt — File upload to Redaxo Mediapool directory with suspicious PHP-like extension in the filename.
+  - title: Detects CVE-2018-25353 Attempt - Redaxo Mediapool File Upload with Suspicious Extension
+    description: Detects CVE-2018-25353 attempt - File upload to Redaxo Mediapool directory with suspicious PHP-like extension in the filename.
     platform: sigma
     severity: medium
     tactics:

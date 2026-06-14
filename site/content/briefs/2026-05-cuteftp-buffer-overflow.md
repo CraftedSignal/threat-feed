@@ -38,7 +38,7 @@ references:
   - https://www.vulncheck.com/advisories/cuteftp-xp-buffer-overflow-via-site-manager-label-field
 rules:
   - title: Detect CuteFTP Shellcode Execution
-    description: Detects CVE-2018-25366 exploitation — execution of shellcode from CuteFTP process indicating buffer overflow
+    description: Detects CVE-2018-25366 exploitation - execution of shellcode from CuteFTP process indicating buffer overflow
     platform: sigma
     severity: high
     tactics:

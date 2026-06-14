@@ -53,7 +53,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/privilege_escalation_installertakeover.toml
 rules:
   - title: Detect Potential InstallerFileTakeOver via Suspicious Service Execution
-    description: Detects CVE-2021-41379 exploitation — detects suspicious execution of elevation_service.exe with unexpected original file name or code signature.
+    description: Detects CVE-2021-41379 exploitation - detects suspicious execution of elevation_service.exe with unexpected original file name or code signature.
     platform: sigma
     severity: high
     tactics:
@@ -64,7 +64,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Potential InstallerFileTakeOver via Suspicious Child Process
-    description: Detects CVE-2021-41379 exploitation — detects suspicious processes spawned by elevation_service.exe.
+    description: Detects CVE-2021-41379 exploitation - detects suspicious processes spawned by elevation_service.exe.
     platform: sigma
     severity: high
     tactics:

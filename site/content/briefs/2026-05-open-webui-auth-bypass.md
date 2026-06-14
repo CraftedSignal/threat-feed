@@ -27,7 +27,7 @@ references:
   - https://github.com/open-webui/open-webui/commit/2e52ad8ff2f8d9ed9f38f76e9bc19c8f92d91fc3
 rules:
   - title: Detect Unauthorized Open WebUI File Deletion via Shared Chat Bypass
-    description: Detects CVE-2026-45671 exploitation — An authenticated user attempts to delete a file via the API that they do not own but is referenced in a shared chat.
+    description: Detects CVE-2026-45671 exploitation - An authenticated user attempts to delete a file via the API that they do not own but is referenced in a shared chat.
     platform: sigma
     severity: high
     tactics:

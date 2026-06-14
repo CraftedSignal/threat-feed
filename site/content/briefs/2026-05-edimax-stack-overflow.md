@@ -33,7 +33,7 @@ references:
   - https://vuldb.com/vuln/365440/cti
 rules:
   - title: Detect CVE-2026-9459 Exploitation Attempt
-    description: Detects CVE-2026-9459 exploitation attempt — HTTP POST to /goform/formConnectionSetting with long max_Conn or timeOut parameters
+    description: Detects CVE-2026-9459 exploitation attempt - HTTP POST to /goform/formConnectionSetting with long max_Conn or timeOut parameters
     platform: sigma
     severity: high
     tactics:

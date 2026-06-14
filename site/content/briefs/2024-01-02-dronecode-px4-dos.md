@@ -40,8 +40,8 @@ references:
   - https://github.com/PX4/PX4-Autopilot/commit/3f04b7a95ace454f228b393310c4915991b85163
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32707
 rules:
-  - title: Detect CVE-2026-32707 Exploitation Attempt — CAN Frame Flood
-    description: Detects CVE-2026-32707 exploitation attempt — Monitors for a high volume of CAN frames originating from the same source within a short timeframe, indicating a potential flood attack against the tattu_can driver
+  - title: Detect CVE-2026-32707 Exploitation Attempt - CAN Frame Flood
+    description: Detects CVE-2026-32707 exploitation attempt - Monitors for a high volume of CAN frames originating from the same source within a short timeframe, indicating a potential flood attack against the tattu_can driver
     platform: sigma
     severity: medium
     tactics:
@@ -51,8 +51,8 @@ rules:
     data_sources:
       - network_connection
       - linux
-  - title: Detect CVE-2026-32707 Exploitation Attempt — CAN Frame with Specific Payload
-    description: Detects CVE-2026-32707 exploitation attempt — Looks for CAN frames with DLC=8 and the last byte set to 0x80, indicating the start-of-transfer frame in the exploit
+  - title: Detect CVE-2026-32707 Exploitation Attempt - CAN Frame with Specific Payload
+    description: Detects CVE-2026-32707 exploitation attempt - Looks for CAN frames with DLC=8 and the last byte set to 0x80, indicating the start-of-transfer frame in the exploit
     platform: sigma
     severity: high
     tactics:

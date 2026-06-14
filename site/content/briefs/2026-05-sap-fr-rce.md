@@ -50,7 +50,7 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detects CVE-2026-34259 Attempt — Suspicious SAP RFC Execution
+  - title: Detects CVE-2026-34259 Attempt - Suspicious SAP RFC Execution
     description: Detects attempts to execute Remote Function Calls (RFCs) with potentially malicious parameters within SAP systems, indicating a possible command injection attempt via CVE-2026-34259.
     platform: sigma
     severity: high

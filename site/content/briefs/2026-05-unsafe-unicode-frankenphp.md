@@ -30,8 +30,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-3g8v-8r37-cgjm
 rules:
-  - title: Detects CVE-2026-45062 Exploitation — FrankenPHP Unicode Path Traversal Attempt
-    description: Detects CVE-2026-45062 exploitation — Attempts to exploit FrankenPHP vulnerability by using unicode characters in the path to bypass file extension checks
+  - title: Detects CVE-2026-45062 Exploitation - FrankenPHP Unicode Path Traversal Attempt
+    description: Detects CVE-2026-45062 exploitation - Attempts to exploit FrankenPHP vulnerability by using unicode characters in the path to bypass file extension checks
     platform: sigma
     severity: high
     tactics:
@@ -40,8 +40,8 @@ rules:
       - T1203
     data_sources:
       - webserver
-  - title: Detects CVE-2026-45062 Exploitation — FrankenPHP Non-ASCII Path Traversal Attempt
-    description: Detects CVE-2026-45062 exploitation — Attempts to exploit FrankenPHP vulnerability by using Non-ASCII characters in the path to bypass file extension checks
+  - title: Detects CVE-2026-45062 Exploitation - FrankenPHP Non-ASCII Path Traversal Attempt
+    description: Detects CVE-2026-45062 exploitation - Attempts to exploit FrankenPHP vulnerability by using Non-ASCII characters in the path to bypass file extension checks
     platform: sigma
     severity: high
     tactics:
@@ -68,7 +68,7 @@ The `splitPos()` function in [`cgi.go`](https://github.com/php/frankenphp/blob/m
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an unauthenticated attacker to achieve remote code execution on systems running vulnerable versions of FrankenPHP. This is possible in scenarios where the attacker can upload or place files with predictable names into directories served by FrankenPHP. The impact is similar to CVE-2026-24895, but requires the ability to control file content and name. A successful attack can lead to complete compromise of the server, including data theft, modification, and denial of service. CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H — High (8.1).
+Successful exploitation of this vulnerability allows an unauthenticated attacker to achieve remote code execution on systems running vulnerable versions of FrankenPHP. This is possible in scenarios where the attacker can upload or place files with predictable names into directories served by FrankenPHP. The impact is similar to CVE-2026-24895, but requires the ability to control file content and name. A successful attack can lead to complete compromise of the server, including data theft, modification, and denial of service. CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H - High (8.1).
 
 ## Recommendation
 

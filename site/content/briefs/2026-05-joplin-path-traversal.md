@@ -37,7 +37,7 @@ references:
   - https://github.com/msiemens/one2html/commit/948d65cdca5bb35d776b8b235ec05ff15249fd41
 rules:
   - title: Detect CVE-2026-22810 Path Traversal File Creation
-    description: Detects CVE-2026-22810 exploitation — Creation of files with path traversal sequences (../) in their names, indicating a potential path traversal vulnerability exploitation attempt.
+    description: Detects CVE-2026-22810 exploitation - Creation of files with path traversal sequences (../) in their names, indicating a potential path traversal vulnerability exploitation attempt.
     platform: sigma
     severity: high
     tactics:
@@ -49,7 +49,7 @@ rules:
       - file_event
       - linux
   - title: Detect CVE-2026-22810 Path Traversal - Suspicious Log File Overwrite
-    description: Detects CVE-2026-22810 exploitation — Overwriting of common log files with non-log file extensions.
+    description: Detects CVE-2026-22810 exploitation - Overwriting of common log files with non-log file extensions.
     platform: sigma
     severity: medium
     tactics:

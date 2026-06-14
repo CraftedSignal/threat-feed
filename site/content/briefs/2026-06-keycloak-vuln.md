@@ -33,8 +33,8 @@ references:
   - https://github.com/keycloak/keycloak/security/advisories/GHSA-794g-x443-36f7
   - https://www.cve.org/CVERecord?id=CVE-2026-2092
 rules:
-  - title: Detects CVE-2026-2092 Exploitation Attempt — Keycloak Security Policy Bypass
-    description: Detects CVE-2026-2092 exploitation attempt — suspicious HTTP requests to Keycloak server that could indicate security policy bypass.
+  - title: Detects CVE-2026-2092 Exploitation Attempt - Keycloak Security Policy Bypass
+    description: Detects CVE-2026-2092 exploitation attempt - suspicious HTTP requests to Keycloak server that could indicate security policy bypass.
     platform: sigma
     severity: high
     tactics:
@@ -43,8 +43,8 @@ rules:
       - T1562
     data_sources:
       - webserver
-  - title: Detects CVE-2026-2092 Exploitation Attempt — Keycloak Data Confidentiality Breach
-    description: Detects CVE-2026-2092 exploitation attempt — suspicious HTTP requests to Keycloak server that could lead to data confidentiality breach by checking for unusual request patterns.
+  - title: Detects CVE-2026-2092 Exploitation Attempt - Keycloak Data Confidentiality Breach
+    description: Detects CVE-2026-2092 exploitation attempt - suspicious HTTP requests to Keycloak server that could lead to data confidentiality breach by checking for unusual request patterns.
     platform: sigma
     severity: medium
     tactics:

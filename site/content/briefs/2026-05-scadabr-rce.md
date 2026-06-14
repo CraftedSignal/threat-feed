@@ -38,8 +38,8 @@ references:
   - https://cwe.mitre.org/data/definitions/352.html
   - https://cwe.mitre.org/data/definitions/798.html
 rules:
-  - title: Detects CVE-2026-8602 Exploitation — Unauthenticated HTTP GET Request to Inject Sensor Readings
-    description: Detects CVE-2026-8602 exploitation — An unauthenticated attacker can send HTTP GET requests to inject arbitrary sensor readings.
+  - title: Detects CVE-2026-8602 Exploitation - Unauthenticated HTTP GET Request to Inject Sensor Readings
+    description: Detects CVE-2026-8602 exploitation - An unauthenticated attacker can send HTTP GET requests to inject arbitrary sensor readings.
     platform: sigma
     severity: high
     tactics:
@@ -48,8 +48,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-8603 Exploitation — OS Command Injection Attempt
-    description: Detects CVE-2026-8603 exploitation — An attacker attempts to inject OS commands through a vulnerable parameter.
+  - title: Detects CVE-2026-8603 Exploitation - OS Command Injection Attempt
+    description: Detects CVE-2026-8603 exploitation - An attacker attempts to inject OS commands through a vulnerable parameter.
     platform: sigma
     severity: critical
     tactics:

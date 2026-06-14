@@ -29,7 +29,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-41613
 rules:
   - title: Detect Suspicious VS Code Session Fixation
-    description: Detects CVE-2026-41613 exploitation — attempts to fix a session ID in Visual Studio Code by monitoring suspicious HTTP requests setting cookies from untrusted domains.
+    description: Detects CVE-2026-41613 exploitation - attempts to fix a session ID in Visual Studio Code by monitoring suspicious HTTP requests setting cookies from untrusted domains.
     platform: sigma
     severity: high
     tactics:

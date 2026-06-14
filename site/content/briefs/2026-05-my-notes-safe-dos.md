@@ -30,7 +30,7 @@ references:
   - https://www.vulncheck.com/advisories/my-notes-safe-denial-of-service-via-buffer-overflow
 rules:
   - title: Detect CVE-2021-47971 Exploitation Attempt - My Notes Safe Crash
-    description: Detects CVE-2021-47971 exploitation — monitors for application crashes associated with MyNotesSafe.exe, indicating a potential denial-of-service attack.
+    description: Detects CVE-2021-47971 exploitation - monitors for application crashes associated with MyNotesSafe.exe, indicating a potential denial-of-service attack.
     platform: sigma
     severity: medium
     tactics:

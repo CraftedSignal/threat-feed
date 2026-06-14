@@ -33,7 +33,7 @@ references:
   - https://www.twcert.org.tw/en/cp-139-10946-1127f-2.html
   - https://www.twcert.org.tw/tw/cp-132-10943-8fb00-1.html
 rules:
-  - title: Detects CVE-2026-10072 Exploitation — Web Shell Upload via DreamMaker
+  - title: Detects CVE-2026-10072 Exploitation - Web Shell Upload via DreamMaker
     description: Detects attempts to execute web shells uploaded via the DreamMaker arbitrary file upload vulnerability (CVE-2026-10072) by monitoring for HTTP requests to common web shell file extensions.
     platform: sigma
     severity: high
@@ -45,7 +45,7 @@ rules:
       - T1505.003
     data_sources:
       - webserver
-  - title: Detects CVE-2026-10072 Exploitation — Upload directory traversal attempt
+  - title: Detects CVE-2026-10072 Exploitation - Upload directory traversal attempt
     description: Detects CVE-2026-10072 exploitation - Path traversal in URI leading to upload directory
     platform: sigma
     severity: medium

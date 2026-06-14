@@ -30,7 +30,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33843
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33843
 rules:
-  - title: Detect CVE-2026-33843 Exploitation Attempt — Authentication Bypass in Azure AD B2C
+  - title: Detect CVE-2026-33843 Exploitation Attempt - Authentication Bypass in Azure AD B2C
     description: Detects potential exploitation attempts of CVE-2026-33843 in Azure AD B2C by monitoring for suspicious authentication requests.
     platform: sigma
     severity: high
@@ -41,7 +41,7 @@ rules:
       - T1550.004
     data_sources:
       - webserver
-  - title: Detect CVE-2026-33843 Exploitation Attempt — Elevated Privileges via Alternate Path
+  - title: Detect CVE-2026-33843 Exploitation Attempt - Elevated Privileges via Alternate Path
     description: Detects potential exploitation attempts of CVE-2026-33843 in Azure AD B2C by monitoring access to protected resources after a suspicious authentication event.
     platform: sigma
     severity: high

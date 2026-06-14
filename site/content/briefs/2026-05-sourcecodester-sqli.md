@@ -33,8 +33,8 @@ references:
   - https://vuldb.com/vuln/365318/cti
   - https://www.sourcecodester.com/
 rules:
-  - title: Detect CVE-2026-9355 Exploitation Attempt — SQL Injection in SourceCodester Hospitals Patient Records Management System
-    description: Detects CVE-2026-9355 exploitation attempt — SQL injection attempts targeting the /classes/Master.php endpoint in SourceCodester Hospitals Patient Records Management System
+  - title: Detect CVE-2026-9355 Exploitation Attempt - SQL Injection in SourceCodester Hospitals Patient Records Management System
+    description: Detects CVE-2026-9355 exploitation attempt - SQL injection attempts targeting the /classes/Master.php endpoint in SourceCodester Hospitals Patient Records Management System
     platform: sigma
     severity: high
     tactics:
@@ -43,8 +43,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9355 Exploitation Attempt — SQL Injection via POST
-    description: Detects CVE-2026-9355 exploitation attempt — SQL injection in POST data targeting /classes/Master.php?f=save_patient_history
+  - title: Detect CVE-2026-9355 Exploitation Attempt - SQL Injection via POST
+    description: Detects CVE-2026-9355 exploitation attempt - SQL injection in POST data targeting /classes/Master.php?f=save_patient_history
     platform: sigma
     severity: high
     tactics:

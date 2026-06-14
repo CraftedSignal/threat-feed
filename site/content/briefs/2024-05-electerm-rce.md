@@ -36,7 +36,7 @@ references:
   - https://github.com/electerm/electerm/security
 rules:
   - title: Detect Suspicious Electerm Widget Loading
-    description: Detects CVE-2026-43940 exploitation — loading of Electerm widgets with path traversal sequences in the filename.
+    description: Detects CVE-2026-43940 exploitation - loading of Electerm widgets with path traversal sequences in the filename.
     platform: sigma
     severity: critical
     tactics:
@@ -48,7 +48,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Suspicious Electerm Widget Loading (Linux)
-    description: Detects CVE-2026-43940 exploitation — loading of Electerm widgets with path traversal sequences in the filename on Linux.
+    description: Detects CVE-2026-43940 exploitation - loading of Electerm widgets with path traversal sequences in the filename on Linux.
     platform: sigma
     severity: critical
     tactics:

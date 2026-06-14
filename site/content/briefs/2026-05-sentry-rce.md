@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/sentry-remote-code-execution-via-pickle-deserialization
 rules:
   - title: Detect Suspicious Sentry Pickle Deserialization in Audit Log
-    description: Detects CVE-2021-47935 exploitation — POST requests to the Sentry audit log endpoint with base64-encoded data, indicating potential pickle deserialization attack.
+    description: Detects CVE-2021-47935 exploitation - POST requests to the Sentry audit log endpoint with base64-encoded data, indicating potential pickle deserialization attack.
     platform: sigma
     severity: high
     tactics:

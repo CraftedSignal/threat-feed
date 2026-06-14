@@ -29,8 +29,8 @@ references:
   - https://github.com/advisories/GHSA-w388-2392-px73
   - CVE-2026-47409
 rules:
-  - title: Detect CVE-2026-47409 Exploitation — Unauthorized Member Removal
-    description: Detects CVE-2026-47409 exploitation — attempts to remove workspace members via the API endpoint by non-admin users
+  - title: Detect CVE-2026-47409 Exploitation - Unauthorized Member Removal
+    description: Detects CVE-2026-47409 exploitation - attempts to remove workspace members via the API endpoint by non-admin users
     platform: sigma
     severity: high
     tactics:
@@ -41,8 +41,8 @@ rules:
       - T1578
     data_sources:
       - webserver
-  - title: Detect CVE-2026-47409 Exploitation — Member Enumeration Before Removal
-    description: Detects CVE-2026-47409 exploitation — identifying a DELETE request to the members endpoint preceded by a GET request to enumerate members, possibly targeting the owner.
+  - title: Detect CVE-2026-47409 Exploitation - Member Enumeration Before Removal
+    description: Detects CVE-2026-47409 exploitation - identifying a DELETE request to the members endpoint preceded by a GET request to enumerate members, possibly targeting the owner.
     platform: sigma
     severity: medium
     tactics:

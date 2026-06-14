@@ -27,7 +27,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47783
 rules:
   - title: Detect Memcached SASL Authentication Username Enumeration
-    description: Detects CVE-2026-47783 exploitation — monitors memcached logs for repeated failed SASL authentication attempts from the same source, indicative of username enumeration.
+    description: Detects CVE-2026-47783 exploitation - monitors memcached logs for repeated failed SASL authentication attempts from the same source, indicative of username enumeration.
     platform: sigma
     severity: medium
     tactics:
@@ -38,7 +38,7 @@ rules:
       - application
       - memcached
   - title: Detect Potential Memcached Timing Attack (High Precision)
-    description: Detects CVE-2026-47783 exploitation — measures the round trip time to identify possible timing differences
+    description: Detects CVE-2026-47783 exploitation - measures the round trip time to identify possible timing differences
     platform: sigma
     severity: low
     tactics:

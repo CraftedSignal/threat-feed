@@ -36,8 +36,8 @@ references:
   - https://www.opencartextensions.in/opencart-multi-vendor-multi-seller-marketplace
   - https://www.vulncheck.com/advisories/opencart-tmd-vendor-system-3-x-blind-sql-injection-via-product-route
 rules:
-  - title: Detect CVE-2021-47928 Exploitation — Opencart TMD Vendor System Blind SQL Injection
-    description: Detects CVE-2021-47928 exploitation — attempts to exploit a blind SQL injection vulnerability in Opencart TMD Vendor System 3.x via the product_id parameter with common SQL injection payloads.
+  - title: Detect CVE-2021-47928 Exploitation - Opencart TMD Vendor System Blind SQL Injection
+    description: Detects CVE-2021-47928 exploitation - attempts to exploit a blind SQL injection vulnerability in Opencart TMD Vendor System 3.x via the product_id parameter with common SQL injection payloads.
     platform: sigma
     severity: high
     tactics:
@@ -47,8 +47,8 @@ rules:
       - T1213
     data_sources:
       - webserver
-  - title: Detect CVE-2021-47928 Exploitation — Opencart TMD Vendor System SQL Error Responses
-    description: Detects CVE-2021-47928 exploitation — identifies SQL errors returned by the server in response to a crafted request to the vulnerable Opencart TMD Vendor System 3.x endpoint. Success of the exploit relies on the application returning errors in response to the injected SQL code.
+  - title: Detect CVE-2021-47928 Exploitation - Opencart TMD Vendor System SQL Error Responses
+    description: Detects CVE-2021-47928 exploitation - identifies SQL errors returned by the server in response to a crafted request to the vulnerable Opencart TMD Vendor System 3.x endpoint. Success of the exploit relies on the application returning errors in response to the injected SQL code.
     platform: sigma
     severity: medium
     tactics:
@@ -81,7 +81,7 @@ Successful exploitation of this vulnerability (CVE-2021-47928) can lead to compl
 ## Recommendation
 
 *   Apply available patches or upgrade to a secure version of Opencart TMD Vendor System to remediate CVE-2021-47928.
-*   Deploy the Sigma rule "Detect CVE-2021-47928 Exploitation — Opencart TMD Vendor System Blind SQL Injection" to identify exploitation attempts in web server logs.
+*   Deploy the Sigma rule "Detect CVE-2021-47928 Exploitation - Opencart TMD Vendor System Blind SQL Injection" to identify exploitation attempts in web server logs.
 *   Implement web application firewall (WAF) rules to block requests containing SQL injection payloads targeting the `product_id` parameter.
 *   Enforce the principle of least privilege on database accounts to limit the impact of successful SQL injection attacks.
 *   Regularly review and audit web application code for SQL injection vulnerabilities using static and dynamic analysis tools.

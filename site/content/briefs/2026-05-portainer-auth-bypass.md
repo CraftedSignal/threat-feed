@@ -26,7 +26,7 @@ references:
   - CVE-2026-44882
 rules:
   - title: Detect Portainer Kubernetes Authorization Bypass Attempt
-    description: Detects CVE-2026-44882 exploitation — Monitors for 403 Forbidden errors followed by Kubernetes API requests indicative of a potential authorization bypass attempt in Portainer
+    description: Detects CVE-2026-44882 exploitation - Monitors for 403 Forbidden errors followed by Kubernetes API requests indicative of a potential authorization bypass attempt in Portainer
     platform: sigma
     severity: high
     tactics:

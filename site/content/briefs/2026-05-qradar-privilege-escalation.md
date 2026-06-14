@@ -30,7 +30,7 @@ references:
   - https://www.ibm.com/support/pages/node/7273957
 rules:
   - title: Detect Suspicious QRadar Backup Upload
-    description: Detects CVE-2024-56462 exploitation — Identifies attempts to upload potentially malicious backup archives to QRadar
+    description: Detects CVE-2024-56462 exploitation - Identifies attempts to upload potentially malicious backup archives to QRadar
     platform: sigma
     severity: medium
     tactics:
@@ -40,7 +40,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect QRadar Restore Operation with Unusual Files
-    description: Detects CVE-2024-56462 exploitation — Detects the execution of files with suspicious file extensions within QRadar restore directories, potentially indicating exploitation.
+    description: Detects CVE-2024-56462 exploitation - Detects the execution of files with suspicious file extensions within QRadar restore directories, potentially indicating exploitation.
     platform: sigma
     severity: high
     tactics:

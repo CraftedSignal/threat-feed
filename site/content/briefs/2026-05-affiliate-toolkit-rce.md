@@ -30,7 +30,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6169
 rules:
   - title: Detect CVE-2026-6169 Exploitation Attempt via HTTP POST
-    description: Detects CVE-2026-6169 exploitation — HTTP POST requests to WordPress plugin with PHP code injection in cs-uri-query or cs-uri-stem, indicating a potential attempt to exploit the affiliate-toolkit RCE vulnerability.
+    description: Detects CVE-2026-6169 exploitation - HTTP POST requests to WordPress plugin with PHP code injection in cs-uri-query or cs-uri-stem, indicating a potential attempt to exploit the affiliate-toolkit RCE vulnerability.
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-6169 Exploitation - eval() in BladeOne
-    description: Detects CVE-2026-6169 — Monitors PHP process execution for the use of eval() function within the context of BladeOne templating engine calls, indicating potential exploitation of affiliate-toolkit plugin.
+    description: Detects CVE-2026-6169 - Monitors PHP process execution for the use of eval() function within the context of BladeOne templating engine calls, indicating potential exploitation of affiliate-toolkit plugin.
     platform: sigma
     severity: medium
     tactics:

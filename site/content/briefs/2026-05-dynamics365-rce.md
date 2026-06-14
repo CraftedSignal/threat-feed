@@ -32,8 +32,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42833
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42833
 rules:
-  - title: Detects CVE-2026-42833 Exploitation Attempt — Suspicious Dynamics 365 Process Creation
-    description: Detects CVE-2026-42833 exploitation attempt — monitors for suspicious processes spawned by the Dynamics 365 application pool, which could indicate code execution.
+  - title: Detects CVE-2026-42833 Exploitation Attempt - Suspicious Dynamics 365 Process Creation
+    description: Detects CVE-2026-42833 exploitation attempt - monitors for suspicious processes spawned by the Dynamics 365 application pool, which could indicate code execution.
     platform: sigma
     severity: high
     tactics:
@@ -44,8 +44,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detects CVE-2026-42833 Exploitation Attempt — Dynamics 365 Webshell Creation
-    description: Detects CVE-2026-42833 exploitation attempt — monitors for suspicious file creations in the Dynamics 365 directory.
+  - title: Detects CVE-2026-42833 Exploitation Attempt - Dynamics 365 Webshell Creation
+    description: Detects CVE-2026-42833 exploitation attempt - monitors for suspicious file creations in the Dynamics 365 directory.
     platform: sigma
     severity: high
     tactics:

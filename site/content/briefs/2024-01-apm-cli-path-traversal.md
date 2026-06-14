@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-xhrw-5qxx-jpwr
 rules:
   - title: APM CLI Plugin Install Path Traversal - Absolute Path
-    description: Detects CVE-2026-44641 exploitation — detects APM CLI plugin installations attempting to use absolute paths in plugin.json, indicative of path traversal attempts.
+    description: Detects CVE-2026-44641 exploitation - detects APM CLI plugin installations attempting to use absolute paths in plugin.json, indicative of path traversal attempts.
     platform: sigma
     severity: high
     tactics:
@@ -36,7 +36,7 @@ rules:
       - process_creation
       - windows
   - title: APM CLI Plugin Install Path Traversal - Relative Path
-    description: Detects CVE-2026-44641 exploitation — detects APM CLI plugin installations attempting to use relative paths with traversal sequences (../) in plugin.json, indicative of path traversal attempts.
+    description: Detects CVE-2026-44641 exploitation - detects APM CLI plugin installations attempting to use relative paths with traversal sequences (../) in plugin.json, indicative of path traversal attempts.
     platform: sigma
     severity: high
     tactics:

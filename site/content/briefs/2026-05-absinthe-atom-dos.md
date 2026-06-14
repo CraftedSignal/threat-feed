@@ -29,7 +29,7 @@ references:
   - https://github.com/absinthe-graphql/absinthe/commit/d0eae7764520d4e8e5dfff619068c0de911aec33
 rules:
   - title: Detect Absinthe GraphQL Atom Table Exhaustion Attempt
-    description: Detects CVE-2026-42793 exploitation attempt — identifies suspicious GraphQL payloads containing numerous unique directive definitions based on HTTP request logs by counting the number of 'directive @' occurrences.
+    description: Detects CVE-2026-42793 exploitation attempt - identifies suspicious GraphQL payloads containing numerous unique directive definitions based on HTTP request logs by counting the number of 'directive @' occurrences.
     platform: sigma
     severity: high
     tactics:

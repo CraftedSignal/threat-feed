@@ -32,7 +32,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5200
 rules:
-  - title: Detect CVE-2026-5200 Exploitation Attempt — Unauthorized AcyMailing Configuration Modification
+  - title: Detect CVE-2026-5200 Exploitation Attempt - Unauthorized AcyMailing Configuration Modification
     description: Detects attempts to modify AcyMailing configuration by unauthorized users exploiting CVE-2026-5200.
     platform: sigma
     severity: high
@@ -43,7 +43,7 @@ rules:
       - T1548
     data_sources:
       - webserver
-  - title: Detect CVE-2026-5200 Exploitation Attempt — Unauthorized AcyMailing Subscriber Export
+  - title: Detect CVE-2026-5200 Exploitation Attempt - Unauthorized AcyMailing Subscriber Export
     description: Detects attempts to export subscriber secret keys via AcyMailing by unauthorized users exploiting CVE-2026-5200.
     platform: sigma
     severity: high

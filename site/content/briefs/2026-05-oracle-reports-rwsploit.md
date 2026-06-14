@@ -39,7 +39,7 @@ references:
   - CVE-2012-3153
 rules:
   - title: Detect Oracle Reports rwservlet Path Traversal Attempt
-    description: Detects CVE-2012-3152 exploitation — Attempts to access sensitive files via the rwservlet endpoint with path traversal
+    description: Detects CVE-2012-3152 exploitation - Attempts to access sensitive files via the rwservlet endpoint with path traversal
     platform: sigma
     severity: high
     tactics:
@@ -49,7 +49,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Oracle Reports SSRF via rwservlet JOBTYPE rwurl
-    description: Detects CVE-2012-3153 exploitation — SSRF attempts via rwservlet with JOBTYPE=rwurl and suspicious URLPARAMETER
+    description: Detects CVE-2012-3153 exploitation - SSRF attempts via rwservlet with JOBTYPE=rwurl and suspicious URLPARAMETER
     platform: sigma
     severity: medium
     tactics:

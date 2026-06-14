@@ -32,7 +32,7 @@ references:
   - CVE-2026-8890
 rules:
   - title: Detect code100x Mobile API Authentication Bypass Attempt
-    description: Detects CVE-2026-8890 exploitation attempt — monitors for HTTP requests with both 'Auth-Key' and 'g' headers, which indicates a potential authentication bypass attempt in the code100x Mobile API.
+    description: Detects CVE-2026-8890 exploitation attempt - monitors for HTTP requests with both 'Auth-Key' and 'g' headers, which indicates a potential authentication bypass attempt in the code100x Mobile API.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect code100x Mobile API Authentication Bypass Attempt - Crafted g Header
-    description: Detects CVE-2026-8890 exploitation attempt — Identifies crafted 'g' header containing JSON-like syntax which suggests attempts to inject spoofed user identities in code100x Mobile API.
+    description: Detects CVE-2026-8890 exploitation attempt - Identifies crafted 'g' header containing JSON-like syntax which suggests attempts to inject spoofed user identities in code100x Mobile API.
     platform: sigma
     severity: medium
     tactics:

@@ -62,7 +62,7 @@ references:
   - https://github.com/blackarrowsec/redteam-research/tree/master/CVE-2026-33829
 rules:
   - title: Detect Snipping Tool NTLMv2 Hash Hijack Attempt via URI
-    description: Detects CVE-2026-33829 exploitation — attempts to exploit the Windows Snipping Tool NTLMv2 Hash Hijack vulnerability by detecting the ms-screensketch URI with a UNC path.
+    description: Detects CVE-2026-33829 exploitation - attempts to exploit the Windows Snipping Tool NTLMv2 Hash Hijack vulnerability by detecting the ms-screensketch URI with a UNC path.
     platform: sigma
     severity: medium
     tactics:

@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-9qpr-vc49-hqg2
 rules:
   - title: Detect wger Trainer Login Privilege Escalation Attempt
-    description: Detects CVE-2026-43978 exploitation — An attacker attempts to exploit the privilege escalation vulnerability by calling the trainer-login endpoint
+    description: Detects CVE-2026-43978 exploitation - An attacker attempts to exploit the privilege escalation vulnerability by calling the trainer-login endpoint
     platform: sigma
     severity: high
     tactics:

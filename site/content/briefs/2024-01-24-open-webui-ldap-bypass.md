@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-2r4p-jpmg-48f4
 rules:
   - title: Detect Open WebUI LDAP Authentication Bypass Attempt
-    description: Detects CVE-2026-44551 exploitation — Monitors for POST requests to the `/api/v1/auths/ldap` endpoint with an empty password field, which indicates a potential authentication bypass attempt.
+    description: Detects CVE-2026-44551 exploitation - Monitors for POST requests to the `/api/v1/auths/ldap` endpoint with an empty password field, which indicates a potential authentication bypass attempt.
     platform: sigma
     severity: critical
     tactics:
@@ -35,7 +35,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Open WebUI LDAP Authentication Success with Empty Password
-    description: Detects CVE-2026-44551 exploitation — Monitors for successful authentication events immediately following a POST request to the `/api/v1/auths/ldap` endpoint where the password was empty, indicating a successful authentication bypass.
+    description: Detects CVE-2026-44551 exploitation - Monitors for successful authentication events immediately following a POST request to the `/api/v1/auths/ldap` endpoint where the password was empty, indicating a successful authentication bypass.
     platform: sigma
     severity: critical
     tactics:

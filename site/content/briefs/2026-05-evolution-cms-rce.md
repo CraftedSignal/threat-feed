@@ -33,7 +33,7 @@ references:
   - https://www.vulncheck.com/advisories/evolution-cms-authenticated-remote-code-execution-via-module-creation
 rules:
   - title: Detect CVE-2021-47939 Exploitation Attempt via Malicious POST Request
-    description: Detects CVE-2021-47939 exploitation — Identifies POST requests to /manager/index.php with PHP code in the 'post' parameter, indicating a code injection attempt.
+    description: Detects CVE-2021-47939 exploitation - Identifies POST requests to /manager/index.php with PHP code in the 'post' parameter, indicating a code injection attempt.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2021-47939 Exploitation Attempt via system() call
-    description: Detects CVE-2021-47939 exploitation — Identifies POST requests to /manager/index.php with PHP code containing system() function call.
+    description: Detects CVE-2021-47939 exploitation - Identifies POST requests to /manager/index.php with PHP code containing system() function call.
     platform: sigma
     severity: high
     tactics:

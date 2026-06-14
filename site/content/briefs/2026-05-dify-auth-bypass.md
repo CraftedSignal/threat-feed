@@ -29,7 +29,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-41947
 rules:
   - title: Detect Dify Unauthorized Trace Configuration Change
-    description: Detects CVE-2026-41947 exploitation — Modification of a trace configuration by a user lacking tenant ownership, potentially leading to information disclosure.
+    description: Detects CVE-2026-41947 exploitation - Modification of a trace configuration by a user lacking tenant ownership, potentially leading to information disclosure.
     platform: sigma
     severity: high
     tactics:

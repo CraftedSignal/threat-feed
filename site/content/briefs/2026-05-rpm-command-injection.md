@@ -31,8 +31,8 @@ references:
   - https://access.redhat.com/security/cve/CVE-2026-44604
   - https://bugzilla.redhat.com/show_bug.cgi?id=2460967
 rules:
-  - title: Detects CVE-2026-44604 Exploitation — Archive Extraction with Shell Metacharacters in Filename
-    description: Detects CVE-2026-44604 exploitation attempt — archive extraction with suspicious shell metacharacters in the filename.
+  - title: Detects CVE-2026-44604 Exploitation - Archive Extraction with Shell Metacharacters in Filename
+    description: Detects CVE-2026-44604 exploitation attempt - archive extraction with suspicious shell metacharacters in the filename.
     platform: sigma
     severity: high
     tactics:
@@ -43,8 +43,8 @@ rules:
     data_sources:
       - process_creation
       - linux
-  - title: Detects CVE-2026-44604 Exploitation — Suspicious Process Launched After Archive Extraction
-    description: Detects CVE-2026-44604 exploitation attempt — monitoring for suspicious child processes spawned after archive extractions potentially indicating command injection.
+  - title: Detects CVE-2026-44604 Exploitation - Suspicious Process Launched After Archive Extraction
+    description: Detects CVE-2026-44604 exploitation attempt - monitoring for suspicious child processes spawned after archive extractions potentially indicating command injection.
     platform: sigma
     severity: medium
     tactics:

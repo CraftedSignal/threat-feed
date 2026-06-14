@@ -33,8 +33,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34645
   - https://helpx.adobe.com/security/products/magento/apsb26-49.html
 rules:
-  - title: Detect CVE-2026-34645 Exploitation Attempt — Unauthorized Write Access
-    description: Detects CVE-2026-34645 exploitation attempt — HTTP POST requests to sensitive endpoints without proper authorization, potentially indicating unauthorized write access attempts in Adobe Commerce.
+  - title: Detect CVE-2026-34645 Exploitation Attempt - Unauthorized Write Access
+    description: Detects CVE-2026-34645 exploitation attempt - HTTP POST requests to sensitive endpoints without proper authorization, potentially indicating unauthorized write access attempts in Adobe Commerce.
     platform: sigma
     severity: high
     tactics:
@@ -43,8 +43,8 @@ rules:
       - T1555.004
     data_sources:
       - webserver
-  - title: Detect CVE-2026-34645 Exploitation Attempt — GraphQL Unauthorized Access
-    description: Detects CVE-2026-34645 exploitation attempt — HTTP POST requests to the GraphQL endpoint without valid authentication headers, which could indicate an attempt to bypass security restrictions in Adobe Commerce.
+  - title: Detect CVE-2026-34645 Exploitation Attempt - GraphQL Unauthorized Access
+    description: Detects CVE-2026-34645 exploitation attempt - HTTP POST requests to the GraphQL endpoint without valid authentication headers, which could indicate an attempt to bypass security restrictions in Adobe Commerce.
     platform: sigma
     severity: medium
     tactics:

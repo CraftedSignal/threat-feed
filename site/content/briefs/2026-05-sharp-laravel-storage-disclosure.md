@@ -29,7 +29,7 @@ references:
   - https://cwe.mitre.org/data/definitions/639.html
 rules:
   - title: Detect Sharp Laravel Storage Download Endpoint Abuse
-    description: Detects CVE-2026-44692 exploitation — suspicious requests to the Sharp download endpoint with unusual disk or path parameters, indicating potential unauthorized access to Laravel Storage files.
+    description: Detects CVE-2026-44692 exploitation - suspicious requests to the Sharp download endpoint with unusual disk or path parameters, indicating potential unauthorized access to Laravel Storage files.
     platform: sigma
     severity: high
     tactics:

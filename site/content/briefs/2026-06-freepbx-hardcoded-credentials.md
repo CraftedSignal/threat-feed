@@ -33,7 +33,7 @@ references:
   - CVE-2026-46376
 rules:
   - title: Detect CVE-2026-46376 Exploitation Attempt - HTTP Access to UCP Login Page
-    description: Detects CVE-2026-46376 exploitation attempt — monitors HTTP requests to the FreePBX User Control Panel (UCP) login page, indicating a potential attempt to exploit the hardcoded credential vulnerability.
+    description: Detects CVE-2026-46376 exploitation attempt - monitors HTTP requests to the FreePBX User Control Panel (UCP) login page, indicating a potential attempt to exploit the hardcoded credential vulnerability.
     platform: sigma
     severity: medium
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-46376 Post-Exploitation - UCP Session Creation with Common User Agent
-    description: Detects CVE-2026-46376 post exploitation — monitors for UCP session creation from IPs not in firewall, using very common user agents
+    description: Detects CVE-2026-46376 post exploitation - monitors for UCP session creation from IPs not in firewall, using very common user agents
     platform: sigma
     severity: high
     tactics:

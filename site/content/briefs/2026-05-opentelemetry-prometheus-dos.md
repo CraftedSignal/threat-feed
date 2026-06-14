@@ -28,7 +28,7 @@ references:
   - https://github.com/advisories/GHSA-q7rr-3cgh-j5r3
 rules:
   - title: Detect OpenTelemetry Prometheus Exporter Malformed HTTP Request
-    description: Detects CVE-2026-44902 exploitation — Malformed HTTP request targeting the OpenTelemetry Prometheus exporter.
+    description: Detects CVE-2026-44902 exploitation - Malformed HTTP request targeting the OpenTelemetry Prometheus exporter.
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect OpenTelemetry Prometheus Exporter Invalid Host Header
-    description: Detects CVE-2026-44902 exploitation — HTTP request with an invalid Host header (single slash) targeting the OpenTelemetry Prometheus exporter.
+    description: Detects CVE-2026-44902 exploitation - HTTP request with an invalid Host header (single slash) targeting the OpenTelemetry Prometheus exporter.
     platform: sigma
     severity: medium
     tactics:

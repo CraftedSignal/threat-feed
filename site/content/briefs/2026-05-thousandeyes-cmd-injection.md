@@ -26,7 +26,7 @@ references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-tebbot-cmdinj-wN3yQ5gn
   - CVE-2026-20206
 rules:
-  - title: Detects CVE-2026-20206 Exploitation Attempt — ThousandEyes BrowserBot Command Injection
+  - title: Detects CVE-2026-20206 Exploitation Attempt - ThousandEyes BrowserBot Command Injection
     description: Detects potential exploitation attempts of CVE-2026-20206, targeting the ThousandEyes BrowserBot command injection vulnerability. This rule identifies suspicious HTTP requests containing common command injection payloads in the request.
     platform: sigma
     severity: high

@@ -39,7 +39,7 @@ references:
   - https://www.vulncheck.com/advisories/mirasvit-cache-warmer-for-magento-php-object-injection
 rules:
   - title: Detect CVE-2026-45247 Exploitation Attempt via CacheWarmer Cookie
-    description: Detects CVE-2026-45247 exploitation — An attempt to exploit the PHP object injection vulnerability in Mirasvit Full Page Cache Warmer by sending a CacheWarmer cookie with a serialized PHP object.
+    description: Detects CVE-2026-45247 exploitation - An attempt to exploit the PHP object injection vulnerability in Mirasvit Full Page Cache Warmer by sending a CacheWarmer cookie with a serialized PHP object.
     platform: sigma
     severity: critical
     tactics:

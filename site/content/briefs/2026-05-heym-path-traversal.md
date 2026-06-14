@@ -33,7 +33,7 @@ references:
   - https://www.vulncheck.com/advisories/heym-path-traversal-file-upload-via-upload-file
 rules:
   - title: Detect Heym Path Traversal File Upload (CVE-2026-45225)
-    description: Detects CVE-2026-45225 exploitation — HTTP requests to the file upload endpoint containing path traversal sequences in the filename parameter
+    description: Detects CVE-2026-45225 exploitation - HTTP requests to the file upload endpoint containing path traversal sequences in the filename parameter
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Heym Path Traversal Attempt via Crafted Filename (CVE-2026-45225)
-    description: Detects CVE-2026-45225 attempt — Crafted filenames containing traversal sequences during file operations.
+    description: Detects CVE-2026-45225 attempt - Crafted filenames containing traversal sequences during file operations.
     platform: sigma
     severity: medium
     tactics:

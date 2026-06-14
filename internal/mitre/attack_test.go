@@ -74,7 +74,7 @@ func TestTechniqueCount(t *testing.T) {
 	// Enterprise ATT&CK v16 has 656 active techniques and subtechniques.
 	// This test ensures we haven't accidentally added or removed entries.
 	if len(Techniques) < 600 {
-		t.Errorf("expected at least 600 techniques, got %d — map may be incomplete", len(Techniques))
+		t.Errorf("expected at least 600 techniques, got %d - map may be incomplete", len(Techniques))
 	}
 	t.Logf("Techniques map contains %d entries", len(Techniques))
 }

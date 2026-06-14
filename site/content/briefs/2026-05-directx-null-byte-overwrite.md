@@ -49,7 +49,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2009-1537
 rules:
   - title: Detect CVE-2009-1537 Exploitation Attempt via Suspicious DLL Loads
-    description: Detects CVE-2009-1537 exploitation —  Detects the loading of quartz.dll by unusual or untrusted processes, which could indicate an attempt to trigger the NULL byte overwrite vulnerability.
+    description: Detects CVE-2009-1537 exploitation -  Detects the loading of quartz.dll by unusual or untrusted processes, which could indicate an attempt to trigger the NULL byte overwrite vulnerability.
     platform: sigma
     severity: high
     tactics:
@@ -60,7 +60,7 @@ rules:
       - image_load
       - windows
   - title: Detect CVE-2009-1537 Exploitation Attempt via Process Creation with Quartz.dll as a Parent
-    description: Detects CVE-2009-1537 exploitation — Detects process creation events where quartz.dll or a related process is the parent, which may indicate exploitation leading to code execution.
+    description: Detects CVE-2009-1537 exploitation - Detects process creation events where quartz.dll or a related process is the parent, which may indicate exploitation leading to code execution.
     platform: sigma
     severity: high
     tactics:

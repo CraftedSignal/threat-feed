@@ -29,7 +29,7 @@ references:
   - https://iknow.lenovo.com.cn/detail/440274
   - https://pc.lenovo.com.cn/tips/Ann/t1_eol.html
 rules:
-  - title: Detects CVE-2026-6282 Attempt — Path Traversal in Lenovo Cloud Storage via HTTP Request
+  - title: Detects CVE-2026-6282 Attempt - Path Traversal in Lenovo Cloud Storage via HTTP Request
     description: Detects potential path traversal attempts targeting Lenovo Personal Cloud Storage devices by identifying '..' sequences in URI paths
     platform: sigma
     severity: medium
@@ -40,7 +40,7 @@ rules:
       - T1584.004
     data_sources:
       - webserver
-  - title: Detects CVE-2026-6282 Attempt — Path Traversal in Lenovo Cloud Storage via HTTP Query
+  - title: Detects CVE-2026-6282 Attempt - Path Traversal in Lenovo Cloud Storage via HTTP Query
     description: Detects potential path traversal attempts targeting Lenovo Personal Cloud Storage devices by identifying '..' sequences in URI queries
     platform: sigma
     severity: medium

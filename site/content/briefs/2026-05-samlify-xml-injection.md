@@ -35,7 +35,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Samlify XML Injection in AttributeValue via POST Request
-    description: Detects CVE-2026-46490 exploitation — HTTP POST request with XML injection attempt in SAML AttributeValue.
+    description: Detects CVE-2026-46490 exploitation - HTTP POST request with XML injection attempt in SAML AttributeValue.
     platform: sigma
     severity: medium
     tactics:

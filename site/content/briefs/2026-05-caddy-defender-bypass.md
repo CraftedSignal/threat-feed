@@ -28,7 +28,7 @@ references:
   - CVE-2026-46415
 rules:
   - title: Detect Caddy Defender IP Bypass Attempt
-    description: Detects CVE-2026-46415 exploitation — monitors web server logs for requests to Caddy originating from known blocked IP ranges, potentially indicating an attempt to bypass Caddy Defender's IP-based restrictions.
+    description: Detects CVE-2026-46415 exploitation - monitors web server logs for requests to Caddy originating from known blocked IP ranges, potentially indicating an attempt to bypass Caddy Defender's IP-based restrictions.
     platform: sigma
     severity: high
     tactics:

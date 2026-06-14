@@ -27,7 +27,7 @@ references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-tevacert-rce-RMJVEym5
 rules:
   - title: Detects CVE-2026-20199 Exploitation Attempt - Suspicious SSL Certificate Upload
-    description: Detects CVE-2026-20199 exploitation — Attempts to upload a crafted SSL certificate to the ThousandEyes Virtual Appliance web interface.
+    description: Detects CVE-2026-20199 exploitation - Attempts to upload a crafted SSL certificate to the ThousandEyes Virtual Appliance web interface.
     platform: sigma
     severity: high
     tactics:
@@ -37,7 +37,7 @@ rules:
     data_sources:
       - webserver
   - title: Detects CVE-2026-20199 Post Exploitation - Root Shell Activity
-    description: Detects CVE-2026-20199 exploitation — Attempts to execute commands as root on the ThousandEyes Virtual Appliance.
+    description: Detects CVE-2026-20199 exploitation - Attempts to execute commands as root on the ThousandEyes Virtual Appliance.
     platform: sigma
     severity: medium
     tactics:

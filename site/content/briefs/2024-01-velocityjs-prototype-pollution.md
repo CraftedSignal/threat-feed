@@ -24,7 +24,7 @@ references:
   - https://github.com/advisories/GHSA-j658-c2gf-x6pq
 rules:
   - title: Detect Velocity.js Prototype Pollution Attempt via set Directive
-    description: 'Detects CVE-2026-44966 exploitation — An attacker attempts to pollute the Object.prototype using a #set directive within a Velocity template.'
+    description: 'Detects CVE-2026-44966 exploitation - An attacker attempts to pollute the Object.prototype using a #set directive within a Velocity template.'
     platform: sigma
     severity: high
     tactics:
@@ -34,7 +34,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Velocity.js Prototype Pollution Attempt via POST Data
-    description: 'Detects CVE-2026-44966 exploitation — An attacker attempts to pollute the Object.prototype using a #set directive within a Velocity template submitted via POST data.'
+    description: 'Detects CVE-2026-44966 exploitation - An attacker attempts to pollute the Object.prototype using a #set directive within a Velocity template submitted via POST data.'
     platform: sigma
     severity: high
     tactics:

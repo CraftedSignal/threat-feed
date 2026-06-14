@@ -38,7 +38,7 @@ references:
   - https://www.tenable.com/cve/CVE-2025-54539
 rules:
   - title: Detect Suspicious ActiveMQ NMS AMQP Client Deserialization
-    description: Detects CVE-2025-54539 exploitation — monitors for processes that are likely spawned from deserialization within the ActiveMQ NMS AMQP Client.
+    description: Detects CVE-2025-54539 exploitation - monitors for processes that are likely spawned from deserialization within the ActiveMQ NMS AMQP Client.
     platform: sigma
     severity: high
     tactics:

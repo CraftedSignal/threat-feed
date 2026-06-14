@@ -29,7 +29,7 @@ references:
   - https://fluidattacks.com/advisories/dragons
 rules:
   - title: Detect Pimcore SQL Injection via Composite Index Manipulation
-    description: Detects CVE-2026-5394 exploitation — Attempts to inject SQL commands into the `index_columns` field during class definition import/save in Pimcore.
+    description: Detects CVE-2026-5394 exploitation - Attempts to inject SQL commands into the `index_columns` field during class definition import/save in Pimcore.
     platform: sigma
     severity: high
     tactics:

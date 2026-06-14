@@ -27,7 +27,7 @@ INVALID_URL_SUBSTRINGS = [
     "/security/advisories/",
     "github.com/advisories/",
     "github.com/github/",
-    "github.com/cisagov/",   # CISA GitHub org — advisory files, not IoCs
+    "github.com/cisagov/",   # CISA GitHub org - advisory files, not IoCs
     "api.github.com/",        # GitHub API commit/ref endpoints
     "/releases/tag/",
     "/commit/",
@@ -94,7 +94,7 @@ def _is_bare_homepage(url: str) -> bool:
 def _should_remove(ioc: dict) -> tuple[bool, str]:
     t = ioc.get("type", "").lower()
     v = str(ioc.get("value", ""))
-    # Email obfuscation placeholders (Cloudflare or similar) — never a real IoC
+    # Email obfuscation placeholders (Cloudflare or similar) - never a real IoC
     if "[email" in v.lower() or "&#160;" in v:
         return True, "email obfuscation placeholder"
     if t == "url":
@@ -130,7 +130,7 @@ def _needs_poc_context(ioc: dict) -> bool:
     return any(m in v_lower for m in _POC_MARKERS)
 
 
-# --- YAML block manipulation (surgical — preserves all other frontmatter formatting) ---
+# --- YAML block manipulation (surgical - preserves all other frontmatter formatting) ---
 
 def _remove_key_block(lines: list[str], key: str) -> list[str]:
     """Remove a top-level YAML key and all its indented continuation lines."""
@@ -270,7 +270,7 @@ def main() -> None:
         if verbose:
             print(f"\n{path.name}")
             for ioc, reason in r["removed"]:
-                print(f"  INVALID [{ioc.get('type')}] {ioc.get('value')} — {reason}")
+                print(f"  INVALID [{ioc.get('type')}] {ioc.get('value')} - {reason}")
             for ioc in r["kept"]:
                 if ioc.get("context") == "Proof-of-concept exploit code":
                     print(f"  NEEDS CONTEXT [{ioc.get('type')}] {ioc.get('value')}")

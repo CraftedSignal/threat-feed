@@ -35,8 +35,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8711
 rules:
-  - title: Detect CVE-2026-8711 Exploitation Attempt — Crafted HTTP Request to js_fetch_proxy
-    description: Detects CVE-2026-8711 exploitation attempt — detects crafted HTTP requests with potentially malicious payloads targeting the js_fetch_proxy directive
+  - title: Detect CVE-2026-8711 Exploitation Attempt - Crafted HTTP Request to js_fetch_proxy
+    description: Detects CVE-2026-8711 exploitation attempt - detects crafted HTTP requests with potentially malicious payloads targeting the js_fetch_proxy directive
     platform: sigma
     severity: high
     tactics:
@@ -45,8 +45,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-8711 Exploitation Attempt — NGINX Worker Process Restart
-    description: Detects CVE-2026-8711 exploitation attempt — detects rapid restarts of the NGINX worker process, potentially indicating a heap buffer overflow.
+  - title: Detect CVE-2026-8711 Exploitation Attempt - NGINX Worker Process Restart
+    description: Detects CVE-2026-8711 exploitation attempt - detects rapid restarts of the NGINX worker process, potentially indicating a heap buffer overflow.
     platform: sigma
     severity: medium
     tactics:

@@ -1,10 +1,10 @@
-# Threat Intel Sources — Implementation Plan
+# Threat Intel Sources - Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Add 21 new threat intel RSS sources to ti-bot and fix missing confidence/authority scores for two existing sources (Securelist, Wiz) that are registered but silently downscored.
 
-**Architecture:** Each source requires four changes: (1) an RSS constructor in `rss.go`, (2) a `SourceToggle` field in `config.go`, (3) a registration block in `main.go`/`countEnabledSources`, and (4) confidence + authority entries in `pipeline.go`/`dedup.go`. Task 1 is the highest-priority fix — it unblocks Securelist (including the daemon-tools article) immediately without any new code.
+**Architecture:** Each source requires four changes: (1) an RSS constructor in `rss.go`, (2) a `SourceToggle` field in `config.go`, (3) a registration block in `main.go`/`countEnabledSources`, and (4) confidence + authority entries in `pipeline.go`/`dedup.go`. Task 1 is the highest-priority fix - it unblocks Securelist (including the daemon-tools article) immediately without any new code.
 
 **Tech Stack:** Go 1.25, `github.com/mmcdole/gofeed` (RSS/Atom parsing), SQLite (dedup state), YAML config.
 
@@ -100,20 +100,20 @@ In `internal/scraper/rss_test.go`, extend the `sources` map inside `TestAllRSSSo
 go test ./internal/scraper/... -run TestAllRSSSources -v
 ```
 
-Expected: FAIL — `undefined: NewSentinelLabs` (and 20 more undefined errors).
+Expected: FAIL - `undefined: NewSentinelLabs` (and 20 more undefined errors).
 
 - [ ] **Step 3: Add all 21 constructors to `rss.go`**
 
 Append the following block after the `NewGoogleProjectZero` function in `internal/scraper/rss.go`:
 
 ```go
-// Tier 1 — commercial threat research (creates new brief on novel campaign)
+// Tier 1 - commercial threat research (creates new brief on novel campaign)
 
 func NewSentinelLabs() *RSS {
 	return NewRSS("sentinelone-labs", "https://www.sentinelone.com/labs/feed/")
 }
 
-// Tier 2 — commercial (enriches existing brief if campaign/actor matches)
+// Tier 2 - commercial (enriches existing brief if campaign/actor matches)
 
 func NewBitdefender() *RSS {
 	return NewRSS("bitdefender", "https://www.bitdefender.com/blog/api/rss/labs/")
@@ -128,7 +128,7 @@ func NewProofpoint() *RSS {
 }
 
 func NewRapid7() *RSS {
-	// Emergent Threat Response tag only — filters for actively-exploited CVE coverage.
+	// Emergent Threat Response tag only - filters for actively-exploited CVE coverage.
 	return NewRSS("rapid7", "https://www.rapid7.com/blog/tag/emergent-threat-response/rss/")
 }
 
@@ -161,7 +161,7 @@ func NewAnyRun() *RSS {
 }
 
 func NewQualysThreatResearch() *RSS {
-	// Threat-research category only — excludes general product/marketing posts.
+	// Threat-research category only - excludes general product/marketing posts.
 	return NewRSS("qualys-threat-research", "https://blog.qualys.com/vulnerabilities-threat-research/feed")
 }
 
@@ -170,7 +170,7 @@ func NewMalwareTrafficAnalysis() *RSS {
 }
 
 func NewObjectiveSee() *RSS {
-	// Patrick Wardle's macOS malware research — only dedicated high-signal macOS feed.
+	// Patrick Wardle's macOS malware research - only dedicated high-signal macOS feed.
 	return NewRSS("objective-see", "https://objective-see.org/rss.xml")
 }
 
@@ -185,7 +185,7 @@ func NewFBICyber() *RSS {
 }
 
 func NewCCCS() *RSS {
-	// Canadian Centre for Cyber Security — alerts and advisories.
+	// Canadian Centre for Cyber Security - alerts and advisories.
 	return NewRSS("cccs", "https://www.cyber.gc.ca/api/cccs/rss/v1/get?feed=alerts_advisories&lang=en")
 }
 
@@ -202,7 +202,7 @@ func NewMSISAC() *RSS {
 // Independent research
 
 func NewGoogleTAG() *RSS {
-	// Google Threat Analysis Group — government-backed attackers, 0-day in-the-wild.
+	// Google Threat Analysis Group - government-backed attackers, 0-day in-the-wild.
 	return NewRSS("google-tag", "https://blog.google/threat-analysis-group/rss/")
 }
 ```
@@ -213,7 +213,7 @@ func NewGoogleTAG() *RSS {
 go test ./internal/scraper/... -run TestAllRSSSources -v
 ```
 
-Expected: PASS — all 21 new entries resolve and parse the mock feed correctly.
+Expected: PASS - all 21 new entries resolve and parse the mock feed correctly.
 
 - [ ] **Step 5: Commit**
 
@@ -234,7 +234,7 @@ git commit -m "feat(scraper): add 21 new threat intel RSS source constructors"
 In `internal/config/config.go`, in the `SourcesConfig` struct, append the following block after the `GoogleProjectZero` field:
 
 ```go
-// New threat intel sources — added 2026-05-06
+// New threat intel sources - added 2026-05-06
 // Tier 1 commercial
 SentinelLabs         SourceToggle `yaml:"sentinel_labs"`
 // Tier 2 commercial
@@ -268,7 +268,7 @@ GoogleTAG            SourceToggle `yaml:"google_tag"`
 go build ./...
 ```
 
-Expected: builds cleanly — zero errors.
+Expected: builds cleanly - zero errors.
 
 - [ ] **Step 3: Commit**
 
@@ -485,7 +485,7 @@ In `internal/pipeline/pipeline.go`, in `defaultSourceConfidence`, append the fol
 In `internal/pipeline/dedup.go`, in `sourceAuthority`, append the following after the `"google-project-zero": 3` entry:
 
 ```go
-// Tier 1 commercial — added 2026-05-06
+// Tier 1 commercial - added 2026-05-06
 "sentinelone-labs":         3,
 // Tier 2 commercial
 "bitdefender":              3,
@@ -541,7 +541,7 @@ The config YAML (path set by `TIBOT_CONFIG` env var, default `config.yaml`) need
 Add the following block to the `sources:` section of `config.yaml`:
 
 ```yaml
-# Tier 1 commercial — added 2026-05-06
+# Tier 1 commercial - added 2026-05-06
 sentinel_labs:
   enabled: true
 
@@ -617,8 +617,8 @@ git commit -m "feat(config): enable 21 new threat intel sources"
 - ✅ Securelist confidence + authority fixed (unblocks daemon-tools article)
 - ✅ Wiz confidence fixed
 - ✅ Gov/CERT sources: FBI, CCCS, ACSC, MS-ISAC added
-- ✅ Deduplication model is unchanged — existing `dedup.go` + `actor_aliases.go` handles the enrichment/30-day window logic already
-- ✅ CISA KEV already has a dedicated scraper (`NewCISAKEV`); the CISA advisory RSS (`NewCISA`) may have broken when CISA discontinued their feed in May 2025 — that is a separate investigation outside this plan's scope
+- ✅ Deduplication model is unchanged - existing `dedup.go` + `actor_aliases.go` handles the enrichment/30-day window logic already
+- ✅ CISA KEV already has a dedicated scraper (`NewCISAKEV`); the CISA advisory RSS (`NewCISA`) may have broken when CISA discontinued their feed in May 2025 - that is a separate investigation outside this plan's scope
 
 **Placeholder scan:** None found. All code blocks are complete.
 

@@ -7,7 +7,7 @@ module.exports = {
     './assets/js/**/*.js',
   ],
   // Severity classes are constructed at template time (e.g. `bg-sev-{{ $sev }}`),
-  // so Tailwind's content scan can't see them — safelist explicitly.
+  // so Tailwind's content scan can't see them - safelist explicitly.
   safelist: [
     'sev-critical', 'sev-high', 'sev-medium', 'sev-low', 'sev-rumour',
     'bg-sev-critical', 'bg-sev-high', 'bg-sev-medium', 'bg-sev-low', 'bg-sev-rumour',
@@ -34,7 +34,7 @@ module.exports = {
         accent2: 'rgb(var(--color-accent2) / <alpha-value>)',
         muted: 'rgb(var(--color-muted) / <alpha-value>)',
         text: 'rgb(var(--color-text) / <alpha-value>)',
-        // Severity scale — same hue across themes, tuned for both backgrounds.
+        // Severity scale - same hue across themes, tuned for both backgrounds.
         sev: {
           critical: 'rgb(var(--color-sev-critical) / <alpha-value>)',
           high: 'rgb(var(--color-sev-high) / <alpha-value>)',

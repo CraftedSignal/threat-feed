@@ -31,8 +31,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2025-22871
   - https://support.industry.siemens.com/cs/ww/en/view/109977717/
 rules:
-  - title: Detect CVE-2025-22871 Exploitation — Siemens SENTRON Request Smuggling
-    description: Detects CVE-2025-22871 exploitation — HTTP request containing a bare LF character in a chunked data chunk-size line, indicating a request smuggling attempt against Siemens SENTRON 7KT PAC1261 Data Manager
+  - title: Detect CVE-2025-22871 Exploitation - Siemens SENTRON Request Smuggling
+    description: Detects CVE-2025-22871 exploitation - HTTP request containing a bare LF character in a chunked data chunk-size line, indicating a request smuggling attempt against Siemens SENTRON 7KT PAC1261 Data Manager
     platform: sigma
     severity: critical
     tactics:
@@ -65,5 +65,5 @@ Successful exploitation of CVE-2025-22871 can lead to unauthorized access and co
 
 *   Immediately update all instances of Siemens SENTRON 7KT PAC1261 Data Manager to version V2.1.0 or later to patch CVE-2025-22871.
 *   As a general security measure, protect network access to devices with appropriate mechanisms as recommended by Siemens.
-*   Deploy the Sigma rule "Detect CVE-2025-22871 Exploitation — Siemens SENTRON Request Smuggling" to your web server logs to identify potential exploitation attempts.
+*   Deploy the Sigma rule "Detect CVE-2025-22871 Exploitation - Siemens SENTRON Request Smuggling" to your web server logs to identify potential exploitation attempts.
 *   Minimize network exposure for all control system devices and ensure they are not accessible from the internet, as recommended by CISA.

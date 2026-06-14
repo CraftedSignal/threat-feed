@@ -25,8 +25,8 @@ references:
   - https://github.com/advisories/GHSA-7p85-w9px-jpjp
   - CVE-2026-46633
 rules:
-  - title: Detect CVE-2026-46633 Exploitation — Twig Use Tag Code Injection
-    description: Detects CVE-2026-46633 exploitation — A Twig template containing a `use` tag with a single quote in the template name may indicate a code injection attempt.
+  - title: Detect CVE-2026-46633 Exploitation - Twig Use Tag Code Injection
+    description: Detects CVE-2026-46633 exploitation - A Twig template containing a `use` tag with a single quote in the template name may indicate a code injection attempt.
     platform: sigma
     severity: critical
     tactics:
@@ -35,8 +35,8 @@ rules:
       - T1505.003
     data_sources:
       - webserver
-  - title: Detect CVE-2026-46633 Attempt — Twig Use Tag Code Injection with PHP function
-    description: Detects CVE-2026-46633 exploitation attempts — A Twig template containing a `use` tag with a single quote and a PHP function call (e.g., phpinfo()) in the template name may indicate a code injection attempt.
+  - title: Detect CVE-2026-46633 Attempt - Twig Use Tag Code Injection with PHP function
+    description: Detects CVE-2026-46633 exploitation attempts - A Twig template containing a `use` tag with a single quote and a PHP function call (e.g., phpinfo()) in the template name may indicate a code injection attempt.
     platform: sigma
     severity: high
     tactics:

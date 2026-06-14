@@ -29,7 +29,7 @@ references:
   - CVE-2026-44791
 rules:
   - title: Detect n8n XML Node Prototype Pollution Attempt
-    description: Detects CVE-2026-44791 exploitation — Attempts to exploit prototype pollution via crafted XML workflows in n8n
+    description: Detects CVE-2026-44791 exploitation - Attempts to exploit prototype pollution via crafted XML workflows in n8n
     platform: sigma
     severity: high
     tactics:

@@ -48,7 +48,7 @@ references:
   - https://chromereleases.googleblog.com/2026
 rules:
   - title: Detect WebRTC Use-After-Free Attempt
-    description: Detects CVE-2026-7928 exploitation — Monitors webserver logs for requests potentially exploiting the WebRTC use-after-free vulnerability.
+    description: Detects CVE-2026-7928 exploitation - Monitors webserver logs for requests potentially exploiting the WebRTC use-after-free vulnerability.
     platform: sigma
     severity: high
     tactics:

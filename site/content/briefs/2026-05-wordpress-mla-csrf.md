@@ -39,7 +39,7 @@ references:
   - https://plugins.trac.wordpress.org/changeset?old_path=%2Fmedia-library-assistant/tags/3.34&new_path=%2Fmedia-library-assistant/tags/3.35
 rules:
   - title: Detect WordPress Media Library Assistant CSRF Attempt
-    description: Detects CVE-2026-6075 exploitation — Attempts to exploit the CSRF vulnerability in the Media Library Assistant plugin by monitoring for POST requests to specific plugin endpoints without a valid nonce.
+    description: Detects CVE-2026-6075 exploitation - Attempts to exploit the CSRF vulnerability in the Media Library Assistant plugin by monitoring for POST requests to specific plugin endpoints without a valid nonce.
     platform: sigma
     severity: medium
     tactics:

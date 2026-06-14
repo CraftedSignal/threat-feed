@@ -52,7 +52,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-29203
 rules:
   - title: Detect cPanel create_user API Abuse
-    description: Detects CVE-2026-29201 exploitation — identifies suspicious cPanel create_user API calls with potentially malicious Perl code in the plugin parameter, indicating a possible code injection attempt.
+    description: Detects CVE-2026-29201 exploitation - identifies suspicious cPanel create_user API calls with potentially malicious Perl code in the plugin parameter, indicating a possible code injection attempt.
     platform: sigma
     severity: high
     tactics:
@@ -62,7 +62,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-29202 - Suspicious Chmod Usage
-    description: Detects CVE-2026-29202 exploitation — Identifies attempts to modify file permissions (chmod) on system files which may lead to privilege escalation or denial of service.
+    description: Detects CVE-2026-29202 exploitation - Identifies attempts to modify file permissions (chmod) on system files which may lead to privilege escalation or denial of service.
     platform: sigma
     severity: medium
     tactics:
@@ -73,7 +73,7 @@ rules:
       - process_creation
       - linux
   - title: Detect CVE-2026-29203 - Arbitrary File Read via adminbin
-    description: Detects CVE-2026-29203 exploitation — Detects access to sensitive files by abusing the LOADFEATUREFILE functionality in adminbin.
+    description: Detects CVE-2026-29203 exploitation - Detects access to sensitive files by abusing the LOADFEATUREFILE functionality in adminbin.
     platform: sigma
     severity: medium
     tactics:

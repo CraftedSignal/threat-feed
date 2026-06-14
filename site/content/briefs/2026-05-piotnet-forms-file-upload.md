@@ -28,7 +28,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4883
 rules:
-  - title: Detects CVE-2026-4883 Exploitation — Piotnet Forms Arbitrary File Upload
+  - title: Detects CVE-2026-4883 Exploitation - Piotnet Forms Arbitrary File Upload
     description: Detects CVE-2026-4883 exploitation attempts by identifying HTTP POST requests to the 'piotnetforms_ajax_form_builder' endpoint with file uploads containing dangerous extensions.
     platform: sigma
     severity: critical

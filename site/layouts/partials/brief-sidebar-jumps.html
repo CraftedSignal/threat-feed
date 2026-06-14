@@ -1,0 +1,7 @@
+{{ $content := .Content }}
+{{ if in $content `id="attack-chain"` }}
+<section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-2">
+  <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Jump to</h2>
+  <a href="#attack-chain" class="inline-flex items-center text-sm text-accent hover:underline">Kill chain</a>
+</section>
+{{ end }}

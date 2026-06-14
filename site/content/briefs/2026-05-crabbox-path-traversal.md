@@ -35,7 +35,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-45224
 rules:
   - title: Detect Crabbox Path Traversal Attempt via Malicious YAML
-    description: Detects CVE-2026-45224 exploitation — Detects suspicious .crabbox.yaml or crabbox.yaml files containing path traversal sequences (../) indicating a potential path traversal attempt
+    description: Detects CVE-2026-45224 exploitation - Detects suspicious .crabbox.yaml or crabbox.yaml files containing path traversal sequences (../) indicating a potential path traversal attempt
     platform: sigma
     severity: high
     tactics:

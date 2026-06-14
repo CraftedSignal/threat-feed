@@ -27,7 +27,7 @@ references:
   - https://github.com/fission/fission/releases/tag/v1.23.0
 rules:
   - title: Detect Fission Function Invocation Bypass
-    description: Detects CVE-2026-46614 exploitation — HTTP GET request to /fission-function endpoint indicating potential function invocation bypass
+    description: Detects CVE-2026-46614 exploitation - HTTP GET request to /fission-function endpoint indicating potential function invocation bypass
     platform: sigma
     severity: high
     tactics:

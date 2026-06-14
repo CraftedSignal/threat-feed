@@ -27,7 +27,7 @@ references:
   - CVE-2026-45697
 rules:
   - title: Detect Formie SSTI Attempts via POST Requests
-    description: Detects CVE-2026-45697 exploitation — Suspicious POST requests to Formie form submission endpoints containing potential Twig syntax, indicating server-side template injection attempts.
+    description: Detects CVE-2026-45697 exploitation - Suspicious POST requests to Formie form submission endpoints containing potential Twig syntax, indicating server-side template injection attempts.
     platform: sigma
     severity: critical
     tactics:
@@ -37,7 +37,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Formie SSTI via Hidden Field Injection
-    description: Detects CVE-2026-45697 exploitation — Identifies requests where Hidden fields values contain Twig syntax, indicating a server-side template injection attempt.
+    description: Detects CVE-2026-45697 exploitation - Identifies requests where Hidden fields values contain Twig syntax, indicating a server-side template injection attempt.
     platform: sigma
     severity: high
     tactics:

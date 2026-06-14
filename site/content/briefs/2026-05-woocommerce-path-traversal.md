@@ -30,8 +30,8 @@ references:
   - https://www.exploit-db.com/exploits/44433
   - https://www.vulncheck.com/advisories/woocommerce-csv-importer-path-traversal-file-deletion
 rules:
-  - title: Detect CVE-2018-25325 Exploitation — WooCommerce CSV Importer Path Traversal
-    description: Detects CVE-2018-25325 exploitation — HTTP POST requests to wp-admin/admin-ajax.php with path traversal sequences in the filename parameter for delete_export_file action.
+  - title: Detect CVE-2018-25325 Exploitation - WooCommerce CSV Importer Path Traversal
+    description: Detects CVE-2018-25325 exploitation - HTTP POST requests to wp-admin/admin-ajax.php with path traversal sequences in the filename parameter for delete_export_file action.
     platform: sigma
     severity: high
     tactics:
@@ -73,5 +73,5 @@ Successful exploitation of this vulnerability can lead to arbitrary file deletio
 ## Recommendation
 
 *   Upgrade to a patched version of the WooCommerce CSV Importer that addresses the path traversal vulnerability (CVE-2018-25325).
-*   Implement the provided Sigma rule "Detect CVE-2018-25325 Exploitation — WooCommerce CSV Importer Path Traversal" to detect malicious POST requests attempting to exploit this vulnerability.
+*   Implement the provided Sigma rule "Detect CVE-2018-25325 Exploitation - WooCommerce CSV Importer Path Traversal" to detect malicious POST requests attempting to exploit this vulnerability.
 *   Monitor web server logs for POST requests to `wp-admin/admin-ajax.php` with the `delete_export_file` action and filenames containing directory traversal sequences (`../`) to identify potential exploitation attempts.

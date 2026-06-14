@@ -30,8 +30,8 @@ references:
   - https://plugins.trac.wordpress.org/browser/kirki/tags/6.0.1/includes/API.php#L60
   - https://plugins.trac.wordpress.org/changeset/3535640/kirki/trunk/includes/API.php
 rules:
-  - title: Detect CVE-2026-8073 Exploitation — Kirki Arbitrary File Deletion
-    description: Detects CVE-2026-8073 exploitation attempt — Path traversal in Kirki plugin's downloadZIP function to delete arbitrary files.
+  - title: Detect CVE-2026-8073 Exploitation - Kirki Arbitrary File Deletion
+    description: Detects CVE-2026-8073 exploitation attempt - Path traversal in Kirki plugin's downloadZIP function to delete arbitrary files.
     platform: sigma
     severity: high
     tactics:
@@ -40,8 +40,8 @@ rules:
       - T1485
     data_sources:
       - webserver
-  - title: Detect CVE-2026-8073 Exploitation — Kirki Arbitrary File Deletion (POST Request)
-    description: Detects CVE-2026-8073 exploitation attempt via POST request — Path traversal in Kirki plugin's downloadZIP function to delete arbitrary files.
+  - title: Detect CVE-2026-8073 Exploitation - Kirki Arbitrary File Deletion (POST Request)
+    description: Detects CVE-2026-8073 exploitation attempt via POST request - Path traversal in Kirki plugin's downloadZIP function to delete arbitrary files.
     platform: sigma
     severity: high
     tactics:
@@ -73,5 +73,5 @@ Successful exploitation of CVE-2026-8073 allows unauthenticated attackers to del
 ## Recommendation
 
 *   Upgrade the Kirki plugin to the latest version to patch CVE-2026-8073.
-*   Deploy the Sigma rule "Detect CVE-2026-8073 Exploitation — Kirki Arbitrary File Deletion" to your SIEM and tune for your environment.
+*   Deploy the Sigma rule "Detect CVE-2026-8073 Exploitation - Kirki Arbitrary File Deletion" to your SIEM and tune for your environment.
 *   Monitor web server logs for suspicious requests to 'downloadZIP' function with path traversal attempts, using the log source detailed in the provided Sigma rules.

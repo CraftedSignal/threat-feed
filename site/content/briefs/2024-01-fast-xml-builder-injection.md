@@ -26,7 +26,7 @@ references:
   - https://github.com/advisories/GHSA-5wm8-gmm8-39j9
 rules:
   - title: Detect CVE-2026-44665 Exploitation Attempt via Attribute Injection
-    description: Detects CVE-2026-44665 exploitation attempt — Detects suspicious attribute values with embedded JavaScript events that could be exploited by fast-xml-builder.
+    description: Detects CVE-2026-44665 exploitation attempt - Detects suspicious attribute values with embedded JavaScript events that could be exploited by fast-xml-builder.
     platform: sigma
     severity: high
     tactics:

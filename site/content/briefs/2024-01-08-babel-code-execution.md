@@ -26,7 +26,7 @@ references:
   - https://github.com/advisories/GHSA-fv7c-fp4j-7gwp
 rules:
   - title: Detect CVE-2026-44728 Babel Code Generation Vulnerability
-    description: Detects CVE-2026-44728 exploitation — Monitors process execution involving Babel that might be triggered by processing a malicious input file
+    description: Detects CVE-2026-44728 exploitation - Monitors process execution involving Babel that might be triggered by processing a malicious input file
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +38,7 @@ rules:
       - process_creation
       - windows
   - title: Detect CVE-2026-44728 Babel Code Generation Vulnerability - Preset Env
-    description: Detects CVE-2026-44728 exploitation — Monitors process execution involving Babel using the preset-env with the vulnerable systemjs modules option
+    description: Detects CVE-2026-44728 exploitation - Monitors process execution involving Babel using the preset-env with the vulnerable systemjs modules option
     platform: sigma
     severity: high
     tactics:

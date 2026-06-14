@@ -29,7 +29,7 @@ references:
   - https://github.com/open-webui/open-webui/blob/0399a69b73de9789c4221acedea70d528e1346c4/backend/apps/ollama/main.py#L1070
 rules:
   - title: Detect Open WebUI Path Traversal Upload Attempt
-    description: Detects CVE-2026-44565 exploitation — HTTP POST requests to /ollama/models/upload with path traversal sequences in the filename parameter indicating a path traversal attempt.
+    description: Detects CVE-2026-44565 exploitation - HTTP POST requests to /ollama/models/upload with path traversal sequences in the filename parameter indicating a path traversal attempt.
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Open WebUI File Deletion via Path Traversal
-    description: Detects CVE-2026-44565 post-exploitation — suspicious process deletion events resulting from successful path traversal writing
+    description: Detects CVE-2026-44565 post-exploitation - suspicious process deletion events resulting from successful path traversal writing
     platform: sigma
     severity: medium
     tactics:

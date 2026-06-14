@@ -31,7 +31,7 @@ references:
   - https://www.vulncheck.com/advisories/open-ises-tickets-sql-injection-via-ajax-mobile-main-php-id-parameter
 rules:
   - title: Detect SQL Injection Attempts in Open ISES Tickets
-    description: Detects CVE-2026-48238 exploitation — SQL injection attempts targeting the id parameter in Open ISES Tickets ajax/mobile_main.php
+    description: Detects CVE-2026-48238 exploitation - SQL injection attempts targeting the id parameter in Open ISES Tickets ajax/mobile_main.php
     platform: sigma
     severity: high
     tactics:

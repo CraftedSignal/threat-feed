@@ -34,7 +34,7 @@ references:
   - https://vuldb.com/vuln/367498
   - https://vuldb.com/vuln/367498/cti
 rules:
-  - title: Detects CVE-2026-10219 Exploitation Attempt — GoClaw Command Injection
+  - title: Detects CVE-2026-10219 Exploitation Attempt - GoClaw Command Injection
     description: Detects CVE-2026-10219 exploitation attempt - HTTP request containing shell metacharacters to GoClaw, indicative of command injection vulnerability.
     platform: sigma
     severity: high

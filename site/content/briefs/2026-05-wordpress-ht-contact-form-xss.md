@@ -28,8 +28,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7052
 rules:
-  - title: Detect CVE-2026-7052 Exploitation — HT Contact Form Stored XSS
-    description: Detects CVE-2026-7052 exploitation — attempts to inject malicious JavaScript code via the 'file_upload' parameter in HT Contact Form submissions.
+  - title: Detect CVE-2026-7052 Exploitation - HT Contact Form Stored XSS
+    description: Detects CVE-2026-7052 exploitation - attempts to inject malicious JavaScript code via the 'file_upload' parameter in HT Contact Form submissions.
     platform: sigma
     severity: medium
     tactics:

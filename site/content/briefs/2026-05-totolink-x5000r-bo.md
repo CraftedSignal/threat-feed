@@ -30,7 +30,7 @@ references:
   - https://github.com/Kiciot/cve/issues/4
   - https://vuldb.com/vuln/361926
 rules:
-  - title: Detect CVE-2026-8137 Exploitation Attempt — Malicious submit-url Parameter
+  - title: Detect CVE-2026-8137 Exploitation Attempt - Malicious submit-url Parameter
     description: Detects CVE-2026-8137 exploitation attempts by identifying abnormally long 'submit-url' parameters in requests to '/boafrm/formDdns'
     platform: sigma
     severity: high
@@ -40,7 +40,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-8137 Exploitation Attempt — Suspicious POST to formDdns
+  - title: Detect CVE-2026-8137 Exploitation Attempt - Suspicious POST to formDdns
     description: Detects CVE-2026-8137 exploitation attempts by identifying POST requests to '/boafrm/formDdns' which is unusual for this endpoint
     platform: sigma
     severity: medium
@@ -73,6 +73,6 @@ Successful exploitation of CVE-2026-8137 allows a remote attacker to execute arb
 ## Recommendation
 
 *   Apply available patches or firmware updates from Totolink to remediate CVE-2026-8137.
-*   Deploy the Sigma rule "Detect CVE-2026-8137 Exploitation Attempt — Malicious submit-url Parameter" to identify exploitation attempts in web server logs.
+*   Deploy the Sigma rule "Detect CVE-2026-8137 Exploitation Attempt - Malicious submit-url Parameter" to identify exploitation attempts in web server logs.
 *   Monitor web server logs for requests to `/boafrm/formDdns` with abnormally long `submit-url` parameters.
 *   Consider implementing rate limiting on requests to `/boafrm/formDdns` to mitigate potential denial-of-service attacks.

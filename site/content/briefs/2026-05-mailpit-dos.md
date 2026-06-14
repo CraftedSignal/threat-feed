@@ -30,7 +30,7 @@ references:
   - https://github.com/axllent/mailpit/blob/develop/server/apiv1/send.go#L45-L52
 rules:
   - title: Detect Mailpit Excessive SMTP Data
-    description: Detects CVE-2026-45713 exploitation — Monitors for excessive data transfer during SMTP DATA command, indicating a potential memory exhaustion DoS attempt.
+    description: Detects CVE-2026-45713 exploitation - Monitors for excessive data transfer during SMTP DATA command, indicating a potential memory exhaustion DoS attempt.
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
       - network_connection
       - windows
   - title: Detect Mailpit Excessive HTTP API Send Payload
-    description: Detects CVE-2026-45713 exploitation — Monitors for excessively large HTTP POST requests to the /api/v1/send endpoint, indicating a potential memory exhaustion DoS attempt.
+    description: Detects CVE-2026-45713 exploitation - Monitors for excessively large HTTP POST requests to the /api/v1/send endpoint, indicating a potential memory exhaustion DoS attempt.
     platform: sigma
     severity: high
     tactics:

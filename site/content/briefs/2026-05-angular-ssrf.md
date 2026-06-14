@@ -30,7 +30,7 @@ references:
   - CVE-2026-46417
 rules:
   - title: Detect Angular platform-server SSRF via Hostname Hijacking (CVE-2026-46417)
-    description: Detects CVE-2026-46417 exploitation — attempts to pass absolute URLs to the Angular platform-server renderModule or renderApplication functions.
+    description: Detects CVE-2026-46417 exploitation - attempts to pass absolute URLs to the Angular platform-server renderModule or renderApplication functions.
     platform: sigma
     severity: high
     tactics:
@@ -40,7 +40,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Suspicious Host Header - Angular SSRF (CVE-2026-46417)
-    description: Detects CVE-2026-46417 exploitation — attempts to manipulate the Host header with attacker-controlled domains.
+    description: Detects CVE-2026-46417 exploitation - attempts to manipulate the Host header with attacker-controlled domains.
     platform: sigma
     severity: medium
     tactics:

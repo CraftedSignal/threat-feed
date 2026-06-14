@@ -28,8 +28,8 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-492v-c6pp-mqqv
 rules:
-  - title: Detect CVE-2026-44574 Exploitation Attempt — Next.js Middleware Bypass
-    description: Detects CVE-2026-44574 exploitation attempt — suspicious HTTP requests to dynamic Next.js routes with encoded characters or unusual query parameters, potentially indicating a middleware bypass attempt.
+  - title: Detect CVE-2026-44574 Exploitation Attempt - Next.js Middleware Bypass
+    description: Detects CVE-2026-44574 exploitation attempt - suspicious HTTP requests to dynamic Next.js routes with encoded characters or unusual query parameters, potentially indicating a middleware bypass attempt.
     platform: sigma
     severity: high
     tactics:
@@ -71,5 +71,5 @@ Successful exploitation of CVE-2026-44574 allows attackers to bypass authorizati
 
 *   Upgrade Next.js to version 15.5.16 or later, or 16.2.5 or later, to remediate CVE-2026-44574.
 *   If immediate upgrading is not possible, enforce authorization checks within the route or page logic itself, instead of relying solely on middleware path matching as recommended in the advisory.
-*   Deploy the Sigma rule "Detect CVE-2026-44574 Exploitation Attempt — Next.js Middleware Bypass" to identify potential exploitation attempts in web server logs.
+*   Deploy the Sigma rule "Detect CVE-2026-44574 Exploitation Attempt - Next.js Middleware Bypass" to identify potential exploitation attempts in web server logs.
 *   Monitor web server logs for suspicious URL patterns containing encoded characters or unusual query parameters targeting dynamic routes.

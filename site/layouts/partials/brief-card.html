@@ -3,7 +3,7 @@
 {{ $sevClass := printf "sev-%s" $sev }}
 {{/* Old briefs (pre-publisher type-emit) carry no `type` in frontmatter
      and would all render as "coverage" with the prior default. Most of
-     that corpus is CVE-driven threat content, so default to "threat" —
+     that corpus is CVE-driven threat content, so default to "threat" -
      ti-bot's backfill (when run) overwrites this with the bundle's
      authoritative classification. */}}
 {{ $type := .Params.type | default "threat" }}
@@ -25,7 +25,7 @@
 
     <div class="pt-0.5 flex-none flex flex-col items-stretch gap-1 min-w-[88px] max-w-[88px]">
       <span class="sev-badge {{ $sevClass }} justify-center">{{ if eq $sev "informational" }}info{{ else }}{{ $sev }}{{ end }}</span>
-      {{/* Display "coverage" as "rule" — clearer to a casual reader. The
+      {{/* Display "coverage" as "rule" - clearer to a casual reader. The
            data model, CSS class, and taxonomy URL stay coverage. */}}
       <span class="type-badge type-{{ $type }} justify-center">{{ cond (eq $type "coverage") "rule" $type }}</span>
     </div>
@@ -52,12 +52,12 @@
           {{ end }}
           {{ if $hasPOC }}
           {{ if $pocRefs }}
-          <a href="{{ index $pocRefs 0 }}" target="_blank" rel="noopener noreferrer" class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-high/10 text-sev-high border border-sev-high/30 hover:bg-sev-high/20 transition" title="Public proof-of-concept or exploit available — click to view source">PoC</a>
+          <a href="{{ index $pocRefs 0 }}" target="_blank" rel="noopener noreferrer" class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-high/10 text-sev-high border border-sev-high/30 hover:bg-sev-high/20 transition" title="Public proof-of-concept or exploit available - click to view source">PoC</a>
           {{ else }}
           <span class="inline-flex px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-sev-high/10 text-sev-high border border-sev-high/30" title="Public proof-of-concept or exploit available">PoC</span>
           {{ end }}
           {{ end }}
-          {{/* Lead the chip row with the affected product — it's usually the
+          {{/* Lead the chip row with the affected product - it's usually the
                most useful identifier on a glance. Strip version specifiers
                like "(<= 0.4.1)" so the chip reads cleanly; hover title
                carries the full list. Hoisted out of the `if` so the bare

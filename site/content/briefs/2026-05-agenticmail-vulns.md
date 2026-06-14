@@ -19,7 +19,7 @@ references:
   - https://github.com/advisories/GHSA-wjjv-3mj2-39hf
   - CVE-2026-47255
 rules:
-  - title: Detect CVE-2026-47255 Attempt — Suspicious SQL Query Parameters
+  - title: Detect CVE-2026-47255 Attempt - Suspicious SQL Query Parameters
     description: Detects potential CVE-2026-47255 exploitation attempts by identifying suspicious SQL-like syntax in HTTP request parameters targeting AgenticMail applications.
     platform: sigma
     severity: high
@@ -29,7 +29,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-47255 Attempt — Suspicious Characters in SMTP Headers
+  - title: Detect CVE-2026-47255 Attempt - Suspicious Characters in SMTP Headers
     description: Detects potential CVE-2026-47255 exploitation attempts via suspicious control characters in SMTP headers, which could indicate an SMTP header injection attack.
     platform: sigma
     severity: medium

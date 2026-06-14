@@ -35,7 +35,7 @@ references:
   - https://www.microsoft.com/en-us/security/blog/2026/05/07/prompts-become-shells-rce-vulnerabilities-ai-agent-frameworks/
 rules:
   - title: Detect CVE-2026-26030 Exploitation Attempt via Malicious Prompt
-    description: Detects CVE-2026-26030 exploitation — Attempts to inject code into the filter function via malicious prompts containing code execution payloads.
+    description: Detects CVE-2026-26030 exploitation - Attempts to inject code into the filter function via malicious prompts containing code execution payloads.
     platform: sigma
     severity: high
     tactics:

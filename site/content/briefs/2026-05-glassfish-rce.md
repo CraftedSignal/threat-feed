@@ -31,7 +31,7 @@ references:
   - https://github.com/Bhanunamikaze/CVE-2026-2587-Exploit-POC
 rules:
   - title: Detect CVE-2026-2587 Exploitation Attempt via GET Request
-    description: Detects CVE-2026-2587 exploitation attempt — HTTP GET request to the vulnerable endpoint with a suspicious gadget parameter.
+    description: Detects CVE-2026-2587 exploitation attempt - HTTP GET request to the vulnerable endpoint with a suspicious gadget parameter.
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-2587 Exploitation Attempt via EL Injection in XML
-    description: Detects CVE-2026-2587 exploitation attempt — Evaluated EL Expression in response.
+    description: Detects CVE-2026-2587 exploitation attempt - Evaluated EL Expression in response.
     platform: sigma
     severity: high
     tactics:

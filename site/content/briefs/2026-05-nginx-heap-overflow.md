@@ -39,8 +39,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42945
 rules:
-  - title: Detects CVE-2026-42945 Exploitation — HTTP Request with Question Mark in URI and Rewrite Module
-    description: Detects CVE-2026-42945 exploitation — HTTP requests with a question mark and URI targeting rewrite rules.
+  - title: Detects CVE-2026-42945 Exploitation - HTTP Request with Question Mark in URI and Rewrite Module
+    description: Detects CVE-2026-42945 exploitation - HTTP requests with a question mark and URI targeting rewrite rules.
     platform: sigma
     severity: high
     tactics:
@@ -49,8 +49,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-42945 Exploitation — HTTP Request with Question Mark in Query and Rewrite Module
-    description: Detects CVE-2026-42945 exploitation — HTTP requests with a question mark in the query string and URI targeting rewrite rules.
+  - title: Detects CVE-2026-42945 Exploitation - HTTP Request with Question Mark in Query and Rewrite Module
+    description: Detects CVE-2026-42945 exploitation - HTTP requests with a question mark in the query string and URI targeting rewrite rules.
     platform: sigma
     severity: high
     tactics:

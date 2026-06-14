@@ -24,8 +24,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49135
 rules:
-  - title: Detect CVE-2026-49135 Exploitation — Suspicious File Creation in Temporary Directories
-    description: Detects CVE-2026-49135 exploitation — Creation of files in common temporary directories which may indicate an attempt to exploit insecure temporary file handling.
+  - title: Detect CVE-2026-49135 Exploitation - Suspicious File Creation in Temporary Directories
+    description: Detects CVE-2026-49135 exploitation - Creation of files in common temporary directories which may indicate an attempt to exploit insecure temporary file handling.
     platform: sigma
     severity: medium
     tactics:
@@ -35,8 +35,8 @@ rules:
     data_sources:
       - file_event
       - linux
-  - title: Detect CVE-2026-49135 Exploitation — Symbolic Link Creation in Temporary Directories
-    description: Detects CVE-2026-49135 exploitation — Creation of symbolic links in temporary directories, potentially redirecting file writes to attacker-controlled locations.
+  - title: Detect CVE-2026-49135 Exploitation - Symbolic Link Creation in Temporary Directories
+    description: Detects CVE-2026-49135 exploitation - Creation of symbolic links in temporary directories, potentially redirecting file writes to attacker-controlled locations.
     platform: sigma
     severity: high
     tactics:

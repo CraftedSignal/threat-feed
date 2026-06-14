@@ -30,7 +30,7 @@ references:
   - CVE-2026-45829
 rules:
   - title: Detect CVE-2026-45829 Exploitation Attempt - Suspicious HuggingFace Model Download
-    description: Detects CVE-2026-45829 exploitation attempt — Monitors network connections for ChromaDB servers downloading models from HuggingFace before authentication.
+    description: Detects CVE-2026-45829 exploitation attempt - Monitors network connections for ChromaDB servers downloading models from HuggingFace before authentication.
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
       - network_connection
       - windows
   - title: Detect CVE-2026-45829 Exploitation Attempt - Pre-Authentication Connection to HuggingFace
-    description: Detects CVE-2026-45829 exploitation attempt — Identifies ChromaDB processes initiating network connections to HuggingFace infrastructure before user authentication events.
+    description: Detects CVE-2026-45829 exploitation attempt - Identifies ChromaDB processes initiating network connections to HuggingFace infrastructure before user authentication events.
     platform: sigma
     severity: high
     tactics:

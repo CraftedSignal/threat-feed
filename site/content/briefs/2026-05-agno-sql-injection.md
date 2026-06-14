@@ -32,8 +32,8 @@ references:
   - https://github.com/agno-agi/agno/pull/7883/changes/a0ec99305e782e68ba26f5966c53ad50b5f40132
   - https://www.vulncheck.com/advisories/agno-sql-injection-via-clickhouse-delete-by-metadata
 rules:
-  - title: Detect CVE-2026-10105 Exploitation Attempt — Malicious Metadata in Agno ClickHouse DELETE Request
-    description: Detects CVE-2026-10105 exploitation — identifies requests to the Agno ClickHouse backend containing potentially malicious SQL injection payloads in the metadata keys or values during deletion operations.
+  - title: Detect CVE-2026-10105 Exploitation Attempt - Malicious Metadata in Agno ClickHouse DELETE Request
+    description: Detects CVE-2026-10105 exploitation - identifies requests to the Agno ClickHouse backend containing potentially malicious SQL injection payloads in the metadata keys or values during deletion operations.
     platform: sigma
     severity: high
     tactics:
@@ -75,7 +75,7 @@ Successful exploitation of this SQL injection vulnerability (CVE-2026-10105) can
 ## Recommendation
 
 *   Apply the patch or upgrade to a version of Agno that addresses CVE-2026-10105 to eliminate the vulnerable code.
-*   Deploy the Sigma rule "Detect CVE-2026-10105 Exploitation Attempt — Malicious Metadata in Agno ClickHouse DELETE Request" to identify potential exploitation attempts targeting the `delete_by_metadata()` method.
+*   Deploy the Sigma rule "Detect CVE-2026-10105 Exploitation Attempt - Malicious Metadata in Agno ClickHouse DELETE Request" to identify potential exploitation attempts targeting the `delete_by_metadata()` method.
 *   Review and sanitize all input data passed to the `delete_by_metadata()` method to prevent SQL injection attacks.
 *   Implement strict input validation and output encoding to mitigate the risk of SQL injection vulnerabilities.
 *   Monitor ClickHouse database logs for suspicious queries originating from the Agno application, as indicated by the "Detect Generic SQL Injection Attempts in ClickHouse Logs" Sigma rule.

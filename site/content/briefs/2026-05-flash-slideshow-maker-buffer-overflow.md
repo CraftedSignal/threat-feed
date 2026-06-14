@@ -33,8 +33,8 @@ references:
   - https://www.exploit-db.com/exploits/45355
   - https://www.vulncheck.com/advisories/flash-slideshow-maker-professional-buffer-overflow-seh
 rules:
-  - title: Detects CVE-2018-25377 Exploitation Attempt — Suspicious Child Process of Flash Slideshow Maker
-    description: Detects CVE-2018-25377 exploitation attempt — Monitors for the creation of suspicious child processes from Flash Slideshow Maker Professional, indicating potential code execution.
+  - title: Detects CVE-2018-25377 Exploitation Attempt - Suspicious Child Process of Flash Slideshow Maker
+    description: Detects CVE-2018-25377 exploitation attempt - Monitors for the creation of suspicious child processes from Flash Slideshow Maker Professional, indicating potential code execution.
     platform: sigma
     severity: high
     tactics:
@@ -45,8 +45,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detects CVE-2018-25377 Exploitation Attempt — Suspicious Outbound Network Connection from Flash Slideshow Maker
-    description: Detects CVE-2018-25377 exploitation attempt — Monitors for outbound network connections from Flash Slideshow Maker Professional, which is not expected behavior.
+  - title: Detects CVE-2018-25377 Exploitation Attempt - Suspicious Outbound Network Connection from Flash Slideshow Maker
+    description: Detects CVE-2018-25377 exploitation attempt - Monitors for outbound network connections from Flash Slideshow Maker Professional, which is not expected behavior.
     platform: sigma
     severity: medium
     tactics:

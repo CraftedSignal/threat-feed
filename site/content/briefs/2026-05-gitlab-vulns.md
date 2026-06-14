@@ -60,7 +60,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-6713
   - https://www.cve.org/CVERecord?id=CVE-2026-8716
 rules:
-  - title: Detects CVE-2026-XXXX Exploitation Attempt — GitLab Security Policy Bypass
+  - title: Detects CVE-2026-XXXX Exploitation Attempt - GitLab Security Policy Bypass
     description: Detects potential security policy bypass attempts in GitLab via suspicious HTTP requests; adapt the URI stem and query to known vulnerable endpoints and parameters.
     platform: sigma
     severity: medium
@@ -70,7 +70,7 @@ rules:
       - T1555
     data_sources:
       - webserver
-  - title: Detects CVE-2026-XXXX Exploitation Attempt — GitLab Denial of Service
+  - title: Detects CVE-2026-XXXX Exploitation Attempt - GitLab Denial of Service
     description: Detects potential denial-of-service attacks against GitLab by monitoring for abnormal HTTP request patterns to potentially vulnerable endpoints.
     platform: sigma
     severity: medium

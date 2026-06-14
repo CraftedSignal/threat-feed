@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7330
 rules:
   - title: Detect WordPress Auto Affiliate Links Plugin XSS Attempt
-    description: Detects CVE-2026-7330 exploitation — Monitors POST requests with suspicious characters in the 'url' parameter indicative of a XSS attempt on Auto Affiliate Links plugin.
+    description: Detects CVE-2026-7330 exploitation - Monitors POST requests with suspicious characters in the 'url' parameter indicative of a XSS attempt on Auto Affiliate Links plugin.
     platform: sigma
     severity: medium
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect WordPress Auto Affiliate Links Plugin XSS Persistence via Database
-    description: Detects CVE-2026-7330 exploitation — Detects stored XSS payloads in WordPress options table related to Auto Affiliate Links plugin
+    description: Detects CVE-2026-7330 exploitation - Detects stored XSS payloads in WordPress options table related to Auto Affiliate Links plugin
     platform: sigma
     severity: low
     tactics:

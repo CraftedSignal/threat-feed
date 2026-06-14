@@ -32,7 +32,7 @@ references:
   - https://github.com/advisories/GHSA-q2pj-8v84-9mh5
 rules:
   - title: Detect Arcane Backend CVE-2026-45627 XSS Attempt via App Images Logo
-    description: Detects CVE-2026-45627 exploitation attempt — GET request to the /api/app-images/logo endpoint with a 'color' parameter containing HTML script tags, indicating a reflected XSS attempt.
+    description: Detects CVE-2026-45627 exploitation attempt - GET request to the /api/app-images/logo endpoint with a 'color' parameter containing HTML script tags, indicating a reflected XSS attempt.
     platform: sigma
     severity: high
     tactics:

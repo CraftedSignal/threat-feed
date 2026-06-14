@@ -29,8 +29,8 @@ references:
   - https://www.exploit-db.com/exploits/45247
   - https://www.vulncheck.com/advisories/twitter-clone-1-sql-injection-via-search-php
 rules:
-  - title: Detects CVE-2018-25364 Exploitation — SQL Injection in search.php
-    description: Detects CVE-2018-25364 exploitation — Suspicious requests to search.php endpoint containing SQL injection attempts in the name parameter.
+  - title: Detects CVE-2018-25364 Exploitation - SQL Injection in search.php
+    description: Detects CVE-2018-25364 exploitation - Suspicious requests to search.php endpoint containing SQL injection attempts in the name parameter.
     platform: sigma
     severity: high
     tactics:
@@ -39,8 +39,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2018-25364 Exploitation — search.php HTTP POST with SQL
-    description: Detects CVE-2018-25364 exploitation — Detects a POST request to the vulnerable endpoint with potential SQL injection.
+  - title: Detects CVE-2018-25364 Exploitation - search.php HTTP POST with SQL
+    description: Detects CVE-2018-25364 exploitation - Detects a POST request to the vulnerable endpoint with potential SQL injection.
     platform: sigma
     severity: high
     tactics:

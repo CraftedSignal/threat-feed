@@ -35,7 +35,7 @@ references:
   - CVE-2026-45089
 rules:
   - title: Detect Dalfox Unauthenticated File Write Attempt
-    description: Detects CVE-2026-45089 exploitation — POST requests to /scan with 'output' parameter indicating potential arbitrary file write.
+    description: Detects CVE-2026-45089 exploitation - POST requests to /scan with 'output' parameter indicating potential arbitrary file write.
     platform: sigma
     severity: high
     tactics:
@@ -45,7 +45,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Dalfox File Write via Output Parameter
-    description: Detects CVE-2026-45089 exploitation — Creates file via output parameter. The process writing is dalfox.
+    description: Detects CVE-2026-45089 exploitation - Creates file via output parameter. The process writing is dalfox.
     platform: sigma
     severity: medium
     tactics:

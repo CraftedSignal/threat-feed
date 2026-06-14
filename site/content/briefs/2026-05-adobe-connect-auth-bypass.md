@@ -29,7 +29,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34660
   - CVE-2026-34660
 rules:
-  - title: Detect CVE-2026-34660 Exploitation Attempts — Script Injection in Adobe Connect
+  - title: Detect CVE-2026-34660 Exploitation Attempts - Script Injection in Adobe Connect
     description: Detects attempts to exploit CVE-2026-34660 by identifying suspicious script injection payloads in HTTP requests to Adobe Connect.
     platform: sigma
     severity: high
@@ -39,7 +39,7 @@ rules:
       - T1068
     data_sources:
       - webserver
-  - title: Detect CVE-2026-34660 Exploitation Attempts — Suspicious HTML Tags in Adobe Connect API Requests
+  - title: Detect CVE-2026-34660 Exploitation Attempts - Suspicious HTML Tags in Adobe Connect API Requests
     description: Detects attempts to exploit CVE-2026-34660 by identifying suspicious HTML tags injection in API requests to Adobe Connect.
     platform: sigma
     severity: high

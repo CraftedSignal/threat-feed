@@ -34,7 +34,7 @@ references:
   - https://www.totolink.net/
 rules:
   - title: Detect CVE-2026-9475 Exploitation Attempt via Web Logs
-    description: Detects CVE-2026-9475 exploitation attempt — HTTP POST requests to cstecgi.cgi with command injection attempt in Comment parameter
+    description: Detects CVE-2026-9475 exploitation attempt - HTTP POST requests to cstecgi.cgi with command injection attempt in Comment parameter
     platform: sigma
     severity: high
     tactics:
@@ -44,7 +44,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-9475 Command Injection via Process Creation
-    description: Detects CVE-2026-9475 exploitation — Monitors for processes spawned by the web server that execute suspicious commands.
+    description: Detects CVE-2026-9475 exploitation - Monitors for processes spawned by the web server that execute suspicious commands.
     platform: sigma
     severity: critical
     tactics:

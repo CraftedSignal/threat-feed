@@ -26,7 +26,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8629
 rules:
   - title: Detect Crabbox Unauthorized Ticket Request
-    description: Detects CVE-2026-8629 exploitation — POST requests to ticket endpoints from unauthorized users, indicating a privilege escalation attempt.
+    description: Detects CVE-2026-8629 exploitation - POST requests to ticket endpoints from unauthorized users, indicating a privilege escalation attempt.
     platform: sigma
     severity: high
     tactics:

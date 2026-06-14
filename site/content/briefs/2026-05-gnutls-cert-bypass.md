@@ -32,7 +32,7 @@ references:
   - https://bugzilla.redhat.com/show_bug.cgi?id=2467448
 rules:
   - title: Detect GnuTLS Certificate Validation Bypass - Large SAN
-    description: Detects CVE-2026-42013 exploitation — monitors network traffic for TLS connections using certificates with unusually large Subject Alternative Name (SAN) fields, which could indicate an attempt to bypass certificate validation.
+    description: Detects CVE-2026-42013 exploitation - monitors network traffic for TLS connections using certificates with unusually large Subject Alternative Name (SAN) fields, which could indicate an attempt to bypass certificate validation.
     platform: sigma
     severity: medium
     tactics:
@@ -44,7 +44,7 @@ rules:
       - network_connection
       - windows
   - title: Detect GnuTLS Certificate Validation Bypass - Fallback to CN
-    description: Detects CVE-2026-42013 exploitation — This rule detects potential exploitation of CVE-2026-42013 by monitoring for certificate validation events where a fallback to the Common Name (CN) field occurs after encountering an issue with the Subject Alternative Name (SAN).
+    description: Detects CVE-2026-42013 exploitation - This rule detects potential exploitation of CVE-2026-42013 by monitoring for certificate validation events where a fallback to the Common Name (CN) field occurs after encountering an issue with the Subject Alternative Name (SAN).
     platform: sigma
     severity: low
     tactics:

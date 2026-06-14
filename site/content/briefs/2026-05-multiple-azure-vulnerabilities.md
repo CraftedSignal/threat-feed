@@ -36,7 +36,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-43321
   - https://www.cve.org/CVERecord?id=CVE-2026-43321
 rules:
-  - title: Detect CVE-2026-40355, CVE-2026-40356, CVE-2026-43321 exploitation attempts — Suspicious Kernel Module Load
+  - title: Detect CVE-2026-40355, CVE-2026-40356, CVE-2026-43321 exploitation attempts - Suspicious Kernel Module Load
     description: Detects attempts to load unusual kernel modules which may be related to exploitation of CVE-2026-40355, CVE-2026-40356, and CVE-2026-43321 in Azure environments.  This rule needs to be tuned for the target environment.
     platform: sigma
     severity: low
@@ -47,7 +47,7 @@ rules:
     data_sources:
       - process_creation
       - linux
-  - title: Detect CVE-2026-40355, CVE-2026-40356, CVE-2026-43321 exploitation attempts — Unusual krb5 configuration changes
+  - title: Detect CVE-2026-40355, CVE-2026-40356, CVE-2026-43321 exploitation attempts - Unusual krb5 configuration changes
     description: Detects unusual modifications to krb5 configuration files, which might indicate an attempt to exploit CVE-2026-40355, CVE-2026-40356, or CVE-2026-43321 related to Kerberos in Azure.
     platform: sigma
     severity: medium

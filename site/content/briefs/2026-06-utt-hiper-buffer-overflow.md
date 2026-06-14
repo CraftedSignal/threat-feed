@@ -35,7 +35,7 @@ references:
   - https://vuldb.com/vuln/367586/cti
 rules:
   - title: Detect CVE-2026-10293 Exploitation Attempt - Long Profile Parameter
-    description: Detects CVE-2026-10293 exploitation attempt — Monitors web server logs for suspicious POST requests to /goform/formFireWall with unusually long Profile parameters, indicative of a buffer overflow attempt.
+    description: Detects CVE-2026-10293 exploitation attempt - Monitors web server logs for suspicious POST requests to /goform/formFireWall with unusually long Profile parameters, indicative of a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -45,7 +45,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-10293 Exploitation Attempt - Abnormal HTTP Status Code
-    description: Detects CVE-2026-10293 exploitation attempt — Detects abnormal server responses (5xx errors) following POST requests to /goform/formFireWall with 'Profile=' parameters, potentially indicating a server crash due to buffer overflow.
+    description: Detects CVE-2026-10293 exploitation attempt - Detects abnormal server responses (5xx errors) following POST requests to /goform/formFireWall with 'Profile=' parameters, potentially indicating a server crash due to buffer overflow.
     platform: sigma
     severity: medium
     tactics:

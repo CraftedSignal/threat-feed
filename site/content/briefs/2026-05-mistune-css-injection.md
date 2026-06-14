@@ -34,7 +34,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-44899 Exploitation Attempt - HTTP Request Containing Malicious CSS Constructs
-    description: Detects CVE-2026-44899 exploitation — monitors for HTTP requests with query strings containing common CSS injection payloads that could exploit the Mistune Image Directive vulnerability.
+    description: Detects CVE-2026-44899 exploitation - monitors for HTTP requests with query strings containing common CSS injection payloads that could exploit the Mistune Image Directive vulnerability.
     platform: sigma
     severity: medium
     tactics:

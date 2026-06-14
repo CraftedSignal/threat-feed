@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-vp73-vjw8-8f32
   - CVE-2026-45742
 rules:
-  - title: Detect CVE-2026-45742 Exploitation Attempt — Gotenberg downloadFrom DoS
+  - title: Detect CVE-2026-45742 Exploitation Attempt - Gotenberg downloadFrom DoS
     description: Detects potential exploitation attempts of CVE-2026-45742 by monitoring for HTTP POST requests to common Gotenberg endpoints with excessive 'downloadFrom' parameters, indicative of a DoS attack. This rule looks for POST requests to specific URI stems and checks if the request body (form data) contains a large number of 'downloadFrom' parameters.
     platform: sigma
     severity: medium
@@ -35,7 +35,7 @@ rules:
       - T1499.002
     data_sources:
       - webserver
-  - title: Detect CVE-2026-45742 Exploitation Attempt — Gotenberg Multipart downloadFrom DoS
+  - title: Detect CVE-2026-45742 Exploitation Attempt - Gotenberg Multipart downloadFrom DoS
     description: Detects attempts to exploit CVE-2026-45742 in Gotenberg by monitoring for multipart POST requests to known API endpoints, focusing on the presence of the 'downloadFrom' field in the multipart data. This rule flags requests where the content type is multipart/form-data and the body contains the 'downloadFrom' parameter, potentially indicating an attempt to trigger the concurrent map writes vulnerability.
     platform: sigma
     severity: medium

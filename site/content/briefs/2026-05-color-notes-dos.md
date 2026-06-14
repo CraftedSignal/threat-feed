@@ -26,7 +26,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2021-47969
 rules:
   - title: Detect Color Notes Crash via Process Terminate
-    description: Detects CVE-2021-47969 exploitation — detects Color Notes process termination, which can indicate a crash due to a large payload
+    description: Detects CVE-2021-47969 exploitation - detects Color Notes process termination, which can indicate a crash due to a large payload
     platform: sigma
     severity: medium
     tactics:

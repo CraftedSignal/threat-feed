@@ -27,7 +27,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8679
 rules:
   - title: Detect AudioIgniter Playlist IDOR Attempt via URL
-    description: Detects CVE-2026-8679 exploitation — attempts to access AudioIgniter playlists via URL IDOR vulnerability by monitoring requests to the /audioigniter/playlist/{id}/ endpoint
+    description: Detects CVE-2026-8679 exploitation - attempts to access AudioIgniter playlists via URL IDOR vulnerability by monitoring requests to the /audioigniter/playlist/{id}/ endpoint
     platform: sigma
     severity: medium
     tactics:
@@ -37,7 +37,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect AudioIgniter Playlist IDOR Attempt via Query Parameter
-    description: Detects CVE-2026-8679 exploitation — attempts to access AudioIgniter playlists via query parameter IDOR vulnerability by monitoring requests using the audioigniter_playlist_id query parameter
+    description: Detects CVE-2026-8679 exploitation - attempts to access AudioIgniter playlists via query parameter IDOR vulnerability by monitoring requests using the audioigniter_playlist_id query parameter
     platform: sigma
     severity: medium
     tactics:

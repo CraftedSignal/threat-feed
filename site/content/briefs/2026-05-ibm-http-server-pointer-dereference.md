@@ -31,7 +31,7 @@ references:
   - https://www.ibm.com/support/pages/node/7274065
 rules:
   - title: Detect CVE-2026-8835 Exploitation Attempt
-    description: Detects CVE-2026-8835 exploitation attempt — Monitor for abnormal requests potentially triggering the invalid pointer dereference.
+    description: Detects CVE-2026-8835 exploitation attempt - Monitor for abnormal requests potentially triggering the invalid pointer dereference.
     platform: sigma
     severity: medium
     tactics:

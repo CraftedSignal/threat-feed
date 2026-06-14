@@ -33,7 +33,7 @@ references:
   - https://www.vulncheck.com/advisories/joomla-component-extroforms-sql-injection-via-filter-parameters
 rules:
   - title: Detect Joomla eXtroForms SQL Injection Attempt (CVE-2018-25380)
-    description: Detects CVE-2018-25380 exploitation — SQL injection attempts in Joomla eXtroForms component via POST requests to extroformfield view.
+    description: Detects CVE-2018-25380 exploitation - SQL injection attempts in Joomla eXtroForms component via POST requests to extroformfield view.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Joomla eXtroForms SQL Injection Attempt via filter_type_id (CVE-2018-25380)
-    description: Detects CVE-2018-25380 exploitation — SQL injection attempt in Joomla eXtroForms via filter_type_id parameter in POST request.
+    description: Detects CVE-2018-25380 exploitation - SQL injection attempt in Joomla eXtroForms via filter_type_id parameter in POST request.
     platform: sigma
     severity: high
     tactics:

@@ -26,8 +26,8 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-hwc4-gmrw-5222
 rules:
-  - title: Detects CVE-2026-44829 Exploitation — Gotenberg Path Traversal Attempt via Filename
-    description: Detects CVE-2026-44829 exploitation — HTTP POST requests to Gotenberg endpoints containing filenames with Windows-style path separators (backslashes).
+  - title: Detects CVE-2026-44829 Exploitation - Gotenberg Path Traversal Attempt via Filename
+    description: Detects CVE-2026-44829 exploitation - HTTP POST requests to Gotenberg endpoints containing filenames with Windows-style path separators (backslashes).
     platform: sigma
     severity: high
     tactics:
@@ -36,8 +36,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-44829 Exploitation — Gotenberg Path Traversal Archive Extraction
-    description: Detects CVE-2026-44829 exploitation — monitors process creation for archive extraction tools extracting files with path traversal sequences.
+  - title: Detects CVE-2026-44829 Exploitation - Gotenberg Path Traversal Archive Extraction
+    description: Detects CVE-2026-44829 exploitation - monitors process creation for archive extraction tools extracting files with path traversal sequences.
     platform: sigma
     severity: medium
     tactics:

@@ -32,8 +32,8 @@ references:
   - https://www.exploit-db.com/exploits/45491
   - https://www.vulncheck.com/advisories/joomla-responsive-portfolio-sql-injection-via-filter-parameters
 rules:
-  - title: Detect CVE-2018-25381 Exploitation — Joomla Responsive Portfolio SQL Injection
-    description: Detects CVE-2018-25381 exploitation — SQL injection attempts in Joomla Responsive Portfolio via filter parameters.
+  - title: Detect CVE-2018-25381 Exploitation - Joomla Responsive Portfolio SQL Injection
+    description: Detects CVE-2018-25381 exploitation - SQL injection attempts in Joomla Responsive Portfolio via filter parameters.
     platform: sigma
     severity: high
     tactics:

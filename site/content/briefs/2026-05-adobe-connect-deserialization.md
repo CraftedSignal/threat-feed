@@ -33,7 +33,7 @@ references:
   - https://helpx.adobe.com/security/products/connect/apsb26-50.html
 rules:
   - title: Detect Adobe Connect CVE-2026-34659 Exploitation Attempt
-    description: Detects CVE-2026-34659 exploitation attempts — HTTP request containing serialized data indicative of a deserialization attack
+    description: Detects CVE-2026-34659 exploitation attempts - HTTP request containing serialized data indicative of a deserialization attack
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Adobe Connect CVE-2026-34659 Exploitation Attempt - POST
-    description: Detects CVE-2026-34659 exploitation attempts — HTTP POST request containing serialized data indicative of a deserialization attack
+    description: Detects CVE-2026-34659 exploitation attempts - HTTP POST request containing serialized data indicative of a deserialization attack
     platform: sigma
     severity: high
     tactics:

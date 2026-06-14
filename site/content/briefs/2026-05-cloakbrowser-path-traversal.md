@@ -26,7 +26,7 @@ references:
   - https://github.com/advisories/GHSA-mf33-gv72-w2h5
 rules:
   - title: Detect CloakBrowser Path Traversal Attempt via Crafted Fingerprint
-    description: Detects CVE-2026-45727 exploitation attempt — Monitors HTTP requests to the `cloakserve` endpoint with a crafted `fingerprint` parameter containing path traversal sequences.
+    description: Detects CVE-2026-45727 exploitation attempt - Monitors HTTP requests to the `cloakserve` endpoint with a crafted `fingerprint` parameter containing path traversal sequences.
     platform: sigma
     severity: high
     tactics:

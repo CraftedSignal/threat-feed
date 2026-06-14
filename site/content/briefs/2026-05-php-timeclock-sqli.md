@@ -31,7 +31,7 @@ references:
   - https://www.exploit-db.com/exploits/49849
   - https://www.vulncheck.com/advisories/php-timeclock-sql-injection-via-login-php
 rules:
-  - title: Detects CVE-2021-47966 Exploitation — PHP Timeclock SQL Injection Attempt
+  - title: Detects CVE-2021-47966 Exploitation - PHP Timeclock SQL Injection Attempt
     description: Detects CVE-2021-47966 exploitation attempt via SQL injection in the login_userid parameter.
     platform: sigma
     severity: high
@@ -41,7 +41,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2021-47966 Exploitation — PHP Timeclock UNION SELECT SQL Injection
+  - title: Detects CVE-2021-47966 Exploitation - PHP Timeclock UNION SELECT SQL Injection
     description: Detects CVE-2021-47966 exploitation attempt via UNION SELECT injection in the login_userid parameter.
     platform: sigma
     severity: high

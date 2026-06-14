@@ -31,8 +31,8 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-5xrq-8626-4rwp
 rules:
-  - title: Detect CVE-2026-47429 Exploitation — Vitest Arbitrary File Read Attempt
-    description: Detects CVE-2026-47429 exploitation — suspicious requests to the `/__vitest_attachment__` endpoint with path traversal sequences.
+  - title: Detect CVE-2026-47429 Exploitation - Vitest Arbitrary File Read Attempt
+    description: Detects CVE-2026-47429 exploitation - suspicious requests to the `/__vitest_attachment__` endpoint with path traversal sequences.
     platform: sigma
     severity: high
     tactics:

@@ -34,7 +34,7 @@ references:
   - CVE-2026-44339
 rules:
   - title: Detect PraisonAI Undeclared Tool Execution via __main__
-    description: Detects CVE-2026-44339 — Execution of undeclared functions within PraisonAI agents by identifying calls to the ToolExecutionMixin.execute_tool method with function names not present in the declared tool list.
+    description: Detects CVE-2026-44339 - Execution of undeclared functions within PraisonAI agents by identifying calls to the ToolExecutionMixin.execute_tool method with function names not present in the declared tool list.
     platform: sigma
     severity: high
     tactics:
@@ -45,7 +45,7 @@ rules:
       - process_creation
       - linux
   - title: Detect PraisonAI Tool Execution with Missing Permission Check
-    description: Detects CVE-2026-44339 — Execution attempts where '_perm_allow' is None, indicating a missing permission check that could lead to the execution of undeclared tools.
+    description: Detects CVE-2026-44339 - Execution attempts where '_perm_allow' is None, indicating a missing permission check that could lead to the execution of undeclared tools.
     platform: sigma
     severity: medium
     tactics:

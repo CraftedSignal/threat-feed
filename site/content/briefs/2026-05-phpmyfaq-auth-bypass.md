@@ -30,7 +30,7 @@ references:
   - https://www.vulncheck.com/advisories/phpmyfaq-authentication-bypass-via-missing-password-reset-token-in-api-user-password-update
 rules:
   - title: Detect PhpMyFAQ Password Reset Request Without Authentication
-    description: Detects CVE-2026-35675 exploitation — HTTP POST requests to the password reset endpoint in phpMyFAQ without proper authentication, indicating a potential password reset attempt.
+    description: Detects CVE-2026-35675 exploitation - HTTP POST requests to the password reset endpoint in phpMyFAQ without proper authentication, indicating a potential password reset attempt.
     platform: sigma
     severity: high
     tactics:

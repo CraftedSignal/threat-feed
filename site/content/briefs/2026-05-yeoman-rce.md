@@ -32,7 +32,7 @@ references:
   - https://github.com/yeoman/environment/commit/78d2af7e60294784b8a8b3b3b5099c6874b6a1fa
 rules:
   - title: Detect CVE-2026-42089 Exploitation Attempt via Suspicious NPM Install
-    description: Detects CVE-2026-42089 exploitation — Monitors process creation for npm install commands with suspicious arguments or package names that could indicate an attempt to install malicious packages without user confirmation.
+    description: Detects CVE-2026-42089 exploitation - Monitors process creation for npm install commands with suspicious arguments or package names that could indicate an attempt to install malicious packages without user confirmation.
     platform: sigma
     severity: high
     tactics:
@@ -45,7 +45,7 @@ rules:
       - process_creation
       - windows
   - title: Detect CVE-2026-42089 Exploitation Attempt via Malicious Generator Package Installation
-    description: Detects CVE-2026-42089 exploitation — Monitors process creation for node processes executing code from a recently installed npm package within the yeoman generators directory, indicating a potential RCE.
+    description: Detects CVE-2026-42089 exploitation - Monitors process creation for node processes executing code from a recently installed npm package within the yeoman generators directory, indicating a potential RCE.
     platform: sigma
     severity: high
     tactics:

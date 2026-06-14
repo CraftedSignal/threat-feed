@@ -46,7 +46,7 @@ references:
   - https://www.vulncheck.com/advisories/dvd-photo-slideshow-professional-buffer-overflow-seh
 rules:
   - title: Detect CVE-2018-25373 Exploitation - Suspicious Process Launched by DVDPhotoSlideshow
-    description: Detects CVE-2018-25373 exploitation — Monitors for suspicious processes launched by DVDPhotoSlideshow.exe, indicating potential code execution via buffer overflow.
+    description: Detects CVE-2018-25373 exploitation - Monitors for suspicious processes launched by DVDPhotoSlideshow.exe, indicating potential code execution via buffer overflow.
     platform: sigma
     severity: high
     tactics:
@@ -57,7 +57,7 @@ rules:
       - process_creation
       - windows
   - title: Detect CVE-2018-25373 Attempt - DVDPhotoSlideshow Launching Uncommon System Binaries
-    description: Detects CVE-2018-25373 potential exploitation — identifies instances where DVDPhotoSlideshow.exe launches unusual system binaries like cmd.exe, powershell.exe, wscript.exe, potentially indicating successful code execution.
+    description: Detects CVE-2018-25373 potential exploitation - identifies instances where DVDPhotoSlideshow.exe launches unusual system binaries like cmd.exe, powershell.exe, wscript.exe, potentially indicating successful code execution.
     platform: sigma
     severity: medium
     tactics:

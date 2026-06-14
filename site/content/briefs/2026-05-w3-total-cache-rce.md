@@ -33,7 +33,7 @@ references:
   - https://www.php.net/manual/en/function.eval.php
   - https://www.php.net/manual/en/function.preg-quote.php
 rules:
-  - title: Detect CVE-2026-27384 Exploitation Attempt — mfunc Tag in POST Request
+  - title: Detect CVE-2026-27384 Exploitation Attempt - mfunc Tag in POST Request
     description: Detects CVE-2026-27384 exploitation attempts by identifying POST requests to comment submission endpoints containing mfunc tags, indicating potential code injection.
     platform: sigma
     severity: high
@@ -45,7 +45,7 @@ rules:
       - T1189
     data_sources:
       - webserver
-  - title: Detect CVE-2026-27384 Exploitation Attempt —  W3 Total Cache mfunc eval RCE - Response Contains User ID
+  - title: Detect CVE-2026-27384 Exploitation Attempt -  W3 Total Cache mfunc eval RCE - Response Contains User ID
     description: Detects CVE-2026-27384 exploitation via the presence of  'uid=' within the response from the webserver.
     platform: sigma
     severity: critical

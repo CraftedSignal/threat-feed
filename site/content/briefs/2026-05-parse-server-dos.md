@@ -26,7 +26,7 @@ references:
   - CVE-2026-47138
 rules:
   - title: Detect Malicious Parse Client Version Header
-    description: Detects CVE-2026-47138 exploitation — identifies HTTP requests to Parse Server with a suspicious X-Parse-Client-Version header indicative of a denial-of-service attack attempt.
+    description: Detects CVE-2026-47138 exploitation - identifies HTTP requests to Parse Server with a suspicious X-Parse-Client-Version header indicative of a denial-of-service attack attempt.
     platform: sigma
     severity: high
     tactics:
@@ -36,7 +36,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Malicious Parse Client Version Body Field
-    description: Detects CVE-2026-47138 exploitation — identifies HTTP requests to Parse Server with a suspicious _ClientVersion field in JSON body indicative of a denial-of-service attack attempt.
+    description: Detects CVE-2026-47138 exploitation - identifies HTTP requests to Parse Server with a suspicious _ClientVersion field in JSON body indicative of a denial-of-service attack attempt.
     platform: sigma
     severity: high
     tactics:

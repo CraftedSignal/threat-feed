@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2020-37230
 rules:
   - title: Detect Unquoted Service Path Exploitation - Executable Created
-    description: Detects CVE-2020-37230 exploitation — Creation of an executable file in a potential unquoted service path directory. This may indicate an attempt to exploit the vulnerability.
+    description: Detects CVE-2020-37230 exploitation - Creation of an executable file in a potential unquoted service path directory. This may indicate an attempt to exploit the vulnerability.
     platform: sigma
     severity: high
     tactics:
@@ -39,7 +39,7 @@ rules:
       - file_event
       - windows
   - title: Detect Unquoted Service Path - SMWebRestServicev5 Service
-    description: Detects CVE-2020-37230 exploitation — Creation of an executable file pretending to be a directory of the Syncplify service.
+    description: Detects CVE-2020-37230 exploitation - Creation of an executable file pretending to be a directory of the Syncplify service.
     platform: sigma
     severity: high
     tactics:

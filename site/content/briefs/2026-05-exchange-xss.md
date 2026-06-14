@@ -28,8 +28,8 @@ mitre_ttps:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42897
 rules:
-  - title: Detects CVE-2026-42897 Exploitation — Suspicious URI Containing Script Tags
-    description: Detects CVE-2026-42897 exploitation — HTTP requests to Exchange Server with suspicious script tags in the URI indicating potential XSS attempts.
+  - title: Detects CVE-2026-42897 Exploitation - Suspicious URI Containing Script Tags
+    description: Detects CVE-2026-42897 exploitation - HTTP requests to Exchange Server with suspicious script tags in the URI indicating potential XSS attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -40,8 +40,8 @@ rules:
       - T1553.002
     data_sources:
       - webserver
-  - title: Detects CVE-2026-42897 Exploitation — Suspicious POST data Containing Script Tags
-    description: Detects CVE-2026-42897 exploitation — HTTP POST requests to Exchange Server with suspicious script tags in the POST data, indicating potential XSS attempts.
+  - title: Detects CVE-2026-42897 Exploitation - Suspicious POST data Containing Script Tags
+    description: Detects CVE-2026-42897 exploitation - HTTP POST requests to Exchange Server with suspicious script tags in the POST data, indicating potential XSS attempts.
     platform: sigma
     severity: medium
     tactics:

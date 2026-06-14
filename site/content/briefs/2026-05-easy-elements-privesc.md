@@ -30,7 +30,7 @@ references:
   - CVE-2026-9018
 rules:
   - title: Detect CVE-2026-9018 Exploitation Attempt via User Registration
-    description: Detects CVE-2026-9018 exploitation — Monitors POST requests to wp-admin/admin-ajax.php with eel_register action and attempts to set wp_capabilities to administrator.
+    description: Detects CVE-2026-9018 exploitation - Monitors POST requests to wp-admin/admin-ajax.php with eel_register action and attempts to set wp_capabilities to administrator.
     platform: sigma
     severity: critical
     tactics:

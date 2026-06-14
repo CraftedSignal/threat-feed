@@ -30,7 +30,7 @@ references:
   - https://vuldb.com/vuln/361922
 rules:
   - title: Detect CodeAstro Leave Management System SQL Injection Attempt
-    description: Detects CVE-2026-8132 exploitation — SQL injection attempts targeting the /login.php endpoint in CodeAstro Leave Management System via the txt_username parameter
+    description: Detects CVE-2026-8132 exploitation - SQL injection attempts targeting the /login.php endpoint in CodeAstro Leave Management System via the txt_username parameter
     platform: sigma
     severity: high
     tactics:

@@ -26,8 +26,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48544
 rules:
-  - title: Detect CVE-2026-48544 Exploitation — Taipy Path Traversal
-    description: Detects CVE-2026-48544 exploitation — attempts to access files outside the intended library directory in Taipy via path traversal.
+  - title: Detect CVE-2026-48544 Exploitation - Taipy Path Traversal
+    description: Detects CVE-2026-48544 exploitation - attempts to access files outside the intended library directory in Taipy via path traversal.
     platform: sigma
     severity: high
     tactics:
@@ -36,8 +36,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-48544 Exploitation Attempt — Taipy Path Traversal with Trailing Separator Bypass
-    description: Detects CVE-2026-48544 exploitation attempt — crafted GET requests exploiting the missing trailing path separator check in Taipy's ElementLibrary.
+  - title: Detect CVE-2026-48544 Exploitation Attempt - Taipy Path Traversal with Trailing Separator Bypass
+    description: Detects CVE-2026-48544 exploitation attempt - crafted GET requests exploiting the missing trailing path separator check in Taipy's ElementLibrary.
     platform: sigma
     severity: medium
     tactics:
@@ -68,6 +68,6 @@ Successful exploitation of this path traversal vulnerability (CVE-2026-48544) al
 ## Recommendation
 
 - Upgrade to a patched version of Taipy that includes commit `129fd40` which addresses CVE-2026-48544.
-- Deploy the Sigma rule `Detect CVE-2026-48544 Exploitation — Taipy Path Traversal` to your SIEM to detect exploitation attempts based on suspicious URI patterns.
+- Deploy the Sigma rule `Detect CVE-2026-48544 Exploitation - Taipy Path Traversal` to your SIEM to detect exploitation attempts based on suspicious URI patterns.
 - Implement web application firewall (WAF) rules to filter out requests containing path traversal sequences targeting the `ElementLibrary.get_resource()` endpoint.
 - Regularly review and update input validation and sanitization routines to prevent path traversal vulnerabilities in other parts of the application.

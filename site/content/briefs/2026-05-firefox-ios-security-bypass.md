@@ -28,8 +28,8 @@ references:
   - https://www.mozilla.org/en-US/security/advisories/mfsa2026-52/
   - https://www.cve.org/CVERecord?id=CVE-2026-9078
 rules:
-  - title: Detects CVE-2026-9078 Exploitation Attempt — Suspicious URI Access
-    description: Detects CVE-2026-9078 exploitation attempt — monitors webserver logs for unusual URI patterns that may indicate an attempt to bypass security policies in Firefox for iOS
+  - title: Detects CVE-2026-9078 Exploitation Attempt - Suspicious URI Access
+    description: Detects CVE-2026-9078 exploitation attempt - monitors webserver logs for unusual URI patterns that may indicate an attempt to bypass security policies in Firefox for iOS
     platform: sigma
     severity: high
     tactics:

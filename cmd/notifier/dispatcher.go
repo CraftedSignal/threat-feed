@@ -47,14 +47,14 @@ type dispatcher struct {
 }
 
 // Dispatch is the per-/dispatch hot path. It used to deliver one
-// message per (subscription, brief) match — fine for one-brief-per-call
+// message per (subscription, brief) match - fine for one-brief-per-call
 // but spammy when ti-bot pushes a burst. Now matches are enqueued into
 // a per-subscription pending_dispatch document; the periodic
 // /flush-pending sweep coalesces everything queued in the debounce
 // window into a single message per subscriber. A single subscriber's
 // queue is force-flushed inline if it would overflow pendingDispatchCap.
 //
-// Returns (queued, overflow_flushed) — the second number is the count
+// Returns (queued, overflow_flushed) - the second number is the count
 // of subscribers whose queue tipped over the cap and got flushed
 // immediately. Callers log both for observability.
 func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL string) (queued int, overflowFlushed int) {
@@ -125,9 +125,10 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 			}
 			jobs = append(jobs, emailOvfJob{sub: o.sub, pd: pd})
 			msgs = append(msgs, SmtpMessage{
-				To:      o.sub.Email,
-				Subject: emailSubjectBatch(pd.Briefs),
-				Body:    emailBodyBatch(pd.Briefs, serviceURL, o.sub.UnsubscribeToken),
+				To:       o.sub.Email,
+				Subject:  emailSubjectBatch(pd.Briefs),
+				TextBody: emailBodyBatch(pd.Briefs, serviceURL, o.sub.UnsubscribeToken),
+				HTMLBody: emailHTMLBatch(pd.Briefs, serviceURL, o.sub.UnsubscribeToken),
 			})
 		}
 		if len(msgs) > 0 {
@@ -157,7 +158,7 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 
 // FlushPending drains every queue with first_queued_at older than
 // debounce. Email recipients are batched onto a single SMTP connection
-// per sweep — Workspace's relay throttles per-account login rate, so
+// per sweep - Workspace's relay throttles per-account login rate, so
 // reusing the auth'd session across N subscribers is the difference
 // between every flush working and tripping a 24h lockout. Webhook
 // channels (Slack/Teams) still post per-subscription in parallel since
@@ -167,9 +168,9 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 // MarkSent. Failures leave the queue intact so the next sweep retries.
 func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, serviceURL string) (sent int, failed int) {
 	// Sliding-window gate. A queue is flushable when EITHER:
-	//   - no new briefs arrived in the last `debounce` (idle window) —
+	//   - no new briefs arrived in the last `debounce` (idle window) -
 	//     the natural end of an activity burst, or
-	//   - the oldest brief in the queue is older than `maxAge` — a
+	//   - the oldest brief in the queue is older than `maxAge` - a
 	//     hard ceiling so a steady drip can't delay forever.
 	now := time.Now().UTC()
 	const maxAge = 30 * time.Minute
@@ -210,9 +211,10 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 			emailJobs = append(emailJobs, emailJob{
 				sub: sub, pd: pd,
 				msg: SmtpMessage{
-					To:      sub.Email,
-					Subject: emailSubjectBatch(pd.Briefs),
-					Body:    emailBodyBatch(pd.Briefs, serviceURL, sub.UnsubscribeToken),
+					To:       sub.Email,
+					Subject:  emailSubjectBatch(pd.Briefs),
+					TextBody: emailBodyBatch(pd.Briefs, serviceURL, sub.UnsubscribeToken),
+					HTMLBody: emailHTMLBatch(pd.Briefs, serviceURL, sub.UnsubscribeToken),
 				},
 			})
 		case ChannelSlack, ChannelTeams:
@@ -226,7 +228,7 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 	}
 
 	// Email batch: one SMTP session for all recipients. Check the
-	// backoff flag first — a connection-level failure (e.g. Workspace
+	// backoff flag first - a connection-level failure (e.g. Workspace
 	// rate-limit lockout) sets it so subsequent sweeps don't hammer the
 	// relay while it recovers. Per-recipient errors come back from
 	// SendBatch; only delete a queue + bump last_sent for recipients
@@ -327,7 +329,7 @@ func (d *dispatcher) flushSubscriptionPending(ctx context.Context, pd PendingDis
 	}
 	sub, err := d.store.GetSubscription(ctx, pd.SubscriptionID)
 	if err != nil {
-		// Subscription gone — clear the orphan queue.
+		// Subscription gone - clear the orphan queue.
 		if err == ErrNotFound {
 			_ = d.store.DeletePending(ctx, pd.SubscriptionID)
 			return nil
@@ -345,7 +347,7 @@ func (d *dispatcher) flushSubscriptionPending(ctx context.Context, pd PendingDis
 }
 
 // deliverBatch sends one message per subscription channel covering all
-// queued briefs. The unbatched per-brief deliver path is gone — every
+// queued briefs. The unbatched per-brief deliver path is gone - every
 // delivery now flows through here, even single-brief queues.
 func (d *dispatcher) deliverBatch(sub Subscription, briefs []Brief, serviceURL string) error {
 	if len(briefs) == 0 {
@@ -353,7 +355,12 @@ func (d *dispatcher) deliverBatch(sub Subscription, briefs []Brief, serviceURL s
 	}
 	switch sub.Channel {
 	case ChannelEmail:
-		return d.mailer.Send(sub.Email, emailSubjectBatch(briefs), emailBodyBatch(briefs, serviceURL, sub.UnsubscribeToken))
+		return d.mailer.Send(
+			sub.Email,
+			emailSubjectBatch(briefs),
+			emailBodyBatch(briefs, serviceURL, sub.UnsubscribeToken),
+			emailHTMLBatch(briefs, serviceURL, sub.UnsubscribeToken),
+		)
 	case ChannelSlack:
 		return SendSlackBatch(sub.WebhookURL, briefs)
 	case ChannelTeams:
@@ -371,7 +378,7 @@ func emailSubjectBatch(briefs []Brief) string {
 	if len(briefs) == 1 {
 		b := briefs[0]
 		if b.IsUpdate {
-			return "[UPDATE] " + b.Title + " — " + strings.ToUpper(b.Severity)
+			return "[UPDATE] " + b.Title + " - " + strings.ToUpper(b.Severity)
 		}
 		prefix := "[" + strings.ToUpper(b.Severity) + "]"
 		if b.Type != "" {

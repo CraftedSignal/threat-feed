@@ -25,7 +25,7 @@ references:
   - https://github.com/Goaterino/ezpublish-legacy-lab/blob/main/SQL%20injection%20and%20arbitrary%20file%20deletion%20in%20dfscleanup.md
 rules:
   - title: Detect dfscleanup.php Execution with SQL Injection Attempts
-    description: Detects CVE-2026-38739 exploitation — Execution of dfscleanup.php with command-line arguments indicative of SQL injection attempts.
+    description: Detects CVE-2026-38739 exploitation - Execution of dfscleanup.php with command-line arguments indicative of SQL injection attempts.
     platform: sigma
     severity: high
     tactics:

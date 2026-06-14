@@ -21,7 +21,7 @@ references:
   - CVE-2026-45585
 rules:
   - title: Detect Potential BitLocker Bypass via Modified Boot Configuration Data
-    description: Detects CVE-2026-45585 exploitation — monitors changes to the Boot Configuration Data (BCD) that could indicate an attempt to bypass BitLocker.
+    description: Detects CVE-2026-45585 exploitation - monitors changes to the Boot Configuration Data (BCD) that could indicate an attempt to bypass BitLocker.
     platform: sigma
     severity: medium
     tactics:
@@ -32,7 +32,7 @@ rules:
       - registry_set
       - windows
   - title: Detect Potential BitLocker Bypass via Volume Shadow Copy Deletion
-    description: Detects CVE-2026-45585 exploitation —  detects attempts to delete volume shadow copies, which can be done to prevent recovery after a BitLocker bypass.
+    description: Detects CVE-2026-45585 exploitation -  detects attempts to delete volume shadow copies, which can be done to prevent recovery after a BitLocker bypass.
     platform: sigma
     severity: low
     tactics:

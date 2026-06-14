@@ -24,8 +24,8 @@ mitre_ttps:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33111
 rules:
-  - title: Detects CVE-2026-33111 Exploitation — Copilot Chat Command Injection
-    description: Detects CVE-2026-33111 exploitation — suspicious process execution with arguments indicative of command injection in Copilot Chat
+  - title: Detects CVE-2026-33111 Exploitation - Copilot Chat Command Injection
+    description: Detects CVE-2026-33111 exploitation - suspicious process execution with arguments indicative of command injection in Copilot Chat
     platform: sigma
     severity: medium
     tactics:
@@ -35,8 +35,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detects CVE-2026-33111 Exploitation — Copilot Chat Network Data Exfiltration
-    description: Detects CVE-2026-33111 exploitation — suspicious network connection from msedge.exe after command injection
+  - title: Detects CVE-2026-33111 Exploitation - Copilot Chat Network Data Exfiltration
+    description: Detects CVE-2026-33111 exploitation - suspicious network connection from msedge.exe after command injection
     platform: sigma
     severity: medium
     tactics:

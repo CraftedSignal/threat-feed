@@ -24,8 +24,8 @@ mitre_ttps:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-41105
 rules:
-  - title: Detects CVE-2026-41105 Exploitation Attempt — Suspicious Outbound Connection from Azure Monitor
-    description: Detects CVE-2026-41105 exploitation attempt — monitors for suspicious outbound network connections originating from Azure Monitor services, potentially indicating SSRF vulnerability exploitation.
+  - title: Detects CVE-2026-41105 Exploitation Attempt - Suspicious Outbound Connection from Azure Monitor
+    description: Detects CVE-2026-41105 exploitation attempt - monitors for suspicious outbound network connections originating from Azure Monitor services, potentially indicating SSRF vulnerability exploitation.
     platform: sigma
     severity: high
     tactics:
@@ -34,8 +34,8 @@ rules:
       - T1190
     data_sources:
       - network_connection
-  - title: Detects CVE-2026-41105 Exploitation Attempt — Azure Metadata Service Access
-    description: Detects CVE-2026-41105 exploitation attempt — detects attempts to access the Azure Instance Metadata Service (IMDS) from unexpected sources, which could indicate SSRF exploitation.
+  - title: Detects CVE-2026-41105 Exploitation Attempt - Azure Metadata Service Access
+    description: Detects CVE-2026-41105 exploitation attempt - detects attempts to access the Azure Instance Metadata Service (IMDS) from unexpected sources, which could indicate SSRF exploitation.
     platform: sigma
     severity: medium
     tactics:

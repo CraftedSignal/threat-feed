@@ -35,7 +35,7 @@ references:
   - https://vuldb.com/vuln/365636/cti
 rules:
   - title: Detect CVE-2026-9580 Exploitation Attempt via selectDepart Access
-    description: Detects CVE-2026-9580 exploitation — An attempt to access the /sys/selectDepart endpoint, potentially indicating unauthorized access.
+    description: Detects CVE-2026-9580 exploitation - An attempt to access the /sys/selectDepart endpoint, potentially indicating unauthorized access.
     platform: sigma
     severity: medium
     tactics:

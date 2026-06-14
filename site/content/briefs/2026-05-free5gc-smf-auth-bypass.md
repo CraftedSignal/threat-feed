@@ -37,7 +37,7 @@ ioc_counts:
   url: 2
 rules:
   - title: Detect Unauthenticated SMF UPI Access
-    description: Detects CVE-2026-44329 exploitation — HTTP requests to the /upi/v1/upNodesLinks endpoint without an Authorization header indicating a potential authentication bypass attempt
+    description: Detects CVE-2026-44329 exploitation - HTTP requests to the /upi/v1/upNodesLinks endpoint without an Authorization header indicating a potential authentication bypass attempt
     platform: sigma
     severity: critical
     tactics:

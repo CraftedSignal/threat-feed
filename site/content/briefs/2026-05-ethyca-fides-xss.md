@@ -28,7 +28,7 @@ references:
   - CVE-2026-44541
 rules:
   - title: Detect ethyca-fides fides.js DOM-based XSS Attempt
-    description: Detects CVE-2026-44541 exploitation attempt — HTTP requests with the `fides_description` parameter containing HTML tags or JavaScript code, indicative of a DOM-based XSS attack against ethyca-fides fides.js.
+    description: Detects CVE-2026-44541 exploitation attempt - HTTP requests with the `fides_description` parameter containing HTML tags or JavaScript code, indicative of a DOM-based XSS attack against ethyca-fides fides.js.
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect ethyca-fides fides.js Persistent DOM-based XSS via Cookie
-    description: Detects CVE-2026-44541 exploitation — HTTP requests that include a 'fides_description' cookie containing HTML/JavaScript, indicating a possible persistent DOM-based XSS.
+    description: Detects CVE-2026-44541 exploitation - HTTP requests that include a 'fides_description' cookie containing HTML/JavaScript, indicating a possible persistent DOM-based XSS.
     platform: sigma
     severity: high
     tactics:

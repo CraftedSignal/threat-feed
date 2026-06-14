@@ -30,7 +30,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6279
 rules:
   - title: Detect Avada Builder PHP Function Injection Attempt
-    description: Detects CVE-2026-6279 exploitation — attempts to inject PHP functions via the fusion_get_widget_markup endpoint.
+    description: Detects CVE-2026-6279 exploitation - attempts to inject PHP functions via the fusion_get_widget_markup endpoint.
     platform: sigma
     severity: critical
     tactics:

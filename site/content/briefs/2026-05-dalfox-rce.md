@@ -24,8 +24,8 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-v25v-m36w-jp4h
 rules:
-  - title: Detect CVE-2026-45087 Exploitation — Dalfox Scan POST Request with Found Action
-    description: Detects CVE-2026-45087 exploitation — An HTTP POST request to /scan with found-action and found-action-shell parameters, indicating a command injection attempt.
+  - title: Detect CVE-2026-45087 Exploitation - Dalfox Scan POST Request with Found Action
+    description: Detects CVE-2026-45087 exploitation - An HTTP POST request to /scan with found-action and found-action-shell parameters, indicating a command injection attempt.
     platform: sigma
     severity: critical
     tactics:
@@ -34,8 +34,8 @@ rules:
       - T1059.004
     data_sources:
       - webserver
-  - title: Detect CVE-2026-45087 Exploitation — Dalfox Found Action Command Execution
-    description: Detects CVE-2026-45087 exploitation — Command execution with a parent process indicating Dalfox command injection.
+  - title: Detect CVE-2026-45087 Exploitation - Dalfox Found Action Command Execution
+    description: Detects CVE-2026-45087 exploitation - Command execution with a parent process indicating Dalfox command injection.
     platform: sigma
     severity: critical
     tactics:

@@ -6,8 +6,12 @@ import (
 	"encoding/hex"
 	"fmt"
 	"log/slog"
+	"mime"
+	"mime/quotedprintable"
+	"net"
 	"net/smtp"
 	"strings"
+	"time"
 )
 
 // hashEmail returns a stable, non-reversible identifier for an email
@@ -27,7 +31,7 @@ func sanitizeHeaderValue(v string) string {
 }
 
 type mailer interface {
-	Send(to, subject, body string) error
+	Send(to, subject, textBody, htmlBody string) error
 	// SendBatch delivers a slice of (to, subject, body) triples over a
 	// single SMTP connection + AUTH, instead of one connection per
 	// recipient. Materially cuts auth-rate against Workspace's relay
@@ -44,9 +48,10 @@ type mailer interface {
 // SmtpMessage carries the per-recipient bits of one delivery. Body is
 // the full RFC822 message body the caller already assembled.
 type SmtpMessage struct {
-	To      string
-	Subject string
-	Body    string
+	To       string
+	Subject  string
+	TextBody string
+	HTMLBody string
 }
 
 // smtpConnError wraps a connection-level SMTP failure (dial, STARTTLS,
@@ -66,47 +71,26 @@ func newSMTPMailer(cfg smtpConfig, logger *slog.Logger) *smtpMailer {
 	return &smtpMailer{cfg: cfg, logger: logger}
 }
 
-// Send dispatches a single plaintext email via SMTP+STARTTLS. Used for
+// Send dispatches a single email via SMTP. Used for
 // verification links, unsubscribe confirmations, and per-brief notices.
-func (m *smtpMailer) Send(to, subject, body string) error {
-	addr := fmt.Sprintf("%s:%d", m.cfg.Host, m.cfg.Port)
-
-	auth := smtp.PlainAuth("", m.cfg.Username, m.cfg.Password, m.cfg.Host)
-
-	safeFrom := sanitizeHeaderValue(m.cfg.From)
-	safeTo := sanitizeHeaderValue(to)
-	safeSubject := sanitizeHeaderValue(subject)
-
-	headers := map[string]string{
-		"From":         safeFrom,
-		"To":           safeTo,
-		"Subject":      safeSubject,
-		"MIME-Version": "1.0",
-		"Content-Type": "text/plain; charset=utf-8",
+func (m *smtpMailer) Send(to, subject, textBody, htmlBody string) error {
+	conn, err := m.connect()
+	if err != nil {
+		return fmt.Errorf("smtp connect: %w", err)
 	}
-	var msg strings.Builder
-	for k, v := range headers {
-		msg.WriteString(k)
-		msg.WriteString(": ")
-		msg.WriteString(v)
-		msg.WriteString("\r\n")
-	}
-	msg.WriteString("\r\n")
-	msg.WriteString(body)
+	defer func() { _ = conn.Close() }()
 
-	// Workspace SMTP relay supports STARTTLS on 587. The stdlib helper
-	// does the right thing — but it doesn't expose tls.Config tuning;
-	// good enough for this use case.
-	tlsCfg := &tls.Config{
-		ServerName: m.cfg.Host,
-		MinVersion: tls.VersionTLS12,
+	msg := SmtpMessage{
+		To:       to,
+		Subject:  subject,
+		TextBody: textBody,
+		HTMLBody: htmlBody,
 	}
-	_ = tlsCfg // reserved for explicit dial if we ever switch to net.Dial+tls.Client
-
-	if err := smtp.SendMail(addr, auth, m.cfg.From, []string{safeTo}, []byte(msg.String())); err != nil {
+	if err := m.sendOne(conn, msg); err != nil {
 		m.logger.Error("smtp send failed", "to_hash", hashEmail(to), "err", err)
 		return fmt.Errorf("smtp send: %w", err)
 	}
+	_ = conn.Quit()
 	return nil
 }
 
@@ -120,32 +104,12 @@ func (m *smtpMailer) SendBatch(messages []SmtpMessage) []error {
 	if len(messages) == 0 {
 		return out
 	}
-	addr := fmt.Sprintf("%s:%d", m.cfg.Host, m.cfg.Port)
-
-	conn, err := smtp.Dial(addr)
+	conn, err := m.connect()
 	if err != nil {
-		m.logger.Error("smtp dial failed", "host", m.cfg.Host, "err", err)
-		fillAll(out, &smtpConnError{err: fmt.Errorf("smtp dial: %w", err)})
+		fillAll(out, &smtpConnError{err: fmt.Errorf("smtp connect: %w", err)})
 		return out
 	}
 	defer func() { _ = conn.Close() }()
-
-	tlsCfg := &tls.Config{
-		ServerName: m.cfg.Host,
-		MinVersion: tls.VersionTLS12,
-	}
-	if err := conn.StartTLS(tlsCfg); err != nil {
-		m.logger.Error("smtp starttls failed", "err", err)
-		fillAll(out, &smtpConnError{err: fmt.Errorf("starttls: %w", err)})
-		return out
-	}
-
-	auth := smtp.PlainAuth("", m.cfg.Username, m.cfg.Password, m.cfg.Host)
-	if err := conn.Auth(auth); err != nil {
-		m.logger.Error("smtp auth failed", "err", err)
-		fillAll(out, &smtpConnError{err: fmt.Errorf("auth: %w", err)})
-		return out
-	}
 
 	for i, msg := range messages {
 		if err := m.sendOne(conn, msg); err != nil {
@@ -159,6 +123,57 @@ func (m *smtpMailer) SendBatch(messages []SmtpMessage) []error {
 	}
 	_ = conn.Quit()
 	return out
+}
+
+func (m *smtpMailer) connect() (*smtp.Client, error) {
+	addr := fmt.Sprintf("%s:%d", m.cfg.Host, m.cfg.Port)
+	tlsCfg := &tls.Config{
+		ServerName: m.cfg.Host,
+		MinVersion: tls.VersionTLS12,
+	}
+
+	var conn *smtp.Client
+	if m.cfg.Port == 465 {
+		raw, err := tls.DialWithDialer(&net.Dialer{Timeout: 10 * time.Second}, "tcp", addr, tlsCfg)
+		if err != nil {
+			m.logger.Error("smtp tls dial failed", "host", m.cfg.Host, "port", m.cfg.Port, "err", err)
+			return nil, fmt.Errorf("tls dial: %w", err)
+		}
+		conn, err = smtp.NewClient(raw, m.cfg.Host)
+		if err != nil {
+			_ = raw.Close()
+			m.logger.Error("smtp client init failed", "host", m.cfg.Host, "port", m.cfg.Port, "err", err)
+			return nil, fmt.Errorf("smtp client: %w", err)
+		}
+	} else {
+		var err error
+		conn, err = smtp.Dial(addr)
+		if err != nil {
+			m.logger.Error("smtp dial failed", "host", m.cfg.Host, "port", m.cfg.Port, "err", err)
+			return nil, fmt.Errorf("dial: %w", err)
+		}
+		if ok, _ := conn.Extension("STARTTLS"); !ok {
+			_ = conn.Close()
+			err := fmt.Errorf("server did not advertise STARTTLS")
+			m.logger.Error("smtp starttls unavailable", "host", m.cfg.Host, "port", m.cfg.Port)
+			return nil, err
+		}
+		if err := conn.StartTLS(tlsCfg); err != nil {
+			_ = conn.Close()
+			m.logger.Error("smtp starttls failed", "host", m.cfg.Host, "port", m.cfg.Port, "err", err)
+			return nil, fmt.Errorf("starttls: %w", err)
+		}
+	}
+
+	if m.cfg.Username != "" || m.cfg.Password != "" {
+		auth := smtp.PlainAuth("", m.cfg.Username, m.cfg.Password, m.cfg.Host)
+		if err := conn.Auth(auth); err != nil {
+			_ = conn.Close()
+			m.logger.Error("smtp auth failed", "host", m.cfg.Host, "port", m.cfg.Port, "err", err)
+			return nil, fmt.Errorf("auth: %w", err)
+		}
+	}
+	return conn, nil
 }
 
 // fillAll populates every slot of errs with the same error. Used when a
@@ -183,23 +198,7 @@ func (m *smtpMailer) sendOne(conn *smtp.Client, msg SmtpMessage) error {
 	if err != nil {
 		return fmt.Errorf("DATA: %w", err)
 	}
-	headers := map[string]string{
-		"From":         m.cfg.From,
-		"To":           msg.To,
-		"Subject":      msg.Subject,
-		"MIME-Version": "1.0",
-		"Content-Type": "text/plain; charset=utf-8",
-	}
-	var body strings.Builder
-	for k, v := range headers {
-		body.WriteString(k)
-		body.WriteString(": ")
-		body.WriteString(v)
-		body.WriteString("\r\n")
-	}
-	body.WriteString("\r\n")
-	body.WriteString(msg.Body)
-	if _, err := w.Write([]byte(body.String())); err != nil {
+	if _, err := w.Write([]byte(m.formatMessage(msg))); err != nil {
 		_ = w.Close()
 		return fmt.Errorf("write body: %w", err)
 	}
@@ -207,4 +206,72 @@ func (m *smtpMailer) sendOne(conn *smtp.Client, msg SmtpMessage) error {
 		return fmt.Errorf("close DATA: %w", err)
 	}
 	return nil
+}
+
+func (m *smtpMailer) formatMessage(msg SmtpMessage) string {
+	var body strings.Builder
+	writeHeader(&body, "From", sanitizeHeaderValue(m.cfg.From))
+	writeHeader(&body, "To", sanitizeHeaderValue(msg.To))
+	writeHeader(&body, "Subject", mime.QEncoding.Encode("utf-8", sanitizeHeaderValue(msg.Subject)))
+	writeHeader(&body, "MIME-Version", "1.0")
+
+	textBody := msg.TextBody
+	if textBody == "" && msg.HTMLBody == "" {
+		textBody = " "
+	}
+
+	if msg.HTMLBody == "" {
+		writeHeader(&body, "Content-Type", "text/plain; charset=utf-8")
+		writeHeader(&body, "Content-Transfer-Encoding", "quoted-printable")
+		body.WriteString("\r\n")
+		body.WriteString(quotedPrintable(textBody))
+		return body.String()
+	}
+
+	boundary := mimeBoundary(msg)
+	writeHeader(&body, "Content-Type", `multipart/alternative; boundary="`+boundary+`"`)
+	body.WriteString("\r\n")
+
+	body.WriteString("--")
+	body.WriteString(boundary)
+	body.WriteString("\r\n")
+	writeHeader(&body, "Content-Type", "text/plain; charset=utf-8")
+	writeHeader(&body, "Content-Transfer-Encoding", "quoted-printable")
+	body.WriteString("\r\n")
+	body.WriteString(quotedPrintable(textBody))
+	body.WriteString("\r\n")
+
+	body.WriteString("--")
+	body.WriteString(boundary)
+	body.WriteString("\r\n")
+	writeHeader(&body, "Content-Type", "text/html; charset=utf-8")
+	writeHeader(&body, "Content-Transfer-Encoding", "quoted-printable")
+	body.WriteString("\r\n")
+	body.WriteString(quotedPrintable(msg.HTMLBody))
+	body.WriteString("\r\n")
+
+	body.WriteString("--")
+	body.WriteString(boundary)
+	body.WriteString("--\r\n")
+	return body.String()
+}
+
+func writeHeader(sb *strings.Builder, key, value string) {
+	sb.WriteString(key)
+	sb.WriteString(": ")
+	sb.WriteString(value)
+	sb.WriteString("\r\n")
+}
+
+func quotedPrintable(s string) string {
+	var buf strings.Builder
+	w := quotedprintable.NewWriter(&buf)
+	_, _ = w.Write([]byte(s))
+	_ = w.Close()
+	return buf.String()
+}
+
+func mimeBoundary(msg SmtpMessage) string {
+	sum := sha256.Sum256([]byte(msg.To + "\x00" + msg.Subject))
+	return "cs-" + hex.EncodeToString(sum[:])[:24]
 }

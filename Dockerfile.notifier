@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 #
-# Build image for cmd/notifier — the public threat-feed alert
+# Build image for cmd/notifier - the public threat-feed alert
 # subscription Cloud Run service. Uses the same pattern as ti-bot:
 # native cross-compile outside the container, copy the binary into a
 # scratch image with CA certs + tzdata.

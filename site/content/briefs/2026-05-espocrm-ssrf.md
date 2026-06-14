@@ -33,7 +33,7 @@ references:
   - CVE-2026-33534
 rules:
   - title: Detect EspoCRM SSRF via Encoded Loopback
-    description: Detects CVE-2026-33534 exploitation — SSRF attempts in EspoCRM by detecting encoded loopback addresses in requests to the fromImageUrl endpoint.
+    description: Detects CVE-2026-33534 exploitation - SSRF attempts in EspoCRM by detecting encoded loopback addresses in requests to the fromImageUrl endpoint.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect EspoCRM SSRF via Alternative IPv4 Notation - POST Body
-    description: Detects CVE-2026-33534 exploitation — SSRF attempts in EspoCRM by detecting encoded loopback addresses in requests to the fromImageUrl endpoint (POST body).
+    description: Detects CVE-2026-33534 exploitation - SSRF attempts in EspoCRM by detecting encoded loopback addresses in requests to the fromImageUrl endpoint (POST body).
     platform: sigma
     severity: high
     tactics:

@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-rw47-hm26-6wr7
 rules:
   - title: Detect CrowdSec AppSec WAF Bypass via Missing Content-Length
-    description: Detects CVE-2026-44982 exploitation — Detects potential CrowdSec AppSec WAF bypass attempts by monitoring for HTTP requests with chunked transfer encoding and 200 OK status codes.
+    description: Detects CVE-2026-44982 exploitation - Detects potential CrowdSec AppSec WAF bypass attempts by monitoring for HTTP requests with chunked transfer encoding and 200 OK status codes.
     platform: sigma
     severity: medium
     tactics:
@@ -33,7 +33,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CrowdSec AppSec WAF Bypass via HTTP/2 request without Content-Length
-    description: Detects CVE-2026-44982 exploitation — Detects potential CrowdSec AppSec WAF bypass attempts by monitoring for HTTP/2 requests lacking a Content-Length header (requires network monitoring).
+    description: Detects CVE-2026-44982 exploitation - Detects potential CrowdSec AppSec WAF bypass attempts by monitoring for HTTP/2 requests lacking a Content-Length header (requires network monitoring).
     platform: sigma
     severity: medium
     tactics:

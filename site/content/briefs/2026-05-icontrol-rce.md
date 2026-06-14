@@ -30,7 +30,7 @@ references:
   - https://my.f5.com/manage/s/article/K000160916
 rules:
   - title: Detect iControl REST Configuration Object Manipulation
-    description: Detects CVE-2026-41225 exploitation — creation or modification of configuration objects via the iControl REST API, indicating potential command injection attempts.
+    description: Detects CVE-2026-41225 exploitation - creation or modification of configuration objects via the iControl REST API, indicating potential command injection attempts.
     platform: sigma
     severity: high
     tactics:

@@ -30,8 +30,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10107
 rules:
-  - title: Detects CVE-2026-10107 Exploitation — SSRF Attempt via Image Proxy Endpoint
-    description: Detects CVE-2026-10107 exploitation — attempts to exploit the SSRF vulnerability in MoviePilot v2 by sending requests to the image proxy endpoint targeting private IP addresses.
+  - title: Detects CVE-2026-10107 Exploitation - SSRF Attempt via Image Proxy Endpoint
+    description: Detects CVE-2026-10107 exploitation - attempts to exploit the SSRF vulnerability in MoviePilot v2 by sending requests to the image proxy endpoint targeting private IP addresses.
     platform: sigma
     severity: high
     tactics:
@@ -40,8 +40,8 @@ rules:
       - T1539
     data_sources:
       - webserver
-  - title: Detects CVE-2026-10107 Exploitation — SSRF Attempt to Common Internal Service Ports
-    description: Detects CVE-2026-10107 exploitation — attempts to exploit the SSRF vulnerability in MoviePilot v2 to enumerate common internal service ports like those used by Jellyfin, Emby, or Plex.
+  - title: Detects CVE-2026-10107 Exploitation - SSRF Attempt to Common Internal Service Ports
+    description: Detects CVE-2026-10107 exploitation - attempts to exploit the SSRF vulnerability in MoviePilot v2 to enumerate common internal service ports like those used by Jellyfin, Emby, or Plex.
     platform: sigma
     severity: medium
     tactics:
@@ -50,8 +50,8 @@ rules:
       - T1539
     data_sources:
       - webserver
-  - title: Detects CVE-2026-10107 Exploitation — SSRF Attempt with File Scheme
-    description: Detects CVE-2026-10107 exploitation — attempts to exploit the SSRF vulnerability in MoviePilot v2 using file scheme to read local files.
+  - title: Detects CVE-2026-10107 Exploitation - SSRF Attempt with File Scheme
+    description: Detects CVE-2026-10107 exploitation - attempts to exploit the SSRF vulnerability in MoviePilot v2 using file scheme to read local files.
     platform: sigma
     severity: high
     tactics:

@@ -7,19 +7,18 @@ import (
 	"io"
 	"net/http"
 	"strings"
-	"time"
 )
 
 // webhookClient is shared across Slack/Teams sends. Reuse the same
 // pooled transport.
-var webhookClient = &http.Client{Timeout: 10 * time.Second}
+var webhookClient = newWebhookHTTPClient()
 
 // SendSlack posts a brief notification to a Slack incoming webhook.
 // Format: a single attachment with severity-coded color, title link,
 // and a one-line context with type / actors / products / tags.
 func SendSlack(webhook string, b Brief) error {
 	payload := map[string]any{
-		"text": fmt.Sprintf("%s — %s", strings.ToUpper(b.Severity), b.Title),
+		"text": fmt.Sprintf("%s - %s", strings.ToUpper(b.Severity), b.Title),
 		"attachments": []map[string]any{{
 			"color":      slackColor(b.Severity),
 			"title":      b.Title,
@@ -32,7 +31,7 @@ func SendSlack(webhook string, b Brief) error {
 			"footer": footerLine(b),
 		}},
 	}
-	return postJSON(webhook, payload)
+	return postWebhookJSON(ChannelSlack, webhook, payload)
 }
 
 // SendTeams posts a brief notification to a Microsoft Teams incoming
@@ -59,7 +58,7 @@ func SendTeams(webhook string, b Brief) error {
 			"targets": []map[string]any{{"os": "default", "uri": b.URL}},
 		}},
 	}
-	return postJSON(webhook, card)
+	return postWebhookJSON(ChannelTeams, webhook, card)
 }
 
 // SendSlackBatch posts a single Slack message containing multiple
@@ -91,10 +90,10 @@ func SendSlackBatch(webhook string, briefs []Brief) error {
 		}
 	}
 	payload := map[string]any{
-		"text":        fmt.Sprintf("%s+%d more — %d briefs match your filter", strings.ToUpper(top), len(briefs)-1, len(briefs)),
+		"text":        fmt.Sprintf("%s+%d more - %d briefs match your filter", strings.ToUpper(top), len(briefs)-1, len(briefs)),
 		"attachments": atts,
 	}
-	return postJSON(webhook, payload)
+	return postWebhookJSON(ChannelSlack, webhook, payload)
 }
 
 // SendTeamsBatch sends a Teams MessageCard with one section per brief.
@@ -143,15 +142,59 @@ func SendTeamsBatch(webhook string, briefs []Brief) error {
 		"title":      fmt.Sprintf("%d briefs match your filter", len(briefs)),
 		"sections":   sections,
 	}
-	return postJSON(webhook, card)
+	return postWebhookJSON(ChannelTeams, webhook, card)
 }
 
-func postJSON(url string, body any) error {
+func SendWebhookWelcome(channel Channel, webhook, siteURL string) error {
+	switch channel {
+	case ChannelSlack:
+		payload := map[string]any{
+			"text": "CraftedSignal Threat Feed subscription confirmed. Alerts matching your filters will appear here.",
+		}
+		if siteURL != "" {
+			payload["attachments"] = []map[string]any{{
+				"color": "#22c55e",
+				"text":  "Manage this subscription from the CraftedSignal Threat Feed site.",
+				"actions": []map[string]any{{
+					"type": "button",
+					"text": "Open feed",
+					"url":  siteURL,
+				}},
+			}}
+		}
+		return postWebhookJSON(channel, webhook, payload)
+	case ChannelTeams:
+		card := map[string]any{
+			"@type":      "MessageCard",
+			"@context":   "https://schema.org/extensions",
+			"themeColor": "22C55E",
+			"summary":    "CraftedSignal Threat Feed subscription confirmed",
+			"title":      "CraftedSignal Threat Feed subscription confirmed",
+			"text":       "Alerts matching your filters will appear here.",
+		}
+		if siteURL != "" {
+			card["potentialAction"] = []map[string]any{{
+				"@type":   "OpenUri",
+				"name":    "Open feed",
+				"targets": []map[string]any{{"os": "default", "uri": siteURL}},
+			}}
+		}
+		return postWebhookJSON(channel, webhook, card)
+	default:
+		return fmt.Errorf("unsupported webhook channel %q", channel)
+	}
+}
+
+func postWebhookJSON(channel Channel, rawURL string, body any) error {
+	webhookURL, err := validateWebhookURL(rawURL, channel)
+	if err != nil {
+		return err
+	}
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return fmt.Errorf("marshal: %w", err)
 	}
-	req, err := http.NewRequest(http.MethodPost, url, bytes.NewReader(buf))
+	req, err := http.NewRequest(http.MethodPost, webhookURL, bytes.NewReader(buf))
 	if err != nil {
 		return err
 	}

@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-c3gj-q88f-7hqj
 rules:
   - title: Detect elFinder SQL Injection Attempt via Target Parameter
-    description: Detects CVE-2026-44521 exploitation — SQL injection attempts in elFinder through the `target` parameter, indicated by SQL-related keywords.
+    description: Detects CVE-2026-44521 exploitation - SQL injection attempts in elFinder through the `target` parameter, indicated by SQL-related keywords.
     platform: sigma
     severity: high
     tactics:

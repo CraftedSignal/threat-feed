@@ -32,7 +32,7 @@ references:
   - CVE-2026-44971
 rules:
   - title: Detect GuardDog GH_TOKEN Exfiltration Attempt
-    description: Detects CVE-2026-44971 exploitation — attempts to exfiltrate the GH_TOKEN by monitoring network connections initiated by GuardDog to non-GitHub hosts.
+    description: Detects CVE-2026-44971 exploitation - attempts to exfiltrate the GH_TOKEN by monitoring network connections initiated by GuardDog to non-GitHub hosts.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
       - network_connection
       - linux
   - title: Detect Suspicious URL in GuardDog Process
-    description: Detects CVE-2026-44971 exploitation — detects suspicious URLs with embedded credentials in the GuardDog process command line.
+    description: Detects CVE-2026-44971 exploitation - detects suspicious URLs with embedded credentials in the GuardDog process command line.
     platform: sigma
     severity: medium
     tactics:

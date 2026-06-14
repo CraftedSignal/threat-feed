@@ -30,7 +30,7 @@ references:
   - https://bugzilla.redhat.com/show_bug.cgi?id=2483184
 rules:
   - title: Detect OpenShift Router Connecting to Cloud Metadata Endpoint
-    description: Detects CVE-2026-42965 exploitation — OpenShift Router making network connections to common cloud metadata endpoints.
+    description: Detects CVE-2026-42965 exploitation - OpenShift Router making network connections to common cloud metadata endpoints.
     platform: sigma
     severity: medium
     tactics:

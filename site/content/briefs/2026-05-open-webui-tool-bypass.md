@@ -37,7 +37,7 @@ references:
   - https://github.com/open-webui/open-webui/commit/4737e1f11
 rules:
   - title: Detect Open WebUI Chat Completion API Tool Restriction Bypass
-    description: Detects CVE-2026-45350 exploitation — Attempts to invoke the /api/chat/completions endpoint with tool_ids parameter indicating potential tool restriction bypass
+    description: Detects CVE-2026-45350 exploitation - Attempts to invoke the /api/chat/completions endpoint with tool_ids parameter indicating potential tool restriction bypass
     platform: sigma
     severity: high
     tactics:

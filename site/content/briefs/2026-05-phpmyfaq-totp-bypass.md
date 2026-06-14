@@ -33,7 +33,7 @@ references:
   - https://www.vulncheck.com/advisories/phpmyfaq-unauthenticated-two-factor-authentication-brute-force-via-admin-check-endpoint
 rules:
   - title: Detect phpMyFAQ TOTP Brute-Force Attempts
-    description: Detects CVE-2026-45010 exploitation — Excessive POST requests to /admin/check endpoint indicating potential TOTP brute-force
+    description: Detects CVE-2026-45010 exploitation - Excessive POST requests to /admin/check endpoint indicating potential TOTP brute-force
     platform: sigma
     severity: high
     tactics:

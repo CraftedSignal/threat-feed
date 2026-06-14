@@ -23,7 +23,7 @@ references:
   - https://github.com/advisories/GHSA-m2hg-wjq3-28wq
 rules:
   - title: Detect Prototype Pollution via form-data-objectizer
-    description: Detects CVE-2026-46510 exploitation — Prototype pollution attempt via form-data-objectizer by detecting '__proto__' in cs-uri-query.
+    description: Detects CVE-2026-46510 exploitation - Prototype pollution attempt via form-data-objectizer by detecting '__proto__' in cs-uri-query.
     platform: sigma
     severity: high
     tactics:
@@ -33,7 +33,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Prototype Pollution via constructor.prototype
-    description: Detects CVE-2026-46510 exploitation — Prototype pollution attempt via form-data-objectizer by detecting 'constructor[prototype]' in cs-uri-query.
+    description: Detects CVE-2026-46510 exploitation - Prototype pollution attempt via form-data-objectizer by detecting 'constructor[prototype]' in cs-uri-query.
     platform: sigma
     severity: high
     tactics:

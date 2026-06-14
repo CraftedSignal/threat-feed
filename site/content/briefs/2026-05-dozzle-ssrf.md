@@ -30,7 +30,7 @@ ioc_counts:
   url: 1
 rules:
   - title: Detect Dozzle SSRF Attempt via test-webhook
-    description: Detects CVE-2026-45298 exploitation — attempts to exploit the Dozzle SSRF vulnerability by sending POST requests to the /api/notifications/test-webhook endpoint with potentially malicious URLs in the request body.
+    description: Detects CVE-2026-45298 exploitation - attempts to exploit the Dozzle SSRF vulnerability by sending POST requests to the /api/notifications/test-webhook endpoint with potentially malicious URLs in the request body.
     platform: sigma
     severity: high
     tactics:
@@ -40,7 +40,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Dozzle test-webhook with suspicious headers
-    description: Detects CVE-2026-45298 exploitation — attempts to exploit the Dozzle SSRF vulnerability by sending POST requests to the /api/notifications/test-webhook endpoint with suspicious headers to inject into the downstream request
+    description: Detects CVE-2026-45298 exploitation - attempts to exploit the Dozzle SSRF vulnerability by sending POST requests to the /api/notifications/test-webhook endpoint with suspicious headers to inject into the downstream request
     platform: sigma
     severity: medium
     tactics:

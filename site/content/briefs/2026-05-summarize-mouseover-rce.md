@@ -29,7 +29,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-45245
 rules:
   - title: Detect Summarize Extension Synthetic Mouseover Event
-    description: Detects CVE-2026-45245 exploitation — potential synthetic mouseover events targeting local or private network addresses, indicating an attempt to exploit the Summarize extension vulnerability.
+    description: Detects CVE-2026-45245 exploitation - potential synthetic mouseover events targeting local or private network addresses, indicating an attempt to exploit the Summarize extension vulnerability.
     platform: sigma
     severity: medium
     tactics:
@@ -39,7 +39,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Summarize Extension Local File Access
-    description: Detects CVE-2026-45245 exploitation — potential local file access attempts through Summarize extension by monitoring requests containing file:// scheme.
+    description: Detects CVE-2026-45245 exploitation - potential local file access attempts through Summarize extension by monitoring requests containing file:// scheme.
     platform: sigma
     severity: high
     tactics:

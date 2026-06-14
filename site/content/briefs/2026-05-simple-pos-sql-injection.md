@@ -35,7 +35,7 @@ references:
   - https://www.sourcecodester.com/
 rules:
   - title: Detecting CVE-2026-9447 SQL Injection Attempt
-    description: Detects CVE-2026-9447 exploitation — SQL injection attempts in the 'Name' parameter of the /user/search.php endpoint.
+    description: Detects CVE-2026-9447 exploitation - SQL injection attempts in the 'Name' parameter of the /user/search.php endpoint.
     platform: sigma
     severity: high
     tactics:
@@ -46,7 +46,7 @@ rules:
     data_sources:
       - webserver
   - title: Detecting CVE-2026-9447 SQL Injection via POST
-    description: Detects CVE-2026-9447 exploitation — SQL injection attempt using POST method to /user/search.php
+    description: Detects CVE-2026-9447 exploitation - SQL injection attempt using POST method to /user/search.php
     platform: sigma
     severity: high
     tactics:

@@ -82,7 +82,7 @@ function initSearch() {
     excerptLength: 24,
     // Order every result set by brief date, newest first. With `sort` set,
     // Pagefind uses the query purely as a filter and drops relevance ranking,
-    // so results always read chronologically — matching the briefs listing.
+    // so results always read chronologically - matching the briefs listing.
     // Depends on data-pagefind-sort="date[datetime]" in the brief single-page
     // templates; the Pagefind index must be rebuilt (make build) to pick it up.
     sort: { date: 'desc' },
@@ -158,7 +158,7 @@ function initBriefFilters() {
 
     if (empty) empty.classList.toggle('hidden', totalVisible > 0);
 
-    // Hide pagination nav when any filter is active — it only applies to
+    // Hide pagination nav when any filter is active - it only applies to
     // the current page so Older/Newer links are misleading when filtered.
     paginationEls.forEach((el) => el.classList.toggle('hidden', isFiltered()));
 
@@ -181,7 +181,7 @@ function initBriefFilters() {
   }
 
 
-  // Shared dropdown helper — menus use position:absolute relative to their
+  // Shared dropdown helper - menus use position:absolute relative to their
   // .relative wrapper, so no positioning calculation needed here.
   function openDropdown(_trigger, menu) {
     menu.classList.remove('hidden');
@@ -229,7 +229,7 @@ function initBriefFilters() {
     });
   }
 
-  // Attribute filter — type and severity are multi-select OR within group;
+  // Attribute filter - type and severity are multi-select OR within group;
   // flags are independent toggles.
   if (attrGroup) {
     attrGroup.querySelectorAll('[data-attr-type]').forEach((btn) => {
@@ -299,7 +299,7 @@ function initBriefFilters() {
 function initDateFilter() { initBriefFilters(); }
 
 // ----------------------------------------------------------------------
-// Scroll offset CSS variable — keeps [data-month-section] scroll-margin-top
+// Scroll offset CSS variable - keeps [data-month-section] scroll-margin-top
 // aligned with the actual combined height of the sticky header + filter bar.
 
 function initScrollOffset() {
@@ -378,7 +378,7 @@ function showRefreshBanner(count) {
   btn.id = FEED_BANNER_ID;
   btn.type = 'button';
   btn.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-40 px-4 py-2 rounded-full bg-accent text-white text-sm font-semibold shadow-soft hover:scale-[1.02] transition flex items-center gap-2';
-  btn.innerHTML = `<span aria-hidden="true">●</span> ${count} new ${count === 1 ? 'brief' : 'briefs'} — refresh`;
+  btn.innerHTML = `<span aria-hidden="true">●</span> ${count} new ${count === 1 ? 'brief' : 'briefs'} - refresh`;
   btn.setAttribute('aria-live', 'polite');
   btn.addEventListener('click', () => window.location.reload());
   document.body.appendChild(btn);
@@ -440,7 +440,7 @@ function initLiveUpdate() {
 
 // ----------------------------------------------------------------------
 // Client-side taxonomy filter. On /vendors/, /actors/, /products/,
-// /tags/ the page is itself a list of terms — full-site Pagefind is
+// /tags/ the page is itself a list of terms - full-site Pagefind is
 // the wrong tool because typing "Amaz" should narrow the visible
 // vendors to Amazon, not return every brief that mentions Amazon.
 //

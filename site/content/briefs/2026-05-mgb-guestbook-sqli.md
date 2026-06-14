@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/mgb-opensource-guestbook-sql-injection-via-email-php
 rules:
   - title: Detect MGB OpenSource Guestbook SQL Injection via email.php
-    description: Detects CVE-2018-25411 exploitation — SQL injection attempts in MGB OpenSource Guestbook 0.7.0.2 by detecting suspicious GET requests to email.php with SQL keywords in the id parameter.
+    description: Detects CVE-2018-25411 exploitation - SQL injection attempts in MGB OpenSource Guestbook 0.7.0.2 by detecting suspicious GET requests to email.php with SQL keywords in the id parameter.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect MGB OpenSource Guestbook SQL Injection Error Based
-    description: Detects CVE-2018-25411 exploitation — SQL injection attempts in MGB OpenSource Guestbook 0.7.0.2 based on error messages.
+    description: Detects CVE-2018-25411 exploitation - SQL injection attempts in MGB OpenSource Guestbook 0.7.0.2 based on error messages.
     platform: sigma
     severity: medium
     tactics:

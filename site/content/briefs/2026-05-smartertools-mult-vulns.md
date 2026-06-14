@@ -63,7 +63,7 @@ rules:
 rules_count: 2
 ---
 
-SmarterTools SmarterMail is vulnerable to multiple unspecified security flaws. An unauthenticated, remote attacker could exploit these vulnerabilities to gain elevated privileges, circumvent security measures, manipulate sensitive data, disclose confidential information, trigger a denial-of-service condition, or conduct other, unspecified attacks. The lack of specific CVE identifiers or technical details makes precise risk assessment challenging. However, given the potential impact—ranging from data manipulation to complete system compromise—organizations using SmarterMail should closely monitor for suspicious activity and apply any available patches as soon as they are released. The broad range of potential impacts elevates the severity and necessitates proactive monitoring and response measures.
+SmarterTools SmarterMail is vulnerable to multiple unspecified security flaws. An unauthenticated, remote attacker could exploit these vulnerabilities to gain elevated privileges, circumvent security measures, manipulate sensitive data, disclose confidential information, trigger a denial-of-service condition, or conduct other, unspecified attacks. The lack of specific CVE identifiers or technical details makes precise risk assessment challenging. However, given the potential impact-ranging from data manipulation to complete system compromise-organizations using SmarterMail should closely monitor for suspicious activity and apply any available patches as soon as they are released. The broad range of potential impacts elevates the severity and necessitates proactive monitoring and response measures.
 
 ## Attack Chain
 

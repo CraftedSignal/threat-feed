@@ -24,8 +24,8 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-8p4x-wr7x-3788
 rules:
-  - title: Detect CVE-2026-45017 Attempt — python-liquid FileSystemLoader Absolute Path
-    description: Detects CVE-2026-45017 exploitation attempt — web requests containing absolute paths in template names when using python-liquid FileSystemLoader
+  - title: Detect CVE-2026-45017 Attempt - python-liquid FileSystemLoader Absolute Path
+    description: Detects CVE-2026-45017 exploitation attempt - web requests containing absolute paths in template names when using python-liquid FileSystemLoader
     platform: sigma
     severity: high
     tactics:
@@ -34,8 +34,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-45017 Attempt — python-liquid Template Include Absolute Path
-    description: Detects CVE-2026-45017 exploitation attempt — absolute paths in template include directives when using python-liquid
+  - title: Detect CVE-2026-45017 Attempt - python-liquid Template Include Absolute Path
+    description: Detects CVE-2026-45017 exploitation attempt - absolute paths in template include directives when using python-liquid
     platform: sigma
     severity: high
     tactics:
@@ -68,4 +68,4 @@ Successful exploitation of CVE-2026-45017 allows an attacker to bypass intended 
 
 *   Upgrade to python-liquid version 2.2.0 or later to remediate CVE-2026-45017, which patches the vulnerability in the `FileSystemLoader` class.
 *   As an interim workaround if patching is not immediately feasible, implement a custom template loader as described in the advisory, which overrides the `resolve_path()` method to prevent absolute paths.
-*   Deploy the Sigma rule "Detect CVE-2026-45017 Attempt — python-liquid FileSystemLoader Absolute Path" to identify attempts to exploit this vulnerability in web server logs.
+*   Deploy the Sigma rule "Detect CVE-2026-45017 Attempt - python-liquid FileSystemLoader Absolute Path" to identify attempts to exploit this vulnerability in web server logs.

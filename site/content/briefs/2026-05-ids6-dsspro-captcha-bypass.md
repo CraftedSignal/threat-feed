@@ -29,7 +29,7 @@ references:
   - CVE-2020-37228
 rules:
   - title: Detect iDS6 DSSPro Captcha Bypass
-    description: Detects CVE-2020-37228 exploitation — request to the login endpoint to retrieve the autoLoginVerifyCode object, indicating a CAPTCHA bypass attempt.
+    description: Detects CVE-2020-37228 exploitation - request to the login endpoint to retrieve the autoLoginVerifyCode object, indicating a CAPTCHA bypass attempt.
     platform: sigma
     severity: high
     tactics:

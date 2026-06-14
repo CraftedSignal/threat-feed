@@ -29,7 +29,7 @@ references:
   - CVE-2026-44850
 rules:
   - title: Detect Portainer HostConfig Mounts Bind Type (CVE-2026-44850)
-    description: 'Detects CVE-2026-44850 exploitation — Container creation with HostConfig.Mounts of Type: bind, indicating a bind mount attempt.'
+    description: 'Detects CVE-2026-44850 exploitation - Container creation with HostConfig.Mounts of Type: bind, indicating a bind mount attempt.'
     platform: sigma
     severity: high
     tactics:

@@ -29,7 +29,7 @@ references:
   - https://github.com/nautobot/nautobot/commit/c46f97040b2bde4320be36b23577f19a8bcbd8c3
 rules:
   - title: Detect API Requests to Modify Nautobot GitRepository current_head
-    description: Detects CVE-2026-44798 exploitation — PUT/PATCH requests to the Nautobot GitRepository API endpoint with a 'current_head' parameter, indicating a potential attempt to directly modify the field.
+    description: Detects CVE-2026-44798 exploitation - PUT/PATCH requests to the Nautobot GitRepository API endpoint with a 'current_head' parameter, indicating a potential attempt to directly modify the field.
     platform: sigma
     severity: high
     tactics:
@@ -39,7 +39,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Direct Modification of Nautobot GitRepository current_head via API
-    description: Detects CVE-2026-44798 exploitation — Audit logs showing a user directly modifying the `current_head` field of a GitRepository object via the API.
+    description: Detects CVE-2026-44798 exploitation - Audit logs showing a user directly modifying the `current_head` field of a GitRepository object via the API.
     platform: sigma
     severity: medium
     tactics:

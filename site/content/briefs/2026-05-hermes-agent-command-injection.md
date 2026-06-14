@@ -33,7 +33,7 @@ references:
   - https://vuldb.com/vuln/365330/cti
 rules:
   - title: Detect Hermes-Agent Command Injection via detect_dangerous_command
-    description: Detects CVE-2026-9367 exploitation — Attempts to exploit command injection in hermes-agent's detect_dangerous_command function.
+    description: Detects CVE-2026-9367 exploitation - Attempts to exploit command injection in hermes-agent's detect_dangerous_command function.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Hermes-Agent Command Injection via detect_dangerous_command - POST
-    description: Detects CVE-2026-9367 exploitation — Attempts to exploit command injection in hermes-agent's detect_dangerous_command function via POST requests.
+    description: Detects CVE-2026-9367 exploitation - Attempts to exploit command injection in hermes-agent's detect_dangerous_command function via POST requests.
     platform: sigma
     severity: high
     tactics:

@@ -39,7 +39,7 @@ references:
   - https://github.com/neutrinolabs/xrdp/security/advisories/GHSA-rwvg-gp87-gh6f
 rules:
   - title: Detect CVE-2025-68670 Exploitation Attempt via Long Domain
-    description: Detects CVE-2025-68670 exploitation attempt — Detects RDP connections with domain names starting with an underscore and exceeding a length of 255 characters, indicative of a buffer overflow attempt.
+    description: Detects CVE-2025-68670 exploitation attempt - Detects RDP connections with domain names starting with an underscore and exceeding a length of 255 characters, indicative of a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -51,7 +51,7 @@ rules:
       - network_connection
       - windows
   - title: Detect CVE-2025-68670 Exploitation Attempt via process creation
-    description: Detects CVE-2025-68670 exploitation attempt — Detects process creations originating from xrdp processes, which may indicate code execution following a successful buffer overflow.
+    description: Detects CVE-2025-68670 exploitation attempt - Detects process creations originating from xrdp processes, which may indicate code execution following a successful buffer overflow.
     platform: sigma
     severity: high
     tactics:

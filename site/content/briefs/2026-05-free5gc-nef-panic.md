@@ -37,8 +37,8 @@ iocs:
 ioc_counts:
   url: 3
 rules:
-  - title: Detect CVE-2026-44322 Exploitation — NEF PATCH Endpoint HTTP 500 Error
-    description: Detects CVE-2026-44322 exploitation — HTTP 500 errors returned by the NEF PATCH endpoint, indicating a potential denial-of-service condition.
+  - title: Detect CVE-2026-44322 Exploitation - NEF PATCH Endpoint HTTP 500 Error
+    description: Detects CVE-2026-44322 exploitation - HTTP 500 errors returned by the NEF PATCH endpoint, indicating a potential denial-of-service condition.
     platform: sigma
     severity: high
     tactics:

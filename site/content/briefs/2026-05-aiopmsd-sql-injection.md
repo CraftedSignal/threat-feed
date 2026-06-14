@@ -28,8 +28,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2018-25420
   - CVE-2018-25420
 rules:
-  - title: Detect CVE-2018-25420 Exploitation Attempt — AiOPMSD SQL Injection
-    description: Detects CVE-2018-25420 exploitation attempt — SQL injection in AiOPMSD Final 1.0.0 watch.php via GET request with suspicious 'id' parameter.
+  - title: Detect CVE-2018-25420 Exploitation Attempt - AiOPMSD SQL Injection
+    description: Detects CVE-2018-25420 exploitation attempt - SQL injection in AiOPMSD Final 1.0.0 watch.php via GET request with suspicious 'id' parameter.
     platform: sigma
     severity: high
     tactics:
@@ -70,7 +70,7 @@ Successful exploitation of the SQL injection vulnerability in AiOPMSD Final 1.0.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Detect CVE-2018-25420 Exploitation Attempt — AiOPMSD SQL Injection" to identify exploitation attempts against the watch.php endpoint.
+*   Deploy the Sigma rule "Detect CVE-2018-25420 Exploitation Attempt - AiOPMSD SQL Injection" to identify exploitation attempts against the watch.php endpoint.
 *   Apply input validation and sanitization to the 'id' parameter in the watch.php script to prevent SQL injection attacks.
 *   Monitor web server access logs for suspicious GET requests targeting the watch.php script with unusual parameters.
 *   Upgrade AiOPMSD Final to a patched version or implement a web application firewall (WAF) rule to block malicious SQL payloads.

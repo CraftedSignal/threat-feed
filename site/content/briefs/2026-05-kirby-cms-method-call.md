@@ -28,8 +28,8 @@ references:
   - https://github.com/getkirby/kirby/releases/tag/5.4.1
   - CVE-2026-44174
 rules:
-  - title: Detect CVE-2026-44174 Exploitation Attempt — Kirby CMS Arbitrary Method Call in REST API
-    description: Detects CVE-2026-44174 exploitation attempt — Suspicious HTTP request to Kirby CMS REST API endpoints with potentially malicious method calls in query parameters.
+  - title: Detect CVE-2026-44174 Exploitation Attempt - Kirby CMS Arbitrary Method Call in REST API
+    description: Detects CVE-2026-44174 exploitation attempt - Suspicious HTTP request to Kirby CMS REST API endpoints with potentially malicious method calls in query parameters.
     platform: sigma
     severity: high
     tactics:
@@ -39,7 +39,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-44174 Exploitation – Kirby CMS loginPasswordless() API Call
-    description: Detects CVE-2026-44174 exploitation — An API call to loginPasswordless() could indicate an attempt to elevate privileges.
+    description: Detects CVE-2026-44174 exploitation - An API call to loginPasswordless() could indicate an attempt to elevate privileges.
     platform: sigma
     severity: high
     tactics:

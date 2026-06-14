@@ -30,7 +30,7 @@ ioc_counts:
   url: 1
 rules:
   - title: Detect Yamcs Jython Code Injection
-    description: Detects CVE-2026-46621 exploitation — Malicious Jython code injection attempts in Yamcs via the MDB API endpoint.
+    description: Detects CVE-2026-46621 exploitation - Malicious Jython code injection attempts in Yamcs via the MDB API endpoint.
     platform: sigma
     severity: critical
     tactics:

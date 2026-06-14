@@ -29,8 +29,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9757
 rules:
-  - title: Detect CVE-2026-9757 Exploitation Attempt — GEO my WP SQL Injection
-    description: Detects CVE-2026-9757 exploitation attempt — SQL injection via crafted swlatlng or nelatlng parameters in GEO my WP plugin requests.
+  - title: Detect CVE-2026-9757 Exploitation Attempt - GEO my WP SQL Injection
+    description: Detects CVE-2026-9757 exploitation attempt - SQL injection via crafted swlatlng or nelatlng parameters in GEO my WP plugin requests.
     platform: sigma
     severity: high
     tactics:
@@ -72,5 +72,5 @@ Successful exploitation of this SQL injection vulnerability (CVE-2026-9757) allo
 ## Recommendation
 
 *   Upgrade the GEO my WP plugin to the latest version, which includes a fix for CVE-2026-9757.
-*   Deploy the Sigma rule "Detect CVE-2026-9757 Exploitation Attempt — GEO my WP SQL Injection" to your SIEM to detect exploitation attempts based on suspicious query string parameters.
+*   Deploy the Sigma rule "Detect CVE-2026-9757 Exploitation Attempt - GEO my WP SQL Injection" to your SIEM to detect exploitation attempts based on suspicious query string parameters.
 *   Monitor web server logs for requests containing the `swlatlng` and `nelatlng` parameters in the query string with SQL injection syntax, as detected by the Sigma rule above.

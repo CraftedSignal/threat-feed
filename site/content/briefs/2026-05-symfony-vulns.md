@@ -41,8 +41,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-48761
   - https://www.cve.org/CVERecord?id=CVE-2026-48784
 rules:
-  - title: Detects CVE-2026-48489 Exploitation Attempt — Suspicious SSRF Attempt
-    description: Detects CVE-2026-48489 exploitation attempt — Monitors web server logs for requests containing potentially malicious URLs indicative of SSRF attacks.
+  - title: Detects CVE-2026-48489 Exploitation Attempt - Suspicious SSRF Attempt
+    description: Detects CVE-2026-48489 exploitation attempt - Monitors web server logs for requests containing potentially malicious URLs indicative of SSRF attacks.
     platform: sigma
     severity: medium
     tactics:
@@ -51,8 +51,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-48736 Exploitation Attempt — Suspicious XSS Attempt
-    description: Detects CVE-2026-48736 exploitation attempt — Monitors web server logs for requests containing common XSS payloads.
+  - title: Detects CVE-2026-48736 Exploitation Attempt - Suspicious XSS Attempt
+    description: Detects CVE-2026-48736 exploitation attempt - Monitors web server logs for requests containing common XSS payloads.
     platform: sigma
     severity: medium
     tactics:

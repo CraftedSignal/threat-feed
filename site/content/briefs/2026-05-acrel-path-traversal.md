@@ -28,8 +28,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9550
   - CVE-2026-9550
 rules:
-  - title: Detects CVE-2026-9550 Exploitation — Path Traversal in Acrel EEMS upfile
-    description: Detects CVE-2026-9550 exploitation — HTTP requests to /SubstationWEBV2/app/..;/main/upfile with path traversal sequences in the URI indicating a path traversal attempt
+  - title: Detects CVE-2026-9550 Exploitation - Path Traversal in Acrel EEMS upfile
+    description: Detects CVE-2026-9550 exploitation - HTTP requests to /SubstationWEBV2/app/..;/main/upfile with path traversal sequences in the URI indicating a path traversal attempt
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +38,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-9550 Exploitation — Attempted Path Traversal via URL Encoding
+  - title: Detects CVE-2026-9550 Exploitation - Attempted Path Traversal via URL Encoding
     description: Detects CVE-2026-9550 exploitation - Attempts to use URL encoding to bypass path traversal restrictions in Acrel EEMS upfile
     platform: sigma
     severity: medium

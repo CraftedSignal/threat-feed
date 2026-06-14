@@ -39,7 +39,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-7365 Exploitation - Default Password Authentication
-    description: Detects CVE-2026-7365 exploitation — successful authentication using default credentials for IBM Operations Analytics and IBM SmartCloud Analytics.
+    description: Detects CVE-2026-7365 exploitation - successful authentication using default credentials for IBM Operations Analytics and IBM SmartCloud Analytics.
     platform: sigma
     severity: high
     tactics:

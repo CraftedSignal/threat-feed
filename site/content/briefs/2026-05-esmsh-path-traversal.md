@@ -37,7 +37,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect esm.sh Path Traversal via Browser Field Remapping
-    description: Detects CVE-2026-44594 exploitation — Monitors process creation for esbuild invoking commands with package.json files that contain browser field remappings to suspicious file paths.
+    description: Detects CVE-2026-44594 exploitation - Monitors process creation for esbuild invoking commands with package.json files that contain browser field remappings to suspicious file paths.
     platform: sigma
     severity: medium
     tactics:

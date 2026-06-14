@@ -23,6 +23,7 @@ notifier-deploy: notifier-push
 	gcloud run deploy feed-notifier-prod \
 		--region europe-west1 \
 		--image $(NOTIFIER_IMAGE) \
+		--update-env-vars SMTP_PORT=465 \
 		--project craftedsignal-prod
 
 notifier-test:

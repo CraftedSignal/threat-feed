@@ -32,8 +32,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34646
   - https://helpx.adobe.com/security/products/magento/apsb26-49.html
 rules:
-  - title: Detects CVE-2026-34646 Exploitation Attempt — Unauthorized Write Access
-    description: Detects CVE-2026-34646 exploitation attempts — Monitors for suspicious web requests indicative of unauthorized write access in Adobe Commerce.
+  - title: Detects CVE-2026-34646 Exploitation Attempt - Unauthorized Write Access
+    description: Detects CVE-2026-34646 exploitation attempts - Monitors for suspicious web requests indicative of unauthorized write access in Adobe Commerce.
     platform: sigma
     severity: high
     tactics:
@@ -42,8 +42,8 @@ rules:
       - T1548
     data_sources:
       - webserver
-  - title: Detects CVE-2026-34646 Exploitation Attempt — Security Feature Bypass
-    description: Detects CVE-2026-34646 exploitation attempts — Monitors for web requests bypassing security checks in Adobe Commerce.
+  - title: Detects CVE-2026-34646 Exploitation Attempt - Security Feature Bypass
+    description: Detects CVE-2026-34646 exploitation attempts - Monitors for web requests bypassing security checks in Adobe Commerce.
     platform: sigma
     severity: medium
     tactics:

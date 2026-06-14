@@ -28,8 +28,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35671
   - CVE-2026-35671
 rules:
-  - title: Detect CVE-2026-35671 Exploitation — phpMyFAQ Password Overwrite Attempt
-    description: Detects CVE-2026-35671 exploitation — attempts to overwrite user passwords via the phpMyFAQ admin API without proper authorization.
+  - title: Detect CVE-2026-35671 Exploitation - phpMyFAQ Password Overwrite Attempt
+    description: Detects CVE-2026-35671 exploitation - attempts to overwrite user passwords via the phpMyFAQ admin API without proper authorization.
     platform: sigma
     severity: high
     tactics:
@@ -38,8 +38,8 @@ rules:
       - T1068
     data_sources:
       - webserver
-  - title: Detect CVE-2026-35671 Exploitation — phpMyFAQ Admin API Access
-    description: Detects CVE-2026-35671 exploitation — monitor access to phpMyFAQ admin API endpoints which may indicate potential exploitation of IDOR vulnerabilities.
+  - title: Detect CVE-2026-35671 Exploitation - phpMyFAQ Admin API Access
+    description: Detects CVE-2026-35671 exploitation - monitor access to phpMyFAQ admin API endpoints which may indicate potential exploitation of IDOR vulnerabilities.
     platform: sigma
     severity: medium
     tactics:

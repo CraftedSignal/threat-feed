@@ -18,7 +18,7 @@ mainSections = ['briefs']
   # notifierURL is the Cloud Run feed-notifier service. Set after first
   # `terraform apply` from the `feed_notifier_url` output.
   notifierURL = "https://notify.craftedsignal.io"
-  # reCAPTCHA Enterprise site key — Cloud Armor blocks submissions
+  # reCAPTCHA Enterprise site key - Cloud Armor blocks submissions
   # without a valid token. From `terraform output feed_notifier_recaptcha_site_key`.
   recaptchaSiteKey = "6Lf3Zs4sAAAAAG4CBo_segKlJ6oI6iRMHyjyXujw"
 
@@ -33,6 +33,9 @@ mainSections = ['briefs']
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.typographer]
+        disable = true
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
@@ -49,7 +52,7 @@ mainSections = ['briefs']
   minifyOutput = true
 
 # RSS + JSON Feed on home, section listing, and every taxonomy term.
-# JSONFeed is a parallel feed format (https://www.jsonfeed.org/) — same
+# JSONFeed is a parallel feed format (https://www.jsonfeed.org/) - same
 # items, easier to consume from scripts and modern aggregators.
 [outputs]
   home = ["HTML", "RSS", "JSONFeed"]

@@ -31,7 +31,7 @@ references:
   - CVE-2026-3375
 rules:
   - title: Detect CVE-2026-3375 Exploitation via LiteSpeed Cache REST API
-    description: Detects CVE-2026-3375 exploitation — POST requests to /wp-json/litespeed/v1/notify_ccss or /wp-json/litespeed/v1/notify_ucss with potentially malicious CSS content.
+    description: Detects CVE-2026-3375 exploitation - POST requests to /wp-json/litespeed/v1/notify_ccss or /wp-json/litespeed/v1/notify_ucss with potentially malicious CSS content.
     platform: sigma
     severity: high
     tactics:

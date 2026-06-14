@@ -64,7 +64,7 @@ ioc_counts:
   url: 1
 rules:
   - title: Detect Adobe Commerce XXE via Guest Cart Endpoint
-    description: Detects CVE-2024-34102 exploitation — Attempts to exploit XXE vulnerability in Adobe Commerce guest cart endpoint
+    description: Detects CVE-2024-34102 exploitation - Attempts to exploit XXE vulnerability in Adobe Commerce guest cart endpoint
     platform: sigma
     severity: high
     tactics:
@@ -74,7 +74,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Adobe Commerce XXE via Billing Address Endpoint
-    description: Detects CVE-2024-34102 exploitation — Attempts to exploit XXE vulnerability in Adobe Commerce billing address endpoint
+    description: Detects CVE-2024-34102 exploitation - Attempts to exploit XXE vulnerability in Adobe Commerce billing address endpoint
     platform: sigma
     severity: high
     tactics:

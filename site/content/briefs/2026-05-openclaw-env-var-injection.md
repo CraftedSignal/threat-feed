@@ -33,7 +33,7 @@ references:
   - https://www.vulncheck.com/advisories/openclaw-arbitrary-code-execution-via-mcp-stdio-environment-variables
 rules:
   - title: Detect Suspicious OpenClaw Environment Variables
-    description: Detects CVE-2026-44995 exploitation — detects process creations with suspicious environment variables indicative of code injection in OpenClaw
+    description: Detects CVE-2026-44995 exploitation - detects process creations with suspicious environment variables indicative of code injection in OpenClaw
     platform: sigma
     severity: high
     tactics:
@@ -44,7 +44,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Suspicious Linux Environment Variables
-    description: Detects CVE-2026-44995 exploitation — detects process creations with suspicious environment variables indicative of code injection in OpenClaw on Linux
+    description: Detects CVE-2026-44995 exploitation - detects process creations with suspicious environment variables indicative of code injection in OpenClaw on Linux
     platform: sigma
     severity: high
     tactics:

@@ -28,7 +28,7 @@ references:
   - CVE-2018-25409
 rules:
   - title: Detect SIM-PKH Arbitrary File Upload (CVE-2018-25409)
-    description: Detects CVE-2018-25409 exploitation — attempts to upload PHP files to the SIM-PKH application via the fupload parameter.
+    description: Detects CVE-2018-25409 exploitation - attempts to upload PHP files to the SIM-PKH application via the fupload parameter.
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect SIM-PKH PHP File Execution in foto Directory (CVE-2018-25409)
-    description: Detects CVE-2018-25409 exploitation — access attempts to PHP files located in the foto directory, which may indicate successful exploitation of the file upload vulnerability.
+    description: Detects CVE-2018-25409 exploitation - access attempts to PHP files located in the foto directory, which may indicate successful exploitation of the file upload vulnerability.
     platform: sigma
     severity: critical
     tactics:

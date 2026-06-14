@@ -27,8 +27,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42823
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42823
 rules:
-  - title: Detects CVE-2026-42823 Exploitation Attempt — Suspicious Logic App Action
-    description: Detects CVE-2026-42823 exploitation attempt — Monitors for unusual or unauthorized actions within Azure Logic Apps that may indicate privilege escalation.
+  - title: Detects CVE-2026-42823 Exploitation Attempt - Suspicious Logic App Action
+    description: Detects CVE-2026-42823 exploitation attempt - Monitors for unusual or unauthorized actions within Azure Logic Apps that may indicate privilege escalation.
     platform: sigma
     severity: high
     tactics:
@@ -38,8 +38,8 @@ rules:
     data_sources:
       - cloudtrail
       - azure
-  - title: Detects CVE-2026-42823 Exploitation Attempt — Logic App Creation from Unusual Source
-    description: Detects CVE-2026-42823 exploitation attempt — Detects Logic App creation events from unusual or unauthorized sources.
+  - title: Detects CVE-2026-42823 Exploitation Attempt - Logic App Creation from Unusual Source
+    description: Detects CVE-2026-42823 exploitation attempt - Detects Logic App creation events from unusual or unauthorized sources.
     platform: sigma
     severity: medium
     tactics:

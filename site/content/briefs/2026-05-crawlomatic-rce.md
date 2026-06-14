@@ -30,8 +30,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9009
   - CVE-2026-9009
 rules:
-  - title: Detect CVE-2026-9009 Exploitation — Crawlomatic Shortcode RCE Attempt
-    description: Detects CVE-2026-9009 exploitation — attempts to use the Crawlomatic plugin shortcode with callback_raw to inject commands
+  - title: Detect CVE-2026-9009 Exploitation - Crawlomatic Shortcode RCE Attempt
+    description: Detects CVE-2026-9009 exploitation - attempts to use the Crawlomatic plugin shortcode with callback_raw to inject commands
     platform: sigma
     severity: critical
     tactics:
@@ -40,7 +40,7 @@ rules:
       - T1505
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9009 Exploitation — Crawlomatic Shortcode RCE Attempt via Callback
+  - title: Detect CVE-2026-9009 Exploitation - Crawlomatic Shortcode RCE Attempt via Callback
     description: Detects CVE-2026-9009 exploitation via the 'callback' attribute in the Crawlomatic shortcode, indicating a potential RCE attempt.
     platform: sigma
     severity: critical
@@ -73,6 +73,6 @@ Successful exploitation of CVE-2026-9009 allows attackers to execute arbitrary c
 ## Recommendation
 
 *   Upgrade the Crawlomatic Multipage Scraper Post Generator plugin to a version higher than 2.7.2 to patch CVE-2026-9009.
-*   Deploy the Sigma rule "Detect CVE-2026-9009 Exploitation — Crawlomatic Shortcode RCE Attempt" to detect exploitation attempts in web server logs.
+*   Deploy the Sigma rule "Detect CVE-2026-9009 Exploitation - Crawlomatic Shortcode RCE Attempt" to detect exploitation attempts in web server logs.
 *   Monitor WordPress posts and pages for suspicious use of the `crawlomatic` shortcode with the `callback_raw` attribute containing potentially dangerous PHP functions.
 *   Implement strict access control policies to limit author-level privileges and prevent unauthorized users from publishing or modifying content.

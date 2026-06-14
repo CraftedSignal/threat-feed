@@ -27,7 +27,7 @@ references:
   - CVE-2026-27886
 rules:
   - title: Detect Strapi resetPasswordToken Oracle Attempts (CVE-2026-27886)
-    description: Detects CVE-2026-27886 exploitation — attempts to exploit the Strapi resetPasswordToken boolean oracle by monitoring for suspicious `where` query parameters in web server access logs.
+    description: Detects CVE-2026-27886 exploitation - attempts to exploit the Strapi resetPasswordToken boolean oracle by monitoring for suspicious `where` query parameters in web server access logs.
     platform: sigma
     severity: high
     tactics:
@@ -37,7 +37,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Strapi Admin Password Reset After Potential Exploitation (CVE-2026-27886)
-    description: Detects CVE-2026-27886 exploitation — monitors for admin password resets immediately following suspicious requests with `where[updatedBy]` query parameters.
+    description: Detects CVE-2026-27886 exploitation - monitors for admin password resets immediately following suspicious requests with `where[updatedBy]` query parameters.
     platform: sigma
     severity: high
     tactics:

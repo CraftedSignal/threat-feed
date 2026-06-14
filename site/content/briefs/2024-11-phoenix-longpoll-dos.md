@@ -32,8 +32,8 @@ references:
   - https://github.com/advisories/GHSA-628h-q48j-jr6q
   - https://cna.erlef.org/cves/CVE-2026-32689.html
 rules:
-  - title: Detect CVE-2026-32689 Exploitation Attempt — High Volume NDJSON POST Requests
-    description: Detects CVE-2026-32689 exploitation attempt — monitors for a high volume of application/x-ndjson POST requests to the long-poll endpoint, which could indicate an attempt to exhaust server memory.
+  - title: Detect CVE-2026-32689 Exploitation Attempt - High Volume NDJSON POST Requests
+    description: Detects CVE-2026-32689 exploitation attempt - monitors for a high volume of application/x-ndjson POST requests to the long-poll endpoint, which could indicate an attempt to exhaust server memory.
     platform: sigma
     severity: high
     tactics:
@@ -42,8 +42,8 @@ rules:
       - T1499.001
     data_sources:
       - webserver
-  - title: Detect CVE-2026-32689 Exploitation Attempt — NDJSON POST with Large Body
-    description: Detects CVE-2026-32689 exploitation attempt — Identifies POST requests to the long-poll endpoint with 'application/x-ndjson' content type and a large request body, indicative of a memory exhaustion attempt.
+  - title: Detect CVE-2026-32689 Exploitation Attempt - NDJSON POST with Large Body
+    description: Detects CVE-2026-32689 exploitation attempt - Identifies POST requests to the long-poll endpoint with 'application/x-ndjson' content type and a large request body, indicative of a memory exhaustion attempt.
     platform: sigma
     severity: medium
     tactics:
@@ -75,5 +75,5 @@ Successful exploitation of this vulnerability can lead to a complete denial-of-s
 ## Recommendation
 
 *   Upgrade to Phoenix version 1.7.22 or 1.8.6 or later to patch CVE-2026-32689 and mitigate the denial-of-service vulnerability.
-*   Deploy the Sigma rule "Detect CVE-2026-32689 Exploitation Attempt — High Volume NDJSON POST Requests" to identify potential exploitation attempts by monitoring for a high volume of `application/x-ndjson` POST requests to the long-poll endpoint.
+*   Deploy the Sigma rule "Detect CVE-2026-32689 Exploitation Attempt - High Volume NDJSON POST Requests" to identify potential exploitation attempts by monitoring for a high volume of `application/x-ndjson` POST requests to the long-poll endpoint.
 *   Monitor web server logs for an unusual number of POST requests with the `application/x-ndjson` content type, looking for potential indicators of exploitation.

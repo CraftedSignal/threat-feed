@@ -30,7 +30,7 @@ references:
   - CVE-2026-7459
 rules:
   - title: Detect Simple History Password Reset Email Access
-    description: Detects CVE-2026-7459 exploitation — Access to the password reset email context via Simple History API
+    description: Detects CVE-2026-7459 exploitation - Access to the password reset email context via Simple History API
     platform: sigma
     severity: high
     tactics:

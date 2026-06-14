@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-43634
 rules:
   - title: Detect HestiaCP IP Spoofing via CF-Connecting-IP Header
-    description: Detects CVE-2026-43634 exploitation — HTTP requests with CF-Connecting-IP header, indicating potential IP spoofing attempt in HestiaCP.
+    description: Detects CVE-2026-43634 exploitation - HTTP requests with CF-Connecting-IP header, indicating potential IP spoofing attempt in HestiaCP.
     platform: sigma
     severity: high
     tactics:

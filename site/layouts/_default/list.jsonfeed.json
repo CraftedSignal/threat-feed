@@ -37,7 +37,7 @@
 {{- $feedURL := (.OutputFormats.Get "jsonfeed").Permalink -}}
 {{- $feed := dict
       "version"        "https://jsonfeed.org/version/1.1"
-      "title"          (printf "%s — %s" .Site.Title (.Title | default "All briefs"))
+      "title"          (printf "%s - %s" .Site.Title (.Title | default "All briefs"))
       "home_page_url"  .Site.Home.Permalink
       "feed_url"       $feedURL
       "description"    (or .Description .Site.Params.description)

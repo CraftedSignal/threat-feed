@@ -27,8 +27,8 @@ cves:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-44844
 rules:
-  - title: Detects CVE-2026-44844 Exploitation Attempt — Excessive Recursion in Email Processing
-    description: Detects CVE-2026-44844 exploitation attempt — Monitors for excessive nesting depth during email parsing operations, potentially indicating a denial-of-service attack
+  - title: Detects CVE-2026-44844 Exploitation Attempt - Excessive Recursion in Email Processing
+    description: Detects CVE-2026-44844 exploitation attempt - Monitors for excessive nesting depth during email parsing operations, potentially indicating a denial-of-service attack
     platform: sigma
     severity: medium
     tactics:
@@ -38,8 +38,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detects CVE-2026-44844 Exploitation Attempt — High CPU Usage by eml_parser
-    description: Detects CVE-2026-44844 exploitation attempt — Monitors for excessive CPU usage by eml_parser processes, which may indicate a denial-of-service condition due to recursive parsing.
+  - title: Detects CVE-2026-44844 Exploitation Attempt - High CPU Usage by eml_parser
+    description: Detects CVE-2026-44844 exploitation attempt - Monitors for excessive CPU usage by eml_parser processes, which may indicate a denial-of-service condition due to recursive parsing.
     platform: sigma
     severity: medium
     tactics:

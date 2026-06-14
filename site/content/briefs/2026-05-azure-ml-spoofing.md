@@ -29,7 +29,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33833
 rules:
   - title: Detect Suspicious Output in Azure Machine Learning
-    description: Detects CVE-2026-33833 exploitation — identifies potentially malicious output from Azure Machine Learning that contains common injection payloads.
+    description: Detects CVE-2026-33833 exploitation - identifies potentially malicious output from Azure Machine Learning that contains common injection payloads.
     platform: sigma
     severity: medium
     tactics:
@@ -39,7 +39,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect URI Parameter Injection Attempts
-    description: Detects CVE-2026-33833 exploitation — identifies potentially malicious URI parameters that may be indicative of an injection vulnerability.
+    description: Detects CVE-2026-33833 exploitation - identifies potentially malicious URI parameters that may be indicative of an injection vulnerability.
     platform: sigma
     severity: medium
     tactics:

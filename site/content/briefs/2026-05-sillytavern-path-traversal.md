@@ -33,7 +33,7 @@ references:
   - CVE-2025-59159
 rules:
   - title: Detect SillyTavern Path Traversal Attempt via Extension Deletion
-    description: Detects CVE-2026-44650 exploitation — attempts to delete the entire extensions directory in SillyTavern by sending a POST request to /api/extensions/delete with a '.' as the extensionName parameter.
+    description: Detects CVE-2026-44650 exploitation - attempts to delete the entire extensions directory in SillyTavern by sending a POST request to /api/extensions/delete with a '.' as the extensionName parameter.
     platform: sigma
     severity: critical
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect SillyTavern Path Traversal Attempt via Other Endpoints
-    description: Detects CVE-2026-44650 exploitation — attempts to exploit the path traversal vulnerability in SillyTavern on the `/api/extensions/update`, `/api/extensions/version`, `/api/extensions/branches`, and `/api/extensions/switch` endpoints using '.' as the extensionName.
+    description: Detects CVE-2026-44650 exploitation - attempts to exploit the path traversal vulnerability in SillyTavern on the `/api/extensions/update`, `/api/extensions/version`, `/api/extensions/branches`, and `/api/extensions/switch` endpoints using '.' as the extensionName.
     platform: sigma
     severity: high
     tactics:

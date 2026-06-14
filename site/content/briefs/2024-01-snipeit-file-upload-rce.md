@@ -30,8 +30,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-xg82-2hrv-hf64
 rules:
-  - title: Detect CVE-2026-37709 Exploitation — SnipeIT Malicious File Upload
-    description: Detects CVE-2026-37709 exploitation — Monitors for HTTP POST requests to the file upload endpoint with suspicious file extensions.
+  - title: Detect CVE-2026-37709 Exploitation - SnipeIT Malicious File Upload
+    description: Detects CVE-2026-37709 exploitation - Monitors for HTTP POST requests to the file upload endpoint with suspicious file extensions.
     platform: sigma
     severity: critical
     tactics:
@@ -40,8 +40,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-37709 Exploitation — SnipeIT Uploaded File Controller Access
-    description: Detects CVE-2026-37709 exploitation — Monitors for HTTP requests accessing the UploadedFilesController, indicating potential exploit attempts.
+  - title: Detect CVE-2026-37709 Exploitation - SnipeIT Uploaded File Controller Access
+    description: Detects CVE-2026-37709 exploitation - Monitors for HTTP requests accessing the UploadedFilesController, indicating potential exploit attempts.
     platform: sigma
     severity: high
     tactics:
@@ -73,5 +73,5 @@ Successful exploitation of CVE-2026-37709 can lead to complete compromise of the
 ## Recommendation
 
 *   Upgrade Snipe-IT installations to version 8.4.1 or later to remediate CVE-2026-37709, as this version contains the necessary permission checks in the `app/Http/Controllers/Api/UploadedFilesController.php` component.
-*   Deploy the Sigma rule "Detect CVE-2026-37709 Exploitation — SnipeIT Malicious File Upload" to detect suspicious POST requests to the `/api/v1/{object_type}/{id}/files` endpoint.
+*   Deploy the Sigma rule "Detect CVE-2026-37709 Exploitation - SnipeIT Malicious File Upload" to detect suspicious POST requests to the `/api/v1/{object_type}/{id}/files` endpoint.
 *   Monitor web server logs for HTTP POST requests to the `/api/v1/{object_type}/{id}/files` endpoint with filenames that contain suspicious extensions or patterns to identify potential exploitation attempts.

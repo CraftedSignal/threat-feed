@@ -32,7 +32,7 @@ references:
   - https://github.com/advisories/GHSA-86m8-88fq-xfxp
 rules:
   - title: Detect Gotenberg SSRF Attempt via IPv6 Prefixes
-    description: Detects CVE-2026-45741 exploitation — Outbound HTTP requests to specific IPv4 addresses embedded in IPv6 prefixes known to bypass Gotenberg's private IP protection.
+    description: Detects CVE-2026-45741 exploitation - Outbound HTTP requests to specific IPv4 addresses embedded in IPv6 prefixes known to bypass Gotenberg's private IP protection.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
       - network_connection
       - windows
   - title: Detect Gotenberg SSRF Attempt via IPv6 Prefixes (Process Creation)
-    description: Detects CVE-2026-45741 exploitation — Process creation with command line arguments that may trigger SSRF via IPv6 prefixes.
+    description: Detects CVE-2026-45741 exploitation - Process creation with command line arguments that may trigger SSRF via IPv6 prefixes.
     platform: sigma
     severity: medium
     tactics:

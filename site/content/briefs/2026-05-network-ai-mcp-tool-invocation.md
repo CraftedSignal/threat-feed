@@ -28,7 +28,7 @@ references:
   - CVE-2026-46701
 rules:
   - title: Detect Network-AI MCP Tool Invocation Without Authorization
-    description: Detects CVE-2026-46701 exploitation — HTTP POST requests to the /mcp endpoint without an Authorization header, indicating potential unauthorized MCP tool invocation.
+    description: Detects CVE-2026-46701 exploitation - HTTP POST requests to the /mcp endpoint without an Authorization header, indicating potential unauthorized MCP tool invocation.
     platform: sigma
     severity: high
     tactics:

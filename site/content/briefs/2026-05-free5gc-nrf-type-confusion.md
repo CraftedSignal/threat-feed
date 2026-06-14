@@ -37,7 +37,7 @@ ioc_counts:
   url: 1
 rules:
   - title: Detect free5GC NRF Type Confusion Attempt
-    description: Detects CVE-2026-44325 exploitation attempt — HTTP POST to /oauth2/token with vulnerable parameters
+    description: Detects CVE-2026-44325 exploitation attempt - HTTP POST to /oauth2/token with vulnerable parameters
     platform: sigma
     severity: high
     tactics:
@@ -47,7 +47,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect free5GC NRF Type Confusion Panic in Logs
-    description: Detects CVE-2026-44325 exploitation — PANIC log message indicating a type confusion during request handling in free5GC NRF
+    description: Detects CVE-2026-44325 exploitation - PANIC log message indicating a type confusion during request handling in free5GC NRF
     platform: sigma
     severity: medium
     tactics:

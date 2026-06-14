@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-qg89-qwwh-5f3j
 rules:
   - title: Detect Suspicious SillyTavern SSRF Attempt
-    description: Detects CVE-2026-46372 exploitation — An authenticated user attempts to exploit SSRF in SillyTavern by sending a request to the /api/search/searxng endpoint with a suspicious baseUrl.
+    description: Detects CVE-2026-46372 exploitation - An authenticated user attempts to exploit SSRF in SillyTavern by sending a request to the /api/search/searxng endpoint with a suspicious baseUrl.
     platform: sigma
     severity: high
     tactics:
@@ -35,7 +35,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect SillyTavern SSRF Attempt via Internal IP
-    description: Detects CVE-2026-46372 exploitation — An authenticated user attempts to exploit SSRF in SillyTavern by sending a request to the /api/search/searxng endpoint with a baseUrl containing an internal IP address.
+    description: Detects CVE-2026-46372 exploitation - An authenticated user attempts to exploit SSRF in SillyTavern by sending a request to the /api/search/searxng endpoint with a baseUrl containing an internal IP address.
     platform: sigma
     severity: high
     tactics:

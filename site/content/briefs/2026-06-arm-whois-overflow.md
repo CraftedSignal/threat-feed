@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/arm-whois-buffer-overflow-via-seh-overwrite
 rules:
   - title: Detect Arm Whois Buffer Overflow Attempt
-    description: Detects CVE-2018-25427 exploitation attempt — oversized input to Arm Whois service indicating a buffer overflow attempt.
+    description: Detects CVE-2018-25427 exploitation attempt - oversized input to Arm Whois service indicating a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:

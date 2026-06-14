@@ -83,7 +83,7 @@ rules:
 rules_count: 2
 ---
 
-JDownloader, a widely used open-source download manager, had its official website compromised between May 5–7, 2026. Attackers gained access to the site's CMS and repointed specific installer download links to malicious third-party files — they did not modify the legitimate installer packages themselves, only the links serving them. The affected download paths were the Windows "Download Alternative Installer" links and the Linux shell-based installer. Both Windows and Linux variants contained a Remote Access Trojan (RAT); the Windows executables additionally lack the legitimate "AppWork GmbH" code signature present on all genuine JDownloader installers. Crucially, in-app updates were unaffected because JDownloader's update mechanism uses RSA signature verification.
+JDownloader, a widely used open-source download manager, had its official website compromised between May 5–7, 2026. Attackers gained access to the site's CMS and repointed specific installer download links to malicious third-party files - they did not modify the legitimate installer packages themselves, only the links serving them. The affected download paths were the Windows "Download Alternative Installer" links and the Linux shell-based installer. Both Windows and Linux variants contained a Remote Access Trojan (RAT); the Windows executables additionally lack the legitimate "AppWork GmbH" code signature present on all genuine JDownloader installers. Crucially, in-app updates were unaffected because JDownloader's update mechanism uses RSA signature verification.
 
 ## Attack Chain
 
@@ -102,7 +102,7 @@ Any user who downloaded and executed a JDownloader installer via the website's "
 
 ## Recommendation
 
-*   If JDownloader was installed during May 6–7, 2026 via the "Alternative Installer" or Linux shell links, perform a clean OS reinstall — do not attempt to remove the malware in-place.
+*   If JDownloader was installed during May 6–7, 2026 via the "Alternative Installer" or Linux shell links, perform a clean OS reinstall - do not attempt to remove the malware in-place.
 *   Change all passwords (email, banking, credentials managers) from a separate, verified-clean device before accessing any accounts on the potentially compromised system.
 *   Block the IOC hashes listed above in your EDR and file integrity monitoring tooling.
 *   Deploy the Sigma rule "Execution of Known Malicious JDownloader Installer by Hash" to identify any historical execution of these installers in your environment.

@@ -32,7 +32,7 @@ references:
   - CVE-2026-45799
 rules:
   - title: Detect Wire Protobuf Negative Length Exploitation Attempt
-    description: Detects CVE-2026-45799 exploitation attempt — crafted protobuf payload with negative length leading to ArrayIndexOutOfBoundsException in Wire library.
+    description: Detects CVE-2026-45799 exploitation attempt - crafted protobuf payload with negative length leading to ArrayIndexOutOfBoundsException in Wire library.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
       - process_creation
       - linux
   - title: Detect Wire Protobuf Negative Length Exploitation Attempt - Exception
-    description: Detects CVE-2026-45799 exploitation — monitors for the specific ArrayIndexOutOfBoundsException thrown by vulnerable Wire versions.
+    description: Detects CVE-2026-45799 exploitation - monitors for the specific ArrayIndexOutOfBoundsException thrown by vulnerable Wire versions.
     platform: sigma
     severity: high
     tactics:

@@ -24,8 +24,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4030
   - CVE-2026-4030
 rules:
-  - title: Detects CVE-2026-4030 Exploitation — Arbitrary File Read Attempt via Database Backup Plugin
-    description: Detects CVE-2026-4030 exploitation — Monitors web server logs for HTTP requests targeting the Database Backup for WordPress plugin with suspicious file paths, indicating a possible arbitrary file read attempt.
+  - title: Detects CVE-2026-4030 Exploitation - Arbitrary File Read Attempt via Database Backup Plugin
+    description: Detects CVE-2026-4030 exploitation - Monitors web server logs for HTTP requests targeting the Database Backup for WordPress plugin with suspicious file paths, indicating a possible arbitrary file read attempt.
     platform: sigma
     severity: high
     tactics:
@@ -34,8 +34,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-4030 Exploitation — Arbitrary File Deletion Attempt via Database Backup Plugin
-    description: Detects CVE-2026-4030 exploitation — Monitors web server logs for HTTP requests attempting to delete files outside the designated backup directory using the Database Backup for WordPress plugin.
+  - title: Detects CVE-2026-4030 Exploitation - Arbitrary File Deletion Attempt via Database Backup Plugin
+    description: Detects CVE-2026-4030 exploitation - Monitors web server logs for HTTP requests attempting to delete files outside the designated backup directory using the Database Backup for WordPress plugin.
     platform: sigma
     severity: high
     tactics:

@@ -30,7 +30,7 @@ references:
   - CVE-2026-43947
 rules:
   - title: Detect FUXA Unauthenticated RCE Attempt via Script Test Mode (CVE-2026-43947)
-    description: Detects CVE-2026-43947 exploitation — Attempts to execute arbitrary code on a FUXA server via the /api/runscript endpoint with test mode enabled without authentication.
+    description: Detects CVE-2026-43947 exploitation - Attempts to execute arbitrary code on a FUXA server via the /api/runscript endpoint with test mode enabled without authentication.
     platform: sigma
     severity: high
     tactics:

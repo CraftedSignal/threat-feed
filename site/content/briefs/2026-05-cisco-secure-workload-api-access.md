@@ -27,7 +27,7 @@ references:
   - CVE-2026-20223
 rules:
   - title: Detect CVE-2026-20223 Exploitation Attempt via Crafted API Request
-    description: Detects CVE-2026-20223 exploitation — monitors for suspicious API requests to Cisco Secure Workload that may indicate an attempt to exploit the unauthorized API access vulnerability.
+    description: Detects CVE-2026-20223 exploitation - monitors for suspicious API requests to Cisco Secure Workload that may indicate an attempt to exploit the unauthorized API access vulnerability.
     platform: sigma
     severity: critical
     tactics:

@@ -32,7 +32,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-43633
 rules:
   - title: Detect HestiaCP CVE-2026-43633 Attack
-    description: Detects CVE-2026-43633 exploitation — Suspicious HTTP headers indicative of deserialization attack attempt in HestiaCP
+    description: Detects CVE-2026-43633 exploitation - Suspicious HTTP headers indicative of deserialization attack attempt in HestiaCP
     platform: sigma
     severity: critical
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect HestiaCP CVE-2026-43633 Post Exploitation - Suspicious Process Execution
-    description: Detects CVE-2026-43633 exploitation — Monitors for suspicious process execution after successful exploitation in HestiaCP.
+    description: Detects CVE-2026-43633 exploitation - Monitors for suspicious process execution after successful exploitation in HestiaCP.
     platform: sigma
     severity: high
     tactics:

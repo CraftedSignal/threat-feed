@@ -1,5 +1,5 @@
 ---
-title: CVE-2026-35430 — Azure PIM Authorization Bypass via User-Controlled Key
+title: CVE-2026-35430 - Azure PIM Authorization Bypass via User-Controlled Key
 slug: 2026-05-azure-pim-auth-bypass
 description: CVE-2026-35430 allows an authorized attacker to elevate privileges over a network in Azure Privileged Identity Management (PIM) through a user-controlled key.
 date: "2026-05-26T13:33:09Z"

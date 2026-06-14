@@ -35,8 +35,8 @@ references:
   - https://vuldb.com/vuln/364322
   - https://vuldb.com/vuln/364322/cti
 rules:
-  - title: Detect CVE-2026-8734 Exploitation — SQL Injection in Oinone Pamirs
-    description: Detects CVE-2026-8734 exploitation — suspicious HTTP requests containing SQL injection attempts targeting the queryListByWrapper interface.
+  - title: Detect CVE-2026-8734 Exploitation - SQL Injection in Oinone Pamirs
+    description: Detects CVE-2026-8734 exploitation - suspicious HTTP requests containing SQL injection attempts targeting the queryListByWrapper interface.
     platform: sigma
     severity: high
     tactics:
@@ -82,6 +82,6 @@ Successful exploitation of this SQL injection vulnerability (CVE-2026-8734) can 
 ## Recommendation
 
 *   Apply appropriate input validation and sanitization techniques to mitigate SQL injection vulnerabilities, referencing CWE-89.
-*   Deploy the Sigma rule `Detect CVE-2026-8734 Exploitation — SQL Injection in Oinone Pamirs` to identify potential exploitation attempts.
+*   Deploy the Sigma rule `Detect CVE-2026-8734 Exploitation - SQL Injection in Oinone Pamirs` to identify potential exploitation attempts.
 *   Monitor web server logs for suspicious requests targeting the `queryListByWrapper` interface (logsource: webserver).
 *   Review and restrict database access privileges to minimize the impact of potential SQL injection attacks.

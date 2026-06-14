@@ -16,7 +16,7 @@ tags:
 vendors:
   - WordPress
 products:
-  - The GeekyBot — Generate AI Content Without Prompt, Chatbot and Lead Generation plugin <= 1.2.0
+  - The GeekyBot - Generate AI Content Without Prompt, Chatbot and Lead Generation plugin <= 1.2.0
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

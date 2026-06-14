@@ -33,7 +33,7 @@ references:
   - https://vuldb.com/vuln/365611/cti
 rules:
   - title: Detect SQL Injection in Das Parking Management System
-    description: Detects CVE-2026-9552 exploitation — SQL injection attempts in the 'Value' parameter of the Search API Endpoint in Das Parking Management System.
+    description: Detects CVE-2026-9552 exploitation - SQL injection attempts in the 'Value' parameter of the Search API Endpoint in Das Parking Management System.
     platform: sigma
     severity: high
     tactics:
@@ -45,7 +45,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Potential SQL Injection via URI Containing common SQL keywords
-    description: Detects CVE-2026-9552 exploitation — Detects potential SQL injection attempts by identifying common SQL keywords in URI queries.
+    description: Detects CVE-2026-9552 exploitation - Detects potential SQL injection attempts by identifying common SQL keywords in URI queries.
     platform: sigma
     severity: medium
     tactics:

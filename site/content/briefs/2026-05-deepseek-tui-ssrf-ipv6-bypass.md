@@ -24,7 +24,7 @@ references:
   - https://github.com/Hmbown/DeepSeek-TUI/blob/15f62e3e93d842f30b428877819ebc1c8cb96814/crates/tui/src/tools/fetch_url.rs#L321
 rules:
   - title: Detect DeepSeek TUI SSRF Attempt via IPv6 Bypass
-    description: Detects CVE-2026-45373 exploitation — attempts to exploit the SSRF vulnerability in DeepSeek TUI by using a URL containing the IPv6 localhost address `http://[::1]`.
+    description: Detects CVE-2026-45373 exploitation - attempts to exploit the SSRF vulnerability in DeepSeek TUI by using a URL containing the IPv6 localhost address `http://[::1]`.
     platform: sigma
     severity: high
     tactics:

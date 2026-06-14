@@ -33,8 +33,8 @@ iocs:
 ioc_counts:
   url: 1
 rules:
-  - title: Detects CVE-2025-45809 Exploitation Attempt — LiteLLM SQL Injection via /key/block
-    description: Detects CVE-2025-45809 exploitation attempt — suspicious HTTP POST requests to /key/block endpoint in LiteLLM with potential SQL injection payloads in the key parameter
+  - title: Detects CVE-2025-45809 Exploitation Attempt - LiteLLM SQL Injection via /key/block
+    description: Detects CVE-2025-45809 exploitation attempt - suspicious HTTP POST requests to /key/block endpoint in LiteLLM with potential SQL injection payloads in the key parameter
     platform: sigma
     severity: medium
     tactics:
@@ -43,8 +43,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2025-45809 Exploitation Attempt — LiteLLM SQL Injection via /key/unblock
-    description: Detects CVE-2025-45809 exploitation attempt — suspicious HTTP POST requests to /key/unblock endpoint in LiteLLM with potential SQL injection payloads in the key parameter
+  - title: Detects CVE-2025-45809 Exploitation Attempt - LiteLLM SQL Injection via /key/unblock
+    description: Detects CVE-2025-45809 exploitation attempt - suspicious HTTP POST requests to /key/unblock endpoint in LiteLLM with potential SQL injection payloads in the key parameter
     platform: sigma
     severity: medium
     tactics:

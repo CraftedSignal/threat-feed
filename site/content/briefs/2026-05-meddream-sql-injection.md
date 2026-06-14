@@ -31,8 +31,8 @@ references:
   - https://www.exploit-db.com/exploits/45344
   - https://www.vulncheck.com/advisories/meddream-pacs-server-premium-sql-injection-via-email
 rules:
-  - title: Detect CVE-2018-25372 Exploitation — MedDream PACS Server SQL Injection Attempt
-    description: Detects CVE-2018-25372 exploitation — Suspicious POST requests to userSignup.php with SQL injection attempts in the email parameter
+  - title: Detect CVE-2018-25372 Exploitation - MedDream PACS Server SQL Injection Attempt
+    description: Detects CVE-2018-25372 exploitation - Suspicious POST requests to userSignup.php with SQL injection attempts in the email parameter
     platform: sigma
     severity: high
     tactics:

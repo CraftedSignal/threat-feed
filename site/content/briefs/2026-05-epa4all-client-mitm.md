@@ -30,8 +30,8 @@ iocs:
 ioc_counts:
   email: 1
 rules:
-  - title: Detect CVE-2026-45575 Exploitation — Outbound Connection to Unexpected Domain
-    description: Detects CVE-2026-45575 exploitation — Outbound network connection initiated by epa4all-client to a domain not on a known good list, potentially indicating a forged discovery document attack.
+  - title: Detect CVE-2026-45575 Exploitation - Outbound Connection to Unexpected Domain
+    description: Detects CVE-2026-45575 exploitation - Outbound network connection initiated by epa4all-client to a domain not on a known good list, potentially indicating a forged discovery document attack.
     platform: sigma
     severity: high
     tactics:
@@ -41,8 +41,8 @@ rules:
     data_sources:
       - network_connection
       - windows
-  - title: Detect CVE-2026-45575 Exploitation — Suspicious Process Connecting Outbound
-    description: Detects CVE-2026-45575 exploitation — An outbound network connection initiated from the epa4all-client executable, indicative of potential malicious redirection.
+  - title: Detect CVE-2026-45575 Exploitation - Suspicious Process Connecting Outbound
+    description: Detects CVE-2026-45575 exploitation - An outbound network connection initiated from the epa4all-client executable, indicative of potential malicious redirection.
     platform: sigma
     severity: medium
     tactics:

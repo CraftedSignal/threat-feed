@@ -27,8 +27,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2018-25407
   - CVE-2018-25407
 rules:
-  - title: Detects CVE-2018-25407 Exploitation Attempt — SQL Injection in eNdonesia Portal mod.php
-    description: Detects CVE-2018-25407 exploitation attempt — SQL injection attempts targeting the artid, cid, did, contid, and aboutid parameters in mod.php of eNdonesia Portal.
+  - title: Detects CVE-2018-25407 Exploitation Attempt - SQL Injection in eNdonesia Portal mod.php
+    description: Detects CVE-2018-25407 exploitation attempt - SQL injection attempts targeting the artid, cid, did, contid, and aboutid parameters in mod.php of eNdonesia Portal.
     platform: sigma
     severity: critical
     tactics:

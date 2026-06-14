@@ -28,8 +28,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-2993
 rules:
-  - title: Detect CVE-2026-2993 Exploitation — AIWU WordPress Plugin SQL Injection
-    description: Detects CVE-2026-2993 exploitation — SQL injection attempts against the AIWU WordPress plugin by detecting common SQL injection payloads in HTTP requests.
+  - title: Detect CVE-2026-2993 Exploitation - AIWU WordPress Plugin SQL Injection
+    description: Detects CVE-2026-2993 exploitation - SQL injection attempts against the AIWU WordPress plugin by detecting common SQL injection payloads in HTTP requests.
     platform: sigma
     severity: high
     tactics:
@@ -71,6 +71,6 @@ Successful exploitation of this SQL Injection vulnerability (CVE-2026-2993) in t
 ## Recommendation
 
 *   Apply available patches to upgrade the AI Chatbot & Workflow Automation by AIWU plugin for WordPress to a version greater than 1.4.17 to remediate CVE-2026-2993.
-*   Deploy the Sigma rule "Detect CVE-2026-2993 Exploitation — AIWU WordPress Plugin SQL Injection" to your SIEM to detect exploitation attempts targeting the vulnerable plugin.
+*   Deploy the Sigma rule "Detect CVE-2026-2993 Exploitation - AIWU WordPress Plugin SQL Injection" to your SIEM to detect exploitation attempts targeting the vulnerable plugin.
 *   Implement web application firewall (WAF) rules to block requests containing suspicious SQL injection patterns targeting WordPress plugins.
 *   Review and audit WordPress plugin code for proper input sanitization and parameterized queries to prevent SQL injection vulnerabilities.

@@ -29,7 +29,7 @@ references:
   - https://www.usenix.org/system/files/usenixsecurity25-shi-bing.pdf
 rules:
   - title: Detect Suspicious Phpseclib ASN1 Parsing
-    description: Detects CVE-2023-49316 exploitation — suspicious PHP process parsing ASN1 data, potentially indicating an integer overflow attack.
+    description: Detects CVE-2023-49316 exploitation - suspicious PHP process parsing ASN1 data, potentially indicating an integer overflow attack.
     platform: sigma
     severity: medium
     tactics:

@@ -31,7 +31,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-6665
 rules:
   - title: Detect CVE-2026-6665 Exploitation Attempt - Suspicious SCRAM Authentication Message Size
-    description: Detects CVE-2026-6665 exploitation attempt — monitors network traffic for SCRAM authentication messages exceeding a reasonable size threshold, potentially indicating a buffer overflow attempt.
+    description: Detects CVE-2026-6665 exploitation attempt - monitors network traffic for SCRAM authentication messages exceeding a reasonable size threshold, potentially indicating a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
       - network_connection
       - windows
   - title: Detect CVE-2026-6665 Exploitation Attempt - Process Crash with SCRAM in Call Stack
-    description: Detects CVE-2026-6665 exploitation attempt — identifies process crashes within PgBouncer where the SCRAM authentication routines are present in the call stack, indicating a potential buffer overflow.
+    description: Detects CVE-2026-6665 exploitation attempt - identifies process crashes within PgBouncer where the SCRAM authentication routines are present in the call stack, indicating a potential buffer overflow.
     platform: sigma
     severity: high
     tactics:

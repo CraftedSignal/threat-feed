@@ -31,7 +31,7 @@ references:
   - CVE-2026-44376
 rules:
   - title: Detect CubeCart XSS Attempt via Search
-    description: Detects CVE-2026-44376 exploitation — XSS attempts in CubeCart search queries.
+    description: Detects CVE-2026-44376 exploitation - XSS attempts in CubeCart search queries.
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CubeCart XSS Attempt via Catalogue
-    description: Detects CVE-2026-44376 exploitation — XSS attempts in CubeCart catalogue queries.
+    description: Detects CVE-2026-44376 exploitation - XSS attempts in CubeCart catalogue queries.
     platform: sigma
     severity: high
     tactics:

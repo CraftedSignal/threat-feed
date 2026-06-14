@@ -31,7 +31,7 @@ references:
   - https://cwe.mitre.org/data/definitions/640.html
 rules:
   - title: Detect ApostropheCMS Weak Password Reset Request
-    description: Detects CVE-2026-45013 exploitation — Monitors password reset requests to `/api/v1/login/reset-request` with a non-standard Host header, indicating a potential account takeover attempt.
+    description: Detects CVE-2026-45013 exploitation - Monitors password reset requests to `/api/v1/login/reset-request` with a non-standard Host header, indicating a potential account takeover attempt.
     platform: sigma
     severity: medium
     tactics:

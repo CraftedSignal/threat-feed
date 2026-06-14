@@ -60,7 +60,7 @@ ioc_counts:
   url: 1
 rules:
   - title: Detect CVE-2019-0227 Exploitation Attempt via AdminService
-    description: Detects CVE-2019-0227 exploitation attempt — POST request to AdminService to deploy malicious service
+    description: Detects CVE-2019-0227 exploitation attempt - POST request to AdminService to deploy malicious service
     platform: sigma
     severity: high
     tactics:

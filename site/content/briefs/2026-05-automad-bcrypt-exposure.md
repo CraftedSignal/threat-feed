@@ -31,7 +31,7 @@ references:
   - CVE-2026-45332
 rules:
   - title: Detect Automad Unauthenticated Password Hash Exposure Attempt
-    description: Detects CVE-2026-45332 exploitation — HTTP POST request to the `/_api/user-collection/create-first-user` endpoint, indicating a possible attempt to retrieve administrator password hashes.
+    description: Detects CVE-2026-45332 exploitation - HTTP POST request to the `/_api/user-collection/create-first-user` endpoint, indicating a possible attempt to retrieve administrator password hashes.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Automad Configuration Directory Path Disclosure
-    description: Detects CVE-2026-45332 exploitation — HTTP POST response to `/_api/user-collection/create-first-user` exposing the server's filesystem path to the config directory.
+    description: Detects CVE-2026-45332 exploitation - HTTP POST response to `/_api/user-collection/create-first-user` exposing the server's filesystem path to the config directory.
     platform: sigma
     severity: medium
     tactics:

@@ -34,7 +34,7 @@ references:
   - https://www.vulncheck.com/advisories/openclaw-gateway-config-mutation-guard-bypass-via-agent-tool-access
 rules:
   - title: Detect OpenClaw Unauthorized Configuration Change via config.patch/config.apply
-    description: Detects CVE-2026-45001 exploitation — HTTP POST to config.patch or config.apply endpoints indicating potential unauthorized configuration changes
+    description: Detects CVE-2026-45001 exploitation - HTTP POST to config.patch or config.apply endpoints indicating potential unauthorized configuration changes
     platform: sigma
     severity: high
     tactics:

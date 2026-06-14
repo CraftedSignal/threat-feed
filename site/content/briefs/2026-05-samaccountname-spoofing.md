@@ -46,7 +46,7 @@ references:
   - https://exploit.ph/cve-2021-42287-cve-2021-42278-weaponisation.html
 rules:
   - title: Detect SamAccountName Spoofing (CVE-2021-42278)
-    description: Detects CVE-2021-42278 exploitation — suspicious computer account name rename event indicating potential privilege escalation attempt by spoofing the samAccountName attribute.
+    description: Detects CVE-2021-42278 exploitation - suspicious computer account name rename event indicating potential privilege escalation attempt by spoofing the samAccountName attribute.
     platform: sigma
     severity: high
     tactics:
@@ -57,7 +57,7 @@ rules:
       - process_creation
       - windows
   - title: Detect SamAccountName Spoofing - Renamed Event (CVE-2021-42278)
-    description: Detects CVE-2021-42278 exploitation — detects when a computer account (ends with $) is renamed to a non-computer account.
+    description: Detects CVE-2021-42278 exploitation - detects when a computer account (ends with $) is renamed to a non-computer account.
     platform: sigma
     severity: high
     tactics:

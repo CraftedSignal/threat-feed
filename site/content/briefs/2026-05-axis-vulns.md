@@ -56,7 +56,7 @@ rules:
     data_sources:
       - network_connection
       - windows
-  - title: Detect CVE-2026-XXXX Exploitation — Suspicious Process Execution from Network Traffic
+  - title: Detect CVE-2026-XXXX Exploitation - Suspicious Process Execution from Network Traffic
     description: Detects potential exploitation attempts targeting Axis devices by monitoring process creation events initiated from network services. Replace CVE-2026-XXXX with the specific CVE ID.
     platform: sigma
     severity: high

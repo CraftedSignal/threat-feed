@@ -61,7 +61,7 @@ rules:
 rules_count: 2
 ---
 
-Multiple vulnerabilities in SAP software could be exploited by an attacker to compromise the confidentiality, integrity, and availability of SAP systems. The broad range of potential impacts—including SQL injection, privilege escalation, arbitrary code execution, security bypass, cross-site scripting (XSS), data manipulation, and sensitive information disclosure—makes this a high-risk situation for organizations relying on SAP solutions. While specific vulnerability details and CVEs are not provided in the source, the advisory emphasizes the need for immediate patching and mitigation to prevent potential exploitation. Defenders should prioritize investigating and applying the April 2026 SAP patch updates across all SAP landscapes.
+Multiple vulnerabilities in SAP software could be exploited by an attacker to compromise the confidentiality, integrity, and availability of SAP systems. The broad range of potential impacts-including SQL injection, privilege escalation, arbitrary code execution, security bypass, cross-site scripting (XSS), data manipulation, and sensitive information disclosure-makes this a high-risk situation for organizations relying on SAP solutions. While specific vulnerability details and CVEs are not provided in the source, the advisory emphasizes the need for immediate patching and mitigation to prevent potential exploitation. Defenders should prioritize investigating and applying the April 2026 SAP patch updates across all SAP landscapes.
 
 ## Attack Chain
 

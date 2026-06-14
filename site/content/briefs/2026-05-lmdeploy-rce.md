@@ -36,7 +36,7 @@ ioc_counts:
   email: 1
 rules:
   - title: Detect LMDeploy Remote Code Execution via Configuration File Import
-    description: Detects CVE-2026-46517 exploitation — Monitors for process creation events where Python imports a configuration file from a Hugging Face Transformers cache, indicating potential remote code execution via a malicious model repository.
+    description: Detects CVE-2026-46517 exploitation - Monitors for process creation events where Python imports a configuration file from a Hugging Face Transformers cache, indicating potential remote code execution via a malicious model repository.
     platform: sigma
     severity: medium
     tactics:

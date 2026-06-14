@@ -37,7 +37,7 @@ references:
   - CVE-2026-45402
 rules:
   - title: Detect Open WebUI Knowledge Base File Add
-    description: Detects CVE-2026-45402 exploitation — attempt to add a file to a knowledge base using /knowledge/{id}/file/add endpoint
+    description: Detects CVE-2026-45402 exploitation - attempt to add a file to a knowledge base using /knowledge/{id}/file/add endpoint
     platform: sigma
     severity: high
     tactics:
@@ -48,7 +48,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Open WebUI Folder Update with File Injection
-    description: Detects CVE-2026-45402 exploitation — attempt to inject a file into folder data using the /folders/{id}/update endpoint.
+    description: Detects CVE-2026-45402 exploitation - attempt to inject a file into folder data using the /folders/{id}/update endpoint.
     platform: sigma
     severity: high
     tactics:

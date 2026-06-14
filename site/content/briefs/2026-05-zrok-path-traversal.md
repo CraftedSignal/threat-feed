@@ -21,8 +21,8 @@ references:
   - https://github.com/advisories/GHSA-c656-jcx2-7pqj
   - CVE-2026-45576
 rules:
-  - title: Detect CVE-2026-45576 Exploitation — zrok Path Traversal File Write
-    description: Detects CVE-2026-45576 exploitation — File creation outside the intended zrok target directory due to path traversal.
+  - title: Detect CVE-2026-45576 Exploitation - zrok Path Traversal File Write
+    description: Detects CVE-2026-45576 exploitation - File creation outside the intended zrok target directory due to path traversal.
     platform: sigma
     severity: high
     tactics:
@@ -32,8 +32,8 @@ rules:
     data_sources:
       - file_event
       - windows
-  - title: Detect CVE-2026-45576 Exploitation — zrok Path Traversal File Write (Linux)
-    description: Detects CVE-2026-45576 exploitation — File creation outside the intended zrok target directory due to path traversal (Linux).
+  - title: Detect CVE-2026-45576 Exploitation - zrok Path Traversal File Write (Linux)
+    description: Detects CVE-2026-45576 exploitation - File creation outside the intended zrok target directory due to path traversal (Linux).
     platform: sigma
     severity: high
     tactics:

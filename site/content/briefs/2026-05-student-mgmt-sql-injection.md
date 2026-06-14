@@ -28,8 +28,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9469
 rules:
-  - title: Detects CVE-2026-9469 Exploitation — SQL Injection in StudentManagementSystem
-    description: Detects CVE-2026-9469 exploitation — SQL injection attempts in the /success.php endpoint by looking for SQL keywords in the User parameter.
+  - title: Detects CVE-2026-9469 Exploitation - SQL Injection in StudentManagementSystem
+    description: Detects CVE-2026-9469 exploitation - SQL injection attempts in the /success.php endpoint by looking for SQL keywords in the User parameter.
     platform: sigma
     severity: high
     tactics:
@@ -70,7 +70,7 @@ Successful exploitation of this SQL injection vulnerability could lead to severe
 
 ## Recommendation
 
-*   Inspect web server logs for suspicious requests to `/success.php` containing SQL injection payloads in the `User` parameter (see rule "Detects CVE-2026-9469 Exploitation — SQL Injection in StudentManagementSystem").
+*   Inspect web server logs for suspicious requests to `/success.php` containing SQL injection payloads in the `User` parameter (see rule "Detects CVE-2026-9469 Exploitation - SQL Injection in StudentManagementSystem").
 *   Deploy a web application firewall (WAF) rule to block requests with SQL injection attempts targeting the `/success.php` endpoint.
 *   Apply input validation and sanitization techniques to the `User` parameter in `/success.php` to prevent SQL injection.
 *   Monitor database logs for unusual activity that may indicate successful SQL injection attempts.

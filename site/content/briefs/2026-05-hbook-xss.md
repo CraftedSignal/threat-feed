@@ -30,7 +30,7 @@ references:
   - https://www.wordfence.com/threat-intel/vulnerabilities/id/e1c16bcb-c188-4e01-9d0b-e4e1a1ef82ee?source=cve
 rules:
   - title: Detect HBook WordPress Plugin Stored XSS Attempt
-    description: Detects CVE-2026-8143 exploitation — attempts to inject XSS payloads into HBook plugin parameters.
+    description: Detects CVE-2026-8143 exploitation - attempts to inject XSS payloads into HBook plugin parameters.
     platform: sigma
     severity: medium
     tactics:
@@ -40,7 +40,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect HBook WordPress Plugin XSS via POST Request
-    description: Detects CVE-2026-8143 exploitation — HTTP POST requests containing XSS payloads targeting the 'hb_country_iso', 'hb_usa_state_iso', or 'hb_canada_province_iso' parameters of the HBook plugin.
+    description: Detects CVE-2026-8143 exploitation - HTTP POST requests containing XSS payloads targeting the 'hb_country_iso', 'hb_usa_state_iso', or 'hb_canada_province_iso' parameters of the HBook plugin.
     platform: sigma
     severity: medium
     tactics:

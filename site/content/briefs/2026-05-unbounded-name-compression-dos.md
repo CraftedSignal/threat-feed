@@ -30,7 +30,7 @@ references:
   - CVE-2026-44390
 rules:
   - title: Detect CVE-2026-44390 Exploitation Attempt - Suspicious DNS Traffic Volume
-    description: Detects CVE-2026-44390 exploitation — High volume of DNS traffic from a single source may indicate an attempt to exhaust resources.
+    description: Detects CVE-2026-44390 exploitation - High volume of DNS traffic from a single source may indicate an attempt to exhaust resources.
     platform: sigma
     severity: medium
     tactics:
@@ -41,7 +41,7 @@ rules:
       - network_connection
       - windows
   - title: Detect CVE-2026-44390 Exploitation Attempt - DNS Query Size Anomaly
-    description: Detects CVE-2026-44390 exploitation — Detects large DNS query sizes indicative of unbounded name compression attempts.
+    description: Detects CVE-2026-44390 exploitation - Detects large DNS query sizes indicative of unbounded name compression attempts.
     platform: sigma
     severity: medium
     tactics:

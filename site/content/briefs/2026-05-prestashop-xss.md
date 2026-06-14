@@ -32,7 +32,7 @@ ioc_counts:
   email: 1
 rules:
   - title: Detect PrestaShop Stored XSS via Contact Form
-    description: Detects CVE-2026-44212 exploitation — attempts to inject XSS payloads via the PrestaShop contact form by looking for unusual characters in the email address.
+    description: Detects CVE-2026-44212 exploitation - attempts to inject XSS payloads via the PrestaShop contact form by looking for unusual characters in the email address.
     platform: sigma
     severity: high
     tactics:

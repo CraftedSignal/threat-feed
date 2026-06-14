@@ -32,8 +32,8 @@ references:
   - https://github.com/advisories/GHSA-wx44-2q6h-j6p8
   - CVE-2026-45311
 rules:
-  - title: Detects CVE-2026-45311 Exploitation — Cargo Test Executing Shell Commands
-    description: Detects CVE-2026-45311 exploitation — `cargo test` executing shell commands, indicating potential malicious test code execution.
+  - title: Detects CVE-2026-45311 Exploitation - Cargo Test Executing Shell Commands
+    description: Detects CVE-2026-45311 exploitation - `cargo test` executing shell commands, indicating potential malicious test code execution.
     platform: sigma
     severity: critical
     tactics:

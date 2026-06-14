@@ -30,7 +30,7 @@ references:
   - CVE-2026-47396
 rules:
   - title: Detect PraisonAI Unauthenticated Agent Listing
-    description: Detects CVE-2026-47396 exploitation — Unauthenticated HTTP GET request to list PraisonAI agents.
+    description: Detects CVE-2026-47396 exploitation - Unauthenticated HTTP GET request to list PraisonAI agents.
     platform: sigma
     severity: high
     tactics:
@@ -40,7 +40,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect PraisonAI Unauthenticated Agent Invocation
-    description: Detects CVE-2026-47396 exploitation — Unauthenticated HTTP POST request to invoke a PraisonAI agent.
+    description: Detects CVE-2026-47396 exploitation - Unauthenticated HTTP POST request to invoke a PraisonAI agent.
     platform: sigma
     severity: high
     tactics:

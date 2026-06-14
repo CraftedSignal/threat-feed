@@ -31,7 +31,7 @@ references:
   - CVE-2026-42257
 rules:
   - title: Detect CVE-2026-42257 Exploitation via Malicious IMAP Command
-    description: Detects CVE-2026-42257 exploitation — attempts to inject commands into IMAP requests via shell metacharacters.
+    description: Detects CVE-2026-42257 exploitation - attempts to inject commands into IMAP requests via shell metacharacters.
     platform: sigma
     severity: high
     tactics:

@@ -35,7 +35,7 @@ ioc_counts:
   email: 1
 rules:
   - title: Detect Divi Form Builder Admin Account Creation
-    description: Detects CVE-2026-5118 exploitation — Creation of a new administrator account via the Divi Form Builder registration form.
+    description: Detects CVE-2026-5118 exploitation - Creation of a new administrator account via the Divi Form Builder registration form.
     platform: sigma
     severity: critical
     tactics:

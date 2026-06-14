@@ -28,8 +28,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2018-25347
 rules:
-  - title: Detects CVE-2018-25347 Exploitation — WordPress Contact Form Maker SQL Injection Attempt
-    description: Detects CVE-2018-25347 exploitation — SQL injection attempts in WordPress Contact Form Maker Plugin via FormMakerSQLMapping AJAX action
+  - title: Detects CVE-2018-25347 Exploitation - WordPress Contact Form Maker SQL Injection Attempt
+    description: Detects CVE-2018-25347 exploitation - SQL injection attempts in WordPress Contact Form Maker Plugin via FormMakerSQLMapping AJAX action
     platform: sigma
     severity: high
     tactics:
@@ -38,8 +38,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2018-25347 Exploitation — WordPress Contact Form Maker SQL Injection Attempt generete_csv_fmc
-    description: Detects CVE-2018-25347 exploitation — SQL injection attempts in WordPress Contact Form Maker Plugin via generete_csv_fmc AJAX action
+  - title: Detects CVE-2018-25347 Exploitation - WordPress Contact Form Maker SQL Injection Attempt generete_csv_fmc
+    description: Detects CVE-2018-25347 exploitation - SQL injection attempts in WordPress Contact Form Maker Plugin via generete_csv_fmc AJAX action
     platform: sigma
     severity: high
     tactics:

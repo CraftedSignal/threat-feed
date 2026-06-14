@@ -27,16 +27,16 @@ references:
   - https://sansec.io/research/funnelkit-woocommerce-vulnerability-exploited
   - https://www.vulncheck.com/advisories/funnel-builder-for-woocommerce-checkout-missing-authorization-via-ajax
 rules:
-  - title: Detect CVE-2026-47100 Exploitation — Funnel Builder Unauthorized Script Injection
-    description: Detects CVE-2026-47100 exploitation — Attempts to inject JavaScript code into Funnel Builder's External Scripts setting via unauthorized requests.
+  - title: Detect CVE-2026-47100 Exploitation - Funnel Builder Unauthorized Script Injection
+    description: Detects CVE-2026-47100 exploitation - Attempts to inject JavaScript code into Funnel Builder's External Scripts setting via unauthorized requests.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     data_sources:
       - webserver
-  - title: Detect CVE-2026-47100 Exploitation — Funnel Builder External Scripts Modification
-    description: Detects CVE-2026-47100 exploitation — Modification of Funnel Builder external scripts setting with potentially malicious JavaScript.
+  - title: Detect CVE-2026-47100 Exploitation - Funnel Builder External Scripts Modification
+    description: Detects CVE-2026-47100 exploitation - Modification of Funnel Builder external scripts setting with potentially malicious JavaScript.
     platform: sigma
     severity: high
     tactics:
@@ -66,5 +66,5 @@ Successful exploitation of this vulnerability allows an attacker to inject malic
 ## Recommendation
 
 *   Upgrade the Funnel Builder for WooCommerce Checkout plugin to version 3.15.0.3 or later to patch CVE-2026-47100.
-*   Deploy the Sigma rule "Detect CVE-2026-47100 Exploitation — Funnel Builder Unauthorized Script Injection" to your SIEM to detect exploitation attempts.
+*   Deploy the Sigma rule "Detect CVE-2026-47100 Exploitation - Funnel Builder Unauthorized Script Injection" to your SIEM to detect exploitation attempts.
 *   Monitor web server logs for suspicious POST requests to checkout endpoints with attempts to modify script settings, as indicated by the log source in the provided Sigma rule.

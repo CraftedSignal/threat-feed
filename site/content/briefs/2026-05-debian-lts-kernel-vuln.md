@@ -31,7 +31,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-46333
 rules:
   - title: Detect CVE-2026-46333 Exploitation Attempt - Kernel Memory Modification
-    description: Detects CVE-2026-46333 exploitation — attempts to modify kernel memory from user space, which may indicate privilege escalation attempts.
+    description: Detects CVE-2026-46333 exploitation - attempts to modify kernel memory from user space, which may indicate privilege escalation attempts.
     platform: sigma
     severity: high
     tactics:
@@ -44,7 +44,7 @@ rules:
       - process_creation
       - linux
   - title: Detect CVE-2026-46333 Exploitation Attempt - Suspicious Kernel Module Loading
-    description: Detects CVE-2026-46333 exploitation — loading of unsigned or suspicious kernel modules, potentially for privilege escalation.
+    description: Detects CVE-2026-46333 exploitation - loading of unsigned or suspicious kernel modules, potentially for privilege escalation.
     platform: sigma
     severity: medium
     tactics:
@@ -55,7 +55,7 @@ rules:
       - process_creation
       - linux
   - title: Detect CVE-2026-46333 Exploitation Attempt - Syscall Hooking
-    description: Detects CVE-2026-46333 exploitation — usage of tools commonly used for syscall hooking and manipulation, potentially for privilege escalation or data exfiltration.
+    description: Detects CVE-2026-46333 exploitation - usage of tools commonly used for syscall hooking and manipulation, potentially for privilege escalation or data exfiltration.
     platform: sigma
     severity: medium
     tactics:

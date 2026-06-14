@@ -34,7 +34,7 @@ references:
   - https://www.vulncheck.com/advisories/joomla-j2-jobs-authenticated-sql-injection-via-sortby-2
 rules:
   - title: Detect Joomla J2 JOBS SQL Injection via Sortby Parameter
-    description: Detects CVE-2020-37226 exploitation — SQL injection attempts in the 'sortby' parameter of Joomla J2 JOBS POST requests
+    description: Detects CVE-2020-37226 exploitation - SQL injection attempts in the 'sortby' parameter of Joomla J2 JOBS POST requests
     platform: sigma
     severity: high
     tactics:
@@ -44,7 +44,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Joomla J2 JOBS SQL Error Messages
-    description: Detects CVE-2020-37226 exploitation — SQL error messages returned by the server, potentially indicating successful SQL injection
+    description: Detects CVE-2020-37226 exploitation - SQL error messages returned by the server, potentially indicating successful SQL injection
     platform: sigma
     severity: medium
     tactics:

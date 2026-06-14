@@ -27,8 +27,8 @@ references:
   - https://github.com/advisories/GHSA-qpmx-3rfj-7rhv
   - CVE-2026-45067
 rules:
-  - title: Detect CVE-2026-45067 Exploitation — Email Address CRLF Injection Attempt
-    description: Detects CVE-2026-45067 exploitation — Attempts to inject CRLF characters into email addresses, indicating a potential header or SMTP command injection attack.
+  - title: Detect CVE-2026-45067 Exploitation - Email Address CRLF Injection Attempt
+    description: Detects CVE-2026-45067 exploitation - Attempts to inject CRLF characters into email addresses, indicating a potential header or SMTP command injection attack.
     platform: sigma
     severity: high
     tactics:
@@ -37,8 +37,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-45067 Exploitation — Email Address CRLF Injection Attempt in POST body
-    description: Detects CVE-2026-45067 exploitation — Attempts to inject CRLF characters into email addresses within POST request bodies, indicating a potential header or SMTP command injection attack.
+  - title: Detect CVE-2026-45067 Exploitation - Email Address CRLF Injection Attempt in POST body
+    description: Detects CVE-2026-45067 exploitation - Attempts to inject CRLF characters into email addresses within POST request bodies, indicating a potential header or SMTP command injection attack.
     platform: sigma
     severity: high
     tactics:

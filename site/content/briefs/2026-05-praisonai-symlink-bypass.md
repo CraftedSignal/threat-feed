@@ -38,7 +38,7 @@ references:
   - https://github.com/MervinPraison/PraisonAI/security/advisories/new
 rules:
   - title: Detect PraisonAI Symlink Extraction Bypass
-    description: Detects CVE-2026-44340 exploitation — PraisonAI archive extraction creating symlinks with external targets
+    description: Detects CVE-2026-44340 exploitation - PraisonAI archive extraction creating symlinks with external targets
     platform: sigma
     severity: high
     tactics:

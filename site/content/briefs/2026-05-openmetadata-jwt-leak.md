@@ -32,7 +32,7 @@ references:
   - CVE-2026-46481
 rules:
   - title: Detect OpenMetadata TEST_CONNECTION Workflow Password Leak
-    description: Detects CVE-2026-46481 exploitation — cleartext password exposure in OpenMetadata TEST_CONNECTION workflow responses.
+    description: Detects CVE-2026-46481 exploitation - cleartext password exposure in OpenMetadata TEST_CONNECTION workflow responses.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect OpenMetadata Ingestion Bot JWT Leak
-    description: Detects CVE-2026-46481 exploitation — Ingestion bot JWT exposure in OpenMetadata workflow responses.
+    description: Detects CVE-2026-46481 exploitation - Ingestion bot JWT exposure in OpenMetadata workflow responses.
     platform: sigma
     severity: high
     tactics:

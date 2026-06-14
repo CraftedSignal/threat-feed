@@ -29,7 +29,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34647
 rules:
   - title: Detect Adobe Commerce SSRF via crafted URL
-    description: Detects CVE-2026-34647 exploitation — suspicious URL parameters indicative of Server-Side Request Forgery attempts in Adobe Commerce.
+    description: Detects CVE-2026-34647 exploitation - suspicious URL parameters indicative of Server-Side Request Forgery attempts in Adobe Commerce.
     platform: sigma
     severity: medium
     tactics:

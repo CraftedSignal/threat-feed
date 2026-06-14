@@ -41,7 +41,7 @@ ioc_counts:
   url: 4
 rules:
   - title: Detect Forged Token Access to free5GC NEF PFD Data
-    description: Detects CVE-2026-44330 exploitation — unauthorized attempts to access PFD data in free5GC NEF via nnef-pfdmanagement API with forged bearer token.
+    description: Detects CVE-2026-44330 exploitation - unauthorized attempts to access PFD data in free5GC NEF via nnef-pfdmanagement API with forged bearer token.
     platform: sigma
     severity: high
     tactics:
@@ -51,7 +51,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Forged Token Subscription Manipulation in free5GC NEF
-    description: Detects CVE-2026-44330 exploitation — unauthorized attempts to create or delete PFD subscriptions in free5GC NEF via nnef-pfdmanagement API with forged bearer token.
+    description: Detects CVE-2026-44330 exploitation - unauthorized attempts to create or delete PFD subscriptions in free5GC NEF via nnef-pfdmanagement API with forged bearer token.
     platform: sigma
     severity: high
     tactics:

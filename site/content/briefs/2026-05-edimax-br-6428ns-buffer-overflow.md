@@ -34,7 +34,7 @@ references:
   - https://vuldb.com/vuln/365241/cti
 rules:
   - title: Detects CVE-2026-9294 Exploitation Attempt - Long pppUserName in POST Request
-    description: Detects CVE-2026-9294 exploitation attempt — Monitors web server logs for POST requests to /goform/formWanTcpipSetup with abnormally long pppUserName values, indicating a potential buffer overflow attempt.
+    description: Detects CVE-2026-9294 exploitation attempt - Monitors web server logs for POST requests to /goform/formWanTcpipSetup with abnormally long pppUserName values, indicating a potential buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:

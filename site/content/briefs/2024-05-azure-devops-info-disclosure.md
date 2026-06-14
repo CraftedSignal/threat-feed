@@ -25,7 +25,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42826
 rules:
   - title: Detect CVE-2026-42826 Exploitation Attempt - Suspicious Azure DevOps Request
-    description: Detects CVE-2026-42826 exploitation attempt — suspicious network requests to Azure DevOps that may indicate an information disclosure vulnerability.
+    description: Detects CVE-2026-42826 exploitation attempt - suspicious network requests to Azure DevOps that may indicate an information disclosure vulnerability.
     platform: sigma
     severity: medium
     tactics:
@@ -36,7 +36,7 @@ rules:
       - network_connection
       - windows
   - title: Detect CVE-2026-42826 Exploitation Attempt - HTTP Request to Azure DevOps with Specific User Agent
-    description: Detects CVE-2026-42826 exploitation attempt — HTTP request to Azure DevOps with specific User Agent that may indicate an information disclosure vulnerability.
+    description: Detects CVE-2026-42826 exploitation attempt - HTTP request to Azure DevOps with specific User Agent that may indicate an information disclosure vulnerability.
     platform: sigma
     severity: medium
     tactics:

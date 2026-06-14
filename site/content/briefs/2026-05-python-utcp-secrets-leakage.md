@@ -30,7 +30,7 @@ ioc_counts:
   url: 1
 rules:
   - title: Detect Command Injection in utcp-cli
-    description: Detects CVE-2026-45370 exploitation — Command injection attempts in utcp-cli by detecting shell metacharacters in command-line arguments.
+    description: Detects CVE-2026-45370 exploitation - Command injection attempts in utcp-cli by detecting shell metacharacters in command-line arguments.
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
       - process_creation
       - linux
   - title: Detect Command Injection in utcp-cli Windows
-    description: Detects CVE-2026-45370 exploitation — Command injection attempts in utcp-cli by detecting shell metacharacters in command-line arguments.
+    description: Detects CVE-2026-45370 exploitation - Command injection attempts in utcp-cli by detecting shell metacharacters in command-line arguments.
     platform: sigma
     severity: high
     tactics:

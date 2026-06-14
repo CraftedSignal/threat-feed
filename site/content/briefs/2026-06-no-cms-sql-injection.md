@@ -31,8 +31,8 @@ references:
   - https://www.exploit-db.com/exploits/45903
   - https://www.vulncheck.com/advisories/no-cms-sql-injection-via-order-by-parameter
 rules:
-  - title: Detect CVE-2018-25431 Exploitation Attempt — No-CMS SQL Injection via order_by Parameter
-    description: Detects CVE-2018-25431 exploitation attempt — SQL injection in No-CMS 1.0 via the order_by parameter in POST requests to /nocms/main/manage_privilege/index/export
+  - title: Detect CVE-2018-25431 Exploitation Attempt - No-CMS SQL Injection via order_by Parameter
+    description: Detects CVE-2018-25431 exploitation attempt - SQL injection in No-CMS 1.0 via the order_by parameter in POST requests to /nocms/main/manage_privilege/index/export
     platform: sigma
     severity: high
     tactics:
@@ -72,7 +72,7 @@ Successful exploitation of this SQL injection vulnerability (CVE-2018-25431) can
 ## Recommendation
 
 *   Apply available patches or updates to No-CMS to remediate CVE-2018-25431.
-*   Deploy the Sigma rule "Detect CVE-2018-25431 Exploitation Attempt — No-CMS SQL Injection via order_by Parameter" to your SIEM to identify malicious POST requests.
+*   Deploy the Sigma rule "Detect CVE-2018-25431 Exploitation Attempt - No-CMS SQL Injection via order_by Parameter" to your SIEM to identify malicious POST requests.
 *   Implement input validation and sanitization measures to prevent SQL injection attacks in the `order_by` parameter.
 *   Monitor web server logs for suspicious POST requests to `/nocms/main/manage_privilege/index/export` containing SQL syntax in the `order_by[0]` parameter (see Sigma rule and logsource).
 *   Review and restrict database user privileges to minimize the impact of successful SQL injection attacks.

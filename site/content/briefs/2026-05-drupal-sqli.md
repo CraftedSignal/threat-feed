@@ -36,8 +36,8 @@ iocs:
 ioc_counts:
   url: 2
 rules:
-  - title: Detect CVE-2026-9082 Exploitation Attempt — Drupal SQL Injection via JSON:API
-    description: Detects CVE-2026-9082 exploitation attempt — HTTP request to the Drupal JSON:API endpoint with SQL injection patterns in the filter parameters.
+  - title: Detect CVE-2026-9082 Exploitation Attempt - Drupal SQL Injection via JSON:API
+    description: Detects CVE-2026-9082 exploitation attempt - HTTP request to the Drupal JSON:API endpoint with SQL injection patterns in the filter parameters.
     platform: sigma
     severity: high
     tactics:
@@ -46,8 +46,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-9082 Exploitation Attempt — Drupal SQL Injection via JSON:API (Boolean Based)
-    description: Detects CVE-2026-9082 exploitation attempt — HTTP request to the Drupal JSON:API endpoint with boolean based SQL injection patterns in the filter parameters.
+  - title: Detect CVE-2026-9082 Exploitation Attempt - Drupal SQL Injection via JSON:API (Boolean Based)
+    description: Detects CVE-2026-9082 exploitation attempt - HTTP request to the Drupal JSON:API endpoint with boolean based SQL injection patterns in the filter parameters.
     platform: sigma
     severity: medium
     tactics:
@@ -80,5 +80,5 @@ Successful exploitation of CVE-2026-9082 can lead to significant consequences fo
 
 *   Apply the patches provided in Drupal SA-CORE-2026-004 to address CVE-2026-9082. Upgrade to Drupal Core versions 11.3.10, 11.2.12, 10.6.9, or 10.5.10 depending on your current branch to remediate the vulnerability.
 *   Monitor web server logs for suspicious HTTP requests targeting the JSON:API endpoint (`/jsonapi`) with unusual filter parameters containing SQL metacharacters, as described in the Attack Chain (webserver category).
-*   Deploy the Sigma rule "Detect CVE-2026-9082 Exploitation Attempt — Drupal SQL Injection via JSON:API" to detect potential exploitation attempts in real-time.
+*   Deploy the Sigma rule "Detect CVE-2026-9082 Exploitation Attempt - Drupal SQL Injection via JSON:API" to detect potential exploitation attempts in real-time.
 *   Block access to the identified malicious Git repository URL (`https://github.com/7h30th3r0n3/CVE-2026-9082-Drupal-PoC.git`) to prevent internal systems from downloading the exploit code (IOC).

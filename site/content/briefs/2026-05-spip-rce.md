@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/spip-prior-to-remote-code-execution-via-nginx
 rules:
   - title: Detect CVE-2026-8430 Exploitation Attempt via Malicious URI
-    description: Detects CVE-2026-8430 exploitation — URI containing common code injection attempts
+    description: Detects CVE-2026-8430 exploitation - URI containing common code injection attempts
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-8430 Exploitation Attempt via HTTP Request Headers
-    description: Detects CVE-2026-8430 exploitation — Suspicious HTTP request headers with potential code injection
+    description: Detects CVE-2026-8430 exploitation - Suspicious HTTP request headers with potential code injection
     platform: sigma
     severity: high
     tactics:

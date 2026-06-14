@@ -33,7 +33,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5395
 rules:
   - title: Detect CVE-2026-5395 Exploitation Attempt via Fluent Forms IDOR
-    description: Detects CVE-2026-5395 exploitation attempt — HTTP request to the Fluent Forms exportEntries function with suspicious parameters indicative of IDOR.
+    description: Detects CVE-2026-5395 exploitation attempt - HTTP request to the Fluent Forms exportEntries function with suspicious parameters indicative of IDOR.
     platform: sigma
     severity: high
     tactics:

@@ -33,7 +33,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34650
   - https://helpx.adobe.com/security/products/magento/apsb26-49.html
 rules:
-  - title: Detect CVE-2026-34650 Exploitation Attempts — High Request Rate to Specific Endpoint
+  - title: Detect CVE-2026-34650 Exploitation Attempts - High Request Rate to Specific Endpoint
     description: Detects CVE-2026-34650 exploitation attempts by monitoring for unusually high request rates to a specific endpoint in Adobe Commerce. Adjust the threshold to suit the baseline traffic.
     platform: sigma
     severity: medium
@@ -43,7 +43,7 @@ rules:
       - T1499.004
     data_sources:
       - webserver
-  - title: Detect CVE-2026-34650 Exploitation Attempts — Large POST Request Size
+  - title: Detect CVE-2026-34650 Exploitation Attempts - Large POST Request Size
     description: Detects CVE-2026-34650 exploitation attempts by monitoring for abnormally large POST request sizes, potentially indicating an attempt to exhaust resources.
     platform: sigma
     severity: low

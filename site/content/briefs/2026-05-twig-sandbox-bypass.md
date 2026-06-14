@@ -26,7 +26,7 @@ references:
   - CVE-2026-46639
 rules:
   - title: Detect Twig Sandbox Bypass via getAttribute
-    description: Detects CVE-2026-46639 exploitation — Calls to `CoreExtension::getAttribute` with the `$sandboxed` argument set to `false`, indicating a potential sandbox bypass.
+    description: Detects CVE-2026-46639 exploitation - Calls to `CoreExtension::getAttribute` with the `$sandboxed` argument set to `false`, indicating a potential sandbox bypass.
     platform: sigma
     severity: high
     tactics:

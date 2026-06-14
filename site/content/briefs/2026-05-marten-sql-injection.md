@@ -29,8 +29,8 @@ references:
   - https://github.com/JasperFx/marten/blob/master/src/Marten/Linq/SqlGeneration/Filters/FullTextWhereFragment.cs
   - https://github.com/JasperFx/marten/blob/master/src/LinqTests/Bugs/full_text_regconfig_sql_injection.cs
 rules:
-  - title: Detects CVE-2026-45288 Exploitation — Marten SQL Injection via regConfig
-    description: Detects CVE-2026-45288 exploitation — SQL injection attempts in HTTP requests targeting Marten applications by looking for shell metacharacters or SQL keywords in the regConfig parameter.
+  - title: Detects CVE-2026-45288 Exploitation - Marten SQL Injection via regConfig
+    description: Detects CVE-2026-45288 exploitation - SQL injection attempts in HTTP requests targeting Marten applications by looking for shell metacharacters or SQL keywords in the regConfig parameter.
     platform: sigma
     severity: high
     tactics:
@@ -39,8 +39,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-45288 Exploitation — Marten regConfig Validation Bypass Attempt
-    description: Detects CVE-2026-45288 exploitation — detects attempts to bypass the intended regConfig validation by using schema-qualified names with injection attempts.
+  - title: Detects CVE-2026-45288 Exploitation - Marten regConfig Validation Bypass Attempt
+    description: Detects CVE-2026-45288 exploitation - detects attempts to bypass the intended regConfig validation by using schema-qualified names with injection attempts.
     platform: sigma
     severity: high
     tactics:

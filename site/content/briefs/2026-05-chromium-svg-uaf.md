@@ -30,7 +30,7 @@ references:
   - https://chromereleases.googleblog.com/2026
 rules:
   - title: Detect CVE-2026-7906 Exploitation via SVG Download
-    description: Detects CVE-2026-7906 exploitation — suspicious SVG files downloaded from the internet
+    description: Detects CVE-2026-7906 exploitation - suspicious SVG files downloaded from the internet
     platform: sigma
     severity: medium
     tactics:
@@ -41,7 +41,7 @@ rules:
       - file_event
       - windows
   - title: Detect CVE-2026-7906 Exploitation via Javascript
-    description: Detects CVE-2026-7906 exploitation — detects javascript attempting to manipulate svg objects
+    description: Detects CVE-2026-7906 exploitation - detects javascript attempting to manipulate svg objects
     platform: sigma
     severity: high
     tactics:

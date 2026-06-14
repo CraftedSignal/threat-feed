@@ -26,7 +26,7 @@ references:
   - CVE-2026-45578
 rules:
   - title: Detect AVideo on_publish.php Command Injection Attempt
-    description: Detects CVE-2026-45578 exploitation — HTTP POST to /plugin/Live/on_publish.php with shell metacharacters in the name parameter indicating a command injection attempt.
+    description: Detects CVE-2026-45578 exploitation - HTTP POST to /plugin/Live/on_publish.php with shell metacharacters in the name parameter indicating a command injection attempt.
     platform: sigma
     severity: high
     tactics:

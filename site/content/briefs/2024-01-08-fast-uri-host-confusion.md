@@ -28,7 +28,7 @@ references:
   - https://github.com/advisories/GHSA-v39h-62p7-jpjc
 rules:
   - title: Detect fast-uri Host Confusion Attempt
-    description: Detects CVE-2026-6322 exploitation attempt — HTTP requests containing percent-encoded authority delimiters in the URI, potentially indicating host confusion attacks.
+    description: Detects CVE-2026-6322 exploitation attempt - HTTP requests containing percent-encoded authority delimiters in the URI, potentially indicating host confusion attacks.
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect fast-uri Host Confusion Attempt - POST Request
-    description: Detects CVE-2026-6322 exploitation attempt via POST — HTTP POST requests containing percent-encoded authority delimiters in the URI, potentially indicating host confusion attacks.
+    description: Detects CVE-2026-6322 exploitation attempt via POST - HTTP POST requests containing percent-encoded authority delimiters in the URI, potentially indicating host confusion attacks.
     platform: sigma
     severity: high
     tactics:

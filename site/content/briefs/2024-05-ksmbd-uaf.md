@@ -31,7 +31,7 @@ cves:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-31718
 rules:
-  - title: Detect CVE-2026-31718 Exploitation Attempt — Durable Handle Request
+  - title: Detect CVE-2026-31718 Exploitation Attempt - Durable Handle Request
     description: Detects CVE-2026-31718 exploitation attempt by monitoring for SMB requests indicative of durable handle usage, which may precede a use-after-free trigger.
     platform: sigma
     severity: medium
@@ -42,8 +42,8 @@ rules:
     data_sources:
       - network_connection
       - windows
-  - title: Detect CVE-2026-31718 Exploitation Attempt — SMB2 Close Request
-    description: Detects CVE-2026-31718 exploitation attempt — an SMB2 close request following a durable handle request which could indicate an attempt to trigger the UAF.
+  - title: Detect CVE-2026-31718 Exploitation Attempt - SMB2 Close Request
+    description: Detects CVE-2026-31718 exploitation attempt - an SMB2 close request following a durable handle request which could indicate an attempt to trigger the UAF.
     platform: sigma
     severity: medium
     tactics:

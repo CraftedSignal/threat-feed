@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34653
 rules:
   - title: Detect Adobe Commerce Path Traversal Attempt
-    description: Detects CVE-2026-34653 exploitation attempt — Path traversal attempts in Adobe Commerce via common directory traversal sequences
+    description: Detects CVE-2026-34653 exploitation attempt - Path traversal attempts in Adobe Commerce via common directory traversal sequences
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Adobe Commerce File Write via Path Traversal
-    description: Detects CVE-2026-34653 exploitation — File creation or modification in web directories after a detected path traversal attempt
+    description: Detects CVE-2026-34653 exploitation - File creation or modification in web directories after a detected path traversal attempt
     platform: sigma
     severity: critical
     tactics:

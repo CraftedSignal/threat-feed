@@ -27,8 +27,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-r73h-97w8-m54h
 rules:
-  - title: Detect CVE-2026-32687 Exploitation — Malicious Channel Name in Postgrex Notifications
-    description: Detects CVE-2026-32687 exploitation — Attempts to inject SQL commands via the channel name in Postgrex notifications by detecting quote characters in the channel argument.
+  - title: Detect CVE-2026-32687 Exploitation - Malicious Channel Name in Postgrex Notifications
+    description: Detects CVE-2026-32687 exploitation - Attempts to inject SQL commands via the channel name in Postgrex notifications by detecting quote characters in the channel argument.
     platform: sigma
     severity: high
     tactics:
@@ -38,8 +38,8 @@ rules:
     data_sources:
       - application
       - erlang
-  - title: Detect CVE-2026-32687 Exploitation — SQL Injection Payloads in Postgrex Notifications
-    description: Detects CVE-2026-32687 exploitation — Attempts to inject SQL commands via the channel name in Postgrex notifications by detecting SQL keywords
+  - title: Detect CVE-2026-32687 Exploitation - SQL Injection Payloads in Postgrex Notifications
+    description: Detects CVE-2026-32687 exploitation - Attempts to inject SQL commands via the channel name in Postgrex notifications by detecting SQL keywords
     platform: sigma
     severity: critical
     tactics:

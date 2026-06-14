@@ -112,7 +112,7 @@
         form.reset();
         applyChannel();
       } else {
-        setStatus('Subscription active — webhooks are confirmed by URL possession.', 'success');
+        setStatus('Subscription active - webhooks are confirmed by URL possession.', 'success');
         form.reset();
         applyChannel();
       }

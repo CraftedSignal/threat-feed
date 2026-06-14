@@ -31,7 +31,7 @@ references:
   - https://www.vulncheck.com/advisories/openclaw-unsafe-config-mutation-via-gateway-tool-denylist-bypass
 rules:
   - title: Detect OpenClaw Config Apply Patch
-    description: Detects CVE-2026-45006 exploitation — Monitors for calls to config.apply or config.patch operations in OpenClaw gateway tool, potentially indicating attempts to exploit the improper access control vulnerability.
+    description: Detects CVE-2026-45006 exploitation - Monitors for calls to config.apply or config.patch operations in OpenClaw gateway tool, potentially indicating attempts to exploit the improper access control vulnerability.
     platform: sigma
     severity: high
     tactics:

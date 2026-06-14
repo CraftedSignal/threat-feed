@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/splinterware-system-scheduler-pro-privilege-escalation
 rules:
   - title: Detect CVE-2018-25359 Exploitation - WService.exe Replacement
-    description: Detects CVE-2018-25359 exploitation — Creation of WService.exe by a non-SYSTEM process, indicating potential service executable replacement.
+    description: Detects CVE-2018-25359 exploitation - Creation of WService.exe by a non-SYSTEM process, indicating potential service executable replacement.
     platform: sigma
     severity: high
     tactics:

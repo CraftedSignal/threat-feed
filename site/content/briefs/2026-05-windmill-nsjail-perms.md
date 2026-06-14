@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47107
 rules:
   - title: Detect Suspicious Modification of /etc/hosts, /etc/resolv.conf, or /etc/ssl/certs/ca-certificates.crt in nsjail Sandbox
-    description: Detects CVE-2026-47107 exploitation — modification of critical system files within a nsjail sandbox environment.
+    description: Detects CVE-2026-47107 exploitation - modification of critical system files within a nsjail sandbox environment.
     platform: sigma
     severity: critical
     tactics:

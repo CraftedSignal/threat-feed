@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/textpattern-cms-dev-authenticated-remote-code-execution-via-plugin-upload
 rules:
   - title: Detect Textpattern CMS PHP Upload via CVE-2021-47976
-    description: Detects CVE-2021-47976 exploitation — PHP file upload to /textpattern/tmp/ directory
+    description: Detects CVE-2021-47976 exploitation - PHP file upload to /textpattern/tmp/ directory
     platform: sigma
     severity: high
     tactics:

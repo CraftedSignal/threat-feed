@@ -33,7 +33,7 @@ references:
   - https://www.vulncheck.com/advisories/home-assistant-community-store-path-traversal-account-takeover
 rules:
   - title: Detect HACS Path Traversal Attempt
-    description: Detects CVE-2021-47942 exploitation — Path traversal attempts in Home Assistant Community Store (HACS) via the /hacsfiles/ endpoint.
+    description: Detects CVE-2021-47942 exploitation - Path traversal attempts in Home Assistant Community Store (HACS) via the /hacsfiles/ endpoint.
     platform: sigma
     severity: high
     tactics:

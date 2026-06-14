@@ -30,7 +30,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6419
 rules:
   - title: Detect WishList Member API Key Retrieval (CVE-2026-6419)
-    description: Detects CVE-2026-6419 exploitation — An authenticated user attempts to retrieve the WishList Member REST API key by exploiting the ajax_get_screen function.
+    description: Detects CVE-2026-6419 exploitation - An authenticated user attempts to retrieve the WishList Member REST API key by exploiting the ajax_get_screen function.
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect WishList Member Admin Account Creation via API (CVE-2026-6419)
-    description: Detects CVE-2026-6419 post-exploitation — Creation of a new administrator-level user via the WishList Member API after obtaining the REST API Secret Key.
+    description: Detects CVE-2026-6419 post-exploitation - Creation of a new administrator-level user via the WishList Member API after obtaining the REST API Secret Key.
     platform: sigma
     severity: critical
     tactics:

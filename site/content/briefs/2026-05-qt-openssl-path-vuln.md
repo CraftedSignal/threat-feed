@@ -26,7 +26,7 @@ references:
   - CVE-2025-14575
 rules:
   - title: Detect Suspicious CA Certificate Loading via Modified Path
-    description: Detects CVE-2025-14575 exploitation — Monitors for process loading CA certificates from unusual or unexpected locations, indicating potential manipulation of the search path.
+    description: Detects CVE-2025-14575 exploitation - Monitors for process loading CA certificates from unusual or unexpected locations, indicating potential manipulation of the search path.
     platform: sigma
     severity: high
     tactics:

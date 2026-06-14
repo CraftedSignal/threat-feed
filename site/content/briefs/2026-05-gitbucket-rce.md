@@ -37,7 +37,7 @@ references:
   - https://www.vulncheck.com/advisories/gitbucket-unauthenticated-remote-code-execution
 rules:
   - title: Detect CVE-2018-25332 GitBucket Malicious JAR Upload
-    description: Detects CVE-2018-25332 exploitation —  Attempts to upload malicious JAR plugins via the git-lfs endpoint in GitBucket
+    description: Detects CVE-2018-25332 exploitation -  Attempts to upload malicious JAR plugins via the git-lfs endpoint in GitBucket
     platform: sigma
     severity: high
     tactics:
@@ -47,7 +47,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2018-25332 GitBucket Exploit Endpoint Access
-    description: Detects CVE-2018-25332 exploitation — Access to an exposed exploit endpoint after JAR upload in GitBucket.
+    description: Detects CVE-2018-25332 exploitation - Access to an exposed exploit endpoint after JAR upload in GitBucket.
     platform: sigma
     severity: critical
     tactics:

@@ -26,7 +26,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-45242
 rules:
   - title: Detect Summarize Path Traversal Attempt via slidesDir
-    description: Detects CVE-2026-45242 exploitation — HTTP POST requests to the /v1/summarize endpoint with path traversal sequences or absolute paths in the slidesDir parameter
+    description: Detects CVE-2026-45242 exploitation - HTTP POST requests to the /v1/summarize endpoint with path traversal sequences or absolute paths in the slidesDir parameter
     platform: sigma
     severity: high
     tactics:
@@ -36,7 +36,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Summarize File Write via slidesDir Path Traversal
-    description: Detects CVE-2026-45242 exploitation — File creation events in unexpected directories due to path traversal via the slidesDir parameter.
+    description: Detects CVE-2026-45242 exploitation - File creation events in unexpected directories due to path traversal via the slidesDir parameter.
     platform: sigma
     severity: medium
     tactics:

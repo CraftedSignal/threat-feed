@@ -26,7 +26,7 @@ references:
   - https://github.com/open-webui/open-webui/commit/6d736d3c598dbe49488675ed42845e00b62dfcba
 rules:
   - title: Detect Open WebUI Code Execution Bypass via API Endpoint
-    description: Detects CVE-2026-45672 exploitation — attempts to execute code via the `/api/v1/utils/code/execute` endpoint in Open WebUI, bypassing the `ENABLE_CODE_EXECUTION` flag.
+    description: Detects CVE-2026-45672 exploitation - attempts to execute code via the `/api/v1/utils/code/execute` endpoint in Open WebUI, bypassing the `ENABLE_CODE_EXECUTION` flag.
     platform: sigma
     severity: high
     tactics:
@@ -36,7 +36,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Open WebUI Jupyter Code Execution with Suspicious Commands
-    description: Detects CVE-2026-45672 exploitation — monitors for specific command execution attempts within Open WebUI's Jupyter code execution feature, indicating potential exploitation.
+    description: Detects CVE-2026-45672 exploitation - monitors for specific command execution attempts within Open WebUI's Jupyter code execution feature, indicating potential exploitation.
     platform: sigma
     severity: high
     tactics:

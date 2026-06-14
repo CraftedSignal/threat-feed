@@ -36,7 +36,7 @@ rules:
     data_sources:
       - webserver
   - title: Detects CVE-2026-46410 exploitation - FileBrowser Sensitive File Request
-    description: Detects CVE-2026-46410 exploitation — Monitors web server logs for requests to configuration files within FileBrowser Quantum that should not be publicly accessible.
+    description: Detects CVE-2026-46410 exploitation - Monitors web server logs for requests to configuration files within FileBrowser Quantum that should not be publicly accessible.
     platform: sigma
     severity: medium
     tactics:

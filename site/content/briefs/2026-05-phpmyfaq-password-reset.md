@@ -31,7 +31,7 @@ references:
   - https://www.vulncheck.com/advisories/phpmyfaq-unauthenticated-password-reset-via-user-password-update-endpoint
 rules:
   - title: Detect phpMyFAQ Password Reset Attempt
-    description: Detects CVE-2026-35676 exploitation — an unauthenticated password reset attempt in phpMyFAQ via PUT requests to /api/index.php/user/password/update.
+    description: Detects CVE-2026-35676 exploitation - an unauthenticated password reset attempt in phpMyFAQ via PUT requests to /api/index.php/user/password/update.
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect phpMyFAQ Password Reset from Uncommon Source IP
-    description: Detects CVE-2026-35676 exploitation — an unauthenticated password reset attempt in phpMyFAQ via PUT requests to /api/index.php/user/password/update from uncommon source IPs
+    description: Detects CVE-2026-35676 exploitation - an unauthenticated password reset attempt in phpMyFAQ via PUT requests to /api/index.php/user/password/update from uncommon source IPs
     platform: sigma
     severity: medium
     tactics:

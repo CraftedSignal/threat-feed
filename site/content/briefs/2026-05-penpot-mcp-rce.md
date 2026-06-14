@@ -24,7 +24,7 @@ references:
   - https://github.com/advisories/GHSA-22qr-rp27-j9wm
 rules:
   - title: Detect Penpot MCP Unauthenticated Code Execution Attempt
-    description: Detects CVE-2026-45805 exploitation — attempts to execute arbitrary code via the unauthenticated /execute endpoint in Penpot MCP's ReplServer.
+    description: Detects CVE-2026-45805 exploitation - attempts to execute arbitrary code via the unauthenticated /execute endpoint in Penpot MCP's ReplServer.
     platform: sigma
     severity: high
     tactics:

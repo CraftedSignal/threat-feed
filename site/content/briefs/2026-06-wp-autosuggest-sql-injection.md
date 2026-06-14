@@ -31,8 +31,8 @@ references:
   - https://www.exploit-db.com/exploits/45977
   - https://www.vulncheck.com/advisories/wp-autosuggest-sql-injection-via-autosuggest-php
 rules:
-  - title: Detect CVE-2018-25434 Exploitation — WP AutoSuggest SQL Injection Attempt
-    description: Detects CVE-2018-25434 exploitation — HTTP GET requests to autosuggest.php with SQL injection attempts in the wpas_keys parameter
+  - title: Detect CVE-2018-25434 Exploitation - WP AutoSuggest SQL Injection Attempt
+    description: Detects CVE-2018-25434 exploitation - HTTP GET requests to autosuggest.php with SQL injection attempts in the wpas_keys parameter
     platform: sigma
     severity: high
     tactics:
@@ -74,5 +74,5 @@ Successful exploitation of this SQL injection vulnerability (CVE-2018-25434) all
 ## Recommendation
 
 *   Upgrade the WP AutoSuggest plugin to a version that addresses the SQL injection vulnerability (CVE-2018-25434).
-*   Deploy the Sigma rule "Detect CVE-2018-25434 Exploitation — WP AutoSuggest SQL Injection Attempt" to your SIEM and tune it for your environment.
+*   Deploy the Sigma rule "Detect CVE-2018-25434 Exploitation - WP AutoSuggest SQL Injection Attempt" to your SIEM and tune it for your environment.
 *   Monitor web server logs for suspicious GET requests to `autosuggest.php` containing potentially malicious SQL code in the `wpas_keys` parameter.

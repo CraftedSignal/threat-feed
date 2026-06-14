@@ -52,8 +52,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2023-45237
   - https://help.br-automation.com/#/en/6/cyber-security/defense-in-depth-for-br-products/reference_architecture.html
 rules:
-  - title: Detect CVE-2023-45229 Exploitation Attempt — Malformed DHCPv6 IA_NA/IA_TA Option
-    description: Detects CVE-2023-45229 exploitation attempt — monitors network traffic for DHCPv6 Advertise messages with malformed IA_NA or IA_TA options indicative of an out-of-bounds read attempt.
+  - title: Detect CVE-2023-45229 Exploitation Attempt - Malformed DHCPv6 IA_NA/IA_TA Option
+    description: Detects CVE-2023-45229 exploitation attempt - monitors network traffic for DHCPv6 Advertise messages with malformed IA_NA or IA_TA options indicative of an out-of-bounds read attempt.
     platform: sigma
     severity: high
     tactics:
@@ -63,8 +63,8 @@ rules:
     data_sources:
       - network_connection
       - zeek
-  - title: Detect CVE-2023-45230 Exploitation Attempt — Long DHCPv6 Server ID Option
-    description: Detects CVE-2023-45230 exploitation attempt — monitors network traffic for DHCPv6 client messages with a server ID option exceeding a reasonable length, indicative of a buffer overflow attempt.
+  - title: Detect CVE-2023-45230 Exploitation Attempt - Long DHCPv6 Server ID Option
+    description: Detects CVE-2023-45230 exploitation attempt - monitors network traffic for DHCPv6 client messages with a server ID option exceeding a reasonable length, indicative of a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:

@@ -22,7 +22,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-41863
 rules:
   - title: Detects CVE-2026-41863 Exploitation Attempts - Suspicious Request Patterns
-    description: Detects CVE-2026-41863 exploitation attempts — identifies suspicious request patterns to Spring AI applications that may indicate data injection attacks.
+    description: Detects CVE-2026-41863 exploitation attempts - identifies suspicious request patterns to Spring AI applications that may indicate data injection attacks.
     platform: sigma
     severity: medium
     tactics:
@@ -32,7 +32,7 @@ rules:
     data_sources:
       - webserver
   - title: Detects CVE-2026-41863 Exploitation Attempts - Error Responses with AI keywords
-    description: Detects CVE-2026-41863 exploitation attempts — looks for error responses with AI keywords after suspicious requests.
+    description: Detects CVE-2026-41863 exploitation attempts - looks for error responses with AI keywords after suspicious requests.
     platform: sigma
     severity: low
     tactics:

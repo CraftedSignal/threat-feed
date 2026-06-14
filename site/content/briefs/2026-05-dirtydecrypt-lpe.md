@@ -38,7 +38,7 @@ references:
   - https://github.com/0xBlackash/DirtyDecrypt
 rules:
   - title: Detect DirtyDecrypt Exploit Execution
-    description: Detects CVE-2026-31635 exploitation — execution of a binary without a parent process, potentially indicating the DirtyDecrypt exploit
+    description: Detects CVE-2026-31635 exploitation - execution of a binary without a parent process, potentially indicating the DirtyDecrypt exploit
     platform: sigma
     severity: high
     tactics:
@@ -49,7 +49,7 @@ rules:
       - process_creation
       - linux
   - title: Detect RXGK Key Addition
-    description: Detects CVE-2026-31635 exploitation — usage of the `keyctl` utility to add RXGK keys, a prerequisite for the DirtyDecrypt exploit
+    description: Detects CVE-2026-31635 exploitation - usage of the `keyctl` utility to add RXGK keys, a prerequisite for the DirtyDecrypt exploit
     platform: sigma
     severity: medium
     tactics:

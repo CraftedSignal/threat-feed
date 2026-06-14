@@ -25,8 +25,8 @@ references:
   - https://github.com/advisories/GHSA-gfm2-xm6c-37qc
   - https://github.com/open-webui/open-webui/commit/cf4218e688def6f11d195aeda6665ae5b5376b67
 rules:
-  - title: Detect CVE-2026-45349 Exploitation — Open WebUI Unauthorized Chat Completion Access
-    description: Detects CVE-2026-45349 exploitation — Access to the /api/chat/completions endpoint with a Chat ID that does not belong to the user.
+  - title: Detect CVE-2026-45349 Exploitation - Open WebUI Unauthorized Chat Completion Access
+    description: Detects CVE-2026-45349 exploitation - Access to the /api/chat/completions endpoint with a Chat ID that does not belong to the user.
     platform: sigma
     severity: high
     tactics:

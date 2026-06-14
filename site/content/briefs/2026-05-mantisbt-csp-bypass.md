@@ -28,7 +28,7 @@ references:
   - CVE-2026-40597
 rules:
   - title: Detect MantisBT CSP Bypass via JavaScript MIME Sniffing
-    description: Detects CVE-2026-40597 exploitation — crafted attachment upload in MantisBT leading to CSP bypass due to JavaScript MIME sniffing.
+    description: Detects CVE-2026-40597 exploitation - crafted attachment upload in MantisBT leading to CSP bypass due to JavaScript MIME sniffing.
     platform: sigma
     severity: high
     tactics:

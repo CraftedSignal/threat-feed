@@ -24,8 +24,8 @@ mitre_ttps:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-35435
 rules:
-  - title: Detects CVE-2026-35435 Exploitation Attempt — Suspicious Activity Targeting Azure AI Foundry Agents
-    description: Detects CVE-2026-35435 exploitation attempt — Monitors for suspicious network activity indicative of privilege escalation attempts targeting Azure AI Foundry agents.
+  - title: Detects CVE-2026-35435 Exploitation Attempt - Suspicious Activity Targeting Azure AI Foundry Agents
+    description: Detects CVE-2026-35435 exploitation attempt - Monitors for suspicious network activity indicative of privilege escalation attempts targeting Azure AI Foundry agents.
     platform: sigma
     severity: high
     tactics:
@@ -35,8 +35,8 @@ rules:
     data_sources:
       - network_connection
       - windows
-  - title: Detects CVE-2026-35435 Exploitation Attempt — Monitoring access control events in cloud environment
-    description: Detects CVE-2026-35435 exploitation attempt — Monitor cloud access events.
+  - title: Detects CVE-2026-35435 Exploitation Attempt - Monitoring access control events in cloud environment
+    description: Detects CVE-2026-35435 exploitation attempt - Monitor cloud access events.
     platform: sigma
     severity: high
     tactics:

@@ -33,7 +33,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-40364
 rules:
   - title: Detect Suspicious Process Creation from Winword.exe
-    description: Detects CVE-2026-40364 exploitation — Suspicious child processes spawned by Winword.exe may indicate exploitation attempt.
+    description: Detects CVE-2026-40364 exploitation - Suspicious child processes spawned by Winword.exe may indicate exploitation attempt.
     platform: sigma
     severity: high
     tactics:
@@ -44,7 +44,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Winword Opening Uncommon File Types
-    description: Detects CVE-2026-40364 exploitation — Winword opening unusual file types, potentially indicating an exploit attempt.
+    description: Detects CVE-2026-40364 exploitation - Winword opening unusual file types, potentially indicating an exploit attempt.
     platform: sigma
     severity: medium
     tactics:

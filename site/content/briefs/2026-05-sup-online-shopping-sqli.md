@@ -30,7 +30,7 @@ references:
   - https://vuldb.com/vuln/361921
 rules:
   - title: Detect SQL Injection Attempt via msgid Parameter
-    description: Detects CVE-2026-8131 exploitation — SQL injection attempts via the msgid parameter in /admin/replymsg.php
+    description: Detects CVE-2026-8131 exploitation - SQL injection attempts via the msgid parameter in /admin/replymsg.php
     platform: sigma
     severity: high
     tactics:

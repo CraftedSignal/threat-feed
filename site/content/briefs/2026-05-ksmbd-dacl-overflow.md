@@ -36,7 +36,7 @@ references:
   - CVE-2026-31704
 rules:
   - title: Detect Suspicious KSMBD DACL Size
-    description: Detects CVE-2026-31704 exploitation — Monitors for SMB requests with unusually large DACL sizes, potentially indicating an attempt to trigger an integer overflow.
+    description: Detects CVE-2026-31704 exploitation - Monitors for SMB requests with unusually large DACL sizes, potentially indicating an attempt to trigger an integer overflow.
     platform: sigma
     severity: medium
     tactics:

@@ -37,7 +37,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2010-0249
 rules:
   - title: Detect CVE-2010-0249 Exploitation Attempt via Memory Access
-    description: Detects CVE-2010-0249 exploitation — suspicious memory access patterns indicative of use-after-free vulnerability exploitation attempts in Internet Explorer.
+    description: Detects CVE-2010-0249 exploitation - suspicious memory access patterns indicative of use-after-free vulnerability exploitation attempts in Internet Explorer.
     platform: sigma
     severity: high
     tactics:
@@ -48,7 +48,7 @@ rules:
       - process_creation
       - windows
   - title: Detect CVE-2010-0249 Exploitation - Internet Explorer Crash with Specific Pattern
-    description: Detects CVE-2010-0249 exploitation — Internet Explorer process crashing with specific error patterns in memory associated with use-after-free.
+    description: Detects CVE-2010-0249 exploitation - Internet Explorer process crashing with specific error patterns in memory associated with use-after-free.
     platform: sigma
     severity: high
     tactics:

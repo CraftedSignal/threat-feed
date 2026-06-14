@@ -29,7 +29,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-34327
 rules:
   - title: Detect Suspicious URI Query Parameters in Microsoft Partner Center
-    description: Detects CVE-2026-34327 exploitation — potential spoofing attempts in Microsoft Partner Center by monitoring URI query parameters for suspicious characters
+    description: Detects CVE-2026-34327 exploitation - potential spoofing attempts in Microsoft Partner Center by monitoring URI query parameters for suspicious characters
     platform: sigma
     severity: medium
     tactics:
@@ -39,7 +39,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Suspicious URI Stem in Microsoft Partner Center
-    description: Detects CVE-2026-34327 exploitation — potential spoofing attempts in Microsoft Partner Center by monitoring URI stem for suspicious characters
+    description: Detects CVE-2026-34327 exploitation - potential spoofing attempts in Microsoft Partner Center by monitoring URI stem for suspicious characters
     platform: sigma
     severity: medium
     tactics:

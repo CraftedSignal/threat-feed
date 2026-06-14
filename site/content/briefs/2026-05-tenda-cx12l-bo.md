@@ -33,8 +33,8 @@ references:
   - https://github.com/cve-a/lvdan/issues/6
   - https://vuldb.com/vuln/361927
 rules:
-  - title: Detect CVE-2026-8138 Exploitation Attempt — Tenda CX12L Buffer Overflow
-    description: Detects CVE-2026-8138 exploitation attempt — a POST request to /goform/SetPptpServerCfg with an unusually long parameter value, indicative of a buffer overflow attempt.
+  - title: Detect CVE-2026-8138 Exploitation Attempt - Tenda CX12L Buffer Overflow
+    description: Detects CVE-2026-8138 exploitation attempt - a POST request to /goform/SetPptpServerCfg with an unusually long parameter value, indicative of a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -75,6 +75,6 @@ Successful exploitation of this vulnerability allows a remote attacker to execut
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Detect CVE-2026-8138 Exploitation Attempt — Tenda CX12L Buffer Overflow" to your SIEM to detect exploitation attempts targeting the vulnerable endpoint.
+*   Deploy the Sigma rule "Detect CVE-2026-8138 Exploitation Attempt - Tenda CX12L Buffer Overflow" to your SIEM to detect exploitation attempts targeting the vulnerable endpoint.
 *   Apply the Sigma rule "Detect Suspicious HTTP POST to SetPptpServerCfg Endpoint" to identify unusual activity.
 *   Monitor web server logs for POST requests to `/goform/SetPptpServerCfg` with abnormally long parameter values to identify potential exploitation attempts.

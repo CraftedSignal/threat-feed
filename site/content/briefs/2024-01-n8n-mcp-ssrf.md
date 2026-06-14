@@ -36,7 +36,7 @@ ioc_counts:
   ip: 4
 rules:
   - title: Detect CVE-2026-44694 Exploitation Attempt - Cloud Metadata Request
-    description: Detects CVE-2026-44694 exploitation attempt — Outbound HTTP request from n8n-mcp host to known cloud metadata IP addresses indicating potential SSRF exploit
+    description: Detects CVE-2026-44694 exploitation attempt - Outbound HTTP request from n8n-mcp host to known cloud metadata IP addresses indicating potential SSRF exploit
     platform: sigma
     severity: high
     tactics:
@@ -47,7 +47,7 @@ rules:
       - network_connection
       - windows
   - title: Detect CVE-2026-44694 Exploitation Attempt - x-n8n-url Header Usage
-    description: Detects CVE-2026-44694 exploitation attempt — Usage of the x-n8n-url header with suspicious URL patterns, potentially indicating SSRF exploit.
+    description: Detects CVE-2026-44694 exploitation attempt - Usage of the x-n8n-url header with suspicious URL patterns, potentially indicating SSRF exploit.
     platform: sigma
     severity: medium
     tactics:

@@ -31,8 +31,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-41584
 rules:
-  - title: Detect CVE-2026-41584 Exploitation Attempt — Orchard Transaction with Zero Rk
-    description: Detects CVE-2026-41584 exploitation attempt — monitors for orchard transactions with zero rk values
+  - title: Detect CVE-2026-41584 Exploitation Attempt - Orchard Transaction with Zero Rk
+    description: Detects CVE-2026-41584 exploitation attempt - monitors for orchard transactions with zero rk values
     platform: sigma
     severity: medium
     tactics:
@@ -65,4 +65,4 @@ Successful exploitation of this vulnerability results in a denial-of-service con
 ## Recommendation
 
 *   Upgrade all Zebra nodes running versions prior to 4.3.1 to version 4.3.1 or later to patch CVE-2026-41584.
-*   Deploy the Sigma rule "Detect CVE-2026-41584 Exploitation Attempt — Orchard Transaction with Zero Rk" to detect attempts to exploit this vulnerability by monitoring transaction patterns.
+*   Deploy the Sigma rule "Detect CVE-2026-41584 Exploitation Attempt - Orchard Transaction with Zero Rk" to detect attempts to exploit this vulnerability by monitoring transaction patterns.

@@ -33,7 +33,7 @@ references:
   - https://www.vulncheck.com/advisories/joomla-com-hdwplayer-sql-injection-via-search-php
 rules:
   - title: Detect Joomla com_hdwplayer SQL Injection Attempt
-    description: Detects CVE-2020-37218 exploitation attempt — SQL injection attempts in the hdwplayersearch parameter in Joomla com_hdwplayer.
+    description: Detects CVE-2020-37218 exploitation attempt - SQL injection attempts in the hdwplayersearch parameter in Joomla com_hdwplayer.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Joomla com_hdwplayer SQL Injection Successful
-    description: Detects CVE-2020-37218 exploitation — Monitors for database errors related to SQL injection attempts in Joomla com_hdwplayer.
+    description: Detects CVE-2020-37218 exploitation - Monitors for database errors related to SQL injection attempts in Joomla com_hdwplayer.
     platform: sigma
     severity: medium
     tactics:

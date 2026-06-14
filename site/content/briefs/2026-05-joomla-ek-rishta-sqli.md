@@ -28,8 +28,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2018-25348
 rules:
-  - title: Detects CVE-2018-25348 Exploitation — Joomla Ek Rishta SQL Injection Attempt
-    description: Detects CVE-2018-25348 exploitation — An unauthenticated attacker attempts to exploit an SQL injection vulnerability in Joomla! Ek Rishta by injecting SQL code into the `cid` parameter of a GET request to `/index.php`
+  - title: Detects CVE-2018-25348 Exploitation - Joomla Ek Rishta SQL Injection Attempt
+    description: Detects CVE-2018-25348 exploitation - An unauthenticated attacker attempts to exploit an SQL injection vulnerability in Joomla! Ek Rishta by injecting SQL code into the `cid` parameter of a GET request to `/index.php`
     platform: sigma
     severity: high
     tactics:
@@ -38,8 +38,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2018-25348 Exploitation — Joomla Ek Rishta SQL Injection Response Code
-    description: Detects CVE-2018-25348 exploitation — Monitors for HTTP 500 response codes when accessing the user_detail view, possibly due to a failed SQL injection attempt.
+  - title: Detects CVE-2018-25348 Exploitation - Joomla Ek Rishta SQL Injection Response Code
+    description: Detects CVE-2018-25348 exploitation - Monitors for HTTP 500 response codes when accessing the user_detail view, possibly due to a failed SQL injection attempt.
     platform: sigma
     severity: medium
     tactics:

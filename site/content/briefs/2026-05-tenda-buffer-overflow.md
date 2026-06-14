@@ -37,7 +37,7 @@ references:
   - https://www.tenda.com.cn/
 rules:
   - title: Detect Tenda F1202 Buffer Overflow Attempt
-    description: Detects CVE-2026-9431 exploitation — attempts to exploit the stack-based buffer overflow in Tenda F1202 via a long opttype parameter in a POST request to /goform/PptpUserAdd.
+    description: Detects CVE-2026-9431 exploitation - attempts to exploit the stack-based buffer overflow in Tenda F1202 via a long opttype parameter in a POST request to /goform/PptpUserAdd.
     platform: sigma
     severity: high
     tactics:

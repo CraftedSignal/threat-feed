@@ -41,7 +41,7 @@ ioc_counts:
   url: 2
 rules:
   - title: Detect Vitest otelCarrier Parameter Injection
-    description: Detects CVE-2026-47428 exploitation — Detects attempts to exploit the Vitest otelCarrier XSS vulnerability by looking for suspicious characters in the query parameter.
+    description: Detects CVE-2026-47428 exploitation - Detects attempts to exploit the Vitest otelCarrier XSS vulnerability by looking for suspicious characters in the query parameter.
     platform: sigma
     severity: high
     tactics:

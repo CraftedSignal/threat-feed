@@ -28,8 +28,8 @@ Each YAML file in `briefs/` is a self-contained threat brief:
 
 Each brief is the source for two artifacts:
 
-1. **Encrypted bundle** — the full brief, AES-256-GCM encrypted, consumed by the CraftedSignal platform.
-2. **Public Markdown** — a redacted derivative published at [feed.craftedsignal.io](https://feed.craftedsignal.io). One Markdown file per brief, written by `ti-bot`'s publisher into `site/content/briefs/`. Hugo builds and deploys via the `Site Deploy` workflow.
+1. **Encrypted bundle** - the full brief, AES-256-GCM encrypted, consumed by the CraftedSignal platform.
+2. **Public Markdown** - a redacted derivative published at [feed.craftedsignal.io](https://feed.craftedsignal.io). One Markdown file per brief, written by `ti-bot`'s publisher into `site/content/briefs/`. Hugo builds and deploys via the `Site Deploy` workflow.
 
 ### Public surface
 
@@ -46,7 +46,7 @@ The public derivative includes:
 - Per-rule metadata: title, description, platform, severity, MITRE tactics/techniques, data sources
 - IOCs (type + value) and aggregate `ioc_counts`
 
-The redacted fields — never included in the public output:
+The redacted fields - never included in the public output:
 
 - Detection rule **queries** (the operational logic)
 - Rule **tests** (real TTP samples)

@@ -27,8 +27,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2018-25410
 rules:
-  - title: Detect CVE-2018-25410 Exploitation Attempt — SIM-PKH SQL Injection
-    description: Detects CVE-2018-25410 exploitation attempt — SQL injection in SIM-PKH 2.4.1 via suspicious GET request to /admin/media.php with SQL UNION statements
+  - title: Detect CVE-2018-25410 Exploitation Attempt - SIM-PKH SQL Injection
+    description: Detects CVE-2018-25410 exploitation attempt - SQL injection in SIM-PKH 2.4.1 via suspicious GET request to /admin/media.php with SQL UNION statements
     platform: sigma
     severity: high
     tactics:
@@ -60,5 +60,5 @@ Successful exploitation of this SQL injection vulnerability (CVE-2018-25410) in 
 ## Recommendation
 
 *   Apply available patches or upgrade to a secure version of SIM-PKH to remediate CVE-2018-25410.
-*   Deploy the Sigma rule "Detect CVE-2018-25410 Exploitation Attempt — SIM-PKH SQL Injection" to identify potential exploitation attempts in web server logs.
+*   Deploy the Sigma rule "Detect CVE-2018-25410 Exploitation Attempt - SIM-PKH SQL Injection" to identify potential exploitation attempts in web server logs.
 *   Review and harden database access controls to limit the impact of potential SQL injection attacks.

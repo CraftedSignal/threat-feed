@@ -25,7 +25,7 @@ references:
   - https://www.vulncheck.com/advisories/phpmyfaq-stored-xss-via-utils-parseurl-in-comment-rendering
 rules:
   - title: Detect phpMyFAQ XSS in FAQ Comments
-    description: Detects CVE-2026-46367 exploitation — attempts to inject JavaScript code via malformed URLs in phpMyFAQ comments.
+    description: Detects CVE-2026-46367 exploitation - attempts to inject JavaScript code via malformed URLs in phpMyFAQ comments.
     platform: sigma
     severity: high
     tactics:
@@ -33,7 +33,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect phpMyFAQ XSS in FAQ Comments (unescaped quotes)
-    description: Detects CVE-2026-46367 exploitation — attempts to inject JavaScript code via malformed URLs in phpMyFAQ comments using unescaped quotes.
+    description: Detects CVE-2026-46367 exploitation - attempts to inject JavaScript code via malformed URLs in phpMyFAQ comments using unescaped quotes.
     platform: sigma
     severity: medium
     tactics:

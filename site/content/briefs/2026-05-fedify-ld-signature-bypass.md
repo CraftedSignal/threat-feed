@@ -21,7 +21,7 @@ references:
   - https://github.com/advisories/GHSA-9rfg-v8g9-9367
 rules:
   - title: Detect Fedify JSON-LD Restructuring Attack - @graph
-    description: Detects CVE-2026-42462 exploitation — Alerts on JSON-LD payloads containing the @graph keyword, indicating a potential restructuring attack attempt against Fedify.
+    description: Detects CVE-2026-42462 exploitation - Alerts on JSON-LD payloads containing the @graph keyword, indicating a potential restructuring attack attempt against Fedify.
     platform: sigma
     severity: high
     tactics:
@@ -29,7 +29,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Fedify JSON-LD Restructuring Attack - @included and @reverse
-    description: Detects CVE-2026-42462 exploitation — Alerts on JSON-LD payloads containing the @included or @reverse keyword, indicating a potential restructuring attack attempt against Fedify.
+    description: Detects CVE-2026-42462 exploitation - Alerts on JSON-LD payloads containing the @included or @reverse keyword, indicating a potential restructuring attack attempt against Fedify.
     platform: sigma
     severity: high
     tactics:

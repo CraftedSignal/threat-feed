@@ -27,7 +27,7 @@ references:
   - https://security.paloaltonetworks.com/CVE-2026-0242
   - https://security.paloaltonetworks.com/
 rules:
-  - title: Detects CVE-2026-0242 Exploitation Attempt — Trust Protection Foundation SQL Injection
+  - title: Detects CVE-2026-0242 Exploitation Attempt - Trust Protection Foundation SQL Injection
     description: Detects potential SQL injection attempts against Trust Protection Foundation by identifying common SQL injection payloads in HTTP requests.
     platform: sigma
     severity: medium
@@ -39,7 +39,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-0242 Exploitation Attempt — Trust Protection Foundation SQL Injection POST
+  - title: Detects CVE-2026-0242 Exploitation Attempt - Trust Protection Foundation SQL Injection POST
     description: Detects potential SQL injection attempts against Trust Protection Foundation by identifying common SQL injection payloads in HTTP POST requests.
     platform: sigma
     severity: medium

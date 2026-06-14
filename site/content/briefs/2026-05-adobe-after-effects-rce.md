@@ -32,7 +32,7 @@ references:
   - https://helpx.adobe.com/security/products/after_effects/apsb26-48.html
 rules:
   - title: Detect Suspicious After Effects File Opening
-    description: Detects CVE-2026-34642 exploitation — monitors for After Effects opening unusual file types that could be malicious projects.
+    description: Detects CVE-2026-34642 exploitation - monitors for After Effects opening unusual file types that could be malicious projects.
     platform: sigma
     severity: medium
     tactics:
@@ -44,7 +44,7 @@ rules:
       - process_creation
       - windows
   - title: Detect After Effects Process Spawning Unusual Programs
-    description: Detects CVE-2026-34642 post-exploitation — monitors for After Effects spawning unusual programs after opening a malicious file.
+    description: Detects CVE-2026-34642 post-exploitation - monitors for After Effects spawning unusual programs after opening a malicious file.
     platform: sigma
     severity: high
     tactics:

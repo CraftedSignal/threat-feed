@@ -26,7 +26,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10226
 rules:
   - title: Detect SQL Injection Attempt in student_management_system_by_php delete.php
-    description: Detects CVE-2026-10226 exploitation — SQL injection attempts in the delete.php script by looking for common SQL injection syntax in the user_id, course_id, teacher_id, student_id, and application_id parameters.
+    description: Detects CVE-2026-10226 exploitation - SQL injection attempts in the delete.php script by looking for common SQL injection syntax in the user_id, course_id, teacher_id, student_id, and application_id parameters.
     platform: sigma
     severity: high
     tactics:

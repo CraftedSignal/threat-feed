@@ -34,8 +34,8 @@ iocs:
 ioc_counts:
   email: 1
 rules:
-  - title: Detect CVE-2026-23998 Exploitation Attempt — Missing Client Certificate
-    description: Detects CVE-2026-23998 exploitation attempt — HTTP request to Windows MDM endpoint without client certificate indicating potential authentication bypass.
+  - title: Detect CVE-2026-23998 Exploitation Attempt - Missing Client Certificate
+    description: Detects CVE-2026-23998 exploitation attempt - HTTP request to Windows MDM endpoint without client certificate indicating potential authentication bypass.
     platform: sigma
     severity: high
     tactics:
@@ -45,8 +45,8 @@ rules:
       - T1555
     data_sources:
       - webserver
-  - title: Detect CVE-2026-23998 Potential Exploitation — High Volume of Requests to MDM Endpoint from Single Source Without Client Certificates
-    description: Detects CVE-2026-23998 potential exploitation — High volume of requests to Windows MDM endpoint from a single source without client certificate indicating potential brute force attempt or automated exploitation.
+  - title: Detect CVE-2026-23998 Potential Exploitation - High Volume of Requests to MDM Endpoint from Single Source Without Client Certificates
+    description: Detects CVE-2026-23998 potential exploitation - High volume of requests to Windows MDM endpoint from a single source without client certificate indicating potential brute force attempt or automated exploitation.
     platform: sigma
     severity: medium
     tactics:

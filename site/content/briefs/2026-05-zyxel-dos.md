@@ -32,7 +32,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7287
   - https://www.zyxel.com/global/en/support/end-of-life
 rules:
-  - title: Detect CVE-2026-7287 Exploitation Attempt — Crafted HTTP Request
+  - title: Detect CVE-2026-7287 Exploitation Attempt - Crafted HTTP Request
     description: Detects attempts to exploit CVE-2026-7287 by identifying suspicious HTTP requests targeting vulnerable functions in the Zyxel NWA1100-N web interface.
     platform: sigma
     severity: medium
@@ -42,7 +42,7 @@ rules:
       - T1499.001
     data_sources:
       - webserver
-  - title: Detect CVE-2026-7287 Exploitation Attempt — Long HTTP Parameter
+  - title: Detect CVE-2026-7287 Exploitation Attempt - Long HTTP Parameter
     description: Detects attempts to exploit CVE-2026-7287 by identifying overly long HTTP GET parameters.
     platform: sigma
     severity: low

@@ -24,8 +24,8 @@ mitre_ttps:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32207
 rules:
-  - title: Detects CVE-2026-32207 Exploitation — Suspicious URI access
-    description: Detects CVE-2026-32207 exploitation — Detects script-like syntax in URI access attempts in webserver logs, indicative of XSS attempts against Azure Machine Learning.
+  - title: Detects CVE-2026-32207 Exploitation - Suspicious URI access
+    description: Detects CVE-2026-32207 exploitation - Detects script-like syntax in URI access attempts in webserver logs, indicative of XSS attempts against Azure Machine Learning.
     platform: sigma
     severity: medium
     tactics:
@@ -34,8 +34,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-32207 Exploitation — Script Injection via Request Parameters
-    description: Detects CVE-2026-32207 exploitation — Detects script tags or event handlers within request parameters, indicating potential XSS attempts on Azure Machine Learning.
+  - title: Detects CVE-2026-32207 Exploitation - Script Injection via Request Parameters
+    description: Detects CVE-2026-32207 exploitation - Detects script tags or event handlers within request parameters, indicating potential XSS attempts on Azure Machine Learning.
     platform: sigma
     severity: medium
     tactics:

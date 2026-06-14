@@ -35,7 +35,7 @@ ioc_counts:
   url: 3
 rules:
   - title: Detect Koel SSRF via AWS Metadata Endpoint
-    description: Detects CVE-2026-47260 exploitation — Attempts to access AWS metadata endpoint via podcast enclosure URL
+    description: Detects CVE-2026-47260 exploitation - Attempts to access AWS metadata endpoint via podcast enclosure URL
     platform: sigma
     severity: high
     tactics:
@@ -45,7 +45,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Koel SSRF via Podcast Subscription to External Domain
-    description: Detects CVE-2026-47260 exploitation — Subscription to a podcast feed from a non-internal IP address or domain.
+    description: Detects CVE-2026-47260 exploitation - Subscription to a podcast feed from a non-internal IP address or domain.
     platform: sigma
     severity: medium
     tactics:

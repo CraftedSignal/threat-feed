@@ -29,8 +29,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-40411
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-40411
 rules:
-  - title: Detect CVE-2026-40411 Exploitation Attempt — Malicious Azure VNet Gateway Configuration
-    description: Detects CVE-2026-40411 exploitation attempt — Monitors Azure API calls to update Virtual Network Gateway configurations for suspicious commands or code injection attempts.
+  - title: Detect CVE-2026-40411 Exploitation Attempt - Malicious Azure VNet Gateway Configuration
+    description: Detects CVE-2026-40411 exploitation attempt - Monitors Azure API calls to update Virtual Network Gateway configurations for suspicious commands or code injection attempts.
     platform: sigma
     severity: high
     tactics:
@@ -74,6 +74,6 @@ Successful exploitation of CVE-2026-40411 allows an authorized attacker to execu
 ## Recommendation
 
 *   Apply the security update provided by Microsoft to patch CVE-2026-40411 on all Azure Virtual Network Gateway instances immediately, as referenced in the advisory URL.
-*   Deploy the Sigma rule `Detect CVE-2026-40411 Exploitation Attempt — Malicious Azure VNet Gateway Configuration` to detect attempts to inject malicious code via configuration updates.
+*   Deploy the Sigma rule `Detect CVE-2026-40411 Exploitation Attempt - Malicious Azure VNet Gateway Configuration` to detect attempts to inject malicious code via configuration updates.
 *   Review and harden input validation mechanisms within Azure Virtual Network Gateway configurations.
 *   Monitor Azure API logs for suspicious configuration changes related to network gateways using the `Detect Suspicious Azure API Activity` Sigma rule.

@@ -37,8 +37,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8449
   - CVE-2026-8449
 rules:
-  - title: Detects CVE-2026-8449 Exploitation — Suspicious SMB2_SET_INFO Request with Malformed SID
-    description: Detects CVE-2026-8449 exploitation — SMB2_SET_INFO request setting DACLs with malformed SIDs containing an inflated num_subauth field, indicating a potential heap out-of-bounds read attempt.
+  - title: Detects CVE-2026-8449 Exploitation - Suspicious SMB2_SET_INFO Request with Malformed SID
+    description: Detects CVE-2026-8449 exploitation - SMB2_SET_INFO request setting DACLs with malformed SIDs containing an inflated num_subauth field, indicating a potential heap out-of-bounds read attempt.
     platform: sigma
     severity: high
     tactics:
@@ -51,7 +51,7 @@ rules:
       - network_connection
       - windows
   - title: Detects CVE-2026-8449 Exploitation - SMB Directory Creation followed by SET_INFO
-    description: Detects CVE-2026-8449 exploitation — Monitors for directory creation followed by SMB2_SET_INFO requests setting DACLs, potentially indicating exploitation attempts against the ksmbd vulnerability.
+    description: Detects CVE-2026-8449 exploitation - Monitors for directory creation followed by SMB2_SET_INFO requests setting DACLs, potentially indicating exploitation attempts against the ksmbd vulnerability.
     platform: sigma
     severity: medium
     tactics:

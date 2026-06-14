@@ -30,8 +30,8 @@ references:
   - https://github.com/advisories/GHSA-cr22-wjx7-2w6m
   - CVE-2026-46519
 rules:
-  - title: Detect CVE-2026-46519 Exploitation — MCP Server Kubernetes Tool Call Bypass
-    description: Detects CVE-2026-46519 exploitation — attempts to call restricted Kubernetes tools via the /mcp endpoint.
+  - title: Detect CVE-2026-46519 Exploitation - MCP Server Kubernetes Tool Call Bypass
+    description: Detects CVE-2026-46519 exploitation - attempts to call restricted Kubernetes tools via the /mcp endpoint.
     platform: sigma
     severity: high
     tactics:

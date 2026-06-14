@@ -2,10 +2,10 @@
 {{ $sev := index (.Params.severities | default (slice "medium")) 0 }}
 {{ $sevClass := printf "sev-%s" $sev }}
 {{/* "informational" is too long for a chip and risks wrapping. Render
-     it as the conventional "info" abbrev — CSS class still tracks the
+     it as the conventional "info" abbrev - CSS class still tracks the
      full taxonomy term so colors stay aligned. */}}
 {{ $sevLabel := cond (eq $sev "informational") "info" $sev }}
-{{/* See partials/brief-card.html — same rationale. */}}
+{{/* See partials/brief-card.html - same rationale. */}}
 {{ $type := .Params.type | default "threat" }}
 {{ $typeLabel := cond (eq $type "coverage") "rule" $type }}
 {{ $tags := .Params.tags | default slice }}
@@ -40,7 +40,7 @@
         <span class="sev-badge {{ $sevClass }}">{{ $sevLabel }}</span>
         <a href="/types/{{ $type }}/" class="type-badge type-{{ $type }} hover:opacity-80 transition" title="See all {{ $typeLabel }} briefs">{{ $typeLabel }}</a>
         {{ if $exploited }}<span class="exploited-badge" title="Active exploitation observed in the wild">exploited</span>{{ end }}
-        {{ if $hasPOC }}{{ if $pocRefs }}<a href="{{ index $pocRefs 0 }}" target="_blank" rel="noopener noreferrer" class="poc-badge hover:opacity-80 transition" title="Public proof-of-concept or exploit available — click to view source">PoC</a>{{ else }}<span class="poc-badge" title="Public proof-of-concept or exploit available">PoC</span>{{ end }}{{ end }}
+        {{ if $hasPOC }}{{ if $pocRefs }}<a href="{{ index $pocRefs 0 }}" target="_blank" rel="noopener noreferrer" class="poc-badge hover:opacity-80 transition" title="Public proof-of-concept or exploit available - click to view source">PoC</a>{{ else }}<span class="poc-badge" title="Public proof-of-concept or exploit available">PoC</span>{{ end }}{{ end }}
         <time class="font-mono text-muted" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" data-pagefind-sort="date[datetime]">{{ .Date.Format "January 2, 2006" }}</time>
         {{/* Updated pill mirrors brief-card.html: same 6h debounce + 7d
              freshness window. Title carries the precise timestamp. */}}
@@ -59,7 +59,7 @@
     </header>
 
     {{/* Two-column on lg+. Main: prose body, detection coverage,
-         IOC table — the long-running analysis. Sidebar: every
+         IOC table - the long-running analysis. Sidebar: every
          analyst-facing reference card (CVEs, MITRE ATT&CK, threat
          actors, affected vendors / products / OS, tags, refs).
          Sidebar sticks to top-20 so it tracks the body when reading. */}}
@@ -168,6 +168,7 @@
       </div>
 
       <aside class="lg:col-span-4 space-y-4 lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto min-w-0">
+        {{ partial "brief-sidebar-jumps.html" . }}
 
         {{ if or $vendors $products $os }}
         <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-3">
@@ -214,7 +215,7 @@
               <a class="font-mono text-accent hover:underline truncate" href="https://nvd.nist.gov/vuln/detail/{{ .id }}" target="_blank" rel="noopener noreferrer">{{ .id }}</a>
               <div class="flex items-center gap-1.5 text-xs flex-none">
                 {{/* CVSS / EPSS may decode as YAML strings (e.g. "5e-05" for
-                     a tiny EPSS), so coerce to float before printf — without
+                     a tiny EPSS), so coerce to float before printf - without
                      this, Go's fmt prints "%!f(string=5e-05)" on the page. */}}
                 {{ if .cvss }}<span class="font-mono text-muted" title="CVSS">{{ printf "%.1f" (float .cvss) }}</span>{{ end }}
                 {{ if .epss }}<span class="font-mono text-muted" title="EPSS">{{ printf "%.2f" (float .epss) }}</span>{{ end }}

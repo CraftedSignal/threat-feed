@@ -33,7 +33,7 @@ references:
   - https://vuldb.com/vuln/365444/cti
 rules:
   - title: Detect CVE-2026-9463 Exploitation Attempt
-    description: Detects CVE-2026-9463 exploitation — HTTP requests to the /goform/formLicence endpoint with an overly long submit-url parameter, indicating a potential buffer overflow attempt.
+    description: Detects CVE-2026-9463 exploitation - HTTP requests to the /goform/formLicence endpoint with an overly long submit-url parameter, indicating a potential buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-9463 Exploitation via POST Request
-    description: Detects CVE-2026-9463 exploitation — HTTP POST requests to the /goform/formLicence endpoint with an overly long submit-url parameter, indicating a potential buffer overflow attempt.
+    description: Detects CVE-2026-9463 exploitation - HTTP POST requests to the /goform/formLicence endpoint with an overly long submit-url parameter, indicating a potential buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:

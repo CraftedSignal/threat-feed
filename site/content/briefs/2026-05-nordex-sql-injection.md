@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/nordex-n149-wind-turbine-web-server-sql-injection
 rules:
   - title: Detect Nordex Wind Turbine SQL Injection Attempt
-    description: Detects CVE-2018-25333 exploitation — SQL injection attempts targeting the login.php endpoint on Nordex wind turbine web servers via POST requests.
+    description: Detects CVE-2018-25333 exploitation - SQL injection attempts targeting the login.php endpoint on Nordex wind turbine web servers via POST requests.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Nordex Wind Turbine Authentication Bypass via SQL Injection
-    description: Detects CVE-2018-25333 exploitation — successful authentication bypass on Nordex wind turbine web servers after a possible SQL injection attempt.
+    description: Detects CVE-2018-25333 exploitation - successful authentication bypass on Nordex wind turbine web servers after a possible SQL injection attempt.
     platform: sigma
     severity: critical
     tactics:

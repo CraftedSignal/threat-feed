@@ -25,7 +25,7 @@ references:
   - https://mail.python.org/archives/list/security-announce@python.org/thread/ITF2BAPBQEPYK3LDMPRSY435JGNHYNDP/
 rules:
   - title: Detect Suspicious Python Process Execution
-    description: Detects CVE-2026-8328 exploitation attempt — suspicious python process execution with uncommon arguments or parent processes.
+    description: Detects CVE-2026-8328 exploitation attempt - suspicious python process execution with uncommon arguments or parent processes.
     platform: sigma
     severity: medium
     tactics:
@@ -36,7 +36,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Suspicious Python Network Connection
-    description: Detects CVE-2026-8328 exploitation attempt — Outbound network connections from python.exe with non-standard ports
+    description: Detects CVE-2026-8328 exploitation attempt - Outbound network connections from python.exe with non-standard ports
     platform: sigma
     severity: low
     tactics:

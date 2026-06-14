@@ -30,7 +30,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4408
 rules:
   - title: Detect CVE-2026-4408 Exploitation Attempt via Malicious Username
-    description: Detects CVE-2026-4408 exploitation — Attempts to authenticate to Samba with a username containing shell meta-characters, indicating a potential command injection attempt via a misconfigured 'check password script'.
+    description: Detects CVE-2026-4408 exploitation - Attempts to authenticate to Samba with a username containing shell meta-characters, indicating a potential command injection attempt via a misconfigured 'check password script'.
     platform: sigma
     severity: critical
     tactics:
@@ -42,7 +42,7 @@ rules:
       - auth
       - samba
   - title: Detect CVE-2026-4408 Exploitation - Password Check Script Execution of Suspicious Commands
-    description: Detects CVE-2026-4408 exploitation — Monitors process creation events for commands executed by the 'check password script' that contain suspicious shell metacharacters indicating command injection.
+    description: Detects CVE-2026-4408 exploitation - Monitors process creation events for commands executed by the 'check password script' that contain suspicious shell metacharacters indicating command injection.
     platform: sigma
     severity: high
     tactics:

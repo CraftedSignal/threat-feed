@@ -27,7 +27,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2018-25342
 rules:
   - title: Detect Smartshop Time-Based SQL Injection Attempt
-    description: Detects CVE-2018-25342 exploitation — Attempts to inject time-based SQL commands (e.g., SLEEP) into the 'searched' parameter of search.php.
+    description: Detects CVE-2018-25342 exploitation - Attempts to inject time-based SQL commands (e.g., SLEEP) into the 'searched' parameter of search.php.
     platform: sigma
     severity: high
     tactics:

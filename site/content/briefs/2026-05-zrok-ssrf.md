@@ -28,7 +28,7 @@ references:
   - CVE-2026-45568
 rules:
   - title: Detect zrok SSRF Attempt via Absolute URL in Request Path
-    description: Detects CVE-2026-45568 exploitation — an SSRF attempt against zrok ProxyShare by detecting HTTP requests containing an absolute URL in the path.
+    description: Detects CVE-2026-45568 exploitation - an SSRF attempt against zrok ProxyShare by detecting HTTP requests containing an absolute URL in the path.
     platform: sigma
     severity: critical
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect zrok SSRF Attempt via URL-encoded Absolute URL in Request Path
-    description: Detects CVE-2026-45568 exploitation — an SSRF attempt against zrok ProxyShare using a URL-encoded absolute URL in the path. This is a variation of the basic SSRF attack.
+    description: Detects CVE-2026-45568 exploitation - an SSRF attempt against zrok ProxyShare using a URL-encoded absolute URL in the path. This is a variation of the basic SSRF attack.
     platform: sigma
     severity: high
     tactics:

@@ -53,8 +53,8 @@ references:
   - https://github.com/coder/coder/releases/tag/v2.24.5
   - https://registry.terraform.io/providers/coder/coder/latest/docs/resources/agent#auth-1
 rules:
-  - title: Detect CVE-2026-46354 Exploitation — Suspicious POST to Azure Instance Identity Endpoint
-    description: Detects CVE-2026-46354 exploitation — HTTP POST to /api/v2/workspaceagents/azure-instance-identity which may indicate an attempt to exploit the PKCS#7 signature bypass vulnerability.
+  - title: Detect CVE-2026-46354 Exploitation - Suspicious POST to Azure Instance Identity Endpoint
+    description: Detects CVE-2026-46354 exploitation - HTTP POST to /api/v2/workspaceagents/azure-instance-identity which may indicate an attempt to exploit the PKCS#7 signature bypass vulnerability.
     platform: sigma
     severity: high
     tactics:

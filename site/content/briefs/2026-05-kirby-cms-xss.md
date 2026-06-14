@@ -28,7 +28,7 @@ references:
   - https://github.com/getkirby/kirby/releases/tag/5.4.1
 rules:
   - title: Detect Suspicious Javascript URI Scheme in Link Tag
-    description: 'Detects CVE-2026-45368 exploitation —  attempts to inject malicious links with javascript:, vbscript:, livescript:, mocha:, jar:, or data: URI schemes in webserver logs.'
+    description: 'Detects CVE-2026-45368 exploitation -  attempts to inject malicious links with javascript:, vbscript:, livescript:, mocha:, jar:, or data: URI schemes in webserver logs.'
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Kirby CMS Block HTML Importer XSS
-    description: Detects CVE-2026-45368 exploitation — attempts to use the HTML importer for blocks to inject Javascript.
+    description: Detects CVE-2026-45368 exploitation - attempts to use the HTML importer for blocks to inject Javascript.
     platform: sigma
     severity: high
     tactics:

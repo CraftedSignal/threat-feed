@@ -44,7 +44,7 @@ rules:
       - file_event
       - linux
   - title: Detect CRI-O Socket Activity from Unusual Processes
-    description: Detects CVE-2026-7374 exploitation — Monitors for processes interacting with the CRI-O socket outside of expected container runtime components
+    description: Detects CVE-2026-7374 exploitation - Monitors for processes interacting with the CRI-O socket outside of expected container runtime components
     platform: sigma
     severity: high
     tactics:

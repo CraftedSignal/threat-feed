@@ -27,8 +27,8 @@ references:
   - https://blog.daemon-tools.cc/post/security-incident
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8398
 rules:
-  - title: Detects CVE-2026-8398 Exploitation Attempt — Daemon Tools Lite Suspicious Process
-    description: Detects CVE-2026-8398 exploitation attempt — suspicious child processes spawned by Daemon Tools Lite executable.
+  - title: Detects CVE-2026-8398 Exploitation Attempt - Daemon Tools Lite Suspicious Process
+    description: Detects CVE-2026-8398 exploitation attempt - suspicious child processes spawned by Daemon Tools Lite executable.
     platform: sigma
     severity: high
     tactics:
@@ -39,8 +39,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detects CVE-2026-8398 Exploitation Attempt — Daemon Tools Lite Network Connection
-    description: Detects CVE-2026-8398 exploitation attempt — Daemon Tools Lite process initiating outbound network connections to unusual ports.
+  - title: Detects CVE-2026-8398 Exploitation Attempt - Daemon Tools Lite Network Connection
+    description: Detects CVE-2026-8398 exploitation attempt - Daemon Tools Lite process initiating outbound network connections to unusual ports.
     platform: sigma
     severity: medium
     tactics:

@@ -32,7 +32,7 @@ references:
   - CVE-2026-8161
 rules:
   - title: Detect CVE-2026-8161 Exploitation Attempt via Multipart Form
-    description: Detects CVE-2026-8161 exploitation attempt — HTTP POST requests with multipart/form-data containing field names that collide with Object.prototype properties.
+    description: Detects CVE-2026-8161 exploitation attempt - HTTP POST requests with multipart/form-data containing field names that collide with Object.prototype properties.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-8161 Exploitation Attempt via Multipart Form (URI Stem)
-    description: Detects CVE-2026-8161 exploitation attempt — HTTP POST requests with multipart/form-data containing field names that collide with Object.prototype properties in the URI stem.
+    description: Detects CVE-2026-8161 exploitation attempt - HTTP POST requests with multipart/form-data containing field names that collide with Object.prototype properties in the URI stem.
     platform: sigma
     severity: high
     tactics:

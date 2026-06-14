@@ -78,7 +78,7 @@ type mockMailer struct {
 	batchErrAll error // if set, fans this error to all slots in SendBatch
 }
 
-func (m *mockMailer) Send(_, _, _ string) error {
+func (m *mockMailer) Send(_, _, _, _ string) error {
 	m.sendCalls++
 	return nil
 }
@@ -117,7 +117,7 @@ func TestDispatch_OverflowEmailsBatchedViaSendBatch(t *testing.T) {
 	d.Dispatch(context.Background(), briefs, "https://example.com")
 
 	if mailer.sendCalls != 0 {
-		t.Errorf("Send called %d times; want 0 — email overflows must use SendBatch", mailer.sendCalls)
+		t.Errorf("Send called %d times; want 0 - email overflows must use SendBatch", mailer.sendCalls)
 	}
 	if len(mailer.batchCalls) != 1 {
 		t.Fatalf("SendBatch called %d times; want 1", len(mailer.batchCalls))

@@ -31,8 +31,8 @@ references:
   - https://github.com/givanz/Vvveb/releases/tag/1.0.8.3
   - https://www.vulncheck.com/advisories/vvveb-unrestricted-file-upload-rce-via-plugin-upload
 rules:
-  - title: Detect CVE-2026-41937 Exploitation Attempt — Vvveb Plugin Upload
-    description: Detects CVE-2026-41937 exploitation — an attempt to upload a malicious plugin in Vvveb containing PHP code in public/index.php
+  - title: Detect CVE-2026-41937 Exploitation Attempt - Vvveb Plugin Upload
+    description: Detects CVE-2026-41937 exploitation - an attempt to upload a malicious plugin in Vvveb containing PHP code in public/index.php
     platform: sigma
     severity: high
     tactics:
@@ -74,6 +74,6 @@ Successful exploitation of this vulnerability leads to arbitrary PHP code execut
 ## Recommendation
 
 *   Upgrade Vvveb to version 1.0.8.3 or later to patch CVE-2026-41937.
-*   Implement the Sigma rule "Detect CVE-2026-41937 Exploitation Attempt — Vvveb Plugin Upload" to detect malicious plugin uploads based on HTTP request characteristics.
+*   Implement the Sigma rule "Detect CVE-2026-41937 Exploitation Attempt - Vvveb Plugin Upload" to detect malicious plugin uploads based on HTTP request characteristics.
 *   Restrict access to the plugin upload endpoint to authorized personnel only.
 *   Monitor web server logs for suspicious activity, particularly requests to newly uploaded PHP files.

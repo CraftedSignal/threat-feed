@@ -26,7 +26,7 @@ references:
   - CVE-2026-46670
 rules:
   - title: Detect YesWiki Unauthenticated SQL Injection Attempt
-    description: Detects CVE-2026-46670 exploitation — detects HTTP POST requests to the Bazar form import endpoint with potential SQL injection attempts in the imported-form parameter.
+    description: Detects CVE-2026-46670 exploitation - detects HTTP POST requests to the Bazar form import endpoint with potential SQL injection attempts in the imported-form parameter.
     platform: sigma
     severity: high
     tactics:

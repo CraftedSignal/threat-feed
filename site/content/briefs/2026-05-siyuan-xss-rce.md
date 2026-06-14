@@ -28,7 +28,7 @@ references:
   - https://github.com/advisories/GHSA-2h64-c999-c9r6
 rules:
   - title: Detect SiYuan XSS via Attribute View Name (CVE-2026-44670)
-    description: Detects CVE-2026-44670 exploitation — monitors for the `setAttrViewName` action with suspicious HTML payloads in the SiYuan API.
+    description: Detects CVE-2026-44670 exploitation - monitors for the `setAttrViewName` action with suspicious HTML payloads in the SiYuan API.
     platform: sigma
     severity: critical
     tactics:

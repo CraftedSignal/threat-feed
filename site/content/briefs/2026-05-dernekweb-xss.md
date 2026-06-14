@@ -28,8 +28,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7498
   - https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0258
 rules:
-  - title: Detects CVE-2026-7498 Exploitation — Suspicious URI Query Strings
-    description: Detects CVE-2026-7498 exploitation — URI query string contains common XSS payloads.
+  - title: Detects CVE-2026-7498 Exploitation - Suspicious URI Query Strings
+    description: Detects CVE-2026-7498 exploitation - URI query string contains common XSS payloads.
     platform: sigma
     severity: high
     tactics:
@@ -39,8 +39,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-7498 Exploitation — Suspicious URI Stem XSS
-    description: Detects CVE-2026-7498 exploitation — URI stem contains common XSS payloads.
+  - title: Detects CVE-2026-7498 Exploitation - Suspicious URI Stem XSS
+    description: Detects CVE-2026-7498 exploitation - URI stem contains common XSS payloads.
     platform: sigma
     severity: high
     tactics:

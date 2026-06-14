@@ -31,8 +31,8 @@ references:
   - https://downloads.infusedwoo.com/updater/iw5.php?changelog
   - https://www.wordfence.com/threat-intel/vulnerabilities/id/76b75e61-e7f8-41cc-ab4f-e6ca42d68308?source=cve
 rules:
-  - title: Detect CVE-2026-6514 Exploitation — InfusedWoo Pro Arbitrary File Read
-    description: Detects CVE-2026-6514 exploitation — Attempts to exploit the arbitrary file read vulnerability in the InfusedWoo Pro plugin by sending requests to the popup_submit endpoint with suspicious URL parameters.
+  - title: Detect CVE-2026-6514 Exploitation - InfusedWoo Pro Arbitrary File Read
+    description: Detects CVE-2026-6514 exploitation - Attempts to exploit the arbitrary file read vulnerability in the InfusedWoo Pro plugin by sending requests to the popup_submit endpoint with suspicious URL parameters.
     platform: sigma
     severity: high
     tactics:
@@ -41,8 +41,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-6514 Exploitation — InfusedWoo Pro popup_submit SSRF via Local File
-    description: Detects CVE-2026-6514 exploitation — Detects potential SSRF attempts via the popup_submit function with file:// scheme.
+  - title: Detect CVE-2026-6514 Exploitation - InfusedWoo Pro popup_submit SSRF via Local File
+    description: Detects CVE-2026-6514 exploitation - Detects potential SSRF attempts via the popup_submit function with file:// scheme.
     platform: sigma
     severity: high
     tactics:
@@ -73,5 +73,5 @@ Successful exploitation of this vulnerability (CVE-2026-6514) allows an unauthen
 ## Recommendation
 
 *   Upgrade the InfusedWoo Pro plugin to a version higher than 5.1.2 to patch CVE-2026-6514.
-*   Deploy the Sigma rule "Detect CVE-2026-6514 Exploitation — InfusedWoo Pro Arbitrary File Read" to detect exploitation attempts targeting the vulnerable `popup_submit` endpoint.
+*   Deploy the Sigma rule "Detect CVE-2026-6514 Exploitation - InfusedWoo Pro Arbitrary File Read" to detect exploitation attempts targeting the vulnerable `popup_submit` endpoint.
 *   Review webserver logs for unusual requests to `popup_submit` as described in the Sigma rule, especially those containing suspicious URLs.

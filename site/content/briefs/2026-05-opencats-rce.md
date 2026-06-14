@@ -37,7 +37,7 @@ references:
   - https://www.vulncheck.com/advisories/opencats-remote-code-execution-via-resume-upload
 rules:
   - title: Detect OpenCATS RCE via Resume Upload
-    description: Detects CVE-2021-47936 exploitation — HTTP POST requests to the uploads directory with a PHP file extension, indicating a potential RCE attempt in OpenCATS 0.9.4
+    description: Detects CVE-2021-47936 exploitation - HTTP POST requests to the uploads directory with a PHP file extension, indicating a potential RCE attempt in OpenCATS 0.9.4
     platform: sigma
     severity: critical
     tactics:

@@ -34,7 +34,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32226
 rules:
   - title: Detect .NET Process Crash Event
-    description: Detects CVE-2026-32226 exploitation — event indicating a .NET process crash, which could be indicative of a denial-of-service condition
+    description: Detects CVE-2026-32226 exploitation - event indicating a .NET process crash, which could be indicative of a denial-of-service condition
     platform: sigma
     severity: medium
     tactics:

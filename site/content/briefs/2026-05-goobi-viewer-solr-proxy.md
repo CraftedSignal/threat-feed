@@ -28,7 +28,7 @@ references:
   - https://solr.apache.org/guide/solr/latest/query-guide/streaming-expressions.html
 rules:
   - title: Detect Goobi Viewer Solr Streaming Expression Attempt
-    description: Detects CVE-2026-45083 exploitation — Attempts to access the /api/v1/index/stream endpoint, indicating a potential Solr streaming expression injection attack
+    description: Detects CVE-2026-45083 exploitation - Attempts to access the /api/v1/index/stream endpoint, indicating a potential Solr streaming expression injection attack
     platform: sigma
     severity: high
     tactics:

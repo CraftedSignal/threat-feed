@@ -21,7 +21,7 @@ references:
   - https://github.com/open-webui/open-webui/pull/23481
 rules:
   - title: Detect Open WebUI Unauthorized Model Access via Responses Endpoint
-    description: Detects CVE-2026-44556 exploitation — unauthorized access to models via the /responses endpoint in Open WebUI
+    description: Detects CVE-2026-44556 exploitation - unauthorized access to models via the /responses endpoint in Open WebUI
     platform: sigma
     severity: high
     tactics:
@@ -31,7 +31,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Open WebUI Expensive Model Access via Responses Endpoint
-    description: Detects CVE-2026-44556 exploitation — suspicious access to expensive models (e.g., gpt-4) via the /responses endpoint in Open WebUI
+    description: Detects CVE-2026-44556 exploitation - suspicious access to expensive models (e.g., gpt-4) via the /responses endpoint in Open WebUI
     platform: sigma
     severity: medium
     tactics:

@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-fhh6-4qxv-rpqj
 rules:
   - title: Detect 9router Unauthenticated RCE via MCP Plugin Registration
-    description: Detects CVE-2026-46339 exploitation — Unauthenticated registration of custom plugins with potentially malicious commands in 9router via the /api/cli-tools/cowork-settings endpoint.
+    description: Detects CVE-2026-46339 exploitation - Unauthenticated registration of custom plugins with potentially malicious commands in 9router via the /api/cli-tools/cowork-settings endpoint.
     platform: sigma
     severity: high
     tactics:
@@ -35,7 +35,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect 9router Unauthenticated RCE via MCP Plugin Execution
-    description: Detects CVE-2026-46339 exploitation — Unauthenticated execution of custom plugins in 9router via the /api/mcp/[plugin]/sse endpoint.
+    description: Detects CVE-2026-46339 exploitation - Unauthenticated execution of custom plugins in 9router via the /api/mcp/[plugin]/sse endpoint.
     platform: sigma
     severity: high
     tactics:

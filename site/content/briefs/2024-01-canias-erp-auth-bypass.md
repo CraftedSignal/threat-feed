@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8216
 rules:
   - title: Detect CVE-2026-8216 Exploitation Attempt
-    description: Detects CVE-2026-8216 exploitation attempt — Monitors network traffic for suspicious RMI requests to iasServerRemoteInterface.doAction
+    description: Detects CVE-2026-8216 exploitation attempt - Monitors network traffic for suspicious RMI requests to iasServerRemoteInterface.doAction
     platform: sigma
     severity: high
     tactics:
@@ -39,7 +39,7 @@ rules:
       - network_connection
       - windows
   - title: Detect CVE-2026-8216 Exploitation Attempt - Process Creation
-    description: Detects CVE-2026-8216 exploitation attempt — Monitors process creation after potential RMI exploit
+    description: Detects CVE-2026-8216 exploitation attempt - Monitors process creation after potential RMI exploit
     platform: sigma
     severity: medium
     tactics:

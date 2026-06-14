@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8133
 rules:
   - title: Detect FilePress SQL Injection Attempt via admin.php
-    description: Detects CVE-2026-8133 exploitation — Monitors HTTP requests to the vulnerable admin.php endpoint with suspicious SQL syntax in the query parameters.
+    description: Detects CVE-2026-8133 exploitation - Monitors HTTP requests to the vulnerable admin.php endpoint with suspicious SQL syntax in the query parameters.
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +38,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect FilePress SQL Injection - Filter Bypass Attempts
-    description: Detects CVE-2026-8133 exploitation — Detects attempts to bypass SQL injection filters using comment obfuscation or encoding techniques in FilePress admin.php.
+    description: Detects CVE-2026-8133 exploitation - Detects attempts to bypass SQL injection filters using comment obfuscation or encoding techniques in FilePress admin.php.
     platform: sigma
     severity: high
     tactics:

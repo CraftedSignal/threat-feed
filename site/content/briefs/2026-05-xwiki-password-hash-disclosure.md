@@ -23,7 +23,7 @@ references:
   - https://github.com/xwiki/xwiki-platform/commit/c4442716b02ffcdaa9d5e703b1db6203e36456fa
 rules:
   - title: Detect XWiki Password Hash Bit Disclosure
-    description: Detects CVE-2026-48048 exploitation — suspicious requests to LiveTableResults potentially disclosing password hash bits
+    description: Detects CVE-2026-48048 exploitation - suspicious requests to LiveTableResults potentially disclosing password hash bits
     platform: sigma
     severity: high
     tactics:

@@ -33,7 +33,7 @@ references:
   - CVE-2026-5396
 rules:
   - title: Detect Fluent Forms Authorization Bypass via form_id Parameter
-    description: Detects CVE-2026-5396 exploitation — an authorization bypass vulnerability in the Fluent Forms plugin where the form_id parameter is manipulated.
+    description: Detects CVE-2026-5396 exploitation - an authorization bypass vulnerability in the Fluent Forms plugin where the form_id parameter is manipulated.
     platform: sigma
     severity: high
     tactics:

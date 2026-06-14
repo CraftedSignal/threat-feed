@@ -37,7 +37,7 @@ references:
   - CVE-2026-47414
 rules:
   - title: Detect Cross-Workspace Label Modification via IDOR
-    description: Detects CVE-2026-47414 exploitation — an attempt to modify a label using an invalid workspace ID, indicating a cross-workspace IDOR attack.
+    description: Detects CVE-2026-47414 exploitation - an attempt to modify a label using an invalid workspace ID, indicating a cross-workspace IDOR attack.
     platform: sigma
     severity: high
     tactics:
@@ -47,7 +47,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Cross-Workspace Label Deletion via IDOR
-    description: Detects CVE-2026-47414 exploitation — an attempt to delete a label using an invalid workspace ID, indicating a cross-workspace IDOR attack.
+    description: Detects CVE-2026-47414 exploitation - an attempt to delete a label using an invalid workspace ID, indicating a cross-workspace IDOR attack.
     platform: sigma
     severity: high
     tactics:

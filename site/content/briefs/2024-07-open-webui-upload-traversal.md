@@ -35,7 +35,7 @@ references:
   - https://github.com/advisories/GHSA-9pgh-j74g-qj6m
 rules:
   - title: Detect Open WebUI Path Traversal File Upload
-    description: Detects CVE-2026-44566 exploitation — HTTP POST requests to the /rag/api/v1/doc endpoint with filenames containing path traversal sequences, indicating a path traversal attempt.
+    description: Detects CVE-2026-44566 exploitation - HTTP POST requests to the /rag/api/v1/doc endpoint with filenames containing path traversal sequences, indicating a path traversal attempt.
     platform: sigma
     severity: high
     tactics:

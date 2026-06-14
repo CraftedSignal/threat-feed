@@ -1,7 +1,7 @@
 ---
 title: OpenTelemetry eBPF Instrumentation Postgres Parser Vulnerable to Panic via Malformed BIND Payloads (CVE-2026-45678)
 slug: 2026-05-otel-postgres-panic
-description: The OpenTelemetry eBPF Instrumentation (OBI) Postgres protocol parser is vulnerable to a remote availability issue — when processing BIND messages, the parser assumes payloads contain a valid NUL-terminated portal name; a crafted empty or unterminated payload can cause OBI to slice beyond the end of the captured buffer, triggering a runtime panic and crashing the agent.
+description: The OpenTelemetry eBPF Instrumentation (OBI) Postgres protocol parser is vulnerable to a remote availability issue - when processing BIND messages, the parser assumes payloads contain a valid NUL-terminated portal name; a crafted empty or unterminated payload can cause OBI to slice beyond the end of the captured buffer, triggering a runtime panic and crashing the agent.
 date: "2026-05-18T17:58:21Z"
 type: advisory
 types:
@@ -27,7 +27,7 @@ references:
   - https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation/blob/d5691806adc98008bacd2b7a4a4e0cd38ea51227/pkg/components/ebpf/common/sql_detect_postgres.go#L286-L294
 rules:
   - title: Detect OBI Postgres Parser Panic Attempt
-    description: Detects CVE-2026-45678 exploitation — attempts to trigger a panic in the OpenTelemetry eBPF Instrumentation Postgres parser by sending malformed BIND messages
+    description: Detects CVE-2026-45678 exploitation - attempts to trigger a panic in the OpenTelemetry eBPF Instrumentation Postgres parser by sending malformed BIND messages
     platform: sigma
     severity: high
     tactics:

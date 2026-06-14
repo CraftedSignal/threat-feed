@@ -31,7 +31,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33117
 rules:
   - title: Detect CVE-2026-33117 Exploitation Attempt
-    description: Detects CVE-2026-33117 exploitation attempt — suspicious network activity indicative of authentication bypass in Azure SDK.
+    description: Detects CVE-2026-33117 exploitation attempt - suspicious network activity indicative of authentication bypass in Azure SDK.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
       - network_connection
       - windows
   - title: Detect CVE-2026-33117 Exploitation Attempt - Process Creation
-    description: Detects CVE-2026-33117 exploitation attempt — creation of suspicious processes after potential auth bypass in Azure SDK.
+    description: Detects CVE-2026-33117 exploitation attempt - creation of suspicious processes after potential auth bypass in Azure SDK.
     platform: sigma
     severity: medium
     tactics:

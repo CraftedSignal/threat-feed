@@ -27,7 +27,7 @@ references:
   - CVE-2026-46625
 rules:
   - title: Detect Prototype Pollution via JSON __proto__ Attribute in js-cookie
-    description: Detects CVE-2026-46625 exploitation — identifies requests where a __proto__ attribute is used to manipulate cookie settings via js-cookie.
+    description: Detects CVE-2026-46625 exploitation - identifies requests where a __proto__ attribute is used to manipulate cookie settings via js-cookie.
     platform: sigma
     severity: high
     tactics:

@@ -25,8 +25,8 @@ references:
   - https://github.com/advisories/GHSA-pw5x-2mf9-3xc8
   - CVE-2026-42071
 rules:
-  - title: Detect CVE-2026-42071 Exploitation — MantisBT Private Bugnote Attachment Access via REST API
-    description: Detects CVE-2026-42071 exploitation — Access to the MantisBT REST API endpoint for issue files without proper authorization.
+  - title: Detect CVE-2026-42071 Exploitation - MantisBT Private Bugnote Attachment Access via REST API
+    description: Detects CVE-2026-42071 exploitation - Access to the MantisBT REST API endpoint for issue files without proper authorization.
     platform: sigma
     severity: high
     tactics:
@@ -35,8 +35,8 @@ rules:
       - T1539
     data_sources:
       - webserver
-  - title: Detect CVE-2026-42071 Exploitation — MantisBT Private Bugnote Attachment Access via SOAP API
-    description: Detects CVE-2026-42071 exploitation — Usage of the MantisBT SOAP API function mc_issue_attachment_get without proper authorization.
+  - title: Detect CVE-2026-42071 Exploitation - MantisBT Private Bugnote Attachment Access via SOAP API
+    description: Detects CVE-2026-42071 exploitation - Usage of the MantisBT SOAP API function mc_issue_attachment_get without proper authorization.
     platform: sigma
     severity: high
     tactics:

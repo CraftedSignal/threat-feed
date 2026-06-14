@@ -37,7 +37,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect SillyTavern Authentication Bypass via Header Injection
-    description: Detects CVE-2026-44649 exploitation — HTTP requests to the /login endpoint with injected Remote-User or X-Authentik-Username headers, indicating a possible authentication bypass attempt.
+    description: Detects CVE-2026-44649 exploitation - HTTP requests to the /login endpoint with injected Remote-User or X-Authentik-Username headers, indicating a possible authentication bypass attempt.
     platform: sigma
     severity: critical
     tactics:

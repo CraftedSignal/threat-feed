@@ -29,7 +29,7 @@ references:
   - CVE-2026-29518
 rules:
   - title: Detect Rsync TOCTOU Attempt via Symlink Creation
-    description: Detects CVE-2026-29518 exploitation attempt — Creation of symbolic links in Rsync module paths indicating a TOCTOU vulnerability exploitation attempt.
+    description: Detects CVE-2026-29518 exploitation attempt - Creation of symbolic links in Rsync module paths indicating a TOCTOU vulnerability exploitation attempt.
     platform: sigma
     severity: medium
     tactics:
@@ -40,7 +40,7 @@ rules:
       - file_event
       - linux
   - title: Detect Rsync TOCTOU Attempt via File Modification
-    description: Detects CVE-2026-29518 exploitation attempt — Unexpected file modification within Rsync module paths that may indicate a TOCTOU race condition exploit.
+    description: Detects CVE-2026-29518 exploitation attempt - Unexpected file modification within Rsync module paths that may indicate a TOCTOU race condition exploit.
     platform: sigma
     severity: high
     tactics:

@@ -30,7 +30,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-2347
 rules:
   - title: Detect CVE-2026-2347 Exploitation Attempt via Modified Session Key
-    description: Detects CVE-2026-2347 exploitation — An attacker attempts to modify a user-controlled key to bypass authorization and hijack sessions on Akilli Commerce E-Commerce Website.
+    description: Detects CVE-2026-2347 exploitation - An attacker attempts to modify a user-controlled key to bypass authorization and hijack sessions on Akilli Commerce E-Commerce Website.
     platform: sigma
     severity: critical
     tactics:

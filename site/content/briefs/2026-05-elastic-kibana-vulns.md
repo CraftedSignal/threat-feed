@@ -74,8 +74,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-49094
   - https://www.cve.org/CVERecord?id=CVE-2026-49095
 rules:
-  - title: Detects CVE-2026-42398 exploitation attempt — Suspicious Kibana request with SSRF characters
-    description: Detects CVE-2026-42398 exploitation attempt — Detects potential Server-Side Request Forgery (SSRF) attempts in Kibana by identifying suspicious characters in the request URI.
+  - title: Detects CVE-2026-42398 exploitation attempt - Suspicious Kibana request with SSRF characters
+    description: Detects CVE-2026-42398 exploitation attempt - Detects potential Server-Side Request Forgery (SSRF) attempts in Kibana by identifying suspicious characters in the request URI.
     platform: sigma
     severity: medium
     tactics:
@@ -84,8 +84,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-49093 exploitation attempt — Suspicious Kibana request with XSS characters
-    description: Detects CVE-2026-49093 exploitation attempt — Detects potential Cross-Site Scripting (XSS) attempts in Kibana by identifying suspicious characters in the request URI.
+  - title: Detects CVE-2026-49093 exploitation attempt - Suspicious Kibana request with XSS characters
+    description: Detects CVE-2026-49093 exploitation attempt - Detects potential Cross-Site Scripting (XSS) attempts in Kibana by identifying suspicious characters in the request URI.
     platform: sigma
     severity: medium
     tactics:

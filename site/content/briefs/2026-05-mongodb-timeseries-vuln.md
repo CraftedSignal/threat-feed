@@ -37,7 +37,7 @@ references:
   - https://jira.mongodb.org/browse/SERVER-126021
 rules:
   - title: Detect MongoDB Insert with Duplicate Field Names in Timeseries
-    description: Detects CVE-2026-8053 exploitation — Attempts to insert documents with duplicate field names into MongoDB timeseries collections, potentially leading to denial of service or data corruption.
+    description: Detects CVE-2026-8053 exploitation - Attempts to insert documents with duplicate field names into MongoDB timeseries collections, potentially leading to denial of service or data corruption.
     platform: sigma
     severity: medium
     tactics:

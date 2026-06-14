@@ -28,7 +28,7 @@ references:
   - https://github.com/advisories/GHSA-57g9-58c2-xjg3
 rules:
   - title: Detect n8n Git Node CLI Injection (CVE-2026-44790)
-    description: Detects CVE-2026-44790 exploitation — CLI injection attempts in n8n Git node operations by monitoring process execution with suspicious Git commands.
+    description: Detects CVE-2026-44790 exploitation - CLI injection attempts in n8n Git node operations by monitoring process execution with suspicious Git commands.
     platform: sigma
     severity: high
     tactics:
@@ -39,7 +39,7 @@ rules:
       - process_creation
       - linux
   - title: Detect n8n Git Node File Read via Command Injection (CVE-2026-44790)
-    description: Detects CVE-2026-44790 exploitation — Monitors process executions with git commands containing arguments for reading arbitrary files, potentially indicating command injection.
+    description: Detects CVE-2026-44790 exploitation - Monitors process executions with git commands containing arguments for reading arbitrary files, potentially indicating command injection.
     platform: sigma
     severity: high
     tactics:

@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8751
 rules:
   - title: Detect Deserialization Attempt in H2Oai H2O-3 (CVE-2026-8751)
-    description: Detects CVE-2026-8751 exploitation — Attempts to exploit the deserialization vulnerability in H2Oai H2O-3 by detecting suspicious POST requests to the application with serialized Java objects.
+    description: Detects CVE-2026-8751 exploitation - Attempts to exploit the deserialization vulnerability in H2Oai H2O-3 by detecting suspicious POST requests to the application with serialized Java objects.
     platform: sigma
     severity: high
     tactics:

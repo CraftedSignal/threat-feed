@@ -33,7 +33,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-23870
 rules:
   - title: Detect CVE-2026-23870 Exploitation Attempt - High Resource Consumption
-    description: Detects CVE-2026-23870 exploitation attempt — monitors web server logs for suspicious patterns indicative of resource exhaustion attacks against @vitejs/plugin-rsc
+    description: Detects CVE-2026-23870 exploitation attempt - monitors web server logs for suspicious patterns indicative of resource exhaustion attacks against @vitejs/plugin-rsc
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-23870 Exploitation Attempt - Repeated Requests
-    description: Detects CVE-2026-23870 exploitation attempt — alerts on repeated requests to specific endpoints, potentially indicating a denial-of-service attempt.
+    description: Detects CVE-2026-23870 exploitation attempt - alerts on repeated requests to specific endpoints, potentially indicating a denial-of-service attempt.
     platform: sigma
     severity: medium
     tactics:

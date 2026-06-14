@@ -26,8 +26,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-14179
   - CVE-2025-14179
 rules:
-  - title: Detects CVE-2025-14179 Exploitation Attempt — SQL Injection via NUL Byte
-    description: Detects CVE-2025-14179 exploitation attempt — HTTP requests containing NUL bytes followed by SQL injection keywords in URI parameters
+  - title: Detects CVE-2025-14179 Exploitation Attempt - SQL Injection via NUL Byte
+    description: Detects CVE-2025-14179 exploitation attempt - HTTP requests containing NUL bytes followed by SQL injection keywords in URI parameters
     platform: sigma
     severity: high
     tactics:
@@ -36,8 +36,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2025-14179 Exploitation Attempt — SQL Injection via NUL Byte in POST Data
-    description: Detects CVE-2025-14179 exploitation attempt — HTTP POST requests containing NUL bytes followed by SQL injection keywords in the request body
+  - title: Detects CVE-2025-14179 Exploitation Attempt - SQL Injection via NUL Byte in POST Data
+    description: Detects CVE-2025-14179 exploitation attempt - HTTP POST requests containing NUL bytes followed by SQL injection keywords in the request body
     platform: sigma
     severity: high
     tactics:

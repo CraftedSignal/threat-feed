@@ -29,7 +29,7 @@ references:
   - https://www.vulncheck.com/advisories/wing-ftp-server-authenticated-remote-code-execution-via-session-serialization
 rules:
   - title: Detect Wing FTP Server CVE-2026-44403 RCE Attempt
-    description: Detects CVE-2026-44403 exploitation attempt — attempts to inject malicious Lua code into the domain admin mydirectory field.
+    description: Detects CVE-2026-44403 exploitation attempt - attempts to inject malicious Lua code into the domain admin mydirectory field.
     platform: sigma
     severity: high
     tactics:

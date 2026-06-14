@@ -30,7 +30,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42893
 rules:
   - title: Detect M365 Copilot Command Injection Attempts
-    description: Detects CVE-2026-42893 exploitation — Suspicious HTTP requests indicative of command injection attempts in M365 Copilot
+    description: Detects CVE-2026-42893 exploitation - Suspicious HTTP requests indicative of command injection attempts in M365 Copilot
     platform: sigma
     severity: high
     tactics:

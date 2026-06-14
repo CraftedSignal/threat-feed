@@ -32,7 +32,7 @@ references:
   - https://github.com/electerm/electerm/security
 rules:
   - title: Detect Electerm Suspicious URI Invocation
-    description: Detects CVE-2026-43941 exploitation — spawning of processes with unusual protocol handlers potentially triggered by Electerm's `shell.openExternal`
+    description: Detects CVE-2026-43941 exploitation - spawning of processes with unusual protocol handlers potentially triggered by Electerm's `shell.openExternal`
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Electerm file:// URI usage
-    description: Detects CVE-2026-43941 exploitation — Attempts to use file:// protocol handler to access local files from electerm
+    description: Detects CVE-2026-43941 exploitation - Attempts to use file:// protocol handler to access local files from electerm
     platform: sigma
     severity: medium
     tactics:

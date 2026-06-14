@@ -33,7 +33,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46579
 rules:
   - title: Detect OpenShift Router mTLS Bypass Attempt via X-SSL-Client Headers
-    description: Detects CVE-2026-46579 exploitation — HTTP request containing X-SSL-Client-* headers when mutual TLS is expected, indicating a potential attempt to bypass authentication.
+    description: Detects CVE-2026-46579 exploitation - HTTP request containing X-SSL-Client-* headers when mutual TLS is expected, indicating a potential attempt to bypass authentication.
     platform: sigma
     severity: high
     tactics:

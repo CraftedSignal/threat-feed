@@ -22,7 +22,7 @@ references:
   - CVE-2026-44738
 rules:
   - title: Detect Grav CMS Config Exfiltration via Twig
-    description: Detects CVE-2026-44738 exploitation — Attempt to exfiltrate Grav CMS configuration via Twig template injection by calling config.toArray()
+    description: Detects CVE-2026-44738 exploitation - Attempt to exfiltrate Grav CMS configuration via Twig template injection by calling config.toArray()
     platform: sigma
     severity: high
     tactics:

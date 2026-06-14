@@ -26,7 +26,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-40379
 rules:
   - title: Detect CVE-2026-40379 Exploitation - Suspicious Token Issuance
-    description: Detects CVE-2026-40379 exploitation — Suspicious token issuance events in Azure Entra ID logs, potentially indicating spoofing attempts.
+    description: Detects CVE-2026-40379 exploitation - Suspicious token issuance events in Azure Entra ID logs, potentially indicating spoofing attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -37,7 +37,7 @@ rules:
       - cloudtrail
       - azure
   - title: Detect CVE-2026-40379 Exploitation - Suspicious Token Usage
-    description: Detects CVE-2026-40379 exploitation — Suspicious usage of tokens associated with the Enterprise Security Token Service in Azure Entra ID logs.
+    description: Detects CVE-2026-40379 exploitation - Suspicious usage of tokens associated with the Enterprise Security Token Service in Azure Entra ID logs.
     platform: sigma
     severity: medium
     tactics:

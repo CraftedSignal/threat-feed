@@ -28,7 +28,7 @@ references:
   - CVE-2026-46833
 rules:
   - title: Detect CVE-2026-46833 Exploitation Attempt
-    description: Detects CVE-2026-46833 exploitation — Monitors network traffic for suspicious patterns indicative of CVE-2026-46833 exploitation attempts against Oracle Net Service.
+    description: Detects CVE-2026-46833 exploitation - Monitors network traffic for suspicious patterns indicative of CVE-2026-46833 exploitation attempts against Oracle Net Service.
     platform: sigma
     severity: high
     tactics:

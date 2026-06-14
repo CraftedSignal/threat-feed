@@ -37,7 +37,7 @@ references:
   - https://cwe.mitre.org/data/definitions/79.html
 rules:
   - title: Detect CVE-2026-4293 Exploitation Attempt via URI Parameter
-    description: Detects CVE-2026-4293 exploitation attempt — Suspicious URI parameter values indicative of XSS attacks against Kieback & Peter DDC Building Controllers.
+    description: Detects CVE-2026-4293 exploitation attempt - Suspicious URI parameter values indicative of XSS attacks against Kieback & Peter DDC Building Controllers.
     platform: sigma
     severity: medium
     tactics:
@@ -47,7 +47,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-4293 Exploitation Attempt via URI Stem
-    description: Detects CVE-2026-4293 exploitation attempt — Suspicious URI stem values indicative of XSS attacks against Kieback & Peter DDC Building Controllers.
+    description: Detects CVE-2026-4293 exploitation attempt - Suspicious URI stem values indicative of XSS attacks against Kieback & Peter DDC Building Controllers.
     platform: sigma
     severity: medium
     tactics:

@@ -26,8 +26,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-3012
 rules:
-  - title: Detect CVE-2026-3012 Exploitation — Unencrypted HTTP for CA Certificate Retrieval
-    description: Detects CVE-2026-3012 — Monitors network connections for unencrypted HTTP traffic originating from Samba server, specifically targeting CA certificate retrieval.
+  - title: Detect CVE-2026-3012 Exploitation - Unencrypted HTTP for CA Certificate Retrieval
+    description: Detects CVE-2026-3012 - Monitors network connections for unencrypted HTTP traffic originating from Samba server, specifically targeting CA certificate retrieval.
     platform: sigma
     severity: medium
     tactics:

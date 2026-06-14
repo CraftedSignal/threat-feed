@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/softneta-meddream-pacs-server-premium-directory-traversal
 rules:
   - title: Detect MedDream PACS Directory Traversal via nocache.php
-    description: Detects CVE-2018-25374 exploitation — attempts to exploit directory traversal in Softneta MedDream PACS Server Premium via the nocache.php endpoint with encoded directory traversal sequences.
+    description: Detects CVE-2018-25374 exploitation - attempts to exploit directory traversal in Softneta MedDream PACS Server Premium via the nocache.php endpoint with encoded directory traversal sequences.
     platform: sigma
     severity: high
     tactics:

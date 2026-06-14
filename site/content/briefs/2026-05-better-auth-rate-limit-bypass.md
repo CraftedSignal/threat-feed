@@ -33,7 +33,7 @@ references:
   - https://datatracker.ietf.org/doc/html/rfc6177
 rules:
   - title: Detect High Volume Authentication Attempts from Single IPv6 /64 Prefix (CVE-2026-45364)
-    description: Detects CVE-2026-45364 exploitation — high volume of failed authentication attempts originating from the same IPv6 /64 subnet, indicating potential rate-limiting bypass attempts.
+    description: Detects CVE-2026-45364 exploitation - high volume of failed authentication attempts originating from the same IPv6 /64 subnet, indicating potential rate-limiting bypass attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Multiple Textual Variations of IPv6 Address (CVE-2026-45364)
-    description: Detects CVE-2026-45364 exploitation — Multiple textual variations of the same IPv6 address used within a short timeframe. This may indicate an attempt to bypass rate limiting based on IP address.
+    description: Detects CVE-2026-45364 exploitation - Multiple textual variations of the same IPv6 address used within a short timeframe. This may indicate an attempt to bypass rate limiting based on IP address.
     platform: sigma
     severity: low
     tactics:

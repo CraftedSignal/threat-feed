@@ -28,8 +28,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2022-50994
 rules:
-  - title: Detect CVE-2022-50994 Exploitation — DrayTek Vigor CGI Login Attempt
-    description: Detects CVE-2022-50994 exploitation — suspicious HTTP POST requests to `/cgi-bin/loginCGI` with shell metacharacters in the `formpassword` parameter, indicating a command injection attempt.
+  - title: Detect CVE-2022-50994 Exploitation - DrayTek Vigor CGI Login Attempt
+    description: Detects CVE-2022-50994 exploitation - suspicious HTTP POST requests to `/cgi-bin/loginCGI` with shell metacharacters in the `formpassword` parameter, indicating a command injection attempt.
     platform: sigma
     severity: high
     tactics:
@@ -75,6 +75,6 @@ Successful exploitation of CVE-2022-50994 allows an unauthenticated remote attac
 ## Recommendation
 
 *   Upgrade DrayTek Vigor 2960 devices to firmware version 1.5.1.4 or later to patch CVE-2022-50994.
-*   Deploy the Sigma rule "Detect CVE-2022-50994 Exploitation — DrayTek Vigor CGI Login Attempt" to your SIEM to identify potential exploitation attempts against the `/cgi-bin/loginCGI` endpoint.
+*   Deploy the Sigma rule "Detect CVE-2022-50994 Exploitation - DrayTek Vigor CGI Login Attempt" to your SIEM to identify potential exploitation attempts against the `/cgi-bin/loginCGI` endpoint.
 *   Enable logging for web server requests to capture relevant data for the Sigma rule and future investigations.
 *   Review user accounts and disable MOTP authentication where it is not required to reduce the attack surface.

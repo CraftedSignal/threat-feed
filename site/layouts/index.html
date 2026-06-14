@@ -27,10 +27,10 @@
 
 <section class="px-4 md:px-0 pt-10 md:pt-16 pb-12">
   <div class="max-w-6xl mx-auto space-y-5">
-    <p class="text-xs font-mono uppercase tracking-[0.18em] text-accent">CraftedSignal · Threat Feed</p>
+    <p class="text-xs font-mono uppercase tracking-[0.18em] text-accent">CRAFTEDSIGNAL THREAT INTELLIGENCE FEED</p>
     <h1 class="font-display text-3xl md:text-5xl font-semibold leading-tight">{{ .Site.Params.tagline | default "Trending threats, refreshed continuously." }}</h1>
     <p class="text-base md:text-lg text-muted max-w-3xl">
-      MITRE ATT&CK coverage, CVE references, and rule metadata from the CraftedSignal threat-intelligence pipeline. Detection rules and IOCs stay inside the platform; this feed is the public face of what we ship.
+      Fresh threat briefs from the CraftedSignal pipeline, with MITRE ATT&CK coverage, CVE references, rule metadata, and IOCs when available. Full rule logic and test data stay inside the platform; this feed shows what is changing now.
     </p>
     <div class="flex flex-wrap items-center gap-3 pt-2">
       <a href="/subscribe/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent text-white text-sm font-semibold shadow-soft hover:scale-[1.01] transition">Subscribe to alerts</a>
@@ -40,13 +40,13 @@
   </div>
 </section>
 
+{{ partial "search.html" . }}
+
 <section class="px-4 md:px-0 py-6">
   <div class="max-w-6xl mx-auto">
     {{ partial "chart-strip.html" . }}
   </div>
 </section>
-
-{{ partial "search.html" . }}
 
 <section class="px-4 md:px-0 py-10">
   <div class="max-w-6xl mx-auto space-y-6">
@@ -58,7 +58,7 @@
       {{ range $latestBriefs }}
         {{ partial "brief-card.html" . }}
       {{ else }}
-        <p class="text-sm text-muted">No briefs yet — check back soon.</p>
+        <p class="text-sm text-muted">No briefs yet - check back soon.</p>
       {{ end }}
     </div>
   </div>

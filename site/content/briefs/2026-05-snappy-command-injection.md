@@ -26,7 +26,7 @@ references:
   - https://github.com/advisories/GHSA-vpr4-p6fq-85jc
 rules:
   - title: Detect knp-snappy Command Injection Attempt
-    description: Detects CVE-2026-46643 exploitation — attempts to exploit command injection in knp-snappy by detecting shell metacharacters in process command lines involving wkhtmltopdf
+    description: Detects CVE-2026-46643 exploitation - attempts to exploit command injection in knp-snappy by detecting shell metacharacters in process command lines involving wkhtmltopdf
     platform: sigma
     severity: high
     tactics:
@@ -37,7 +37,7 @@ rules:
       - process_creation
       - windows
   - title: Detect knp-snappy Command Injection Attempt (Linux)
-    description: Detects CVE-2026-46643 exploitation — attempts to exploit command injection in knp-snappy by detecting shell metacharacters in process command lines involving wkhtmltopdf on Linux
+    description: Detects CVE-2026-46643 exploitation - attempts to exploit command injection in knp-snappy by detecting shell metacharacters in process command lines involving wkhtmltopdf on Linux
     platform: sigma
     severity: high
     tactics:

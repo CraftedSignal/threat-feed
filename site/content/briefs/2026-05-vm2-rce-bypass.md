@@ -31,8 +31,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-m4wx-m65x-ghrr
 rules:
-  - title: Detect CVE-2026-47137 Exploitation Attempt — vm2 sandbox escape via child_process
-    description: Detects CVE-2026-47137 exploitation attempt — attempts to require child_process within a vm2 sandbox with nesting enabled, indicating a potential sandbox escape.
+  - title: Detect CVE-2026-47137 Exploitation Attempt - vm2 sandbox escape via child_process
+    description: Detects CVE-2026-47137 exploitation attempt - attempts to require child_process within a vm2 sandbox with nesting enabled, indicating a potential sandbox escape.
     platform: sigma
     severity: critical
     tactics:
@@ -42,8 +42,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detect CVE-2026-47137 Exploitation Attempt — vm2 requiring vm2
-    description: Detects CVE-2026-47137 exploitation attempt — requiring 'vm2' from within a vm2 sandbox
+  - title: Detect CVE-2026-47137 Exploitation Attempt - vm2 requiring vm2
+    description: Detects CVE-2026-47137 exploitation attempt - requiring 'vm2' from within a vm2 sandbox
     platform: sigma
     severity: high
     tactics:

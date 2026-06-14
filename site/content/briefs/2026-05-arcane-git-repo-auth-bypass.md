@@ -54,7 +54,7 @@ ioc_counts:
   domain: 1
 rules:
   - title: Detect Arcane Git Repository URL Manipulation (CVE-2026-45625)
-    description: Detects CVE-2026-45625 exploitation — modification of Git repository URLs to external domains via the Arcane API, indicating potential credential exfiltration or supply chain attacks.
+    description: Detects CVE-2026-45625 exploitation - modification of Git repository URLs to external domains via the Arcane API, indicating potential credential exfiltration or supply chain attacks.
     platform: sigma
     severity: high
     tactics:
@@ -65,7 +65,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Arcane Git Repository Test Connection to External Domain (CVE-2026-45625)
-    description: Detects CVE-2026-45625 exploitation — attempts to test the connection to a Git repository hosted on an external domain after a URL change.
+    description: Detects CVE-2026-45625 exploitation - attempts to test the connection to a Git repository hosted on an external domain after a URL change.
     platform: sigma
     severity: medium
     tactics:

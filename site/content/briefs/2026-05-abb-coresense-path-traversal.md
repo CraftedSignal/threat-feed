@@ -32,7 +32,7 @@ references:
   - https://cwe.mitre.org/data/definitions/22.html
 rules:
   - title: Detect ABB CoreSense HM/M10 Path Traversal Attempt
-    description: Detects CVE-2025-3465 exploitation attempt — path traversal in ABB CoreSense HM/M10 web applications via local access.
+    description: Detects CVE-2025-3465 exploitation attempt - path traversal in ABB CoreSense HM/M10 web applications via local access.
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect ABB CoreSense HM/M10 Path Traversal in Web Logs
-    description: Detects CVE-2025-3465 exploitation — Path traversal attempts in web server logs indicating potential unauthorized file access in ABB CoreSense HM/M10.
+    description: Detects CVE-2025-3465 exploitation - Path traversal attempts in web server logs indicating potential unauthorized file access in ABB CoreSense HM/M10.
     platform: sigma
     severity: medium
     tactics:

@@ -30,7 +30,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4029
 rules:
   - title: Detect Unauthorized WordPress Database Export
-    description: Detects CVE-2026-4029 exploitation — unauthorized access to database export functionality in WordPress Database Backup plugin.
+    description: Detects CVE-2026-4029 exploitation - unauthorized access to database export functionality in WordPress Database Backup plugin.
     platform: sigma
     severity: high
     tactics:

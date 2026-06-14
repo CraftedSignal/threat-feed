@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/aero-cms-php-code-injection-via-posts-php
 rules:
   - title: Detect Suspicious PHP File Upload via Image Parameter
-    description: Detects CVE-2022-50944 exploitation — PHP file upload via the image parameter in the /admin/posts.php endpoint, indicating a potential PHP code injection attempt.
+    description: Detects CVE-2022-50944 exploitation - PHP file upload via the image parameter in the /admin/posts.php endpoint, indicating a potential PHP code injection attempt.
     platform: sigma
     severity: high
     tactics:

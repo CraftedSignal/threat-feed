@@ -36,7 +36,7 @@ references:
   - CVE-2026-47125
 rules:
   - title: Detect Arcane Global Variable Override via API
-    description: Detects CVE-2026-47125 exploitation — modification of Arcane global variables via the API endpoint by non-admin users.
+    description: Detects CVE-2026-47125 exploitation - modification of Arcane global variables via the API endpoint by non-admin users.
     platform: sigma
     severity: high
     tactics:

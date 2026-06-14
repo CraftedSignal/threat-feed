@@ -32,8 +32,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-3425
 rules:
-  - title: Detect CVE-2026-3425 Exploitation — RTMKit LFI Attempt
-    description: Detects CVE-2026-3425 exploitation — Local File Inclusion attempt via the 'path' parameter in the RTMKit Addons for Elementor plugin's 'get_content' AJAX action.
+  - title: Detect CVE-2026-3425 Exploitation - RTMKit LFI Attempt
+    description: Detects CVE-2026-3425 exploitation - Local File Inclusion attempt via the 'path' parameter in the RTMKit Addons for Elementor plugin's 'get_content' AJAX action.
     platform: sigma
     severity: high
     tactics:
@@ -65,5 +65,5 @@ Successful exploitation of CVE-2026-3425 allows attackers with Author-level acce
 ## Recommendation
 
 *   Upgrade the RTMKit Addons for Elementor plugin to a version greater than 2.0.2 to patch CVE-2026-3425.
-*   Deploy the Sigma rule "Detect CVE-2026-3425 Exploitation — RTMKit LFI Attempt" to your SIEM and tune for your environment.
+*   Deploy the Sigma rule "Detect CVE-2026-3425 Exploitation - RTMKit LFI Attempt" to your SIEM and tune for your environment.
 *   Monitor web server logs for requests to 'admin-ajax.php' with the 'action' parameter set to 'get_content' and suspicious values in the 'path' parameter, using the file paths and extensions in the detection rule as a reference.

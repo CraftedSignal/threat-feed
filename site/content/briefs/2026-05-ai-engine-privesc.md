@@ -29,7 +29,7 @@ references:
   - CVE-2026-8719
 rules:
   - title: Detect AI Engine MCP Privilege Escalation Attempt
-    description: Detects CVE-2026-8719 exploitation — Attempts to access admin-level MCP tools using OAuth tokens without proper authorization in The AI Engine WordPress plugin.
+    description: Detects CVE-2026-8719 exploitation - Attempts to access admin-level MCP tools using OAuth tokens without proper authorization in The AI Engine WordPress plugin.
     platform: sigma
     severity: high
     tactics:

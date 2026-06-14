@@ -28,7 +28,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8785
 rules:
   - title: Detect CVE-2026-8785 Exploitation via SQL Injection
-    description: Detects CVE-2026-8785 exploitation — SQL injection attempts targeting the appointment_no parameter in update_info.php
+    description: Detects CVE-2026-8785 exploitation - SQL injection attempts targeting the appointment_no parameter in update_info.php
     platform: sigma
     severity: high
     tactics:

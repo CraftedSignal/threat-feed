@@ -1,16 +1,16 @@
 ---
 title: "Feeds & API"
-description: "Subscribe to the threat feed via RSS or JSON Feed — every taxonomy term has its own filtered feed."
+description: "Subscribe to the threat feed via RSS or JSON Feed. Every taxonomy term has its own filtered feed."
 ---
 
-Every listing on this site doubles as a feed. Two formats: RSS 2.0 (`feed.xml`) and JSON Feed 1.0 (`feed.json`). Same items, same ordering — pick whichever your client speaks.
+Every listing on this site doubles as a feed. Two formats are available: RSS 2.0 (`feed.xml`) and JSON Feed 1.0 (`feed.json`). Same items, same ordering. Use whichever your client supports.
 
 ## All briefs
 
-- RSS — `https://feed.craftedsignal.io/feed.xml`
-- JSON — `https://feed.craftedsignal.io/feed.json`
+- RSS: `https://feed.craftedsignal.io/feed.xml`
+- JSON: `https://feed.craftedsignal.io/feed.json`
 
-Items are ordered newest-first. Both feeds return up to 100 items. The JSON feed paginates beyond that — a `next_url` field in the response points to the next page when present.
+Items are ordered newest-first. Both feeds return up to 100 items. The JSON feed paginates beyond that. When another page exists, the response includes `next_url`.
 
 ## Filtered feeds
 
@@ -58,9 +58,9 @@ Severity terms: critical, high, medium, low, rumour. Type terms: threat, coverag
 ## Tips
 
 - **Slack** speaks RSS natively: `/feed subscribe https://feed.craftedsignal.io/severities/critical/feed.xml`.
-- **Microsoft Teams** has an "RSS" connector — point it at any of the URLs above.
+- **Microsoft Teams** has an "RSS" connector. Point it at any of the URLs above.
 - **Email aggregators** (Buttondown, Feedrabbit, Follow.it) will turn an RSS URL into per-item or daily-digest mail.
-- **Custom integrations** — pull `feed.json` and decode with whatever JSON library your runtime ships. No auth, no rate limit beyond the static-site CDN.
+- **Custom integrations** can pull `feed.json` and decode it with your runtime's JSON library. No auth, no rate limit beyond the static-site CDN.
 
 For per-subscriber filter combinations and channel routing (Slack/Teams webhooks, magic-link email confirmation), use the [subscribe form](/subscribe/) instead.
 

@@ -27,8 +27,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9474
   - CVE-2026-9474
 rules:
-  - title: Detects CVE-2026-9474 Exploitation — SQL Injection Attempt in StudentManagementSystem
-    description: Detects CVE-2026-9474 exploitation — SQL injection attempts targeting the /studentdel.php endpoint by identifying common SQL injection payloads in the ID parameter.
+  - title: Detects CVE-2026-9474 Exploitation - SQL Injection Attempt in StudentManagementSystem
+    description: Detects CVE-2026-9474 exploitation - SQL injection attempts targeting the /studentdel.php endpoint by identifying common SQL injection payloads in the ID parameter.
     platform: sigma
     severity: high
     tactics:
@@ -37,8 +37,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-9474 Exploitation — Student Management System SQL Injection via POST Request
-    description: Detects CVE-2026-9474 exploitation — Identifies SQL injection attempts targeting the /studentdel.php endpoint using POST requests with suspicious characters.
+  - title: Detects CVE-2026-9474 Exploitation - Student Management System SQL Injection via POST Request
+    description: Detects CVE-2026-9474 exploitation - Identifies SQL injection attempts targeting the /studentdel.php endpoint using POST requests with suspicious characters.
     platform: sigma
     severity: high
     tactics:

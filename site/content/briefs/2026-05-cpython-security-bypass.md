@@ -28,7 +28,7 @@ references:
   - https://mail.python.org/archives/list/security-announce@python.org/thread/PNY5OMBDPM2FRUZTWFFPJ6LISWKV627K/
   - https://www.cve.org/CVERecord?id=CVE-2026-7210
 rules:
-  - title: Detect CVE-2026-7210 Exploitation Attempt — Security Policy Bypass
+  - title: Detect CVE-2026-7210 Exploitation Attempt - Security Policy Bypass
     description: Detects potential exploitation attempts of CVE-2026-7210, a security policy bypass vulnerability in CPython.
     platform: sigma
     severity: medium
@@ -39,7 +39,7 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detect CVE-2026-7210 Exploitation Attempt — Security Policy Bypass (Webserver)
+  - title: Detect CVE-2026-7210 Exploitation Attempt - Security Policy Bypass (Webserver)
     description: Detects CVE-2026-7210 exploitation attempts via suspicious HTTP requests targeting Python web applications.
     platform: sigma
     severity: medium
@@ -70,5 +70,5 @@ Successful exploitation of CVE-2026-7210 allows attackers to bypass security pol
 ## Recommendation
 
 *   Apply the latest security patches for CPython as detailed in the Python Security Advisory PNY5OMBDPM2FRUZTWFFPJ6LISWKV627K to address CVE-2026-7210.
-*   Deploy the Sigma rule "Detect CVE-2026-7210 Exploitation Attempt — Security Policy Bypass" to identify potential exploitation attempts in your environment.
+*   Deploy the Sigma rule "Detect CVE-2026-7210 Exploitation Attempt - Security Policy Bypass" to identify potential exploitation attempts in your environment.
 *   Monitor web server logs for suspicious activity related to CVE-2026-7210 exploitation using the webserver Sigma rule provided.

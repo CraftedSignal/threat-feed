@@ -135,7 +135,7 @@ func (s *firestoreStore) DeleteByUnsubscribeToken(ctx context.Context, token str
 }
 
 // ForEachVerified streams every verified subscription. Cheap at our
-// scale — one read per sub per dispatch. Add cursor-based pagination
+// scale - one read per sub per dispatch. Add cursor-based pagination
 // if subscription count grows past ~10k.
 func (s *firestoreStore) ForEachVerified(ctx context.Context, fn func(Subscription) error) error {
 	iter := s.c.Collection(collSubscriptions).
@@ -161,7 +161,7 @@ func (s *firestoreStore) ForEachVerified(ctx context.Context, fn func(Subscripti
 	}
 }
 
-// MarkSent updates last_sent on a subscription. Best-effort — we don't
+// MarkSent updates last_sent on a subscription. Best-effort - we don't
 // fail the dispatch if this write errors.
 func (s *firestoreStore) MarkSent(ctx context.Context, id string, t time.Time) error {
 	_, err := s.c.Collection(collSubscriptions).Doc(id).Update(ctx, []firestore.Update{

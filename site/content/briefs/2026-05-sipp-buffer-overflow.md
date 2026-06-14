@@ -32,7 +32,7 @@ references:
   - https://www.exploit-db.com/exploits/44962
   - https://www.vulncheck.com/advisories/sipp-local-buffer-overflow-via-command-line-arguments
 rules:
-  - title: Detect CVE-2018-25356 Exploitation Attempt — SIPp Long Argument
+  - title: Detect CVE-2018-25356 Exploitation Attempt - SIPp Long Argument
     description: Detects attempts to exploit CVE-2018-25356 by detecting SIPp execution with unusually long command-line arguments, which may indicate a buffer overflow attempt.
     platform: sigma
     severity: high
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - process_creation
       - linux
-  - title: Detect CVE-2018-25356 Exploitation Attempt — SIPp Argument Injection
+  - title: Detect CVE-2018-25356 Exploitation Attempt - SIPp Argument Injection
     description: Detects potential exploitation of CVE-2018-25356 involving SIPp by identifying suspicious characters often used in command injection attacks within the command-line arguments.
     platform: sigma
     severity: medium

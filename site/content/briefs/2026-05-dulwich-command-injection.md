@@ -27,7 +27,7 @@ references:
   - https://github.com/dulwich/dulwich
 rules:
   - title: Detect Dulwich Merge Driver Command Injection
-    description: Detects CVE-2026-42563 exploitation — command injection via Dulwich merge driver with a malicious path.
+    description: Detects CVE-2026-42563 exploitation - command injection via Dulwich merge driver with a malicious path.
     platform: sigma
     severity: high
     tactics:

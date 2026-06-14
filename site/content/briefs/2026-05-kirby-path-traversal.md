@@ -27,7 +27,7 @@ references:
   - https://github.com/getkirby/kirby/releases/tag/5.4.1
 rules:
   - title: Detect Kirby CMS Path Traversal Attempt
-    description: Detects CVE-2026-44177 exploitation — Attempts to exploit path traversal vulnerability in Kirby CMS by detecting `../` sequences in HTTP request parameters.
+    description: Detects CVE-2026-44177 exploitation - Attempts to exploit path traversal vulnerability in Kirby CMS by detecting `../` sequences in HTTP request parameters.
     platform: sigma
     severity: high
     tactics:
@@ -37,7 +37,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect PHP File Inclusion via Crafted User ID
-    description: Detects CVE-2026-44177 exploitation — PHP file inclusion attempts in Kirby CMS by monitoring for requests that access 'index.php' after a path traversal attempt.
+    description: Detects CVE-2026-44177 exploitation - PHP file inclusion attempts in Kirby CMS by monitoring for requests that access 'index.php' after a path traversal attempt.
     platform: sigma
     severity: high
     tactics:

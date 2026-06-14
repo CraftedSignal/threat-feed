@@ -37,7 +37,7 @@ references:
   - https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-141-01.json
   - https://www.cve.org/CVERecord?id=CVE-2022-4304
 rules:
-  - title: Detect CVE-2022-4304 Exploitation Attempts — Excessive Connections to GMS600
+  - title: Detect CVE-2022-4304 Exploitation Attempts - Excessive Connections to GMS600
     description: Detects CVE-2022-4304 exploitation attempts by monitoring for an excessive number of connections to a GMS600 server from a single source IP address, indicative of a Bleichenbacher-style attack
     platform: sigma
     severity: low
@@ -47,7 +47,7 @@ rules:
       - T1068
     data_sources:
       - firewall
-  - title: Detect CVE-2022-4304 Exploitation Attempts — Suspicious TLS Handshake Pattern
+  - title: Detect CVE-2022-4304 Exploitation Attempts - Suspicious TLS Handshake Pattern
     description: Detects CVE-2022-4304 exploitation attempts by monitoring for a suspicious pattern of TLS handshake failures followed by new connection attempts, indicative of an attacker probing for timing differences
     platform: sigma
     severity: medium

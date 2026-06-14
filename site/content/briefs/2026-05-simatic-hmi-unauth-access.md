@@ -82,7 +82,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-27662
 rules:
   - title: Detect SIMATIC HMI Panel Web Browser Access
-    description: Detects CVE-2026-27662 exploitation — monitors network connections for web browser processes (e.g., chrome.exe, firefox.exe) originating from a SIMATIC HMI panel, indicating potential unauthorized access to the web browser interface.
+    description: Detects CVE-2026-27662 exploitation - monitors network connections for web browser processes (e.g., chrome.exe, firefox.exe) originating from a SIMATIC HMI panel, indicating potential unauthorized access to the web browser interface.
     platform: sigma
     severity: medium
     tactics:
@@ -93,7 +93,7 @@ rules:
       - network_connection
       - windows
   - title: Detect SIMATIC HMI Panel Configuration File Access
-    description: Detects CVE-2026-27662 exploitation — detects access to sensitive configuration files on the SIMATIC HMI panel, potentially indicating unauthorized configuration changes.
+    description: Detects CVE-2026-27662 exploitation - detects access to sensitive configuration files on the SIMATIC HMI panel, potentially indicating unauthorized configuration changes.
     platform: sigma
     severity: low
     tactics:

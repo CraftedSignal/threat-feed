@@ -32,7 +32,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2018-25344
 rules:
   - title: Detect Network Inventory Explorer SEH Overwrite
-    description: Detects CVE-2018-25344 exploitation — identifies potential Structured Exception Handler (SEH) overwrites by monitoring for process creations shortly after a Network Inventory Explorer registration attempt.
+    description: Detects CVE-2018-25344 exploitation - identifies potential Structured Exception Handler (SEH) overwrites by monitoring for process creations shortly after a Network Inventory Explorer registration attempt.
     platform: sigma
     severity: high
     tactics:
@@ -44,7 +44,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Network Inventory Explorer Suspicious Registration
-    description: Detects CVE-2018-25344 exploitation — identifies process creations by cmd, powershell, wscript, or cscript immediately after a Network Inventory Explorer process creation event, indicating potential exploitation attempts following a malformed registration.
+    description: Detects CVE-2018-25344 exploitation - identifies process creations by cmd, powershell, wscript, or cscript immediately after a Network Inventory Explorer process creation event, indicating potential exploitation attempts following a malformed registration.
     platform: sigma
     severity: medium
     tactics:

@@ -28,7 +28,7 @@ references:
   - https://www.vulncheck.com/advisories/sticky-notes-color-widgets-denial-of-service
 rules:
   - title: Detect CVE-2021-47972 Exploitation Attempt - Large String Input
-    description: Detects CVE-2021-47972 exploitation attempt — unusually large string input into the Sticky Notes application, potentially leading to a denial of service.
+    description: Detects CVE-2021-47972 exploitation attempt - unusually large string input into the Sticky Notes application, potentially leading to a denial of service.
     platform: sigma
     severity: medium
     tactics:
@@ -39,7 +39,7 @@ rules:
       - process_creation
       - windows
   - title: Detect CVE-2021-47972 Exploitation Attempt - Repeated String Pattern
-    description: Detects CVE-2021-47972 exploitation attempt — repeated pattern in Sticky Notes input string, suggesting DoS attempt.
+    description: Detects CVE-2021-47972 exploitation attempt - repeated pattern in Sticky Notes input string, suggesting DoS attempt.
     platform: sigma
     severity: low
     tactics:

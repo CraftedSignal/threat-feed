@@ -32,7 +32,7 @@ ioc_counts:
   email: 1
 rules:
   - title: Detect CVE-2026-47266 Exploitation Attempt - Formie Submission Overwrite
-    description: Detects CVE-2026-47266 exploitation attempt — HTTP POST request to the `formie/submissions/save-submission` endpoint without authentication.
+    description: Detects CVE-2026-47266 exploitation attempt - HTTP POST request to the `formie/submissions/save-submission` endpoint without authentication.
     platform: sigma
     severity: high
     tactics:

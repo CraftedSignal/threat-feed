@@ -26,7 +26,7 @@ references:
   - CVE-2026-45618
 rules:
   - title: Detect LiquidJS RCE via Template Injection
-    description: Detects CVE-2026-45618 exploitation — Attempts to exploit LiquidJS RCE by manipulating the `valueOf` filter within a template to execute arbitrary code.
+    description: Detects CVE-2026-45618 exploitation - Attempts to exploit LiquidJS RCE by manipulating the `valueOf` filter within a template to execute arbitrary code.
     platform: sigma
     severity: critical
     tactics:
@@ -36,7 +36,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect LiquidJS RCE via File Read Attempt
-    description: Detects CVE-2026-45618 exploitation — Attempts to read sensitive files via template manipulation in LiquidJS
+    description: Detects CVE-2026-45618 exploitation - Attempts to read sensitive files via template manipulation in LiquidJS
     platform: sigma
     severity: high
     tactics:

@@ -29,8 +29,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8696
 rules:
-  - title: Detects CVE-2026-8696 Exploitation — Radare2 GDB Malformed Thread Info Response
-    description: Detects CVE-2026-8696 exploitation — monitors network connections for GDB traffic and flags connections with excessively large data transfers immediately following thread info requests, which may indicate an attempt to trigger the use-after-free vulnerability.
+  - title: Detects CVE-2026-8696 Exploitation - Radare2 GDB Malformed Thread Info Response
+    description: Detects CVE-2026-8696 exploitation - monitors network connections for GDB traffic and flags connections with excessively large data transfers immediately following thread info requests, which may indicate an attempt to trigger the use-after-free vulnerability.
     platform: sigma
     severity: high
     tactics:
@@ -40,8 +40,8 @@ rules:
     data_sources:
       - network_connection
       - windows
-  - title: Detects CVE-2026-8696 Exploitation — Radare2 Suspicious Process Creation
-    description: Detects CVE-2026-8696 exploitation — identifies unusual child processes spawned by Radare2, potentially indicating successful code execution via the use-after-free.
+  - title: Detects CVE-2026-8696 Exploitation - Radare2 Suspicious Process Creation
+    description: Detects CVE-2026-8696 exploitation - identifies unusual child processes spawned by Radare2, potentially indicating successful code execution via the use-after-free.
     platform: sigma
     severity: medium
     tactics:

@@ -24,8 +24,8 @@ mitre_ttps:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33823
 rules:
-  - title: Detect CVE-2026-33823 Exploitation — Suspicious Teams Events Request
-    description: Detects CVE-2026-33823 exploitation — Network requests to Microsoft Teams events portal with suspicious parameters indicating potential information disclosure.
+  - title: Detect CVE-2026-33823 Exploitation - Suspicious Teams Events Request
+    description: Detects CVE-2026-33823 exploitation - Network requests to Microsoft Teams events portal with suspicious parameters indicating potential information disclosure.
     platform: sigma
     severity: medium
     tactics:
@@ -57,4 +57,4 @@ Successful exploitation of CVE-2026-33823 allows an authorized attacker to discl
 ## Recommendation
 
 *   Apply the Microsoft patch for CVE-2026-33823 immediately to remediate the improper authorization vulnerability in Microsoft Teams.
-*   Deploy the Sigma rule `Detect CVE-2026-33823 Exploitation — Suspicious Teams Events Request` to identify potential exploitation attempts by monitoring network traffic.
+*   Deploy the Sigma rule `Detect CVE-2026-33823 Exploitation - Suspicious Teams Events Request` to identify potential exploitation attempts by monitoring network traffic.

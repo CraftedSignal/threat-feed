@@ -32,7 +32,7 @@ references:
   - https://www.vulncheck.com/advisories/wordpress-plugin-wp-with-spritz-remote-file-inclusion
 rules:
   - title: Detect CVE-2018-25329 Exploitation via wp.spritz.content.filter.php
-    description: Detects CVE-2018-25329 exploitation — RFI attempts targeting wp.spritz.content.filter.php with URL parameter containing directory traversal sequences or remote URLs.
+    description: Detects CVE-2018-25329 exploitation - RFI attempts targeting wp.spritz.content.filter.php with URL parameter containing directory traversal sequences or remote URLs.
     platform: sigma
     severity: high
     tactics:

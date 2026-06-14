@@ -30,7 +30,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-1250
 rules:
   - title: Detect WordPress Court Reservation Plugin SQL Injection (CVE-2026-1250)
-    description: Detects CVE-2026-1250 exploitation — SQL injection attempts in the 'id' parameter of the Court Reservation plugin for WordPress.
+    description: Detects CVE-2026-1250 exploitation - SQL injection attempts in the 'id' parameter of the Court Reservation plugin for WordPress.
     platform: sigma
     severity: high
     tactics:
@@ -40,7 +40,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect WordPress Court Reservation Plugin SQL Injection - Error Based
-    description: Detects CVE-2026-1250 exploitation — Error-based SQL injection attempts in the 'id' parameter of the Court Reservation plugin for WordPress by looking for common SQL error messages in the response.
+    description: Detects CVE-2026-1250 exploitation - Error-based SQL injection attempts in the 'id' parameter of the Court Reservation plugin for WordPress by looking for common SQL error messages in the response.
     platform: sigma
     severity: medium
     tactics:

@@ -27,7 +27,7 @@ references:
   - CVE-2026-44543
 rules:
   - title: Detect Malicious HelperPod Template Modifications - Privileged Container
-    description: Detects CVE-2026-44543 exploitation — modification of the local-path-config ConfigMap to inject a privileged container definition.
+    description: Detects CVE-2026-44543 exploitation - modification of the local-path-config ConfigMap to inject a privileged container definition.
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +38,7 @@ rules:
       - file_event
       - linux
   - title: Detect Malicious HelperPod Template Modifications - HostPath Mount
-    description: Detects CVE-2026-44543 exploitation — detects modification of the `local-path-config` ConfigMap to inject a `hostPath` volume mount.
+    description: Detects CVE-2026-44543 exploitation - detects modification of the `local-path-config` ConfigMap to inject a `hostPath` volume mount.
     platform: sigma
     severity: high
     tactics:

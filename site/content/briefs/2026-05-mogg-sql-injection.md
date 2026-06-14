@@ -29,7 +29,7 @@ references:
   - https://www.vulncheck.com/advisories/mogg-web-simulator-script-all-version-sql-injection-via-play-php
 rules:
   - title: Detect MOGG Web Simulator SQL Injection Attempt
-    description: Detects CVE-2018-25422 exploitation — attempts to exploit SQL injection in MOGG web simulator's play.php via GET requests.
+    description: Detects CVE-2018-25422 exploitation - attempts to exploit SQL injection in MOGG web simulator's play.php via GET requests.
     platform: sigma
     severity: high
     tactics:

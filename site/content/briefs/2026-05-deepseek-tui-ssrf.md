@@ -36,7 +36,7 @@ ioc_counts:
   url: 2
 rules:
   - title: Detect SSRF Attempt via Redirect to Restricted IP - Initial Request
-    description: Detects CVE-2026-45310 exploitation — initial HTTP request to a public URL that redirects to a restricted IP address.
+    description: Detects CVE-2026-45310 exploitation - initial HTTP request to a public URL that redirects to a restricted IP address.
     platform: sigma
     severity: high
     tactics:
@@ -46,7 +46,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect SSRF Attempt via Redirect to Restricted IP - Connection to Restricted IP
-    description: Detects CVE-2026-45310 exploitation — attempts to connect to a restricted IP address after a redirect, indicating potential SSRF bypass.
+    description: Detects CVE-2026-45310 exploitation - attempts to connect to a restricted IP address after a redirect, indicating potential SSRF bypass.
     platform: sigma
     severity: high
     tactics:

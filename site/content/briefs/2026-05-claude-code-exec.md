@@ -26,7 +26,7 @@ references:
   - https://github.com/cnighswonger/claude-code-cache-fix/issues/108
 rules:
   - title: Detect Python Code Injection via quota-statusline.sh (CVE-2026-45136)
-    description: Detects CVE-2026-45136 exploitation — detects shell commands invoking python with code injection via stdin
+    description: Detects CVE-2026-45136 exploitation - detects shell commands invoking python with code injection via stdin
     platform: sigma
     severity: high
     tactics:

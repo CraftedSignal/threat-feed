@@ -26,7 +26,7 @@ references:
   - https://github.com/advisories/GHSA-jfrm-rx66-g536
 rules:
   - title: Detect NiceGUI RCE Attempts via Restructured Text
-    description: Detects CVE-2026-45553 exploitation — attempts to inject reStructuredText directives to read local files in NiceGUI applications.
+    description: Detects CVE-2026-45553 exploitation - attempts to inject reStructuredText directives to read local files in NiceGUI applications.
     platform: sigma
     severity: high
     tactics:

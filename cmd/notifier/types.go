@@ -2,7 +2,7 @@ package main
 
 import "time"
 
-// Channel — where notifications go.
+// Channel - where notifications go.
 type Channel string
 
 const (
@@ -25,12 +25,12 @@ type Filter struct {
 
 	// IncludeUpdates opts the subscriber into "Update" dispatches that fire
 	// when an existing brief gains a KEV flag, an active-exploitation
-	// signal, or escalates to critical severity. Default false — most
+	// signal, or escalates to critical severity. Default false - most
 	// subscribers only want notifications for the initial publish.
 	IncludeUpdates bool `firestore:"include_updates,omitempty" json:"include_updates,omitempty"`
 }
 
-// Subscription — one delivery target with one filter.
+// Subscription - one delivery target with one filter.
 type Subscription struct {
 	ID         string    `firestore:"-"                    json:"id"`
 	Channel    Channel   `firestore:"channel"              json:"channel"`
@@ -66,7 +66,7 @@ type PendingDispatch struct {
 	LastQueuedAt   time.Time `firestore:"last_queued_at"   json:"last_queued_at"`
 }
 
-// Brief — minimal subset that the dispatcher needs from each new public
+// Brief - minimal subset that the dispatcher needs from each new public
 // brief. Posted by the threat-feed Site Deploy workflow on initial
 // publish, and by ti-bot directly when a merge enriches an existing
 // brief with high-impact data (IsUpdate=true).

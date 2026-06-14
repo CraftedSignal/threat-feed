@@ -30,7 +30,7 @@ references:
   - https://github.com/advisories/GHSA-27qc-m5gf-jv5r
 rules:
   - title: Detect SiYuan Bazaar XSS via Malicious Plugin Name
-    description: Detects CVE-2026-45375 exploitation — XSS attempt via malicious img tag in SiYuan Bazaar plugin name field
+    description: Detects CVE-2026-45375 exploitation - XSS attempt via malicious img tag in SiYuan Bazaar plugin name field
     platform: sigma
     severity: high
     tactics:
@@ -41,7 +41,7 @@ rules:
       - process_creation
       - windows
   - title: Detect SiYuan Bazaar XSS via Malicious Plugin Version
-    description: Detects CVE-2026-45375 exploitation — XSS attempt via malicious img tag in SiYuan Bazaar plugin version field
+    description: Detects CVE-2026-45375 exploitation - XSS attempt via malicious img tag in SiYuan Bazaar plugin version field
     platform: sigma
     severity: high
     tactics:
@@ -54,7 +54,7 @@ rules:
 rules_count: 2
 ---
 
-SiYuan's Bazaar (community marketplace) renders the `name` and `version` fields of a package's `plugin.json` into the Settings → Marketplace UI without HTML escaping, leading to a stored XSS vulnerability. The kernel-side helper `sanitizePackageDisplayStrings` in `kernel/bazaar/package.go` HTML-escapes only `Author`, `DisplayName`, and `Description` — `Name` and `Version` flow through to the renderer raw. Because the desktop client is built on Electron with `nodeIntegration: true`, `contextIsolation: false`, and `webSecurity: false`, the resulting cross-site scripting executes in a renderer with full access to Node.js APIs, escalating directly to arbitrary OS command execution under the victim's account. The trigger requires merely opening Settings → Marketplace → Downloaded → Plugins. This vulnerability affects SiYuan kernel versions up to and including `0.0.0-20260421031503-96dfe0bea474`.
+SiYuan's Bazaar (community marketplace) renders the `name` and `version` fields of a package's `plugin.json` into the Settings → Marketplace UI without HTML escaping, leading to a stored XSS vulnerability. The kernel-side helper `sanitizePackageDisplayStrings` in `kernel/bazaar/package.go` HTML-escapes only `Author`, `DisplayName`, and `Description` - `Name` and `Version` flow through to the renderer raw. Because the desktop client is built on Electron with `nodeIntegration: true`, `contextIsolation: false`, and `webSecurity: false`, the resulting cross-site scripting executes in a renderer with full access to Node.js APIs, escalating directly to arbitrary OS command execution under the victim's account. The trigger requires merely opening Settings → Marketplace → Downloaded → Plugins. This vulnerability affects SiYuan kernel versions up to and including `0.0.0-20260421031503-96dfe0bea474`.
 
 ## Attack Chain
 

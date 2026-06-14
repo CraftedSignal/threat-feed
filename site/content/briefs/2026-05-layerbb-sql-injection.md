@@ -30,7 +30,7 @@ references:
   - https://www.vulncheck.com/advisories/layerbb-sql-injection-via-search-query-parameter
 rules:
   - title: Detect LayerBB SQL Injection Attempt via Search Query
-    description: Detects CVE-2021-47954 exploitation — SQL injection attempts in LayerBB 1.1.4 via the search_query parameter in a POST request to /search.php.
+    description: Detects CVE-2021-47954 exploitation - SQL injection attempts in LayerBB 1.1.4 via the search_query parameter in a POST request to /search.php.
     platform: sigma
     severity: high
     tactics:
@@ -40,7 +40,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect LayerBB SQL Injection Attempt via Search Query (URI Encoding)
-    description: Detects CVE-2021-47954 exploitation — SQL injection attempts in LayerBB 1.1.4 via the search_query parameter in a POST request to /search.php with URI encoded characters.
+    description: Detects CVE-2021-47954 exploitation - SQL injection attempts in LayerBB 1.1.4 via the search_query parameter in a POST request to /search.php with URI encoded characters.
     platform: sigma
     severity: high
     tactics:

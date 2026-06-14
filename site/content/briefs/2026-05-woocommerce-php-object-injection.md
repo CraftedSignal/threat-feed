@@ -30,7 +30,7 @@ references:
   - CVE-2025-11993
 rules:
   - title: Detect WooCommerce Infinite Scroll PHP Object Injection Attempt
-    description: Detects CVE-2025-11993 exploitation — attempts to inject PHP objects via the 'import_settings' function in the WooCommerce Infinite Scroll and Ajax Pagination plugin.
+    description: Detects CVE-2025-11993 exploitation - attempts to inject PHP objects via the 'import_settings' function in the WooCommerce Infinite Scroll and Ajax Pagination plugin.
     platform: sigma
     severity: high
     tactics:

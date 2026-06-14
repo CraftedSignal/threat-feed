@@ -27,7 +27,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8634
 rules:
   - title: Detect Suspicious Crabbox Environment Variable Exposure
-    description: Detects CVE-2026-8634 exploitation — Attempts to define overly permissive environment variable allowlists in `crabbox.yaml` configurations that include sensitive credentials.
+    description: Detects CVE-2026-8634 exploitation - Attempts to define overly permissive environment variable allowlists in `crabbox.yaml` configurations that include sensitive credentials.
     platform: sigma
     severity: high
     tactics:

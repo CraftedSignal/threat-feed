@@ -33,7 +33,7 @@ references:
   - https://vuldb.com/vuln/367289/cti
 rules:
   - title: Detect SQL Injection Attempts in STUDENT-MANAGEMENT-SYSTEM Login
-    description: Detects CVE-2026-10111 exploitation — SQL injection attempts in the email parameter of the login page.
+    description: Detects CVE-2026-10111 exploitation - SQL injection attempts in the email parameter of the login page.
     platform: sigma
     severity: high
     tactics:

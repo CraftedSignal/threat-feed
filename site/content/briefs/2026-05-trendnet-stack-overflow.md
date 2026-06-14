@@ -23,8 +23,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10062
   - CVE-2026-10062
 rules:
-  - title: Detects CVE-2026-10062 Exploitation Attempt — Malicious request to formSetRoute
-    description: Detects CVE-2026-10062 exploitation attempt — HTTP POST request to /goform/formSetRoute with unusually long parameters, indicating a buffer overflow attempt.
+  - title: Detects CVE-2026-10062 Exploitation Attempt - Malicious request to formSetRoute
+    description: Detects CVE-2026-10062 exploitation attempt - HTTP POST request to /goform/formSetRoute with unusually long parameters, indicating a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -33,7 +33,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-10062 Exploitation Attempt — Suspicious Characters in formSetRoute
+  - title: Detects CVE-2026-10062 Exploitation Attempt - Suspicious Characters in formSetRoute
     description: Detects CVE-2026-10062 exploitation attempt by identifying potentially malicious characters in the request to formSetRoute.
     platform: sigma
     severity: medium

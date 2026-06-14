@@ -24,8 +24,8 @@ references:
   - https://github.com/advisories/GHSA-66ff-xgx4-vchm
   - https://www.cve.org/CVERecord?id=CVE-2026-44293
 rules:
-  - title: Detect CVE-2026-44293 Exploitation — Protobuf.js Code Injection
-    description: Detects CVE-2026-44293 exploitation — Monitors for suspicious code execution patterns during protobuf processing, potentially indicating exploitation via a crafted `bytes` field default.
+  - title: Detect CVE-2026-44293 Exploitation - Protobuf.js Code Injection
+    description: Detects CVE-2026-44293 exploitation - Monitors for suspicious code execution patterns during protobuf processing, potentially indicating exploitation via a crafted `bytes` field default.
     platform: sigma
     severity: high
     tactics:
@@ -37,8 +37,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detect CVE-2026-44293 Exploitation — Protobuf.js Code Generation with Suspicious Bytes Default
-    description: Detects CVE-2026-44293 exploitation — Monitors file modifications where a Protobuf schema is being written with 'bytes' field including suspicious Javascript code inside default value.
+  - title: Detect CVE-2026-44293 Exploitation - Protobuf.js Code Generation with Suspicious Bytes Default
+    description: Detects CVE-2026-44293 exploitation - Monitors file modifications where a Protobuf schema is being written with 'bytes' field including suspicious Javascript code inside default value.
     platform: sigma
     severity: medium
     tactics:
@@ -75,4 +75,4 @@ Successful exploitation of this vulnerability (CVE-2026-44293) allows an attacke
 - Upgrade to protobuf.js version 8.0.2 or later to remediate the vulnerability.
 - Avoid loading protobuf schemas or JSON descriptors from untrusted sources as described in the overview.
 - Validate or restrict field options before loading schemas from untrusted sources, and run schema processing in an isolated environment as described in the workaround section.
-- Deploy the Sigma rule "Detect CVE-2026-44293 Exploitation — Protobuf.js Code Injection" to identify potential exploitation attempts by monitoring for unexpected code execution during protobuf processing.
+- Deploy the Sigma rule "Detect CVE-2026-44293 Exploitation - Protobuf.js Code Injection" to identify potential exploitation attempts by monitoring for unexpected code execution during protobuf processing.

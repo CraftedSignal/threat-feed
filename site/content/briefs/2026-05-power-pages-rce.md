@@ -31,7 +31,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-23652
 rules:
   - title: Detect CVE-2026-23652 Exploitation Attempt via Command Injection
-    description: Detects CVE-2026-23652 exploitation attempt — suspicious HTTP request containing shell metacharacters in the query string
+    description: Detects CVE-2026-23652 exploitation attempt - suspicious HTTP request containing shell metacharacters in the query string
     platform: sigma
     severity: critical
     tactics:
@@ -41,7 +41,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-23652 Exploitation Attempt via POST Request
-    description: Detects CVE-2026-23652 exploitation attempt — suspicious HTTP POST request containing shell metacharacters
+    description: Detects CVE-2026-23652 exploitation attempt - suspicious HTTP POST request containing shell metacharacters
     platform: sigma
     severity: critical
     tactics:

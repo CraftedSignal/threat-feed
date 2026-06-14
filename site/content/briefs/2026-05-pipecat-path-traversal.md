@@ -26,7 +26,7 @@ references:
   - https://github.com/advisories/GHSA-3363-2ph6-35wh
 rules:
   - title: Detect Pipecat Path Traversal Attempt via URL Encoding
-    description: Detects CVE-2026-44716 exploitation — attempts to exploit path traversal in Pipecat's /files endpoint by using %2F-encoded characters in the URL.
+    description: Detects CVE-2026-44716 exploitation - attempts to exploit path traversal in Pipecat's /files endpoint by using %2F-encoded characters in the URL.
     platform: sigma
     severity: high
     tactics:

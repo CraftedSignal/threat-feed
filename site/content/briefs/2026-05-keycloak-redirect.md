@@ -30,7 +30,7 @@ references:
   - CVE-2026-7504
 rules:
   - title: Detect CVE-2026-7504 Keycloak Redirect Attempt
-    description: Detects CVE-2026-7504 exploitation — An attempt to exploit the Keycloak open redirect vulnerability by detecting multiple '@' characters in the redirect_uri parameter.
+    description: Detects CVE-2026-7504 exploitation - An attempt to exploit the Keycloak open redirect vulnerability by detecting multiple '@' characters in the redirect_uri parameter.
     platform: sigma
     severity: high
     tactics:

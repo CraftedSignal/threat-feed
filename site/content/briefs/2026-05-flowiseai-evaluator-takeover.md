@@ -49,7 +49,7 @@ rules:
 rules_count: 2
 ---
 
-FlowiseAI versions 3.1.1 and earlier are susceptible to a mass assignment vulnerability within the Evaluator entity. This flaw arises from the Evaluator controller/service's use of `Object.assign(entity, body)` without proper input validation, allowing client-controlled parameters such as `workspaceId`, `id`, `createdDate`, and `updatedDate` to be injected via API requests. An attacker, authenticated within one workspace, can leverage this vulnerability to move Evaluator entities—and potentially sensitive scoring rubrics—to other workspaces. This can result in unauthorized access to data, privilege escalation, and a loss of data ownership. This issue is similar to a previously patched vulnerability in the `DocumentStore` (commit 840d2ae), indicating a systemic pattern of insecure object assignment within the application.
+FlowiseAI versions 3.1.1 and earlier are susceptible to a mass assignment vulnerability within the Evaluator entity. This flaw arises from the Evaluator controller/service's use of `Object.assign(entity, body)` without proper input validation, allowing client-controlled parameters such as `workspaceId`, `id`, `createdDate`, and `updatedDate` to be injected via API requests. An attacker, authenticated within one workspace, can leverage this vulnerability to move Evaluator entities-and potentially sensitive scoring rubrics-to other workspaces. This can result in unauthorized access to data, privilege escalation, and a loss of data ownership. This issue is similar to a previously patched vulnerability in the `DocumentStore` (commit 840d2ae), indicating a systemic pattern of insecure object assignment within the application.
 
 ## Attack Chain
 

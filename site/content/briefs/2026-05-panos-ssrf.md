@@ -26,7 +26,7 @@ references:
   - https://security.paloaltonetworks.com/CVE-2026-0258
 rules:
   - title: Detect CVE-2026-0258 Exploitation Attempt - Outbound Connection to Non-Standard Port
-    description: Detects CVE-2026-0258 exploitation attempt — Outbound connection from PAN-OS firewall to a non-standard port (other than 80, 443, etc.) which may indicate SSRF
+    description: Detects CVE-2026-0258 exploitation attempt - Outbound connection from PAN-OS firewall to a non-standard port (other than 80, 443, etc.) which may indicate SSRF
     platform: sigma
     severity: low
     tactics:
@@ -37,7 +37,7 @@ rules:
       - network_connection
       - windows
   - title: Detect CVE-2026-0258 Exploitation Attempt - DNS Query to Internal Hostname
-    description: Detects CVE-2026-0258 exploitation attempt — DNS query from PAN-OS firewall to resolve an internal hostname, which may indicate SSRF to internal resource
+    description: Detects CVE-2026-0258 exploitation attempt - DNS query from PAN-OS firewall to resolve an internal hostname, which may indicate SSRF to internal resource
     platform: sigma
     severity: medium
     tactics:

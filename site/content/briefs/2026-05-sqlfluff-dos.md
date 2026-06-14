@@ -24,7 +24,7 @@ references:
   - CVE-2026-46373
 rules:
   - title: Detect SQLFluff Excessive Recursion Attempt
-    description: Detects CVE-2026-46373 exploitation — attempts to exploit SQLFluff's recursive stack overflow by detecting excessively nested SQL queries.
+    description: Detects CVE-2026-46373 exploitation - attempts to exploit SQLFluff's recursive stack overflow by detecting excessively nested SQL queries.
     platform: sigma
     severity: high
     tactics:

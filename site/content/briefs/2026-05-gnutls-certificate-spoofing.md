@@ -29,7 +29,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42012
 rules:
   - title: Detect GnuTLS Certificate Validation Fallback
-    description: Detects CVE-2026-42012 exploitation — Monitors for TLS connections where the GnuTLS library might be falling back to CN validation due to the presence of URI or SRV SANs in the presented certificate.
+    description: Detects CVE-2026-42012 exploitation - Monitors for TLS connections where the GnuTLS library might be falling back to CN validation due to the presence of URI or SRV SANs in the presented certificate.
     platform: sigma
     severity: medium
     tactics:

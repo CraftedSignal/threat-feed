@@ -27,7 +27,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-1502
 rules:
   - title: Detect Suspicious CR/LF Injection in HTTP Proxy Tunnel Headers
-    description: Detects CVE-2026-1502 exploitation — attempts to inject CR/LF characters into HTTP proxy tunnel headers, potentially leading to HTTP request smuggling.
+    description: Detects CVE-2026-1502 exploitation - attempts to inject CR/LF characters into HTTP proxy tunnel headers, potentially leading to HTTP request smuggling.
     platform: sigma
     severity: critical
     tactics:
@@ -37,7 +37,7 @@ rules:
     data_sources:
       - proxy
   - title: Detect Suspicious CR/LF Injection in HTTP Proxy Tunnel Headers (URL Encoded)
-    description: Detects CVE-2026-1502 exploitation — URL-encoded CR/LF characters in the Host header during a CONNECT request may indicate an attempt to exploit CR/LF injection vulnerabilities.
+    description: Detects CVE-2026-1502 exploitation - URL-encoded CR/LF characters in the Host header during a CONNECT request may indicate an attempt to exploit CR/LF injection vulnerabilities.
     platform: sigma
     severity: high
     tactics:

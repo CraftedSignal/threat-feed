@@ -32,8 +32,8 @@ references:
   - https://github.com/advisories/GHSA-5fxq-qcf3-244w
   - CVE-2026-44849
 rules:
-  - title: Detect CVE-2026-44849 Exploitation — Portainer Swarm Service Create with Elevated Capabilities
-    description: Detects CVE-2026-44849 exploitation — attempts to create a Docker Swarm service via the Portainer API with elevated capabilities (e.g., CAP_SYS_ADMIN, ALL).
+  - title: Detect CVE-2026-44849 Exploitation - Portainer Swarm Service Create with Elevated Capabilities
+    description: Detects CVE-2026-44849 exploitation - attempts to create a Docker Swarm service via the Portainer API with elevated capabilities (e.g., CAP_SYS_ADMIN, ALL).
     platform: sigma
     severity: critical
     tactics:
@@ -42,8 +42,8 @@ rules:
       - T1068
     data_sources:
       - webserver
-  - title: Detect CVE-2026-44849 Exploitation — Portainer Swarm Service Update with Host Bind Mount
-    description: Detects CVE-2026-44849 exploitation — attempts to update a Docker Swarm service via the Portainer API to mount a host directory.
+  - title: Detect CVE-2026-44849 Exploitation - Portainer Swarm Service Update with Host Bind Mount
+    description: Detects CVE-2026-44849 exploitation - attempts to update a Docker Swarm service via the Portainer API to mount a host directory.
     platform: sigma
     severity: high
     tactics:

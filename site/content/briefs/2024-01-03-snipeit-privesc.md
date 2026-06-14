@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-hq28-crg7-95pr
 rules:
   - title: Detect Snipe-IT Privilege Escalation Attempt via API (CVE-2026-44832)
-    description: Detects CVE-2026-44832 exploitation — PATCH request to Snipe-IT API to elevate user privileges.
+    description: Detects CVE-2026-44832 exploitation - PATCH request to Snipe-IT API to elevate user privileges.
     platform: sigma
     severity: high
     tactics:

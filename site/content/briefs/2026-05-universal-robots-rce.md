@@ -33,7 +33,7 @@ references:
   - https://www.universal-robots.com/articles/ur/cybersecurity/cve-2026-8153-command-injection-in-the-polyscope-5-dashboard-server/
 rules:
   - title: Detect CVE-2026-8153 Exploitation Attempt via Malicious URI
-    description: Detects CVE-2026-8153 exploitation attempt — HTTP request to the Dashboard Server interface containing shell metacharacters indicating command injection attempt.
+    description: Detects CVE-2026-8153 exploitation attempt - HTTP request to the Dashboard Server interface containing shell metacharacters indicating command injection attempt.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +43,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-8153 Exploitation Attempt via Specific User Agent
-    description: Detects CVE-2026-8153 exploitation attempt — HTTP request to the Dashboard Server interface containing shell metacharacters and a specific User-Agent associated with exploit tools.
+    description: Detects CVE-2026-8153 exploitation attempt - HTTP request to the Dashboard Server interface containing shell metacharacters and a specific User-Agent associated with exploit tools.
     platform: sigma
     severity: high
     tactics:

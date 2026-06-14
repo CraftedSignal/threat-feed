@@ -30,7 +30,7 @@ references:
   - CVE-2026-10123
 rules:
   - title: Detect TRENDnet TEW-432BRP Buffer Overflow Attempt
-    description: Detects CVE-2026-10123 exploitation attempt — Suspiciously long parameter values in requests to /goform/formSetDomainFilter, potentially indicating a buffer overflow attempt.
+    description: Detects CVE-2026-10123 exploitation attempt - Suspiciously long parameter values in requests to /goform/formSetDomainFilter, potentially indicating a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:

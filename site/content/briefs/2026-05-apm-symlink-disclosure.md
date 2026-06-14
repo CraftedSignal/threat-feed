@@ -30,7 +30,7 @@ references:
   - https://github.com/advisories/GHSA-q5pp-gvjg-h7v4
 rules:
   - title: Detect APM CLI Installation with Suspicious Symlink Targets
-    description: Detects CVE-2026-45539 exploitation — Flags APM CLI installations where the command line contains paths suggestive of symlink exploitation, especially those targeting sensitive files.
+    description: Detects CVE-2026-45539 exploitation - Flags APM CLI installations where the command line contains paths suggestive of symlink exploitation, especially those targeting sensitive files.
     platform: sigma
     severity: high
     tactics:

@@ -31,7 +31,7 @@ references:
   - https://github.com/electerm/electerm/commit/a79e06f4a1f0ac6376c3d2411ef4690fa0377742
 rules:
   - title: Detect Electerm URI Protocol Handler Abuse
-    description: Detects CVE-2026-43944 exploitation — execution of electerm with electerm:// URI protocol handler
+    description: Detects CVE-2026-43944 exploitation - execution of electerm with electerm:// URI protocol handler
     platform: sigma
     severity: high
     tactics:
@@ -42,7 +42,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Electerm Malicious opts Argument
-    description: Detects CVE-2026-43944 exploitation — execution of electerm with a suspicious opts argument
+    description: Detects CVE-2026-43944 exploitation - execution of electerm with a suspicious opts argument
     platform: sigma
     severity: critical
     tactics:

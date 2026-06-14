@@ -30,7 +30,7 @@ references:
   - https://github.com/openises/tickets/releases/tag/v3.44.2
   - https://www.vulncheck.com/advisories/open-ises-tickets-sql-injection-via-ajax-statistics-php-tick-id-and-f-tick-id-parameters
 rules:
-  - title: Detects CVE-2026-48240 Exploitation — Open ISES Tickets SQL Injection Attempt
+  - title: Detects CVE-2026-48240 Exploitation - Open ISES Tickets SQL Injection Attempt
     description: Detects CVE-2026-48240 exploitation attempt in Open ISES Tickets by identifying suspicious POST requests to ajax/statistics.php with SQL injection payloads in tick_id or f_tick_id parameters.
     platform: sigma
     severity: high
@@ -40,7 +40,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-48240 Exploitation — Open ISES Tickets SQL Injection Error Responses
+  - title: Detects CVE-2026-48240 Exploitation - Open ISES Tickets SQL Injection Error Responses
     description: Detects CVE-2026-48240 exploitation attempt in Open ISES Tickets based on web server error responses following a SQL injection attempt to ajax/statistics.php.
     platform: sigma
     severity: medium

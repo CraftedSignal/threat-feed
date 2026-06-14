@@ -32,8 +32,8 @@ references:
   - https://vuldb.com/vuln/364385
   - https://vuldb.com/vuln/364385/cti
 rules:
-  - title: Detects CVE-2026-8758 Exploitation — MetaCRM Unrestricted Upload Attempt
-    description: Detects CVE-2026-8758 exploitation — Attempts to upload files to /common/jsp/upload3.jsp in MetaCRM that may indicate an unrestricted upload vulnerability.
+  - title: Detects CVE-2026-8758 Exploitation - MetaCRM Unrestricted Upload Attempt
+    description: Detects CVE-2026-8758 exploitation - Attempts to upload files to /common/jsp/upload3.jsp in MetaCRM that may indicate an unrestricted upload vulnerability.
     platform: sigma
     severity: high
     tactics:
@@ -42,8 +42,8 @@ rules:
       - T1189
     data_sources:
       - webserver
-  - title: Detects CVE-2026-8758 Exploitation — MetaCRM Suspicious File Extension Upload
-    description: Detects CVE-2026-8758 exploitation — Detects uploads of common web server script extensions to the MetaCRM application, which may lead to remote code execution.
+  - title: Detects CVE-2026-8758 Exploitation - MetaCRM Suspicious File Extension Upload
+    description: Detects CVE-2026-8758 exploitation - Detects uploads of common web server script extensions to the MetaCRM application, which may lead to remote code execution.
     platform: sigma
     severity: high
     tactics:

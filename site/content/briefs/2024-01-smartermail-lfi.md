@@ -29,7 +29,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7807
 rules:
   - title: Detect SmarterMail LFI Attempt
-    description: Detects CVE-2026-7807 exploitation attempt — HTTP request to the /api/v1/report/summary endpoint with path traversal sequences.
+    description: Detects CVE-2026-7807 exploitation attempt - HTTP request to the /api/v1/report/summary endpoint with path traversal sequences.
     platform: sigma
     severity: high
     tactics:

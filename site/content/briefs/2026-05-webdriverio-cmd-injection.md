@@ -25,8 +25,8 @@ references:
   - https://github.com/advisories/GHSA-5c46-x3qw-q7j7
   - https://github.com/webdriverio/webdriverio/blob/ea0e3e00288abced4c739ff9e46c46977b7cdbd2/packages/wdio-browserstack-service/src/testorchestration/helpers.ts#L204
 rules:
-  - title: Detect CVE-2026-25244 Exploitation — Suspicious Process Execution via wdio
-    description: Detects CVE-2026-25244 exploitation — Monitors for process execution events originating from wdio processes with shell metacharacters in the command line, indicating potential command injection.
+  - title: Detect CVE-2026-25244 Exploitation - Suspicious Process Execution via wdio
+    description: Detects CVE-2026-25244 exploitation - Monitors for process execution events originating from wdio processes with shell metacharacters in the command line, indicating potential command injection.
     platform: sigma
     severity: critical
     tactics:
@@ -38,8 +38,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detect CVE-2026-25244 Exploitation — File Creation in /tmp via wdio Injection
-    description: Detects CVE-2026-25244 exploitation — Monitors for file creation events in /tmp directory originating from a wdio process with shell command injection.
+  - title: Detect CVE-2026-25244 Exploitation - File Creation in /tmp via wdio Injection
+    description: Detects CVE-2026-25244 exploitation - Monitors for file creation events in /tmp directory originating from a wdio process with shell command injection.
     platform: sigma
     severity: critical
     tactics:

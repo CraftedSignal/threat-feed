@@ -25,7 +25,7 @@ references:
   - https://github.com/advisories/GHSA-76w7-j9cq-rx2j
 rules:
   - title: Detect VM2 Sandbox Escape via Promise Species Manipulation
-    description: Detects CVE-2026-47208 exploitation — execution of `child_process.execSync` within the vm2 sandbox indicating a sandbox escape attempt.
+    description: Detects CVE-2026-47208 exploitation - execution of `child_process.execSync` within the vm2 sandbox indicating a sandbox escape attempt.
     platform: sigma
     severity: critical
     tactics:
@@ -36,7 +36,7 @@ rules:
       - process_creation
       - linux
   - title: Detect VM2 Sandbox Escape via Promise Species Manipulation (Windows)
-    description: Detects CVE-2026-47208 exploitation — execution of `child_process.execSync` within the vm2 sandbox on Windows, indicating a sandbox escape attempt.
+    description: Detects CVE-2026-47208 exploitation - execution of `child_process.execSync` within the vm2 sandbox on Windows, indicating a sandbox escape attempt.
     platform: sigma
     severity: critical
     tactics:

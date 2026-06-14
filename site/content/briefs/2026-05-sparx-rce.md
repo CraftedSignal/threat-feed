@@ -59,7 +59,7 @@ references:
   - https://github.com/advisories/GHSA-j7p7-w7pr-mwpc
 rules:
   - title: Detect Potential CVE-2026-42097 Exploitation Attempt
-    description: Detects CVE-2026-42097 exploitation attempt — Monitors for POST requests to the Sparx Pro Cloud Server with a model name included in the binary blob, indicating a potential authentication bypass.
+    description: Detects CVE-2026-42097 exploitation attempt - Monitors for POST requests to the Sparx Pro Cloud Server with a model name included in the binary blob, indicating a potential authentication bypass.
     platform: sigma
     severity: high
     tactics:

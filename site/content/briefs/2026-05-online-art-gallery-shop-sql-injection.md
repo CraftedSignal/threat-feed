@@ -36,8 +36,8 @@ references:
   - https://vuldb.com/vuln/365327
   - https://vuldb.com/vuln/365327/cti
 rules:
-  - title: Detects CVE-2026-9364 Exploitation — SQL Injection Attempt in Online Art Gallery Shop
-    description: Detects CVE-2026-9364 exploitation — SQL injection attempts targeting the social_linked parameter in /admin/adminHome.php
+  - title: Detects CVE-2026-9364 Exploitation - SQL Injection Attempt in Online Art Gallery Shop
+    description: Detects CVE-2026-9364 exploitation - SQL injection attempts targeting the social_linked parameter in /admin/adminHome.php
     platform: sigma
     severity: high
     tactics:
@@ -47,8 +47,8 @@ rules:
       - T1505.003
     data_sources:
       - webserver
-  - title: Detects CVE-2026-9364 Exploitation — SQL Injection with Encoded Characters
-    description: Detects CVE-2026-9364 exploitation — SQL injection attempts in Online Art Gallery Shop via encoded characters
+  - title: Detects CVE-2026-9364 Exploitation - SQL Injection with Encoded Characters
+    description: Detects CVE-2026-9364 exploitation - SQL injection attempts in Online Art Gallery Shop via encoded characters
     platform: sigma
     severity: high
     tactics:

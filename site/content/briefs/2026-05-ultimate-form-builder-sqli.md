@@ -29,8 +29,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2018-25352
 rules:
-  - title: Detect CVE-2018-25352 Exploitation Attempt — WordPress Ultimate Form Builder SQLi
-    description: Detects CVE-2018-25352 exploitation attempt — HTTP POST request to admin-ajax.php with ufbl_get_entry_detail_action and SQL injection attempts in entry_id parameter.
+  - title: Detect CVE-2018-25352 Exploitation Attempt - WordPress Ultimate Form Builder SQLi
+    description: Detects CVE-2018-25352 exploitation attempt - HTTP POST request to admin-ajax.php with ufbl_get_entry_detail_action and SQL injection attempts in entry_id parameter.
     platform: sigma
     severity: high
     tactics:
@@ -71,6 +71,6 @@ Successful exploitation of this SQL injection vulnerability allows attackers to 
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect CVE-2018-25352 Exploitation Attempt — WordPress Ultimate Form Builder SQLi` to identify potentially malicious requests targeting the vulnerable endpoint and parameter.
+*   Deploy the Sigma rule `Detect CVE-2018-25352 Exploitation Attempt - WordPress Ultimate Form Builder SQLi` to identify potentially malicious requests targeting the vulnerable endpoint and parameter.
 *   Upgrade the Ultimate Form Builder Lite plugin to a version greater than 1.3.7 to patch the CVE-2018-25352 vulnerability.
 *   Monitor web server logs for suspicious POST requests to `admin-ajax.php` with the `ufbl_get_entry_detail_action` action and SQL-like syntax in the `entry_id` parameter.

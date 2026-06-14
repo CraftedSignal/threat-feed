@@ -23,7 +23,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-44673
 rules:
   - title: Detect CVE-2026-44673 Exploitation - Suspicious Process Execution
-    description: Detects CVE-2026-44673 exploitation — Monitors for suspicious processes spawned after a vulnerable application processes a malicious LYB file, potentially indicating code execution.
+    description: Detects CVE-2026-44673 exploitation - Monitors for suspicious processes spawned after a vulnerable application processes a malicious LYB file, potentially indicating code execution.
     platform: sigma
     severity: high
     tactics:
@@ -34,7 +34,7 @@ rules:
       - process_creation
       - windows
   - title: Detect CVE-2026-44673 Exploitation - Unsigned Binary Execution
-    description: Detects CVE-2026-44673 exploitation — Monitors for unsigned binaries being executed after the parsing of LYB files by the vulnerable application, indicating unauthorized code execution.
+    description: Detects CVE-2026-44673 exploitation - Monitors for unsigned binaries being executed after the parsing of LYB files by the vulnerable application, indicating unauthorized code execution.
     platform: sigma
     severity: medium
     tactics:

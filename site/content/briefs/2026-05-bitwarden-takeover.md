@@ -35,7 +35,7 @@ references:
   - https://www.vulncheck.com/advisories/bitwarden-server-missing-authorization-via-provider-clients
 rules:
   - title: Detect Bitwarden Provider Organization Takeover Attempt
-    description: Detects CVE-2026-43639 exploitation — Attempt to add an arbitrary organization to a provider via the /providers/{providerId}/clients/existing endpoint.
+    description: Detects CVE-2026-43639 exploitation - Attempt to add an arbitrary organization to a provider via the /providers/{providerId}/clients/existing endpoint.
     platform: sigma
     severity: high
     tactics:

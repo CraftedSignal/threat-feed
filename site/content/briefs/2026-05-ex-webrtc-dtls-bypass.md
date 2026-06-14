@@ -31,7 +31,7 @@ references:
   - https://github.com/elixir-webrtc/ex_webrtc/releases/tag/v0.16.1
 rules:
   - title: Detect ExWebrtc DTLS Handshake Without Fingerprint Validation
-    description: Detects CVE-2026-44700 exploitation — identifies DTLS handshakes initiated by ex_webrtc without proper fingerprint validation, indicative of a potential MITM attack
+    description: Detects CVE-2026-44700 exploitation - identifies DTLS handshakes initiated by ex_webrtc without proper fingerprint validation, indicative of a potential MITM attack
     platform: sigma
     severity: medium
     tactics:

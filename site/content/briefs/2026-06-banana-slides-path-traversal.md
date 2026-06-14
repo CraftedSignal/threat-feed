@@ -26,8 +26,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49136
   - CVE-2026-49136
 rules:
-  - title: Detect CVE-2026-49136 Exploitation Attempt — Path Traversal in Banana Slides
-    description: Detects CVE-2026-49136 exploitation attempt — Path traversal vulnerability in Banana Slides via crafted HTTP request.
+  - title: Detect CVE-2026-49136 Exploitation Attempt - Path Traversal in Banana Slides
+    description: Detects CVE-2026-49136 exploitation attempt - Path traversal vulnerability in Banana Slides via crafted HTTP request.
     platform: sigma
     severity: high
     tactics:
@@ -36,7 +36,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2026-49136 Exploitation Attempt — os.path.startswith bypass
+  - title: Detect CVE-2026-49136 Exploitation Attempt - os.path.startswith bypass
     description: Detects CVE-2026-49136 exploitation attempt by looking for requests targeting directories with the 'uploads' prefix but outside the uploads directory.
     platform: sigma
     severity: medium
@@ -69,5 +69,5 @@ Successful exploitation of CVE-2026-49136 allows unauthenticated attackers to re
 ## Recommendation
 
 *   Upgrade Banana Slides to a version greater than 0.4.0, which includes the patch from commit e8bc490, to remediate CVE-2026-49136.
-*   Deploy the Sigma rule "Detect CVE-2026-49136 Exploitation Attempt — Path Traversal in Banana Slides" to your SIEM to detect exploitation attempts based on HTTP request patterns.
+*   Deploy the Sigma rule "Detect CVE-2026-49136 Exploitation Attempt - Path Traversal in Banana Slides" to your SIEM to detect exploitation attempts based on HTTP request patterns.
 *   Review webserver access logs for requests containing path traversal sequences in the `cs-uri-query` or `cs-uri-stem` fields, specifically targeting image-related endpoints as identified in the vulnerability description.

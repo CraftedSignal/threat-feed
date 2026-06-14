@@ -31,8 +31,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2018-25412
 rules:
-  - title: Detect CVE-2018-25412 Exploitation — Malicious File Upload
-    description: Detects CVE-2018-25412 exploitation — attempt to upload PHP file to docs_upload.php
+  - title: Detect CVE-2018-25412 Exploitation - Malicious File Upload
+    description: Detects CVE-2018-25412 exploitation - attempt to upload PHP file to docs_upload.php
     platform: sigma
     severity: critical
     tactics:
@@ -42,8 +42,8 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detect CVE-2018-25412 Exploitation — Suspicious POST Request
-    description: Detects CVE-2018-25412 exploitation — suspicious POST request to docs_upload.php with unusual parameters.
+  - title: Detect CVE-2018-25412 Exploitation - Suspicious POST Request
+    description: Detects CVE-2018-25412 exploitation - suspicious POST request to docs_upload.php with unusual parameters.
     platform: sigma
     severity: high
     tactics:
@@ -76,5 +76,5 @@ Successful exploitation of CVE-2018-25412 allows an unauthenticated attacker to 
 ## Recommendation
 
 *   Apply any available patches or upgrades for Delta Sql to address CVE-2018-25412.
-*   Implement strict file upload validation on the server to prevent arbitrary file uploads. Block uploads to `docs_upload.php` via the "Detect CVE-2018-25412 Exploitation — Malicious File Upload" Sigma rule.
-*   Monitor web server logs for suspicious POST requests to `docs_upload.php` using the "Detect CVE-2018-25412 Exploitation — Suspicious POST Request" Sigma rule.
+*   Implement strict file upload validation on the server to prevent arbitrary file uploads. Block uploads to `docs_upload.php` via the "Detect CVE-2018-25412 Exploitation - Malicious File Upload" Sigma rule.
+*   Monitor web server logs for suspicious POST requests to `docs_upload.php` using the "Detect CVE-2018-25412 Exploitation - Suspicious POST Request" Sigma rule.
