@@ -1,29 +1,34 @@
 ---
-title: M365 Identity Device Code Grant with Unusual User and ASN
+title: Microsoft 365 OAuth Device Code Phishing Exploits Non-Compliant Devices
 slug: 2026-06-m365-device-code-phishing
-description: Threat actors leveraging phishing kits such as Kali365 and associated with groups like Storm-2372 are conducting device code phishing campaigns against Microsoft 365 users to steal MFA-satisfied authentication tokens by tricking victims into completing legitimate OAuth device code grants from attacker-controlled residential proxy or hosting infrastructure, leading to unauthorized account access and potential data exfiltration.
-date: "2026-06-18T15:35:08Z"
-type: threat
+description: Attackers are actively exploiting the OAuth device code flow in Microsoft 365 to bypass multi-factor authentication (MFA) and gain initial access, leveraging phishing kits like Kali365 and tradecraft similar to Storm-2372 to harvest MFA-satisfied tokens from non-compliant or attacker-controlled devices, and subsequently establishing persistence through device registration.
+date: "2026-06-18T15:37:29Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
-actors:
-  - Storm-2372
 tags:
   - cloud
   - saas
   - identity
+  - microsoft-365
+  - initial-access
   - phishing
-  - mfa-bypass
-  - office365
+  - persistence
 vendors:
   - Microsoft
 products:
   - Microsoft 365
-  - Microsoft Authentication Broker
-  - Microsoft Graph
+  - Microsoft Entra ID
+  - Exchange Online
+  - SharePoint Online
+  - Microsoft Teams
 mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1566
@@ -32,86 +37,68 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1550
     technique_name: Use Alternate Authentication Material
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1078
-    technique_name: Valid Accounts
 references:
   - https://arcticwolf.com/resources/blog/token-bingo-dont-let-your-code-be-the-winner/
   - https://arcticwolf.com/resources/blog/kali365-expands-into-aws-microsoft-okta-xerox-max-messenger/
   - https://www.ic3.gov/PSA/2026/PSA260521
   - https://www.volexity.com/blog/2025/02/13/multiple-russian-threat-actors-targeting-microsoft-device-code-authentication/
   - https://www.microsoft.com/en-us/security/blog/2025/02/13/storm-2372-conducts-device-code-phishing-campaign/
-iocs:
-  - type: string
-    value: 29d9ed98-a469-4536-ade2-f981bc1d605e
-  - type: string
-    value: 00000003-0000-0000-c000-000000000000
-ioc_counts:
-  string: 2
 rules:
-  - title: M365 Device Code Grant to Microsoft Graph (Baseline)
-    description: Detects a Microsoft 365 OAuth device code grant event for the Microsoft Authentication Broker and Microsoft Graph, a prerequisite for device code phishing attacks. This rule serves as a baseline for monitoring this specific authentication flow.
+  - title: M365 OAuth Device Code Grant from Non-Compliant Device
+    description: Detects a Microsoft 365 user completing an OAuth device code grant ('Cmsi:Cmsi') from a device reported as non-compliant. This activity is a strong indicator of device code phishing, where attackers bypass MFA by having victims authenticate through genuine Microsoft endpoints on attacker-controlled or personal devices to harvest MFA-satisfied tokens.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
       - defense_evasion
       - initial_access
     techniques:
+      - T1078
+      - T1078.004
+      - T1550
       - T1550.001
+      - T1566
       - T1566.002
     data_sources:
-      - network_connection
+      - cloud
       - o365
-  - title: M365 Device Code Grant from Suspicious ASN
-    description: Detects Microsoft 365 OAuth device code grant activity (`Cmsi:Cmsi`) for the Microsoft Authentication Broker and Microsoft Graph originating from IP addresses associated with common hosting, VPN, or datacenter Autonomous System Numbers (ASNs). This pattern is highly suspicious for interactive user authentication and indicative of device code phishing.
+  - title: M365 Suspicious Device Registration by User
+    description: Detects suspicious user-initiated device registration events in Microsoft 365, which threat actors commonly use after gaining initial access (e.g., via device code phishing) to establish Primary Refresh Token (PRT) persistence and maintain long-term access.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
-      - initial_access
-    techniques:
-      - T1550.001
-      - T1566.002
-    data_sources:
-      - network_connection
-      - o365
-  - title: Azure AD Device Registration for Suspicious Context
-    description: Detects 'Add registered device' events in Azure AD audit logs, which can indicate an attacker establishing Primary Refresh Token (PRT) persistence after gaining initial access through methods like device code phishing.
-    platform: sigma
-    severity: medium
-    tactics:
       - persistence
     techniques:
-      - T1078.004
-      - T1136.002
+      - T1098
+      - T1098.001
     data_sources:
-      - network_connection
+      - cloud
       - azure
-rules_count: 3
+rules_count: 2
 ---
 
-Threat actors, notably utilizing sophisticated phishing kits like Kali365 and associated with groups such as Storm-2372, are actively exploiting the OAuth device code grant flow in Microsoft 365 environments. This technique, highlighted in a recent IC3 PSA and by vendors like Arctic Wolf, Volexity, and Microsoft, circumvents traditional Multi-Factor Authentication (MFA) by prompting users to authenticate against genuine Microsoft endpoints (microsoft.com/devicelogin). The attacker's server-side component then polls the token endpoint from an unusual Autonomous System Number (ASN)—typically a residential proxy, VPN, or hosting provider—to redeem the resulting MFA-satisfied token. This means the authentication event (identified by `Cmsi:Cmsi` for the Microsoft Authentication Broker with application ID `29d9ed98-a469-4536-ade2-f981bc1d605e` targeting Microsoft Graph with ID `00000003-0000-0000-c000-000000000000`) originates from an unexpected network location for the user, signaling compromise and enabling persistent unauthorized access to cloud resources.
+Threat actors are increasingly utilizing sophisticated phishing techniques, specifically targeting the OAuth device code flow within Microsoft 365, to circumvent multi-factor authentication (MFA). Campaigns observed leveraging tools like Kali365 and tradecraft similar to Storm-2372, dating back at least to early 2025 according to referenced reports, lure victims into authorizing access on attacker-controlled or personal non-compliant devices. This method exploits the legitimate device code authentication mechanism by directing users to genuine Microsoft endpoints to complete their login and MFA, while the attacker's phishing kit polls the token endpoint in the background to harvest an MFA-satisfied access token. This approach bypasses traditional MFA protections by manipulating the authorization process itself, granting attackers persistent access and enabling subsequent malicious activities such as reconnaissance and data exfiltration.
 
 ## Attack Chain
 
-1.  **Initial Access**: Threat actors send spearphishing messages, often impersonating trusted entities, containing malicious links that prompt recipients to use a "device code" for authentication.
-2.  **Device Code Initiation**: The victim interacts with the phishing link, which initiates a legitimate OAuth device code flow and displays a unique, short-lived code on a malicious or compromised web page.
-3.  **Legitimate Authentication**: The victim is directed to a genuine Microsoft device login portal (e.g., `microsoft.com/devicelogin`), where they are instructed to enter the provided device code and then complete multi-factor authentication (MFA).
-4.  **Token Harvesting**: Concurrently, the attacker's server-side component (e.g., Kali365 phishing kit), operating from a suspicious Autonomous System Number (ASN) like a residential proxy or cloud hosting provider, continuously polls Microsoft to redeem the device code for an OAuth token.
-5.  **Unauthorized Token Use**: The attacker successfully obtains a valid, MFA-satisfied refresh token from the Microsoft token endpoint, granting them persistent, unauthorized access to the victim's Microsoft 365 account without needing to re-authenticate or bypass MFA.
-6.  **Reconnaissance & Persistence**: The attacker utilizes the stolen token to perform actions such as querying the Microsoft Graph API (`00000003-0000-0000-c000-000000000000`) for user data (e.g., `/me` endpoint, mailbox enumeration) or registering new devices for the victim's account to establish Primary Refresh Token (PRT) persistence.
-7.  **Impact**: The attacker proceeds with data exfiltration from services like Exchange Online or SharePoint, or gains access to sensitive organizational resources, leading to significant data breaches or further lateral movement within the cloud environment.
+1.  **Initial Access / Phishing Lure**: Attackers distribute phishing lures (e.g., email, instant message) containing a unique device code and instructions for the victim to visit a legitimate Microsoft verification URL (e.g., microsoft.com/devicelogin).
+2.  **Device Code Entry**: The victim navigates to the genuine Microsoft verification URL and, as instructed by the lure, enters the attacker-provided device code.
+3.  **Authentication and MFA**: The victim is prompted to authenticate with their Microsoft 365 credentials and completes multi-factor authentication (MFA) on a legitimate Microsoft login page.
+4.  **Token Harvesting**: Concurrently, the attacker's phishing kit, having initiated the device code flow, continuously polls the token endpoint. Upon successful authentication and MFA by the victim, the kit intercepts and harvests the resulting MFA-satisfied refresh token and access token. This often occurs from a device not compliant with the organization's security policies.
+5.  **Unauthorized Access**: The attacker uses the harvested tokens to gain unauthorized access to the victim's Microsoft 365 resources (e.g., Exchange Online, SharePoint Online, Microsoft Teams, OneDrive).
+6.  **Persistence Establishment**: To maintain access, attackers may register a new device to the compromised user's account, establishing Primary Refresh Token (PRT) persistence that survives password changes.
+7.  **Reconnaissance and Lateral Movement**: With persistent access, the attacker performs reconnaissance within the victim's environment, enumerating mailboxes, files, and other cloud resources, and potentially moving laterally to other connected applications or services.
+8.  **Impact and Exfiltration**: Finally, the attacker may exfiltrate sensitive data, initiate further attacks, or manipulate cloud resources based on their objectives.
 
 ## Impact
 
-Successful device code phishing campaigns result in full account takeover of Microsoft 365 user accounts, even those protected by MFA. This leads to immediate unauthorized access to sensitive corporate data within Exchange Online, SharePoint, Teams, and other Microsoft Graph-integrated services. Attackers can exfiltrate emails, documents, and other critical information, impersonate users for further phishing or business email compromise (BEC) attacks, and establish persistent access mechanisms like device registration to maintain long-term presence. The financial and reputational damage from such breaches can be substantial, affecting organizations across all sectors that rely on Microsoft 365.
+Successful device code phishing attacks result in complete bypass of multi-factor authentication, granting attackers MFA-satisfied access tokens that provide persistent and unauthorized entry to critical Microsoft 365 services such as Exchange Online, SharePoint Online, and Teams. This leads to immediate compromise of user accounts, enabling data exfiltration, email account takeover, and access to sensitive documents. Attackers can also establish long-term persistence by registering new devices, making detection and remediation more challenging. While no specific victim counts or industry sectors are provided in the source, the technique is broadly applicable to any organization utilizing Microsoft 365, posing a significant risk of intellectual property theft, financial fraud, and business disruption.
 
 ## Recommendation
 
-*   Deploy the Sigma rules in this brief to your SIEM, focusing on detecting `o365.audit` events for device code grants and suspicious source ASNs.
-*   Investigate all alerts generated by the "M365 Device Code Grant from Suspicious ASN" rule by reviewing `source.as.organization.name`, `source.ip`, and `source.geo.country_name` for consistency with the user's normal activity.
-*   Enable comprehensive `o365.audit` logging, specifically for `ExtendedProperties.RequestType`, `ApplicationId`, `Target.ID`, `source.as.number`, and `source.as.organization.name` fields, to ensure the detection rules are effective.
-*   Implement Conditional Access policies to restrict device code authentication (`29d9ed98-a469-4536-ade2-f981bc1d605e`) to only necessary users and applications or to trusted network locations.
-*   Review and remove any unauthorized device registrations in Azure AD that may have resulted from post-exploitation activities detected by the "Azure AD Device Registration for Suspicious Context" rule.
-*   Educate users on the risks of device code phishing and advise them against entering codes presented by unsolicited messages or documents.
+*   Deploy the Sigma rule "M365 OAuth Device Code Grant from Non-Compliant Device" to your SIEM to detect anomalous device code authentication originating from unmanaged endpoints.
+*   Monitor `o365.audit` logs for `RequestType: "Cmsi:Cmsi"` events, paying close attention to `o365.audit.DeviceProperties` (especially `Value: "False"`) and the associated `source.ip` and `source.as.organization.name` for unusual origins.
+*   Implement Conditional Access policies in Microsoft Entra ID to restrict device code authentication to only necessary users and applications, and enforce requirements for compliant or hybrid-joined devices.
+*   Deploy the Sigma rule "M365 Suspicious Device Registration by User" to identify attempts by threat actors to establish persistence post-compromise by registering new devices.
+*   Educate users about the risks of device code phishing, emphasizing vigilance against unsolicited requests to enter codes on authentication pages and the importance of verifying the authenticity of login prompts.
+*   For confirmed compromises, immediately revoke all refresh tokens for the affected user, reset their credentials, and review `azure.signinlogs`, `azure.graphactivitylogs`, and `azure.auditlogs` for post-compromise activity and remove any unauthorized device registrations.
