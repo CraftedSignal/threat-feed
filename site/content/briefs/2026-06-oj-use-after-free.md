@@ -1,72 +1,79 @@
 ---
-title: Oj Gem Use-After-Free Vulnerability (CVE-2026-54898)
+title: 'Oj: Use-After-Free in Oj::Doc Iterators via Reentrant Close'
 slug: 2026-06-oj-use-after-free
-description: A heap use-after-free vulnerability (CVE-2026-54898) in the Oj gem's Oj::Parser#parse method allows an attacker to trigger memory corruption and potential arbitrary code execution or denial of service when a SAJ/SAJ2 callback mutates the input JSON string during parsing, causing a dangling pointer and subsequent read of freed memory.
-date: "2026-06-19T19:54:52Z"
+description: A heap use-after-free vulnerability (CVE-2026-54897) exists in `Oj::Doc` iterators (`each_value`, `each_child`, `each_leaf`) in the `oj` Ruby gem, allowing an attacker to cause application crashes or unpredictable behavior when a Ruby block yielded during iteration reentrantly calls `doc.close` or `d.close`.
+date: "2026-06-19T19:56:18Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - vulnerability
-  - use-after-free
   - ruby
-  - gem
-  - memory-corruption
+  - use-after-free
+  - library-vulnerability
+  - dos
 vendors:
   - Oj
 products:
   - oj gem (< 3.17.2)
+affected_os:
+  - Windows
+  - Linux
+  - macOS
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Denial of Service
 references:
-  - https://github.com/advisories/GHSA-q2gm-54r6-8fwm
+  - https://github.com/advisories/GHSA-9ppp-w3g4-fh4q
 rules:
-  - title: Detects CVE-2026-54898 Exploitation — Oj Gem Application Crash (Windows)
-    description: Detects the creation of crash dump files (*.dmp) by a Ruby process, which could indicate a denial-of-service or memory corruption exploit related to CVE-2026-54898 in the Oj gem.
+  - title: Detects Ruby Process Access Violation (Windows)
+    description: Detects CVE-2026-54897 potential exploitation — Abnormal termination of Ruby processes due to an access violation (0xc0000005), which can be an outcome of a use-after-free vulnerability or other memory corruption issues in the `oj` gem or other Ruby components.
     platform: sigma
     severity: high
     tactics:
       - impact
     techniques:
       - T1499
-      - T1499.001
     data_sources:
-      - file_event
+      - application
       - windows
-  - title: Detects CVE-2026-54898 Exploitation — Suspicious Child Process from Ruby Interpreter
-    description: Detects the execution of known suspicious processes (e.g., command shells, scripting interpreters) as direct child processes of the Ruby interpreter. This could indicate successful arbitrary code execution via CVE-2026-54898.
+  - title: Detects Ruby Process Segmentation Fault (Linux)
+    description: Detects CVE-2026-54897 potential exploitation — Kernel messages indicating a segmentation fault (segfault) involving a Ruby process, which can be a symptom of a use-after-free vulnerability or other memory corruption issues in the `oj` gem or other Ruby components.
     platform: sigma
     severity: high
     tactics:
-      - execution
+      - impact
     techniques:
-      - T1059
-      - T1204
+      - T1499
     data_sources:
-      - process_creation
-      - windows
+      - system
+      - linux
 rules_count: 2
 ---
 
-The `Oj` gem, a fast JSON parser and serializer for Ruby, is affected by a heap use-after-free vulnerability, identified as CVE-2026-54898. This flaw resides within the `Oj::Parser#parse` method, specifically when processing JSON via SAJ/SAJ2 callbacks. An attacker can trigger this vulnerability by providing a crafted JSON input where a callback, such as `hash_start`, intentionally mutates the input JSON string (e.g., by using `String#replace` with a larger value). This mutation causes Ruby to reallocate the string's internal buffer and free the old one. However, the C engine within `Oj` retains a raw `const byte *` pointer to the now-freed memory, leading to a use-after-free condition when the parser attempts to read the next character. This vulnerability affects all versions of the `oj` gem that include `ext/oj/parser.c` (confirmed in 3.17.1 and earlier versions < 3.17.2). Successful exploitation can lead to application crashes (denial of service) or potentially arbitrary code execution.
+A critical heap use-after-free vulnerability, identified as CVE-2026-54897, affects the `Oj::Doc` iterators within the `oj` Ruby gem. Specifically, the `each_value`, `each_child`, and `each_leaf` methods are vulnerable. The issue arises when a Ruby block, executed during the iteration process, makes a reentrant call to `doc.close` or `d.close` on the document or one of its child nodes. This premature closing operation frees the associated heap memory while the underlying C iterator in `ext/oj/fast.c` is still active. Upon returning from the Ruby block, the C code attempts to access memory that has already been deallocated, leading to a use-after-free condition. This vulnerability, present in all `oj` gem versions utilizing `ext/oj/fast.c` (confirmed up to v3.17.1), can be triggered from pure Ruby code and results in application instability, crashes, or potential arbitrary code execution. Organizations running Ruby applications that parse JSON via the `oj` gem are at risk.
 
 ## Attack Chain
 
-1.  An attacker delivers a crafted JSON input to a Ruby application utilizing the `Oj` gem for parsing.
-2.  The `Oj::Parser#parse` method begins processing the JSON string, and its internal C engine obtains a direct `const byte *` pointer to the Ruby string's backing buffer.
-3.  During parsing, a malicious JSON structure triggers a SAJ/SAJ2 callback (e.g., `hash_start`) with a key controlled by the attacker.
-4.  The invoked callback function, manipulated by the attacker, executes `String#replace` or a similar method on the *original input JSON string*, replacing its content with a larger string.
-5.  This action causes the Ruby runtime to reallocate the input string's internal buffer and subsequently free the original buffer, to which the `Oj` C parser still holds a dangling pointer.
-6.  As the `Oj` parser continues its execution loop (`parser.c:607`), it attempts to read the next character from the dangling pointer, resulting in a heap use-after-free error.
-7.  This memory corruption can lead to application crashes (denial of service) or, in advanced scenarios, potentially arbitrary code execution within the context of the vulnerable application.
+1. A Ruby application integrates and uses the `oj` gem for JSON data processing.
+2. The application opens a JSON document for parsing using the `Oj::Doc.open` method.
+3. The application initiates an iteration over the document's elements using a vulnerable iterator method such as `each_value`, `each_child`, or `each_leaf`, providing a Ruby block for processing.
+4. During the execution of the yielded Ruby block, a call is inadvertently made to `doc.close` or `d.close` on the `Oj::Doc` instance or one of its child nodes.
+5. This `close` operation triggers the `ruby_sized_xfree` function within the `ext/oj/fast.c` source, leading to the premature deallocation of the underlying heap memory buffer associated with the `Oj::Doc` object.
+6. Control returns from the Ruby block to the original C iterator function in `ext/oj/fast.c` (e.g., `doc_each_child`).
+7. The C iterator attempts to access or dereference pointers (like `cur->next`) that point to the heap memory region which was previously freed in step 5.
+8. This access to deallocated memory results in a use-after-free condition, manifesting as application crashes, segmentation faults, or unpredictable program behavior.
 
 ## Impact
 
-The successful exploitation of CVE-2026-54898 can result in a denial of service (DoS) for applications relying on the `Oj` gem for JSON parsing. An attacker can reliably trigger application crashes, making the service unavailable to legitimate users. In more sophisticated exploitation scenarios, a use-after-free vulnerability can be leveraged to achieve arbitrary code execution, granting attackers control over the compromised system. This could lead to data exfiltration, further lateral movement within the network, or the deployment of additional malicious payloads. While specific victim counts or targeted sectors are not yet available, any Ruby application using vulnerable versions of the `Oj` gem to parse untrusted JSON input is at risk.
+The primary impact of CVE-2026-54897 is application instability and denial-of-service via crashing. Applications utilizing the vulnerable `oj` gem can be forced to terminate unexpectedly, leading to service disruption. Depending on the memory layout and the specific memory contents at the time of the use-after-free, this vulnerability could potentially be exploited for arbitrary code execution, though this has not been specifically detailed in the advisory. This could compromise the integrity and confidentiality of data processed by the Ruby application. Any Ruby application that handles untrusted JSON input and uses the vulnerable `oj` gem iterations is at risk.
 
 ## Recommendation
 
-1.  Immediately update the `oj` gem to version 3.17.2 or later to patch CVE-2026-54898.
-2.  Deploy the Sigma rules in this brief to your SIEM to detect potential exploitation attempts or indicators of compromise.
-3.  Enable crash dump generation for Ruby applications or web servers (e.g., Passenger, Unicorn) and monitor for `*.dmp` or `core` files with the `Detects CVE-2026-54898 Exploitation — Oj Gem Application Crash (Windows)` Sigma rule.
-4.  Monitor for suspicious child processes spawned by Ruby interpreter executables using the `Detects CVE-2026-54898 Exploitation — Suspicious Child Process from Ruby Interpreter` Sigma rule.
+*   Upgrade the `oj` gem to version 3.17.2 or later immediately to patch CVE-2026-54897.
+*   Review application code for instances where `doc.close` or `d.close` might be called reentrantly within `Oj::Doc` iterator blocks, as described in the overview.
+*   Deploy the `Detects Ruby Process Access Violation (Windows)` Sigma rule to monitor for unusual crashes in Ruby applications.
+*   Deploy the `Detects Ruby Process Segmentation Fault (Linux)` Sigma rule to monitor for crashes in Ruby applications on Linux systems.
