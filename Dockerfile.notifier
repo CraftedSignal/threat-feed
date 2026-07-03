@@ -12,7 +12,7 @@
 #   podman build --platform linux/amd64 -f Dockerfile.notifier \
 #     -t europe-west1-docker.pkg.dev/craftedsignal-shared/craftedsignal/feed-notifier:latest .
 
-FROM alpine:3.21 AS certs
+FROM alpine:3.24 AS certs
 
 RUN apk add --no-cache ca-certificates tzdata && \
     mkdir -p /scratch/etc/ssl/certs && \

@@ -9,6 +9,7 @@ import (
 	"mime"
 	"mime/quotedprintable"
 	"net"
+	"net/mail"
 	"net/smtp"
 	"strings"
 	"time"
@@ -188,7 +189,7 @@ func fillAll(errs []error, err error) {
 // sendOne issues MAIL FROM / RCPT TO / DATA on an already-authenticated
 // SMTP client connection.
 func (m *smtpMailer) sendOne(conn *smtp.Client, msg SmtpMessage) error {
-	if err := conn.Mail(m.cfg.From); err != nil {
+	if err := conn.Mail(envelopeFrom(m.cfg.From)); err != nil {
 		return fmt.Errorf("MAIL FROM: %w", err)
 	}
 	if err := conn.Rcpt(msg.To); err != nil {
@@ -198,7 +199,7 @@ func (m *smtpMailer) sendOne(conn *smtp.Client, msg SmtpMessage) error {
 	if err != nil {
 		return fmt.Errorf("DATA: %w", err)
 	}
-	if _, err := w.Write([]byte(m.formatMessage(msg))); err != nil {
+	if _, err := w.Write([]byte(buildRFC822(m.cfg.From, msg))); err != nil {
 		_ = w.Close()
 		return fmt.Errorf("write body: %w", err)
 	}
@@ -208,9 +209,17 @@ func (m *smtpMailer) sendOne(conn *smtp.Client, msg SmtpMessage) error {
 	return nil
 }
 
-func (m *smtpMailer) formatMessage(msg SmtpMessage) string {
+func envelopeFrom(from string) string {
+	addr, err := mail.ParseAddress(from)
+	if err != nil {
+		return from
+	}
+	return addr.Address
+}
+
+func buildRFC822(from string, msg SmtpMessage) string {
 	var body strings.Builder
-	writeHeader(&body, "From", sanitizeHeaderValue(m.cfg.From))
+	writeHeader(&body, "From", sanitizeHeaderValue(from))
 	writeHeader(&body, "To", sanitizeHeaderValue(msg.To))
 	writeHeader(&body, "Subject", mime.QEncoding.Encode("utf-8", sanitizeHeaderValue(msg.Subject)))
 	writeHeader(&body, "MIME-Version", "1.0")

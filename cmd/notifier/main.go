@@ -49,7 +49,18 @@ func main() {
 	}
 	defer func() { _ = store.Close() }()
 
-	mailer := newSMTPMailer(cfg.SMTP, logger)
+	var mailer mailer
+	switch cfg.MailerBackend {
+	case "gmail":
+		gm, err := newGmailMailer(ctx, cfg, logger)
+		if err != nil {
+			logger.Error("gmail mailer init failed", "err", err)
+			os.Exit(1)
+		}
+		mailer = gm
+	default:
+		mailer = newSMTPMailer(cfg.SMTP, logger)
+	}
 
 	dispatcher := &dispatcher{
 		store:  store,
