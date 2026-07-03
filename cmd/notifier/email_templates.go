@@ -73,12 +73,12 @@ func emailHTMLBatch(briefs []Brief, serviceURL, unsubToken string) string {
 
 	if unsubToken != "" && serviceURL != "" {
 		unsubURL := fmt.Sprintf("%s/unsubscribe?token=%s", serviceURL, unsubToken)
-		cards.WriteString(fmt.Sprintf(`
+		fmt.Fprintf(&cards, `
 			<div style="border-top:1px solid #e2e8f0;margin-top:26px;padding-top:18px">
 				<p style="%s">You are receiving this because a brief matched your CraftedSignal Threat Feed filters.</p>
 				<p style="%s"><a href="%s" style="color:#475569;text-decoration:underline">Unsubscribe</a></p>
 			</div>
-		`, mutedStyle, mutedStyle, hAttr(unsubURL)))
+		`, mutedStyle, mutedStyle, hAttr(unsubURL))
 	}
 
 	return emailShell(title, "CraftedSignal Threat Feed", preheader, cards.String())
@@ -99,7 +99,7 @@ func briefCardHTML(b Brief) string {
 		if len(values) == 0 {
 			return
 		}
-		meta.WriteString(fmt.Sprintf(`<p style="%s"><strong style="color:#334155">%s:</strong> %s</p>`, metaStyle, h(label), h(strings.Join(values, ", "))))
+		fmt.Fprintf(&meta, `<p style="%s"><strong style="color:#334155">%s:</strong> %s</p>`, metaStyle, h(label), h(strings.Join(values, ", ")))
 	}
 	writeMeta("Actors", b.Actors)
 	writeMeta("Products", b.Products)
