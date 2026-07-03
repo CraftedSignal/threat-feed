@@ -11,7 +11,7 @@ concurrency:
 jobs:
   claude-security-analysis:
     name: claude-security-analysis
-    if: ${{ !github.event.pull_request.draft && github.event.pull_request.head.repo.full_name == github.repository }}
+    if: ${{ !github.event.pull_request.draft && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.user.login != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -75,7 +75,7 @@ jobs:
   claude-security-review:
     name: claude-security-review
     needs: claude-security-analysis
-    if: ${{ always() && needs.claude-security-analysis.result != 'skipped' }}
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -89,8 +89,19 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
+          PR_USER: ${{ github.event.pull_request.user.login }}
         run: |
           set -euo pipefail
+
+          # Dependabot pull requests run with a separate, restricted secret store
+          # that does not contain CLAUDE_CODE_OAUTH_TOKEN, so the claude-security-analysis
+          # job is intentionally skipped for them (see that job's `if`). Pass this
+          # required check for Dependabot; those PRs remain gated by the required
+          # human/code-owner review enforced in the branch ruleset.
+          if [ "$PR_USER" = "dependabot[bot]" ]; then
+            echo "Dependabot PR detected: Claude security analysis skipped (no CLAUDE_CODE_OAUTH_TOKEN in Dependabot secret store). Passing required check."
+            exit 0
+          fi
 
           if [ "$ANALYSIS_RESULT" != "success" ]; then
             echo "Claude security analysis did not complete: ${ANALYSIS_RESULT}"
