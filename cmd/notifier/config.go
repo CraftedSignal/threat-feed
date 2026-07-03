@@ -14,7 +14,13 @@ type config struct {
 
 	DispatchToken string
 
-	SMTP smtpConfig
+	MailerBackend string // "gmail" (default) or "smtp"
+	Gmail         gmailConfig
+	SMTP          smtpConfig
+}
+
+type gmailConfig struct {
+	Subject string // DWD-impersonated Workspace user (real mailbox; From: uses SMTP.From alias)
 }
 
 type smtpConfig struct {
@@ -32,19 +38,27 @@ func loadConfig() (*config, error) {
 		SiteOrigin:    mustEnv("SITE_ORIGIN"),
 		ServiceURL:    getEnv("SERVICE_URL", ""), // optional; set after first deploy
 		DispatchToken: mustEnv("DISPATCH_TOKEN"),
+		MailerBackend: getEnv("MAILER_BACKEND", "gmail"),
 		SMTP: smtpConfig{
-			Host:     mustEnv("SMTP_HOST"),
-			Username: mustEnv("SMTP_USERNAME"),
-			Password: mustEnv("SMTP_PASSWORD"),
-			From:     mustEnv("SMTP_FROM"),
+			From: mustEnv("SMTP_FROM"), // From: header for both backends
 		},
 	}
 
-	port, err := strconv.Atoi(getEnv("SMTP_PORT", "587"))
-	if err != nil {
-		return nil, fmt.Errorf("SMTP_PORT: %w", err)
+	switch cfg.MailerBackend {
+	case "gmail":
+		cfg.Gmail.Subject = mustEnv("GMAIL_SUBJECT")
+	case "smtp":
+		cfg.SMTP.Host = mustEnv("SMTP_HOST")
+		cfg.SMTP.Username = mustEnv("SMTP_USERNAME")
+		cfg.SMTP.Password = mustEnv("SMTP_PASSWORD")
+		port, err := strconv.Atoi(getEnv("SMTP_PORT", "587"))
+		if err != nil {
+			return nil, fmt.Errorf("SMTP_PORT: %w", err)
+		}
+		cfg.SMTP.Port = port
+	default:
+		return nil, fmt.Errorf("MAILER_BACKEND must be gmail or smtp, got %q", cfg.MailerBackend)
 	}
-	cfg.SMTP.Port = port
 
 	return cfg, nil
 }
