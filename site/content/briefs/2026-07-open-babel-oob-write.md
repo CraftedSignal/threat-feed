@@ -1,8 +1,8 @@
 ---
-title: Open Babel ORCA Parser Out-of-Bounds Write Vulnerability (CVE-2022-46289)
+title: Open Babel Out-of-Bounds Write Vulnerability (CVE-2022-46290)
 slug: 2026-07-open-babel-oob-write
-description: A memory-safety vulnerability (CVE-2022-46289) in Open Babel's ORCA parser allows an out-of-bounds write when processing a crafted input file, potentially leading to denial of service or arbitrary code execution if a victim opens a malicious ORCA file.
-date: "2026-07-03T12:49:41Z"
+description: A memory-safety vulnerability (CVE-2022-46290) in the ORCA nAtoms parser of Open Babel allows an out-of-bounds write when processing a specially crafted input file, potentially leading to denial of service or arbitrary code execution.
+date: "2026-07-03T12:48:46Z"
 type: advisory
 types:
   - advisory
@@ -11,49 +11,41 @@ severities:
 cpes:
   - cpe:2.3:a:openbabel:open_babel:3.1.1:*:*:*:*:*:*:*
 tags:
+  - memory-safety
   - vulnerability
-  - memory-corruption
-  - library
-  - cve
+  - out-of-bounds-write
   - open-babel
-  - client-side
+  - cve
 vendors:
   - Open Babel
 products:
-  - Open Babel (< 3.2.0)
-mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1204
-    technique_name: User Execution
-    evidence: Triggering this vulnerability requires the victim to open a malicious ORCA file with the `obabel` tool, the `OBConversion` API, or any of the language bindings (Python, Ruby, Java, R, Perl, C#, PHP).
-    confidence_band: high
+  - Open Babel < 3.2.0
 cves:
-  - id: CVE-2022-46289
+  - id: CVE-2022-46290
     cvss: 9.8
     epss: 0.00816
 references:
-  - https://github.com/advisories/GHSA-rj4c-r689-cm87
+  - https://github.com/advisories/GHSA-5rff-8f7c-8jmw
   - https://github.com/openbabel/openbabel/commit/b239d06e
 ---
 
-Cisco TALOS reported a critical memory-safety vulnerability, identified as CVE-2022-46289, affecting the widely used Open Babel library. This flaw resides within the ORCA file format parser, specifically in the `nAtoms` handling mechanism. An attacker can craft a malicious ORCA input file which, when processed by Open Babel, causes the parser to write data beyond the bounds of its designated memory buffer. This out-of-bounds write can lead to application crashes, denial of service, or potentially arbitrary code execution. The vulnerability impacts all Open Babel versions up to and including 3.1.1. Open Babel is a fundamental toolkit for chemistry file format conversion, often integrated into scientific applications and Linux distributions, making it a significant target if exposed to untrusted input. The issue was addressed in version 3.2.0, released on May 26, 2026.
+A significant memory-safety vulnerability, identified as CVE-2022-46290, exists within the ORCA nAtoms parser of the Open Babel chemistry library. This flaw is a second variant of an existing out-of-bounds write issue, where a different malformed input path in ORCA files can cause data to be written beyond the allocated buffer. The vulnerability affects all versions of Open Babel up to and including 3.1.1. It was patched in version 3.2.0, released on 2026-05-26. Exploitation requires a victim to open a malicious ORCA file using the `obabel` command-line tool, the `OBConversion` API, or any of its language bindings (Python, Ruby, Java, R, Perl, C#, PHP). Organizations leveraging Open Babel to process untrusted or external chemistry file formats are at risk.
 
 ## Attack Chain
 
-1.  An attacker crafts a specially malformed ORCA chemistry input file designed to trigger the out-of-bounds write vulnerability (CVE-2022-46289) in Open Babel.
-2.  The attacker delivers this malicious ORCA file to a victim, potentially via email attachments, malicious downloads, or through shared scientific data repositories.
-3.  The victim opens the ORCA file using the `obabel` command-line tool, an application that embeds the `OBConversion` API, or any of Open Babel's language bindings (e.g., Python, Ruby, Java).
-4.  The Open Babel ORCA parser attempts to process the malformed `nAtoms` field within the attacker-controlled input file.
-5.  During the parsing of the malformed data, the vulnerability causes the parser to perform an out-of-bounds write, corrupting memory outside its allocated buffer.
-6.  This memory corruption can lead to a denial of service by crashing the application, or, under specific conditions and with further exploitation techniques, could enable the execution of arbitrary code within the context of the vulnerable process.
+1.  An attacker crafts a malicious ORCA (Organizing Reaction and Coordinate Automation) input file containing specially malformed `nAtoms` data.
+2.  The attacker delivers this crafted ORCA file to a target system, often by inducing a user or automated process to handle it (e.g., via email, web download, or file sharing).
+3.  A victim user or an automated service on the target system attempts to open or process the malicious ORCA file using Open Babel's `obabel` CLI tool, its `OBConversion` API, or one of its various language bindings.
+4.  Open Babel's ORCA nAtoms parser, specifically the vulnerable code path, encounters the malformed input while attempting to parse the file.
+5.  Due to the vulnerability (CVE-2022-46290), the parser performs an out-of-bounds write operation, writing data beyond the boundaries of an intended memory buffer.
+6.  This memory corruption can lead to application crashes (denial of service) or, in more sophisticated scenarios, could be leveraged by an attacker to achieve arbitrary code execution.
 
 ## Impact
 
-The successful exploitation of CVE-2022-46289 can result in the compromise of systems and services that utilize Open Babel for processing ORCA files from untrusted sources. The primary impact is application instability and denial of service due to crashes caused by memory corruption. In more advanced exploitation scenarios, an attacker might achieve arbitrary code execution, allowing for further system compromise, data exfiltration, or installation of malware. Open Babel is a widely deployed library in academic, research, and industrial sectors dealing with computational chemistry, meaning a broad range of applications and users could be affected if they process untrusted ORCA files.
+Successful exploitation of CVE-2022-46290 can result in memory corruption within the Open Babel application or its host process. The immediate consequence is typically a denial of service due to an application crash. However, depending on the specific memory layout and attacker's control over the written data, this out-of-bounds write could potentially lead to arbitrary code execution, allowing an attacker to run malicious code on the affected system. Any organization or user processing untrusted ORCA chemistry files with vulnerable versions of Open Babel is at risk, particularly those deployed in automated pipelines or services exposed to external input. While no specific victim counts are provided, Open Babel is widely used across scientific and industrial sectors.
 
 ## Recommendation
 
-*   Prioritize patching `CVE-2022-46289` by upgrading all instances of Open Babel to version 3.2.0 or later immediately.
-*   Implement strict input validation and sanitization for ORCA files processed by Open Babel, especially when sourced from untrusted external entities.
-*   Educate users on the risks associated with opening ORCA files from unknown or untrusted sources.
+*   **Patch CVE-2022-46290**: Immediately update all instances of Open Babel to version 3.2.0 or newer to mitigate the out-of-bounds write vulnerability.
+*   **Input Validation**: Implement strict validation and sanitization for all ORCA input files processed by Open Babel, especially those sourced from untrusted origins.
+*   **Isolation**: Isolate systems and applications that process external or untrusted chemistry file formats in sandboxed environments to limit potential impact of exploitation.
