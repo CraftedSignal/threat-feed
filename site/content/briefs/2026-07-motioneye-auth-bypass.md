@@ -1,111 +1,89 @@
 ---
-title: 'motionEye: Authentication possible via password hash'
+title: 'motionEye Partial Authentication Bypass: Unauthenticated Admin Credential Theft via Path Traversal'
 slug: 2026-07-motioneye-auth-bypass
-description: An authentication bypass vulnerability (CVE-2026-46488) in motionEye allows unauthenticated attackers to impersonate any user, including administrators, by manipulating client-controlled cookies (`meye_password_hash` and `meye_username`), with the application trusting these cookies without server-side validation, leading to full account compromise, data enumeration, destruction, and exfiltration.
-date: "2026-07-03T11:04:27Z"
+description: Unauthenticated attackers can exploit a path traversal vulnerability in motionEye versions prior to 0.44.0 to read the application's configuration file, steal the admin SHA-1 password hash, and achieve full administrative access, leading to remote code execution.
+date: "2026-07-03T10:49:21Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
 tags:
+  - path-traversal
   - authentication-bypass
-  - web-vulnerability
-  - cve
-  - motioneye
-  - linux
-vendors:
-  - MotionEye
+  - remote-code-execution
+  - credential-theft
+  - web-application
 products:
   - motionEye (< 0.44.0)
-affected_os:
-  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1133
-    technique_name: External Remote Services
-    evidence: unauthenticated attacker can set or modify these cookies to impersonate another user
-    confidence_band: high
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1552
-    technique_name: Unsecured Credentials
-    evidence: password-hash value and username for the admin account used by the application is stored in `/etc/motioneye/motion.conf` which is globally readable by default on the local system.
-    confidence_band: high
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1550
-    technique_name: Use Alternate Authentication Material
-    evidence: application accepts the client-supplied cookies named `meye_password_hash` and `meye_username` as sufficient authentication material... impersonate arbitrary users without knowledge of the plaintext password.
-    confidence_band: high
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1136
-    technique_name: Account Manipulation
-    evidence: Attacker persistence by changing the password
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: an unauthenticated attacker can exploit a path traversal vulnerability to read the motionEye configuration file
     confidence_band: high
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1083
     technique_name: File and Directory Discovery
-    evidence: Enumeration of data
+    evidence: This allows reading any file on the filesystem that the motionEye process can access.
     confidence_band: high
-  - tactic_id: TA0010
-    tactic_name: Exfiltration
-    technique_id: T1041
-    technique_name: Exfiltration Over C2 Channel
-    evidence: Exfiltration of data
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: motionEye stores the admin password as SHA1(plaintext) in its main configuration file (`motion.conf`)
     confidence_band: high
-  - tactic_id: TA0040
-    tactic_name: Impact
-    technique_id: T1489
-    technique_name: Degradation
-    evidence: Destruction of data
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: The result is full admin access from zero credentials.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Achieve RCE via the admin config API. The admin can set `command_notifications_exec` or `command_storage_exec` to arbitrary shell commands
     confidence_band: high
 references:
-  - https://github.com/advisories/GHSA-r3cw-c95m-wfh9
-iocs:
-  - type: file_path
-    value: /etc/motioneye/motion.conf
-ioc_counts:
-  file_path: 1
+  - https://github.com/advisories/GHSA-phv5-334h-mxcw
 rules:
-  - title: Detect motionEye Admin Credential File Access
-    description: Detects attempts to read the motionEye admin credential file (/etc/motioneye/motion.conf), which contains the username and password hash and is globally readable by default on the local system. Access to this file's contents can be used to bypass authentication (CVE-2026-46488).
+  - title: Detect motionEye Unauthenticated Path Traversal for motion.conf
+    description: Detects attempts to exploit the path traversal vulnerability (GHSA-phv5-334h-mxcw) in motionEye by attempting to read the motion.conf file via web server handlers like MoviePlaybackHandler.
     platform: sigma
     severity: high
     tactics:
       - credential_access
-      - discovery
+      - initial_access
     techniques:
+      - T1083
+      - T1190
       - T1552.001
     data_sources:
-      - file_event
-      - linux
+      - webserver
 rules_count: 1
 ---
 
-A critical authentication bypass vulnerability (CVE-2026-46488) affects motionEye versions prior to 0.44.0, enabling unauthenticated attackers to impersonate arbitrary users, including administrators. This flaw stems from the application's improper trust in client-supplied cookies, specifically `meye_password_hash` and `meye_username`. Attackers can manually set or modify these cookies to establish an authenticated session without knowing the plaintext password, bypassing the intended login mechanism. The vulnerability is exacerbated by the fact that motionEye stores the admin username and password hash in the globally readable file `/etc/motioneye/motion.conf` by default. This allows any local user with shell access to easily retrieve these credentials, significantly lowering the barrier for full administrator account takeover in multi-user environments. Successful exploitation can lead to full account compromise, persistence by changing passwords, data enumeration, destruction, and exfiltration.
+A critical vulnerability exists in motionEye versions prior to 0.44.0, enabling unauthenticated attackers to gain full administrative access and remote code execution. This is achieved by chaining two issues: a default configuration allowing unauthenticated access to normal-user endpoints when the normal user password is empty, and a path traversal vulnerability in several handlers (e.g., `MoviePlaybackHandler`). By exploiting the path traversal, an attacker can read the `motion.conf` file, which contains the admin password as a SHA-1 hash. This hash can then be used directly as a signing key to bypass authentication and gain full admin privileges without cracking. The scenario is realistic for home surveillance setups where the admin password protects settings, but camera feeds are left open for household members, making affected instances vulnerable to complete compromise.
 
 ## Attack Chain
 
-1.  An attacker gains local shell access to a system running a vulnerable motionEye instance.
-2.  The attacker accesses the globally readable file `/etc/motioneye/motion.conf` to retrieve the admin username and its corresponding password hash.
-3.  The attacker uses a web browser's developer tools or a cookie editor to prepare for setting specific cookies for the motionEye web application.
-4.  The attacker manually sets the `meye_username` cookie to the retrieved admin username value.
-5.  The attacker manually sets the `meye_password_hash` cookie to the retrieved admin password hash value.
-6.  The attacker navigates to the motionEye web interface in their browser.
-7.  The motionEye application trusts the client-supplied cookie values (`meye_username` and `meye_password_hash`) without performing server-side validation against a session or proper authentication checks.
-8.  The attacker is successfully authenticated as the administrator user, bypassing the standard login process and gaining full control.
+1.  **Reconnaissance & Initial Access**: An attacker identifies a motionEye instance configured with an empty normal user password (default setting), allowing unauthenticated access to normal-level endpoints.
+2.  **Path Traversal Exploitation**: The attacker crafts and sends an unauthenticated HTTP GET request to a vulnerable handler, such as `/movie/1/playback//etc/motioneye/motion.conf`, leveraging the path traversal vulnerability.
+3.  **Information Disclosure**: The motionEye server's `MoviePlaybackHandler` (or similar) processes the malicious path, bypassing intended directory restrictions due to overridden safety checks, and reads the `motion.conf` file from the filesystem.
+4.  **Credential Theft**: The server's response contains the content of `motion.conf`, from which the attacker extracts the admin password's SHA-1 hash, stored as a comment line (e.g., `# @admin_password 7b7d...`).
+5.  **Authentication Bypass**: The attacker uses the stolen SHA-1 hash directly as a signing key by setting the `meye_password_hash` cookie, authenticating as an administrator to the motionEye web interface.
+6.  **Privilege Escalation & Remote Code Execution**: With full admin access, the attacker leverages the configuration API to inject arbitrary shell commands into motion event hooks (e.g., `command_notifications_exec`), which are then executed by the underlying `motion` daemon with the privileges of the motionEye process, achieving RCE.
 
 ## Impact
 
-This critical vulnerability allows attackers to gain full administrative control over affected motionEye deployments. If an attacker has knowledge of a username and password hash (either through prior compromise or local access to `/etc/motioneye/motion.conf`), they can bypass the login mechanism entirely. The consequences include full account compromise, the ability for attackers to establish persistence by changing user passwords, enumeration and potential exfiltration of sensitive data, and even the destruction of data. Any organization using motionEye versions prior to 0.44.0 is at risk, particularly in environments where local shell access to the host machine is possible, as it significantly simplifies obtaining the necessary credentials for the bypass.
+This vulnerability leads to a severe privilege escalation from zero credentials to full admin access on any motionEye installation where the admin password is set but the normal user password is left empty (a common default configuration). Attackers can achieve arbitrary file read, potentially accessing sensitive files like `/etc/passwd` or SSH keys, if permissions allow. The most critical impact is full remote code execution, as administrative control allows injecting and executing arbitrary shell commands via motion event hooks. This represents a significant security risk for compromised surveillance systems, with public instances easily discoverable via search engines like Shodan.
 
 ## Recommendation
 
-*   Patch affected motionEye installations to version 0.44.0 or higher immediately to mitigate CVE-2026-46488.
-*   Implement the provided Sigma rule "Detect motionEye Admin Credential File Access" to monitor for suspicious access to `/etc/motioneye/motion.conf`.
-*   Review and restrict file permissions for the `/etc/motioneye/motion.conf` file (referencing the IOC `file_path: /etc/motioneye/motion.conf`) to only allow the motionEye service user to read it, if patching is not immediately feasible.
-*   Enable comprehensive logging for file access events on Linux systems to detect reads of sensitive configuration files like `/etc/motioneye/motion.conf`.
+*   **Patch motionEye**: Immediately upgrade all motionEye installations to version 0.44.0 or higher to remediate the path traversal vulnerability.
+*   **Configure Passwords**: If possible, set a non-empty password for the normal user account to prevent unauthenticated access to normal-level endpoints, reducing the attack surface.
+*   **Deploy Detection Rule**: Deploy the provided Sigma rule to your SIEM to detect attempts at path traversal for configuration files.
+*   **Monitor Web Server Logs**: Actively monitor web server access logs for unusual GET requests containing absolute file paths, particularly those targeting sensitive configuration files or unexpected locations.
