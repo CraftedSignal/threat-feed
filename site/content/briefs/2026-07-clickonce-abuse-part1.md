@@ -1,8 +1,8 @@
 ---
 title: 'New Abuse of the ClickOnce Technology, Part 1: The Inner Workings of ClickOnce Application Deployment'
 slug: 2026-07-clickonce-abuse-part1
-description: Threat actors are abusing Microsoft's ClickOnce technology to spread malware, leveraging its streamlined application deployment process, which requires minimal user interaction and no elevated privileges, for initial access and persistence on Windows systems.
-date: "2026-07-04T07:23:47Z"
+description: CrowdStrike details how Microsoft's ClickOnce technology, designed for simplified application deployment, presents an easy channel for threat actors to distribute malware by leveraging its user-friendly installation process that often requires minimal user interaction and no administrative privileges.
+date: "2026-07-04T07:05:54Z"
 type: advisory
 types:
   - advisory
@@ -10,14 +10,15 @@ severities:
   - medium
 tags:
   - clickonce
-  - microsoft
-  - deployment
-  - malware-delivery
+  - malware-distribution
   - windows
+  - endpoint-security
+  - threat-research
 vendors:
   - Microsoft
 products:
-  - ClickOnce technology
+  - ClickOnce
+  - Visual Studio
 affected_os:
   - Windows
 mitre_ttps:
@@ -25,30 +26,35 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1204
     technique_name: User Execution
-    evidence: 'The concept is pretty straightforward: Developers can share one of the ClickOnce deployment files, on which the user would only have to “click once” to deploy the application.'
+    evidence: deployment files can be hosted on the vendor's website, where they introduce their app alongside an 'Install' button. When clicked, the button triggers the download of the ClickOnce deployment file, and after some prerequisites are met, directly initiates the deployment.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1204
+    technique_name: User Execution
+    evidence: ClickOnce is a deployment technology that enables developers to package and distribute applications... provides threat actors with an easy way of spreading malware.
     confidence_band: high
 references:
   - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-one/
 ---
 
-CrowdStrike has identified a new method for threat actors to abuse Microsoft's ClickOnce technology for malware distribution. ClickOnce is a legitimate deployment mechanism designed to streamline application installation and updates for .NET applications without requiring administrative privileges, offering a user-friendly "click-once" experience. This ease of deployment, however, makes it an attractive vector for malicious actors. By packaging malware as ClickOnce applications, attackers can bypass traditional security controls and leverage the technology's self-contained packaging and self-updating features for persistence and dynamic payload delivery. This brief, Part 1 of a series, details the internal workings of ClickOnce, explaining its deployment journey from developer publishing to user installation, laying the groundwork for understanding its security implications and potential weaponization in subsequent analyses.
+CrowdStrike has published the first part of a series detailing the internals and potential abuse of Microsoft's ClickOnce technology. While ClickOnce is designed to simplify application deployment and updates for legitimate developers by offering minimal user interaction and no administrative privilege requirements, it concurrently provides an accessible vector for threat actors to spread malware. This analysis, published on June 18, 2026, focuses on the technology's core mechanics, including how applications are published and deployed. The inherent ease of deployment, often requiring just 'one click' from a user on a web page, makes it an attractive channel for adversaries seeking initial access and execution on target systems, paving the way for malicious software distribution.
 
 ## Attack Chain
 
-1.  Attacker hosts a malicious ClickOnce application, packaging malware into ClickOnce-compatible resources.
-2.  The malicious ClickOnce application's deployment files are hosted on an attacker-controlled website, often presented with an "Install" button.
-3.  A user, tricked by social engineering or unaware of the risk, clicks the "Install" button on the webpage, triggering the download of the ClickOnce deployment file (`.application` manifest).
-4.  The operating system (OS) initiates the deployment process and asks for the user’s confirmation, especially if the publisher’s signature cannot be verified.
-5.  Upon the user's confirmation in the deployment wizard, the malicious ClickOnce application is deployed onto the system without requiring elevated administrative privileges.
-6.  The deployed malicious application executes on the victim's machine, establishing initial access and executing its payload.
-7.  The application can leverage ClickOnce's self-updating functionality to automatically fetch and install further malicious updates or components from the attacker's deployment server, maintaining persistence and command and control.
+1. **Preparation of Malicious Application:** A threat actor publishes a malicious application using ClickOnce technology, configuring deployment parameters like update locations and offline availability via tools like Visual Studio.
+2. **Hosting of Deployment Files:** The attacker hosts the generated ClickOnce deployment files (e.g., the `.application` manifest file) on a malicious website or network share.
+3. **User Lure/Initial Access:** The attacker entices a user to visit the malicious website and click an "Install" button or open the deployment file, initiating the deployment process.
+4. **Security Prompt Bypass/Confirmation:** The operating system prompts the user for confirmation, especially if the publisher's signature cannot be verified; the user is social-engineered into confirming the deployment.
+5. **Application Download & Execution:** The ClickOnce deployment mechanism downloads the application files and executes the malicious software on the user's endpoint.
+6. **Installation (Optional but common):** Depending on the configuration, the malicious application can also install itself onto the system, establishing persistence.
+7. **Malware Payload Delivery/Execution:** The executed malicious ClickOnce application performs its intended function, such as malware installation, data exfiltration, or further system compromise.
 
 ## Impact
 
-The abuse of ClickOnce technology for malware distribution allows threat actors to bypass traditional security measures and install malicious applications with minimal user interaction and often without requiring elevated privileges. If successful, attackers can establish persistence, maintain command and control through the self-updating mechanism, and deploy various payloads, potentially leading to data exfiltration, system compromise, or ransomware deployment. The user-friendly nature of ClickOnce deployment also lowers the barrier for social engineering attacks, making it easier for users to unknowingly execute malicious code.
+While 'Part 1' of the CrowdStrike series does not detail specific victim counts or targeted sectors, it highlights that ClickOnce technology provides an "easy way of spreading malware" due to its streamlined and low-privilege deployment model. The primary impact stems from the potential for widespread malware distribution, enabling adversaries to gain initial access, execute malicious code, and potentially establish persistence on user endpoints with minimal user interaction, leading to various forms of compromise such as data theft, ransomware infection, or further network infiltration.
 
 ## Recommendation
 
-*   Implement strong controls on the execution of `.application` files, specifically monitoring for their download and execution from untrusted or unexpected sources.
-*   Configure process monitoring to alert on new application deployments that occur without elevated privileges, as ClickOnce is designed to function this way.
-*   Educate end-users about verifying the publisher of any ClickOnce application before confirming its installation via the deployment wizard described in this brief.
+*   Ensure comprehensive `process_creation` logging is enabled on Windows endpoints to capture the execution of ClickOnce applications and their child processes.
+*   Implement file system monitoring for the creation of new `.application` and `.manifest` files in unusual user directories, which may indicate rogue ClickOnce deployments.
