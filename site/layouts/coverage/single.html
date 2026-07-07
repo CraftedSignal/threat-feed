@@ -73,12 +73,14 @@
         <section class="rounded-xl border border-accent/30 bg-accent/5 p-4 space-y-2">
           <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-accent">What's new</h2>
           <ul class="space-y-1.5 text-sm">
-            {{ range $updates | collections.Reverse }}
-            <li class="flex items-baseline gap-2">
+ {{ range $updates | collections.Reverse }}
+ {{ $sourceURLs := .source_urls | default slice }}
+ {{ $sourceLabels := .sources | default slice }}
+ <li class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
               <span class="font-mono text-[11px] uppercase tracking-wider text-accent flex-none" title="{{ .level }}">{{ .level | lower }}</span>
               <span class="text-text">{{ .summary }}</span>
-              {{ with .at }}<span class="font-mono text-[11px] text-muted flex-none" title="{{ . }}">{{ dateFormat "Jan 2, 15:04" (time . ) }}</span>{{ end }}
-              {{ with .sources }}<span class="font-mono text-[11px] text-muted flex-none">via {{ delimit . ", " }}</span>{{ end }}
+              {{ with .at }}<span class="font-mono text-[11px] text-muted flex-none" title="{{ . }}">{{ dateFormat "Jan 2, 15:04" (time .) }}</span>{{ end }}
+              {{ if $sourceURLs }}<span class="font-mono text-[11px] text-muted flex-none">via {{ range $i, $url := $sourceURLs }}{{ if $i }}, {{ end }}{{ $label := "source" }}{{ if lt $i (len $sourceLabels) }}{{ $label = index $sourceLabels $i }}{{ end }}<a class="text-accent hover:underline" href="{{ $url }}" target="_blank" rel="noopener noreferrer">{{ $label }}</a>{{ end }}</span>{{ else }}{{ with $sourceLabels }}<span class="font-mono text-[11px] text-muted flex-none">via {{ delimit . ", " }}</span>{{ end }}{{ end }}
             </li>
             {{ end }}
           </ul>
