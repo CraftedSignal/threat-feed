@@ -1,8 +1,8 @@
 ---
-title: Container-to-Host Escape via Kernel core_pattern Modification
+title: Linux Container Escape via Kernel core_pattern Modification
 slug: 2026-07-container-escape-core-pattern
-description: Attackers can achieve container-to-host escape and privilege escalation on Linux systems by manipulating the `kernel.core_pattern` setting within a container, causing the host to execute an attacker-controlled script as root when a process core-dumps.
-date: "2026-07-06T14:31:31Z"
+description: Attackers can exploit a Linux kernel vulnerability allowing a process inside a container to modify the `/proc/sys/kernel/core_pattern` file, enabling the execution of arbitrary code as root on the host system upon a core-dump, thereby achieving a full container-to-host escape and privilege escalation.
+date: "2026-07-03T15:17:46Z"
 type: advisory
 types:
   - advisory
@@ -10,12 +10,12 @@ severities:
   - medium
 tags:
   - container-escape
-  - linux-privesc
   - privilege-escalation
-  - container
-  - kubernetes
   - linux
-  - threat-detection
+  - kubernetes
+  - endpoint
+products:
+  - Linux kernel
 affected_os:
   - Linux
 mitre_ttps:
@@ -23,7 +23,7 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1611
     technique_name: Escape to Host
-    evidence: The Linux kernel invokes the program named in '/proc/sys/kernel/core_pattern' whenever a process core-dumps. When that value begins with a pipe (|), the kernel runs the handler from the host's initial namespace as root, regardless of where the crashing process lived.
+    evidence: A process inside a container that can write core_pattern can register an attacker-controlled handler and then deliberately crash a process to have it execute on the host as root, resulting in a full container-to-host escape.
     confidence_band: high
 references:
   - https://www.sysdig.com/blog/runc-container-escape-vulnerabilities
@@ -32,7 +32,7 @@ references:
   - https://aquasecurity.github.io/tracee/latest/docs/events/builtin/signatures/core_pattern_modification/
 rules:
   - title: Potential Container Escape via Kernel core_pattern Modification
-    description: Detects attempts to modify the Linux kernel's core_pattern parameter, which attackers can leverage for container-to-host escape by executing arbitrary code on the host as root.
+    description: Detects suspicious modifications of the Linux kernel's core_pattern parameter, which can be leveraged for container-to-host escape and privilege escalation.
     platform: sigma
     severity: medium
     tactics:
@@ -45,26 +45,25 @@ rules:
 rules_count: 1
 ---
 
-This threat involves a known container escape technique on Linux systems that leverages the `kernel.core_pattern` kernel parameter. Attackers who have gained initial access to a container can exploit this mechanism to achieve full host compromise and privilege escalation. The technique involves modifying the `core_pattern` value, typically found in `/proc/sys/kernel/core_pattern`, to point to an attacker-controlled script or binary, prefixed with a pipe (`|`) character. When a process inside the container is then deliberately crashed, the Linux kernel invokes the specified handler from the host's initial namespace as root, effectively bypassing container isolation. This allows an attacker to execute arbitrary commands on the underlying host system with elevated privileges, posing a significant risk to the integrity and confidentiality of the host and other workloads. The technique has been widely documented and applies to various container runtimes.
+This threat describes a critical container escape and privilege escalation vulnerability within the Linux kernel, enabling attackers to gain root access on the host system from a compromised container. The vulnerability leverages the non-namespaced nature of the kernel's core-dump handler mechanism. A malicious process running within a container can write to the `/proc/sys/kernel/core_pattern` file, a kernel interface that specifies how core-dumps are handled. If the value written to this file begins with a pipe symbol ('|'), the kernel executes the remainder of the string as a command, running it from the host's initial namespace with root privileges, regardless of the crashing process's origin. This provides a direct vector for a containerized attacker to execute arbitrary commands on the underlying host, circumventing container isolation.
 
 ## Attack Chain
 
-1.  Attacker gains initial access and code execution within a container running on a Linux host.
-2.  Attacker identifies the ability to modify the `/proc/sys/kernel/core_pattern` file, often requiring specific container capabilities or privileged execution.
-3.  Attacker writes a malicious script (e.g., to `/tmp`) and then modifies `/proc/sys/kernel/core_pattern` to `|/tmp/malicious_script` using commands like `echo`, `sysctl -w`, `tee`, `cp`, or `mv`.
-4.  Attacker deliberately crashes a process within the compromised container (e.g., using `kill -SEGV <pid>`).
-5.  The Linux kernel's core-dump handler is triggered by the crashing process and invokes the path specified in `kernel.core_pattern`.
-6.  The `malicious_script` is executed from the host's initial namespace with root privileges, bypassing container boundaries.
-7.  Attacker establishes persistence or further compromises the host system, achieving full container-to-host escape.
+1.  An attacker gains initial access to a Linux container, typically through a vulnerable application or misconfiguration.
+2.  Within the compromised container, the attacker identifies their ability to modify kernel parameters, specifically the `/proc/sys/kernel/core_pattern` file.
+3.  The attacker creates or locates a malicious script on the container's filesystem that, if executed on the host, would grant them persistent root access or other objectives.
+4.  The attacker modifies `/proc/sys/kernel/core_pattern` within the container, setting its value to `|/path/to/malicious_script` (or similar), directing the kernel to execute their script upon a core-dump.
+5.  The attacker then deliberately triggers a core-dump from any process inside the container.
+6.  The Linux kernel, upon detecting the core-dump, invokes the `core_pattern` handler. Due to the vulnerability, it executes `/path/to/malicious_script` from the host's initial namespace as root.
+7.  The malicious script executes with root privileges on the host, allowing the attacker to achieve full host compromise and maintain persistence outside the container.
 
 ## Impact
 
-Successful exploitation of this technique results in a complete bypass of container isolation, leading to full compromise of the underlying host system. This grants the attacker root-level privileges on the host, allowing them to access sensitive data, install persistence mechanisms, deploy additional malware (e.g., cryptocurrency miners, ransomware, backdoors), pivot to other systems in the environment, or manipulate other containers. The impact can extend to data exfiltration, service disruption, and significant financial and reputational damage. While no specific victim counts are provided, any organization utilizing Linux containers is potentially vulnerable if container security best practices are not rigidly enforced.
+Successful exploitation of this vulnerability leads to a full container-to-host escape and privilege escalation. An attacker initially confined to a container gains root-level access to the underlying host system. This can result in complete control over the host, enabling data exfiltration, deployment of additional malware (e.g., ransomware, cryptominers), installation of backdoors, and disruption of other services or containers running on the same host. The impact is severe, as it undermines the fundamental security isolation provided by containerization technologies.
 
 ## Recommendation
 
-*   Deploy the Sigma rule in this brief to your SIEM and tune for your environment to detect suspicious modifications to `kernel.core_pattern`.
-*   Ensure endpoint security solutions like Elastic Defend are properly configured and deployed to collect process creation and kernel parameter modification events on all Linux hosts running containers.
-*   Monitor `/proc/sys/kernel/core_pattern` for changes, particularly those that introduce pipe-based handlers (`|`) or reference untrusted paths.
-*   Harden container environments by preventing privileged pods, removing dangerous capabilities such as `CAP_SYS_ADMIN`, and prohibiting writable `hostPath` access to `/proc` or the host filesystem.
-*   Implement admission policies to enforce pod security standards and prevent workloads from running with excessive privileges that would allow modification of host kernel parameters.
+*   Deploy the Sigma rule "Potential Container Escape via Kernel core_pattern Modification" to detect attempts to modify the `core_pattern` from within containers.
+*   Ensure that container runtime security policies restrict modification of `/proc/sys/kernel/core_pattern` or prevent execution of `sysctl -w` commands that alter kernel parameters, particularly from untrusted containerized applications.
+*   Implement strong ingress and egress filtering for containers to prevent outbound communication to attacker-controlled infrastructure post-escape.
+*   Regularly scan containers and host systems for vulnerabilities and misconfigurations that could allow initial container compromise.
