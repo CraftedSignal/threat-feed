@@ -1,8 +1,8 @@
 ---
-title: Threat Actors Abuse Microsoft ClickOnce for Initial Access and Persistent Malware Deployment
+title: 'New Abuse of ClickOnce Technology: Persistence and Evasion'
 slug: 2026-07-clickonce-abuse-part2
-description: Threat actors are exploiting Microsoft's ClickOnce technology for initial access, execution, and persistence by leveraging its user-friendly deployment and update mechanisms to deliver and maintain malware without elevated privileges, often bypassing traditional security defenses.
-date: "2026-07-06T08:12:24Z"
+description: Threat actors are leveraging Microsoft's ClickOnce technology for initial access, defense evasion, and persistence by exploiting its user-friendly deployment, lack of user and security tool awareness, and the `.appref-ms` file update mechanism to execute malicious payloads within legitimate Microsoft processes without elevated privileges.
+date: "2026-07-06T08:04:26Z"
 type: advisory
 types:
   - advisory
@@ -10,98 +10,98 @@ severities:
   - high
 tags:
   - clickonce
-  - initial-access
   - persistence
   - defense-evasion
+  - initial-access
   - windows
-  - malware
-  - apt
+  - application-deployment
 vendors:
   - Microsoft
 products:
-  - ClickOnce Technology
-  - ClickOnce applications
+  - ClickOnce
 affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1204
-    technique_name: User Execution
-    evidence: To deploy a ClickOnce application, threat actors only need to convince their target to click once or twice to potentially get their malware executed and persist on the target system.
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+    evidence: clicking a webpage button can trigger software installation, typically expecting to see an executable installer in their downloads folder first.
     confidence_band: high
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1218
-    technique_name: System Binary Proxy Execution
-    evidence: The malicious payload executes within legitimate Microsoft process trees (with rundll32.exe and dfsvc.exe), increasing the stealthiness of the execution.
+    technique_name: ""
+    evidence: The malicious payload executes within legitimate Microsoft process trees (with rundll32.exe and dfsvc.exe)
     confidence_band: high
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1547
-    technique_name: Boot or Logon Autostart Execution
-    evidence: By definition, .appref-ms files trigger the execution of a ClickOnce application upon opening. When placed strategically, adversaries can automate their opening to use them as intermediaries, rather than directly running malicious payloads. For instance, by placing a .appref-ms file in the Startup folder
+    technique_name: ""
+    evidence: an application reference file (.appref-ms) is dropped at the installation of the application in the Start Menu (under %Users \AppData\Roaming\Microsoft\Windows\Start Menu\Programs\)... By definition, .appref-ms files trigger the execution of a ClickOnce application upon opening. When placed strategically, adversaries can automate their opening to use them as intermediaries, rather than directly running malicious payloads. For instance, by placing a .appref-ms file in the Startup folder
     confidence_band: high
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1053
-    technique_name: Scheduled Task/Job
-    evidence: By definition, .appref-ms files trigger the execution of a ClickOnce application upon opening. When placed strategically, adversaries can automate their opening to use them as intermediaries, rather than directly running malicious payloads. For instance, by [...] creating a scheduled task
+    technique_name: ""
+    evidence: By definition, .appref-ms files trigger the execution of a ClickOnce application upon opening... by placing a .appref-ms file in the Startup folder or creating a scheduled task
     confidence_band: high
-  - tactic_id: TA0011
-    tactic_name: Command and Control
-    technique_id: T1071
-    technique_name: Application Layer Protocol
-    evidence: This gives threat actors a reliable method for maintaining remote access and updating their malware as needed to change command and control (C2) addresses, move laterally, or take other actions.
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1036
+    technique_name: ""
+    evidence: The malicious payload executes within legitimate Microsoft process trees (with rundll32.exe and dfsvc.exe), increasing the stealthiness of the execution. Further, the UI displayed to the user is a legitimate one from Microsoft.
     confidence_band: high
 references:
   - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-two/
 rules:
-  - title: Detect ClickOnce Appref-ms Persistence in Startup Folder
-    description: Detects the creation of .appref-ms files in a user's Startup folder, a known technique for ClickOnce-based persistence (ATT&CK T1547.001).
+  - title: Detect Suspicious ClickOnce Payload Execution via Rundll32 or DFsvc
+    description: Detects execution of malicious ClickOnce payloads by rundll32.exe or dfsvc.exe from the local ClickOnce application cache (`Apps\2.0`), which is indicative of an attacker abusing the ClickOnce update mechanism for persistence and execution.
     platform: sigma
     severity: high
     tactics:
+      - defense_evasion
+      - execution
+    techniques:
+      - T1036.004
+      - T1218.007
+    data_sources:
+      - process_creation
+      - windows
+  - title: Detect Creation of ClickOnce .appref-ms File in Unusual Location
+    description: Detects the creation of a ClickOnce application reference file (`.appref-ms`) outside of the standard user Start Menu Programs directory, which could indicate an attempt to establish persistence or user-initiated malicious activity.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
       - persistence
     techniques:
       - T1547.001
     data_sources:
       - file_event
       - windows
-  - title: Detect Scheduled Task Creation for ClickOnce Appref-ms File
-    description: Detects the creation of scheduled tasks that launch ClickOnce .appref-ms files, indicating a persistence mechanism (ATT&CK T1053.005).
-    platform: sigma
-    severity: high
-    tactics:
-      - persistence
-    techniques:
-      - T1053.005
-    data_sources:
-      - process_creation
-      - windows
 rules_count: 2
 ---
 
-CrowdStrike has observed threat actors actively exploiting Microsoft's ClickOnce technology, enabling them to achieve initial access, execute malicious payloads, and maintain persistence on target systems. This new abuse vector leverages ClickOnce's inherent design, which allows applications to be deployed with minimal user interaction and without requiring administrative privileges, thereby bypassing common security controls like email filters and traditional application whitelisting. Attackers coerce users into clicking malicious links or `.application` files, triggering the stealthy deployment of malware. The malicious code then executes within legitimate Microsoft process trees, such as `rundll32.exe` and `dfsvc.exe`, to evade detection. Furthermore, attackers exploit ClickOnce's built-in update mechanism to remotely update their malware, facilitating command and control (C2) changes, lateral movement, or other post-exploitation activities. Persistence is achieved by placing `.appref-ms` files in the Start Menu's Startup folder or by creating scheduled tasks.
+Unspecified threat actors are actively exploiting Microsoft's ClickOnce technology, building on previously identified abuse vectors and introducing what is believed to be a new method for persistent access and defense evasion. The attack begins by deceiving users into initiating the deployment of a seemingly benign ClickOnce application, often through misleading website buttons or directly via `.application` files, effectively bypassing common security controls like mailbox filtering. This method is particularly effective as it requires minimal user interaction and no elevated privileges, allowing adversaries to target standard user accounts. Once installed, the malicious update mechanism inherent to ClickOnce is abused via the `.appref-ms` shortcut file. Every time the user launches the application, the attacker can push malicious updates from their controlled server, ensuring persistence and enabling dynamic C2 changes or lateral movement. Execution occurs within legitimate Microsoft processes such as `rundll32.exe` and `dfsvc.exe`, significantly enhancing stealth and evading traditional security scrutiny typically focused on `exe` files.
 
 ## Attack Chain
 
-1.  **Initial Access (User Execution)**: Threat actors social engineer victims into clicking a malicious link or downloading and opening an `.application` file that initiates a ClickOnce deployment.
-2.  **Application Deployment (Execution)**: The ClickOnce application installs on the target system with minimal user interaction and without requiring administrator privileges, often bypassing traditional software installation prompts.
-3.  **Payload Execution (Execution)**: The malicious payload embedded within the ClickOnce application executes, often within the process context of legitimate Microsoft binaries like `rundll32.exe` or `dfsvc.exe` to appear legitimate.
-4.  **Persistence (Startup Folder)**: For applications configured to be available offline, a `.appref-ms` shortcut file is dropped in the user's Start Menu, specifically within `%APPDATA%\Microsoft\Windows\Start Menu\Programs\`, which attackers can place in the Startup folder for auto-execution upon logon.
-5.  **Persistence (Scheduled Task)**: Alternatively, attackers create a scheduled task to automatically launch the `.appref-ms` file, ensuring the malicious ClickOnce application runs periodically or upon specific events.
-6.  **Command and Control / Updates (C2)**: Threat actors leverage the ClickOnce application's built-in update mechanism to push new malicious components, modify command and control (C2) infrastructure, or facilitate further compromise like lateral movement.
-7.  **Impact**: Ongoing remote access, data exfiltration, lateral movement, or further malicious activity, depending on the attacker's objectives.
+1.  Threat actors lure a user to a malicious website or distribute a malicious `.application` file.
+2.  The user is convinced to click a misleading button on a webpage or open the `.application` file, initiating the ClickOnce application deployment.
+3.  A seemingly harmless ClickOnce application is installed on the user's system, dropping an `.appref-ms` shortcut file in the user's Start Menu programs folder (`%Users\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\`).
+4.  The attacker pushes a malicious update to the ClickOnce deployment server, effectively transforming the benign application into a malicious one.
+5.  The next time the user launches the application via the `.appref-ms` shortcut, the ClickOnce components automatically fetch and download the malicious update without further user authorization.
+6.  The newly updated malicious payload is executed within legitimate Microsoft process trees, such as `rundll32.exe` or `dfsvc.exe`, to evade detection.
+7.  The attacker establishes persistence, maintains remote access, updates command and control (C2) addresses, and can facilitate lateral movement within the compromised environment.
 
 ## Impact
 
-The abuse of ClickOnce technology leads to significant security implications, as it allows threat actors to establish persistent access and execute arbitrary code on enterprise endpoints without triggering common security alerts. The attacker's ability to operate without elevated privileges means standard user accounts, prevalent across organizations, are vulnerable. Once established, adversaries can leverage the built-in update mechanism to maintain remote access, pivot to lateral movement, or exfiltrate sensitive data. The stealthy execution within legitimate Microsoft processes further complicates detection, making these attacks particularly effective at bypassing endpoint defenses and achieving long-term compromise.
+The successful exploitation of ClickOnce technology grants threat actors a stealthy and persistent foothold within enterprise environments. By leveraging the built-in update mechanism, adversaries can continuously maintain remote access, update their malware with new capabilities, modify command and control (C2) infrastructure, and facilitate lateral movement across the network. While specific victim counts or targeted sectors are not provided, the broad applicability of ClickOnce and the lack of awareness among users and security tools suggest a wide potential impact across any organization utilizing Windows endpoints. The abuse enables long-term presence and unchecked malicious activity, leading to data exfiltration, system compromise, or further malicious operations.
 
 ## Recommendation
 
-*   Deploy the Sigma rules provided in this brief to your SIEM/EDR to detect suspicious ClickOnce persistence mechanisms.
-*   Monitor `file_event` logs for the creation of `.appref-ms` files within user Startup directories (`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\`).
-*   Monitor `process_creation` logs for the execution of `schtasks.exe` or `powershell.exe` command lines that create scheduled tasks referencing `.appref-ms` files.
-*   Educate users about the risks associated with clicking suspicious links or opening unsolicited `.application` files, even if they appear to originate from trusted sources.
-*   Implement application whitelisting solutions that specifically control the execution of ClickOnce applications, treating them with the same scrutiny as traditional executables.
+*   Deploy the Sigma rules provided in this brief to detect suspicious ClickOnce update mechanisms and process execution.
+*   Configure endpoint detection and response (EDR) solutions to monitor for the creation and execution of `.appref-ms` files, particularly when originating from untrusted sources or found in unusual directories outside the standard Start Menu path, as highlighted by Rule "Detect Creation of ClickOnce .appref-ms File in Unusual Location".
+*   Implement strict policies on application whitelisting to prevent unauthorized ClickOnce application deployments that could facilitate initial access.
+*   Educate users about the risks associated with installing software from untrusted sources, even if it appears to be a legitimate application deployment.
