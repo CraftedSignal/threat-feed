@@ -1,0 +1,69 @@
+---
+title: WinSCP Credential Access by Information Stealers
+slug: 2026-07-winscp-credential-access
+description: Information-stealing malware such as Phantom Stealer targets WinSCP's security configuration folder to harvest sensitive SSH and FTP credentials, leading to unauthorized access to remote systems and potential lateral movement.
+date: "2026-07-03T13:26:15Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - credential-theft
+  - infostealer
+  - windows
+  - data-exfiltration
+vendors:
+  - Martin Prikryl
+products:
+  - WinSCP
+affected_os:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: WinSCP stores sensitive SSH and FTP session credentials, including passwords and private key references, under the user profile path Martin Prikryl\WinSCP 2\Configuration\Security. Information-stealing malware such as Phantom Stealer targets this directory to harvest stored credentials for exfiltration.
+    confidence_band: high
+references:
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_winscp_configuration_security_access.yml
+  - https://malpedia.caad.fkie.fraunhofer.de/details/win.phantom_stealer
+  - https://www.proofpoint.com/us/blog/threat-insight/not-safe-work-tracking-and-investigating-stealerium-and-phantom-infostealers
+rules:
+  - title: Detect WinSCP Security Configuration Access by Non-WinSCP Process
+    description: Detects unauthorized processes accessing WinSCP's security configuration folder, indicating potential credential theft by information stealer malware like Phantom Stealer. This folder contains sensitive SSH and FTP credentials.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+    techniques:
+      - T1552.001
+    data_sources:
+      - file_event
+      - windows
+      - security
+rules_count: 1
+---
+
+This brief details the threat of information-stealing malware, exemplified by families like Phantom Stealer, targeting the WinSCP client's sensitive configuration files. WinSCP, a popular open-source SFTP, FTP, WebDAV, SCP, and S3 client for Windows, stores SSH and FTP session credentials, including passwords and private key references, within the user profile path `C:\Users\<username>\AppData\Roaming\Martin Prikryl\WinSCP 2\Configuration\Security`. Malicious actors leverage infostealers to programmatically access these files, bypassing WinSCP's native protection mechanisms and directly extracting stored credentials. This activity is considered highly suspicious, as legitimate access to this directory should primarily originate from the `winscp.exe` process itself. Detection relies on monitoring Windows Security Event 4663 (Object Access) for unauthorized processes reading or modifying files within this critical security folder.
+
+## Attack Chain
+
+1.  Initial compromise of an endpoint occurs, typically via phishing or drive-by download, leading to the execution of information-stealing malware (e.g., Phantom Stealer).
+2.  The deployed malware performs reconnaissance on the compromised system to identify installed applications commonly used for sensitive data storage, such as WinSCP.
+3.  The malware locates the WinSCP security configuration folder, usually found at `%APPDATA%\Martin Prikryl\WinSCP 2\Configuration\Security\`.
+4.  The malware attempts to access and read files within this directory using a process other than `winscp.exe`, triggering Windows Security Event 4663 for object access.
+5.  Sensitive SSH and FTP credentials, including plaintext passwords and private key references, are extracted from the configuration files.
+6.  The harvested credentials are then staged for exfiltration to the attacker's command and control (C2) infrastructure, enabling further malicious activity like lateral movement or access to external services.
+
+## Impact
+
+Successful credential theft from WinSCP configurations can lead to significant follow-on attacks. Attackers can gain unauthorized access to remote servers (via SSH or FTP), cloud environments, or other critical infrastructure connected through WinSCP. This provides opportunities for data exfiltration, deployment of ransomware, or establishment of persistent access within the victim's network. Organizations may face severe financial losses, reputational damage, regulatory fines, and extensive remediation efforts due to expanded breaches facilitated by these stolen credentials. While a specific victim count is not provided, credential theft is a common tactic across all sectors.
+
+## Recommendation
+
+*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment to detect suspicious WinSCP credential access.
+*   Enable Windows Security Event 4663 logging for "Audit Object Access" in Group Policy, specifically for success and failure events on file system objects, to capture relevant activity.
+*   Investigate all alerts generated by the `Detect WinSCP Security Configuration Access by Non-WinSCP Process` rule, focusing on the accessing process, its parent, and any associated network connections.
+*   Educate users on the risks of phishing and social engineering to prevent initial malware delivery that facilitates credential theft.
