@@ -114,7 +114,7 @@
           {{ if and .Lastmod (gt (sub .Lastmod.Unix .Date.Unix) 21600) }}
             <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[10px] bg-accent/10 text-accent" title="Last updated {{ .Lastmod.Format "January 2, 2006 15:04 MST" }}">updated</span>
           {{ end }}
-          <time class="font-mono" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ .Date.Format "January 2, 2006 15:04 MST" }}">{{ partial "relative-time.html" . }}</time>
+          <time class="font-mono" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ .Date.Format "January 2, 2006 15:04 MST" }}" data-relative-time>{{ partial "relative-time.html" . }}</time>
         </div>
       </div>
     </div>

@@ -299,6 +299,43 @@ function initBriefFilters() {
 function initDateFilter() { initBriefFilters(); }
 
 // ----------------------------------------------------------------------
+// Live relative timestamps. Hugo renders the initial value as a no-JS
+// fallback; the browser keeps it fresh while the tab is open.
+const RELATIVE_TIME_UPDATE_MS = 30 * 1000;
+
+function formatRelativeTime(date, now = new Date()) {
+  const diff = Math.max(0, Math.floor((now.getTime() - date.getTime()) / 1000));
+  if (diff < 60) return 'just now';
+  if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+  if (diff < 604800) return `${Math.floor(diff / 86400)}d ago`;
+  if (diff < 2592000) return `${Math.floor(diff / 604800)}w ago`;
+  return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function initRelativeTimes() {
+  const nodes = [...document.querySelectorAll('time[data-relative-time][datetime]')];
+  if (!nodes.length) return;
+  const entries = nodes
+    .map((node) => ({ node, date: new Date(node.getAttribute('datetime')) }))
+    .filter((entry) => Number.isFinite(entry.date.getTime()));
+  if (!entries.length) return;
+
+  function update() {
+    const now = new Date();
+    entries.forEach(({ node, date }) => {
+      node.textContent = formatRelativeTime(date, now);
+    });
+  }
+
+  update();
+  window.setInterval(update, RELATIVE_TIME_UPDATE_MS);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) update();
+  });
+}
+
+// ----------------------------------------------------------------------
 // Scroll offset CSS variable - keeps [data-month-section] scroll-margin-top
 // aligned with the actual combined height of the sticky header + filter bar.
 
@@ -551,6 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initScrollOffset();
   initDateFilter();
+  initRelativeTimes();
   initLiveUpdate();
   initTaxonomyFilter();
 });

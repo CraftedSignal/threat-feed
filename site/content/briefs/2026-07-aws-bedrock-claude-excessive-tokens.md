@@ -7,7 +7,7 @@ type: advisory
 types:
   - advisory
 severities:
-  - high
+- medium
 tags:
   - aws
   - cloud
