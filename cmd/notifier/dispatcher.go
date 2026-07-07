@@ -46,6 +46,105 @@ type dispatcher struct {
 	logger *slog.Logger
 }
 
+type emailDeliveryJob struct {
+	sub Subscription
+	pd  PendingDispatch
+}
+
+type emailRecipientDelivery struct {
+	to   string
+	jobs []emailDeliveryJob
+	msg  SmtpMessage
+}
+
+func normalizeEmailRecipient(email string) string {
+	return strings.ToLower(strings.TrimSpace(email))
+}
+
+func groupEmailDeliveries(jobs []emailDeliveryJob, serviceURL string) []emailRecipientDelivery {
+	deliveries := make([]emailRecipientDelivery, 0, len(jobs))
+	byRecipient := make(map[string]int, len(jobs))
+
+	for _, job := range jobs {
+		to := normalizeEmailRecipient(job.sub.Email)
+		key := to
+		if key == "" {
+			key = "\x00" + job.sub.ID
+			to = strings.TrimSpace(job.sub.Email)
+		}
+		idx, ok := byRecipient[key]
+		if !ok {
+			idx = len(deliveries)
+			byRecipient[key] = idx
+			deliveries = append(deliveries, emailRecipientDelivery{to: to})
+		}
+		deliveries[idx].jobs = append(deliveries[idx].jobs, job)
+	}
+
+	for i := range deliveries {
+		briefs := mergeEmailBriefs(deliveries[i].jobs)
+		unsubToken := firstUnsubscribeToken(deliveries[i].jobs)
+		deliveries[i].msg = SmtpMessage{
+			To:       deliveries[i].to,
+			Subject:  emailSubjectBatch(briefs),
+			TextBody: emailBodyBatch(briefs, serviceURL, unsubToken),
+			HTMLBody: emailHTMLBatch(briefs, serviceURL, unsubToken),
+		}
+	}
+
+	return deliveries
+}
+
+func mergeEmailBriefs(jobs []emailDeliveryJob) []Brief {
+	var out []Brief
+	seen := make(map[string]struct{})
+
+	for _, job := range jobs {
+		for _, b := range job.pd.Briefs {
+			key := briefDedupeKey(b)
+			if key != "" {
+				if _, ok := seen[key]; ok {
+					continue
+				}
+				seen[key] = struct{}{}
+			}
+			out = append(out, b)
+		}
+	}
+
+	return out
+}
+
+func briefDedupeKey(b Brief) string {
+	if slug := strings.TrimSpace(b.Slug); slug != "" {
+		return "slug:" + slug
+	}
+	if u := strings.TrimSpace(b.URL); u != "" {
+		return "url:" + u
+	}
+	if title := strings.TrimSpace(b.Title); title != "" {
+		return "title:" + title
+	}
+	return ""
+}
+
+func firstUnsubscribeToken(jobs []emailDeliveryJob) string {
+	for _, job := range jobs {
+		if job.sub.UnsubscribeToken != "" {
+			return job.sub.UnsubscribeToken
+		}
+	}
+	return ""
+}
+
+func emailDeliverySubIDs(jobs []emailDeliveryJob) []string {
+	ids := make([]string, 0, len(jobs))
+	for _, job := range jobs {
+		ids = append(ids, job.sub.ID)
+	}
+	return ids
+}
+
 // Dispatch is the per-/dispatch hot path. It used to deliver one
 // message per (subscription, brief) match - fine for one-brief-per-call
 // but spammy when ti-bot pushes a burst. Now matches are enqueued into
@@ -112,34 +211,34 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 	}
 
 	if len(emailOvf) > 0 {
-		type emailOvfJob struct {
-			sub Subscription
-			pd  PendingDispatch
-		}
-		var jobs []emailOvfJob
-		var msgs []SmtpMessage
+		var jobs []emailDeliveryJob
 		for _, o := range emailOvf {
 			pd, err := d.store.GetPending(ctx, o.sub.ID)
 			if err != nil || len(pd.Briefs) == 0 {
 				continue
 			}
-			jobs = append(jobs, emailOvfJob{sub: o.sub, pd: pd})
-			msgs = append(msgs, SmtpMessage{
-				To:       o.sub.Email,
-				Subject:  emailSubjectBatch(pd.Briefs),
-				TextBody: emailBodyBatch(pd.Briefs, serviceURL, o.sub.UnsubscribeToken),
-				HTMLBody: emailHTMLBatch(pd.Briefs, serviceURL, o.sub.UnsubscribeToken),
-			})
+			jobs = append(jobs, emailDeliveryJob{sub: o.sub, pd: pd})
+		}
+		deliveries := groupEmailDeliveries(jobs, serviceURL)
+		msgs := make([]SmtpMessage, len(deliveries))
+		for i, delivery := range deliveries {
+			msgs[i] = delivery.msg
 		}
 		if len(msgs) > 0 {
 			results := d.mailer.SendBatch(msgs)
-			for i, job := range jobs {
-				if i < len(results) && results[i] != nil {
-					d.logger.Error("overflow flush failed", "sub_id", job.sub.ID, "err", results[i])
+			for i, delivery := range deliveries {
+				if i >= len(results) || results[i] != nil {
+					var err error
+					if i < len(results) {
+						err = results[i]
+					}
+					d.logger.Error("overflow flush failed", "sub_ids", emailDeliverySubIDs(delivery.jobs), "err", err)
 					continue
 				}
-				_ = d.store.DeletePending(ctx, job.pd.SubscriptionID)
-				_ = d.store.MarkSent(ctx, job.sub.ID, time.Now().UTC())
+				for _, job := range delivery.jobs {
+					_ = d.store.DeletePending(ctx, job.pd.SubscriptionID)
+					_ = d.store.MarkSent(ctx, job.sub.ID, time.Now().UTC())
+				}
 				flushedN.Add(1)
 			}
 		}
@@ -177,14 +276,9 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 	idleAge := now.Add(-debounce)
 	maxCutoff := now.Add(-maxAge)
 
-	// Collect everything first so SMTP gets one connection regardless
+	// Collect everything first so SMTP/Gmail gets one batch call regardless
 	// of how many email subscribers have pending queues.
-	type emailJob struct {
-		sub Subscription
-		pd  PendingDispatch
-		msg SmtpMessage
-	}
-	var emailJobs []emailJob
+	var emailJobs []emailDeliveryJob
 
 	type webhookJob struct {
 		sub Subscription
@@ -208,15 +302,7 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 		}
 		switch sub.Channel {
 		case ChannelEmail:
-			emailJobs = append(emailJobs, emailJob{
-				sub: sub, pd: pd,
-				msg: SmtpMessage{
-					To:       sub.Email,
-					Subject:  emailSubjectBatch(pd.Briefs),
-					TextBody: emailBodyBatch(pd.Briefs, serviceURL, sub.UnsubscribeToken),
-					HTMLBody: emailHTMLBatch(pd.Briefs, serviceURL, sub.UnsubscribeToken),
-				},
-			})
+			emailJobs = append(emailJobs, emailDeliveryJob{sub: sub, pd: pd})
 		case ChannelSlack, ChannelTeams:
 			webhookJobs = append(webhookJobs, webhookJob{sub: sub, pd: pd})
 		default:
@@ -233,15 +319,16 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 	// relay while it recovers. Per-recipient errors come back from
 	// SendBatch; only delete a queue + bump last_sent for recipients
 	// whose delivery actually succeeded.
-	if len(emailJobs) > 0 {
+	emailDeliveries := groupEmailDeliveries(emailJobs, serviceURL)
+	if len(emailDeliveries) > 0 {
 		backoff, _ := d.store.GetSmtpBackoffUntil(ctx)
 		if time.Now().Before(backoff) {
 			d.logger.Warn("smtp in backoff, skipping email flush", "backoff_until", backoff)
-			failed += len(emailJobs)
+			failed += len(emailDeliveries)
 		} else {
-			msgs := make([]SmtpMessage, len(emailJobs))
-			for i, j := range emailJobs {
-				msgs[i] = j.msg
+			msgs := make([]SmtpMessage, len(emailDeliveries))
+			for i, delivery := range emailDeliveries {
+				msgs[i] = delivery.msg
 			}
 			results := d.mailer.SendBatch(msgs)
 
@@ -263,13 +350,15 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 				}
 			}
 
-			for i, j := range emailJobs {
-				if i < len(results) && results[i] != nil {
+			for i, delivery := range emailDeliveries {
+				if i >= len(results) || results[i] != nil {
 					failed++
 					continue
 				}
-				_ = d.store.MarkSent(ctx, j.sub.ID, time.Now().UTC())
-				_ = d.store.DeletePending(ctx, j.pd.SubscriptionID)
+				for _, job := range delivery.jobs {
+					_ = d.store.MarkSent(ctx, job.sub.ID, time.Now().UTC())
+					_ = d.store.DeletePending(ctx, job.pd.SubscriptionID)
+				}
 				sent++
 			}
 		}

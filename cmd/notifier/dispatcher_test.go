@@ -4,6 +4,8 @@ import (
 	"context"
 	"errors"
 	"log/slog"
+	"reflect"
+	"sort"
 	"testing"
 	"time"
 )
@@ -16,6 +18,8 @@ type mockDispatchStore struct {
 	pending          map[string]PendingDispatch
 	smtpBackoffUntil time.Time
 	capturedBackoff  time.Time // set by SetSmtpBackoffUntil
+	deletedPending   []string
+	markedSent       []string
 }
 
 func (m *mockDispatchStore) ForEachVerified(_ context.Context, fn func(Subscription) error) error {
@@ -39,7 +43,10 @@ func (m *mockDispatchStore) GetPending(_ context.Context, subID string) (Pending
 	return pd, nil
 }
 
-func (m *mockDispatchStore) DeletePending(_ context.Context, _ string) error { return nil }
+func (m *mockDispatchStore) DeletePending(_ context.Context, id string) error {
+	m.deletedPending = append(m.deletedPending, id)
+	return nil
+}
 
 func (m *mockDispatchStore) ForEachFlushablePending(_ context.Context, _, _ time.Time, fn func(PendingDispatch) error) error {
 	for _, pd := range m.pending {
@@ -59,7 +66,10 @@ func (m *mockDispatchStore) GetSubscription(_ context.Context, id string) (Subsc
 	return Subscription{}, ErrNotFound
 }
 
-func (m *mockDispatchStore) MarkSent(_ context.Context, _ string, _ time.Time) error { return nil }
+func (m *mockDispatchStore) MarkSent(_ context.Context, id string, _ time.Time) error {
+	m.markedSent = append(m.markedSent, id)
+	return nil
+}
 
 func (m *mockDispatchStore) GetSmtpBackoffUntil(_ context.Context) (time.Time, error) {
 	return m.smtpBackoffUntil, nil
@@ -94,6 +104,17 @@ func (m *mockMailer) SendBatch(messages []SmtpMessage) []error {
 
 // --- tests ---
 
+func assertStringSet(t *testing.T, got, want []string) {
+	t.Helper()
+	got = append([]string(nil), got...)
+	want = append([]string(nil), want...)
+	sort.Strings(got)
+	sort.Strings(want)
+	if !reflect.DeepEqual(got, want) {
+		t.Fatalf("ids = %v; want %v", got, want)
+	}
+}
+
 // Email overflows during Dispatch must be sent via one SendBatch call,
 // not via individual Send calls. This mirrors how FlushPending already
 // works, and avoids the login-rate burst that originally caused the
@@ -125,6 +146,80 @@ func TestDispatch_OverflowEmailsBatchedViaSendBatch(t *testing.T) {
 	if len(mailer.batchCalls[0]) != 2 {
 		t.Errorf("SendBatch received %d messages; want 2", len(mailer.batchCalls[0]))
 	}
+}
+
+func TestDispatch_OverflowDedupesDuplicateEmailRecipient(t *testing.T) {
+	briefs := []Brief{{Slug: "b1", Title: "Test Brief", Severity: "high"}}
+	sub1 := Subscription{ID: "sub1", Channel: ChannelEmail, Email: "User@Example.com", UnsubscribeToken: "tok1"}
+	sub2 := Subscription{ID: "sub2", Channel: ChannelEmail, Email: " user@example.com ", UnsubscribeToken: "tok2"}
+
+	store := &mockDispatchStore{
+		subs:            []Subscription{sub1, sub2},
+		enqueueOverflow: map[string]bool{"sub1": true, "sub2": true},
+		pending: map[string]PendingDispatch{
+			"sub1": {SubscriptionID: "sub1", Briefs: briefs},
+			"sub2": {SubscriptionID: "sub2", Briefs: briefs},
+		},
+	}
+	mailer := &mockMailer{}
+	d := &dispatcher{store: store, mailer: mailer, logger: slog.Default()}
+
+	queued, flushed := d.Dispatch(context.Background(), briefs, "https://example.com")
+
+	if queued != 2 {
+		t.Errorf("queued = %d; want 2", queued)
+	}
+	if flushed != 1 {
+		t.Errorf("flushed = %d; want 1 recipient delivery", flushed)
+	}
+	if len(mailer.batchCalls) != 1 {
+		t.Fatalf("SendBatch called %d times; want 1", len(mailer.batchCalls))
+	}
+	if len(mailer.batchCalls[0]) != 1 {
+		t.Fatalf("SendBatch received %d messages; want 1", len(mailer.batchCalls[0]))
+	}
+	if got := mailer.batchCalls[0][0].To; got != "user@example.com" {
+		t.Errorf("recipient = %q; want normalized user@example.com", got)
+	}
+	assertStringSet(t, store.deletedPending, []string{"sub1", "sub2"})
+	assertStringSet(t, store.markedSent, []string{"sub1", "sub2"})
+}
+
+func TestFlushPending_DedupesDuplicateEmailRecipient(t *testing.T) {
+	briefs := []Brief{{Slug: "b1", Title: "Test Brief", Severity: "high"}}
+	sub1 := Subscription{ID: "sub1", Channel: ChannelEmail, Email: "User@Example.com", UnsubscribeToken: "tok1"}
+	sub2 := Subscription{ID: "sub2", Channel: ChannelEmail, Email: " user@example.com ", UnsubscribeToken: "tok2"}
+	ago := time.Now().Add(-10 * time.Minute)
+
+	store := &mockDispatchStore{
+		subs: []Subscription{sub1, sub2},
+		pending: map[string]PendingDispatch{
+			"sub1": {SubscriptionID: "sub1", Briefs: briefs, FirstQueuedAt: ago, LastQueuedAt: ago},
+			"sub2": {SubscriptionID: "sub2", Briefs: briefs, FirstQueuedAt: ago, LastQueuedAt: ago},
+		},
+	}
+	mailer := &mockMailer{}
+	d := &dispatcher{store: store, mailer: mailer, logger: slog.Default()}
+
+	sent, failed := d.FlushPending(context.Background(), 5*time.Minute, "https://example.com")
+
+	if sent != 1 {
+		t.Errorf("sent = %d; want 1 recipient delivery", sent)
+	}
+	if failed != 0 {
+		t.Errorf("failed = %d; want 0", failed)
+	}
+	if len(mailer.batchCalls) != 1 {
+		t.Fatalf("SendBatch called %d times; want 1", len(mailer.batchCalls))
+	}
+	if len(mailer.batchCalls[0]) != 1 {
+		t.Fatalf("SendBatch received %d messages; want 1", len(mailer.batchCalls[0]))
+	}
+	if got := mailer.batchCalls[0][0].To; got != "user@example.com" {
+		t.Errorf("recipient = %q; want normalized user@example.com", got)
+	}
+	assertStringSet(t, store.deletedPending, []string{"sub1", "sub2"})
+	assertStringSet(t, store.markedSent, []string{"sub1", "sub2"})
 }
 
 // When a SMTP backoff is active, FlushPending must not attempt any

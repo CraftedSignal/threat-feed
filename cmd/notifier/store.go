@@ -93,11 +93,11 @@ func (s *firestoreStore) SaveSubscription(ctx context.Context, sub Subscription)
 // duplicates that would each receive every brief. No-op when nothing
 // matches.
 func (s *firestoreStore) DeleteVerifiedByEmail(ctx context.Context, email string, channel Channel) (int, error) {
-	if email == "" {
+	target := normalizeEmailRecipient(email)
+	if target == "" {
 		return 0, nil
 	}
 	q := s.c.Collection(collSubscriptions).
-		Where("email", "==", email).
 		Where("channel", "==", string(channel))
 	iter := q.Documents(ctx)
 	defer iter.Stop()
@@ -109,6 +109,13 @@ func (s *firestoreStore) DeleteVerifiedByEmail(ctx context.Context, email string
 		}
 		if err != nil {
 			return deleted, err
+		}
+		var sub Subscription
+		if err := snap.DataTo(&sub); err != nil {
+			return deleted, err
+		}
+		if normalizeEmailRecipient(sub.Email) != target {
+			continue
 		}
 		if _, err := snap.Ref.Delete(ctx); err != nil {
 			return deleted, err
@@ -128,6 +135,14 @@ func (s *firestoreStore) DeleteByUnsubscribeToken(ctx context.Context, token str
 		return ErrNotFound
 	}
 	if err != nil {
+		return err
+	}
+	var sub Subscription
+	if err := snap.DataTo(&sub); err != nil {
+		return err
+	}
+	if sub.Channel == ChannelEmail && normalizeEmailRecipient(sub.Email) != "" {
+		_, err := s.DeleteVerifiedByEmail(ctx, sub.Email, sub.Channel)
 		return err
 	}
 	_, err = snap.Ref.Delete(ctx)
