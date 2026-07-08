@@ -3,6 +3,7 @@ title: 'UAT-7810 Expands ORB Networks with New Custom Malware: LONGLEASH, DOGLEA
 slug: 2026-07-uat-7810-orb-networks
 description: China-nexus APT actor UAT-7810 is actively expanding its LapDogs Operational Relay Box (ORB) network by exploiting N-day vulnerabilities in Ruckus and ASUS routers to deploy new custom malware families including LONGLEASH, DOGLEASH, and JARLEASH, enabling advanced command and control capabilities for secondary threat actors.
 date: "2026-07-07T10:03:15Z"
+lastmod: "2026-07-08T09:32:50Z"
 type: threat
 types:
   - threat
@@ -30,6 +31,7 @@ cpes:
   - cpe:2.3:o:ruckuswireless:smartzone_ap:*:*:*:*:*:*:*:*
   - cpe:2.3:o:commscope:ruckus_smartzone_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:commscope:ruckus_smartzone_firmware:6.1.0.0.935:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - apt
   - malware
@@ -108,6 +110,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2020-22658
   - https://nvd.nist.gov/vuln/detail/CVE-2023-25717
   - https://nvd.nist.gov/vuln/detail/CVE-2025-2492
+  - https://thehackernews.com/2026/07/china-linked-uat-7810-expands-orb.html
 iocs:
   - type: ip
     value: 194.233.92.26
@@ -134,6 +137,14 @@ rules:
       - process_creation
       - linux
 rules_count: 1
+updates:
+  - at: "2026-07-08T09:32:50Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/china-linked-uat-7810-expands-orb.html
 ---
 
 Cisco Talos has identified that the China-nexus APT actor UAT-7810 continues to evolve its custom malware arsenal and expand its LapDogs Operational Relay Box (ORB) network. Since 2025, UAT-7810 has been observed exploiting N-day vulnerabilities in unpatched Ruckus wireless routers and, more recently in early 2026, ASUS AiCloud routers, to establish persistent footholds. The group has developed new malware families, including LONGLEASH (an advanced version of SHORTLEASH), DOGLEASH (a C-based backdoor for Linux devices), and JARLEASH (a JAVA-based backdoor). These tools enable UAT-7810 to establish robust command and control, proxy traffic, and create a resilient ORB network. This network is then leveraged by secondary China-nexus APT actors, such as UAT-5918, to conduct their own malicious operations against high-value targets, making the affected devices critical infrastructure for broader APT campaigns.
