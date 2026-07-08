@@ -3,6 +3,7 @@ title: CrowdStrike Uncovers New Prompt Injection Techniques
 slug: 2026-07-prompt-injection
 description: CrowdStrike's AI security research team has identified 18 new prompt injection techniques, expanding its taxonomy to over 200 methods, which enable adversaries to manipulate AI systems and agents through indirect means like hidden context, delayed triggers, and special token injection, leading to unauthorized actions such as data exfiltration or arbitrary command execution.
 date: "2026-07-08T07:51:34Z"
+lastmod: "2026-07-08T08:34:32Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +25,7 @@ products:
   - Kubernetes AI Applications
   - AI agents
   - AI systems
+  - language models
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -73,6 +75,14 @@ rules:
       - network_connection
       - windows
 rules_count: 1
+updates:
+  - at: "2026-07-08T08:34:32Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
 ---
 
 CrowdStrike's AI security research team has recently uncovered 18 new prompt injection techniques, significantly expanding their taxonomy to over 200 distinct methods observed in real-world AI systems. This development highlights the escalating sophistication of adversaries in manipulating AI agents and Large Language Models (LLMs). These advanced techniques allow attackers to bypass security mechanisms by exploiting hidden context, delayed triggers, semantic constraints, and structural cues, rather than overt jailbreaks. This can lead to AI agents being tricked into performing unauthorized actions, such as executing shell commands, exfiltrating sensitive data, or altering their internal rules. The insights are crucial for defenders as organizations increasingly adopt powerful AI agents that interact with critical resources like web pages, file stores, and internal systems, making robust AI threat modeling and red teaming essential to counter these evolving threats.
