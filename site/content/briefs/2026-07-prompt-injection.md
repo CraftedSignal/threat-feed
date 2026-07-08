@@ -3,7 +3,7 @@ title: CrowdStrike Uncovers New Prompt Injection Techniques
 slug: 2026-07-prompt-injection
 description: CrowdStrike's AI security research team has identified 18 new prompt injection techniques, expanding its taxonomy to over 200 methods, which enable adversaries to manipulate AI systems and agents through indirect means like hidden context, delayed triggers, and special token injection, leading to unauthorized actions such as data exfiltration or arbitrary command execution.
 date: "2026-07-08T07:51:34Z"
-lastmod: "2026-07-08T09:41:31Z"
+lastmod: "2026-07-08T09:52:37Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +27,11 @@ products:
   - AI systems
   - language models
   - chatbots
+  - browser extensions
+affected_os:
+  - Windows
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -87,6 +92,13 @@ updates:
   - at: "2026-07-08T09:41:31Z"
     level: L1
     summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
+  - at: "2026-07-08T09:52:37Z"
+    level: L1
+    summary: OS macos; OS windows; OS linux
     sources:
       - crowdstrike
     source_urls:
