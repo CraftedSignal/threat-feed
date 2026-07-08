@@ -3,7 +3,7 @@ title: CrowdStrike Uncovers New Prompt Injection Techniques
 slug: 2026-07-prompt-injection
 description: CrowdStrike's AI security research team has identified 18 new prompt injection techniques, expanding its taxonomy to over 200 methods, which enable adversaries to manipulate AI systems and agents through indirect means like hidden context, delayed triggers, and special token injection, leading to unauthorized actions such as data exfiltration or arbitrary command execution.
 date: "2026-07-08T07:51:34Z"
-lastmod: "2026-07-08T09:52:37Z"
+lastmod: "2026-07-08T10:36:25Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,7 @@ tags:
 vendors:
   - Google
   - Anthropic
+  - Kubernetes
 products:
   - Gemini
   - Claude
@@ -99,6 +100,13 @@ updates:
   - at: "2026-07-08T09:52:37Z"
     level: L1
     summary: OS macos; OS windows; OS linux
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
+  - at: "2026-07-08T10:36:25Z"
+    level: L1
+    summary: new vendor
     sources:
       - crowdstrike
     source_urls:
