@@ -1,76 +1,82 @@
 ---
-title: CrowdStrike Uncovers New Prompt Injection Techniques in AI Systems
+title: CrowdStrike Uncovers New Prompt Injection Techniques
 slug: 2026-07-new-prompt-injection-techniques
-description: CrowdStrike research has identified 18 new prompt injection techniques, including five detailed examples, which adversaries are leveraging to manipulate AI systems and agents, bypass safety mechanisms, and achieve filter evasion, posing a critical threat to AI security by allowing attackers to hijack AI capabilities for malicious actions such as data exfiltration or generating unsafe content.
-date: "2026-07-08T06:46:05Z"
+description: CrowdStrike has identified 18 new prompt injection techniques, expanding its taxonomy to over 200 methods, which enable adversaries to manipulate AI systems and agents through hidden context, delayed triggers, semantic constraints, boundary spoofing, and social engineering to bypass security measures, leading to modified behavior, data exfiltration, or malicious command execution in AI-driven applications and agents like chatbots or those running in Kubernetes.
+date: "2026-07-08T06:17:47Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - medium
 tags:
+  - AI
   - prompt-injection
-  - ai-security
-  - machine-learning
+  - cloud-security
+  - threat-intelligence
   - defense-evasion
-  - social-engineering
-  - cloud
+  - initial-access
+  - privilege-escalation
 vendors:
   - Google
+  - Anthropic
 products:
-  - AI agents
-  - AI systems
-  - language models
-  - Kubernetes AI Applications
   - Gemini
+  - Claude
+  - Kubernetes AI Applications
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1566
-    technique_name: Phishing
+    technique_id: T1204
+    technique_name: User Execution
     evidence: This delivery method exploits social engineering or other deceptive tactics to turn an authorized user into an accidental delivery vector.
     confidence_band: high
-  - tactic_id: TA0004
-    tactic_name: Defense Evasion
-    technique_id: T1027
-    technique_name: Obfuscated Files or Information
-    evidence: By fragmenting a malicious instruction into various steps, variables, characters, or rules rather than presenting it clearly, an attacker can achieve filter evasion.
-    confidence_band: high
-  - tactic_id: TA0004
+  - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1562
     technique_name: Impair Defenses
-    evidence: this method involves an attacker blocking specific safety, apology, or policy-related terms to hinder the model's ability to generate a secure response.
+    evidence: 'Trigger-Activated Rule Addition: it can change behavior, bypass a rule, or steer an agent into an unsafe action.'
     confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: By mimicking these specific markers, attackers aim to induce boundary confusion, tricking the application or the model into elevating untrusted user content to the status of a high-priority system directive or a new instructional block.
-    confidence_band: med
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562
+    technique_name: Impair Defenses
+    evidence: 'Cognitive Token Suppression: involves an attacker blocking specific safety, apology, or policy-related terms to hinder the model''s ability to generate a secure response.'
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1027
+    technique_name: Obfuscated Files or Information
+    evidence: 'Algorithmic Payload Decomposition: By fragmenting a malicious instruction... an attacker can achieve filter evasion.'
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1548
+    technique_name: Abuse Elevation Control Mechanism
+    evidence: 'Special Token Injection: tricking the application or the model into elevating untrusted user content to the status of a high-priority system directive or a new instructional block.'
+    confidence_band: high
 references:
   - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
 ---
 
-CrowdStrike's AI security research team recently published findings on 18 newly identified prompt injection techniques, bringing their taxonomy to over 200 distinct methods. Published on July 07, 2026, this research highlights how adversaries are evolving their methods to manipulate sophisticated AI systems and agents beyond simple jailbreaks. The techniques described include hiding malicious instructions with delayed triggers (Trigger-Activated Rule Addition), circumventing safety mechanisms by suppressing refusal terms (Cognitive Token Suppression), fragmenting malicious payloads to evade filters (Algorithmic Payload Decomposition), and exploiting structural cues to elevate untrusted user content (Special Token Injection). Furthermore, the "Unwitting User Delivery" method outlines how social engineering can turn authorized users into vectors for delivering malicious prompts. These methods demonstrate a critical shift towards more sophisticated, indirect manipulation of AI, impacting AI agents that can crawl webpages, access file stores, and execute shell commands. This evolution necessitates a re-evaluation of AI threat modeling and red teaming to counter these advanced threats.
+CrowdStrike's AI security research team has unveiled 18 new advanced prompt injection techniques, significantly expanding the understanding of how adversaries can manipulate artificial intelligence (AI) systems. This brings their taxonomy to over 200 distinct methods, reflecting the rapid evolution of attacks targeting AI agents and large language models. These techniques, such as Trigger-Activated Rule Addition, Cognitive Token Suppression, Algorithmic Payload Decomposition, Special Token Injection, and Unwitting User Delivery, allow attackers to subvert AI functionality by exploiting its language, context, and data processing. The focus is shifting from simple jailbreaks to more sophisticated methods involving hidden context, delayed triggers, and semantic manipulation. These threats are particularly critical as AI agents gain capabilities to interact with external systems, like crawling web pages, accessing file stores, and executing shell commands in environments such as Kubernetes AI applications, making indirect prompt injection a potent attack vector for data exfiltration or unauthorized actions.
 
 ## Attack Chain
 
-1.  An adversary crafts a sophisticated prompt containing hidden or fragmented malicious instructions designed to manipulate an AI system or agent.
-2.  The adversary employs "Unwitting User Delivery (IM0005)" by leveraging social engineering (e.g., a deceptive social media post) to trick an authorized user into inputting the malicious prompt into an AI system within their authenticated session.
-3.  The AI system or agent receives the crafted prompt, which may contain a "Trigger-Activated Rule Addition (PT0201)" – a dormant instruction set that remains inactive until a specific keyword, event, or condition is met.
-4.  Alternatively, the prompt may utilize "Algorithmic Payload Decomposition (PT0200)" where the malicious instruction is broken down into seemingly benign components (e.g., variables, characters, rules) that the AI system is instructed to reassemble, thereby evading initial filters.
-5.  The prompt might also include "Special Token Injection (PT0198)," mimicking the AI system's internal structural cues (e.g., <tool_call> tags) to confuse boundary distinctions and trick the model into treating untrusted user input as a high-priority system directive.
-6.  Upon processing, these injection techniques allow the AI system to bypass its intended safety mechanisms, evade content filters, or interpret malicious instructions as legitimate commands.
-7.  The AI's behavior is then altered, leading it to perform actions like forwarding sensitive emails to an attacker-controlled address or generating instructions for unsafe activities.
-8.  Ultimately, the AI agent executes unauthorized commands, exfiltrates data, generates harmful content, or otherwise deviates from its intended, secure operation, achieving the adversary's objective.
+1.  **Crafting Malicious Prompt**: Adversaries design sophisticated prompts incorporating techniques like Trigger-Activated Rule Addition (PT0201), Cognitive Token Suppression (PT0197), Algorithmic Payload Decomposition (PT0200), or Special Token Injection (PT0198) to achieve a specific malicious goal while evading AI safety filters.
+2.  **Delivery of Malicious Prompt**: The crafted prompt is introduced into the target AI system, either through direct user input, embedded within documents or webpages consumed by AI agents, or via social engineering tactics (Unwitting User Delivery - IM0005) that trick an authorized user into submitting the malicious input.
+3.  **AI System Ingestion and Parsing**: The AI agent or model processes the input, which includes the carefully disguised malicious prompt, often blending it seamlessly with legitimate instructions or data.
+4.  **Manipulation of AI Behavior**: The prompt injection technique successfully subverts the AI's intended operation. This could involve adding a hidden, trigger-activated rule (PT0201), suppressing the AI's inherent safety responses (PT0197), reassembling a fragmented malicious command (PT0200) from benign-looking parts, or misinterpreting special tokens as system-level directives (PT0198).
+5.  **Execution of Malicious Instruction**: The compromised AI system then executes the attacker's hidden instructions, potentially performing actions such as duplicating sensitive emails, generating harmful content, querying unauthorized databases, or issuing system commands via integrated tools (e.g., shell commands in Kubernetes AI applications).
+6.  **Impact and Exfiltration**: The final objective is achieved, leading to consequences such as data exfiltration (e.g., forwarding emails to an attacker-controlled address), system compromise through unauthorized command execution, or the generation of malicious/unintended output that can aid further exploitation.
 
 ## Impact
 
-The identified prompt injection techniques enable adversaries to achieve significant impact by compromising the integrity and security of AI systems and agents. Successful exploitation can lead to the bypassing of safety mechanisms, filter evasion, and direct manipulation of AI behavior, potentially resulting in unauthorized data access (e.g., exfiltrating email data), execution of arbitrary commands (e.g., unauthorized SQL queries or shell commands if integrated with tool access), or the generation of harmful and unsafe content (e.g., instructions for 3-D printing a car with dangerous design flaws). The threat impacts any organization utilizing AI agents with access to internal systems, data, or external tools, turning these powerful AI capabilities into vectors for adversary objectives and eroding trust in AI deployments. The scope of targeting is broad, encompassing any organization that deploys or integrates AI systems or agents, as demonstrated by the mention of Gemini.
+The impact of successful prompt injection attacks can range from subtle manipulation of AI behavior to severe security breaches. Organizations using AI systems face risks such as data exfiltration, where sensitive information is leaked (e.g., through email forwarding or database queries), unauthorized command execution on connected systems, and the generation of malicious or misleading content. If AI agents operating in environments like Kubernetes AI applications are compromised, attackers could gain privileged access, perform system commands, or cause service disruptions. This can lead to reputational damage, financial losses, and compliance violations, particularly in sectors relying on AI for critical operations or customer interaction.
 
 ## Recommendation
 
-*   Expand AI threat modeling and logging strategies to comprehensively cover all potential sources of model context, including prompts, files, RAG pipelines, agent memory, APIs, tool outputs, browser content, emails, and SaaS data, as explicitly detailed in this brief.
-*   Enhance AI red teaming efforts to simulate advanced prompt injection techniques, including boundary mimicry, indirect injection, and delayed activation, as identified and described within this brief, to rigorously test existing detection and prevention controls.
-*   Implement robust input validation and output filtering mechanisms for all AI agent interactions, with particular scrutiny for functions involving sensitive operations such as email sending or database queries, as illustrated by the examples in this brief.
+*   Enable comprehensive logging of AI agent interactions, including input prompts, internal reasoning, tool calls, and outputs, to identify anomalous behavior indicative of prompt injection attempts.
+*   Implement robust input validation and sanitization specifically designed for AI prompts, considering the advanced obfuscation methods like Algorithmic Payload Decomposition (PT0200).
+*   Conduct regular AI threat modeling exercises that encompass every possible context where model input can originate, including RAG pipelines, agent memory, and APIs.
+*   Prioritize advanced AI red teaming that moves beyond basic jailbreaks, incorporating techniques such as Trigger-Activated Rule Addition (PT0201) and Special Token Injection (PT0198) to assess system resilience.
+*   Educate users about the risks of "Unwitting User Delivery" (IM0005) to prevent social engineering-driven prompt injection by making them aware of hidden malicious commands in seemingly benign content.
