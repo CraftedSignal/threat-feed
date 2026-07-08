@@ -3,11 +3,13 @@ title: 'New Abuse of the ClickOnce Technology, Part 2: Stop Threat Actors from C
 slug: 2026-07-clickonce-abuse-part2
 description: Threat actors are actively exploiting Microsoft's ClickOnce deployment technology, leveraging its low user interaction, lack of privilege requirements, and built-in update mechanisms to deliver malware, establish persistence, and maintain remote access, often executing payloads within legitimate rundll32.exe and dfsvc.exe processes.
 date: "2026-07-08T08:07:01Z"
+lastmod: "2026-07-08T10:42:52Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
 tags:
   - clickonce
   - microsoft
@@ -19,6 +21,7 @@ vendors:
   - Microsoft
 products:
   - ClickOnce
+  - ClickOnce technology
 affected_os:
   - Windows
 mitre_ttps:
@@ -90,6 +93,14 @@ rules:
       - network_connection
       - windows
 rules_count: 2
+updates:
+  - at: "2026-07-08T10:42:52Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-two/
 ---
 
 CrowdStrike has identified new methods of abusing Microsoft's ClickOnce deployment technology, which threat actors are actively leveraging to deliver malware, achieve persistence, and maintain remote access. This abuse exploits ClickOnce's minimal user interaction, ability to deploy without administrative privileges, and built-in updating mechanism. Actors are observed weaponizing `.application` files and manipulating `.appref-ms` shortcuts to stealthily execute payloads within legitimate Microsoft processes such as `rundll32.exe` and `dfsvc.exe`. The simplified delivery phase bypasses traditional defenses like email filters, and the lack of user awareness regarding ClickOnce installations contributes to the success of these attacks. This ongoing threat highlights a significant vector for initial access and long-term compromise against Windows endpoints.
