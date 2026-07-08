@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-07T07:36:26Z"
+lastmod: "2026-07-08T17:04:47Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,8 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
+  - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -67,39 +69,36 @@ products:
   - Exchange Online
   - Microsoft Graph
   - SSH SFTP server
+  - Azure
+  - Teams
+  - Active Directory Federation Services (ADFS)
+  - Device Registration Service
+  - Windows 10 22H2
+  - Active Directory Federation Services
+  - Microsoft Windows
 affected_os:
   - Windows
   - macOS
   - Linux
   - Android
+  - Windows Server
+  - Windows 10 22H2
 cves:
-  - id: CVE-2026-57977
-    cvss: 7.1
-    epss: 0.00406
-  - id: CVE-2026-57983
-    cvss: 8.7
-    epss: 0.00464
-  - id: CVE-2026-58292
-    cvss: 7.5
-    epss: 0.00285
   - id: CVE-2026-57992
     cvss: 7.5
     epss: 0.00438
-  - id: CVE-2026-58284
+  - id: CVE-2026-58288
     cvss: 8.3
-    epss: 0.00414
-  - id: CVE-2026-58297
-    cvss: 7.1
-    epss: 0.00316
-  - id: CVE-2026-57985
-    cvss: 7.6
-    epss: 0.00419
-  - id: CVE-2026-58283
-    cvss: 8.1
-    epss: 0.00406
-  - id: CVE-2026-58287
-    cvss: 8.3
-    epss: 0.00448
+    epss: 0.00438
+  - id: CVE-2026-57975
+    cvss: 7.5
+    epss: 0.00438
+  - id: CVE-2026-58276
+    cvss: 7.5
+    epss: 0.00429
+  - id: CVE-2026-54886
+    cvss: 4.3
+    epss: 0.00345
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -177,6 +176,16 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_oauth_device_code_phishing_tycoon_aitm.toml
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55952
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54886
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_signin_impossible_travel.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_multiple_device_registrations.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_unusual_legacy_auth_client_signin.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_unusual_ropc_login_attempt.toml
+  - https://cloud.google.com/blog/topics/threat-intelligence/recovering-active-adfs-signing-keys-machine-dpapi/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_device_registration_to_prt_chain.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_phishing_kit_default_os_build_device_registration.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/entityanalytics_entra_id/persistence_entra_id_device_phishing_kit_default_os_build.toml
+  - https://www.reddit.com/r/blueteamsec/comments/1uqiaj4/recovering_active_adfs_signing_keys_via_machine/
+  - https://www.darkreading.com/cyberattacks-data-breaches/vidar-infostealer-smb-malvertising-campaign
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -240,36 +249,76 @@ iocs:
     value: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/qakbot/qbot_wermgr2/sysmon_wermgr2.log
   - type: url
     value: https://github.com/its-a-feature/bifrost
+  - type: url
+    value: https://any.run/malware-trends/tycoon/
+  - type: other
+    value: BAV2ROPC
+  - type: other
+    value: TeamFiltration
+  - type: file-path
+    value: C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\
+  - type: file-path
+    value: C:\Windows\System32\Microsoft\Protect\S-1-5-18\
+  - type: string
+    value: 10.0.19045.2006
+  - type: string
+    value: DESKTOP-*
+  - type: string
+    value: Dsreg/10.0 (Windows 10.0.19045.2006)
+  - type: string
+    value: axios/*
+  - type: string
+    value: python-requests/*
+  - type: pattern
+    value: DESKTOP-
+  - type: os_version
+    value: 10.0.19045.2006
+  - type: user_agent
+    value: Dsreg/10.0 (Windows 10.0.19045.2006)
+  - type: user_agent
+    value: axios/*
+  - type: user_agent
+    value: python-requests/*
+  - type: domain
+    value: pool.supportxmr[.]com
 ioc_counts:
-  domain: 6
+  domain: 7
   email: 2
-  url: 23
+  file-path: 2
+  os_version: 1
+  other: 2
+  pattern: 1
+  string: 5
+  url: 24
+  user_agent: 3
 updates:
-  - at: "2026-07-06T15:08:10Z"
+  - at: "2026-07-07T18:42:22Z"
     level: L2
-    summary: added CVE-2026-57974 +4
+    summary: added CVE-2026-55952 +1
     sources:
       - elastic
-  - at: "2026-07-06T15:08:30Z"
+  - at: "2026-07-07T18:53:28Z"
     level: L2
-    summary: added CVE-2026-57975 +3
+    summary: added CVE-2026-58291; OS windows 10 22h2
     sources:
       - elastic
-  - at: "2026-07-06T20:27:20Z"
+  - at: "2026-07-07T18:53:40Z"
+    level: L2
+    summary: added CVE-2026-57984 +1
+    sources:
+      - elastic
+  - at: "2026-07-08T05:18:47Z"
     level: L2
     summary: added CVE-2026-57977 +1
     sources:
-      - elastic
-  - at: "2026-07-07T07:36:14Z"
+      - reddit-blueteamsec
+  - at: "2026-07-08T17:04:47Z"
     level: L2
-    summary: added CVE-2026-57983 +3
+    summary: added CVE-2026-54886 +1
     sources:
-      - msrc
-  - at: "2026-07-07T07:36:26Z"
-    level: L2
-    summary: added CVE-2026-57985 +3
-    sources:
-      - msrc
+      - dark-reading
+    source_urls:
+      - https://www.darkreading.com/cyberattacks-data-breaches/vidar-infostealer-smb-malvertising-campaign
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
