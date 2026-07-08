@@ -3,6 +3,7 @@ title: 'Understanding ClickOnce Technology Abuse: Part 1'
 slug: 2026-07-clickonce-abuse-part1
 description: Threat actors are abusing Microsoft's ClickOnce deployment technology to spread malware, allowing malicious applications to be deployed easily with minimal user interaction and without requiring administrative privileges, ultimately delivering malicious payloads onto user endpoints.
 date: "2026-07-08T08:08:13Z"
+lastmod: "2026-07-08T09:53:29Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Microsoft
 products:
   - ClickOnce technology
+  - ClickOnce
 affected_os:
   - Windows
 mitre_ttps:
@@ -34,6 +36,14 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-one/
+updates:
+  - at: "2026-07-08T09:53:29Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-one/
 ---
 
 Microsoft's ClickOnce technology, designed for simplified application distribution and updating, is being actively abused by threat actors to spread malware. This deployment mechanism allows developers to package and deliver applications that users can run, install, and automatically update with minimal interaction and without requiring administrative privileges. While intended to streamline legitimate software deployment, its user-friendly nature makes it a "double-edged sword," providing an easy vector for malicious payloads. This initial brief, Part 1 of a two-part series, focuses on the internal workings of ClickOnce technology, detailing the process from application publication to installation on the user's endpoint, laying the groundwork for understanding how adversaries weaponize this feature.
