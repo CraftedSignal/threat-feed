@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-09T11:25:06Z"
+lastmod: "2026-07-09T14:25:51Z"
 type: advisory
 types:
   - advisory
@@ -88,6 +88,7 @@ products:
   - Mimikatz
   - PsExec
   - Azure AD
+  - Microsoft Edge < 150.0.4078.50
 affected_os:
   - Windows
   - macOS
@@ -138,6 +139,12 @@ cves:
   - id: CVE-2026-55952
     cvss: 7.5
     epss: 0.00487
+  - id: CVE-2026-58293
+    cvss: 8.1
+    epss: 0.00438
+  - id: CVE-2026-58295
+    cvss: 8.3
+    epss: 0.00372
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -227,6 +234,7 @@ references:
   - https://www.darkreading.com/cyberattacks-data-breaches/vidar-infostealer-smb-malvertising-campaign
   - https://www.darkreading.com/cyberattacks-data-breaches/goddamn-ransomware-byovd-smite-companies
   - https://any.run/cybersecurity-blog/usa-top-30-threats-2026/
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0854/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -336,6 +344,10 @@ iocs:
     value: NirSoft tools
   - type: platform
     value: github.com
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58525
+  - type: url
+    value: https://www.cve.org/CVERecord?id=CVE-2026-58525
 ioc_counts:
   domain: 7
   email: 2
@@ -347,14 +359,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 24
+  url: 26
   user_agent: 3
 updates:
-  - at: "2026-07-07T18:53:40Z"
-    level: L2
-    summary: added CVE-2026-57984 +1
-    sources:
-      - elastic
   - at: "2026-07-08T05:18:47Z"
     level: L2
     summary: added CVE-2026-57977 +1
@@ -381,6 +388,13 @@ updates:
       - any-run
     source_urls:
       - https://any.run/cybersecurity-blog/usa-top-30-threats-2026/
+  - at: "2026-07-09T14:25:51Z"
+    level: L2
+    summary: added CVE-2026-58293 +1
+    sources:
+      - anssi
+    source_urls:
+      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0854/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
