@@ -3,6 +3,7 @@ title: 'n8n: Multiple Vulnerabilities'
 slug: 2026-07-n8n-multiple-vulnerabilities
 description: A remote, authenticated attacker can exploit multiple vulnerabilities in the n8n application to perform SQL injection, bypass security measures, disclose confidential information, manipulate data, or cause a denial-of-service condition.
 date: "2026-07-09T08:33:44Z"
+lastmod: "2026-07-09T10:52:19Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ tags:
   - authentication-bypass
 vendors:
   - n8n GmbH
+  - n8n
 products:
   - n8n
 mitre_ttps:
@@ -59,6 +61,15 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2067
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2267
+updates:
+  - at: "2026-07-09T10:52:19Z"
+    level: L1
+    summary: new vendor
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2267
 ---
 
 The German Federal Office for Information Security (BSI) has issued a high-severity alert regarding multiple vulnerabilities within the n8n automation platform. These flaws can be leveraged by a remote, authenticated attacker. While specific CVEs were not detailed in the advisory, the vulnerabilities collectively enable SQL injection, circumvention of security controls, unauthorized disclosure of sensitive data, data manipulation, and denial-of-service attacks. The requirement for prior authentication means an attacker would first need to gain access to a legitimate user's credentials or compromise a session. The widespread use of n8n in enterprise automation workflows makes these vulnerabilities particularly critical, as successful exploitation could lead to significant data breaches, operational disruption, and integrity compromises across integrated systems. Defenders should prioritize patching and robust authentication measures.
