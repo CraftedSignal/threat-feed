@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-09T20:24:02Z"
+lastmod: "2026-07-09T20:30:24Z"
 type: advisory
 types:
   - advisory
@@ -38,6 +38,7 @@ vendors:
   - GitHub
   - Cisco
   - Trend Micro
+  - LSHIY LLC
 products:
   - PowerShell
   - Windows
@@ -101,6 +102,7 @@ products:
   - Azure Linux azl3 kernel (< 6.6.144.1-1)
   - Azure CLI
   - Azure Active Directory Conditional Access
+  - Microsoft Azure CLI
 affected_os:
   - Windows
   - macOS
@@ -123,7 +125,7 @@ cves:
     epss: 0.00429
   - id: CVE-2026-54886
     cvss: 4.3
-    epss: 0.00345
+    epss: 0.0033
   - id: CVE-2026-58292
     cvss: 7.5
     epss: 0.00279
@@ -174,6 +176,9 @@ cves:
   - id: CVE-2026-58294
     cvss: 7.5
     epss: 0.0034
+  - id: CVE-2026-57981
+    cvss: 8.8
+    epss: 0.00556
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -266,6 +271,7 @@ references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0854/
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0855/
   - https://www.huntress.com/blog/conditional-access-misconfigurations
+  - https://www.huntress.com/blog/lshiy-password-spray-attack
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -379,7 +385,10 @@ iocs:
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58525
   - type: url
     value: https://www.cve.org/CVERecord?id=CVE-2026-58525
+  - type: asn
+    value: AS32167
 ioc_counts:
+  asn: 1
   domain: 7
   email: 2
   file-path: 2
@@ -393,13 +402,6 @@ ioc_counts:
   url: 26
   user_agent: 3
 updates:
-  - at: "2026-07-09T10:01:27Z"
-    level: L2
-    summary: added CVE-2026-57974 +4
-    sources:
-      - dark-reading
-    source_urls:
-      - https://www.darkreading.com/cyberattacks-data-breaches/goddamn-ransomware-byovd-smite-companies
   - at: "2026-07-09T11:25:06Z"
     level: L2
     summary: poc_available; added CVE-2026-55952 +3
@@ -428,6 +430,13 @@ updates:
       - huntress
     source_urls:
       - https://www.huntress.com/blog/conditional-access-misconfigurations
+  - at: "2026-07-09T20:30:24Z"
+    level: L2
+    summary: added CVE-2026-57981
+    sources:
+      - huntress
+    source_urls:
+      - https://www.huntress.com/blog/lshiy-password-spray-attack
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
