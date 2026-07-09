@@ -27,6 +27,16 @@ Replace `<term>` and `<slug>` with the value you want.
 
 Severity terms: critical, high, medium, low, rumour. Type terms: threat, coverage, advisory, rumour.
 
+## STIX 2.1
+
+Machine-readable [STIX 2.1](https://oasis-open.github.io/cti-documentation/stix/intro) bundles of the last 90 days of briefs, for TIP / SOAR ingestion. No auth, served from the static CDN.
+
+- Latest 30 days: `https://feed.craftedsignal.io/stix.json`
+- Per month: `https://feed.craftedsignal.io/stix/YYYY-MM.json` (e.g. `/stix/2026-05.json`)
+- Manifest of available months: `https://feed.craftedsignal.io/stix/index.json`
+
+Each bundle contains `report` objects linked to `indicator` (IOCs), `attack-pattern` (MITRE ATT&CK), `threat-actor`, `software` (affected vendor/product), and `vulnerability` (CVE) objects.
+
 ## JSON shape
 
 ```json
