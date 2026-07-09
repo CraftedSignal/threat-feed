@@ -13,6 +13,10 @@ tags:
   - macos
   - mami
   - malware
+vendors:
+  - Apple
+products:
+  - macOS
 affected_os:
   - macos
 mitre_ttps:
