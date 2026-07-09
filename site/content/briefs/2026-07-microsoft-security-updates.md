@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-09T14:28:12Z"
+lastmod: "2026-07-09T20:24:02Z"
 type: advisory
 types:
   - advisory
@@ -36,6 +36,8 @@ vendors:
   - AnyDesk
   - NirSoft
   - GitHub
+  - Cisco
+  - Trend Micro
 products:
   - PowerShell
   - Windows
@@ -97,6 +99,8 @@ products:
   - Azure AD
   - Microsoft Edge < 150.0.4078.50
   - Azure Linux azl3 kernel (< 6.6.144.1-1)
+  - Azure CLI
+  - Azure Active Directory Conditional Access
 affected_os:
   - Windows
   - macOS
@@ -164,6 +168,12 @@ cves:
   - id: CVE-2026-58283
     cvss: 8.1
     epss: 0.00329
+  - id: CVE-2026-58282
+    cvss: 8.1
+    epss: 0.00312
+  - id: CVE-2026-58294
+    cvss: 7.5
+    epss: 0.0034
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -255,6 +265,7 @@ references:
   - https://any.run/cybersecurity-blog/usa-top-30-threats-2026/
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0854/
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0855/
+  - https://www.huntress.com/blog/conditional-access-misconfigurations
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -382,13 +393,6 @@ ioc_counts:
   url: 26
   user_agent: 3
 updates:
-  - at: "2026-07-08T17:04:47Z"
-    level: L2
-    summary: added CVE-2026-54886 +1
-    sources:
-      - dark-reading
-    source_urls:
-      - https://www.darkreading.com/cyberattacks-data-breaches/vidar-infostealer-smb-malvertising-campaign
   - at: "2026-07-09T10:01:27Z"
     level: L2
     summary: added CVE-2026-57974 +4
@@ -417,6 +421,13 @@ updates:
       - anssi
     source_urls:
       - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0855/
+  - at: "2026-07-09T20:24:02Z"
+    level: L2
+    summary: added CVE-2026-58282 +1
+    sources:
+      - huntress
+    source_urls:
+      - https://www.huntress.com/blog/conditional-access-misconfigurations
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
