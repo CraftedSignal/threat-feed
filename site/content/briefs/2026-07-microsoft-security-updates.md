@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-08T17:04:47Z"
+lastmod: "2026-07-09T10:01:27Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +13,7 @@ cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
   - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
   - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -23,6 +24,9 @@ vendors:
   - SysAid
   - IGEL
   - Elastic
+  - AnyDesk
+  - NirSoft
+  - GitHub
 products:
   - PowerShell
   - Windows
@@ -76,6 +80,11 @@ products:
   - Windows 10 22H2
   - Active Directory Federation Services
   - Microsoft Windows
+  - Microsoft Hardware Compatibility Program
+  - AnyDesk
+  - NirSoft utilities
+  - Mimikatz
+  - PsExec
 affected_os:
   - Windows
   - macOS
@@ -99,6 +108,21 @@ cves:
   - id: CVE-2026-54886
     cvss: 4.3
     epss: 0.00345
+  - id: CVE-2026-58292
+    cvss: 7.5
+    epss: 0.00279
+  - id: CVE-2026-57974
+    cvss: 8.8
+    epss: 0.00556
+  - id: CVE-2026-58285
+    cvss: 8.3
+    epss: 0.00438
+  - id: CVE-2026-58286
+    cvss: 8.1
+    epss: 0.00312
+  - id: CVE-2026-58299
+    cvss: 7.5
+    epss: 0.0027
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -186,6 +210,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/entityanalytics_entra_id/persistence_entra_id_device_phishing_kit_default_os_build.toml
   - https://www.reddit.com/r/blueteamsec/comments/1uqiaj4/recovering_active_adfs_signing_keys_via_machine/
   - https://www.darkreading.com/cyberattacks-data-breaches/vidar-infostealer-smb-malvertising-campaign
+  - https://www.darkreading.com/cyberattacks-data-breaches/goddamn-ransomware-byovd-smite-companies
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -281,22 +306,34 @@ iocs:
     value: python-requests/*
   - type: domain
     value: pool.supportxmr[.]com
+  - type: filename
+    value: symantec.exe
+  - type: software
+    value: PoisonX
+  - type: software
+    value: AnyDesk
+  - type: software
+    value: Mimikatz
+  - type: software
+    value: PsExec
+  - type: software
+    value: NirSoft tools
+  - type: platform
+    value: github.com
 ioc_counts:
   domain: 7
   email: 2
   file-path: 2
+  filename: 1
   os_version: 1
   other: 2
   pattern: 1
+  platform: 1
+  software: 5
   string: 5
   url: 24
   user_agent: 3
 updates:
-  - at: "2026-07-07T18:42:22Z"
-    level: L2
-    summary: added CVE-2026-55952 +1
-    sources:
-      - elastic
   - at: "2026-07-07T18:53:28Z"
     level: L2
     summary: added CVE-2026-58291; OS windows 10 22h2
@@ -319,6 +356,13 @@ updates:
       - dark-reading
     source_urls:
       - https://www.darkreading.com/cyberattacks-data-breaches/vidar-infostealer-smb-malvertising-campaign
+  - at: "2026-07-09T10:01:27Z"
+    level: L2
+    summary: added CVE-2026-57974 +4
+    sources:
+      - dark-reading
+    source_urls:
+      - https://www.darkreading.com/cyberattacks-data-breaches/goddamn-ransomware-byovd-smite-companies
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
