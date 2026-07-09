@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-09T10:01:27Z"
+lastmod: "2026-07-09T11:25:06Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,8 @@ cpes:
   - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
   - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:erlang:erlang\/ssl:*:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - roundup
 vendors:
@@ -85,6 +87,7 @@ products:
   - NirSoft utilities
   - Mimikatz
   - PsExec
+  - Azure AD
 affected_os:
   - Windows
   - macOS
@@ -123,6 +126,18 @@ cves:
   - id: CVE-2026-58299
     cvss: 7.5
     epss: 0.0027
+  - id: CVE-2026-57983
+    cvss: 8.7
+    epss: 0.00463
+  - id: CVE-2026-58297
+    cvss: 7.1
+    epss: 0.00309
+  - id: CVE-2026-57977
+    cvss: 7.1
+    epss: 0.00397
+  - id: CVE-2026-55952
+    cvss: 7.5
+    epss: 0.00487
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -211,6 +226,7 @@ references:
   - https://www.reddit.com/r/blueteamsec/comments/1uqiaj4/recovering_active_adfs_signing_keys_via_machine/
   - https://www.darkreading.com/cyberattacks-data-breaches/vidar-infostealer-smb-malvertising-campaign
   - https://www.darkreading.com/cyberattacks-data-breaches/goddamn-ransomware-byovd-smite-companies
+  - https://any.run/cybersecurity-blog/usa-top-30-threats-2026/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -334,11 +350,6 @@ ioc_counts:
   url: 24
   user_agent: 3
 updates:
-  - at: "2026-07-07T18:53:28Z"
-    level: L2
-    summary: added CVE-2026-58291; OS windows 10 22h2
-    sources:
-      - elastic
   - at: "2026-07-07T18:53:40Z"
     level: L2
     summary: added CVE-2026-57984 +1
@@ -363,6 +374,13 @@ updates:
       - dark-reading
     source_urls:
       - https://www.darkreading.com/cyberattacks-data-breaches/goddamn-ransomware-byovd-smite-companies
+  - at: "2026-07-09T11:25:06Z"
+    level: L2
+    summary: poc_available; added CVE-2026-55952 +3
+    sources:
+      - any-run
+    source_urls:
+      - https://any.run/cybersecurity-blog/usa-top-30-threats-2026/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
