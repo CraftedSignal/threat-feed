@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-09T20:30:24Z"
+lastmod: "2026-07-09T20:52:54Z"
 type: advisory
 types:
   - advisory
@@ -103,6 +103,7 @@ products:
   - Azure CLI
   - Azure Active Directory Conditional Access
   - Microsoft Azure CLI
+  - OneDrive
 affected_os:
   - Windows
   - macOS
@@ -179,6 +180,12 @@ cves:
   - id: CVE-2026-57981
     cvss: 8.8
     epss: 0.00556
+  - id: CVE-2026-58298
+    cvss: 7.2
+    epss: 0.0024
+  - id: CVE-2026-58296
+    cvss: 7.1
+    epss: 0.00303
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -272,6 +279,7 @@ references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0855/
   - https://www.huntress.com/blog/conditional-access-misconfigurations
   - https://www.huntress.com/blog/lshiy-password-spray-attack
+  - https://hackread.com/microsoft-gigawiper-backdoor-destroy-windows-pcs/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -402,13 +410,6 @@ ioc_counts:
   url: 26
   user_agent: 3
 updates:
-  - at: "2026-07-09T11:25:06Z"
-    level: L2
-    summary: poc_available; added CVE-2026-55952 +3
-    sources:
-      - any-run
-    source_urls:
-      - https://any.run/cybersecurity-blog/usa-top-30-threats-2026/
   - at: "2026-07-09T14:25:51Z"
     level: L2
     summary: added CVE-2026-58293 +1
@@ -437,6 +438,13 @@ updates:
       - huntress
     source_urls:
       - https://www.huntress.com/blog/lshiy-password-spray-attack
+  - at: "2026-07-09T20:52:54Z"
+    level: L2
+    summary: added CVE-2026-58296 +1
+    sources:
+      - hackread
+    source_urls:
+      - https://hackread.com/microsoft-gigawiper-backdoor-destroy-windows-pcs/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
