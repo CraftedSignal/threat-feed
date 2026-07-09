@@ -3,16 +3,21 @@ title: Foxit Application Use-After-Free Vulnerability (CVE-2026-3779)
 slug: 2026-04-foxit-uaf
 description: CVE-2026-3779 is a use-after-free vulnerability in a Foxit application where stale references to page/form objects can lead to arbitrary code execution via crafted documents.
 date: "2026-04-01T02:16:03Z"
-severities:
-  - high
 type: advisory
 types:
   - advisory
+severities:
+  - high
 tags:
   - cve-2026-3779
   - use-after-free
   - code-execution
   - foxit
+vendors:
+  - Foxit
+products:
+  - Foxit PDF Reader
+  - Foxit PDF Editor
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
