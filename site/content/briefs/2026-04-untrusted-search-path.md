@@ -3,17 +3,21 @@ title: 'CVE-2026-3780: Local Privilege Escalation via Untrusted Search Path in A
 slug: 2026-04-untrusted-search-path
 description: An application installer vulnerable to CVE-2026-3780 runs with elevated privileges but resolves system executables and DLLs using an untrusted search path, enabling local privilege escalation by allowing a local attacker to inject malicious binaries.
 date: "2026-04-01T02:16:03Z"
-severities:
-  - high
 type: advisory
 types:
   - advisory
+severities:
+  - high
 tags:
   - privilege-escalation
   - cve-2026-3780
   - untrusted-search-path
   - dll-hijacking
   - installer
+vendors:
+  - Foxit
+products:
+  - Foxit
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
