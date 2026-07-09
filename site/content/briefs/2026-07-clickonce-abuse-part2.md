@@ -3,7 +3,7 @@ title: 'New Abuse of the ClickOnce Technology, Part 2: Stop Threat Actors from C
 slug: 2026-07-clickonce-abuse-part2
 description: Threat actors are actively exploiting Microsoft's ClickOnce deployment technology, leveraging its low user interaction, lack of privilege requirements, and built-in update mechanisms to deliver malware, establish persistence, and maintain remote access, often executing payloads within legitimate rundll32.exe and dfsvc.exe processes.
 date: "2026-07-08T08:07:01Z"
-lastmod: "2026-07-08T10:42:52Z"
+lastmod: "2026-07-09T05:44:23Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +22,7 @@ vendors:
 products:
   - ClickOnce
   - ClickOnce technology
+  - Microsoft ClickOnce
 affected_os:
   - Windows
 mitre_ttps:
@@ -97,6 +98,13 @@ updates:
   - at: "2026-07-08T10:42:52Z"
     level: L2
     summary: poc_available
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-two/
+  - at: "2026-07-09T05:44:23Z"
+    level: L1
+    summary: new product
     sources:
       - crowdstrike
     source_urls:
