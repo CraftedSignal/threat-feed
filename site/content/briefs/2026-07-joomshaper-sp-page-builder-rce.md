@@ -3,14 +3,12 @@ title: CVE-2026-48908 - JoomShaper SP Page Builder Unrestricted File Upload lead
 slug: 2026-07-joomshaper-sp-page-builder-rce
 description: A critical unrestricted file upload vulnerability, CVE-2026-48908, in JoomShaper SP Page Builder allows unauthenticated attackers to upload arbitrary files of dangerous types, specifically PHP code, which can be executed on the server to achieve remote code execution and full system compromise.
 date: "2026-07-07T17:04:51Z"
+lastmod: "2026-07-09T21:07:48Z"
 type: threat
 types:
   - threat
 severities:
   - critical
-exploited: true
-cpes:
-  - cpe:2.3:a:ollyo:sp_page_builder:*:*:*:*:-:joomla\!:*:*
 tags:
   - web-exploit
   - cve
@@ -19,8 +17,12 @@ tags:
   - cisa-kev
 vendors:
   - JoomShaper
+  - Joomla
 products:
   - SP Page Builder
+  - Joomla 5.4.7
+affected_os:
+  - Ubuntu 24.04.4 LTS
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -40,15 +42,17 @@ mitre_ttps:
     technique_name: Server Software Component
     evidence: unrestricted upload of file with dangerous type vulnerability that allows unauthenticated users to upload arbitrary files, ultimately resulting in the upload and execution of PHP code.
     confidence_band: high
-cves:
-  - id: CVE-2026-48908
-    cvss: 9.8
-    epss: 0.00803
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-48908
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48908
   - https://extensions.joomla.org/extension/sp-page-builder/
   - https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk
+  - https://sploitus.com/exploit?id=4BD25E6A-66F0-50E1-B6FD-ECBB9CE515FA&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=4BD25E6A-66F0-50E1-B6FD-ECBB9CE515FA
+ioc_counts:
+  url: 1
 rules:
   - title: Detects CVE-2026-48908 Exploitation - Suspicious PHP File Upload Attempt
     description: Detects CVE-2026-48908 exploitation attempts by identifying POST requests to common upload-related paths containing '.php' in the URI, indicating an attempt to upload a malicious PHP file. This targets the initial file upload phase of the vulnerability.
@@ -75,6 +79,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 2
+updates:
+  - at: "2026-07-09T21:07:48Z"
+    level: L1
+    summary: OS ubuntu 24.04.4 lts
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=4BD25E6A-66F0-50E1-B6FD-ECBB9CE515FA&utm_source=rss&utm_medium=rss
 ---
 
 JoomShaper SP Page Builder, a popular Joomla extension, is affected by a critical vulnerability, CVE-2026-48908, that permits unauthenticated users to upload arbitrary files with dangerous extensions. This flaw allows attackers to bypass file type restrictions, facilitating the upload of malicious PHP web shells directly onto the affected server. Once uploaded, these PHP files can be executed, granting the attacker remote code execution capabilities. This vulnerability has been added to CISA's Known Exploited Vulnerabilities (KEV) catalog, indicating that it is either actively exploited in the wild or poses a significant risk that warrants immediate remediation. Organizations using affected versions of SP Page Builder are at high risk of server compromise, data exfiltration, or further network penetration. The CISA KEV listing underscores the urgency for defenders to apply vendor patches and implement detection mechanisms for this critical flaw.
