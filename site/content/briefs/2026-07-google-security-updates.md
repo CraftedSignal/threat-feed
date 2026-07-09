@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-09T14:29:38Z"
+lastmod: "2026-07-09T17:39:04Z"
 type: advisory
 types:
   - advisory
@@ -67,6 +67,8 @@ products:
   - Cloud Run <= 2026-06-30
   - Chrome (< 150.0.7871.114)
   - Chrome (< 150.0.7871.115)
+  - Google Chrome (for Windows and macOS < 150.0.7871.115)
+  - Google Chrome (for Linux < 150.0.7871.114)
 affected_os:
   - Windows
   - Linux
@@ -124,6 +126,7 @@ references:
   - https://cyber.gc.ca/en/alerts-advisories/android-security-advisory-july-2026-monthly-rollup-av26-662
   - https://www.darkreading.com/application-security/dialogflow-cx-rogue-agent-flaw-enabled-ai-chatbot-data-theft
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0848/
+  - https://cyber.gc.ca/en/alerts-advisories/google-chrome-security-advisory-av26-679
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -165,11 +168,6 @@ ioc_counts:
   file_path: 2
   url: 12
 updates:
-  - at: "2026-07-06T16:53:56Z"
-    level: L1
-    summary: OS linux
-    sources:
-      - elastic
   - at: "2026-07-06T16:55:29Z"
     level: L2
     summary: google kubernetes engine version GKE; google cloud platform version GCP) Audit Logs
@@ -192,6 +190,13 @@ updates:
       - anssi
     source_urls:
       - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0848/
+  - at: "2026-07-09T17:39:04Z"
+    level: L2
+    summary: google chrome version for Linux < 150.0.7871.114
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/google-chrome-security-advisory-av26-679
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
