@@ -1,0 +1,91 @@
+---
+title: Entra ID OAuth PRT Issuance to Non-Managed Device Detected
+slug: 2024-01-entra-id-oauth-prt-issuance
+description: Detection of Entra ID OAuth Primary Refresh Token (PRT) issuance to a non-managed device following a refresh token sign-in via Microsoft Authentication Broker (MAB), potentially indicating device registration abuse (ROADtx) for persistent access.
+date: "2024-01-09T18:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+tags:
+  - cloud
+  - entra_id
+  - persistence
+  - initial_access
+  - credential_access
+  - defense_evasion
+vendors:
+  - Microsoft
+products:
+  - Entra ID
+  - Microsoft 365
+mitre_ttps:
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1098
+    technique_name: Account Manipulation
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1528
+    technique_name: Steal Application Access Token
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1078
+    technique_name: Valid Accounts
+references:
+  - https://www.volexity.com/blog/2025/04/22/phishing-for-codes-russian-threat-actors-target-microsoft-365-oauth-workflows/
+  - https://dirkjanm.io/abusing-azure-ad-sso-with-the-primary-refresh-token/
+rules:
+  - title: Entra ID - Refresh Token to PRT Transition From Unmanaged Device
+    description: Detects a user signing in with a refresh token followed by a PRT from an unmanaged device within 1 hour, indicating potential ROADtx device registration abuse.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1098.005
+    data_sources:
+      - authentication
+      - azure
+  - title: Entra ID - PRT Issuance to Non-Managed Device (No Refresh Token)
+    description: Detects PRT issuance directly to a non-managed device, which could indicate a more advanced device registration abuse technique.
+    platform: sigma
+    severity: low
+    tactics:
+      - persistence
+    techniques:
+      - T1098.005
+    data_sources:
+      - authentication
+      - azure
+rules_count: 2
+---
+
+This detection identifies a sequence of events that suggests an attacker has successfully registered a device using tools like ROADtx to gain persistent access to an Entra ID environment. The attack involves leveraging OAuth access tokens and Primary Refresh Tokens (PRTs) to bypass typical security controls. The initial access uses a refresh token, likely obtained through phishing or other credential compromise. Following this, a PRT is issued to a non-managed device. This allows the attacker to maintain access to Microsoft 365 resources, such as Outlook and SharePoint, without the device being subject to organizational policies or managed by Intune. This behavior is often associated with bypassing multi-factor authentication (MFA) and device compliance requirements. The detection focuses on identifying this transition from refresh token-based access to PRT-based access on unmanaged devices within a short timeframe (1 hour).
+
+## Attack Chain
+
+1.  The attacker compromises user credentials through phishing or other means, obtaining a refresh token.
+2.  The attacker uses the refresh token to authenticate via the Microsoft Authentication Broker (MAB) client from an unmanaged device, generating a sign-in log with `incoming_token_type: refreshToken`.
+3.  The device registers with Azure AD, potentially using ROADtx or similar device registration tools, but remains unmanaged, indicating it is not compliant with organizational policies.
+4.  A Primary Refresh Token (PRT) is issued to the attacker-controlled, unmanaged device.
+5.  The attacker uses the PRT to authenticate to Microsoft 365 resources (excluding the Device Registration Service), generating a sign-in log with `incoming_token_type: primaryRefreshToken`.
+6.  The attacker gains persistent access to Microsoft 365 applications such as Outlook or SharePoint, potentially exfiltrating data or performing other malicious activities.
+7.  Conditional access policies are bypassed due to the valid PRT, even though the device is unmanaged, allowing the attacker to bypass MFA requirements.
+
+## Impact
+
+Successful exploitation allows attackers to establish persistent access to Microsoft 365 resources, bypassing multi-factor authentication and device compliance policies. This can lead to data exfiltration, business email compromise (BEC), and other malicious activities. The impact is significant because it allows attackers to operate with the privileges of a legitimate user from a device that is not subject to organizational security controls. Affected sectors would include any organization using Microsoft 365 and Azure AD.
+
+## Recommendation
+
+*   Deploy the provided Sigma rule to your SIEM to detect the described sequence of events based on `azure.signinlogs` data.
+*   Investigate any alerts generated by the Sigma rule, focusing on unmanaged devices and unusual authentication patterns.
+*   Review Conditional Access policies to ensure they effectively block access from non-compliant devices, referencing affected device IDs from `azure.signinlogs.properties.device_detail.device_id`.
+*   Revoke PRT sessions for compromised user accounts to prevent further unauthorized access via Microsoft Entra ID or Conditional Access.
+*   Audit device registration processes to identify and remove any unauthorized or suspicious device registrations as seen in `azure.signinlogs.properties.device_detail.trust_type`.
