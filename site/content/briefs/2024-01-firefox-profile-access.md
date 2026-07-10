@@ -1,8 +1,8 @@
 ---
 title: Non-Firefox Process Accessing Firefox Profile Directory
 slug: 2024-01-firefox-profile-access
-description: This analytic detects non-Firefox processes accessing the Firefox profile directory, potentially indicating malware attempting to harvest sensitive user data like login credentials, browsing history, and cookies.
-date: "2024-01-03T15:22:32Z"
+description: Detection of non-Firefox processes accessing the Firefox profile directory, potentially indicating malware attempting to steal user credentials and data.
+date: "2024-01-02T10:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,18 +10,12 @@ severities:
   - high
 tags:
   - credential-access
-  - malware
+  - stealer
   - firefox
 vendors:
   - Mozilla
-  - Splunk
 products:
   - Firefox
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
-affected_os:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -30,8 +24,8 @@ mitre_ttps:
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/non_firefox_process_access_firefox_profile_dir.yml
 rules:
-  - title: Non Firefox Process Access Firefox Profile Dir
-    description: Detects non-Firefox processes accessing the Firefox profile directory, indicating potential credential theft or malware activity.
+  - title: Detect Non Firefox Process Access Firefox Profile Dir
+    description: Detects non-Firefox processes accessing the Firefox profile directory, which contains sensitive user data.
     platform: sigma
     severity: high
     tactics:
@@ -41,8 +35,8 @@ rules:
     data_sources:
       - file_event
       - windows
-  - title: Suspicious Process Accessing Firefox Profile Directory via Command Line
-    description: Detects command-line processes accessing the Firefox profile directory, potentially indicating credential theft or malware activity.
+  - title: Suspicious Process Accessing Firefox Profile Directory via Event 4663
+    description: This rule identifies processes accessing the Firefox profile directory (containing sensitive user data) that are not Firefox itself or system processes, indicating potential malicious activity.
     platform: sigma
     severity: medium
     tactics:
@@ -50,30 +44,31 @@ rules:
     techniques:
       - T1555.003
     data_sources:
-      - process_creation
+      - file_event
       - windows
 rules_count: 2
 ---
 
-This detection focuses on identifying unauthorized access to Firefox profile directories. The Firefox profile directory stores sensitive user data, including login credentials, browsing history, and cookies. When a non-Firefox process accesses this directory, it could be an indicator of malicious activity, such as a Remote Access Trojan (RAT) or other malware attempting to steal user information. The analytic leverages Windows Security Event logs, specifically event code 4663, to monitor access attempts. This is relevant because successful credential theft can lead to account compromise, data breaches, and further propagation of malware within the network. The threat encompasses a broad range of malware families, including stealers (Azorult, RedLine Stealer, 0bj3ctivity Stealer), RATs (Remcos, Quasar RAT, Warzone RAT), keyloggers (Snake Keylogger, VIP Keylogger), and other malware like DarkGate, NjRAT, AgentTesla, and Lokibot. The activity has been observed in campaigns such as CISA AA23-347A and the 3CX Supply Chain Attack.
+This analytic identifies processes other than Firefox accessing the Firefox profile directory. The Firefox profile directory stores sensitive user information, including login credentials, browsing history, cookies, and other personal data. Unauthorized access to this directory can indicate malicious activity, such as malware (RATs, trojans, or stealers) attempting to harvest user data. This detection leverages Windows Security Event logs, specifically event ID 4663. Observed access can lead to data exfiltration, unauthorized account access, and system compromise, making it a critical indicator for security monitoring. This behavior has been associated with multiple threat actors leveraging stealers and remote access trojans.
 
 ## Attack Chain
 
-1.  The user executes a malicious file, potentially delivered via phishing or drive-by download (not covered in source).
-2.  The malicious file executes and establishes persistence on the system.
-3.  The malware attempts to access the Firefox profile directory, located at `*\AppData\Roaming\Mozilla\Firefox\Profiles*`.
-4.  Windows Security Event 4663 is generated, logging the access attempt to the Firefox profile directory.
-5.  The malware reads sensitive data, such as login credentials, cookies, and browsing history, from the profile directory.
-6.  The stolen data is exfiltrated to a command-and-control (C2) server.
-7.  The attacker uses the stolen credentials to gain unauthorized access to user accounts and sensitive systems.
+1. Malware gains initial access to the system through an unknown vector.
+2. The malware executes and attempts to locate the Firefox profile directory, typically found under `\AppData\Roaming\Mozilla\Firefox\Profiles*`.
+3. The malware leverages Windows API calls to enumerate and access files within the Firefox profile directory. This is logged as Event ID 4663 with specific AccessMask values.
+4. The malware reads sensitive files such as `key4.db`, `logins.json`, and `cookies.sqlite` to extract credentials and browsing data.
+5. The malware may use SQLite commands to query the `cookies.sqlite` database for session cookies.
+6. The extracted data is staged in a temporary directory for exfiltration.
+7. The malware establishes a command and control (C2) connection to exfiltrate the stolen data.
+8. The attacker gains unauthorized access to user accounts and sensitive information.
 
 ## Impact
 
-Successful exploitation and credential theft can lead to a wide range of negative outcomes, including unauthorized access to sensitive data, financial fraud, and further compromise of systems within the organization. The impact can range from individual user account compromise to large-scale data breaches affecting thousands of users. Industries heavily reliant on web-based applications and sensitive user data, such as finance, healthcare, and e-commerce, are particularly vulnerable. The consequences include financial losses, reputational damage, and legal liabilities.
+A successful attack can result in the compromise of user credentials, leading to unauthorized access to sensitive accounts and services. Data exfiltration from the Firefox profile directory can expose personal information, browsing history, and saved passwords. This type of compromise can impact individual users, leading to identity theft and financial loss. Organizations can also be affected if employee credentials are stolen, potentially leading to broader network compromise and data breaches. Multiple stealer families (RedLine, AgentTesla, Lokibot, SnakeKeylogger, and 0bj3ctivity) target Firefox profiles.
 
 ## Recommendation
 
-*   Enable "Audit Object Access" in Group Policy and configure it to log both success and failure events for object access to activate the underlying log source required for this detection.
-*   Deploy the provided Sigma rule to your SIEM to detect non-Firefox processes accessing Firefox profile directories.
-*   Investigate any alerts generated by the Sigma rule, paying close attention to the `ProcessName` and `ObjectName` to identify potentially malicious processes and the specific profile data being accessed.
-*   Review and update your organization's security policies to restrict unauthorized access to sensitive user data.
+*   Enable "Audit Object Access" in Group Policy and configure auditing for both success and failure events for file system objects to generate Windows Security Event 4663 (see "How To Implement" in content).
+*   Deploy the Sigma rule `Detect Non Firefox Process Access Firefox Profile Dir` to your SIEM to detect unauthorized access to the Firefox profile directory (see rules).
+*   Investigate any alerts generated by the Sigma rule by examining the `ProcessName` and `ObjectName` to determine the legitimacy of the access (see rules).
+*   Review the analytic stories associated with this detection for additional context and related threats, including StealC Stealer, DarkGate Malware, and RedLine Stealer (see tags).
