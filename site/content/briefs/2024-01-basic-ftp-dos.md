@@ -1,75 +1,75 @@
 ---
-title: basic-ftp Client-Side Denial of Service via Malicious FTP Server
+title: basic-ftp Denial-of-Service Vulnerability via Unbounded Memory Consumption
 slug: 2024-01-basic-ftp-dos
-description: The basic-ftp library is vulnerable to a client-side denial of service. A malicious FTP server can send an unterminated multiline response during the initial FTP banner phase, before authentication, causing the client to buffer attacker-controlled data without limit.
-date: "2024-01-09T12:00:00Z"
+description: The basic-ftp npm package version 5.2.2 and earlier is vulnerable to a denial-of-service attack. A malicious FTP server can send an extremely large or never-ending directory listing in response to the Client.list() command, causing the client to consume excessive memory until the process becomes unstable or crashes due to unbounded memory growth in the StringWriter class.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
-  - dos
-  - ftp
   - denial-of-service
-  - client-side
+  - ftp
+  - memory-exhaustion
+  - npm
 vendors:
-  - patrickjuchli
+  - basic-ftp
 products:
-  - basic-ftp (<= 5.3.0)
+  - basic-ftp
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
 references:
-  - https://github.com/advisories/GHSA-rpmf-866q-6p89
+  - https://github.com/advisories/GHSA-rp42-5vxx-qpwr
 rules:
-  - title: Detect Basic-ftp Unbounded Buffer DoS
-    description: Detects connections to FTP servers sending excessive data before authentication, potentially indicating an attempt to exploit the basic-ftp unbounded buffer DoS vulnerability.
+  - title: Detect basic-ftp StringWriter Memory Exhaustion
+    description: Detects processes that are likely vulnerable to basic-ftp's unbounded memory consumption in the StringWriter class by monitoring memory usage associated with node processes running basic-ftp.
     platform: sigma
     severity: high
     tactics:
-      - denial_of_service
+      - impact
     techniques:
-      - T1499.001
+      - T1499.004
     data_sources:
-      - network_connection
-      - windows
-  - title: Detect Excessive Memory Usage by Node.js Process
-    description: Detects a Node.js process, potentially running basic-ftp, exhibiting high memory usage which could indicate a denial-of-service condition.
+      - process_creation
+      - linux
+  - title: Detect basic-ftp StringWriter Memory Exhaustion (Windows)
+    description: Detects processes that are likely vulnerable to basic-ftp's unbounded memory consumption in the StringWriter class by monitoring memory usage associated with node processes running basic-ftp.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - denial_of_service
+      - impact
     techniques:
-      - T1499.001
+      - T1499.004
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-The `basic-ftp` library, versions 5.3.0 and earlier, is susceptible to a client-side denial-of-service (DoS) attack. A malicious or compromised FTP server can exploit this vulnerability by sending an unterminated multiline response during the initial FTP banner exchange. This occurs before authentication, allowing the attacker to control the data being buffered by the client. The vulnerable client continuously appends attacker-controlled data to `FtpContext._partialResponse` and repeatedly reparses the growing buffer without enforcing a maximum size limit. This can lead to excessive memory consumption and CPU usage on the client-side, ultimately resulting in process-level DoS, container OOM kills, worker restarts, queue backlogs, or service degradation in applications that rely on automated FTP connections. The vulnerability was reported in May 2026.
+The `basic-ftp` npm package, specifically version 5.2.2 and earlier, is susceptible to a denial-of-service (DoS) vulnerability. This vulnerability arises when the package is used to list directories from a remote FTP server. A malicious or compromised FTP server can exploit this by sending an excessively large or unending directory listing in response to the `Client.list()` command. The `basic-ftp` client, upon receiving this malicious response, attempts to buffer the entire listing in memory using the `StringWriter` class. The `StringWriter` class lacks any size limitations, resulting in unbounded memory growth as it concatenates incoming data chunks. This sustained memory allocation eventually leads to process instability and, ultimately, a crash of the application or service utilizing the vulnerable `basic-ftp` package. The vulnerability stems from the package's default directory listing flow within `dist/Client.js`, where the full listing response is downloaded into a `StringWriter` before parsing, as well as the unlimited buffering capability of `dist/StringWriter.js`.
 
 ## Attack Chain
 
-1.  A victim application initiates an FTP connection to a server using the `basic-ftp` library.
-2.  The attacker, controlling the FTP server, sends an initial FTP banner that starts a multiline response (e.g., "220-malicious banner starts").
-3.  The attacker intentionally omits the terminating line of the multiline response (e.g., "220 ready").
-4.  The `basic-ftp` library's `_onControlSocketData` function receives the initial chunk of data.
-5.  The `_onControlSocketData` function concatenates the received chunk with the existing `_partialResponse`.
-6.  The `parseControlResponse` function parses the complete response, identifies it as an incomplete multiline response, and returns the entire accumulated data as `rest`.
-7.  The `_partialResponse` is updated with the `rest` value, storing the unterminated multiline data.
-8.  The process repeats indefinitely with each new chunk of data, causing the `_partialResponse` to grow without bound, leading to memory exhaustion and DoS.
+1. An application using `basic-ftp` connects to an attacker-controlled or compromised FTP server.
+2. The application initiates a directory listing request by calling the `client.list()` function.
+3. The malicious FTP server responds with an extremely large or never-ending directory listing.
+4. Within the `basic-ftp` library, the `_requestListWithCommand` function in `dist/Client.js` is invoked.
+5. The `downloadTo` function in `transfer_1.js` starts downloading the listing response to a `StringWriter` instance.
+6. The `StringWriter` class, in `dist/StringWriter.js`, receives chunks of data from the listing response.
+7. The `_write` method of `StringWriter` concatenates each chunk to an in-memory `Buffer` without any size checks, leading to unbounded memory consumption via `this.buf = Buffer.concat([this.buf, chunk])`.
+8. The excessive memory allocation causes the application's process to become unstable and eventually crash due to memory exhaustion.
 
 ## Impact
 
-Successful exploitation of this vulnerability can result in significant disruptions to applications that utilize the `basic-ftp` library. Observed damage includes Node.js process memory exhaustion, container OOM kills, worker crashes or restart loops, event loop CPU pressure due to repeated parsing, stuck FTP jobs, queue backlogs in scheduled import/export systems, and degraded availability of services relying on automated FTP ingestion. This can affect a wide range of applications including SaaS applications, backend jobs, document ingestion pipelines, legacy integrations, and build/deployment pipelines.
+This vulnerability allows a malicious actor to perform a denial-of-service attack against applications and services that rely on the `basic-ftp` package to interact with FTP servers. The attack is triggered when the application connects to a malicious FTP server and attempts to list a directory. Successful exploitation leads to excessive memory consumption, resulting in process instability and potential termination of the application. This can disrupt services, cause data unavailability, and negatively impact overall system reliability. The impact is primarily targeted at services using the vulnerable `basic-ftp@5.2.2` against untrusted FTP endpoints.
 
 ## Recommendation
 
-*   Implement the provided Sigma rule `Detect Basic-ftp Unbounded Buffer DoS` to detect connections to FTP servers sending excessive data before authentication.
-*   Upgrade to a patched version of `basic-ftp` that includes a maximum control response buffer size to address CVE-2026-44240.
-*   Configure network monitoring to detect unusually large FTP banner responses based on the `network_connection` log source, which may indicate a malicious FTP server.
-*   Implement application-level monitoring to track the memory usage of Node.js processes using `basic-ftp` to identify potential memory exhaustion issues.
+*   Implement application-level checks to monitor memory usage and restart processes exceeding acceptable thresholds (reference: Impact section).
+*   Deploy the Sigma rule `Detect basic-ftp StringWriter Memory Exhaustion` to identify processes using `basic-ftp` that are allocating large amounts of memory (reference: rules section).
+*   Upgrade to a patched version of `basic-ftp` that includes a fix for the unbounded memory consumption issue.
+*   Implement a maximum listing size within your application, aborting transfers that exceed the configured limit, as suggested in the advisory's remediation section.
