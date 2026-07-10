@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-09T20:52:54Z"
+lastmod: "2026-07-10T11:07:20Z"
 type: advisory
 types:
   - advisory
@@ -11,17 +11,7 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
-  - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:erlang:erlang\/ssl:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:linux:linux_kernel:7.1:rc1:*:*:*:*:*:*
-  - cpe:2.3:o:linux:linux_kernel:7.1:rc2:*:*:*:*:*:*
-  - cpe:2.3:o:linux:linux_kernel:7.1:rc3:*:*:*:*:*:*
-  - cpe:2.3:o:linux:linux_kernel:7.1:rc4:*:*:*:*:*:*
-  - cpe:2.3:o:linux:linux_kernel:7.1:rc5:*:*:*:*:*:*
-  - cpe:2.3:o:linux:linux_kernel:7.1:rc6:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -112,80 +102,21 @@ affected_os:
   - Windows Server
   - Windows 10 22H2
 cves:
-  - id: CVE-2026-57992
-    cvss: 7.5
-    epss: 0.00438
   - id: CVE-2026-58288
     cvss: 8.3
     epss: 0.00438
-  - id: CVE-2026-57975
-    cvss: 7.5
-    epss: 0.00438
-  - id: CVE-2026-58276
-    cvss: 7.5
-    epss: 0.00429
-  - id: CVE-2026-54886
-    cvss: 4.3
-    epss: 0.0033
-  - id: CVE-2026-58292
-    cvss: 7.5
-    epss: 0.00279
-  - id: CVE-2026-57974
-    cvss: 8.8
-    epss: 0.00556
-  - id: CVE-2026-58285
-    cvss: 8.3
-    epss: 0.00438
-  - id: CVE-2026-58286
-    cvss: 8.1
-    epss: 0.00312
   - id: CVE-2026-58299
     cvss: 7.5
     epss: 0.0027
-  - id: CVE-2026-57983
-    cvss: 8.7
-    epss: 0.00463
-  - id: CVE-2026-58297
-    cvss: 7.1
-    epss: 0.00309
   - id: CVE-2026-57977
     cvss: 7.1
     epss: 0.00397
-  - id: CVE-2026-55952
-    cvss: 7.5
-    epss: 0.00487
-  - id: CVE-2026-58293
-    cvss: 8.1
-    epss: 0.00438
-  - id: CVE-2026-58295
-    cvss: 8.3
-    epss: 0.00372
-  - id: CVE-2026-53163
-    cvss: 5.5
-    epss: 0.00128
-  - id: CVE-2026-53362
-    epss: 0.00176
-  - id: CVE-2026-57993
-    cvss: 7.4
-    epss: 0.00603
-  - id: CVE-2026-58283
-    cvss: 8.1
-    epss: 0.00329
-  - id: CVE-2026-58282
-    cvss: 8.1
-    epss: 0.00312
-  - id: CVE-2026-58294
-    cvss: 7.5
-    epss: 0.0034
-  - id: CVE-2026-57981
-    cvss: 8.8
-    epss: 0.00556
-  - id: CVE-2026-58298
-    cvss: 7.2
-    epss: 0.0024
-  - id: CVE-2026-58296
+  - id: CVE-2026-57988
     cvss: 7.1
-    epss: 0.00303
+    epss: 0.00532
+  - id: CVE-2026-58287
+    cvss: 8.3
+    epss: 0.00438
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -280,6 +211,7 @@ references:
   - https://www.huntress.com/blog/conditional-access-misconfigurations
   - https://www.huntress.com/blog/lshiy-password-spray-attack
   - https://hackread.com/microsoft-gigawiper-backdoor-destroy-windows-pcs/
+  - https://www.securityweek.com/okta-warns-of-vishing-attacks-targeting-microsoft-365-customers/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -410,13 +342,6 @@ ioc_counts:
   url: 26
   user_agent: 3
 updates:
-  - at: "2026-07-09T14:25:51Z"
-    level: L2
-    summary: added CVE-2026-58293 +1
-    sources:
-      - anssi
-    source_urls:
-      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0854/
   - at: "2026-07-09T14:28:12Z"
     level: L2
     summary: added CVE-2026-53163 +3
@@ -445,6 +370,13 @@ updates:
       - hackread
     source_urls:
       - https://hackread.com/microsoft-gigawiper-backdoor-destroy-windows-pcs/
+  - at: "2026-07-10T11:07:20Z"
+    level: L2
+    summary: added CVE-2026-57988 +1
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/okta-warns-of-vishing-attacks-targeting-microsoft-365-customers/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
