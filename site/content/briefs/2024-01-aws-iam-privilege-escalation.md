@@ -1,8 +1,8 @@
 ---
-title: AWS IAM Privilege Escalation via AdministratorAccess Policy Attachment to Group
+title: AWS IAM AdministratorAccess Policy Attached to User
 slug: 2024-01-aws-iam-privilege-escalation
-description: An adversary with compromised AWS credentials may escalate privileges or establish persistence by attaching the AWS-managed AdministratorAccess policy to an IAM group using the AttachGroupPolicy API call, granting full administrative privileges across all AWS services to all group members.
-date: "2024-01-02T12:00:00Z"
+description: An adversary with compromised AWS credentials may attempt to escalate privileges or persist access by attaching the AdministratorAccess AWS managed policy to an existing IAM user via the AttachUserPolicy API, granting full access to all AWS services and resources.
+date: "2024-01-29T10:00:00Z"
 type: advisory
 types:
   - advisory
@@ -27,12 +27,12 @@ mitre_ttps:
     technique_id: T1098
     technique_name: Account Manipulation
 references:
-  - https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachGroupPolicy.html
+  - https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html
   - https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AdministratorAccess.html
   - https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/
 rules:
-  - title: AWS IAM AdministratorAccess Policy Attached to Group
-    description: Detects when the AWS-managed AdministratorAccess policy is attached to an IAM group, potentially indicating privilege escalation or persistence attempts.
+  - title: AWS IAM AdministratorAccess Policy Attached to User
+    description: Detects when the AdministratorAccess policy is attached to an IAM user, potentially indicating privilege escalation or persistence attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -43,43 +43,41 @@ rules:
     data_sources:
       - cloudtrail
       - aws
-      - cloudtrail
-  - title: AWS IAM Group Modification Events
-    description: Detects potentially malicious modifications to IAM groups.
+  - title: AWS IAM User Creating Access Key After Admin Policy Attachment
+    description: Detects the creation of an access key by a user shortly after the AdministratorAccess policy was attached, indicating possible misuse.
     platform: sigma
-    severity: low
+    severity: high
     tactics:
       - persistence
       - privilege_escalation
+    techniques:
+      - T1098.003
     data_sources:
       - cloudtrail
       - aws
-      - cloudtrail
 rules_count: 2
 ---
 
-This alert focuses on a privilege escalation and persistence technique in AWS environments. An attacker who has gained initial access with compromised credentials may attempt to broaden their access by attaching the AWS-managed `AdministratorAccess` policy to an existing IAM group. This is achieved through the `AttachGroupPolicy` API operation. The `AdministratorAccess` policy grants full administrative privileges across all AWS services. If successful, all members of the group inherit these privileges, potentially leading to widespread compromise of the AWS environment. This activity is detected through AWS CloudTrail logs, which record API calls made within the AWS environment. Defenders should monitor for unexpected attachments of the AdministratorAccess policy to IAM groups, especially if the calling identity is unusual or the group contains sensitive accounts.
+An attacker with access to compromised AWS credentials may attempt to escalate privileges or persist access by attaching the `AdministratorAccess` AWS managed policy to an existing IAM user. This is achieved through the `AttachUserPolicy` API operation. The `AdministratorAccess` policy is a highly permissive AWS-managed policy that grants full access to all AWS services and resources. This activity is significant because it effectively elevates the compromised user to full administrative privileges within the AWS environment, allowing the attacker to perform almost any action. The targeted AWS environment may be running various services and applications, making the impact broad and potentially severe. Defenders need to monitor for this behavior because it bypasses normal permission controls and can be used for malicious purposes, such as data exfiltration, resource hijacking, or further lateral movement.
 
 ## Attack Chain
 
-1.  **Initial Access:** The attacker gains initial access to the AWS environment through compromised IAM user credentials.
-2.  **Discovery:** The attacker enumerates existing IAM groups using AWS CLI or API calls such as `ListGroups`.
-3.  **Target Selection:** The attacker identifies a target IAM group to which they can attach the `AdministratorAccess` policy.
-4.  **Privilege Check:** The attacker verifies they have the `iam:AttachGroupPolicy` permission for the target group.
-5.  **Policy Attachment:** The attacker executes the `AttachGroupPolicy` API operation, specifying the ARN of the `AdministratorAccess` policy and the name of the target IAM group.
-6.  **Verification:** The attacker verifies the policy attachment by using the `GetGroupPolicy` API operation or AWS CLI.
-7.  **Privilege Exploitation:** The attacker, or other members of the compromised group, leverage the newly acquired administrative privileges to access sensitive data, modify configurations, or perform other malicious actions.
-8.  **Persistence:** The attacker maintains persistent access by ensuring the `AdministratorAccess` policy remains attached to the group, even if their initial access method is revoked.
+1. Initial Access: The attacker gains access to AWS credentials through phishing, credential stuffing, or other means.
+2. Credential Validation: The attacker validates the compromised credentials by attempting to access AWS resources.
+3. Reconnaissance: The attacker enumerates existing IAM users to identify a target for privilege escalation.
+4. Privilege Escalation: The attacker uses the `AttachUserPolicy` API operation to attach the `AdministratorAccess` policy to the target IAM user.
+5. Elevated Access: The attacker leverages the elevated privileges to access sensitive data, modify configurations, or create new resources.
+6. Persistence: The attacker creates new access keys or modifies IAM roles to maintain persistent access to the AWS environment.
+7. Lateral Movement: The attacker uses the elevated privileges to access other AWS accounts or resources.
+8. Impact: The attacker exfiltrates sensitive data, disrupts services, or causes financial damage.
 
 ## Impact
 
-Successful exploitation can result in complete compromise of the AWS environment. The attacker gains full control over all AWS services and resources. This includes the ability to access sensitive data stored in S3 buckets, modify EC2 instances, create or delete IAM users and roles, and disrupt critical services. The widespread nature of the `AdministratorAccess` policy means that a single successful attachment can lead to cascading failures and significant financial losses.
+Successful exploitation allows an attacker to gain complete control over an AWS environment. This can lead to data breaches, service disruption, financial losses, and reputational damage. The number of potential victims is dependent on the scope of the AWS environment and the data it contains. The targeted sectors are broad, as AWS is used across various industries, including finance, healthcare, and government. If the attack succeeds, the attacker can perform any action within the AWS environment, including deleting resources, modifying configurations, and accessing sensitive data.
 
 ## Recommendation
 
-*   Deploy the following Sigma rule to detect the attachment of the `AdministratorAccess` policy to IAM groups via CloudTrail logs.
-*   Review IAM group memberships and associated policies regularly to enforce the principle of least privilege.
-*   Use AWS IAM Access Analyzer to identify unintended access to AWS resources.
-*   Implement Service Control Policies (SCPs) to restrict the attachment of highly permissive policies like `AdministratorAccess` at the organizational level.
-*   Investigate any `AttachGroupPolicy` events where the user identity (`aws.cloudtrail.user_identity.arn`) is not expected to be performing this action.
-*   Detach the `AdministratorAccess` policy from any affected groups (`aws iam detach-group-policy`) as a containment measure.
+*   Deploy the first Sigma rule to detect the attachment of the `AdministratorAccess` policy via the `AttachUserPolicy` API in CloudTrail logs.
+*   Deploy the second Sigma rule to detect the creation of new access keys by users who have recently had the `AdministratorAccess` policy attached (log source: `aws.cloudtrail`, event.action: `CreateAccessKey`).
+*   Implement IAM service control policies (SCPs) to prevent attachment of `AdministratorAccess` except for trusted roles (reference: AWS Documentation).
+*   Monitor CloudTrail logs for `AttachUserPolicy` events and investigate any unexpected attachments of the `AdministratorAccess` policy (log source: `aws.cloudtrail`).
