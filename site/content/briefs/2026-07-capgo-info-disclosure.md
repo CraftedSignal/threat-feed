@@ -3,6 +3,7 @@ title: Capgo Information Disclosure in get_orgs_v7 RPC Function (CVE-2026-56279)
 slug: 2026-07-capgo-info-disclosure
 description: Capgo versions prior to 12.128.2 are vulnerable to an information disclosure flaw in the `get_orgs_v7(userid)` RPC function, allowing unauthenticated attackers to retrieve sensitive foreign user and organization data by supplying arbitrary user UUIDs.
 date: "2026-07-10T15:23:14Z"
+lastmod: "2026-07-10T15:24:24Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,9 @@ tags:
   - information-disclosure
   - vulnerability
   - rpc
+  - authentication-bypass
+  - account-takeover
+  - web-application
 vendors:
   - Capgo
 products:
@@ -23,6 +27,24 @@ mitre_ttps:
     technique_name: Gather Victim Network Information
     evidence: Unauthenticated attackers can supply arbitrary user UUIDs to retrieve foreign users' organization membership, roles, management emails, and billing metadata.
     confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1098
+    technique_name: Account Manipulation
+    evidence: Attackers with temporary session access can exploit this flaw to permanently lock out legitimate users and achieve full account takeover.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: allows attackers to change user passwords without requiring current password confirmation.
+    confidence_band: med
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1531
+    technique_name: Account Access Removal
+    evidence: permanently lock out legitimate users and achieve full account takeover.
+    confidence_band: high
 cves:
   - id: CVE-2026-56279
     cvss: 7.5
@@ -30,6 +52,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-56279
   - https://github.com/Cap-go/capgo/security/advisories/GHSA-fch8-pp28-mw2x
   - https://www.vulncheck.com/advisories/capgo-information-disclosure-via-get-orgs-v7-rpc-endpoint
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-56305
+  - https://github.com/Cap-go/capgo/security/advisories/GHSA-rjr5-qxqj-cx8g
+  - https://www.vulncheck.com/advisories/capgo-authentication-bypass-in-password-change-via-missing-current-password-validation
 rules:
   - title: Detect CVE-2026-56279 Exploitation - Capgo get_orgs_v7 RPC Information Disclosure
     description: Detects attempts to exploit CVE-2026-56279, an information disclosure vulnerability in Capgo's get_orgs_v7 RPC function, by monitoring for requests to the vulnerable endpoint.
@@ -42,6 +67,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-10T15:24:24Z"
+    level: L2
+    summary: 'merged source coverage: CVE-2026-56305: Capgo Authentication Bypass in Password Change Endpoint'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-56305
 ---
 
 CVE-2026-56279 describes an information disclosure vulnerability affecting Capgo versions prior to 12.128.2. The vulnerability resides within the `get_orgs_v7(userid)` Remote Procedure Call (RPC) function, which, despite being intended for private access with specific access controls, remains publicly invokable. This flaw enables unauthenticated attackers to interact with the function and supply arbitrary user Universally Unique Identifiers (UUIDs) as parameters. Upon successful exploitation, the function inadvertently returns sensitive data, including foreign users' organization membership details, roles, management email addresses, and billing metadata. This exposure of sensitive organizational and user information could facilitate further targeted attacks, social engineering campaigns, or identity theft.
