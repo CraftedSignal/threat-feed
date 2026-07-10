@@ -1,8 +1,8 @@
 ---
-title: Proxy Execution via Windows OpenSSH Client
+title: Windows OpenSSH Client Used for Indirect Command Execution
 slug: 2024-01-openssh-proxy-execution
-description: Detection of command execution via proxy using the Windows OpenSSH client (ssh.exe or sftp.exe) to bypass application control using trusted Windows binaries.
-date: "2024-01-03T14:22:00Z"
+description: Attackers are leveraging the Windows OpenSSH client (ssh.exe, sftp.exe) to proxy command execution and bypass application controls by executing commands such as powershell, schtasks, or cmd, indicating a defense evasion attempt.
+date: "2024-01-03T18:23:00Z"
 type: advisory
 types:
   - advisory
@@ -12,65 +12,66 @@ tags:
   - defense-evasion
   - proxy-execution
   - openssh
-  - application-control-bypass
+  - windows
 vendors:
-  - Elastic
-  - SentinelOne
-  - Crowdstrike
+  - Microsoft
 products:
-  - M365 Defender
-  - Elastic Defend
-  - SentinelOne Cloud Funnel
-affected_os:
-  - Windows
+  - OpenSSH Client
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1202
+    technique_name: Indirect Command Execution
 references:
   - https://lolbas-project.github.io/lolbas/Binaries/Ssh/
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_indirect_exec_openssh.toml
+  - https://attack.mitre.org/techniques/T1202/
+  - https://attack.mitre.org/tactics/TA0005/
 rules:
   - title: Proxy Execution via Windows OpenSSH
-    description: Detects attempts to execute commands via proxy using the Windows OpenSSH client, potentially indicating an attempt to bypass application control.
+    description: Detects attempts to execute commands via proxy using the Windows OpenSSH client with suspicious command line arguments.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
     techniques:
-      - T1218
+      - T1202
     data_sources:
       - process_creation
       - windows
-  - title: OpenSSH ProxyCommand with LOLBIN
-    description: Detects OpenSSH usage with ProxyCommand executing Living Off The Land Binaries
+  - title: OpenSSH Client Proxying CMD Execution
+    description: Detects indirect command execution via OpenSSH client using cmd.exe
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - defense_evasion
     techniques:
-      - T1218
+      - T1202
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-This detection identifies attempts to execute commands through a proxy using the Windows OpenSSH client (ssh.exe or sftp.exe). Attackers may abuse this behavior to evade application control policies by leveraging the trusted Windows OpenSSH binaries. The technique involves using the `ProxyCommand` or `LocalCommand` options with the OpenSSH client to execute arbitrary commands on the target system. The rule focuses on detecting command lines containing potentially malicious commands such as PowerShell, schtasks, mshta, msiexec, cmd, or script execution, indicating a possible attempt to bypass security measures. The detection logic is applicable to Windows systems.
+Attackers are abusing the legitimate Windows OpenSSH client (ssh.exe and sftp.exe) to proxy command execution, a technique known as "Indirect Command Execution" (T1202). This method allows adversaries to bypass application control solutions by leveraging trusted binaries already present on the system. By embedding malicious commands within the OpenSSH command line arguments, attackers can execute arbitrary code, escalate privileges, and establish persistence while blending in with legitimate system activity. This technique is particularly effective because OpenSSH is often trusted and permitted to run without restriction. The observed commands of interest include powershell, schtasks, @echo off, http, mshta, msiexec, cmd /c, cmd.exe, and scp which commonly are used in malicious activities.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to a Windows system.
-2.  The attacker executes the Windows OpenSSH client (ssh.exe or sftp.exe) with either the `ProxyCommand` or `LocalCommand` option.
-3.  The `ProxyCommand` or `LocalCommand` parameter specifies a command to be executed locally on the system.
-4.  The command includes potentially malicious payloads such as PowerShell commands, scheduled tasks manipulation (schtasks), or execution of other LOLBINs (Living Off the Land Binaries) like mshta or msiexec.
-5.  The OpenSSH client executes the specified command.
-6.  The malicious command performs actions such as downloading and executing additional payloads, creating scheduled tasks for persistence, or executing arbitrary code.
-7.  The attacker achieves their objectives, such as gaining further access to the system, escalating privileges, or deploying malware.
+1. An attacker gains initial access to a Windows system via an exploit, phishing, or stolen credentials.
+2. The attacker leverages the built-in OpenSSH client (ssh.exe or sftp.exe).
+3. The attacker crafts a command line argument for ssh.exe or sftp.exe that includes a malicious command to be executed indirectly.
+4. The malicious command is embedded within the command line, utilizing keywords such as `Command=powershell`, `schtasks`, `Command=@echo off`, `Command=http`, `Command=mshta`, `Command=msiexec`, `Command=cmd /c`, `Command=cmd.exe`, `LocalCommand=scp*&&*`, `LocalCommand=?scp*&&*`, or `Command=*script*`.
+5. The OpenSSH client executes the malicious command, bypassing application control restrictions.
+6. The attacker uses the executed command to download and execute malware, establish persistence, or gather sensitive information.
+7. The attacker moves laterally to other systems on the network, repeating steps 2-6.
+8. The attacker achieves their final objective, such as data exfiltration or ransomware deployment.
 
 ## Impact
 
-Successful exploitation can lead to a complete compromise of the affected system. Attackers can bypass application control mechanisms, execute arbitrary code, and establish persistence. This can result in data theft, system disruption, or further propagation of the attack within the network. The severity of the impact depends on the privileges of the account running the OpenSSH client and the specific actions performed by the malicious commands.
+Successful exploitation leads to arbitrary code execution, privilege escalation, and persistence within the targeted environment. Bypassing application control measures allows attackers to introduce malware and compromise critical systems. This can result in data breaches, financial losses, and reputational damage. The broad use of OpenSSH makes many Windows systems vulnerable.
 
 ## Recommendation
 
-*   Enable process creation logging with command line details to capture the execution of ssh.exe and sftp.exe with malicious parameters.
-*   Deploy the Sigma rule `Proxy Execution via Windows OpenSSH` to your SIEM to detect suspicious OpenSSH client executions with malicious commands in the command line.
-*   Monitor for the creation of child processes from ssh.exe or sftp.exe, as this can indicate the execution of malicious commands specified in the `ProxyCommand` or `LocalCommand` options.
-*   Review and restrict the usage of `PermitLocalCommand` in OpenSSH server configurations to prevent attackers from executing commands locally on the system after a connection is established.
+*   Deploy the Sigma rule "Proxy Execution via Windows OpenSSH" to detect suspicious command line arguments passed to ssh.exe and sftp.exe (reference: rules section).
+*   Monitor process creation events for ssh.exe and sftp.exe with command lines containing keywords such as powershell, schtasks, @echo off, http, mshta, msiexec, cmd /c, cmd.exe, and scp (reference: rules section).
+*   Review and harden application control policies to prevent execution of unauthorized or unexpected commands through OpenSSH (reference: Overview section).
+*   Enable Sysmon process creation logging to capture the necessary command-line details for effective detection (reference: rules section).
