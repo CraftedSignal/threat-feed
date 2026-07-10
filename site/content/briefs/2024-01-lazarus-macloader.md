@@ -20,6 +20,10 @@ tags:
   - malware
   - fileless
   - applejeus
+vendors:
+  - Apple
+products:
+  - macOS
 affected_os:
   - macos
 mitre_ttps:
