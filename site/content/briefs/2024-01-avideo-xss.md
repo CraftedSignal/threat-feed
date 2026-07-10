@@ -1,79 +1,78 @@
 ---
-title: AVideo Unauthenticated Cross-User JavaScript Execution via YPTSocket Vulnerability
+title: WWBN AVideo Cross-Origin Request Vulnerability (CVE-2026-41056)
 slug: 2024-01-avideo-xss
-description: AVideo is vulnerable to unauthenticated cross-site scripting (XSS) due to an incomplete server-side fix for a YPTSocket `autoEvalCodeOnHTML` eval sink, allowing an attacker to bypass the fix by nesting the payload under a top-level `json` field, leading to arbitrary JavaScript execution in any logged-in user's browser session.
-date: "2024-01-02T12:00:00Z"
+description: WWBN AVideo versions 29.0 and below are vulnerable to cross-origin request attacks (CVE-2026-41056) due to improper handling of Origin headers and session cookies, allowing unauthorized access to user data and system modifications.
+date: "2024-01-03T14:30:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
+  - cve
   - avideo
-  - xss
-  - websocket
-  - vulnerability
+  - cors
+  - credential-access
 vendors:
-  - wwbn
+  - WWBN
 products:
-  - AVideo (<= 29.0)
+  - AVideo
 mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-  - tactic_id: TA0042
-    tactic_name: Defense Evasion
-    technique_id: T1505
-    technique_name: Server-Side Component
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1555
+    technique_name: Credentials from Web Browsers
+cves:
+  - id: CVE-2026-41056
+    cvss: 8.1
 references:
-  - https://github.com/advisories/GHSA-ghcv-22jf-vfxm
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41056
 rules:
-  - title: Detect AVideo YPTSocket autoEvalCodeOnHTML Bypass
-    description: Detects attempts to exploit the AVideo YPTSocket autoEvalCodeOnHTML vulnerability by monitoring for WebSocket messages containing the `autoEvalCodeOnHTML` field within a `json` field.
-    platform: sigma
-    severity: high
-    tactics:
-      - execution
-    techniques:
-      - T1059.007
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect AVideo WebSocket connection to exploit XSS
-    description: Detects a WebSocket connection attempt to AVideo that may be used to exploit the XSS vulnerability. This focuses on suspicious parameters in the WebSocket URL.
+  - title: Detect Suspicious Origin Header to AVideo API Endpoints
+    description: Detects potentially malicious requests to AVideo API endpoints with unusual Origin headers, indicating a possible CORS vulnerability exploitation attempt.
     platform: sigma
     severity: medium
     tactics:
-      - initial_access
+      - credential_access
     techniques:
-      - T1505
+      - T1555
     data_sources:
-      - network_connection
-      - windows
+      - webserver
+      - linux
+  - title: AVideo API Endpoint Access with Credentials
+    description: Detects access to AVideo API endpoints where credentials are being passed in the request. This can be useful for detecting possible exploitation of CVE-2026-41056.
+    platform: sigma
+    severity: low
+    tactics:
+      - credential_access
+    techniques:
+      - T1555
+    data_sources:
+      - webserver
+      - linux
 rules_count: 2
 ---
 
-AVideo is vulnerable to an unauthenticated cross-site scripting (XSS) vulnerability stemming from an incomplete fix for the YPTSocket `autoEvalCodeOnHTML` eval sink (GHSA-gph2-j4c9-vhhr). The initial patch only stripped the payload when present under `$json['msg']`, but the relay function `msgToResourceId()` prioritizes `$msg['json']` before `$msg['msg']`. An unauthenticated attacker can exploit this flaw by obtaining a WebSocket token from `plugin/YPTSocket/getWebSocket.json.php`, connecting to the WebSocket server, and sending a message with `autoEvalCodeOnHTML` nested under a top-level `json` field. This bypasses the strip branch, delivering the payload verbatim to any logged-in user identified by `to_users_id`, and the client script executes it via `eval()`. Versions of AVideo up to and including 29.0 are affected if they have not implemented the recommended fixes.
+WWBN AVideo, an open-source video platform, is vulnerable to a cross-origin request vulnerability (CVE-2026-41056) in versions 29.0 and below. The vulnerability stems from the `allowOrigin($allowAll=true)` function located in `objects/functions.php`, which improperly reflects arbitrary `Origin` headers in the `Access-Control-Allow-Origin` response header and also sets `Access-Control-Allow-Credentials: true`. This function is called by the `plugin/API/get.json.php` and `plugin/API/set.json.php` API endpoints. The combination of this behavior with the application's use of `SameSite=None` session cookies allows attackers to make credentialed cross-origin requests. This can lead to the theft of sensitive user information (PII), access to livestream keys, and the ability to perform unauthorized actions on behalf of legitimate users. The vulnerability was patched in commit caf705f38eae0ccfac4c3af1587781355d24495e.
 
 ## Attack Chain
 
-1.  An unauthenticated attacker requests a WebSocket token from `plugin/YPTSocket/getWebSocket.json.php`.
-2.  The server issues a valid WebSocket token without authentication or CSRF checks.
-3.  The attacker establishes a WebSocket connection to the server using the obtained token.
-4.  The attacker crafts a malicious message containing JavaScript code within the `autoEvalCodeOnHTML` field, nested under a top-level `json` field: `{"msg": "x", "json": {"autoEvalCodeOnHTML": "<js>"}, "to_users_id": <victim>}`.
-5.  The attacker sends the crafted message to the WebSocket server.
-6.  The server-side validation logic in `plugin/YPTSocket/Message.php` fails to properly sanitize the `autoEvalCodeOnHTML` field due to the bypass.
-7.  The server relays the message to the targeted user (`to_users_id`) via the WebSocket connection.
-8.  The client-side script (`plugin/YPTSocket/script.js`) receives the message and executes the JavaScript code within `autoEvalCodeOnHTML` via `eval()`, leading to XSS.
+1.  Attacker crafts a malicious website with JavaScript code designed to make cross-origin requests to a vulnerable AVideo instance.
+2.  Victim visits the attacker's malicious website in a browser where they are also authenticated to the AVideo application due to the `SameSite=None` cookie policy.
+3.  The malicious JavaScript initiates an HTTP request to `plugin/API/get.json.php` or `plugin/API/set.json.php` on the AVideo server, including the victim's session cookie.
+4.  The AVideo server, due to the vulnerable `allowOrigin` function, reflects the attacker's origin in the `Access-Control-Allow-Origin` header and sets `Access-Control-Allow-Credentials: true`.
+5.  The victim's browser, trusting the response due to the permissive CORS policy, allows the JavaScript code to read the response from the AVideo server.
+6.  The attacker's JavaScript extracts sensitive information from the API response, such as user PII or livestream keys.
+7.  The attacker exfiltrates the stolen information to a server under their control.
+8.  The attacker leverages stolen credentials or keys to access user accounts, modify content, or conduct unauthorized live streams.
 
 ## Impact
 
-This vulnerability allows for unauthenticated XSS and arbitrary JavaScript execution within any logged-in user's browser session. A successful exploit enables attackers to compromise the same-origin policy, potentially leading to session data exfiltration, authenticated XHR calls on the victim's behalf, privilege escalation (if targeting an administrator), and mass exploitation by enumerating active users via the `getClientsList` request. Deployments that only patched to commit `c08694bf6` remain vulnerable.
+Successful exploitation of CVE-2026-41056 can result in the compromise of user accounts, theft of sensitive personal information, and unauthorized access to livestreaming functionality within AVideo. There is no specific victim count available, but all installations of AVideo version 29.0 and below are vulnerable. The impact could range from defacement of video content to full account takeover and potential financial losses due to unauthorized livestreaming.
 
 ## Recommendation
 
--   Apply the recommended patch by scrubbing `autoEvalCodeOnHTML` from **every** outbound carrier the relay may choose in `plugin/YPTSocket/Message.php` and `plugin/YPTSocket/MessageSQLiteV2.php` as described in the advisory.
--   Harden the relay in `msgToResourceId()` (both files) by recursively walking the chosen `$obj['msg']` and unsetting `autoEvalCodeOnHTML` when the message originated from a non-PHP, non-CLI client.
--   As defense in depth, remove or gate the client-side `eval(json.msg.autoEvalCodeOnHTML)` at `plugin/YPTSocket/script.js:573-575` behind a server-signed field rather than a plain JSON key.
--   Deploy the Sigma rule `Detect AVideo YPTSocket autoEvalCodeOnHTML Bypass` to detect attempts to exploit this vulnerability by monitoring for WebSocket messages containing the `autoEvalCodeOnHTML` field within a `json` field.
+*   Immediately upgrade all AVideo instances to a version containing the fix from commit caf705f38eae0ccfac4c3af1587781355d24495e.
+*   Monitor web server logs for suspicious `Origin` headers targeting the `/plugin/API/get.json.php` and `/plugin/API/set.json.php` endpoints using the Sigma rules provided.
+*   Implement a Web Application Firewall (WAF) rule to reject requests with unusual or unexpected `Origin` headers to mitigate potential exploitation attempts of CVE-2026-41056.
+*   Review and harden the AVideo application's session management and CORS policies to prevent future cross-origin vulnerabilities.
