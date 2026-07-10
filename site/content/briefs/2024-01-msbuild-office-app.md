@@ -1,8 +1,8 @@
 ---
-title: Microsoft Build Engine Started by an Office Application
+title: MSBuild Started by Microsoft Office Application
 slug: 2024-01-msbuild-office-app
-description: The Microsoft Build Engine (MSBuild) being started by an Office application is unusual behavior and could indicate a malicious document executing a script payload for defense evasion.
-date: "2024-01-09T18:22:00Z"
+description: The Microsoft Build Engine (MSBuild) being started by a Microsoft Office application is an unusual behavior that could indicate a malicious document is executing a payload to evade defenses and execute code.
+date: "2024-01-31T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -12,76 +12,72 @@ tags:
   - defense-evasion
   - execution
   - msbuild
-  - windows
+  - office-macro
 vendors:
   - Microsoft
-  - Elastic
-  - Crowdstrike
-  - SentinelOne
 products:
-  - Microsoft Build Engine
-  - Microsoft Defender XDR
-  - Elastic Defend
-affected_os:
-  - Windows
+  - Word
+  - Excel
+  - PowerPoint
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1127
     technique_name: Trusted Developer Utilities Proxy Execution
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1204
+    technique_name: User Execution
 references:
-  - https://blog.talosintelligence.com/building-bypass-with-msbuild/
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_execution_msbuild_started_by_office_app.toml
+  - https://blog.talosintelligence.com/2020/02/building-bypass-with-msbuild.html
 rules:
   - title: Microsoft Build Engine Started by an Office Application
-    description: Detects instances where MSBuild.exe is started by an Office application, potentially indicating malicious activity.
+    description: Detects instances of MSBuild.exe being started by a Microsoft Office application, indicating potential malicious activity.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
       - execution
     techniques:
-      - T1127
+      - T1127.001
+      - T1204.002
     data_sources:
       - process_creation
       - windows
-  - title: MSBuild Spawning Suspicious Processes
-    description: Detects MSBuild spawning command interpreters or scripting hosts, indicative of code execution.
+  - title: Detect MSBuild network connection
+    description: Detects network connections initiated by MSBuild process
     platform: sigma
     severity: medium
     tactics:
-      - defense_evasion
-      - execution
+      - command_and_control
     techniques:
-      - T1059.001
-      - T1059.003
-      - T1127
+      - T1071.001
     data_sources:
-      - process_creation
+      - network_connection
       - windows
 rules_count: 2
 ---
 
-The Microsoft Build Engine (MSBuild) is a software build platform commonly used by Windows developers. When MSBuild is started by an Office application like Word or Excel, it deviates from typical usage patterns. This behavior can be indicative of a malicious document executing a script payload as part of a defense evasion tactic. Attackers may leverage MSBuild to execute code or perform actions that would otherwise be blocked or detected. This activity is particularly concerning because it can bypass traditional security measures that focus on blocking suspicious executables or scripts directly launched by Office applications. The rule was created in March 2020, and last updated in April 2026.
+Attackers are increasingly leveraging trusted developer utilities like MSBuild to proxy the execution of malicious code, effectively bypassing traditional security measures. When MSBuild, a legitimate component of the .NET framework, is spawned by a Microsoft Office application (e.g., Word, Excel, PowerPoint), it is a strong indicator of suspicious activity. This typically involves a malicious document exploiting MSBuild to execute arbitrary code. Such attacks are concerning because they blend malicious actions with legitimate system tools, making detection challenging. This activity has been observed since at least early 2020 and continues to evolve. Defenders should prioritize monitoring process relationships and command-line arguments involving MSBuild.exe.
 
 ## Attack Chain
 
-1.  A user opens a malicious Office document (e.g., Word, Excel, PowerPoint).
-2.  The Office document contains an embedded macro or exploit that triggers the execution of MSBuild.exe.
-3.  MSBuild.exe is launched as a child process of the Office application (e.g., winword.exe, excel.exe, powerpnt.exe).
-4.  MSBuild executes a project file or inline task specified in the command line. This can involve compiling code, executing scripts, or performing other actions.
-5.  The executed code or script performs malicious activities, such as downloading additional payloads, modifying system settings, or establishing persistence.
-6.  MSBuild may spawn child processes, such as cmd.exe, powershell.exe, or other utilities, to further execute malicious commands.
-7.  The attacker achieves their objective, which could include data exfiltration, installing malware, or gaining unauthorized access to the system.
+1. A user receives a phishing email containing a malicious Microsoft Office document (e.g., Word, Excel).
+2. The user opens the document, potentially after being socially engineered to disable security warnings.
+3. The document contains an embedded OLE object or macro that, when executed, initiates a process.
+4. The Office application (e.g., winword.exe, excel.exe) spawns the `MSBuild.exe` process.
+5. MSBuild.exe executes a project file (e.g., `.csproj`, `.xml`) containing malicious code or commands.
+6. This code downloads and executes a payload from a remote server.
+7. The payload establishes persistence through registry modifications or scheduled tasks.
+8. The attacker achieves their objective, such as data exfiltration, lateral movement, or deploying ransomware.
 
 ## Impact
 
-Successful exploitation can lead to the execution of arbitrary code on the victim's machine, potentially resulting in data theft, malware installation, or complete system compromise. Since MSBuild is a legitimate Microsoft tool, its use by malicious actors can make detection more challenging. The impact is high because it leverages a trusted process to carry out malicious activities, evading standard security measures.
+A successful attack can lead to a full system compromise, enabling attackers to steal sensitive data, install malware, or disrupt business operations. The use of MSBuild for malicious purposes allows attackers to bypass application whitelisting and other security controls, increasing the likelihood of a successful breach. Office applications are ubiquitous, making this technique highly scalable across various sectors.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Microsoft Build Engine Started by an Office Application" to your SIEM to detect this specific behavior based on process creation events.
-*   Enable Sysmon process creation logging with the appropriate configuration to capture the necessary process start events for the Sigma rule to function correctly.
-*   Investigate any alerts generated by the Sigma rule, focusing on the command-line arguments of MSBuild.exe and the parent process information, including the executable name and command line.
-*   Monitor process execution events for MSBuild.exe with parent processes being Office applications as a high priority indicator of potential compromise.
-*   Review and harden Office macro settings to prevent execution of malicious macros.
+*   Deploy the Sigma rule "Microsoft Build Engine Started by an Office Application" to your SIEM and tune for your environment.
+*   Enable Sysmon process-creation logging to capture the parent-child relationships required by the Sigma rule.
+*   Investigate any instances of `MSBuild.exe` spawned by Office applications, focusing on command-line arguments and network connections.
+*   Review and strengthen your organization's email security policies to prevent phishing attacks.
