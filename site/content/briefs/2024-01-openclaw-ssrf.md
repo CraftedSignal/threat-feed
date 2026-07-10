@@ -1,8 +1,8 @@
 ---
-title: OpenClaw fetchWithSsrFGuard replays unsafe request bodies across cross-origin redirects
+title: OpenClaw SSRF Vulnerability (CVE-2026-41302)
 slug: 2024-01-openclaw-ssrf
-description: The `fetchWithSsrFGuard` function in OpenClaw replays unsafe request bodies across cross-origin redirects, potentially leading to the exposure of sensitive information when following cross-origin redirects in versions prior to 2026.4.8.
-date: "2024-01-10T12:00:00Z"
+description: OpenClaw before 2026.3.31 is vulnerable to server-side request forgery, enabling remote attackers to make arbitrary network requests and potentially access internal resources or interact with external services.
+date: "2024-01-03T14:30:00Z"
 type: advisory
 types:
   - advisory
@@ -10,8 +10,8 @@ severities:
   - high
 tags:
   - ssrf
+  - cve-2026-41302
   - openclaw
-  - cross-origin
 vendors:
   - OpenClaw
 products:
@@ -21,11 +21,25 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-41302
+    cvss: 7.6
 references:
-  - https://github.com/advisories/GHSA-qx8j-g322-qj6m
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41302
 rules:
-  - title: Detect OpenClaw fetchWithSsrFGuard Cross-Origin Request with Body
-    description: Detects outbound network connections from OpenClaw with a request body when following cross-origin redirects, indicating potential SSRF vulnerability exploitation.
+  - title: Detect OpenClaw SSRF Attempt
+    description: Detects potential SSRF attempts in OpenClaw by monitoring for suspicious outbound connections originating from the web server.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+      - linux
+  - title: Detect Internal Resource Access via SSRF
+    description: Detects potential SSRF attempts accessing internal resources based on destination IP addresses.
     platform: sigma
     severity: medium
     tactics:
@@ -34,39 +48,30 @@ rules:
       - T1190
     data_sources:
       - network_connection
-      - windows
-  - title: Detect OpenClaw process creation
-    description: Detects OpenClaw process creation events, useful for tracking execution and potentially identifying malicious behavior related to SSRF exploitation.
-    platform: sigma
-    severity: informational
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - process_creation
-      - windows
+      - linux
 rules_count: 2
 ---
 
-OpenClaw, a user-controlled local assistant, is vulnerable to a security issue where the `fetchWithSsrFGuard` function replays unsafe request bodies and headers across cross-origin redirects. Specifically, when a guarded fetch operation encounters a cross-origin redirect, it may inadvertently resend sensitive data contained within the request body or headers to a different origin than intended. This vulnerability affects OpenClaw versions prior to 2026.4.8. The patched version, 2026.4.8, addresses this issue. The fix was verified against commit `d7c3210cd6f5fdfdc1beff4c9541673e814354d5`. This issue is scoped to the OpenClaw trust model and does not assume a multi-tenant service boundary.
+OpenClaw versions prior to 2026.3.31 are susceptible to a server-side request forgery (SSRF) vulnerability (CVE-2026-41302) within the marketplace plugin's download functionality. This flaw enables unauthenticated, remote attackers to craft malicious requests that force the OpenClaw server to make arbitrary HTTP requests to attacker-controlled or internal destinations. The vulnerability stems from insufficient validation of user-supplied input used in fetch() calls, allowing attackers to bypass intended restrictions and abuse the server's trust relationship with other systems. Successful exploitation could lead to sensitive information disclosure, internal network scanning, or denial-of-service against internal resources. This issue poses a significant risk to organizations using affected versions of OpenClaw, particularly those with sensitive data or critical services accessible from the internal network.
 
 ## Attack Chain
 
-1. A user initiates a fetch request via OpenClaw's `fetchWithSsrFGuard` function.
-2. The fetch request includes a body or sensitive headers intended for a specific origin.
-3. The initial server responds with an HTTP 302 redirect to a different origin.
-4. The `fetchWithSsrFGuard` function, due to the vulnerability, replays the original request body and headers to the new origin.
-5. The destination server receives the unintended data.
-6. The destination server processes the data based on the replayed request.
-7. The destination server may inadvertently expose or misuse the sensitive data from the original request.
+1.  The attacker identifies an OpenClaw instance running a vulnerable version (prior to 2026.3.31).
+2.  The attacker crafts a malicious HTTP request targeting the marketplace plugin download functionality. This request includes a manipulated URL or parameter designed to be used by the `fetch()` call.
+3.  The crafted request is sent to the OpenClaw server.
+4.  The OpenClaw server receives the request and processes it through the vulnerable marketplace plugin.
+5.  The application uses the attacker-supplied URL in a `fetch()` call without proper sanitization or validation.
+6.  The `fetch()` call initiates an HTTP request from the OpenClaw server to the attacker-specified destination. This could be an internal resource (e.g., metadata server, internal service) or an external server.
+7.  The OpenClaw server receives the response from the target and, depending on the application logic, may expose parts or all of the response to the attacker.
+8. The attacker gains access to sensitive information from internal resources, scans the internal network, or leverages the server to interact with external services, potentially leading to data exfiltration or further compromise.
 
 ## Impact
 
-Successful exploitation of this vulnerability could lead to the exposure of sensitive user data to unintended third-party servers. While the specific number of victims is not mentioned, any OpenClaw user initiating fetch requests across different origins is potentially at risk. The severity is high because sensitive information such as API keys, authentication tokens, or personal data could be compromised if replayed to a malicious or untrusted destination.
+Successful exploitation of this SSRF vulnerability (CVE-2026-41302) could allow attackers to access sensitive internal resources, such as configuration files, databases, or internal APIs. Attackers might be able to perform reconnaissance on the internal network, identify other vulnerable systems, or even pivot to other internal hosts. The impact ranges from information disclosure to denial-of-service or potentially remote code execution if internal services are vulnerable. While the specific number of affected OpenClaw instances is unknown, organizations in various sectors using the vulnerable software are at risk.
 
 ## Recommendation
 
-- Upgrade OpenClaw to version 2026.4.8 or later to remediate the vulnerability.
-- Implement additional checks and validations on the server-side to verify the origin and integrity of incoming requests.
-- Review and audit existing `fetchWithSsrFGuard` implementations to ensure proper handling of cross-origin redirects.
+*   Upgrade OpenClaw to version 2026.3.31 or later to patch CVE-2026-41302.
+*   Implement input validation and sanitization on all user-supplied data used in network requests to prevent SSRF attacks.
+*   Monitor web server logs (category: webserver, product: linux) for unusual outbound connections originating from the OpenClaw server, especially to internal IP addresses or unusual ports.
+*   Deploy the Sigma rule "Detect OpenClaw SSRF Attempt" to identify potential exploitation attempts based on HTTP request patterns.
