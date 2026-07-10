@@ -1,30 +1,21 @@
 ---
 title: Suspicious Enumeration Commands Spawned via WMIPrvSE
 slug: 2024-01-wmiprvse-enumeration
-description: This rule detects suspicious execution of system enumeration commands by the Windows Management Instrumentation Provider Service (WMIPrvSE), indicating potential reconnaissance or malicious activity on Windows systems.
-date: "2024-01-03T15:00:00Z"
+description: This rule identifies suspicious activity where enumeration commands are spawned via the Windows Management Instrumentation Provider Service (WMIPrvSE) to gather system and network information.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
 tags:
+  - windows
   - enumeration
   - wmi
-  - discovery
-  - execution
-  - windows
+  - reconnaissance
 vendors:
   - Microsoft
-  - Elastic
-  - SentinelOne
-  - Crowdstrike
 products:
-  - Elastic Defend
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
-  - Sysmon
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0002
@@ -39,6 +30,10 @@ mitre_ttps:
     tactic_name: Discovery
     technique_id: T1012
     technique_name: Query Registry
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1016
+    technique_name: System Network Configuration Discovery
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1016
@@ -76,56 +71,55 @@ mitre_ttps:
     technique_id: T1615
     technique_name: Group Policy Discovery
 references:
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_enumeration_via_wmiprvse.toml
+  - https://attack.mitre.org/techniques/T1047/
 rules:
   - title: Enumeration Command Spawned via WMIPrvSE
-    description: Detects execution of common Windows enumeration tools spawned by WMIPrvSE.exe, which is indicative of potential reconnaissance activity.
+    description: Detects native Windows host and network enumeration commands spawned by WMIPrvSE.
     platform: sigma
     severity: medium
     tactics:
       - discovery
       - execution
     techniques:
+      - T1016
       - T1047
     data_sources:
       - process_creation
       - windows
-  - title: Suspicious net.exe Usage via WMIPrvSE
-    description: Detects specific net.exe commands related to user or group enumeration when spawned by WMIPrvSE.exe.
+  - title: Suspicious SC.exe Usage via WMIPrvSE
+    description: Detects specific usage patterns of sc.exe (Service Control) spawned via WMIPrvSE that are often indicative of malicious activity.
     platform: sigma
-    severity: high
+    severity: low
     tactics:
-      - discovery
       - execution
+      - persistence
     techniques:
       - T1047
-      - T1087
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-Attackers can leverage the Windows Management Instrumentation (WMI) to execute commands for reconnaissance and enumeration within a compromised system. This involves spawning native Windows tools via the WMI Provider Service (WMIPrvSE). This activity is often used to gather system and network information in a stealthy manner, which could be part of a larger attack, such as lateral movement or privilege escalation. This behavior matters because it allows adversaries to gather information about the target environment without using easily detectable methods, potentially leading to further compromise.
+Attackers may abuse the Windows Management Instrumentation (WMI) to execute commands for reconnaissance purposes. This involves spawning native Windows host and network enumeration commands via the Windows Management Instrumentation Provider Service (WMIPrvSE). The goal is to gather information about the system and network environment for situational awareness and potential lateral movement. This activity often occurs after initial access and can be a sign of malicious actors attempting to map the network and identify valuable targets. The rule detects execution of enumeration commands such as `arp.exe`, `ipconfig.exe`, and `net.exe` by `wmiprvse.exe`, excluding benign use cases to highlight potentially malicious activity.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to a Windows system (e.g., through phishing or exploiting a vulnerability).
-2.  The attacker uses WMI to execute a reconnaissance command.
-3.  WMIPrvSE.exe is invoked to execute the attacker's specified command.
-4.  The attacker executes commands such as `ipconfig.exe`, `net.exe`, or `systeminfo.exe` via WMIPrvSE.exe to gather network configuration details, user information, and system information.
-5.  The enumerated information is collected and potentially exfiltrated to a command and control server.
-6.  The attacker uses the gathered information to identify further targets within the network.
-7.  The attacker moves laterally to other systems using stolen credentials or exploited vulnerabilities.
-8.  The attacker achieves their final objective, such as data exfiltration, ransomware deployment, or persistent access.
+1.  The attacker gains initial access to a Windows system (e.g., via phishing or exploiting a vulnerability).
+2.  The attacker leverages WMI to execute reconnaissance commands. This is achieved by invoking WMIPrvSE to run commands via `Win32_Process` creation.
+3.  WMIPrvSE spawns enumeration tools such as `ipconfig.exe` to gather network configuration.
+4.  `net.exe` is executed by WMIPrvSE to discover domain users and groups.
+5.  `systeminfo.exe` is executed by WMIPrvSE to collect detailed system information, including OS version and installed hotfixes.
+6.  `tasklist.exe` is executed to identify running processes on the system.
+7.  The gathered information is used to plan further actions, such as lateral movement or privilege escalation.
 
 ## Impact
 
-Successful execution of enumeration commands via WMIPrvSE allows attackers to gather sensitive information about the system and network environment. This information can be used to facilitate lateral movement, privilege escalation, and data theft, potentially leading to significant financial loss, reputational damage, and disruption of business operations.
+Successful exploitation leads to the attacker gaining detailed knowledge of the target system and network environment. This information can be used to facilitate lateral movement, identify valuable data, and ultimately compromise the organization's assets. The impact includes potential data breaches, system compromise, and disruption of services. If the attacker successfully enumerates the environment, it increases the likelihood of a successful attack campaign.
 
 ## Recommendation
 
-*   Enable Sysmon process creation logging to capture the execution of enumeration commands (Data Source: Sysmon).
-*   Deploy the Sigma rule "Enumeration Command Spawned via WMIPrvSE" to your SIEM to detect suspicious WMIPrvSE activity (Sigma rule).
-*   Investigate any instances of WMIPrvSE spawning common enumeration tools such as `net.exe`, `ipconfig.exe`, or `systeminfo.exe` (Sigma rule).
-*   Implement network segmentation to limit the scope of potential lateral movement following successful enumeration (Attack Chain).
+*   Implement the provided Sigma rules to detect enumeration commands spawned via WMIPrvSE (`process_creation` logs).
+*   Review process command line details to understand the specific enumeration command executed and its arguments, focusing on the process.command_line field.
+*   Monitor `process_creation` events with a parent process name of `wmiprvse.exe` for known enumeration tools (e.g., `ipconfig.exe`, `net.exe`, `systeminfo.exe`).
+*   Correlate the event with other logs or alerts from the same host to identify any preceding or subsequent suspicious activities, such as lateral movement or privilege escalation attempts.
