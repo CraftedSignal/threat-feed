@@ -1,8 +1,8 @@
 ---
-title: First Time Seen Removable Device Registry Modification
+title: First Time Seen Removable Device Activity
 slug: 2024-01-first-time-usb
-description: Detection of newly seen removable devices via Windows registry modification events can indicate data exfiltration attempts or initial access via malicious USB drives.
-date: "2024-01-02T14:00:00Z"
+description: This rule detects the first time a removable device is seen on a Windows host by monitoring registry modification events related to USB devices, aiding in the detection of potential data exfiltration or initial access attempts.
+date: "2024-01-02T15:00:00Z"
 type: advisory
 types:
   - advisory
@@ -12,16 +12,10 @@ tags:
   - initial-access
   - exfiltration
   - windows
-  - registry
-  - usb
 vendors:
   - Microsoft
-  - SentinelOne
-  - Elastic
 products:
-  - Elastic Defend
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
+  - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -35,8 +29,8 @@ references:
   - https://winreg-kb.readthedocs.io/en/latest/sources/system-keys/USB-storage.html
   - https://learn.microsoft.com/en-us/windows-hardware/drivers/usbcon/usb-device-specific-registry-settings
 rules:
-  - title: First Time Seen USB Device Registry Modification
-    description: Detects first-time seen removable devices via registry modifications.
+  - title: First Time Seen Removable Device - Registry Modification
+    description: Detects the first time a removable device is seen by monitoring registry modification events related to USB devices.
     platform: sigma
     severity: low
     tactics:
@@ -44,49 +38,44 @@ rules:
       - initial_access
     techniques:
       - T1052
-      - T1052.001
-      - T1091
     data_sources:
       - registry_set
       - windows
-  - title: USB Device FriendlyName Registry Monitoring
-    description: Detects registry modifications related to USB device FriendlyName creation or modification.
+  - title: Removable Media File Copy Activity
+    description: Detects file copy events to removable media devices.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
       - exfiltration
-      - initial_access
     techniques:
-      - T1052
       - T1052.001
-      - T1091
     data_sources:
-      - registry_set
+      - file_event
       - windows
 rules_count: 2
 ---
 
-This detection identifies the first-time appearance of removable devices on a Windows system by monitoring registry modifications. While not inherently malicious, the activity can indicate potential data exfiltration over removable media or initial access attempts using malware delivered via USB. The rule specifically looks for registry events with the "FriendlyName" value associated with USB storage devices ("USBSTOR"). This helps in identifying potentially unauthorized devices connected to the system. The detection is designed to work with data from Elastic Defend, Microsoft Defender XDR, SentinelOne Cloud Funnel, and Sysmon.
+This detection rule identifies newly seen removable devices by monitoring registry modification events. While not inherently malicious, this activity can be used to monitor for data exfiltration or initial access using removable devices. The rule focuses on identifying devices seen for the first time, providing a starting point for investigating potentially malicious use of USB devices. The registry keys monitored include those under the `USBSTOR` path, which are specific to USB storage devices. The rule is designed to be used with various data sources including Windows event logs, Sysmon, and endpoint detection and response (EDR) solutions like Elastic Endgame, Microsoft Defender XDR, and SentinelOne. This allows for broad coverage across different environments and telemetry sources.
 
 ## Attack Chain
 
-1.  A user connects a removable device (e.g., USB drive) to a Windows system.
-2.  The operating system detects the new device and attempts to enumerate its properties.
-3.  The system queries the registry for device-specific settings, including the "FriendlyName," under the `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR` key.
-4.  If the device is new to the system, the registry is modified to record the device's information, including its friendly name.
-5.  The event generates a registry modification event, which is logged by Sysmon, Elastic Defend, Microsoft Defender XDR, or SentinelOne.
-6.  An attacker may use the USB device to deploy malware or exfiltrate sensitive data.
-7.  The attacker copies files to the USB device.
-8.  The attacker removes the USB device, completing the exfiltration.
+1.  An attacker gains initial access to a system (e.g., via compromised credentials or social engineering).
+2.  The attacker connects a USB drive to the compromised system.
+3.  The system registers the new USB device, creating entries under `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR`.
+4.  The operating system reads the device's friendly name, triggering a registry read event with the value `FriendlyName` under the `USBSTOR` path.
+5.  The attacker copies sensitive files to the USB drive using tools like `cmd.exe` or `powershell.exe`.
+6.  The attacker removes the USB drive from the system.
+7.  The attacker uses the USB drive to transfer the data to an external location.
 
 ## Impact
 
-Successful exploitation and data exfiltration via USB can lead to the loss of sensitive information, intellectual property theft, or the introduction of malware into the network. Although this alert is low severity, multiple alerts across the environment may indicate an active campaign. The detection focuses on registry modifications, which are early indicators of device connection, allowing for proactive monitoring and response.
+A successful attack could result in the exfiltration of sensitive data, such as proprietary information, customer data, or financial records. While the initial detection focuses on the first-time connection of a removable device, successful exfiltration can lead to significant financial loss, reputational damage, and legal consequences. The impact can range from minor data leakage to large-scale data breaches, depending on the scope and sensitivity of the compromised data.
 
 ## Recommendation
 
-*   Enable Sysmon registry event logging to detect registry modifications related to USB devices and activate the Sigma rules below.
-*   Deploy the Sigma rules provided to your SIEM to detect and monitor first-time seen USB devices.
-*   Investigate any alerts generated by the Sigma rules, correlating with user activity and file access events.
-*   Maintain a list of approved USB devices and create exceptions for them in the monitoring system to reduce false positives as described in the rule documentation.
-*   Monitor for subsequent file access or transfer events involving the new device as described in the rule documentation.
+*   Enable Windows registry logging with Sysmon or other EDR solutions to capture registry modification events (`logs-windows.sysmon_operational-*`).
+*   Deploy the "First Time Seen Removable Device" Sigma rule to your SIEM and tune for your environment to reduce false positives.
+*   Investigate any alerts generated by the Sigma rule to determine the legitimacy of the new device connection.
+*   Review user activity logs to identify the user logged in at the time of the device connection.
+*   Monitor for any subsequent file access or transfer events involving the new device.
+*   Implement policies for registering personal devices and exclude them if deemed non-threatening.
