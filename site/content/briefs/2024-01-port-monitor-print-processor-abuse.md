@@ -1,8 +1,8 @@
 ---
 title: Potential Port Monitor or Print Processor Registration Abuse
 slug: 2024-01-port-monitor-print-processor-abuse
-description: This rule detects registry modifications indicative of privilege escalation and persistence attempts by adversaries abusing port monitors and print processors to execute malicious DLLs with SYSTEM privileges on Windows systems.
-date: "2024-01-03T12:00:00Z"
+description: This rule detects potential abuse of port monitors and print processors for privilege escalation and persistence on Windows systems by identifying registry modifications to load malicious DLLs that execute with SYSTEM privileges during system boot, focusing on modifications made by non-SYSTEM users.
+date: "2024-01-03T18:23:00Z"
 type: advisory
 types:
   - advisory
@@ -12,7 +12,9 @@ tags:
   - privilege-escalation
   - persistence
   - windows
-affected_os:
+vendors:
+  - Microsoft
+products:
   - Windows
 mitre_ttps:
   - tactic_id: TA0004
@@ -39,50 +41,57 @@ references:
   - https://attack.mitre.org/tactics/TA0004/
   - https://attack.mitre.org/tactics/TA0003/
 rules:
-  - title: Suspicious Print Monitor DLL Registration
-    description: Detects the registration of a DLL as a print monitor by a non-SYSTEM user.
+  - title: Potential Port Monitor or Print Processor Registration Abuse
+    description: Detects registry modifications related to port monitors and print processors, potentially indicating privilege escalation or persistence abuse.
     platform: sigma
     severity: medium
     tactics:
+      - persistence
       - privilege_escalation
     techniques:
       - T1547.010
-    data_sources:
-      - registry_set
-      - windows
-  - title: Suspicious Print Processor DLL Registration
-    description: Detects the registration of a DLL as a print processor by a non-SYSTEM user.
-    platform: sigma
-    severity: medium
-    tactics:
-      - privilege_escalation
-    techniques:
       - T1547.012
     data_sources:
       - registry_set
       - windows
+  - title: Suspicious Print Spooler Service Image Load
+    description: Detects the loading of DLLs by the print spooler service from unusual locations, which can indicate exploitation of print spooler vulnerabilities.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+      - privilege_escalation
+    techniques:
+      - T1547.010
+      - T1547.012
+    data_sources:
+      - image_load
+      - windows
 rules_count: 2
 ---
 
-Adversaries may abuse port monitors and print processors to run malicious DLLs during system boot, achieving privilege escalation and persistence. This technique involves modifying specific registry keys related to port monitors and print processors, allowing the execution of arbitrary code with SYSTEM privileges. The targeted registry paths include those under `HKLM\\SYSTEM\\*ControlSet*\\Control\\Print\\Monitors\\*` and `HKLM\\SYSTEM\\*ControlSet*\\Control\\Print\\Environments\\Windows*\\Print Processors\\*`. The Winnti Group has been known to leverage this technique. This activity matters to defenders because successful exploitation leads to SYSTEM-level code execution, enabling complete system compromise.
+This threat brief focuses on the abuse of Windows port monitors and print processors for privilege escalation and persistence. Adversaries can modify specific registry keys to register malicious DLLs, which are then executed with SYSTEM privileges during system boot. This allows attackers to gain elevated privileges and maintain a persistent presence on the compromised system. The attack involves modifying registry keys related to print monitors and print processors to point to attacker-controlled DLLs. The modifications are typically performed by non-SYSTEM users to avoid detection. This technique has been associated with advanced persistent threat (APT) groups and is a known method for establishing a foothold in targeted environments. Detecting and preventing this type of abuse is crucial for maintaining the integrity and security of Windows systems.
 
 ## Attack Chain
 
-1. An adversary gains initial access to the system through unspecified means.
-2. The adversary identifies a vulnerable or misconfigured printing service.
-3. The adversary modifies the registry to point a port monitor or print processor entry to a malicious DLL. The registry keys targeted include `HKLM\\SYSTEM\\*ControlSet*\\Control\\Print\\Monitors\\*` and `HKLM\\SYSTEM\\*ControlSet*\\Control\\Print\\Environments\\Windows*\\Print Processors\\*`.
-4. The system is rebooted or the print spooler service is restarted.
-5. The malicious DLL is loaded by the print spooler service, executing with SYSTEM privileges.
-6. The malicious DLL performs actions such as installing backdoors, escalating privileges, or injecting into other processes.
-7. The adversary achieves persistence by maintaining the malicious DLL entry in the registry, ensuring it's loaded on subsequent reboots.
+1.  The attacker gains initial access to the system through a separate vulnerability or compromised account.
+2.  The attacker identifies the registry keys associated with port monitors and print processors: `HKLM\SYSTEM\*ControlSet*\Control\Print\Monitors\*` and `HKLM\SYSTEM\*ControlSet*\Control\Print\Environments\Windows*\Print Processors\*`.
+3.  The attacker modifies these registry keys to point to a malicious DLL file located on the system or remotely.
+4.  The system is rebooted, or the print spooler service is restarted.
+5.  During system boot or service restart, the print spooler loads the malicious DLL specified in the modified registry key.
+6.  The malicious DLL executes with SYSTEM privileges, granting the attacker elevated access to the system.
+7.  The attacker leverages the SYSTEM privileges to install backdoors, create new user accounts, or perform other malicious activities.
+8.  The attacker establishes persistent access to the system, allowing them to maintain control even after reboots or service restarts.
 
 ## Impact
 
-Successful exploitation allows adversaries to execute arbitrary code with SYSTEM privileges, leading to complete system compromise. This can result in data theft, installation of backdoors, or further propagation within the network. The number of victims and sectors targeted is not specified in the source.
+Successful exploitation of port monitor and print processor vulnerabilities can lead to complete system compromise. The attacker gains SYSTEM-level privileges, enabling them to perform any action on the affected system. This includes installing malware, stealing sensitive data, creating rogue user accounts, and disrupting critical services. The targeted systems could be servers, workstations, or domain controllers. The impact can range from data breaches and financial losses to complete operational disruption.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Potential Port Monitor or Print Processor Registration Abuse" to your SIEM and tune for your environment.
-*   Investigate any registry modifications to `HKLM\\SYSTEM\\*ControlSet*\\Control\\Print\\Monitors\\*` or `HKLM\\SYSTEM\\*ControlSet*\\Control\\Print\\Environments\\Windows*\\Print Processors\\*` where the `registry.data.strings` value contains a DLL and the `user.id` is not `"S-1-5-18"`.
-*   Implement application whitelisting to prevent unauthorized DLLs from being loaded as print processors or port monitors.
-*   Monitor for new services or scheduled tasks that may be created by the malicious DLL.
+*   Deploy the provided Sigma rule `Potential Port Monitor or Print Processor Registration Abuse` to your SIEM to detect suspicious registry modifications related to port monitors and print processors.
+*   Monitor registry events in the `HKLM\SYSTEM\*ControlSet*\Control\Print\Monitors\*` and `HKLM\SYSTEM\*ControlSet*\Control\Print\Environments\Windows*\Print Processors\*` paths for modifications made by non-SYSTEM users.
+*   Implement application whitelisting to prevent unauthorized DLLs from being loaded by the print spooler service.
+*   Regularly review and audit the registry keys associated with port monitors and print processors to identify any unauthorized modifications.
+*   Restrict user access to the print spooler service and related registry keys to prevent unauthorized modifications.
+*   Enable Sysmon registry event logging to capture detailed information about registry modifications and facilitate investigations.
