@@ -3,7 +3,7 @@ title: DNS Kerberos Coercion Attempt Detection
 slug: 2024-01-03-dns-kerberos-coercion
 description: This brief details the detection of DNS-based Kerberos coercion attacks, where adversaries inject marshaled credential structures into DNS records to spoof SPNs and redirect authentication, as seen in CVE-2025-33073, using Suricata and Sysmon event ID 22.
 date: "2024-01-03T12:00:00Z"
-lastmod: "2026-07-08T17:39:40Z"
+lastmod: "2026-07-10T22:04:45Z"
 type: advisory
 types:
   - advisory
@@ -32,13 +32,28 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2022_23h2:*:*:*:*:*:*:*:*
   - cpe:2.3:a:fortinet:fortiproxy:*:*:*:*:*:*:*:*
   - cpe:2.3:o:fortinet:fortios:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:fortinet:fortianalyzer:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:fortinet:fortimanager:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:fortinet:fortinac-f:*:*:*:*:*:*:*:*
   - cpe:2.3:a:fortinet:fortiweb:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:siemens:ruggedcom_ape1808_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:fortinet:fortiswitchmanager:*:*:*:*:*:*:*:*
   - cpe:2.3:a:fortinet:fortiweb:8.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:confd_basic:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:network_services_orchestrator:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:cloud_native_broadband_network_gateway:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:inode_manager:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:smart_phy:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:ultra_packet_core:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:ultra_services_platform:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:staros:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:optical_site_manager:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ncs_2000_shelf_virtualization_orchestrator_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:enterprise_nfv_infrastructure_software:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:ultra_cloud_core:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:rv160w_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:rv260_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:rv160_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:rv260p_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:rv260w_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:rv340_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:rv340w_firmware:-:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - kerberos
@@ -57,6 +72,8 @@ vendors:
   - GitHub
   - Nx
   - Rocket.Chat
+  - Erlang
+  - TechPowerUp
 products:
   - Fortinet edge appliances
   - Cisco edge appliances
@@ -87,6 +104,10 @@ products:
   - FortiProxy
   - FortiSwitchManager
   - FortiWeb
+  - Erlang/OTP SSH server
+  - Windows SMB Client
+  - ThrottleStop
+  - ESXi
 affected_os:
   - linux
   - Linux Kernel
@@ -94,6 +115,7 @@ affected_os:
   - ESXi
   - Logical Volume Manager
   - FortiOS
+  - VMware ESXi
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -114,15 +136,14 @@ cves:
   - id: CVE-2024-55591
     cvss: 9.8
     epss: 0.98259
-  - id: CVE-2026-24858
-    cvss: 9.8
-    epss: 0.85844
-  - id: CVE-2025-59718
-    cvss: 9.8
-    epss: 0.65825
   - id: CVE-2025-59719
     cvss: 9.8
-    epss: 0.2367
+    epss: 0.2405
+  - id: CVE-2025-32433
+    cvss: 10
+    epss: 0.97859
+  - id: CVE-2025-7771
+    epss: 0.06702
 references:
   - https://web.archive.org/web/20250617122747/https://www.synacktiv.com/publications/ntlm-reflection-is-dead-long-live-ntlm-reflection-an-in-depth-analysis-of-cve-2025
   - https://www.synacktiv.com/publications/relaying-kerberos-over-smb-using-krbrelayx
@@ -134,6 +155,7 @@ references:
   - https://cyber.gc.ca/en/alerts-advisories/al26-014-fortibleed-leak-thousands-compromised-credentials-impacting-fortinet-devices
   - https://www.securityweek.com/fortinet-responds-to-fortibleed-campaign/
   - https://blog.qualys.com/vulnerabilities-threat-research/2026/07/08/fortibleed-fortigate-credential-reuse-internet-exposed
+  - https://unit42.paloaltonetworks.com/the-gentlemen-ransomware/
 iocs:
   - type: domain
     value: gleeze[.]com
@@ -181,11 +203,6 @@ rules:
       - suricata
 rules_count: 3
 updates:
-  - at: "2026-05-27T07:48:32Z"
-    level: L1
-    summary: OS linux kernel
-    sources:
-      - the-hacker-news
   - at: "2026-06-14T08:47:38Z"
     level: L2
     summary: poc_available; added CVE-2024-55591 +2; OS logical volume manager; OS windows; OS esxi
@@ -208,6 +225,13 @@ updates:
       - qualys-threat-research
     source_urls:
       - https://blog.qualys.com/vulnerabilities-threat-research/2026/07/08/fortibleed-fortigate-credential-reuse-internet-exposed
+  - at: "2026-07-10T22:04:45Z"
+    level: L2
+    summary: added CVE-2025-32433 +1; OS vmware esxi
+    sources:
+      - unit42
+    source_urls:
+      - https://unit42.paloaltonetworks.com/the-gentlemen-ransomware/
 ---
 
 This brief addresses the threat of DNS-based Kerberos coercion attacks, which are designed to compromise authentication processes within a network. Attackers inject specifically crafted marshaled credential structures, identified by patterns like '*1UWhRC*', '*AAAAA*', and '*YBAAAA*', into DNS records. This injection allows the attacker to spoof Service Principal Names (SPNs) and redirect authentication requests, potentially leading to unauthorized access and lateral movement. The attack leverages vulnerabilities such as CVE-2025-33073. This activity has been observed leveraging both Suricata network monitoring and Windows Sysmon (Event ID 22) to detect the presence of these malicious DNS queries. Detection of this activity is critical to prevent Kerberos relay attacks and maintain the integrity of network authentication.
