@@ -1,8 +1,8 @@
 ---
 title: Suspicious Execution via Microsoft Office Add-Ins
 slug: 2024-01-office-addins
-description: This rule detects suspicious execution of Microsoft Office applications launching Office Add-Ins from unusual paths or with atypical parent processes, potentially indicating an attempt to gain initial access via a malicious phishing campaign.
-date: "2024-01-03T14:00:00Z"
+description: This rule identifies suspicious execution patterns where Microsoft Office applications launch add-ins from unusual paths or with atypical parent processes, potentially indicating initial access via a malicious phishing MS Office Add-In.
+date: "2024-01-03T18:12:00Z"
 type: advisory
 types:
   - advisory
@@ -10,22 +10,15 @@ severities:
   - medium
 tags:
   - office-addins
-  - phishing
   - initial-access
+  - phishing
 vendors:
   - Microsoft
-  - Logitech
-  - Elastic
-  - SentinelOne
 products:
-  - Microsoft Office
-  - Microsoft Defender XDR
-  - Elastic Defend
-  - SentinelOne Cloud Funnel
-  - LogiOptions
-  - Sidekick.vsto
-affected_os:
-  - Windows
+  - Microsoft Word
+  - Microsoft Excel
+  - Microsoft PowerPoint
+  - Microsoft Access
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -39,25 +32,39 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1204
     technique_name: User Execution
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1129
+    technique_name: Shared Modules
 references:
   - https://github.com/Octoberfest7/XLL_Phishing
   - https://labs.f-secure.com/archive/add-in-opportunities-for-office-persistence/
+  - https://attack.mitre.org/techniques/T1566/
+  - https://attack.mitre.org/techniques/T1566/001/
+  - https://attack.mitre.org/tactics/TA0001/
+  - https://attack.mitre.org/techniques/T1137/
+  - https://attack.mitre.org/techniques/T1137/006/
+  - https://attack.mitre.org/tactics/TA0003/
+  - https://attack.mitre.org/techniques/T1129/
+  - https://attack.mitre.org/techniques/T1204/
+  - https://attack.mitre.org/techniques/T1204/002/
+  - https://attack.mitre.org/tactics/TA0002/
 rules:
-  - title: Office Add-In Loaded From Suspicious Path
-    description: Detects Microsoft Office applications loading add-ins from suspicious paths such as Temp or Downloads.
+  - title: Suspicious Office Add-in Execution from Temp Directory
+    description: Detects Office applications executing add-ins (wll, xll, ppa, ppam, xla, xlam, vsto) from the Temp directory.
     platform: sigma
     severity: medium
     tactics:
+      - execution
       - initial_access
-      - persistence
     techniques:
-      - T1137.006
+      - T1204.002
       - T1566.001
     data_sources:
       - process_creation
       - windows
-  - title: Office Add-In Loaded By Suspicious Parent
-    description: Detects Microsoft Office applications loading add-ins with a suspicious parent process like cmd.exe or powershell.exe.
+  - title: Suspicious Office Add-in Execution with Unusual Parent Process
+    description: Detects Office applications executing add-ins (wll, xll, ppa, ppam, xla, xlam, vsto) with cmd.exe or powershell.exe as the parent process.
     platform: sigma
     severity: high
     tactics:
@@ -69,41 +76,42 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: VSTOInstaller executing uninstall
-    description: Detects VSTOInstaller.exe executing with the /Uninstall argument
+  - title: VSTOInstaller executing with URL argument
+    description: Detects VSTOInstaller executing with a URL argument.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - defense_evasion
+      - execution
+      - initial_access
     techniques:
-      - T1070
+      - T1204.002
+      - T1566.001
     data_sources:
       - process_creation
       - windows
 rules_count: 3
 ---
 
-Attackers are increasingly leveraging malicious Microsoft Office Add-Ins to gain initial access and persistence on victim systems. These add-ins, often delivered through phishing campaigns, contain embedded malicious code. This detection identifies unusual execution patterns, such as Office applications (WINWORD.EXE, EXCEL.EXE, POWERPNT.EXE, MSACCESS.EXE, VSTOInstaller.exe) launching add-ins (wll, xll, ppa, ppam, xla, xlam, vsto) from suspicious paths like Temp or Downloads directories, or with atypical parent processes (explorer.exe, OpenWith.exe, cmd.exe, powershell.exe). The detection logic filters out known benign activities to minimize false positives, focusing on anomalies indicative of malicious intent, such as installations of Logitech software. This activity matters because successful exploitation can lead to arbitrary code execution, data theft, and further compromise of the victim's network.
+This detection rule identifies execution of common Microsoft Office applications (WINWORD.EXE, EXCEL.EXE, POWERPNT.EXE, MSACCESS.EXE, VSTOInstaller.exe) to launch an Office Add-In from a suspicious path or with an unusual parent process. The rule leverages process monitoring to detect when these Office applications load add-ins (wll, xll, ppa, ppam, xla, xlam, vsto) from locations like Temp directories, Downloads, or from unusual parent processes such as cmd.exe or powershell.exe. This activity may indicate an attempt to get initial access via a malicious phishing MS Office Add-In. The rule filters out known benign activities, such as Logitech software installations, VSTO uninstalls, and specific Rundll32.exe executions to minimize false positives, focusing on genuine anomalies indicative of malicious intent. The rule was last updated on 2026/04/07.
 
 ## Attack Chain
 
-1.  A user receives a phishing email containing a malicious Microsoft Office document.
-2.  The user opens the document, which prompts them to enable macros or install an add-in.
-3.  The malicious add-in (wll, xll, ppa, ppam, xla, xlam, vsto) is downloaded from a remote server or dropped into a suspicious directory, such as %TEMP% or %APPDATA%.
-4.  The user executes an Office application (WINWORD.EXE, EXCEL.EXE, POWERPNT.EXE, MSACCESS.EXE), which loads the malicious add-in.
-5.  The malicious add-in executes arbitrary code, potentially downloading and executing a second-stage payload.
-6.  The add-in may establish persistence by modifying registry keys or creating scheduled tasks.
-7.  The attacker gains initial access to the system and can perform reconnaissance, lateral movement, and data exfiltration.
-8.  The attacker achieves their objective, which could include data theft, ransomware deployment, or intellectual property theft.
+1.  The attacker sends a spearphishing email with a malicious Office document or a link to download one.
+2.  The victim opens the malicious Office document (e.g., Word, Excel, PowerPoint).
+3.  The Office application executes, triggering the download and execution of a malicious add-in (wll, xll, ppa, ppam, xla, xlam, vsto) from a suspicious location (e.g., %TEMP%, Downloads).
+4.  Alternatively, the user may be tricked into manually installing the add-in.
+5.  The add-in executes within the context of the Office application (WINWORD.EXE, EXCEL.EXE, POWERPNT.EXE, MSACCESS.EXE).
+6.  The malicious add-in performs malicious actions, such as downloading additional payloads, establishing command and control, or exfiltrating data.
+7.  The attacker leverages the compromised Office application and add-in for persistence and further exploitation.
 
 ## Impact
 
-A successful attack can lead to complete system compromise, data theft, and potential ransomware deployment. Organizations across all sectors are at risk, particularly those with a high volume of email traffic. The use of malicious Office Add-Ins provides attackers with a persistent foothold within the victim's environment, allowing for long-term data collection and disruption of business operations. This can lead to significant financial losses, reputational damage, and legal liabilities.
+A successful attack can lead to initial access within the targeted organization. The attacker can then leverage the compromised system for further malicious activities, including data theft, lateral movement, and the installation of ransomware. The use of Office Add-Ins allows attackers to bypass traditional security controls and blend in with legitimate Office activity. Because the rule detects add-in execution, the damage ranges from initial access to lateral movement and persistence depending on the attacker objectives.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Office Add-In Loaded From Suspicious Path` to detect add-ins loaded from temporary or download directories based on `process.args` and `process.name`.
-*   Deploy the Sigma rule `Office Add-In Loaded By Suspicious Parent` to detect add-ins loaded by `cmd.exe` or `powershell.exe` based on `process.parent.name`.
-*   Investigate any instances of `VSTOInstaller.exe` executing with the `/Uninstall` argument, as this may indicate suspicious activity, correlating with the exclusion rule in the provided query.
-*   Monitor for Office applications launching add-ins with parent processes of `explorer.exe` or `OpenWith.exe` using process creation logs and the provided query logic.
-*   Implement stricter email filtering to prevent phishing emails containing malicious Office documents from reaching end-users.
+*   Enable process creation logging in Windows via Sysmon or Windows event logging to capture process execution details. This will activate the rules below.
+*   Deploy the Sigma rules provided to your SIEM to detect suspicious Office add-in execution and tune the rules for your specific environment.
+*   Block execution of Office add-ins from common temporary directories like `%TEMP%` and `Downloads` using application control policies. This mitigates the risk highlighted in the "Attack Chain" section.
+*   Regularly review and audit installed Office add-ins to identify and remove any unauthorized or suspicious add-ins.
+*   Monitor process execution for unusual parent-child relationships involving Office applications, as highlighted in the Sigma rules and the attack chain.
