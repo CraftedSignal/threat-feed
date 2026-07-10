@@ -1,7 +1,7 @@
 ---
 title: PowerShell Windows Defender Exclusion Commands
 slug: 2024-01-powershell-defender-exclusion
-description: Detection of PowerShell commands, specifically `Add-MpPreference` or `Set-MpPreference`, used to create Windows Defender exclusions, enabling attackers to bypass antivirus defenses and execute malicious code undetected.
+description: Attackers use PowerShell commands with `Add-MpPreference` or `Set-MpPreference` to create Windows Defender exclusions, allowing malware to execute undetected.
 date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
@@ -9,17 +9,14 @@ types:
 severities:
   - high
 tags:
-  - defense-evasion
   - powershell
   - windows-defender
+  - exclusion
+  - defense-evasion
 vendors:
   - Microsoft
-  - Splunk
 products:
   - Windows Defender
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -30,8 +27,8 @@ references:
   - https://app.any.run/tasks/cf1245de-06a7-4366-8209-8e3006f2bfe5/
   - https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
 rules:
-  - title: Detect Windows Defender Exclusion via PowerShell
-    description: Detects PowerShell commands used to add or modify Windows Defender exclusions.
+  - title: PowerShell Add-MpPreference Exclusion
+    description: Detects the use of Add-MpPreference to create Windows Defender exclusions via PowerShell.
     platform: sigma
     severity: high
     tactics:
@@ -39,10 +36,10 @@ rules:
     techniques:
       - T1562.001
     data_sources:
-      - process_creation
+      - powershell
       - windows
-  - title: Detect Windows Defender Exclusion via PowerShell Script Block Logging
-    description: Detects PowerShell commands used to add or modify Windows Defender exclusions via script block logging.
+  - title: PowerShell Set-MpPreference Exclusion
+    description: Detects the use of Set-MpPreference to modify Windows Defender exclusions via PowerShell.
     platform: sigma
     severity: high
     tactics:
@@ -50,33 +47,31 @@ rules:
     techniques:
       - T1562.001
     data_sources:
-      - powershell_script
+      - powershell
       - windows
 rules_count: 2
 ---
 
-Attackers often attempt to evade detection by security tools, including Windows Defender. One common method is to add exclusions to prevent Defender from scanning specific files, folders, or processes. PowerShell, a powerful scripting language built into Windows, can be used to manage Defender settings, including exclusions. This makes it an attractive tool for adversaries. This activity is significant because adversaries often use it to bypass Windows Defender, allowing malicious code to execute without detection. If confirmed malicious, this behavior could enable attackers to evade antivirus defenses, maintain persistence, and execute further malicious activities undetected. The references provided show real-world examples of Remcos RAT and other malware families using this technique.
+This brief addresses the threat of attackers using PowerShell to manipulate Windows Defender exclusions. The technique involves executing commands like `Add-MpPreference` or `Set-MpPreference` with specific exclusion parameters. By successfully creating these exclusions, attackers can prevent Windows Defender from scanning or detecting malicious files, folders, or processes. This is significant because it allows malware to operate unimpeded, enabling various malicious activities such as data theft, lateral movement, and persistence. Several threat actors and malware families, including Remcos RAT, AgentTesla, WhisperGate, Warzone RAT, NetSupport RMM tool abuse, and BlankGrabber Stealer, have been observed using these techniques. The attacks often target endpoints running Windows operating systems. This poses a high risk to organizations relying on Windows Defender as a primary security control.
 
 ## Attack Chain
 
-1. An attacker gains initial access to a system, potentially through phishing or exploitation of a vulnerability.
-2. The attacker executes a PowerShell script.
-3. The PowerShell script uses the `Add-MpPreference` or `Set-MpPreference` cmdlet.
-4. The script specifies exclusion parameters, such as `-ExclusionPath`, `-ExclusionProcess`, or `-ExclusionExtension`.
-5. The exclusion is added to Windows Defender, preventing it from scanning the specified files, folders, or processes.
-6. The attacker deploys and executes malware within the excluded path or process.
-7. Windows Defender does not detect the malware due to the exclusion.
-8. The attacker achieves their objectives, such as data theft, system compromise, or ransomware deployment.
+1.  **Initial Access:** The attacker gains initial access to the system through various means, such as exploiting vulnerabilities or compromising credentials. (T1190, T1133)
+2.  **Privilege Escalation:** If necessary, the attacker escalates privileges to gain the required permissions to modify Windows Defender settings. (T1068)
+3.  **PowerShell Execution:** The attacker executes a PowerShell script or command directly in the PowerShell console. (T1059.001)
+4.  **Detection Evasion:** The attacker tests the command in a sandbox environment to ensure it does not trigger existing detections and modify as needed.
+5.  **Add-MpPreference or Set-MpPreference:** The attacker uses `Add-MpPreference` or `Set-MpPreference` to create a new exclusion. The command specifies the path, file, or process to be excluded from Windows Defender scans.
+6.  **Persistence:** The attacker may establish persistence by scheduling tasks or modifying registry keys to ensure the exclusion remains active after a reboot. (T1053.005, T1547.001)
+7.  **Malware Deployment:** With Windows Defender effectively blinded, the attacker deploys malware, such as a Remote Access Trojan (RAT) or information stealer, onto the system.
+8.  **Data Exfiltration/Lateral Movement:** The malware executes its primary function, such as stealing sensitive data or moving laterally to other systems on the network. (TA0010, TA0008)
 
 ## Impact
 
-Successful exploitation of this technique allows attackers to bypass Windows Defender's real-time protection, enabling them to execute malicious code undetected. This can lead to data breaches, system compromise, and other serious security incidents. Multiple threat actors, as demonstrated in the references, have used this technique in various campaigns. This results in malware infections, data exfiltration, and potential ransomware deployment, causing significant financial and reputational damage to affected organizations.
+Successful exploitation allows attackers to bypass Windows Defender, leading to undetected malware execution. This can result in data breaches, financial losses, reputational damage, and disruption of business operations. The impact can range from individual workstation compromises to widespread network infections depending on the attacker's objectives. CISA has highlighted this technique in relation to several malware campaigns like WhisperGate affecting Ukrainian organizations.
 
 ## Recommendation
 
-*   Enable PowerShell Script Block Logging (EventCode 4104) to capture the commands being executed (data_source).
-*   Deploy the Sigma rule `Detect-WindowsDefender-Exclusion` to detect suspicious PowerShell commands that add Windows Defender exclusions.
-*   Investigate any alerts generated by the Sigma rule, focusing on the user and destination involved (rule).
-*   Review existing Windows Defender exclusions to identify any suspicious or unauthorized entries.
-*   Monitor PowerShell execution for unusual or suspicious activity, especially related to Defender management.
-*   Audit and restrict access to PowerShell, limiting its use to authorized personnel and processes.
+*   Deploy the Sigma rules provided to detect PowerShell commands creating Windows Defender exclusions within your environment. Tune the rules as needed for your specific environment.
+*   Enable PowerShell Script Block Logging (EventCode 4104) to provide the necessary data source for the provided Sigma rules.
+*   Review and audit existing Windows Defender exclusions to identify any suspicious or unauthorized entries.
+*   Monitor PowerShell command-line activity for the use of `Add-MpPreference` and `Set-MpPreference` commands with exclusion-related parameters.
