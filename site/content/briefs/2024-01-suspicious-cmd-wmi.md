@@ -1,0 +1,95 @@
+---
+title: Suspicious Cmd Execution via WMI
+slug: 2024-01-suspicious-cmd-wmi
+description: Detects suspicious command execution via Windows Management Instrumentation (WMI) on a remote host, identifying cmd.exe processes initiated by WmiPrvSE.exe with arguments indicative of remote command execution, potentially signifying adversary lateral movement.
+date: "2024-01-03T10:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - windows
+  - execution
+  - lateral-movement
+vendors:
+  - Microsoft
+products:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1047
+    technique_name: Windows Management Instrumentation
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021
+    technique_name: Remote Services
+references:
+  - https://www.elastic.co/security-labs/elastic-protects-against-data-wiper-malware-targeting-ukraine-hermeticwiper
+  - https://www.elastic.co/security-labs/operation-bleeding-bear
+  - https://attack.mitre.org/techniques/T1047/
+  - https://attack.mitre.org/techniques/T1059/
+  - https://attack.mitre.org/techniques/T1059/003/
+  - https://attack.mitre.org/techniques/T1021/
+  - https://attack.mitre.org/techniques/T1021/003/
+rules:
+  - title: Suspicious Cmd Execution via WMI with Loopback
+    description: Detects suspicious command execution via WMI where cmd.exe is spawned by WmiPrvSE.exe with arguments referencing the loopback address, indicating potential remote command execution abuse.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+      - lateral_movement
+    techniques:
+      - T1021.003
+      - T1047
+      - T1059.003
+    data_sources:
+      - process_creation
+      - windows
+  - title: Suspicious Cmd Execution via WMI with Temp File
+    description: Detects suspicious command execution via WMI where cmd.exe is spawned by WmiPrvSE.exe with arguments writing to temp file.
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+      - lateral_movement
+    techniques:
+      - T1021.003
+      - T1047
+      - T1059.003
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+This detection identifies suspicious command execution via Windows Management Instrumentation (WMI) on a remote host. Adversaries can exploit WMI for lateral movement by executing commands remotely, often using cmd.exe. The detection rule identifies such activity by monitoring for cmd.exe processes initiated by WmiPrvSE.exe with specific arguments, indicating potential misuse for executing commands on remote hosts. The detection focuses on command lines containing specific arguments like "\\\\127.0.0.1\\*" and redirection operators like "2>&1" or "1>". This activity is indicative of lateral movement and potential malicious command execution on remote systems. This detection is based on the Elastic Security rule "Suspicious Cmd Execution via WMI" updated on 2026/04/07.
+
+## Attack Chain
+
+1.  An adversary gains initial access to a system within the network (e.g., through phishing or exploiting a vulnerability).
+2.  The adversary uses WMI to execute commands remotely on other systems. This involves using the `WmiPrvSE.exe` process to initiate `cmd.exe`.
+3.  `WmiPrvSE.exe` spawns `cmd.exe` with specific command-line arguments designed for remote execution.
+4.  The command line includes arguments like "\\\\127.0.0.1\\C$\\Windows\\Temp\\*" or "\\\\127.0.0.1\\ADMIN$\\__*.*" which target the local system for command execution.
+5.  Redirection operators "2>&1" or "1>" are used in the command line to manage the output and errors of the executed command, effectively hiding the command's execution.
+6.  `cmd.exe` executes commands to perform actions like reconnaissance, privilege escalation, or deploying malware.
+7.  The adversary leverages the established WMI connection to move laterally to other systems in the network, repeating steps 2-6.
+8.  The final objective is to gain control over critical assets, exfiltrate data, or disrupt operations.
+
+## Impact
+
+Successful exploitation can lead to unauthorized access to sensitive data, system compromise, and lateral movement within the network. This can result in data breaches, financial loss, and reputational damage. The compromise of even a single system can serve as a stepping stone for attackers to pivot to other critical assets, causing widespread disruption.
+
+## Recommendation
+
+*   Enable process creation logging with command line details to detect the spawning of `cmd.exe` by `WmiPrvSE.exe` (see the rules below).
+*   Monitor network connections for WMI activity (destination port 135) originating from unusual endpoints to identify potential lateral movement.
+*   Deploy the Sigma rules to your SIEM and tune them for your environment, considering legitimate administrative WMI usage.
+*   Investigate any alerts generated by the Sigma rules, focusing on command lines containing suspicious arguments like `\\\\127.0.0.1\\*` as seen in the rule detection logic.
+*   Block the loopback IP `127.0.0.1` as a destination for command execution via WMI to prevent attackers from executing commands on remote hosts.
