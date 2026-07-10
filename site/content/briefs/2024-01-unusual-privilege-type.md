@@ -12,6 +12,10 @@ tags:
   - privileged-access
   - privilege-escalation
   - windows
+vendors:
+  - Microsoft
+products:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
