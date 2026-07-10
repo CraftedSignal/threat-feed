@@ -1,19 +1,17 @@
 ---
-title: Azure AD Multiple Service Principals Created by Single Principal
+title: Multiple Azure AD Service Principals Created by Single User
 slug: 2024-01-azure-ad-service-principal-creation
-description: A single compromised Azure AD service principal can create multiple new service principals in a short time frame to establish persistence and facilitate lateral movement within the cloud environment.
-date: "2024-01-03T12:00:00Z"
-type: threat
+description: A single user account rapidly creates multiple Azure AD service principals, potentially indicating malicious activity such as persistence establishment or privilege escalation.
+date: "2024-01-22T12:00:00Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
-actors:
-  - NOBELIUM Group
 tags:
-  - azure-ad
-  - service-principal
+  - azuread
   - persistence
+  - serviceprincipal
 vendors:
   - Microsoft
 products:
@@ -24,11 +22,12 @@ mitre_ttps:
     technique_id: T1136
     technique_name: Create Account
 references:
+  - https://github.com/splunk/security_content/blob/main/detections/cloud/azure_ad_multiple_service_principals_created_by_user.yml
   - https://attack.mitre.org/techniques/T1136/003/
   - https://www.microsoft.com/en-us/security/blog/2024/01/25/midnight-blizzard-guidance-for-responders-on-nation-state-attack/
 rules:
-  - title: Azure AD Multiple Service Principals Created by SP
-    description: Detects when a single service principal creates multiple service principals within a short time frame.
+  - title: Azure AD - Multiple Service Principals Created in Short Timeframe
+    description: Detects a user creating multiple service principals within a short timeframe, potentially indicating malicious activity.
     platform: sigma
     severity: high
     tactics:
@@ -36,11 +35,10 @@ rules:
     techniques:
       - T1136.003
     data_sources:
-      - cloudtrail
-      - azure
-      - o365
-  - title: Azure AD Unusual Service Principal Creation User Agent
-    description: Detects unusual User Agents associated with service principal creation.
+      - webserver
+      - linux
+  - title: Azure AD - Suspicious User Agent in Service Principal Creation
+    description: Detects service principal creation events with uncommon User Agent
     platform: sigma
     severity: medium
     tactics:
@@ -48,34 +46,30 @@ rules:
     techniques:
       - T1136.003
     data_sources:
-      - cloudtrail
-      - azure
-      - o365
+      - webserver
+      - linux
 rules_count: 2
 ---
 
-This analytic detects anomalous behavior in Azure Active Directory (Azure AD) where a single service principal creates more than three unique OAuth applications within a 10-minute span. The activity is identified by monitoring the "Add service principal" operation in Azure AD audit logs. This behavior is significant because it might indicate a compromised or malicious service principal being used to rapidly establish multiple service principals. This rapid creation of service principals could be used to stage a larger attack, enabling unauthorized access, persistence within the environment, and potential lateral movement across the cloud infrastructure. This technique has been associated with advanced persistent threat groups like NOBELIUM, known for targeting cloud environments.
+This threat brief focuses on the rapid creation of Azure AD service principals by a single user. The behavior is flagged when a user creates more than three unique OAuth applications within a 10-minute window, using the "Add service principal" operation. This activity is suspicious because it deviates from typical administrative tasks and could signal an attacker attempting to establish persistence or expand their access within the Azure environment. This activity has been associated with threat actors such as NOBELIUM. Defenders should monitor Azure AD audit logs for anomalous service principal creation patterns.
 
 ## Attack Chain
 
-1.  An attacker compromises an existing Azure AD service principal, potentially through credential theft or application compromise.
-2.  The attacker authenticates to Azure AD using the compromised service principal's credentials.
-3.  The attacker leverages the compromised service principal to execute the "Add service principal" operation in Azure AD.
-4.  The attacker rapidly creates multiple new service principals (more than 3) within a short timeframe (10 minutes). Each new service principal is essentially a new application registration and service principal object.
-5.  The attacker grants the newly created service principals elevated privileges or permissions within the Azure AD environment.
-6.  The attacker uses the newly created service principals to access resources or perform actions that the compromised service principal did not have permission to access, thus achieving lateral movement.
-7.  The attacker leverages the new service principals for persistence, ensuring continued access even if the initial compromised service principal is detected or revoked.
-8.  The attacker may use the newly created service principals to exfiltrate data or deploy malicious applications.
+1. An attacker gains initial access to an Azure AD user account, possibly through credential compromise or phishing.
+2. The attacker logs into the Azure portal or uses Azure CLI with the compromised account.
+3. The attacker programmatically or manually initiates the creation of multiple new service principals using the "Add service principal" operation.
+4. Each service principal is configured with OAuth application permissions.
+5. The attacker configures the service principals to grant them elevated privileges within the Azure environment.
+6. The attacker uses the newly created service principals to access sensitive data or resources.
+7. The attacker establishes persistence by using the service principals to maintain access even if the original compromised account is remediated.
 
 ## Impact
 
-A successful attack can lead to unauthorized access to sensitive resources within the Azure AD environment, enabling data exfiltration, lateral movement to other cloud services, and long-term persistence. Multiple OAuth applications were created by a compromised service principal in a short period of time. This can lead to full compromise of the Azure AD tenant. The impact is high, given the potential for widespread data breach and disruption of cloud services.
+Successful exploitation allows attackers to establish persistence, escalate privileges, and gain unauthorized access to sensitive resources within the Azure Active Directory environment. This can lead to data breaches, service disruptions, and further compromise of the organization's cloud infrastructure. The creation of rogue service principals can be difficult to detect and remediate without proper monitoring and alerting.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Azure AD Multiple Service Principals Created by SP` to your SIEM and tune for your environment to detect this specific behavior.
-*   Investigate any alerts generated by the Sigma rule, focusing on the `src_user` field to identify the potentially compromised service principal.
-*   Review the permissions and activities of the identified service principal to determine the extent of the compromise.
-*   Follow Microsoft's guidance for responders on nation-state attacks, as referenced in the brief, to remediate the compromise and prevent further damage.
-*   Monitor Azure AD audit logs for suspicious "Add service principal" operations, specifically those initiated by service principals.
-*   Implement multi-factor authentication (MFA) for all service principals to mitigate the risk of credential theft.
+*   Deploy the `Azure AD Multiple Service Principals Created by User` detection rule to your SIEM to identify suspicious service principal creation activity in Azure AD logs.
+*   Investigate any alerts generated by the detection rule and determine the legitimacy of the service principal creation activity.
+*   Implement multi-factor authentication (MFA) for all user accounts to reduce the risk of credential compromise (reference: https://www.microsoft.com/en-us/security/blog/2024/01/25/midnight-blizzard-guidance-for-responders-on-nation-state-attack/).
+*   Review and audit existing service principals and their associated permissions to identify and remove any rogue or unnecessary service principals.
