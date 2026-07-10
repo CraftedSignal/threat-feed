@@ -1,8 +1,8 @@
 ---
 title: Persistence via PowerShell Profile Modification
 slug: 2024-01-powershell-profile-persistence
-description: Attackers can modify PowerShell profiles to inject malicious code that executes each time PowerShell starts, establishing persistence on a Windows system.
-date: "2024-01-02T18:17:05Z"
+description: Attackers can establish persistence by creating or modifying PowerShell profiles to execute malicious code each time PowerShell is launched, customizing the user environment.
+date: "2024-01-02T15:00:00Z"
 type: advisory
 types:
   - advisory
@@ -14,14 +14,8 @@ tags:
   - windows
 vendors:
   - Microsoft
-  - CrowdStrike
-  - SentinelOne
 products:
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
-  - Crowdstrike FDR
-affected_os:
-  - Windows
+  - PowerShell
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -35,23 +29,25 @@ references:
   - https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles
   - https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/
 rules:
-  - title: PowerShell Profile Modification
-    description: Detects modification of PowerShell profile scripts, which can be used for persistence.
+  - title: Detect PowerShell Profile Modification
+    description: Detects the creation or modification of PowerShell profile scripts.
     platform: sigma
     severity: medium
     tactics:
       - persistence
+      - privilege_escalation
     techniques:
       - T1546.013
     data_sources:
       - file_event
       - windows
-  - title: Suspicious PowerShell Profile Location
-    description: Detects PowerShell profiles created in system32 directory.
+  - title: Detect PowerShell Profile in System32
+    description: Detects the creation or modification of PowerShell profile scripts in System32, which is unusual.
     platform: sigma
     severity: high
     tactics:
       - persistence
+      - privilege_escalation
     techniques:
       - T1546.013
     data_sources:
@@ -60,26 +56,25 @@ rules:
 rules_count: 2
 ---
 
-PowerShell profiles are scripts that run when PowerShell starts, customizing the user's environment. Attackers can abuse this feature to gain persistence by modifying these profiles to execute malicious code each time a user launches PowerShell. The modification of PowerShell profiles allows the attacker to run arbitrary commands without requiring user interaction or explicit execution of malicious scripts. The targeted profile file names include `profile.ps1` and `Microsoft.Powershell_profile.ps1`, and the attack affects Windows systems where PowerShell is commonly used.
+PowerShell profiles are scripts that execute when PowerShell starts, customizing the user environment. While often used legitimately, attackers can abuse this feature for persistence by injecting malicious code into these profiles. This technique allows the attacker to automatically execute code whenever a user opens a PowerShell session. This rule detects creation or modification events of PowerShell profile files, such as `profile.ps1` and `Microsoft.Powershell_profile.ps1`, within standard profile paths. Detecting these modifications can reveal potential malicious persistence mechanisms.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to the system through unspecified means.
-2.  The attacker identifies the location of PowerShell profile scripts, typically found in `C:\Users\<Username>\Documents\WindowsPowerShell\`.
-3.  The attacker modifies an existing PowerShell profile (e.g., `profile.ps1`) or creates a new one if it doesn't exist.
-4.  The attacker injects malicious code into the PowerShell profile. This code could download and execute additional payloads, establish a reverse shell, or perform other malicious activities.
-5.  The attacker ensures the malicious code runs when PowerShell is launched by modifying the profile content.
-6.  When a user opens PowerShell, the profile script executes automatically, running the injected malicious code.
-7.  The malicious code performs its intended actions, such as establishing persistence by creating scheduled tasks or modifying registry keys.
+1. An attacker gains initial access to a system (e.g., through phishing or exploiting a vulnerability).
+2. The attacker identifies the location of PowerShell profile scripts (e.g., `$PROFILE`, `$env:windir\System32\WindowsPowerShell\v1.0\profile.ps1`).
+3. The attacker modifies an existing PowerShell profile (e.g., `profile.ps1`) or creates a new one if it doesn't exist.
+4. The attacker injects malicious PowerShell code into the profile, such as downloading and executing a payload, adding a backdoor, or establishing a reverse shell.
+5. A user launches PowerShell, triggering the execution of the modified or created profile script.
+6. The malicious code within the profile executes automatically, allowing the attacker to maintain persistence.
+7. The attacker can perform actions such as gathering credentials, moving laterally within the network, or exfiltrating data.
+8. The attacker maintains persistent access to the system as the malicious PowerShell code will execute every time a user launches PowerShell.
 
 ## Impact
 
-Successful exploitation allows attackers to maintain persistent access to compromised systems. This persistence can be used to perform various malicious activities, including data theft, lateral movement, and deployment of ransomware. The severity is medium as it requires local access or prior compromise, but can lead to significant impact if successful.
+Successful exploitation can lead to persistent access to compromised systems. Attackers can use this persistence to perform various malicious activities, including lateral movement, data exfiltration, and credential theft. The scope of impact depends on the privileges of the user whose profile is compromised.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "PowerShell Profile Modification" to detect unauthorized changes to PowerShell profile scripts.
-*   Monitor file creation and modification events in the `C:\Users\*\Documents\WindowsPowerShell\` and `C:\Windows\System32\WindowsPowerShell\` directories for suspicious activity.
-*   Enable PowerShell script block logging and transcription to gain visibility into the contents of PowerShell scripts being executed.
-*   Restrict PowerShell usage to authorized personnel via Group Policy or other application control mechanisms.
-*   Regularly audit PowerShell profiles for suspicious or unexpected code.
+*   Deploy the Sigma rule "Detect PowerShell Profile Modification" to your SIEM to identify suspicious file modifications in PowerShell profile directories.
+*   Enable Sysmon file event logging to ensure the "Detect PowerShell Profile Modification" rule functions correctly.
+*   Monitor PowerShell execution logs for suspicious commands or scripts executed from PowerShell profiles.
