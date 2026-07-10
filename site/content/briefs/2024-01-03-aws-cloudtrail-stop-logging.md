@@ -1,8 +1,8 @@
 ---
-title: AWS CloudTrail Logging Stopped for Defense Evasion
+title: AWS CloudTrail Stop Logging Detection
 slug: 2024-01-03-aws-cloudtrail-stop-logging
-description: Detection of AWS CloudTrail StopLogging events indicates a potential defense evasion attempt by an attacker to operate stealthily within a compromised AWS environment and hinder incident response.
-date: "2024-01-03T12:00:00Z"
+description: Detection of adversaries stopping CloudTrail logging to evade detection and operate stealthily within a compromised AWS environment.
+date: "2024-01-03T15:00:00Z"
 type: advisory
 types:
   - advisory
@@ -12,15 +12,10 @@ tags:
   - aws
   - cloudtrail
   - defense-evasion
-  - aws-account
 vendors:
-  - Splunk
-  - Amazon
+  - AWS
 products:
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
-  - CloudTrail
+  - AWS CloudTrail
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -29,8 +24,8 @@ mitre_ttps:
 references:
   - https://attack.mitre.org/techniques/T1562/008/
 rules:
-  - title: AWS CloudTrail StopLogging Detection
-    description: Detects StopLogging events in AWS CloudTrail, excluding console-based actions.
+  - title: AWS CloudTrail Stop Logging
+    description: Detects StopLogging events in AWS CloudTrail to identify potential defense evasion.
     platform: sigma
     severity: high
     tactics:
@@ -40,8 +35,8 @@ rules:
     data_sources:
       - cloudtrail
       - aws
-  - title: AWS CloudTrail StopLogging by User Agent
-    description: Detects StopLogging events based on specific user agent strings, potentially indicating malicious tools.
+  - title: AWS CloudTrail Stop Logging - Non Console
+    description: Detects StopLogging events in AWS CloudTrail excluding console actions
     platform: sigma
     severity: medium
     tactics:
@@ -54,28 +49,26 @@ rules:
 rules_count: 2
 ---
 
-This alert focuses on detecting the `StopLogging` event within AWS CloudTrail, a critical indicator of potential defense evasion. Attackers often disable CloudTrail logging to conceal their malicious activities, making it difficult for security teams to detect and respond to breaches effectively. The detection specifically looks for successful `StopLogging` events (`errorCode = success`) originating from sources other than the AWS console (`userAgent!=console.amazonaws.com`). By identifying these instances, security teams can quickly investigate the reasons behind the logging stoppage, determine if it was authorized, and take appropriate action to prevent further unauthorized activities. This is especially critical for maintaining visibility and control over AWS environments, ensuring that malicious actions are not conducted without a trace.
+This brief focuses on detecting the `StopLogging` event within AWS CloudTrail logs, a tactic used by attackers to evade detection and operate discreetly within compromised AWS environments. The detection excludes benign `StopLogging` actions originating from the AWS console and focuses on successful attempts performed programmatically or through the CLI. By stopping CloudTrail logging, adversaries aim to eliminate traces of their malicious activities, hindering incident response, forensic investigations, and potentially enabling unauthorized access or data exfiltration. This activity can occur after initial access and privilege escalation to allow for unfettered lateral movement and data compromise. The detection logic leverages event data from AWS CloudTrail, specifically focusing on the `StopLogging` event name and its associated parameters.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to an AWS account, potentially through compromised credentials or exploiting a misconfiguration.
-2.  The attacker assumes a role or escalates privileges to gain sufficient permissions to manage CloudTrail.
-3.  The attacker identifies the active CloudTrail trails within the AWS environment.
-4.  The attacker executes the `StopLogging` API call against the identified CloudTrail trail.
-5.  CloudTrail logs the `StopLogging` event, recording the action, user, and source IP.
-6.  The attacker proceeds with malicious activities, such as data exfiltration, resource manipulation, or deploying backdoors, without being logged by CloudTrail.
-7.  The attacker attempts to remove or modify existing security controls and monitoring configurations.
-8.  The attacker persists in the environment, potentially creating new identities or backdoors to maintain access.
+1.  **Initial Compromise:** The attacker gains initial access to the AWS environment, potentially through compromised credentials or exploiting a vulnerability in an EC2 instance.
+2.  **Privilege Escalation:** The attacker escalates their privileges within the AWS environment, potentially by exploiting misconfigured IAM roles or policies.
+3.  **Identify CloudTrail:** The attacker identifies that CloudTrail is enabled and actively logging events within the AWS environment.
+4.  **Attempt StopLogging:** The attacker attempts to stop CloudTrail logging using the AWS CLI or API, issuing the `StopLogging` command.
+5.  **Successful StopLogging:** The `StopLogging` command is successfully executed, disabling CloudTrail logging. The event is recorded in CloudTrail before logging is disabled.
+6.  **Lateral Movement:** With CloudTrail logging disabled, the attacker moves laterally within the AWS environment, accessing other resources and services without being monitored.
+7.  **Data Exfiltration:** The attacker exfiltrates sensitive data from the AWS environment to an external location.
+8.  **Persistence:** The attacker establishes persistence within the AWS environment, ensuring continued access even if their initial access method is revoked.
 
 ## Impact
 
-Successful disabling of CloudTrail logging can have severe consequences. It impairs incident response by removing the primary source of audit data. Without CloudTrail logs, security teams lose visibility into attacker activities, making it difficult to determine the scope and impact of the breach. Attackers can operate undetected, exfiltrate sensitive data, modify critical resources, and establish persistent backdoors. The impact can range from data breaches and financial losses to reputational damage and regulatory fines.
+Successful disabling of CloudTrail logging allows attackers to operate undetected within an AWS environment, hindering incident response and forensic investigations. This can lead to significant data breaches, unauthorized access to sensitive resources, and long-term damage to the organization's reputation. The impact is magnified in environments with weak access controls and limited monitoring capabilities. Depending on the scope of access, the damage can range from data exfiltration to complete infrastructure compromise.
 
 ## Recommendation
 
-*   Deploy the provided Sigma rule to your SIEM to detect instances of `StopLogging` events in AWS CloudTrail logs and tune for your environment.
-*   Investigate any detected `StopLogging` events, focusing on the user (`user`), source IP (`src`), and reason for stopping logging.
-*   Enable multi-factor authentication (MFA) for all AWS accounts to prevent credential compromise (TTP: TA0001).
-*   Enforce the principle of least privilege to minimize the impact of compromised credentials (TTP: TA0004).
-*   Regularly review and audit CloudTrail configurations to ensure logging is enabled and properly configured (TTP: TA0005).
-*   Implement alerting for changes to CloudTrail configuration to detect unauthorized modifications (TTP: TA0005).
+*   Deploy the Sigma rule `AWS CloudTrail Stop Logging` to your SIEM and tune for your environment.
+*   Investigate any `StopLogging` events in AWS CloudTrail logs, especially those not initiated from the console.
+*   Monitor AWS CloudTrail logs for suspicious activity and potential defense evasion techniques.
+*   Implement strong IAM policies to restrict access to sensitive AWS resources and prevent unauthorized modification of CloudTrail configurations.
