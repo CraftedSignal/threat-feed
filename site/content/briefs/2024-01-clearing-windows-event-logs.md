@@ -11,6 +11,10 @@ severities:
 tags:
   - defense-evasion
   - windows
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - windows
 mitre_ttps:
