@@ -1,7 +1,7 @@
 ---
-title: Vvveb Authenticated Remote Code Execution via .htaccess Upload (CVE-2026-41934)
+title: Vvveb CMS v1.0.8 Remote Code Execution via File Rename
 slug: 2024-01-vvveb-rce
-description: Vvveb versions before 1.0.8.2 are vulnerable to authenticated remote code execution (RCE), enabling low-privilege users to execute arbitrary code by uploading a malicious .htaccess file and subsequently uploading PHP code with a mapped extension, resulting in unauthenticated RCE upon file access.
+description: Vvveb CMS v1.0.8 is vulnerable to remote code execution due to a missing return statement in the file rename handler, allowing authenticated attackers to bypass extension restrictions and execute arbitrary code by manipulating .htaccess and .php files.
 date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
@@ -10,70 +10,79 @@ severities:
   - critical
 tags:
   - rce
-  - htaccess
-  - vvveb
-  - CVE-2026-41934
-  - attack.execution
+  - web-application
+  - vvveb-cms
 vendors:
   - Vvveb
 products:
-  - Vvveb
+  - Vvveb CMS
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1505
-    technique_name: Server Software Component
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2026-41934
-    cvss: 8.8
+  - id: CVE-2026-6257
+    cvss: 9.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-41934
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-6257
 rules:
-  - title: Detect Suspicious .htaccess Uploads
-    description: Detects attempts to upload .htaccess files using web server logs.
+  - title: Detect Suspicious .htaccess File Modification
+    description: Detects creation or modification of .htaccess files containing suspicious PHP execution directives.
     platform: sigma
     severity: high
     tactics:
       - persistence
     techniques:
-      - T1505.003
+      - T1562.004
     data_sources:
-      - webserver
+      - file_event
       - linux
-  - title: Detect Web Request for unusual file extensions
-    description: Detects web requests for PHP files with unusual extensions
+  - title: Detect .php File Creation in Upload Directories
+    description: Detects creation of PHP files in common upload directories, indicating potential web shell activity.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - execution
     techniques:
-      - T1505.003
+      - T1059.001
     data_sources:
-      - webserver
+      - file_event
       - linux
-rules_count: 2
+  - title: Webserver process creating files with php extensions
+    description: Detects Apache/Nginx webserver processes creating files with a .php extension
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+    techniques:
+      - T1059.001
+    data_sources:
+      - file_event
+      - linux
+rules_count: 3
 ---
 
-Vvveb versions prior to 1.0.8.2 are susceptible to an authenticated remote code execution vulnerability, identified as CVE-2026-41934. This flaw allows attackers with low-privilege accounts (editor, author, contributor, or site_admin) to execute arbitrary code on the server. The vulnerability stems from insufficient file extension restrictions in the admin code editor. An attacker can leverage this weakness to upload a specially crafted .htaccess file, which maps arbitrary file extensions to the PHP handler. Subsequently, they can upload a PHP file with the newly mapped extension. When this PHP file is accessed via HTTP, the server executes the embedded code, resulting in unauthenticated remote code execution. This poses a significant threat, as it enables attackers to compromise the entire web server.
+Vvveb CMS v1.0.8 is susceptible to a remote code execution vulnerability (CVE-2026-6257) within its media management component. The flaw stems from a missing return statement in the file rename handler, which fails to properly restrict file extensions during renaming operations. This oversight allows authenticated attackers to bypass intended security measures and rename files to potentially dangerous extensions, such as .php or .htaccess. This vulnerability allows attackers to inject Apache directives and subsequently execute arbitrary code on the server. Successful exploitation grants the attacker the same privileges as the web server user (www-data), potentially leading to full system compromise.
 
 ## Attack Chain
 
-1.  An attacker gains authenticated access to the Vvveb application with editor, author, contributor, or site_admin privileges.
-2.  The attacker navigates to the admin code editor within the Vvveb application.
-3.  The attacker crafts a malicious .htaccess file that maps an arbitrary file extension (e.g., .test) to the PHP handler. The .htaccess file contains the line: `AddType application/x-httpd-php .test`
-4.  The attacker uses the admin code editor to upload the malicious .htaccess file to a publicly accessible directory on the web server.
-5.  The attacker crafts a PHP file containing malicious code and saves it with the file extension mapped in the .htaccess file (e.g., shell.test).
-6.  The attacker uploads the PHP file (shell.test) to the same directory as the .htaccess file using the admin code editor.
-7.  The attacker sends an HTTP request to the uploaded PHP file (e.g., `http://example.com/path/to/shell.test`).
-8.  The web server, due to the .htaccess configuration, interprets the .test file as PHP and executes the malicious code, achieving remote code execution.
+1. An attacker authenticates to the Vvveb CMS application with valid credentials.
+2. The attacker uploads a benign text file (e.g., "test.txt") through the media management interface.
+3. The attacker leverages the vulnerable file rename functionality to rename "test.txt" to ".htaccess".
+4. The attacker injects malicious Apache directives into the ".htaccess" file. This is done to associate PHP execution with other file extensions (e.g., image files) or to directly inject PHP code.
+5. The attacker uploads another benign file, such as an image file ("evil.jpg").
+6. The attacker renames "evil.jpg" to "evil.php" (or another extension configured in the .htaccess file).
+7. When "evil.php" is accessed via a web request, the injected Apache directives cause the file to be parsed as PHP code.
+8. The attacker executes arbitrary operating system commands with the privileges of the web server user (www-data).
 
 ## Impact
 
-Successful exploitation of CVE-2026-41934 allows an attacker to execute arbitrary code on the web server hosting Vvveb. This can lead to complete system compromise, data theft, defacement of the website, or further lateral movement within the network. The vulnerability affects all Vvveb instances running versions prior to 1.0.8.2. Due to the ease of exploitation, a wide range of Vvveb installations are potentially at risk.
+Successful exploitation of this vulnerability allows an attacker to execute arbitrary code on the affected Vvveb CMS server. The attacker gains the same privileges as the web server user (www-data), potentially leading to sensitive data disclosure, modification of website content, or full system compromise. Given the CVSS v3.1 base score of 9.1, this vulnerability poses a critical risk to organizations using the affected Vvveb CMS version.
 
 ## Recommendation
 
-*   Upgrade Vvveb to version 1.0.8.2 or later to patch CVE-2026-41934 immediately.
-*   Implement the Sigma rule "Detect Suspicious .htaccess Uploads" to detect attempts to upload malicious .htaccess files via the webserver logs.
-*   Monitor web server access logs for requests to files with unusual extensions (e.g., .test, .custom) after the upload of .htaccess files to identify potential exploitation attempts.
-*   Implement the Sigma rule "Detect Web Request for unusual file extensions" to detect requests to files with unusual file extensions.
+*   Apply the patch or upgrade to a non-vulnerable version of Vvveb CMS to remediate CVE-2026-6257.
+*   Monitor web server logs for suspicious file rename requests targeting ".htaccess" or ".php" extensions using the provided Sigma rule.
+*   Implement strict file extension validation on the server side to prevent unauthorized file renaming.
+*   Review and restrict Apache directives to prevent injection of malicious configurations via .htaccess files.
