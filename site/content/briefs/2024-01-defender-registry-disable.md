@@ -1,23 +1,21 @@
 ---
 title: Windows Defender Disabled via Registry Modification
 slug: 2024-01-defender-registry-disable
-description: Attackers modify the Windows Defender registry settings to disable the service or set the service to be started manually, evading defenses.
-date: "2024-01-23T12:00:00Z"
+description: Attackers modify Windows Defender registry settings to disable the service or set the service to manual start, evading defenses to operate undetected.
+date: "2024-01-30T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
 tags:
   - defense-evasion
   - windows
-  - registry modification
+  - registry-modification
 vendors:
   - Microsoft
-  - Trend Micro
 products:
   - Windows Defender
-  - Security Agent
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -31,16 +29,33 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1562
     technique_name: Impair Defenses
-references:
-  - https://thedfirreport.com/2020/12/13/defender-control/
-  - https://attack.mitre.org/techniques/T1112/
-  - https://attack.mitre.org/techniques/T1562/
-  - https://attack.mitre.org/techniques/T1562/001/
-  - https://attack.mitre.org/techniques/T1562/006/
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_defender_disabled_via_registry.toml
 rules:
-  - title: Registry Modification to Disable Windows Defender
-    description: Detects modifications to the Windows Defender registry settings to disable the service.
+  - title: Windows Defender Disable AntiSpyware Registry Modification
+    description: Detects modification of the DisableAntiSpyware registry key to disable Windows Defender.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1112
+      - T1562.001
+    data_sources:
+      - registry_set
+      - windows
+  - title: Windows Defender Service Start Type Modification
+    description: Detects modification of the WinDefend service start type to disable or set to manual.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1112
+      - T1562.001
+    data_sources:
+      - registry_set
+      - windows
+  - title: Detect Potential Windows Defender Tampering via Registry
+    description: Detects potential tampering with Windows Defender by monitoring for changes in specific registry keys related to its functionality, excluding authorized processes.
     platform: sigma
     severity: low
     tactics:
@@ -51,40 +66,31 @@ rules:
     data_sources:
       - registry_set
       - windows
-  - title: WinDefend Service Start Value Modified
-    description: Detects changes to the WinDefend service start value in the registry.
-    platform: sigma
-    severity: low
-    tactics:
-      - defense_evasion
-    techniques:
-      - T1112
-      - T1562.001
-    data_sources:
-      - registry_set
-      - windows
-rules_count: 2
+rules_count: 3
 ---
 
-Attackers commonly disable Windows Defender to evade detection and facilitate malicious activities. This involves modifying specific registry settings to either disable the service entirely or prevent it from starting automatically. The rule specifically identifies modifications to the `DisableAntiSpyware` and `WinDefend\\Start` registry keys. The DFIR Report has documented this technique in real-world incidents, highlighting its effectiveness in bypassing built-in security measures. This allows threat actors to operate with reduced risk of detection, enabling them to deploy malware, exfiltrate data, or perform other malicious actions without immediate interference from the endpoint security solution.
+Attackers often disable or modify security tools like Windows Defender as a defense evasion tactic. This involves modifying specific registry settings to either completely disable the antivirus or prevent it from starting automatically. The detection rule identifies modifications to the Windows Defender registry settings, such as `DisableAntiSpyware` and `Start` values under the `WinDefend` service key. This tactic is frequently observed post-compromise to facilitate lateral movement, persistence, and data exfiltration without interference from endpoint security solutions. Understanding and detecting these modifications is crucial for maintaining a robust security posture and preventing further malicious activity.
 
 ## Attack Chain
 
-1. An attacker gains initial access to the target system, potentially through phishing or exploiting a software vulnerability.
-2. The attacker elevates privileges to obtain the necessary permissions to modify the registry.
-3. The attacker modifies the `HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\DisableAntiSpyware` registry key to disable Windows Defender, setting its value to "1" or "0x00000001".
-4. Alternatively, the attacker modifies the `HKLM\\System\\*ControlSet*\\Services\\WinDefend\\Start` registry key to prevent the Windows Defender service from starting automatically. The attacker sets the value to "3" or "4" (or their hexadecimal equivalents "0x00000003", "0x00000004").
-5. The attacker verifies that Windows Defender is disabled by checking the Security Center or attempting to run a scan.
-6. With Windows Defender disabled, the attacker proceeds to deploy malware or execute malicious commands without interference from the antivirus software.
-7. The attacker may further disable security settings and block security-related indicators.
+1. Initial Access: An attacker gains initial access to the system via external means (e.g., compromised credentials, software vulnerability).
+2. Privilege Escalation: The attacker escalates privileges to gain administrative rights, required for modifying registry settings.
+3. Defense Evasion: The attacker modifies the `DisableAntiSpyware` registry value under `HKLM\SOFTWARE\Policies\Microsoft\Windows Defender` to disable Windows Defender.
+4. Service Configuration Change: The attacker modifies the `Start` registry value under `HKLM\System\*\ControlSet*\Services\WinDefend` to prevent the service from starting automatically (setting it to manual or disabled).
+5. Persistence: The attacker establishes persistence to maintain access even after system reboots.
+6. Lateral Movement: With defenses impaired, the attacker moves laterally within the network to access additional systems and data.
+7. Data Exfiltration: The attacker exfiltrates sensitive data to an external location.
+8. Impact: The attacker achieves their objective, whether it's data theft, ransomware deployment, or disruption of services.
 
 ## Impact
 
-If successful, this attack can lead to a complete compromise of the affected system. With Windows Defender disabled, the system becomes vulnerable to malware infections, data exfiltration, and other malicious activities. This can result in financial losses, data breaches, and reputational damage for the targeted organization. The lack of immediate detection allows attackers to establish persistence and expand their foothold within the network.
+Successful disabling of Windows Defender can lead to complete compromise of the affected system. Without active antivirus protection, malware can execute without detection, leading to data theft, system damage, or ransomware infection. The absence of endpoint protection increases the dwell time of attackers, allowing them to move laterally within the network, potentially impacting numerous systems. This can result in significant financial loss, reputational damage, and regulatory penalties.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Registry Modification to Disable Windows Defender" to your SIEM and tune for your environment to detect unauthorized changes to Windows Defender registry settings.
-*   Monitor registry events for changes to the `HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\DisableAntiSpyware` and `HKLM\\System\\*ControlSet*\\Services\\WinDefend\\Start` registry keys using the provided log sources.
-*   Investigate any alerts generated by the Sigma rule, focusing on identifying the process and user account responsible for the registry modifications.
-*   Enable Sysmon registry event logging to capture the necessary data for the Sigma rule to function effectively.
+*   Enable Sysmon registry event logging to detect registry modifications (Data Source: Sysmon).
+*   Deploy the Sigma rule "Windows Defender Disabled via Registry Modification" to your SIEM and tune for your environment (Sigma rule).
+*   Investigate any alerts generated by this rule promptly to determine the legitimacy of the registry modification (Sigma rule).
+*   Monitor process execution chains (parent process tree) for unknown processes modifying the registry (Data Source: Elastic Endgame, Elastic Defend, Sysmon, Microsoft Defender XDR).
+*   Implement strict access controls to limit who can modify registry settings (all log sources).
+*   Regularly review and audit Windows Defender configuration to ensure it is enabled and functioning correctly (all log sources).
