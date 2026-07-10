@@ -1,8 +1,8 @@
 ---
-title: Flowise SSRF Protection Bypass via Unprotected Built-in HTTP Modules
+title: FlowiseAI API Chain SSRF Vulnerability
 slug: 2024-01-09-flowise-ssrf
-description: Flowise is vulnerable to SSRF protection bypass via unprotected built-in HTTP modules in the custom function sandbox, allowing authenticated users to access internal network resources by exploiting the lack of SSRF protection on Node.js `http`, `https`, and `net` modules.
-date: "2026-04-16T21:50:12Z"
+description: A Server-Side Request Forgery (SSRF) vulnerability exists in FlowiseAI's POST/GET API Chain components, allowing unauthenticated attackers to force the server to make arbitrary HTTP requests to internal and external systems by injecting malicious prompt templates.
+date: "2024-01-09T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,18 +10,47 @@ severities:
   - high
 tags:
   - ssrf
-  - flowise
-  - cloud
+  - flowiseai
+  - prompt-injection
+  - vulnerability
+vendors:
+  - FlowiseAI
+products:
+  - FlowiseAI
+  - npm/flowise
+  - npm/flowise-components
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1018
+    technique_name: Remote System Discovery
 references:
-  - https://github.com/advisories/GHSA-xhmj-rg95-44hv
+  - https://github.com/advisories/GHSA-6r77-hqx7-7vw8
+iocs:
+  - type: url
+    value: http://host.docker.internal:8080/flag
+  - type: url
+    value: http://internal-api.company.local
+ioc_counts:
+  url: 2
 rules:
-  - title: Flowise SSRF Using HTTP Module
-    description: Detects SSRF attempts in Flowise by monitoring for HTTP requests originating from the custom function feature that target cloud metadata endpoints using the built-in http module.
+  - title: FlowiseAI Suspicious Internal Network Connection
+    description: Detects FlowiseAI servers making connections to internal IP ranges, indicating potential SSRF exploitation.
+    platform: sigma
+    severity: high
+    tactics:
+      - discovery
+    techniques:
+      - T1018
+    data_sources:
+      - network_connection
+      - windows
+  - title: FlowiseAI Malicious API URL Request
+    description: Detects FlowiseAI making a request to malicious API URL.
     platform: sigma
     severity: high
     tactics:
@@ -31,41 +60,29 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Flowise Custom Function Execution with Network Activity
-    description: Detects the execution of custom functions in Flowise that results in network connections, which may indicate SSRF attempts or other malicious activities.
-    platform: sigma
-    severity: medium
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - network_connection
-      - linux
 rules_count: 2
 ---
 
-Flowise, a low-code platform for building custom automation workflows, is susceptible to a Server-Side Request Forgery (SSRF) protection bypass. This vulnerability stems from the application's incomplete implementation of SSRF defenses. While `axios` and `node-fetch` libraries are secured with an `HTTP_DENY_LIST`, the built-in Node.js modules `http`, `https`, and `net` are permitted within the NodeVM sandbox without any equivalent restrictions. An authenticated attacker can exploit this oversight in Flowise version 3.0.13 and earlier to make arbitrary HTTP requests to internal network resources. This issue allows bypassing intended security controls and potentially accessing sensitive information, such as cloud provider metadata services.
+FlowiseAI, a low-code open-source platform for building custom LLM flows, is vulnerable to Server-Side Request Forgery (SSRF) in its POST/GET API Chain components. This vulnerability, affecting versions 3.0.13 and earlier, allows unauthenticated attackers to inject malicious prompt templates into the API documentation, causing the FlowiseAI server to make arbitrary HTTP requests to internal and external systems. The root cause is the lack of validation when constructing URLs and request parameters from LLM responses. Attackers can exploit this by providing fake API documentation that redirects requests to sensitive internal services, enabling internal network reconnaissance, credential access, and data exfiltration. This vulnerability poses a significant risk as it allows attackers to bypass intended API constraints and potentially gain unauthorized access to internal resources.
 
 ## Attack Chain
 
-1.  The attacker authenticates to a Flowise instance using a valid API key or session.
-2.  The attacker crafts a malicious JavaScript payload designed to exploit the custom function feature.
-3.  The malicious payload imports the built-in `http` module.
-4.  The payload constructs an HTTP request targeting an internal resource, such as the AWS metadata service at `169.254.169.254`.
-5.  The request includes a header to obtain an IAM token: `'X-aws-ec2-metadata-token-ttl-seconds': '21600'`.
-6.  The payload uses the obtained IAM token to request temporary AWS credentials from the metadata service.
-7.  The custom function executes the code within the NodeVM sandbox, bypassing the intended SSRF protection.
-8.  The attacker retrieves the temporary AWS credentials from the metadata service, potentially leading to unauthorized access to AWS resources.
+1.  The attacker crafts a malicious prompt containing a manipulated API documentation section.
+2.  This malicious prompt is injected into the FlowiseAI API Chain component via user-controlled input.
+3.  The API Chain component uses an LLM to generate a URL and data parameters based on the injected API documentation.
+4.  Due to lack of validation, the system constructs an HTTP request using the attacker-controlled URL and data.
+5.  The FlowiseAI server executes the HTTP request to the attacker-specified internal or external endpoint using the `fetch` function in `postCore.ts`.
+6.  The attacker gains the ability to interact with internal APIs, cloud metadata endpoints, or other sensitive resources that trust the FlowiseAI server.
+7.  The attacker scans internal network services to identify running applications and open ports.
+8.  The attacker exfiltrates sensitive data obtained from internal services or cloud metadata.
 
 ## Impact
 
-Successful exploitation of this SSRF vulnerability can have significant consequences. Attackers can steal temporary IAM credentials from cloud provider metadata services, granting them unauthorized access to other cloud resources. Furthermore, they can scan internal networks to discover services and identify additional attack targets. The ability to reach databases, admin panels, and other internal APIs that should not be externally accessible poses a severe security risk, potentially leading to data breaches or system compromise. All Flowise deployments where `HTTP_DENY_LIST` is configured for SSRF protection are vulnerable, while deployments without it are already generally vulnerable to SSRF.
+The SSRF vulnerability allows unauthenticated attackers to abuse the FlowiseAI server as a proxy, leading to internal network reconnaissance, access to cloud metadata, exploitation of internal services, and potential data exfiltration. A successful attack can compromise sensitive internal data, bypass firewall rules, and allow attackers to pivot to other internal resources. Affected packages include `npm/flowise` and `npm/flowise-components` with versions 3.0.13 and earlier. This vulnerability enables attackers to scan internal network services and potentially access cloud metadata endpoints to retrieve credentials.
 
 ## Recommendation
 
-*   Apply the necessary patches to Flowise to remediate the SSRF vulnerability as described in GHSA-xhmj-rg95-44hv.
-*   Deploy the following Sigma rule to detect exploitation attempts involving the `http` module targeting common cloud metadata endpoints: `Flowise SSRF Using HTTP Module`.
-*   Enable logging of HTTP requests originating from the Flowise server to aid in identifying and investigating potential SSRF attacks.
-*   Review and harden network segmentation to limit the impact of potential SSRF vulnerabilities.
-*   Consider disabling the custom function feature if it is not essential to the functionality of the Flowise deployment.
+*   Apply patches or upgrade to versions later than 3.0.13 for `npm/flowise` and `npm/flowise-components` to remediate the SSRF vulnerability.
+*   Deploy the Sigma rule "FlowiseAI Suspicious Internal Network Connection" to detect unauthorized connections to internal networks originating from FlowiseAI servers.
+*   Monitor network traffic originating from FlowiseAI servers for connections to internal IP ranges or sensitive internal services, based on the IOCs provided.
+*   Implement strict input validation and sanitization for user-provided API documentation to prevent prompt injection attacks.
