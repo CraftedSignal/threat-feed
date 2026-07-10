@@ -3,6 +3,7 @@ title: iCagenda Unrestricted File Upload Vulnerability Leading to RCE (CVE-2026-
 slug: 2026-07-icagenda-arbitrary-upload-rce
 description: Attackers are actively exploiting CVE-2026-48939, an unrestricted file upload vulnerability in iCagenda, to upload malicious PHP code and achieve remote code execution on affected web servers.
 date: "2026-07-10T17:16:18Z"
+lastmod: "2026-07-10T18:11:27Z"
 type: threat
 types:
   - threat
@@ -11,6 +12,7 @@ severities:
 exploited: true
 cpes:
   - cpe:2.3:a:joomlic:icagenda:*:*:*:*:-:joomla\!:*:*
+  - cpe:2.3:a:balbooa:forms:*:*:*:*:*:joomla\!:*:*
 tags:
   - web-application
   - rce
@@ -18,8 +20,10 @@ tags:
   - cve
 vendors:
   - iCagenda
+  - Balbooa
 products:
   - iCagenda
+  - Balbooa Forms
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -37,12 +41,15 @@ cves:
   - id: CVE-2026-48939
     cvss: 9.8
     epss: 0.00564
+  - id: CVE-2026-56291
+    cvss: 9.8
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-48939
   - https://www.icagenda.com/#download
   - https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk
   - https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48939
+  - https://www.cisa.gov/news-events/alerts/2026/07/10/cisa-adds-two-known-exploited-vulnerabilities-catalog
 rules:
   - title: Detects CVE-2026-48939 Exploitation - Unrestricted File Upload of PHP Files
     description: Detects CVE-2026-48939 exploitation by monitoring web server logs for HTTP POST requests to iCagenda upload paths that include dangerous file extensions like .php, indicating an attempt to upload a web shell.
@@ -57,6 +64,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-10T18:11:27Z"
+    level: L2
+    summary: added CVE-2026-56291
+    sources:
+      - cisa
+    source_urls:
+      - https://www.cisa.gov/news-events/alerts/2026/07/10/cisa-adds-two-known-exploited-vulnerabilities-catalog
 ---
 
 CVE-2026-48939, an unrestricted upload of file with dangerous type vulnerability in the iCagenda component for Joomla, is being actively exploited in the wild. This critical vulnerability allows remote, unauthenticated attackers to upload arbitrary files, including malicious PHP web shells, through the file attachment feature of the application. Upon successful upload, the attacker can execute the planted PHP code, leading to full remote code execution on the compromised web server. CISA has added CVE-2026-48939 to its Known Exploited Vulnerabilities Catalog, requiring federal agencies to apply mitigations by July 13, 2026. This vulnerability poses a significant risk as it can lead to complete system compromise, data exfiltration, or further network penetration.
