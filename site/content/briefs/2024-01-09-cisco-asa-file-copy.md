@@ -1,0 +1,89 @@
+---
+title: Cisco ASA Device File Copy Activity
+slug: 2024-01-09-cisco-asa-file-copy
+description: Adversaries may copy device files, including configurations and packet captures, from Cisco ASA devices via CLI or ASDM for reconnaissance, credential extraction, or data exfiltration, which can be detected via command execution logs.
+date: "2024-01-09T10:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+tags:
+  - cisco
+  - asa
+  - file_copy
+  - reconnaissance
+  - credential_access
+  - exfiltration
+vendors:
+  - Cisco
+products:
+  - Cisco ASA
+  - Cisco Firepower Threat Defense
+mitre_ttps:
+  - tactic_id: TA0007
+    tactic_name: Reconnaissance
+    technique_id: T1005
+    technique_name: Data from Defaced Website
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1530
+    technique_name: Data from Cloud Storage Object
+references:
+  - https://blog.talosintelligence.com/arcanedoor-new-espionage-focused-campaign-found-targeting-perimeter-network-devices/
+  - https://www.cisco.com/c/en/us/support/docs/security/pix-500-series-security-appliances/63884-config-asa-00.html
+  - https://www.cisco.com/c/en/us/td/docs/security/asa/asa922/configuration/general/asa-922-general-config/monitor-syslog.html#ID-2121-000006da
+rules:
+  - title: Cisco ASA Device File Copy Activity Detection
+    description: Detects file copy activity on Cisco ASA devices via CLI or ASDM, potentially indicating reconnaissance, credential extraction, or data exfiltration.
+    platform: sigma
+    severity: medium
+    tactics:
+      - credential_access
+      - exfiltration
+      - reconnaissance
+    techniques:
+      - T1005
+      - T1530
+    data_sources:
+      - firewall
+      - cisco
+  - title: Cisco ASA Copy Configuration to TFTP
+    description: Detects copying the running configuration to a TFTP server, which could be a sign of credential theft or data exfiltration.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+      - exfiltration
+    techniques:
+      - T1530
+    data_sources:
+      - firewall
+      - cisco
+rules_count: 2
+---
+
+This analytic detects file copy activity on Cisco ASA devices, potentially indicating malicious behavior. Attackers might copy device files, such as configurations (running-config, startup-config), logs, packet captures (pcap capture), or system files (disk0:, flash:, system:, capture:), via CLI or ASDM. This activity could be part of a reconnaissance phase, to extract credentials, or to exfiltrate sensitive data. While legitimate file operations do occur during backups and maintenance, unauthorized copies warrant investigation. This detection focuses on command execution events (message ID 111008 or 111010) containing copy commands. The activity may be associated with threat actors targeting perimeter network devices, such as those detailed in the Talos ArcaneDoor report.
+
+## Attack Chain
+
+1.  The attacker gains initial access to the Cisco ASA device, possibly through compromised credentials or a vulnerability (not specified in source).
+2.  The attacker authenticates to the ASA device via CLI or ASDM using valid credentials.
+3.  The attacker executes a `copy` command to copy sensitive files. This includes commands targeting running-config, startup-config, packet capture files (`/pcap capture:`), or system files from disk0:, flash:, system:, or capture: locations.
+4.  The ASA logs the command execution event with message ID 111008 or 111010.
+5.  The copied files are stored on the ASA's local storage (disk0:, flash:, etc.).
+6.  (Hypothetical) The attacker uses another command (e.g., `tftp`) to transfer the copied files off the ASA device to an attacker-controlled server.
+7.  (Hypothetical) The attacker extracts credentials from the configuration files or analyzes packet captures for sensitive information.
+8.  The attacker uses the extracted information for further lateral movement or data exfiltration.
+
+## Impact
+
+Successful exploitation allows the attacker to access sensitive information, including device configurations and potentially network traffic data. Configuration files often contain usernames, passwords, and other sensitive information that can be used for lateral movement within the network. Packet captures may contain sensitive data transmitted over the network. This can lead to a complete compromise of the network infrastructure. The references indicate that nation-state actors may target these devices.
+
+## Recommendation
+
+*   Enable Cisco ASA syslog data ingestion into your SIEM via the Cisco Security Cloud TA to collect the necessary logs.
+*   Configure your ASA and FTD devices to generate and forward message IDs 111008 and 111010 as outlined in the "how_to_implement" section.
+*   Deploy the Sigma rule "Cisco ASA Device File Copy Activity Detection" to identify suspicious file copy commands executed on Cisco ASA devices.
+*   Investigate any alerts generated by the Sigma rule "Cisco ASA Device File Copy Activity Detection," especially those originating from non-administrative accounts or occurring during unusual hours.
+*   Monitor command execution logs for unexpected use of the `copy` command, specifically targeting sensitive files and directories (running-config, startup-config, /pcap capture:, disk0:, flash:, system:, capture:).
