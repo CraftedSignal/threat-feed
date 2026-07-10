@@ -1,8 +1,8 @@
 ---
-title: Tenda F451 Stack-Based Buffer Overflow Vulnerability (CVE-2026-5990)
+title: Tenda F451 Stack-Based Buffer Overflow Vulnerability (CVE-2026-5992)
 slug: 2024-01-tenda-buffer-overflow
-description: A stack-based buffer overflow vulnerability exists in Tenda F451 1.0.0.7 within the fromSafeEmailFilter function of the /goform/SafeEmailFilter file, which can be exploited remotely by manipulating the 'page' argument, leading to potential arbitrary code execution.
-date: "2024-01-03T12:00:00Z"
+description: Tenda F451 version 1.0.0.7 is vulnerable to a stack-based buffer overflow in the fromP2pListFilter function, allowing remote attackers to execute arbitrary code by manipulating the 'page' argument in the /goform/P2pListFilter file.
+date: "2024-01-23T10:00:00Z"
 type: advisory
 types:
   - advisory
@@ -11,94 +11,69 @@ severities:
 tags:
   - tenda
   - buffer-overflow
-  - router
-  - cve-2026-5990
-  - webserver
+  - cve-2026-5992
 vendors:
   - Tenda
 products:
-  - Tenda F451
+  - F451
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1189
-    technique_name: Drive-by Compromise
-  - tactic_id: TA0006
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1016
-    technique_name: System Network Configuration Discovery
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1057
-    technique_name: Process Discovery
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1547.001
-    technique_name: Boot or Logon Autostart Execution
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
 cves:
-  - id: CVE-2026-5990
+  - id: CVE-2026-5992
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5990
-  - https://github.com/Jimi-Lab/cve/issues/8
-  - https://vuldb.com/submit/792861
-  - https://vuldb.com/vuln/356544
-  - https://vuldb.com/vuln/356544/cti
-  - https://www.tenda.com.cn/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-5992
+  - https://github.com/Jimi-Lab/cve/issues/10
+  - https://vuldb.com/vuln/356546
 rules:
-  - title: Detect Suspicious URI Filter Page Parameter
-    description: Detects requests to /goform/SafeEmailFilter with an unusually long page parameter, indicative of a potential buffer overflow attempt.
+  - title: Tenda F451 P2P Filter Buffer Overflow Attempt
+    description: Detects attempts to exploit the stack-based buffer overflow vulnerability (CVE-2026-5992) in the Tenda F451 router by monitoring HTTP requests to the /goform/P2pListFilter endpoint with overly long 'page' parameters.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
-      - exploitation
+      - initial_access
     techniques:
-      - T1203
+      - T1071.001
+      - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect Webserver Spawning Processes
-    description: Detects unexpected processes being spawned from the web server, which may indicate code execution from the webserver.
+  - title: Tenda F451 Unauthorized Access to P2P Filter
+    description: Detects unauthorized attempts to access the P2P filter configuration page on Tenda F451 routers, which may indicate reconnaissance or exploitation attempts.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - discovery
     techniques:
-      - T1059.004
+      - T1068
     data_sources:
-      - process_creation
+      - webserver
       - linux
 rules_count: 2
 ---
 
-A critical stack-based buffer overflow vulnerability, identified as CVE-2026-5990, has been discovered in Tenda F451 version 1.0.0.7. The vulnerability resides within the `fromSafeEmailFilter` function of the `/goform/SafeEmailFilter` file. Successful exploitation allows a remote attacker to execute arbitrary code on the affected device by manipulating the `page` argument. Publicly available exploit code exists, increasing the risk of widespread exploitation. This vulnerability poses a significant threat to organizations and individuals using the affected Tenda F451 router, potentially enabling complete device compromise and network intrusion.
+CVE-2026-5992 is a critical stack-based buffer overflow vulnerability affecting Tenda F451 version 1.0.0.7. The vulnerability resides within the `fromP2pListFilter` function of the `/goform/P2pListFilter` file. Attackers can remotely exploit this flaw by manipulating the `page` argument, potentially leading to arbitrary code execution. Publicly available exploits exist, increasing the likelihood of exploitation. Given the prevalence of Tenda routers and the ease of remote exploitation, this vulnerability poses a significant risk to home and small business networks. Successful exploitation could allow attackers to gain complete control of the affected device, leading to data theft, network compromise, and potential use in botnet activities. Defenders should prioritize detection and mitigation efforts to prevent exploitation.
 
 ## Attack Chain
 
-1.  Attacker identifies a Tenda F451 router version 1.0.0.7 exposed to the internet.
-2.  The attacker crafts a malicious HTTP request targeting the `/goform/SafeEmailFilter` endpoint.
-3.  The HTTP request includes a `page` argument containing a payload exceeding the buffer size allocated for it within the `fromSafeEmailFilter` function.
-4.  The `fromSafeEmailFilter` function processes the crafted HTTP request without proper bounds checking.
-5.  The oversized payload overwrites adjacent memory on the stack, including critical program data and return addresses.
-6.  Upon function return, the overwritten return address redirects execution flow to attacker-controlled code.
-7.  The attacker gains arbitrary code execution on the Tenda F451 router.
-8.  The attacker pivots to other devices on the network, establishes persistence, or exfiltrates sensitive data.
+1.  The attacker identifies a vulnerable Tenda F451 router running firmware version 1.0.0.7.
+2.  The attacker crafts a malicious HTTP request targeting the `/goform/P2pListFilter` endpoint.
+3.  The crafted request includes a `page` argument with a payload exceeding the buffer size allocated for it in the `fromP2pListFilter` function.
+4.  The router processes the malicious HTTP request, triggering the stack-based buffer overflow within the `fromP2pListFilter` function due to insufficient bounds checking on the `page` argument.
+5.  The overflow overwrites adjacent memory regions on the stack, including the return address.
+6.  When the `fromP2pListFilter` function returns, it jumps to the address overwritten by the attacker-controlled payload.
+7.  The attacker-controlled payload executes arbitrary code on the router, such as downloading and executing a malicious binary from a remote server or modifying router configuration.
+8.  The attacker gains complete control of the router, enabling them to perform malicious activities such as eavesdropping on network traffic, modifying DNS settings, or using the router as part of a botnet.
 
 ## Impact
 
-Successful exploitation of CVE-2026-5990 allows a remote attacker to gain complete control of the affected Tenda F451 router. This can lead to a variety of malicious activities, including data theft, device hijacking for botnet inclusion, and lateral movement to other devices on the network. Given the widespread use of Tenda routers in home and small business environments, a large number of devices are potentially vulnerable. The potential damage includes loss of sensitive information, disruption of network services, and compromised devices being used for further malicious activities.
+Successful exploitation of CVE-2026-5992 allows remote attackers to gain complete control of vulnerable Tenda F451 routers. This can lead to a variety of malicious activities, including data theft, network compromise, and botnet recruitment. Given the widespread use of Tenda routers, a large number of devices are potentially at risk. If attackers successfully exploit this vulnerability, they can perform man-in-the-middle attacks, redirect users to malicious websites, and compromise connected devices on the network.
 
 ## Recommendation
 
-*   Monitor web server logs for requests to `/goform/SafeEmailFilter` containing abnormally long `page` parameters. Deploy the Sigma rule `DetectSuspiciousURIFilterPageParameter` to identify potential exploitation attempts.
-*   Implement rate limiting on requests to the `/goform/SafeEmailFilter` endpoint to mitigate brute-force exploitation attempts.
-*   Contact Tenda support and request a security patch for CVE-2026-5990.
-*   Monitor for unexpected process execution originating from the router's web server process using the `DetectWebserverSpawningProcesses` Sigma rule.
+*   Monitor web server logs for HTTP requests targeting the `/goform/P2pListFilter` endpoint with unusually long `page` parameters to detect potential exploitation attempts. Use the Sigma rule `Tenda F451 P2P Filter Buffer Overflow Attempt` to identify this behavior.
+*   Deploy network intrusion detection systems (IDS) rules to detect exploitation attempts targeting CVE-2026-5992.
+*   Unfortunately, there is no patch available as of this writing, and the device is end-of-life. Consider replacing the affected device.
