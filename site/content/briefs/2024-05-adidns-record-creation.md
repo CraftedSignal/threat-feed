@@ -12,6 +12,11 @@ tags:
   - credential-access
   - windows
   - active-directory
+vendors:
+  - Microsoft
+products:
+  - Active Directory
+  - Active Directory Integrated DNS
 affected_os:
   - Windows
 mitre_ttps:
