@@ -1,27 +1,22 @@
 ---
 title: Unusual Service Host Child Process - Childless Service
 slug: 2024-01-unusual-svchost-child-process
-description: This detection identifies unusual child processes of Service Host (svchost.exe) that traditionally do not spawn child processes, potentially indicating code injection or exploitation.
-date: "2024-01-04T12:00:00Z"
+description: The rule identifies unusual child processes of Service Host (svchost.exe) instances hosting services that do not traditionally spawn child processes, potentially indicating code injection or exploitation leading to privilege escalation and defense evasion.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
 tags:
-  - process_injection
-  - privilege_escalation
-  - defense_evasion
+  - process-injection
+  - privilege-escalation
+  - defense-evasion
   - windows
 vendors:
   - Microsoft
-  - Elastic
-  - SentinelOne
 products:
-  - m365_defender
-  - Elastic Defend
-  - SentinelOne Cloud Funnel
-  - Sysmon
+  - Windows
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -32,14 +27,12 @@ mitre_ttps:
     technique_id: T1055
     technique_name: Process Injection
 references:
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/privilege_escalation_unusual_svchost_childproc_childless.toml
   - https://attack.mitre.org/techniques/T1055/
   - https://attack.mitre.org/techniques/T1055/012/
-  - https://attack.mitre.org/tactics/TA0004/
-  - https://attack.mitre.org/tactics/TA0005/
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/privilege_escalation_unusual_svchost_childproc_childless.toml
 rules:
-  - title: Unusual Svchost Child Process - Childless Service
-    description: Detects unusual child processes of Service Host (svchost.exe) that traditionally do not spawn any child processes.
+  - title: Unusual Service Host Child Process
+    description: Detects unusual child processes of Service Host (svchost.exe) for services known to be childless, indicating potential code injection.
     platform: sigma
     severity: medium
     tactics:
@@ -47,45 +40,46 @@ rules:
       - privilege_escalation
     techniques:
       - T1055
+      - T1055.012
     data_sources:
       - process_creation
       - windows
-  - title: Suspicious Rundll32 Child Process from Svchost
-    description: Detects rundll32.exe executing winethc.dll under WdiServiceHost, which can be indicative of malicious activity.
+  - title: Suspicious Network Connection from Svchost Child Process
+    description: Detects network connections initiated by child processes of svchost.exe that are not typically expected, potentially indicating malicious activity following process injection.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
-      - defense_evasion
-      - privilege_escalation
+      - command_and_control
     techniques:
       - T1055
+      - T1071.001
     data_sources:
-      - process_creation
+      - network_connection
       - windows
 rules_count: 2
 ---
 
-The Windows Service Host process (svchost.exe) is a critical system component that hosts multiple Windows services to optimize resource utilization. Certain services running under svchost.exe are not expected to spawn child processes. Attackers may inject malicious code into these "childless" svchost processes to execute unauthorized commands and evade traditional detection methods. This detection rule identifies anomalies by monitoring child processes of svchost.exe instances associated with services known to be childless, such as `WdiSystemHost`, `LicenseManager`, and `StorSvc`, flagging potential process injection or exploitation attempts. The rule aims to identify deviations from the expected behavior of these services, providing an early warning of potential malicious activity.
+This detection rule identifies unusual child processes spawned by Service Host (svchost.exe) on Windows systems. Svchost.exe is a critical process that hosts various Windows services. Certain services running under svchost.exe are not expected to create child processes. Adversaries may inject malicious code into these svchost.exe instances to execute unauthorized processes while evading detection. This technique is often employed to gain elevated privileges or bypass security controls. The rule focuses on detecting deviations from normal behavior by monitoring child processes of these traditionally childless services. The identified services include WdiSystemHost, LicenseManager, StorSvc, CDPSvc, cdbhsvc, BthAvctpSvc, SstpSvc, WdiServiceHost, imgsvc, TrkWks, WpnService, IKEEXT, PolicyAgent, CryptSvc, netprofm, ProfSvc, StateRepository, camsvc, LanmanWorkstation, NlaSvc, EventLog, hidserv, DisplayEnhancementService, ShellHWDetection, AppHostSvc, fhsvc, CscService, and PushToInstall. This rule aims to detect T1055, specifically process hollowing (T1055.012).
 
 ## Attack Chain
 
-1.  Attacker gains initial access to the system through an exploit or by leveraging existing credentials.
-2.  The attacker injects malicious code into a running svchost.exe process associated with a childless service like `WdiSystemHost` or `StorSvc`.
-3.  The injected code spawns a child process from the targeted svchost.exe instance. This could involve executing a system utility or a custom payload.
-4.  The child process executes commands or performs actions dictated by the injected code, such as establishing a reverse shell or downloading additional payloads.
-5.  The attacker uses the spawned process to perform reconnaissance activities, gathering information about the system and network.
-6.  The attacker escalates privileges, potentially leveraging vulnerabilities or misconfigurations accessible from the compromised svchost process.
-7.  The attacker moves laterally to other systems on the network, using the compromised system as a pivot point.
-8.  The attacker achieves their final objective, which may include data exfiltration, ransomware deployment, or establishing persistent access.
+1.  The attacker gains initial access to the system through various means (e.g., phishing, exploitation of a vulnerability).
+2.  The attacker injects malicious code into a running svchost.exe process. The targeted svchost.exe instance hosts a service known to be "childless," such as WdiSystemHost or StorSvc.
+3.  Process injection leverages techniques like process hollowing (T1055.012), where a legitimate process (svchost.exe) is replaced with malicious code.
+4.  The injected code spawns a new process (e.g., cmd.exe, powershell.exe) as a child of the compromised svchost.exe instance.
+5.  This newly created child process executes malicious commands or scripts, potentially leading to privilege escalation or lateral movement.
+6.  The attacker attempts to evade detection by hiding malicious activity within a legitimate system process (svchost.exe).
+7.  The attacker gains persistence through the injected code, allowing for continued access to the system.
+8.  The attacker achieves their final objective, such as data exfiltration, deployment of ransomware, or establishing a command and control channel.
 
 ## Impact
 
-Successful exploitation can lead to privilege escalation, allowing attackers to gain control of the compromised system and potentially the entire network. Attackers can use the compromised system as a staging ground for further attacks, exfiltrate sensitive data, deploy ransomware, or disrupt critical services. The medium severity score reflects the potential for significant impact if the activity is not detected and contained promptly.
+A successful attack can lead to privilege escalation, allowing the attacker to gain control of the compromised system. This can result in data theft, system disruption, or the deployment of ransomware. The rule helps in identifying potentially malicious activities that abuse svchost.exe, reducing the risk of successful code injection attacks and limiting damage to the system and organization. Failure to detect this activity can result in complete system compromise.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Unusual Svchost Child Process - Childless Service` to your SIEM to detect potential process injection attacks targeting svchost.exe.
-*   Tune the rule by adding known false positives to the exclusion list, such as `WerFault.exe`, `WerFaultSecure.exe`, and `wermgr.exe` to reduce alert fatigue.
-*   Enable process creation logging via Sysmon (Event ID 1) with command line details for better visibility into spawned processes, as described in the [setup guide](https://ela.st/sysmon-event-1-setup).
-*   Investigate any alerts generated by the rule, focusing on the process details and parent-child relationships to determine the legitimacy of the spawned process.
-*   Consider using endpoint detection and response (EDR) solutions like Elastic Defend for enhanced visibility and automated response capabilities, as the rule is designed for data generated by [Elastic Defend](https://www.elastic.co/security/endpoint-security).
+*   Deploy the provided Sigma rule to your SIEM to detect unusual child processes of svchost.exe instances hosting childless services. Tune the rule based on your environment to minimize false positives (rule: "Unusual Service Host Child Process").
+*   Investigate any alerts generated by the Sigma rule by examining the process details, parent process arguments, and network connections of the child process (rule: "Unusual Service Host Child Process").
+*   Review and update the exclusion list in the Sigma rule to account for legitimate processes that may occasionally be spawned by svchost.exe (rule: "Unusual Service Host Child Process").
+*   Enable process creation logging with command line arguments in Sysmon to provide detailed information for investigating potential process injection attacks (logsource: process_creation).
+*   Monitor network connections originating from svchost.exe processes and their child processes for suspicious outbound traffic (logsource: network_connection).
