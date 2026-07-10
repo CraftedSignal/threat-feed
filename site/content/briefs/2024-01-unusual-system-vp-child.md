@@ -1,7 +1,7 @@
 ---
-title: Unusual Child Process from a System Virtual Process
+title: Unusual Child Process from System Virtual Process Indicates Process Injection
 slug: 2024-01-unusual-system-vp-child
-description: A suspicious child process of the Windows virtual system process is detected, potentially indicating code injection and defense evasion.
+description: The rule detects suspicious child processes of the Windows System process (PID 4), excluding legitimate processes, potentially indicating code injection used for defense evasion.
 date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
@@ -13,14 +13,8 @@ tags:
   - process-injection
   - windows
 vendors:
-  - Elastic
   - Microsoft
-  - SentinelOne
 products:
-  - Elastic Defend
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0005
@@ -28,10 +22,12 @@ mitre_ttps:
     technique_id: T1055
     technique_name: Process Injection
 references:
+  - https://attack.mitre.org/techniques/T1055/
+  - https://attack.mitre.org/tactics/TA0005/
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_unusual_system_vp_child_program.toml
 rules:
-  - title: Unusual System Virtual Process Child Process
-    description: Detects unusual child processes spawned by the Windows virtual system process (PID 4), potentially indicating code injection or other malicious activity.
+  - title: Unusual Child Process from System Virtual Process
+    description: Detects unusual child processes spawned from the Windows System process (PID 4), potentially indicating code injection.
     platform: sigma
     severity: high
     tactics:
@@ -41,41 +37,39 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Suspicious Non-Executable Child Process of System PID 4
-    description: Detects non-executable files (e.g., scripts) spawned by the System process which may be a sign of exploitation.
+  - title: Unusual Child Process from System Virtual Process - PowerShell
+    description: Detects PowerShell child processes spawned from the Windows System process (PID 4), potentially indicating code injection.
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
     techniques:
-      - T1059.001
+      - T1055
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-This detection identifies unusual child processes spawned by the Windows virtual system process (PID 4). This activity is suspicious because the System process should typically only spawn specific, known system-level processes. Unexpected child processes could indicate code injection, process hollowing, or other defense evasion techniques. The rule specifically looks for processes where the parent PID is 4 and the executable name does not match expected system binaries (Registry, MemCompression, smss.exe, HotPatch). This rule uses data from Elastic Defend, Microsoft Defender XDR, SentinelOne, Sysmon, and Windows event logs, making it applicable across various environments. The rule focuses on Windows systems because PID 4 is specific to the Windows operating system.
+This detection identifies suspicious child processes spawned from the Windows System process (PID 4). The System process is a critical component responsible for managing system-level operations. Attackers may attempt to inject malicious code into the System process to evade detection and execute unauthorized actions. This detection focuses on identifying anomalous child processes originating from the System process, excluding known legitimate executables such as Registry, MemCompression, and smss.exe. The rule relies on process creation events and aims to detect process injection attempts, which are often used for defense evasion. This rule was created by Elastic and last updated on 2026/04/07.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to the system through an exploit or social engineering.
-2.  The attacker injects malicious code into a running process.
-3.  The injected code leverages the SYSTEM process (PID 4) to spawn a child process.
-4.  The child process is an unexpected or malicious binary, not typically associated with the SYSTEM process.
-5.  The malicious child process executes further actions, such as establishing persistence or escalating privileges.
-6.  The attacker uses the spawned process to perform lateral movement or data exfiltration.
-7.  The attacker attempts to evade detection by hiding within the SYSTEM process context.
-8.  The final objective is to compromise the system, steal data, or establish a persistent foothold.
+1. An attacker gains initial access to the system through various means, such as exploiting a vulnerability or using stolen credentials.
+2. The attacker attempts to inject malicious code into a running process. In this case, the System process (PID 4) is targeted.
+3. The attacker's code overwrites a portion of the System process's memory with malicious instructions.
+4. The attacker triggers the execution of the injected code within the System process.
+5. The injected code spawns a new child process from the System process. This child process is typically unexpected and malicious.
+6. The malicious child process performs unauthorized actions, such as downloading malware, establishing command and control, or exfiltrating data.
+7. The attacker leverages the elevated privileges of the System process to further compromise the system and evade detection.
 
 ## Impact
 
-A successful attack could lead to complete system compromise, data theft, or the installation of persistent malware. The attacker gains elevated privileges by leveraging the SYSTEM process, making detection and remediation more difficult. While the number of affected victims and sectors are not specified, this technique can be used in targeted attacks against high-value systems, potentially impacting critical infrastructure or sensitive data environments.
+Successful process injection into the System process can lead to complete system compromise. The attacker gains elevated privileges and can perform any action on the system, including installing malware, stealing sensitive data, and disrupting critical services. Due to the critical nature of the System process, a successful attack can have severe consequences for the availability, integrity, and confidentiality of the system and its data. The rule's high risk score of 73 reflects the potential impact of successful exploitation.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Unusual System Virtual Process Child Process` to your SIEM to detect potential code injection and defense evasion attempts.
-*   Enable Sysmon process creation logging (Event ID 1) to ensure the required data is available for the Sigma rule.
-*   Investigate any alerts generated by the Sigma rule by examining the parent and child process relationships, binary identities, and process behaviors as outlined in the rule's triage notes.
-*   Monitor `process.executable`, `process.hash.sha256`, `process.pe.original_file_name`, `process.code_signature.subject_name` to confirm the child binary identity and ensure it is consistent with the claimed system component.
-*   Review `process.Ext.relative_file_creation_time`, `process.Ext.relative_file_name_modify_time`, and `process.Ext.created_suspended` to identify potential file dropping, renaming, or hollowing techniques at process startup.
+*   Enable process creation logging (e.g., Sysmon Event ID 1) to capture child processes and their parent processes, which is required for the detections below.
+*   Deploy the Sigma rule `Unusual Child Process from System Virtual Process` to your SIEM and tune the exclusions for your specific environment.
+*   Investigate any alerts generated by this rule by examining the process details of the suspicious child process, the events leading up to the process creation, and any associated network activity.
+*   Review and update the exclusion list of legitimate processes to minimize false positives and ensure accurate detection.
