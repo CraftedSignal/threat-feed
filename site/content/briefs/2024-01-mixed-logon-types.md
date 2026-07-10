@@ -1,8 +1,8 @@
 ---
 title: Potential Account Takeover via Mixed Logon Types
 slug: 2024-01-mixed-logon-types
-description: A Windows account, usually a service account, exhibiting a sudden shift in logon type patterns may indicate account compromise and lateral movement.
-date: "2024-01-30T12:00:00Z"
+description: Atypical logon patterns, where a high-volume account (e.g., service account) exhibits successful logons using an unusual logon type with low frequency, may indicate account takeover or stolen credentials.
+date: "2024-01-31T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -13,8 +13,8 @@ tags:
   - privilege-escalation
   - windows
 vendors:
-  - Elastic
-affected_os:
+  - Microsoft
+products:
   - Windows
 mitre_ttps:
   - tactic_id: TA0004
@@ -23,10 +23,9 @@ mitre_ttps:
     technique_name: Valid Accounts
 references:
   - https://attack.mitre.org/techniques/T1078/
-  - https://ela.st/audit-logon
 rules:
-  - title: Potential Account Takeover - Mixed Logon Types
-    description: Detects a user account with a high volume of logons using one logon type suddenly showing successful logons using a different logon type with a low count.
+  - title: Potential Account Takeover - Unusual Interactive Logon for Service Account
+    description: Detects interactive logons (Logon Type 2) for accounts that are typically used as service accounts (high volume of service logons).
     platform: sigma
     severity: medium
     tactics:
@@ -36,12 +35,12 @@ rules:
     data_sources:
       - authentication
       - windows
-  - title: Anomalous Logon Type - Network Logon
-    description: Detects anomalous network logon events (LogonType 3) for accounts that typically use other logon types.
+  - title: High Volume Service Account with Low Volume Network Logon
+    description: Detects service accounts (high logon volume) showing low volume network logons, indicating possible compromise.
     platform: sigma
     severity: medium
     tactics:
-      - credential_access
+      - privilege_escalation
     techniques:
       - T1078
     data_sources:
@@ -50,25 +49,27 @@ rules:
 rules_count: 2
 ---
 
-This detection identifies a user account, often a service account, that typically logs in with high volume using a specific logon type but suddenly shows successful logons using a different logon type with low count. This anomalous behavior may signal account takeover or the use of stolen credentials from a new context, such as an interactive or network logon when only batch/service logons were expected. This is critical for defenders as compromised service accounts can lead to privilege escalation and lateral movement within the network. The detection logic is based on Windows Security Event Logs (Event ID 4624).
+This detection identifies potential account takeover scenarios by monitoring Windows Security Event Logs for unusual logon patterns. Specifically, it focuses on user accounts that typically log in with a specific logon type (e.g., service accounts using Batch or Network logon) but suddenly exhibit successful logons using a different logon type with significantly lower frequency. This behavior could indicate that an attacker has compromised the account's credentials and is using them from a new context, such as interactive or network logons, which were not previously associated with the account. The rule is designed to detect suspicious activity and alert security teams to potential account compromises, enabling them to investigate and mitigate the threat. It operates by analyzing Windows Security Event ID 4624 logs and uses statistical analysis to identify accounts with mixed logon types and significant discrepancies in logon counts.
 
 ## Attack Chain
 
-1.  Initial Access: An attacker gains access to a valid user account's credentials.
-2.  Credential Compromise: The attacker compromises a service account's credentials.
-3.  Lateral Movement: The attacker attempts to move laterally within the network using the compromised credentials.
-4.  Authentication: The attacker uses the stolen credentials to authenticate to a system using a previously unseen logon type.
-5.  Privilege Escalation: The attacker leverages the service account permissions to escalate privileges.
-6.  Resource Access: The attacker accesses sensitive resources using the compromised account.
-7.  Data Exfiltration: The attacker exfiltrates sensitive data.
+1.  **Credential Compromise:** An attacker gains access to a valid user account's credentials through various means, such as phishing, malware, or brute-force attacks.
+2.  **Initial Access:** The attacker uses the compromised credentials to attempt to log in to a system.
+3.  **Successful Authentication (Unusual Logon Type):** The attacker successfully authenticates using a logon type that is atypical for the compromised account (e.g., interactive logon for a service account). This generates Windows Security Event ID 4624.
+4.  **Lateral Movement:** After gaining initial access, the attacker may attempt to move laterally to other systems within the network using the compromised credentials.
+5.  **Privilege Escalation:** The attacker may attempt to escalate their privileges on the compromised system or other systems they can access.
+6.  **Data Exfiltration/Malicious Activity:** The attacker uses the compromised account to access sensitive data or perform malicious activities.
+7.  **Persistence:** The attacker may attempt to establish persistence mechanisms to maintain access to the compromised system or network.
 
 ## Impact
 
-A successful account takeover can lead to significant damage, including data breaches, privilege escalation, and lateral movement within the network. If a service account is compromised, attackers can gain access to sensitive systems and data, potentially affecting hundreds or thousands of users or systems. The shift in logon types often goes unnoticed, enabling attackers to maintain persistence.
+A successful account takeover can lead to significant damage, including unauthorized access to sensitive data, financial loss, reputational damage, and disruption of business operations. Depending on the privileges associated with the compromised account, attackers could potentially escalate their privileges, move laterally within the network, and gain access to critical systems and data. The impact can range from minor data breaches to complete system compromise and significant financial losses. Targeted sectors could include any organization that relies on Windows-based systems and uses service accounts or other accounts with specific logon type profiles.
 
 ## Recommendation
 
-*   Enable Audit Logon to generate the necessary events for detection (reference: Setup section in content).
-*   Deploy the Sigma rule "Potential Account Takeover - Mixed Logon Types" to your SIEM and tune the thresholds (max_logon, min_logon) based on your environment.
-*   Investigate any alerts generated by the Sigma rule by confirming with the account owner or service owner whether the additional logon type is expected (reference: Investigation Guide section).
+*   Deploy the Sigma rule "Potential Account Takeover - Mixed Logon Types" to your SIEM and tune the thresholds (e.g., `max_logon`, `min_logon`) to match your environment's baseline and reduce false positives.
+*   Investigate any alerts generated by the Sigma rule by correlating with other alerts for the same user, such as logons from new source IPs or password changes.
+*   Review which logon types appear in the `winlog.logon.type` field in your security logs to understand the different logon types observed in your environment.
 *   Implement multi-factor authentication (MFA) for all user accounts, including service accounts, to mitigate the risk of credential compromise.
+*   Monitor Windows Security Event Logs (specifically Event ID 4624) for unusual logon activity, focusing on accounts with mixed logon types.
+*   Establish a baseline of expected logon types for different user accounts and services within your environment to identify deviations more effectively.
