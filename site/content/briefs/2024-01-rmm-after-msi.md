@@ -1,68 +1,88 @@
 ---
-title: Remote Management Access Launch After MSI Install
+title: Remote Management Software Launch After MSI Install
 slug: 2024-01-rmm-after-msi
-description: Detects an MSI installer execution followed by the execution of commonly abused Remote Management Software like ScreenConnect, potentially indicating abuse where an attacker triggers an MSI install then connects via a guest link with a known session key.
-date: "2024-01-03T12:00:00Z"
+description: Attackers are leveraging MSI installers to deploy remote management software (RMM) such as ScreenConnect, Syncro, and VNC, potentially indicating unauthorized access and control over compromised systems.
+date: "2024-01-30T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
 tags:
-  - command and control
+  - remote-access
   - rmm
   - msi
-  - windows
-  - remote access
+  - command-and-control
 vendors:
-  - Microsoft
+  - ConnectWise
+  - Syncro
+  - TightVNC
+  - RealVNC
 products:
-  - Microsoft Defender XDR
+  - ConnectWise ScreenConnect
+  - Syncro RMM
+  - TightVNC
+  - RealVNC
 references:
   - https://attack.mitre.org/techniques/T1219/
 rules:
-  - title: ScreenConnect Guest Access After MSI Install
-    description: Detects ScreenConnect client execution with guest access parameters shortly after an MSI install.
+  - title: Remote Management Access Launch After MSI Install
+    description: Detects an MSI installer execution followed by the execution of commonly abused Remote Management Software like ScreenConnect.
     platform: sigma
     severity: medium
     tactics:
       - command_and_control
+    techniques:
+      - T1219
     data_sources:
       - process_creation
       - windows
-  - title: RMM Tool Execution After MSI Install
-    description: Detects execution of Syncro or VNC tools after MSI install.
+  - title: Syncro RMM Install with Config and Key
+    description: Detects execution of Syncro installer with suspicious arguments.
     platform: sigma
     severity: medium
     tactics:
       - command_and_control
+    techniques:
+      - T1219
     data_sources:
       - process_creation
       - windows
-rules_count: 2
+  - title: VNC Server Execution
+    description: Detects execution of VNC server applications.
+    platform: sigma
+    severity: medium
+    tactics:
+      - command_and_control
+    techniques:
+      - T1219
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 3
 ---
 
-This detection identifies a suspicious sequence of events where an MSI installer is executed, followed by the launch of remote management software (RMM) such as ScreenConnect, Syncro, or VNC. Attackers may leverage this technique to gain unauthorized access to systems by first installing malicious software via an MSI package, and then using the RMM software to establish a remote connection. The rule specifically looks for msiexec.exe being run with an install argument (/i) followed by the execution of known RMM tools within a short timeframe. This behavior is often indicative of malicious actors attempting to establish persistent remote access to compromised machines. The detection is designed for Windows environments and covers a range of data sources including Elastic Defend, Sysmon, SentinelOne, Microsoft Defender XDR, and Crowdstrike.
+This threat involves the abuse of MSI installers to deploy and launch remote management software (RMM) on Windows systems. The observed behavior consists of an MSI installer executing, followed by the execution of commonly abused RMM tools like ScreenConnect, Syncro, or VNC. This activity often signifies unauthorized access, where attackers trigger an MSI installation and then connect via a guest link or preconfigured session key. This technique allows attackers to gain persistent remote access to compromised systems. The activity is typically observed within a short timeframe (1 minute) between the MSI installation and the RMM launch. This allows threat actors to bypass traditional access controls and establish a foothold for further malicious activities.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to a system through various means (e.g., social engineering, compromised website, or existing malware).
-2.  The attacker deploys a malicious MSI installer to the victim machine. This can be done through phishing attachments or drive-by downloads.
-3.  The user executes the MSI installer (msiexec.exe) with an installation argument (/i or -i). The parent process is typically explorer.exe or sihost.exe, indicating user-initiated installation.
-4.  The MSI installer executes, potentially installing malware or modifying system settings.
-5.  Within one minute of the MSI installation, a remote management software (RMM) client is launched, such as ScreenConnect.ClientService.exe, Syncro.Installer.exe, tvnserver.exe, or winvnc.exe.
-6.  The RMM client attempts to establish an outbound connection to a remote server controlled by the attacker, often using pre-configured access keys.
-7.  The attacker gains remote access to the compromised system via the RMM client. In the case of ScreenConnect, the attacker may use a guest link with a known session key.
-8.  The attacker performs malicious activities, such as data exfiltration, lateral movement, or installing additional malware.
+1.  User executes a seemingly legitimate MSI installer package (e.g., downloaded from a malicious link or delivered via social engineering).
+2.  `msiexec.exe` process starts with the `/i` argument, initiating the installation process. Parent process is typically `explorer.exe` or `sihost.exe`.
+3.  The MSI installer may drop additional files or modify registry settings as part of its installation routine.
+4.  Within one minute of the MSI installation, a remote management software client (e.g., `ScreenConnect.ClientService.exe`, `Syncro.Installer.exe`, `tvnserver.exe`, or `winvnc.exe`) is executed.
+5.  The RMM software connects to a remote server controlled by the attacker. ScreenConnect connection strings are commonly observed with parameters such as `?e=Access&y=Guest&h*&k=*`.
+6.  The attacker uses the RMM software to gain remote access to the compromised system.
+7.  The attacker performs reconnaissance, privilege escalation, or lateral movement within the network.
+8.  The attacker deploys additional malware, exfiltrates sensitive data, or performs other malicious activities based on their objectives.
 
 ## Impact
 
-Successful exploitation allows attackers to gain persistent remote access to compromised systems. This can lead to data theft, financial fraud, or disruption of services. Depending on the scope of the initial access, the attacker may be able to move laterally within the network, compromising additional systems. The use of RMM software can mask malicious activity as legitimate remote support, making detection more difficult.
+Successful exploitation can lead to unauthorized remote access, data theft, malware deployment, and system compromise. This technique can impact organizations across various sectors, especially those relying on remote access solutions. The ability to remotely control compromised systems can enable attackers to perform a wide range of malicious activities, including data exfiltration, ransomware deployment, and intellectual property theft.
 
 ## Recommendation
 
-*   Enable process creation logging via Sysmon or Windows Security Event Logs to capture the execution of msiexec.exe and RMM tools.
-*   Deploy the "Remote Management Access Launch After MSI Install" Sigma rule to your SIEM and tune the timeframe (maxspan) to suit your environment.
-*   Investigate any alerts generated by this rule, focusing on the source of the MSI file and the destination of the RMM connection.
-*   Block the execution of unauthorized RMM software on your network based on process name, as identified in the rule (ScreenConnect.ClientService.exe, Syncro.Installer.exe, tvnserver.exe, winvnc.exe).
-*   Monitor network connections for RMM software connecting to unusual or external IPs.
+*   Deploy the Sigma rule "Remote Management Access Launch After MSI Install" to your SIEM and tune it for your environment to detect suspicious RMM launches after MSI installations.
+*   Investigate any instances of `msiexec.exe` executing with the `/i` parameter followed by the launch of RMM tools, as detected by the Sigma rule.
+*   Monitor process creation events for `ScreenConnect.ClientService.exe`, `Syncro.Installer.exe`, `tvnserver.exe`, and `winvnc.exe` using process creation logs.
+*   Review network connection logs for connections initiated by the aforementioned RMM tools to external IPs.
+*   Implement application control policies to restrict the execution of unauthorized RMM tools.
