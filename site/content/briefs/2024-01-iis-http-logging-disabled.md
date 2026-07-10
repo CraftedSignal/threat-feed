@@ -1,93 +1,76 @@
 ---
-title: IIS HTTP Logging Disabled via AppCmd.exe
+title: IIS HTTP Logging Disabled
 slug: 2024-01-iis-http-logging-disabled
-description: Detection of adversaries disabling HTTP logging on IIS servers using AppCmd.exe, potentially evading detection by removing evidence of their actions.
-date: "2024-01-03T18:27:00Z"
+description: An attacker with IIS server access can disable HTTP Logging using appcmd.exe with the /dontLog parameter as an anti-forensics measure.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
-  - iis
-  - httplogging
-  - appcmd
   - defense-evasion
-  - persistence
   - windows
+  - iis
 vendors:
   - Microsoft
-  - Splunk
 products:
   - IIS
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
-affected_os:
-  - Windows Server
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1562
     technique_name: Impair Defenses
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1505
-    technique_name: Server Software Component
 references:
-  - https://www.crowdstrike.com/wp-content/uploads/2022/05/crowdstrike-iceapple-a-novel-internet-information-services-post-exploitation-framework-1.pdf
-  - https://unit42.paloaltonetworks.com/unit42-oilrig-uses-rgdoor-iis-backdoor-targets-middle-east/
-  - https://www.secureworks.com/research/bronze-union
-  - https://strontic.github.io/xcyclopedia/library/appcmd.exe-055B2B09409F980BF9B5A3969D01E5B2.html
+  - https://attack.mitre.org/techniques/T1562/
+  - https://attack.mitre.org/techniques/T1562/002/
+  - https://attack.mitre.org/tactics/TA0005/
 rules:
-  - title: Detect AppCmd Usage to Disable HTTP Logging
-    description: Detects the use of AppCmd.exe to disable HTTP logging on IIS servers
+  - title: IIS HTTP Logging Disabled
+    description: Detects when IIS HTTP Logging is disabled via appcmd.exe
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - defense_evasion
     techniques:
-      - T1505.004
-      - T1562.001
+      - T1562.002
     data_sources:
       - process_creation
       - windows
-  - title: Detect AppCmd Usage to Modify HTTP Logging Path
-    description: Detects the use of AppCmd.exe to modify the HTTP logging path, potentially to an invalid location
+  - title: IIS Appcmd.exe Execution from Unusual Location
+    description: Detects appcmd.exe executed from unusual parent processes.
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
     techniques:
-      - T1505.004
-      - T1562.001
+      - T1562
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-Attackers may disable HTTP logging on IIS servers to evade detection and remove forensic evidence of their malicious activity. This can be achieved by using the `AppCmd.exe` utility, a command-line tool for managing IIS. This activity is significant as it can allow adversaries to operate undetected, making it difficult to trace their activities and respond to the intrusion effectively. The attacks have been observed since at least 2022 and target Windows IIS servers. Defenders should monitor for unusual uses of `AppCmd.exe` that disable or modify HTTP logging settings.
+Attackers with access to an IIS server, potentially through a webshell or other means, may attempt to disable HTTP logging to evade detection and hinder forensic investigations. This activity involves using the `appcmd.exe` utility, a command-line tool for managing IIS, to modify the server's logging configuration. Specifically, the attacker uses the `/dontLog*:*True` parameter with `appcmd.exe` to disable HTTP logging. This action prevents the server from recording web requests, making it more difficult to detect malicious activity, such as webshell execution, unauthorized access, or data exfiltration. The targeted systems are Windows servers running IIS. Disabling logging helps attackers cover their tracks and prolong their presence on the compromised system.
 
 ## Attack Chain
 
-1. Initial access to the target Windows server via exploitation of a vulnerability, stolen credentials, or other means (not detailed in source).
-2. The attacker gains a foothold on the IIS server, establishing a command execution channel (e.g., web shell).
-3. The attacker uses `AppCmd.exe` to query the current HTTP logging settings to understand the baseline configuration.
-4. The attacker executes `AppCmd.exe` with parameters to disable HTTP logging, such as setting `dontLog:true` or modifying the logging path to an invalid location.
-5. The system modifies the IIS configuration to disable or alter HTTP logging as specified by the `AppCmd.exe` command.
-6. The attacker performs malicious activities, such as web shell execution or data exfiltration, without HTTP logs recording these actions.
-7. The attacker attempts to maintain persistence on the compromised server using various techniques (not detailed in source).
-8. The attacker achieves their objective, such as data theft, system compromise, or further lateral movement within the network.
+1. The attacker gains initial access to the Windows server, possibly through exploiting a vulnerability or using stolen credentials.
+2. The attacker uploads or otherwise deploys a webshell to a publicly accessible directory within the IIS webroot.
+3. The attacker authenticates to the webshell via HTTP requests.
+4. The attacker executes commands through the webshell, gaining command-line access to the server.
+5. The attacker uses `appcmd.exe` to disable IIS HTTP logging by using the `/dontLog*:*True` parameter.
+6. The command is executed to modify the IIS configuration, preventing further HTTP request logging.
+7. The attacker performs malicious activities, such as lateral movement, data theft, or further exploitation, without generating HTTP logs.
+8. The attacker maintains persistence on the system, potentially through other backdoors or scheduled tasks.
 
 ## Impact
 
-Successful disabling of HTTP logging on IIS servers allows attackers to operate without creating easily accessible logs of their activities. This can significantly hinder incident response efforts, as it becomes more difficult to trace the attacker's actions and understand the scope of the compromise. Without logging, defenders may struggle to identify exploited vulnerabilities, detect malicious web shells, or track data exfiltration attempts. This technique is often seen in conjunction with other defense evasion tactics and can prolong the attacker's presence within the environment.
+Successful disabling of IIS HTTP logging results in a loss of valuable forensic data, hindering incident response and threat hunting efforts. This can lead to a prolonged attacker presence, increased data exfiltration, and further system compromise. Without HTTP logs, detecting webshell activity, identifying exploited vulnerabilities, and tracing attacker actions becomes significantly more difficult.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect AppCmd Usage to Disable HTTP Logging` to identify instances of `AppCmd.exe` being used to disable HTTP logging (see rules).
-*   Enable Sysmon process creation logging (Event ID 1) on all Windows servers to ensure visibility of `AppCmd.exe` execution.
-*   Investigate any alerts generated by the Sigma rule, focusing on the parent processes and users associated with the `AppCmd.exe` execution.
-*   Monitor for unusual changes to IIS configuration files, especially those related to HTTP logging settings.
-*   Review historical logs for any previous attempts to disable HTTP logging using `AppCmd.exe`.
+*   Enable Sysmon process creation logging to detect the execution of `appcmd.exe` with suspicious parameters (Data Source: Sysmon, Windows Security Event Logs).
+*   Deploy the Sigma rule "IIS HTTP Logging Disabled" to your SIEM and tune for your environment to detect disabling of IIS HTTP Logging.
+*   Monitor parent processes of `appcmd.exe` to identify potential webshell activity or unauthorized command execution (Data Source: Elastic Endgame, Elastic Defend).
+*   Review and enforce strict access controls for IIS servers to prevent unauthorized modifications to the server configuration (OS: Windows).
