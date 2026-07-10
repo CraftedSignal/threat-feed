@@ -1,18 +1,17 @@
 ---
-title: Scriban Stack Overflow via Nested Array Initializers
+title: Scriban `object.to_json` Uncontrolled Recursion DoS
 slug: 2024-01-scriban-stack-overflow
-description: Scriban versions before 7.0.0 are vulnerable to a stack overflow exception due to deeply nested array initializers bypassing the ExpressionDepthLimit, leading to uncontrolled recursion and process termination when parsing templates with untrusted input, similar to GHSA-wgh7-7m3c-fx25.
-date: "2024-01-24T12:00:00Z"
+description: The Scriban library is vulnerable to a denial-of-service attack where a specially crafted template with a self-referencing object passed to the `object.to_json` function causes unbounded recursion, leading to a `StackOverflowException` that terminates the .NET process.
+date: "2024-01-29T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - scriban
-  - stack-overflow
   - denial-of-service
-  - template-injection
+  - scriban
+  - .net
 vendors:
   - Scriban
 products:
@@ -23,53 +22,53 @@ mitre_ttps:
     technique_id: T1499
     technique_name: Endpoint Denial of Service
 references:
-  - https://github.com/advisories/GHSA-p6q4-fgr8-vx4p
+  - https://github.com/advisories/GHSA-xcx6-vp38-8hr5
 rules:
-  - title: Detect Scriban Stack Overflow Attempt via Nested Array Initializers
-    description: Detects attempts to exploit the Scriban stack overflow vulnerability by identifying deeply nested array initializers in templates.
+  - title: Detect Scriban StackOverflowException in Application Logs
+    description: Detects StackOverflowException errors in application logs that are likely caused by the Scriban `object.to_json` vulnerability.
     platform: sigma
     severity: high
     tactics:
-      - denial_of_service
+      - availability
     techniques:
-      - T1499.002
+      - T1499.001
     data_sources:
-      - process_creation
-      - windows
-  - title: Detect Scriban Template Parsing with Excessive Recursion
-    description: Detects potential stack overflow exploitation attempts by monitoring for unusual call stack depth within Scriban template parsing operations.
+      - application
+      - windows|linux
+  - title: Detect Process Terminations After Scriban Template Execution
+    description: Detects unexpected process terminations following the execution of Scriban templates, which might indicate a StackOverflowException due to the `object.to_json` vulnerability.
     platform: sigma
     severity: medium
     tactics:
-      - denial_of_service
+      - availability
     techniques:
-      - T1499.002
+      - T1499.001
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-Scriban, a .NET templating engine, is susceptible to a stack overflow vulnerability in versions prior to 7.0.0. This flaw arises from the insufficient protection against deeply nested array initializers within Scriban templates. Specifically, the fix implemented for GHSA-wgh7-7m3c-fx25, which introduced an `ExpressionDepthLimit`, does not effectively prevent recursion through the `ParseArrayInitializer` function when handling such nested structures. The vulnerability can be triggered by crafting malicious templates containing deeply nested array initializers (e.g., `[[[[...`). Exploitation leads to a `StackOverflowException`, abruptly terminating the process and potentially causing denial-of-service conditions in applications utilizing Scriban for template processing. The vulnerability impacts any application calling `Template.Parse` with untrusted input, even with the `ExpressionDepthLimit` enabled.
+Scriban versions prior to 7.0.0 are susceptible to a denial-of-service vulnerability due to uncontrolled recursion in the `object.to_json` function. This function, used for recursive JSON serialization, lacks depth limits, circular reference detection, and stack overflow guards. A malicious Scriban template containing a self-referencing object, when processed by `object.to_json`, triggers unbounded recursion, leading to a `StackOverflowException` that terminates the hosting .NET process. This vulnerability poses a significant risk to applications embedding Scriban for user-provided templates, such as CMS platforms, email template engines, and static site generators. The vulnerability is easily exploitable, requiring only a single line of template code, and does not require authentication.
 
 ## Attack Chain
 
-1. An attacker crafts a Scriban template containing deeply nested array initializers (e.g., `{{[[[[[...1]]]]]}}`).
-2. The application utilizes the `Template.Parse` method from the Scriban library to parse the attacker-controlled template.
-3. During parsing, the `ParseArrayInitializer` function is invoked to handle the array initializer.
-4. `ParseArrayInitializer` recursively calls `ParseExpression` to evaluate the nested expressions within the array.
-5. `ParseExpression` calls `ParseArrayInitializer` again, creating a recursive loop.
-6. This recursion continues without being limited by the `ExpressionDepthLimit`, which is designed to prevent uncontrolled recursion in other parsing paths.
-7. The excessive recursion consumes stack memory, eventually leading to a `StackOverflowException`.
-8. The `StackOverflowException` cannot be caught in .NET, resulting in immediate termination of the application process, causing a denial-of-service.
+1. An attacker crafts a malicious Scriban template containing a self-referencing object. For example: `{{ x = {}; x.self = x; x | object.to_json }}`.
+2. The template is submitted to an application that uses Scriban for template processing.
+3. The Scriban engine parses the template and encounters the `object.to_json` function call.
+4. The `ToJson()` function in `ObjectFunctions.cs` calls the vulnerable `WriteValue()` function.
+5. `WriteValue()` attempts to serialize the self-referencing object without proper recursion checks.
+6. Due to the self-reference, `WriteValue()` enters an infinite recursion loop.
+7. Each recursive call consumes stack space, eventually leading to a `StackOverflowException`.
+8. The `StackOverflowException` terminates the entire .NET process hosting the Scriban engine, resulting in a denial of service.
 
 ## Impact
 
-The stack overflow vulnerability in Scriban can lead to denial-of-service attacks. Successful exploitation results in immediate process termination of the application using the Scriban library to parse templates. This vulnerability impacts any application that utilizes Scriban to process potentially untrusted template input. Given the nature of a StackOverflowException, the impact is severe as it abruptly halts the affected service, which could affect availability and stability. This is especially critical in web applications or services that rely on template parsing for rendering content or processing user inputs.
+Successful exploitation of this vulnerability leads to a denial-of-service condition, crashing the entire .NET process hosting the Scriban engine. Any application embedding Scriban for user-provided templates is vulnerable. Because `StackOverflowException` cannot be caught by application code, the hosting application cannot implement try/catch to survive this. This allows an unauthenticated attacker to trivially crash services using Scriban.
 
 ## Recommendation
 
-*   Upgrade to Scriban version 7.0.0 or later to address the vulnerability (reference: Affected Packages).
-*   Implement input validation and sanitization to prevent the parsing of templates from untrusted sources that may contain deeply nested array initializers (reference: Overview).
-*   Deploy the Sigma rule to detect attempts to exploit this vulnerability by monitoring for abnormally deep expression nesting during Scriban template parsing (reference: rules).
-*   Review and harden any existing Scriban template parsing implementations to ensure that they are not processing untrusted input directly (reference: Overview).
+- Upgrade to Scriban version 7.0.0 or later, which includes the fix for this vulnerability.
+- If upgrading is not immediately feasible, consider implementing input validation and sanitization to prevent the use of self-referencing objects in Scriban templates.
+- Monitor application logs for signs of `StackOverflowException` errors originating from Scriban template processing.
+- Deploy the Sigma rules in this brief to your SIEM and tune for your environment.
