@@ -1,0 +1,78 @@
+---
+title: Detecting Windows Raw Access to Master Boot Record
+slug: 2024-01-mbr-raw-access
+description: This analytic detects suspicious raw access reads to the drive containing the Master Boot Record (MBR) using Sysmon EventCode 9, which is a common tactic used by attackers to wipe, encrypt, or overwrite the MBR as part of their impact payload.
+date: "2024-01-03T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - critical
+tags:
+  - raw-disk-access
+  - mbr
+  - windows
+  - sysmon
+  - data-destruction
+vendors:
+  - Microsoft
+products:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1561
+    technique_name: Impair System
+references:
+  - https://www.splunk.com/en_us/blog/security/threat-advisory-strt-ta02-destructive-software.html
+  - https://www.crowdstrike.com/blog/technical-analysis-of-whispergate-malware/
+  - https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
+rules:
+  - title: Detect Raw Disk Access to MBR by Non-System Processes
+    description: Detects processes outside of the standard Windows directories reading the MBR.
+    platform: sigma
+    severity: high
+    tactics:
+      - impact
+    techniques:
+      - T1561.002
+    data_sources:
+      - process_creation
+      - windows
+  - title: MBR Raw Access via Suspicious Image Path
+    description: Detects MBR raw access attempts originating from unusual or temporary file paths.
+    platform: sigma
+    severity: medium
+    tactics:
+      - impact
+    techniques:
+      - T1561.002
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+This detection identifies suspicious raw access reads to the Master Boot Record (MBR) on Windows systems. Attackers frequently target the MBR to disrupt system operations, destroy data, or deploy ransomware. The MBR is a critical sector of a hard drive that contains bootloader code, so modifying or corrupting it renders the system unbootable. This analytic focuses on detecting unusual processes attempting to directly read from the MBR device (`\\Device\\Harddisk0\\DR0`) by monitoring Sysmon Event ID 9. The detection excludes legitimate system processes typically found under `C:\Windows\System32\` and `C:\Windows\SysWOW64\` to reduce false positives. This activity is often associated with destructive malware, ransomware, or other malicious tools that aim to compromise the integrity and availability of the system. Several destructive malware families, like WhisperGate, Hermetic Wiper, and Caddy Wiper, have leveraged MBR overwriting as part of their attack sequence. Early detection can prevent widespread damage and data loss.
+
+## Attack Chain
+
+1.  Initial Access: The attacker gains initial access to the system, often through phishing or exploiting a vulnerability. (This step is not logged by the detection rule but is a common precursor).
+2.  Privilege Escalation: The attacker elevates privileges to gain the necessary permissions to access and modify the MBR. (This step is not logged by the detection rule but is a common precursor).
+3.  MBR Access: The attacker uses a malicious tool to initiate a raw access read operation to the `\\Device\\Harddisk0\\DR0` device, which represents the MBR. This triggers Sysmon Event ID 9.
+4.  Data Read: The malicious tool reads the contents of the MBR sector. This can be for analysis before modification or simply as part of an overwrite operation.
+5.  MBR Modification: The attacker overwrites the MBR with malicious code, such as a wiper or ransomware demand.
+6.  System Reboot: The attacker triggers a system reboot, either directly or indirectly, to activate the malicious MBR code.
+7.  Impact: Upon reboot, the system attempts to load the corrupted MBR, leading to a boot failure, data loss, or the display of a ransomware message.
+
+## Impact
+
+Successful exploitation can render systems unbootable, leading to significant downtime and data loss. MBR overwriting is often associated with destructive attacks that aim to disrupt operations, as seen with WhisperGate malware targeting Ukrainian organizations. Depending on the scope of the attack, organizations could experience complete system compromise across numerous endpoints, resulting in substantial financial losses, reputational damage, and regulatory penalties. The attacks associated with MBR modification have been observed across various sectors, including government, critical infrastructure, and businesses.
+
+## Recommendation
+
+*   Enable Sysmon with Event ID 9 to monitor raw disk access events on endpoints.
+*   Deploy the "Windows Raw Access To Master Boot Record Drive" Sigma rule to your SIEM to detect suspicious processes accessing the MBR.
+*   Tune the "Windows Raw Access To Master Boot Record Drive" Sigma rule by reviewing and excluding any legitimate processes accessing the MBR to reduce false positives.
+*   Investigate any alerts generated by the Sigma rule, focusing on processes not under standard Windows directories as indicators of potential malicious activity.
+*   Implement robust backup and recovery procedures to quickly restore systems in the event of a successful MBR overwrite attack.
