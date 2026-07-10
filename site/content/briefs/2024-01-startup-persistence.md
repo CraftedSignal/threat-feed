@@ -1,25 +1,22 @@
 ---
-title: Suspicious Process Writing to Startup Folder for Persistence
+title: Windows Startup Folder Persistence
 slug: 2024-01-startup-persistence
-description: Adversaries may establish persistence by writing malicious files to the Windows Startup folder, allowing them to automatically execute upon user logon; this detection identifies suspicious processes creating files in these locations.
-date: "2024-01-03T14:00:00Z"
-type: advisory
+description: Adversaries use the Windows Startup folder to establish persistence by creating malicious files that execute automatically upon system boot or user logon.
+date: "2024-01-03T12:00:00Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
-  - medium
+  - high
+actors:
+  - Multiple
 tags:
   - persistence
-  - startup
   - windows
+  - startup-folder
 vendors:
   - Microsoft
-  - Elastic
 products:
-  - Microsoft Defender XDR
-  - Elastic Defend
-  - Sysmon
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0003
@@ -27,14 +24,13 @@ mitre_ttps:
     technique_id: T1547
     technique_name: Boot or Logon Autostart Execution
 references:
-  - https://www.elastic.co/security-labs/hunting-for-persistence-using-elastic-security-part-1
-  - https://www.elastic.co/security-labs/elastic-security-uncovers-blister-malware-campaign
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_startup_folder_file_written_by_suspicious_process.toml
+  - https://attack.mitre.org/techniques/T1547/001/
+  - https://www.fortinet.com/blog/threat-research/chaos-ransomware-variant-sides-with-russia
 rules:
-  - title: Suspicious Process Writing to Startup Folder
-    description: Detects suspicious processes writing to the Windows Startup folder for persistence.
+  - title: Detect File Creation in Startup Folder
+    description: Detects file creation events in the Windows Startup folder using Sysmon Event ID 11, which is a common persistence technique.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - persistence
     techniques:
@@ -42,8 +38,8 @@ rules:
     data_sources:
       - file_event
       - windows
-  - title: Suspicious Process Writing to Startup Folder (Sysmon)
-    description: Detects suspicious processes writing to the Windows Startup folder for persistence via Sysmon Event ID 11.
+  - title: Detect Script Creation in Startup Folder
+    description: Detects creation of script files (e.g., .bat, .ps1, .vbs) in the Windows Startup folder, which could indicate malicious persistence attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -56,26 +52,26 @@ rules:
 rules_count: 2
 ---
 
-Attackers often leverage the Windows Startup folder to maintain persistence, as any executable placed in this folder will automatically run when a user logs into the system. This technique is particularly effective because it requires no user interaction and can easily be automated. This rule detects when processes commonly abused by attackers, such as cmd.exe, powershell.exe, or mshta.exe, write or modify files within the Startup folders. The rule focuses on identifying unauthorized persistence mechanisms and helps defenders uncover potentially compromised systems. By monitoring file creation events in the Startup folders by suspicious processes, this detection aims to catch malicious activity early in the attack chain.
+Attackers commonly abuse the Windows Startup folder as a persistence mechanism. By placing executable files, scripts, or shortcuts within this directory, they can ensure that their malicious code runs automatically whenever a user logs in or the system boots. This technique allows adversaries to maintain a foothold on compromised systems, enabling them to execute arbitrary commands, deploy malware, or steal sensitive information. This activity is significant because it bypasses traditional security measures that focus on initial infection vectors, instead relying on a legitimate system functionality to achieve persistence. The analytic leverages the Endpoint.Filesystem data model to identify file creation events in this specific directory. Several malware families, including XWorm, Chaos Ransomware, NjRAT, Crypto Stealer, Gozi Malware, Quasar RAT, RedLine Stealer, Interlock Ransomware, APT37 Rustonotto and FadeStealer, PromptFlux, and BlankGrabber Stealer, are known to utilize this technique.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to the system (e.g., via phishing or exploiting a vulnerability).
-2.  The attacker executes a command shell (e.g., `cmd.exe`, `powershell.exe`) on the compromised system.
-3.  The attacker uses the command shell to write a malicious executable or script file to one of the Windows Startup folders (`C:\\Users\\*\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\*` or `C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp\\*`).
-4.  The attacker modifies the file attributes (e.g., using `attrib.exe`) to hide the file or make it more difficult to detect.
-5.  The attacker schedules a reboot or waits for the user to log off and back on.
-6.  Upon user logon, the malicious executable or script in the Startup folder is automatically executed.
-7.  The malicious code establishes persistence, potentially downloading additional payloads or establishing a command and control (C2) channel.
-8.  The attacker maintains persistent access to the compromised system, enabling further malicious activities such as data theft or lateral movement.
+1. Initial access is gained through various means, such as exploiting vulnerabilities, using compromised credentials, or social engineering.
+2. The attacker identifies the location of the Startup folder, typically `%AppData%\Microsoft\Windows\Start Menu\Programs\Startup` or `%ProgramData%\Microsoft\Windows\Start Menu\Programs\Startup`.
+3. A malicious executable, script (e.g., PowerShell, VBScript), or shortcut file is created in the Startup folder.
+4. The attacker may use techniques to hide or obfuscate the malicious file, such as using a misleading name or disguising it as a legitimate system file.
+5. Upon system boot or user logon, the operating system automatically executes the file placed in the Startup folder.
+6. The malicious code executes, potentially downloading and installing additional malware, establishing a command and control (C2) connection, or performing other malicious activities.
+7. The attacker maintains persistent access to the compromised system, allowing them to remotely control the system, steal data, or perform other malicious actions.
+8. The attacker can deploy ransomware or exfiltrate sensitive information.
 
 ## Impact
 
-Successful exploitation leads to persistent access on the compromised system, allowing attackers to maintain their foothold even after system reboots. This can lead to data exfiltration, installation of ransomware, or further propagation within the network. The number of affected systems depends on the scope of the initial compromise and the attacker's ability to move laterally. Sectors commonly targeted by persistence techniques include finance, healthcare, and government.
+Successful exploitation allows attackers to maintain long-term access to compromised systems, even after reboots. This persistence enables them to conduct a variety of malicious activities, including data theft, ransomware deployment, and lateral movement within the network. This impacts confidentiality, integrity, and availability. Organizations across various sectors are vulnerable to this technique, especially those with lax security practices or outdated systems.
 
 ## Recommendation
 
-*   Enable Sysmon Event ID 11 (File Create) to capture file creation events, as referenced in the [setup instructions](#setup).
-*   Deploy the Sigma rule `Suspicious Process Writing to Startup Folder` to your SIEM to detect suspicious processes creating files in the startup folder, and tune for your environment.
-*   Investigate any alerts generated by the Sigma rule to determine if the activity is malicious, referencing the [investigation guide](#note).
-*   Block the processes listed in the rule (`cmd.exe`, `powershell.exe`, etc.) from writing to the startup folders if legitimate use is not required.
+*   Enable Sysmon EventID 11 logging to monitor file creation events on endpoints, allowing the rules below to function correctly.
+*   Deploy the Sigma rules in this brief to your SIEM to detect suspicious file creation activity in the Windows Startup folder and tune for your environment.
+*   Investigate any alerts generated by the Sigma rules, focusing on identifying the processes responsible for creating files in the Startup folder.
+*   Monitor the MITRE ATT&CK technique T1547.001 (Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder) to stay informed about new threats and detection methods.
