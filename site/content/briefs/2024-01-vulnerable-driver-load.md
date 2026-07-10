@@ -1,8 +1,8 @@
 ---
-title: Detection of Vulnerable Driver Loading on Windows Systems
+title: Detection of Vulnerable Windows Driver Installation
 slug: 2024-01-vulnerable-driver-load
-description: Detection of loading known vulnerable Windows drivers that may indicate persistence or privilege escalation attempts via exploitation.
-date: "2024-01-02T12:00:00Z"
+description: This analytic detects the installation of known vulnerable Windows drivers, potentially indicating persistence or privilege escalation attempts by threat actors exploiting these drivers for elevated privileges and system compromise.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -23,66 +23,60 @@ mitre_ttps:
     technique_id: T1543
     technique_name: Create or Modify System Process
 references:
-  - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/driver_load/driver_load_vuln_drivers_names.yml
-  - https://github.com/eclypsium/Screwed-Drivers/blob/master/DRIVERS.md
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules
-  - https://www.rapid7.com/blog/post/2021/12/13/driver-based-attacks-past-and-present/
-  - https://github.com/jbaines-r7/dellicious
-  - https://github.com/MicrosoftDocs/windows-itpro-docs/blob/public/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules.md
-  - https://github.com/namazso/physmem_drivers
-  - https://github.com/stong/CVE-2020-15368
-  - https://github.com/CaledoniaProject/drivers-binaries
-  - https://github.com/Chigusa0w0/AsusDriversPrivEscala
-  - https://www.welivesecurity.com/2022/01/11/signed-kernel-drivers-unguarded-gateway-windows-core/
-  - https://eclypsium.com/2019/11/12/mother-of-all-drivers/
-  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-37969
+  - https://loldrivers.io/
+  - https://github.com/SpikySabra/Kernel-Cactus
+  - https://github.com/wavestone-cdt/EDRSandblast
+  - https://research.splunk.com/endpoint/a2b1f1ef-221f-4187-b2a4-d4b08ec745f4/
+  - https://www.splunk.com/en_us/blog/security/these-are-the-drivers-you-are-looking-for-detect-and-prevent-malicious-drivers.html
 rules:
-  - title: Detect Loading of Known Vulnerable Drivers
-    description: Detects loading of known vulnerable drivers using Sysmon Event ID 6.
+  - title: Detect Vulnerable Driver Installation via Event ID 7045
+    description: Detects the installation of known vulnerable drivers based on Windows Event ID 7045.
     platform: sigma
     severity: high
     tactics:
+      - persistence
       - privilege_escalation
     techniques:
       - T1543.003
     data_sources:
-      - image_load
+      - process_creation
       - windows
-  - title: Detect Driver Load by Non-System Processes
-    description: Detects when a driver is loaded by a non-system process, which can indicate malicious activity.
+  - title: Detect Vulnerable Driver Installation via ImagePath
+    description: Detects the installation of known vulnerable drivers based on matching ImagePath in process creation events.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
+      - persistence
       - privilege_escalation
     techniques:
       - T1543.003
     data_sources:
-      - image_load
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-This brief focuses on the detection of vulnerable Windows drivers being loaded into the system, which is a common tactic used by threat actors to achieve persistence and/or escalate privileges. The loading of these drivers can be indicative of ongoing exploitation attempts. This behavior is detected via analysis of Windows Sysmon Event ID 6, which logs driver loading events. Attackers leverage vulnerable drivers to bypass security controls and execute arbitrary code at elevated privilege levels. Successful exploitation can lead to complete system compromise and sensitive data exfiltration. This activity is particularly relevant due to the increasing number of publicly known vulnerable drivers and readily available exploitation techniques. Some drivers are intentionally backdoored, while others have flaws that are exploited.
+This detection focuses on identifying the installation of vulnerable Windows drivers, a tactic often employed by attackers to achieve persistence or escalate privileges. The technique involves exploiting known weaknesses in legitimate, but outdated or flawed, drivers to gain unauthorized access and control over a system. By monitoring Windows System service install events (EventCode 7045), the detection cross-references loaded drivers against a list of known vulnerable drivers (LoLdrivers). Successful exploitation can lead to arbitrary code execution with elevated privileges, ultimately compromising the entire system and enabling data exfiltration or other malicious activities. This is a Windows Event Log adaptation of the Sysmon driver loaded detection.
 
 ## Attack Chain
 
-1. An attacker gains initial access to the system through various means, such as exploiting a vulnerability in a user-mode application or through social engineering.
-2. The attacker identifies a vulnerable driver present on the system or deploys a malicious vulnerable driver to disk.
-3. The attacker leverages a known exploit (e.g., CVE-2022-37969) to load the vulnerable driver into the kernel.
-4. Upon successful loading, the vulnerable driver can be used to overwrite critical system data or execute arbitrary code within the kernel context.
-5. The attacker utilizes the elevated privileges gained through the vulnerable driver to inject malicious code into other processes or modify system configurations.
-6. The attacker establishes persistence by creating new services, modifying registry keys, or planting backdoors within the system.
-7. With elevated privileges and persistence established, the attacker can now perform further malicious activities, such as data exfiltration or lateral movement.
-8. The attacker achieves their objective, such as deploying ransomware, stealing sensitive data, or disrupting critical systems.
+1.  **Initial Access:** The attacker gains initial access to the system through various means (not specified).
+2.  **Privilege Escalation:** The attacker identifies a vulnerable driver present on the system or deploys one.
+3.  **Driver Installation:** The attacker triggers the installation of the vulnerable driver, which is logged as a Windows System Event 7045.
+4.  **Exploitation:** The attacker leverages the known vulnerabilities within the installed driver to execute arbitrary code in kernel mode.
+5.  **System Control:** Successful exploitation grants the attacker elevated privileges, allowing them to bypass security restrictions.
+6.  **Persistence:** The attacker establishes persistence by using the exploited driver to maintain a foothold on the system.
+7.  **Lateral Movement (potential):** With elevated privileges, the attacker could move laterally within the network to compromise additional systems.
+8.  **Data Exfiltration / System Damage:** The attacker executes their final objective, such as exfiltrating sensitive data or causing damage to the compromised system.
 
 ## Impact
 
-Compromise via vulnerable driver exploitation can have severe consequences. Successful exploitation grants attackers SYSTEM level privileges, enabling them to bypass security controls, disable security products, and gain complete control over the compromised system. This can lead to data theft, ransomware deployment, and disruption of critical business operations. There are various vulnerable drivers present in many Windows systems.
+Successful exploitation of vulnerable drivers can have severe consequences, including complete system compromise, data theft, and the deployment of malware. While specific victim counts are unavailable, the impact can range from individual workstations to entire enterprise networks. Sectors most vulnerable are those with outdated security practices and unpatched systems. The consequences include significant financial losses, reputational damage, and potential regulatory fines.
 
 ## Recommendation
 
-*   Enable Sysmon Event ID 6 to monitor driver loading events on Windows endpoints to enable the rules below.
-*   Deploy the Sigma rules provided to detect the loading of known vulnerable drivers (e.g., based on `ImageLoaded` field and cross-referencing with lists of known vulnerable drivers) and tune for your environment.
-*   Regularly review and update the list of known vulnerable drivers used in the detection rules to incorporate newly discovered vulnerabilities.
-*   Implement driver block rules using Windows Defender Application Control to prevent the loading of known vulnerable drivers.
-*   Investigate any alerts generated by these rules promptly to identify and contain potential exploitation attempts.
+*   Enable and monitor Windows Event Log System with EventCode 7045, ensuring that "kernel mode driver" service types are being ingested (data_source).
+*   Implement the Sigma rule "Detect Vulnerable Driver Installation via Event ID 7045" to identify potentially malicious driver installations (rules).
+*   Regularly update the list of known vulnerable drivers (LoLdrivers) used in the detection to maintain accuracy (references).
+*   Investigate any positive matches from the Sigma rule, focusing on the driver's version, signer, and installation path, as indicated by the event logs (search).
+*   Use the provided drilldown searches to further investigate the detection results and associated risk events for impacted systems (drilldown_searches).
