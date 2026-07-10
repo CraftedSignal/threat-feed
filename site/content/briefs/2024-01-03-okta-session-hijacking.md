@@ -12,6 +12,10 @@ tags:
   - okta
   - session-hijacking
   - credential-access
+vendors:
+  - Okta
+products:
+  - Okta
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
