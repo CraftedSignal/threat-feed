@@ -1,20 +1,20 @@
 ---
-title: Web Server Reconnaissance via Suspicious User Agents
+title: Web Server Discovery or Fuzzing Activity
 slug: 2024-01-web-server-recon
-description: Attackers use automated tools with suspicious user agents to perform reconnaissance against web servers, attempting to identify vulnerabilities and hidden paths for further exploitation.
-date: "2024-01-03T14:30:00Z"
+description: Detection of potential web server discovery or fuzzing activity characterized by a high volume of HTTP GET requests resulting in 404 or 403 status codes originating from a single source IP address within a short timeframe, indicating attackers are probing for hidden resources.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - low
 tags:
-  - web-server
   - reconnaissance
-  - vulnerability-scanning
+  - web-server
+  - fuzzing
 vendors:
   - Nginx
-  - Apache Software Foundation
+  - Apache
   - Microsoft
   - Traefik Labs
 products:
@@ -28,26 +28,31 @@ mitre_ttps:
     tactic_name: Reconnaissance
     technique_id: T1595
     technique_name: Active Scanning
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1110
-    technique_name: Brute Force
+  - tactic_id: TA0043
+    tactic_name: Reconnaissance
+    technique_id: T1595
+    technique_name: Active Scanning
 references:
-  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/reconnaissance_web_server_unusual_user_agents.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/reconnaissance_web_server_discovery_or_fuzzing_activity.toml
+  - https://attack.mitre.org/techniques/T1595/
+  - https://attack.mitre.org/techniques/T1595/002/
+  - https://attack.mitre.org/techniques/T1595/003/
 rules:
-  - title: Detect Web Server Reconnaissance User Agents
-    description: Detects requests with User-Agent strings commonly associated with web application scanners.
+  - title: High Volume of 404/403 GET Requests
+    description: Detects a high volume of 404 or 403 HTTP GET requests from a single source IP, indicating potential web server discovery or fuzzing activity.
     platform: sigma
     severity: low
     tactics:
       - reconnaissance
     techniques:
       - T1595
+      - T1595.002
+      - T1595.003
     data_sources:
-      - webserver
-      - linux
-  - title: Detect High Volume Requests from Single IP with Scanner User Agent
-    description: Detects unusual spikes in web server requests with scanner User-Agent strings from a single IP address
+      - network_connection
+      - nginx|apache|apache_tomcat|iis|traefik
+  - title: Web Server Fuzzing User-Agent
+    description: Detects requests with common web fuzzing user-agents
     platform: sigma
     severity: medium
     tactics:
@@ -55,31 +60,32 @@ rules:
     techniques:
       - T1595
     data_sources:
-      - webserver
-      - linux
+      - web
+      - nginx|apache|apache_tomcat|iis|traefik
 rules_count: 2
 ---
 
-This brief focuses on detecting reconnaissance attempts against web servers through the use of suspicious user agents. Attackers often employ automated tools like Dirsearch, Gobuster, WPScan, and SQLMap to scan web applications for vulnerabilities, hidden directories, and sensitive files. These tools send a high volume of requests with specific user-agent strings associated with scanning or brute-force activity. The activity is identified by observing requests from IPs with a high number of requests and distinct URLs, using unusual User-Agent header values. This activity indicates potential reconnaissance, which may lead to more serious attacks if vulnerabilities are discovered. This rule focuses on detecting this behavior across Nginx, Apache, Apache Tomcat, IIS, and Traefik web servers.
+This detection identifies web server reconnaissance and fuzzing attempts. The rule is triggered when a single source IP address generates a high volume of HTTP GET requests that result in 404 (Not Found) or 403 (Forbidden) status codes within a short period. This behavior suggests an attacker is trying to discover hidden or unlinked resources on a web server, a common initial step before more targeted attacks. This is achieved by counting events and distinct URLs accessed from logs across Nginx, Apache, Apache Tomcat, IIS, and Traefik web servers. The rule triggers if more than 500 events and 250 distinct URLs are observed from a single IP address within the monitored timeframe.
 
 ## Attack Chain
 
-1. The attacker deploys a web application scanner such as Dirsearch, WPScan, or Gobuster.
-2. The scanning tool sends HTTP GET requests to the target web server with a crafted User-Agent header.
-3. The User-Agent header identifies the scanning tool (e.g., "dirsearch", "wpscan").
-4. The scanner iterates through a list of common or custom URLs and file paths, looking for accessible resources.
-5. The web server logs each request, including the source IP, User-Agent, and requested URL.
-6. The attacker analyzes the server responses, looking for indications of sensitive files, directories, or vulnerabilities.
-7. Discovery of sensitive resources (e.g., configuration files, admin panels) enables further exploitation.
-8. The attacker pivots to exploiting identified vulnerabilities or accessing sensitive data.
+1.  The attacker initiates network connections to a target web server (Nginx, Apache, etc.).
+2.  The attacker sends a series of HTTP GET requests to various URLs, often using a wordlist.
+3.  The web server processes each request and returns HTTP status codes.
+4.  The attacker analyzes the HTTP status codes to identify existing resources.
+5.  A large number of 404 (Not Found) or 403 (Forbidden) responses indicate a fuzzing attempt.
+6.  The attacker identifies potentially vulnerable or misconfigured resources.
+7.  The attacker may attempt to exploit discovered vulnerabilities.
+8.  Successful exploitation could lead to information disclosure or unauthorized access.
 
 ## Impact
 
-Successful reconnaissance can expose sensitive information, such as configuration files, database credentials, or administrative interfaces. This information can be used to gain unauthorized access to the web server or the underlying system. While this activity on its own is low severity, successful exploitation following reconnaissance can lead to data breaches, system compromise, and reputational damage. The broad targeting capabilities of these tools mean that any organization running web servers is potentially at risk.
+Successful web server discovery enables attackers to map out a web application's structure and identify potential vulnerabilities or misconfigurations. This reconnaissance can precede more severe attacks, such as unauthorized access to sensitive data, code execution, or denial-of-service attacks. While this rule has low severity, successful reconnaissance can lead to high impact outcomes.
 
 ## Recommendation
 
-*   Deploy the provided Sigma rules to your SIEM to detect suspicious User-Agent strings in web server logs (e.g., "dirsearch", "sqlmap", "nikto") and tune for your environment.
-*   Monitor web server logs (Nginx, Apache, IIS) for unusual spikes in requests with suspicious User-Agent headers to activate the Sigma rules.
-*   Implement rate limiting on web servers to mitigate the impact of high-volume scanning activity, specifically referencing the detection logic in the Sigma rules.
-*   Block IPs identified as sources of suspicious User-Agent requests at the firewall or WAF based on the source IP identified in the Sigma rules.
+*   Deploy the Sigma rule `High Volume of 404/403 GET Requests` to your SIEM and tune the threshold (events > 500 and URLs > 250) for your environment.
+*   Investigate any alerts generated by the Sigma rule to identify the source IP address and the target web server, then check the associated logs.
+*   Review WAF/CDN logs for rate limiting and blocks related to the suspicious source IP, as recommended in the overview.
+*   Implement rate limiting on web servers to mitigate the impact of web server discovery and fuzzing attempts, as mentioned in the overview.
+*   Harden the web tier by disabling directory listing and default app endpoints, blocking patterns like /.git/, /.env, and /backup.zip at the WAF, and restricting origin access to CDN egress only, as mentioned in the overview.
