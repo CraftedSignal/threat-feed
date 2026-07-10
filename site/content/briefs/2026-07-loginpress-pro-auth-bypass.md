@@ -1,8 +1,8 @@
 ---
-title: CVE-2026-12595 - Authentication Bypass in LoginPress Pro WordPress Plugin via Unverified OAuth Email
+title: CVE-2026-12597 - LoginPress Pro WordPress Plugin Authentication Bypass
 slug: 2026-07-loginpress-pro-auth-bypass
-description: The LoginPress Pro plugin for WordPress, in versions up to and including 6.2.3, is vulnerable to an Authentication Bypass (CVE-2026-12595) due to its Discord OAuth callback handler accepting an email field from Discord's `/users/@me` endpoint without verifying the profile's 'verified' flag, which allows unauthenticated attackers to map an unverified Discord email to an existing WordPress account, including administrator accounts, and gain an authenticated session, leading to account takeover.
-date: "2026-07-10T00:18:27Z"
+description: An authentication bypass vulnerability (CVE-2026-12597) in the LoginPress Pro WordPress plugin versions up to and including 6.2.3 allows unauthenticated attackers to gain initial access to any existing WordPress user account, including administrators, by exploiting a flaw in its GitHub OAuth callback that fails to verify the status of email addresses returned by GitHub's /user/emails endpoint.
+date: "2026-07-10T00:19:20Z"
 type: advisory
 types:
   - advisory
@@ -10,47 +10,46 @@ severities:
   - high
 tags:
   - wordpress
-  - plugin
   - authentication-bypass
-  - web
+  - plugin-vulnerability
   - cve
-  - account-takeover
 vendors:
-  - LoginPress
+  - WPBrigade
 products:
-  - LoginPress Pro plugin (<= 6.2.3)
+  - LoginPress Pro (<= 6.2.3)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1078
     technique_name: Valid Accounts
-    evidence: This makes it possible for unauthenticated attackers to take over any existing WordPress account — including administrator accounts — by registering a Discord account configured with an unverified email address that matches the target user's registered WordPress email and completing the standard Discord OAuth flow.
+    evidence: unauthenticated attackers to log in as any existing WordPress user, including administrators
     confidence_band: high
 cves:
-  - id: CVE-2026-12595
+  - id: CVE-2026-12597
     cvss: 8.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-12595
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-12597
 ---
 
-A critical authentication bypass vulnerability, identified as CVE-2026-12595, has been discovered in the LoginPress Pro plugin for WordPress, affecting all versions up to and including 6.2.3. This flaw resides within the `loginpress_on_discord_login()` Discord OAuth callback handler. The plugin processes user profile information returned by Discord's `/users/@me` endpoint but crucially fails to check the `verified` flag for the email address provided. Instead, it directly maps the supplied email to a local WordPress account using `get_user_by('email', $profile['email'])` and subsequently issues an authenticated session cookie via `wp_set_auth_cookie()`. This oversight allows unauthenticated attackers to assume control of any WordPress account, including those with administrative privileges, by simply registering a Discord account with an unverified email address that matches the target WordPress user's registered email, then completing the standard Discord OAuth flow on the vulnerable WordPress site. The vulnerability has a CVSS v3.1 Base Score of 8.1, indicating high severity.
+A critical authentication bypass vulnerability, identified as CVE-2026-12597, has been discovered in the LoginPress Pro plugin for WordPress, affecting all versions up to and including 6.2.3. The flaw resides within the `loginpress_on_github_login()` function, which is responsible for handling GitHub OAuth callbacks. This function erroneously trusts the first email address returned by GitHub's `/user/emails` endpoint (`profile[0]['email']`) as a binding identifier without verifying if the email holds a `verified === true` status. This oversight enables unauthenticated attackers to log in as any existing WordPress user, including those with administrative privileges. Attackers can achieve this by adding an unverified email address to their GitHub profile that matches a target WordPress account, then triggering the OAuth callback. The plugin will subsequently call `get_user_by('email', ...)` and establish an authenticated session for the matched account, bypassing proper authentication checks.
 
 ## Attack Chain
 
-1. An unauthenticated attacker registers a new Discord account, configuring it with an email address that precisely matches the email of a target WordPress user on the vulnerable site.
-2. The attacker navigates to the target WordPress site's login page and initiates the Discord OAuth login flow, redirecting to Discord for authentication.
-3. The attacker authenticates to Discord using their newly created account with the matching, but unverified, email address.
-4. Discord redirects the attacker's browser back to the WordPress site's LoginPress Pro plugin's Discord OAuth callback handler (e.g., `/wp-json/loginpress/v1/auth/discord/callback`), sending the Discord user's profile data, including the unverified email.
-5. The LoginPress Pro plugin, specifically the `loginpress_on_discord_login()` function, receives this callback and, without verifying the email's 'verified' status, uses `get_user_by('email', $profile['email'])` to locate a corresponding WordPress account.
-6. The plugin successfully identifies the target WordPress account based on the matching email and proceeds to issue an authenticated session cookie to the attacker via `wp_set_auth_cookie()`.
-7. The attacker's browser receives the authenticated session cookie, granting them full unauthorized access and control over the targeted WordPress account, including administrator accounts.
+1. Attacker identifies a WordPress website utilizing the vulnerable LoginPress Pro plugin.
+2. Attacker creates a new GitHub account or uses an existing one.
+3. Attacker adds an unverified email address to their GitHub profile that precisely matches the email of an existing target WordPress user (e.g., an administrator).
+4. Attacker crafts and sends an HTTP request to the vulnerable WordPress site's GitHub OAuth callback endpoint, including a standard `code` parameter obtained through the OAuth flow.
+5. The LoginPress Pro plugin's `loginpress_on_github_login()` function processes the callback.
+6. The plugin queries GitHub's `/user/emails` API endpoint to retrieve the user's associated email addresses.
+7. If the attacker-controlled unverified email is returned first in GitHub's response array (`profile[0]['email']`), the plugin blindly accepts it.
+8. The plugin then calls `get_user_by('email', ...)` using this unverified email and establishes an authenticated session for the matched WordPress user.
+9. Attacker successfully gains unauthorized access to the target WordPress user account, potentially leading to full site compromise if the account is an administrator.
 
 ## Impact
 
-Successful exploitation of CVE-2026-12595 leads directly to full account takeover for any user on the affected WordPress site, including critical administrator accounts. Attackers can leverage this access to deface websites, inject malicious code, steal sensitive data, create new administrative users, or completely compromise the WordPress instance. The broad applicability of this vulnerability to any WordPress account whose email matches an attacker-controlled Discord account means that all users are at risk. Given the CVSS v3.1 Base Score of 8.1, the potential damage and ease of exploitation are significant.
+The successful exploitation of CVE-2026-12597 grants unauthenticated attackers immediate access to any user account on a vulnerable WordPress site, including administrative accounts. This direct authentication bypass can lead to complete compromise of the WordPress instance, allowing attackers to inject malicious code, deface the website, exfiltrate sensitive data, or establish persistent backdoors. The vulnerability has a CVSS v3.1 Base Score of 8.1, reflecting its high severity and potential for widespread damage. The compromise of administrator accounts is particularly devastating, enabling full control over the website's content, users, and settings.
 
 ## Recommendation
 
-* Immediately update the LoginPress Pro plugin to a patched version (6.2.4 or higher) to remediate CVE-2026-12595.
-* Review web server access logs for repeated or unusual access patterns to the Discord OAuth callback endpoint (e.g., `/wp-json/loginpress/v1/auth/discord/callback`) that might indicate attempted exploitation of CVE-2026-12595 prior to patching.
-* Scrutinize WordPress audit logs for unexpected administrative login events, especially those that occurred shortly after the plugin was exploited for CVE-2026-12595.
+* Immediately update the LoginPress Pro plugin to a version greater than 6.2.3 to patch CVE-2026-12597.
+* Review web server access logs for unusual or repeated attempts to access the GitHub OAuth callback endpoint `/wp-login.php?loginpress_github_oauth=1` or similar, especially those resulting in successful logins from unknown IPs.
