@@ -1,8 +1,8 @@
 ---
 title: Remote File Download via PowerShell
 slug: 2024-01-remote-file-download-powershell
-description: Detects PowerShell being used to download executable files from untrusted remote destinations, a common technique for attackers to introduce tooling or malware into a compromised environment.
-date: "2024-01-03T15:25:00Z"
+description: Detects PowerShell being used to download executable files from untrusted remote destinations, often used by attackers to transfer malware into a compromised environment.
+date: "2024-01-03T15:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,14 +10,13 @@ severities:
   - medium
 tags:
   - command-and-control
-  - file-download
   - powershell
+  - file-download
   - windows
 vendors:
   - Microsoft
 products:
   - PowerShell
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0011
@@ -35,7 +34,7 @@ references:
   - https://attack.mitre.org/techniques/T1059/001/
 rules:
   - title: PowerShell Remote File Download
-    description: Detects PowerShell downloading executable files from untrusted remote destinations by correlating network and file creation events.
+    description: Detects PowerShell downloading executable files from untrusted remote destinations.
     platform: sigma
     severity: medium
     tactics:
@@ -45,10 +44,10 @@ rules:
       - T1059.001
       - T1105
     data_sources:
-      - file_event
+      - process_creation
       - windows
-  - title: PowerShell File Creation with MZ Header
-    description: Detects PowerShell creating files with an MZ header, indicating a possible executable download.
+  - title: Suspicious File Creation after PowerShell Network Activity
+    description: Detects file creation events associated with downloaded executables after PowerShell-initiated network connections.
     platform: sigma
     severity: medium
     tactics:
@@ -63,27 +62,26 @@ rules:
 rules_count: 2
 ---
 
-Attackers frequently use PowerShell, a legitimate administration tool, to download malicious payloads into compromised systems. This technique allows them to bypass traditional security measures by leveraging a trusted tool. This activity often occurs during the command and control phase, where attackers introduce additional tooling or malware for further exploitation. This rule identifies instances where PowerShell downloads executable and script files from untrusted remote destinations. It does this by correlating network and file events, specifically looking for PowerShell processes initiating network connections to non-whitelisted domains followed by the creation of executable or script files. The rule helps defenders identify and respond to potential command and control activity and malware deployment attempts.
+Attackers frequently use PowerShell to download malware and tools into compromised environments. This is often done through command and control channels, leveraging PowerShell's widespread availability and utility within administrative tasks. This creates an attractive avenue for executing malicious code. This detection identifies instances where PowerShell is used to download executable and script files from untrusted remote locations, specifically focusing on network connections to non-standard or suspicious domains followed by file creation events associated with the downloaded content. This activity is significant because it often represents the initial stages of malware deployment or lateral movement within a network. The rule focuses on Windows systems and aims to reduce false positives by excluding common update domains.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to a Windows system, possibly through phishing or exploiting a vulnerability.
-2.  The attacker uses PowerShell (powershell.exe, pwsh.exe, or powershell_ise.exe) to initiate a network connection to a remote domain.
-3.  The DNS request is made to a domain not in the allowed list (e.g., not *.microsoft.com, *.azureedge.net, etc.).
-4.  PowerShell downloads a file with an executable extension (e.g., .exe, .dll, .ps1, .bat) or a file with a MZ header.
-5.  The downloaded file is saved to disk.
-6.  The file is saved to a location that is not excluded by the rule, filtering out commonly used temporary directories.
-7.  The downloaded executable or script is then executed, leading to further malicious activities.
-8.  The attacker achieves persistence, lateral movement, or data exfiltration depending on the downloaded payload.
+1. A user's machine is compromised, possibly through a phishing email or other means (not explicitly detailed in source).
+2. The attacker establishes a command and control channel to the compromised machine.
+3. The attacker uses PowerShell (powershell.exe, pwsh.exe, or powershell_ise.exe) to initiate a network connection.
+4. PowerShell resolves a DNS request to an external domain that is not on an approved list (e.g., *.microsoft.com, *.azureedge.net).
+5. A file is created on the system, and the file extension is an executable type (exe, dll, ps1, bat, cmd, vbs, vbe, js, jse, wsh, wsf, sct, hta, cpl, scr, pif, com) or file has executable header bytes.
+6. The created file's path and name are checked against common benign locations, such as temporary directories, but the file is not found in the exclusion list.
+7. The downloaded executable or script is then executed, leading to further compromise or lateral movement.
+8. The final objective is often to establish persistence, escalate privileges, or exfiltrate sensitive data.
 
 ## Impact
 
-A successful attack can lead to the introduction of malware, backdoors, or other malicious tools into the compromised system. This can enable attackers to perform a wide range of malicious activities, including data theft, system compromise, and further propagation within the network. The compromised system can become a beachhead for further attacks, potentially impacting numerous systems and leading to significant financial and reputational damage.
+Successful exploitation allows attackers to introduce malware, establish persistence, and potentially compromise critical systems. Uncontrolled PowerShell-based downloads can lead to widespread infection, data breaches, and significant operational disruption. While the exact number of victims and sectors targeted are not specified in the source, the potential impact can be severe, especially if administrative credentials are compromised.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `PowerShell Remote File Download` to detect PowerShell processes downloading executable files from untrusted remote destinations by correlating network and file creation events.
-*   Enable Elastic Defend to provide the necessary network and file event data for the rule to function correctly as noted in the [setup instructions](https://ela.st/install-elastic-defend).
-*   Investigate any alerts generated by the Sigma rule, focusing on the parent process of the PowerShell process, the reputation of the downloaded file, and any other suspicious activities on the affected host, as per the investigation guide in the rule's `note` field.
-*   Review and customize the whitelisted domains in the Sigma rule to match your organization's specific environment and trusted external resources, as described in the `query` field.
-*   Block the identified malicious domains or IP addresses at the network perimeter to prevent further downloads.
+*   Enable Sysmon process creation, network connection, and file creation logging to capture the events necessary for these detections.
+*   Deploy the Sigma rule "PowerShell Remote File Download" to your SIEM to detect suspicious PowerShell-initiated downloads. Tune the rule's exclusions to minimize false positives in your environment.
+*   Investigate any alerts generated by the "PowerShell Remote File Download" rule promptly, focusing on the parent processes and the reputation of the downloaded files.
+*   Block connections to the suspicious domains identified in your environment using the "Remote File Download via PowerShell" rule's dns.question.name field at your firewall or DNS resolver.
