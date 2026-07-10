@@ -1,8 +1,8 @@
 ---
-title: Renamed Automation Script Interpreter
+title: Renamed Automation Script Interpreter Detection
 slug: 2024-01-renamed-autoit
-description: Detects the renaming of automation script interpreter processes like AutoIt, AutoHotkey, and KIX32, a tactic used by malware operators to evade detection by obscuring the true nature of the executable.
-date: "2024-01-23T12:00:00Z"
+description: This rule identifies renamed Automation Script Interpreter processes, often used by malware written in AutoIt/AutoHotKey to evade detection by renaming the executable.
+date: "2024-01-09T18:45:00Z"
 type: advisory
 types:
   - advisory
@@ -10,70 +10,82 @@ severities:
   - high
 tags:
   - defense-evasion
+  - execution
   - masquerading
-  - autoit
-  - autohotkey
-  - kix32
   - windows
 vendors:
-  - Elastic
+  - AutoIt
+  - AutoHotkey
+  - KIX32
 products:
-  - Elastic Defend
-  - Elastic Endgame
-affected_os:
-  - Windows
+  - AutoIt
+  - AutoHotkey
+  - KIX32
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1036
     technique_name: Masquerading
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 references:
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_masquerading_renamed_autoit.toml
+  - https://attack.mitre.org/techniques/T1036/
+  - https://attack.mitre.org/techniques/T1036/003/
+  - https://attack.mitre.org/techniques/T1059/
+  - https://attack.mitre.org/techniques/T1059/010/
 rules:
-  - title: Renamed AutoIt Interpreter
-    description: Detects renamed AutoIt interpreter processes.
+  - title: Renamed Automation Script Interpreter
+    description: Detects renamed instances of AutoIt, AutoHotkey, or KIX32 interpreters to evade detection.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
+      - execution
     techniques:
-      - T1036.005
+      - T1036.003
+      - T1059.010
     data_sources:
       - process_creation
       - windows
-  - title: Renamed AutoHotkey Interpreter
-    description: Detects renamed AutoHotkey interpreter processes.
+  - title: Suspicious KIX32 Execution from User Profile
+    description: Detects KIX32 execution from user profile or ProgramData directories.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - defense_evasion
+      - execution
     techniques:
-      - T1036.005
+      - T1036.003
+      - T1059.010
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-Malware operators often rename legitimate system and scripting tools to blend in with normal system processes and bypass security measures. This rule specifically detects instances where automation script interpreters like AutoIt, AutoHotkey, and KIX32 have been renamed. By comparing the process name against the original file name embedded in the executable, this detection identifies potential attempts to masquerade malicious scripts as legitimate software. This technique is employed to bypass application whitelisting and other security controls that rely on file names or process names for identification and authorization. This detection is relevant for any Windows environment where these scripting tools are used, as it can highlight potentially malicious activity masked by a common evasion technique.
+Attackers often rename legitimate utilities to masquerade their malicious activities and evade detection. This technique is particularly prevalent in malware leveraging scripting languages like AutoIt and AutoHotkey. These scripting tools, designed for automation, can be abused to create and execute malicious scripts. This detection identifies instances where the original filename of a process associated with AutoIt, AutoHotkey, or KIX32 does not match the actual process name, a strong indicator of masquerading. This activity is flagged by comparing the `process.pe.original_file_name` and `process.name` fields in process creation logs. The detection logic focuses on Windows systems, where these automation tools are commonly used. This matters for defenders because it can help to identify malware that is attempting to hide its true nature.
 
 ## Attack Chain
 
-1. An attacker gains initial access to the system, often through phishing or exploiting a software vulnerability.
-2. The attacker uploads or drops a malicious script (e.g., AutoIt, AutoHotkey, or KIX32 script) onto the target machine.
-3. The attacker renames the legitimate AutoIt, AutoHotkey, or KIX32 interpreter executable to a non-standard name (e.g., "svchost.exe" or "wininit.exe") to masquerade as a legitimate process.
-4. The attacker executes the renamed interpreter, which in turn executes the malicious script.
-5. The script performs malicious actions, such as downloading additional malware, modifying system settings, or establishing persistence.
-6. The attacker uses the compromised system for lateral movement within the network or for data exfiltration.
-7. The attacker attempts to maintain persistence on the system to ensure continued access.
+1.  Attacker gains initial access to the system (e.g., via phishing or exploiting a vulnerability).
+2.  Malicious AutoIt or AutoHotkey script is deployed to the system, often dropped in a user's profile directory or a temporary folder.
+3.  The attacker renames the AutoIt or AutoHotkey interpreter executable (e.g., from `AutoIt3.exe` to `svchost.exe`).
+4.  The renamed executable is then used to execute the malicious AutoIt/AutoHotkey script.
+5.  The script performs actions such as downloading additional payloads, establishing persistence, or exfiltrating data.
+6.  The script might modify registry keys or create scheduled tasks for persistence.
+7.  The attacker leverages the script to perform lateral movement within the network.
+8.  The final objective is achieved, such as data exfiltration or ransomware deployment.
 
 ## Impact
 
-Successful renaming of script interpreters allows attackers to execute malicious scripts undetected, potentially leading to data theft, system compromise, or further propagation within the network. The impact can range from minor disruption to significant financial loss and reputational damage, depending on the attacker's objectives and the sensitivity of the compromised data.
+A successful attack using a renamed scripting interpreter can lead to a wide range of consequences. Attackers can gain persistent access to the system, steal sensitive data, deploy ransomware, or use the compromised system as a foothold for further attacks within the network. Due to the script's ability to interact with the operating system, attackers can perform almost any action a legitimate user can. This can affect various sectors, leading to financial losses, reputational damage, and disruption of operations.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Renamed AutoIt Interpreter" to your SIEM to detect when AutoIt executables are renamed, focusing on `process.pe.original_file_name` and `process.name`.
-*   Deploy the Sigma rule "Renamed AutoHotkey Interpreter" to your SIEM to detect when AutoHotkey executables are renamed, focusing on `process.pe.original_file_name` and `process.name`.
-*   Enable Sysmon process creation logging to capture the necessary process metadata, as referenced in the rule `logsource`.
-*   Investigate any alerts generated by these rules to determine the legitimacy of the renamed executable and its associated activity as described in the `note` section.
+*   Deploy the Sigma rule "Renamed Automation Script Interpreter" to your SIEM to detect the specific masquerading behavior described in this brief.
+*   Enable process creation logging with image load events (Sysmon or equivalent) to capture the `process.pe.original_file_name` and `process.name` attributes, which are critical for this detection.
+*   Investigate any alerts generated by this rule, focusing on the process execution chain and any associated network connections or file modifications as outlined in the rule's "note" section.
+*   Implement application control policies to restrict the execution of unauthorized executables in user profile directories and temporary folders.
+*   Block execution of KIX32.EXE from user profile directories and ProgramData.
