@@ -12,6 +12,10 @@ tags:
   - lateral-movement
   - threat-detection
   - windows
+vendors:
+  - Microsoft
+products:
+  - Remote Desktop Client
 affected_os:
   - Windows
 mitre_ttps:
