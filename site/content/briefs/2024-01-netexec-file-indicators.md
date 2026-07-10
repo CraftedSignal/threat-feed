@@ -14,6 +14,11 @@ tags:
   - lateral-movement
   - post-exploitation
   - hacktool
+vendors:
+  - Microsoft
+products:
+  - Windows
+  - Active Directory
 affected_os:
   - Windows
 mitre_ttps:
