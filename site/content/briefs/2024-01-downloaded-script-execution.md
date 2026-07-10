@@ -1,8 +1,8 @@
 ---
-title: Execution of a Downloaded Windows Script
+title: Execution of Downloaded Windows Script
 slug: 2024-01-downloaded-script-execution
-description: This rule detects the execution of a Windows script downloaded from the internet, a technique adversaries may leverage for initial access and execution by using browsers or file utilities to download scripts and subsequently execute them with scripting tools like wscript or mshta.
-date: "2024-01-02T12:00:00Z"
+description: This rule identifies the creation and execution of a Windows script downloaded from the internet, which adversaries may leverage for initial access and execution by exploiting unusual parent-child process relationships and script attributes.
+date: "2024-01-09T15:00:00Z"
 type: advisory
 types:
   - advisory
@@ -11,13 +11,10 @@ severities:
 tags:
   - execution
   - windows
-  - script
-  - initial_access
+  - scripting
 vendors:
   - Microsoft
 products:
-  - Windows
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0002
@@ -32,14 +29,6 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1204
-    technique_name: User Execution
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1218
@@ -51,73 +40,62 @@ mitre_ttps:
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_windows_script_from_internet.toml
   - https://attack.mitre.org/techniques/T1059/
-  - https://attack.mitre.org/techniques/T1204/
+  - https://attack.mitre.org/techniques/T1059/005/
+  - https://attack.mitre.org/techniques/T1059/007/
+  - https://attack.mitre.org/techniques/T1059/003/
+  - https://attack.mitre.org/tactics/TA0002/
   - https://attack.mitre.org/techniques/T1218/
+  - https://attack.mitre.org/techniques/T1218/005/
+  - https://attack.mitre.org/techniques/T1218/007/
+  - https://attack.mitre.org/tactics/TA0005/
 rules:
-  - title: Detect Windows Script Execution from Downloaded File
-    description: This rule detects the execution of a Windows script file (e.g., .js, .vbs, .ps1) by a scripting engine (e.g., wscript.exe, powershell.exe) where the script file was recently created by a web browser. This is a common technique used by attackers to execute malicious code on a compromised system.
+  - title: Downloaded Script File Creation followed by Scripting Host Execution
+    description: Detects the creation of a script file downloaded from the internet followed by execution of a scripting utility.
     platform: sigma
     severity: medium
     tactics:
       - execution
     techniques:
-      - T1059.001
-      - T1059.003
-      - T1059.005
-      - T1059.007
+      - T1059
+    data_sources:
+      - process_creation
+      - windows
+  - title: Execution of Downloaded Windows Script via Mshta
+    description: Detects execution of downloaded script using mshta.exe
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
       - T1218.005
-      - T1218.007
     data_sources:
       - process_creation
       - windows
-  - title: Detect Downloaded Script Creation with Origin URL
-    description: Detects the creation of a script file (e.g., .js, .vbs, .ps1) by a web browser with a populated origin URL or referrer URL, indicating that the script was downloaded from the internet.
-    platform: sigma
-    severity: low
-    tactics:
-      - execution
-      - initial_access
-    techniques:
-      - T1204.002
-    data_sources:
-      - file_event
-      - windows
-  - title: Detect Scripting Utilities with High Argument Count
-    description: Detects scripting utilities (wscript.exe, cscript.exe, powershell.exe) being executed with a high number of command-line arguments, which can indicate obfuscation or malicious intent.
-    platform: sigma
-    severity: informational
-    tactics:
-      - defense_evasion
-      - execution
-    techniques:
-      - T1059.001
-    data_sources:
-      - process_creation
-      - windows
-rules_count: 3
+rules_count: 2
 ---
 
-This detection rule identifies the execution of Windows scripts that have been downloaded from the internet. Attackers often use scripting languages like PowerShell, VBScript, and JavaScript for initial access and execution within a compromised environment. They may download these scripts through web browsers or file utilities and then execute them using scripting engines such as `wscript.exe`, `cscript.exe`, or `mshta.exe`. This activity often bypasses traditional security controls, making it crucial for defenders to monitor for such behavior. The rule focuses on detecting unusual parent-child process relationships, where a browser downloads a script file, and a scripting engine subsequently executes it. This behavior is detected by monitoring file creation events from browsers and the subsequent execution of those files by scripting utilities.
+This detection identifies instances where a Windows script file is created after being downloaded from the internet and subsequently executed using a scripting utility. Adversaries commonly exploit Windows script files for initial access and execution within a compromised environment. This technique involves downloading malicious scripts via web browsers or file utilities, followed by execution through scripting engines like `wscript.exe`, `cscript.exe`, or `mshta.exe`. The rule focuses on identifying anomalous parent-child process relationships and suspicious attributes associated with these scripts, such as their origin URL, referrer URL, and file extension. The detection logic specifically monitors the creation of script files with extensions like `.js`, `.vbs`, `.ps1`, and others, originating from internet sources, and their subsequent execution by scripting interpreters. This behavior is often indicative of malicious activity, potentially leading to further compromise or lateral movement within the network.
 
 ## Attack Chain
 
-1. A user browses to a malicious website or opens a compromised document.
-2. The web browser (e.g., `chrome.exe`, `msedge.exe`) downloads a script file (e.g., `.js`, `.vbs`, `.ps1`) from a remote server. The downloaded file often has a recognizable origin URL or referrer URL.
-3. The downloaded script is saved to the user's Downloads folder or another temporary directory.
-4. The user, either unknowingly or through social engineering, executes the downloaded script.
-5. A scripting engine (e.g., `wscript.exe`, `cscript.exe`, `powershell.exe`) is launched to interpret and run the script. The process arguments contain the path to the downloaded script.
-6. The script performs malicious actions, such as downloading additional payloads, modifying system settings, or establishing a reverse shell.
-7. The script may attempt to elevate privileges or propagate to other systems on the network.
-8. The attacker achieves their objective, such as data exfiltration, ransomware deployment, or establishing persistent access.
+1. User downloads a malicious script file (e.g., `.js`, `.vbs`, `.ps1`) from the internet using a web browser such as Chrome, Edge, or Firefox or file utilites like Winrar or 7zip.
+2. The downloaded file is saved to disk with the `creation` event being logged.
+3. A scripting host process (e.g., `wscript.exe`, `cscript.exe`, `mshta.exe`, `powershell.exe`, `cmd.exe`) is spawned.
+4. The scripting host process executes the downloaded script file, utilizing command-line arguments to specify the script's execution. For example, `wscript.exe malicious.vbs`.
+5. The script performs malicious actions, such as downloading additional payloads or modifying system configurations.
+6. Depending on the script's purpose, it may establish persistence, for instance, by creating scheduled tasks or modifying registry keys.
+7. The script may attempt lateral movement by accessing network shares or exploiting vulnerabilities on other systems.
+8. The final objective depends on the attacker's goals, ranging from data exfiltration to deploying ransomware.
 
 ## Impact
 
-A successful attack can lead to a wide range of consequences, including malware infection, data theft, and system compromise. By using scripting languages, attackers can bypass application whitelisting and other security controls, making it difficult to detect and prevent the attack. The compromised system can then be used as a foothold for further attacks within the organization. A successful execution of a malicious script can lead to complete system compromise, potentially impacting all business operations reliant on that system.
+Successful exploitation can lead to arbitrary code execution, allowing attackers to gain control over the compromised system. This can result in data theft, system damage, or further propagation of the attack within the network. The detection rule aims to identify and prevent such attacks early in the attack chain. While the scope of targeting remains broad, organizations that do not properly vet external scripts face a greater risk. If successful, an attacker could move laterally within the network, potentially impacting hundreds or thousands of systems.
 
 ## Recommendation
 
-*   Enable process monitoring with command-line arguments to capture the execution of scripting engines and their associated scripts.
-*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment to detect suspicious script execution.
-*   Implement application whitelisting to restrict the execution of unauthorized scripts and scripting utilities.
-*   Review and analyze the parent-child process relationships to identify unusual process execution patterns as described in the Attack Chain.
-*   Monitor file creation events from web browsers for script files originating from external URLs.
+*   Deploy the Sigma rule "Downloaded Script File Creation followed by Scripting Host Execution" to your SIEM to detect this activity (see rule below).
+*   Deploy the Sigma rule "Execution of Downloaded Windows Script via Mshta" to your SIEM to specifically detect execution via `mshta.exe`.
+*   Monitor process creation events for scripting hosts (`wscript.exe`, `cscript.exe`, `mshta.exe`, `powershell.exe`, `cmd.exe`) with command-line arguments pointing to downloaded script files.
+*   Implement application control policies to restrict the execution of unauthorized scripting hosts.
+*   Enforce strict download policies to prevent users from downloading executable content from untrusted sources.
+*   Review the investigation steps outlined in the original rule documentation to improve triage efficiency.
