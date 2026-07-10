@@ -13,6 +13,10 @@ tags:
   - relay
   - credential_access
   - windows
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - windows
 mitre_ttps:
@@ -23,7 +27,7 @@ mitre_ttps:
 cves:
   - id: CVE-2025-33073
     cvss: 8.8
-    epss: 0.4924
+    epss: 0.64315
 references:
   - https://github.com/p0dalirius/windows-coerced-authentication-methods
   - https://www.thehacker.recipes/a-d/movement/mitm-and-coerced-authentications
