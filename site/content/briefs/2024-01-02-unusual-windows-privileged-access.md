@@ -12,6 +12,10 @@ tags:
   - privileged-access-detection
   - anomaly-detection
   - windows
+vendors:
+  - Microsoft
+products:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
