@@ -12,6 +12,8 @@ tags:
   - privilege-escalation
   - suid
   - linux
+products:
+  - Linux
 affected_os:
   - Linux
 mitre_ttps:
