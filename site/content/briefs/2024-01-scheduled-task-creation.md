@@ -1,8 +1,8 @@
 ---
-title: Detecting Suspicious Scheduled Task Creation in Windows
+title: Scheduled Task Created or Deleted via Command Line
 slug: 2024-01-scheduled-task-creation
-description: This rule detects the creation of scheduled tasks in Windows using event logs, which adversaries may use for persistence, lateral movement, or privilege escalation by creating malicious tasks.
-date: "2024-01-02T12:00:00Z"
+description: Detection of scheduled task creation or deletion via command-line, often used for persistence and privilege escalation by threat actors.
+date: "2024-01-29T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,51 +10,40 @@ severities:
   - medium
 tags:
   - persistence
+  - privilege_escalation
   - scheduled_task
-  - windows
 vendors:
-  - Elastic
-  - Hewlett-Packard
   - Microsoft
-  - Google
-  - Mozilla
 products:
-  - Windows Security Event Logs
-  - HPDeviceCheck
-  - HP Support Assistant
-  - HP Web Products Detection
-  - Microsoft Visual Studio
-  - OneDrive
-  - Firefox
-  - Office
-  - Windows GroupPolicy
+  - Windows
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1053
     technique_name: Scheduled Task/Job
-references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4698
-  - https://attack.mitre.org/techniques/T1053/
-  - https://attack.mitre.org/techniques/T1053/005/
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1053
+    technique_name: Scheduled Task/Job
 rules:
-  - title: Suspicious Scheduled Task Creation via Winlog
-    description: Detects the creation of scheduled tasks using Windows event logs, excluding common benign tasks and system accounts.
+  - title: Scheduled Task Creation via Command Line
+    description: Detects the creation of scheduled tasks using schtasks.exe via command line.
     platform: sigma
     severity: medium
     tactics:
       - persistence
+      - privilege_escalation
     techniques:
       - T1053.005
     data_sources:
       - process_creation
       - windows
-  - title: Scheduled Task Created with PowerShell
-    description: Detects scheduled tasks created using PowerShell, which can be indicative of malicious activity.
+  - title: Scheduled Task Deletion via Command Line
+    description: Detects the deletion of scheduled tasks using schtasks.exe via command line.
     platform: sigma
-    severity: high
+    severity: low
     tactics:
-      - persistence
+      - defense_evasion
     techniques:
       - T1053.005
     data_sources:
@@ -63,27 +52,24 @@ rules:
 rules_count: 2
 ---
 
-Adversaries frequently abuse Windows scheduled tasks to establish persistence, move laterally within a network, and escalate privileges. This technique involves creating or modifying scheduled tasks to execute malicious code at specific times or in response to certain events. This detection rule identifies suspicious task creation by filtering out benign tasks and those initiated by system accounts, focusing on potential threats. The rule relies on Windows Security Event Logs, offering a valuable method for identifying unauthorized task creation indicative of malicious activity. The detection logic specifically excludes common tasks associated with software updates from vendors like Hewlett-Packard, Microsoft, Google, and Mozilla, as well as tasks run by system accounts.
+This brief focuses on the detection of scheduled task creation or deletion events triggered through command-line interfaces on Windows systems. While the provided document lacks specific details on a particular threat actor or campaign, the technique of creating and deleting scheduled tasks programmatically is a common tactic used by various threat actors for persistence, privilege escalation, and lateral movement. Attackers often leverage tools like `schtasks.exe` to automate malicious activities. Monitoring for these actions is crucial for detecting suspicious behavior, even without specific threat intelligence context. This generic but important technique helps identify anomalous system administration activities that could lead to further compromise.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to a system, potentially through phishing or exploiting a vulnerability.
-2.  The attacker uses their initial access to execute commands, potentially leveraging PowerShell or cmd.exe.
-3.  The attacker uses the `schtasks` command-line utility or the COM interface to create a new scheduled task.
-4.  The scheduled task is configured to execute a malicious payload, such as a reverse shell or a data exfiltration script.
-5.  The task is set to trigger based on a specific schedule, such as at system startup, at a specific time, or upon a specific event.
-6.  When the trigger occurs, the scheduled task executes the malicious payload.
-7.  The malicious payload establishes persistence, allowing the attacker to maintain access to the compromised system.
-8.  The attacker can then use the persistent access to move laterally to other systems or to exfiltrate sensitive data.
+1.  Attacker gains initial access through an exploit or compromised credentials.
+2.  Attacker uses `cmd.exe` or PowerShell to execute commands.
+3.  The attacker utilizes `schtasks.exe` to create a new scheduled task.
+4.  The scheduled task is configured to execute a malicious payload at a specific time or event.
+5.  The malicious payload executes with the privileges of the account under which the task runs.
+6.  The attacker may use the scheduled task to establish persistence on the system.
+7.  The attacker may delete the task after execution to remove evidence.
+8.  The attacker achieves their objective, which could include data theft, malware installation, or system compromise.
 
 ## Impact
 
-Successful exploitation allows adversaries to maintain persistent access to compromised systems, potentially leading to data theft, system disruption, or further lateral movement within the network. By creating malicious scheduled tasks, attackers can ensure their code is executed even after a system reboot or user logoff. This can result in long-term compromise and significant damage to affected organizations. While the number of victims and specific sectors targeted are not detailed, the potential impact is broad due to the widespread use of Windows systems in enterprise environments.
+Successful exploitation could lead to persistent access within the environment. Attackers can use the scheduled tasks to execute malicious commands repeatedly, bypass security measures, and maintain control over the compromised system. This can result in data breaches, system instability, and significant operational disruption. If an attacker gains SYSTEM privileges through a scheduled task, they could compromise the entire domain.
 
 ## Recommendation
 
-*   Enable Windows Security Event Logging and ensure that event ID 4698 (A scheduled task was created) is collected.
-*   Deploy the Sigma rule "Suspicious Scheduled Task Creation via Winlog" to your SIEM to detect potentially malicious scheduled task creation events.
-*   Regularly review and update the exclusion list in the Sigma rule to account for new benign scheduled tasks in your environment.
-*   Investigate any alerts generated by the Sigma rule by examining the task's name, path, actions, and triggers to determine if they are suspicious.
-*   Monitor for related suspicious activity, such as unusual process executions or network connections originating from the compromised system.
+*   Enable process creation logging, specifically monitoring for `schtasks.exe` execution, to activate the rules below.
+*   Deploy the Sigma rules in this brief to your SIEM to detect suspicious scheduled task activity.
