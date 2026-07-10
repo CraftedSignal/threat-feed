@@ -1,82 +1,84 @@
 ---
-title: GitHub Dependabot Disabling Detection
+title: GitHub Dependabot Disabled to Evade Vulnerability Detection
 slug: 2024-01-github-dependabot-disable
-description: A user disables Dependabot security features within a GitHub repository, potentially enabling attackers to exploit unpatched vulnerabilities in dependencies.
+description: An attacker disables GitHub Dependabot security features to prevent automatic detection of vulnerable dependencies, potentially leading to code execution, data theft, or other compromises through the software supply chain.
 date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - github
-  - supply-chain
   - dependabot
+  - supply-chain
+  - defense-evasion
 vendors:
   - GitHub
-  - Splunk
 products:
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
-  - github.com
+  - GitHub
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1562
     technique_name: Impair Defenses
-  - tactic_id: TA0007
-    tactic_name: Discovery
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
     technique_id: T1195
     technique_name: Supply Chain Compromise
 references:
   - https://splunk.github.io/splunk-add-on-for-github-audit-log-monitoring/Install/
   - https://www.googlecloudcommunity.com/gc/Community-Blog/Monitoring-for-Suspicious-GitHub-Activity-with-Google-Security/ba-p/763610
 rules:
-  - title: GitHub Organizations Disable Dependabot
+  - title: Detect GitHub Dependabot Disable
     description: Detects when a user disables Dependabot security features within a GitHub repository.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - defense_evasion
+      - supply_chain_compromise
     techniques:
       - T1195
       - T1562.001
     data_sources:
       - webserver
       - linux
-  - title: GitHub Actor is Bot
-    description: Alert when an actor is identified as a bot
+  - title: GitHub User Agent Anomalies for Dependabot Disable
+    description: Detects unusual user agents associated with Dependabot disabling actions.
     platform: sigma
-    severity: informational
+    severity: medium
     tactics:
-      - reconnaissance
+      - defense_evasion
+      - supply_chain_compromise
+    techniques:
+      - T1195
+      - T1562.001
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-The disabling of Dependabot within a GitHub repository can be a critical indicator of malicious activity, potentially leading to supply chain attacks. Dependabot helps automate the detection and fixing of security vulnerabilities in project dependencies. When an attacker disables this feature, they may be attempting to prevent the automatic detection of vulnerable dependencies, allowing them to exploit those vulnerabilities undetected. The target scope includes organizations using GitHub for their software development and version control. Identifying the disabling of Dependabot is crucial for security operations centers because it can be a precursor to more severe attacks, such as code execution or data theft through compromised software supply chains. This detection focuses on monitoring GitHub Enterprise logs for configuration changes that disable Dependabot functionality.
+This threat brief addresses the risk associated with the disabling of Dependabot within GitHub organizations. Dependabot is a security feature that automatically identifies and helps fix vulnerabilities in a project's dependencies. An attacker may disable Dependabot to prevent the automatic detection of vulnerable dependencies, which would allow them to exploit known vulnerabilities that would otherwise be patched. This action can be a precursor to supply chain attacks where attackers exploit vulnerable dependencies. This activity is detected by monitoring GitHub Enterprise logs for configuration changes related to disabling Dependabot functionality. Identifying the disabling of security features like Dependabot is critical for SOC teams as it may lead to severe consequences if vulnerabilities remain unpatched, potentially leading to code execution, data theft, or other compromises through the software supply chain. The detection logic is based on logs from the Splunk Add-on for Github.
 
 ## Attack Chain
 
-1.  Initial Access: An attacker gains unauthorized access to a GitHub account with sufficient privileges to modify repository settings.
-2.  Reconnaissance: The attacker explores the repository's settings to understand the available security features and their current configurations.
-3.  Disable Dependabot: The attacker navigates to the repository settings and disables Dependabot or repository vulnerability alerts.
-4.  Dependency Manipulation: With Dependabot disabled, the attacker introduces or modifies vulnerable dependencies within the project. This can involve updating existing dependencies to vulnerable versions or adding new, intentionally compromised libraries.
-5.  Code Injection: The attacker exploits the vulnerabilities in the compromised dependencies to inject malicious code into the application.
-6.  Persistence: The attacker establishes persistence by ensuring the injected code remains in the codebase, even after updates or rebuilds.
-7.  Lateral Movement: The attacker uses the compromised application as a pivot point to move laterally within the organization's network, gaining access to additional systems and data.
-8.  Data Exfiltration / Impact: The attacker exfiltrates sensitive data or causes damage to the organization's systems, leveraging the initial compromise of the GitHub repository.
+1.  **Initial Access:** An attacker gains access to a GitHub account with sufficient privileges to modify repository settings, potentially through compromised credentials or insider access.
+2.  **Privilege Escalation (If Necessary):** The attacker escalates privileges within the GitHub organization to gain the ability to modify repository settings.
+3.  **Discovery:** The attacker identifies target repositories within the GitHub organization that are suitable for supply chain attacks.
+4.  **Disable Dependabot:** The attacker disables Dependabot for the targeted repositories by modifying the repository settings using the GitHub web interface or API. The action triggers a `repository_vulnerability_alerts.disable` event in the GitHub audit logs.
+5.  **Introduce Vulnerable Dependency:** The attacker introduces a vulnerable dependency into the target repository, either by directly modifying the project's dependency files or by exploiting existing vulnerabilities to inject malicious code.
+6.  **Exploit Vulnerability:** The attacker exploits the introduced vulnerability to gain unauthorized access to systems or data, potentially leading to code execution or data theft.
+7.  **Lateral Movement:** The attacker uses the compromised system to move laterally within the organization's network, gaining access to additional systems and data.
+8.  **Exfiltration/Impact:** The attacker exfiltrates sensitive data or causes damage to systems, achieving their ultimate objective.
 
 ## Impact
 
-Disabling Dependabot can lead to severe consequences, including unpatched vulnerabilities remaining in the software supply chain. Attackers could exploit these vulnerabilities, leading to code execution, data theft, or other compromises. Depending on the scope of the affected repository, the impact could range from a single application compromise to a widespread supply chain attack affecting numerous downstream users. The loss of integrity in the software development lifecycle can erode trust and lead to significant financial and reputational damage.
+Successful exploitation following the disabling of Dependabot can lead to significant consequences, including data breaches, code execution on critical systems, and supply chain compromise. The number of affected repositories and the severity of the vulnerabilities determine the scale of the impact. Sectors that heavily rely on open-source dependencies, such as software development, finance, and healthcare, are particularly vulnerable. If successful, this attack can result in significant financial losses, reputational damage, and legal liabilities.
 
 ## Recommendation
 
-*   Ingest and monitor GitHub Organizations Audit Logs using the Splunk Add-on for Github (https://splunk.github.io/splunk-add-on-for-github-audit-log-monitoring/Install/).
-*   Deploy the Sigma rule `GitHub Organizations Disable Dependabot` to your SIEM to detect when Dependabot is disabled in a GitHub repository.
-*   Investigate any alerts generated by the Sigma rule `GitHub Organizations Disable Dependabot` to determine the legitimacy of the configuration change.
-*   Enforce multi-factor authentication (MFA) for all GitHub accounts to prevent unauthorized access as mentioned in references.
+*   Deploy the Sigma rule `Detect GitHub Dependabot Disable` to your SIEM and tune it for your environment, focusing on the `github_organizations` data source to detect the disabling of Dependabot.
+*   Monitor GitHub Organizations Audit Logs for `repository_vulnerability_alerts.disable` events, as indicated in the `search` query, to identify potential unauthorized modifications.
+*   Implement multi-factor authentication (MFA) for all GitHub accounts, especially those with administrative privileges, to prevent unauthorized access as part of the initial access stage.
+*   Review user access and permissions within the GitHub organization to ensure that only authorized users have the ability to modify repository settings and prevent privilege escalation.
