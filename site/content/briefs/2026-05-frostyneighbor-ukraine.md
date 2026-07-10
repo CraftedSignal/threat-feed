@@ -3,6 +3,7 @@ title: FrostyNeighbor Targets Ukraine with Updated PicassoLoader Chain
 slug: 2026-05-frostyneighbor-ukraine
 description: The FrostyNeighbor threat actor is targeting Ukrainian governmental organizations with spearphishing emails containing malicious PDFs that deliver a JavaScript dropper (PicassoLoader) and ultimately a Cobalt Strike beacon.
 date: "2026-05-15T07:00:16Z"
+lastmod: "2026-07-10T19:17:06Z"
 type: threat
 types:
   - threat
@@ -10,6 +11,10 @@ severities:
   - high
 actors:
   - FrostyNeighbor
+cpes:
+  - cpe:2.3:a:roundcube:webmail:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:debian:debian_linux:11.0:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - frostyneighbor
   - cyberespionage
@@ -25,6 +30,8 @@ products:
   - Cobalt Strike
   - WinRAR
   - Roundcube
+  - Webmail (< 1.5.10)
+  - Webmail (< 1.6.11)
 affected_os:
   - Windows
 mitre_ttps:
@@ -40,8 +47,16 @@ mitre_ttps:
     tactic_name: Persistence
     technique_id: T1053.005
     technique_name: 'Scheduled Task/Job: Scheduled Task'
+cves:
+  - id: CVE-2025-49113
+    cvss: 9.9
+    epss: 0.89462
+  - id: CVE-2024-42009
+    cvss: 9.3
+    epss: 0.83387
 references:
   - https://www.welivesecurity.com/en/eset-research/frostyneighbor-fresh-mischief-digital-shenanigans/
+  - https://cyber.gc.ca/en/alerts-advisories/vulnerability-impacting-roundcube-webmail-cve-2025-49113
 iocs:
   - type: domain
     value: book-happy.needbinding[.]icu
@@ -76,6 +91,14 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-07-10T19:17:06Z"
+    level: L2
+    summary: poc_available; added CVE-2024-42009 +1
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/vulnerability-impacting-roundcube-webmail-cve-2025-49113
 ---
 
 ESET researchers have identified new activity from FrostyNeighbor (aka Ghostwriter, UNC1151, UAC-0057, TA445, PUSHCHA, Storm-0257) targeting governmental organizations in Ukraine starting in March 2026. FrostyNeighbor, believed to be aligned with Belarus' interests, has been active since at least 2016, primarily targeting countries neighboring Belarus. The group employs spearphishing, disinformation campaigns, and credential harvesting to compromise various entities. This recent campaign utilizes malicious PDFs delivered via spearphishing emails, exploiting server-side validation to deliver a malicious payload only to victims with Ukrainian IP addresses. The group continually updates its toolset and compromise chains to evade detection, with a focus on Ukraine, Poland, and Lithuania. The attack culminates in the deployment of a Cobalt Strike beacon for persistent access and control.
