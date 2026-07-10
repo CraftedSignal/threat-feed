@@ -1,8 +1,8 @@
 ---
 title: Suspicious Alternate Data Stream (ADS) File Creation
 slug: 2024-01-ads-file-creation
-description: Detects suspicious creation of Alternate Data Streams (ADS) on targeted files using script or command interpreters, indicative of malware hiding in ADS for defense evasion.
-date: "2024-01-26T18:00:00Z"
+description: The rule identifies the suspicious creation of Alternate Data Streams (ADS) on targeted files using a script or command interpreter, a technique used by adversaries to hide malicious files and evade detection.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,73 +10,68 @@ severities:
   - high
 tags:
   - defense-evasion
-  - ads
-  - file-creation
+  - alternate-data-stream
   - windows
 vendors:
   - Microsoft
-  - SentinelOne
-  - Elastic
 products:
-  - M365 Defender
-  - SentinelOne Cloud Funnel
-  - Elastic Defend
-  - Elastic Endgame
-affected_os:
   - Windows
+  - Windows Command Prompt
+  - PowerShell
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1564
     technique_name: Hide Artifacts
 references:
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_unusual_ads_file_creation.toml
+  - https://attack.mitre.org/techniques/T1564/
+  - https://attack.mitre.org/techniques/T1564/004/
 rules:
-  - title: Suspicious ADS File Creation via Cmd
-    description: Detects suspicious Alternate Data Stream (ADS) file creation using cmd.exe.
+  - title: Detect Suspicious ADS File Creation
+    description: Detects the creation of Alternate Data Streams (ADS) on targeted files by command interpreters.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
     techniques:
-      - T1564.001
+      - T1564.004
     data_sources:
       - file_event
       - windows
-  - title: Suspicious ADS File Creation via PowerShell
-    description: Detects suspicious Alternate Data Stream (ADS) file creation using powershell.exe.
+  - title: Detect Unusual ADS usage via Cmdline
+    description: Detects the usage of alternate data streams (ADS) execution via cmdline for defense evasion.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - defense_evasion
     techniques:
-      - T1564.001
+      - T1564.004
     data_sources:
-      - file_event
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-This detection focuses on identifying the creation of Alternate Data Streams (ADS) on Windows systems, a technique often employed by adversaries to conceal malicious code or data within seemingly benign files. Attackers leverage scripting engines and command interpreters to write ADS to various file types, including executables, documents, and media files. This activity is uncommon in legitimate workflows, making it a valuable indicator of potential compromise. The rule is designed to trigger on file creation events where the process creating the file is a known script or command interpreter (cmd.exe, powershell.exe, etc.) and the target file has a suspicious extension. The detection excludes common legitimate ADS usage patterns. This technique is used for defense evasion, allowing malware to persist without being easily detected by traditional security measures.
+This detection identifies suspicious creation of Alternate Data Streams (ADS) on files with targeted extensions (e.g., .exe, .dll, .pdf, .docx) on Windows systems. Attackers leverage ADS to conceal malicious payloads within otherwise benign files, making them harder to detect using traditional methods. The activity is triggered when a script interpreter like `cmd.exe` or `powershell.exe` is used to create an ADS. This detection is particularly relevant because it focuses on a defense evasion technique used to bypass standard security controls, and ADS creation on common file types is unusual in legitimate scenarios.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to a Windows system (e.g., through phishing or exploiting a vulnerability).
-2.  The attacker uses a command interpreter (cmd.exe, powershell.exe, etc.) or scripting engine (wscript.exe, cscript.exe) to execute malicious code.
-3.  The malicious code creates an Alternate Data Stream (ADS) on a targeted file (e.g., an executable, document, or image). The targeted file's extension could be pdf, dll, exe, dat, etc.
-4.  The attacker hides malicious code or data within the ADS, making it less visible to standard file system scans and security tools. The ADS is written to a file path using the `C:\\*:\*` syntax.
-5.  The attacker may rename or clean up any staging files to further conceal their activity.
-6.  The attacker can then execute the hidden code within the ADS, or use the ADS to store configuration data for later use.
-7.  The attacker maintains persistence by using the ADS to store and execute malicious code, bypassing typical file-based security measures.
-8.  The ultimate goal is to maintain unauthorized access to the system, potentially leading to data exfiltration, lateral movement, or other malicious activities.
+1.  The attacker gains initial access to the target system (e.g., via phishing or exploitation).
+2.  The attacker uses a command interpreter such as `cmd.exe` or `powershell.exe` to create an ADS on a target file.
+3.  The ADS is created using redirection operators (e.g., `>` or `>>`) to write data into the alternate stream.
+4.  The attacker writes malicious code or data into the created ADS. This code might be an executable, a script, or configuration data for malware.
+5.  The attacker executes code within the ADS using a method that is specific to the type of payload and the attacker's goals, such as `powershell -c "Get-Content C:\path\to\file.exe -stream hidden | Invoke-Expression"`.
+6.  The malicious code performs actions such as downloading additional payloads, establishing persistence, or exfiltrating data.
+7.  The attacker may repeat steps 2-6 to compromise additional systems or achieve further objectives.
 
 ## Impact
 
-Successful exploitation allows attackers to hide malicious code within legitimate files, evading detection by traditional security measures. This can lead to prolonged persistence on compromised systems, enabling data theft, ransomware deployment, or other malicious activities. While the specific number of victims is unknown, this technique is broadly applicable across Windows environments, potentially affecting a wide range of organizations.
+A successful ADS attack can lead to a wide range of impacts, including malware infection, data theft, and system compromise. The hidden nature of ADS makes detection difficult, allowing attackers to maintain a persistent presence on the compromised system. Depending on the attacker's goals, this could result in significant financial loss, reputational damage, or disruption of operations.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Suspicious ADS File Creation via Cmd` to detect ADS creation events initiated by cmd.exe.
-*   Deploy the Sigma rule `Suspicious ADS File Creation via PowerShell` to detect ADS creation events initiated by powershell.exe.
-*   Enable Sysmon Event ID 15 (FileCreateStreamHash) to provide detailed information about ADS creation events, as referenced in the rule's setup instructions.
-*   Investigate any alerts generated by these rules, focusing on the file paths, creating processes, and command-line arguments involved, as detailed in the rule's triage and analysis notes.
+*   Deploy the Sigma rule `Detect Suspicious ADS File Creation` to your SIEM and tune for your environment.
+*   Enable Sysmon file creation logging to capture events related to ADS creation, which is essential for the Sigma rule `Detect Suspicious ADS File Creation`.
+*   Investigate any alerts generated by the Sigma rule and analyze the contents of the ADS to determine if it contains malicious code or data.
+*   Consider implementing additional security controls to prevent the creation of ADS on sensitive files, such as access control lists (ACLs).
+*   Monitor process execution chains for suspicious processes that create ADS, particularly those originating from web browsers or email clients.
