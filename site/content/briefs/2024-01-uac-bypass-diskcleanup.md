@@ -1,8 +1,8 @@
 ---
 title: UAC Bypass via DiskCleanup Scheduled Task Hijack
 slug: 2024-01-uac-bypass-diskcleanup
-description: Attackers bypass User Account Control (UAC) by hijacking the DiskCleanup Scheduled Task to stealthily execute code with elevated permissions on Windows systems.
-date: "2024-01-04T12:00:00Z"
+description: Attackers bypass User Account Control (UAC) to stealthily execute code with elevated permissions by hijacking the DiskCleanup Scheduled Task, leveraging specific arguments with non-standard executables.
+date: "2024-01-03T14:27:00Z"
 type: advisory
 types:
   - advisory
@@ -12,16 +12,10 @@ tags:
   - uac-bypass
   - privilege-escalation
   - windows
-  - diskcleanup
-  - scheduled-task
 vendors:
   - Microsoft
-  - Elastic
-  - Crowdstrike
-  - SentinelOne
 products:
-  - Defender XDR
-  - Elastic Defend
+  - Windows
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -36,28 +30,35 @@ mitre_ttps:
     technique_id: T1053
     technique_name: Scheduled Task/Job
 references:
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/privilege_escalation_uac_bypass_diskcleanup_hijack.toml
+  - https://attack.mitre.org/techniques/T1548/
+  - https://attack.mitre.org/techniques/T1548/002/
+  - https://attack.mitre.org/techniques/T1053/
+  - https://attack.mitre.org/techniques/T1053/005/
 rules:
-  - title: UAC Bypass via DiskCleanup with Suspicious Path
-    description: Detects UAC bypass attempts by monitoring for DiskCleanup executions with suspicious arguments and paths.
+  - title: UAC Bypass via DiskCleanup Scheduled Task Hijack
+    description: Detects UAC bypass attempts by identifying processes using specific arguments with executables other than the legitimate DiskCleanup executables.
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
+      - execution
       - privilege_escalation
     techniques:
+      - T1053.005
       - T1548.002
     data_sources:
       - process_creation
       - windows
-  - title: UAC Bypass via DiskCleanup and Taskhostw
-    description: Detects UAC bypass attempts by monitoring for DiskCleanup or Taskhostw executions with suspicious arguments.
+  - title: Suspicious Process Execution with DiskCleanup Arguments
+    description: This rule identifies processes running with arguments commonly associated with DiskCleanup, but originating from unusual locations.
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
+      - execution
       - privilege_escalation
     techniques:
+      - T1053.005
       - T1548.002
     data_sources:
       - process_creation
@@ -65,26 +66,27 @@ rules:
 rules_count: 2
 ---
 
-This rule identifies User Account Control (UAC) bypass attempts via hijacking the DiskCleanup Scheduled Task. Attackers exploit this method to execute code with elevated privileges, bypassing standard security controls. The technique involves leveraging the `cleanmgr.exe` or `taskhostw.exe` executables with specific arguments (`/autoclean` and `/d`) outside of their expected paths. This allows attackers to run malicious code under the guise of a legitimate system process, making detection more challenging. This technique is used to gain elevated privileges on a compromised system, allowing for further malicious activities.
+This threat involves the exploitation of the Windows User Account Control (UAC) by hijacking the DiskCleanup scheduled task. The attack, observed in environments utilizing Windows operating systems, abuses the auto-elevation capabilities associated with the DiskCleanup utility. By manipulating or replacing the legitimate DiskCleanup executable with a malicious payload and using specific command-line arguments, attackers can bypass UAC and execute arbitrary code with elevated privileges. This allows for stealthy installation of malware, configuration changes, or other malicious activities. The detection rule provided identifies processes employing the `/autoclean` and `/d` arguments in conjunction with executables outside the standard DiskCleanup paths, aiming to uncover potential UAC bypass attempts. This technique is effective because DiskCleanup is a trusted Windows component, allowing it to run with elevated privileges without prompting the user.
 
 ## Attack Chain
 
-1. An attacker gains initial access to the system (e.g., via phishing or exploiting a software vulnerability).
-2. The attacker modifies or creates a scheduled task to execute `cleanmgr.exe` or `taskhostw.exe` with the `/autoclean` and `/d` arguments.
-3. The modified scheduled task is triggered, executing the specified executable with the supplied arguments.
-4. The executable, such as `cleanmgr.exe`, attempts to run Disk Cleanup.
-5. If the executable path is outside the standard locations (e.g., `C:\\Windows\\System32` or `C:\\Windows\\SysWOW64`), it indicates a potential hijack.
-6. Malicious code is executed with elevated privileges due to the UAC bypass.
-7. The attacker uses these elevated privileges to install malware, modify system settings, or perform other malicious activities.
+1.  The attacker gains initial access to the system through a separate exploit or social engineering.
+2.  The attacker identifies the DiskCleanup scheduled task as a UAC bypass target.
+3.  The attacker places a malicious executable on the system.
+4.  The attacker modifies the system to execute the malicious executable with the `/autoclean` and `/d` arguments. This might involve creating a new scheduled task or modifying an existing one.
+5.  The modified or new scheduled task triggers the execution of the malicious executable, leveraging the auto-elevation of DiskCleanup.
+6.  UAC is bypassed because the system trusts the DiskCleanup process.
+7.  The malicious executable runs with elevated privileges, allowing the attacker to perform privileged actions.
+8.  The attacker installs malware, modifies system settings, or performs other malicious activities.
 
 ## Impact
 
-Successful exploitation allows attackers to bypass User Account Control (UAC) and execute code with elevated privileges. This can lead to the installation of malware, modification of system settings, data theft, and other malicious activities. While the exact number of victims is unknown, this technique is effective on systems where UAC is enabled but misconfigured or vulnerable.
+Successful exploitation of this UAC bypass technique allows attackers to execute code with elevated privileges, leading to a range of potential impacts. This can include the installation of persistent backdoors, the theft of sensitive data, or the complete compromise of the affected system. Since this technique bypasses security controls designed to limit privilege escalation, it significantly increases the attacker's ability to move laterally within a network and achieve their objectives. The impact is especially severe in environments where UAC is relied upon as a primary security mechanism.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "UAC Bypass via DiskCleanup with Suspicious Path" to your SIEM and tune for your environment to detect UAC bypass attempts.
-*   Deploy the Sigma rule "UAC Bypass via DiskCleanup and Taskhostw" to your SIEM to detect UAC bypass attempts.
-*   Monitor process creation events for `cleanmgr.exe` and `taskhostw.exe` with the `/autoclean` and `/d` arguments, focusing on executions outside the standard system directories.
-*   Review and harden scheduled tasks to prevent unauthorized modifications.
-*   Ensure that UAC settings are properly configured and enforced across the organization.
+*   Deploy the Sigma rule "UAC Bypass via DiskCleanup Scheduled Task Hijack" to your SIEM and tune for your environment to detect suspicious process executions (rules).
+*   Investigate any process executions flagged by the Sigma rule, paying close attention to the process arguments and executable paths (rules).
+*   Enforce strict access control policies to limit the ability of users to modify scheduled tasks (attack chain).
+*   Monitor process creation events for the execution of executables with the `/autoclean` and `/d` arguments, excluding legitimate DiskCleanup executables (rules).
+*   Regularly review and audit scheduled tasks to identify any unauthorized or malicious tasks (attack chain).
