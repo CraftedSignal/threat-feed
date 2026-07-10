@@ -1,54 +1,50 @@
 ---
-title: PraisonAI Python Sandbox Escape via Code Injection
+title: PraisonAI Arbitrary Code Execution via Malicious tools.py Import
 slug: 2024-01-praisonai-rce
-description: PraisonAI's AST-based Python sandbox is vulnerable to code injection allowing arbitrary code execution when running untrusted agent code by bypassing attribute filtering using `type.__getattribute__` which could lead to complete system compromise.
-date: "2024-01-17T12:00:00Z"
+description: PraisonAI versions 4.5.138 and earlier are vulnerable to arbitrary code execution due to the automatic import and execution of a `tools.py` file from the current working directory, allowing attackers to execute arbitrary Python code.
+date: "2024-01-23T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - code-injection
-  - sandbox-escape
+  - praisonai
+  - rce
   - python
 vendors:
   - PraisonAI
 products:
   - PraisonAI
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-cves:
-  - id: CVE-2026-40158
-    cvss: 8.6
 references:
-  - https://github.com/advisories/GHSA-3c4r-6p77-xwr7
+  - https://github.com/advisories/GHSA-g985-wjh9-qxxc
+iocs:
+  - type: file
+    value: tools.py
+ioc_counts:
+  file: 1
 rules:
-  - title: Detect PraisonAI Sandbox Escape Attempt via type.__getattribute__
-    description: Detects attempts to bypass PraisonAI's AST-based Python sandbox by using type.__getattribute__ to access restricted attributes like __subclasses__ or __globals__.
+  - title: Detect Suspicious tools.py Creation
+    description: Detects the creation of a `tools.py` file with potentially malicious content based on common code execution patterns.
     platform: sigma
     severity: high
     tactics:
-      - defense_evasion
       - execution
     techniques:
       - T1059.006
     data_sources:
-      - process_creation
+      - file_event
       - linux
-  - title: Detect PraisonAI Sandbox Escape Attempt via system call after attribute bypass
-    description: Detects attempts to execute system commands after a potential sandbox escape, indicated by the use of type.__getattribute__ followed by a system call (e.g., curl, wget).
+  - title: PraisonAI tools.py Execution via Python
+    description: Detects execution of `tools.py` by a python process, which is suggestive of the PraisonAI vulnerability.
     platform: sigma
-    severity: critical
+    severity: medium
     tactics:
-      - defense_evasion
       - execution
     techniques:
       - T1059.006
@@ -58,25 +54,26 @@ rules:
 rules_count: 2
 ---
 
-PraisonAI, a platform that executes untrusted agent code, contains a flaw in its AST-based Python sandbox. The sandbox attempts to restrict access to dangerous Python attributes like `__subclasses__` and `__globals__` by filtering `ast.Attribute` nodes. However, this filtering is incomplete, as it does not account for dynamic attribute resolution using built-in methods such as `type.__getattribute__`. An attacker can leverage this oversight to bypass the intended security restrictions and achieve arbitrary code execution. This vulnerability affects PraisonAI versions prior to 4.5.128 and was reported by Lakshmikanthan K (letchupkt). Successful exploitation allows attackers to escape the sandbox, enabling sensitive data access, arbitrary command execution, and potential system compromise.
+PraisonAI, an AI agent platform, is vulnerable to arbitrary code execution. Specifically, versions 4.5.138 and earlier automatically import and execute a `tools.py` file located in the current working directory. This behavior affects components like `call.py`, `tool_resolver.py`, and various CLI tool-loading paths. An attacker can exploit this vulnerability by placing a malicious `tools.py` file in the directory where PraisonAI is launched. When PraisonAI initializes or a CLI command is executed that loads local tools, the malicious script is immediately executed, granting the attacker arbitrary Python code execution within the PraisonAI process context. This can lead to host compromise and potential data breaches.
 
 ## Attack Chain
 
-1. The attacker injects malicious Python code into the PraisonAI agent execution environment.
-2. The injected code uses `type.__getattribute__` to access the `__bases__` attribute of an integer class (`int_cls`). This bypasses the AST-based filter, which only checks `ast.Attribute` nodes.
-3. The code retrieves the object class (`obj_cls`) from the `__bases__` attribute.
-4. The attacker then uses `type.__getattribute__` again to access the `__subclasses__` attribute of the `obj_cls`. This further bypasses the filter.
-5. The code iterates through all subclasses to find the `_wrap_close` class.
-6. It then uses `type.__getattribute__` to get the `__init__` method of the `_wrap_close` class and subsequently accesses its `__globals__` attribute.
-7. This provides access to the global namespace, allowing the attacker to retrieve the `system` function.
-8. Finally, the attacker uses the `system` function to execute arbitrary commands, such as exfiltrating environment variables to an attacker-controlled server using `curl`.
+1. The attacker identifies a PraisonAI instance and determines its working directory.
+2. The attacker crafts a malicious `tools.py` file containing arbitrary Python code to execute.
+3. The attacker places the malicious `tools.py` file into the PraisonAI working directory. This could be achieved via compromised credentials, file upload functionality, or other means of initial access.
+4. The victim user or system executes a PraisonAI component, such as `call.py`, through a CLI command (e.g., `praisonai workflow run safe.yaml`).
+5. During initialization, the PraisonAI component attempts to load local tools by importing `tools.py` from the current working directory via `import_tools_from_file()` or `_load_local_tools()`.
+6. The Python interpreter executes the attacker's malicious code within `tools.py`.
+7. The attacker gains control of the PraisonAI process.
+8. The attacker leverages their control to compromise the host system, steal sensitive data, or pivot to other systems on the network.
 
 ## Impact
 
-This vulnerability allows attackers to escape the intended Python sandbox and execute arbitrary code with the privileges of the host process. Attackers can access sensitive data such as environment variables, API keys, and local files. Arbitrary system commands can be executed, potentially leading to modification or deletion of files. In environments that execute untrusted code, this can lead to full system compromise, data exfiltration, and potential lateral movement within the infrastructure. This poses a significant risk to multi-tenant agent platforms, CI/CD pipelines, and shared systems.
+Successful exploitation allows an attacker to execute arbitrary code within the PraisonAI process. This can lead to full system compromise, including the potential to read sensitive data, install backdoors, or pivot to other systems on the network. The number of victims depends on the prevalence of vulnerable PraisonAI installations. Affected sectors are any using the PraisonAI framework. A successful attack gives the attacker full control over the host system and any data accessible to the PraisonAI process.
 
 ## Recommendation
 
-*   Upgrade PraisonAI to version 4.5.128 or later to patch CVE-2026-40158.
-*   Deploy the Sigma rules in this brief to your SIEM to detect potential exploitation attempts.
-*   Review and harden any custom code that executes untrusted Python, paying special attention to dynamic attribute access patterns.
+*   Upgrade PraisonAI to a version greater than 4.5.138 to prevent the automatic import of `tools.py`.
+*   Deploy the Sigma rules provided to detect the creation of `tools.py` with suspicious content (see rules below).
+*   Monitor process creation events for PraisonAI processes executing Python scripts from unexpected locations, especially the current working directory, using process creation logs.
+*   Implement file integrity monitoring on the PraisonAI installation directory to detect unauthorized file modifications, including the creation of `tools.py`.
