@@ -1,0 +1,86 @@
+---
+title: Azure AD High-Risk Sign-in Detection
+slug: 2024-01-03-azuread-high-risk-signin
+description: Detection of high-risk Azure Active Directory sign-in attempts, identified by Azure Identity Protection, indicating potentially compromised accounts and unauthorized access to sensitive resources.
+date: "2024-01-03T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - azuread
+  - account-takeover
+  - cloud
+vendors:
+  - Microsoft
+products:
+  - Azure Active Directory
+mitre_ttps:
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1110
+    technique_name: Brute Force
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1485
+    technique_name: Data Destruction
+  - tactic_id: TA0042
+    tactic_name: Resource Development
+    technique_id: T1586
+    technique_name: Compromise Accounts
+references:
+  - https://attack.mitre.org/techniques/T1110/003/
+  - https://docs.microsoft.com/en-us/security/compass/incident-response-playbook-password-spray
+  - https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection
+  - https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks
+rules:
+  - title: Azure AD High-Risk Sign-in Detected
+    description: Detects high-risk sign-in attempts in Azure Active Directory as identified by Azure Identity Protection.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+    techniques:
+      - T1110.003
+    data_sources:
+      - authentication
+      - azure_ad
+  - title: Azure AD Sign-in from Unusual Location (based on Risk Event)
+    description: Detects sign-in attempts from unusual locations based on Azure Identity Protection risk event logs.
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - authentication
+      - azure_ad
+rules_count: 2
+---
+
+This analytic focuses on identifying potentially compromised user accounts within Azure Active Directory (Azure AD). It leverages Azure Identity Protection's risk assessment capabilities to detect high-risk sign-in attempts. These attempts are flagged by Azure's heuristics and machine learning algorithms. The detection utilizes the `RiskyUsers` and `UserRiskEvents` log categories from Azure AD, which are typically ingested through an Event Hub. The Splunk Add-on for Microsoft Cloud Services is required. Successful exploitation can lead to unauthorized access to sensitive data, system compromise, and further malicious activities within the Azure environment. This detection helps security teams identify and respond to account compromise incidents proactively.
+
+## Attack Chain
+
+1.  **Initial Access:** The attacker gains initial access to a valid Azure AD username and password through various means, such as credential harvesting or password spraying (T1110.003).
+2.  **Password Spraying:** The attacker attempts to authenticate to Azure AD using a list of common passwords against multiple user accounts (T1110.003).
+3.  **MFA Fatigue:** If MFA is enabled, the attacker attempts to overwhelm the user with MFA prompts until they accept one.
+4.  **Authentication:** The attacker successfully authenticates to Azure AD as a legitimate user. This authentication is flagged as high-risk by Azure Identity Protection based on factors such as location, device, or frequency of access.
+5.  **Privilege Escalation (Conditional):** The attacker may attempt to elevate their privileges within Azure AD or associated resources to gain broader access.
+6.  **Data Access:** Once authenticated, the attacker attempts to access sensitive data or resources within the Azure environment.
+7.  **Lateral Movement (Conditional):** The attacker may attempt to move laterally to other systems or applications within the organization's network.
+8.  **Exfiltration/Impact:** The attacker exfiltrates sensitive data or causes other damage, such as deleting resources or disrupting services.
+
+## Impact
+
+A successful attack can result in significant data breaches, financial losses, and reputational damage. The number of affected users and the scope of the breach depend on the attacker's access level and the sensitivity of the compromised data. Organizations across all sectors that rely on Azure Active Directory are potentially at risk. If successful, attackers can gain persistent access to cloud resources, compromise critical business applications, and disrupt operations.
+
+## Recommendation
+
+*   Ensure the Splunk Add-on for Microsoft Cloud Services is installed and properly configured to ingest Azure Active Directory logs, specifically the `RiskyUsers` and `UserRiskEvents` log categories, as mentioned in the documentation.
+*   Deploy the provided Sigma rule `Azure AD High-Risk Sign-in Detected` to identify high-risk sign-in attempts in your SIEM environment.
+*   Investigate and remediate any alerts generated by the Sigma rule, prioritizing users identified as high-risk by Azure Identity Protection.
+*   Implement and enforce multi-factor authentication (MFA) for all users to mitigate the risk of password-based attacks.
+*   Monitor user activity for suspicious behavior, such as access to unusual resources or activities outside of normal working hours.
