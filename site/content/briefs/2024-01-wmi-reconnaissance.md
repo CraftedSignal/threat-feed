@@ -1,25 +1,22 @@
 ---
-title: Suspicious PowerShell Reconnaissance via WMI Queries
+title: Suspicious WMI Reconnaissance via PowerShell
 slug: 2024-01-wmi-reconnaissance
-description: Detection of suspicious PowerShell activity using Windows Management Instrumentation (WMI) to gather system information, indicative of reconnaissance efforts by adversaries potentially leading to further exploitation or lateral movement.
-date: "2024-01-02T12:00:00Z"
+description: This analytic detects suspicious PowerShell activity leveraging WMI to gather system information, potentially indicating reconnaissance by an attacker.
+date: "2024-01-03T15:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - medium
 tags:
+  - reconnaissance
   - powershell
   - wmi
-  - reconnaissance
-  - lateral_movement
   - windows
 vendors:
-  - Splunk
+  - Microsoft
 products:
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
+  - Windows
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Reconnaissance
@@ -40,11 +37,10 @@ references:
   - https://blogs.vmware.com/security/2022/10/lockbit-3-0-also-known-as-lockbit-black.html
 rules:
   - title: Detect Suspicious WMI Reconnaissance via PowerShell
-    description: Detects PowerShell scripts using WMI to gather system information, which may indicate reconnaissance activity.
+    description: Detects PowerShell scripts using WMI to gather system information.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
-      - execution
       - reconnaissance
     techniques:
       - T1059.001
@@ -52,42 +48,41 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detect Suspicious WMI Reconnaissance via Cmd
-    description: Detects Command Prompt using WMI to gather system information, which may indicate reconnaissance activity.
+  - title: Detect Suspicious WMI Queries in PowerShell Script Block Logging
+    description: Detects suspicious WMI queries within PowerShell script block logging, focusing on specific WMI classes indicative of reconnaissance.
     platform: sigma
     severity: medium
     tactics:
-      - execution
       - reconnaissance
     techniques:
       - T1059.001
       - T1592
     data_sources:
-      - process_creation
+      - powershell_script
       - windows
 rules_count: 2
 ---
 
-This brief focuses on detecting reconnaissance activities performed through PowerShell using WMI queries. Adversaries often use WMI to gather detailed information about a compromised system, including hardware specifications, operating system details, and installed software. This information can be used to plan further attacks, such as privilege escalation or lateral movement. This detection leverages PowerShell Script Block Logging (EventCode 4104) to identify specific WMI queries that target system information classes like `Win32_Bios`, `Win32_OperatingSystem`, `Win32_Processor` and others. Identifying this behavior early can help defenders disrupt attack chains before significant damage occurs. The analytic is based on the detection logic from the Splunk Security Content project as of April 2026.
+This detection identifies suspicious PowerShell activity where Windows Management Instrumentation (WMI) is used to query system information. Adversaries often use WMI for reconnaissance to profile compromised machines. The detection focuses on PowerShell EventCode 4104 and identifies specific WMI queries targeting system information classes such as Win32_Bios, Win32_OperatingSystem, Win32_Processor, Win32_ComputerSystem, Win32_PnPEntity, Win32_ShadowCopy, Win32_DiskDrive, Win32_PhysicalMemory, Win32_BaseBoard, and Win32_DisplayConfiguration. This activity, if confirmed malicious, allows attackers to gather detailed system information to aid further exploitation or lateral movement within a network. The detection is based on an analytic from Splunk's security content and leverages PowerShell Script Block Logging.
 
 ## Attack Chain
 
-1. An attacker gains initial access to the target system, potentially through phishing or exploiting a software vulnerability.
-2. The attacker executes a PowerShell script, either directly or via a command-line interpreter like `cmd.exe`.
-3. The PowerShell script uses the `Get-WmiObject` cmdlet or a direct WMI query with `SELECT` to query system information.
-4. Specific WMI classes are targeted, including `Win32_Bios`, `Win32_OperatingSystem`, `Win32_Processor`, `Win32_ComputerSystem`, `Win32_PnPEntity`, `Win32_ShadowCopy`, `Win32_DiskDrive`, `Win32_PhysicalMemory`, `Win32_BaseBoard`, and `Win32_DisplayConfiguration`.
-5. The script collects the data returned by the WMI queries.
-6. The gathered information is used to profile the system and identify potential vulnerabilities or weaknesses.
-7. The attacker uses the gathered information to plan subsequent stages of the attack, like lateral movement or privilege escalation.
-8. The attacker executes further commands based on the gathered information.
+1.  The attacker gains initial access to the system, potentially through methods not directly observed by this detection.
+2.  The attacker executes PowerShell.exe to perform reconnaissance.
+3.  The attacker utilizes the `Get-WmiObject` cmdlet or `SELECT` queries within PowerShell to interact with WMI.
+4.  The PowerShell script queries WMI classes such as `Win32_Bios`, `Win32_OperatingSystem`, or other classes listed in the detection, to gather information about the system hardware and software.
+5.  The gathered information is processed and potentially stored or transmitted to a remote server under the attacker's control (not directly visible in this detection).
+6.  The attacker analyzes the collected system information to identify potential vulnerabilities or weaknesses for further exploitation.
+7.  Based on the gathered information, the attacker plans and executes lateral movement or privilege escalation attempts within the network.
+8.  The final objective could be data exfiltration, ransomware deployment, or other malicious activities, leveraging the gathered system information.
 
 ## Impact
 
-Successful reconnaissance can provide attackers with a comprehensive understanding of the target environment, enabling them to tailor their attacks for maximum impact. This can lead to successful privilege escalation, lateral movement, data exfiltration, or ransomware deployment. Organizations that fail to detect and prevent reconnaissance activities are at a higher risk of experiencing significant data breaches and financial losses. The Maze ransomware group, Industroyer2, and LockBit ransomware have been observed using similar reconnaissance techniques.
+A successful reconnaissance phase allows attackers to understand the target environment, identify vulnerabilities, and plan further actions. This can lead to data breaches, system compromise, and financial loss. While specific victim numbers are not available, organizations in various sectors are potentially at risk. Successful exploitation following reconnaissance can result in significant operational disruption and reputational damage.
 
 ## Recommendation
 
-*   Enable PowerShell Script Block Logging on all endpoints to capture the necessary data for detection ([PowerShell Script Block Logging 4104](https://help.splunk.com/en/security-offerings/splunk-user-behavior-analytics/get-data-in/5.4.1/add-other-data-to-splunk-uba/configure-powershell-logging-to-see-powershell-anomalies-in-splunk-uba.)).
-*   Deploy the Sigma rule `Detect Suspicious WMI Reconnaissance via PowerShell` to identify PowerShell scripts querying sensitive WMI classes.
-*   Investigate any alerts generated by the Sigma rule, focusing on the user and process context to determine potential malicious intent.
-*   Review and tune the `Recon Using WMI Class` detection filter (`recon_using_wmi_class_filter`) to reduce false positives in your environment.
+*   Enable PowerShell Script Block Logging on all endpoints to capture the necessary data for this detection, as referenced in the "how_to_implement" section.
+*   Deploy the Sigma rule "Detect Suspicious WMI Reconnaissance via PowerShell" to your SIEM and tune the filter list to reduce false positives in your environment.
+*   Investigate any alerts generated by this rule, focusing on the context of the user and the destination system (dest, user_id).
+*   Review the references provided for additional context on PowerShell-based attacks and WMI abuse.
