@@ -1,30 +1,21 @@
 ---
-title: Microsoft Office 'Office Test' Registry Persistence Abuse
+title: Office Test Registry Persistence for Malicious DLL Execution
 slug: 2024-01-office-test-registry-persistence
-description: Attackers modify the Microsoft Office 'Office Test' Registry key to achieve persistence by specifying a malicious DLL that executes upon application startup.
-date: "2024-01-27T17:30:00Z"
+description: Attackers can modify the Microsoft Office 'Office Test' Registry key to establish persistence by loading a malicious DLL that executes every time an MS Office application starts.
+date: "2024-01-30T10:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
 tags:
   - persistence
-  - registry
-  - windows
+  - registry modification
+  - office test
 vendors:
   - Microsoft
-  - Elastic
-  - SentinelOne
-  - Crowdstrike
 products:
   - Microsoft Office
-  - Elastic Defend
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
-  - Crowdstrike
-affected_os:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -36,23 +27,12 @@ mitre_ttps:
     technique_name: Modify Registry
 references:
   - https://unit42.paloaltonetworks.com/unit42-technical-walkthrough-office-test-persistence-method-used-in-recent-sofacy-attacks/
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_msoffice_startup_registry.toml
+  - https://attack.mitre.org/techniques/T1137/
+  - https://attack.mitre.org/techniques/T1137/002/
+  - https://attack.mitre.org/techniques/T1112/
 rules:
-  - title: Detect Office Test Registry Key Modification
-    description: Detects modifications to the Microsoft Office 'Office Test' registry key, which is a common persistence technique.
-    platform: sigma
-    severity: low
-    tactics:
-      - defense_evasion
-      - persistence
-    techniques:
-      - T1112
-      - T1137.002
-    data_sources:
-      - registry_set
-      - windows
-  - title: Detect DLL Load from Office Test Registry Key
-    description: Detects when a DLL specified in the 'Office Test' registry key is loaded by an Office application.
+  - title: Office Test Registry Persistence - Registry Modification
+    description: Detects modifications to the Office Test registry key used for persistence.
     platform: sigma
     severity: medium
     tactics:
@@ -62,31 +42,44 @@ rules:
       - T1112
       - T1137.002
     data_sources:
+      - registry_set
+      - windows
+  - title: Office Test Registry Persistence - Suspicious DLL in Office Process
+    description: Detects loading of suspicious DLLs by Office applications, based on registry modifications.
+    platform: sigma
+    severity: high
+    tactics:
+      - defense_evasion
+      - persistence
+    techniques:
+      - T1137.002
+    data_sources:
       - image_load
       - windows
 rules_count: 2
 ---
 
-The "Office Test" registry key, located under `HKCU\Software\Microsoft\Office Test\Special\Perf`, is a legitimate feature that allows specifying a DLL to be executed every time an MS Office application is started. Attackers can abuse this functionality by modifying the registry to point to a malicious DLL, achieving persistence on a compromised host. This allows for continued malicious activity even after a system restart or user logout. Elastic has published a rule to detect this behavior. The modification of this registry key, excluding deletions, is a strong indicator of potential abuse, and can be detected via endpoint detection and response (EDR) solutions as well as traditional Sysmon logging.
+Attackers can exploit the Microsoft Office "Office Test" Registry key (located at `HKCU\Software\Microsoft\Office Test\Special\Perf`) to achieve persistence. This key allows specifying a DLL that is executed whenever an MS Office application is started. By modifying this registry key to point to a malicious DLL, attackers can ensure that their code is executed every time a user opens Word, Excel, or other Office applications. This technique is particularly effective because it leverages a legitimate feature of MS Office, making it harder to detect. This activity has been observed in historical campaigns by the Sofacy APT.
 
 ## Attack Chain
 
-1. An attacker gains initial access to a system, often through phishing or exploiting a vulnerability.
-2. The attacker establishes a foothold and escalates privileges to make necessary registry modifications.
-3. The attacker modifies the `HKCU\Software\Microsoft\Office Test\Special\Perf` registry key, adding a new entry or modifying an existing one to point to a malicious DLL.
-4. The attacker ensures the malicious DLL is present on the system, either by dropping it directly or using existing system tools to download it.
-5. A user launches a Microsoft Office application (e.g., Word, Excel, PowerPoint).
-6. The Office application loads the DLL specified in the "Office Test" registry key during startup.
-7. The malicious DLL executes its payload, which could include establishing a reverse shell, installing malware, or exfiltrating data.
-8. The attacker maintains persistence, allowing them to regain access to the system each time an Office application is started.
+1. An attacker gains initial access to the target system, potentially through phishing or exploiting a software vulnerability.
+2. The attacker elevates privileges to allow modification of the registry.
+3. The attacker modifies the `HKCU\Software\Microsoft\Office Test\Special\Perf` registry key to point to a malicious DLL.
+4. The malicious DLL is placed on the system in a location accessible to the user account.
+5. The user launches an MS Office application (e.g., Word, Excel).
+6. The MS Office application loads the malicious DLL specified in the registry key.
+7. The malicious DLL executes its payload, potentially installing malware, establishing a reverse shell, or exfiltrating data.
+8. The attacker maintains persistence on the system, as the malicious DLL will be loaded every time an MS Office application is launched.
 
 ## Impact
 
-Successful exploitation allows attackers to maintain persistent access to a compromised system. The injected DLL can be used to execute arbitrary code, potentially leading to data theft, malware installation, or further compromise of the network. The relatively low risk score suggests a common technique, but the potential for persistent access makes it a significant threat.
+Successful exploitation allows attackers to maintain persistent access to compromised systems. This can lead to data theft, installation of ransomware, or further compromise of the network. The number of victims is dependent on the scope of the initial compromise, but any system with MS Office installed is potentially vulnerable. Attackers often use this technique to maintain access to high-value targets, such as executives or system administrators.
 
 ## Recommendation
 
-*   Deploy the provided Sigma rule to your SIEM and tune for your environment to detect unauthorized modifications to the "Office Test" registry key (`HKCU\Software\Microsoft\Office Test\Special\Perf\*`).
-*   Enable Sysmon Registry event logging to capture registry modifications and activate the Sigma rule above.
-*   Monitor process execution logs for Office applications to detect if a suspicious DLL has been loaded or executed, as described in the investigation guide.
-*   Implement enhanced monitoring and alerting for similar registry modifications across the network, as described in the remediation steps.
+*   Monitor registry modifications to the `HKCU\Software\Microsoft\Office Test\Special\Perf` key using the Sigma rule provided to detect potential malicious activity.
+*   Enable Sysmon registry event logging to capture the necessary data for the Sigma rule to function correctly.
+*   Regularly scan systems with updated anti-malware solutions to detect and remove any malicious DLLs.
+*   Implement application control policies to prevent the execution of unauthorized DLLs in MS Office applications.
+*   Investigate any alerts generated by the Sigma rule, paying close attention to the DLL path and user activity logs.
