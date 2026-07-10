@@ -88,17 +88,17 @@
   {{/* Compact rate readouts - keep the numbers, drop the per-metric charts */}}
   <div class="flex flex-wrap items-baseline gap-x-7 gap-y-2">
     <div class="flex items-baseline gap-2">
-      <span class="w-2.5 h-2.5 rounded-sm self-center" style="background: rgb(var(--color-accent))"></span>
+      <span class="w-2.5 h-2.5 rounded-sm self-center chart-swatch-accent"></span>
       <span class="font-mono text-2xl leading-none text-text">{{ strings.TrimSuffix ".0" (printf "%.1f" $briefRate) }}</span>
       <span class="text-[10px] uppercase tracking-wider text-muted">briefs/day</span>
     </div>
     <div class="flex items-baseline gap-2">
-      <span class="w-2.5 h-2.5 rounded-sm self-center" style="background: rgb(var(--color-sev-medium))"></span>
+      <span class="w-2.5 h-2.5 rounded-sm self-center chart-swatch-medium"></span>
       <span class="font-mono text-2xl leading-none text-text">{{ strings.TrimSuffix ".0" (printf "%.1f" $vulnRate) }}</span>
       <span class="text-[10px] uppercase tracking-wider text-muted">vulns/day</span>
     </div>
     <div class="flex items-baseline gap-2">
-      <span class="w-2.5 h-2.5 rounded-sm self-center" style="background: rgb(var(--color-sev-critical))"></span>
+      <span class="w-2.5 h-2.5 rounded-sm self-center chart-swatch-critical"></span>
       <span class="font-mono text-2xl leading-none text-text">{{ strings.TrimSuffix ".0" (printf "%.1f" $critRate) }}</span>
       <span class="text-[10px] uppercase tracking-wider text-muted">crits/day</span>
     </div>
@@ -116,7 +116,7 @@
         {{ $v := $scratch.Get (printf "%s_vulns" $key) | default 0 }}
         {{ $heightPct := 4 }}
         {{ if gt $value 0 }}{{ $heightPct = add 8 (div (mul $value 90.0) $denomDay) }}{{ end }}
-        <span class="activity-spark-bar activity-spark-briefs" style="height: {{ $heightPct }}%" title="{{ $date.Format "Mon Jan 2" }} - {{ $value }} briefs, {{ $v }} CVEs, {{ $c }} critical"></span>
+        <span class="activity-spark-bar activity-spark-briefs h{{ int (mul (math.Round (div $heightPct 5.0)) 5) }}" title="{{ $date.Format "Mon Jan 2" }} - {{ $value }} briefs, {{ $v }} CVEs, {{ $c }} critical"></span>
       {{ end }}
     </div>
     <svg class="activity-chart-lines" viewBox="0 0 {{ $window }} 100" preserveAspectRatio="none" aria-hidden="true">
@@ -128,8 +128,8 @@
   <div class="flex items-center justify-between gap-3 text-[10px] font-mono uppercase tracking-wider text-muted">
     <span>{{ ($anchor.AddDate 0 0 (mul -1 (sub $window 1))).Format "Jan 2" }}</span>
     <span class="flex items-center gap-3">
-      <span class="flex items-center gap-1"><span class="w-3 h-px" style="background: rgb(var(--color-sev-critical))"></span>crits</span>
-      <span class="flex items-center gap-1"><span class="w-3 h-px" style="background: rgb(var(--color-sev-medium))"></span>vulns</span>
+      <span class="flex items-center gap-1"><span class="w-3 h-px chart-swatch-critical"></span>crits</span>
+      <span class="flex items-center gap-1"><span class="w-3 h-px chart-swatch-medium"></span>vulns</span>
     </span>
     <span>{{ $anchor.Format "Jan 2" }}</span>
   </div>
