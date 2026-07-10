@@ -13,6 +13,11 @@ tags:
   - scheduled-task
   - privilege-escalation
   - lateral-movement
+vendors:
+  - Microsoft
+products:
+  - Active Directory
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
