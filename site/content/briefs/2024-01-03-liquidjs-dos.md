@@ -1,74 +1,79 @@
 ---
-title: liquidjs Denial of Service via Circular Block Reference
+title: LiquidJS Memory Limit Bypass Leads to Denial of Service
 slug: 2024-01-03-liquidjs-dos
-description: A vulnerability in liquidjs versions prior to 10.25.7 allows for denial of service due to a circular block reference in the layout, causing an infinite recursive loop that exhausts memory and crashes the Node.js process.
-date: "2024-01-03T12:00:00Z"
+description: A vulnerability in LiquidJS versions 10.24.0 and earlier allows a threat actor with control over template content to bypass the `memoryLimit` protection mechanism, leading to a denial of service by using reverse range expressions to allocate unlimited memory and a string flattening operation to cause a V8 Fatal error that crashes the Node.js process.
+date: "2024-01-03T16:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - liquidjs
   - denial-of-service
   - template-injection
+  - nodejs
 vendors:
-  - liquidjs
+  - LiquidJS
 products:
-  - liquidjs
+  - LiquidJS
 mitre_ttps:
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
 references:
-  - https://github.com/advisories/GHSA-4rc3-7j7w-m548
+  - https://github.com/advisories/GHSA-9r5m-9576-7f6x
 rules:
-  - title: Detect LiquidJS Template DoS
-    description: Detects LiquidJS templates with deeply nested blocks, potentially leading to denial of service.
-    platform: sigma
-    severity: high
-    tactics:
-      - impact
-    techniques:
-      - T1499.004
-    data_sources:
-      - webserver
-      - linux
-  - title: Detect LiquidJS High Memory Usage
-    description: Alerts on abnormally high memory usage by Node.js processes, potentially indicative of a LiquidJS DoS attack.
+  - title: Detect LiquidJS Template Injection
+    description: Detects HTTP requests containing LiquidJS template syntax, indicative of potential template injection attacks.
     platform: sigma
     severity: medium
     tactics:
-      - impact
+      - initial_access
     techniques:
-      - T1499.004
+      - T1190
     data_sources:
-      - process_creation
+      - webserver
+      - linux
+  - title: Detect LiquidJS Reverse Range Exploitation
+    description: Detects HTTP requests that potentially exploit the LiquidJS memory limit bypass using reverse ranges.
+    platform: sigma
+    severity: high
+    tactics:
+      - denial_of_service
+    techniques:
+      - T1499
+    data_sources:
+      - webserver
       - linux
 rules_count: 2
 ---
 
-The liquidjs template engine, in versions prior to 10.25.7, is vulnerable to a denial-of-service (DoS) attack. This vulnerability stems from the improper handling of circular block references within the `{% layout %}` and `{% block %}` tags. When a template contains a nested block with the same name as an outer block, the rendering process enters an infinite recursive loop. This loop rapidly consumes available memory, leading to a "JavaScript heap out of memory" error and the subsequent crashing of the Node.js process. The vulnerability allows any user capable of submitting a Liquid template to trigger the DoS. This is especially concerning for CMS platforms, email template builders, and multi-tenant SaaS products.
+A critical vulnerability exists in LiquidJS versions 10.24.0 and earlier, allowing attackers with control over Liquid template content to bypass the `memoryLimit` security feature. This bypass is achieved by exploiting reverse range expressions (e.g., `(100000000..1)`) within the template, which causes the internal memory counter to become negative. Subsequently, attackers can construct large strings using the `append` filter, creating a cons-string. When a filter requiring string flattening, such as `replace`, is applied, V8 attempts to allocate a large contiguous memory block, triggering a fatal error that crashes the Node.js process. This vulnerability enables a single HTTP request to cause a service-wide denial of service.
 
 ## Attack Chain
 
-1.  An attacker crafts a malicious Liquid template containing circular block references, specifically nesting a block with the same name inside another block. For example, `{% block a %}outer-a {% block a %}inner-a{% endblock %}{% endblock %}`.
-2.  The attacker submits this crafted template to an application that uses liquidjs for template rendering. This could be a CMS, email template builder, or any platform allowing user-provided Liquid templates.
-3.  The application's liquidjs engine begins rendering the template.
-4.  During the rendering process, the engine encounters the nested block structure.
-5.  The engine attempts to resolve the block references, resulting in a recursive call to the same block's render function.
-6.  This recursive call creates an infinite loop, as the inner block continuously calls the outer block's render function, and vice versa.
-7.  The infinite loop causes uncontrolled memory allocation, rapidly consuming all available system memory (up to ~4GB).
-8.  The Node.js process running the liquidjs engine crashes with a "FATAL ERROR: JavaScript heap out of memory" error, leading to a denial of service.
+1. The attacker crafts a Liquid template containing reverse range expressions, such as `{% for x in (100000000..1) %}{% endfor %}`.
+2. These expressions are evaluated by LiquidJS, leading to a negative value being passed to the `memoryLimit.use()` function.
+3. The `Limiter.use()` function incorrectly updates the internal memory counter, allowing it to go negative.
+4. The attacker then uses the `append` filter to create a large cons-string (e.g., `{% assign s = s | append: s %}` repeated 27 times).
+5. This cons-string is logically large (e.g., 134MB) but consumes minimal actual memory.
+6. The attacker uses a filter like `replace` that requires flattening the cons-string into a contiguous memory buffer.
+7. V8 attempts to allocate a large memory block to flatten the string, exceeding available resources.
+8. This triggers a V8 Fatal error, causing the Node.js process to crash and resulting in a denial of service.
 
 ## Impact
 
-Successful exploitation of this vulnerability leads to a denial of service (DoS). Any application that accepts user-provided or user-influenced Liquid templates can be crashed by a single malicious template. The Node.js process is terminated by the operating system due to memory exhaustion, resulting in complete service disruption. The number of potential victims is large, including CMS platforms, email template builders, multi-tenant SaaS products, and static site generators with untrusted input.
+Successful exploitation of this vulnerability allows an attacker to crash the Node.js process running LiquidJS, leading to a service-wide denial of service. This impacts applications using LiquidJS for templating, especially those that allow user-supplied templates, such as CMS systems, email template editors, and SaaS platforms. A single malicious HTTP request can terminate the entire Node.js process, requiring manual intervention or container restart policies to recover. This issue affects LiquidJS version 10.24.0 and earlier.
 
 ## Recommendation
 
-*   Upgrade to liquidjs version 10.25.7 or later to patch CVE-2026-41311.
-*   Implement input validation and sanitization for Liquid templates to prevent the submission of malicious code.
-*   Monitor Node.js processes for excessive memory consumption, which could indicate a DoS attack.
-*   Deploy the Sigma rule `Detect LiquidJS Template DoS` to identify potentially malicious templates based on nested block structures.
+*   Apply appropriate input validation and sanitization to any user-provided Liquid templates to prevent the use of reverse ranges.
+*   Monitor web server logs for POST requests containing Liquid template syntax, especially those including reverse range expressions or excessive `append` filter usage, to detect potential exploitation attempts.
+*   Consider deploying the Sigma rule `Detect LiquidJS Template Injection` to identify requests with potentially malicious LiquidJS code.
+*   Upgrade to a patched version of LiquidJS that addresses this vulnerability, when available.
