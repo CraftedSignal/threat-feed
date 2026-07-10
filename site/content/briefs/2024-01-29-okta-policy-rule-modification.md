@@ -13,6 +13,10 @@ tags:
   - identity
   - policy
   - attack.impact
+vendors:
+  - Okta
+products:
+  - Okta
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
