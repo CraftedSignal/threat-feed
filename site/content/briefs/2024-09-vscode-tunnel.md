@@ -1,8 +1,8 @@
 ---
-title: Detection of VScode Remote Tunneling for Command and Control
+title: Detection of Suspicious VScode Remote Tunnel Usage
 slug: 2024-09-vscode-tunnel
-description: The rule detects the execution of the VScode portable binary with the tunnel command line option, potentially indicating an attempt to establish a remote tunnel session to Github or a remote VScode instance for unauthorized access and command and control.
-date: "2026-05-04T14:17:05Z"
+description: This brief details the detection of potential command and control activity through the suspicious use of the VScode remote tunnel feature, which allows attackers to establish unauthorized remote access to systems.
+date: "2024-09-09T00:00:00Z"
 type: advisory
 types:
   - advisory
@@ -11,30 +11,23 @@ severities:
 tags:
   - command-and-control
   - vscode
-  - remote-access-tools
+  - remote-access
   - windows
 vendors:
   - Microsoft
-  - GitHub
-  - Elastic
 products:
-  - Microsoft Defender XDR
-  - Elastic Defend
-  - Sysmon
   - Visual Studio Code
-affected_os:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1219
-    technique_name: Remote Access Tools
+    technique_name: Remote Access Software
 references:
   - https://badoption.eu/blog/2023/01/31/code_c2.html
   - https://code.visualstudio.com/docs/remote/tunnels
 rules:
   - title: Detect VScode Tunnel Execution
-    description: Detects the execution of VScode with the tunnel command-line argument, potentially indicating malicious remote access.
+    description: Detects the execution of VScode with the 'tunnel' command-line argument, indicating a potential attempt to establish a remote tunnel for command and control.
     platform: sigma
     severity: medium
     tactics:
@@ -44,10 +37,10 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Detect VScode Tunnel Child Process
-    description: Detects child processes spawned by VScode when establishing a tunnel connection.
+  - title: Detect VScode Tunnel Executables in Suspicious Paths
+    description: Detects VScode tunnel executables running from ProgramData, Users\Public, or Windows\Debug, which is highly unusual.
     platform: sigma
-    severity: low
+    severity: high
     tactics:
       - command_and_control
     techniques:
@@ -58,27 +51,25 @@ rules:
 rules_count: 2
 ---
 
-This detection focuses on identifying the misuse of Visual Studio Code's (VScode) remote tunnel feature to establish unauthorized access or control over systems. While the VScode remote tunnel feature is designed to allow developers to connect to remote environments seamlessly, attackers can abuse this functionality for malicious purposes. The rule specifically looks for the execution of the VScode portable binary with the "tunnel" command-line option, which is indicative of an attempt to establish a remote tunnel session to either GitHub or a remote VScode instance. Successful exploitation can lead to command and control capabilities, allowing attackers to remotely manage and compromise the affected system. The rule aims to detect this suspicious behavior by monitoring process execution and command-line arguments.
+This rule detects the execution of the VScode portable binary with the `tunnel` command line option, indicating a potential attempt to establish a remote tunnel session to GitHub or a remote VScode instance. While VScode's remote tunnel feature is designed for legitimate remote development, adversaries can abuse it to gain unauthorized access and control over systems. This detection focuses on identifying suspicious command-line arguments and process behaviors associated with VScode's tunnel functionality, flagging potential misuse indicative of command and control activities. The rule covers Windows systems and leverages process data from various sources including Elastic Endgame, Sysmon, and Microsoft Defender for Endpoint. The activity was observed starting around 2024-09-09.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to the target system through unspecified means.
-2.  The attacker downloads a portable version of Visual Studio Code (VScode) onto the compromised system.
-3.  The attacker executes the VScode binary with the `tunnel` command-line argument to initiate a remote tunnel session.
-4.  The attacker specifies additional arguments such as `--accept-server-license-terms` to bypass license agreement prompts.
-5.  The VScode tunnel attempts to establish a connection to a remote server, potentially a GitHub repository or a remote VScode instance controlled by the attacker.
-6.  If successful, the tunnel creates a persistent connection, allowing the attacker to execute commands and transfer files.
-7.  The attacker uses the established tunnel to remotely access the compromised system, enabling them to perform malicious activities such as data exfiltration or lateral movement.
-8.  The attacker maintains persistent access through the established tunnel, allowing for long-term command and control of the compromised system.
+1.  The attacker gains initial access to a Windows system, potentially through phishing or exploiting a software vulnerability.
+2.  The attacker downloads a portable version of VScode to the compromised system, avoiding typical installation procedures.
+3.  The attacker executes VScode with the `tunnel` command-line argument, initiating an attempt to establish a remote tunnel.
+4.  The attacker uses arguments like `--accept-server-license-terms` to bypass prompts and streamline the tunnel setup.
+5.  VScode establishes a connection to a remote server, potentially GitHub or a malicious VScode instance under the attacker's control.
+6.  The attacker uses the established tunnel to remotely execute commands, transfer files, or perform other malicious activities on the compromised system.
+7.  The attacker maintains persistent access through the established tunnel, allowing them to remotely monitor and control the system over time.
 
 ## Impact
 
-Successful exploitation allows attackers to establish a persistent command and control channel, enabling them to remotely manage the compromised system. This can lead to data theft, deployment of ransomware, or further lateral movement within the network. While the number of potential victims and specific sectors targeted are not explicitly stated, the widespread use of VScode makes a wide range of organizations vulnerable.
+Successful exploitation via VScode remote tunnel can lead to unauthorized remote access, data exfiltration, command execution, and persistent system compromise. This could impact any Windows system within the environment if an attacker leverages this legitimate tool for malicious purposes. If successful, the attacker gains complete control over the compromised system, potentially leading to sensitive data leaks and further propagation within the network.
 
 ## Recommendation
 
-*   Deploy the "Attempt to Establish VScode Remote Tunnel" rule to detect suspicious VScode tunnel activity in your environment.
-*   Enable Sysmon process-creation logging to capture the necessary process execution data.
-*   Investigate any alerts triggered by the rule, focusing on the command-line arguments and process behaviors to confirm malicious intent.
-*   Monitor network connections originating from VScode processes for unusual or unauthorized connections to external servers.
-*   Review and whitelist legitimate uses of VScode's tunnel feature by authorized developers to reduce false positives.
+*   Deploy the Sigma rule "Detect VScode Tunnel Execution" to your SIEM and tune for your environment to identify potential malicious use of VScode's tunnel feature.
+*   Investigate any process executions flagged by the "Detect VScode Tunnel Execution" Sigma rule, focusing on command-line arguments and process behaviors.
+*   Enable Sysmon process-creation logging to enhance visibility into process executions and command-line arguments, which is crucial for the "Detect VScode Tunnel Execution" Sigma rule.
+*   Monitor network connections from VScode processes for unusual or unauthorized communication patterns, supplementing the process-based detections.
