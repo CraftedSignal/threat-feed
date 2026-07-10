@@ -13,6 +13,8 @@ tags:
   - kubeletctl
   - container
   - linux
+products:
+  - Kubernetes
 affected_os:
   - Linux
 mitre_ttps:
