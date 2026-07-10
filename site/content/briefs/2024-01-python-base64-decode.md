@@ -13,6 +13,10 @@ tags:
   - attack.defense-evasion
   - attack.t1059.006
   - attack.t1027.010
+vendors:
+  - Python
+products:
+  - Python
 affected_os:
   - Windows
 mitre_ttps:
