@@ -1,0 +1,83 @@
+---
+title: GitHub Enterprise 2FA Requirement Disabled
+slug: 2024-01-github-disable-2fa
+description: Detection of two-factor authentication (2FA) being disabled in GitHub Enterprise, potentially weakening account security and facilitating unauthorized access by threat actors.
+date: "2024-01-02T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - github
+  - 2fa
+  - defense-evasion
+  - initial-access
+vendors:
+  - GitHub
+products:
+  - GitHub Enterprise
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562
+    technique_name: Impair Defenses
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1195
+    technique_name: Supply Chain Compromise
+references:
+  - https://www.googlecloudcommunity.com/gc/Community-Blog/Monitoring-for-Suspicious-GitHub-Activity-with-Google-Security/ba-p/763610
+  - https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#setting-up-streaming-to-splunk
+rules:
+  - title: Detect GitHub Enterprise 2FA Disable via API
+    description: Detects when two-factor authentication (2FA) requirements are disabled in GitHub Enterprise via the API.
+    platform: sigma
+    severity: high
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1562.001
+    data_sources:
+      - webserver
+      - linux
+  - title: Detect GitHub Enterprise 2FA Disable via Web
+    description: Detects when two-factor authentication (2FA) requirements are disabled in GitHub Enterprise via the web interface.
+    platform: sigma
+    severity: high
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1562.001
+    data_sources:
+      - webserver
+      - linux
+rules_count: 2
+---
+
+This brief addresses the risk of two-factor authentication (2FA) being disabled within a GitHub Enterprise environment. The activity is logged within GitHub Enterprise audit logs. Attackers may disable 2FA requirements to weaken account security, making it easier to compromise accounts through password-based attacks or credential stuffing. This compromises code, intellectual property, and the software supply chain. Monitoring and detecting disabled 2FA requirements is crucial for maintaining a strong security posture within GitHub Enterprise organizations. The scope of this threat can range from individual accounts to entire organizations, potentially affecting numerous repositories and sensitive data.
+
+## Attack Chain
+
+1.  **Initial Foothold:** An attacker gains initial access, potentially through phishing or credential stuffing, to an account with administrative privileges within the GitHub Enterprise organization.
+2.  **Privilege Escalation (If Necessary):** If the initially compromised account lacks the necessary permissions, the attacker attempts to escalate privileges within the GitHub Enterprise environment.
+3.  **Authentication:** The attacker authenticates to the GitHub Enterprise platform using the compromised credentials.
+4.  **Access Audit Logs:** The attacker navigates to the audit log section of the GitHub Enterprise administration panel.
+5.  **Disable 2FA Requirement:** The attacker modifies the organization's security settings to disable the 2FA requirement. This action generates an audit log event.
+6.  **Lateral Movement:** With 2FA disabled, the attacker can now more easily compromise other accounts within the organization, potentially through password reuse or weak passwords.
+7.  **Data Exfiltration/Code Tampering:** The attacker accesses sensitive code repositories and either exfiltrates the data or introduces malicious code.
+8.  **Supply Chain Compromise:** If the compromised repositories are part of a software supply chain, the attacker may inject malicious code that affects downstream users.
+
+## Impact
+
+Disabling 2FA in GitHub Enterprise can lead to significant security breaches, including unauthorized access to sensitive code, intellectual property theft, and potential supply chain compromise. The impact could range from financial losses and reputational damage to widespread disruption if malicious code is injected into widely used software. Organizations in any sector that rely on GitHub for code management are vulnerable. The number of affected accounts and repositories depends on the scope of the attacker's access and the organization's overall security practices.
+
+## Recommendation
+
+*   Enable and actively monitor GitHub Enterprise audit logs for events related to disabling 2FA requirements (reference: GitHub Enterprise Audit Logs data source).
+*   Deploy the provided Sigma rule `Detect GitHub Enterprise 2FA Disable via API` to detect instances where 2FA is disabled via the GitHub API.
+*   Deploy the provided Sigma rule `Detect GitHub Enterprise 2FA Disable via Web` to detect instances where 2FA is disabled via the GitHub web interface.
+*   Investigate any alerts generated by these rules to determine if the activity is legitimate or malicious.
+*   Review and enforce strong password policies within the GitHub Enterprise organization.
+*   Implement multi-factor authentication (MFA) enforcement policies to prevent users from disabling 2FA.
+*   Configure alerting for anomalous login attempts or other suspicious activity within the GitHub Enterprise environment.
