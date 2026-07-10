@@ -1,8 +1,8 @@
 ---
-title: Nginx-UI Unauthenticated Bootstrap Takeover
+title: Unauthenticated Remote Takeover of Nginx-UI via MCP Endpoint
 slug: 2024-01-nginx-ui-takeover
-description: Nginx-UI version 2.3.5 is vulnerable to an unauthenticated takeover via the `/api/install` endpoint during the initial setup window, allowing a remote attacker to claim administrative control of a fresh instance.
-date: "2024-01-03T12:00:00Z"
+description: Nginx-UI is vulnerable to unauthenticated remote takeover due to a missing authentication check on the `/mcp_message` endpoint, allowing attackers to invoke MCP tools without authentication, leading to arbitrary nginx configuration modification, traffic interception, service disruption, configuration exfiltration, and credential harvesting; the default empty IP whitelist allows access from any network attacker.
+date: "2024-01-09T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,71 +10,91 @@ severities:
   - critical
 tags:
   - nginx-ui
-  - bootstrap-takeover
-  - unauthenticated-access
-  - initial-access
+  - nginx
+  - unauthenticated
+  - remote-takeover
+  - CVE-2026-33032
 vendors:
-  - nginx-ui
+  - Nginx-UI
 products:
-  - nginx-ui (2.3.5)
+  - Nginx-UI
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1566
+    technique_name: Phishing
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1505.003
+    technique_name: Server Software Component
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1566
+    technique_name: Phishing
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1566
+    technique_name: Phishing
 references:
-  - https://github.com/advisories/GHSA-mxqh-q9h6-v8pq
+  - https://github.com/advisories/GHSA-h6c2-x2m2-mwhf
 iocs:
   - type: url
-    value: http://127.0.0.1:9000/api/install
+    value: http://target:9000/mcp_message
 ioc_counts:
   url: 1
 rules:
-  - title: Detect Nginx-UI Initial Setup Takeover Attempt
-    description: Detects POST requests to /api/install with encrypted parameters, indicating a potential unauthenticated takeover attempt during the initial setup phase.
+  - title: Detect Nginx-UI MCP Message Endpoint Usage
+    description: Detects requests to the /mcp_message endpoint in Nginx-UI, which is vulnerable to unauthenticated command execution.
     platform: sigma
-    severity: critical
+    severity: high
     tactics:
+      - execution
       - initial_access
     techniques:
       - T1190
     data_sources:
       - webserver
       - linux
-  - title: Detect Nginx-UI Login with Recently Created User
-    description: Detects logins shortly after a POST request to /api/install, potentially indicating the attacker is logging in with the newly created account.
+  - title: Detect Nginx-UI Config Modification via MCP Message
+    description: Detects requests to the /mcp_message endpoint that include 'nginx_config_add' or 'nginx_config_modify' in the request body.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
-      - initial_access
+      - execution
+      - impact
+      - persistence
     techniques:
-      - T1190
+      - T1505.003
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-Nginx-UI version 2.3.5 contains a critical vulnerability that allows unauthenticated remote attackers to take complete administrative control of a fresh instance. The vulnerability lies in the `/api/install` endpoint, which is accessible without authentication during a short initial setup window. This window is intended for the first-time configuration of the application. By sending a specially crafted POST request to `/api/install`, an attacker can set the application's JWT secret, node secret, certificate email, and initial administrator credentials before the legitimate operator. This attack is most relevant during initial deployments, rebuilds, ephemeral test environments, LAN-accessible fresh installs, or temporarily exposed setup workflows. The attacker gains full control without needing to exploit any authenticated feature or guess default credentials. The observed exploitation was reproduced over HTTP against live local instances started from `nginx-ui` `v2.3.5` using Docker image `uozi/nginx-ui@sha256:d73343e3009c9b558129a2be0cacd6c2c57ed8006a5871873b874b812e612e5a`.
+The nginx-ui MCP (Model Context Protocol) integration exposes two HTTP endpoints: `/mcp` and `/mcp_message`. While `/mcp` requires authentication, the `/mcp_message` endpoint only applies IP whitelisting - and the default IP whitelist is empty, which the middleware treats as "allow all". This vulnerability, affecting nginx-ui versions 1.99 and earlier, allows any network attacker to invoke all MCP tools without authentication via the `/mcp_message` endpoint. This includes restarting nginx, creating/modifying/deleting nginx configuration files, and triggering automatic config reloads. Successful exploitation leads to complete nginx service takeover. This is critical for defenders as it provides an unauthenticated pathway to control a critical piece of infrastructure typically fronting web applications.
 
 ## Attack Chain
 
-1. A fresh `nginx-ui` instance is deployed, exposing the `/api/install` endpoint over HTTP before initial configuration.
-2. The attacker sends a GET request to `/api/install` to determine if the instance is uninitialized (checks for `{"lock":false,"timeout":false}`).
-3. The attacker sends a GET request to `/api/crypto/public_key` to retrieve the public key used for encryption.
-4. The attacker uses the retrieved public key to encrypt a JSON payload containing the desired administrator username, password, and email.
-5. The attacker sends a POST request to `/api/install` with the encrypted payload in the `encrypted_params` field.
-6. The server processes the request, sets the attacker-chosen credentials, and locks the installation (`{"lock":true,"timeout":false}`).
-7. The attacker sends a POST request to `/api/login` with the attacker-chosen username and password, also encrypted with the previously obtained public key.
-8. The server authenticates the attacker and returns a valid token, granting them administrative access to the `nginx-ui` instance.
+1. Attacker sends an HTTP POST request to `http://target:9000/mcp_message` with a JSON payload.
+2. The request bypasses authentication checks due to the missing `AuthRequired()` middleware on the `/mcp_message` endpoint.
+3. The `IPWhiteList()` middleware allows all requests because the default IP whitelist is empty.
+4. The request is routed to the `mcp.ServeHTTP()` handler.
+5. The attacker invokes the `nginx_config_add` MCP tool to create a malicious nginx configuration file, for example in `/etc/nginx/conf.d/`.
+6. The `nginx_config_add` tool writes the malicious configuration file to disk.
+7. After the config is written, `nginx_config_add` attempts to reload nginx configuration via `nginx.Control(nginx.Reload)`.
+8. The attacker now controls the Nginx webserver and can intercept traffic, redirect users, and exfiltrate data.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows a remote attacker to completely compromise a fresh `nginx-ui` instance. The attacker gains full administrative privileges and can configure the application, manage Nginx configurations, and potentially use the compromised server as a pivot point for further attacks. The exposure window is limited to the initial setup phase, but if successfully exploited, the attacker effectively becomes the administrator of the system.
+Successful exploitation of this vulnerability grants an unauthenticated attacker complete control over the nginx service. This allows the attacker to intercept traffic, rewrite server blocks, capture credentials and session tokens, and disrupt service by writing invalid configurations. All existing nginx configurations are readable via `nginx_config_get`, potentially revealing backend topology and authentication headers. This poses a significant risk to organizations relying on nginx-ui to manage their web servers.
 
 ## Recommendation
 
-*   Monitor web server logs for POST requests to `/api/install` with a non-empty `encrypted_params` field, especially from unusual source IP addresses, to detect potential takeover attempts. Deploy the Sigma rule `Detect Nginx-UI Initial Setup Takeover Attempt` to your SIEM.
-*   Restrict access to the `/api/install` endpoint to localhost or trusted networks during the initial setup phase using firewall rules or web server configuration.
-*   Apply the suggested fixes from the advisory, including requiring a local-only or out-of-band bootstrap secret for `POST /api/install`, to prevent unauthorized installation claims.
-*   Monitor for unexpected processes creating files or directories under `/etc/nginx` or `/etc/nginx-ui` immediately after a new deployment of `nginx-ui` to identify potential persistence attempts.
+*   Apply the patch suggested in the advisory by adding `middleware.AuthRequired()` to the `/mcp_message` route to prevent unauthenticated access (reference: GitHub advisory).
+*   Deploy the Sigma rule "Detect Nginx-UI MCP Message Endpoint Usage" to identify potential exploit attempts in your environment (reference: Sigma rule below).
+*   Monitor network connections to port 9000 (default nginx-ui port) for suspicious POST requests to `/mcp_message` (reference: IOC).
+*   Consider changing the default IP whitelist behavior to deny-all when unconfigured (reference: GitHub advisory).
