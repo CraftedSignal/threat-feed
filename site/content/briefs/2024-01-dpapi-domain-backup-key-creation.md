@@ -1,0 +1,85 @@
+---
+title: Creation or Modification of Domain Backup DPAPI Private Keys
+slug: 2024-01-dpapi-domain-backup-key-creation
+description: This rule detects the creation or modification of Domain Backup private keys on Windows systems, which adversaries may extract from a Domain Controller (DC) to decrypt domain user master key files and gain credential access.
+date: "2024-01-03T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - credential-access
+  - windows
+  - dpapi
+vendors:
+  - Microsoft
+products:
+  - Windows
+  - Active Directory
+mitre_ttps:
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1003
+    technique_name: OS Credential Dumping
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
+references:
+  - https://www.dsinternals.com/en/retrieving-dpapi-backup-keys-from-active-directory/
+  - https://posts.specterops.io/operational-guidance-for-offensive-user-dpapi-abuse-1fb7fac8b107
+rules:
+  - title: Creation or Modification of DPAPI Domain Backup Key File
+    description: Detects the creation or modification of DPAPI domain backup key files (ntds_capi_*.pfx or ntds_capi_*.pvk) which can be used to decrypt user credentials.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+    techniques:
+      - T1003.003
+    data_sources:
+      - file_event
+      - windows
+  - title: Creation of DPAPI Domain Backup Key via Commandline
+    description: Detects the creation of DPAPI Domain backup keys via commandline
+    platform: sigma
+    severity: medium
+    tactics:
+      - credential_access
+    techniques:
+      - T1003.003
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+This detection identifies the creation or modification of Domain Backup private keys, specifically files named `ntds_capi_*.pfx` or `ntds_capi_*.pvk` on Windows systems. Attackers target these keys to extract the Data Protection API (DPAPI) domain backup key from a Domain Controller (DC). Successful extraction allows adversaries to decrypt any domain user master key file, enabling them to access sensitive data protected by those keys. The rule is designed to detect activity associated with tools like Mimikatz, which can remotely dump these keys. This activity is a critical indicator of potential credential compromise within the domain. The rule covers endpoint, Windows, SentinelOne, Microsoft Defender XDR, and Crowdstrike data sources.
+
+## Attack Chain
+
+1.  Adversary gains initial access to a domain-joined system, potentially through compromised credentials or exploiting a vulnerability.
+2.  The attacker attempts to elevate privileges on the compromised system to gain necessary permissions for accessing the domain controller.
+3.  The attacker uses a tool like Mimikatz to remotely connect to a Domain Controller (DC).
+4.  Mimikatz is used to dump the DPAPI domain backup keys, resulting in files named `ntds_capi_*.pfx` or `ntds_capi_*.pvk` being created or modified on the DC or a network share.
+5.  The attacker copies the extracted DPAPI backup key files (`ntds_capi_*.pfx` or `ntds_capi_*.pvk`) to a system under their control.
+6.  The attacker uses the extracted DPAPI backup key to decrypt domain user master keys.
+7.  The decrypted master keys are used to decrypt other secrets, such as stored credentials or private keys.
+8.  The attacker leverages the stolen credentials or decrypted secrets to move laterally within the network or achieve their final objective, such as data exfiltration.
+
+## Impact
+
+Successful extraction of DPAPI domain backup keys allows attackers to decrypt any domain user's master key, which in turn can decrypt sensitive data protected by those keys. This could lead to widespread credential compromise, enabling lateral movement, data theft, and potentially complete domain compromise. The rule helps identify potential breaches early in the attack chain before significant damage occurs. This is especially critical in environments where sensitive data is protected using DPAPI.
+
+## Recommendation
+
+*   Enable file integrity monitoring for critical system directories on Domain Controllers to detect the creation or modification of files matching `ntds_capi_*.pfx` and `ntds_capi_*.pvk` as indicated by the file names in the overview.
+*   Deploy the provided Sigma rule to your SIEM to detect file creation events associated with DPAPI domain backup keys.
+*   Monitor process execution on Domain Controllers for known credential dumping tools like Mimikatz, as this is a common method for extracting DPAPI keys (T1003.003).
+*   Review and restrict access controls to Domain Controllers to minimize the risk of unauthorized access and credential dumping.
+*   Investigate any alerts generated by this rule promptly to determine the scope of the potential compromise and take appropriate remediation steps.
