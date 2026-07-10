@@ -1,8 +1,8 @@
 ---
 title: AWS CloudTrail Log Deletion for Defense Evasion
 slug: 2024-01-aws-cloudtrail-deletion
-description: An adversary may delete AWS CloudTrail logs to evade detection and operate stealthily within a compromised environment, using the `DeleteTrail` event while excluding actions from the AWS console.
-date: "2024-01-03T10:00:00Z"
+description: An adversary deletes AWS CloudTrail logs to evade detection and operate stealthily within a compromised AWS environment, removing audit trails of their malicious activity.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -12,14 +12,11 @@ tags:
   - aws
   - cloudtrail
   - defense-evasion
+  - cloud
 vendors:
-  - Amazon
-  - Splunk
+  - AWS
 products:
-  - AWS CloudTrail
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
+  - CloudTrail
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -28,8 +25,8 @@ mitre_ttps:
 references:
   - https://attack.mitre.org/techniques/T1562/008/
 rules:
-  - title: AWS CloudTrail DeleteTrail Event
-    description: Detects deletion of AWS CloudTrail logs by identifying DeleteTrail events not originating from the AWS console.
+  - title: AWS CloudTrail Trail Deletion
+    description: Detects deletion of AWS CloudTrail trails by non-console users, which can indicate defense evasion.
     platform: sigma
     severity: high
     tactics:
@@ -39,8 +36,8 @@ rules:
     data_sources:
       - cloudtrail
       - aws
-  - title: AWS CloudTrail DeleteTrail Event by User
-    description: Detects deletion of AWS CloudTrail logs by identifying DeleteTrail events and the associated user.
+  - title: AWS CloudTrail Trail Deletion - API
+    description: Detects deletion of AWS CloudTrail trails via direct API calls, potentially indicating programmatic defense evasion.
     platform: sigma
     severity: medium
     tactics:
@@ -53,27 +50,26 @@ rules:
 rules_count: 2
 ---
 
-This brief focuses on the detection of AWS CloudTrail log deletion, a tactic used by adversaries to evade detection within compromised AWS environments. The detection identifies `DeleteTrail` events within CloudTrail logs, specifically excluding those originating from the AWS console. This activity is crucial for defenders because successful deletion of CloudTrail logs allows attackers to cover their tracks, making it significantly more difficult to trace malicious activities. This can lead to prolonged unauthorized access, further exploitation, and delayed incident response. The detection logic looks for the `DeleteTrail` event name and filters out events where the user agent is the AWS console.
+This threat brief focuses on the detection of malicious actors deleting AWS CloudTrail logs within a compromised AWS environment. AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of an AWS account. Attackers may attempt to delete these logs to remove evidence of their activities, making it more difficult for defenders to investigate and respond to security incidents. This is a defense evasion technique that can significantly hinder incident response efforts. The deletion is detected by monitoring `DeleteTrail` events within CloudTrail logs, excluding those originating from the AWS console. Successful deletion of CloudTrail logs allows attackers to cover their tracks, potentially leading to prolonged unauthorized access and further exploitation.
 
 ## Attack Chain
 
-1.  The attacker gains unauthorized access to an AWS account with sufficient privileges.
-2.  The attacker identifies that CloudTrail is enabled and logging activities.
-3.  The attacker attempts to disable or delete the CloudTrail trail to remove evidence of their actions, using the `DeleteTrail` API call.
-4.  The attacker crafts the `DeleteTrail` request, ensuring it does not originate from the AWS Management Console to avoid detection based on user agent.
-5.  The `DeleteTrail` API call is executed, successfully deleting the CloudTrail log.
-6.  CloudTrail logs, which would normally record the attacker's subsequent actions, are no longer available for analysis.
-7.  The attacker proceeds with their malicious objectives, such as data exfiltration, resource hijacking, or deployment of malware, without leaving a readily accessible audit trail.
-8.  The attacker successfully covers their tracks, hindering incident responders' ability to investigate and remediate the breach effectively.
+1.  The attacker gains initial access to an AWS account through compromised credentials or by exploiting a vulnerability in an AWS service.
+2.  The attacker enumerates existing CloudTrail trails to identify the target log storage.
+3.  The attacker escalates privileges within the AWS environment to gain sufficient permissions to delete CloudTrail trails. This may involve exploiting IAM misconfigurations or vulnerabilities.
+4.  The attacker uses the AWS CLI or API to execute the `DeleteTrail` command, specifying the name of the CloudTrail trail to be deleted.
+5.  CloudTrail logs the `DeleteTrail` event, including the user identity, source IP address, and timestamp of the deletion attempt.
+6.  If the deletion is successful, the targeted CloudTrail log is permanently removed, eliminating valuable audit data.
+7.  The attacker continues with their malicious activities, now with reduced risk of detection due to the absence of CloudTrail logs.
 
 ## Impact
 
-Successful deletion of CloudTrail logs severely impairs an organization's ability to detect and respond to security incidents within their AWS environment. This can lead to a significant delay in incident response, allowing attackers to maintain persistent access and further compromise systems. The absence of logs hinders forensic investigations, making it difficult to determine the scope and impact of the breach. This can result in financial losses, reputational damage, and legal liabilities.
+The successful deletion of CloudTrail logs can have severe consequences. It can hinder incident response efforts, making it difficult to identify the scope and nature of a security breach. The number of affected organizations depends on the scope of the initial compromise. The sectors most at risk are those that rely heavily on AWS for their infrastructure, including e-commerce, finance, and healthcare. Successful deletion allows attackers to operate undetected, potentially leading to data theft, system compromise, and financial loss.
 
 ## Recommendation
 
-*   Deploy the Sigma rule provided in this brief to your SIEM and tune it for your specific environment to detect `DeleteTrail` events.
-*   Investigate any detected `DeleteTrail` events that do not originate from the AWS console, as this may indicate malicious activity.
-*   Implement multi-factor authentication (MFA) for all AWS accounts, especially those with administrative privileges, to reduce the risk of unauthorized access.
-*   Monitor CloudTrail configuration changes using AWS Config to detect and alert on unauthorized modifications to CloudTrail settings.
-*   Enable and configure AWS CloudTrail log file validation to detect any tampering with CloudTrail log files.
+*   Deploy the Sigma rule `AWS CloudTrail Trail Deletion` to detect `DeleteTrail` events and alert on suspicious activity (rule provided below).
+*   Enable and monitor AWS CloudTrail logs for `DeleteTrail` events and ensure proper log retention policies are in place (data_source: `AWS CloudTrail DeleteTrail`).
+*   Investigate any `DeleteTrail` events that do not originate from authorized administrative accounts or processes (`eventName = DeleteTrail`, `userAgent !=console.amazonaws.com`).
+*   Review and enforce strict IAM policies to restrict the ability to delete CloudTrail trails to a limited number of highly privileged accounts.
+*   Implement multi-factor authentication (MFA) for all AWS accounts, especially those with permissions to modify or delete CloudTrail configurations.
