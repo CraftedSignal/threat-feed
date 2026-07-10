@@ -12,6 +12,10 @@ tags:
   - lateral-movement
   - threat-detection
   - windows
+vendors:
+  - Microsoft
+products:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0008
     tactic_name: Lateral Movement
