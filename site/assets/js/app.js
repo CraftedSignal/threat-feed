@@ -545,6 +545,24 @@ function initTaxonomyFilterJSON(input, empty) {
   input.addEventListener('input', apply);
 }
 
+// "Copy all" IOC buttons. Delegated from the document so a single listener
+// covers every brief page — and, crucially, so the former inline `onclick`
+// handler can go away and the page CSP can drop script-src 'unsafe-inline'.
+function initCopyIocs() {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-iocs]');
+    if (!btn) return;
+    let values;
+    try { values = JSON.parse(btn.dataset.iocs).join('\n'); } catch (_) { return; }
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(values).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'copied!';
+      setTimeout(() => { btn.textContent = orig; }, 1500);
+    }).catch(() => {});
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initSearch();
@@ -553,4 +571,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initDateFilter();
   initLiveUpdate();
   initTaxonomyFilter();
+  initCopyIocs();
 });

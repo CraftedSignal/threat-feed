@@ -1,19 +1,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Pre-paint theme: applies stored theme before first render so the page
-     never flashes the wrong palette. Default is 'auto' (follow OS); user can
-     override via the toggle, which writes 'light' or 'dark' to localStorage. -->
-<script>
-(function () {
-  try {
-    var v = localStorage.getItem('feedTheme');
-    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var dark = (v === 'dark') || ((v === null || v === 'auto') && prefersDark);
-    if (dark) document.documentElement.classList.add('dark');
-  } catch (_) { /* ignore */ }
-})();
-</script>
+<!-- Pre-paint theme: applies the stored theme before first render so the page
+     never flashes the wrong palette. External (not inline) so the CSP can drop
+     script-src 'unsafe-inline'; loaded synchronously so it runs before paint. -->
+{{ $theme := resources.Get "js/theme.js" | js.Build (dict "minify" true "target" "es2020") | fingerprint }}
+<script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}" crossorigin="anonymous"></script>
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -60,9 +52,9 @@
 {{/* frame-ancestors is ignored when CSP is delivered via <meta>;
      Cloudflare's response headers carry it at the HTTP layer.
      Allow Google's reCAPTCHA Enterprise + the notifier API (subscribe form). */}}
-{{ $csp := printf "default-src 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.gstatic.com; font-src 'self'; connect-src 'self' %s https://www.google.com https://www.recaptcha.net; frame-src https://www.google.com https://www.recaptcha.net; form-action 'none'; base-uri 'self'" .Site.Params.notifierURL }}
+{{ $csp := printf "default-src 'none'; script-src 'self' 'wasm-unsafe-eval' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.gstatic.com; font-src 'self'; connect-src 'self' %s https://www.google.com https://www.recaptcha.net; frame-src https://www.google.com https://www.recaptcha.net; form-action 'none'; base-uri 'self'" .Site.Params.notifierURL }}
 {{ if hugo.IsServer }}
-  {{ $csp = printf "default-src 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.gstatic.com; font-src 'self'; connect-src 'self' ws://localhost:1313 ws://localhost:8765 %s https://www.google.com https://www.recaptcha.net; frame-src https://www.google.com https://www.recaptcha.net; form-action 'none'; base-uri 'self'" .Site.Params.notifierURL }}
+  {{ $csp = printf "default-src 'none'; script-src 'self' 'wasm-unsafe-eval' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.gstatic.com; font-src 'self'; connect-src 'self' ws://localhost:1313 ws://localhost:8765 %s https://www.google.com https://www.recaptcha.net; frame-src https://www.google.com https://www.recaptcha.net; form-action 'none'; base-uri 'self'" .Site.Params.notifierURL }}
 {{ end }}
 <meta http-equiv="Content-Security-Policy" content="{{ $csp }}">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -71,8 +63,8 @@
 
 <!-- Pagefind UI styles load FIRST so our main.css can override them.
      onerror detaches the tag silently if the index isn't built yet. -->
-<link rel="stylesheet" href="/pagefind/pagefind-ui.css" onerror="this.remove()">
-<script src="/pagefind/pagefind-ui.js" defer onerror="this.remove()"></script>
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+<script src="/pagefind/pagefind-ui.js" defer></script>
 
 {{ $css := resources.Get "css/main.css" | css.PostCSS | minify | fingerprint "sha384" }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous" />
