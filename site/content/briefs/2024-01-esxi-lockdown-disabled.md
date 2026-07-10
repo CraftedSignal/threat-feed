@@ -1,8 +1,8 @@
 ---
 title: ESXi Lockdown Mode Disabled
 slug: 2024-01-esxi-lockdown-disabled
-description: The disabling of Lockdown Mode on an ESXi host may indicate a threat actor attempting to weaken host security controls to enable broader remote access for data exfiltration, lateral movement, or VM tampering.
-date: "2024-01-02T12:00:00Z"
+description: Detection of ESXi Lockdown Mode being disabled, potentially indicating attacker attempts to weaken host security controls for broader access, data exfiltration, or VM tampering.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -11,62 +11,65 @@ severities:
 tags:
   - esxi
   - vmware
-  - lockdown_mode
-  - security_controls
+  - lockdown mode
+  - defense evasion
+  - t1562
 vendors:
-  - VMWare
-  - Splunk
+  - VMware
 products:
   - ESXi
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562
+    technique_name: Impair Defenses
 references:
   - https://github.com/splunk/security_content/blob/main/detections/application/esxi_lockdown_mode_disabled.yml
 rules:
-  - title: ESXi Lockdown Mode Disabled
-    description: Detects when Lockdown Mode is disabled on an ESXi host based on syslog messages.
+  - title: ESXi Lockdown Mode Disabled via Syslog
+    description: Detects when Lockdown Mode is disabled on an ESXi host by monitoring ESXi syslog messages.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
+    techniques:
+      - T1562
     data_sources:
       - syslog
       - vmware
-  - title: ESXi Lockdown Mode Disabled - Network Connection
-    description: Detects network connections after lockdown mode is disabled on ESXi host
+  - title: ESXi Lockdown Mode Disabled - User Context
+    description: Detects the disabling of Lockdown Mode and identifies the user associated with the change.
     platform: sigma
     severity: medium
     tactics:
-      - lateral_movement
+      - defense_evasion
     techniques:
-      - T1021.004
+      - T1562
     data_sources:
-      - network_connection
+      - syslog
       - vmware
 rules_count: 2
 ---
 
-This detection identifies when Lockdown Mode is disabled on an ESXi host. Threat actors might disable this mode to weaken host security controls, allowing broader remote access via SSH or the host client. This action could be a precursor to further malicious activities such as data exfiltration, lateral movement within the environment, or tampering with virtual machines. Identifying this activity is crucial as it signifies a potential compromise of the ESXi host, which could lead to significant disruption and data loss. The detection logic is based on ESXi Syslog data.
+This brief focuses on detecting the disabling of Lockdown Mode on VMware ESXi hosts. Lockdown Mode restricts access to the ESXi host, limiting remote connections and hardening the system against unauthorized modifications. When an attacker disables Lockdown Mode, it expands the attack surface, allowing for broader remote access via SSH or the host client. This action typically occurs post-compromise, as attackers attempt to weaken security controls to facilitate lateral movement, data exfiltration, or VM tampering. This activity is particularly relevant for organizations running virtualized environments with sensitive data, as it indicates a significant compromise of hypervisor security. The provided detection identifies syslog messages related to Lockdown Mode being disabled.
 
 ## Attack Chain
 
-1. An attacker gains initial access to the ESXi host, potentially through compromised credentials or exploiting a vulnerability.
-2. The attacker authenticates to the ESXi host.
-3. The attacker executes a command to disable Lockdown Mode. This may be done through the vSphere client or directly via SSH if enabled.
-4. The ESXi host logs the event of Lockdown Mode being disabled within its syslog.
-5. With Lockdown Mode disabled, the attacker gains broader access to the host's management interfaces.
-6. The attacker performs reconnaissance activities, gathering information about the host and its virtual machines.
-7. The attacker moves laterally to other systems within the environment, leveraging the compromised ESXi host.
-8. The attacker exfiltrates sensitive data or manipulates virtual machines, achieving their final objectives.
+1.  Initial Access: The attacker gains initial access to a privileged account with administrative rights on the ESXi host.
+2.  Privilege Escalation: The attacker escalates privileges if necessary to gain the required permissions to modify ESXi host settings.
+3.  Discovery: The attacker uses commands or tools to discover the current Lockdown Mode status on the ESXi host.
+4.  Defense Evasion: The attacker disables Lockdown Mode on the ESXi host, weakening security controls and enabling broader remote access. This is achieved by using either the vSphere client or command line interface (CLI).
+5.  Lateral Movement: With Lockdown Mode disabled, the attacker can leverage gained access to move laterally to other VMs or ESXi hosts within the environment.
+6.  Credential Access: The attacker attempts to gather credentials stored on the ESXi host or within the VMs to further expand their access.
+7.  Data Exfiltration/VM Tampering: The attacker accesses sensitive data stored on the VMs or tampers with VM configurations to cause disruption or further compromise the environment.
 
 ## Impact
 
-Disabling Lockdown Mode can lead to a complete compromise of the ESXi host and the virtual machines it manages. This can result in data exfiltration, data corruption, or the deployment of ransomware on the virtual machines. Depending on the environment, this can affect hundreds or thousands of virtual machines, potentially disrupting critical business operations. The "Black Basta Ransomware" analytic story is related to this threat.
+Successful exploitation can lead to a complete compromise of the virtualized environment, potentially affecting hundreds or thousands of virtual machines and the data they contain. Disabling Lockdown Mode can lead to data exfiltration, ransomware deployment across VMs, and disruption of critical services. Organizations in all sectors relying on VMware ESXi are at risk. The financial impact can be substantial, including recovery costs, downtime, and potential regulatory fines.
 
 ## Recommendation
 
-*   Configure ESXi hosts to forward syslog output to a SIEM or log aggregation system to enable detection of this activity, as detailed in the "How to Implement" section of the source.
-*   Deploy the Sigma rule `ESXi Lockdown Mode Disabled` to your SIEM to detect instances where Lockdown Mode is disabled on ESXi hosts.
-*   Investigate any alerts generated by the Sigma rule `ESXi Lockdown Mode Disabled` to determine the root cause and scope of the potential compromise.
-*   Monitor ESXi syslog for messages indicating changes to host security configurations.
+*   Enable Syslog forwarding from all ESXi hosts to a central logging server to capture the events necessary for detection (VMWare ESXi Syslog).
+*   Deploy the Sigma rule "ESXi Lockdown Mode Disabled" to your SIEM and tune for your specific environment to detect instances of Lockdown Mode being disabled.
+*   Investigate any alerts generated by the Sigma rule, focusing on the user accounts and IP addresses involved in disabling Lockdown Mode (Sigma rule).
+*   Implement multi-factor authentication (MFA) for all privileged accounts to reduce the risk of initial access.
