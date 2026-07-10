@@ -1,13 +1,13 @@
 ---
-title: LSASS Memory Dump Handle Access Detection
+title: LSASS Memory Dump Creation Detection
 slug: 2024-01-lsass-memory-dump
-description: This rule detects handle requests for LSASS object access with specific access masks (0x1fffff, 0x1010, 0x120089, 0x1F3FFF) indicative of memory dumping, commonly employed by tools like SharpDump, Procdump, Mimikatz, and Comsvcs to extract credentials from the LSASS process on Windows systems.
-date: "2024-01-02T12:00:00Z"
+description: This rule detects the creation of LSASS memory dumps, which may indicate a credential access attempt via tools like Task Manager, SQL Dumper, Dumpert, and AndrewSpecial.
+date: "2024-01-26T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - credential-access
   - lsass
@@ -23,59 +23,59 @@ mitre_ttps:
     technique_id: T1003
     technique_name: OS Credential Dumping
 references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
-  - https://twitter.com/jsecurity101/status/1227987828534956033?s=20
+  - https://github.com/outflanknl/Dumpert
+  - https://github.com/hoangprod/AndrewSpecial
+  - https://attack.mitre.org/techniques/T1003/
   - https://attack.mitre.org/techniques/T1003/001/
-  - https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-170105221010.html
-  - http://findingbad.blogspot.com/2017/
-  - https://www.elastic.co/security-labs/detect-credential-access
+  - https://attack.mitre.org/tactics/TA0006/
 rules:
-  - title: LSASS Memory Dump Handle Access
-    description: Detects handle requests to LSASS process with access masks indicative of memory dumping.
-    platform: sigma
-    severity: medium
-    tactics:
-      - credential_access
-    techniques:
-      - T1003.001
-    data_sources:
-      - process_creation
-      - windows
-  - title: LSASS Memory Read via OpenProcess
-    description: Detects programs opening LSASS with PROCESS_VM_READ and other memory access rights
+  - title: LSASS Memory Dump Creation
+    description: Detects the creation of LSASS memory dumps based on filename.
     platform: sigma
     severity: high
     tactics:
       - credential_access
     techniques:
+      - T1003
       - T1003.001
     data_sources:
-      - process_creation
+      - file_event
+      - windows
+  - title: Detect Dumpert LSASS Dump Creation
+    description: Detects LSASS memory dumps created by Dumpert.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+    techniques:
+      - T1003
+      - T1003.001
+    data_sources:
+      - file_event
       - windows
 rules_count: 2
 ---
 
-The Local Security Authority Subsystem Service (LSASS) is a critical Windows process responsible for enforcing security policy and handling user authentication. Attackers often target LSASS to steal credentials for lateral movement and privilege escalation. This detection identifies attempts to access LSASS memory using specific access masks (0x1fffff, 0x1010, 0x120089, 0x1F3FFF) that are commonly used by tools designed to dump LSASS memory. The rule is designed to be tool-agnostic, detecting the underlying behavior rather than specific tool signatures. It has been validated against various LSASS dumping tools, including SharpDump, Procdump, Mimikatz, and Comsvcs. The rule triggers on Windows systems where handle manipulation is enabled and generates security event logs.
+The Local Security Authority Subsystem Service (LSASS) is a process in Windows operating systems responsible for enforcing security policy. Attackers target LSASS to steal credentials stored in memory. This detection identifies the creation of memory dump files with filenames compatible with credential dumping tools or that start with 'lsass', potentially indicating credential access attempts. The rule aims to detect suspicious memory dump creation indicative of credential theft. This activity is often associated with tools like Task Manager, SQL Dumper, as well as pentesting tools Dumpert and AndrewSpecial. The detection logic excludes legitimate SQL dumper and WerFault.exe processes to reduce false positives.
 
 ## Attack Chain
 
-1. An attacker gains initial access to a Windows system, potentially through phishing or exploiting a vulnerability.
-2. The attacker elevates privileges to an administrative account or SYSTEM, necessary for accessing LSASS memory.
-3. The attacker executes a credential dumping tool, such as Mimikatz, SharpDump, or Procdump.
-4. The tool attempts to open a handle to the LSASS process (lsass.exe) with a specific access mask (0x1fffff, 0x1010, 0x120089, 0x1F3FFF) required for memory dumping.
-5. Windows Security Event ID 4656 is generated, logging the handle request to the LSASS object.
-6. The tool reads the memory contents of the LSASS process.
-7. The dumped memory is parsed to extract sensitive information, such as passwords, NTLM hashes, and Kerberos tickets.
-8. The attacker uses the stolen credentials to move laterally to other systems or access sensitive data.
+1. An attacker gains initial access to a system via phishing, exploitation of a vulnerability, or stolen credentials (not explicitly covered in this source).
+2. The attacker executes a privileged process or leverages an existing one (e.g., Task Manager, SQLDumper.exe).
+3. The privileged process is used to create a memory dump file of the LSASS process. This can be achieved using built-in tools or specialized tools like Dumpert or AndrewSpecial.
+4. The memory dump file is written to disk with a recognizable name such as "lsass.dmp", "dumpert.dmp", or "SQLDmpr*.mdmp". The file path is typically in a location accessible to the attacker.
+5. The attacker retrieves the LSASS memory dump file from the compromised system.
+6. The attacker analyzes the memory dump file offline using credential extraction tools like Mimikatz.
+7. The attacker obtains user credentials, including passwords and NTLM hashes, from the LSASS memory dump.
+8. The attacker uses the stolen credentials to move laterally within the network, access sensitive data, or achieve other malicious objectives.
 
 ## Impact
 
-Successful LSASS memory dumping allows attackers to steal user credentials, enabling lateral movement and privilege escalation within the network. This can lead to widespread compromise, data breaches, and significant disruption of services. Stolen credentials can be used to access sensitive data, control critical systems, and maintain a persistent presence within the environment.
+Successful exploitation and credential dumping can lead to widespread compromise of an organization's network. Stolen credentials can be used for lateral movement, privilege escalation, and data exfiltration. The impact includes unauthorized access to sensitive data, financial loss, and reputational damage. The severity is high due to the potential for widespread compromise.
 
 ## Recommendation
 
-*   Enable Audit Handle Manipulation to generate the necessary events for this rule to function, as described in the [setup instructions](https://ela.st/audit-handle-manipulation).
-*   Deploy the Sigma rule `LSASS Memory Dump Handle Access` to your SIEM and tune the exceptions based on your environment to minimize false positives.
-*   Investigate any alerts generated by this rule, focusing on the process execution chain (parent process tree) to identify the source of the LSASS handle request.
-*   Review the processes excluded in the rule (WmiPrvSE.exe, dllhost.exe, svchost.exe, msiexec.exe, explorer.exe) and ensure these exclusions are valid for your environment.
-*   Implement strong password policies and multi-factor authentication to mitigate the impact of credential theft.
+*   Deploy the Sigma rule "LSASS Memory Dump Creation" to your SIEM and tune for your environment to detect the creation of LSASS memory dumps (rule.query).
+*   Monitor file creation events for filenames matching patterns used by credential dumping tools: lsass*.dmp, dumpert.dmp, Andrew.dmp, SQLDmpr*.mdmp, Coredump.dmp (rule.query).
+*   Investigate any process creating LSASS memory dumps, especially if the process is not WerFault.exe or SQLDumper.exe in known good paths (rule.query).
+*   Enable Sysmon file creation events logging to provide the necessary data for the detection rules above (logsource).
