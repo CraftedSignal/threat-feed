@@ -1,8 +1,8 @@
 ---
 title: Persistence via WMI Event Subscription
 slug: 2024-01-wmi-persistence
-description: Adversaries can leverage Windows Management Instrumentation (WMI) to establish persistence by creating event subscriptions that trigger malicious code execution when specific events occur, using tools like wmic.exe to create event consumers.
-date: "2024-01-03T12:00:00Z"
+description: Adversaries leverage Windows Management Instrumentation (WMI) to establish persistence by creating event subscriptions that trigger malicious code execution when specific events occur, often utilizing `wmic.exe` to create event consumers.
+date: "2024-01-03T14:27:00Z"
 type: advisory
 types:
   - advisory
@@ -10,24 +10,12 @@ severities:
   - medium
 tags:
   - persistence
-  - execution
-  - windows
   - wmi
+  - event-triggered-execution
+  - windows
 vendors:
   - Microsoft
-  - Crowdstrike
-  - SentinelOne
-  - Elastic
 products:
-  - Microsoft Defender XDR
-  - Sysmon
-  - Elastic Defend
-  - Elastic Endpoint Security
-  - CrowdStrike Falcon
-  - SentinelOne Cloud Funnel
-  - Windows Security Event Logs
-  - winlogbeat
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0003
@@ -40,22 +28,23 @@ mitre_ttps:
     technique_name: Windows Management Instrumentation
 references:
   - https://www.elastic.co/security-labs/hunting-for-persistence-using-elastic-security-part-1
+  - https://attack.mitre.org/techniques/T1546/
+  - https://attack.mitre.org/techniques/T1546/003/
 rules:
-  - title: Detect Suspicious WMIC Process
-    description: Detects suspicious wmic.exe process executions with arguments indicative of WMI event subscription abuse.
+  - title: Detect WMI Event Subscription Creation via WMIC
+    description: Detects the creation of WMI event subscriptions using wmic.exe with suspicious arguments.
     platform: sigma
     severity: medium
     tactics:
       - execution
       - persistence
     techniques:
-      - T1047
       - T1546.003
     data_sources:
       - process_creation
       - windows
-  - title: Detect WMI Event Consumer Creation via Command Line
-    description: Detects the creation of WMI event consumers using command-line tools, indicative of potential persistence mechanisms.
+  - title: Detect WMIC process spawning with persistence keywords
+    description: Detects wmic.exe being used to create an ActiveScriptEventConsumer or CommandLineEventConsumer, often used for persistence.
     platform: sigma
     severity: medium
     tactics:
@@ -69,26 +58,26 @@ rules:
 rules_count: 2
 ---
 
-Windows Management Instrumentation (WMI) provides a powerful framework for managing Windows systems, but adversaries can abuse its capabilities to establish persistence. By creating WMI event subscriptions, attackers can execute arbitrary code in response to defined system events. This technique involves creating event filters, providers, consumers, and bindings that automatically run malicious code. This can be achieved through tools like `wmic.exe`, which allows the creation of event consumers such as `ActiveScriptEventConsumer` or `CommandLineEventConsumer`. Successful exploitation of WMI for persistence allows attackers to maintain unauthorized access to a compromised system, even after reboots or other system changes. This activity has been observed across various environments, highlighting the need for robust detection mechanisms to identify and prevent WMI-based persistence.
+Attackers can abuse Windows Management Instrumentation (WMI), a powerful Windows management framework, to maintain persistent access to systems. This involves creating WMI event filters, providers, consumers, and bindings that execute code upon specific event triggers. This technique allows threat actors to subscribe to events and execute arbitrary code when those events transpire, ensuring a persistent foothold on the targeted system. The detection focuses on the use of `wmic.exe` with specific arguments used to set up malicious WMI event subscriptions, a common method for attackers seeking to establish persistence. This activity can be difficult to detect without specific monitoring rules, making it a valuable technique for attackers targeting a wide range of Windows environments.
 
 ## Attack Chain
 
-1. An attacker gains initial access to a Windows system through unspecified means.
-2. The attacker uses `wmic.exe` to create a WMI event filter that defines a specific event to monitor.
-3. A WMI event consumer, such as `ActiveScriptEventConsumer` or `CommandLineEventConsumer`, is created using `wmic.exe` specifying the malicious code or script to execute when the event occurs.
-4. A WMI binding is established between the event filter and the event consumer using `wmic.exe`, linking the event to the action.
-5. The malicious WMI event subscription is activated, monitoring for the defined event.
-6. When the specified event occurs, the WMI service triggers the execution of the associated malicious code or script through the event consumer.
-7. The attacker gains persistent access to the system, as the WMI event subscription will re-activate after reboots.
-8. The attacker can then perform additional malicious activities, such as lateral movement or data exfiltration.
+1. Initial Access: The attacker gains initial access to the system through various methods (not specified in source).
+2. Privilege Escalation: The attacker may attempt to elevate privileges to perform WMI tasks.
+3. Discovery: The attacker uses reconnaissance commands to explore the WMI environment.
+4. WMI Event Filter Creation: The attacker uses `wmic.exe` to create a WMI event filter that defines the event to monitor.
+5. WMI Event Consumer Creation: The attacker uses `wmic.exe` to create an event consumer, such as `ActiveScriptEventConsumer` or `CommandLineEventConsumer`, which specifies the action to take when the event occurs. This action is often malicious code execution.
+6. WMI Binding Creation: The attacker creates a binding between the event filter and the event consumer, linking the trigger to the action.
+7. Persistence: The WMI event subscription ensures that the malicious code is executed whenever the defined event occurs, providing persistence.
+8. Execution: When the defined event occurs, the configured consumer executes the malicious payload.
 
 ## Impact
 
-Successful exploitation of WMI for persistence can allow an attacker to maintain long-term, unauthorized access to a compromised system. This can result in data theft, system compromise, and further malicious activities. While the exact number of victims is not specified in the source, the broad applicability of this technique means that many Windows systems are potentially at risk. If the attack succeeds, the attacker gains a foothold on the system that is difficult to detect and remove, which can lead to significant operational disruption and financial loss.
+Successful exploitation allows attackers to maintain persistent access to compromised systems. This can lead to data theft, system disruption, or further malicious activities within the network. Due to the nature of WMI, this persistence mechanism can be difficult to detect and remove, potentially granting long-term access to the attacker. This technique impacts all Windows systems where WMI is enabled.
 
 ## Recommendation
 
-*   Enable process creation logging and monitor for `wmic.exe` with command-line arguments related to creating event consumers, specifically `ActiveScriptEventConsumer` or `CommandLineEventConsumer`, to trigger the Sigma rule "Detect Suspicious WMIC Process".
-*   Deploy the provided Sigma rule to your SIEM to detect suspicious WMI event subscription creation.
-*   Review the investigation steps outlined in the provided documentation to triage and analyze potential WMI persistence attempts.
-*   Monitor Windows Security Event Logs and Sysmon for events related to WMI activity for broader coverage.
+*   Monitor process execution for `wmic.exe` with arguments "create", "ActiveScriptEventConsumer", or "CommandLineEventConsumer" to detect potential WMI event subscription abuse, as highlighted in the rule description.
+*   Implement the provided Sigma rule to detect suspicious usage of `wmic.exe` related to WMI event subscription for persistence.
+*   Investigate parent processes of `wmic.exe` for unexpected or unauthorized activity.
+*   Regularly review WMI event filters, consumers, and bindings for any unauthorized or suspicious entries using tools like `wevtutil` or PowerShell.
