@@ -1,8 +1,8 @@
 ---
-title: Web Server Error Response Spike Indicates Reconnaissance
+title: Unusual Spike in Web Server Error Logs Indicating Reconnaissance Activity
 slug: 2024-01-web-server-error-spike
-description: A surge in 500-level HTTP error codes on web servers may indicate reconnaissance activities such as vulnerability scanning or fuzzing, where attackers probe for weaknesses by generating numerous error responses.
-date: "2024-01-09T12:00:00Z"
+description: An unusual spike in web server error logs may indicate reconnaissance activities such as vulnerability scanning or fuzzing attempts by adversaries probing for weaknesses in web applications.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -14,15 +14,13 @@ tags:
   - vulnerability-scanning
 vendors:
   - Nginx
-  - Apache
+  - Apache Software Foundation
   - Microsoft
-  - Traefik Labs
 products:
   - Nginx
-  - Apache
+  - Apache HTTP Server
   - Apache Tomcat
   - IIS
-  - Traefik
 mitre_ttps:
   - tactic_id: TA0043
     tactic_name: Reconnaissance
@@ -33,59 +31,56 @@ mitre_ttps:
     technique_id: T1595
     technique_name: Active Scanning
 references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/reconnaissance_web_server_unusual_spike_in_error_logs.toml
   - https://attack.mitre.org/techniques/T1595/
-  - https://attack.mitre.org/techniques/T1595/002/
-  - https://attack.mitre.org/techniques/T1595/003/
 rules:
-  - title: Web Server Unusual Spike in 5XX Errors
-    description: Detects a spike in 5XX HTTP error codes, indicative of potential scanning or fuzzing attempts
+  - title: Potential Spike in Web Server Error Logs (Single IP)
+    description: Detects a spike in web server error logs from a single source IP, indicating potential reconnaissance or scanning activity.
     platform: sigma
     severity: low
     tactics:
       - reconnaissance
     techniques:
       - T1595
-      - T1595.002
-      - T1595.003
     data_sources:
       - webserver
-      - nginx|apache|apache_tomcat|iis|traefik
-  - title: Web Server Fuzzing Attempt via URL
-    description: Detects a high number of 5XX HTTP errors from a single source IP targeting various URL paths
+      - linux
+  - title: Potential Spike in Web Server Error Logs (Multiple IPs)
+    description: Detects a spike in web server error logs across multiple source IPs, indicating potential widespread reconnaissance or scanning activity.
     platform: sigma
     severity: medium
     tactics:
       - reconnaissance
     techniques:
       - T1595
-      - T1595.002
-      - T1595.003
     data_sources:
       - webserver
-      - nginx|apache|apache_tomcat|iis|traefik
+      - linux
 rules_count: 2
 ---
 
-This detection focuses on identifying potential reconnaissance activities against web servers by monitoring spikes in HTTP error response codes (500, 502, 503, 504). Attackers often employ vulnerability scanners and fuzzers to probe web applications for weaknesses. These tools generate a high volume of requests, many of which result in server-side errors as they explore various attack vectors. This can also expose fragile code paths or misconfigured proxies. The rule analyzes GET requests specifically, targeting anomalies in error code frequency originating from single source IPs. The monitored web servers include Nginx, Apache, Apache Tomcat, IIS, and Traefik. This activity matters to defenders because successful reconnaissance can precede exploitation, data breaches, or denial-of-service attacks.
+This alert identifies potential reconnaissance activity against web servers by detecting unusual spikes in error logs. Threat actors often utilize vulnerability scanners and fuzzers to identify weaknesses in web applications. These tools generate a high volume of error responses (e.g., 404, 500) as they probe for common vulnerabilities, misconfigurations, and sensitive files/directories. The rule specifically targets web servers running Nginx, Apache, Apache Tomcat, and IIS. Defenders should investigate spikes in error logs to determine the source of the traffic and assess whether the reconnaissance activity was successful in identifying exploitable vulnerabilities. This behavior is often associated with the early stages of an attack. The original rule was created on 2025/11/19 and updated on 2026/04/10.
 
 ## Attack Chain
 
-1.  Attacker initiates a vulnerability scan or fuzzing campaign against a target web server.
-2.  The scanning tool sends a series of GET requests with potentially malicious payloads or malformed URLs.
-3.  The web server encounters errors while processing these requests due to invalid input or resource unavailability.
-4.  The web server responds with HTTP error codes (500, 502, 503, or 504).
-5.  These error responses are logged by the web server, including source IP, requested URL, and status code.
-6.  The attacker analyzes the error responses to identify potential vulnerabilities or misconfigurations.
-7.  The attacker refines their attack strategy based on the information gathered from the error responses.
-8.  The attacker attempts to exploit identified vulnerabilities for unauthorized access or information disclosure.
+1. The attacker identifies a target web server or application.
+2. The attacker deploys a vulnerability scanner or fuzzer against the target.
+3. The scanner sends a series of HTTP requests with malicious or malformed input, targeting common vulnerabilities (e.g., path traversal, SQL injection) and sensitive files/directories (e.g., /.env, /.git, /admin).
+4. The web server logs error responses (e.g., 404 Not Found, 500 Internal Server Error) due to the malicious requests.
+5. The detection rule identifies an unusual spike in the number of error log entries originating from a specific source IP address.
+6. The attacker analyzes the error responses to identify potential vulnerabilities or misconfigurations.
+7. If a vulnerability is identified, the attacker attempts to exploit it.
+8. Upon successful exploitation, the attacker gains unauthorized access to the web server or application.
 
 ## Impact
 
-An attacker performing active scanning or fuzzing can uncover sensitive information about a web application's configuration and vulnerabilities. Successful reconnaissance can lead to exploitation, data breaches, or denial-of-service attacks. While a spike in error codes alone may not indicate a successful compromise, it serves as an early warning sign of potentially malicious activity. If successful, attackers enumerate routes to find inputs to crash components for follow-on exploitation.
+A successful reconnaissance attempt can lead to the discovery of exploitable vulnerabilities in web applications. This can result in unauthorized access to sensitive data, system compromise, or denial of service. While this specific detection triggers on error rate, a successful exploit could lead to full system compromise. The impact depends on the severity of the underlying vulnerabilities and the attacker's objectives.
 
 ## Recommendation
 
-*   Deploy the provided Sigma rules to your SIEM to detect unusual spikes in HTTP error responses and tune for your environment.
-*   Investigate any alerts triggered by the Sigma rules to determine the source of the error responses and the nature of the requests (reference the "Investigation Guide" tag in the original rule).
-*   Implement rate limiting or blocking at the edge (reverse proxy/WAF) for clients generating excessive error responses (reference the description).
-*   Harden web server configurations to prevent information leakage in error messages and mitigate potential vulnerabilities (reference the description).
+*   Deploy the Sigma rule `Potential Spike in Web Server Error Logs` to your SIEM and tune the threshold (currently 50 events) for your environment to reduce false positives.
+*   Investigate alerts triggered by the Sigma rule by pivoting on the source IP address and analyzing the error log entries to identify the specific vulnerabilities being targeted.
+*   Block or throttle the source IP address at the WAF/CDN and load balancer to mitigate the reconnaissance activity, as mentioned in the overview.
+*   Review and harden the web server configuration to address any identified vulnerabilities, such as access to environment files and VCS directories, disabling directory listing, locking down admin consoles, and rejecting unsupported HTTP methods, as described in the alert's remediation guidance.
+*   Enable Sysmon process creation logging to detect suspicious child processes spawned by the webserver upon successful exploitation.
+*   Monitor webserver logs for successful access (200/302 responses) to sensitive paths or API keys following a spike in error logs.
