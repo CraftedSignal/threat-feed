@@ -1,80 +1,81 @@
 ---
 title: GitHub Enterprise IP Allow List Disabled
 slug: 2024-01-github-ip-allow-list-disabled
-description: An IP allow list was disabled in GitHub Enterprise, potentially allowing unauthorized access from untrusted networks and exposing sensitive code repositories.
+description: An IP allow list was disabled in GitHub Enterprise, potentially allowing unauthorized access to sensitive code repositories and GitHub Enterprise resources from untrusted networks.
 date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - github
   - cloud
   - ip-allow-list
-  - bypass
-  - security-control
-  - anomaly
+  - defense-evasion
 vendors:
   - GitHub
-  - Splunk
 products:
   - GitHub Enterprise
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
+    technique_id: T1562
+    technique_name: Impair Defenses
+  - tactic_id: TA0001
+    tactic_name: Initial Access
     technique_id: T1195
     technique_name: Supply Chain Compromise
 references:
   - https://www.googlecloudcommunity.com/gc/Community-Blog/Monitoring-for-Suspicious-GitHub-Activity-with-Google-Security/ba-p/763610
   - https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#setting-up-streaming-to-splunk
 rules:
-  - title: GitHub Enterprise IP Allow List Disabled
-    description: Detects when an IP allow list is disabled in GitHub Enterprise audit logs.
+  - title: Detect GitHub IP Allow List Disable
+    description: Detects when an IP allow list is disabled in GitHub Enterprise, which can indicate an attacker attempting to bypass access controls.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
     techniques:
-      - T1195
+      - T1562.001
     data_sources:
       - webserver
       - linux
-  - title: GitHub Enterprise User Agent Disabling IP Allow List
-    description: Detects specific user agents used when disabling IP allow lists in GitHub Enterprise.
+  - title: Detect GitHub Enterprise Audit Log Tampering
+    description: Detects potential tampering with GitHub Enterprise audit logs based on discrepancies in expected event sequences or missing logs.
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
+    techniques:
+      - T1562.002
     data_sources:
       - webserver
       - linux
 rules_count: 2
 ---
 
-This threat brief addresses the disabling of IP allow lists within a GitHub Enterprise environment. GitHub Enterprise's IP allow lists restrict access to resources from only trusted IP addresses, a critical security control to prevent unauthorized access. The disabling of this feature, as detected via GitHub Enterprise audit logs, could indicate malicious activity, such as an attacker attempting to circumvent existing access controls. The activity could stem from compromised administrator credentials or a malicious insider. Disabling the IP allow list exposes sensitive code repositories and GitHub Enterprise resources to access from any IP address, significantly increasing the attack surface.
+This analytic identifies when an IP allow list is disabled in GitHub Enterprise. GitHub Enterprise audit logs are monitored for actions related to disabling IP allow lists at the organization or enterprise level. Disabling IP allow lists, a critical security control, restricts access to GitHub Enterprise resources to only trusted IP addresses. When disabled, it could indicate an attacker attempting to bypass access controls to gain unauthorized access from untrusted networks. This activity can be triggered by a malicious insider or compromised admin credentials. Exposure of sensitive code repositories and GitHub Enterprise resources could be exposed to access from any IP address if this control is disabled.
 
 ## Attack Chain
 
-1. An attacker compromises credentials with administrative privileges within GitHub Enterprise.
-2. The attacker authenticates to the GitHub Enterprise instance.
-3. The attacker navigates to the organization or enterprise settings where IP allow lists are configured.
-4. The attacker disables the IP allow list feature, removing restrictions on which IP addresses can access the GitHub Enterprise resources.
-5. The attacker originates connections from previously unauthorized IP addresses.
-6. The attacker accesses and potentially exfiltrates sensitive code repositories and data.
-7. The attacker attempts to modify code, create backdoors, or perform other malicious activities.
+1. An attacker compromises a GitHub Enterprise administrator account through credential stuffing or phishing (T1195, TA0001).
+2. The attacker authenticates to the GitHub Enterprise management console using the compromised credentials.
+3. The attacker navigates to the IP allow list configuration settings.
+4. The attacker disables the IP allow list, removing the restriction on trusted IP addresses (T1562.001, TA0005).
+5. The attacker, now operating from an untrusted IP address, accesses sensitive code repositories.
+6. The attacker clones the repositories to their local system.
+7. The attacker searches the codebase for sensitive information, such as API keys and credentials.
+8. The attacker leverages the stolen credentials to access other systems or services, leading to further compromise.
 
 ## Impact
 
-Disabling IP allow lists in GitHub Enterprise can lead to a significant security breach. Sensitive code repositories become exposed, potentially leading to intellectual property theft or the introduction of malicious code into the software supply chain. If successful, the organization's data and systems may be compromised, resulting in financial losses, reputational damage, and legal ramifications. The scope of the impact depends on the sensitivity of the data stored in the GitHub Enterprise instance and the extent to which the attacker can leverage the unauthorized access.
+Disabling the IP allow list can expose sensitive code repositories and GitHub Enterprise resources to unauthorized access from any IP address. This exposure can lead to the theft of proprietary code, intellectual property, and sensitive credentials. The attacker could then use the stolen credentials to pivot to other systems or services, resulting in a wider breach. A successful attack can result in significant financial losses, reputational damage, and legal liabilities.
 
 ## Recommendation
 
-*   Enable and review the provided Sigma rule to detect instances of IP allow list disabling in GitHub Enterprise to quickly identify and respond to unauthorized changes.
-*   Investigate any alerts generated by the Sigma rule, focusing on the `actor`, `actor_id`, and `user_agent` fields to determine the source and legitimacy of the action.
-*   Implement multi-factor authentication (MFA) for all GitHub Enterprise accounts, especially those with administrative privileges, to prevent credential compromise.
-*   Review GitHub Enterprise audit logs regularly for suspicious activity, including changes to security settings and access from unusual locations, using the configured log streaming to Splunk.
-*   Enforce the principle of least privilege, granting users only the necessary permissions to perform their job functions, to limit the potential impact of a compromised account.
+*   Enable Sysmon process creation logging to monitor for suspicious processes spawned by user accounts used to manage GitHub Enterprise (logsource: process_creation, product: windows).
+*   Deploy the Sigma rule `Detect GitHub IP Allow List Disable` to your SIEM and tune for your environment (rules).
+*   Investigate any alerts generated by the `Detect GitHub IP Allow List Disable` rule immediately, particularly if the action was not pre-approved (rules).
+*   Review user activity logs for the user accounts that disabled the IP allow list for any other suspicious activity (references).
+*   Enforce multi-factor authentication (MFA) for all GitHub Enterprise accounts, especially administrator accounts, to prevent credential compromise (references).
