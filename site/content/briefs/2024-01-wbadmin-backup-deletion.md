@@ -1,8 +1,8 @@
 ---
-title: Windows Backup Deletion via Wbadmin
+title: Wbadmin Backup Catalog Deletion
 slug: 2024-01-wbadmin-backup-deletion
-description: Adversaries may delete Windows backup catalogs and system state backups using wbadmin.exe to inhibit system recovery, often as part of ransomware or other destructive attacks.
-date: "2024-01-03T15:00:00Z"
+description: Adversaries may delete Windows backup catalogs using wbadmin.exe to inhibit system recovery, often as part of ransomware or other destructive attacks.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -11,53 +11,43 @@ severities:
 tags:
   - impact
   - backup-deletion
+  - ransomware
   - windows
 vendors:
   - Microsoft
-  - Elastic
-  - Crowdstrike
-  - SentinelOne
 products:
-  - Microsoft Defender XDR
-  - Elastic Defend
-  - CrowdStrike Falcon
-  - SentinelOne Cloud Funnel
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
-    technique_id: T1485
-    technique_name: Data Destruction
-  - tactic_id: TA0040
-    tactic_name: Impact
     technique_id: T1490
     technique_name: Inhibit System Recovery
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1485
+    technique_name: Data Destruction
 references:
   - https://attack.mitre.org/techniques/T1485/
   - https://attack.mitre.org/techniques/T1490/
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/impact_deleting_backup_catalogs_with_wbadmin.toml
 rules:
-  - title: Wbadmin Backup Catalog Deletion
-    description: Detects the execution of wbadmin.exe to delete backup catalogs, a common tactic used by ransomware.
+  - title: Wbadmin Catalog Deletion
+    description: Detects the use of wbadmin.exe to delete the backup catalog.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - impact
     techniques:
-      - T1485
       - T1490
     data_sources:
       - process_creation
       - windows
-  - title: Wbadmin System State Backup Deletion
-    description: Detects the execution of wbadmin.exe to delete system state backups, a tactic used to inhibit system recovery.
+  - title: Wbadmin Systemstatebackup Deletion
+    description: Detects the use of wbadmin.exe to delete systemstatebackup.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - impact
     techniques:
-      - T1485
       - T1490
     data_sources:
       - process_creation
@@ -65,27 +55,27 @@ rules:
 rules_count: 2
 ---
 
-Attackers, including ransomware groups, often attempt to remove or impair an organization's ability to recover from an attack. One method to achieve this is by deleting Windows backup catalogs and system state backups using the `wbadmin.exe` utility. Windows Server Backup stores details about backups (what volumes are backed up and where the backups are located) in a backup catalog. Removing these catalogs renders backups unusable for recovery, increasing the impact of the attack. This technique is frequently observed in ransomware playbooks and other destructive attacks targeting Windows environments. This activity can be detected using endpoint detection and response (EDR) solutions, Windows Security Event Logs, and Sysmon.
+Attackers, particularly ransomware groups, often attempt to delete or impair backups to prevent victims from recovering their systems without paying a ransom. One method to achieve this is by using the `wbadmin.exe` utility, a legitimate Windows tool used for backup and recovery. Specifically, attackers use `wbadmin.exe` to delete the backup catalog, which contains details about backup volumes and locations. This action directly hinders the recovery process and increases the likelihood of a successful ransomware attack. This technique has been observed across various ransomware incidents targeting Windows environments. Detecting the use of `wbadmin.exe` for deleting backup catalogs is crucial for identifying potential ransomware preparation or ongoing destructive activity. The detection logic leverages process monitoring to identify specific command-line arguments associated with backup deletion activities.
 
 ## Attack Chain
 
-1. The attacker gains initial access to the system via phishing, exploiting a vulnerability, or using compromised credentials.
-2. The attacker escalates privileges to administrator level to execute wbadmin.exe.
-3. The attacker executes `wbadmin.exe` with the `delete catalog` command to remove backup catalogs.
-4. The attacker executes `wbadmin.exe` with the `delete systemstatebackup` command to remove system state backups.
-5. The attacker may also delete shadow copies using `vssadmin.exe` or `wmic.exe` to further hinder recovery.
-6. The attacker deploys ransomware or initiates other destructive actions.
-7. The attacker encrypts or destroys data on the system and connected network shares.
-8. The attacker demands a ransom payment for data recovery, which is complicated by the deleted backups.
+1.  The attacker gains initial access to the Windows system through various means such as phishing, exploiting vulnerabilities, or using compromised credentials.
+2.  The attacker executes `wbadmin.exe` with administrative privileges.
+3.  The attacker uses the `delete catalog` command to remove the backup catalog, which contains information about available backups.
+4.  The attacker may also use the `delete systemstatebackup` command to remove system state backups.
+5.  The attacker uses the `delete backup` command to remove specific backups.
+6.  The attacker disables or deletes shadow copies using `vssadmin.exe` or PowerShell to further prevent recovery.
+7.  The attacker deploys and executes ransomware to encrypt data.
+8.  The attacker demands ransom for decryption, knowing that system recovery is significantly hampered.
 
 ## Impact
 
-Successful deletion of backup catalogs and system state backups significantly impairs an organization's ability to recover from a ransomware attack or other destructive event. This can lead to prolonged downtime, data loss, and financial losses associated with incident response and recovery efforts. While the number of direct victims of this specific technique is difficult to quantify, the impact is typically observed in conjunction with broader ransomware campaigns affecting organizations across various sectors.
+The successful deletion of backup catalogs using `wbadmin.exe` can have a significant impact on an organization. Victims are left with limited or no options for system recovery, potentially leading to extended downtime, data loss, and financial repercussions. This technique is often employed as a precursor to ransomware attacks, increasing the likelihood of ransom payment. Organizations that do not detect and prevent this activity are more vulnerable to the damaging effects of ransomware.
 
 ## Recommendation
 
-*   Enable Sysmon process creation logging with Event ID 1 to capture `wbadmin.exe` executions and activate the first Sigma rule.
-*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment.
-*   Monitor Windows Security Event Logs for process creation events related to `wbadmin.exe`.
-*   Investigate any instances of `wbadmin.exe` executing with `delete` arguments.
-*   Review and harden account access controls to prevent unauthorized use of `wbadmin.exe`.
+*   Deploy the Sigma rule "Backup Deletion with Wbadmin" to your SIEM and tune for your environment to detect malicious use of `wbadmin.exe`.
+*   Monitor process creation events for `wbadmin.exe` with arguments related to deleting catalogs or backups.
+*   Investigate any instances of `wbadmin.exe` being executed with delete arguments by unusual accounts or processes.
+*   Review and enforce the principle of least privilege to limit the number of accounts that can execute `wbadmin.exe`.
+*   Implement robust backup strategies, including offsite backups, to ensure data can be recovered even if local backups are compromised.
