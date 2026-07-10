@@ -1,8 +1,8 @@
 ---
-title: Rare Connection to WebDAV Target via Rundll32
+title: Rare Connection to WebDAV Target for Credential Access
 slug: 2024-01-rare-webdav
-description: This rule identifies rare connection attempts to a Web Distributed Authoring and Versioning (WebDAV) resource, where attackers may inject WebDAV paths in files opened by a victim to leak NTLM credentials via forced authentication using rundll32.exe.
-date: "2024-01-03T12:00:00Z"
+description: Adversaries may inject WebDAV paths into files or features opened by a user to leak NTLM credentials via forced authentication, and this detection identifies rare connections to WebDAV resources using rundll32.exe.
+date: "2024-01-03T15:00:00Z"
 type: advisory
 types:
   - advisory
@@ -14,13 +14,7 @@ tags:
   - windows
 vendors:
   - Microsoft
-  - Elastic
-  - Crowdstrike
 products:
-  - Microsoft Defender XDR
-  - Elastic Defend
-  - CrowdStrike
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0006
@@ -34,8 +28,8 @@ mitre_ttps:
 references:
   - https://attack.mitre.org/techniques/T1187/
 rules:
-  - title: Suspicious Rundll32 WebDAV Connection
-    description: Detects rundll32.exe making a connection to a WebDAV server via DavSetCookie.
+  - title: Detect Rare WebDAV Destination via Rundll32
+    description: Detects rare connections to WebDAV servers using rundll32.exe, indicative of potential NTLM credential theft.
     platform: sigma
     severity: medium
     tactics:
@@ -47,8 +41,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Rare WebDAV Destination via Rundll32
-    description: Detects rundll32.exe connecting to a rare WebDAV server
+  - title: Detect WebDAV Connection from Office Application
+    description: Detects when an Office application spawns rundll32.exe to connect to a WebDAV server, which may indicate an attempt to steal NTLM credentials.
     platform: sigma
     severity: medium
     tactics:
@@ -63,24 +57,27 @@ rules:
 rules_count: 2
 ---
 
-Attackers can exploit WebDAV by injecting WebDAV paths into files or features opened by a victim user, leading to NTLM credential leakage through forced authentication. This technique relies on the victim's system attempting to authenticate against a malicious WebDAV server when accessing a file or link containing a WebDAV path. This threat is particularly relevant for defenders because it can lead to unauthorized access to sensitive information and potential lateral movement within the network. The attack leverages `rundll32.exe` to initiate the WebDAV connection, making it difficult to distinguish from legitimate system processes. The Elastic detection rule identifies rare WebDAV connection attempts to uncover potential credential access attempts.
+Attackers can leverage the WebDAV protocol to capture user credentials through forced authentication. By embedding a WebDAV path within a document or application, they can trick a user's system into sending NTLM credentials to a server controlled by the attacker. The rundll32.exe process, a legitimate Windows utility, can be abused to initiate these WebDAV connections using the DavSetCookie function. This detection focuses on identifying rare or unusual connections to WebDAV servers, filtering out known legitimate services and internal network ranges, to highlight potential credential theft attempts. The rule looks for rundll32.exe executions where the command line contains "DavSetCookie" and the destination server is not in a pre-defined list of known-good domains.
 
 ## Attack Chain
 
-1. An attacker crafts a malicious document or link containing a WebDAV path.
-2. The victim user opens the malicious document or clicks the link.
-3. The operating system attempts to resolve the WebDAV path using `rundll32.exe` and the `DavSetCookie` function.
-4. The system initiates an authentication attempt with the malicious WebDAV server.
-5. The attacker captures the NTLM credentials during the authentication handshake.
-6. The attacker relays the captured NTLM credentials to access internal resources.
+1. An attacker crafts a malicious document (e.g., Word, Excel) or modifies an application configuration.
+2. The malicious document/application contains a link or reference to a WebDAV server controlled by the attacker, using a UNC path or URL.
+3. A victim user opens the malicious document or application.
+4. The operating system attempts to resolve the WebDAV path using the SMB protocol for UNC paths or HTTP/HTTPS for URLs.
+5. The rundll32.exe process is invoked with the `DavSetCookie` parameter, initiating a connection to the attacker's WebDAV server.
+6. The victim's system attempts to authenticate to the WebDAV server, potentially sending NTLM credentials.
+7. The attacker captures the NTLM hash.
+8. The attacker may attempt to crack the NTLM hash or relay it to other systems to gain unauthorized access.
 
 ## Impact
 
-Successful exploitation leads to credential compromise and potential lateral movement within the victim's network. An attacker could gain unauthorized access to sensitive data and systems, potentially leading to data exfiltration, system compromise, or further attacks. This can impact organizations of any size and industry that rely on NTLM authentication. The severity depends on the user's permissions and the resources they can access with their compromised credentials.
+Successful exploitation can lead to the theft of user credentials, allowing attackers to gain unauthorized access to sensitive data and systems. While the rule focuses on detecting the initial WebDAV connection, the subsequent compromise of credentials can have wide-ranging consequences, including lateral movement, data exfiltration, and further system compromise. The severity is medium because it identifies a potential credential access attempt, but further investigation is needed to confirm actual credential compromise.
 
 ## Recommendation
 
-- Deploy the provided Sigma rule to your SIEM and tune for your environment to detect suspicious WebDAV connections initiated via `rundll32.exe`.
-- Investigate any alerts generated by the Sigma rule, focusing on rare or unusual WebDAV destinations.
-- Monitor process creation events for `rundll32.exe` with command-line arguments containing "DavSetCookie", focusing on connections to external domains.
-- Conduct regular security awareness training to educate users about the risks of opening unsolicited documents or clicking suspicious links.
+*   Deploy the Sigma rule `Detect Rare WebDAV Destination via Rundll32` to your SIEM to identify potential WebDAV credential theft attempts.
+*   Enable process creation logging, specifically monitoring for `rundll32.exe`, to ensure the Sigma rule can function correctly (reference log source).
+*   Investigate any alerts generated by the Sigma rule, focusing on the destination domain and the user account involved.
+*   Implement network segmentation and restrict outbound SMB traffic to prevent credential relay attacks (reference TTPs).
+*   Monitor user activity for suspicious network connections following a WebDAV alert (reference TTPs).
