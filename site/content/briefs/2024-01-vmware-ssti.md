@@ -3,7 +3,6 @@ title: VMware Server-Side Template Injection Attempt (CVE-2022-22954)
 slug: 2024-01-vmware-ssti
 description: An attacker attempts to exploit CVE-2022-22954, a server-side template injection vulnerability in VMware Workspace ONE Access and Identity Manager, by sending a crafted HTTP GET request containing malicious parameters to achieve remote code execution.
 date: "2024-01-03T18:23:00Z"
-lastmod: "2026-07-08T10:02:45Z"
 type: advisory
 types:
   - advisory
@@ -17,10 +16,8 @@ tags:
 vendors:
   - VMware
 products:
-  - Identity Manager
   - Workspace ONE Access
-affected_os:
-  - Linux
+  - Identity Manager
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -37,26 +34,6 @@ references:
   - https://www.vmware.com/security/advisories/VMSA-2022-0011.html
   - https://attackerkb.com/topics/BDXyTqY1ld/cve-2022-22954/rapid7-analysis
   - https://twitter.com/wvuuuuuuuuuuuuu/status/1519476924757778433
-  - https://sploitus.com/exploit?id=555C3224-9482-5B98-BCBB-E11172E89770&utm_source=rss&utm_medium=rss
-iocs:
-  - type: url
-    value: https://sploitus.com/exploit?id=555C3224-9482-5B98-BCBB-E11172E89770
-  - type: command
-    value: cat /etc/passwd
-  - type: hash_custom
-    value: "-1250474341"
-  - type: hash_custom
-    value: "-713727389"
-  - type: hash_custom
-    value: "-1987733375"
-  - type: hash_custom
-    value: "1459735704"
-  - type: hash_custom
-    value: "198112565"
-ioc_counts:
-  command: 1
-  hash_custom: 5
-  url: 1
 rules:
   - title: Detect VMware CVE-2022-22954 Exploitation Attempts
     description: Detects attempts to exploit CVE-2022-22954, a server-side template injection vulnerability in VMware Workspace ONE Access and Identity Manager via HTTP GET requests.
@@ -81,14 +58,6 @@ rules:
       - file_event
       - linux
 rules_count: 2
-updates:
-  - at: "2026-07-08T10:02:45Z"
-    level: L1
-    summary: OS linux
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=555C3224-9482-5B98-BCBB-E11172E89770&utm_source=rss&utm_medium=rss
 ---
 
 This threat brief addresses potential exploitation attempts targeting CVE-2022-22954, a server-side template injection vulnerability affecting VMware Workspace ONE Access (Access) and Identity Manager (vIDM). This vulnerability allows a remote attacker to execute arbitrary code on the server. The attack is initiated through malicious HTTP GET requests containing specific parameters designed to exploit the template injection flaw. This activity is significant because successful exploitation can lead to complete system compromise, unauthorized access, and the execution of arbitrary commands, making it critical for defenders to identify and mitigate these attempts. The vulnerability was disclosed in early 2022, and proof-of-concept exploits are publicly available, increasing the risk of widespread exploitation attempts.
