@@ -1,0 +1,95 @@
+---
+title: Component Object Model (COM) Hijacking via Registry Modification
+slug: 2024-01-02-com-hijacking
+description: This rule detects Component Object Model (COM) hijacking via registry modification, where adversaries establish persistence by executing malicious content triggered by hijacked references to COM objects.
+date: "2024-01-02T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - low
+tags:
+  - persistence
+  - defense-evasion
+  - privilege-escalation
+  - com-hijacking
+vendors:
+  - Microsoft
+products:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1546
+    technique_name: Event Triggered Execution
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1546
+    technique_name: Event Triggered Execution
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1112
+    technique_name: Modify Registry
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1112
+    technique_name: Modify Registry
+references:
+  - https://bohops.com/2018/08/18/abusing-the-com-registry-structure-part-2-loading-techniques-for-evasion-and-persistence/
+  - https://attack.mitre.org/techniques/T1546/
+  - https://attack.mitre.org/techniques/T1546/015/
+  - https://attack.mitre.org/techniques/T1112/
+rules:
+  - title: Suspicious COM Hijack Registry Modification
+    description: Detects suspicious modifications to COM-related registry keys, indicating potential COM hijacking attempts.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+      - persistence
+      - privilege_escalation
+    techniques:
+      - T1112
+      - T1546.015
+    data_sources:
+      - registry_set
+      - windows
+  - title: Suspicious COM Hijack via ScriptletURL Registry Modification
+    description: Detects modifications to the ScriptletURL registry key, often used in COM hijacking to load remote scriptlets.
+    platform: sigma
+    severity: low
+    tactics:
+      - defense_evasion
+      - persistence
+    techniques:
+      - T1546.015
+    data_sources:
+      - registry_set
+      - windows
+rules_count: 2
+---
+
+Component Object Model (COM) hijacking is a persistence and privilege escalation technique where adversaries modify COM registry entries to point to malicious code. This allows attackers to execute arbitrary code in place of legitimate software components. The Elastic rule "Component Object Model Hijacking," updated on March 19, 2026, detects this activity by monitoring registry modifications related to COM objects. The rule specifically looks for changes in `InprocServer32`, `LocalServer32`, `DelegateExecute`, `TreatAs`, `ScriptletURL*`, and `TypeLib*\\Win*` registry keys, commonly targeted in COM hijacking attacks. This technique is effective because the operating system relies on these COM objects, and hijacking them can lead to stealthy and persistent malicious execution. Defenders need to monitor for unexpected changes to these registry keys to detect and prevent COM hijacking attempts.
+
+## Attack Chain
+
+1.  The adversary gains initial access to the system through unspecified means (e.g., exploitation, social engineering).
+2.  The attacker identifies a vulnerable COM object to hijack by enumerating available COM objects and their registry settings.
+3.  The adversary modifies the registry, specifically targeting `HKLM` or `HKCU` or `HKU` `InprocServer32` subkeys, to redirect COM object calls to a malicious DLL or executable.
+4.  The modified registry entry points to a malicious DLL or executable located in a directory like `C:\Users\<username>\AppData\Local\Temp\`.
+5.  A legitimate application or system process attempts to instantiate the hijacked COM object.
+6.  Instead of the intended component, the malicious DLL or executable is loaded and executed.
+7.  The malicious code performs actions such as installing malware, establishing persistence, or escalating privileges.
+8.  The adversary achieves persistence by ensuring the malicious code is executed every time the hijacked COM object is called.
+
+## Impact
+
+Successful COM hijacking allows attackers to maintain persistent access to a compromised system, often with elevated privileges. This can lead to the installation of backdoors, data theft, or further compromise of the network. The number of potential victims is vast, as many Windows systems rely heavily on COM objects for various functionalities. The sectors most affected are those that depend on Windows-based systems, including enterprise environments, government agencies, and critical infrastructure.
+
+## Recommendation
+
+*   Deploy the Sigma rule "Suspicious COM Hijack Registry Modification" to your SIEM and tune for your environment to detect suspicious changes to COM-related registry keys.
+*   Enable Sysmon registry event logging to capture the necessary events for the Sigma rule to function effectively.
+*   Investigate any alerts generated by the Sigma rule by examining the process execution chain and the legitimacy of the modified registry entries.
+*   Implement regular scans for unexpected files in user directories like `AppData\Local\Temp` as part of a broader malware hunting strategy.
+*   Use the references provided to understand the COM registry structure to create more detections and better investigate potential compromises.
