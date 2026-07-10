@@ -1,8 +1,8 @@
 ---
 title: LSASS Process Access via Windows API
 slug: 2024-01-lsass-process-access
-description: Detection of access attempts to the LSASS handle, indicating potential credential dumping by monitoring API calls (OpenProcess, OpenThread, ReadProcessMemory) targeting lsass.exe.
-date: "2024-01-09T12:00:00Z"
+description: Detects suspicious access to the LSASS process via Windows API calls, potentially indicating credential dumping and subsequent lateral movement.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -12,28 +12,21 @@ tags:
   - credential-access
   - lsass
   - windows
+  - process-access
 vendors:
   - Microsoft
-  - Elastic
 products:
-  - Microsoft Defender XDR
-  - Elastic Defend
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1003
     technique_name: OS Credential Dumping
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1106
-    technique_name: Native API
 references:
   - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.001/T1003.001.md
 rules:
-  - title: LSASS API Access by Non-Standard Process
-    description: Detects access to LSASS process via OpenProcess or OpenThread API calls from processes outside standard program directories.
+  - title: Detect LSASS Process Access
+    description: Detects processes accessing the LSASS process via OpenProcess or OpenThread API calls, which is indicative of credential dumping attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -43,10 +36,10 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: LSASS ReadProcessMemory by Non-Standard Process
-    description: Detects ReadProcessMemory calls targeting LSASS process from unusual locations.
+  - title: Detect LSASS ReadProcessMemory
+    description: Detects processes reading LSASS memory, often performed after handle acquisition via OpenProcess.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - credential_access
     techniques:
@@ -57,27 +50,27 @@ rules:
 rules_count: 2
 ---
 
-This rule identifies attempts to access the LSASS process via Windows API calls, specifically `OpenProcess`, `OpenThread`, and `ReadProcessMemory`. The Local Security Authority Subsystem Service (LSASS) is a critical Windows component responsible for managing user authentication and security policies. Attackers often target LSASS to dump credentials from memory for lateral movement and privilege escalation. This detection focuses on identifying unusual processes attempting to access the LSASS process, excluding common legitimate applications and directories. The rule leverages data from Elastic Defend and Microsoft Defender XDR to identify suspicious activity and provide defenders with actionable alerts.
+This detection rule identifies attempts to access the Local Security Authority Subsystem Service (LSASS) process by monitoring for specific Windows API calls: `OpenProcess`, `OpenThread`, and `ReadProcessMemory`. The LSASS process is a critical Windows component that manages user authentication and security policies. Attackers often target LSASS to dump credentials stored in its memory, which can then be used for lateral movement, privilege escalation, and domain compromise. The rule aims to detect unauthorized access attempts indicative of credential access techniques, specifically targeting the lsass.exe process. This is important for defenders because successful credential dumping can lead to widespread compromise of sensitive resources.
 
 ## Attack Chain
 
-1. An attacker gains initial access to the target system through various means.
-2. The attacker attempts to escalate privileges to gain administrative rights.
-3. The attacker uses a custom tool or script to call the `OpenProcess`, `OpenThread` or `ReadProcessMemory` Windows APIs.
-4. The tool targets the `lsass.exe` process to obtain a handle for memory access.
-5. The attacker uses the obtained handle to read LSASS memory, searching for credential data.
-6. The attacker extracts usernames, passwords, and other sensitive information from the dumped memory.
-7. The attacker uses the stolen credentials for lateral movement to other systems on the network.
-8. The attacker achieves their final objective, which may include data exfiltration or system compromise.
+1.  **Initial Access:** The attacker gains initial access to the system through various means (e.g., phishing, exploitation of vulnerabilities, or compromised credentials).
+2.  **Execution:** The attacker executes a malicious process or script on the compromised system. This process could be a custom tool, a publicly available credential dumping tool (e.g., Mimikatz), or a script designed to interact with the Windows API.
+3.  **Privilege Escalation (If Necessary):** The attacker may need to escalate privileges to gain sufficient access to LSASS. This could involve exploiting system vulnerabilities or using techniques like token impersonation.
+4.  **LSASS Handle Access:** The malicious process uses the `OpenProcess` or `OpenThread` API calls to obtain a handle to the LSASS process (`lsass.exe`). The `ReadProcessMemory` API is then called to read the contents of the LSASS process's memory.
+5.  **Credential Extraction:** The attacker parses the memory contents of LSASS to extract sensitive information, such as user credentials (passwords, NTLM hashes, Kerberos tickets).
+6.  **Lateral Movement:** The attacker uses the stolen credentials to move laterally to other systems on the network, gaining access to additional resources and expanding their control.
+7.  **Persistence (Optional):** The attacker may establish persistence mechanisms to maintain access to the compromised systems, ensuring they can return even if the initial entry point is detected.
+8.  **Impact:** The attacker achieves their final objectives, which could include data theft, system disruption, or deployment of ransomware.
 
 ## Impact
 
-Successful exploitation can lead to the compromise of domain credentials, allowing attackers to move laterally within the network and gain access to sensitive resources. This can result in data breaches, system compromise, and significant financial or reputational damage. The rule aims to detect these attacks early, limiting the scope of the potential compromise.
+Successful exploitation can lead to the compromise of user accounts, including those with administrative privileges. This allows attackers to move laterally within the network, access sensitive data, and potentially disrupt critical business operations. The impact can range from data breaches and financial losses to reputational damage and regulatory penalties. While the exact number of victims and sectors targeted can vary, the potential for widespread compromise makes this a critical threat to monitor.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "LSASS API Access by Non-Standard Process" to your SIEM and tune for your environment to detect suspicious access to the LSASS process.
-*   Investigate any alerts triggered by this rule, focusing on the process execution chain and the access rights requested as documented in the provided Microsoft documentation.
-*   Enable process creation and API call logging via Elastic Defend or Microsoft Defender XDR to provide the necessary data for this detection.
-*   Review and harden LSASS protection mechanisms such as Credential Guard to minimize the risk of successful credential dumping.
-*   Implement the Osquery queries to gather system information like DNS cache, services, and unsigned executables, to aid in investigation and threat hunting.
+*   Deploy the Sigma rule `Detect LSASS Process Access` to your SIEM to identify processes attempting to access LSASS memory via `OpenProcess` or `OpenThread`. Tune the rule based on your environment to reduce false positives.
+*   Enable Sysmon process creation logging to ensure the necessary event data is available for the Sigma rules to function correctly.
+*   Investigate any alerts generated by the `Detect LSASS Process Access` rule, focusing on the process execution chain and the requested access rights to the LSASS process. Reference the Microsoft documentation on process security and access rights to interpret the access rights (`process.Ext.api.parameters.desired_access` field).
+*   Monitor network connections originating from processes that have accessed LSASS, as this could indicate lateral movement or exfiltration of stolen credentials.
+*   Implement the Osquery queries described in the source document to identify potentially suspicious services running on user accounts or unsigned executables.
