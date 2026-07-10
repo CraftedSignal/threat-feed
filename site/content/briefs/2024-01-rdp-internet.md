@@ -13,6 +13,10 @@ tags:
   - lateral-movement
   - initial-access
   - rdp
+vendors:
+  - Microsoft
+products:
+  - Remote Desktop Services
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
@@ -29,7 +33,7 @@ mitre_ttps:
 cves:
   - id: CVE-2019-0708
     cvss: 9.8
-    epss: 0.94454
+    epss: 0.99999
 references:
   - https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml
   - https://attack.mitre.org/tactics/TA0011/
