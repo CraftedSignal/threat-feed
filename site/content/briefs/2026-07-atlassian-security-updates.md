@@ -3,15 +3,34 @@ title: Atlassian Security Updates — July 2026
 slug: 2026-07-atlassian-security-updates
 description: Roundup of Atlassian security advisories published in July 2026.
 date: "2026-07-10T10:02:54Z"
+lastmod: "2026-07-10T19:46:37Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
 tags:
   - roundup
 vendors:
   - Atlassian
+  - mcp-atlassian
+products:
+  - mcp-atlassian < 0.22.0
+  - Confluence
+affected_os:
+  - Windows
+  - Linux
+references:
+  - https://github.com/advisories/GHSA-g5r6-gv6m-f5jv
+updates:
+  - at: "2026-07-10T19:46:37Z"
+    level: L2
+    summary: poc_available; OS windows; OS linux
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-g5r6-gv6m-f5jv
 ---
 
 Aggregated Atlassian security advisories for July 2026. CVEs from this cycle are folded
