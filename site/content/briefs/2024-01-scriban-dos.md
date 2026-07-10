@@ -1,8 +1,8 @@
 ---
-title: Scriban Template Engine Remote Denial-of-Service via Uncontrolled Memory Allocation
+title: Scriban Template Engine LoopLimit Bypass Vulnerability
 slug: 2024-01-scriban-dos
-description: The Scriban template engine is vulnerable to a denial-of-service attack due to missing validation in the `string.pad_left` and `string.pad_right` functions, allowing unauthenticated attackers to trigger excessive memory allocation and crash the service by sending a crafted HTTP request to a vulnerable endpoint that processes untrusted Scriban templates.
-date: "2024-01-23T12:00:00Z"
+description: Scriban's LoopLimit can be bypassed by crafted template expressions, allowing attackers to perform resource exhaustion through CPU or memory amplification, leading to denial of service.
+date: "2024-01-27T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -11,55 +11,63 @@ severities:
 tags:
   - scriban
   - dos
-  - denial-of-service
   - template-injection
 vendors:
   - Scriban
 products:
-  - Scriban
+  - Scriban Template Engine
 mitre_ttps:
-  - tactic_id: TA0011
-    tactic_name: Command and Control
+  - tactic_id: TA0040
+    tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
 references:
-  - https://github.com/advisories/GHSA-v66j-x4hw-fv9g
+  - https://github.com/advisories/GHSA-c875-h985-hvrc
 rules:
-  - title: Detect Scriban PadLeft/PadRight DoS Attempt
-    description: Detects attempts to exploit the Scriban `pad_left` or `pad_right` denial-of-service vulnerability by identifying HTTP requests with large width parameters.
+  - title: Detect Scriban Template Rendering with Large Range and Array Size
+    description: Detects Scriban template rendering processes that use a large numerical range piped to the array.size function, indicative of a LoopLimit bypass attempt.
     platform: sigma
     severity: high
     tactics:
-      - denial_of_service
+      - resource_development
     techniques:
-      - T1499.001
+      - T1499
     data_sources:
-      - webserver
-      - linux
-rules_count: 1
+      - process_creation
+      - windows
+  - title: Detect Scriban Template Rendering with Large String Multiplication
+    description: Detects Scriban template rendering processes that perform large string multiplications, indicating a potential memory amplification attack.
+    platform: sigma
+    severity: high
+    tactics:
+      - resource_development
+    techniques:
+      - T1499
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
 ---
 
-Scriban is a .NET template engine similar to Liquid. Versions prior to 7.0.0 are vulnerable to a denial-of-service attack. The `string.pad_left` and `string.pad_right` template functions in Scriban lack validation on the `width` parameter. This allows an attacker to control the size of a string allocation, leading to a potential `OutOfMemoryException`. The vulnerability is triggered when Scriban is used to render untrusted template input. A publicly accessible Scriban playground, `Scriban.AppService`, deployed on Azure is vulnerable, allowing an unauthenticated attacker to crash the service by sending a specially crafted HTTP request. A 39-byte payload is sufficient to trigger a ~1GB memory allocation, crashing the service. Rate limiting is present at 30 requests/minute but is insufficient to mitigate the attack as each request still triggers a large memory allocation.
+The Scriban template engine is vulnerable to a denial-of-service attack due to a bypass in its `LoopLimit` functionality. This vulnerability, affecting Scriban versions prior to 7.0.0, allows attackers to craft template expressions that bypass the configured loop limits, leading to excessive CPU or memory consumption. The issue stems from the fact that `LoopLimit` only applies to script loop statements and not to expensive iteration performed inside operators and built-in functions such as `array.size` and string multiplication. An attacker can exploit this by submitting a single expression, like `{{ 1..1000000 | array.size }}` for CPU exhaustion or `{{ 'A' * 200000000 }}` for memory amplification, even when `LoopLimit` is set to a small value. This vulnerability impacts applications using Scriban with untrusted template content, including template-as-a-service systems, CMS, and email rendering systems.
 
 ## Attack Chain
 
-1.  An attacker crafts a malicious Scriban template containing either the `string.pad_left` or `string.pad_right` function with a large `width` value (e.g., 500000000).
-2.  The attacker sends an HTTP POST request to the `/api/render` endpoint of a vulnerable Scriban application such as `Scriban.AppService`.
-3.  The POST request body contains a JSON payload with the "template" field set to the malicious Scriban template.
-4.  The vulnerable application receives the request and extracts the template from the JSON payload.
-5.  The application calls the `template.Render()` function to process the Scriban template.
-6.  During template rendering, the `string.pad_left` or `string.pad_right` function is called with the attacker-controlled `width` value.
-7.  The application attempts to allocate a string of the specified `width` in memory. Due to the large `width` value, this allocation can be on the order of gigabytes.
-8.  If the allocation exceeds available memory, the .NET runtime throws an `OutOfMemoryException`, crashing the application process and causing a denial of service.
+1.  An attacker crafts a malicious Scriban template containing an expression designed to bypass `LoopLimit`. Example: `{{ 1..1000000 | array.size }}` or `{{ 'A' * 200000000 }}`.
+2.  The attacker submits the malicious template to a vulnerable application that uses Scriban for template processing.
+3.  The application parses the template using `Template.Parse()`.
+4.  The application renders the template using `template.Render(context)` with a specified `LoopLimit` in `TemplateContext`.
+5.  The `array.size` function (or string multiplication) is invoked, leading to a large number of iterations or memory allocations *without* respecting the `LoopLimit`.
+6.  The application's CPU or memory resources are exhausted due to the uncontrolled iteration or allocation.
+7.  The application becomes unresponsive or crashes, resulting in a denial-of-service condition.
 
 ## Impact
 
-This vulnerability allows an unauthenticated attacker to remotely crash any application that renders untrusted Scriban templates. In the specific case of the official Scriban playground (`scriban-a7bhepbxcrbkctgf.canadacentral-01.azurewebsites.net`), a single HTTP request can trigger an `OutOfMemoryException` and crash the service. Sustained requests at the rate limit (30/min) can create continuous memory pressure (~30GB/min), preventing the service from recovering. Successful exploitation leads to a denial of service, rendering the application unavailable to legitimate users.
+The vulnerability allows for uncontrolled resource consumption, leading to denial-of-service conditions. Any application that accepts attacker-controlled templates and relies on `LoopLimit` is vulnerable. Observed damage includes CPU exhaustion and memory amplification. Vulnerable systems could include template-as-a-service platforms, content management systems (CMS), and email rendering systems. A successful attack can cause application downtime, impacting availability and potentially leading to data loss or corruption if the system crashes during critical operations.
 
 ## Recommendation
 
-*   Apply the vendor-supplied patch to upgrade Scriban to version 7.0.0 or later, which includes validation on the `width` parameter for `StringFunctions.PadLeft` and `StringFunctions.PadRight` to prevent excessive memory allocation.
-*   For web applications using Scriban, implement input validation on the template data received from users to prevent injection of arbitrary `pad_left` and `pad_right` calls.
-*   Monitor web server logs (category: `webserver`, product: `linux`) for suspicious POST requests to the `/api/render` endpoint with unusually large values in the `template` parameter, as indicated by the rule "Detect Scriban PadLeft/PadRight DoS Attempt".
-*   Deploy the Sigma rule "Detect Scriban PadLeft/PadRight DoS Attempt" to identify attempts to exploit this vulnerability in real-time.
-*   Consider implementing resource limits (e.g., memory limits) on the Scriban rendering process to prevent a single malicious request from consuming excessive resources.
+*   Upgrade Scriban to version 7.0.0 or later to address the vulnerability.
+*   Implement additional safeguards to limit the resources available to template rendering, such as setting CPU and memory limits.
+*   Implement input validation on templates to detect and reject potentially malicious expressions. Specifically, look for large ranges used in conjunction with `array.size`, or excessively large string multiplications. Deploy the Sigma rules in this brief to your SIEM and tune for your environment.
+*   Monitor application resource usage (CPU, memory) for unusual spikes during template rendering. Enable process monitoring and alerting to detect processes consuming excessive resources.
