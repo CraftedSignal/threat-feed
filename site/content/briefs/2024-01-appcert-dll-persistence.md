@@ -1,8 +1,8 @@
 ---
-title: Registry Persistence via AppCert DLL Modification
+title: Registry Persistence via AppCert DLL
 slug: 2024-01-appcert-dll-persistence
-description: Detection of registry modifications related to AppCert DLLs, a persistence mechanism where malicious DLLs are loaded by every process using common API functions.
-date: "2024-01-03T12:00:00Z"
+description: Detection of Registry Persistence via AppCert DLL, which involves modifying registry keys to load malicious DLLs upon process creation, enabling persistence and potential privilege escalation.
+date: "2024-01-03T14:22:00Z"
 type: advisory
 types:
   - advisory
@@ -11,19 +11,11 @@ severities:
 tags:
   - persistence
   - privilege-escalation
-  - appcert-dll
-vendors:
-  - Elastic
-  - Microsoft
-  - SentinelOne
-  - Crowdstrike
-products:
-  - Elastic Defend
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
-  - Crowdstrike
-affected_os:
   - windows
+vendors:
+  - Microsoft
+products:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -34,11 +26,12 @@ mitre_ttps:
     technique_id: T1546
     technique_name: Event Triggered Execution
 references:
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_appcertdlls_registry.toml
+  - https://attack.mitre.org/techniques/T1546/
   - https://attack.mitre.org/techniques/T1546/009/
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_appcertdlls_registry.toml
 rules:
-  - title: Detect AppCert DLL Registry Modification
-    description: Detects changes to the AppCertDLLs registry keys, indicating potential persistence attempts.
+  - title: Registry Persistence via AppCert DLL Modification
+    description: Detects modification of the AppCertDLLs registry key to add a new DLL path, indicating a potential persistence mechanism.
     platform: sigma
     severity: medium
     tactics:
@@ -49,10 +42,10 @@ rules:
     data_sources:
       - registry_set
       - windows
-  - title: Detect Image Load from AppCert DLL Path
-    description: Detects image loads from paths configured as AppCert DLLs, indicating potential malicious activity.
+  - title: Process Loading Newly Registered AppCert DLL
+    description: Detects a process loading a DLL that was recently added to the AppCertDLLs registry key.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - persistence
       - privilege_escalation
@@ -64,26 +57,28 @@ rules:
 rules_count: 2
 ---
 
-The rule detects attempts to maintain persistence by creating or modifying registry keys associated with AppCert DLLs on Windows systems. AppCert DLLs are loaded by every process that uses common API functions to create processes, making them a viable target for persistence. Adversaries can exploit this by inserting malicious DLL paths into the registry, ensuring their code executes persistently across system reboots. This technique is often used for privilege escalation and persistence. The rule specifically looks for changes in the registry path `HKLM\SYSTEM\ControlSet*\Control\Session Manager\AppCertDLLs\*`, as well as the equivalent `\\REGISTRY\\MACHINE\\SYSTEM\...` path. This activity matters because it can lead to stealthy and persistent malware infections. The rule is designed for use with data from Elastic Defend, Microsoft Defender XDR, SentinelOne Cloud Funnel, Crowdstrike, and Sysmon. The detection logic was last updated on 2026/05/04.
+This detection identifies attempts to establish persistence on Windows systems by manipulating the AppCert DLLs registry keys. AppCert DLLs are loaded by every process that uses standard Windows API calls for process creation. Adversaries can exploit this mechanism by modifying the registry to include paths to malicious DLLs, ensuring these DLLs are loaded into every newly created process. This technique, often associated with persistence and privilege escalation, allows for stealthy execution of malicious code across system reboots. The targeted registry paths include `HKLM\SYSTEM\ControlSet*\Control\Session Manager\AppCertDLLs\*`. This activity is detected via event logs that record registry modifications. The rule was last updated on 2026/04/07.
 
 ## Attack Chain
 
-1. An attacker gains initial access to the system (e.g., through phishing or exploiting a vulnerability).
-2. The attacker obtains necessary privileges to modify the Windows Registry, potentially requiring administrator rights.
-3. The attacker creates or modifies a registry key under `HKLM\SYSTEM\ControlSet*\Control\Session Manager\AppCertDLLs\*` to point to a malicious DLL.
-4. The malicious DLL is placed on the file system, often in a location that appears legitimate or is easily accessible.
-5. Any process that uses the standard Windows API to create new processes will load the specified DLL.
-6. The malicious DLL executes its payload, which could include establishing persistence, injecting into other processes, or performing other malicious activities.
-7. The attacker maintains persistence by ensuring the malicious DLL is loaded every time a new process is created.
-8. The final objective is to maintain long-term access to the compromised system, potentially escalating privileges and moving laterally within the network.
+1.  An attacker gains initial access to the system via various means (e.g., exploiting a vulnerability or using compromised credentials).
+2.  The attacker obtains elevated privileges on the system to modify critical registry keys.
+3.  The attacker modifies the `HKLM\SYSTEM\ControlSet*\Control\Session Manager\AppCertDLLs\*` registry key to include a path to a malicious DLL.
+4.  The malicious DLL is placed on the system, potentially disguised as a legitimate system file.
+5.  A new process is created using standard Windows API calls.
+6.  The operating system loads the DLLs listed in the `AppCertDLLs` registry key into the newly created process.
+7.  The malicious DLL executes its payload within the context of the newly created process, allowing the attacker to perform malicious actions.
+8.  This process repeats for every new process created on the system, ensuring persistence across reboots.
 
 ## Impact
 
-Successful exploitation allows attackers to achieve persistent code execution on the system. This can lead to complete system compromise, data theft, or further propagation of malware within the network. The use of AppCert DLLs allows the malicious code to run in the context of nearly every process, making detection and removal more challenging. Without proper detection and response mechanisms, an attacker can maintain control of the system indefinitely.
+Successful exploitation allows attackers to achieve persistent code execution, enabling them to maintain control over the compromised system. This can lead to data theft, further malware deployment, or complete system compromise. The impact ranges from minor disruptions to significant data breaches and system unavailability. The risk score associated with this activity is 47.
 
 ## Recommendation
 
-*   Enable Sysmon registry event logging and configure it to monitor the relevant AppCertDLLs registry paths to capture the necessary events for the rules (Data Source: Sysmon).
-*   Deploy the provided Sigma rule `Detect AppCert DLL Registry Modification` to your SIEM to detect unauthorized modifications to the AppCertDLLs registry keys (Rule: Detect AppCert DLL Registry Modification).
-*   Investigate any alerts generated by the rule `Detect AppCert DLL Registry Modification` to determine the legitimacy of the registry modifications, using the provided triage steps as a guide.
-*   Regularly scan systems for malicious DLLs located in the file system using updated antivirus and anti-malware tools, focusing on DLLs referenced in the AppCertDLLs registry keys.
+*   Deploy the Sigma rule "Registry Persistence via AppCert DLL" to your SIEM to detect modifications to the `AppCertDLLs` registry key.
+*   Enable Sysmon registry event logging to capture changes to the targeted registry paths for accurate detection.
+*   Implement strict registry permission controls to limit who can modify the `AppCertDLLs` registry key.
+*   Regularly audit the `AppCertDLLs` registry key for unauthorized modifications.
+*   Use endpoint detection and response (EDR) tools to monitor and block suspicious DLLs being loaded by processes.
+*   Review and whitelist legitimate software that modifies the `AppCertDLLs` registry key to reduce false positives, as noted in the rule description.
