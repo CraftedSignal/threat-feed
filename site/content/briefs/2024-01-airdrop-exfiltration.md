@@ -12,6 +12,11 @@ tags:
   - data-exfiltration
   - macos
   - airdrop
+vendors:
+  - Apple
+products:
+  - Airdrop
+  - macOS
 mitre_ttps:
   - tactic_id: TA0010
     tactic_name: Exfiltration
