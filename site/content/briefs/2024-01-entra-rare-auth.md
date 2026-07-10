@@ -1,0 +1,89 @@
+---
+title: Entra ID User Sign-in with Unusual Authentication Type
+slug: 2024-01-entra-rare-auth
+description: Detects rare authentication requirements for Azure Entra ID principal users, potentially indicating an adversary attempting to bypass conditional access policies and MFA using stolen credentials.
+date: "2024-01-02T18:11:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+tags:
+  - azure
+  - entra_id
+  - initial_access
+  - credential_access
+vendors:
+  - Microsoft
+products:
+  - Azure Entra ID
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1110
+    technique_name: Brute Force
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1556
+    technique_name: Modify Authentication Process
+references:
+  - https://securityscorecard.com/wp-content/uploads/2025/02/MassiveBotnet-Report_022125_03.pdf
+rules:
+  - title: Entra ID User Sign-in with Unusual Authentication Type
+    description: Detects rare instances of authentication requirements for Azure Entra ID principal users, indicating potential attempts to bypass conditional access policies.
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial_access
+    techniques:
+      - T1078.004
+    data_sources:
+      - authentication
+      - azure
+  - title: Entra ID Sign-in from Uncommon ASN
+    description: Detects Azure Entra ID sign-ins originating from Autonomous System Numbers (ASNs) that are rarely observed for a given user.
+    platform: sigma
+    severity: low
+    tactics:
+      - initial_access
+    techniques:
+      - T1078.004
+    data_sources:
+      - authentication
+      - azure
+rules_count: 2
+---
+
+This detection identifies unusual authentication requirements for Azure Entra ID principal users, suggesting potential credential compromise and attempts to bypass security controls. An attacker with stolen credentials may try authentication methods rarely used by the legitimate user, to circumvent Conditional Access Policies (CAP) and multi-factor authentication (MFA) requirements. This rule focuses on the first occurrence of an Entra ID principal user and their authentication requirement within a 14-day window. Identifying and investigating these anomalies can help security teams to proactively detect and respond to potential account compromise and unauthorized access attempts in Entra ID environments. The rule leverages Azure sign-in logs to identify these unusual authentications.
+
+## Attack Chain
+
+1.  **Credential Compromise:** The attacker obtains valid credentials for an Azure Entra ID user, possibly through phishing, brute force, or purchasing them from illicit marketplaces.
+2.  **Initial Access Attempt:** The attacker attempts to sign in to Azure Entra ID using the compromised credentials, from a potentially unfamiliar IP address or device.
+3.  **Bypass MFA/CAP:** The attacker attempts to bypass MFA or Conditional Access Policies by using authentication methods that are not typically associated with the user's profile, or by exploiting vulnerabilities in the authentication process.
+4.  **Authentication Requirement Trigger:** Azure Entra ID requests an unusual authentication requirement due to the anomalous login attempt. This could be a less common MFA method, or a CAP that the attacker is trying to circumvent.
+5.  **Resource Access:** If successful in bypassing security controls, the attacker gains access to Azure resources, applications, and data authorized for the compromised user account.
+6.  **Lateral Movement:** The attacker leverages the compromised account to move laterally within the Azure environment, accessing additional resources and escalating privileges.
+7.  **Data Exfiltration/Manipulation:** Once access is gained, the attacker may exfiltrate sensitive data, modify configurations, or deploy malicious payloads.
+8.  **Maintain Persistence:** The attacker establishes persistence mechanisms to maintain access to the environment, such as creating new user accounts, modifying existing ones, or adding rogue applications.
+
+## Impact
+
+A successful attack could lead to unauthorized access to sensitive data, financial loss, reputational damage, and disruption of business operations. Depending on the compromised account's privileges, the attacker could gain control over critical Azure resources, leading to widespread damage. The attack can affect any organization using Azure Entra ID for identity and access management.
+
+## Recommendation
+
+*   Deploy the Sigma rule "Entra ID User Sign-in with Unusual Authentication Type" to your SIEM to detect unusual authentication requirements in Azure sign-in logs and tune for your environment.
+*   Investigate alerts generated by the Sigma rule, focusing on unusual authentication methods and unfamiliar IP addresses (source.ip) in the `azure.signinlogs`.
+*   Review and strengthen Conditional Access Policies (CAP) based on the unusual authentication requirements detected, specifically focusing on the values reported in `azure.signinlogs.properties.authentication_requirement`.
+*   Disable legacy authentication protocols based on the authentication methods listed in `azure.signinlogs.properties.client_app_used` to reduce the attack surface.
+*   Enforce multi-factor authentication (MFA) for all users, especially privileged accounts, to mitigate credential-based attacks.
+*   Block source IP addresses (source.ip) associated with malicious activity or suspicious login attempts based on threat intelligence or analysis.
