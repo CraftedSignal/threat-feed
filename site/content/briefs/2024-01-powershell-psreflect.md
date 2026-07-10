@@ -13,6 +13,11 @@ tags:
   - psreflect
   - windows
   - execution
+vendors:
+  - Microsoft
+products:
+  - PowerShell
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
