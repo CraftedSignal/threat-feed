@@ -12,6 +12,10 @@ tags:
   - defense-evasion
   - credential-access
   - windows
+vendors:
+  - Microsoft
+products:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
