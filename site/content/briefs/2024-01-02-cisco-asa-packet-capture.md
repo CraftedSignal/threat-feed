@@ -1,0 +1,84 @@
+---
+title: Cisco ASA Packet Capture Activity
+slug: 2024-01-02-cisco-asa-packet-capture
+description: Detection of packet capture commands on Cisco ASA devices indicates potential network sniffing for credential theft, sensitive data interception, or network traffic analysis by adversaries.
+date: "2024-01-02T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - cisco_asa
+  - network_sniffing
+  - credential_access
+vendors:
+  - Cisco
+products:
+  - Cisco ASA
+mitre_ttps:
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1557
+    technique_name: Man-in-the-Middle
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1040
+    technique_name: Network Traffic Collection
+references:
+  - https://www.cisco.com/c/en/us/td/docs/security/asa/asa-cli-reference/A-H/asa-command-ref-A-H/ca-cld-commands.html
+  - https://www.cisco.com/c/en/us/support/docs/security/asa-5500-x-series-next-generation-firewalls/118097-configure-asa-00.html
+  - https://www.ncsc.gov.uk/static-assets/documents/malware-analysis-reports/RayInitiator-LINE-VIPER/ncsc-mar-rayinitiator-line-viper.pdf
+rules:
+  - title: Cisco ASA - Suspicious Packet Capture Configuration
+    description: Detects suspicious packet capture configurations on Cisco ASA devices, potentially indicating malicious network sniffing.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+      - network_traffic_collection
+    techniques:
+      - T1040
+      - T1557
+    data_sources:
+      - firewall
+      - cisco
+  - title: Cisco ASA - Packet Capture Activity via ASDM
+    description: Detects packet capture activities initiated via ASDM on Cisco ASA devices.
+    platform: sigma
+    severity: medium
+    tactics:
+      - credential_access
+      - network_traffic_collection
+    techniques:
+      - T1040
+      - T1557
+    data_sources:
+      - firewall
+      - cisco
+rules_count: 2
+---
+
+This analytic detects the execution of packet capture commands on Cisco ASA devices via CLI or ASDM. Adversaries might abuse the built-in packet capture functionality to perform network sniffing, intercept credentials transmitted over the network, capture sensitive data in transit, or gather intelligence about network traffic patterns and internal communications. Packet captures can reveal usernames, passwords, session tokens, and confidential business data. The detection focuses on command execution events (message ID 111008 or 111010) that include "capture" commands, which are used to initiate packet capture sessions on specific interfaces or for specific traffic patterns on the ASA device. This activity is associated with threat actors like LINE VIPER, as documented by NCSC. Detecting unauthorized packet capture activities, especially those targeting sensitive interfaces or involving unusual configurations, is critical for identifying potential intrusions.
+
+## Attack Chain
+
+1.  An attacker gains unauthorized access to a Cisco ASA device via compromised credentials or exploiting a vulnerability.
+2.  The attacker authenticates to the ASA device using CLI or ASDM.
+3.  The attacker executes the "configure terminal" command to enter global configuration mode.
+4.  The attacker uses the "capture" command to define a packet capture session, specifying interfaces, traffic patterns, and filters. For example, `capture capin interface inside match ip any any`.
+5.  The ASA device starts capturing network traffic based on the defined parameters.
+6.  The attacker retrieves the captured traffic data for analysis, potentially exfiltrating the data to an external server.
+7.  The attacker analyzes the captured data to identify sensitive information, such as usernames, passwords, session tokens, or confidential business data.
+8.  The attacker uses the stolen credentials or data to further compromise the network or exfiltrate sensitive information.
+
+## Impact
+
+Successful exploitation allows attackers to perform extensive network reconnaissance and potentially steal sensitive credentials and data. This could lead to further compromise of internal systems, data breaches, and financial loss. While specific victim counts are unavailable, the impact is significant due to the potential for widespread data compromise and disruption of network operations. The references note association with advanced actors who use captured data to further their campaigns.
+
+## Recommendation
+
+*   Enable Cisco ASA syslog data ingestion into your SIEM via the Cisco Security Cloud TA to ensure the `cisco_asa` macro is populated (How_to_implement).
+*   Configure Cisco ASA devices to generate and forward message IDs 111008 and 111010, adjusting syslog levels as needed based on the instructions in the "How_to_implement" section.
+*   Deploy the provided Sigma rule "Cisco ASA - Suspicious Packet Capture Configuration" to detect unusual packet capture configurations and tune the rule for your environment (rules).
+*   Review and investigate any alerts generated by the Sigma rule, focusing on captures targeting sensitive interfaces, large traffic volumes, or unusual filter criteria.
