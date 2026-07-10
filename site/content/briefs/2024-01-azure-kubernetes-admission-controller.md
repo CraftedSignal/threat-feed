@@ -15,6 +15,11 @@ tags:
   - persistence
   - privilege-escalation
   - credential-access
+vendors:
+  - Microsoft
+products:
+  - Azure Kubernetes Service
+  - Kubernetes
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
