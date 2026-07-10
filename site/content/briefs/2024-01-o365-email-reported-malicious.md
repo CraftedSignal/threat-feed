@@ -1,8 +1,8 @@
 ---
-title: O365 Email Reported by Admin Found Malicious
+title: O365 Email Reported by User Found Malicious
 slug: 2024-01-o365-email-reported-malicious
-description: Detection of emails manually submitted to Microsoft through the Security & Compliance portal and subsequently identified as malicious (Phish or Malware).
-date: "2024-01-02T10:00:00Z"
+description: Detection of emails reported by users as malicious via the Outlook 'Report Message' feature, subsequently confirmed as Phish or Malware by Microsoft's analysis, indicating successful initial access.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,14 +10,15 @@ severities:
   - high
 tags:
   - o365
-  - email
-  - malware
   - phishing
+  - malware
+  - email
 vendors:
   - Microsoft
 products:
   - Microsoft 365
-  - Office 365
+  - Outlook
+  - Exchange Online Protection
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,8 +31,8 @@ mitre_ttps:
 references:
   - https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-outlook-report-messages?view=o365-worldwide
 rules:
-  - title: O365 Email Reported By Admin Found Malicious
-    description: Detects when an email manually submitted to Microsoft through the Security & Compliance portal is found to be malicious.
+  - title: O365 Email Reported By User Found Malicious
+    description: Detects when an email reported by a user in O365 is found to be malicious by Microsoft's analysis.
     platform: sigma
     severity: high
     tactics:
@@ -42,41 +43,42 @@ rules:
     data_sources:
       - Office 365 Universal Audit Log
       - o365
-  - title: O365 Admin Submission with Suspicious Subject
-    description: Detects O365 Admin Submissions with subject lines commonly used in phishing campaigns.
+  - title: O365 Email Reported By User - Extract Sender
+    description: Extracts the sender of an email reported by a user that was later classified as malicious.
     platform: sigma
-    severity: medium
+    severity: informational
     tactics:
       - initial_access
     techniques:
       - T1566.001
+      - T1566.002
     data_sources:
       - Office 365 Universal Audit Log
       - o365
 rules_count: 2
 ---
 
-This detection focuses on identifying malicious emails within Microsoft 365 environments that have been reported by administrators through the Security & Compliance portal. This feature allows administrators to proactively submit suspicious emails for analysis. The analytic triggers when a submitted email receives a "Phish" or "Malware" verdict upon analysis by Microsoft's systems. This capability is an enhanced protection feature that can be used within o365 tenants by administrative users to report potentially malicious emails. This detection is valuable because it highlights cases where human intuition, combined with automated analysis, confirms a malicious email that may have bypassed initial security filters. This insight allows security teams to quickly respond to potential phishing or malware campaigns.
+This detection focuses on identifying malicious emails that bypass initial security layers and reach end-users, who then report them using the 'Report Message' feature in Outlook. When a user reports an email, Microsoft analyzes it and provides a verdict. This alert triggers when a user-reported email is classified as either "Phish" or "Malware," indicating a successful initial access attempt by the attacker. This feature provides an enhanced security layer, empowering users to actively participate in threat detection. The targeted scope is O365 tenants utilizing the Microsoft Office Report A Message function.
 
 ## Attack Chain
 
-1.  An attacker sends a phishing or malware-laden email to a user within the organization.
-2.  The email bypasses initial security filters and reaches the user's inbox.
-3.  An administrator, suspecting the email is malicious, manually submits the email for analysis through the Microsoft Security & Compliance portal using the Admin Submission feature.
-4.  Microsoft's systems analyze the submitted email, examining its content, links, and attachments.
-5.  The analysis returns a verdict of either "Phish" or "Malware", confirming the malicious nature of the email.
-6.  The "AdminSubmission" event is logged within the Office 365 Unified Audit Log, containing details about the submission, sender, recipients, and the verdict.
-7.  The detection analytic identifies the "AdminSubmission" event with a "Phish" or "Malware" verdict.
-8.  Security teams can investigate the reported email, block the sender, and identify other potentially affected users to prevent further compromise.
+1.  Attacker crafts a phishing email with malicious content (e.g., a link to a credential harvesting site or a malware-laden attachment).
+2.  The email bypasses automated security filters (e.g., Exchange Online Protection) and lands in the user's inbox.
+3.  The user, recognizing the suspicious nature of the email, utilizes the "Report Message" feature in Outlook to flag the email to Microsoft.
+4.  Microsoft's systems analyze the reported email and identify it as either "Phish" or "Malware," based on its characteristics and content.
+5.  An AlertEntityGenerated event is created in the Office 365 Universal Audit Log, signaling that a user-reported email has been confirmed as malicious.
+6.  The detection rule identifies this event and extracts relevant information, such as sender, subject, and reporting user.
+7.  Security analysts investigate the incident to determine the scope and impact of the phishing campaign.
+8.  Compromised accounts are remediated, and security controls are updated to prevent similar attacks in the future.
 
 ## Impact
 
-A successful phishing or malware campaign can lead to credential theft, data breaches, and ransomware infections. Even a single successful compromise can have significant financial and reputational consequences. This detection helps identify emails that have bypassed initial security layers, potentially preventing a successful attack.
+A successful phishing attack can lead to credential theft, malware infections, and data breaches. If a reported email is classified as malicious, it indicates that the attacker has successfully bypassed initial security measures and reached an end-user. The number of affected users depends on the scale of the phishing campaign. Targeted sectors include any organization utilizing Microsoft 365 services. Successful attacks can lead to significant financial losses, reputational damage, and legal liabilities.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `O365 Email Reported By Admin Found Malicious` to your SIEM to detect malicious emails reported by administrators.
-*   Investigate any alerts triggered by the `O365 Email Reported By Admin Found Malicious` rule, focusing on the sender and recipients of the reported email.
-*   Block sender addresses associated with confirmed malicious emails at the email gateway (reference the source IP from the logs).
-*   Correlate `AdminSubmission` events with other security logs to identify potentially related malicious activities (e.g., failed login attempts, unusual file access).
-*   Configure the Microsoft Office 365 add-on in Splunk to collect the necessary `o365:management:activity` logs.
+*   Enable and promote the use of the Microsoft Office "Report Message" function to empower users to report suspicious emails (Reference: https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/submissions-outlook-report-messages?view=o365-worldwide).
+*   Install the Splunk Microsoft Office 365 Add-on to ingest Office 365 management activity events (See: How to Implement section).
+*   Deploy the Sigma rule `O365 Email Reported By User Found Malicious` to your SIEM and tune for your environment.
+*   Investigate users who report malicious emails to identify potential compromises.
+*   Use the drilldown searches to pivot to risk events for the reporting user and email sender to determine any additional suspicious activity.
