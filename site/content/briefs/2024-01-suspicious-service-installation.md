@@ -13,6 +13,10 @@ tags:
   - privilege_escalation
   - windows
   - service_creation
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
