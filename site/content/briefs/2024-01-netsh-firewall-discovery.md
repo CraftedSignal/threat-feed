@@ -1,39 +1,33 @@
 ---
 title: Windows Netsh Tool Used for Firewall Discovery
 slug: 2024-01-netsh-firewall-discovery
-description: The analytic detects the execution of the Windows built-in tool netsh.exe to display the state, configuration, and profile of the host firewall, potentially leading to unauthorized network access or data exfiltration.
-date: "2024-01-03T12:00:00Z"
+description: The native Windows `netsh.exe` tool is being abused to discover firewall configurations, potentially to weaken defenses before lateral movement and data exfiltration.
+date: "2024-01-03T14:30:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
 tags:
-  - discovery
-  - windows
-  - netsh
+  - network-discovery
   - firewall
+  - netsh
 vendors:
   - Microsoft
-  - Splunk
 products:
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1049
-    technique_name: System Network Connections Discovery
+    technique_name: System Network Configuration Discovery
 references:
   - https://attack.mitre.org/techniques/T1049/
   - https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS
   - https://www.microsoft.com/en-us/security/blog/2022/10/14/new-prestige-ransomware-impacts-organizations-in-ukraine-and-poland/
 rules:
-  - title: Detect Suspicious Netsh Firewall Discovery
-    description: Detects the execution of netsh.exe with commands to display firewall state, config, wlan, or profile.
+  - title: Detect Netsh Usage for Firewall Discovery
+    description: Detects the execution of netsh.exe with arguments used to discover or modify firewall configurations.
     platform: sigma
     severity: medium
     tactics:
@@ -43,40 +37,40 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Netsh Allowed Program Discovery
-    description: Detects netsh being used to list the allowed programs in Windows Firewall.
+  - title: Detect Netsh Firewall Rule Modification
+    description: Detects the execution of netsh.exe with arguments used to modify firewall rules.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
-      - discovery
+      - defense_evasion
     techniques:
-      - T1049
+      - T1562.004
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-This detection focuses on identifying instances where the `netsh.exe` utility is used to query firewall configurations on a Windows system. While `netsh.exe` is a legitimate tool for network configuration, adversaries can leverage it to gather information about firewall rules and settings. This information can then be used to plan further attacks, such as bypassing firewall restrictions or identifying vulnerable network services. This activity is typically seen during the reconnaissance phase of an attack. The scope of this detection covers any Windows environment where Endpoint Detection and Response (EDR) logs are available.
+Attackers frequently use built-in operating system tools to gather information about a target environment. This activity, often referred to as "living off the land," allows them to blend in with normal system activity and avoid detection. This brief focuses on the abuse of `netsh.exe`, a command-line scripting utility for configuring network settings. Specifically, adversaries are using `netsh.exe` to enumerate firewall rules and configurations, which could reveal weaknesses in the system's defenses. Knowing these weaknesses, attackers can then modify the firewall to enable malicious activity or disable the firewall completely. Identifying this type of activity early can help security teams prevent further compromise. This behavior has been observed in post-exploitation scenarios associated with ransomware campaigns like Prestige, and keyloggers like Snake.
 
 ## Attack Chain
 
-1. An attacker gains initial access to a compromised system through various means, such as phishing or exploiting a vulnerability.
-2. The attacker executes `netsh.exe` with specific commands to enumerate firewall rules and configurations (e.g., `netsh firewall show state`, `netsh firewall show config`).
-3. The `netsh.exe` process retrieves the requested firewall information from the Windows operating system.
-4. The collected firewall information is parsed to identify potential weaknesses or misconfigurations.
-5. The attacker uses the gathered information to modify existing firewall rules or create new rules to allow unauthorized access.
-6. The attacker leverages the modified firewall configuration to establish a covert communication channel or to move laterally within the network.
-7. The attacker attempts to exfiltrate sensitive data or deploy ransomware.
+1.  The attacker gains initial access to the system via an exploit or compromised credentials.
+2.  The attacker executes `netsh.exe` with commands to display firewall state (`netsh.exe show state`).
+3.  The attacker executes `netsh.exe` to display the firewall configuration (`netsh.exe show config`).
+4.  The attacker executes `netsh.exe` to display wireless LAN profiles (`netsh.exe show wlan`).
+5.  The attacker parses the output of the `netsh.exe` commands to identify potential vulnerabilities in the firewall configuration.
+6.  The attacker modifies firewall rules to allow for lateral movement within the network, often by creating new rules or disabling existing ones.
+7.  The attacker leverages the modified firewall settings to establish command and control (C2) channels.
+8.  The attacker exfiltrates sensitive data from the compromised system.
 
 ## Impact
 
-Successful exploitation can lead to unauthorized network access, data exfiltration, or the deployment of ransomware. The enumeration of firewall configurations can provide attackers with valuable insights into the network's security posture, enabling them to bypass security controls and compromise critical assets. This can result in significant financial losses, reputational damage, and disruption of business operations.
+Successful exploitation can lead to a complete compromise of the target system. The attacker gains unauthorized access to sensitive data, which could result in financial loss, reputational damage, or legal repercussions. The enumeration of network configurations could also allow the attacker to move laterally to other systems on the network, expanding the scope of the attack. This behavior has been observed in Windows Post-Exploitation, Prestige Ransomware, Snake Keylogger, and BlankGrabber Stealer campaigns.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Detect Suspicious Netsh Firewall Discovery` to your SIEM and tune for your environment to detect netsh.exe executions with firewall discovery commands.
-*   Enable Sysmon process-creation logging (Event ID 1) to capture the necessary command-line details.
-*   Investigate any identified instances of `netsh.exe` being used to query firewall settings, especially when initiated from unusual processes or user accounts.
-*   Monitor parent-child process relationships to identify suspicious process spawning, as highlighted by the `Processes.parent_process_name` field.
-*   Review firewall configurations regularly to identify and remediate any misconfigurations or overly permissive rules.
+*   Deploy the "Detect Netsh Usage for Firewall Discovery" Sigma rule to detect the execution of `netsh.exe` with arguments related to firewall configuration and state.
+*   Enable Sysmon process creation logging (Event ID 1) to capture command-line arguments for processes.
+*   Review and tune the "Windows System Network Connections Discovery Netsh" search included in Splunk ES to reduce false positives in your environment.
+*   Monitor for unexpected modifications to firewall rules using Windows Event Logs (Security 4688).
