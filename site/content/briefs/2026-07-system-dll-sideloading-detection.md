@@ -13,6 +13,10 @@ tags:
   - windows
   - defense-evasion
   - execution
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
