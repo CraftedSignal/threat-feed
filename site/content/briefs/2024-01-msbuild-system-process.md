@@ -1,8 +1,8 @@
 ---
-title: MSBuild Started by System Process for Defense Evasion and Execution
+title: MSBuild Started by System Process
 slug: 2024-01-msbuild-system-process
-description: Adversaries are leveraging MSBuild, a Microsoft Build Engine, to execute malicious code by initiating it from system processes such as Explorer or WMI to evade defenses and execute unauthorized actions.
-date: "2024-01-03T12:00:00Z"
+description: Detects instances of MSBuild, the Microsoft Build Engine, started by Explorer or the WMI (Windows Management Instrumentation) subsystem, which is unusual and often used by malicious payloads to evade defenses.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -11,20 +11,10 @@ severities:
 tags:
   - defense-evasion
   - execution
-  - msbuild
-  - proxy-execution
   - windows
 vendors:
   - Microsoft
-  - Elastic
-  - SentinelOne
-  - Crowdstrike
 products:
-  - Elastic Defend
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
-  - CrowdStrike
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0005
@@ -36,13 +26,12 @@ mitre_ttps:
     technique_id: T1047
     technique_name: Windows Management Instrumentation
 references:
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_execution_msbuild_started_by_system_process.toml
   - https://attack.mitre.org/techniques/T1127/
   - https://attack.mitre.org/techniques/T1127/001/
   - https://attack.mitre.org/techniques/T1047/
 rules:
   - title: Microsoft Build Engine Started by a System Process
-    description: Detects instances of MSBuild.exe being started by explorer.exe or wmiprvse.exe, which is indicative of potential malicious activity.
+    description: Detects MSBuild.exe started by explorer.exe or wmiprvse.exe, which is often indicative of malicious activity.
     platform: sigma
     severity: medium
     tactics:
@@ -54,8 +43,8 @@ rules:
     data_sources:
       - process_creation
       - windows
-  - title: Suspicious MSBuild Project File Execution
-    description: Detects MSBuild.exe executing project files from unusual locations, which could indicate malicious activity.
+  - title: MSBuild Suspicious Command Line Arguments
+    description: Detects suspicious command-line arguments used with MSBuild.exe.
     platform: sigma
     severity: low
     tactics:
@@ -69,27 +58,25 @@ rules:
 rules_count: 2
 ---
 
-The Microsoft Build Engine (MSBuild) is a legitimate tool used by developers to build applications. However, adversaries are known to abuse MSBuild to execute malicious code, leveraging its trusted status to bypass security measures. This technique allows attackers to perform various actions on compromised systems while blending in with legitimate system activity. The observed behavior involves MSBuild being started by system processes like Explorer (explorer.exe) or Windows Management Instrumentation (WMI, wmiprvse.exe). Defenders should be aware of this unusual activity as it signifies a potential defense evasion tactic and unauthorized code execution within the targeted environment. This activity has been observed across environments leveraging Elastic Defend, Microsoft Defender XDR, SentinelOne Cloud Funnel, CrowdStrike, and standard Windows event logging.
+The Microsoft Build Engine (MSBuild) is a legitimate tool used for building applications, primarily by developers. However, attackers can abuse MSBuild to execute malicious code, taking advantage of its trusted status to bypass security measures. This detection identifies instances where MSBuild.exe is started by system processes like explorer.exe or wmiprvse.exe. This behavior is considered anomalous and may indicate an attempt to evade defenses and execute unauthorized actions on a Windows system. This activity can be indicative of defense evasion and execution-based attacks. The detection logic is based on process relationships, specifically monitoring MSBuild executions with unusual parent processes. The monitored processes include explorer.exe and wmiprvse.exe.
 
 ## Attack Chain
 
-1. An attacker gains initial access to the system through various means (e.g., phishing, exploitation of vulnerabilities).
-2. The attacker leverages a script or payload that invokes MSBuild.exe.
-3. The script or payload is executed by a system process like explorer.exe or wmiprvse.exe, which is highly unusual for typical MSBuild usage.
-4. MSBuild.exe starts with specific command-line arguments that dictate the build process, often involving malicious code.
-5. The malicious code is embedded within an MSBuild project file (.csproj or similar).
-6. MSBuild.exe executes the malicious code as part of the build process.
-7. The executed code performs actions such as downloading additional payloads, modifying system configurations, or establishing persistence.
-8. The attacker achieves their objective, such as gaining remote access, exfiltrating data, or deploying ransomware.
+1.  The attacker gains initial access to the system (e.g., through phishing or exploiting a vulnerability).
+2.  The attacker uses a system process like `explorer.exe` or `wmiprvse.exe` as a launching point.
+3.  The attacker crafts a malicious MSBuild project file (.csproj or similar) containing malicious code or instructions.
+4.  The attacker invokes `MSBuild.exe` via `explorer.exe` or `wmiprvse.exe` to execute the crafted project file.
+5.  `MSBuild.exe` parses and executes the malicious code within the project file.
+6.  The malicious code performs actions such as downloading and executing payloads, modifying system configurations, or establishing persistence.
+7.  The attacker achieves their objective, which may include escalating privileges, stealing credentials, or deploying ransomware.
 
 ## Impact
 
-Successful exploitation can lead to a variety of negative outcomes, including unauthorized code execution, system compromise, data theft, and potentially complete system takeover. The use of MSBuild as a proxy execution method allows attackers to evade traditional security controls and blend in with legitimate system activities. This can result in delayed detection and increased dwell time, amplifying the potential damage. Since MSBuild is a trusted Microsoft utility, its abuse can make malicious activity harder to identify and respond to.
+Successful exploitation can lead to code execution, privilege escalation, persistence, and ultimately, full system compromise. The attack is designed to evade traditional defenses by abusing a trusted system utility. The impact includes potential data theft, system disruption, or deployment of ransomware. This activity affects Windows systems and can bypass application control and other security measures relying on process whitelisting.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Microsoft Build Engine Started by a System Process" to your SIEM to detect instances of MSBuild.exe being launched by explorer.exe or wmiprvse.exe (see rules section).
-*   Enable process creation logging with command line arguments to capture the full context of MSBuild.exe executions (reference setup instructions in the source URL).
-*   Investigate any instances of MSBuild.exe started by explorer.exe or wmiprvse.exe to determine if they are legitimate or malicious.
-*   Implement enhanced monitoring and logging for MSBuild.exe and related processes to detect similar activities in the future, ensuring alerts are configured for rapid response.
-*   Review and whitelist any legitimate scripts or administrative tools that leverage MSBuild for authorized tasks to reduce false positives.
+*   Enable process monitoring with command-line auditing to detect the execution of `MSBuild.exe` with unusual parent processes (explorer.exe, wmiprvse.exe), as covered by the Sigma rule "Microsoft Build Engine Started by a System Process".
+*   Investigate any instances of `MSBuild.exe` being launched by `explorer.exe` or `wmiprvse.exe`, as described in the overview.
+*   Implement application control policies to restrict the execution of `MSBuild.exe` to authorized users and processes.
+*   Monitor for suspicious command-line arguments passed to `MSBuild.exe` that could indicate malicious activity, based on the rule description.
