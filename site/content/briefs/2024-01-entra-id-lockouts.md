@@ -1,0 +1,94 @@
+---
+title: Entra ID Excessive Account Lockouts Detected
+slug: 2024-01-entra-id-lockouts
+description: Adversaries may attempt to brute-force user accounts using password spraying or credential stuffing, leading to account lockouts by Entra ID Smart Lockout policies, which this rule detects by identifying a high count of failed Microsoft Entra ID sign-in attempts due to account lockouts (error code 50053).
+date: "2024-01-03T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - cloud
+  - credential-access
+  - azure
+  - entra-id
+vendors:
+  - Microsoft
+products:
+  - Entra ID
+mitre_ttps:
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1110
+    technique_name: Brute Force
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1110
+    technique_name: Brute Force
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1110
+    technique_name: Brute Force
+references:
+  - https://www.microsoft.com/en-us/security/blog/2025/05/27/new-russia-affiliated-actor-void-blizzard-targets-critical-sectors-for-espionage/
+  - https://cloud.hacktricks.xyz/pentesting-cloud/azure-security/az-unauthenticated-enum-and-initial-entry/az-password-spraying
+  - https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-password-spray
+  - https://www.sprocketsecurity.com/blog/exploring-modern-password-spraying
+  - https://learn.microsoft.com/en-us/purview/audit-log-detailed-properties
+  - https://learn.microsoft.com/en-us/entra/identity-platform/reference-error-codes
+  - https://github.com/0xZDH/Omnispray
+  - https://github.com/0xZDH/o365spray
+rules:
+  - title: Entra ID Excessive Account Lockouts
+    description: Detects a high number of failed sign-in attempts due to account lockouts (error code 50053) in Microsoft Entra ID sign-in logs, indicating potential brute-force attacks.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+    techniques:
+      - T1110
+      - T1110.001
+      - T1110.003
+      - T1110.004
+    data_sources:
+      - network_connection
+      - azure
+  - title: Entra ID Single Factor Auth Success from Unfamiliar IP
+    description: Detects successful single-factor authentication attempts from unfamiliar IP addresses, potentially indicating a compromised account.
+    platform: sigma
+    severity: medium
+    tactics:
+      - credential_access
+    techniques:
+      - T1078
+    data_sources:
+      - network_connection
+      - azure
+rules_count: 2
+---
+
+This detection identifies potential brute-force attacks against Microsoft Entra ID user accounts. The rule focuses on detecting a high volume of failed sign-in attempts resulting in account lockouts, specifically indicated by error code 50053. This error code corresponds to the Entra ID Smart Lockout feature, which activates after multiple failed login attempts from unfamiliar locations, offering a degree of protection against password spraying and credential stuffing attacks. The detection aggregates events within a 30-minute window, looking for bursts of failed logins. This activity can indicate an attacker attempting to gain unauthorized access to user accounts by systematically guessing passwords or using lists of leaked credentials. Successful brute-force attacks can lead to data breaches, unauthorized access to sensitive resources, and potential disruption of services. The rule was last updated on April 10, 2026, and requires Elastic stack version 9.1.0 or higher.
+
+## Attack Chain
+
+1.  Attacker identifies target Entra ID accounts for credential compromise.
+2.  Attacker initiates password spraying or credential stuffing attack from one or more source IPs.
+3.  The attacker attempts to authenticate to Entra ID using compromised or guessed credentials.
+4.  Entra ID evaluates the login attempts and flags unfamiliar IP addresses.
+5.  Multiple failed login attempts trigger the Smart Lockout feature (error code 50053).
+6.  The target account becomes temporarily locked, preventing further login attempts.
+7.  The detection rule identifies a high count of error code 50053 events within a 30-minute window.
+8.  If successful, the attacker gains unauthorized access to the target account.
+
+## Impact
+
+A successful brute-force attack can result in unauthorized access to sensitive data and resources within the Entra ID environment. This can lead to data breaches, financial loss, and reputational damage. Compromised accounts can be used to further propagate attacks within the organization. The number of potential victims depends on the scope of the attack and the privileges associated with the compromised accounts. A successful attack targeting administrator accounts poses a critical risk.
+
+## Recommendation
+
+*   Deploy the Sigma rule `Entra ID Excessive Account Lockouts` to your SIEM and tune the threshold and interval based on your environment.
+*   Investigate alerts generated by the Sigma rule by pivoting to the raw logs using the query provided in the rule's documentation.
+*   Block identified malicious source IPs using Conditional Access named locations in Entra ID.
+*   If legacy authentication protocols are in use, create Conditional Access policies to block them, referencing the `Other clients` and `Exchange ActiveSync` details in the Overview section.
+*   Review Entra ID Protection risk events for affected users based on `risk_level_during_signin`, `risk_level_aggregated`, and `risk_state`.
