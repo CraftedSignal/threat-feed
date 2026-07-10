@@ -12,6 +12,10 @@ tags:
   - execution
   - defense-evasion
   - linux
+vendors:
+  - Python
+products:
+  - Python
 affected_os:
   - Linux
 mitre_ttps:
