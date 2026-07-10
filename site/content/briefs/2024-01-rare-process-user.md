@@ -14,6 +14,10 @@ tags:
   - defense evasion
   - machine learning
   - lolbins
+vendors:
+  - Microsoft
+products:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
