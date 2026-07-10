@@ -12,6 +12,10 @@ tags:
   - privilege-escalation
   - token-manipulation
   - windows
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
