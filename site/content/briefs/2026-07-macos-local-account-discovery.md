@@ -12,6 +12,10 @@ tags:
   - discovery
   - reconnaissance
   - macos
+vendors:
+  - Apple
+products:
+  - macOS
 affected_os:
   - macOS
 mitre_ttps:
