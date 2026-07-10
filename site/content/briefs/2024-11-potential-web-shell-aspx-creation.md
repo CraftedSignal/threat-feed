@@ -1,0 +1,79 @@
+---
+title: Potential Web Shell ASPX File Creation
+slug: 2024-11-potential-web-shell-aspx-creation
+description: This rule identifies the creation of ASPX files in web server directories, commonly targeted by attackers to deploy web shells for persistence, by monitoring file creation events and excluding known legitimate processes.
+date: "2024-11-02T14:00:00Z"
+type: threat
+types:
+  - threat
+severities:
+  - medium
+exploited: true
+tags:
+  - web-shell
+  - aspx
+  - persistence
+  - windows
+vendors:
+  - Microsoft
+products:
+  - SharePoint
+mitre_ttps:
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1505
+    technique_name: Server Software Component
+references:
+  - https://blog.viettelcybersecurity.com/toolshell-a-critical-sharepoint-vulnerability-chain-under-active-exploitation/
+  - https://www.sentinelone.com/blog/sharepoint-toolshell-zero-day-exploited-in-the-wild-targets-enterprise-servers/
+  - https://www.rapid7.com/blog/post/2024/10/30/investigating-a-sharepoint-compromise-ir-tales-from-the-field/
+rules:
+  - title: Web Shell ASPX File Creation
+    description: Detects the creation of ASPX files in web server directories, excluding known legitimate processes.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1505.003
+    data_sources:
+      - file_event
+      - windows
+  - title: Web Shell ASPX File Creation by Uncommon Process
+    description: Detects the creation of ASPX files in web server directories by processes not commonly associated with ASPX creation.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1505.003
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+---
+
+This detection rule identifies the creation of ASPX files in specific directories commonly targeted by attackers to deploy web shells on Windows systems. The rule focuses on files created in the "?:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\*" directory, a common location for web server extensions. It excludes the legitimate "msiexec.exe" process to reduce false positives. The rule helps defenders identify potential web shell activity used for persistence and remote command execution by malicious actors attempting to compromise web servers. The detection logic relies on file creation events, making it compatible with various endpoint detection and response (EDR) and security information and event management (SIEM) solutions, including Elastic Endgame, Sysmon, SentinelOne, Microsoft Defender XDR, and Crowdstrike.
+
+## Attack Chain
+
+1.  The attacker gains initial access to the web server, potentially through exploiting a vulnerability in a web application or a misconfiguration.
+2.  The attacker leverages their initial access to write a malicious ASPX file to a directory within the web server's file system. The target directory is typically within "?:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\*".
+3.  The ASPX file contains malicious code designed to execute arbitrary commands on the server.
+4.  The attacker uses a web browser or other HTTP client to send a request to the newly created ASPX file.
+5.  The web server executes the ASPX file in response to the HTTP request.
+6.  The malicious code within the ASPX file executes commands specified by the attacker, allowing them to perform actions such as enumerating system information, creating new user accounts, or deploying additional malware.
+7.  The attacker uses the web shell for persistence, maintaining access to the compromised server even after the initial vulnerability is patched.
+8.  The attacker leverages the compromised server as a beachhead for further lateral movement within the network.
+
+## Impact
+
+Successful exploitation can lead to complete compromise of the web server, allowing the attacker to execute arbitrary commands, steal sensitive data, or use the server as a launchpad for further attacks within the network. The creation of web shells is a common persistence technique, allowing attackers to maintain access even after the initial vulnerability is patched. This can lead to prolonged data breaches and significant damage to the organization's reputation and operations. The use of web shells often allows for privilege escalation and lateral movement within the compromised network.
+
+## Recommendation
+
+*   Deploy the Sigma rule "Web Shell ASPX File Creation" to your SIEM and tune for your environment, focusing on the specified file paths and process exclusions to reduce false positives.
+*   Enable file integrity monitoring (FIM) on web server directories, specifically "?:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\*", to detect unauthorized file creation or modification.
+*   Review and harden web server configurations to prevent unauthorized file uploads and remote code execution.
+*   Investigate any alerts generated by the Sigma rule "Web Shell ASPX File Creation" by examining the involved processes, file contents, and network connections.
+*   Use the provided references to understand the ToolShell vulnerability and similar SharePoint compromise scenarios.
