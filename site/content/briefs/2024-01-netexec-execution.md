@@ -3,9 +3,9 @@ title: Detection of NetExec Hacktool Execution
 slug: 2024-01-netexec-execution
 description: The threat brief details the detection of NetExec (formerly CrackMapExec), a post-exploitation tool used for Active Directory penetration testing and network enumeration, often employed by threat actors for lateral movement and credential harvesting.
 date: "2024-01-03T14:35:00Z"
-type: advisory
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 tags:
@@ -13,6 +13,11 @@ tags:
   - post-exploitation
   - lateral-movement
   - active-directory
+vendors:
+  - Microsoft
+products:
+  - Active Directory
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
