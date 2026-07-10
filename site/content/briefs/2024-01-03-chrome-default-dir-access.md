@@ -1,27 +1,23 @@
 ---
 title: Non-Chrome Process Accessing Chrome Default Directory
 slug: 2024-01-03-chrome-default-dir-access
-description: Detection of non-Chrome processes accessing the Chrome user data directory, potentially indicating credential theft or data exfiltration attempts by malware such as RATs or APT groups.
-date: "2024-01-03T10:00:00Z"
-type: threat
+description: Atypical processes accessing the Chrome user data directory may indicate credential harvesting, cookie theft, or other malicious activity by malware such as Remote Access Trojans (RATs) or information stealers.
+date: "2024-01-03T18:23:00Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
-actors:
-  - FIN7
-  - Carbon Spider
-  - Sangria Tempest
 tags:
-  - credential-access
-  - threat-type
+  - chrome
+  - credential-theft
+  - infostealer
+  - rat
   - windows
 vendors:
-  - Splunk
+  - Google
 products:
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
+  - Chrome
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -30,8 +26,8 @@ mitre_ttps:
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/non_chrome_process_accessing_chrome_default_dir.yml
 rules:
-  - title: Non Chrome Process Accessing Chrome Default Directory
-    description: Detects a non-Chrome process accessing files in the Chrome user default directory, indicating potential credential theft or data exfiltration.
+  - title: Detect Non Chrome Process Accessing Chrome Default Dir
+    description: Detects non-Chrome processes accessing files in the Chrome user data directory.
     platform: sigma
     severity: high
     tactics:
@@ -41,38 +37,52 @@ rules:
     data_sources:
       - file_event
       - windows
-  - title: Suspicious Access to Chrome Default Directory by Uncommon Executables
-    description: Detects unusual executables accessing Chrome's Default directory, indicating potential malicious activity attempting to steal user data.
+  - title: Detect Mimikatz Accessing LSASS Process
+    description: Detects Mimikatz attempting to access the LSASS process for credential harvesting.
     platform: sigma
-    severity: medium
+    severity: critical
     tactics:
       - credential_access
     techniques:
-      - T1555.003
+      - T1003.001
     data_sources:
-      - file_event
+      - process_creation
       - windows
-rules_count: 2
+  - title: Detect Suspicious Outbound Connection from Chrome Data Access
+    description: Detects unusual network connections from processes accessing Chrome user data folder.
+    platform: sigma
+    severity: medium
+    tactics:
+      - command_and_control
+    techniques:
+      - T1071.001
+    data_sources:
+      - network_connection
+      - windows
+rules_count: 3
 ---
 
-This alert detects non-Chrome processes accessing the Chrome user data directory, a common tactic used by malware and threat actors to steal sensitive information. This activity is detected using Windows Security Event logs, specifically event ID 4663. The Chrome default folder contains sensitive user data, including login credentials, browsing history, and cookies. This makes it a prime target for attackers aiming to harvest credentials or gain access to user accounts. The detection is designed to identify unauthorized access attempts by processes not typically associated with Chrome. This behavior is often linked to Remote Access Trojans (RATs), trojans, and advanced persistent threats (APTs) like FIN7, known for their focus on financial theft and data breaches.
+This threat brief addresses the risk of unauthorized access to the Google Chrome user data directory by non-Chrome processes on Windows systems. The Chrome default folder stores sensitive information, including login credentials, browsing history, cookies, and autofill data. Malware, such as Remote Access Trojans (RATs), information stealers, and advanced persistent threat (APT) groups like FIN7, frequently target this directory to exfiltrate sensitive user data. This activity is often associated with post-compromise behavior, where attackers aim to harvest credentials and sensitive information for lateral movement or data theft. Detecting anomalous access to this directory is crucial for identifying potential breaches and preventing further compromise.
 
 ## Attack Chain
 
-1.  Malware gains initial access to the system, potentially through phishing or exploiting a software vulnerability.
-2.  The malware establishes persistence on the system.
-3.  The malware identifies the location of the Chrome user data directory.
-4.  The malware attempts to access files within the Chrome user data directory, triggering Windows Security Event 4663.
-5.  The malware copies or exfiltrates sensitive data from the Chrome directory, such as login credentials and cookies.
-6.  The malware may use stolen credentials to access other systems or services.
-7.  The attacker uses compromised accounts to perform unauthorized actions or move laterally within the network.
+1. An attacker gains initial access to a Windows system, possibly through phishing or exploiting a software vulnerability.
+2. The attacker deploys a malicious payload, such as a RAT or infostealer, onto the compromised system.
+3. The malicious process enumerates the file system to locate the Chrome user data directory, typically found under `C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default`.
+4. The malicious process attempts to access files within the Chrome user data directory.
+5. The malicious process copies targeted files (e.g., `Login Data`, `Cookies`, `Web Data`) to a temporary location.
+6. The attacker archives the collected data into a compressed file for easier exfiltration.
+7. The archived data is exfiltrated to a remote server controlled by the attacker, using protocols like HTTP or FTP.
+8. The attacker uses the stolen credentials and cookies to gain unauthorized access to user accounts and sensitive resources.
 
 ## Impact
 
-A successful attack can result in the theft of sensitive user data, including login credentials, browsing history, and cookies. This data can be used to compromise user accounts, steal financial information, or gain unauthorized access to other systems and services. Multiple analytic stories relate this behavior to credential stealers, RATs, and APTs. Victims may experience financial losses, identity theft, or reputational damage.
+Compromise of the Chrome user data directory can lead to significant data theft, including login credentials, browsing history, and cookies. Successful attacks can result in unauthorized access to user accounts, financial fraud, identity theft, and further compromise of the affected system and network. The stealers target sensitive information stored within the Chrome profile, with widespread campaigns affecting numerous users across various sectors.
 
 ## Recommendation
 
-*   Enable "Audit Object Access" in Group Policy and configure auditing for both success and failure events as described in the "how_to_implement" section to ensure Event ID 4663 is captured.
-*   Deploy the Sigma rule `Non Chrome Process Accessing Chrome Default Dir` to your SIEM to detect unauthorized access attempts to Chrome user data directories.
-*   Investigate any alerts generated by this rule, focusing on the `ProcessName` and `ObjectName` to understand the context of the access as noted in the search query.
+*   Enable "Audit Object Access" in Group Policy and monitor Windows Security Event logs (EventCode 4663) to detect unauthorized file access attempts, as described in the event log configuration instructions.
+*   Deploy the Sigma rule `Detect Non Chrome Process Accessing Chrome Default Dir` to your SIEM to identify anomalous processes accessing the Chrome user data directory.
+*   Investigate any alerts generated by the Sigma rule, focusing on the `ProcessName` and `ObjectName` fields to determine the legitimacy of the access.
+*   Implement the Sigma rule `Detect Mimikatz Accessing LSASS Process` to identify credential harvesting attempts, which may precede Chrome data theft.
+*   Monitor network traffic for suspicious outbound connections from processes accessing the Chrome directory, using the `process_accessing_chrome_default_dir_network` Sigma rule.
