@@ -1,18 +1,18 @@
 ---
-title: OpenEMR Stored Cross-Site Scripting Vulnerability (CVE-2026-33348)
+title: OpenEMR Stored XSS Vulnerability in CCDA Document Preview (CVE-2026-33932)
 slug: 2024-01-openemr-xss
-description: A stored cross-site scripting (XSS) vulnerability exists in OpenEMR versions prior to 8.0.0.3, allowing an authenticated attacker with the `Notes - my encounters` role to inject arbitrary JavaScript that is executed when other users with the same role view patient encounter pages or visit history.
-date: "2024-01-02T12:00:00Z"
+description: A stored cross-site scripting (XSS) vulnerability in OpenEMR's CCDA document preview (CVE-2026-33932) allows an attacker to execute arbitrary JavaScript in a clinician's browser session by uploading a malicious CCDA document.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - medium
 tags:
   - openemr
   - xss
-  - cve-2026-33348
-  - web-application
+  - cve-2026-33932
+  - health-records
 vendors:
   - OpenEMR
 products:
@@ -23,10 +23,10 @@ mitre_ttps:
     technique_id: T1189
     technique_name: Drive-by Compromise
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-33348
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-33932
 rules:
-  - title: Detect OpenEMR XSS Attempt via URI
-    description: Detects potential XSS attempts in OpenEMR by looking for script tags or event handlers in the URI.
+  - title: Detect Suspicious OpenEMR CCDA Document Preview
+    description: 'Detects potential XSS attempts in OpenEMR CCDA document preview requests by looking for javascript: in URI queries.'
     platform: sigma
     severity: high
     tactics:
@@ -36,8 +36,8 @@ rules:
     data_sources:
       - webserver
       - linux
-  - title: Detect OpenEMR XSS Attempt via POST Request
-    description: Detects potential XSS attempts in OpenEMR via POST requests by looking for script tags or event handlers in the request body.
+  - title: Detect Suspicious OpenEMR CCDA Document Upload with Script Tags
+    description: Detects potential XSS attempts in OpenEMR CCDA document uploads by looking for script tags in the request body.
     platform: sigma
     severity: high
     tactics:
@@ -50,26 +50,26 @@ rules:
 rules_count: 2
 ---
 
-OpenEMR, a widely used open-source electronic health records and medical practice management application, is vulnerable to a stored cross-site scripting (XSS) attack. This vulnerability affects versions prior to 8.0.0.3. An attacker who has already authenticated with the `Notes - my encounters` role can inject malicious JavaScript code into the system via the 'Eye Exam' forms within patient encounters. The injected script executes when other users with the same role view the affected patient encounter page or visit history. This vulnerability, identified as CVE-2026-33348, allows for potential data theft, session hijacking, or defacement of the OpenEMR application. Organizations using OpenEMR should upgrade to version 8.0.0.3 or later immediately to mitigate this risk.
+A stored cross-site scripting (XSS) vulnerability has been identified in OpenEMR, a widely used open-source electronic health records and medical practice management application. Specifically, the vulnerability resides within the CCDA (Consolidated Clinical Document Architecture) document preview feature. Prior to version 8.0.0.3, an attacker with the ability to upload or send a CCDA document can inject malicious JavaScript code. When a clinician previews the booby-trapped document, the injected script executes within their browser session. This is due to insufficient sanitization of the `linkHtml` attribute in the XSL stylesheet used for rendering CCDA documents. The vulnerability, identified as CVE-2026-33932, allows `href="javascript:..."` and event handler attributes to pass through unfiltered. OpenEMR version 8.0.0.3 addresses this critical security flaw.
 
 ## Attack Chain
 
-1.  Attacker authenticates to the OpenEMR application with the `Notes - my encounters` role.
-2.  Attacker navigates to the 'Eye Exam' form within a patient encounter.
-3.  Attacker enters a malicious JavaScript payload into one or more of the form fields. Example payload: `<script>alert('XSS')</script>` or `<img src=x onerror=prompt(1)>`.
-4.  The malicious payload is saved to the OpenEMR database as part of the form submission.
-5.  Another user authenticates to OpenEMR with the `Notes - my encounters` role.
-6.  The user views the patient encounter page or visit history containing the attacker's injected payload.
-7.  The injected JavaScript code is executed within the user's browser, potentially performing actions on behalf of the user.
-8.  The attacker could steal sensitive information, modify data, or redirect the user to a malicious website.
+1. An attacker identifies an OpenEMR instance running a vulnerable version (prior to 8.0.0.3).
+2. The attacker crafts a malicious CCDA document containing a `linkHtml` attribute with a JavaScript payload, such as `<linkHtml href="javascript:alert('XSS')">`.
+3. The attacker uploads the malicious CCDA document to the OpenEMR instance, potentially through patient record upload functionality or direct messaging features.
+4. A clinician or authorized user accesses the patient record containing the malicious CCDA document.
+5. The clinician previews the CCDA document within the OpenEMR interface.
+6. The OpenEMR application processes the CCDA document using the vulnerable XSL stylesheet.
+7. Due to the lack of proper sanitization, the JavaScript payload within the `linkHtml` attribute is rendered in the clinician's browser.
+8. The JavaScript code executes in the clinician's browser session, potentially allowing the attacker to steal session cookies, redirect the user to a phishing site, or perform other malicious actions within the context of the OpenEMR application.
 
 ## Impact
 
-Successful exploitation of this XSS vulnerability could allow an attacker to compromise the confidentiality, integrity, and availability of OpenEMR data. This could lead to unauthorized access to patient records, modification of medical information, or disruption of clinical workflows. Given the sensitivity of healthcare data, a successful attack could have serious legal and reputational consequences. The number of potential victims depends on the number of OpenEMR installations affected and the number of users with the `Notes - my encounters` role.
+Successful exploitation of this XSS vulnerability can lead to several damaging consequences. An attacker could steal a clinician's session cookies, gaining unauthorized access to sensitive patient data. They could also redirect users to phishing sites to harvest credentials or inject malicious code into the OpenEMR application to compromise its functionality. Given the sensitive nature of electronic health records, a successful attack could result in significant privacy breaches, regulatory violations (HIPAA), and reputational damage to the healthcare provider. While the specific number of affected organizations is unknown, OpenEMR is used by numerous healthcare providers globally, placing a large patient population at risk.
 
 ## Recommendation
 
-*   Upgrade OpenEMR to version 8.0.0.3 or later to patch CVE-2026-33348.
-*   Deploy the Sigma rule `Detect OpenEMR XSS Attempt via URI` to detect potential exploitation attempts on the webserver.
-*   Implement input validation and output encoding on all user-supplied data to prevent future XSS vulnerabilities.
-*   Educate users with the `Notes - my encounters` role about the risks of XSS attacks and the importance of reporting suspicious behavior.
+*   Upgrade OpenEMR to version 8.0.0.3 or later to patch the CVE-2026-33932 vulnerability.
+*   Deploy the Sigma rule "Detect Suspicious OpenEMR CCDA Document Preview" to your SIEM and tune for your environment, monitoring webserver logs for requests containing suspicious patterns in the URI.
+*   Implement input validation and sanitization measures for all user-supplied data within the OpenEMR application, focusing on CCDA document processing.
+*   Educate clinicians and other OpenEMR users about the risks of XSS attacks and the importance of reporting any suspicious activity.
