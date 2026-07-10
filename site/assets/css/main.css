@@ -436,6 +436,34 @@ body {
   opacity: 0.78;
 }
 
+/* Bar heights as classes (bucketed to 5%) instead of an inline style="height",
+   so the page CSP can drop style-src 'unsafe-inline'. See chart-strip.html. */
+.activity-spark-bar.h5   { height: 5%; }
+.activity-spark-bar.h10  { height: 10%; }
+.activity-spark-bar.h15  { height: 15%; }
+.activity-spark-bar.h20  { height: 20%; }
+.activity-spark-bar.h25  { height: 25%; }
+.activity-spark-bar.h30  { height: 30%; }
+.activity-spark-bar.h35  { height: 35%; }
+.activity-spark-bar.h40  { height: 40%; }
+.activity-spark-bar.h45  { height: 45%; }
+.activity-spark-bar.h50  { height: 50%; }
+.activity-spark-bar.h55  { height: 55%; }
+.activity-spark-bar.h60  { height: 60%; }
+.activity-spark-bar.h65  { height: 65%; }
+.activity-spark-bar.h70  { height: 70%; }
+.activity-spark-bar.h75  { height: 75%; }
+.activity-spark-bar.h80  { height: 80%; }
+.activity-spark-bar.h85  { height: 85%; }
+.activity-spark-bar.h90  { height: 90%; }
+.activity-spark-bar.h95  { height: 95%; }
+.activity-spark-bar.h100 { height: 100%; }
+
+/* Legend/line color swatches (were inline style="background: …"). */
+.chart-swatch-accent   { background: rgb(var(--color-accent)); }
+.chart-swatch-medium   { background: rgb(var(--color-sev-medium)); }
+.chart-swatch-critical { background: rgb(var(--color-sev-critical)); }
+
 /* ---------------------------------------------------------------------- */
 /* Prose - Hugo's rendered Markdown */
 /* ---------------------------------------------------------------------- */
