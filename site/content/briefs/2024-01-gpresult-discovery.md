@@ -1,8 +1,8 @@
 ---
-title: Group Policy Discovery via Microsoft GPResult Utility
+title: Group Policy Discovery via GPResult Utility
 slug: 2024-01-gpresult-discovery
-description: Detects the execution of `gpresult.exe` with arguments `/z`, `/v`, `/r`, or `/x` on Windows systems, which attackers may use during reconnaissance to enumerate Group Policy Objects and identify opportunities for privilege escalation or lateral movement.
-date: "2024-01-26T12:00:00Z"
+description: This rule detects the execution of gpresult.exe with specific arguments to query group policy objects, potentially indicating reconnaissance activity by attackers aiming to understand the Active Directory environment for privilege escalation or lateral movement.
+date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -11,42 +11,37 @@ severities:
 tags:
   - discovery
   - windows
-  - group_policy
+  - gpresult
+  - active-directory
 vendors:
   - Microsoft
-  - CrowdStrike
-  - SentinelOne
-  - Elastic
 products:
-  - M365 Defender
-  - Elastic Defend
-affected_os:
   - Windows
+  - Active Directory
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1615
     technique_name: Group Policy Discovery
 references:
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/discovery_group_policy_object_discovery.toml
   - https://attack.mitre.org/techniques/T1615/
-  - https://attack.mitre.org/tactics/TA0007/
 rules:
-  - title: Group Policy Discovery via GPResult
-    description: Detects the execution of gpresult.exe with arguments indicative of group policy discovery.
+  - title: Detect GPResult Usage for Group Policy Discovery
+    description: Detects the execution of gpresult.exe with arguments commonly used for group policy discovery.
     platform: sigma
     severity: low
     tactics:
       - discovery
     techniques:
+      - T1082
       - T1615
     data_sources:
       - process_creation
       - windows
-  - title: GPResult Executed with Alternate Filename
-    description: Detects execution of process where original filename is gprslt.exe with arguments indicative of group policy discovery.
+  - title: Detect Renamed GPResult Utility Execution
+    description: Detects the execution of a renamed gpresult.exe utility with discovery arguments.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
       - discovery
     techniques:
@@ -57,26 +52,27 @@ rules:
 rules_count: 2
 ---
 
-Attackers may leverage the `gpresult.exe` utility, a built-in Windows tool, to gather information about Group Policy Objects (GPOs) within an Active Directory environment. This reconnaissance activity allows adversaries to understand the existing security policies, identify potential misconfigurations, and discover pathways for privilege escalation or lateral movement. The rule focuses on detecting the execution of `gpresult.exe` with specific command-line arguments (`/z`, `/v`, `/r`, `/x`) commonly associated with malicious reconnaissance. This behavior is typically observed after an initial compromise, where the attacker is attempting to map out the network and identify valuable targets. This activity matters for defenders as it provides an early indicator of post-compromise activity and can help prevent further damage.
+The detection rule "Group Policy Discovery via Microsoft GPResult Utility" identifies the use of `gpresult.exe` with specific arguments (`/z`, `/v`, `/r`, `/x`) on Windows systems. This activity is often associated with attackers performing reconnaissance after gaining initial access to a compromised system. By querying Group Policy Objects (GPOs), adversaries can map out the Active Directory environment, discover potential attack paths, and identify opportunities for privilege escalation or lateral movement. The rule is designed to detect this behavior across various Windows environments, using data from Elastic Endgame, Elastic Defend, Windows Security Event Logs, Microsoft Defender XDR, Sysmon, SentinelOne, and Crowdstrike. The original rule was created on 2023/01/18 and last updated on 2026/04/07.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to a Windows system through methods such as phishing, exploiting vulnerabilities, or using stolen credentials.
-2.  The attacker executes `gpresult.exe` from the command line or through a script.
-3.  The attacker uses command-line arguments such as `/z`, `/v`, `/r`, or `/x` to request detailed information about Group Policy settings.
-4.  `gpresult.exe` queries the Active Directory domain to retrieve GPO information applicable to the user or computer.
-5.  The attacker parses the output of `gpresult.exe` to identify security policies, user rights assignments, and other relevant configurations.
-6.  The attacker identifies potential weaknesses in the GPO configuration, such as overly permissive user rights or insecure password policies.
-7.  The attacker uses the gathered information to exploit identified weaknesses and escalate privileges or move laterally to other systems within the network.
-8.  The attacker achieves their objective, such as data exfiltration, system compromise, or deployment of ransomware.
+1. An attacker compromises a Windows endpoint through an initial access vector.
+2. The attacker executes `gpresult.exe` from the command line.
+3. Specific arguments such as `/z`, `/v`, `/r`, or `/x` are used with `gpresult.exe` to query GPO information.
+4. The utility retrieves and displays the applied GPOs for the user or computer.
+5. The attacker parses the output of `gpresult.exe` to identify security policies and settings.
+6. The attacker analyzes the GPO data to discover potential misconfigurations or vulnerabilities.
+7. Based on the findings, the attacker attempts to exploit identified weaknesses for privilege escalation or lateral movement.
+8. The attacker moves laterally to other systems within the Active Directory environment.
 
 ## Impact
 
-Successful exploitation can lead to a comprehensive understanding of the target environment's security posture, enabling attackers to identify and exploit weaknesses for privilege escalation and lateral movement. While the source does not specify a number of victims or sectors targeted, the impact of a successful attack can range from data breaches and financial losses to reputational damage and disruption of operations. The discovery of misconfigured group policies can open doors for attackers to compromise critical systems and data within the network.
+Successful execution of this attack chain can lead to privilege escalation within the network, enabling attackers to gain control over critical systems and data. While discovery is not inherently malicious, it often precedes more damaging actions. Detecting this activity early can prevent attackers from successfully mapping the environment and exploiting vulnerabilities. The impact can range from data theft to complete system compromise, depending on the attacker's objectives and the vulnerabilities present in the environment.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Group Policy Discovery via GPResult" to your SIEM to detect the execution of `gpresult.exe` with suspicious parameters.
-*   Enable Windows process creation logging to capture command-line arguments used with `gpresult.exe` and other executables.
-*   Review and harden Group Policy configurations to minimize the risk of exploitation by attackers.
-*   Investigate any alerts generated by the Sigma rule "Group Policy Discovery via GPResult" to determine the context and intent of the activity.
+*   Deploy the Sigma rule below to your SIEM to detect the execution of `gpresult.exe` with suspicious arguments ( `/z`, `/v`, `/r`, `/x`).
+*   Investigate any alerts generated by the Sigma rule to determine the context and intent of the `gpresult.exe` execution.
+*   Enable Sysmon process creation logging to provide detailed process execution data for accurate detection.
+*   Review and harden Group Policy settings to minimize potential vulnerabilities that attackers can exploit.
+*   Monitor for unusual network connections or account activity following the detection of `gpresult.exe` execution.
