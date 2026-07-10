@@ -1,8 +1,8 @@
 ---
 title: Conhost Spawned By Suspicious Parent Process
 slug: 2024-01-conhost-suspicious-parent
-description: Detection of Console Window Host (conhost.exe) being spawned by unusual parent processes, potentially indicating code injection or other malicious activity on Windows systems.
-date: "2024-01-03T18:22:00Z"
+description: The Windows Console Host process (conhost.exe) spawned by a suspicious parent process, such as lsass.exe or explorer.exe, can indicate code injection used to bypass application allowlisting and execute malicious commands.
+date: "2024-01-09T18:22:00Z"
 type: advisory
 types:
   - advisory
@@ -10,74 +10,85 @@ severities:
   - high
 tags:
   - execution
-  - code_injection
+  - defense-evasion
+  - privilege-escalation
+  - process-injection
   - windows
 vendors:
-  - Elastic
   - Microsoft
-  - SentinelOne
 products:
-  - Elastic Defend
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1036
+    technique_name: Masquerading
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1055
+    technique_name: Process Injection
 references:
-  - https://cloud.google.com/blog/topics/threat-intelligence/monitoring-windows-console-activity-part-one
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_via_hidden_shell_conhost.toml
+  - https://www.fireeye.com/blog/threat-research/2017/08/monitoring-windows-console-activity-part-one.html
+  - https://attack.mitre.org/techniques/T1059/
+  - https://attack.mitre.org/techniques/T1036/
+  - https://attack.mitre.org/techniques/T1055/
+  - https://attack.mitre.org/tactics/TA0002/
+  - https://attack.mitre.org/tactics/TA0005/
+  - https://attack.mitre.org/tactics/TA0004/
 rules:
   - title: Conhost Spawned By Suspicious Parent Process
-    description: Detects when conhost.exe is spawned by a suspicious parent process which could indicate code injection or other malicious activity.
+    description: Detects when conhost.exe is spawned by a suspicious parent process, which could indicate code injection.
     platform: sigma
     severity: high
     tactics:
+      - defense_evasion
       - execution
+      - privilege_escalation
     techniques:
-      - T1059.001
+      - T1036
+      - T1055
+      - T1059
     data_sources:
       - process_creation
       - windows
-  - title: Conhost Spawned By Uncommon Process
-    description: Detects when conhost.exe is spawned by a process that is not typically associated with console applications.
+  - title: Conhost Tampering Check via Process Name
+    description: Detects suspicious process creations with conhost process name but from a non-standard path.
     platform: sigma
     severity: medium
     tactics:
-      - execution
+      - defense_evasion
     techniques:
-      - T1059.001
+      - T1036
     data_sources:
       - process_creation
       - windows
 rules_count: 2
 ---
 
-This detection identifies instances where the Console Window Host (conhost.exe) process is spawned by a suspicious parent process. The conhost.exe process is a Windows system process that manages console windows. Its spawning by processes such as lsass.exe, services.exe, smss.exe, winlogon.exe, explorer.exe, dllhost.exe, rundll32.exe, regsvr32.exe, userinit.exe, wininit.exe, spoolsv.exe, or ctfmon.exe, is unusual and can be indicative of code injection, exploitation, or other malicious activities. The rule excludes specific rundll32.exe scenarios related to MSI installers and PCA to reduce false positives. This behavior is important for defenders as it can reveal attempts to hide malicious activity or bypass security controls by leveraging legitimate system processes. The rule leverages process monitoring data from various sources including Elastic Defend, Microsoft Defender XDR, and SentinelOne Cloud Funnel.
+Attackers frequently inject custom shell implementations into legitimate system processes to evade detection, bypass application allowlisting, and avoid using command interpreters like cmd.exe or PowerShell.exe. This technique involves spawning `conhost.exe` from unusual parent processes such as `lsass.exe`, `services.exe`, or `explorer.exe`. This behavior contrasts with typical scenarios where `conhost.exe` is initiated by legitimate command-line interfaces or applications. Monitoring process relationships for unusual parent-child connections is essential for identifying potential code injection attempts and malicious activities on Windows systems. This activity is considered high risk due to the potential for privilege escalation and defense evasion, allowing attackers to perform unauthorized actions with elevated privileges. The original Elastic detection rule was created on 2020/08/17 and updated on 2026/04/07.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to the system (e.g., through phishing or exploiting a vulnerability).
-2.  The attacker injects malicious code into a legitimate process (e.g., explorer.exe, dllhost.exe).
-3.  The injected code executes, requiring a console window.
-4.  The compromised parent process (e.g., explorer.exe) spawns conhost.exe.
-5.  The attacker uses the console window for further command execution.
-6.  The attacker performs reconnaissance, lateral movement, or data exfiltration.
-7.  The attacker attempts to establish persistence on the system.
-8.  The attacker achieves their final objective, such as data theft or system compromise.
+1. An attacker gains initial access to a Windows system through exploitation or social engineering.
+2. The attacker injects malicious code into a legitimate system process such as `lsass.exe`, `services.exe`, or `explorer.exe` (Process Injection - T1055).
+3. The injected code executes within the context of the compromised process.
+4. The compromised process spawns `conhost.exe`, the Console Window Host (Execution via Command and Scripting Interpreter - T1059).
+5. The spawned `conhost.exe` instance is used to execute arbitrary commands without typical auditing or security controls.
+6. The attacker uses `conhost.exe` to perform reconnaissance, move laterally, or achieve persistence.
+7. The attacker escalates privileges by leveraging the compromised process's elevated permissions (Privilege Escalation - TA0004).
+8. The attacker achieves their final objective, such as data exfiltration, system compromise, or deploying ransomware.
 
 ## Impact
 
-Successful exploitation can lead to complete system compromise, data theft, credential harvesting, and the installation of malware. The attacker can use the compromised system as a launchpad for lateral movement within the network, potentially affecting numerous other systems. Organizations can experience data breaches, financial losses, reputational damage, and operational disruptions. Due to the high privileges of some parent processes, such as lsass.exe or services.exe, the attacker can gain elevated privileges, exacerbating the impact.
+Successful exploitation leads to arbitrary code execution within a legitimate system process, enabling attackers to perform malicious activities, escalate privileges, and evade detection. This can result in data theft, system compromise, and disruption of services. The masquerading of malicious activity within a trusted process makes detection challenging, potentially affecting numerous systems across an organization. If successful, attackers can bypass standard security measures and maintain a persistent presence on compromised systems.
 
 ## Recommendation
 
-*   Enable process creation logging with command line details using Sysmon or a similar tool to detect the spawning of `conhost.exe` by suspicious parent processes.
-*   Deploy the "Conhost Spawned By Suspicious Parent Process" Sigma rule to your SIEM and tune the rule to your environment, specifically focusing on the excluded processes.
-*   Investigate any alerts generated by the Sigma rule by examining the parent process's ancestry, command line, and network connections.
-*   Monitor process execution events for `conhost.exe` being launched by processes other than those listed in the rule's exclusion list, specifically `rundll32.exe` with specific arguments.
-*   Implement application control policies to prevent the execution of unauthorized processes, including `conhost.exe` from unexpected locations.
-*   Correlate process creation events with network connection logs to identify any suspicious network activity originating from the compromised process.
+*   Deploy the Sigma rule "Conhost Spawned By Suspicious Parent Process" to your SIEM and tune for your environment to detect this specific parent/child process relationship.
+*   Investigate any instances of `conhost.exe` spawned by parent processes like `lsass.exe`, `services.exe`, or `explorer.exe` to determine legitimacy.
+*   Enable Sysmon process-creation logging to provide the necessary data for the Sigma rules above.
+*   Review and harden process whitelisting policies to prevent execution of unauthorized code.
