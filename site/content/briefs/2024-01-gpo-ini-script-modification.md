@@ -13,6 +13,11 @@ tags:
   - privilege-escalation
   - persistence
   - windows
+vendors:
+  - Microsoft
+products:
+  - Active Directory
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
