@@ -1,7 +1,7 @@
 ---
-title: O365 MFA Bypassed via Trusted IP Addition
+title: Office 365 MFA Bypass via Trusted IP Modification
 slug: 2024-01-o365-mfa-bypass
-description: An attacker modifies trusted IP settings in Office 365 to bypass multi-factor authentication (MFA), potentially leading to unauthorized access and data compromise.
+description: An adversary modifies the trusted IP list in Office 365 to bypass multi-factor authentication (MFA) and gain unauthorized access to accounts.
 date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
@@ -9,17 +9,15 @@ types:
 severities:
   - high
 tags:
-  - mfa_bypass
+  - azure
   - o365
-  - defense_evasion
+  - mfa
+  - bypass
+  - defense-evasion
 vendors:
   - Microsoft
-  - Splunk
 products:
   - Office 365
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -30,54 +28,53 @@ references:
   - https://attack.mitre.org/techniques/T1562/007/
   - https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings
 rules:
-  - title: O365 Trusted IP Added to Bypass MFA
-    description: Detects when new IP addresses are added to the trusted IPs list in Office 365, potentially allowing MFA bypass.
+  - title: O365 MFA Bypass via Trusted IP Addition
+    description: Detects addition of new IP addresses to the trusted IPs list in Office 365, potentially allowing MFA bypass.
     platform: sigma
     severity: high
     tactics:
       - defense_evasion
-      - persistence
     techniques:
       - T1562.007
     data_sources:
       - webserver
-      - linux
-  - title: O365 MFA Bypass Trusted IP - Management Activity
-    description: Detects addition of trusted IPs via O365 management activity logs
+      - o365
+  - title: O365 MFA Bypass via Trusted IP Addition - Detailed Logging
+    description: Detects addition of new IP addresses to the trusted IPs list in Office 365, potentially allowing MFA bypass with logging of old and new IPs.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - defense_evasion
-      - persistence
     techniques:
       - T1562.007
     data_sources:
       - webserver
-      - linux
+      - o365
 rules_count: 2
 ---
 
-Attackers can weaken an organization's security by adding new IP addresses to the trusted IPs list in Office 365. By manipulating the trusted IP configuration, attackers can bypass Multi-Factor Authentication (MFA), gaining unauthorized access to sensitive resources and systems. This technique circumvents a critical security control designed to protect against credential compromise. The activity is often performed after initial access has been gained through other means, such as phishing or credential stuffing. Defenders should monitor changes to trusted IP configurations and investigate any unauthorized modifications promptly. The references suggest this technique is used to maintain persistence in compromised cloud environments.
+Attackers are increasingly targeting cloud environments like Office 365 to bypass security controls. A common tactic involves manipulating the trusted IP list, which allows logins from specified IP addresses to bypass MFA. This method, as highlighted in Black Hat USA 2020 presentations, can be used to maintain persistence or escalate privileges within the compromised environment. The activity is typically logged within the O365 audit logs as "Set Company Information" events related to `StrongAuthenticationPolicy` modifications. If successful, attackers can gain persistent, stealthy access to sensitive data and systems without triggering standard MFA alerts. Defenders need to monitor changes to these trusted IP configurations closely to identify and prevent unauthorized modifications.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to an account with sufficient privileges, possibly via credential compromise or phishing.
-2.  The attacker authenticates to the Office 365 portal using the compromised credentials.
-3.  The attacker navigates to the Azure Active Directory admin center.
-4.  The attacker modifies the Conditional Access policies to add a new trusted IP range. This is achieved by setting the `StrongAuthenticationPolicy` property.
-5.  The attacker sets the `ModifiedProperties{}.Name` to `StrongAuthenticationPolicy` within the O365 management activity logs.
-6.  The attacker ensures the `ModifiedProperties{}.NewValue` contains a new IP address range that allows bypass of MFA.
-7.  The attacker uses a device within the newly trusted IP range to authenticate to Office 365 services.
-8.  MFA is bypassed, granting the attacker access to sensitive data and systems within the organization.
+1. An attacker gains initial access to an Office 365 account with sufficient privileges to modify tenant settings. This could be through phishing, credential stuffing, or other initial access methods.
+2. The attacker authenticates to the Office 365 portal or uses PowerShell to manage the tenant configuration.
+3. The attacker modifies the `StrongAuthenticationPolicy` by adding a new IP address or CIDR range to the trusted IPs list using the `Set-MsolCompanySettings` cmdlet or the O365 admin portal.
+4. The event is logged as "Set Company Information" with `ModifiedProperties{}.Name=StrongAuthenticationPolicy` in the O365 management activity logs. The `ModifiedProperties{}.NewValue` field contains the newly added IP address(es).
+5. The attacker uses a compromised account or a newly created account originating from the trusted IP address to authenticate to Office 365.
+6. Because the login originates from a trusted IP, the MFA requirement is bypassed, allowing the attacker to gain access without additional authentication factors.
+7. The attacker performs reconnaissance within the Office 365 environment, exploring sensitive data, applications, and user accounts.
+8. The attacker exfiltrates sensitive data, establishes persistence, or performs other malicious activities within the compromised Office 365 environment.
 
 ## Impact
 
-Successful exploitation of this technique can lead to significant damage. Attackers can gain unauthorized access to sensitive information, potentially leading to data breaches, financial losses, and reputational damage. By bypassing MFA, attackers can move laterally within the organization's cloud environment, compromising additional accounts and resources. The number of affected users and the severity of the impact depend on the scope of access granted to the compromised account. Organizations in all sectors that rely on Office 365 are potentially vulnerable.
+Successful MFA bypass can lead to significant data breaches, financial losses, and reputational damage. Attackers can access sensitive emails, documents, and other confidential information stored within Office 365. They can also use the compromised accounts to launch further attacks against internal systems or external partners. The number of affected users and the extent of the damage depend on the attacker's objectives and the scope of access gained through the MFA bypass.
 
 ## Recommendation
 
-*   Install the Splunk Microsoft Office 365 add-on to ingest the required logs, as mentioned in the "how_to_implement" section.
-*   Deploy the provided Sigma rule to detect suspicious modifications to trusted IP addresses in O365.
-*   Investigate any alerts generated by the Sigma rule, focusing on the user (`user`) and IP address (`ip_addresses_new_added`) involved.
-*   Review existing Conditional Access policies and trusted IP configurations to ensure they align with security best practices.
-*   Implement stricter monitoring and alerting for administrative accounts to detect unauthorized changes to security configurations.
+*   Deploy the Sigma rule `O365 MFA Bypass via Trusted IP Addition` to detect unauthorized modifications to the trusted IP list in Office 365.
+*   Review and audit existing trusted IP configurations in Office 365 to ensure they are legitimate and necessary.
+*   Implement alerts for any changes to the `StrongAuthenticationPolicy` to provide real-time visibility into potential MFA bypass attempts.
+*   Monitor O365 management activity logs for "Set Company Information" events related to the `StrongAuthenticationPolicy` as described in the Overview.
+*   Investigate any alerts generated by the Sigma rule, focusing on the user account that made the changes and the IP addresses that were added.
+*   Enforce conditional access policies that require MFA even for trusted locations in specific scenarios.
