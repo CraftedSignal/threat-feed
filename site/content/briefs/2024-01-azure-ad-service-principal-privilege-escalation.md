@@ -1,8 +1,8 @@
 ---
-title: Azure AD Privileged Role Assigned to Service Principal
+title: Azure AD Service Principal Privilege Escalation
 slug: 2024-01-azure-ad-service-principal-privilege-escalation
-description: Detection of privileged role assignments to service principals in Azure AD, which can lead to unauthorized access and privilege escalation within Azure environments.
-date: "2024-01-03T12:00:00Z"
+description: An Azure Active Directory (Azure AD) Service Principal elevates its own privileges by adding itself to a new application role assignment, potentially leading to unauthorized access and control within the Azure environment.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -10,90 +10,70 @@ severities:
   - high
 tags:
   - azure
-  - azuread
+  - azure-ad
+  - service-principal
   - privilege-escalation
-  - persistence
 vendors:
   - Microsoft
 products:
-  - Azure Active Directory
+  - Azure AD
 mitre_ttps:
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1098
-    technique_name: Account Manipulation
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1098
     technique_name: Account Manipulation
 references:
-  - https://posts.specterops.io/azure-privilege-escalation-via-service-principal-abuse-210ae2be2a5
-  - https://github.com/splunk/security_content/blob/main/detections/cloud/azure_ad_privileged_role_assigned_to_service_principal.yml
+  - https://splunkbase.splunk.com/app/3110
+  - https://splunk.github.io/splunk-add-on-for-microsoft-cloud-services/Install/
+  - https://github.com/mvelazc0/BadZure
+  - https://www.splunk.com/en_us/blog/security/hunting-m365-invaders-navigating-the-shadows-of-midnight-blizzard.html
+  - https://posts.specterops.io/microsoft-breach-what-happened-what-should-azure-admins-do-da2b7e674ebc
 rules:
-  - title: Azure AD Privileged Role Assigned to Service Principal
-    description: Detects the assignment of privileged roles to service principals in Azure AD.
+  - title: Azure AD Service Principal Privilege Escalation
+    description: Detects when an Azure Service Principal elevates privileges by adding itself to a new app role assignment.
     platform: sigma
     severity: high
     tactics:
-      - persistence
       - privilege_escalation
     techniques:
       - T1098.003
     data_sources:
-      - cloudtrail
+      - AuditLogs
       - azure
-      - o365
-  - title: Azure AD Service Principal Role Assignment by Unusual User
-    description: Detects Azure AD Service Principal role assignments performed by users who do not typically perform such actions.
+  - title: Azure AD SPN Role Assignment Modification via Suspicious User Agent
+    description: Detects suspicious user agents associated with Azure AD Service Principal role assignment modifications.
     platform: sigma
     severity: medium
     tactics:
-      - persistence
       - privilege_escalation
     techniques:
       - T1098.003
     data_sources:
-      - cloudtrail
+      - AuditLogs
       - azure
-      - o365
-  - title: Azure AD Privileged Role Assigned to Service Principal - High Volume
-    description: Detects a high volume of privileged role assignments to service principals in a short period, potentially indicating malicious activity.
-    platform: sigma
-    severity: medium
-    tactics:
-      - persistence
-      - privilege_escalation
-    techniques:
-      - T1098.003
-    data_sources:
-      - cloudtrail
-      - azure
-      - o365
-rules_count: 3
+rules_count: 2
 ---
 
-This brief focuses on the detection of privileged role assignments to service principals within Azure Active Directory (AD). The activity is significant because attackers can exploit service principals with elevated permissions to gain unauthorized access to Azure resources. This can lead to privilege escalation, data compromise, and disruption of critical infrastructure. This activity is detected using Azure AD AuditLogs. Defenders should monitor this behavior to prevent abuse of service principals for malicious purposes. The described activity aligns with tactics observed by multiple threat actors, including NOBELIUM Group and Scattered Lapsus$ Hunters, who are known to target cloud environments for privilege escalation.
+This detection focuses on the abuse of Azure AD Service Principals (SPNs). SPNs are non-human identities used by applications and services to access Azure resources. An attacker who has compromised an SPN, or is operating with sufficient privileges, may attempt to escalate those privileges by assigning the SPN to a higher-level application role. This allows the SPN to perform actions it was not initially authorized to do, such as reading sensitive data, modifying configurations, or even deploying malicious resources. This technique is particularly concerning as it can be difficult to detect without specific monitoring of Azure AD audit logs. The "BadZure" research project highlights many offensive techniques leveraging Azure AD misconfigurations like this one.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to an Azure AD tenant, potentially through compromised credentials or other means.
-2.  The attacker identifies a service principal within the Azure AD tenant that can be leveraged for privilege escalation.
-3.  The attacker uses an account with sufficient privileges to assign a privileged role to the identified service principal.
-4.  The "Add member to role" operation is executed, modifying the service principal's roles in Azure AD.
-5.  The attacker leverages the service principal with the newly assigned privileged role to access sensitive Azure resources.
-6.  The service principal authenticates to Azure services using its assigned credentials or certificates.
-7.  The service principal performs actions allowed by the privileged role, such as accessing sensitive data, modifying configurations, or creating new resources.
-8.  The attacker maintains persistence by ensuring the service principal retains its privileged role.
+1.  The attacker gains initial access to Azure AD, potentially through compromised credentials of an existing user or SPN.
+2.  The attacker identifies a target SPN that can be leveraged for privilege escalation.
+3.  The attacker uses Azure AD PowerShell or the Azure CLI to add the target SPN to a new, higher-privilege application role assignment. This involves modifying the `AppRoleAssignment` for the SPN.
+4.  The `operationName` "Add app role assignment to service principal" is logged in the Azure AD Audit Logs. The `properties.targetResources` field contains information about the modified app role and the target service principal.
+5.  The attacker authenticates as the SPN, now possessing the escalated privileges.
+6.  The attacker performs actions authorized by the newly acquired role, such as accessing sensitive resources, modifying configurations, or deploying malicious applications.
+7.  The attacker attempts to cover their tracks by deleting audit logs or other evidence of their activity (though this may be prevented by appropriate Azure AD logging configurations).
 
 ## Impact
 
-Successful exploitation allows attackers to gain elevated access to Azure resources, potentially leading to the compromise of sensitive data, disruption of critical infrastructure, and unauthorized modification of Azure configurations. This can result in significant financial losses, reputational damage, and legal liabilities for affected organizations. The number of affected victims and sectors can vary depending on the attacker's objectives and the scope of the compromised Azure environment.
+Successful privilege escalation via SPN manipulation can grant an attacker complete control over an Azure subscription or specific Azure resources. The impact can range from data breaches and service disruptions to the deployment of ransomware or other malicious payloads within the cloud environment. Given the increasing reliance on cloud services, these attacks have the potential to affect organizations of any size and across any sector. The Microsoft breach and Midnight Blizzard campaign highlighted the importance of these cloud-focused attacks.
 
 ## Recommendation
 
-*   Deploy the provided Sigma rules to your SIEM to detect anomalous role assignments to service principals (see rule: "Azure AD Privileged Role Assigned to Service Principal").
-*   Review and audit existing role assignments for service principals in Azure AD to identify and remediate any unnecessary or excessive privileges.
-*   Implement multi-factor authentication (MFA) for all user accounts, including those used to manage Azure AD, to prevent unauthorized access and privilege escalation.
-*   Monitor Azure AD AuditLogs for suspicious activity related to service principal management and role assignments (data_source: Azure Active Directory Add member to role).
-*   Investigate any alerts generated by the Sigma rule and determine whether the role assignment was legitimate or malicious.
-*   Filter as needed based on known legitimate administrative tasks (see: known_false_positives).
+*   Enable the Splunk Add-on for Microsoft Cloud Services to ingest Azure AD Audit Logs via Azure EventHub to monitor for suspicious activity (reference: how_to_implement).
+*   Deploy the Sigma rule `Azure AD Service Principal Privilege Escalation` to detect when a service principal adds itself to a new app role assignment (reference: rules).
+*   Investigate any instances of SPNs modifying their own `AppRoleAssignment` to identify potential privilege escalation attempts.
+*   Implement the `azure_ad_service_principal_privilege_escalation_filter` to reduce false positives by filtering out known good service principals or application roles.
+*   Monitor the `user_agent` field in Azure AD Audit Logs for unusual or unexpected user agents associated with SPN activity (reference: search).
