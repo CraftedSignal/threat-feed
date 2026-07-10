@@ -1,27 +1,22 @@
 ---
-title: AWS CloudTrail Update for Defense Evasion
+title: AWS CloudTrail UpdateTrail Defense Evasion
 slug: 2024-01-aws-cloudtrail-update
-description: Attackers may attempt to evade detection by altering CloudTrail logging configurations, such as changing multi-regional logging to a single region, which impairs the logging of their activities and hinders incident response.
+description: An attacker modifies AWS CloudTrail configurations, specifically using the UpdateTrail API, to evade detection by impairing logging of their activities across multiple regions.
 date: "2024-01-03T12:00:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - aws
   - cloudtrail
   - defense-evasion
   - cloud
 vendors:
-  - Amazon
-  - Splunk
+  - AWS
 products:
   - CloudTrail
-  - Splunk Enterprise
-  - Splunk Enterprise Security
-  - Splunk Cloud
-  - Splunk Add-on for Amazon Web Services
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -29,9 +24,10 @@ mitre_ttps:
     technique_name: Impair Defenses
 references:
   - https://attack.mitre.org/techniques/T1562/008/
+  - https://github.com/splunk/security_content/blob/main/detections/cloud/asl_aws_defense_evasion_update_cloudtrail.yml
 rules:
-  - title: Detect AWS CloudTrail UpdateTrail Event
-    description: Detects UpdateTrail events in AWS CloudTrail, indicating potential attempts to modify logging configurations for defense evasion.
+  - title: Detect AWS CloudTrail UpdateTrail API Call
+    description: Detects calls to the AWS CloudTrail UpdateTrail API, potentially indicating an attempt to disable or modify logging.
     platform: sigma
     severity: medium
     tactics:
@@ -41,8 +37,8 @@ rules:
     data_sources:
       - cloudtrail
       - aws
-  - title: Detect AWS CloudTrail UpdateTrail with Multi-Region Disabled
-    description: Detects UpdateTrail events in AWS CloudTrail where multi-region logging is disabled, indicating potential defense evasion.
+  - title: Detect AWS CloudTrail UpdateTrail API Call with Modified Multi-Region Logging
+    description: Detects calls to the AWS CloudTrail UpdateTrail API that disable or modify multi-region logging.
     platform: sigma
     severity: high
     tactics:
@@ -55,27 +51,28 @@ rules:
 rules_count: 2
 ---
 
-This detection focuses on identifying attempts to evade detection within AWS environments by monitoring `UpdateTrail` events in AWS CloudTrail logs. Attackers may modify CloudTrail settings with incorrect parameters, such as switching from multi-regional logging to single-region logging, to reduce the scope of logged activities. This tactic allows adversaries to operate undetected in compromised AWS environments, as their actions in other regions are not properly recorded. Detecting these configuration changes is critical for Security Operations Centers (SOCs) to maintain visibility and respond effectively to threats. The lack of comprehensive logging can significantly impede incident response and forensic investigations, allowing malicious activities to persist unnoticed.
+This analytic detects the use of the `UpdateTrail` API call in AWS CloudTrail logs, which is a common technique used by attackers to evade detection. By modifying CloudTrail settings, such as disabling multi-region logging or changing the destination bucket, adversaries can significantly reduce the visibility of their malicious activities. This activity is critical to monitor, as successful evasion can allow attackers to operate undetected within an AWS environment, leading to delayed incident response and potential data breaches. The detection focuses on identifying modifications to CloudTrail configurations that deviate from established security best practices, potentially indicating malicious intent. The security content was published on 2026-04-17 and aims to detect threat actors modifying CloudTrail configurations.
 
 ## Attack Chain
 
-1.  An attacker gains initial access to an AWS account, potentially through compromised credentials or an exposed API key (T1078).
-2.  The attacker authenticates to the AWS Management Console or uses the AWS CLI with the compromised credentials.
-3.  The attacker issues an `UpdateTrail` API call to modify the CloudTrail configuration (T1562.008).
-4.  The attacker disables multi-region logging, restricting log collection to a single AWS region.
-5.  Alternatively, the attacker modifies the S3 bucket used for log storage, potentially directing logs to an attacker-controlled location.
-6.  The attacker performs malicious activities within the AWS environment, knowing that these actions will not be comprehensively logged across all regions.
-7.  These malicious activities could include lateral movement, data exfiltration, or resource compromise.
-8.  The reduced logging scope hinders detection and response efforts, allowing the attacker to maintain persistence and achieve their objectives.
+1.  The attacker gains initial access to an AWS account, potentially through compromised credentials or exploiting a vulnerability in an application running within the environment.
+2.  The attacker enumerates existing CloudTrail configurations to identify potential targets for modification.
+3.  The attacker calls the `UpdateTrail` API to modify CloudTrail settings. This may include disabling multi-region logging, changing the destination bucket, or altering encryption settings.
+4.  The attacker modifies the CloudTrail configuration to log only single region activity, evading logging in other regions where they plan to operate.
+5.  The attacker performs malicious activities within the AWS environment, such as deploying unauthorized resources, exfiltrating data, or compromising other systems.
+6.  Because of the modified CloudTrail configuration, these malicious activities are not fully logged or are logged to a location inaccessible to security monitoring tools.
+7.  The attacker attempts to delete or further obfuscate any remaining logs.
+8.  The attacker achieves their final objective, such as data theft, system compromise, or service disruption, with reduced risk of detection.
 
 ## Impact
 
-Successful evasion of CloudTrail logging can lead to significant blind spots in security monitoring.  If an attacker successfully modifies CloudTrail settings, their subsequent actions within the AWS environment are less likely to be detected.  This can lead to prolonged dwell time, increased data exfiltration, and greater overall damage. Organizations relying on CloudTrail for compliance and security auditing may also face regulatory repercussions due to incomplete logging. The blast radius of a successful attack expands significantly when logging is impaired, affecting potentially all resources within the AWS environment.
+Successful evasion of CloudTrail logging can have significant consequences, including delayed detection of breaches, incomplete forensic investigations, and increased dwell time for attackers. This can lead to substantial data loss, financial damage, and reputational harm. Depending on the scope of the compromise, multiple AWS accounts and regions could be affected.
 
 ## Recommendation
 
-*   Deploy the provided Sigma rule to your SIEM and tune it for your specific AWS environment to detect unauthorized CloudTrail modifications.
-*   Investigate any `UpdateTrail` events where the `actor.user.uid` is not a known administrator account (see Sigma rule below).
-*   Monitor CloudTrail logs for changes to multi-region logging settings and S3 bucket destinations (see references to `api.operation=UpdateTrail` in the `search` field).
-*   Implement multi-factor authentication (MFA) for all AWS accounts, especially those with administrative privileges to mitigate credential compromise (T1110).
-*   Regularly review and audit CloudTrail configurations to ensure they align with security best practices and organizational policies.
+*   Deploy the Sigma rule `Detect AWS CloudTrail UpdateTrail API Call` to your SIEM and tune for your environment.
+*   Investigate any `UpdateTrail` events identified by the Sigma rule, focusing on changes to multi-region logging and destination buckets.
+*   Monitor AWS CloudTrail logs for unusual API activity from accounts with administrative privileges.
+*   Implement strong identity and access management (IAM) policies to limit the ability of users and roles to modify CloudTrail configurations.
+*   Enable AWS Config to track changes to CloudTrail configurations and trigger alerts on unauthorized modifications.
+*   Review CloudTrail configurations regularly to ensure they align with security best practices and organizational policies.
