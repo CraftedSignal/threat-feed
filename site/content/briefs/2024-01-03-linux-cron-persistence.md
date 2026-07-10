@@ -12,6 +12,10 @@ tags:
   - persistence
   - privilege-escalation
   - linux
+vendors:
+  - Linux
+products:
+  - cron
 affected_os:
   - Linux
 mitre_ttps:
