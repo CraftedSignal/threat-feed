@@ -1,0 +1,87 @@
+---
+title: Suspicious Executable or Script Creation in Uncommon Paths
+slug: 2024-01-suspicious-executable-creation
+description: Detection of executables or scripts being created in unusual directories on Windows systems, which can be indicative of malware installation or persistence attempts.
+date: "2024-01-02T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - file-creation
+  - persistence
+  - windows
+vendors:
+  - Microsoft
+products:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1036
+    technique_name: Masquerading
+references:
+  - https://thedfirreport.com/2020/04/20/sqlserver-or-the-miner-in-the-basement/
+  - https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
+  - https://twitter.com/pr0xylife/status/1590394227758104576
+  - https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/
+rules:
+  - title: Suspicious Executable Creation in Public Directory
+    description: Detects creation of executable files in the Public directory, often used by attackers for initial access or persistence.
+    platform: sigma
+    severity: high
+    tactics:
+      - persistence
+    techniques:
+      - T1036
+    data_sources:
+      - file_event
+      - windows
+  - title: Suspicious Script Creation in Windows Fonts Directory
+    description: Detects the creation of script files (e.g., .ps1, .vbs) in the Windows Fonts directory, a location rarely used for legitimate purposes.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1036
+    data_sources:
+      - file_event
+      - windows
+  - title: Executables Created in Temp Directory
+    description: Detects executable files being created in temp directories
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1036
+    data_sources:
+      - file_event
+      - windows
+rules_count: 3
+---
+
+This threat brief addresses the creation of executable files or scripts in suspicious file paths on Windows systems, a tactic frequently employed by attackers to evade detection and maintain persistence. This activity is detected by monitoring file creation events (Sysmon EventID 11) and identifying files with executable extensions (e.g., .exe, .dll, .ps1, .vbs) being created in uncommon directories, such as \windows\fonts\, \users\public\, \PerfLogs\, and others. Successful exploitation via this technique can lead to unauthorized code execution, privilege escalation, and persistent access to compromised systems. Recent examples of malware abusing these techniques include PlugX, Warzone RAT, DarkGate Malware, and LockBit Ransomware, demonstrating the continued relevance of this detection strategy. This analytic is applicable to Splunk Enterprise, Splunk Enterprise Security, and Splunk Cloud.
+
+## Attack Chain
+
+1.  The attacker gains initial access to the system (e.g., through phishing or exploit).
+2.  The attacker drops a malicious executable or script (e.g., a PowerShell script or DLL file) onto the target system.
+3.  The malicious file is created in a suspicious directory, such as \Users\Public\, \Windows\Fonts\, or \PerfLogs\, to avoid detection.
+4.  The attacker uses various techniques to execute the dropped file, such as leveraging `cmd.exe`, `powershell.exe`, or other legitimate tools.
+5.  The executed file performs malicious actions, such as establishing persistence, escalating privileges, or deploying additional malware.
+6.  The malware communicates with a command-and-control (C2) server to receive further instructions or exfiltrate data.
+7.  The attacker may use the compromised system as a foothold to move laterally within the network.
+
+## Impact
+
+Successful exploitation could allow attackers to execute unauthorized code, escalate privileges, or persist within the environment, posing a significant security threat. Observed damage can range from data exfiltration to ransomware deployment, depending on the attacker's objectives. The scope of impact can vary from individual workstations to entire networks, potentially affecting critical business operations. Many threat actors, including those associated with PlugX, Warzone RAT, and LockBit ransomware, are known to utilize these techniques, thus defenders should prioritize detection and prevention measures.
+
+## Recommendation
+
+*   Enable Sysmon EventID 11 logging to monitor file creation events on endpoints, as this is the data source required for the provided rules.
+*   Deploy the Sigma rule "Suspicious Executable Creation in Public Directory" to detect executables created in common public directories and tune for your environment.
+*   Deploy the Sigma rule "Suspicious Script Creation in Windows Fonts Directory" to detect scripts created in the Windows Fonts directory.
+*   Investigate any alerts generated by these rules, focusing on the process that created the file and the file's subsequent behavior.
