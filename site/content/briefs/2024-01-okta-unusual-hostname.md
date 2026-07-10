@@ -13,6 +13,10 @@ tags:
   - okta
   - machine-learning
   - privilege-escalation
+vendors:
+  - Okta
+products:
+  - Okta
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
