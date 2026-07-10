@@ -1,8 +1,8 @@
 ---
 title: Image File Execution Options (IFEO) Injection for Persistence and Defense Evasion
 slug: 2024-01-ifeo-injection
-description: Attackers can establish persistence and evade defenses by modifying the Debugger and SilentProcessExit registry keys to perform Image File Execution Options (IFEO) injection, allowing them to intercept file executions and run malicious code.
-date: "2024-01-03T10:00:00Z"
+description: Adversaries abuse Image File Execution Options (IFEO) in the Windows Registry by modifying Debugger or MonitorProcess keys to intercept legitimate file executions, enabling persistence and defense evasion.
+date: "2024-01-02T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -12,23 +12,18 @@ tags:
   - persistence
   - defense-evasion
   - registry
-  - ifeo
   - windows
 vendors:
-  - Elastic
   - Microsoft
-  - SentinelOne
-  - Crowdstrike
 products:
-  - Elastic Defend
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
-  - CrowdStrike FDR
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
+    technique_id: T1546
+    technique_name: Event Triggered Execution
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
     technique_id: T1546
     technique_name: Event Triggered Execution
   - tactic_id: TA0005
@@ -38,65 +33,56 @@ mitre_ttps:
 references:
   - https://oddvar.moe/2018/04/10/persistence-using-globalflags-in-image-file-execution-options-hidden-from-autoruns-exe/
 rules:
-  - title: Detect Image File Execution Options Injection
-    description: Detects changes to the Debugger registry key used for IFEO injection.
+  - title: Image File Execution Options Injection
+    description: Detects modifications to the Debugger or MonitorProcess registry keys under Image File Execution Options, indicating potential persistence or defense evasion attempts.
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
       - persistence
     techniques:
+      - T1112
       - T1546.012
     data_sources:
       - registry_set
       - windows
-  - title: Detect SilentProcessExit MonitorProcess Modification
-    description: Detects changes to the MonitorProcess registry key under SilentProcessExit, indicating potential IFEO injection.
+  - title: Suspicious IFEO Registry Path Modification
+    description: Detects modifications to IFEO registry keys with unusual executables as debuggers.
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
       - persistence
     techniques:
+      - T1112
       - T1546.012
     data_sources:
       - registry_set
       - windows
-  - title: Detect IFEO Injection via Registry Data Strings
-    description: Detects IFEO injection by monitoring registry data strings for suspicious executable paths.
-    platform: sigma
-    severity: medium
-    tactics:
-      - defense_evasion
-      - persistence
-    techniques:
-      - T1546.012
-    data_sources:
-      - registry_set
-      - windows
-rules_count: 3
+rules_count: 2
 ---
 
-Image File Execution Options (IFEO) injection is a Windows feature that allows developers to debug applications by specifying an alternative executable to run. Attackers abuse this feature by modifying the Debugger and SilentProcessExit registry keys, setting a debugger to execute malicious code instead of the intended application. This technique is used to establish persistence or evade defenses. The attack involves modifying registry keys under `HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options`, `HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options`, `HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SilentProcessExit`, and `HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows NT\\CurrentVersion\\SilentProcessExit`. This matters to defenders because successful IFEO injection can allow attackers to maintain persistent access to a system and execute malicious code without detection.
+Attackers can abuse the Image File Execution Options (IFEO) to establish persistence or evade defenses on Windows systems. This involves modifying registry keys like `Debugger` and `MonitorProcess` under the IFEO to cause an alternate process to execute when a specific application is launched. By setting a debugger for a commonly used application, an attacker can ensure their malicious code runs whenever the legitimate application is started. This technique is particularly effective because it leverages a legitimate Windows feature designed for debugging purposes, making it harder to detect. This technique has been observed in various attack campaigns, allowing threat actors to maintain unauthorized access to compromised systems. Defenders should monitor for unexpected modifications to the IFEO registry keys.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to the system through unspecified means (e.g., exploiting a vulnerability or using stolen credentials).
-2.  The attacker elevates privileges to gain administrative access, allowing modification of sensitive registry keys.
-3.  The attacker modifies the registry, specifically the `Debugger` or `MonitorProcess` values within the IFEO or SilentProcessExit keys for a target executable (e.g., `notepad.exe`).
-4.  The `Debugger` or `MonitorProcess` value is set to point to a malicious executable.
-5.  When the target executable is launched by a user or system process, the malicious executable is launched instead.
-6.  The malicious executable performs its intended actions, such as installing malware, stealing credentials, or establishing a reverse shell.
-7.  The attacker maintains persistence through the IFEO injection, as the malicious executable will continue to be launched whenever the target executable is run.
+1.  The attacker gains initial access to the system (e.g., through compromised credentials or a software vulnerability).
+2.  The attacker identifies a commonly used application on the target system (e.g., `notepad.exe`, `explorer.exe`).
+3.  The attacker modifies the Windows Registry to create or modify an IFEO key for the chosen application under `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options`.
+4.  The attacker sets the `Debugger` value within the IFEO key to point to a malicious executable or script (e.g., `C:\Windows\System32\cmd.exe /c powershell.exe -exec bypass -f C:\evil.ps1`).
+5.  Whenever the legitimate application is launched by a user or system process, the operating system executes the specified "debugger" process instead.
+6.  The malicious executable executes, performing actions such as installing malware, establishing persistence, or escalating privileges.
+7.  The attacker may further obfuscate the IFEO modifications to evade detection.
+8.  The attacker achieves persistence on the system, allowing them to maintain access even after reboots or user logoffs.
 
 ## Impact
 
-Successful IFEO injection can allow attackers to maintain persistent access to a system, execute malicious code without detection, and potentially compromise sensitive data. IFEO injection can lead to a full compromise of the affected system, potentially impacting all users and applications on the system. This technique is often used in conjunction with other attack methods to achieve broader objectives, such as data exfiltration or ransomware deployment.
+Successful exploitation of IFEO injection can lead to persistent malware infections, allowing attackers to maintain long-term access to compromised systems. Attackers can use this technique to bypass application whitelisting and other security controls, making it difficult to detect and remove the malicious code. This can result in data theft, system disruption, or further compromise of the network. The impact can range from individual workstation compromises to widespread network breaches, depending on the scope of the attack and the privileges gained.
 
 ## Recommendation
 
-*   Enable Windows Registry auditing to monitor changes to the IFEO and SilentProcessExit registry keys, enabling detection of unauthorized modifications.
-*   Deploy the Sigma rules in this brief to your SIEM to detect suspicious registry modifications related to IFEO injection.
-*   Review and update the exceptions list in the Sigma rules to account for legitimate uses of the Debugger and MonitorProcess registry keys, reducing false positives.
-*   Monitor process execution and correlate with registry modifications to identify potentially malicious processes launched via IFEO injection.
-*   Implement enhanced monitoring and logging for registry changes related to IFEO to detect and respond to similar threats in the future.
+*   Monitor registry modifications in `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options` and `HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Image File Execution Options` for unexpected changes to the `Debugger` and `MonitorProcess` values to detect potential IFEO injection attempts (see Sigma rule `Image File Execution Options Injection`).
+*   Enable Sysmon event logging with the appropriate configuration to capture registry modification events related to IFEO, ensuring that the `registry_set` log source is populated.
+*   Regularly audit and review IFEO registry keys for any unauthorized or suspicious entries.
+*   Implement application whitelisting to restrict the execution of unauthorized executables, mitigating the effectiveness of IFEO injection.
+*   Update the Sigma rule `Image File Execution Options Injection` with exceptions for legitimate uses of the Debugger key, such as ThinKiosk and PSAppDeployToolkit, to reduce false positives.
