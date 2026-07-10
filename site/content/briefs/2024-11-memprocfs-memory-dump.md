@@ -12,6 +12,10 @@ tags:
   - credential-access
   - memory-dump
   - memprocfs
+vendors:
+  - ufrisk
+products:
+  - MemProcFS
 affected_os:
   - Windows
 mitre_ttps:
