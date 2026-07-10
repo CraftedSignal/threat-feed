@@ -21,6 +21,10 @@ tags:
   - execution
   - windows
   - process-anomaly
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
