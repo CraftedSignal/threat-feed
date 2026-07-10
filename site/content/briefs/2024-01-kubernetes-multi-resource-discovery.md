@@ -12,6 +12,10 @@ tags:
   - kubernetes
   - discovery
   - reconnaissance
+vendors:
+  - Kubernetes
+products:
+  - Kubernetes
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
