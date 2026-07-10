@@ -13,6 +13,10 @@ tags:
   - audit
   - windows-security
   - application-control
+vendors:
+  - Microsoft
+products:
+  - AppLocker
 affected_os:
   - Windows
 mitre_ttps:
