@@ -1,8 +1,8 @@
 ---
-title: Code Signing Policy Modification Through Registry
+title: Code Signing Policy Modification Through Built-in Tools
 slug: 2024-01-code-signing-policy-modification
-description: Attackers may modify the Windows registry to disable code signing policy, allowing the execution of unsigned or self-signed malicious code, thereby bypassing security controls and enabling defense evasion.
-date: "2024-01-02T12:00:00Z"
+description: Detection of attempts to disable or modify the code signing policy on Windows systems using built-in utilities like bcdedit, potentially allowing attackers to execute unsigned malicious code.
+date: "2024-01-23T14:30:00Z"
 type: advisory
 types:
   - advisory
@@ -10,83 +10,67 @@ severities:
   - medium
 tags:
   - defense-evasion
-  - registry-modification
   - code-signing
+  - windows
 vendors:
   - Microsoft
-  - Elastic
-  - Crowdstrike
-  - SentinelOne
 products:
-  - Elastic Defend
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
-affected_os:
   - Windows
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1112
-    technique_name: Modify Registry
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1553
     technique_name: Subvert Trust Controls
 references:
-  - https://attack.mitre.org/techniques/T1112/
   - https://attack.mitre.org/techniques/T1553/
   - https://attack.mitre.org/techniques/T1553/006/
-  - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_code_signing_policy_modification_registry.toml
 rules:
-  - title: Code Signing Policy Modification Through Registry
-    description: Detects modifications to the BehaviorOnFailedVerify registry value, which can disable code signing enforcement.
+  - title: Code Signing Policy Modification Through Bcdedit
+    description: Detects attempts to modify the code signing policy using bcdedit.exe
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
     techniques:
-      - T1112
       - T1553.006
     data_sources:
-      - registry_set
+      - process_creation
       - windows
-  - title: Suspicious Process Modifying Code Signing Policy Registry
-    description: Detects non-system processes modifying the BehaviorOnFailedVerify registry value, indicative of potential policy subversion.
+  - title: Code Signing Policy Modification Through Bcdedit - Test Signing
+    description: Detects attempts to enable test signing using bcdedit.exe
     platform: sigma
     severity: medium
     tactics:
       - defense_evasion
     techniques:
-      - T1112
       - T1553.006
     data_sources:
-      - registry_set
+      - process_creation
       - windows
 rules_count: 2
 ---
 
-Attackers can modify the `BehaviorOnFailedVerify` registry key to disable code signing enforcement, allowing the execution of unsigned or self-signed code. This subverts trust controls and enables attackers to load and execute malicious drivers or other executables without proper validation. The targeted registry value controls how the system behaves when a driver's signature verification fails, and altering this value can weaken system security. This technique is a common method to bypass security measures that rely on code signing to ensure the integrity and authenticity of software. This activity has been observed across various environments where endpoint detection and response solutions are deployed. The rule identifies registry modifications that can disable DSE.
+This detection identifies attempts to disable or modify the code signing policy on Windows systems using built-in utilities. Code signing is a security feature that ensures program authenticity and integrity. By disabling code signing enforcement, threat actors can execute malicious, unsigned code, potentially leading to system compromise. The rule specifically focuses on the use of `bcdedit.exe` with arguments that disable integrity checks or enable test signing mode. This activity is often indicative of an attacker attempting to subvert trust controls to load and execute unsigned or self-signed malicious drivers or other executables. The targeted systems are Windows endpoints. This activity can be used to load malicious drivers, bypass security controls, and gain persistence on a compromised system.
 
 ## Attack Chain
 
-1.  The attacker gains initial access to the target system through methods such as phishing, exploiting vulnerabilities, or social engineering.
-2.  The attacker escalates privileges to obtain administrative rights, which are required to modify the registry.
-3.  The attacker uses a command-line tool, such as `reg.exe` or PowerShell, to modify the `BehaviorOnFailedVerify` registry value.
-4.  The registry value is changed to either "0" or "1", effectively disabling or weakening code signing enforcement.
-5.  The attacker loads an unsigned or self-signed malicious driver or executable.
-6.  The malicious code executes without proper validation, allowing the attacker to perform malicious activities on the system.
-7.  The attacker may then establish persistence, move laterally within the network, or exfiltrate sensitive data.
-8.  The final objective could be data theft, ransomware deployment, or establishing a long-term foothold within the compromised environment.
+1.  The attacker gains initial access to the target system through an unknown method.
+2.  The attacker executes `bcdedit.exe` with arguments to disable Driver Signature Enforcement (DSE). Examples of such arguments include `/set testsigning on`, `/set nointegritychecks on`, or `/set loadoptions DISABLE_INTEGRITY_CHECKS`.
+3.  `bcdedit.exe` modifies the Boot Configuration Data (BCD) store to allow unsigned drivers or code to load.
+4.  The attacker installs a malicious, unsigned driver.
+5.  The system loads the malicious driver due to the modified BCD settings.
+6.  The malicious driver executes with elevated privileges.
+7.  The attacker leverages the malicious driver to perform further malicious activities, such as injecting code into processes or establishing persistence.
+8.  The attacker achieves their final objective, such as data theft, system compromise, or establishing a persistent backdoor.
 
 ## Impact
 
-Successful modification of the code signing policy can lead to the execution of arbitrary code without proper validation, potentially compromising the entire system. Attackers can use this technique to install rootkits, bypass security software, and perform other malicious activities. Depending on the attacker's objectives, this can result in data theft, system instability, or complete system compromise. While no specific victim count or sector is mentioned, any Windows system where code signing is relied upon for security is potentially at risk.
+Successful modification of the code signing policy allows attackers to load and execute unsigned or self-signed malicious code. This can lead to complete system compromise, as malicious drivers can operate at the kernel level. The number of victims and sectors targeted is unknown. However, the impact of successful code signing policy modification is high due to the potential for privileged access and persistence.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Code Signing Policy Modification Through Registry` to your SIEM to detect suspicious registry modifications (rule.name). Tune the rule to exclude legitimate software installers or system administration tools that may temporarily modify these settings.
-*   Monitor registry events, specifically changes to the `BehaviorOnFailedVerify` value, to identify potential attempts to disable code signing policy (event.type, registry.value, registry.data.strings).
-*   Investigate any alerts generated by the detection rule, focusing on the process execution chain and the legitimacy of the user account performing the action (rule.note).
-*   Enable Sysmon registry event logging to gain better visibility into registry modifications (setup).
-*   Ensure that Driver Signature Enforcement (DSE) is enabled on all systems to prevent the loading of unsigned drivers (rule.description).
-*   Deploy the Sigma rule `Suspicious Process Modifying Code Signing Policy Registry` to identify potentially malicious processes attempting to disable code signing (rule.name).
+*   Deploy the Sigma rule "Code Signing Policy Modification Through Bcdedit" to your SIEM to detect malicious use of `bcdedit.exe`.
+*   Enable Sysmon process creation logging to activate the rule above.
+*   Investigate any instances of `bcdedit.exe` being used with arguments related to testsigning, nointegritychecks, or loadoptions as defined in the Sigma rule.
+*   Regularly audit and monitor driver loading events on endpoints.
+*   Enforce strict code signing policies through Group Policy.
