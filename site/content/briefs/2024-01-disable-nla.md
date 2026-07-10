@@ -1,8 +1,8 @@
 ---
 title: Network-Level Authentication (NLA) Disabled via Registry Modification
 slug: 2024-01-disable-nla
-description: Adversaries may disable Network-Level Authentication (NLA) by modifying specific registry keys to bypass authentication requirements for Remote Desktop Protocol (RDP) and enable persistence mechanisms.
-date: "2024-01-31T12:00:00Z"
+description: Detection of attempts to disable Network-Level Authentication (NLA) by modifying the registry on Windows systems, potentially enabling persistence methods and unauthorized access.
+date: "2024-01-25T18:23:00Z"
 type: advisory
 types:
   - advisory
@@ -11,20 +11,11 @@ severities:
 tags:
   - defense-evasion
   - lateral-movement
-  - registry-modification
   - windows
+  - registry-modification
 vendors:
   - Microsoft
-  - Elastic
-  - Crowdstrike
-  - SentinelOne
 products:
-  - Microsoft Defender XDR
-  - Elastic Defend
-  - Elastic Endgame
-  - SentinelOne Cloud Funnel
-  - Sysmon
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0005
@@ -35,11 +26,22 @@ mitre_ttps:
     tactic_name: Lateral Movement
     technique_id: T1021
     technique_name: Remote Services
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1112
+    technique_name: Modify Registry
 references:
   - https://www.microsoft.com/en-us/security/blog/2023/08/24/flax-typhoon-using-legitimate-software-to-quietly-access-taiwanese-organizations/
+  - https://attack.mitre.org/techniques/T1112/
+  - https://attack.mitre.org/techniques/T1562/
+  - https://attack.mitre.org/techniques/T1562/010/
+  - https://attack.mitre.org/techniques/T1021/
+  - https://attack.mitre.org/techniques/T1021/001/
+  - https://attack.mitre.org/tactics/TA0005/
+  - https://attack.mitre.org/tactics/TA0008/
 rules:
-  - title: Detect NLA Disabled via Registry Modification
-    description: Detects attempts to disable Network-Level Authentication by modifying the UserAuthentication registry value.
+  - title: Detect NLA Disabled via Registry
+    description: Detects when Network-Level Authentication (NLA) is disabled via registry modification by setting UserAuthentication to 0
     platform: sigma
     severity: medium
     tactics:
@@ -51,8 +53,8 @@ rules:
     data_sources:
       - registry_set
       - windows
-  - title: Detect NLA Disabled via Registry Modification - Sysmon
-    description: Detects attempts to disable Network-Level Authentication by modifying the UserAuthentication registry value using Sysmon.
+  - title: Detect NLA Disabled via Registry (Alternate Path)
+    description: Detects when Network-Level Authentication (NLA) is disabled via registry modification in an alternate registry path.
     platform: sigma
     severity: medium
     tactics:
@@ -67,26 +69,26 @@ rules:
 rules_count: 2
 ---
 
-Network Level Authentication (NLA) is a security feature in Windows that requires users to authenticate before establishing a full RDP session, adding an extra layer of protection against unauthorized access. Attackers might attempt to disable NLA to gain access to the Windows sign-in screen without proper authentication. This tactic can facilitate the deployment of persistence mechanisms, such as leveraging Accessibility Features like Sticky Keys, or enable unauthorized remote access. This brief addresses the registry modifications associated with disabling NLA and provides detection strategies to identify such attempts. The references indicate that this technique is used in conjunction with other attacks for lateral movement within a compromised network.
+This threat brief focuses on the detection of unauthorized attempts to disable Network-Level Authentication (NLA) on Windows systems. NLA is a security feature that requires users to authenticate before a Remote Desktop Protocol (RDP) session is fully established, adding a layer of protection against unauthorized access. Attackers might disable NLA to bypass this authentication requirement, enabling various persistence mechanisms, particularly those leveraging Accessibility Features like Sticky Keys, which can grant access to the system without valid credentials. This activity is often associated with lateral movement and defense evasion tactics. The rule identifies registry modifications to the `UserAuthentication` value within specific registry paths related to RDP configuration. Disabling NLA makes the system more vulnerable to unauthorized access and potential compromise.
 
 ## Attack Chain
 
-1. Initial access to the system is gained (potentially via compromised credentials or vulnerability exploitation).
-2. The attacker elevates privileges to modify system-level settings.
-3. The attacker modifies the registry key `HKLM\SYSTEM\ControlSet*\Control\Terminal Server\WinStations\RDP-Tcp\UserAuthentication` to disable NLA.
-4. The `UserAuthentication` value is set to "0" or "0x00000000".
-5. The attacker attempts to establish an RDP connection to the compromised system.
-6. Due to the disabled NLA, the attacker bypasses the initial authentication screen.
-7. The attacker leverages accessibility features (e.g., Sticky Keys) for persistence or further exploitation.
-8. The attacker gains unauthorized access to the system.
+1.  Initial access to the target system through compromised credentials or an existing vulnerability (not covered in source).
+2.  The attacker gains a foothold and establishes a command-and-control (C2) channel (not covered in source).
+3.  The attacker attempts to disable Network-Level Authentication (NLA) by modifying the `UserAuthentication` registry value.
+4.  The registry key `HKLM\SYSTEM\ControlSet*\Control\Terminal Server\WinStations\RDP-Tcp\UserAuthentication` or similar is targeted.
+5.  The `UserAuthentication` value is changed to "0" or "0x00000000" to disable NLA.
+6.  The attacker leverages the disabled NLA to enable persistence mechanisms, such as utilizing Accessibility Features like Sticky Keys.
+7.  The attacker gains unauthorized access to the Windows sign-in screen without proper authentication.
+8.  The attacker achieves persistence and maintains unauthorized access to the compromised system.
 
 ## Impact
 
-Successful disabling of NLA allows attackers to bypass authentication and gain unauthorized access to systems via RDP. This can lead to data theft, malware installation, or further lateral movement within the network. While the exact number of victims and sectors targeted are unspecified, the potential impact includes significant data breaches and system compromise.
+Disabling NLA significantly weakens the security posture of Windows systems, making them more susceptible to unauthorized access and lateral movement. Successful exploitation can lead to credential theft, data exfiltration, and the deployment of ransomware. While the number of affected systems and sectors are not specified, the impact is widespread as it affects any Windows system with RDP enabled.
 
 ## Recommendation
 
-*   Enable Sysmon process-creation and registry event logging to detect the registry modifications (Elastic Defend, Elastic Endgame, Microsoft Defender XDR, SentinelOne, Sysmon).
-*   Deploy the Sigma rule provided to detect attempts to modify the `UserAuthentication` registry key (Sysmon Registry Events).
-*   Review and harden RDP configurations across the environment to prevent unauthorized access (Microsoft documentation).
-*   Monitor endpoint security policies to detect unauthorized registry modifications (Endpoint Security Policies).
+*   Deploy the Sigma rule "Detect NLA Disabled via Registry" to your SIEM and tune for your environment to detect the modification of the `UserAuthentication` registry value (see rule below).
+*   Monitor registry modification events related to RDP configuration using Sysmon or other endpoint detection and response (EDR) solutions to detect potential NLA disabling attempts.
+*   Review and update endpoint security policies to ensure that registry changes related to NLA are monitored and alerts are generated for any unauthorized modifications, as described in the overview section.
+*   Investigate any alerts generated by the Sigma rules, focusing on identifying the user account and process responsible for the registry modification, as outlined in the triage steps.
