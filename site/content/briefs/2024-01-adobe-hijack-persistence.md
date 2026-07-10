@@ -1,51 +1,53 @@
 ---
-title: Adobe RdrCEF.exe Hijack for Persistence
+title: Adobe Acrobat Reader Hijack for Persistence
 slug: 2024-01-adobe-hijack-persistence
-description: Attackers can maintain persistence by replacing the legitimate RdrCEF.exe executable with a malicious one, which is executed every time Adobe Acrobat Reader is launched.
-date: "2024-01-03T10:00:00Z"
+description: Attackers can maintain persistence by replacing the legitimate RdrCEF.exe file, used by Adobe Acrobat Reader, with a malicious executable that will be launched upon execution of Adobe Acrobat Reader.
+date: "2024-01-02T18:22:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - low
 tags:
   - persistence
   - adobe
-  - file_creation
-  - hijack_execution_flow
+  - file-replacement
 vendors:
   - Adobe
 products:
-  - Acrobat Reader DC
-affected_os:
-  - Windows
+  - Adobe Acrobat Reader
 mitre_ttps:
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1574
-    technique_name: Hijack Execution Flow
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1554
     technique_name: Compromise Host Software Binary
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1574
+    technique_name: Hijack Execution Flow
 references:
   - https://twitter.com/pabraeken/status/997997818362155008
+  - https://attack.mitre.org/techniques/T1554/
+  - https://attack.mitre.org/techniques/T1574/
+  - https://attack.mitre.org/techniques/T1574/010/
 rules:
-  - title: Detect Adobe RdrCEF.exe File Creation
-    description: Detects the creation of RdrCEF.exe in the Adobe Acrobat Reader directory, indicating a potential hijack for persistence.
+  - title: Adobe Acrobat Reader Hijack for Persistence
+    description: Detects the creation of RdrCEF.exe in the Adobe Acrobat Reader directory, which could indicate a hijack for persistence.
     platform: sigma
     severity: medium
     tactics:
       - persistence
     techniques:
+      - T1554
       - T1574
+      - T1574.010
     data_sources:
       - file_event
       - windows
-  - title: Detect Suspicious Process Launch from RdrCEF.exe Location
-    description: Detects processes being launched from the RdrCEF.exe location, which can indicate a hijacked executable.
+  - title: Suspicious Process Creation from RdrCEF.exe
+    description: Detects suspicious process creations originating from the RdrCEF.exe process, indicative of a hijacked executable.
     platform: sigma
-    severity: medium
+    severity: low
     tactics:
       - execution
       - persistence
@@ -57,25 +59,26 @@ rules:
 rules_count: 2
 ---
 
-This detection identifies a persistence technique where attackers replace Adobe Acrobat Reader's `RdrCEF.exe` with a malicious executable. This allows the attacker to gain persistence, as their malicious file will be executed every time the user launches Adobe Acrobat Reader DC. The rule focuses on detecting the file creation event of a file named `RdrCEF.exe` in the Adobe Acrobat Reader directory. The targeted versions are those using the `RdrCEF.exe` file located within the `AcroCEF` subdirectory. The purpose of this technique is to maintain unauthorized access to a compromised system. This technique was publicly discussed on Twitter as early as 2018.
+This threat focuses on the potential hijacking of Adobe Acrobat Reader by replacing its `RdrCEF.exe` executable with a malicious file. This technique allows attackers to establish persistence on a compromised system. When a user launches Adobe Acrobat Reader, the replaced `RdrCEF.exe` is executed, granting the attacker continued access. This is a potential persistence mechanism which could allow for the deployment of malware, exfiltration of data, or further compromise of the system. The original detection rule was created in February 2020 and has been updated multiple times with the last update on April 7, 2026.
 
 ## Attack Chain
 
-1.  Initial access is gained through an existing compromise or vulnerability.
-2.  The attacker locates the `RdrCEF.exe` file within the Adobe Acrobat Reader installation directory (e.g., `C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroCEF\`).
-3.  The legitimate `RdrCEF.exe` file is either deleted or renamed.
-4.  A malicious executable is created or copied and renamed to `RdrCEF.exe` in the same directory.
-5.  The system is used as normal, and whenever Adobe Acrobat Reader DC is launched, the malicious `RdrCEF.exe` is executed.
-6.  The malicious executable performs its intended actions, such as establishing a reverse shell, injecting code into other processes, or exfiltrating data.
-7.  The attacker maintains persistent access to the compromised system.
+1.  The attacker gains initial access to the system, potentially through exploiting a vulnerability or social engineering.
+2.  The attacker identifies the location of the `RdrCEF.exe` file within the Adobe Acrobat Reader installation directory (e.g., `C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroCEF\RdrCEF.exe`).
+3.  The attacker replaces the legitimate `RdrCEF.exe` file with a malicious executable. This could involve renaming the original file and placing the malicious file in its place, or overwriting the original file directly.
+4.  The attacker ensures the malicious executable has the same name as the original `RdrCEF.exe` file.
+5.  A user launches Adobe Acrobat Reader.
+6.  The operating system executes the `RdrCEF.exe` file as part of Adobe Acrobat Reader's startup process.
+7.  Because the file has been replaced with a malicious executable, the attacker's code is executed.
+8.  The attacker maintains persistent access to the system and can perform further actions such as deploying malware or exfiltrating data.
 
 ## Impact
 
-A successful attack allows the attacker to maintain persistent access to the compromised system. The attacker can then perform various malicious activities, such as stealing sensitive data, installing additional malware, or using the system as a foothold for lateral movement within the network. The compromise affects any user who launches Adobe Acrobat Reader on the infected machine.
+Successful exploitation of this technique allows attackers to maintain persistence on compromised systems. This can lead to the deployment of ransomware, exfiltration of sensitive data, or further exploitation of the system. The severity is low, but impact can be high, if the adversary uses this technique to gain further access to the compromised system.
 
 ## Recommendation
 
-*   Enable Sysmon file creation logging (Event ID 11) to detect the creation of `RdrCEF.exe` in the specified Adobe Acrobat Reader directories to enable the rule "Deprecated - Adobe Hijack Persistence" (Data Source: Sysmon).
-*   Deploy the Sigma rule "Detect Adobe RdrCEF.exe File Creation" to your SIEM and tune for your environment.
-*   Investigate any alerts generated by the provided Sigma rule, focusing on identifying the origin and purpose of the created `RdrCEF.exe` file.
-*   Monitor for unusual process execution originating from the `RdrCEF.exe` file location.
+*   Deploy the Sigma rule "Adobe Acrobat Reader Hijack for Persistence" to your SIEM to detect the replacement of the RdrCEF.exe file.
+*   Monitor file creation events in the Adobe Acrobat Reader installation directories for suspicious executables using Sysmon or another EDR solution.
+*   Regularly audit file integrity within the Adobe Acrobat Reader installation directory to identify unauthorized modifications.
+*   Investigate any alerts generated by the Sigma rules or other detection mechanisms to determine if a system has been compromised.
