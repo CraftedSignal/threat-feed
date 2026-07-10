@@ -1,8 +1,8 @@
 ---
-title: Detecting Rare SMB Connections for Potential NTLM Credential Theft
+title: Rare SMB Connection to the Internet
 slug: 2024-01-rare-smb-exfiltration
-description: This brief details a detection strategy for rare SMB connections originating from internal networks to the internet, potentially indicating NTLM credential theft via rogue UNC path injection.
-date: "2024-01-25T12:00:00Z"
+description: This rule detects rare network connections via the SMB protocol to external networks, where SMB is commonly abused to exfiltrate data or leak NTLM credentials via UNC path injection.
+date: "2024-01-24T12:00:00Z"
 type: advisory
 types:
   - advisory
@@ -13,16 +13,9 @@ tags:
   - credential-access
   - windows
   - smb
-  - ntlm
 vendors:
   - Microsoft
-  - Elastic
-  - SentinelOne
 products:
-  - Elastic Defend
-  - Microsoft Defender XDR
-  - SentinelOne Cloud Funnel
-affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0010
@@ -35,13 +28,9 @@ mitre_ttps:
     technique_name: Forced Authentication
 references:
   - https://www.securify.nl/en/blog/living-off-the-land-stealing-netntlm-hashes/
-  - https://attack.mitre.org/techniques/T1048/
-  - https://attack.mitre.org/tactics/TA0010/
-  - https://attack.mitre.org/techniques/T1187/
-  - https://attack.mitre.org/tactics/TA0006/
 rules:
-  - title: Detect SMB Connection to External IP
-    description: Detects SMB connections (ports 139 or 445) originating from internal IP ranges to external IP addresses, excluding known internal and reserved IP ranges. This may indicate NTLM relay attempts.
+  - title: Detect Outbound SMB Connection from Windows System Process
+    description: Detects SMB connections initiated by the Windows System process (PID 4) to external IP addresses, indicating potential NTLM relay or data exfiltration attempts.
     platform: sigma
     severity: medium
     tactics:
@@ -53,40 +42,42 @@ rules:
     data_sources:
       - network_connection
       - windows
-  - title: Detect SMB Process ID 4 Connections to External IP
-    description: Detects SMB connections (ports 139 or 445) originating from internal IP ranges to external IP addresses where process ID is 4. This is to monitor for forced authentication attempts.
+  - title: Detect SMB Connection to Uncommon External Destination Port
+    description: Detects SMB connections (ports 139 or 445) initiated from internal networks destined for non-standard external ports, potentially indicating tunneling or evasion techniques.
     platform: sigma
-    severity: high
+    severity: low
     tactics:
-      - credential_access
+      - command_and_control
       - exfiltration
     techniques:
       - T1048
-      - T1187
+      - T1071.001
     data_sources:
       - network_connection
       - windows
 rules_count: 2
 ---
 
-This detection strategy focuses on identifying unusual Server Message Block (SMB) traffic that originates from internal IP addresses and connects to external networks. The SMB protocol, commonly used for file and printer sharing within a network, can be exploited to exfiltrate data by injecting rogue UNC paths to capture NTLM credentials. This activity is often associated with threat actors attempting to steal credentials for lateral movement or data exfiltration. Defenders should be aware of this technique as it allows adversaries to bypass traditional security controls by leveraging a legitimate protocol for malicious purposes. This detection is relevant for environments utilizing Windows operating systems and SMB for internal network communications. The goal is to identify and alert on SMB connections to external IPs, excluding known safe ranges and legitimate business applications.
+This detection identifies potentially malicious Server Message Block (SMB) traffic originating from internal networks and directed towards external IP addresses. The rule focuses on detecting unusual SMB communication patterns, particularly those initiated by the Windows System process (PID 4) on ports 139 and 445. Threat actors can abuse SMB to exfiltrate data or capture NTLM credentials through rogue UNC path injection. The rule aims to detect this activity by monitoring SMB traffic and filtering out connections to known internal IP ranges, highlighting potentially malicious SMB connections to external networks. The rule was last updated on 2026/04/07.
 
 ## Attack Chain
 
-1. An attacker compromises an internal system via phishing or other means (not detailed in source).
-2. The attacker injects a rogue UNC path into a document, email, or other medium.
-3. A user opens the malicious document or clicks the injected link, triggering an SMB connection to a malicious external server.
-4. The SMB connection attempts to authenticate with the user's NTLM credentials.
-5. The attacker captures the NTLM hash from the authentication attempt.
-6. The attacker attempts to crack the NTLM hash to obtain the user's password.
-7. Using the cracked password, the attacker gains unauthorized access to other systems and resources on the network.
+1.  The attacker compromises a Windows host within the internal network.
+2.  The attacker uses a rogue UNC path to inject a malicious SMB path.
+3.  The compromised host attempts to connect to an external IP address over SMB (ports 139 or 445), initiated by PID 4.
+4.  The SMB connection attempts to authenticate with the external server.
+5.  The attacker captures NTLM credentials if the external server is under their control.
+6.  Alternatively, the attacker may attempt to exfiltrate data via the SMB connection.
+7.  The destination IP, normally not a target for SMB traffic, receives the connection attempt.
 
 ## Impact
 
-Successful exploitation can lead to credential theft, allowing attackers to gain unauthorized access to sensitive data and systems within the organization. This can result in data breaches, financial losses, and reputational damage. The impact is significant because SMB is a common protocol within many Windows environments, making this technique highly effective if not properly monitored.
+Successful exploitation could lead to credential compromise through NTLM hash capture, potentially granting the attacker access to other systems within the network. Data exfiltration can result in the loss of sensitive information. The scope of impact depends on the permissions of the compromised account and the sensitivity of the exfiltrated data. The risk score of the original rule is 47.
 
 ## Recommendation
 
-*   Deploy the Sigma rule "Detect SMB Connection to External IP" to your SIEM to identify potentially malicious SMB connections to the internet. Tune the rule by excluding known good external IPs used by legitimate services.
-*   Enable Sysmon Event ID 3 (Network Connection) with proper filtering to capture SMB traffic details as recommended in the linked setup guide, to enhance the fidelity of the detection.
-*   Implement network segmentation to restrict SMB traffic to only necessary internal communications, reducing the attack surface and mitigating the risk of external exposure.
+*   Deploy the Sigma rules in this brief to your SIEM and tune for your environment to detect potential SMB exfiltration attempts.
+*   Investigate any alerts generated by the Sigma rules, focusing on the source host and destination IP addresses.
+*   Implement network segmentation to limit SMB traffic to only necessary internal communications, reducing the risk of external exposure, as described in the overview.
+*   Enhance monitoring and logging for SMB traffic, particularly for connections to external IPs, to detect and respond to future anomalies more effectively.
+*   Examine process with PID 4 for unusual activity on source host, as described in the Triage and Analysis section of the original rule.
