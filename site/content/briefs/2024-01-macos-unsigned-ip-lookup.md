@@ -14,6 +14,10 @@ tags:
   - dns
   - reconnaissance
   - unsigned_binary
+vendors:
+  - Apple
+products:
+  - macOS
 affected_os:
   - macos
 mitre_ttps:
