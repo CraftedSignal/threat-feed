@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-11T07:34:52Z"
+lastmod: "2026-07-11T20:57:49Z"
 type: advisory
 types:
   - advisory
@@ -11,7 +11,6 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
-  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -103,21 +102,21 @@ affected_os:
   - Windows Server
   - Windows 10 22H2
 cves:
-  - id: CVE-2026-58292
-    cvss: 7.5
-    epss: 0.00279
-  - id: CVE-2026-57987
-    cvss: 6.5
-    epss: 0.00617
-  - id: CVE-2026-58282
+  - id: CVE-2026-58283
     cvss: 8.1
-    epss: 0.00312
-  - id: CVE-2026-58522
-    cvss: 6.8
-    epss: 0.00323
-  - id: CVE-2026-57974
-    cvss: 8.8
-    epss: 0.00556
+    epss: 0.00329
+  - id: CVE-2026-57986
+    cvss: 7.5
+    epss: 0.00429
+  - id: CVE-2026-57991
+    cvss: 7.4
+    epss: 0.00745
+  - id: CVE-2026-58284
+    cvss: 8.3
+    epss: 0.00405
+  - id: CVE-2026-58295
+    cvss: 8.3
+    epss: 0.00372
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -214,6 +213,7 @@ references:
   - https://hackread.com/microsoft-gigawiper-backdoor-destroy-windows-pcs/
   - https://www.securityweek.com/okta-warns-of-vishing-attacks-targeting-microsoft-365-customers/
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59925
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58281
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -344,13 +344,6 @@ ioc_counts:
   url: 26
   user_agent: 3
 updates:
-  - at: "2026-07-09T20:24:02Z"
-    level: L2
-    summary: added CVE-2026-58282 +1
-    sources:
-      - huntress
-    source_urls:
-      - https://www.huntress.com/blog/conditional-access-misconfigurations
   - at: "2026-07-09T20:30:24Z"
     level: L2
     summary: added CVE-2026-57981
@@ -379,6 +372,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59925
+  - at: "2026-07-11T20:57:49Z"
+    level: L2
+    summary: added CVE-2026-57986 +4
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58281
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
