@@ -3,6 +3,7 @@ title: NATS Server Authorization Bypass Vulnerability (CVE-2026-58252)
 slug: 2026-07-nats-server-authz-bypass
 description: CVE-2026-58252 identifies an authorization bypass vulnerability in NATS Server, described as a 'Subscribe Authz Bypass via Wildcard-Overlap', which allows unauthorized access or actions by exploiting how wildcard subscriptions are handled.
 date: "2026-07-11T07:37:18Z"
+lastmod: "2026-07-11T07:38:25Z"
 type: threat
 types:
   - threat
@@ -15,16 +16,41 @@ tags:
   - nats
   - server
   - vulnerability
+  - mqtt
+  - information-disclosure
+  - filter-bypass
 vendors:
   - NATS
 products:
   - NATS Server
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: A vulnerability, CVE-2026-58209, exists in NATS Server related to its MQTT functionality. This flaw allows an attacker to bypass subscribe deny filters when using MQTT retained messages and Quality of Service (QoS) replay, potentially leading to unauthorized access to messages.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1568
+    technique_name: Application Data from Cloud Storage
+    evidence: potentially leading to unauthorized access to messages.
+    confidence_band: med
 cves:
   - id: CVE-2026-58252
     cvss: 6.5
     epss: 0.00465
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58252
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58209
+updates:
+  - at: "2026-07-11T07:38:25Z"
+    level: L1
+    summary: 'merged source coverage: NATS Server MQTT Vulnerability Allows Subscribe Deny Filter Bypass (CVE-2026-58209)'
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58209
 ---
 
 Information published by the Microsoft Security Response Center (MSRC) on July 11, 2026, details CVE-2026-58252, an authorization bypass vulnerability affecting NATS Server. This critical flaw, labeled as a "Subscribe Authz Bypass via Wildcard-Overlap," allows an attacker to circumvent established security controls by exploiting how the server processes wildcard subscriptions. Specifically, a malicious actor could craft a subscription request that, due to an oversight in the wildcard matching logic, grants them unauthorized access to message streams they should not be privileged to view. This vulnerability could enable attackers to intercept sensitive data or gain insights into system operations, depending on the information transmitted over the NATS network. No specific campaigns or evidence of active exploitation are provided in the available MSRC bulletin.
