@@ -3,11 +3,15 @@ title: 'CVE-2026-15282: WordPress Instant Appointment Plugin Arbitrary File Uplo
 slug: 2026-07-wordpress-insapp-rce
 description: An unauthenticated attacker can exploit CVE-2026-15282, an arbitrary file upload vulnerability due to missing file type validation in the `insapp_upload_image_as_attachment` function of the WordPress Instant Appointment plugin up to version 1.2, to upload malicious files and achieve remote code execution on the affected server.
 date: "2026-07-10T05:17:48Z"
+lastmod: "2026-07-11T11:01:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=68735ADF-6936-5214-B6B6-0391E83FB363&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - plugin
@@ -36,12 +40,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-15282
     cvss: 9.8
+    epss: 0.00744
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15282
   - https://www.wordfence.com/threat-intel/vulnerabilities/id/097b1530-64fa-45b2-85f3-c6a2311405b5?source=cve
   - https://plugins.trac.wordpress.org/browser/instant-appointment/trunk/includes/ajax/ajax_services.php#L3
   - https://plugins.trac.wordpress.org/browser/instant-appointment/trunk/includes/front-end/ajax/login_ajax.php#L584
   - https://plugins.trac.wordpress.org/browser/instant-appointment/trunk/includes/front-end/ajax/login_ajax.php#L598
+  - https://sploitus.com/exploit?id=68735ADF-6936-5214-B6B6-0391E83FB363&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect WordPress Web Shell Access in Uploads Directory (CVE-2026-15282 Post-Exploitation)
     description: Detects attempts to execute PHP files within the WordPress uploads directory, often indicative of a successfully exploited arbitrary file upload vulnerability such as CVE-2026-15282 leading to web shell placement and execution.
@@ -54,6 +60,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-11T11:01:00Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=68735ADF-6936-5214-B6B6-0391E83FB363&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-15282 identifies a critical arbitrary file upload vulnerability within the Instant Appointment plugin for WordPress, impacting all versions up to and including 1.2. The flaw stems from insufficient file type validation in the `insapp_upload_image_as_attachment` function. This oversight allows unauthenticated attackers to upload arbitrary files, including malicious scripts such as web shells, directly onto the affected web server. The consequence is severe, enabling remote code execution (RCE) and potentially complete compromise of the WordPress site and its underlying server. This vulnerability, if exploited, grants attackers full control, impacting data integrity, confidentiality, and availability. Organizations using this plugin should prioritize immediate patching or mitigation to prevent exploitation.
