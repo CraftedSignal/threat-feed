@@ -3,7 +3,7 @@ title: 'New Abuse of the ClickOnce Technology, Part 2: Stop Threat Actors from C
 slug: 2026-07-clickonce-abuse-part2
 description: Threat actors are actively exploiting Microsoft's ClickOnce deployment technology, leveraging its low user interaction, lack of privilege requirements, and built-in update mechanisms to deliver malware, establish persistence, and maintain remote access, often executing payloads within legitimate rundll32.exe and dfsvc.exe processes.
 date: "2026-07-08T08:07:01Z"
-lastmod: "2026-07-11T08:12:28Z"
+lastmod: "2026-07-11T18:06:37Z"
 type: advisory
 types:
   - advisory
@@ -87,10 +87,19 @@ iocs:
     value: .appref-ms
   - type: file_path
     value: '%Users\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\'
+  - type: file_name
+    value: '*.application'
+  - type: file_name
+    value: '*.appref-ms'
+  - type: process_name
+    value: rundll32.exe
+  - type: process_name
+    value: dfsvc.exe
 ioc_counts:
   file_extension: 2
-  file_name: 2
+  file_name: 4
   file_path: 1
+  process_name: 2
 rules:
   - title: Detect ClickOnce .appref-ms Persistence
     description: Detects the creation or modification of .appref-ms files in common auto-run or Start Menu locations, indicating potential ClickOnce persistence.
@@ -116,13 +125,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-07-10T02:13:48Z"
-    level: L1
-    summary: new product
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-two/
   - at: "2026-07-10T06:11:50Z"
     level: L1
     summary: new IOCs
@@ -145,6 +147,13 @@ updates:
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-two/
   - at: "2026-07-11T08:12:28Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-two/
+  - at: "2026-07-11T18:06:37Z"
     level: L1
     summary: new IOCs
     sources:
