@@ -3,7 +3,7 @@ title: ClamAV Vulnerabilities Lead to Denial of Service in Cisco Secure Endpoint
 slug: 2026-07-clamav-cisco-dos
 description: Multiple vulnerabilities (CVE-2026-20213, CVE-2026-20214, CVE-2026-20215, CVE-2026-20216, CVE-2026-20217, CVE-2026-20243, CVE-2026-20244) in ClamAV, as integrated into Cisco Secure Endpoint Connector, allow a remote attacker to cause a denial of service (DoS) condition by interrupting scanning operations, with a High severity impact on Windows platforms and Medium on Linux/Mac.
 date: "2026-07-01T16:03:29Z"
-lastmod: "2026-07-11T07:32:55Z"
+lastmod: "2026-07-11T07:33:03Z"
 type: advisory
 types:
   - advisory
@@ -55,10 +55,17 @@ cves:
   - id: CVE-2026-20216
     cvss: 7.5
     epss: 0.00389
+  - id: CVE-2026-20217
+    cvss: 7.5
+    epss: 0.00389
+  - id: CVE-2026-20243
+    cvss: 7.5
+    epss: 0.00389
 references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-88cFYyxR?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=ClamAV%20Vulnerabilities%20Affecting%20Cisco%20Products:%20July%202026%26vs_k=1
   - https://blog.clamav.net/2026/07/clamav-153-and-145-security-patch.html
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20217
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20244
 updates:
   - at: "2026-07-11T07:32:55Z"
     level: L2
@@ -67,6 +74,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20217
+  - at: "2026-07-11T07:33:03Z"
+    level: L2
+    summary: added CVE-2026-20217 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20244
 ---
 
 Cisco has disclosed multiple vulnerabilities within the ClamAV antivirus engine, specifically affecting Cisco Secure Endpoint Connector products. These vulnerabilities, identified collectively with several CVEs including CVE-2026-20213 through CVE-2026-20244, could allow a remote attacker to trigger a denial of service (DoS) condition. This DoS state would interrupt essential ClamAV scanning operations on affected endpoints. The severity rating is High for Windows-based platforms because the ClamAV scanning process operates in a privileged security context on those systems, whereas Linux and Mac platforms face a Medium impact due to lower-privileged execution. Cisco released software updates on July 1, 2026, to address these issues, emphasizing that no workarounds are available, necessitating immediate patching.
