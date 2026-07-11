@@ -3,36 +3,12 @@ title: Multiple Vulnerabilities Discovered in SAP Products Including SQLi, XSS, 
 slug: 2026-06-sap-multiple-vulnerabilities
 description: Multiple high-severity vulnerabilities discovered in various SAP products, including SQL injection (SQLi), remote indirect code injection (XSS), and security policy bypasses, could allow unauthenticated attackers to compromise sensitive enterprise systems by June 2026.
 date: "2026-06-14T09:06:46Z"
+lastmod: "2026-07-11T09:01:20Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-cpes:
-  - cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:apache:log4j:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:apache:log4j:2.0:-:*:*:*:*:*:*
-  - cpe:2.3:a:apache:log4j:2.0:beta9:*:*:*:*:*:*
-  - cpe:2.3:a:apache:log4j:2.0:rc1:*:*:*:*:*:*
-  - cpe:2.3:a:apache:log4j:2.0:rc1-rc1:*:*:*:*:*:*
-  - cpe:2.3:a:apache:log4j:2.0:rc2:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:-:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone10:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone11:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone12:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone13:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone14:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone15:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone16:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone17:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone18:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone19:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone20:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone7:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone8:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.0:milestone9:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat_native:*:*:*:*:*:*:*:*
 tags:
   - sap
   - vulnerability
@@ -41,6 +17,7 @@ tags:
   - web-application
 vendors:
   - SAP
+  - Apache
 products:
   - Business Objects Business Intelligence Platform (ENTERPRISE 430)
   - Business Objects Business Intelligence Platform (2025)
@@ -121,6 +98,14 @@ products:
   - S/4HANA (S4FND 108)
   - S/4HANA (S4FND 109)
   - Wily Introscope Enterprise Manager (WILY_INTRO_ENTERPRISE 10.8)
+  - SAP NetWeaver AS ABAP and ABAP Platform
+  - SAP NetWeaver Application Server Java (Web Container)
+  - SAP Commerce Cloud
+  - SAP Data Hub version ENGINEAPI 7.50
+  - Apache Tomcat < 10.1.53
+  - Apache Tomcat < 9.0.116
+  - Apache Tomcat < 11.0.20
+  - Tomcat Native < 2.0.14
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -142,22 +127,6 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-cves:
-  - id: CVE-2026-22732
-    cvss: 9.1
-    epss: 0.00028
-  - id: CVE-2025-68161
-    cvss: 4.8
-    epss: 0.00032
-  - id: CVE-2026-27671
-    cvss: 9.8
-    epss: 0.00042
-  - id: CVE-2026-29145
-    cvss: 9.1
-    epss: 0.00028
-  - id: CVE-2026-44754
-    cvss: 6.6
-    epss: 0.00035
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0715/
   - https://support.sap.com/en/my-support/knowledge-base/security-notes-news/june-2026.html
@@ -176,6 +145,21 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-44754
   - https://www.cve.org/CVERecord?id=CVE-2026-44755
   - https://www.cve.org/CVERecord?id=CVE-2026-44757
+  - https://ccb.belgium.be/advisories/warning-sap-addresses-critical-vulnerabilities-affecting-multiple-sap-products-patch
+  - https://sploitus.com/exploit?id=80A91C97-5EB0-566A-AB8F-52BAA4DC2EC6&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=80A91C97-5EB0-566A-AB8F-52BAA4DC2EC6
+  - type: url
+    value: https://github.com/apache/tomcat/commit/fe26667cd2385045ac73f4dea086cc9971209b90
+  - type: url
+    value: https://github.com/gkdgkd123/CVE-2026-29145-Everything.git
+  - type: url
+    value: http://ocsp-responder:8888
+  - type: url
+    value: https://127.0.0.1:8443/protected-resource/
+ioc_counts:
+  url: 5
 rules:
   - title: Detects CVE-2026-22732 Exploitation — Web-based SQL Injection Attempt
     description: Detects CVE-2026-22732 exploitation - common SQL injection patterns in web request URI or query parameters targeting SAP applications.
@@ -202,6 +186,19 @@ rules:
     data_sources:
       - webserver
 rules_count: 2
+updates:
+  - at: "2026-06-14T09:46:16Z"
+    level: L2
+    summary: added CVE-2026-40128 +2
+    sources:
+      - ccb-belgium
+  - at: "2026-07-11T09:01:20Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=80A91C97-5EB0-566A-AB8F-52BAA4DC2EC6&utm_source=rss&utm_medium=rss
 ---
 
 CERT-FR has issued an advisory detailing multiple high-severity vulnerabilities discovered across numerous SAP products. These vulnerabilities, disclosed in SAP's June 2026 Security Bulletin, include critical flaws such as SQL Injection (SQLi), remote indirect code injection (Cross-Site Scripting - XSS), and security policy bypasses. These issues affect core SAP components like Business Objects, Commerce Cloud, Fiori, MDG, NetWeaver, ODP Data Replication APIs, S/4HANA, and Wily Introscope Enterprise Manager. If exploited, these flaws could allow attackers to gain unauthorized access to sensitive data, bypass security controls, and potentially execute arbitrary code, leading to significant compromise of critical enterprise systems and data. Organizations utilizing these unpatched SAP products are strongly advised to apply the security updates immediately.
