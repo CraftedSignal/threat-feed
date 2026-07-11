@@ -3,7 +3,7 @@ title: NATS Server Authorization Bypass Vulnerability (CVE-2026-58252)
 slug: 2026-07-nats-server-authz-bypass
 description: CVE-2026-58252 identifies an authorization bypass vulnerability in NATS Server, described as a 'Subscribe Authz Bypass via Wildcard-Overlap', which allows unauthorized access or actions by exploiting how wildcard subscriptions are handled.
 date: "2026-07-11T07:37:18Z"
-lastmod: "2026-07-11T07:38:25Z"
+lastmod: "2026-07-11T07:43:36Z"
 type: threat
 types:
   - threat
@@ -19,6 +19,7 @@ tags:
   - mqtt
   - information-disclosure
   - filter-bypass
+  - denial-of-service
 vendors:
   - NATS
 products:
@@ -43,6 +44,7 @@ cves:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58252
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58209
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58250
 updates:
   - at: "2026-07-11T07:38:25Z"
     level: L1
@@ -51,6 +53,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58209
+  - at: "2026-07-11T07:43:36Z"
+    level: L1
+    summary: 'merged source coverage: NATS Server Pre-Authentication Denial-of-Service via Double INFO Message (CVE-2026-58250)'
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58250
 ---
 
 Information published by the Microsoft Security Response Center (MSRC) on July 11, 2026, details CVE-2026-58252, an authorization bypass vulnerability affecting NATS Server. This critical flaw, labeled as a "Subscribe Authz Bypass via Wildcard-Overlap," allows an attacker to circumvent established security controls by exploiting how the server processes wildcard subscriptions. Specifically, a malicious actor could craft a subscription request that, due to an oversight in the wildcard matching logic, grants them unauthorized access to message streams they should not be privileged to view. This vulnerability could enable attackers to intercept sensitive data or gain insights into system operations, depending on the information transmitted over the NATS network. No specific campaigns or evidence of active exploitation are provided in the available MSRC bulletin.
