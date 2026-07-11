@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-10T11:07:20Z"
+lastmod: "2026-07-11T07:34:52Z"
 type: advisory
 types:
   - advisory
@@ -94,6 +94,7 @@ products:
   - Azure Active Directory Conditional Access
   - Microsoft Azure CLI
   - OneDrive
+  - inline_parser
 affected_os:
   - Windows
   - macOS
@@ -102,21 +103,21 @@ affected_os:
   - Windows Server
   - Windows 10 22H2
 cves:
-  - id: CVE-2026-58288
-    cvss: 8.3
-    epss: 0.00438
-  - id: CVE-2026-58299
+  - id: CVE-2026-58292
     cvss: 7.5
-    epss: 0.0027
-  - id: CVE-2026-57977
-    cvss: 7.1
-    epss: 0.00397
-  - id: CVE-2026-57988
-    cvss: 7.1
-    epss: 0.00532
-  - id: CVE-2026-58287
-    cvss: 8.3
-    epss: 0.00438
+    epss: 0.00279
+  - id: CVE-2026-57987
+    cvss: 6.5
+    epss: 0.00617
+  - id: CVE-2026-58282
+    cvss: 8.1
+    epss: 0.00312
+  - id: CVE-2026-58522
+    cvss: 6.8
+    epss: 0.00323
+  - id: CVE-2026-57974
+    cvss: 8.8
+    epss: 0.00556
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -212,6 +213,7 @@ references:
   - https://www.huntress.com/blog/lshiy-password-spray-attack
   - https://hackread.com/microsoft-gigawiper-backdoor-destroy-windows-pcs/
   - https://www.securityweek.com/okta-warns-of-vishing-attacks-targeting-microsoft-365-customers/
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59925
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -342,13 +344,6 @@ ioc_counts:
   url: 26
   user_agent: 3
 updates:
-  - at: "2026-07-09T14:28:12Z"
-    level: L2
-    summary: added CVE-2026-53163 +3
-    sources:
-      - anssi
-    source_urls:
-      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0855/
   - at: "2026-07-09T20:24:02Z"
     level: L2
     summary: added CVE-2026-58282 +1
@@ -377,6 +372,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/okta-warns-of-vishing-attacks-targeting-microsoft-365-customers/
+  - at: "2026-07-11T07:34:52Z"
+    level: L2
+    summary: added CVE-2026-57974 +4
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59925
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
