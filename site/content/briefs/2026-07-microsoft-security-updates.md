@@ -3,12 +3,17 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-11T21:01:41Z"
+lastmod: "2026-07-12T07:24:24Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
+  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:erlang:erlang\/ssl:*:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -25,6 +30,7 @@ vendors:
   - Cisco
   - Trend Micro
   - LSHIY LLC
+  - Vercel
 products:
   - PowerShell
   - Windows
@@ -99,6 +105,49 @@ affected_os:
   - Android
   - Windows Server
   - Windows 10 22H2
+cves:
+  - id: CVE-2026-58525
+    cvss: 8.2
+    epss: 0.00362
+  - id: CVE-2026-57985
+    cvss: 7.6
+    epss: 0.00479
+  - id: CVE-2026-57987
+    cvss: 6.5
+    epss: 0.00617
+  - id: CVE-2026-57988
+    cvss: 7.1
+    epss: 0.00532
+  - id: CVE-2026-57993
+    cvss: 7.4
+    epss: 0.00603
+  - id: CVE-2026-58283
+    cvss: 8.1
+    epss: 0.00329
+  - id: CVE-2026-57977
+    cvss: 7.1
+    epss: 0.00397
+  - id: CVE-2026-57986
+    cvss: 7.5
+    epss: 0.00429
+  - id: CVE-2026-58298
+    cvss: 7.2
+    epss: 0.0024
+  - id: CVE-2026-58300
+    cvss: 6.2
+    epss: 0.00337
+  - id: CVE-2026-57991
+    cvss: 7.4
+    epss: 0.00745
+  - id: CVE-2026-58284
+    cvss: 8.3
+    epss: 0.00405
+  - id: CVE-2026-58295
+    cvss: 8.3
+    epss: 0.00372
+  - id: CVE-2026-55952
+    cvss: 7.5
+    epss: 0.00487
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -197,6 +246,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59925
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58281
   - https://sploitus.com/exploit?id=833581E3-D09A-5C85-BB3D-46DA43EDAF50&utm_source=rss&utm_medium=rss
+  - https://www.circl.lu/doc/misp/feed-osint/d17ccdfc-4453-4176-a88b-9e71e060d66f.json
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -316,28 +366,56 @@ iocs:
     value: https://sploitus.com/exploit?id=833581E3-D09A-5C85-BB3D-46DA43EDAF50
   - type: filename
     value: devtools-helper.vsix
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/62bcccbdb75b98a64c49f74282b0942f4661fb2a
+  - type: url
+    value: https://x.com/suyog41/status/2075572390315311333
+  - type: url
+    value: https://www.virustotal.com/gui/file/372226c831de35186e1c96ec28c9ca8ceb02d69c9fe718e21d35b2e921ccf1de/detection
+  - type: hash_sha256
+    value: 372226c831de35186e1c96ec28c9ca8ceb02d69c9fe718e21d35b2e921ccf1de
+  - type: url
+    value: https://www.virustotal.com/gui/file/5ef25d162827195f2fbdc80fd5c6d119ff41dd16f980692a8c4308465d88c554/detection
+  - type: hash_sha256
+    value: 5ef25d162827195f2fbdc80fd5c6d119ff41dd16f980692a8c4308465d88c554
+  - type: url
+    value: https://x.com/volrant136/status/2076012175685287991
+  - type: domain
+    value: download-msoffice.com
+  - type: domain
+    value: bdnavy.download-msoffice.com
+  - type: domain
+    value: cabinet-division-gov-pk.download-msoffice.com
+  - type: domain
+    value: ceh.download-msoffice.com
+  - type: domain
+    value: docx2a2e3e78e76bcc759905da3f1532a4b8c2word.download-msoffice.com
+  - type: domain
+    value: mm.download-msoffice.com
+  - type: domain
+    value: portmin.download-msoffice.com
+  - type: domain
+    value: training.docx2a2e3e78e76bcc759905da3f1532a4b8c2word.download-msoffice.com
+  - type: domain
+    value: word.download-msoffice.com
+  - type: domain
+    value: mail-bcc-gov-bd.vercel.app
 ioc_counts:
   asn: 1
-  domain: 7
+  domain: 17
   email: 2
   file-path: 2
   filename: 2
+  hash_sha256: 2
   os_version: 1
   other: 2
   pattern: 1
   platform: 1
   software: 5
   string: 5
-  url: 27
+  url: 32
   user_agent: 3
 updates:
-  - at: "2026-07-09T20:52:54Z"
-    level: L2
-    summary: added CVE-2026-58296 +1
-    sources:
-      - hackread
-    source_urls:
-      - https://hackread.com/microsoft-gigawiper-backdoor-destroy-windows-pcs/
   - at: "2026-07-10T11:07:20Z"
     level: L2
     summary: added CVE-2026-57988 +1
@@ -366,6 +444,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=833581E3-D09A-5C85-BB3D-46DA43EDAF50&utm_source=rss&utm_medium=rss
+  - at: "2026-07-12T07:24:24Z"
+    level: L2
+    summary: added CVE-2026-55952 +13
+    sources:
+      - circl-misp
+    source_urls:
+      - https://www.circl.lu/doc/misp/feed-osint/d17ccdfc-4453-4176-a88b-9e71e060d66f.json
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
