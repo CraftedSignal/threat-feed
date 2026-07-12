@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-12T13:00:53Z"
+lastmod: "2026-07-12T16:17:29Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,7 @@ cpes:
   - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
   - cpe:2.3:a:erlang:erlang\/ssl:*:*:*:*:*:*:*:*
   - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:mistune_project:mistune:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
@@ -165,6 +166,21 @@ cves:
   - id: CVE-2026-54886
     cvss: 4.3
     epss: 0.0033
+  - id: CVE-2026-58282
+    cvss: 8.1
+    epss: 0.00312
+  - id: CVE-2026-57981
+    cvss: 8.8
+    epss: 0.00556
+  - id: CVE-2026-58278
+    cvss: 5.4
+    epss: 0.00282
+  - id: CVE-2026-58289
+    cvss: 9
+    epss: 0.00438
+  - id: CVE-2026-59925
+    cvss: 7.5
+    epss: 0.00358
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -265,6 +281,7 @@ references:
   - https://sploitus.com/exploit?id=833581E3-D09A-5C85-BB3D-46DA43EDAF50&utm_source=rss&utm_medium=rss
   - https://www.circl.lu/doc/misp/feed-osint/d17ccdfc-4453-4176-a88b-9e71e060d66f.json
   - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-58596
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -436,6 +453,8 @@ iocs:
     value: evil_theme.themepack
   - type: filename
     value: Aero.msstyles_vrf_evil.dll
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58596
 ioc_counts:
   asn: 1
   domain: 17
@@ -449,16 +468,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 38
+  url: 39
   user_agent: 3
 updates:
-  - at: "2026-07-11T07:34:52Z"
-    level: L2
-    summary: added CVE-2026-57974 +4
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59925
   - at: "2026-07-11T20:57:49Z"
     level: L2
     summary: added CVE-2026-57986 +4
@@ -487,6 +499,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
+  - at: "2026-07-12T16:17:29Z"
+    level: L2
+    summary: added CVE-2026-57981 +4
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-58596
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
