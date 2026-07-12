@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-12T07:24:24Z"
+lastmod: "2026-07-12T13:00:53Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,10 @@ cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
   - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
   - cpe:2.3:a:erlang:erlang\/ssl:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -105,6 +109,7 @@ affected_os:
   - Android
   - Windows Server
   - Windows 10 22H2
+  - Windows 11
 cves:
   - id: CVE-2026-58525
     cvss: 8.2
@@ -148,6 +153,18 @@ cves:
   - id: CVE-2026-55952
     cvss: 7.5
     epss: 0.00487
+  - id: CVE-2026-58292
+    cvss: 7.5
+    epss: 0.00279
+  - id: CVE-2026-58294
+    cvss: 7.5
+    epss: 0.0034
+  - id: CVE-2026-57984
+    cvss: 7.5
+    epss: 0.00429
+  - id: CVE-2026-54886
+    cvss: 4.3
+    epss: 0.0033
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -247,6 +264,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58281
   - https://sploitus.com/exploit?id=833581E3-D09A-5C85-BB3D-46DA43EDAF50&utm_source=rss&utm_medium=rss
   - https://www.circl.lu/doc/misp/feed-osint/d17ccdfc-4453-4176-a88b-9e71e060d66f.json
+  - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -400,12 +418,30 @@ iocs:
     value: word.download-msoffice.com
   - type: domain
     value: mail-bcc-gov-bd.vercel.app
+  - type: url
+    value: https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481
+  - type: url
+    value: https://github.com/gabe-k/themebleed
+  - type: url
+    value: https://github.com/fortra/impacket/blob/master/impacket/smbserver.py
+  - type: url
+    value: https://github.com/TalAloni/SMBLibrary/blob/master/SMBLibrary/NTFileStore/Enums/NtCreateFile/ShareAccess.cs
+  - type: url
+    value: https://jnns.de/posts/cve-2023-38146-poc/
+  - type: url
+    value: https://github.com/Jnnshschl/ThemeBleedReverseShellDLL
+  - type: filename
+    value: evil_theme.theme
+  - type: filename
+    value: evil_theme.themepack
+  - type: filename
+    value: Aero.msstyles_vrf_evil.dll
 ioc_counts:
   asn: 1
   domain: 17
   email: 2
   file-path: 2
-  filename: 2
+  filename: 5
   hash_sha256: 2
   os_version: 1
   other: 2
@@ -413,16 +449,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 32
+  url: 38
   user_agent: 3
 updates:
-  - at: "2026-07-10T11:07:20Z"
-    level: L2
-    summary: added CVE-2026-57988 +1
-    sources:
-      - securityweek
-    source_urls:
-      - https://www.securityweek.com/okta-warns-of-vishing-attacks-targeting-microsoft-365-customers/
   - at: "2026-07-11T07:34:52Z"
     level: L2
     summary: added CVE-2026-57974 +4
@@ -451,6 +480,13 @@ updates:
       - circl-misp
     source_urls:
       - https://www.circl.lu/doc/misp/feed-osint/d17ccdfc-4453-4176-a88b-9e71e060d66f.json
+  - at: "2026-07-12T13:00:53Z"
+    level: L2
+    summary: poc_available; added CVE-2026-54886 +3; OS windows 11
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
