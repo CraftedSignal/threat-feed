@@ -3,6 +3,7 @@ title: 'CVE-2026-15489: SQL Injection in RafyMrX TOKO-ONLINE-ROTI login.php'
 slug: 2026-07-rafymrx-toko-online-roti-sqli
 description: A critical SQL injection vulnerability (CVE-2026-15489) exists in RafyMrX TOKO-ONLINE-ROTI, allowing remote attackers to bypass authentication and potentially exfiltrate sensitive data by manipulating the 'Username' argument in the 'proses/login.php' file, with a public exploit available.
 date: "2026-07-12T09:22:24Z"
+lastmod: "2026-07-12T10:17:59Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ tags:
   - sql-injection
   - initial-access
   - public-exploit
+  - web-exploitation
+  - cve
+  - remote-code-execution
 vendors:
   - RafyMrX
 products:
@@ -36,11 +40,18 @@ mitre_ttps:
     technique_name: Gather Victim Host Information
     evidence: The manipulation of the argument Username leads to sql injection... identify database structure... or potentially write web shells or execute OS commands
     confidence_band: med
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1213
+    technique_name: Exploitation for Information Disclosure
+    evidence: manipulation of the argument kode_produk/kd_cs results in sql injection.
+    confidence_band: high
 cves:
   - id: CVE-2026-15489
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15489
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-15490
 rules:
   - title: Detect CVE-2026-15489 Exploitation - SQL Injection via login.php Username
     description: Detects exploitation attempts against CVE-2026-15489, a SQL injection vulnerability in RafyMrX TOKO-ONLINE-ROTI's proses/login.php via the Username parameter.
@@ -54,7 +65,27 @@ rules:
       - T1588
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-15490 Exploitation - SQL Injection in TOKO-ONLINE-ROTI
+    description: Detects exploitation attempts against CVE-2026-15490, an SQL injection vulnerability in RafyMrX TOKO-ONLINE-ROTI's proses/add.php via kode_produk or kd_cs arguments.
+    platform: sigma
+    severity: high
+    tactics:
+      - impact
+      - initial_access
+    techniques:
+      - T1190
+      - T1565
+    data_sources:
+      - webserver
+rules_count: 2
+updates:
+  - at: "2026-07-12T10:17:59Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-15490 Exploitation - SQL Injection in TOKO-ONLINE-ROTI'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-15490
 ---
 
 A high-severity SQL injection vulnerability, identified as CVE-2026-15489, affects RafyMrX TOKO-ONLINE-ROTI, specifically in versions up to commit `ddfe1cd587be0a0b5135d8b6e85cce2ec3aece99`. This flaw resides within the `proses/login.php` file, where improper handling of the `Username` argument allows for arbitrary SQL command execution. Remote exploitation is possible, and a public exploit is available, increasing the risk of widespread attacks against unpatched instances. This vulnerability enables attackers to bypass authentication, access sensitive database information, and potentially gain further system compromise. The vendor was notified but has not yet provided a response or patch, leaving organizations exposed.
