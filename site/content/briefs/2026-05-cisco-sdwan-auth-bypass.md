@@ -3,11 +3,25 @@ title: Cisco Catalyst SD-WAN Controller Authentication Bypass Vulnerability
 slug: 2026-05-cisco-sdwan-auth-bypass
 description: A vulnerability in the peering authentication of Cisco Catalyst SD-WAN Controller and Manager (CVE-2026-20182) could allow a remote, unauthenticated attacker to bypass authentication and obtain administrative privileges by sending crafted requests.
 date: "2026-05-14T16:01:09Z"
+lastmod: "2026-07-12T05:01:15Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:cisco:catalyst_sd-wan_manager:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:catalyst_sd-wan_manager:20.12.7:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:sd-wan_vbond_orchestrator:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:sd-wan_vbond_orchestrator:20.12.7:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:sd-wan_vsmart_controller:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:sd-wan_vsmart_controller:20.12.7:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:catalyst_sd-wan_manager:20.12.6:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:sd-wan_vbond_orchestrator:20.12.6:*:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:sd-wan_vsmart_controller:20.12.6:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=19DF0883-7477-5954-BCA6-835BE977F67C&utm_source=rss&utm_medium=rss
 tags:
   - authentication bypass
   - privilege escalation
@@ -18,6 +32,12 @@ vendors:
 products:
   - Catalyst SD-WAN Controller
   - Catalyst SD-WAN Manager
+  - Catalyst SD-WAN
+  - Cisco Catalyst SD-WAN Controller
+  - Cisco Catalyst SD-WAN Manager
+  - Cisco Catalyst SD-WAN Validator
+  - Cisco Catalyst_Sd-Wan_Manager
+  - Cisco Catalyst SD-WAN Controller (< 20.12.6.1)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -27,9 +47,36 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public Fasing Application
+cves:
+  - id: CVE-2026-20182
+    cvss: 10
+    epss: 0.88496
+  - id: CVE-2026-20127
+    cvss: 10
+    epss: 0.57793
 references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa2-v69WY2SW
   - https://www.cisco.com/c/en/us/support/docs/routers/sd-wan/225842-remediate-catalyst-sd-wan-security.html
+  - https://blog.talosintelligence.com/sd-wan-ongoing-exploitation/
+  - https://www.cve.org/CVERecord?id=CVE-2026-20182
+  - https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-critical-sd-wan-flaw-exploited-in-zero-day-attacks/
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa-EHchtZk?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Controller%20Authentication%20Bypass%20Vulnerability%26vs_k=1
+  - https://sploitus.com/exploit?id=19DF0883-7477-5954-BCA6-835BE977F67C&utm_source=rss&utm_medium=rss
+iocs:
+  - type: ip
+    value: 1.1.1.10
+  - type: url
+    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa-EHchtZk
+  - type: ip
+    value: 0.0.0.0
+  - type: event
+    value: Unexpected SSH public key acceptance for vmanage-admin over TCP port 830 (NETCONF)
+  - type: event
+    value: Mismatches in vdaemon_peer_ssl_snapshot_info
+ioc_counts:
+  event: 2
+  ip: 2
+  url: 1
 rules:
   - title: Detect CVE-2026-20182 Exploitation Attempt - Crafted Peering Request
     description: Detects CVE-2026-20182 exploitation attempt - suspicious patterns indicative of crafted requests to bypass peering authentication in Cisco SD-WAN Controllers.
@@ -57,6 +104,34 @@ rules:
       - network_connection
       - cisco
 rules_count: 2
+updates:
+  - at: "2026-05-14T16:04:19Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - talos
+  - at: "2026-05-14T17:15:24Z"
+    level: L2
+    summary: added CVE-2026-20182
+    sources:
+      - cisa-kev
+  - at: "2026-05-14T20:12:19Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - bleepingcomputer
+  - at: "2026-06-16T17:46:06Z"
+    level: L2
+    summary: added CVE-2026-20127 +1
+    sources:
+      - cisco-psirt
+  - at: "2026-07-12T05:01:15Z"
+    level: L2
+    summary: poc_available; cisco catalyst sd-wan controller version < 20.12.6.1
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=19DF0883-7477-5954-BCA6-835BE977F67C&utm_source=rss&utm_medium=rss
 ---
 
 A critical vulnerability exists in the peering authentication mechanism of Cisco Catalyst SD-WAN Controller (formerly SD-WAN vSmart) and Cisco Catalyst SD-WAN Manager (formerly SD-WAN vManage). Disclosed in May 2026 as a follow-up to an earlier advisory in February 2026, this flaw allows an unauthenticated, remote attacker to bypass authentication and gain administrative privileges on affected systems. The vulnerability resides within the control connection handshaking process. Successful exploitation grants the attacker access to NETCONF, enabling them to manipulate network configurations within the SD-WAN fabric. This bypass is particularly concerning as it does not require valid credentials, posing a severe risk to the confidentiality, integrity, and availability of the SD-WAN infrastructure. The vulnerability is identified as CVE-2026-20182.
