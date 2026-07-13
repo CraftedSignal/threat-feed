@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-09T17:39:04Z"
+lastmod: "2026-07-13T11:44:08Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,7 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:golang:crypto:*:*:*:*:*:go:*:*
+  - cpe:2.3:a:google:chrome:*:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -69,6 +70,9 @@ products:
   - Chrome (< 150.0.7871.115)
   - Google Chrome (for Windows and macOS < 150.0.7871.115)
   - Google Chrome (for Linux < 150.0.7871.114)
+  - Google Cloud Platform (BigQuery)
+  - Google Cloud Platform (Dataform)
+  - Google Cloud Platform (Colab Enterprise)
 affected_os:
   - Windows
   - Linux
@@ -77,15 +81,19 @@ affected_os:
 cves:
   - id: CVE-2026-39830
     cvss: 9.1
-    epss: 0.00513
+    epss: 0.00533
   - id: CVE-2026-46599
     cvss: 7.5
     epss: 0.00353
   - id: CVE-2026-15109
+    cvss: 6.5
+    epss: 0.00215
   - id: CVE-2026-15110
     cvss: 8.8
+    epss: 0.00154
   - id: CVE-2026-15122
     cvss: 8.3
+    epss: 0.0019
 references:
   - https://github.com/advisories/GHSA-rm3j-f69w-wqmq
   - https://github.com/advisories/GHSA-vgwf-h737-ff37
@@ -127,6 +135,7 @@ references:
   - https://www.darkreading.com/application-security/dialogflow-cx-rogue-agent-flaw-enabled-ai-chatbot-data-theft
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0848/
   - https://cyber.gc.ca/en/alerts-advisories/google-chrome-security-advisory-av26-679
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2297
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -168,11 +177,6 @@ ioc_counts:
   file_path: 2
   url: 12
 updates:
-  - at: "2026-07-06T16:55:29Z"
-    level: L2
-    summary: google kubernetes engine version GKE; google cloud platform version GCP) Audit Logs
-    sources:
-      - elastic
   - at: "2026-07-07T15:42:30Z"
     level: L1
     summary: OS android
@@ -197,6 +201,13 @@ updates:
       - cccs
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/google-chrome-security-advisory-av26-679
+  - at: "2026-07-13T11:44:08Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2297
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
