@@ -3,17 +3,30 @@ title: Helm Plugin Path Traversal Vulnerability
 slug: 2026-04-helm-path-traversal
 description: A path traversal vulnerability in Helm versions 4.0.0 to 4.1.3 allows a malicious plugin to write files to arbitrary locations on the filesystem, leading to potential system compromise.
 date: "2026-04-11T12:00:00Z"
+lastmod: "2026-07-13T14:05:40Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:helm:helm:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=D68BDB63-B2BF-5457-8E5E-4C103FDE56D1&utm_source=rss&utm_medium=rss
 tags:
   - helm
   - path-traversal
   - vulnerability
   - plugin
   - kubernetes
+vendors:
+  - Helm
+  - Kubernetes
+products:
+  - Helm (4.0.0-4.1.3)
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -21,9 +34,32 @@ mitre_ttps:
     technique_name: Impair System
 cves:
   - id: CVE-2026-35204
-    epss: 0.00013
+    cvss: 8.6
+    epss: 0.00158
 references:
   - https://github.com/advisories/GHSA-vmx8-mqv2-9gmg
+  - https://sploitus.com/exploit?id=D68BDB63-B2BF-5457-8E5E-4C103FDE56D1&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=D68BDB63-B2BF-5457-8E5E-4C103FDE56D1&utm_source=rss&utm_medium=rss
+  - type: domain
+    value: amn.amnoffsec.workers.dev
+  - type: url
+    value: https://www.instagram.com/ixctw
+  - type: email
+    value: ayman.mahmoudoffsec@gmail.com
+  - type: url
+    value: https://nvd.nist.gov/vuln/detail/CVE-2026-35204
+  - type: url
+    value: https://github.com/helm/helm
+  - type: url
+    value: https://helm.sh/docs/topics/plugins/
+  - type: url
+    value: https://cwe.mitre.org/data/definitions/22.html
+ioc_counts:
+  domain: 1
+  email: 1
+  url: 6
 rules:
   - title: Helm Plugin Install with Path Traversal
     description: Detects Helm plugin installations where the plugin.yaml contains path traversal sequences in the version field.
@@ -48,6 +84,14 @@ rules:
       - file_event
       - linux
 rules_count: 2
+updates:
+  - at: "2026-07-13T14:05:40Z"
+    level: L2
+    summary: poc_available; OS linux
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=D68BDB63-B2BF-5457-8E5E-4C103FDE56D1&utm_source=rss&utm_medium=rss
 ---
 
 Helm, a package manager for Kubernetes charts, is vulnerable to a path traversal issue. Specifically, Helm versions 4.0.0 through 4.1.3 are affected. A maliciously crafted Helm plugin, when installed or updated, can exploit this vulnerability (CVE-2026-35204) to write the plugin's contents to arbitrary locations on the user's filesystem. This can lead to overwriting critical system files or user data, potentially compromising the system's integrity. Helm v4.1.4 resolves this vulnerability by rejecting plugins with non-SemVer versions containing path traversal patterns. Defenders should ensure Helm installations are updated to the patched version or implement workarounds to validate plugin metadata.
