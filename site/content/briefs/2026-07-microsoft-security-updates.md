@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-13T08:59:41Z"
+lastmod: "2026-07-13T13:31:20Z"
 type: advisory
 types:
   - advisory
@@ -36,6 +36,13 @@ vendors:
   - Trend Micro
   - LSHIY LLC
   - Vercel
+  - Google
+  - Canva
+  - WordPress Foundation
+  - Adobe
+  - DocuSign
+  - Dropbox
+  - MAX
 products:
   - PowerShell
   - Windows
@@ -103,6 +110,14 @@ products:
   - OneDrive
   - inline_parser
   - VS Code
+  - OWA
+  - admin.microsoft.com
+  - Google Accounts
+  - MAX messenger
+  - WordPress
+  - Microsoft Edge
+  - Google Chrome
+  - Brave
 affected_os:
   - Windows
   - macOS
@@ -189,6 +204,9 @@ cves:
   - id: CVE-2026-56645
     cvss: 8.8
     epss: 0.00556
+  - id: CVE-2026-57983
+    cvss: 8.7
+    epss: 0.00463
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -291,6 +309,7 @@ references:
   - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
   - https://nvd.nist.gov/vuln/detail/CVE-2026-58596
   - https://www.proofpoint.com/us/blog/threat-insight/oauth-client-id-spoofing-why-fake-client-ids-are-gaining-traction-stealthy
+  - https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -464,9 +483,11 @@ iocs:
     value: Aero.msstyles_vrf_evil.dll
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58596
+  - type: domain
+    value: logfriend.com
 ioc_counts:
   asn: 1
-  domain: 17
+  domain: 18
   email: 2
   file-path: 2
   filename: 5
@@ -480,13 +501,6 @@ ioc_counts:
   url: 39
   user_agent: 3
 updates:
-  - at: "2026-07-11T21:01:41Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=833581E3-D09A-5C85-BB3D-46DA43EDAF50&utm_source=rss&utm_medium=rss
   - at: "2026-07-12T07:24:24Z"
     level: L2
     summary: added CVE-2026-55952 +13
@@ -515,6 +529,13 @@ updates:
       - proofpoint
     source_urls:
       - https://www.proofpoint.com/us/blog/threat-insight/oauth-client-id-spoofing-why-fake-client-ids-are-gaining-traction-stealthy
+  - at: "2026-07-13T13:31:20Z"
+    level: L2
+    summary: added CVE-2026-57983
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
