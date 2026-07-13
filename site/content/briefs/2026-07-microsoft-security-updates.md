@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-12T16:17:29Z"
+lastmod: "2026-07-13T08:59:41Z"
 type: advisory
 types:
   - advisory
@@ -181,6 +181,14 @@ cves:
   - id: CVE-2026-59925
     cvss: 7.5
     epss: 0.00358
+  - id: CVE-2026-58297
+    cvss: 7.1
+    epss: 0.00309
+  - id: CVE-2026-58596
+    cvss: 8.3
+  - id: CVE-2026-56645
+    cvss: 8.8
+    epss: 0.00556
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -282,6 +290,7 @@ references:
   - https://www.circl.lu/doc/misp/feed-osint/d17ccdfc-4453-4176-a88b-9e71e060d66f.json
   - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
   - https://nvd.nist.gov/vuln/detail/CVE-2026-58596
+  - https://www.proofpoint.com/us/blog/threat-insight/oauth-client-id-spoofing-why-fake-client-ids-are-gaining-traction-stealthy
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -471,13 +480,6 @@ ioc_counts:
   url: 39
   user_agent: 3
 updates:
-  - at: "2026-07-11T20:57:49Z"
-    level: L2
-    summary: added CVE-2026-57986 +4
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58281
   - at: "2026-07-11T21:01:41Z"
     level: L1
     summary: new IOCs
@@ -506,6 +508,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-58596
+  - at: "2026-07-13T08:59:41Z"
+    level: L2
+    summary: added CVE-2026-56645 +2
+    sources:
+      - proofpoint
+    source_urls:
+      - https://www.proofpoint.com/us/blog/threat-insight/oauth-client-id-spoofing-why-fake-client-ids-are-gaining-traction-stealthy
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
