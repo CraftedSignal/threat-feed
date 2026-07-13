@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-13T11:44:08Z"
+lastmod: "2026-07-13T16:11:36Z"
 type: advisory
 types:
   - advisory
@@ -73,6 +73,7 @@ products:
   - Google Cloud Platform (BigQuery)
   - Google Cloud Platform (Dataform)
   - Google Cloud Platform (Colab Enterprise)
+  - Helm
 affected_os:
   - Windows
   - Linux
@@ -136,6 +137,7 @@ references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0848/
   - https://cyber.gc.ca/en/alerts-advisories/google-chrome-security-advisory-av26-679
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2297
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_rapid_secret_get_activity_against_multiple_objects.toml
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -177,11 +179,6 @@ ioc_counts:
   file_path: 2
   url: 12
 updates:
-  - at: "2026-07-07T15:42:30Z"
-    level: L1
-    summary: OS android
-    sources:
-      - cccs
   - at: "2026-07-07T20:56:10Z"
     level: L1
     summary: new product
@@ -208,6 +205,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2297
+  - at: "2026-07-13T16:11:36Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_rapid_secret_get_activity_against_multiple_objects.toml
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
