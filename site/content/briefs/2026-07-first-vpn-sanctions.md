@@ -3,6 +3,7 @@ title: US Sanctions First VPN Service and Administrator for Aiding Ransomware Gr
 slug: 2026-07-first-vpn-sanctions
 description: The U.S. Treasury Department sanctioned First VPN Service (1VPNS) and its administrator, Dmytro Rashevskyi, for facilitating ransomware attacks by providing anonymity and evasion capabilities to cybercriminals, and also sanctioned Yegeniy Vladimirovich Silayev for selling 'cryptors' that make malware harder to detect, impacting critical infrastructure.
 date: "2026-07-13T18:59:45Z"
+lastmod: "2026-07-13T23:00:12Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
 products:
   - First VPN Service
   - cryptors
+  - 1VPNS
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -34,6 +36,23 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://therecord.media/first-vpn-administrator-us-sanctions-ransomware-groups
+  - https://databreaches.net/2026/07/13/vpn-service-favored-by-ransomware-groups-is-sanctioned-by-us/?pk_campaign=feed&pk_kwd=vpn-service-favored-by-ransomware-groups-is-sanctioned-by-us
+iocs:
+  - type: company_name
+    value: First VPN Service
+  - type: alias
+    value: 1VPNS
+ioc_counts:
+  alias: 1
+  company_name: 1
+updates:
+  - at: "2026-07-13T23:00:12Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - databreaches
+    source_urls:
+      - https://databreaches.net/2026/07/13/vpn-service-favored-by-ransomware-groups-is-sanctioned-by-us/?pk_campaign=feed&pk_kwd=vpn-service-favored-by-ransomware-groups-is-sanctioned-by-us
 ---
 
 The U.S. Treasury Department sanctioned First VPN Service (1VPNS) and its Ukrainian administrator, Dmytro Rashevskyi, on July 13, 2026, for providing crucial infrastructure that enabled ransomware groups to conduct attacks against American municipalities, hospitals, schools, and businesses. 1VPNS offered services designed to obscure attackers' identities, camouflage malicious software, and bypass detection, contributing to billions of dollars in losses for U.S. critical infrastructure. Rashevskyi reportedly used fake identities to secure server infrastructure, bypassing abuse complaints. Separately, Belarusian national Yegeniy Vladimirovich Silayev was also sanctioned for developing and selling "cryptors," tools that obfuscate malware to evade security defenses. This action follows a May takedown of First VPN by European law enforcement and the FBI, underscoring efforts to disrupt the cybercrime ecosystem by targeting enablers rather than just direct attackers. First VPN has operated since 2014, marketing itself on cybercrime forums for its anonymity features, including a no-logs policy and non-cooperation with law enforcement.
