@@ -1,8 +1,8 @@
 ---
-title: OpenClaw Node Pairing Vulnerability Leads to Privilege Escalation
+title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-62194)
 slug: 2026-07-openclaw-privilege-escalation
-description: A vulnerability (fixed in OpenClaw version 2026.5.27) in OpenClaw allows a paired or reconnecting node session to confuse the approval scope state, leading to broader node authority and unintended privilege escalation within the system.
-date: "2026-07-03T12:06:06Z"
+description: CVE-2026-62194 is a high-severity privilege escalation vulnerability in OpenClaw versions prior to 2026.6.9, allowing lower-trust callers to execute or persist actions with elevated privileges through exploited plugin install commands.
+date: "2026-07-13T22:26:55Z"
 type: advisory
 types:
   - advisory
@@ -11,43 +11,52 @@ severities:
 tags:
   - privilege-escalation
   - vulnerability
-  - npm
   - openclaw
 vendors:
   - OpenClaw
 products:
-  - OpenClaw (< 2026.5.27)
+  - OpenClaw versions 2026.5.20 before 2026.6.9
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-    evidence: a paired or reconnecting node session could mutate pairing state in a way that changed the approval scope decision... could restore or present broader node authority than the operator intended.
+    evidence: OpenClaw versions 2026.5.20 before 2026.6.9 contain a privilege escalation vulnerability in plugin install commands that allows lower-trust callers to execute or persist actions beyond their intended authorization.
     confidence_band: high
+cves:
+  - id: CVE-2026-62194
+    cvss: 8.8
 references:
-  - https://github.com/advisories/GHSA-83w9-h5wv-j9xm
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62194
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-7vrr-rp4x-4g76
+  - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-plugin-install
+iocs:
+  - type: url
+    value: https://github.com/openclaw/openclaw/security/advisories/GHSA-7vrr-rp4x-4g76
+  - type: url
+    value: https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-plugin-install
+ioc_counts:
+  url: 2
 ---
 
-A critical vulnerability exists in OpenClaw, specifically affecting versions prior to `2026.5.27`. This flaw, described as "Node pairing reconnection could confuse approval scope state," permits an already paired or reconnecting node session to manipulate its pairing state, altering the approval scope decision within the OpenClaw Gateway. This could result in a node being granted significantly broader authority than intended by the authenticated operator, effectively leading to privilege escalation. The vulnerability does not negate OpenClaw's trusted-operator model but targets scenarios where lower-trust input can reach the affected path during node reconnection. Defenders must prioritize patching to version `2026.5.27` or later to mitigate this risk and prevent potential unauthorized access or elevated privileges.
+A high-severity privilege escalation vulnerability, tracked as CVE-2026-62194, affects OpenClaw versions 2026.5.20 before 2026.6.9. This flaw exists within the plugin install commands functionality, enabling lower-trust callers to execute or persist actions beyond their intended authorization. Attackers can exploit misconfigured input paths or enabled features to escalate privileges and perform unauthorized actions when the vulnerable feature is reachable. This allows an authenticated, low-privileged attacker to gain higher access rights within the OpenClaw application. Defenders should prioritize patching and closely monitor for any unusual plugin installation activities or actions originating from accounts with limited privileges within their OpenClaw deployments.
 
 ## Attack Chain
 
-1.  An attacker, having established initial access or control over a low-privilege OpenClaw node, prepares to exploit the reconnection mechanism.
-2.  The attacker initiates a manipulated node reconnection session with the OpenClaw Gateway.
-3.  During the reconnection process, the attacker leverages the vulnerability in OpenClaw versions older than `2026.5.27`.
-4.  The Gateway's internal state machine processes the manipulated reconnection, causing confusion in the node's pairing approval scope.
-5.  This confusion leads the Gateway to make an incorrect "approval scope decision" for the reconnecting node.
-6.  As a result, the node is granted "broader node authority" and elevated privileges beyond the operator's original intent.
-7.  The attacker can now execute unauthorized commands or access sensitive resources with the newly acquired elevated privileges within the OpenClaw environment.
+1. An authenticated, low-privileged attacker gains access to the OpenClaw application.
+2. The attacker identifies a misconfigured input path or enabled feature within the application's plugin install commands that can be leveraged for privilege escalation.
+3. The attacker crafts a malicious plugin installation command designed to exploit the CVE-2026-62194 vulnerability.
+4. The attacker executes the specially crafted plugin installation command as a low-privileged user.
+5. Due to the vulnerability in OpenClaw, the plugin install command is processed and executed with elevated privileges, bypassing authorization checks.
+6. The attacker successfully escalates privileges within the OpenClaw application, gaining control typically reserved for higher-trust users.
+7. Using the escalated privileges, the attacker performs unauthorized actions, which may include executing arbitrary code, modifying critical configurations, or establishing persistence.
 
 ## Impact
 
-When the affected OpenClaw feature is enabled and reachable, this vulnerability could restore or present broader node authority than the operator originally intended. The practical impact is contingent on the operator's specific configuration and whether lower-trust input can successfully reach the vulnerable code path. If exploited, an attacker could gain unauthorized access to functions or data previously restricted, leading to data compromise, system manipulation, or further lateral movement within the compromised environment.
+Successful exploitation of CVE-2026-62194 grants a low-privileged attacker the ability to escalate privileges within OpenClaw, potentially leading to full control over the application. This can result in unauthorized data access, modification, or deletion, system compromise, or the execution of arbitrary code within the application's environment. The vulnerability impacts organizations utilizing affected versions of OpenClaw, with the severity of impact depending on the role and criticality of the OpenClaw instance within the targeted environment.
 
 ## Recommendation
 
-*   Patch all OpenClaw instances to version `2026.5.27` or later immediately to remediate the vulnerability mentioned in the GHSA-83w9-h5wv-j9xm reference.
-*   Revoke any unexpected or suspicious node pairings and re-pair only explicitly trusted nodes as a hardening measure until patching is complete.
-*   As a general hardening practice, keep channel and tool allowlists as narrow as possible.
-*   Avoid sharing a single OpenClaw Gateway between mutually untrusted users or applications.
-*   Disable the affected node pairing feature when it is not actively required for operations.
+* Upgrade all OpenClaw installations to version 2026.6.9 or newer immediately to mitigate CVE-2026-62194.
+* Review the configuration of plugin install commands and related input paths in OpenClaw to ensure they are not misconfigured, as referenced in the NVD advisory for CVE-2026-62194.
+* Implement robust monitoring for unusual plugin installation activities or any actions originating from lower-privileged accounts that suggest privilege escalation within OpenClaw environments.
