@@ -3,6 +3,7 @@ title: Detection of Suspicious Cisco Configuration Changes via Archive Logging
 slug: 2024-01-cisco-config-changes
 description: This analytic detects suspicious configuration changes on Cisco devices by analyzing archive logs for activities such as backdoor account creation, SNMP community string modifications, and TFTP server configurations, potentially indicating attacker presence and lateral movement.
 date: "2024-01-03T12:00:00Z"
+lastmod: "2026-07-13T17:07:53Z"
 type: threat
 types:
   - threat
@@ -10,6 +11,9 @@ severities:
   - high
 actors:
   - Static Tundra
+cpes:
+  - cpe:2.3:o:cisco:ios:15.2\(5\)e:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios:12.4:*:*:*:*:*:*:*
 tags:
   - cisco
   - network-security
@@ -22,6 +26,8 @@ products:
   - Splunk Enterprise
   - Splunk Enterprise Security
   - Splunk Cloud
+  - Cisco devices
+  - Cisco Smart Install
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -34,11 +40,22 @@ mitre_ttps:
 cves:
   - id: CVE-2018-0171
     cvss: 9.8
-    epss: 0.92675
+    epss: 0.9951
+  - id: CVE-2008-4128
+    cvss: 4.3
+    epss: 0.12036
 references:
   - https://blog.talosintelligence.com/static-tundra/
   - https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20180328-smi2
   - https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/config-mgmt/configuration/15-mt/config-mgmt-15-mt-book/cm-config-logger.html
+  - https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a
+iocs:
+  - type: filename
+    value: config.bkp
+  - type: filename
+    value: output.txt
+ioc_counts:
+  filename: 2
 rules:
   - title: Cisco Privilege Escalation via Configuration Change
     description: Detects the creation of a new user account with privilege level 15 on a Cisco device, indicating a potential backdoor account.
@@ -72,6 +89,14 @@ rules:
       - firewall
       - cisco
 rules_count: 3
+updates:
+  - at: "2026-07-13T17:07:53Z"
+    level: L2
+    summary: added CVE-2008-4128
+    sources:
+      - cisa
+    source_urls:
+      - https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a
 ---
 
 This threat brief focuses on detecting malicious activity within Cisco IOS devices by analyzing configuration archive logs. Configuration archive logging captures all modifications made to a device's configuration, offering a detailed audit trail. Analyzing these logs allows for the identification of suspicious or malicious activities, such as the creation of backdoor accounts, modifications to SNMP community strings, and the setup of TFTP servers for potential data exfiltration. This detection method is crucial for identifying advanced attack campaigns, exemplified by threat actors like Static Tundra, who often manipulate network configurations to maintain persistence and facilitate lateral movement. The monitoring of configuration changes across different user sessions provides a comprehensive view of device activity.
