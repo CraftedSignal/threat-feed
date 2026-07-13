@@ -3,6 +3,7 @@ title: DIRAC Vulnerable to Remote Code Execution via eval on Untrusted Input in 
 slug: 2026-07-dirac-rce-requestmanager
 description: A critical remote code execution vulnerability (CVE-2026-45579) in DIRAC's RequestManager allows any authenticated user to execute arbitrary commands or code on the DIRAC server due to the improper use of `eval()` on untrusted input, leading to full system compromise including data exfiltration and log manipulation.
 date: "2026-07-13T17:23:02Z"
+lastmod: "2026-07-13T18:43:03Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,8 @@ tags:
   - python
   - web-application
   - vulnerability
+  - sql-injection
+  - access-control
 vendors:
   - DIRACGrid
 products:
@@ -26,8 +29,39 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: An remote code execution vulnerability exists in RequestManager due to the use of eval on untrusted input that allows any authenticated user to run code/commands on the DIRAC server as the system user running the DIRAC services.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: A number of the functions in PilotManager pass parameters directly through to the database layer, which then does not do any escaping on the parameters.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1546
+    technique_name: Event Triggered Execution
+    evidence: This allows any user to manage (e.g. delete, read output of) any pilot pilot job
+    confidence_band: low
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1005
+    technique_name: Data from Local System
+    evidence: a carefully crafted set of parameters containing SQL escapes would likely be able to change or return other database entries.
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Data Manipulation
+    evidence: a carefully crafted set of parameters containing SQL escapes would likely be able to change or return other database entries.
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1491
+    technique_name: Defacement
+    evidence: This allows any user to manage (e.g. delete, read output of) any pilot pilot job
+    confidence_band: med
 references:
   - https://github.com/advisories/GHSA-9jpv-c7p4-997x
+  - https://github.com/advisories/GHSA-7xw9-549r-8jrc
 rules:
   - title: Detects CVE-2026-45579 Exploitation - DIRAC RequestManager RCE
     description: Detects CVE-2026-45579 exploitation - HTTP requests targeting the export_getRequestCountersWeb function with suspicious characters in groupingAttribute indicating remote code execution via eval on untrusted input.
@@ -40,7 +74,29 @@ rules:
       - T1059.006
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect DIRAC PilotManager SQL Injection Attempts
+    description: Detects suspicious patterns indicative of SQL injection attempts against the DIRAC PilotManager service, targeting vulnerable functions identified in GHSA-7xw9-549r-8jrc.
+    platform: sigma
+    severity: high
+    tactics:
+      - collection
+      - impact
+      - initial_access
+    techniques:
+      - T1005
+      - T1190
+      - T1499
+    data_sources:
+      - webserver
+rules_count: 2
+updates:
+  - at: "2026-07-13T18:43:03Z"
+    level: L2
+    summary: 'added detection rule: Detect DIRAC PilotManager SQL Injection Attempts'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-7xw9-549r-8jrc
 ---
 
 A critical remote code execution vulnerability, tracked as CVE-2026-45579, has been identified in the DIRAC RequestManager component. This flaw stems from the `export_getRequestCountersWeb` function, which is accessible to any authenticated user and processes untrusted input in its `groupingAttribute` parameter. This parameter is then prepended with "Request." and directly passed to an `eval()` call within `RequestDB.py` if the attribute is unrecognized. This allows an authenticated attacker to inject and execute arbitrary Python code on the DIRAC server. Successful exploitation grants the attacker the ability to run commands as the system user running DIRAC services, enabling full control over the system, including access to sensitive configuration files like `dirac.cfg`, database passwords, proxies, and tokens. Attackers could also remove their exploit evidence from local RequestManager logs.
