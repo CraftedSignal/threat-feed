@@ -1,8 +1,8 @@
 ---
-title: Apollo ConfigService Authentication Bypass via Non-Canonical appId Matching
+title: Apollo ConfigService Authentication Bypass via Raw Config File AppId Parsing
 slug: 2026-07-apollo-configservice-auth-bypass
-description: An unauthenticated remote attacker can exploit CVE-2026-59954 in Apollo ConfigService, which allows unauthorized access to sensitive configuration data by bypassing AccessKey authentication through a flaw in appId parsing and non-canonical matching due to database collation rules.
-date: "2026-07-13T18:28:27Z"
+description: An authentication bypass vulnerability (CVE-2026-59955) in Apollo ConfigService allows unauthenticated remote attackers to read raw configuration data by exploiting an incorrect appId parsing logic for the raw config file endpoint, affecting versions prior to 2.5.2.
+date: "2026-07-13T18:38:20Z"
 type: advisory
 types:
   - advisory
@@ -10,48 +10,48 @@ severities:
   - high
 tags:
   - authentication-bypass
-  - data-exfiltration
+  - data-exposure
   - vulnerability
-  - apollo
+  - cloud
 vendors:
   - Ctrip
 products:
-  - Apollo (< 2.5.2)
+  - Apollo ConfigService (< 2.5.2)
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: An unauthenticated remote attacker may read configuration data from affected ConfigService endpoints
-    confidence_band: high
   - tactic_id: TA0009
     tactic_name: Collection
     technique_id: T1005
     technique_name: Data from Local System
-    evidence: An unauthenticated remote attacker may read configuration data from affected ConfigService endpoints
+    evidence: An unauthenticated remote attacker may read raw configuration data from affected ConfigService endpoints
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Apollo ConfigService may allow unauthorized access to raw configuration data when AccessKey / management key authentication is enabled because authentication parsed the appId incorrectly for the raw config file endpoint.
     confidence_band: high
 references:
-  - https://github.com/advisories/GHSA-4w3q-qpfq-v992
+  - https://github.com/advisories/GHSA-h4pc-58cc-hc95
 ---
 
-This vulnerability, tracked as CVE-2026-59954, affects Apollo ConfigService versions prior to 2.5.2. It enables an unauthenticated remote attacker to bypass AccessKey authentication and read sensitive configuration data. The flaw occurs when the ConfigService accepts a non-canonical `appId` variant in a request, which prevents the AccessKey authentication mechanism from performing signature verification. However, downstream processing, leveraging database collation rules (such as accent-insensitive or PAD SPACE), resolves this non-canonical `appId` to a protected application. This allows an attacker to retrieve confidential information from `/configs` and `/configfiles` endpoints without proper authorization. The issue impacts deployments with AccessKey authentication enabled and specific database collation settings.
+A critical authentication bypass vulnerability, tracked as CVE-2026-59955, has been identified in Apollo ConfigService versions prior to 2.5.2. This flaw allows unauthenticated remote attackers to gain unauthorized access to sensitive raw configuration data. The vulnerability arises when AccessKey / management key authentication is enabled, but the ConfigService incorrectly parses the `appId` for requests targeting the `/configfiles/raw/{appId}/{clusterName}/{namespace}` endpoint. Instead of recognizing the actual `appId` in the path, the service interprets it as the literal string "raw". If no AccessKey is specifically configured for an application named "raw", the service proceeds without verifying the request signature, effectively bypassing authentication for the intended target `appId` and leading to data exposure. This issue impacts organizations using vulnerable versions of Apollo ConfigService, potentially exposing critical system configurations and credentials.
 
 ## Attack Chain
 
-1. An attacker identifies a publicly accessible Apollo ConfigService endpoint configured with AccessKey authentication.
-2. The attacker crafts a malicious HTTP GET request targeting configuration read endpoints (e.g., `/configs` or `/configfiles`) and includes a non-canonical `appId` parameter. This `appId` variant might contain accent differences or trailing spaces, designed to bypass exact string matching.
-3. The ConfigService receives the request. Its AccessKey authentication logic attempts to use the provided `appId` to look up available AccessKey secrets for signature verification.
-4. Due to the non-canonical nature of the `appId` variant, it does not exactly match the cached AccessKey secrets, causing the authentication process to treat the request as unauthenticated and skip signature verification.
-5. However, the request proceeds to downstream processing where the `appId` is used for release lookup, which utilizes database collation rules. These rules (e.g., accent-insensitive or PAD SPACE) cause the non-canonical `appId` to match a legitimate, protected `appId`.
-6. The ConfigService then processes the request as if it were for the legitimate `appId` and returns the sensitive configuration data to the unauthenticated attacker.
-7. The attacker receives and can exfiltrate the confidential application configuration details.
+1. An unauthenticated attacker identifies an internet-exposed Apollo ConfigService instance.
+2. The attacker crafts an HTTP GET request targeting the raw configuration file endpoint: `/configfiles/raw/{targetAppId}/{clusterName}/{namespace}`.
+3. The Apollo ConfigService, with AccessKey authentication enabled, receives the request and initiates the authentication parsing process.
+4. Due to the vulnerability, the service incorrectly extracts the `appId` as the literal string "raw" from the raw config file endpoint path, instead of the `{targetAppId}` specified by the attacker.
+5. The service then attempts to look up AccessKey secrets associated with an application named "raw".
+6. If no AccessKey is found for an application literally named "raw" (which is often the case), the ConfigService bypasses the critical signature verification step.
+7. The service proceeds to process the request for the original `{targetAppId}`, unknowingly granting unauthorized access.
+8. The attacker successfully reads sensitive raw configuration data, which may contain API keys, database credentials, or other proprietary information.
 
 ## Impact
 
-An unauthenticated remote attacker can successfully read sensitive configuration data from affected Apollo ConfigService endpoints, including `/configs` and `/configfiles`. This data could contain credentials, API keys, or other proprietary information, leading to further system compromise, unauthorized access to other services, or data breaches. The impact is specifically observed when AccessKey authentication is enabled and the underlying database collation settings allow for non-canonical `appId` matching. This can expose critical internal application configurations.
+Successful exploitation of CVE-2026-59955 allows unauthenticated remote attackers to read sensitive raw configuration data from affected Apollo ConfigService endpoints. This direct access to configuration details can lead to severe consequences, including credential compromise, intellectual property theft, further system compromise, and unauthorized data access. The exact number of victims is not publicly available, but organizations using vulnerable versions of Apollo ConfigService are at risk.
 
 ## Recommendation
 
-* Upgrade Apollo ConfigService to version 2.5.2 or later immediately to address CVE-2026-59954.
-* Review database collation settings for the Apollo database to understand how `appId` variants are treated.
-* Monitor web server and application logs for unusual or non-canonical `appId` patterns in requests to `/configs` and `/configfiles` endpoints, especially those not undergoing signature verification.
+* Upgrade Apollo ConfigService to version 2.5.2 or later immediately to patch CVE-2026-59955.
+* Review access logs for `/configfiles/raw` endpoints for unusual or unauthenticated access patterns prior to patching.
