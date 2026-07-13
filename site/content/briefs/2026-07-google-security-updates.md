@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-13T16:11:50Z"
+lastmod: "2026-07-13T16:12:01Z"
 type: advisory
 types:
   - advisory
@@ -25,6 +25,7 @@ vendors:
   - Splunk
   - Opera Software
   - Elastic
+  - Kubernetes
 products:
   - golang.org/x/crypto/ssh (< 0.52.0)
   - golang.org/x/crypto/ssh < 0.52.0
@@ -141,6 +142,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2297
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_rapid_secret_get_activity_against_multiple_objects.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/impact_gcp_gke_coredns_or_kube_dns_configuration_modified.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_rbac_wildcard_elevation_on_existing_role.toml
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -182,13 +184,6 @@ ioc_counts:
   file_path: 2
   url: 12
 updates:
-  - at: "2026-07-09T14:29:38Z"
-    level: L2
-    summary: added CVE-2026-15109 +2; chrome version < 150.0.7871.115; OS macos
-    sources:
-      - anssi
-    source_urls:
-      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0848/
   - at: "2026-07-09T17:39:04Z"
     level: L2
     summary: google chrome version for Linux < 150.0.7871.114
@@ -217,6 +212,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/impact_gcp_gke_coredns_or_kube_dns_configuration_modified.toml
+  - at: "2026-07-13T16:12:01Z"
+    level: L1
+    summary: new vendor
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_rbac_wildcard_elevation_on_existing_role.toml
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
