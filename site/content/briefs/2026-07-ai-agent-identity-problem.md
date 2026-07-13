@@ -3,7 +3,7 @@ title: The Identity Problem Hiding in AI Agent Deployments
 slug: 2026-07-ai-agent-identity-problem
 description: CrowdStrike highlights a critical identity management gap in AI agent deployments where current OAuth 2.1 tokens and JWT (RFC 9068) lack standardized mechanisms to represent an AI agent's instance identity, the user on whose behalf it acts, and their relationship, hindering fine-grained access controls, audit trails, and detection of out-of-scope actions.
 date: "2026-07-13T02:47:44Z"
-lastmod: "2026-07-13T03:07:00Z"
+lastmod: "2026-07-13T03:51:41Z"
 type: threat
 types:
   - threat
@@ -26,6 +26,8 @@ products:
   - AI agents
   - Claude Code
   - github.com
+  - OAuth access tokens
+  - JWT format (RFC 9068)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -43,6 +45,13 @@ references:
   - https://www.crowdstrike.com/en-us/blog/the-identity-problem-hiding-in-ai-agent-deployments/
 updates:
   - at: "2026-07-13T03:07:00Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/the-identity-problem-hiding-in-ai-agent-deployments/
+  - at: "2026-07-13T03:51:41Z"
     level: L1
     summary: new product
     sources:
