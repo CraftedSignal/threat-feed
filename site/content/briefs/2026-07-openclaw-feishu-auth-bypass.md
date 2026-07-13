@@ -3,6 +3,7 @@ title: OpenClaw Feishu Tools Authorization Bypass Vulnerability (CVE-2026-62187)
 slug: 2026-07-openclaw-feishu-auth-bypass
 description: OpenClaw Feishu tools (npm package @openclaw/feishu) versions up to and including 2026.6.6 contain CVE-2026-62187, an authorization bypass vulnerability that allows lower-trust callers to perform unauthorized operations by ignoring per-account disablement or policy checks, leading to potential data manipulation or information disclosure.
 date: "2026-07-13T22:23:52Z"
+lastmod: "2026-07-13T22:24:38Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,8 @@ tags:
   - authorization-bypass
   - npm-package
   - software-supply-chain
+  - vulnerability
+  - cve
 vendors:
   - OpenClaw
 products:
@@ -30,6 +33,15 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62187
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-2q7j-2vhx-56g8
   - https://www.vulncheck.com/advisories/openclaw-feishu-tools-authorization-bypass
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62188
+updates:
+  - at: "2026-07-13T22:24:38Z"
+    level: L2
+    summary: 'merged source coverage: OpenClaw Feishu Permission Tools Incorrect Authorization Vulnerability'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62188
 ---
 
 A critical authorization bypass vulnerability, identified as CVE-2026-62187, affects OpenClaw Feishu tools (npm package `@openclaw/feishu`) in all versions up to and including 2026.6.6. This flaw allows a lower-trust caller or input path to circumvent per-account disablement and other authorization checks, enabling them to perform operations that should require stronger authentication or policy enforcement. The vulnerability, first published on July 13, 2026, by VulnCheck and tracked by NVD, poses a significant risk to applications integrating this npm package, potentially leading to unauthorized data modification, access to sensitive information, or execution of restricted functions. The actual impact depends on the specific configuration of the operator and the accessibility of the affected feature to lower-trust input.
