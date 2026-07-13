@@ -1,61 +1,54 @@
 ---
-title: OpenClaw Authorization Bypass Vulnerability (CVE-2026-62195)
+title: OpenClaw Authorization Bypass via WhatsApp Group IDs (CVE-2026-62196)
 slug: 2026-07-openclaw-auth-bypass
-description: An authorization bypass vulnerability, CVE-2026-62195, in OpenClaw versions 2026.5.20 before 2026.6.6 allows lower-trust callers to execute owner-only tools via the MCP loopback feature, potentially leading to privilege escalation, unauthorized execution, and persistence with high impact on confidentiality and integrity.
-date: "2026-07-13T22:27:37Z"
+description: An authorization bypass vulnerability, CVE-2026-62196, in OpenClaw versions 2026.3.22 before 2026.6.6 allows attackers with lower-trust access to perform actions requiring stronger authorization by leveraging WhatsApp group ID validation.
+date: "2026-07-13T22:28:18Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - vulnerability
   - authorization-bypass
   - privilege-escalation
-  - openclaw
+  - web-application
+  - cve
 vendors:
   - OpenClaw
 products:
-  - OpenClaw (2026.5.20 before 2026.6.6)
+  - OpenClaw (2026.3.22 before 2026.6.6)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-    evidence: allows lower-trust callers to execute owner-only tools. Attackers can bypass authorization checks through configured input paths to execute or persist actions beyond their intended permissions.
+    evidence: Attackers with lower-trust access can perform actions requiring stronger authorization by leveraging group ID validation in the affected feature.
     confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: allows lower-trust callers to execute owner-only tools.
-    confidence_band: med
 cves:
-  - id: CVE-2026-62195
+  - id: CVE-2026-62196
     cvss: 8.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62195
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-52xj-c9p8-78cv
-  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-mcp-loopback
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62196
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-fh38-965w-f6c3
+  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-whatsapp-group-ids
 ---
 
-A critical authorization bypass vulnerability, identified as CVE-2026-62195, has been discovered in OpenClaw versions 2026.5.20 through 2026.6.5. This flaw resides within the MCP loopback feature, enabling attackers with lower trust levels to execute tools intended only for owners. By manipulating configured input paths, unauthorized individuals can bypass existing authorization checks, allowing them to execute or persist actions with elevated privileges. This vulnerability can lead to unauthorized access, privilege escalation, and potentially full system compromise. The CVSS 3.1 base score for this vulnerability is 8.3, indicating a high severity risk with significant impact on confidentiality and integrity. Defenders should prioritize patching affected OpenClaw instances to prevent attackers from exploiting this vulnerability to gain unauthorized control and establish persistence.
+OpenClaw versions 2026.3.22 up to, but not including, 2026.6.6 are affected by an authorization bypass vulnerability, identified as CVE-2026-62196. This flaw stems from an improper validation mechanism where WhatsApp group IDs can be misused to satisfy elevated sender allowlists. Attackers who possess lower-trust access can exploit this vulnerability to circumvent the intended authorization checks, thereby gaining the ability to execute operations that typically demand higher levels of privilege within the OpenClaw system. This vulnerability allows for unauthorized access to sensitive functionalities and data manipulation. The CVSS v3.1 Base Score for this vulnerability is 8.3, classifying it as a high-severity issue that could lead to significant unauthorized control or data compromise.
 
 ## Attack Chain
 
-This vulnerability describes an authorization bypass rather than a multi-stage attack chain with distinct steps for initial access. The exploitation occurs at a specific point within the application's logic.
-
-1. A lower-trust caller interacts with the OpenClaw application, specifically targeting the MCP loopback feature.
-2. The attacker crafts input through a configured input path, designed to bypass authorization checks.
-3. The vulnerability in OpenClaw (versions 2026.5.20 before 2026.6.6) fails to properly enforce access controls for the MCP loopback.
-4. The crafted input allows the lower-trust caller to execute owner-only tools, effectively escalating privileges.
-5. Through the execution of owner-only tools, the attacker can then perform unauthorized actions or establish persistence beyond their legitimate permissions.
+1. An attacker obtains initial, lower-trust access to an OpenClaw instance.
+2. The attacker identifies a feature within OpenClaw that performs authorization checks based on WhatsApp group ID validation.
+3. The attacker crafts a malicious request or input that includes a WhatsApp group ID designed to satisfy the elevated sender allowlist criteria.
+4. This specially crafted request is sent to the vulnerable OpenClaw application, bypassing the intended authorization controls.
+5. OpenClaw processes the request, mistakenly granting the attacker privileges or access beyond their assigned trust level.
+6. The attacker then performs unauthorized actions, such as accessing sensitive data, modifying configurations, or executing commands that would otherwise require higher authorization.
 
 ## Impact
 
-Successful exploitation of CVE-2026-62195 can result in severe consequences for affected organizations. Attackers can gain unauthorized control over the OpenClaw system by executing privileged "owner-only tools." This directly leads to privilege escalation, allowing attackers to access sensitive data, modify system configurations, or install persistent backdoors. The vulnerability has a high impact on confidentiality and integrity, meaning critical information could be exfiltrated or tampered with. It also presents a moderate impact on availability, as unauthorized actions could lead to service disruption. While specific victim counts or targeted sectors are not available, any organization utilizing vulnerable OpenClaw versions is at risk of unauthorized access and potential system compromise.
+The successful exploitation of CVE-2026-62196 can lead to significant unauthorized access and privilege escalation within affected OpenClaw deployments. Attackers can bypass critical security mechanisms, potentially gaining control over sensitive application features or data. This could result in unauthorized data disclosure, data manipulation, or disruption of service, depending on the specific functionalities accessible with elevated privileges. While no specific victim counts or targeted sectors are detailed, any organization utilizing vulnerable OpenClaw versions is at risk of severe compromise if exposed.
 
 ## Recommendation
 
-* Patch CVE-2026-62195 by upgrading OpenClaw to version 2026.6.6 or later immediately, as specified in the NVD and GitHub advisories.
-* Monitor OpenClaw system logs for unusual or unauthorized execution of "owner-only tools" by lower-trust accounts, correlating with activity around the MCP loopback feature.
+* Patch CVE-2026-62196 immediately by upgrading OpenClaw to version 2026.6.6 or later as recommended in the references.
+* Review access logs for unusual activity originating from lower-trust accounts or unexpected source IP addresses, focusing on any attempts to interact with features that process WhatsApp group IDs or require elevated privileges.
