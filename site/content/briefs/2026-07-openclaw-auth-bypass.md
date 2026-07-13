@@ -1,58 +1,61 @@
 ---
-title: OpenClaw Authorization Bypass Vulnerability in OpenAI-compatible Overrides (CVE-2026-62186)
+title: OpenClaw Authorization Bypass Vulnerability (CVE-2026-62195)
 slug: 2026-07-openclaw-auth-bypass
-description: An authorization bypass vulnerability, CVE-2026-62186, exists in OpenClaw versions prior to 2026.6.8, affecting its OpenAI-compatible HTTP model overrides, allowing lower-trust callers to perform actions requiring stronger authorization checks and potentially leading to privilege escalation by bypassing admin authorization policies via misconfigured input paths.
-date: "2026-07-13T22:23:05Z"
+description: An authorization bypass vulnerability, CVE-2026-62195, in OpenClaw versions 2026.5.20 before 2026.6.6 allows lower-trust callers to execute owner-only tools via the MCP loopback feature, potentially leading to privilege escalation, unauthorized execution, and persistence with high impact on confidentiality and integrity.
+date: "2026-07-13T22:27:37Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - authorization-bypass
   - vulnerability
-  - web-application
+  - authorization-bypass
   - privilege-escalation
+  - openclaw
 vendors:
   - OpenClaw
 products:
-  - OpenClaw versions < 2026.6.8
+  - OpenClaw (2026.5.20 before 2026.6.6)
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: Attackers can exploit misconfigured input paths to bypass admin authorization policies and execute restricted operations.
-    confidence_band: high
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-    evidence: allows lower-trust callers to perform actions requiring stronger authorization checks. Attackers can exploit misconfigured input paths to bypass admin authorization policies and execute restricted operations.
+    evidence: allows lower-trust callers to execute owner-only tools. Attackers can bypass authorization checks through configured input paths to execute or persist actions beyond their intended permissions.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: allows lower-trust callers to execute owner-only tools.
+    confidence_band: med
 cves:
-  - id: CVE-2026-62186
-    cvss: 7.6
+  - id: CVE-2026-62195
+    cvss: 8.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62186
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62195
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-52xj-c9p8-78cv
+  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-mcp-loopback
 ---
 
-A critical authorization bypass vulnerability, identified as CVE-2026-62186, affects OpenClaw versions before 2026.6.8. This flaw specifically impacts the OpenAI-compatible HTTP model overrides feature within the application. The vulnerability allows users or processes with lower trust levels to execute operations that typically require elevated permissions or administrative authorization. Attackers can exploit this by manipulating misconfigured input paths, effectively circumventing the established security policies. Successful exploitation could lead to privilege escalation, allowing unauthorized execution of restricted functions or access to sensitive data and controls. The vulnerability has a CVSS v3.1 Base Score of 7.6, indicating a high severity risk.
+A critical authorization bypass vulnerability, identified as CVE-2026-62195, has been discovered in OpenClaw versions 2026.5.20 through 2026.6.5. This flaw resides within the MCP loopback feature, enabling attackers with lower trust levels to execute tools intended only for owners. By manipulating configured input paths, unauthorized individuals can bypass existing authorization checks, allowing them to execute or persist actions with elevated privileges. This vulnerability can lead to unauthorized access, privilege escalation, and potentially full system compromise. The CVSS 3.1 base score for this vulnerability is 8.3, indicating a high severity risk with significant impact on confidentiality and integrity. Defenders should prioritize patching affected OpenClaw instances to prevent attackers from exploiting this vulnerability to gain unauthorized control and establish persistence.
 
 ## Attack Chain
 
-1. An unauthenticated or low-privileged attacker identifies a vulnerable OpenClaw instance running a version prior to 2026.6.8.
-2. The attacker crafts a malicious HTTP request targeting the OpenAI-compatible HTTP model overrides feature.
-3. The request exploits a misconfigured input path within the application's handling of these overrides.
-4. Due to the authorization bypass, the application fails to enforce proper administrative or higher-level authorization checks.
-5. The attacker successfully executes an action or operation that would normally require stronger permissions.
-6. This leads to privilege escalation, enabling the attacker to perform restricted operations within the OpenClaw environment.
+This vulnerability describes an authorization bypass rather than a multi-stage attack chain with distinct steps for initial access. The exploitation occurs at a specific point within the application's logic.
+
+1. A lower-trust caller interacts with the OpenClaw application, specifically targeting the MCP loopback feature.
+2. The attacker crafts input through a configured input path, designed to bypass authorization checks.
+3. The vulnerability in OpenClaw (versions 2026.5.20 before 2026.6.6) fails to properly enforce access controls for the MCP loopback.
+4. The crafted input allows the lower-trust caller to execute owner-only tools, effectively escalating privileges.
+5. Through the execution of owner-only tools, the attacker can then perform unauthorized actions or establish persistence beyond their legitimate permissions.
 
 ## Impact
 
-Successful exploitation of CVE-2026-62186 allows an attacker to bypass critical authorization mechanisms within OpenClaw. This can lead to privilege escalation, granting unauthorized access to administrative functions or other restricted operations. The immediate consequences include unauthorized data manipulation, access to sensitive information, or disruption of services. Organizations using affected OpenClaw versions could face significant security breaches, data integrity issues, and compliance violations if this vulnerability is exploited in production environments.
+Successful exploitation of CVE-2026-62195 can result in severe consequences for affected organizations. Attackers can gain unauthorized control over the OpenClaw system by executing privileged "owner-only tools." This directly leads to privilege escalation, allowing attackers to access sensitive data, modify system configurations, or install persistent backdoors. The vulnerability has a high impact on confidentiality and integrity, meaning critical information could be exfiltrated or tampered with. It also presents a moderate impact on availability, as unauthorized actions could lead to service disruption. While specific victim counts or targeted sectors are not available, any organization utilizing vulnerable OpenClaw versions is at risk of unauthorized access and potential system compromise.
 
 ## Recommendation
 
-* Immediately update all OpenClaw instances to version 2026.6.8 or later to patch CVE-2026-62186.
-* Review access control configurations and logging for OpenClaw's OpenAI-compatible HTTP model overrides to identify any unusual activity.
+* Patch CVE-2026-62195 by upgrading OpenClaw to version 2026.6.6 or later immediately, as specified in the NVD and GitHub advisories.
+* Monitor OpenClaw system logs for unusual or unauthorized execution of "owner-only tools" by lower-trust accounts, correlating with activity around the MCP loopback feature.
