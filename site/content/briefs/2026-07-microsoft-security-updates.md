@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-13T13:31:20Z"
+lastmod: "2026-07-13T16:23:45Z"
 type: advisory
 types:
   - advisory
@@ -118,6 +118,7 @@ products:
   - Microsoft Edge
   - Google Chrome
   - Brave
+  - IIS
 affected_os:
   - Windows
   - macOS
@@ -207,6 +208,12 @@ cves:
   - id: CVE-2026-57983
     cvss: 8.7
     epss: 0.00463
+  - id: CVE-2026-58288
+    cvss: 8.3
+    epss: 0.00438
+  - id: CVE-2026-58286
+    cvss: 8.1
+    epss: 0.00312
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -310,6 +317,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-58596
   - https://www.proofpoint.com/us/blog/threat-insight/oauth-client-id-spoofing-why-fake-client-ids-are-gaining-traction-stealthy
   - https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html
+  - https://www.huntress.com/blog/sql-injection-attacker-persistence
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -485,9 +493,11 @@ iocs:
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58596
   - type: domain
     value: logfriend.com
+  - type: domain
+    value: 334thribetlhkyo977gqrcht1k7bvdj2.oastify.com
 ioc_counts:
   asn: 1
-  domain: 18
+  domain: 19
   email: 2
   file-path: 2
   filename: 5
@@ -501,13 +511,6 @@ ioc_counts:
   url: 39
   user_agent: 3
 updates:
-  - at: "2026-07-12T07:24:24Z"
-    level: L2
-    summary: added CVE-2026-55952 +13
-    sources:
-      - circl-misp
-    source_urls:
-      - https://www.circl.lu/doc/misp/feed-osint/d17ccdfc-4453-4176-a88b-9e71e060d66f.json
   - at: "2026-07-12T13:00:53Z"
     level: L2
     summary: poc_available; added CVE-2026-54886 +3; OS windows 11
@@ -536,6 +539,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html
+  - at: "2026-07-13T16:23:45Z"
+    level: L2
+    summary: added CVE-2026-58286 +1
+    sources:
+      - huntress
+    source_urls:
+      - https://www.huntress.com/blog/sql-injection-attacker-persistence
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
