@@ -1,58 +1,58 @@
 ---
-title: OpenClaw Authorization Bypass Vulnerability (<= 2026.5.5)
+title: OpenClaw Authorization Bypass Vulnerability in OpenAI-compatible Overrides (CVE-2026-62186)
 slug: 2026-07-openclaw-auth-bypass
-description: A vulnerability in OpenClaw versions prior to 2026.5.5 allows an unauthorized sender to bypass configured owner-only command policies, enabling the execution of 'owner-style' native commands by senders who should not have such access, potentially leading to unauthorized command execution or privilege escalation.
-date: "2026-07-03T11:54:07Z"
+description: An authorization bypass vulnerability, CVE-2026-62186, exists in OpenClaw versions prior to 2026.6.8, affecting its OpenAI-compatible HTTP model overrides, allowing lower-trust callers to perform actions requiring stronger authorization checks and potentially leading to privilege escalation by bypassing admin authorization policies via misconfigured input paths.
+date: "2026-07-13T22:23:05Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - vulnerability
   - authorization-bypass
+  - vulnerability
+  - web-application
   - privilege-escalation
-  - openclaw
-  - npm
 vendors:
   - OpenClaw
 products:
-  - OpenClaw (< 2026.5.6)
+  - OpenClaw versions < 2026.6.8
 mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Attackers can exploit misconfigured input paths to bypass admin authorization policies and execute restricted operations.
+    confidence_band: high
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: a sender able to trigger native command handling could authorize a native command without enforcing the configured owner-only command policy.
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: allows lower-trust callers to perform actions requiring stronger authorization checks. Attackers can exploit misconfigured input paths to bypass admin authorization policies and execute restricted operations.
     confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: This could run an owner-style command from a sender that should not have that command access.
-    confidence_band: high
+cves:
+  - id: CVE-2026-62186
+    cvss: 7.6
 references:
-  - https://github.com/advisories/GHSA-p73f-w79w-jqr5
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62186
 ---
 
-A critical authorization bypass vulnerability, impacting OpenClaw versions up to and including 2026.5.5, has been disclosed. This flaw allows a sender, who is able to trigger the native command handling mechanism within an OpenClaw Gateway, to bypass the configured owner-only command enforcement policy. This means that commands typically restricted to authorized owners can be executed by unauthorized entities. The vulnerability is significant because it can lead to unauthorized command execution or privilege escalation if the affected feature is enabled and reachable by lower-trust input. It is important to note that this advisory specifically targets a flaw in native command authorization and does not imply a general compromise of OpenClaw's trusted-operator model, which assumes that authenticated Gateway operators and installed plugins remain trusted. The first stable patched version addressing this issue is 2026.5.6.
+A critical authorization bypass vulnerability, identified as CVE-2026-62186, affects OpenClaw versions before 2026.6.8. This flaw specifically impacts the OpenAI-compatible HTTP model overrides feature within the application. The vulnerability allows users or processes with lower trust levels to execute operations that typically require elevated permissions or administrative authorization. Attackers can exploit this by manipulating misconfigured input paths, effectively circumventing the established security policies. Successful exploitation could lead to privilege escalation, allowing unauthorized execution of restricted functions or access to sensitive data and controls. The vulnerability has a CVSS v3.1 Base Score of 7.6, indicating a high severity risk.
 
 ## Attack Chain
 
-1.  An attacker identifies an OpenClaw Gateway instance running a vulnerable version (<= 2026.5.5) where the native command handling feature is enabled and reachable.
-2.  The attacker crafts a malicious request or command designed to interact with the OpenClaw Gateway's native command handling interface.
-3.  This crafted input is sent to the vulnerable OpenClaw Gateway, triggering the system's native command processing logic.
-4.  Due to the flaw in the authorization mechanism, the Gateway fails to correctly enforce the configured owner-only command policy for the incoming native command.
-5.  The native command, which requires owner-level privileges, is then executed by the OpenClaw Gateway as if it originated from an authorized owner.
-6.  The successful execution of the unauthorized native command leads to the attacker achieving their objective, which could range from unauthorized data modification, system configuration changes, to potentially arbitrary code execution or further privilege escalation within the compromised environment.
+1. An unauthenticated or low-privileged attacker identifies a vulnerable OpenClaw instance running a version prior to 2026.6.8.
+2. The attacker crafts a malicious HTTP request targeting the OpenAI-compatible HTTP model overrides feature.
+3. The request exploits a misconfigured input path within the application's handling of these overrides.
+4. Due to the authorization bypass, the application fails to enforce proper administrative or higher-level authorization checks.
+5. The attacker successfully executes an action or operation that would normally require stronger permissions.
+6. This leads to privilege escalation, enabling the attacker to perform restricted operations within the OpenClaw environment.
 
 ## Impact
 
-When the affected native command handling feature is enabled and accessible, this vulnerability allows unauthorized entities to execute commands that should be restricted to owner-level access. The practical impact is highly dependent on the specific configuration of the OpenClaw Gateway and the type of sensitive commands an attacker might be able to trigger. Consequences can include unauthorized data access, modification, or deletion, system configuration changes, and potentially arbitrary code execution with the privileges of the OpenClaw process. While specific victim counts are not available, organizations using affected OpenClaw versions should consider their environments at risk if the vulnerable component is exposed to untrusted input.
+Successful exploitation of CVE-2026-62186 allows an attacker to bypass critical authorization mechanisms within OpenClaw. This can lead to privilege escalation, granting unauthorized access to administrative functions or other restricted operations. The immediate consequences include unauthorized data manipulation, access to sensitive information, or disruption of services. Organizations using affected OpenClaw versions could face significant security breaches, data integrity issues, and compliance violations if this vulnerability is exploited in production environments.
 
 ## Recommendation
 
-*   Upgrade OpenClaw instances to version `2026.5.6` or higher immediately to patch the vulnerability.
-*   As per the brief's mitigation advice, keep native command surfaces limited to trusted senders until patching is complete.
-*   Review and narrow channel and tool allowlists for your OpenClaw Gateway to minimize potential exposure.
-*   Disable the affected native command handling feature when it is not strictly needed to reduce the attack surface.
+* Immediately update all OpenClaw instances to version 2026.6.8 or later to patch CVE-2026-62186.
+* Review access control configurations and logging for OpenClaw's OpenAI-compatible HTTP model overrides to identify any unusual activity.
