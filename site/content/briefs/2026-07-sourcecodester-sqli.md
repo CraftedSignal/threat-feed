@@ -1,20 +1,19 @@
 ---
-title: 'CVE-2026-14642: SourceCodester Class and Exam Timetabling System SQL Injection'
+title: SQL Injection Vulnerability in SourceCodester Class and Exam Timetabling System (CVE-2026-15597)
 slug: 2026-07-sourcecodester-sqli
-description: A critical SQL injection vulnerability, identified as CVE-2026-14642, exists in SourceCodester Class and Exam Timetabling System version 1.0, allowing remote attackers to inject SQL commands by manipulating the 'ID' argument within the '/edit_class2.php' file, with an exploit publicly available.
-date: "2026-07-04T19:24:10Z"
-type: advisory
+description: A critical SQL injection vulnerability (CVE-2026-15597) in SourceCodester Class and Exam Timetabling System version 1.0 allows remote, unauthenticated attackers to manipulate the 'ID' argument in `/edit_exam2.php`, potentially leading to unauthorized data access, modification, or complete system compromise, with a public exploit available.
+date: "2026-07-13T22:19:53Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 tags:
-  - web-application
-  - sql-injection
-  - remote-code-execution
-  - data-exfiltration
-  - vulnerability
+  - sqli
+  - web-vulnerability
   - cve
+  - remote-code-execution
 vendors:
   - SourceCodester
 products:
@@ -24,33 +23,45 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: A vulnerability was identified in SourceCodester Class and Exam Timetabling System 1.0. ... The manipulation of the argument ID leads to sql injection. The attack is possible to be carried out remotely. The exploit is publicly available and might be used.
+    evidence: A security flaw has been discovered in SourceCodester Class and Exam Timetabling System 1.0/2.php. ... The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.
+    confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1580
+    technique_name: Stolen Credential Collection
+    evidence: Performing a manipulation of the argument ID results in sql injection.
+    confidence_band: med
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Performing a manipulation of the argument ID results in sql injection.
     confidence_band: high
 cves:
-  - id: CVE-2026-14642
+  - id: CVE-2026-15597
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-14642
-  - https://github.com/sunjingyuan123/ccvvee/issues/1
-  - https://vuldb.com/cve/CVE-2026-14642
-  - https://vuldb.com/submit/846144
-  - https://vuldb.com/vuln/376158
-  - https://vuldb.com/vuln/376158/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-15597
+  - https://github.com/asdasddqwdq29-a11y/new-cve/issues/1
+  - https://vuldb.com/cve/CVE-2026-15597
+  - https://vuldb.com/submit/855298
+  - https://vuldb.com/vuln/378112
+  - https://vuldb.com/vuln/378112/cti
   - https://www.sourcecodester.com/
 iocs:
   - type: url
-    value: https://github.com/sunjingyuan123/ccvvee/issues/1
+    value: https://github.com/asdasddqwdq29-a11y/new-cve/issues/1
   - type: url
-    value: https://vuldb.com/cve/CVE-2026-14642
+    value: https://vuldb.com/cve/CVE-2026-15597
   - type: url
-    value: https://vuldb.com/vuln/376158
+    value: https://vuldb.com/vuln/378112
   - type: url
-    value: https://www.sourcecodester.com/
+    value: https://vuldb.com/vuln/378112/cti
 ioc_counts:
   url: 4
 rules:
-  - title: Detect CVE-2026-14642 Exploitation — SourceCodester SQL Injection
-    description: Detects CVE-2026-14642 exploitation against SourceCodester Class and Exam Timetabling System 1.0 via SQL injection in the 'ID' parameter of /edit_class2.php.
+  - title: Detects CVE-2026-15597 Exploitation - SQL Injection in /edit_exam2.php
+    description: Detects exploitation attempts of CVE-2026-15597, an SQL injection vulnerability in SourceCodester Class and Exam Timetabling System 1.0, by identifying suspicious characters in the 'ID' parameter of requests to /edit_exam2.php.
     platform: sigma
     severity: high
     tactics:
@@ -58,32 +69,31 @@ rules:
       - initial_access
     techniques:
       - T1190
-      - T1567
+      - T1580
     data_sources:
       - webserver
 rules_count: 1
 ---
 
-A significant vulnerability, tracked as CVE-2026-14642, has been discovered in SourceCodester Class and Exam Timetabling System version 1.0. This flaw specifically affects an unknown functionality within the `/edit_class2.php` file, where improper handling of the `ID` argument allows for SQL injection. The vulnerability can be exploited remotely by an unauthenticated attacker, posing a substantial risk to organizations utilizing this system. The public availability of an exploit intensifies the threat, making it highly probable for malicious actors to leverage this weakness for unauthorized access to sensitive database information, data manipulation, or even further system compromise. Defenders must prioritize patching or mitigating this vulnerability immediately to prevent potential data breaches and system integrity compromises.
+A significant security flaw, identified as CVE-2026-15597, has been discovered in SourceCodester Class and Exam Timetabling System version 1.0. This vulnerability specifically impacts the `/edit_exam2.php` file, where improper handling of the `ID` argument can be exploited for SQL injection. The flaw allows remote, unauthenticated attackers to manipulate database queries, leading to unauthorized access, modification, or deletion of sensitive information within the system. The NVD reports that an exploit for this vulnerability has been publicly released, increasing the risk of active exploitation. Organizations utilizing this system should consider it a critical threat due to the ease of exploitation and potential for severe data compromise.
 
 ## Attack Chain
 
-1.  An unauthenticated attacker identifies a SourceCodester Class and Exam Timetabling System 1.0 instance accessible over the internet.
-2.  The attacker crafts a specially malformed HTTP GET request targeting the `/edit_class2.php` endpoint.
-3.  The attacker manipulates the `ID` argument in the URL query string by injecting SQL metacharacters and payloads (e.g., `' OR 1=1--`).
-4.  The vulnerable application processes this request without proper input validation, incorporating the malicious payload directly into a database query.
-5.  The backend database executes the attacker-controlled SQL query, potentially disclosing sensitive data, modifying existing records, or executing arbitrary commands (if the database user has sufficient privileges).
-6.  The application responds to the attacker with the results of the executed SQL query, allowing for data exfiltration or confirmation of successful command execution.
-7.  The attacker extracts sensitive information from the database or uses the RCE capabilities to establish persistence or pivot further into the network.
+1. **Initial Reconnaissance**: An attacker identifies an internet-facing instance of the SourceCodester Class and Exam Timetabling System 1.0.
+2. **Vulnerability Identification**: The attacker targets the `/edit_exam2.php` endpoint, recognizing its potential for parameter manipulation.
+3. **Payload Crafting**: A malicious SQL injection payload is crafted, designed to manipulate the `ID` argument in HTTP GET or POST requests.
+4. **Exploitation Attempt**: The attacker sends an HTTP request to `/edit_exam2.php`, embedding the SQL injection payload within the `ID` parameter.
+5. **Database Interaction**: The vulnerable application processes the malicious `ID` argument directly into a backend SQL query without proper sanitization.
+6. **Data Exfiltration/Manipulation**: The crafted SQL query is executed by the database, allowing the attacker to read, modify, or delete sensitive database entries.
+7. **Impact**: The attacker gains unauthorized access to application data, potentially leading to privilege escalation or complete system compromise.
 
 ## Impact
 
-Successful exploitation of CVE-2026-14642 can lead to severe consequences for affected organizations. Attackers can gain unauthorized access to the application's underlying database, potentially exfiltrating sensitive student or class scheduling data, modifying records, or even deleting critical information. Given the nature of SQL injection, this could result in a complete compromise of confidentiality, integrity, and availability of the application's data. As the exploit is publicly available, organizations running the affected version are at immediate risk of data breaches and operational disruption. The CVSS score of 7.3 (High) reflects the significant potential for impact.
+Successful exploitation of CVE-2026-15597 can lead to severe consequences for organizations using the SourceCodester Class and Exam Timetabling System. Attackers can gain unauthorized access to the application's underlying database, potentially exfiltrating sensitive student, faculty, and examination data. This could include personal identifiable information (PII), academic records, and administrative credentials. Data integrity may also be compromised through unauthorized modification or deletion of records, disrupting academic operations and leading to data loss. Given that the exploit is publicly available, a wide range of educational institutions or any entity using this specific software are at risk, making them targets for data theft and service disruption.
 
 ## Recommendation
 
-*   Patch CVE-2026-14642 by upgrading SourceCodester Class and Exam Timetabling System to a version where this vulnerability has been fixed, if available, or applying vendor-supplied patches immediately.
-*   Implement a Web Application Firewall (WAF) to detect and block malicious HTTP requests targeting `/edit_class2.php` with SQL injection payloads, as indicated by the Sigma rule below.
-*   Deploy the Sigma rule titled "Detect CVE-2026-14642 Exploitation — SourceCodester SQL Injection" to your SIEM and tune for your environment, ensuring it triggers on requests to `/edit_class2.php` with suspicious `ID` parameters.
-*   Review web server logs for `/edit_class2.php` access patterns, especially for `cs-uri-query` fields containing SQL injection artifacts, to identify potential exploitation attempts.
-*   Implement strict input validation for all user-supplied input, especially for the `ID` parameter used in `/edit_class2.php`, to prevent SQL injection.
+* **Patch CVE-2026-15597**: Immediately apply any available patches or vendor-provided mitigations for SourceCodester Class and Exam Timetabling System 1.0, specifically addressing CVE-2026-15597.
+* **Deploy the Sigma rule**: Implement the provided Sigma rule to detect attempts at SQL injection against `/edit_exam2.php` by monitoring web server logs.
+* **Block malicious requests**: Configure Web Application Firewalls (WAFs) to block HTTP requests containing SQL injection payloads targeting `edit_exam2.php` and its `ID` argument.
+* **Monitor vendor updates**: Regularly check https://www.sourcecodester.com/ and related security advisories for updates and security patches.
