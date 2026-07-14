@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T18:34:06Z"
+lastmod: "2026-07-14T18:34:47Z"
 type: advisory
 types:
   - advisory
@@ -712,6 +712,8 @@ cves:
     cvss: 7.8
   - id: CVE-2026-50314
     cvss: 7.8
+  - id: CVE-2026-47295
+    cvss: 8.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1121,6 +1123,9 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55018
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55020
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55021
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55022
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55025
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55030
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1333,13 +1338,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T18:32:38Z"
-    level: L2
-    summary: added CVE-2026-50667
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55016
   - at: "2026-07-14T18:32:59Z"
     level: L2
     summary: added CVE-2026-50672
@@ -1368,6 +1366,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55021
+  - at: "2026-07-14T18:34:47Z"
+    level: L2
+    summary: added CVE-2026-47295
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55030
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
