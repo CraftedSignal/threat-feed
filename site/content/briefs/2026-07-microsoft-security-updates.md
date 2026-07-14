@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:17:18Z"
+lastmod: "2026-07-14T17:17:28Z"
 type: advisory
 types:
   - advisory
@@ -180,6 +180,7 @@ products:
   - Message Queuing Queue Manager
   - Resilient File System (ReFS)
   - Reliable Multicast Transport Driver
+  - Windows SMB
 affected_os:
   - Windows
   - macOS
@@ -316,6 +317,9 @@ cves:
     epss: 0.00438
   - id: CVE-2026-49164
     cvss: 8.1
+  - id: CVE-2026-58290
+    cvss: 7.5
+    epss: 0.00249
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -466,6 +470,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54982
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54996
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54119
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54997
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -678,13 +683,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:14:34Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54986
   - at: "2026-07-14T17:16:23Z"
     level: L1
     summary: new product
@@ -713,6 +711,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54119
+  - at: "2026-07-14T17:17:28Z"
+    level: L2
+    summary: added CVE-2026-58290
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54997
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
