@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:13:25Z"
+lastmod: "2026-07-14T17:13:34Z"
 type: advisory
 types:
   - advisory
@@ -173,6 +173,7 @@ products:
   - Quality Windows Audio/Video Experience (QWAVE) service
   - Windows Overlay Filter
   - Remote Desktop Client
+  - Windows Common Log File System Driver
 affected_os:
   - Windows
   - macOS
@@ -443,6 +444,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54989
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54987
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54990
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50697
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -655,13 +657,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:12:08Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-45496
   - at: "2026-07-14T17:12:19Z"
     level: L1
     summary: new product
@@ -690,6 +685,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54990
+  - at: "2026-07-14T17:13:34Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50697
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
