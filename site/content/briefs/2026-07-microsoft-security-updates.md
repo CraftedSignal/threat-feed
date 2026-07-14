@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:12:57Z"
+lastmod: "2026-07-14T17:13:07Z"
 type: advisory
 types:
   - advisory
@@ -171,6 +171,7 @@ products:
   - Visual Studio Code
   - 'Age of Empires II: Definitive Edition'
   - Quality Windows Audio/Video Experience (QWAVE) service
+  - Windows Overlay Filter
 affected_os:
   - Windows
   - macOS
@@ -302,6 +303,9 @@ cves:
   - id: CVE-2023-38146
     cvss: 8.8
     epss: 0.39491
+  - id: CVE-2026-58285
+    cvss: 8.3
+    epss: 0.00438
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -436,6 +440,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54983
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50695
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54989
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54987
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -648,13 +653,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:11:08Z"
-    level: L2
-    summary: added CVE-2023-38146
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49784
   - at: "2026-07-14T17:11:19Z"
     level: L1
     summary: new product
@@ -683,6 +681,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54989
+  - at: "2026-07-14T17:13:07Z"
+    level: L2
+    summary: added CVE-2026-58285
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54987
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
