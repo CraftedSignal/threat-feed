@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T18:51:05Z"
+lastmod: "2026-07-14T18:51:41Z"
 type: advisory
 types:
   - advisory
@@ -310,6 +310,7 @@ products:
   - DHCP Server Service
   - XML Core Services
   - Windows WebView
+  - Secure Channel
 affected_os:
   - Windows
   - macOS
@@ -1285,6 +1286,9 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56182
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56183
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56190
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56184
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56187
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56186
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1497,13 +1501,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T18:49:42Z"
-    level: L2
-    summary: added CVE-2026-55947
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56159
   - at: "2026-07-14T18:49:50Z"
     level: L2
     summary: added CVE-2026-49788
@@ -1532,6 +1529,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56190
+  - at: "2026-07-14T18:51:41Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56186
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
