@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T18:00:17Z"
+lastmod: "2026-07-14T18:00:45Z"
 type: advisory
 types:
   - advisory
@@ -257,6 +257,7 @@ products:
   - Netlogon RPC
   - Windows Remote Desktop Client
   - Windows Filtering Platform
+  - Windows GDI
 affected_os:
   - Windows
   - macOS
@@ -879,6 +880,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50346
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50376
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50405
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50448
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50387
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1091,13 +1094,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:59:11Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50391
   - at: "2026-07-14T17:59:43Z"
     level: L1
     summary: new product
@@ -1126,6 +1122,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50405
+  - at: "2026-07-14T18:00:45Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50387
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
