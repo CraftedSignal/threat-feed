@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-14T21:25:42Z"
+lastmod: "2026-07-14T21:25:52Z"
 type: advisory
 types:
   - advisory
@@ -81,6 +81,8 @@ products:
   - Adobe Bridge <= 16.0.3
   - Adobe Bridge <= 15.1.5
   - Creative Cloud Desktop < 6.10.0.252.3
+  - Adobe Media Encoder < 26.2.2
+  - Adobe Media Encoder < 25.6.5
 affected_os:
   - Windows
   - macOS
@@ -161,6 +163,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48341
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48343
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48344
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48366
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -182,18 +185,13 @@ iocs:
     value: https://helpx.adobe.com/security/products/after_effects/apsb26-78.html
   - type: url
     value: https://helpx.adobe.com/security/products/bridge/apsb26-81.html
+  - type: url
+    value: https://helpx.adobe.com/security/products/media-encoder/apsb26-72.html
 ioc_counts:
   domain: 2
   email: 2
-  url: 6
+  url: 7
 updates:
-  - at: "2026-07-14T21:23:59Z"
-    level: L2
-    summary: added CVE-2026-48328
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48339
   - at: "2026-07-14T21:24:17Z"
     level: L1
     summary: new IOCs
@@ -222,6 +220,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48344
+  - at: "2026-07-14T21:25:52Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48366
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
