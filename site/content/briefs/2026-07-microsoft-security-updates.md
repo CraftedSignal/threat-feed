@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T06:43:29Z"
+lastmod: "2026-07-14T09:32:23Z"
 type: advisory
 types:
   - advisory
@@ -352,6 +352,7 @@ references:
   - https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html
   - https://www.huntress.com/blog/sql-injection-attacker-persistence
   - https://thehackernews.com/2026/07/microsoft-maps-year-long-shinyhunters.html
+  - https://hackread.com/microsoft-entra-accounts-oauth-client-id-spoofing/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -529,13 +530,27 @@ iocs:
     value: logfriend.com
   - type: domain
     value: 334thribetlhkyo977gqrcht1k7bvdj2.oastify.com
+  - type: user_agent
+    value: python-requests/2.32.3
+  - type: infrastructure_provider
+    value: Amazon Web Services
+  - type: infrastructure_provider
+    value: Cloudflare
+  - type: error_code
+    value: AADSTS50126
+  - type: error_code
+    value: AADSTS50034
+  - type: error_code
+    value: AADSTS700016
 ioc_counts:
   asn: 1
   domain: 19
   email: 2
+  error_code: 3
   file-path: 2
   filename: 5
   hash_sha256: 2
+  infrastructure_provider: 2
   os_version: 1
   other: 2
   pattern: 1
@@ -543,15 +558,8 @@ ioc_counts:
   software: 5
   string: 5
   url: 39
-  user_agent: 3
+  user_agent: 4
 updates:
-  - at: "2026-07-12T16:17:29Z"
-    level: L2
-    summary: added CVE-2026-57981 +4
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-58596
   - at: "2026-07-13T08:59:41Z"
     level: L2
     summary: added CVE-2026-56645 +2
@@ -580,6 +588,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/microsoft-maps-year-long-shinyhunters.html
+  - at: "2026-07-14T09:32:23Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - hackread
+    source_urls:
+      - https://hackread.com/microsoft-entra-accounts-oauth-client-id-spoofing/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
