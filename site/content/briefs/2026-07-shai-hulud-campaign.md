@@ -3,12 +3,13 @@ title: Shai-Hulud Campaign Activity
 slug: 2026-07-shai-hulud-campaign
 description: Tracking brief for the Shai-Hulud campaign; individual sightings are folded in as reported.
 date: "2026-07-09T13:04:28Z"
-lastmod: "2026-07-11T18:52:27Z"
+lastmod: "2026-07-14T10:49:09Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
 tags:
   - campaign
   - shai-hulud
@@ -30,6 +31,10 @@ vendors:
   - Cursor
   - Windsurf
   - Zed
+  - GitHub
+  - AsyncAPI
+  - Brave
+  - Mozilla
 products:
   - jscrambler 8.14.0
   - npm
@@ -49,12 +54,25 @@ products:
   - Windsurf
   - VS Code
   - Zed
+  - GitHub Actions
+  - AsyncAPI Generator
+  - '@asyncapi/generator (3.3.1)'
+  - '@asyncapi/generator-helpers (1.1.1)'
+  - '@asyncapi/generator-components (0.7.1)'
+  - '@asyncapi/specs (6.11.2)'
+  - '@asyncapi/specs (6.11.2-alpha.1)'
+  - Chrome
+  - Brave
+  - Firefox
+  - Edge
+  - macOS Keychain
 affected_os:
   - Windows
   - macOS
   - Linux
 references:
   - https://thehackernews.com/2026/07/compromised-jscrambler-8140-npm-release.html
+  - https://www.wiz.io/blog/m-red-team-asyncapi-supply-chain-compromise-via-github-actions
 iocs:
   - type: package
     value: jscrambler@8.14.0
@@ -84,11 +102,17 @@ iocs:
     value: ~/Library/LaunchAgents/*
   - type: file
     value: Windows Scheduled Task
+  - type: ip
+    value: 85.137.53.71
+  - type: domain
+    value: ipfs.io
+  - type: domain
+    value: rentry.co
 ioc_counts:
-  domain: 2
+  domain: 4
   file: 4
   hash_sha256: 5
-  ip: 2
+  ip: 3
   package: 1
 updates:
   - at: "2026-07-11T18:52:27Z"
@@ -98,6 +122,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/compromised-jscrambler-8140-npm-release.html
+  - at: "2026-07-14T10:49:09Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - wiz
+    source_urls:
+      - https://www.wiz.io/blog/m-red-team-asyncapi-supply-chain-compromise-via-github-actions
 ---
 
 This brief tracks activity attributed to the Shai-Hulud campaign. Sightings and
