@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:52:23Z"
+lastmod: "2026-07-14T17:54:39Z"
 type: advisory
 types:
   - advisory
@@ -248,6 +248,7 @@ products:
   - Windows Data.dll
   - Windows Devices Human Interface
   - Ancillary Function Driver for WinSock
+  - Windows DirectX Graphics Kernel
 affected_os:
   - Windows
   - macOS
@@ -833,6 +834,10 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50310
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50324
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50312
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50330
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50345
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50322
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50375
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1045,13 +1050,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:50:56Z"
-    level: L2
-    summary: added CVE-2026-50300
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50370
   - at: "2026-07-14T17:51:03Z"
     level: L1
     summary: new product
@@ -1080,6 +1078,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50312
+  - at: "2026-07-14T17:54:39Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50375
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
