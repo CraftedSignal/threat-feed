@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:46:01Z"
+lastmod: "2026-07-14T17:46:25Z"
 type: advisory
 types:
   - advisory
@@ -239,6 +239,7 @@ products:
   - Brokering File System
   - DWM Core Library
   - Windows Secure Kernel Mode
+  - Windows Server Update Service (WSUS)
 affected_os:
   - Windows
   - macOS
@@ -776,6 +777,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50329
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50363
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50392
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50304
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50328
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -988,13 +991,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:44:54Z"
-    level: L2
-    summary: added CVE-2026-40378 +2
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50302
   - at: "2026-07-14T17:45:04Z"
     level: L2
     summary: added CVE-2026-58635
@@ -1023,6 +1019,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50392
+  - at: "2026-07-14T17:46:25Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50328
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
