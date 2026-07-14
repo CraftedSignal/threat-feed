@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-14T22:20:36Z"
+lastmod: "2026-07-14T22:20:59Z"
 type: advisory
 types:
   - advisory
@@ -154,6 +154,10 @@ cves:
     cvss: 7.8
   - id: CVE-2026-48344
     cvss: 7.8
+  - id: CVE-2026-48334
+    cvss: 9.3
+  - id: CVE-2026-48275
+    cvss: 8.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -189,6 +193,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48275
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48287
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48335
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48336
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48337
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -219,13 +225,6 @@ ioc_counts:
   email: 2
   url: 8
 updates:
-  - at: "2026-07-14T21:28:47Z"
-    level: L2
-    summary: added CVE-2026-48370
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48370
   - at: "2026-07-14T22:18:52Z"
     level: L1
     summary: new product
@@ -254,6 +253,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48335
+  - at: "2026-07-14T22:20:59Z"
+    level: L2
+    summary: added CVE-2026-48275 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48337
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
