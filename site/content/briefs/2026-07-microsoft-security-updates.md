@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:07:40Z"
+lastmod: "2026-07-14T17:08:03Z"
 type: advisory
 types:
   - advisory
@@ -158,6 +158,8 @@ products:
   - SQL Server ODBC driver
   - Windows App Installer
   - Active Directory Domain Services
+  - Windows Print Configuration
+  - Printer Drivers
 affected_os:
   - Windows
   - macOS
@@ -394,6 +396,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42990
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-48572
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49164
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49165
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49166
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -606,13 +610,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:06:25Z"
-    level: L2
-    summary: added CVE-2026-58296
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47300
   - at: "2026-07-14T17:06:51Z"
     level: L2
     summary: added CVE-2026-58287
@@ -641,6 +638,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49164
+  - at: "2026-07-14T17:08:03Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49166
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
