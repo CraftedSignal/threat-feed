@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-14T22:19:28Z"
+lastmod: "2026-07-14T22:20:36Z"
 type: advisory
 types:
   - advisory
@@ -94,6 +94,8 @@ products:
   - Content Credentials Rust SDK (<= c2pa-v0.84.0)
   - Content Credentials Command-Line Tool (<= c2patool-v0.16.5)
   - Content Credentials JS SDK (<= @contentauth/c2pa@0.16.5)
+  - Illustrator Desktop 2026 <= 30.5
+  - Illustrator Desktop 2025 <= 29.8.7
 affected_os:
   - Windows
   - macOS
@@ -150,6 +152,8 @@ cves:
     cvss: 7.8
   - id: CVE-2026-48367
     cvss: 7.8
+  - id: CVE-2026-48344
+    cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -184,6 +188,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48334
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48275
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48287
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48335
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -207,18 +212,13 @@ iocs:
     value: https://helpx.adobe.com/security/products/bridge/apsb26-81.html
   - type: url
     value: https://helpx.adobe.com/security/products/media-encoder/apsb26-72.html
+  - type: url
+    value: https://helpx.adobe.com/security/products/illustrator/apsb26-79.html
 ioc_counts:
   domain: 2
   email: 2
-  url: 7
+  url: 8
 updates:
-  - at: "2026-07-14T21:27:34Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48367
   - at: "2026-07-14T21:28:47Z"
     level: L2
     summary: added CVE-2026-48370
@@ -247,6 +247,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48287
+  - at: "2026-07-14T22:20:36Z"
+    level: L2
+    summary: added CVE-2026-48344
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48335
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
