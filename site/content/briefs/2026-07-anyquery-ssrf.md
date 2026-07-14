@@ -3,17 +3,23 @@ title: Anyquery Server-Side Request Forgery via Unrestricted SQLite Virtual Tabl
 slug: 2026-07-anyquery-ssrf
 description: Unauthenticated attackers can exploit a Server-Side Request Forgery (SSRF) vulnerability (CVE-2026-54628) in Anyquery's `server` mode (versions prior to 0.4.5) by creating SQLite virtual tables that fetch internal network resources or cloud metadata, leading to internal network mapping and exfiltration of sensitive information like cloud credentials.
 date: "2026-07-14T20:39:43Z"
+lastmod: "2026-07-14T20:51:08Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - ssrf
   - vulnerability
   - anyquery
+  - local-file-read
+  - linux
+  - data-exfiltration
 products:
   - Anyquery (< 0.4.5)
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -33,8 +39,15 @@ mitre_ttps:
     technique_name: Data from Local System
     evidence: This allows attackers to perform Server-Side Request Forgery (SSRF), bypassing external firewalls to scan internal ports and exfiltrate cloud credentials.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1041
+    technique_name: Exfiltration Over C2 Channel
+    evidence: The server returns the contents of the local file to the attacker.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-hwrq-8wxh-q4xv
+  - https://github.com/advisories/GHSA-mf78-3rpf-r784
 rules:
   - title: Detect CVE-2026-54628 Exploitation - Anyquery Outbound Connection to Cloud Metadata IP
     description: Detects CVE-2026-54628 exploitation by monitoring outbound network connections from the 'anyquery' process to known cloud metadata IP addresses (e.g., AWS IMDS).
@@ -62,7 +75,28 @@ rules:
     data_sources:
       - network_connection
       - linux
-rules_count: 2
+  - title: Detect CVE-2026-54629 Exploitation - Anyquery Accessing Sensitive Files
+    description: Detects exploitation of CVE-2026-54629 where the 'anyquery' process attempts to read highly sensitive system files, indicating a Local File Read (LFR) vulnerability compromise.
+    platform: sigma
+    severity: high
+    tactics:
+      - collection
+      - initial_access
+    techniques:
+      - T1005
+      - T1190
+    data_sources:
+      - file_event
+      - linux
+rules_count: 3
+updates:
+  - at: "2026-07-14T20:51:08Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-54629 Exploitation - Anyquery Accessing Sensitive Files'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-mf78-3rpf-r784
 ---
 
 Anyquery, a tool for querying various data sources, contains a critical Server-Side Request Forgery (SSRF) vulnerability, identified as CVE-2026-54628, in its `server` mode. When `anyquery server` is launched, it exposes a MySQL-compatible interface. Versions prior to 0.4.5 allow unauthenticated attackers to create dynamic virtual tables using modules such as `json_reader` or `log_reader`. These modules leverage `go-getter` to fetch URLs without restricting access to local (127.0.0.0/8), private (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), or cloud metadata (169.254.169.254) IP addresses. This allows attackers to bypass network segmentation, scan internal ports, interact with internal APIs, and exfiltrate cloud credentials (e.g., AWS IAM tokens) from the underlying host. The vulnerability poses a significant risk to the confidentiality of internal network data and cloud environments.
