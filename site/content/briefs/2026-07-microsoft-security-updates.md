@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:08:32Z"
+lastmod: "2026-07-14T17:08:43Z"
 type: advisory
 types:
   - advisory
@@ -161,6 +161,7 @@ products:
   - Windows Print Configuration
   - Printer Drivers
   - DNS Server
+  - Windows StateRepository API Server
 affected_os:
   - Windows
   - macOS
@@ -406,6 +407,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49165
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49166
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49169
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49170
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -618,13 +620,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:07:02Z"
-    level: L2
-    summary: added CVE-2026-58299
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42990
   - at: "2026-07-14T17:07:11Z"
     level: L2
     summary: added CVE-2026-58281
@@ -653,6 +648,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49169
+  - at: "2026-07-14T17:08:43Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49170
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
