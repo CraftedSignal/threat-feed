@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T20:05:58Z"
+lastmod: "2026-07-14T20:06:21Z"
 type: advisory
 types:
   - advisory
@@ -620,6 +620,16 @@ cves:
     cvss: 7.8
   - id: CVE-2026-50315
     cvss: 7.8
+  - id: CVE-2026-49162
+    cvss: 7
+  - id: CVE-2026-42900
+    cvss: 8.1
+  - id: CVE-2026-50474
+    cvss: 8.8
+  - id: CVE-2026-55135
+    cvss: 4.6
+  - id: CVE-2026-56178
+    cvss: 5.5
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1186,6 +1196,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50382
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50390
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50397
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-50398
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1442,13 +1453,6 @@ ioc_counts:
   url: 60
   user_agent: 4
 updates:
-  - at: "2026-07-14T20:03:30Z"
-    level: L2
-    summary: added CVE-2026-50470 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-50372
   - at: "2026-07-14T20:03:48Z"
     level: L2
     summary: added CVE-2026-50384 +2
@@ -1477,6 +1481,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-50397
+  - at: "2026-07-14T20:06:21Z"
+    level: L2
+    summary: added CVE-2026-42900 +4
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-50398
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
