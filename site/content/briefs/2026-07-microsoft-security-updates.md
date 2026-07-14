@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:45:04Z"
+lastmod: "2026-07-14T17:45:21Z"
 type: advisory
 types:
   - advisory
@@ -236,6 +236,7 @@ products:
   - Windows Key Guard
   - Windows Server Backup
   - Windows Cryptographic Services
+  - Brokering File System
 affected_os:
   - Windows
   - macOS
@@ -521,6 +522,8 @@ cves:
     cvss: 7
   - id: CVE-2026-58635
     cvss: 7.8
+  - id: CVE-2026-49791
+    cvss: 7.1
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -763,6 +766,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50364
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50302
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50332
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50305
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -975,13 +979,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:44:20Z"
-    level: L2
-    summary: added CVE-2026-49795 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50300
   - at: "2026-07-14T17:44:33Z"
     level: L2
     summary: added CVE-2026-44806 +1
@@ -1010,6 +1007,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50332
+  - at: "2026-07-14T17:45:21Z"
+    level: L2
+    summary: added CVE-2026-49791
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50305
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
