@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:36:43Z"
+lastmod: "2026-07-14T17:37:54Z"
 type: advisory
 types:
   - advisory
@@ -222,6 +222,7 @@ products:
   - Windows Routing and Remote Access Service (RRAS)
   - Windows Resilient File System (ReFS)
   - Windows Resilient File System
+  - NTFS
 affected_os:
   - Windows
   - macOS
@@ -694,6 +695,10 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49792
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49793
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49796
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49795
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49797
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49799
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50308
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -906,13 +911,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:35:35Z"
-    level: L2
-    summary: added CVE-2026-49178
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49788
   - at: "2026-07-14T17:35:57Z"
     level: L2
     summary: added CVE-2026-48564 +1
@@ -941,6 +939,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49796
+  - at: "2026-07-14T17:37:54Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50308
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
