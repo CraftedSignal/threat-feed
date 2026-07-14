@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T19:51:00Z"
+lastmod: "2026-07-14T19:51:27Z"
 type: advisory
 types:
   - advisory
@@ -345,6 +345,16 @@ products:
   - Azure Monitor Agent Metrics Extension (< 1.65)
   - Windows Server 2025 (< 10.0.26100.33158)
   - Windows Server 2025 (Server Core installation) (< 10.0.26100.33158)
+  - Windows 10 Version 1607 < 10.0.14393.9339
+  - Windows 10 Version 1809 < 10.0.17763.9020
+  - Windows 10 Version 21H2 < 10.0.19044.7548
+  - Windows 10 Version 22H2 < 10.0.19045.7548
+  - Windows 11 Version 24H2 < 10.0.26100.8875
+  - Windows 11 Version 25H2 < 10.0.26100.8875
+  - Windows 11 version 26H1 < 10.0.28000.2269
+  - Windows Server 2016 < 10.0.14393.9339
+  - Windows Server 2016 (Server Core installation) < 10.0.14393.9339
+  - Windows Speech
 affected_os:
   - Windows
   - macOS
@@ -356,6 +366,7 @@ affected_os:
   - Windows 10
   - Windows Server 2012
   - Windows Server 2025
+  - Windows Server 2016
 cves:
   - id: CVE-2026-50304
     cvss: 7.5
@@ -394,6 +405,14 @@ cves:
     cvss: 7.5
   - id: CVE-2026-50365
     cvss: 8
+  - id: CVE-2026-41087
+    cvss: 5.5
+  - id: CVE-2026-50422
+    cvss: 7.8
+  - id: CVE-2026-50399
+    cvss: 7.8
+  - id: CVE-2026-56176
+    cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -934,6 +953,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55008
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47632
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49162
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-49171
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1147,6 +1167,8 @@ iocs:
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55008
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49162
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49171
 ioc_counts:
   asn: 1
   domain: 19
@@ -1163,16 +1185,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 49
+  url: 50
   user_agent: 4
 updates:
-  - at: "2026-07-14T19:33:42Z"
-    level: L2
-    summary: added CVE-2026-54121
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47301
   - at: "2026-07-14T19:48:00Z"
     level: L2
     summary: added CVE-2026-50484 +2; OS windows 10; OS windows server 2012
@@ -1201,6 +1216,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-49162
+  - at: "2026-07-14T19:51:27Z"
+    level: L2
+    summary: added CVE-2026-41087 +3; OS windows server 2016
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-49171
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
