@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T20:06:34Z"
+lastmod: "2026-07-14T20:06:53Z"
 type: advisory
 types:
   - advisory
@@ -373,6 +373,7 @@ products:
   - Microsoft Bing Search for iOS < 33.4.440529002
   - Windows Server 2012 < 6.2.9200.26226
   - Windows Server 2012 (Server Core installation) < 6.2.9200.26226
+  - Windows Backup Engine
 affected_os:
   - Windows
   - macOS
@@ -643,6 +644,10 @@ cves:
     cvss: 7.8
   - id: CVE-2026-57094
     cvss: 8.8
+  - id: CVE-2026-50312
+    cvss: 4.7
+  - id: CVE-2026-50391
+    cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1211,6 +1216,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50397
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50398
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50402
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-50406
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1448,6 +1454,8 @@ iocs:
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50390
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50397
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50406
 ioc_counts:
   asn: 1
   domain: 19
@@ -1464,16 +1472,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 60
+  url: 61
   user_agent: 4
 updates:
-  - at: "2026-07-14T20:04:16Z"
-    level: L2
-    summary: added CVE-2026-50669 +4
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-50382
   - at: "2026-07-14T20:05:30Z"
     level: L2
     summary: added CVE-2026-50306 +2
@@ -1502,6 +1503,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-50402
+  - at: "2026-07-14T20:06:53Z"
+    level: L2
+    summary: added CVE-2026-50312 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-50406
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
