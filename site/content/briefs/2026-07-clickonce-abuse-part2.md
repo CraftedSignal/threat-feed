@@ -3,7 +3,7 @@ title: 'New Abuse of the ClickOnce Technology, Part 2: Stop Threat Actors from C
 slug: 2026-07-clickonce-abuse-part2
 description: Threat actors are actively exploiting Microsoft's ClickOnce deployment technology, leveraging its low user interaction, lack of privilege requirements, and built-in update mechanisms to deliver malware, establish persistence, and maintain remote access, often executing payloads within legitimate rundll32.exe and dfsvc.exe processes.
 date: "2026-07-08T08:07:01Z"
-lastmod: "2026-07-13T09:09:10Z"
+lastmod: "2026-07-14T05:46:53Z"
 type: advisory
 types:
   - advisory
@@ -121,13 +121,17 @@ iocs:
     value: '*.application'
   - type: filename
     value: '*.appref-ms'
+  - type: filepath
+    value: '%Users\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\'
+  - type: filepath
+    value: Startup folder
 ioc_counts:
   directory: 1
   file_extension: 2
   file_name: 6
   file_path: 1
   filename: 4
-  filepath: 1
+  filepath: 3
   other: 1
   path: 1
   process: 2
@@ -157,13 +161,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-07-12T07:08:22Z"
-    level: L1
-    summary: new product
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-two/
   - at: "2026-07-12T07:54:27Z"
     level: L1
     summary: new IOCs
@@ -186,6 +183,13 @@ updates:
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-two/
   - at: "2026-07-13T09:09:10Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/new-abuse-of-the-clickonce-technology-part-two/
+  - at: "2026-07-14T05:46:53Z"
     level: L1
     summary: new IOCs
     sources:
