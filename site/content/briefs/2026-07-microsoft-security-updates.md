@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T09:32:23Z"
+lastmod: "2026-07-14T10:07:00Z"
 type: advisory
 types:
   - advisory
@@ -353,6 +353,7 @@ references:
   - https://www.huntress.com/blog/sql-injection-attacker-persistence
   - https://thehackernews.com/2026/07/microsoft-maps-year-long-shinyhunters.html
   - https://hackread.com/microsoft-entra-accounts-oauth-client-id-spoofing/
+  - https://any.run/cybersecurity-blog/kratos-phaas-account-takeover/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -542,12 +543,17 @@ iocs:
     value: AADSTS50034
   - type: error_code
     value: AADSTS700016
+  - type: file_name
+    value: barr.svg
+  - type: file_name
+    value: lg.svg
 ioc_counts:
   asn: 1
   domain: 19
   email: 2
   error_code: 3
   file-path: 2
+  file_name: 2
   filename: 5
   hash_sha256: 2
   infrastructure_provider: 2
@@ -560,13 +566,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-13T08:59:41Z"
-    level: L2
-    summary: added CVE-2026-56645 +2
-    sources:
-      - proofpoint
-    source_urls:
-      - https://www.proofpoint.com/us/blog/threat-insight/oauth-client-id-spoofing-why-fake-client-ids-are-gaining-traction-stealthy
   - at: "2026-07-13T13:31:20Z"
     level: L2
     summary: added CVE-2026-57983
@@ -595,6 +594,13 @@ updates:
       - hackread
     source_urls:
       - https://hackread.com/microsoft-entra-accounts-oauth-client-id-spoofing/
+  - at: "2026-07-14T10:07:00Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - any-run
+    source_urls:
+      - https://any.run/cybersecurity-blog/kratos-phaas-account-takeover/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
