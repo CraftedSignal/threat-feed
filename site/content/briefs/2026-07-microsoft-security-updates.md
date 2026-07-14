@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T20:06:21Z"
+lastmod: "2026-07-14T20:06:34Z"
 type: advisory
 types:
   - advisory
@@ -388,6 +388,13 @@ affected_os:
   - Windows Server 2019
   - Windows Server 2022
   - iOS
+  - Windows 10 Version 1607
+  - Windows 10 Version 1809
+  - Windows 10 Version 21H2
+  - Windows 10 Version 22H2
+  - Windows 11 Version 24H2
+  - Windows 11 Version 25H2
+  - Windows 11 version 26H1
 cves:
   - id: CVE-2026-50304
     cvss: 7.5
@@ -630,6 +637,12 @@ cves:
     cvss: 4.6
   - id: CVE-2026-56178
     cvss: 5.5
+  - id: CVE-2026-50383
+    cvss: 6.1
+  - id: CVE-2026-54115
+    cvss: 7.8
+  - id: CVE-2026-57094
+    cvss: 8.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1197,6 +1210,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50390
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50397
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50398
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-50402
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1453,13 +1467,6 @@ ioc_counts:
   url: 60
   user_agent: 4
 updates:
-  - at: "2026-07-14T20:03:48Z"
-    level: L2
-    summary: added CVE-2026-50384 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-50379
   - at: "2026-07-14T20:04:16Z"
     level: L2
     summary: added CVE-2026-50669 +4
@@ -1488,6 +1495,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-50398
+  - at: "2026-07-14T20:06:34Z"
+    level: L2
+    summary: added CVE-2026-50383 +2; OS windows 10 version 1809; OS windows 10 version 22h2; OS windows 11 version 24h2; OS windows 11 version 25h2; OS windows 10 version 1607; OS windows 11 version 26h1; OS windows 10 version 21h2
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-50402
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
