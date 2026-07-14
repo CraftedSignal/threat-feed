@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T19:11:36Z"
+lastmod: "2026-07-14T19:48:00Z"
 type: advisory
 types:
   - advisory
@@ -334,6 +334,16 @@ products:
   - Windows Wireless Network Manager
   - Desktop Window Manager
   - Windows Network Address Translation (NAT)
+  - Configuration Manager
+  - Windows 10 Version 1607 (< 10.0.14393.9339)
+  - Windows 10 Version 1809 (< 10.0.17763.9020)
+  - Windows 10 Version 21H2 (< 10.0.19044.7548)
+  - Windows 10 Version 22H2 (< 10.0.19045.7548)
+  - Windows 11 Version 24H2 (< 10.0.26100.8875)
+  - Windows 11 Version 25H2 (< 10.0.26200.8875)
+  - Windows 11 version 26H1 (< 10.0.28000.2269)
+  - Windows Server 2012 (< 6.2.9200.26226)
+  - Windows Server 2012 (Server Core installation) (< 6.2.9200.26226)
 affected_os:
   - Windows
   - macOS
@@ -342,619 +352,19 @@ affected_os:
   - Windows Server
   - Windows 10 22H2
   - Windows 11
+  - Windows 10
+  - Windows Server 2012
 cves:
-  - id: CVE-2026-58525
-    cvss: 8.2
-    epss: 0.00362
-  - id: CVE-2026-57985
-    cvss: 7.6
-    epss: 0.00479
-  - id: CVE-2026-57987
-    cvss: 6.5
-    epss: 0.00617
-  - id: CVE-2026-57988
-    cvss: 7.1
-    epss: 0.00532
-  - id: CVE-2026-57993
-    cvss: 7.4
-    epss: 0.00603
-  - id: CVE-2026-58283
-    cvss: 8.1
-    epss: 0.00329
-  - id: CVE-2026-57977
-    cvss: 7.1
-    epss: 0.00397
-  - id: CVE-2026-57986
-    cvss: 7.5
-    epss: 0.00429
-  - id: CVE-2026-58298
-    cvss: 7.2
-    epss: 0.0024
-  - id: CVE-2026-58300
-    cvss: 6.2
-    epss: 0.00337
-  - id: CVE-2026-57991
-    cvss: 7.4
-    epss: 0.00745
-  - id: CVE-2026-58284
-    cvss: 8.3
-    epss: 0.00405
-  - id: CVE-2026-58295
-    cvss: 8.3
-    epss: 0.00372
-  - id: CVE-2026-55952
-    cvss: 7.5
-    epss: 0.00487
-  - id: CVE-2026-58292
-    cvss: 7.5
-    epss: 0.00279
-  - id: CVE-2026-58294
-    cvss: 7.5
-    epss: 0.0034
-  - id: CVE-2026-57984
-    cvss: 7.5
-    epss: 0.00429
-  - id: CVE-2026-54886
-    cvss: 4.3
-    epss: 0.0033
-  - id: CVE-2026-58282
-    cvss: 8.1
-    epss: 0.00312
-  - id: CVE-2026-57981
-    cvss: 8.8
-    epss: 0.00556
-  - id: CVE-2026-58278
-    cvss: 5.4
-    epss: 0.00282
-  - id: CVE-2026-58289
-    cvss: 9
-    epss: 0.00438
-  - id: CVE-2026-59925
-    cvss: 7.5
-    epss: 0.00358
-  - id: CVE-2026-58297
-    cvss: 7.1
-    epss: 0.00309
-  - id: CVE-2026-58596
-    cvss: 8.3
-  - id: CVE-2026-56645
-    cvss: 8.8
-    epss: 0.00556
-  - id: CVE-2026-57983
-    cvss: 8.7
-    epss: 0.00463
-  - id: CVE-2026-58288
-    cvss: 8.3
-    epss: 0.00438
-  - id: CVE-2026-58286
-    cvss: 8.1
-    epss: 0.00312
-  - id: CVE-2026-58276
-    cvss: 7.5
-    epss: 0.00429
-  - id: CVE-2026-57974
-    cvss: 8.8
-    epss: 0.00556
-  - id: CVE-2026-58293
-    cvss: 8.1
-    epss: 0.00438
-  - id: CVE-2026-58296
-    cvss: 7.1
-    epss: 0.00303
-  - id: CVE-2026-58287
-    cvss: 8.3
-    epss: 0.00438
-  - id: CVE-2026-58299
-    cvss: 7.5
-    epss: 0.0027
-  - id: CVE-2026-58281
-    cvss: 8.3
-    epss: 0.00704
-  - id: CVE-2026-58522
-    cvss: 6.8
-    epss: 0.00323
-  - id: CVE-2026-58291
-    cvss: 6.1
-    epss: 0.00586
-  - id: CVE-2026-57992
-    cvss: 7.5
-    epss: 0.00429
-  - id: CVE-2026-57975
-    cvss: 7.5
-    epss: 0.00429
-  - id: CVE-2023-38146
-    cvss: 8.8
-    epss: 0.39491
-  - id: CVE-2026-58285
-    cvss: 8.3
-    epss: 0.00438
-  - id: CVE-2026-49164
-    cvss: 8.1
-  - id: CVE-2026-58290
-    cvss: 7.5
-    epss: 0.00249
-  - id: CVE-2026-54999
-    cvss: 8.8
-  - id: CVE-2026-54122
-    cvss: 8.4
-  - id: CVE-2026-54109
-    cvss: 7.8
-  - id: CVE-2026-54986
-    cvss: 7.8
-  - id: CVE-2026-55004
-    cvss: 7.8
-  - id: CVE-2026-55012
-    cvss: 7.8
-  - id: CVE-2026-54983
-    cvss: 7.5
-  - id: CVE-2026-34349
-    cvss: 5.5
-  - id: CVE-2026-45496
-    cvss: 5.5
-  - id: CVE-2026-54995
-    cvss: 8.1
-  - id: CVE-2026-50338
-    cvss: 8.2
-  - id: CVE-2026-55011
-    cvss: 7.8
-  - id: CVE-2026-54996
-    cvss: 7
-  - id: CVE-2026-55009
-    cvss: 7.8
-  - id: CVE-2026-50675
-    cvss: 7.8
-  - id: CVE-2026-55001
-    cvss: 7.8
-  - id: CVE-2026-54119
-    cvss: 7.5
-  - id: CVE-2026-49176
-    cvss: 7.8
-  - id: CVE-2026-54117
-    cvss: 8.8
-  - id: CVE-2026-54107
-    cvss: 8.8
-  - id: CVE-2026-55899
-    cvss: 7.8
-  - id: CVE-2026-56155
-    cvss: 7.8
-  - id: CVE-2026-54982
-    cvss: 8.8
-  - id: CVE-2026-55144
-    cvss: 7.1
-  - id: CVE-2026-54990
-    cvss: 9.8
-  - id: CVE-2026-54118
-    cvss: 8.8
-  - id: CVE-2026-50694
-    cvss: 8.1
-  - id: CVE-2026-54997
-    cvss: 5.5
-  - id: CVE-2026-54992
-    cvss: 8.4
-  - id: CVE-2026-57979
-    cvss: 6.5
-  - id: CVE-2026-55002
-    cvss: 7.8
-  - id: CVE-2026-55948
-    cvss: 7.8
-  - id: CVE-2026-58610
-    cvss: 7.8
-  - id: CVE-2026-54108
-    cvss: 6.5
-  - id: CVE-2026-56169
-    cvss: 8.1
-  - id: CVE-2026-54111
-    cvss: 7
-  - id: CVE-2026-55014
-    cvss: 7.8
-  - id: CVE-2026-58614
-    cvss: 5.5
-  - id: CVE-2026-58618
-    cvss: 7.8
-  - id: CVE-2026-58609
-    cvss: 7.8
-  - id: CVE-2026-54127
-    cvss: 7.4
-  - id: CVE-2026-58601
-    cvss: 7.8
-  - id: CVE-2026-58602
-    cvss: 7.8
-  - id: CVE-2026-57107
-    cvss: 7.8
-  - id: CVE-2026-58631
-    cvss: 7.8
-  - id: CVE-2026-55003
-    cvss: 6.5
-  - id: CVE-2026-44800
-    cvss: 7.8
-  - id: CVE-2026-55005
-    cvss: 8.8
-  - id: CVE-2026-58636
-    cvss: 7.8
-  - id: CVE-2026-50663
-    cvss: 8.8
-  - id: CVE-2026-56170
-    cvss: 7.5
-  - id: CVE-2026-49178
-    cvss: 8.8
-  - id: CVE-2026-48564
-    cvss: 8.8
-  - id: CVE-2026-49184
-    cvss: 8.4
-  - id: CVE-2026-40400
-    cvss: 8
-  - id: CVE-2026-50522
-    cvss: 9.8
-  - id: CVE-2026-40422
-    cvss: 5.5
-  - id: CVE-2026-56164
-    cvss: 5.3
-  - id: CVE-2026-34348
-    cvss: 6.5
-  - id: CVE-2026-50308
-    cvss: 7.8
-  - id: CVE-2026-49805
-    cvss: 7
-  - id: CVE-2026-50333
-    cvss: 7.8
-  - id: CVE-2026-50318
-    cvss: 7.8
-  - id: CVE-2026-49802
-    cvss: 7
-  - id: CVE-2026-57969
-    cvss: 8.8
-  - id: CVE-2026-49795
-    cvss: 8.8
-  - id: CVE-2026-50381
-    cvss: 5.5
-  - id: CVE-2026-50303
-    cvss: 5.5
-  - id: CVE-2026-44806
-    cvss: 5.3
-  - id: CVE-2026-40378
-    cvss: 7.5
-  - id: CVE-2026-45646
-    cvss: 7.5
-  - id: CVE-2026-50323
-    cvss: 7
-  - id: CVE-2026-58635
-    cvss: 7.8
-  - id: CVE-2026-49791
-    cvss: 7.1
-  - id: CVE-2026-50520
-    cvss: 8.4
-  - id: CVE-2026-58644
-    cvss: 9.8
-  - id: CVE-2026-49180
-    cvss: 5.5
-  - id: CVE-2026-41087
-    cvss: 5.5
-  - id: CVE-2026-49183
-    cvss: 7
-  - id: CVE-2026-50384
-    cvss: 7
-  - id: CVE-2026-49799
-    cvss: 6.5
-  - id: CVE-2026-49787
-    cvss: 7.5
-  - id: CVE-2026-49793
-    cvss: 7.8
-  - id: CVE-2026-49796
-    cvss: 7.8
-  - id: CVE-2026-49797
-    cvss: 7.8
-  - id: CVE-2026-50295
-    cvss: 5.5
-  - id: CVE-2026-50300
-    cvss: 5.5
-  - id: CVE-2026-58608
-    cvss: 8.8
-  - id: CVE-2026-50296
-    cvss: 7
-  - id: CVE-2026-50653
-    cvss: 7.5
-  - id: CVE-2026-50342
-    cvss: 8.8
-  - id: CVE-2026-50325
-    cvss: 7
-  - id: CVE-2026-49792
-    cvss: 7.8
-  - id: CVE-2026-50351
-    cvss: 7.8
-  - id: CVE-2026-49806
-    cvss: 7
-  - id: CVE-2026-58279
-    cvss: 6.5
-  - id: CVE-2026-49801
-    cvss: 5.5
-  - id: CVE-2026-56193
-    cvss: 7.1
-  - id: CVE-2026-48581
-    cvss: 7.8
-  - id: CVE-2026-50364
-    cvss: 7.3
-  - id: CVE-2026-50383
-    cvss: 6.1
-  - id: CVE-2026-50426
-    cvss: 6.8
-  - id: CVE-2026-50505
-    cvss: 7.5
-  - id: CVE-2026-50362
-    cvss: 7.8
-  - id: CVE-2026-50482
-    cvss: 7.3
-  - id: CVE-2026-50491
-    cvss: 7
-  - id: CVE-2026-50647
-    cvss: 7.5
-  - id: CVE-2026-50434
-    cvss: 5.5
-  - id: CVE-2026-50474
-    cvss: 8.8
-  - id: CVE-2026-58647
-    cvss: 8
-  - id: CVE-2026-50365
-    cvss: 8
-  - id: CVE-2026-50485
-    cvss: 4.5
-  - id: CVE-2026-50477
-    cvss: 8.8
-  - id: CVE-2026-50488
-    cvss: 7.8
-  - id: CVE-2026-50492
-    cvss: 6.8
-  - id: CVE-2026-50437
-    cvss: 5.5
-  - id: CVE-2026-50487
-    cvss: 8.1
-  - id: CVE-2026-50497
-    cvss: 6.5
-  - id: CVE-2026-50509
-    cvss: 7.8
   - id: CVE-2026-50304
     cvss: 7.5
-  - id: CVE-2026-50367
-    cvss: 7.8
-  - id: CVE-2026-50674
-    cvss: 7
-  - id: CVE-2026-50501
-    cvss: 7.8
-  - id: CVE-2026-50666
-    cvss: 8.8
-  - id: CVE-2026-50686
-    cvss: 8.1
-  - id: CVE-2026-50438
-    cvss: 8.8
-  - id: CVE-2026-50447
-    cvss: 9.8
-  - id: CVE-2026-50439
-    cvss: 8.1
-  - id: CVE-2026-50450
-    cvss: 7.8
-  - id: CVE-2026-50667
-    cvss: 7.8
-  - id: CVE-2026-50672
-    cvss: 7
-  - id: CVE-2026-50504
-    cvss: 6.5
-  - id: CVE-2026-50657
-    cvss: 4.7
-  - id: CVE-2026-50684
-    cvss: 4.8
-  - id: CVE-2026-50680
-    cvss: 8.2
-  - id: CVE-2026-50685
-    cvss: 7.5
-  - id: CVE-2026-54125
-    cvss: 7.8
-  - id: CVE-2026-50337
-    cvss: 7.8
-  - id: CVE-2026-50314
-    cvss: 7.8
-  - id: CVE-2026-47295
-    cvss: 8.8
-  - id: CVE-2026-50408
-    cvss: 5.5
-  - id: CVE-2026-55021
-    cvss: 7.3
-  - id: CVE-2026-54126
-    cvss: 6.5
-  - id: CVE-2026-50401
-    cvss: 5.5
-  - id: CVE-2026-55050
-    cvss: 5.5
-  - id: CVE-2026-50301
-    cvss: 7.8
-  - id: CVE-2026-47290
-    cvss: 7.8
-  - id: CVE-2026-55020
-    cvss: 4.6
-  - id: CVE-2026-50345
-    cvss: 7
-  - id: CVE-2026-50682
-    cvss: 7.1
-  - id: CVE-2026-50689
-    cvss: 7.8
-  - id: CVE-2026-55036
-    cvss: 7.8
-  - id: CVE-2026-49803
-    cvss: 7
-  - id: CVE-2026-55022
-    cvss: 7.8
-  - id: CVE-2026-55049
-    cvss: 7.8
-  - id: CVE-2026-50669
-    cvss: 7
-  - id: CVE-2026-55055
-    cvss: 7.8
-  - id: CVE-2026-50369
-    cvss: 8.8
-  - id: CVE-2026-50503
-    cvss: 7
-  - id: CVE-2026-47642
-    cvss: 7.8
-  - id: CVE-2026-50499
-    cvss: 7.8
-  - id: CVE-2026-50676
-    cvss: 7.8
-  - id: CVE-2026-50480
-    cvss: 7.8
-  - id: CVE-2026-50444
-    cvss: 8.8
-  - id: CVE-2026-50500
-    cvss: 7.5
-  - id: CVE-2026-50415
-    cvss: 5.3
-  - id: CVE-2026-50470
-    cvss: 7.5
-  - id: CVE-2026-55126
-    cvss: 7.3
-  - id: CVE-2026-55054
-    cvss: 6.5
-  - id: CVE-2026-55037
-    cvss: 7.8
-  - id: CVE-2026-50430
-    cvss: 5.5
-  - id: CVE-2026-55033
-    cvss: 7.8
-  - id: CVE-2026-55125
-    cvss: 7.8
-  - id: CVE-2026-55010
-    cvss: 9.8
-  - id: CVE-2026-55040
-    cvss: 9.1
-  - id: CVE-2026-55944
-    cvss: 9.8
-  - id: CVE-2026-55947
-    cvss: 7.8
-  - id: CVE-2026-49788
-    cvss: 7.5
-  - id: CVE-2026-50399
-    cvss: 7.8
-  - id: CVE-2026-50496
-    cvss: 7.5
-  - id: CVE-2026-50670
-    cvss: 8.8
-  - id: CVE-2026-50518
-    cvss: 9.8
-  - id: CVE-2026-55029
-    cvss: 7.8
-  - id: CVE-2026-55131
-    cvss: 7.8
-  - id: CVE-2026-55128
-    cvss: 7.8
-  - id: CVE-2026-55949
-    cvss: 7.8
-  - id: CVE-2026-50655
-    cvss: 7.8
-  - id: CVE-2026-50467
-    cvss: 7.8
-  - id: CVE-2026-55016
-    cvss: 4.6
-  - id: CVE-2026-56190
-    cvss: 9.8
-  - id: CVE-2026-50490
-    cvss: 7
-  - id: CVE-2026-56178
-    cvss: 5.5
   - id: CVE-2026-56197
     cvss: 8.8
-  - id: CVE-2026-50658
-    cvss: 7
-  - id: CVE-2026-55053
+  - id: CVE-2026-50484
     cvss: 7.8
-  - id: CVE-2026-56159
-    cvss: 9.8
-  - id: CVE-2026-50429
-    cvss: 8.2
-  - id: CVE-2026-55041
-    cvss: 7.8
-  - id: CVE-2026-56173
-    cvss: 7
-  - id: CVE-2026-56195
-    cvss: 5.5
-  - id: CVE-2026-56647
+  - id: CVE-2026-55122
+    cvss: 7.1
+  - id: CVE-2026-57102
     cvss: 8.8
-  - id: CVE-2026-50347
-    cvss: 7.8
-  - id: CVE-2026-55058
-    cvss: 7.8
-  - id: CVE-2026-57083
-    cvss: 5.5
-  - id: CVE-2026-57094
-    cvss: 8.8
-  - id: CVE-2026-56156
-    cvss: 7.8
-  - id: CVE-2026-50359
-    cvss: 7
-  - id: CVE-2026-56192
-    cvss: 5.5
-  - id: CVE-2026-55057
-    cvss: 5.5
-  - id: CVE-2026-55027
-    cvss: 5.5
-  - id: CVE-2026-56183
-    cvss: 7
-  - id: CVE-2026-56176
-    cvss: 7.8
-  - id: CVE-2026-55133
-    cvss: 7.8
-  - id: CVE-2026-58277
-    cvss: 8.8
-  - id: CVE-2026-56186
-    cvss: 8.1
-  - id: CVE-2026-57096
-    cvss: 7.8
-  - id: CVE-2026-55051
-    cvss: 6.5
-  - id: CVE-2026-55140
-    cvss: 7.8
-  - id: CVE-2026-55139
-    cvss: 5.5
-  - id: CVE-2026-56184
-    cvss: 5.5
-  - id: CVE-2026-55120
-    cvss: 7.8
-  - id: CVE-2026-50316
-    cvss: 5.5
-  - id: CVE-2026-55042
-    cvss: 5.5
-  - id: CVE-2026-57982
-    cvss: 6.5
-  - id: CVE-2026-56642
-    cvss: 8.8
-  - id: CVE-2026-57087
-    cvss: 8.8
-  - id: CVE-2026-58533
-    cvss: 6.5
-  - id: CVE-2026-50460
-    cvss: 8.1
-  - id: CVE-2026-55044
-    cvss: 7.8
-  - id: CVE-2026-55024
-    cvss: 7.8
-  - id: CVE-2026-55048
-    cvss: 7.8
-  - id: CVE-2026-56648
-    cvss: 7.5
-  - id: CVE-2026-55132
-    cvss: 7.8
-  - id: CVE-2026-55134
-    cvss: 7.8
-  - id: CVE-2026-50442
-    cvss: 5.5
-  - id: CVE-2026-49783
-    cvss: 7.8
-  - id: CVE-2026-57973
-    cvss: 6.3
-  - id: CVE-2026-55018
-    cvss: 7.8
-  - id: CVE-2026-57089
-    cvss: 7.5
-  - id: CVE-2026-57968
-    cvss: 7.8
-  - id: CVE-2026-58531
-    cvss: 7.5
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1489,6 +899,9 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58529
   - https://www.cve.org/CVERecord?id=CVE-2026-56155
   - https://www.cve.org/CVERecord?id=CVE-2026-56164
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/suspicious_process_executed_from_container_file.yml
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47301
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-49798
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1690,6 +1103,14 @@ iocs:
     value: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk
   - type: url
     value: https://nvd.nist.gov/vuln/detail/CVE-2026-56164
+  - type: url
+    value: https://www.mandiant.com/resources/blog/tracking-evolution-gootloader-operations
+  - type: url
+    value: https://www.crowdstrike.com/blog/weaponizing-disk-image-files-analysis/
+  - type: url
+    value: https://attack.mitre.org/techniques/T1204/002/
+  - type: url
+    value: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/gootloader/partial_ttps/windows-sysmon.log
 ioc_counts:
   asn: 1
   domain: 19
@@ -1706,30 +1127,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 43
+  url: 47
   user_agent: 4
 updates:
-  - at: "2026-07-14T19:07:34Z"
-    level: L2
-    summary: added CVE-2026-50442
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58628
-  - at: "2026-07-14T19:08:10Z"
-    level: L2
-    summary: added CVE-2026-49783 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58634
-  - at: "2026-07-14T19:08:35Z"
-    level: L2
-    summary: added CVE-2026-55018
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56181
   - at: "2026-07-14T19:08:47Z"
     level: L2
     summary: added CVE-2026-57089 +1
@@ -1744,6 +1144,27 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-56164
+  - at: "2026-07-14T19:33:33Z"
+    level: L2
+    summary: added CVE-2026-55019 +1
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/suspicious_process_executed_from_container_file.yml
+  - at: "2026-07-14T19:33:42Z"
+    level: L2
+    summary: added CVE-2026-54121
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47301
+  - at: "2026-07-14T19:48:00Z"
+    level: L2
+    summary: added CVE-2026-50484 +2; OS windows 10; OS windows server 2012
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-49798
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
