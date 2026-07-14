@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T19:08:47Z"
+lastmod: "2026-07-14T19:11:36Z"
 type: advisory
 types:
   - advisory
@@ -953,6 +953,8 @@ cves:
     cvss: 7.5
   - id: CVE-2026-57968
     cvss: 7.8
+  - id: CVE-2026-58531
+    cvss: 7.5
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1485,6 +1487,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58634
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56181
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58529
+  - https://www.cve.org/CVERecord?id=CVE-2026-56155
+  - https://www.cve.org/CVERecord?id=CVE-2026-56164
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1678,6 +1682,14 @@ iocs:
     value: barr.svg
   - type: file_name
     value: lg.svg
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-56164
+  - type: url
+    value: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk
+  - type: url
+    value: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk
+  - type: url
+    value: https://nvd.nist.gov/vuln/detail/CVE-2026-56164
 ioc_counts:
   asn: 1
   domain: 19
@@ -1694,16 +1706,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 39
+  url: 43
   user_agent: 4
 updates:
-  - at: "2026-07-14T19:07:24Z"
-    level: L2
-    summary: added CVE-2026-55132 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58627
   - at: "2026-07-14T19:07:34Z"
     level: L2
     summary: added CVE-2026-50442
@@ -1732,6 +1737,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58529
+  - at: "2026-07-14T19:11:36Z"
+    level: L2
+    summary: added CVE-2026-58531
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-56164
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
