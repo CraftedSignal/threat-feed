@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T10:07:00Z"
+lastmod: "2026-07-14T17:05:14Z"
 type: advisory
 types:
   - advisory
@@ -149,6 +149,7 @@ products:
   - Klue
   - github.com
   - aws.amazon.com
+  - Copilot
 affected_os:
   - Windows
   - macOS
@@ -247,6 +248,9 @@ cves:
   - id: CVE-2026-58276
     cvss: 7.5
     epss: 0.00429
+  - id: CVE-2026-57974
+    cvss: 8.8
+    epss: 0.00556
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -354,6 +358,8 @@ references:
   - https://thehackernews.com/2026/07/microsoft-maps-year-long-shinyhunters.html
   - https://hackread.com/microsoft-entra-accounts-oauth-client-id-spoofing/
   - https://any.run/cybersecurity-blog/kratos-phaas-account-takeover/
+  - https://thehackernews.com/2026/07/oauth-client-id-spoofing-lets-attackers.html
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-48561
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -566,13 +572,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-13T13:31:20Z"
-    level: L2
-    summary: added CVE-2026-57983
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html
   - at: "2026-07-13T16:23:45Z"
     level: L2
     summary: added CVE-2026-58286 +1
@@ -601,6 +600,13 @@ updates:
       - any-run
     source_urls:
       - https://any.run/cybersecurity-blog/kratos-phaas-account-takeover/
+  - at: "2026-07-14T17:05:14Z"
+    level: L2
+    summary: added CVE-2026-57974
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-48561
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
