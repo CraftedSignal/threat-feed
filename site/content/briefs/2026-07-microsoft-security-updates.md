@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-13T16:23:45Z"
+lastmod: "2026-07-14T06:43:29Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +43,26 @@ vendors:
   - DocuSign
   - Dropbox
   - MAX
+  - Salesforce
+  - Chanel
+  - Pandora
+  - Adidas
+  - Qantas
+  - Allianz Life
+  - LVMH
+  - Salesloft
+  - Drift
+  - Cloudflare
+  - Zscaler
+  - Palo Alto Networks
+  - Proofpoint
+  - PagerDuty
+  - Tanium
+  - Gainsight
+  - Klue
+  - Huntress
+  - Recorded Future
+  - AWS
 products:
   - PowerShell
   - Windows
@@ -119,6 +139,16 @@ products:
   - Google Chrome
   - Brave
   - IIS
+  - Salesforce
+  - Salesforce Data Loader
+  - Salesforce Aura endpoints
+  - Salesforce Experience Cloud
+  - Microsoft Defender for Cloud Apps
+  - Drift AI chat integration
+  - Gainsight
+  - Klue
+  - github.com
+  - aws.amazon.com
 affected_os:
   - Windows
   - macOS
@@ -214,6 +244,9 @@ cves:
   - id: CVE-2026-58286
     cvss: 8.1
     epss: 0.00312
+  - id: CVE-2026-58276
+    cvss: 7.5
+    epss: 0.00429
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -318,6 +351,7 @@ references:
   - https://www.proofpoint.com/us/blog/threat-insight/oauth-client-id-spoofing-why-fake-client-ids-are-gaining-traction-stealthy
   - https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html
   - https://www.huntress.com/blog/sql-injection-attacker-persistence
+  - https://thehackernews.com/2026/07/microsoft-maps-year-long-shinyhunters.html
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -511,13 +545,6 @@ ioc_counts:
   url: 39
   user_agent: 3
 updates:
-  - at: "2026-07-12T13:00:53Z"
-    level: L2
-    summary: poc_available; added CVE-2026-54886 +3; OS windows 11
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
   - at: "2026-07-12T16:17:29Z"
     level: L2
     summary: added CVE-2026-57981 +4
@@ -546,6 +573,13 @@ updates:
       - huntress
     source_urls:
       - https://www.huntress.com/blog/sql-injection-attacker-persistence
+  - at: "2026-07-14T06:43:29Z"
+    level: L2
+    summary: added CVE-2026-58276
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/microsoft-maps-year-long-shinyhunters.html
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
