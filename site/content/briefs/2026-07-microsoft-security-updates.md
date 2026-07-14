@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T22:16:36Z"
+lastmod: "2026-07-14T23:01:01Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,7 @@ cpes:
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=AC8BA49C-6B0C-5FC3-A311-C5C14C8864A6&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -61,6 +62,7 @@ vendors:
   - Huntress
   - Recorded Future
   - AWS
+  - Spring
 products:
   - PowerShell
   - Windows
@@ -394,6 +396,8 @@ products:
   - Microsoft Office 2016
   - Microsoft SharePoint Server
   - Microsoft Windows VMSwitch
+  - spring-cloud-azure-starter-active-directory-b2c <= 5.19.0
+  - Spring Cloud Azure B2C Resource Server
 affected_os:
   - Windows
   - macOS
@@ -772,6 +776,14 @@ cves:
     cvss: 7.8
   - id: CVE-2026-50413
     cvss: 8.8
+  - id: CVE-2026-49172
+    cvss: 9.8
+  - id: CVE-2026-50346
+    cvss: 7.8
+  - id: CVE-2026-50441
+    cvss: 7.8
+  - id: CVE-2026-55022
+    cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1355,6 +1367,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50665
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50673
   - https://www.darkreading.com/vulnerabilities-threats/records-broken-patch-tuesday-raises-triage-stakes
+  - https://sploitus.com/exploit?id=AC8BA49C-6B0C-5FC3-A311-C5C14C8864A6&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1612,11 +1625,26 @@ iocs:
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50665
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50673
+  - type: url
+    value: https://sploitus.com/exploit?id=AC8BA49C-6B0C-5FC3-A311-C5C14C8864A6
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50338
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-33117
+  - type: url
+    value: https://johannes-moeller.dev/blog/cve-2026-50338-spring-cloud-azure-b2c-cross-issuer
+  - type: url
+    value: https://github.com/Azure/azure-sdk-for-java/pull/49252
+  - type: url
+    value: https://github.com/Azure/azure-sdk-for-java/pull/49033
+  - type: file
+    value: poc.py
 ioc_counts:
   asn: 1
   domain: 19
   email: 3
   error_code: 3
+  file: 1
   file-path: 2
   file_name: 2
   filename: 5
@@ -1628,16 +1656,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 70
+  url: 76
   user_agent: 4
 updates:
-  - at: "2026-07-14T20:12:29Z"
-    level: L2
-    summary: added CVE-2026-34346 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-50479
   - at: "2026-07-14T20:45:36Z"
     level: L2
     summary: added CVE-2026-50325 +4
@@ -1666,6 +1687,13 @@ updates:
       - dark-reading
     source_urls:
       - https://www.darkreading.com/vulnerabilities-threats/records-broken-patch-tuesday-raises-triage-stakes
+  - at: "2026-07-14T23:01:01Z"
+    level: L2
+    summary: added CVE-2026-49172 +3
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=AC8BA49C-6B0C-5FC3-A311-C5C14C8864A6&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
