@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-14T21:25:52Z"
+lastmod: "2026-07-14T21:27:34Z"
 type: advisory
 types:
   - advisory
@@ -83,6 +83,8 @@ products:
   - Creative Cloud Desktop < 6.10.0.252.3
   - Adobe Media Encoder < 26.2.2
   - Adobe Media Encoder < 25.6.5
+  - After Effects (< 26.2.1)
+  - After Effects (< 25.6.5)
 affected_os:
   - Windows
   - macOS
@@ -164,6 +166,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48343
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48344
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48366
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48367
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -192,13 +195,6 @@ ioc_counts:
   email: 2
   url: 7
 updates:
-  - at: "2026-07-14T21:24:17Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48340
   - at: "2026-07-14T21:24:36Z"
     level: L2
     summary: added CVE-2026-48339
@@ -227,6 +223,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48366
+  - at: "2026-07-14T21:27:34Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48367
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
