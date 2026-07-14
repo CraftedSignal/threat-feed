@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T19:50:40Z"
+lastmod: "2026-07-14T19:51:00Z"
 type: advisory
 types:
   - advisory
@@ -343,6 +343,8 @@ products:
   - Microsoft Exchange Server 2019 Cumulative Update 15 (< 15.02.1748.048)
   - Microsoft Exchange Server Subscription Edition RTM (< 15.02.2562.045)
   - Azure Monitor Agent Metrics Extension (< 1.65)
+  - Windows Server 2025 (< 10.0.26100.33158)
+  - Windows Server 2025 (Server Core installation) (< 10.0.26100.33158)
 affected_os:
   - Windows
   - macOS
@@ -353,6 +355,7 @@ affected_os:
   - Windows 11
   - Windows 10
   - Windows Server 2012
+  - Windows Server 2025
 cves:
   - id: CVE-2026-50304
     cvss: 7.5
@@ -385,6 +388,12 @@ cves:
     cvss: 5.5
   - id: CVE-2026-50442
     cvss: 5.5
+  - id: CVE-2026-50343
+    cvss: 7.8
+  - id: CVE-2026-50414
+    cvss: 7.5
+  - id: CVE-2026-50365
+    cvss: 8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -924,6 +933,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49798
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55008
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47632
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-49162
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1135,6 +1145,8 @@ iocs:
     value: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/gootloader/partial_ttps/windows-sysmon.log
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55008
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49162
 ioc_counts:
   asn: 1
   domain: 19
@@ -1151,16 +1163,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 48
+  url: 49
   user_agent: 4
 updates:
-  - at: "2026-07-14T19:33:33Z"
-    level: L2
-    summary: added CVE-2026-55019 +1
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/suspicious_process_executed_from_container_file.yml
   - at: "2026-07-14T19:33:42Z"
     level: L2
     summary: added CVE-2026-54121
@@ -1189,6 +1194,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-47632
+  - at: "2026-07-14T19:51:00Z"
+    level: L2
+    summary: added CVE-2026-50343 +2; OS windows server 2025
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-49162
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
