@@ -3,12 +3,33 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-14T21:22:54Z"
+lastmod: "2026-07-14T21:23:08Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:adobe:coldfusion:2023:-:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update1:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update10:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update11:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update12:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update13:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update14:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update15:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update16:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update17:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update18:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update19:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update2:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update20:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update3:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update4:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update5:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update6:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update7:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update8:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -51,9 +72,48 @@ products:
   - Premiere Pro (<= 25.6.5)
   - After Effects (<= 26.2.1)
   - After Effects (<= 25.6.5)
+  - Adobe Bridge < 16.0.4
+  - Adobe Bridge < 15.1.6
 affected_os:
   - Windows
   - macOS
+cves:
+  - id: CVE-2026-48311
+    cvss: 7.8
+  - id: CVE-2026-48363
+    cvss: 8.2
+    epss: 0.00159
+  - id: CVE-2026-48364
+    cvss: 8.2
+    epss: 0.00159
+  - id: CVE-2026-48259
+    cvss: 9.6
+  - id: CVE-2026-48356
+    cvss: 9.6
+  - id: CVE-2026-48358
+    cvss: 9.1
+  - id: CVE-2026-48359
+    cvss: 9.6
+  - id: CVE-2026-48284
+    cvss: 9.6
+  - id: CVE-2026-48318
+    cvss: 9.9
+  - id: CVE-2026-48319
+    cvss: 9.1
+  - id: CVE-2026-48321
+    cvss: 9.3
+  - id: CVE-2026-48322
+    cvss: 9.6
+  - id: CVE-2026-48325
+    cvss: 9.3
+  - id: CVE-2026-48327
+    cvss: 9
+  - id: CVE-2026-47976
+    cvss: 7.8
+  - id: CVE-2026-48269
+    cvss: 7.8
+  - id: CVE-2026-48274
+    cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -73,6 +133,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48269
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48270
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48274
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48311
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -97,13 +158,6 @@ ioc_counts:
   email: 2
   url: 5
 updates:
-  - at: "2026-07-14T21:20:16Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48327
   - at: "2026-07-14T21:21:10Z"
     level: L2
     summary: added CVE-2026-47976 +1
@@ -132,6 +186,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48274
+  - at: "2026-07-14T21:23:08Z"
+    level: L2
+    summary: added CVE-2026-47976 +16
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48311
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
