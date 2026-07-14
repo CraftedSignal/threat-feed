@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T20:46:21Z"
+lastmod: "2026-07-14T22:16:36Z"
 type: advisory
 types:
   - advisory
@@ -386,6 +386,14 @@ products:
   - Microsoft Office LTSC 2024
   - Microsoft Office LTSC for Mac 2021 (< 16.111.26071215)
   - Microsoft Office LTSC for Mac 2024 (< 16.111.26071215)
+  - Microsoft Active Directory Federation Services
+  - Microsoft BitLocker
+  - Microsoft Copilot
+  - Microsoft Developer Tools
+  - Microsoft Exchange Server
+  - Microsoft Office 2016
+  - Microsoft SharePoint Server
+  - Microsoft Windows VMSwitch
 affected_os:
   - Windows
   - macOS
@@ -757,6 +765,12 @@ cves:
   - id: CVE-2026-50432
     cvss: 5.3
   - id: CVE-2026-50666
+    cvss: 8.8
+  - id: CVE-2026-50518
+    cvss: 9.8
+  - id: CVE-2026-56650
+    cvss: 7.8
+  - id: CVE-2026-50413
     cvss: 8.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
@@ -1340,6 +1354,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50510
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50665
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50673
+  - https://www.darkreading.com/vulnerabilities-threats/records-broken-patch-tuesday-raises-triage-stakes
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1616,13 +1631,6 @@ ioc_counts:
   url: 70
   user_agent: 4
 updates:
-  - at: "2026-07-14T20:12:15Z"
-    level: L2
-    summary: added CVE-2026-50392 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-50478
   - at: "2026-07-14T20:12:29Z"
     level: L2
     summary: added CVE-2026-34346 +2
@@ -1651,6 +1659,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-50673
+  - at: "2026-07-14T22:16:36Z"
+    level: L2
+    summary: added CVE-2026-50413 +2
+    sources:
+      - dark-reading
+    source_urls:
+      - https://www.darkreading.com/vulnerabilities-threats/records-broken-patch-tuesday-raises-triage-stakes
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
