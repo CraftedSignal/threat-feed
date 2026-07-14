@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T19:48:00Z"
+lastmod: "2026-07-14T19:48:17Z"
 type: advisory
 types:
   - advisory
@@ -11,13 +11,6 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
-  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:erlang:erlang\/ssl:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:mistune_project:mistune:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_21h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_22h2:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
@@ -344,6 +337,10 @@ products:
   - Windows 11 version 26H1 (< 10.0.28000.2269)
   - Windows Server 2012 (< 6.2.9200.26226)
   - Windows Server 2012 (Server Core installation) (< 6.2.9200.26226)
+  - Microsoft Exchange Server 2016 Cumulative Update 23 (< 15.01.2507.071)
+  - Microsoft Exchange Server 2019 Cumulative Update 14 (< 15.02.1544.043)
+  - Microsoft Exchange Server 2019 Cumulative Update 15 (< 15.02.1748.048)
+  - Microsoft Exchange Server Subscription Edition RTM (< 15.02.2562.045)
 affected_os:
   - Windows
   - macOS
@@ -365,6 +362,15 @@ cves:
     cvss: 7.1
   - id: CVE-2026-57102
     cvss: 8.8
+  - id: CVE-2026-58294
+    cvss: 7.5
+    epss: 0.0034
+  - id: CVE-2026-50370
+    cvss: 8.8
+  - id: CVE-2026-50408
+    cvss: 5.5
+  - id: CVE-2026-57108
+    cvss: 7.5
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -902,6 +908,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/suspicious_process_executed_from_container_file.yml
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47301
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49798
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-55008
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1111,6 +1118,8 @@ iocs:
     value: https://attack.mitre.org/techniques/T1204/002/
   - type: url
     value: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/gootloader/partial_ttps/windows-sysmon.log
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55008
 ioc_counts:
   asn: 1
   domain: 19
@@ -1127,16 +1136,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 47
+  url: 48
   user_agent: 4
 updates:
-  - at: "2026-07-14T19:08:47Z"
-    level: L2
-    summary: added CVE-2026-57089 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58529
   - at: "2026-07-14T19:11:36Z"
     level: L2
     summary: added CVE-2026-58531
@@ -1165,6 +1167,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-49798
+  - at: "2026-07-14T19:48:17Z"
+    level: L2
+    summary: added CVE-2026-50370 +3
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-55008
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
