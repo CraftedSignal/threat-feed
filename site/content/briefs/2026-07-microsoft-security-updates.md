@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:09:19Z"
+lastmod: "2026-07-14T17:11:08Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +16,8 @@ cpes:
   - cpe:2.3:a:erlang:erlang\/ssl:*:*:*:*:*:*:*:*
   - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
   - cpe:2.3:a:mistune_project:mistune:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_21h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_22h2:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
@@ -293,6 +295,9 @@ cves:
   - id: CVE-2026-57975
     cvss: 7.5
     epss: 0.00429
+  - id: CVE-2023-38146
+    cvss: 8.8
+    epss: 0.39491
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -420,6 +425,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49176
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49175
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49172
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49784
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -632,13 +638,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:08:32Z"
-    level: L2
-    summary: added CVE-2026-58291 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49169
   - at: "2026-07-14T17:08:43Z"
     level: L1
     summary: new product
@@ -667,6 +666,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49172
+  - at: "2026-07-14T17:11:08Z"
+    level: L2
+    summary: added CVE-2023-38146
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49784
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
