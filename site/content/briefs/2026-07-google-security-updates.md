@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-13T16:12:01Z"
+lastmod: "2026-07-14T20:27:41Z"
 type: advisory
 types:
   - advisory
@@ -77,6 +77,7 @@ products:
   - Helm
   - CoreDNS
   - kube-dns
+  - Google Cloud Platform IAM Custom Roles
 affected_os:
   - Windows
   - Linux
@@ -143,6 +144,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_rapid_secret_get_activity_against_multiple_objects.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/impact_gcp_gke_coredns_or_kube_dns_configuration_modified.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_rbac_wildcard_elevation_on_existing_role.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/initial_access_gcp_iam_custom_role_creation.toml
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -184,13 +186,6 @@ ioc_counts:
   file_path: 2
   url: 12
 updates:
-  - at: "2026-07-09T17:39:04Z"
-    level: L2
-    summary: google chrome version for Linux < 150.0.7871.114
-    sources:
-      - cccs
-    source_urls:
-      - https://cyber.gc.ca/en/alerts-advisories/google-chrome-security-advisory-av26-679
   - at: "2026-07-13T11:44:08Z"
     level: L1
     summary: new product
@@ -219,6 +214,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_rbac_wildcard_elevation_on_existing_role.toml
+  - at: "2026-07-14T20:27:41Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/initial_access_gcp_iam_custom_role_creation.toml
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
