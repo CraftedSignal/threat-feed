@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T18:29:32Z"
+lastmod: "2026-07-14T18:29:45Z"
 type: advisory
 types:
   - advisory
@@ -293,6 +293,7 @@ products:
   - Windows DHCP Server
   - Windows Clipboard Server
   - Windows DHCP Client
+  - Windows RDP
 affected_os:
   - Windows
   - macOS
@@ -1081,6 +1082,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50689
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54125
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54128
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54126
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1293,13 +1295,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T18:28:24Z"
-    level: L2
-    summary: added CVE-2026-50501
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50685
   - at: "2026-07-14T18:28:51Z"
     level: L2
     summary: added CVE-2026-50666
@@ -1328,6 +1323,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54128
+  - at: "2026-07-14T18:29:45Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54126
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
