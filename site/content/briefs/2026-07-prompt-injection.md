@@ -3,7 +3,7 @@ title: CrowdStrike Uncovers New Prompt Injection Techniques
 slug: 2026-07-prompt-injection
 description: CrowdStrike's AI security research team has identified 18 new prompt injection techniques, expanding its taxonomy to over 200 methods, which enable adversaries to manipulate AI systems and agents through indirect means like hidden context, delayed triggers, and special token injection, leading to unauthorized actions such as data exfiltration or arbitrary command execution.
 date: "2026-07-08T07:51:34Z"
-lastmod: "2026-07-14T08:27:54Z"
+lastmod: "2026-07-14T15:01:40Z"
 type: advisory
 types:
   - advisory
@@ -97,13 +97,15 @@ iocs:
     value: SELECT name, salary FROM employees WHERE department = 'HAXXOR'; INSERT INTO employees (id, name, department, salary) VALUES (666, 'Sentry', 'Rocks', 66666);
   - type: keyword
     value: HAXXOR
+  - type: string
+    value: HAXXOR
 ioc_counts:
   command: 1
   domain: 1
   email: 1
   keyword: 1
   other: 6
-  string: 1
+  string: 2
 rules:
   - title: AI Agent Suspicious Outbound Email Connection
     description: Detects AI agents attempting to forward emails to suspicious domains, based on prompt injection examples in CrowdStrike's research.
@@ -119,13 +121,6 @@ rules:
       - windows
 rules_count: 1
 updates:
-  - at: "2026-07-12T08:23:35Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
   - at: "2026-07-12T23:13:52Z"
     level: L1
     summary: new IOCs
@@ -148,6 +143,13 @@ updates:
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
   - at: "2026-07-14T08:27:54Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
+  - at: "2026-07-14T15:01:40Z"
     level: L1
     summary: new IOCs
     sources:
