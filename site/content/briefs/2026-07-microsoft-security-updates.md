@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T19:48:17Z"
+lastmod: "2026-07-14T19:50:40Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,7 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
+  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
@@ -341,6 +342,7 @@ products:
   - Microsoft Exchange Server 2019 Cumulative Update 14 (< 15.02.1544.043)
   - Microsoft Exchange Server 2019 Cumulative Update 15 (< 15.02.1748.048)
   - Microsoft Exchange Server Subscription Edition RTM (< 15.02.2562.045)
+  - Azure Monitor Agent Metrics Extension (< 1.65)
 affected_os:
   - Windows
   - macOS
@@ -371,6 +373,18 @@ cves:
     cvss: 5.5
   - id: CVE-2026-57108
     cvss: 7.5
+  - id: CVE-2026-58291
+    cvss: 6.1
+    epss: 0.00586
+  - id: CVE-2026-57984
+    cvss: 7.5
+    epss: 0.00429
+  - id: CVE-2026-44806
+    cvss: 5.3
+  - id: CVE-2026-50295
+    cvss: 5.5
+  - id: CVE-2026-50442
+    cvss: 5.5
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -909,6 +923,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47301
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49798
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55008
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-47632
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1139,13 +1154,6 @@ ioc_counts:
   url: 48
   user_agent: 4
 updates:
-  - at: "2026-07-14T19:11:36Z"
-    level: L2
-    summary: added CVE-2026-58531
-    sources:
-      - cisa-kev
-    source_urls:
-      - https://www.cve.org/CVERecord?id=CVE-2026-56164
   - at: "2026-07-14T19:33:33Z"
     level: L2
     summary: added CVE-2026-55019 +1
@@ -1174,6 +1182,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-55008
+  - at: "2026-07-14T19:50:40Z"
+    level: L2
+    summary: added CVE-2026-44806 +4
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-47632
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
