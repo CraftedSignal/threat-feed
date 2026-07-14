@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T18:22:38Z"
+lastmod: "2026-07-14T18:22:48Z"
 type: advisory
 types:
   - advisory
@@ -633,6 +633,8 @@ cves:
     cvss: 7.8
   - id: CVE-2026-50482
     cvss: 7.3
+  - id: CVE-2026-50491
+    cvss: 7
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1004,6 +1006,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50648
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50649
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50650
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50651
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1216,13 +1219,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T18:20:18Z"
-    level: L2
-    summary: windows wireless wide area network service version WwanSvc
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50509
   - at: "2026-07-14T18:22:01Z"
     level: L2
     summary: added CVE-2026-50426
@@ -1251,6 +1247,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50650
+  - at: "2026-07-14T18:22:48Z"
+    level: L2
+    summary: added CVE-2026-50491
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50651
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
