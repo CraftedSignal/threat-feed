@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-14T21:21:27Z"
+lastmod: "2026-07-14T21:21:50Z"
 type: advisory
 types:
   - advisory
@@ -70,6 +70,9 @@ products:
   - Adobe Media Encoder <= 25.6.5
   - Premiere Pro (<= 26.2.2)
   - Premiere Pro (<= 25.6.5)
+affected_os:
+  - Windows
+  - macOS
 cves:
   - id: CVE-2026-48363
     cvss: 8.2
@@ -116,6 +119,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48327
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47976
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48269
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48270
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -131,18 +135,13 @@ iocs:
     value: nvd.nist.gov
   - type: domain
     value: helpx.adobe.com
+  - type: url
+    value: https://helpx.adobe.com/security/products/premiere_pro/apsb26-76.html
 ioc_counts:
   domain: 2
   email: 2
-  url: 3
+  url: 4
 updates:
-  - at: "2026-07-14T21:19:40Z"
-    level: L2
-    summary: added CVE-2026-48322
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48322
   - at: "2026-07-14T21:19:56Z"
     level: L2
     summary: added CVE-2026-48321
@@ -171,6 +170,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48269
+  - at: "2026-07-14T21:21:50Z"
+    level: L1
+    summary: OS windows; OS macos
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48270
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
