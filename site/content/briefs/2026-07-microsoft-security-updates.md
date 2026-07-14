@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:05:14Z"
+lastmod: "2026-07-14T17:05:23Z"
 type: advisory
 types:
   - advisory
@@ -251,6 +251,9 @@ cves:
   - id: CVE-2026-57974
     cvss: 8.8
     epss: 0.00556
+  - id: CVE-2026-58293
+    cvss: 8.1
+    epss: 0.00438
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -360,6 +363,7 @@ references:
   - https://any.run/cybersecurity-blog/kratos-phaas-account-takeover/
   - https://thehackernews.com/2026/07/oauth-client-id-spoofing-lets-attackers.html
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-48561
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42982
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -572,13 +576,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-13T16:23:45Z"
-    level: L2
-    summary: added CVE-2026-58286 +1
-    sources:
-      - huntress
-    source_urls:
-      - https://www.huntress.com/blog/sql-injection-attacker-persistence
   - at: "2026-07-14T06:43:29Z"
     level: L2
     summary: added CVE-2026-58276
@@ -607,6 +604,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-48561
+  - at: "2026-07-14T17:05:23Z"
+    level: L2
+    summary: added CVE-2026-58293
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42982
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
