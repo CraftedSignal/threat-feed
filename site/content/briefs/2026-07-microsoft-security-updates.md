@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T18:48:21Z"
+lastmod: "2026-07-14T18:48:50Z"
 type: advisory
 types:
   - advisory
@@ -305,6 +305,8 @@ products:
   - Microsoft Office OneNote
   - PowerPoint
   - Outlook Copilot
+  - Microsoft Dynamics NAV
+  - Microsoft Dynamics 365 Business Central (On Premises)
 affected_os:
   - Windows
   - macOS
@@ -1247,6 +1249,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55052
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55135
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55145
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55898
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55944
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1459,13 +1463,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T18:45:54Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55133
   - at: "2026-07-14T18:46:04Z"
     level: L2
     summary: added CVE-2026-50430 +1
@@ -1494,6 +1491,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55145
+  - at: "2026-07-14T18:48:50Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55944
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
