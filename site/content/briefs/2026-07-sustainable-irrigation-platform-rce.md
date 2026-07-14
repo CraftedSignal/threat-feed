@@ -3,6 +3,7 @@ title: Command Injection in Sustainable Irrigation Platform cli_control Plugin
 slug: 2026-07-sustainable-irrigation-platform-rce
 description: A critical command injection vulnerability (CVE-2026-58479) exists in the optional cli_control plugin of Sustainable Irrigation Platform (SIP) versions up to 5.2.16, allowing unauthenticated or CSRF attackers to execute arbitrary operating-system commands by storing a malicious payload via the plugin's HTTP endpoint and triggering execution by activating an associated irrigation station.
 date: "2026-07-14T15:18:33Z"
+lastmod: "2026-07-14T15:21:14Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
   - Sustainable Irrigation Platform
 products:
   - Sustainable Irrigation Platform (SIP) through version 5.2.16
+  - Sustainable Irrigation Platform (SIP) <= 5.2.16
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -41,8 +43,19 @@ mitre_ttps:
 cves:
   - id: CVE-2026-58479
     cvss: 9.8
+  - id: CVE-2026-58476
+    cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-58479
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-58476
+updates:
+  - at: "2026-07-14T15:21:14Z"
+    level: L2
+    summary: added CVE-2026-58476
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-58476
 ---
 
 Sustainable Irrigation Platform (SIP) through version 5.2.16 contains a critical command injection vulnerability, CVE-2026-58479, specifically within its optional `cli_control` plugin. This flaw enables unauthenticated attackers, or those utilizing Cross-Site Request Forgery (CSRF), to achieve arbitrary operating-system command execution. Attackers can store a malicious payload through the plugin's HTTP endpoint, then trigger its execution by activating an associated irrigation station. The vulnerability is exacerbated by the absence of passphrase protection or the use of a default 'opendoor' passphrase, which facilitates unauthorized access and command execution on the underlying host. This vulnerability has a CVSS v3.1 Base Score of 9.8, indicating its critical severity.
