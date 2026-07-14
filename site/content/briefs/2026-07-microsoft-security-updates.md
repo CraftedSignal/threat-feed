@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T18:29:45Z"
+lastmod: "2026-07-14T18:31:18Z"
 type: advisory
 types:
   - advisory
@@ -294,6 +294,7 @@ products:
   - Windows Clipboard Server
   - Windows DHCP Client
   - Windows RDP
+  - Minecraft Bedrock Dedicated Server
 affected_os:
   - Windows
   - macOS
@@ -1083,6 +1084,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54125
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54128
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54126
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55010
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1295,13 +1297,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T18:28:51Z"
-    level: L2
-    summary: added CVE-2026-50666
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50686
   - at: "2026-07-14T18:29:03Z"
     level: L2
     summary: added CVE-2026-50686
@@ -1330,6 +1325,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54126
+  - at: "2026-07-14T18:31:18Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55010
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
