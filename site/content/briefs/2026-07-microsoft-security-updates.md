@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:22:17Z"
+lastmod: "2026-07-14T17:22:25Z"
 type: advisory
 types:
   - advisory
@@ -191,6 +191,7 @@ products:
   - .NET Framework
   - 'Windows Cryptography API: Next Generation (CNG)'
   - SharePoint Server
+  - Microsoft Office Excel
 affected_os:
   - Windows
   - macOS
@@ -357,6 +358,10 @@ cves:
   - id: CVE-2026-54996
     cvss: 7
   - id: CVE-2026-55009
+    cvss: 7.8
+  - id: CVE-2026-50675
+    cvss: 7.8
+  - id: CVE-2026-55001
     cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
@@ -525,6 +530,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55144
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50520
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54108
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50675
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -737,13 +743,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:19:51Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50524
   - at: "2026-07-14T17:20:02Z"
     level: L2
     summary: added CVE-2026-54983
@@ -772,6 +771,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54108
+  - at: "2026-07-14T17:22:25Z"
+    level: L2
+    summary: added CVE-2026-50675 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50675
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
