@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:20:42Z"
+lastmod: "2026-07-14T17:22:17Z"
 type: advisory
 types:
   - advisory
@@ -190,6 +190,7 @@ products:
   - Microsoft Defender
   - .NET Framework
   - 'Windows Cryptography API: Next Generation (CNG)'
+  - SharePoint Server
 affected_os:
   - Windows
   - macOS
@@ -352,6 +353,10 @@ cves:
   - id: CVE-2026-50338
     cvss: 8.2
   - id: CVE-2026-55011
+    cvss: 7.8
+  - id: CVE-2026-54996
+    cvss: 7
+  - id: CVE-2026-55009
     cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
@@ -518,6 +523,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54118
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55002
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55144
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50520
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54108
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -730,13 +737,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:19:43Z"
-    level: L2
-    summary: added CVE-2026-55012
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55012
   - at: "2026-07-14T17:19:51Z"
     level: L1
     summary: new product
@@ -765,6 +765,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55144
+  - at: "2026-07-14T17:22:17Z"
+    level: L2
+    summary: added CVE-2026-54996 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54108
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
