@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:59:43Z"
+lastmod: "2026-07-14T17:59:55Z"
 type: advisory
 types:
   - advisory
@@ -254,6 +254,7 @@ products:
   - Windows LUAFV
   - Windows Group Policy
   - Windows Cloud Files Mini Filter Driver
+  - Netlogon RPC
 affected_os:
   - Windows
   - macOS
@@ -579,6 +580,8 @@ cves:
     cvss: 7
   - id: CVE-2026-49792
     cvss: 7.8
+  - id: CVE-2026-50351
+    cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -871,6 +874,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50391
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50378
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50401
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50346
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1083,13 +1087,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:56:53Z"
-    level: L2
-    summary: added CVE-2026-50342
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50371
   - at: "2026-07-14T17:57:18Z"
     level: L2
     summary: added CVE-2026-50325
@@ -1118,6 +1115,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50401
+  - at: "2026-07-14T17:59:55Z"
+    level: L2
+    summary: added CVE-2026-50351
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50346
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
