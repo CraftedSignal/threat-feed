@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T19:53:42Z"
+lastmod: "2026-07-14T19:54:00Z"
 type: advisory
 types:
   - advisory
@@ -359,6 +359,7 @@ products:
   - Windows 11 Version 25H2 < 10.0.26200.8875
   - Windows Server 2025 < 10.0.26100.33158
   - Windows Server 2025 (Server Core installation) < 10.0.26100.33158
+  - Windows Internal Task Bar
 affected_os:
   - Windows
   - macOS
@@ -442,6 +443,14 @@ cves:
     cvss: 8.8
   - id: CVE-2026-50301
     cvss: 7.8
+  - id: CVE-2026-49164
+    cvss: 8.1
+  - id: CVE-2026-50378
+    cvss: 7.8
+  - id: CVE-2026-50447
+    cvss: 9.8
+  - id: CVE-2026-50674
+    cvss: 7
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -986,6 +995,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49173
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49790
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49808
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-50293
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1201,10 +1211,14 @@ iocs:
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49162
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49171
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50293
+  - type: email
+    value: us-cert@us-cert.gov
 ioc_counts:
   asn: 1
   domain: 19
-  email: 2
+  email: 3
   error_code: 3
   file-path: 2
   file_name: 2
@@ -1217,16 +1231,9 @@ ioc_counts:
   platform: 1
   software: 5
   string: 5
-  url: 50
+  url: 51
   user_agent: 4
 updates:
-  - at: "2026-07-14T19:51:00Z"
-    level: L2
-    summary: added CVE-2026-50343 +2; OS windows server 2025
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-49162
   - at: "2026-07-14T19:51:27Z"
     level: L2
     summary: added CVE-2026-41087 +3; OS windows server 2016
@@ -1255,6 +1262,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-49808
+  - at: "2026-07-14T19:54:00Z"
+    level: L2
+    summary: added CVE-2026-49164 +3
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-50293
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
