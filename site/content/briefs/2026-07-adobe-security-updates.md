@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-14T20:41:31Z"
+lastmod: "2026-07-14T20:41:41Z"
 type: advisory
 types:
   - advisory
@@ -42,6 +42,7 @@ products:
   - Adobe Experience Manager as a Cloud Service <= 2026.5.0
   - Adobe Experience Manager 6.5 LTS <= SP1
   - Adobe Experience Manager 6.5 <= 6.5.24
+  - Adobe Commerce
 cves:
   - id: CVE-2026-48363
     cvss: 8.2
@@ -51,10 +52,13 @@ cves:
     epss: 0.00159
   - id: CVE-2026-48259
     cvss: 9.6
+  - id: CVE-2026-48356
+    cvss: 9.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48259
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48356
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -82,6 +86,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48259
+  - at: "2026-07-14T20:41:41Z"
+    level: L2
+    summary: added CVE-2026-48356
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48356
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
