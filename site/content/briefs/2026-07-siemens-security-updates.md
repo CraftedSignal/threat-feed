@@ -3,7 +3,7 @@ title: Siemens Security Updates — July 2026
 slug: 2026-07-siemens-security-updates
 description: Roundup of Siemens security advisories published in July 2026.
 date: "2026-07-07T16:48:32Z"
-lastmod: "2026-07-14T10:18:54Z"
+lastmod: "2026-07-14T13:40:25Z"
 type: advisory
 types:
   - advisory
@@ -13,10 +13,21 @@ tags:
   - roundup
 vendors:
   - Siemens
+  - Palo Alto Networks
 products:
   - CPCI85 Central Processing/Communication < V26.20
   - SICORE Base system < V26.20.0
   - SIMATIC S7-PLCSIM Advanced (All versions)
+  - CADRA (< V2511)
+  - Desigo CC family V7/V8 (all versions)
+  - Desigo CC family V9 (< V9.0 QU1)
+  - IAM Client
+  - Mendix Runtime (all versions)
+  - Opcenter X (< V2604)
+  - Palo Alto Networks PAN-OS on RUGGEDCOM APE1808 (all versions)
+  - SIDIS Secured SmartPlug (< V7.26.0310)
+  - SIMATIC S7-1500 CPU family (< V3.1.6)
+  - Simcenter STAR-CCM+ (all versions)
 cves:
   - id: CVE-2026-48192
     cvss: 5.4
@@ -29,6 +40,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-54801
   - https://nvd.nist.gov/vuln/detail/CVE-2026-54429
+  - https://cyber.gc.ca/en/alerts-advisories/control-systems-siemens-security-advisory-av26-689
 iocs:
   - type: url
     value: https://cert-portal.siemens.com/productcert/html/ssa-229470.html
@@ -49,6 +61,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-54429
+  - at: "2026-07-14T13:40:25Z"
+    level: L1
+    summary: new product
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/control-systems-siemens-security-advisory-av26-689
 ---
 
 Aggregated Siemens security advisories for July 2026. CVEs from this cycle are folded
