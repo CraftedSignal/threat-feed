@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-14T20:41:41Z"
+lastmod: "2026-07-14T20:42:15Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +43,22 @@ products:
   - Adobe Experience Manager 6.5 LTS <= SP1
   - Adobe Experience Manager 6.5 <= 6.5.24
   - Adobe Commerce
+  - Adobe Commerce (< 2.4.9-2026-jul)
+  - Adobe Commerce (< 2.4.8-p5-2026-jul)
+  - Adobe Commerce (< 2.4.7-p10-2026-jul)
+  - Adobe Commerce (< 2.4.6-p15-2026-jul)
+  - Adobe Commerce (< 2.4.5-p17-2026-jul)
+  - Adobe Commerce (< 2.4.4-p18-2026-jul)
+  - Adobe Commerce B2B (< 1.5.3-2026-jul)
+  - Adobe Commerce B2B (< 1.5.2-p5-2026-jul)
+  - Adobe Commerce B2B (< 1.4.2-p10-2026-jul)
+  - Adobe Commerce B2B (< 1.3.4-p17-2026-jul)
+  - Adobe Commerce B2B (< 1.3.3-p18-2026-jul)
+  - Magento Open Source (< 2.4.9-2026-jul)
+  - Magento Open Source (< 2.4.8-p5-2026-jul)
+  - Magento Open Source (< 2.4.7-p10-2026-jul)
+  - Magento Open Source (< 2.4.6-2026-jul)
+  - Adobe Commerce Webhooks Plugin (< 1.21.0)
 cves:
   - id: CVE-2026-48363
     cvss: 8.2
@@ -54,11 +70,14 @@ cves:
     cvss: 9.6
   - id: CVE-2026-48356
     cvss: 9.6
+  - id: CVE-2026-48358
+    cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48259
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48356
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48358
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -93,6 +112,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48356
+  - at: "2026-07-14T20:42:15Z"
+    level: L2
+    summary: added CVE-2026-48358; adobe commerce version < 2.4.4-p18-2026-jul
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48358
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
