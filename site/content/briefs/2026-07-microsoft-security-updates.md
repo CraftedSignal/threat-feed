@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:19:51Z"
+lastmod: "2026-07-14T17:20:02Z"
 type: advisory
 types:
   - advisory
@@ -340,6 +340,8 @@ cves:
     cvss: 7.8
   - id: CVE-2026-55012
     cvss: 7.8
+  - id: CVE-2026-54983
+    cvss: 7.5
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -501,6 +503,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55011
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55012
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50524
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54117
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -713,13 +716,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:18:42Z"
-    level: L2
-    summary: added CVE-2026-54986 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55005
   - at: "2026-07-14T17:19:15Z"
     level: L1
     summary: new product
@@ -748,6 +744,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50524
+  - at: "2026-07-14T17:20:02Z"
+    level: L2
+    summary: added CVE-2026-54983
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54117
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
