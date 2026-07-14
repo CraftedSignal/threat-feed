@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:42:31Z"
+lastmod: "2026-07-14T17:42:46Z"
 type: advisory
 types:
   - advisory
@@ -230,6 +230,7 @@ products:
   - Windows MIDI Service Module
   - DirectX Graphics Kernel
   - Windows Clip Service
+  - Windows DNS
 affected_os:
   - Windows
   - macOS
@@ -732,6 +733,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50296
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50325
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50384
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50295
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -944,13 +946,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:40:55Z"
-    level: L2
-    summary: added CVE-2026-49805
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50318
   - at: "2026-07-14T17:41:03Z"
     level: L1
     summary: new product
@@ -979,6 +974,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50384
+  - at: "2026-07-14T17:42:46Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50295
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
