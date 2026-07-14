@@ -3,6 +3,7 @@ title: Potential AWS S3 Bucket Ransomware Note Uploaded
 slug: 2026-07-aws-s3-ransomware-note-upload
 description: Adversaries exploit misconfigured AWS S3 buckets or compromised credentials to upload ransomware notes, often after deleting or encrypting data, aiming to extort victims.
 date: "2026-07-14T07:38:05Z"
+lastmod: "2026-07-14T09:42:10Z"
 type: advisory
 types:
   - advisory
@@ -42,6 +43,14 @@ references:
   - https://stratus-red-team.cloud/attack-techniques/AWS/aws.impact.s3-ransomware-batch-deletion/
   - https://rhinosecuritylabs.com/aws/s3-ransomware-part-1-attack-vector/
   - https://www.mdpi.com/2073-431X/10/11/145#computers-10-00145-f002
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_s3_excessive_object_encryption_with_sse_c.toml
+iocs:
+  - type: url
+    value: https://www.halcyon.ai/blog/abusing-aws-native-services-ransomware-encrypting-s3-buckets-with-sse-c
+  - type: url
+    value: https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html
+ioc_counts:
+  url: 2
 rules:
   - title: Potential AWS S3 Bucket Ransomware Note Uploaded
     description: Identifies potential ransomware notes being uploaded to an AWS S3 bucket by detecting the PutObject S3 API call with object names commonly associated with ransomware notes.
@@ -59,6 +68,14 @@ rules:
       - aws
       - s3
 rules_count: 1
+updates:
+  - at: "2026-07-14T09:42:10Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_s3_excessive_object_encryption_with_sse_c.toml
 ---
 
 This threat involves the detection of potential ransomware activity targeting Amazon S3 buckets. Threat actors, having gained unauthorized access to an AWS environment either through compromised credentials or by exploiting misconfigured S3 bucket policies, will manipulate or delete data stored within the buckets. Following data destruction or encryption, they proceed to upload objects with filenames commonly associated with ransomware notes, such as "HOW_TO_DECRYPT.txt" or "RECOVER_YOUR_FILES.html". This action is performed via the `PutObject` S3 API call, leaving a digital demand for ransom as a final step in their extortion attempt. The detection mechanism focuses on these specific filename patterns, which are rarely encountered in legitimate S3 operations, indicating a high-confidence threat scenario that impacts data availability and integrity for targeted organizations.
