@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T18:46:36Z"
+lastmod: "2026-07-14T18:48:21Z"
 type: advisory
 types:
   - advisory
@@ -304,6 +304,7 @@ products:
   - Microsoft Office PowerPoint
   - Microsoft Office OneNote
   - PowerPoint
+  - Outlook Copilot
 affected_os:
   - Windows
   - macOS
@@ -1245,6 +1246,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55120
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55052
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55135
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55145
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1457,13 +1459,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T18:45:41Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55043
   - at: "2026-07-14T18:45:54Z"
     level: L1
     summary: new product
@@ -1492,6 +1487,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55135
+  - at: "2026-07-14T18:48:21Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55145
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
