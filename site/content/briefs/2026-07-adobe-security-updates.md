@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-14T22:18:52Z"
+lastmod: "2026-07-14T22:19:07Z"
 type: advisory
 types:
   - advisory
@@ -89,6 +89,8 @@ products:
   - Adobe Media Encoder (< 25.6.6)
   - Illustrator Desktop 2026 (< 30.5)
   - Illustrator Desktop 2025 (< 29.8.7)
+  - Illustrator Desktop 2026 (< 30.6)
+  - Illustrator Desktop 2025 (< 29.8.9)
 affected_os:
   - Windows
   - macOS
@@ -143,6 +145,8 @@ cves:
     cvss: 7.8
   - id: CVE-2026-48370
     cvss: 7.8
+  - id: CVE-2026-48367
+    cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -175,6 +179,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48367
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48370
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48334
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48275
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -203,13 +208,6 @@ ioc_counts:
   email: 2
   url: 7
 updates:
-  - at: "2026-07-14T21:25:42Z"
-    level: L2
-    summary: added CVE-2026-48343
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48344
   - at: "2026-07-14T21:25:52Z"
     level: L1
     summary: new IOCs
@@ -238,6 +236,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48334
+  - at: "2026-07-14T22:19:07Z"
+    level: L2
+    summary: added CVE-2026-48367
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48275
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
