@@ -1,67 +1,48 @@
 ---
-title: SQL Injection Vulnerability in SourceCodester Class and Exam Timetabling System (CVE-2026-15597)
+title: Critical SQL Injection Vulnerability in SourceCodester Simple and Nice Shopping Cart Script (CVE-2026-15703)
 slug: 2026-07-sourcecodester-sqli
-description: A critical SQL injection vulnerability (CVE-2026-15597) in SourceCodester Class and Exam Timetabling System version 1.0 allows remote, unauthenticated attackers to manipulate the 'ID' argument in `/edit_exam2.php`, potentially leading to unauthorized data access, modification, or complete system compromise, with a public exploit available.
-date: "2026-07-13T22:19:53Z"
-type: threat
+description: A critical SQL injection vulnerability, identified as CVE-2026-15703, exists in SourceCodester Simple and Nice Shopping Cart Script version 1.0, allowing remote attackers to execute arbitrary SQL commands by manipulating the 'user_id' argument in '/admin/userproductdeletequery.php', with a public exploit enabling unauthorized data access, modification, or deletion.
+date: "2026-07-14T19:50:00Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - high
-exploited: true
 tags:
-  - sqli
-  - web-vulnerability
+  - sql-injection
+  - web-application
   - cve
-  - remote-code-execution
 vendors:
   - SourceCodester
 products:
-  - Class and Exam Timetabling System 1.0
+  - Simple and Nice Shopping Cart Script 1.0
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: A security flaw has been discovered in SourceCodester Class and Exam Timetabling System 1.0/2.php. ... The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.
+    evidence: A vulnerability was detected in SourceCodester Simple and Nice Shopping Cart Script 1.0. [...] Performing a manipulation of the argument user_id results in sql injection. It is possible to initiate the attack remotely. The exploit is now public and may be used.
     confidence_band: high
-  - tactic_id: TA0009
-    tactic_name: Collection
-    technique_id: T1580
-    technique_name: Stolen Credential Collection
-    evidence: Performing a manipulation of the argument ID results in sql injection.
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1485
+    technique_name: Data Destruction
+    evidence: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L (I:L and A:L indicate low integrity and availability impact, which can involve data modification or deletion)
     confidence_band: med
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: Performing a manipulation of the argument ID results in sql injection.
-    confidence_band: high
 cves:
-  - id: CVE-2026-15597
+  - id: CVE-2026-15703
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-15597
-  - https://github.com/asdasddqwdq29-a11y/new-cve/issues/1
-  - https://vuldb.com/cve/CVE-2026-15597
-  - https://vuldb.com/submit/855298
-  - https://vuldb.com/vuln/378112
-  - https://vuldb.com/vuln/378112/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-15703
+  - https://github.com/Wut-sys/cve/issues/1
+  - https://vuldb.com/cve/CVE-2026-15703
+  - https://vuldb.com/submit/856152
+  - https://vuldb.com/vuln/378250
+  - https://vuldb.com/vuln/378250/cti
   - https://www.sourcecodester.com/
-iocs:
-  - type: url
-    value: https://github.com/asdasddqwdq29-a11y/new-cve/issues/1
-  - type: url
-    value: https://vuldb.com/cve/CVE-2026-15597
-  - type: url
-    value: https://vuldb.com/vuln/378112
-  - type: url
-    value: https://vuldb.com/vuln/378112/cti
-ioc_counts:
-  url: 4
 rules:
-  - title: Detects CVE-2026-15597 Exploitation - SQL Injection in /edit_exam2.php
-    description: Detects exploitation attempts of CVE-2026-15597, an SQL injection vulnerability in SourceCodester Class and Exam Timetabling System 1.0, by identifying suspicious characters in the 'ID' parameter of requests to /edit_exam2.php.
+  - title: Detect CVE-2026-15703 Exploitation - SourceCodester SQLi
+    description: Detects CVE-2026-15703 exploitation - SQL injection vulnerability in SourceCodester Simple and Nice Shopping Cart Script 1.0 via the 'user_id' parameter in '/admin/userproductdeletequery.php'.
     platform: sigma
     severity: high
     tactics:
@@ -69,31 +50,30 @@ rules:
       - initial_access
     techniques:
       - T1190
-      - T1580
+      - T1485
     data_sources:
       - webserver
 rules_count: 1
 ---
 
-A significant security flaw, identified as CVE-2026-15597, has been discovered in SourceCodester Class and Exam Timetabling System version 1.0. This vulnerability specifically impacts the `/edit_exam2.php` file, where improper handling of the `ID` argument can be exploited for SQL injection. The flaw allows remote, unauthenticated attackers to manipulate database queries, leading to unauthorized access, modification, or deletion of sensitive information within the system. The NVD reports that an exploit for this vulnerability has been publicly released, increasing the risk of active exploitation. Organizations utilizing this system should consider it a critical threat due to the ease of exploitation and potential for severe data compromise.
+A critical SQL injection vulnerability, identified as CVE-2026-15703, has been discovered in SourceCodester Simple and Nice Shopping Cart Script version 1.0. This flaw specifically affects the `/admin/userproductdeletequery.php` file, where improper handling of the `user_id` argument allows for remote SQL injection. Attackers can manipulate this argument to execute arbitrary SQL commands against the backend database. The vulnerability has a CVSS v3.1 Base Score of 7.3 (High) and is remotely exploitable without authentication. A public exploit for this vulnerability is now available, significantly increasing the risk of widespread exploitation against unpatched systems. This vulnerability enables unauthorized data disclosure, modification, and potentially deletion within the application's database.
 
 ## Attack Chain
 
-1. **Initial Reconnaissance**: An attacker identifies an internet-facing instance of the SourceCodester Class and Exam Timetabling System 1.0.
-2. **Vulnerability Identification**: The attacker targets the `/edit_exam2.php` endpoint, recognizing its potential for parameter manipulation.
-3. **Payload Crafting**: A malicious SQL injection payload is crafted, designed to manipulate the `ID` argument in HTTP GET or POST requests.
-4. **Exploitation Attempt**: The attacker sends an HTTP request to `/edit_exam2.php`, embedding the SQL injection payload within the `ID` parameter.
-5. **Database Interaction**: The vulnerable application processes the malicious `ID` argument directly into a backend SQL query without proper sanitization.
-6. **Data Exfiltration/Manipulation**: The crafted SQL query is executed by the database, allowing the attacker to read, modify, or delete sensitive database entries.
-7. **Impact**: The attacker gains unauthorized access to application data, potentially leading to privilege escalation or complete system compromise.
+1. An unauthenticated attacker sends a crafted HTTP GET request to the vulnerable endpoint `/admin/userproductdeletequery.php` on the target web server.
+2. The attacker includes a malicious SQL injection payload within the `user_id` parameter of the URL query string.
+3. The vulnerable SourceCodester script processes the `user_id` argument without proper input sanitization or validation before incorporating it into an SQL query.
+4. The application's backend database executes the attacker-controlled SQL query, allowing for unauthorized operations beyond the intended functionality.
+5. Depending on the payload, the attacker can achieve unauthorized data access (e.g., retrieving sensitive database contents), data modification, or deletion of database records.
+6. The web server responds to the attacker, potentially revealing the results of the executed SQL query or confirming the success of the injection, enabling further reconnaissance or impact.
 
 ## Impact
 
-Successful exploitation of CVE-2026-15597 can lead to severe consequences for organizations using the SourceCodester Class and Exam Timetabling System. Attackers can gain unauthorized access to the application's underlying database, potentially exfiltrating sensitive student, faculty, and examination data. This could include personal identifiable information (PII), academic records, and administrative credentials. Data integrity may also be compromised through unauthorized modification or deletion of records, disrupting academic operations and leading to data loss. Given that the exploit is publicly available, a wide range of educational institutions or any entity using this specific software are at risk, making them targets for data theft and service disruption.
+Successful exploitation of CVE-2026-15703 can lead to unauthorized access to sensitive data stored in the application's database, including user details, product information, and other confidential records. Attackers could also modify or delete existing data, leading to data integrity issues, defacement, or service disruption. The public availability of an exploit significantly lowers the bar for attackers, increasing the likelihood of widespread attacks against vulnerable SourceCodester Simple and Nice Shopping Cart Script 1.0 installations. While the CVSS v3.1 score indicates low impact on confidentiality, integrity, and availability (C:L, I:L, A:L), SQL injection can often enable more severe consequences such as full database compromise or, in some cases, remote code execution.
 
 ## Recommendation
 
-* **Patch CVE-2026-15597**: Immediately apply any available patches or vendor-provided mitigations for SourceCodester Class and Exam Timetabling System 1.0, specifically addressing CVE-2026-15597.
-* **Deploy the Sigma rule**: Implement the provided Sigma rule to detect attempts at SQL injection against `/edit_exam2.php` by monitoring web server logs.
-* **Block malicious requests**: Configure Web Application Firewalls (WAFs) to block HTTP requests containing SQL injection payloads targeting `edit_exam2.php` and its `ID` argument.
-* **Monitor vendor updates**: Regularly check https://www.sourcecodester.com/ and related security advisories for updates and security patches.
+* Prioritize patching or upgrading SourceCodester Simple and Nice Shopping Cart Script to a version that addresses CVE-2026-15703 immediately.
+* Deploy the Sigma rule "Detect CVE-2026-15703 Exploitation - SourceCodester SQLi" to your SIEM and tune for your environment to identify exploitation attempts.
+* Implement web application firewalls (WAFs) with rules to detect and block common SQL injection patterns, specifically targeting the `/admin/userproductdeletequery.php` endpoint and the `user_id` parameter.
+* Enable comprehensive logging for web servers to capture detailed HTTP request information, including full URI and query parameters, to aid in detection and forensic analysis related to `category: webserver` logs.
