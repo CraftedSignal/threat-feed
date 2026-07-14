@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:34:36Z"
+lastmod: "2026-07-14T17:35:09Z"
 type: advisory
 types:
   - advisory
@@ -450,6 +450,10 @@ cves:
     cvss: 6.5
   - id: CVE-2026-44800
     cvss: 7.8
+  - id: CVE-2026-55005
+    cvss: 8.8
+  - id: CVE-2026-58636
+    cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -659,6 +663,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49178
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49180
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49184
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49183
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49783
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -871,13 +877,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:32:59Z"
-    level: L2
-    summary: added CVE-2026-57107
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-48564
   - at: "2026-07-14T17:33:13Z"
     level: L2
     summary: added CVE-2026-58631
@@ -906,6 +905,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49184
+  - at: "2026-07-14T17:35:09Z"
+    level: L2
+    summary: added CVE-2026-55005 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49783
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
