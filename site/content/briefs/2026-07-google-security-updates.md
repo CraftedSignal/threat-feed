@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-14T20:27:41Z"
+lastmod: "2026-07-14T20:27:52Z"
 type: advisory
 types:
   - advisory
@@ -78,6 +78,7 @@ products:
   - CoreDNS
   - kube-dns
   - Google Cloud Platform IAM Custom Roles
+  - Service Account
 affected_os:
   - Windows
   - Linux
@@ -145,6 +146,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/impact_gcp_gke_coredns_or_kube_dns_configuration_modified.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_rbac_wildcard_elevation_on_existing_role.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/initial_access_gcp_iam_custom_role_creation.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_key_created_for_service_account.toml
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -186,13 +188,6 @@ ioc_counts:
   file_path: 2
   url: 12
 updates:
-  - at: "2026-07-13T11:44:08Z"
-    level: L1
-    summary: new product
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2297
   - at: "2026-07-13T16:11:36Z"
     level: L1
     summary: new product
@@ -221,6 +216,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/initial_access_gcp_iam_custom_role_creation.toml
+  - at: "2026-07-14T20:27:52Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_key_created_for_service_account.toml
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
