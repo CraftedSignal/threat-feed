@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T18:27:31Z"
+lastmod: "2026-07-14T18:27:53Z"
 type: advisory
 types:
   - advisory
@@ -667,6 +667,8 @@ cves:
     cvss: 6.5
   - id: CVE-2026-50509
     cvss: 7.8
+  - id: CVE-2026-50304
+    cvss: 7.5
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1053,6 +1055,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54115
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50684
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50679
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50680
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1265,13 +1268,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T18:25:50Z"
-    level: L2
-    summary: added CVE-2026-50492
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50669
   - at: "2026-07-14T18:25:59Z"
     level: L2
     summary: added CVE-2026-50437
@@ -1300,6 +1296,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50679
+  - at: "2026-07-14T18:27:53Z"
+    level: L2
+    summary: added CVE-2026-50304
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50680
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
