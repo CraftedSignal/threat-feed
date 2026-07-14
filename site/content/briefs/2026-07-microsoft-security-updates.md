@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:06:09Z"
+lastmod: "2026-07-14T17:06:25Z"
 type: advisory
 types:
   - advisory
@@ -154,6 +154,7 @@ products:
   - Windows Media
   - Windows Ancillary Function Driver for WinSock
   - Windows App Store
+  - ASP.NET Core
 affected_os:
   - Windows
   - macOS
@@ -258,6 +259,9 @@ cves:
   - id: CVE-2026-58293
     cvss: 8.1
     epss: 0.00438
+  - id: CVE-2026-58296
+    cvss: 7.1
+    epss: 0.00303
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -372,6 +376,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-34349
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-34346
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42900
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47300
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -584,13 +589,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:05:23Z"
-    level: L2
-    summary: added CVE-2026-58293
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42982
   - at: "2026-07-14T17:05:35Z"
     level: L1
     summary: new product
@@ -619,6 +617,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42900
+  - at: "2026-07-14T17:06:25Z"
+    level: L2
+    summary: added CVE-2026-58296
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47300
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
