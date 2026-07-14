@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:59:11Z"
+lastmod: "2026-07-14T17:59:43Z"
 type: advisory
 types:
   - advisory
@@ -253,6 +253,7 @@ products:
   - Windows Search Service
   - Windows LUAFV
   - Windows Group Policy
+  - Windows Cloud Files Mini Filter Driver
 affected_os:
   - Windows
   - macOS
@@ -868,6 +869,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50460
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50403
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50391
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50378
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50401
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1080,13 +1083,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:56:01Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50373
   - at: "2026-07-14T17:56:53Z"
     level: L2
     summary: added CVE-2026-50342
@@ -1115,6 +1111,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50391
+  - at: "2026-07-14T17:59:43Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50401
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
