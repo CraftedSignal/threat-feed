@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-14T20:42:15Z"
+lastmod: "2026-07-14T21:18:33Z"
 type: advisory
 types:
   - advisory
@@ -59,6 +59,8 @@ products:
   - Magento Open Source (< 2.4.7-p10-2026-jul)
   - Magento Open Source (< 2.4.6-2026-jul)
   - Adobe Commerce Webhooks Plugin (< 1.21.0)
+  - ColdFusion 2025 <= 10
+  - ColdFusion 2023 <= 21
 cves:
   - id: CVE-2026-48363
     cvss: 8.2
@@ -72,25 +74,22 @@ cves:
     cvss: 9.6
   - id: CVE-2026-48358
     cvss: 9.1
+  - id: CVE-2026-48284
+    cvss: 9.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48259
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48356
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48358
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48359
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48284
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
 ioc_counts:
   url: 1
 updates:
-  - at: "2026-07-13T21:17:18Z"
-    level: L2
-    summary: added CVE-2026-48363
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - at: "2026-07-13T21:17:29Z"
     level: L2
     summary: added CVE-2026-48364
@@ -119,6 +118,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48358
+  - at: "2026-07-14T21:18:33Z"
+    level: L2
+    summary: added CVE-2026-48284
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48284
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
