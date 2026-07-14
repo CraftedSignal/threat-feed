@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T17:12:19Z"
+lastmod: "2026-07-14T17:12:57Z"
 type: advisory
 types:
   - advisory
@@ -170,6 +170,7 @@ products:
   - ASP.NET
   - Visual Studio Code
   - 'Age of Empires II: Definitive Edition'
+  - Quality Windows Audio/Video Experience (QWAVE) service
 affected_os:
   - Windows
   - macOS
@@ -432,6 +433,9 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50506
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-45496
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50663
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54983
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50695
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54989
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -644,13 +648,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T17:09:19Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49172
   - at: "2026-07-14T17:11:08Z"
     level: L2
     summary: added CVE-2023-38146
@@ -679,6 +676,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50663
+  - at: "2026-07-14T17:12:57Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54989
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
