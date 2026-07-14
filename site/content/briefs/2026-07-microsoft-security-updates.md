@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-14T18:05:59Z"
+lastmod: "2026-07-14T18:09:02Z"
 type: advisory
 types:
   - advisory
@@ -269,6 +269,7 @@ products:
   - Windows Sensor Data Service
   - Print Spooler Components
   - Windows Brokering File System
+  - Virtual Filtering Platform (VFP)
 affected_os:
   - Windows
   - macOS
@@ -916,6 +917,15 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50383
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50451
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50466
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50435
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50409
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50441
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50465
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50439
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50462
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50457
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50442
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50432
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1128,13 +1138,6 @@ ioc_counts:
   url: 39
   user_agent: 4
 updates:
-  - at: "2026-07-14T18:04:41Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50427
   - at: "2026-07-14T18:05:03Z"
     level: L1
     summary: new product
@@ -1163,6 +1166,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50466
+  - at: "2026-07-14T18:09:02Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50432
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
