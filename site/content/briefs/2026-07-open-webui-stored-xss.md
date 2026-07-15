@@ -1,8 +1,8 @@
 ---
-title: Open WebUI Vulnerable to Stored Cross-Site Scripting (XSS) via iFrame in Citations Model
+title: Open WebUI Stored Cross-Site Scripting Vulnerability (CVE-2026-56398)
 slug: 2026-07-open-webui-stored-xss
-description: An authenticated attacker can achieve stored Cross-Site Scripting (XSS) in Open WebUI by manually modifying chat history requests to inject malicious HTML into citation document metadata, leading to session takeover or potential Remote Code Execution (RCE) on the server if an administrator is targeted.
-date: "2026-07-07T16:56:32Z"
+description: Open WebUI before version 0.9.5 contains a high-severity stored cross-site scripting (XSS) vulnerability, CVE-2026-56398, in its OAuth authentication flow that allows an authenticated attacker to bypass profile image validation by uploading malicious SVG files, leading to script execution, authentication token theft, and ultimately account takeover for other authenticated users.
+date: "2026-07-15T12:22:17Z"
 type: advisory
 types:
   - advisory
@@ -10,54 +10,50 @@ severities:
   - high
 tags:
   - xss
-  - web-application
-  - vulnerability
-  - client-side-injection
-  - open-webui
+  - web-vulnerability
+  - account-takeover
+  - credential-access
+vendors:
+  - Open WebUI
 products:
-  - Open WebUI (pip/open-webui < 0.7.0)
+  - Open WebUI (< 0.9.5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: Manually modifying chat history allows setting the `html` property within document metadata.
+    evidence: Open WebUI before 0.9.5 contains a stored cross-site scripting vulnerability in the OAuth authentication flow where the picture claim URL MIME type is inferred from file extension rather than Content-Type header, allowing SVG files to bypass the profile image validator and be stored as data URIs.
     confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
+  - tactic_id: TA0006
+    tactic_name: Credential Access
     technique_id: T1059
-    technique_name: ""
-    evidence: Observe the payload is rendered in the iFrame and the javascript executes.
+    technique_name: Command and Scripting Interpreter
+    evidence: enabling script execution in the same origin to steal authentication tokens and achieve account takeover.
     confidence_band: high
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: Admins are at risk of exposing the server to RCE via same chain described in https://github.com/advisories/GHSA-w7xj-8fx7-wfch.
-    confidence_band: med
+cves:
+  - id: CVE-2026-56398
+    cvss: 7.3
 references:
-  - https://github.com/advisories/GHSA-xc8p-9rr6-97r2
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-56398
 ---
 
-Open WebUI is vulnerable to a high-severity stored Cross-Site Scripting (XSS) vulnerability, identified as CVE-2026-26192, stemming from insecure iFrame rendering in its citation model. An authenticated attacker can exploit this by intercepting and modifying HTTP requests when saving chat history to inject malicious HTML content into document metadata, specifically by adding `html: true` and embedding an XSS payload. When another user, particularly an administrator, views a citation containing this weaponized document within a shared chat, the vulnerable Open WebUI frontend renders the content in an iFrame with insufficient sandboxing (`allow-scripts` and `allow-same-origin` are hardcoded), allowing the XSS payload to execute. This can lead to session hijacking, exfiltration of sensitive information, or, in the case of an administrator, potential server-side Remote Code Execution (RCE) by leveraging other known vulnerabilities. The vulnerability affects `pip/open-webui` versions prior to 0.7.0.
+A significant stored cross-site scripting (XSS) vulnerability, tracked as CVE-2026-56398, affects Open WebUI versions prior to 0.9.5. This flaw resides within the OAuth authentication flow, specifically concerning the processing of user profile pictures. The core issue stems from the application inferring the MIME type of an uploaded image from its file extension rather than the more reliable Content-Type HTTP header. This misconfiguration allows malicious SVG files, which can contain embedded JavaScript, to bypass the profile image validator. Once a malicious SVG is stored, possibly as a data URI, any authenticated user visiting the profile or an endpoint rendering the image will receive attacker-controlled content. Crucially, this content is delivered with inline disposition and without essential security headers, facilitating the execution of arbitrary JavaScript within the victim's browser, leading to authentication token theft and potential account takeover.
 
 ## Attack Chain
 
-1.  An authenticated attacker logs into Open WebUI and initiates a new chat session.
-2.  The attacker attaches an arbitrary file as a "document source" to the chat.
-3.  While saving the chat history or message, the attacker uses an HTTP proxy tool (e.g., Burp Suite, Caido, ZAP) to intercept the outgoing save request.
-4.  Within the intercepted request's JSON body, the attacker locates the object corresponding to the document source within the `history` and `messages` objects.
-5.  The attacker modifies this object by adding `html: true` to its metadata and injects an XSS payload (e.g., `<script>alert(document.cookie)</script>`) into the document content field.
-6.  The attacker forwards the modified HTTP request, causing the Open WebUI server to store the malicious chat history with the embedded XSS payload.
-7.  The attacker shares the link to this weaponized chat with a victim user (e.g., via a phishing link).
-8.  When the victim accesses the shared chat and clicks on the malicious document citation, the Open WebUI frontend renders the content in an insecure iFrame, executing the attacker's JavaScript payload in the victim's browser context.
+1. **Initial Access / Vulnerability Exploitation**: An attacker, leveraging an existing authenticated user account, identifies and targets the stored XSS vulnerability in Open WebUI's OAuth profile picture upload functionality (CVE-2026-56398).
+2. **Malicious Content Creation**: The attacker crafts a specially designed SVG file that includes malicious JavaScript code intended to exfiltrate authentication tokens from a victim's browser.
+3. **Bypass Validation**: The attacker uploads the malicious SVG file as their profile picture. Due to the vulnerability, Open WebUI incorrectly infers the SVG's MIME type from its file extension, allowing it to bypass the standard profile image validation checks.
+4. **Persistence**: The Open WebUI application successfully processes and stores the malicious SVG content, which may be converted into a data URI, permanently associating it with the attacker's user profile.
+5. **Victim Interaction**: Another authenticated user (the victim) browses to the attacker's profile page or any other application endpoint that dynamically renders or displays the attacker's profile image.
+6. **Client-Side Execution**: The victim's web browser fetches and renders the attacker-controlled SVG content. Because the content is served without adequate security headers and with an inline disposition, the embedded malicious JavaScript executes within the victim's browser session, maintaining the same-origin context.
+7. **Credential Access**: The executing JavaScript is designed to access and exfiltrate sensitive authentication tokens (e.g., session cookies, JSON Web Tokens) from the victim's browser, transmitting them to an attacker-controlled server.
+8. **Account Takeover**: The attacker utilizes the stolen authentication tokens to hijack the victim's session, thereby gaining unauthorized control over their Open WebUI account and compromising their data and functionality.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows an attacker to execute arbitrary client-side JavaScript code in the context of the victim's browser session. For low-privilege users, this can lead to session takeover, allowing the attacker to read session tokens from local storage and exfiltrate them to an attacker-controlled server. If an administrator is targeted and views the malicious citation, the XSS payload can be used to bypass security controls and potentially achieve server-side Remote Code Execution (RCE) by chaining with other known vulnerabilities, as described in GHSA-w7xj-8fx7-wfch. This poses a significant risk to the integrity and confidentiality of data within the Open WebUI environment.
+The successful exploitation of CVE-2026-56398 leads to severe consequences, primarily focusing on credential theft and account takeover. Attackers can gain complete control over compromised Open WebUI accounts by stealing authentication tokens, which can then be used to access sensitive information, modify user data, or interact with the platform as the victim. The broad nature of stored XSS vulnerabilities means that any authenticated user viewing the attacker's profile can be affected, posing a significant risk to the user base of vulnerable Open WebUI instances. While specific victim counts are not available, the potential for widespread impact on user accounts is high, affecting the confidentiality, integrity, and availability of user data within the application.
 
 ## Recommendation
 
-*   **Patch CVE-2026-26192 immediately:** Upgrade all Open WebUI installations to version 0.7.0 or newer to mitigate the vulnerability.
-*   **Implement Web Application Firewall (WAF) rules:** Configure a WAF to inspect `POST` requests to chat history save endpoints for unusual modifications like the addition of `html: true` in JSON bodies, and block requests containing common XSS payload patterns in document content, though this may require product-specific WAF configuration for JSON body inspection.
-*   **Educate users on phishing awareness:** Warn users about suspicious shared chat links or messages that encourage clicking on document citations from unknown or untrusted sources.
+* Patch CVE-2026-56398 by upgrading Open WebUI to version 0.9.5 or later immediately.
