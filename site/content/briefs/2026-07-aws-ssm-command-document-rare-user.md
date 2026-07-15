@@ -3,6 +3,7 @@ title: AWS SSM Command Document Created by Rare User
 slug: 2026-07-aws-ssm-command-document-rare-user
 description: Adversaries may leverage AWS Systems Manager (SSM) command document creation by rare or unusual users to execute arbitrary commands on managed instances, potentially leading to unauthorized access, command and control, or data exfiltration.
 date: "2026-07-15T14:04:24Z"
+lastmod: "2026-07-15T14:11:59Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,7 @@ vendors:
   - Amazon
 products:
   - AWS Systems Manager
+  - Amazon EC2
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -27,6 +29,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/execution_ssm_command_document_created_by_rare_user.toml
   - https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html
   - https://docs.aws.amazon.com/systems-manager/latest/userguide/documents.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/lateral_movement_aws_ssm_start_session_to_ec2_instance.toml
 rules:
   - title: Detect AWS SSM Command Document Creation
     description: Detects when an AWS Systems Manager (SSM) command document is created. This rule should be tuned to identify creation by users or roles that do not typically perform this action, as adversaries may use this to execute commands on managed instances.
@@ -41,6 +44,14 @@ rules:
       - aws
       - cloudtrail
 rules_count: 1
+updates:
+  - at: "2026-07-15T14:11:59Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/lateral_movement_aws_ssm_start_session_to_ec2_instance.toml
 ---
 
 This threat brief details how adversaries exploit compromised AWS identities to create malicious AWS Systems Manager (SSM) Command documents, a technique often observed through the `CreateDocument` API call made by users or roles that do not typically perform this action. Elastic's detection rule highlights this activity as a high-severity threat, indicating potential unauthorized access, command and control, and data exfiltration within an AWS environment. While the creation of SSM command documents can be legitimate for administrative purposes, detection of this action by an anomalous user or role signals a critical security event. Defenders should pay close attention to `CreateDocument` events where the `documentType` is "Command" and correlate these with the calling identity's historical activity and the content of the created document.
