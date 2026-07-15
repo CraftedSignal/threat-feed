@@ -3,6 +3,7 @@ title: AWS CloudTrail Log Updated
 slug: 2026-07-aws-cloudtrail-updated
 description: Adversaries can modify AWS CloudTrail configurations via the UpdateTrail API to reduce logging visibility, change log destinations, or weaken integrity, aiming to evade detection by preventing critical audit information from being collected or stored properly.
 date: "2026-07-15T14:10:02Z"
+lastmod: "2026-07-15T14:11:44Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,8 @@ vendors:
   - AWS
 products:
   - AWS CloudTrail
+affected_os:
+  - Kali Linux
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -34,6 +37,7 @@ mitre_ttps:
 references:
   - https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateTrail.html
   - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/update-trail.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/initial_access_suspicious_user_agent_detected_in_cloudtrail.toml
 rules:
   - title: AWS CloudTrail Log Updated
     description: Detects updates to an existing CloudTrail trail via UpdateTrail API which may reduce visibility, change destinations, or weaken integrity (e.g., removing global events, moving the S3 destination, or disabling validation). Adversaries can modify trails to evade detection while maintaining a semblance of logging. Validate any configuration change against approved baselines.
@@ -50,6 +54,14 @@ rules:
     data_sources:
       - aws.cloudtrail
 rules_count: 1
+updates:
+  - at: "2026-07-15T14:11:44Z"
+    level: L1
+    summary: OS kali linux
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/initial_access_suspicious_user_agent_detected_in_cloudtrail.toml
 ---
 
 Adversaries often seek to impair an organization's ability to monitor their activities, and modifying logging configurations is a key tactic. This threat involves the use of the AWS CloudTrail `UpdateTrail` API call by malicious actors to alter existing CloudTrail configurations. These modifications can include changing the S3 bucket where logs are stored, redirecting logs to a different CloudWatch Logs log group, modifying the KMS Key ID used for encryption, or disabling critical features like multi-region logging or the inclusion of global service events. The primary goal is to reduce visibility into their actions, weaken logging integrity, and evade detection by security monitoring systems. This technique allows attackers to maintain a facade of logging while preventing crucial audit data from being captured, making it harder for defenders to trace their activities.
