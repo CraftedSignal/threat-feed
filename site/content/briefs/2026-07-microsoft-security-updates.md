@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T13:46:46Z"
+lastmod: "2026-07-15T13:47:09Z"
 type: advisory
 types:
   - advisory
@@ -413,6 +413,8 @@ products:
   - Azure Graph API
   - Microsoft Teams (1.3.00.30866)
   - Exchange
+  - Windows Azure Active Directory
+  - Azure PowerShell
 affected_os:
   - Windows
   - macOS
@@ -899,6 +901,8 @@ cves:
     cvss: 7.8
   - id: CVE-2026-58547
     cvss: 5.5
+  - id: CVE-2026-58610
+    cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1501,6 +1505,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/entityanalytics_entra_id/persistence_entra_id_device_roadtools_default_os_build.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_sharepoint_file_download_via_powershell.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/defense_evasion_exchange_new_inbox_rule_delete_or_move.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_oauth_phishing_via_first_party_microsoft_application.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1826,6 +1831,14 @@ iocs:
     value: DESKTOP-*
   - type: pattern
     value: 10.0.19041.928
+  - type: url
+    value: https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema
+  - type: url
+    value: https://www.volexity.com/blog/2025/04/22/phishing-for-codes-russian-threat-actors-target-microsoft-365-oauth-workflows/
+  - type: url
+    value: https://pushsecurity.com/blog/consentfix
+  - type: url
+    value: https://github.com/secureworks/family-of-client-ids-research
 ioc_counts:
   application_id: 1
   asn: 3
@@ -1848,16 +1861,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 76
+  url: 80
   user_agent: 6
 updates:
-  - at: "2026-07-15T13:45:38Z"
-    level: L2
-    summary: added CVE-2026-50359 +3
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_oauth_app_redirect_uri_modified.toml
   - at: "2026-07-15T13:45:58Z"
     level: L2
     summary: added CVE-2026-49796 +1
@@ -1886,6 +1892,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/defense_evasion_exchange_new_inbox_rule_delete_or_move.toml
+  - at: "2026-07-15T13:47:09Z"
+    level: L2
+    summary: added CVE-2026-58610
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_oauth_phishing_via_first_party_microsoft_application.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
