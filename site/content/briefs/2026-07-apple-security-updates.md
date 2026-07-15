@@ -3,7 +3,7 @@ title: Apple Security Updates — July 2026
 slug: 2026-07-apple-security-updates
 description: Roundup of Apple security advisories published in July 2026.
 date: "2026-07-03T13:48:34Z"
-lastmod: "2026-07-14T08:04:07Z"
+lastmod: "2026-07-15T06:42:32Z"
 type: advisory
 types:
   - advisory
@@ -94,12 +94,18 @@ products:
   - IOS
   - ASA
   - Windows
+  - macOS Sequoia
+  - macOS Sonoma
+  - macOS Ventura
 affected_os:
   - macOS
   - iOS 17
   - iOS 17.5.1
   - Linux
   - Windows
+  - macOS Sequoia
+  - macOS Sonoma
+  - macOS Ventura
 cves:
   - id: CVE-1999-0524
     cvss: 4
@@ -112,6 +118,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2282
   - https://thehackernews.com/2026/07/crashstealer-macos-malware-uses.html
   - https://sploitus.com/exploit?id=379FFFB3-48FB-5D0C-92C2-23B434647F8D&utm_source=rss&utm_medium=rss
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1672
 iocs:
   - type: url
     value: https://github.com/F4R3SX0/iOS-Bluetooth-Ethernet-Exploit
@@ -138,11 +145,6 @@ ioc_counts:
   other: 1
   url: 2
 updates:
-  - at: "2026-07-04T09:00:46Z"
-    level: L1
-    summary: new product
-    sources:
-      - reddit-blueteamsec
   - at: "2026-07-07T13:27:17Z"
     level: L1
     summary: OS ios 17.5.1; OS ios 17
@@ -169,6 +171,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=379FFFB3-48FB-5D0C-92C2-23B434647F8D&utm_source=rss&utm_medium=rss
+  - at: "2026-07-15T06:42:32Z"
+    level: L1
+    summary: OS macos sequoia; OS macos sonoma; OS macos ventura
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1672
 ---
 
 Aggregated Apple security advisories for July 2026. CVEs from this cycle are folded
