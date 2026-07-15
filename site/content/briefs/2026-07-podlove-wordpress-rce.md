@@ -3,11 +3,15 @@ title: Critical Vulnerability in Podlove Podcast Publisher Plugin Allows Unauthe
 slug: 2026-07-podlove-wordpress-rce
 description: A critical vulnerability, CVE-2026-13001, in the Podlove Podcast Publisher plugin for WordPress, impacting versions up to and including 4.5.1, allows unauthenticated attackers to upload arbitrary files due to missing file type validation, potentially leading to remote code execution on the server.
 date: "2026-07-14T20:40:50Z"
+lastmod: "2026-07-15T20:04:27Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=7EB20766-CE15-52F8-8606-681C9D45AAAF&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - plugin
@@ -40,12 +44,25 @@ mitre_ttps:
 cves:
   - id: CVE-2026-13001
     cvss: 9.8
+    epss: 0.01079
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-13001
   - https://github.com/podlove/podlove-publisher/commit/5b32468601e903bae2bcacfaf36ff583d2bc9387
   - https://plugins.trac.wordpress.org/browser/podlove-podcasting-plugin-for-wordpress/tags/4.4.2/lib/model/image.php#L439
   - https://plugins.trac.wordpress.org/changeset/3597461/podlove-podcasting-plugin-for-wordpress
   - https://www.wordfence.com/threat-intel/vulnerabilities/id/f81a3429-f378-4295-adbe-ad6f1df59701?source=cve
+  - https://sploitus.com/exploit?id=7EB20766-CE15-52F8-8606-681C9D45AAAF&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=7EB20766-CE15-52F8-8606-681C9D45AAAF
+  - type: url
+    value: https://github.com/shinthink/CVE-2026-13001.git
+  - type: url
+    value: https://raw.githubusercontent.com/shinthink/payloads/main/shell.gif
+  - type: url
+    value: https://github.com/Raimu0x19/CVE-2026-13001
+ioc_counts:
+  url: 4
 rules:
   - title: Detects CVE-2026-13001 Exploitation - Malicious File Upload via Podlove Podcast Publisher
     description: Detects exploitation of CVE-2026-13001 by monitoring HTTP POST requests to the Podlove Podcast Publisher plugin's cache file handler with suspicious file extensions, indicative of arbitrary file upload attempts.
@@ -60,6 +77,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-15T20:04:27Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=7EB20766-CE15-52F8-8606-681C9D45AAAF&utm_source=rss&utm_medium=rss
 ---
 
 A severe vulnerability, identified as CVE-2026-13001, affects the Podlove Podcast Publisher plugin for WordPress, specifically in all versions up to and including 4.5.1. This flaw stems from inadequate file type validation within the `podlove_handle_cache_files` function, which attackers can exploit. This allows unauthenticated adversaries to upload arbitrary files, including malicious scripts such as web shells, directly to the vulnerable WordPress site's server. The absence of proper validation grants threat actors a direct path to establish persistence, execute arbitrary code, and potentially gain full control over the compromised web server. Such an attack could lead to data exfiltration, website defacement, or further compromise of the hosting environment.
