@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T08:18:26Z"
+lastmod: "2026-07-15T10:04:09Z"
 type: advisory
 types:
   - advisory
@@ -63,6 +63,7 @@ vendors:
   - Recorded Future
   - AWS
   - Spring
+  - Audacity
 products:
   - PowerShell
   - Windows
@@ -402,6 +403,10 @@ products:
   - Microsoft 365 Copilot
   - Dynamics NAV
   - Microsoft Power BI
+  - SQL Server Management Studio
+  - Audacity
+  - Chromium-based browsers
+  - Windows OS
 affected_os:
   - Windows
   - macOS
@@ -821,6 +826,10 @@ cves:
     cvss: 8
   - id: CVE-2026-49783
     cvss: 7.8
+  - id: CVE-2026-49171
+    cvss: 7.5
+  - id: CVE-2026-49184
+    cvss: 8.4
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1410,6 +1419,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2325
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2326
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2327
+  - https://securelist.com/okobot-framework-targets-cryptocurrency-wallets/120660/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1681,12 +1691,20 @@ iocs:
     value: https://github.com/Azure/azure-sdk-for-java/pull/49033
   - type: file
     value: poc.py
+  - type: file
+    value: README.md
+  - type: file
+    value: termsrv.dll
+  - type: scheduled_task
+    value: Apple Sync
+  - type: file
+    value: '%PROGRAMDATA%\hwid.dat'
 ioc_counts:
   asn: 1
   domain: 19
   email: 3
   error_code: 3
-  file: 1
+  file: 4
   file-path: 2
   file_name: 2
   filename: 5
@@ -1696,18 +1714,12 @@ ioc_counts:
   other: 2
   pattern: 1
   platform: 1
+  scheduled_task: 1
   software: 5
   string: 5
   url: 76
   user_agent: 4
 updates:
-  - at: "2026-07-15T07:41:33Z"
-    level: L2
-    summary: added CVE-2026-50362 +3
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-39822
   - at: "2026-07-15T07:50:58Z"
     level: L2
     summary: added CVE-2026-50363 +1
@@ -1736,6 +1748,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2327
+  - at: "2026-07-15T10:04:09Z"
+    level: L2
+    summary: added CVE-2026-49171 +1
+    sources:
+      - securelist
+    source_urls:
+      - https://securelist.com/okobot-framework-targets-cryptocurrency-wallets/120660/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
