@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T08:13:26Z"
+lastmod: "2026-07-15T08:18:26Z"
 type: advisory
 types:
   - advisory
@@ -401,6 +401,7 @@ products:
   - Windows Terminal
   - Microsoft 365 Copilot
   - Dynamics NAV
+  - Microsoft Power BI
 affected_os:
   - Windows
   - macOS
@@ -813,6 +814,12 @@ cves:
   - id: CVE-2026-50375
     cvss: 6.3
   - id: CVE-2026-54125
+    cvss: 7.8
+  - id: CVE-2026-47300
+    cvss: 8.8
+  - id: CVE-2026-49169
+    cvss: 8
+  - id: CVE-2026-49783
     cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
@@ -1402,6 +1409,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2320
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2325
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2326
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2327
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1693,13 +1701,6 @@ ioc_counts:
   url: 76
   user_agent: 4
 updates:
-  - at: "2026-07-14T23:01:01Z"
-    level: L2
-    summary: added CVE-2026-49172 +3
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=AC8BA49C-6B0C-5FC3-A311-C5C14C8864A6&utm_source=rss&utm_medium=rss
   - at: "2026-07-15T07:41:33Z"
     level: L2
     summary: added CVE-2026-50362 +3
@@ -1728,6 +1729,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2326
+  - at: "2026-07-15T08:18:26Z"
+    level: L2
+    summary: added CVE-2026-47300 +2
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2327
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
