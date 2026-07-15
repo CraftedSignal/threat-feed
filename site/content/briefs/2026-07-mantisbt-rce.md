@@ -3,6 +3,7 @@ title: MantisBT Remote Code Execution via Class Hoisting (CVE-2026-49273)
 slug: 2026-07-mantisbt-rce
 description: A high-severity remote code execution vulnerability, CVE-2026-49273, affects MantisBT versions 2.28.3 and earlier, allowing an authenticated administrator to achieve arbitrary code execution as the web server user by leveraging PHP's class hoisting during the processing of non-string configuration values in `adm_config_set.php`.
 date: "2026-07-15T16:53:52Z"
+lastmod: "2026-07-15T18:58:02Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - php
   - class-hoisting
   - mantisbt
+  - xss
+  - web-vulnerability
 vendors:
   - MantisBT
 products:
@@ -31,6 +34,8 @@ references:
   - https://github.com/advisories/GHSA-v84x-qvhg-f36r
   - https://github.com/mantisbt/mantisbt/commit/78c0af63d1fe0118004744cab21ca3bf2cea0f5c
   - https://mantisbt.org/bugs/view.php?id=37122
+  - https://github.com/advisories/GHSA-h2wf-967x-gxvw
+  - https://mantisbt.org/bugs/view.php?id=37234
 rules:
   - title: Detects CVE-2026-49273 Exploitation - MantisBT RCE via adm_config_set.php
     description: Detects attempts to exploit CVE-2026-49273 in MantisBT by identifying HTTP POST requests to `adm_config_set.php` that contain PHP class or function definitions within URL query parameters, indicating code injection attempts.
@@ -43,6 +48,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-15T18:58:02Z"
+    level: L2
+    summary: 'merged source coverage: MantisBT Stored XSS Vulnerability via Crafted Image Filenames (CVE-2026-62944)'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-h2wf-967x-gxvw
 ---
 
 A critical remote code execution vulnerability, tracked as CVE-2026-49273, has been discovered in MantisBT versions 2.28.3 and earlier. This flaw exists within the "Manage Configuration" feature (accessible via `adm_config_set.php`) which is part of the administrative web UI. The vulnerability arises when an authenticated administrator attempts to set a configuration value of a non-string type (such as an integer or float). Although the application uses `eval()` with a `return;` prefix to prevent immediate code execution, PHP's compile-time behavior of hoisting class and function declarations bypasses this safeguard. An attacker can craft a malicious input that defines a class, which is then hoisted and can hijack a legitimate class loaded later by PHP's autoloader, leading to arbitrary code execution as the web server user. This vulnerability specifically requires administrator access to the web UI; the REST API and its `ConfigsSetCommand` are not affected.
