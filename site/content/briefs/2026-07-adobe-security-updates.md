@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-15T10:51:20Z"
+lastmod: "2026-07-15T11:01:30Z"
 type: advisory
 types:
   - advisory
@@ -100,6 +100,7 @@ products:
   - Content Credentials Command-Line Tool <= c2patool-v0.16.5
   - Content Credentials JS SDK <= @contentauth/c2pa@0.26.5
   - Content Credentials JS SDK <= @contentauth/js-sdk@0.7.0
+  - Magento
 affected_os:
   - Windows
   - macOS
@@ -170,6 +171,8 @@ cves:
     cvss: 7.8
   - id: CVE-2026-48366
     cvss: 7.8
+  - id: CVE-2026-48332
+    cvss: 7.7
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -210,6 +213,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48351
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48352
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2364
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2367
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -242,13 +246,6 @@ ioc_counts:
   email: 2
   url: 9
 updates:
-  - at: "2026-07-14T22:20:36Z"
-    level: L2
-    summary: added CVE-2026-48344
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48335
   - at: "2026-07-14T22:20:59Z"
     level: L2
     summary: added CVE-2026-48275 +1
@@ -277,6 +274,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2364
+  - at: "2026-07-15T11:01:30Z"
+    level: L2
+    summary: added CVE-2026-48332
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2367
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
