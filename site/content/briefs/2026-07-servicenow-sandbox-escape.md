@@ -3,6 +3,7 @@ title: ServiceNow Critical Sandbox Escape Vulnerability (CVE-2026-6875)
 slug: 2026-07-servicenow-sandbox-escape
 description: ServiceNow has released a security advisory addressing CVE-2026-6875, a critical sandbox escape vulnerability affecting multiple product versions including Brazil, Australia, Zurich, and Yokohama, which could allow an attacker to bypass security boundaries and execute arbitrary code with elevated privileges.
 date: "2026-07-14T14:38:44Z"
+lastmod: "2026-07-15T11:05:50Z"
 type: threat
 types:
   - threat
@@ -15,6 +16,8 @@ tags:
   - cloud
 vendors:
   - ServiceNow
+  - Ivanti
+  - Fortinet
 products:
   - Brazil (prior to Brazil EA)
   - Brazil (prior to Brazil GA)
@@ -23,11 +26,37 @@ products:
   - Zurich (prior to Zurich Patch 9)
   - Yokohama (prior to Yokohama Patch 12 Hot Fix 1b)
   - Yokohama (prior to Yokohama Patch 13)
+  - ServiceNow AI platform
+  - Xtraction
+  - FortiOS
+  - FortiProxy
+  - FortiSASE
+  - FortiSIEM
+  - FortiClient EMS
+  - FortiAuthenticator
+  - FortiPAM
+  - FortiSwitch Manager
+  - FortiSwitch-Manager Agentless SSL-VPN
+  - FortiSandbox
 cves:
   - id: CVE-2026-6875
+    epss: 0.00509
+  - id: CVE-2026-14902
+    cvss: 4
+  - id: CVE-2026-14903
+    cvss: 7.7
 references:
   - https://cyber.gc.ca/en/alerts-advisories/servicenow-security-advisory-av26-693
   - https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB3137947
+  - https://www.securityweek.com/vulnerabilities-patched-by-fortinet-ivanti-servicenow/
+updates:
+  - at: "2026-07-15T11:05:50Z"
+    level: L2
+    summary: added CVE-2026-14902 +1
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/vulnerabilities-patched-by-fortinet-ivanti-servicenow/
 ---
 
 On July 13, 2026, ServiceNow issued a security advisory (AV26-693) detailing a critical sandbox escape vulnerability, identified as CVE-2026-6875, within its AI Platform. This vulnerability affects several versions across multiple product lines, specifically Brazil (prior to EA and GA releases), Australia (prior to Patch 2), Zurich (prior to Patch 7b and Patch 9), and Yokohama (prior to Patch 12 Hot Fix 1b and Patch 13). A sandbox escape allows an attacker to break out of a restricted execution environment, potentially gaining unauthorized access to underlying systems or sensitive data with higher privileges. While the advisory does not specify observed exploitation in the wild, the critical nature of a sandbox escape warrants immediate attention for organizations utilizing these ServiceNow products to prevent potential data compromise, system disruption, or further network infiltration.
