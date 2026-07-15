@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T13:47:09Z"
+lastmod: "2026-07-15T14:31:19Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,7 @@ has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
   - https://sploitus.com/exploit?id=AC8BA49C-6B0C-5FC3-A311-C5C14C8864A6&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=E845E4F1-345B-599F-A195-00B7604EBC69&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -415,6 +416,13 @@ products:
   - Exchange
   - Windows Azure Active Directory
   - Azure PowerShell
+  - Windows Narrator Braille (Windows 10 1809 / Server 2019 < 17763.9020)
+  - Windows Narrator Braille (Windows 10 21H2 < 19044.7548)
+  - Windows Narrator Braille (Windows 10 22H2 < 19045.7548)
+  - Windows Narrator Braille (Windows Server 2022 < 20348.5386)
+  - Windows Narrator Braille (Windows 11 24H2 < 26100.8875)
+  - Windows Narrator Braille (Windows 11 25H2 < 26200.8875)
+  - Windows Narrator Braille (Windows 11 26H1 < 28000.2525)
 affected_os:
   - Windows
   - macOS
@@ -438,6 +446,11 @@ affected_os:
   - Windows 11 Version 25H2
   - Windows 11 version 26H1
   - Windows 10 20H1
+  - Windows 10 1809
+  - Windows 10 21H2
+  - Windows 11 24H2
+  - Windows 11 25H2
+  - Windows 11 26H1
 cves:
   - id: CVE-2026-50304
     cvss: 7.5
@@ -902,6 +915,10 @@ cves:
   - id: CVE-2026-58547
     cvss: 5.5
   - id: CVE-2026-58610
+    cvss: 7.8
+  - id: CVE-2026-50302
+    cvss: 4.2
+  - id: CVE-2026-55137
     cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
@@ -1506,6 +1523,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_sharepoint_file_download_via_powershell.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/defense_evasion_exchange_new_inbox_rule_delete_or_move.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_oauth_phishing_via_first_party_microsoft_application.toml
+  - https://sploitus.com/exploit?id=E845E4F1-345B-599F-A195-00B7604EBC69&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1839,6 +1857,20 @@ iocs:
     value: https://pushsecurity.com/blog/consentfix
   - type: url
     value: https://github.com/secureworks/family-of-client-ids-research
+  - type: url
+    value: https://sploitus.com/exploit?id=E845E4F1-345B-599F-A195-00B7604EBC69
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58635
+  - type: url
+    value: https://nvd.nist.gov/vuln/detail/CVE-2026-58635
+  - type: url
+    value: https://support.microsoft.com/help/5101650
+  - type: url
+    value: https://brltty.app/
+  - type: url
+    value: https://github.com/tylerdotrar/SigmaPotato
+  - type: hash_sha256
+    value: EC68A6BF7F104A815BD21E27E73A8DFB8AFCB282D4997BEBE9ECCD6C89259506
 ioc_counts:
   application_id: 1
   asn: 3
@@ -1849,7 +1881,7 @@ ioc_counts:
   file-path: 2
   file_name: 2
   filename: 5
-  hash_sha256: 2
+  hash_sha256: 3
   infrastructure_provider: 2
   language: 1
   library: 9
@@ -1861,16 +1893,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 80
+  url: 86
   user_agent: 6
 updates:
-  - at: "2026-07-15T13:45:58Z"
-    level: L2
-    summary: added CVE-2026-49796 +1
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_roadtools_default_device_registration.toml
   - at: "2026-07-15T13:46:13Z"
     level: L2
     summary: added CVE-2026-50435 +2; OS windows 10 20h1
@@ -1899,6 +1924,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_oauth_phishing_via_first_party_microsoft_application.toml
+  - at: "2026-07-15T14:31:19Z"
+    level: L2
+    summary: added CVE-2026-50302 +1; windows narrator braille version Windows 11 26H1 < 28000.2525; OS windows 10 1809; OS windows 10 21h2; OS windows 11 24h2; OS windows 11 25h2; OS windows 11 26h1
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=E845E4F1-345B-599F-A195-00B7604EBC69&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
