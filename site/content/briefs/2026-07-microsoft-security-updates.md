@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T13:43:46Z"
+lastmod: "2026-07-15T13:44:12Z"
 type: advisory
 types:
   - advisory
@@ -842,6 +842,8 @@ cves:
     cvss: 7.5
   - id: CVE-2026-58634
     cvss: 7.8
+  - id: CVE-2026-50367
+    cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1434,6 +1436,7 @@ references:
   - https://securelist.com/okobot-framework-targets-cryptocurrency-wallets/120660/
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_key_vault_retrieval_from_rare_identity.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_aad_graph_roadrecon_aiohttp_enumeration.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_aad_graph_suspicious_user_agent.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1715,6 +1718,36 @@ iocs:
     value: '%PROGRAMDATA%\hwid.dat'
   - type: other
     value: 04b07795-
+  - type: tool
+    value: ROADrecon
+  - type: tool
+    value: ROADtools
+  - type: tool
+    value: AADInternals
+  - type: library
+    value: aiohttp
+  - type: tool
+    value: curl
+  - type: library
+    value: Go-http-client
+  - type: language
+    value: Python
+  - type: library
+    value: fasthttp
+  - type: library
+    value: okhttp
+  - type: library
+    value: axios
+  - type: library
+    value: node-fetch
+  - type: library
+    value: go-resty
+  - type: library
+    value: bav2ropc
+  - type: library
+    value: undici
+  - type: pattern
+    value: '*hound*'
 ioc_counts:
   asn: 1
   domain: 19
@@ -1726,23 +1759,19 @@ ioc_counts:
   filename: 5
   hash_sha256: 2
   infrastructure_provider: 2
+  language: 1
+  library: 9
   os_version: 1
   other: 3
-  pattern: 1
+  pattern: 2
   platform: 1
   scheduled_task: 1
   software: 5
   string: 5
+  tool: 4
   url: 76
   user_agent: 4
 updates:
-  - at: "2026-07-15T08:13:26Z"
-    level: L2
-    summary: added CVE-2026-50375 +3
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2326
   - at: "2026-07-15T08:18:26Z"
     level: L2
     summary: added CVE-2026-47300 +2
@@ -1771,6 +1800,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_aad_graph_roadrecon_aiohttp_enumeration.toml
+  - at: "2026-07-15T13:44:12Z"
+    level: L2
+    summary: added CVE-2026-50367
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_aad_graph_suspicious_user_agent.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
