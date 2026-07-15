@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-15T10:03:01Z"
+lastmod: "2026-07-15T14:39:49Z"
 type: advisory
 types:
   - advisory
@@ -104,6 +104,7 @@ products:
   - Service Account
   - Android (4.2.2 through December 2023 patch)
   - OPPO A5 (CPH1931/CPH1943, Android 9, last patched ~2022)
+  - Cloud Run
 affected_os:
   - Windows
   - Linux
@@ -179,6 +180,8 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_key_created_for_service_account.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/google_workspace/persistence_google_workspace_role_modified.toml
   - https://sploitus.com/exploit?id=D0DC4908-C0DC-539F-BC8B-A87CCD40BBFF&utm_source=rss&utm_medium=rss
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2347
+  - https://cloud.google.com/blog/topics/threat-intelligence/exposed-cloud-functions-harden/
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -218,20 +221,15 @@ iocs:
     value: https://sploitus.com/exploit?id=D0DC4908-C0DC-539F-BC8B-A87CCD40BBFF
   - type: filename
     value: invoices.apk
+  - type: url
+    value: https://cloudrun01-abc.europe-west3.run.app/
 ioc_counts:
   domain: 1
   file_name: 2
   file_path: 2
   filename: 1
-  url: 13
+  url: 14
 updates:
-  - at: "2026-07-13T16:11:50Z"
-    level: L1
-    summary: new product
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/impact_gcp_gke_coredns_or_kube_dns_configuration_modified.toml
   - at: "2026-07-13T16:12:01Z"
     level: L1
     summary: new vendor
@@ -260,6 +258,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=D0DC4908-C0DC-539F-BC8B-A87CCD40BBFF&utm_source=rss&utm_medium=rss
+  - at: "2026-07-15T14:39:49Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - mandiant
+    source_urls:
+      - https://cloud.google.com/blog/topics/threat-intelligence/exposed-cloud-functions-harden/
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
