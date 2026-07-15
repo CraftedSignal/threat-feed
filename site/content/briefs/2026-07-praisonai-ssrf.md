@@ -1,63 +1,64 @@
 ---
-title: Unauthenticated Server-Side Request Forgery in PraisonAI Jobs API (CVE-2026-60091)
+title: PraisonAI web_crawl Tool Vulnerable to DNS Rebinding SSRF (CVE-2026-61430)
 slug: 2026-07-praisonai-ssrf
-description: PraisonAI versions before 4.6.78 contain an unauthenticated server-side request forgery (SSRF) vulnerability, CVE-2026-60091, in the Jobs API `/api/v1/runs` endpoint via the `webhook_url` parameter, allowing attackers to exploit DNS rebinding to access internal services.
-date: "2026-07-10T15:25:05Z"
+description: PraisonAI versions prior to 1.6.78 are vulnerable to server-side request forgery (SSRF) within its web_crawl tool, allowing attackers to bypass hostname validation using DNS rebinding and retrieve sensitive internal HTTP response bodies from private or loopback services.
+date: "2026-07-15T12:28:48Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - vulnerability
   - ssrf
   - dns-rebinding
-  - praisonai
+  - vulnerability
+  - web-application
 vendors:
   - MervinPraison
 products:
-  - PraisonAI (before 4.6.78)
+  - PraisonAI
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: PraisonAI before 4.6.78 contains an unauthenticated server-side request forgery vulnerability in the Jobs API /api/v1/runs endpoint.
+    evidence: PraisonAI before 1.6.78 contains a server-side request forgery vulnerability in the web_crawl tool
     confidence_band: high
-  - tactic_id: TA0008
-    tactic_name: Lateral Movement
-    technique_id: T1090
-    technique_name: Evade Defenses
-    evidence: allowing attackers to use DNS rebinding to reach internal services with a blind SSRF attack.
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1082
+    technique_name: System Information Discovery
+    evidence: retrieve internal HTTP response bodies from private or loopback services
     confidence_band: high
 cves:
-  - id: CVE-2026-60091
-    cvss: 7.2
+  - id: CVE-2026-61430
+    cvss: 8.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-60091
-  - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-4w49-gwv8-fpjg
-  - https://www.vulncheck.com/advisories/praisonai-before-unauthenticated-ssrf-via-webhook-url
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-61430
+  - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-qg25-6gc4-48mg
+  - https://www.vulncheck.com/advisories/praisonai-before-dns-rebinding-ssrf-via-web-crawl
 ---
 
-An unauthenticated server-side request forgery (SSRF) vulnerability, identified as CVE-2026-60091, exists in PraisonAI versions prior to 4.6.78. This critical flaw resides within the Jobs API `/api/v1/runs` endpoint, specifically impacting the `webhook_url` parameter. Attackers can leverage a timing window where the `webhook_url` is initially validated as an external, legitimate target but then re-resolved to an internal IP address at connection time using DNS rebinding. This allows an external attacker to bypass security controls and force the PraisonAI application to make blind HTTP requests to arbitrary internal network services, potentially leading to unauthorized information disclosure, interaction with internal systems, or further lateral movement within an organization's network.
+PraisonAI, an artificial intelligence platform, contains a critical server-side request forgery (SSRF) vulnerability, identified as CVE-2026-61430, affecting versions prior to 1.6.78. This flaw resides within the `web_crawl` tool, which is designed to validate hostnames during an initial check but then re-resolves them without IP pinning at the connection phase. Attackers can leverage DNS rebinding techniques to exploit this time-of-check-time-of-use (TOCTOU) vulnerability. By manipulating DNS resolution, an attacker can trick the `web_crawl` tool into making requests to internal private or loopback services, even if the initial hostname appears legitimate. The successful exploitation of this vulnerability allows adversaries to retrieve internal HTTP response bodies, potentially leading to information disclosure, reconnaissance of internal networks, and further compromise.
 
 ## Attack Chain
 
-1. The attacker registers a domain (e.g., `attacker.com`) and configures its DNS records with a short Time-To-Live (TTL). Initially, the domain resolves to a legitimate external IP address controlled by the attacker.
-2. The attacker sends an unauthenticated POST request to the PraisonAI Jobs API endpoint `/api/v1/runs`, setting the `webhook_url` parameter to their malicious domain (e.g., `http://attacker.com/callback`).
-3. During initial validation, PraisonAI performs a DNS lookup for `attacker.com`. At this stage, it resolves to the external IP, passing the validation checks designed to prevent access to internal or private IP ranges.
-4. PraisonAI accepts the job and schedules the webhook callback for later execution.
-5. Before PraisonAI attempts to connect to the `webhook_url` for the callback, the attacker rapidly updates the DNS record for `attacker.com` to point to an internal IP address (e.g., `192.168.1.10`), which hosts an internal service within the target network.
-6. When PraisonAI executes the webhook callback, it performs a new DNS lookup for `attacker.com`. Due to the DNS rebinding, it now resolves to `192.168.1.10`.
-7. PraisonAI then makes an HTTP request to `http://192.168.1.10/callback`, initiating a blind server-side request forgery against an internal service.
-8. The internal service receives the request, potentially allowing the attacker to gather information about the internal network or interact with other internal systems, albeit blindly.
+1. An attacker identifies a PraisonAI instance running a vulnerable version (prior to 1.6.78) with the `web_crawl` tool exposed.
+2. The attacker sets up a malicious DNS server configured to perform DNS rebinding, capable of rapidly changing the IP address associated with a controlled domain.
+3. The attacker crafts a request to the PraisonAI `web_crawl` tool, providing a hostname that is initially configured to resolve to a public IP address controlled by their malicious DNS server.
+4. PraisonAI's `web_crawl` tool performs an initial DNS resolution and hostname validation. The hostname resolves to the public IP, and the validation check passes.
+5. Before or during the connection establishment phase, the attacker's malicious DNS server quickly updates the DNS record for the same hostname, causing it to re-resolve to an internal IP address (e.g., 127.0.0.1, 192.168.x.x, or another private network address) with a very short time-to-live (TTL).
+6. The `web_crawl` tool connects to the newly re-resolved internal IP address without performing a secondary hostname or IP validation, effectively bypassing the intended SSRF protection mechanism.
+7. The `web_crawl` tool fetches the HTTP response body from the internal service located at the re-resolved internal IP address.
+8. The internal HTTP response body is returned to the attacker as part of the `web_crawl` tool's output, thereby exposing sensitive internal information such as configuration data, API keys, or application secrets.
 
 ## Impact
 
-The successful exploitation of CVE-2026-60091 allows an unauthenticated attacker to bypass network segmentation and access internal services from an external position. This blind SSRF can lead to unauthorized information disclosure (C:L) and potentially limited modification of internal data (I:L), as indicated by its CVSS 3.1 score of 7.2. Attackers can use this vulnerability for internal network reconnaissance, identifying other vulnerable services, or indirectly interacting with sensitive internal systems that are not directly exposed to the internet. While direct arbitrary code execution is not implied, the ability to reach internal resources provides a significant foothold for further attack.
+Successful exploitation of CVE-2026-61430 allows attackers to access internal network resources that should not be publicly exposed. This can lead to the retrieval of sensitive HTTP response bodies from private or loopback services, enabling deep reconnaissance of an organization's internal infrastructure. Attackers can map internal networks, discover hidden services, access administrative interfaces, or exfiltrate sensitive data from internal applications. While no specific victim counts or sectors are detailed in the advisory, any organization utilizing vulnerable PraisonAI instances faces a high risk of information disclosure and potential lateral movement within their network.
 
 ## Recommendation
 
-* Patch PraisonAI instances immediately to version 4.6.78 or later to address CVE-2026-60091.
-* Implement strict outbound network filtering on the PraisonAI application server to prevent connections to internal IP ranges (RFC1918 addresses) or other unauthorized destinations. (network_connection logs)
-* Monitor DNS query logs from the PraisonAI server for suspicious rebinding patterns where a domain initially resolves to an external IP and then quickly changes to an internal IP. (dns_query logs)
+* Upgrade PraisonAI to version 1.6.78 or later immediately to patch CVE-2026-61430.
+* Implement network segmentation to restrict PraisonAI's access to only necessary external and internal resources.
+* Monitor outbound DNS queries from web application servers for unusual re-resolutions to private IP ranges, which may indicate DNS rebinding attempts.
+* Implement web application firewalls (WAFs) or API gateways to filter and inspect requests to the `web_crawl` tool, looking for suspicious hostnames or patterns indicative of SSRF attempts.
