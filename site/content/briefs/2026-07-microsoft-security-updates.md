@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T13:44:48Z"
+lastmod: "2026-07-15T13:45:09Z"
 type: advisory
 types:
   - advisory
@@ -860,6 +860,10 @@ cves:
     cvss: 5.5
   - id: CVE-2026-55054
     cvss: 6.5
+  - id: CVE-2026-49793
+    cvss: 7.8
+  - id: CVE-2026-50328
+    cvss: 7.5
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1455,6 +1459,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_aad_graph_suspicious_user_agent.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_bloodhound_user_agents_detected.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_entra_id_teamfiltration_user_agents_detected.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_microsoft_auth_broker_unusual_resource.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1801,13 +1806,6 @@ ioc_counts:
   url: 76
   user_agent: 6
 updates:
-  - at: "2026-07-15T13:43:30Z"
-    level: L2
-    summary: added CVE-2026-50308 +2
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_key_vault_retrieval_from_rare_identity.toml
   - at: "2026-07-15T13:43:46Z"
     level: L2
     summary: added CVE-2026-54119 +1
@@ -1836,6 +1834,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_entra_id_teamfiltration_user_agents_detected.toml
+  - at: "2026-07-15T13:45:09Z"
+    level: L2
+    summary: added CVE-2026-49793 +1
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_microsoft_auth_broker_unusual_resource.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
