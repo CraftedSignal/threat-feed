@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T13:45:58Z"
+lastmod: "2026-07-15T13:46:13Z"
 type: advisory
 types:
   - advisory
@@ -433,6 +433,7 @@ affected_os:
   - Windows 11 Version 24H2
   - Windows 11 Version 25H2
   - Windows 11 version 26H1
+  - Windows 10 20H1
 cves:
   - id: CVE-2026-50304
     cvss: 7.5
@@ -879,6 +880,12 @@ cves:
   - id: CVE-2026-49796
     cvss: 7.8
   - id: CVE-2026-50471
+    cvss: 7.8
+  - id: CVE-2026-50435
+    cvss: 7.8
+  - id: CVE-2026-50482
+    cvss: 7.3
+  - id: CVE-2026-50494
     cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
@@ -1479,6 +1486,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_conditional_access_policy_modified.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_oauth_app_redirect_uri_modified.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_roadtools_default_device_registration.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/entityanalytics_entra_id/persistence_entra_id_device_roadtools_default_os_build.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1800,6 +1808,10 @@ iocs:
     value: AS16509
   - type: asn
     value: AS14618
+  - type: pattern
+    value: DESKTOP-*
+  - type: pattern
+    value: 10.0.19041.928
 ioc_counts:
   application_id: 1
   asn: 3
@@ -1816,7 +1828,7 @@ ioc_counts:
   library: 9
   os_version: 1
   other: 3
-  pattern: 2
+  pattern: 4
   platform: 1
   scheduled_task: 1
   software: 5
@@ -1825,13 +1837,6 @@ ioc_counts:
   url: 76
   user_agent: 6
 updates:
-  - at: "2026-07-15T13:44:48Z"
-    level: L2
-    summary: added CVE-2026-49801 +1; microsoft teams version 1.3.00.30866
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_entra_id_teamfiltration_user_agents_detected.toml
   - at: "2026-07-15T13:45:09Z"
     level: L2
     summary: added CVE-2026-49793 +1
@@ -1860,6 +1865,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_roadtools_default_device_registration.toml
+  - at: "2026-07-15T13:46:13Z"
+    level: L2
+    summary: added CVE-2026-50435 +2; OS windows 10 20h1
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/entityanalytics_entra_id/persistence_entra_id_device_roadtools_default_os_build.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
