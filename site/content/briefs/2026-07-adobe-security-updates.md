@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-15T11:01:30Z"
+lastmod: "2026-07-15T13:56:28Z"
 type: advisory
 types:
   - advisory
@@ -30,10 +30,15 @@ cpes:
   - cpe:2.3:a:adobe:coldfusion:2023:update6:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update7:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update8:*:*:*:*:*:*
+has_poc: true
 tags:
   - roundup
 vendors:
   - Adobe
+  - Mozilla
+  - Google
+  - VMware
+  - Broadcom
 products:
   - ColdFusion <= 2025.9
   - ColdFusion <= 2023.20
@@ -101,9 +106,17 @@ products:
   - Content Credentials JS SDK <= @contentauth/c2pa@0.26.5
   - Content Credentials JS SDK <= @contentauth/js-sdk@0.7.0
   - Magento
+  - Firefox (< 152.0.6)
+  - Chrome (< 150.0.7871.124)
+  - ColdFusion 2025 (< Update 11)
+  - ColdFusion 2023 (< Update 22)
+  - Magento Open Source
+  - Adobe Experience Manager
+  - Avi Load Balancer
 affected_os:
   - Windows
   - macOS
+  - Linux
 cves:
   - id: CVE-2026-48311
     cvss: 7.8
@@ -173,6 +186,8 @@ cves:
     cvss: 7.8
   - id: CVE-2026-48332
     cvss: 7.7
+  - id: CVE-2026-48336
+    cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -214,6 +229,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48352
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2364
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2367
+  - https://thehackernews.com/2026/07/firefox-chrome-adobe-and-vmware-updates.html
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -246,13 +262,6 @@ ioc_counts:
   email: 2
   url: 9
 updates:
-  - at: "2026-07-14T22:20:59Z"
-    level: L2
-    summary: added CVE-2026-48275 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48337
   - at: "2026-07-14T22:21:16Z"
     level: L2
     summary: added CVE-2026-48287
@@ -281,6 +290,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2367
+  - at: "2026-07-15T13:56:28Z"
+    level: L2
+    summary: poc_available; added CVE-2026-48336; OS linux
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/firefox-chrome-adobe-and-vmware-updates.html
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
