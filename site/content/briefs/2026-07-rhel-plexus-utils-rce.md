@@ -3,6 +3,7 @@ title: Red Hat Enterprise Linux Plexus-Utils Vulnerability Allows Remote Code Ex
 slug: 2026-07-rhel-plexus-utils-rce
 description: A remote, unauthenticated attacker can exploit a vulnerability in Red Hat Enterprise Linux, specifically within the plexus-utils component, to execute arbitrary program code with user privileges, leading to system compromise.
 date: "2026-07-15T06:30:21Z"
+lastmod: "2026-07-15T06:38:19Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
 products:
   - Red Hat Enterprise Linux
   - plexus-utils
+  - python-pillow
 affected_os:
   - Red Hat Enterprise Linux
 mitre_ttps:
@@ -29,6 +31,15 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2300
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-1835
+updates:
+  - at: "2026-07-15T06:38:19Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-1835
 ---
 
 A critical vulnerability has been identified in the `plexus-utils` component within Red Hat Enterprise Linux (RHEL), allowing for arbitrary code execution with user privileges. This flaw can be exploited by a remote, unauthenticated attacker, meaning no prior access or authentication is required. The `plexus-utils` library provides utility functions and is integrated into various applications and services running on RHEL systems. Successful exploitation could lead to an attacker gaining control over the affected system, enabling them to install malicious software, exfiltrate sensitive data, disrupt operations, or establish persistence. Given the widespread deployment of RHEL in enterprise environments, this vulnerability poses a significant risk to the integrity and availability of critical infrastructure.
