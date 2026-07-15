@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T13:46:32Z"
+lastmod: "2026-07-15T13:46:46Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,7 @@ cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
   - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
   - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:erlang:erlang\/ssl:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
@@ -411,6 +412,7 @@ products:
   - Azure Key Vault
   - Azure Graph API
   - Microsoft Teams (1.3.00.30866)
+  - Exchange
 affected_os:
   - Windows
   - macOS
@@ -890,6 +892,13 @@ cves:
   - id: CVE-2026-57977
     cvss: 7.1
     epss: 0.00397
+  - id: CVE-2026-55952
+    cvss: 7.5
+    epss: 0.00487
+  - id: CVE-2026-54112
+    cvss: 7.8
+  - id: CVE-2026-58547
+    cvss: 5.5
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1491,6 +1500,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_roadtools_default_device_registration.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/entityanalytics_entra_id/persistence_entra_id_device_roadtools_default_os_build.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_sharepoint_file_download_via_powershell.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/defense_evasion_exchange_new_inbox_rule_delete_or_move.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1841,13 +1851,6 @@ ioc_counts:
   url: 76
   user_agent: 6
 updates:
-  - at: "2026-07-15T13:45:20Z"
-    level: L2
-    summary: added CVE-2026-49166 +1
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_conditional_access_policy_modified.toml
   - at: "2026-07-15T13:45:38Z"
     level: L2
     summary: added CVE-2026-50359 +3
@@ -1876,6 +1879,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_sharepoint_file_download_via_powershell.toml
+  - at: "2026-07-15T13:46:46Z"
+    level: L2
+    summary: added CVE-2026-54112 +2
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/defense_evasion_exchange_new_inbox_rule_delete_or_move.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
