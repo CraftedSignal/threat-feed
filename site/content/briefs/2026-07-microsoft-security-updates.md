@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T13:45:20Z"
+lastmod: "2026-07-15T13:45:38Z"
 type: advisory
 types:
   - advisory
@@ -868,6 +868,14 @@ cves:
     cvss: 7.8
   - id: CVE-2026-58533
     cvss: 6.5
+  - id: CVE-2026-50653
+    cvss: 7.5
+  - id: CVE-2026-50526
+    cvss: 7
+  - id: CVE-2026-56156
+    cvss: 7.8
+  - id: CVE-2026-50359
+    cvss: 7
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1465,6 +1473,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_entra_id_teamfiltration_user_agents_detected.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_microsoft_auth_broker_unusual_resource.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_conditional_access_policy_modified.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_oauth_app_redirect_uri_modified.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1811,13 +1820,6 @@ ioc_counts:
   url: 76
   user_agent: 6
 updates:
-  - at: "2026-07-15T13:44:12Z"
-    level: L2
-    summary: added CVE-2026-50367
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_aad_graph_suspicious_user_agent.toml
   - at: "2026-07-15T13:44:29Z"
     level: L2
     summary: added CVE-2026-56159 +3
@@ -1846,6 +1848,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_conditional_access_policy_modified.toml
+  - at: "2026-07-15T13:45:38Z"
+    level: L2
+    summary: added CVE-2026-50359 +3
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_oauth_app_redirect_uri_modified.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
