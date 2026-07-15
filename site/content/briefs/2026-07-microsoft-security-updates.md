@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T13:44:29Z"
+lastmod: "2026-07-15T13:44:48Z"
 type: advisory
 types:
   - advisory
@@ -64,6 +64,7 @@ vendors:
   - AWS
   - Spring
   - Audacity
+  - Amazon
 products:
   - PowerShell
   - Windows
@@ -409,6 +410,7 @@ products:
   - Windows OS
   - Azure Key Vault
   - Azure Graph API
+  - Microsoft Teams (1.3.00.30866)
 affected_os:
   - Windows
   - macOS
@@ -854,6 +856,10 @@ cves:
     cvss: 7.8
   - id: CVE-2026-58545
     cvss: 5.5
+  - id: CVE-2026-49801
+    cvss: 5.5
+  - id: CVE-2026-55054
+    cvss: 6.5
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1448,6 +1454,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_aad_graph_roadrecon_aiohttp_enumeration.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_aad_graph_suspicious_user_agent.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_bloodhound_user_agents_detected.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_entra_id_teamfiltration_user_agents_detected.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1759,8 +1766,19 @@ iocs:
     value: undici
   - type: pattern
     value: '*hound*'
+  - type: user_agent
+    value: Electron/8.5.1 (Windows)
+  - type: user_agent
+    value: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.3.00.30866 Chrome/80.0.3987.165 Electron/8.5.1 Safari/537.36
+  - type: application_id
+    value: 1fec8e78-bce4-4aaf-ab1b-5451cc387264
+  - type: asn
+    value: AS16509
+  - type: asn
+    value: AS14618
 ioc_counts:
-  asn: 1
+  application_id: 1
+  asn: 3
   domain: 19
   email: 3
   error_code: 3
@@ -1781,15 +1799,8 @@ ioc_counts:
   string: 5
   tool: 4
   url: 76
-  user_agent: 4
+  user_agent: 6
 updates:
-  - at: "2026-07-15T10:04:09Z"
-    level: L2
-    summary: added CVE-2026-49171 +1
-    sources:
-      - securelist
-    source_urls:
-      - https://securelist.com/okobot-framework-targets-cryptocurrency-wallets/120660/
   - at: "2026-07-15T13:43:30Z"
     level: L2
     summary: added CVE-2026-50308 +2
@@ -1818,6 +1829,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_bloodhound_user_agents_detected.toml
+  - at: "2026-07-15T13:44:48Z"
+    level: L2
+    summary: added CVE-2026-49801 +1; microsoft teams version 1.3.00.30866
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_entra_id_teamfiltration_user_agents_detected.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
