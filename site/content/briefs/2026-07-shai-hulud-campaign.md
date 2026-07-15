@@ -3,13 +3,12 @@ title: Shai-Hulud Campaign Activity
 slug: 2026-07-shai-hulud-campaign
 description: Tracking brief for the Shai-Hulud campaign; individual sightings are folded in as reported.
 date: "2026-07-09T13:04:28Z"
-lastmod: "2026-07-14T10:49:09Z"
+lastmod: "2026-07-15T09:41:39Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-has_poc: true
 tags:
   - campaign
   - shai-hulud
@@ -73,6 +72,7 @@ affected_os:
 references:
   - https://thehackernews.com/2026/07/compromised-jscrambler-8140-npm-release.html
   - https://www.wiz.io/blog/m-red-team-asyncapi-supply-chain-compromise-via-github-actions
+  - https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html
 iocs:
   - type: package
     value: jscrambler@8.14.0
@@ -129,6 +129,13 @@ updates:
       - wiz
     source_urls:
       - https://www.wiz.io/blog/m-red-team-asyncapi-supply-chain-compromise-via-github-actions
+  - at: "2026-07-15T09:41:39Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html
 ---
 
 This brief tracks activity attributed to the Shai-Hulud campaign. Sightings and
