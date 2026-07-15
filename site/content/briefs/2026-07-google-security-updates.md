@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-14T20:27:52Z"
+lastmod: "2026-07-15T10:03:01Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +12,28 @@ severities:
 cpes:
   - cpe:2.3:a:golang:crypto:*:*:*:*:*:go:*:*
   - cpe:2.3:a:google:chrome:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:google:android:4.2.2:*:*:*:*:*:*:*
+  - cpe:2.3:o:google:android:6.0.1:*:*:*:*:*:*:*
+  - cpe:2.3:o:google:android:10.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:google:android:11.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:google:android:13.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:google:android:14.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:canonical:ubuntu_linux:18.04:*:*:*:lts:*:*:*
+  - cpe:2.3:o:canonical:ubuntu_linux:20.04:*:*:*:-:*:*:*
+  - cpe:2.3:o:canonical:ubuntu_linux:22.04:*:*:*:lts:*:*:*
+  - cpe:2.3:o:canonical:ubuntu_linux:23.10:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:iphone_os:16.6:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:macos:12.6.7:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:macos:13.3.3:*:*:*:*:*:*:*
+  - cpe:2.3:o:fedoraproject:fedora:38:*:*:*:*:*:*:*
+  - cpe:2.3:o:fedoraproject:fedora:39:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:ipados:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:iphone_os:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:macos:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:debian:debian_linux:10.0:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=D0DC4908-C0DC-539F-BC8B-A87CCD40BBFF&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -26,6 +48,7 @@ vendors:
   - Opera Software
   - Elastic
   - Kubernetes
+  - OPPO
 products:
   - golang.org/x/crypto/ssh (< 0.52.0)
   - golang.org/x/crypto/ssh < 0.52.0
@@ -79,11 +102,15 @@ products:
   - kube-dns
   - Google Cloud Platform IAM Custom Roles
   - Service Account
+  - Android (4.2.2 through December 2023 patch)
+  - OPPO A5 (CPH1931/CPH1943, Android 9, last patched ~2022)
 affected_os:
   - Windows
   - Linux
   - Android
   - macOS
+  - Android 4.2.2
+  - Android 9
 cves:
   - id: CVE-2026-39830
     cvss: 9.1
@@ -100,6 +127,9 @@ cves:
   - id: CVE-2026-15122
     cvss: 8.3
     epss: 0.0019
+  - id: CVE-2023-45866
+    cvss: 6.3
+    epss: 0.07879
 references:
   - https://github.com/advisories/GHSA-rm3j-f69w-wqmq
   - https://github.com/advisories/GHSA-vgwf-h737-ff37
@@ -147,6 +177,8 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_rbac_wildcard_elevation_on_existing_role.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/initial_access_gcp_iam_custom_role_creation.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_key_created_for_service_account.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/google_workspace/persistence_google_workspace_role_modified.toml
+  - https://sploitus.com/exploit?id=D0DC4908-C0DC-539F-BC8B-A87CCD40BBFF&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -182,19 +214,17 @@ iocs:
     value: https://www.elastic.co/security-labs/google-workspace-attack-surface-part-one
   - type: url
     value: https://www.elastic.co/security-labs/google-workspace-attack-surface-part-two
+  - type: url
+    value: https://sploitus.com/exploit?id=D0DC4908-C0DC-539F-BC8B-A87CCD40BBFF
+  - type: filename
+    value: invoices.apk
 ioc_counts:
   domain: 1
   file_name: 2
   file_path: 2
-  url: 12
+  filename: 1
+  url: 13
 updates:
-  - at: "2026-07-13T16:11:36Z"
-    level: L1
-    summary: new product
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_rapid_secret_get_activity_against_multiple_objects.toml
   - at: "2026-07-13T16:11:50Z"
     level: L1
     summary: new product
@@ -223,6 +253,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_key_created_for_service_account.toml
+  - at: "2026-07-15T10:03:01Z"
+    level: L2
+    summary: poc_available; added CVE-2023-45866; OS android 4.2.2; OS android 9
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=D0DC4908-C0DC-539F-BC8B-A87CCD40BBFF&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
