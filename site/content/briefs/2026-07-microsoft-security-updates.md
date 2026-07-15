@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T13:43:30Z"
+lastmod: "2026-07-15T13:43:46Z"
 type: advisory
 types:
   - advisory
@@ -838,6 +838,10 @@ cves:
     cvss: 7.8
   - id: CVE-2026-55056
     cvss: 7.8
+  - id: CVE-2026-54119
+    cvss: 7.5
+  - id: CVE-2026-58634
+    cvss: 7.8
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1429,6 +1433,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2327
   - https://securelist.com/okobot-framework-targets-cryptocurrency-wallets/120660/
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_key_vault_retrieval_from_rare_identity.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_aad_graph_roadrecon_aiohttp_enumeration.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1708,6 +1713,8 @@ iocs:
     value: Apple Sync
   - type: file
     value: '%PROGRAMDATA%\hwid.dat'
+  - type: other
+    value: 04b07795-
 ioc_counts:
   asn: 1
   domain: 19
@@ -1720,7 +1727,7 @@ ioc_counts:
   hash_sha256: 2
   infrastructure_provider: 2
   os_version: 1
-  other: 2
+  other: 3
   pattern: 1
   platform: 1
   scheduled_task: 1
@@ -1729,13 +1736,6 @@ ioc_counts:
   url: 76
   user_agent: 4
 updates:
-  - at: "2026-07-15T08:00:14Z"
-    level: L2
-    summary: added CVE-2026-50461 +2
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2325
   - at: "2026-07-15T08:13:26Z"
     level: L2
     summary: added CVE-2026-50375 +3
@@ -1764,6 +1764,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_key_vault_retrieval_from_rare_identity.toml
+  - at: "2026-07-15T13:43:46Z"
+    level: L2
+    summary: added CVE-2026-54119 +1
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_aad_graph_roadrecon_aiohttp_enumeration.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
