@@ -1,48 +1,45 @@
 ---
-title: node-tar Denial-of-Service Vulnerability via Negative Tar Entry Size (CVE-2026-59874)
+title: node-tar Denial of Service Vulnerability via NUL Byte
 slug: 2026-07-node-tar-dos
-description: A denial-of-service vulnerability, identified as CVE-2026-59874, exists in the 'node-tar' library, allowing a negative tar entry size to trigger an infinite loop when an archive is being replaced, potentially leading to system unavailability.
-date: "2026-07-12T07:04:31Z"
+description: A Denial of Service (DoS) vulnerability exists in the node-tar library, triggered by an uncaught exception due to a NUL byte within PAX path or linkpath records.
+date: "2026-07-15T07:44:16Z"
 type: advisory
 types:
   - advisory
 severities:
   - low
-cpes:
-  - cpe:2.3:a:isaacs:tar:*:*:*:*:*:node.js:*:*
 tags:
   - denial-of-service
   - vulnerability
   - node-tar
-  - cve
 products:
   - node-tar
 cves:
-  - id: CVE-2026-59874
-    cvss: 7.5
+  - id: CVE-2026-59875
+    cvss: 5.3
     epss: 0.00291
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59874
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59875
 ---
 
-The Microsoft Security Response Center (MSRC) has published details for CVE-2026-59874, a high-severity denial-of-service vulnerability affecting the `node-tar` library. This flaw can be triggered when a system attempts to replace an existing archive with a specially crafted tar file containing an entry with a negative size. Processing such a malicious archive leads to an infinite loop within the `node-tar` library, consuming excessive system resources and causing the affected application or service to become unresponsive. This vulnerability poses a risk to any application or service that utilizes `node-tar` for archive handling, potentially leading to critical service disruptions.
+The CVE-2026-59875 vulnerability affects the `node-tar` library, a popular Node.js module used for handling tar archives. This Denial of Service (DoS) flaw stems from an uncaught exception that occurs when the library attempts to process a `.tar` archive containing a NUL byte within its PAX path or linkpath records. Attackers can exploit this by crafting a specially malformed `.tar` file and inducing an application to process it, leading to the affected application's unexpected termination. This can disrupt services, degrade application availability, and impact business operations for organizations relying on `node-tar` for archive handling, particularly in environments processing untrusted input. The vulnerability was disclosed by Microsoft Security Response Center.
 
 ## Attack Chain
 
-1. An attacker creates a malicious tar archive.
-2. The attacker embeds an entry within this archive that specifies a negative size value.
-3. The attacker delivers this crafted tar archive to a target system.
-4. A vulnerable application or service on the target system attempts to process the malicious archive using the `node-tar` library.
-5. Specifically, the application initiates an archive replacement operation involving the malicious tar file.
-6. The `node-tar` library, when parsing the tar entry with the negative size during the replacement, enters an infinite loop.
-7. This infinite loop consumes all available CPU and memory resources on the system.
-8. The affected application or the entire host system becomes unresponsive, resulting in a denial-of-service condition.
+1. An attacker crafts a malicious `.tar` archive containing a NUL byte embedded within the PAX `path` or `linkpath` records.
+2. The attacker delivers this specially crafted `.tar` archive to a target application or system, often via untrusted input channels such as file uploads or email attachments.
+3. The victim application, which incorporates the `node-tar` library, attempts to extract or process the malicious `.tar` archive.
+4. During the parsing of the archive's metadata, the `node-tar` library encounters the embedded NUL byte in the `path` or `linkpath` record.
+5. The presence of the NUL byte causes the `node-tar` library to throw an uncaught exception, indicating an unhandled error condition.
+6. Due to the uncaught exception, the application utilizing the `node-tar` library terminates abruptly, resulting in a Denial of Service.
+7. The application's crash leads to its unavailability, disrupting services and operations dependent on it.
 
 ## Impact
 
-Successful exploitation of CVE-2026-59874 leads to a denial-of-service condition for applications utilizing the vulnerable `node-tar` library. This could manifest as severe resource exhaustion (CPU, memory), causing the affected application to hang, crash, or become entirely unresponsive. While no specific victims or targeting sectors are mentioned, any system processing untrusted tar archives with vulnerable versions of `node-tar` could be impacted, leading to significant operational disruptions.
+The successful exploitation of CVE-2026-59875 results in a Denial of Service (DoS) condition for applications that utilize the `node-tar` library to process `.tar` archives. This leads to an abrupt termination of the affected application, rendering it unavailable to legitimate users and processes. While the source does not specify observed victims or targeted sectors, any organization using `node-tar` to handle potentially untrusted archive files is at risk. The primary damage is service disruption and potential operational downtime, which can lead to financial losses and reputational damage depending on the criticality of the affected application.
 
 ## Recommendation
 
-* Patch affected systems immediately by upgrading the `node-tar` library to a version that addresses CVE-2026-59874. Consult the `node-tar` project for specific remediation guidance.
-* Review applications that use the `node-tar` library to identify vulnerable instances.
+- Immediately apply patches for CVE-2026-59875 to all applications using the `node-tar` library.
+- Implement robust input validation and sanitization for all `.tar` archive uploads or inputs to mitigate processing of malformed files.
+- Monitor application logs for unexpected crashes or error messages related to `node-tar` processing, indicating potential exploitation attempts or software misconfigurations.
