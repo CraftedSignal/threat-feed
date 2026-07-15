@@ -3,17 +3,21 @@ title: MantisBT SQL Injection via history_order Configuration Value
 slug: 2026-07-mantisbt-sql-injection
 description: MantisBT versions 2.28.3 and earlier are vulnerable to a SQL injection within the `history_order` configuration value in `core/history_api.php`, allowing an authenticated administrator to inject malicious SQL via the web UI or REST API, which then executes whenever any user views a bug with history entries, leading to sensitive data extraction and potential Remote Code Execution (RCE) via webshell if the MySQL FILE privilege is enabled.
 date: "2026-07-15T16:43:47Z"
+lastmod: "2026-07-15T18:36:11Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
   - sql-injection
   - web-application
   - vulnerability
   - rce
   - mantisbt
+  - xss
+  - web-vulnerability
+  - credential-phishing
 vendors:
   - MantisBT
 products:
@@ -43,10 +47,38 @@ mitre_ttps:
     technique_name: Data from Local System
     evidence: Sensitive data extraction from the entire bugtracker database including user credentials (cookie_string, password hashes), API tokens, and private issue data
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+    evidence: Attacker crafts a URL that renders a fake login form on the real MantisBT admin page. Admin credentials are submitted to an attacker-controlled server.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: exploitation via credential-phishing form injection and <meta> open redirects. Admin credentials are submitted to an attacker-controlled server.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: reflected XSS injection points in /admin/install.php. User-supplied parameters are echoed into HTML without escaping via an unescaped printf format string.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1598
+    technique_name: Compromise Infrastructure
+    evidence: allowing exploitation via credential-phishing form injection and <meta> open redirects.
+    confidence_band: med
 references:
   - https://github.com/advisories/GHSA-mw6p-33vw-46cc
   - https://github.com/mantisbt/mantisbt/commit/6ad20bea2e01f33c6e4170775ae4d9dbe2c75325
   - https://mantisbt.org/bugs/view.php?id=37123
+  - https://github.com/advisories/GHSA-vcrw-4xvv-jh49
+  - https://github.com/mantisbt/mantisbt/commit/297773fbb238c39a153bd888431b41a176132098
+  - https://mantisbt.org/bugs/view.php?id=37103
+  - https://github.com/mantisbt/mantisbt/security/advisories/GHSA-77x8-3v3h-hrhv
 rules:
   - title: Detects CVE-2026-47142 Exploitation - MantisBT history_order SQLi via INTO OUTFILE
     description: Detects attempts to exploit CVE-2026-47142 by injecting 'INTO OUTFILE' into the MantisBT history_order configuration via the web UI or REST API, aiming for Remote Code Execution.
@@ -59,7 +91,27 @@ rules:
       - T1505.003
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-52881 Exploitation - MantisBT XSS in admin/install.php
+    description: Detects exploitation attempts against CVE-2026-52881, a reflected XSS in MantisBT admin/install.php, by looking for suspicious characters commonly used in XSS payloads within URI query parameters.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1059.004
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
+updates:
+  - at: "2026-07-15T18:36:11Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-52881 Exploitation - MantisBT XSS in admin/install.php'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-vcrw-4xvv-jh49
 ---
 
 MantisBT versions 2.28.3 and earlier are affected by a high-severity SQL injection vulnerability, identified as CVE-2026-47142. This flaw exists in `core/history_api.php`, where the `history_order` configuration value is unsafely concatenated into a SQL `ORDER BY` clause without proper sanitization or parameterization. An authenticated administrator can exploit this by injecting malicious SQL when setting the `history_order` value via the web UI (`adm_config_set.php`) or the REST API (`PATCH /api/rest/config`). Once injected, the payload executes whenever any user views a bug that includes history entries. Successful exploitation can lead to sensitive data exfiltration from the bugtracker database, including user credentials and API tokens. If the underlying MySQL server has the `FILE` privilege enabled, this vulnerability can escalate to full Remote Code Execution (RCE) by writing a PHP webshell to the web root.
