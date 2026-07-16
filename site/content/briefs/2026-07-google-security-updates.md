@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-15T14:39:49Z"
+lastmod: "2026-07-16T19:03:32Z"
 type: advisory
 types:
   - advisory
@@ -105,6 +105,7 @@ products:
   - Android (4.2.2 through December 2023 patch)
   - OPPO A5 (CPH1931/CPH1943, Android 9, last patched ~2022)
   - Cloud Run
+  - Google Cloud Platform (GCP)
 affected_os:
   - Windows
   - Linux
@@ -182,6 +183,8 @@ references:
   - https://sploitus.com/exploit?id=D0DC4908-C0DC-539F-BC8B-A87CCD40BBFF&utm_source=rss&utm_medium=rss
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2347
   - https://cloud.google.com/blog/topics/threat-intelligence/exposed-cloud-functions-harden/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_gke_role_binding_referencing_service_account.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_gke_sensitive_role_created_or_modified.toml
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -230,13 +233,6 @@ ioc_counts:
   filename: 1
   url: 14
 updates:
-  - at: "2026-07-13T16:12:01Z"
-    level: L1
-    summary: new vendor
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_rbac_wildcard_elevation_on_existing_role.toml
   - at: "2026-07-14T20:27:41Z"
     level: L1
     summary: new product
@@ -265,6 +261,13 @@ updates:
       - mandiant
     source_urls:
       - https://cloud.google.com/blog/topics/threat-intelligence/exposed-cloud-functions-harden/
+  - at: "2026-07-16T19:03:32Z"
+    level: L2
+    summary: added CVE-2023-45866
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_gke_sensitive_role_created_or_modified.toml
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
