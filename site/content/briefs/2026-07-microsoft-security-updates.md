@@ -3,48 +3,12 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-16T12:29:40Z"
+lastmod: "2026-07-16T13:26:12Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-cpes:
-  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x64:*
-  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x86:*
-  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x86:*
-  - cpe:2.3:a:microsoft:microsoft_365:-:*:*:*:*:macos:*:*
-  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x86:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x64:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x86:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:a:microsoft:office_online_server:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -95,6 +59,10 @@ vendors:
   - Digiwin
   - Anthropic
   - DeepSeek
+  - Mozilla
+  - Telegram
+  - Valve
+  - Polygon
 products:
   - PowerShell
   - Windows
@@ -457,6 +425,10 @@ products:
   - Java Development Kit (JDK 1.6)
   - Claude Code
   - DeepSeek-v4-pro
+  - Mozilla Firefox
+  - Telegram
+  - Steam Community
+  - Polygon blockchain
 affected_os:
   - Windows
   - macOS
@@ -485,52 +457,6 @@ affected_os:
   - Windows 11 24H2
   - Windows 11 25H2
   - Windows 11 26H1
-cves:
-  - id: CVE-2026-50425
-    cvss: 7.8
-    epss: 0.00245
-  - id: CVE-2026-50478
-    cvss: 7.8
-    epss: 0.00318
-  - id: CVE-2026-57991
-    cvss: 7.4
-    epss: 0.00745
-  - id: CVE-2026-54112
-    cvss: 7.8
-    epss: 0.00156
-  - id: CVE-2026-55011
-    cvss: 7.8
-    epss: 0.00423
-  - id: CVE-2026-57969
-    cvss: 8.8
-    epss: 0.00538
-  - id: CVE-2026-50305
-    cvss: 7.8
-    epss: 0.00188
-  - id: CVE-2026-50410
-    cvss: 7
-    epss: 0.00204
-  - id: CVE-2026-50399
-    cvss: 7.8
-    epss: 0.00246
-  - id: CVE-2026-50489
-    cvss: 8.8
-    epss: 0.00369
-  - id: CVE-2026-55037
-    cvss: 7.8
-    epss: 0.0031
-  - id: CVE-2026-55139
-    cvss: 5.5
-    epss: 0.00361
-  - id: CVE-2026-55135
-    cvss: 4.6
-    epss: 0.00283
-  - id: CVE-2026-58541
-    cvss: 7.8
-    epss: 0.00296
-  - id: CVE-2026-50331
-    cvss: 7.8
-    epss: 0.00245
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1138,6 +1064,7 @@ references:
   - https://www.reddit.com/r/cybersecurity/comments/1uxa0vh/cisa_sounds_alarm_over_trio_of_exploited/
   - https://sploitus.com/exploit?id=EE91804C-7619-5280-A1EA-CD09C9E65284&utm_source=rss&utm_medium=rss
   - https://thehackernews.com/2026/07/daxin-resurfaces-in-taiwan-alongside.html
+  - https://thehackernews.com/2026/07/new-telepuz-malware-spreads-via.html
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1495,10 +1422,14 @@ iocs:
     value: kbdus1.dll
   - type: ip
     value: 112.213.124.132
+  - type: domain
+    value: hurgadatour[.]shop
+  - type: domain
+    value: codebasecode[.]com
 ioc_counts:
   application_id: 1
   asn: 3
-  domain: 19
+  domain: 21
   email: 3
   error_code: 3
   file: 4
@@ -1521,13 +1452,6 @@ ioc_counts:
   url: 87
   user_agent: 6
 updates:
-  - at: "2026-07-15T13:47:09Z"
-    level: L2
-    summary: added CVE-2026-58610
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_oauth_phishing_via_first_party_microsoft_application.toml
   - at: "2026-07-15T14:31:19Z"
     level: L2
     summary: added CVE-2026-50302 +1; windows narrator braille version Windows 11 26H1 < 28000.2525; OS windows 10 1809; OS windows 10 21h2; OS windows 11 24h2; OS windows 11 25h2; OS windows 11 26h1
@@ -1556,6 +1480,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/daxin-resurfaces-in-taiwan-alongside.html
+  - at: "2026-07-16T13:26:12Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/new-telepuz-malware-spreads-via.html
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
