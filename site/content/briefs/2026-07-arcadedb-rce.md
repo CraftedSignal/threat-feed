@@ -3,6 +3,7 @@ title: ArcadeDB Trigger Script RCE via Java.lang.* Allow-list
 slug: 2026-07-arcadedb-rce
 description: A vulnerability in ArcadeDB's ScriptTriggerExecutor allows users with UPDATE_SCHEMA privileges to achieve OS Remote Code Execution (RCE) due to a permissive allow-list for trigger scripts, enabling direct calls to `java.lang.Runtime.exec()` when a malicious trigger script is created and fired.
 date: "2026-07-16T20:17:00Z"
+lastmod: "2026-07-16T20:22:19Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,10 @@ tags:
   - java
   - database
   - privilege-escalation
+  - SSRF
+  - DoS
+  - javascript
+  - sql-command-injection
 vendors:
   - ArcadeDB
 products:
@@ -36,8 +41,23 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: obtains OS RCE when the trigger fires...escalating privileges from a schema administrator to the underlying OS
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: IOAccess.ALL still permits ... unbounded CPU/memory DoS.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-x9f9-r4m8-9xc2
+  - https://github.com/advisories/GHSA-vwjc-v7x7-cm6g
+updates:
+  - at: "2026-07-16T20:22:19Z"
+    level: L2
+    summary: 'merged source coverage: ArcadeDB Scripting Authorization Bypass via SQL DEFINE FUNCTION'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-vwjc-v7x7-cm6g
 ---
 
 A high-severity vulnerability has been identified in ArcadeDB, affecting versions prior to 26.7.2. The `ScriptTriggerExecutor` component, responsible for executing trigger scripts, includes `java.lang.*` in its allowed packages. This oversight permits an authenticated attacker with `UPDATE_SCHEMA` privileges (a schema administrator) to craft and deploy a malicious JavaScript trigger. When such a trigger fires, it can invoke `java.lang.Runtime.exec()`, leading to arbitrary operating system command execution on the host server where ArcadeDB is running. This effectively escalates privileges from a database schema administrator to remote code execution on the underlying operating system, posing a significant risk to the integrity and confidentiality of the host system and the data stored within ArcadeDB.
