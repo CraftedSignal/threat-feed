@@ -3,11 +3,15 @@ title: WordPress Bricks Builder Theme - Unauthenticated RCE (CVE-2024-25600)
 slug: 2026-07-wordpress-bricks-rce
 description: An unauthenticated Remote Code Execution (RCE) vulnerability (CVE-2024-25600) exists in the WordPress Bricks Builder Theme up to version 1.9.6, allowing attackers to exploit the 'render_element' endpoint by first extracting a nonce from the page source, then injecting PHP code to execute arbitrary operating system commands on the underlying web server, with a public exploit now available.
 date: "2026-07-07T13:26:28Z"
+lastmod: "2026-07-16T21:00:52Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=4D839E55-13BB-57EF-8F41-540284E6BECC&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - rce
@@ -16,8 +20,10 @@ tags:
   - cve
 vendors:
   - Bricks Builder
+  - Bricks
 products:
   - Bricks Builder Theme < 1.9.7
+  - Bricks Builder (<= 1.9.6)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -34,9 +40,22 @@ mitre_ttps:
 cves:
   - id: CVE-2024-25600
     cvss: 10
-    epss: 0.87452
+    epss: 0.88234
 references:
   - https://www.exploit-db.com/exploits/52619
+  - https://sploitus.com/exploit?id=4D839E55-13BB-57EF-8F41-540284E6BECC&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=4D839E55-13BB-57EF-8F41-540284E6BECC
+  - type: url
+    value: https://github.com/CerberusMrXi/WP-Bricks-Exploit-CVE-2024-25600.git
+  - type: url_path
+    value: /wp-json/bricks/v1/render_element
+  - type: url_path
+    value: /?rest_route=/bricks/v1/render_element
+ioc_counts:
+  url: 2
+  url_path: 2
 rules:
   - title: Detect CVE-2024-25600 Exploitation - Bricks Builder RCE
     description: Detects exploitation attempts for CVE-2024-25600, an unauthenticated RCE vulnerability in WordPress Bricks Builder Theme via specific API endpoints and PHP command injection.
@@ -51,6 +70,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-16T21:00:52Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=4D839E55-13BB-57EF-8F41-540284E6BECC&utm_source=rss&utm_medium=rss
 ---
 
 A critical unauthenticated Remote Code Execution (RCE) vulnerability, tracked as CVE-2024-25600, has been disclosed and publicly exploited in the WordPress Bricks Builder Theme versions up to and including 1.9.6. Attackers can leverage the `render_element` endpoint, which is part of the theme's AJAX functionality, to execute arbitrary operating system commands on the compromised WordPress server. This exploitation begins with an initial request to retrieve a valid nonce from the page source, which is then used in a subsequent crafted POST request to the vulnerable endpoint. The availability of a working public exploit, identified as EDB-52619 on Exploit-DB, significantly elevates the risk, making unpatched WordPress installations using Bricks Builder Theme prime targets for immediate compromise by a broad range of malicious actors.
