@@ -3,7 +3,7 @@ title: Cisco Security Updates — July 2026
 slug: 2026-07-cisco-security-updates
 description: Roundup of Cisco security advisories published in July 2026.
 date: "2026-07-03T13:36:20Z"
-lastmod: "2026-07-15T17:18:42Z"
+lastmod: "2026-07-16T11:02:00Z"
 type: advisory
 types:
   - advisory
@@ -60,6 +60,7 @@ products:
   - Cisco RoomOS Software (RoomOS 11.14.5.0)
   - Cisco RoomOS Software (RoomOS 11.17.4.0)
   - Cisco RoomOS Software (RoomOS 11.20.3.0
+  - Identity Services Engine (ISE)
 cves:
   - id: CVE-2026-20146
     cvss: 5.5
@@ -79,6 +80,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20156
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20157
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20187
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2374
 iocs:
   - type: url
     value: https://media.defense.gov/2026/Jul/09/2003959498/-1/-1/1/CSA_IMPROVE_ROUTER_HYGIENE.PDF
@@ -97,13 +99,6 @@ ioc_counts:
   email: 2
   url: 3
 updates:
-  - at: "2026-07-15T16:03:34Z"
-    level: L2
-    summary: added CVE-2026-20146
-    sources:
-      - cisco-psirt
-    source_urls:
-      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-traversal-xNt7wb2Y?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Path%20Traversal%20Vulnerability%26vs_k=1
   - at: "2026-07-15T17:17:39Z"
     level: L2
     summary: added CVE-2026-20150
@@ -132,6 +127,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20187
+  - at: "2026-07-16T11:02:00Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2374
 ---
 
 Aggregated Cisco security advisories for July 2026. CVEs from this cycle are folded
