@@ -3,36 +3,12 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-15T18:44:17Z"
+lastmod: "2026-07-16T11:04:06Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-cpes:
-  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
-has_poc: true
-poc_references:
-  - https://sploitus.com/exploit?id=8D8B971C-F5EE-53DF-AAC5-417AF3B19481&utm_source=rss&utm_medium=rss
-  - https://sploitus.com/exploit?id=AC8BA49C-6B0C-5FC3-A311-C5C14C8864A6&utm_source=rss&utm_medium=rss
-  - https://sploitus.com/exploit?id=E845E4F1-345B-599F-A195-00B7604EBC69&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -436,6 +412,7 @@ products:
   - Windows Narrator Braille (Windows 11 24H2 < 26100.8875)
   - Windows Narrator Braille (Windows 11 25H2 < 26200.8875)
   - Windows Narrator Braille (Windows 11 26H1 < 28000.2525)
+  - Microsoft Message Queuing
 affected_os:
   - Windows
   - macOS
@@ -464,22 +441,6 @@ affected_os:
   - Windows 11 24H2
   - Windows 11 25H2
   - Windows 11 26H1
-cves:
-  - id: CVE-2026-50410
-    cvss: 7
-    epss: 0.00204
-  - id: CVE-2026-57991
-    cvss: 7.4
-    epss: 0.00745
-  - id: CVE-2026-54112
-    cvss: 7.8
-    epss: 0.00156
-  - id: CVE-2026-57969
-    cvss: 8.8
-    epss: 0.00538
-  - id: CVE-2026-50305
-    cvss: 7.8
-    epss: 0.00188
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1085,6 +1046,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_oauth_phishing_via_first_party_microsoft_application.toml
   - https://sploitus.com/exploit?id=E845E4F1-345B-599F-A195-00B7604EBC69&utm_source=rss&utm_medium=rss
   - https://www.reddit.com/r/cybersecurity/comments/1uxa0vh/cisa_sounds_alarm_over_trio_of_exploited/
+  - https://sploitus.com/exploit?id=EE91804C-7619-5280-A1EA-CD09C9E65284&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1432,6 +1394,8 @@ iocs:
     value: https://github.com/tylerdotrar/SigmaPotato
   - type: hash_sha256
     value: EC68A6BF7F104A815BD21E27E73A8DFB8AFCB282D4997BEBE9ECCD6C89259506
+  - type: url
+    value: https://sploitus.com/exploit?id=EE91804C-7619-5280-A1EA-CD09C9E65284
 ioc_counts:
   application_id: 1
   asn: 3
@@ -1454,16 +1418,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 86
+  url: 87
   user_agent: 6
 updates:
-  - at: "2026-07-15T13:46:32Z"
-    level: L2
-    summary: added CVE-2026-57977
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/collection_sharepoint_file_download_via_powershell.toml
   - at: "2026-07-15T13:46:46Z"
     level: L2
     summary: added CVE-2026-54112 +2
@@ -1492,6 +1449,13 @@ updates:
       - reddit-cybersecurity
     source_urls:
       - https://www.reddit.com/r/cybersecurity/comments/1uxa0vh/cisa_sounds_alarm_over_trio_of_exploited/
+  - at: "2026-07-16T11:04:06Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=EE91804C-7619-5280-A1EA-CD09C9E65284&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
