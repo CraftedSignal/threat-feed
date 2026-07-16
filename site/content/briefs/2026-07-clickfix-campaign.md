@@ -3,12 +3,13 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-07-16T08:52:23Z"
+lastmod: "2026-07-16T10:01:31Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
 tags:
   - campaign
   - clickfix
@@ -47,6 +48,7 @@ references:
   - https://unit42.paloaltonetworks.com/vidar-stealer-xmrig-miner-campaign-analysis/
   - https://www.reddit.com/r/blueteamsec/comments/1uxuh7t/telepuz_a_modular_maas_malware_spreading_via/
   - https://any.run/cybersecurity-blog/phantomenigma-research/
+  - https://blog.talosintelligence.com/uat-11795-deploys-novel-starland-rat-and-bespoke-wldr-c2-implant-in-financially-motivated-campaign/
 iocs:
   - type: github_account_name
     value: Xpos587
@@ -95,6 +97,13 @@ updates:
       - any-run
     source_urls:
       - https://any.run/cybersecurity-blog/phantomenigma-research/
+  - at: "2026-07-16T10:01:31Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - talos
+    source_urls:
+      - https://blog.talosintelligence.com/uat-11795-deploys-novel-starland-rat-and-bespoke-wldr-c2-implant-in-financially-motivated-campaign/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
