@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-16T21:57:37Z"
+lastmod: "2026-07-16T22:18:50Z"
 type: advisory
 types:
   - advisory
@@ -45,6 +45,9 @@ cpes:
   - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
   - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
   - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
 tags:
   - roundup
 vendors:
@@ -472,6 +475,7 @@ products:
   - LoadLoop
   - Office installers
   - Signal messaging app
+  - Windows 10 Version 22H2
 affected_os:
   - Windows
   - macOS
@@ -591,6 +595,21 @@ cves:
   - id: CVE-2026-56196
     cvss: 8.8
     epss: 0.00954
+  - id: CVE-2026-58608
+    cvss: 8.8
+    epss: 0.00532
+  - id: CVE-2026-55944
+    cvss: 9.8
+    epss: 0.01309
+  - id: CVE-2026-57108
+    cvss: 7.5
+    epss: 0.01099
+  - id: CVE-2026-58538
+    cvss: 7.8
+    epss: 0.00318
+  - id: CVE-2026-50382
+    cvss: 8.8
+    epss: 0.00276
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1201,6 +1220,7 @@ references:
   - https://thehackernews.com/2026/07/new-telepuz-malware-spreads-via.html
   - https://therecord.media/ukraine-sandworm-hacks-captcha-powershell
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59117
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-58598
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1562,6 +1582,8 @@ iocs:
     value: hurgadatour[.]shop
   - type: domain
     value: codebasecode[.]com
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58598
 ioc_counts:
   application_id: 1
   asn: 3
@@ -1585,16 +1607,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 87
+  url: 88
   user_agent: 6
 updates:
-  - at: "2026-07-16T11:04:06Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=EE91804C-7619-5280-A1EA-CD09C9E65284&utm_source=rss&utm_medium=rss
   - at: "2026-07-16T12:29:40Z"
     level: L2
     summary: added CVE-2026-50305 +14
@@ -1623,6 +1638,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59117
+  - at: "2026-07-16T22:18:50Z"
+    level: L2
+    summary: added CVE-2026-50382 +4
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-58598
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
