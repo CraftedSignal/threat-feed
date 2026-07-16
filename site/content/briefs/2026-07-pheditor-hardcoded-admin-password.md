@@ -3,6 +3,7 @@ title: Pheditor Hardcoded Admin Password Leads to Remote Code Execution (CVE-202
 slug: 2026-07-pheditor-hardcoded-admin-password
 description: Pheditor contains a critical vulnerability (CVE-2026-55579) where a hardcoded default password 'admin' with no forced change mechanism upon first login allows an unauthenticated attacker to gain full administrative access, enabling arbitrary file read/write and remote code execution through the application's terminal feature, leading to complete server compromise.
 date: "2026-07-16T20:13:37Z"
+lastmod: "2026-07-16T20:14:34Z"
 type: advisory
 types:
   - advisory
@@ -13,10 +14,16 @@ tags:
   - rce
   - web-application
   - cve
+  - web-vulnerability
+  - command-injection
+  - php
 vendors:
   - Pheditor
 products:
   - Pheditor (All versions)
+  - Pheditor (>= 2.0.1, < 2.0.6)
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -36,8 +43,41 @@ mitre_ttps:
     technique_name: Data Destruction
     evidence: 'Availability impact: High — delete files and directories, disrupt services.'
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: An authenticated user with the `terminal` permission (enabled by default) can leverage any of these to bypass the `TERMINAL_COMMANDS` allowlist and execute arbitrary OS commands as the web server user.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: An authenticated user with the `terminal` permission (enabled by default) can leverage any of these to bypass the `TERMINAL_COMMANDS` allowlist and execute arbitrary OS commands as the web server user.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-p4h7-p9rj-2pq2
+  - https://github.com/advisories/GHSA-wg4w-wr5q-6vjc
+rules:
+  - title: Detects CVE-2026-55578 Exploitation - Pheditor Command Injection
+    description: Detects CVE-2026-55578 exploitation attempts by identifying HTTP POST requests to Pheditor's terminal feature containing URL-encoded shell metacharacters like pipe, backtick, or newline in the 'command' parameter.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1059.004
+    data_sources:
+      - webserver
+rules_count: 1
+updates:
+  - at: "2026-07-16T20:14:34Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-55578 Exploitation - Pheditor Command Injection'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-wg4w-wr5q-6vjc
 ---
 
 Pheditor, a web-based file editor, is affected by a critical vulnerability, CVE-2026-55579, stemming from a hardcoded default password. The application ships with a default administrator password "admin," which is stored as an unsalted SHA-512 hash in the `pheditor.php` source file. There is no enforced mechanism to prompt a password change upon initial login, nor are there any lockout policies for incorrect attempts. This design flaw allows any unauthenticated attacker to bypass authentication by using the well-known default credentials. Upon successful login, the attacker gains full administrative control over the application's features, including file upload capabilities, arbitrary file read/write, and a terminal for remote code execution. This directly leads to server compromise, enabling data exfiltration, service disruption, and the establishment of persistent backdoors. All versions of Pheditor are affected.
