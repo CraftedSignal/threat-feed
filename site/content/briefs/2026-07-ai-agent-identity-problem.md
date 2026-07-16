@@ -3,7 +3,7 @@ title: The Identity Problem Hiding in AI Agent Deployments
 slug: 2026-07-ai-agent-identity-problem
 description: CrowdStrike highlights a critical identity management gap in AI agent deployments where current OAuth 2.1 tokens and JWT (RFC 9068) lack standardized mechanisms to represent an AI agent's instance identity, the user on whose behalf it acts, and their relationship, hindering fine-grained access controls, audit trails, and detection of out-of-scope actions.
 date: "2026-07-13T02:47:44Z"
-lastmod: "2026-07-16T06:37:05Z"
+lastmod: "2026-07-16T21:52:00Z"
 type: threat
 types:
   - threat
@@ -42,6 +42,22 @@ products:
   - OAuth access tokens (RFC 9068)
   - OAuth tokens (when used with AI agents)
   - Kubernetes
+  - Falcon Secure Access
+  - Falcon Cloud Security
+  - Falcon AIDR
+  - Falcon Platform
+  - Charlotte AI AgentWorks
+  - Falcon Exposure Management
+  - Falcon Next-Gen SIEM
+  - Falcon for XIoT
+  - trivy-action
+  - Microsoft Defender
+  - Azure
+  - Google Cloud
+  - ClickOnce Technology
+affected_os:
+  - Windows
+  - macOS
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -58,13 +74,6 @@ mitre_ttps:
 references:
   - https://www.crowdstrike.com/en-us/blog/the-identity-problem-hiding-in-ai-agent-deployments/
 updates:
-  - at: "2026-07-14T07:47:56Z"
-    level: L1
-    summary: new product
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/the-identity-problem-hiding-in-ai-agent-deployments/
   - at: "2026-07-15T05:53:28Z"
     level: L2
     summary: oauth access tokens version RFC 9068
@@ -89,6 +98,13 @@ updates:
   - at: "2026-07-16T06:37:05Z"
     level: L1
     summary: new vendor
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/the-identity-problem-hiding-in-ai-agent-deployments/
+  - at: "2026-07-16T21:52:00Z"
+    level: L1
+    summary: OS macos; OS windows
     sources:
       - crowdstrike
     source_urls:
