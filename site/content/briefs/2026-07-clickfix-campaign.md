@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-07-16T10:01:31Z"
+lastmod: "2026-07-16T12:45:34Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,7 @@ vendors:
   - Telegram
   - Brazilian Government
   - Banco do Brasil
+  - Apple
 products:
   - open source packages
   - GitHub repositories
@@ -40,8 +41,10 @@ products:
   - Telegram
   - .gov.br municipal portals
   - .gov.br police portals
+  - macOS
 affected_os:
   - Windows
+  - macOS
 references:
   - https://www.securityweek.com/north-korean-hackers-target-open-source-developers-in-supply-chain-attacks/
   - https://hackread.com/gitlost-github-ai-agent-leaking-repository-data/
@@ -49,6 +52,7 @@ references:
   - https://www.reddit.com/r/blueteamsec/comments/1uxuh7t/telepuz_a_modular_maas_malware_spreading_via/
   - https://any.run/cybersecurity-blog/phantomenigma-research/
   - https://blog.talosintelligence.com/uat-11795-deploys-novel-starland-rat-and-bespoke-wldr-c2-implant-in-financially-motivated-campaign/
+  - https://www.securityweek.com/clicklock-stealer-bypasses-macos-security-with-social-engineering-process-killing/
 iocs:
   - type: github_account_name
     value: Xpos587
@@ -75,11 +79,6 @@ ioc_counts:
   malware_name: 2
   packagist_namespace: 1
 updates:
-  - at: "2026-07-06T13:14:26Z"
-    level: L2
-    summary: poc_available
-    sources:
-      - securityweek
   - at: "2026-07-07T13:08:18Z"
     level: L1
     summary: new product
@@ -104,6 +103,13 @@ updates:
       - talos
     source_urls:
       - https://blog.talosintelligence.com/uat-11795-deploys-novel-starland-rat-and-bespoke-wldr-c2-implant-in-financially-motivated-campaign/
+  - at: "2026-07-16T12:45:34Z"
+    level: L1
+    summary: OS macos
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/clicklock-stealer-bypasses-macos-security-with-social-engineering-process-killing/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
