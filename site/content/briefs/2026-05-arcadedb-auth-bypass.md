@@ -3,6 +3,7 @@ title: ArcadeDB Authorization Bypass Vulnerability
 slug: 2026-05-arcadedb-auth-bypass
 description: ArcadeDB versions prior to 26.4.2 are vulnerable to an authorization bypass, allowing authenticated users and API tokens scoped to a specific database to read, write, and mutate schema on any other database on the same server, and disabling the record-level authorization system for newly created databases.
 date: "2026-05-05T22:22:22Z"
+lastmod: "2026-07-16T20:10:01Z"
 type: advisory
 types:
   - advisory
@@ -14,9 +15,11 @@ tags:
   - cve-2026-44221
 vendors:
   - ArcadeData
+  - ArcadeDB
 products:
   - arcadedb-server
   - ArcadeDB
+  - arcadedb-engine (< 26.6.1)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -26,9 +29,14 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
+cves:
+  - id: CVE-2026-44221
+    cvss: 9
+    epss: 0.00344
 references:
   - https://github.com/advisories/GHSA-fxc7-fm93-6q77
   - https://github.com/ArcadeData/arcadedb/commit/04110c06315da55604ac107f71fe7182f3a3deb8
+  - https://github.com/advisories/GHSA-vg6x-6pg9-6qwg
 rules:
   - title: Detect ArcadeDB Database Access from Different IPs
     description: Detects access to multiple ArcadeDB databases from the same IP address within a short time frame, which may indicate an authorization bypass attempt.
@@ -55,6 +63,14 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-07-16T20:10:01Z"
+    level: L2
+    summary: added CVE-2026-44221
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-vg6x-6pg9-6qwg
 ---
 
 ArcadeDB, a multi-model database, is susceptible to an authorization bypass vulnerability affecting versions prior to 26.4.2. This vulnerability stems from two distinct defects: first, the `ServerSecurityUser.getDatabaseUser()` method returns a database user with an uninitialized file access map, which is then incorrectly interpreted as allowing all access. Second, the `ArcadeDBServer.createDatabase()` method omits the `factory.setSecurity(...)` call, effectively disabling the record-level authorization system for any database created via the API endpoint `POST /api/v1/server {"command":"create database X"}`.  This combination of flaws allows authenticated principals to bypass both record-level and database-level authorization constraints.
