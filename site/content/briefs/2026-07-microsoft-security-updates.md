@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-17T13:02:35Z"
+lastmod: "2026-07-17T13:10:32Z"
 type: advisory
 types:
   - advisory
@@ -59,6 +59,7 @@ cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x64:*
   - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x86:*
+  - cpe:2.3:a:microsoft:azure_sdk_for_java:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33&utm_source=rss&utm_medium=rss
@@ -730,6 +731,18 @@ cves:
   - id: CVE-2026-58531
     cvss: 7.5
     epss: 0.00503
+  - id: CVE-2026-33117
+    cvss: 9.1
+    epss: 0.00479
+  - id: CVE-2026-49792
+    cvss: 7.8
+    epss: 0.00263
+  - id: CVE-2026-49799
+    cvss: 6.5
+    epss: 0.0079
+  - id: CVE-2026-50373
+    cvss: 7.8
+    epss: 0.00284
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1348,6 +1361,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_vm_extension_unusual_for_host.toml
   - https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33&utm_source=rss&utm_medium=rss
   - https://sploitus.com/exploit?id=0136FBFD-5983-5F81-959C-30B22846A9AA&utm_source=rss&utm_medium=rss
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_ropc_unknown_client_id.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1743,13 +1757,6 @@ ioc_counts:
   url: 90
   user_agent: 6
 updates:
-  - at: "2026-07-17T10:43:37Z"
-    level: L2
-    summary: added CVE-2026-50381 +4
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2396
   - at: "2026-07-17T12:37:46Z"
     level: L2
     summary: added CVE-2026-50449 +4
@@ -1778,6 +1785,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=0136FBFD-5983-5F81-959C-30B22846A9AA&utm_source=rss&utm_medium=rss
+  - at: "2026-07-17T13:10:32Z"
+    level: L2
+    summary: added CVE-2026-33117 +3
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_ropc_unknown_client_id.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
