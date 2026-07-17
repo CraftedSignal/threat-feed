@@ -3,6 +3,7 @@ title: Authentication Bypass Vulnerability in OpenClaw (CVE-2026-62207)
 slug: 2026-07-openclaw-auth-bypass
 description: OpenClaw versions before 2026.6.5 are affected by an authentication bypass vulnerability (CVE-2026-62207) that allows lower-trust callers to access and utilize administrative tools, effectively escalating their privileges by exploiting insufficient policy checks on configured input paths, enabling attackers to perform actions requiring stronger authorization.
 date: "2026-07-17T02:24:37Z"
+lastmod: "2026-07-17T02:25:41Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,8 @@ tags:
   - vulnerability
   - web
   - cve
+  - authorization-bypass
+  - openclaw
 vendors:
   - OpenClaw
 products:
@@ -24,12 +27,35 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: Attackers can perform actions requiring stronger authorization by exploiting insufficient policy checks on configured input paths.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: OpenClaw versions 2026.5.10-beta.1 before 2026.6.5 contain an authorization bypass in the ClickClack agent-mode dispatch feature, which could ignore the toolsAllow policy check. When the affected feature is enabled and reachable, a lower-trust caller or configured input path could perform actions that should have required a stronger authorization or policy check.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: a lower-trust caller or configured input path could perform actions that should have required a stronger authorization or policy check.
+    confidence_band: high
 cves:
   - id: CVE-2026-62207
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62207
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-cf2p-f286-mphf
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62209
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-wp73-f3gg-w4vr
+  - https://www.vulncheck.com/advisories/openclaw-beta-1-authorization-bypass-via-agent-mode-dispatch
+updates:
+  - at: "2026-07-17T02:25:41Z"
+    level: L2
+    summary: 'merged source coverage: OpenClaw Authorization Bypass Vulnerability CVE-2026-62209'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62209
 ---
 
 OpenClaw versions prior to 2026.6.5 are susceptible to an authentication bypass vulnerability, tracked as CVE-2026-62207. This flaw stems from insufficient policy checks (CWE-862) on configured input paths within the application, allowing users with lower trust levels to access and utilize administrative functionalities. An attacker who has authenticated with standard user privileges can leverage this vulnerability to bypass authorization checks, gain access to tools intended for administrators, and execute actions that normally require higher authorization. This significantly elevates the attacker's capabilities within the affected system, potentially leading to unauthorized data manipulation, configuration changes, or full system compromise. The vulnerability was published on July 16, 2026, and affects all instances running versions older than 2026.6.5.
