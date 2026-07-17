@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-17T10:43:37Z"
+lastmod: "2026-07-17T12:37:46Z"
 type: advisory
 types:
   - advisory
@@ -666,6 +666,21 @@ cves:
   - id: CVE-2026-58530
     cvss: 7.8
     epss: 0.00444
+  - id: CVE-2026-50449
+    cvss: 7
+    epss: 0.00204
+  - id: CVE-2026-50695
+    cvss: 7.5
+    epss: 0.00813
+  - id: CVE-2026-56155
+    cvss: 7.8
+    epss: 0.00379
+  - id: CVE-2026-57979
+    cvss: 6.5
+    epss: 0.00666
+  - id: CVE-2026-50491
+    cvss: 7
+    epss: 0.00252
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1280,6 +1295,7 @@ references:
   - https://isc.sans.edu/podcastdetail/10012
   - https://www.reddit.com/r/blueteamsec/comments/1uypwfp/there_and_back_again_an_operators_guide_on_ntlm/
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2396
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/short_lived_scheduled_task.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1669,13 +1685,6 @@ ioc_counts:
   url: 88
   user_agent: 6
 updates:
-  - at: "2026-07-16T21:57:37Z"
-    level: L2
-    summary: added CVE-2026-50355 +4
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59117
   - at: "2026-07-16T22:18:50Z"
     level: L2
     summary: added CVE-2026-50382 +4
@@ -1704,6 +1713,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2396
+  - at: "2026-07-17T12:37:46Z"
+    level: L2
+    summary: added CVE-2026-50449 +4
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/short_lived_scheduled_task.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
