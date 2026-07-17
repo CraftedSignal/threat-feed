@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-17T13:10:32Z"
+lastmod: "2026-07-17T13:51:28Z"
 type: advisory
 types:
   - advisory
@@ -60,6 +60,8 @@ cpes:
   - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x64:*
   - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x86:*
   - cpe:2.3:a:microsoft:azure_sdk_for_java:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33&utm_source=rss&utm_medium=rss
@@ -501,6 +503,10 @@ products:
   - Azure VM Scale Sets
   - Windows 11 (<= build 26200.8737)
   - Windows 11 (Insider build 10.0.28020.2149)
+  - SharePoint Enterprise Server 2016 (< 16.0.5561.1001)
+  - SharePoint Server 2019 (< 16.0.10417.20175)
+  - SharePoint Server Subscription Edition (< 16.0.19725.20434)
+  - Remote Desktop Web Client (< 2.1.65.2)
 affected_os:
   - Windows
   - macOS
@@ -743,6 +749,18 @@ cves:
   - id: CVE-2026-50373
     cvss: 7.8
     epss: 0.00284
+  - id: CVE-2026-58286
+    cvss: 8.1
+    epss: 0.00312
+  - id: CVE-2026-50388
+    cvss: 7.8
+    epss: 0.00444
+  - id: CVE-2026-50509
+    cvss: 7.8
+    epss: 0.02312
+  - id: CVE-2026-47305
+    cvss: 7.8
+    epss: 0.00343
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1362,6 +1380,7 @@ references:
   - https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33&utm_source=rss&utm_medium=rss
   - https://sploitus.com/exploit?id=0136FBFD-5983-5F81-959C-30B22846A9AA&utm_source=rss&utm_medium=rss
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_ropc_unknown_client_id.toml
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0896/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1731,6 +1750,14 @@ iocs:
     value: sploitus.com
   - type: url
     value: https://sploitus.com/exploit?id=0136FBFD-5983-5F81-959C-30B22846A9AA
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56171
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62826
+  - type: url
+    value: https://www.cve.org/CVERecord?id=CVE-2026-56171
+  - type: url
+    value: https://www.cve.org/CVERecord?id=CVE-2026-62826
 ioc_counts:
   application_id: 1
   asn: 3
@@ -1754,16 +1781,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 90
+  url: 94
   user_agent: 6
 updates:
-  - at: "2026-07-17T12:37:46Z"
-    level: L2
-    summary: added CVE-2026-50449 +4
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/short_lived_scheduled_task.yml
   - at: "2026-07-17T12:58:19Z"
     level: L2
     summary: added CVE-2026-49178 +4
@@ -1792,6 +1812,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_ropc_unknown_client_id.toml
+  - at: "2026-07-17T13:51:28Z"
+    level: L2
+    summary: added CVE-2026-47305 +3
+    sources:
+      - anssi
+    source_urls:
+      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0896/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
