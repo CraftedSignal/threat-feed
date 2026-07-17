@@ -3,6 +3,7 @@ title: Gitea Unauthenticated Container Registry Access (CVE-2026-27771)
 slug: 2026-05-gitea-vuln
 description: A vulnerability in Gitea's built-in container registry (CVE-2026-27771) allows unauthenticated attackers to pull private container images, potentially exposing source code, secrets, and production infrastructure details, affecting over 30,000 deployments.
 date: "2026-05-28T11:25:59Z"
+lastmod: "2026-07-17T19:05:34Z"
 type: advisory
 types:
   - advisory
@@ -19,14 +20,27 @@ vendors:
 products:
   - Gitea
   - Forgejo
+  - Gitea <= 1.26.1
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-27771
+    cvss: 8.2
+    epss: 0.40738
 references:
   - https://www.securityweek.com/gitea-vulnerability-exposed-30000-deployments-to-attacks/
   - CVE-2026-27771
+  - https://github.com/advisories/GHSA-8qw8-rq86-9pc2
+iocs:
+  - type: email
+    value: security@gitea.io
+  - type: email
+    value: dev@noscope.com
+ioc_counts:
+  email: 2
 rules:
   - title: Detect CVE-2026-27771 Exploitation Attempt - Unauthenticated Container Pull
     description: Detects attempts to pull container images from a Gitea instance without authentication, indicating potential exploitation of CVE-2026-27771.
@@ -51,6 +65,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 2
+updates:
+  - at: "2026-07-17T19:05:34Z"
+    level: L2
+    summary: added CVE-2026-27771
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-8qw8-rq86-9pc2
 ---
 
 A critical vulnerability, tracked as CVE-2026-27771, exists within the built-in container registry of the open-source Gitea Git service. This access control issue allows unauthenticated attackers to pull private container images without requiring any credentials or prior access. The vulnerability resided in Gitea's code for approximately four years before being patched in version 1.26.2. Forgejo, which shares the implementation, is also affected, and other Gitea-derived forks might be vulnerable. NoScope's analysis identified over 34,000 internet-facing Gitea instances, with roughly 93% (31,750) likely vulnerable. Around 4,000 were production systems on major cloud/VPS platforms, and 7,000 were running on the default port.
