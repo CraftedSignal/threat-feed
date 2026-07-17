@@ -1,54 +1,54 @@
 ---
-title: OpenClaw Authorization Bypass via WhatsApp Group IDs (CVE-2026-62196)
+title: Authentication Bypass Vulnerability in OpenClaw (CVE-2026-62207)
 slug: 2026-07-openclaw-auth-bypass
-description: An authorization bypass vulnerability, CVE-2026-62196, in OpenClaw versions 2026.3.22 before 2026.6.6 allows attackers with lower-trust access to perform actions requiring stronger authorization by leveraging WhatsApp group ID validation.
-date: "2026-07-13T22:28:18Z"
+description: OpenClaw versions before 2026.6.5 are affected by an authentication bypass vulnerability (CVE-2026-62207) that allows lower-trust callers to access and utilize administrative tools, effectively escalating their privileges by exploiting insufficient policy checks on configured input paths, enabling attackers to perform actions requiring stronger authorization.
+date: "2026-07-17T02:24:37Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - authorization-bypass
-  - privilege-escalation
-  - web-application
+  - authentication-bypass
+  - vulnerability
+  - web
   - cve
 vendors:
   - OpenClaw
 products:
-  - OpenClaw (2026.3.22 before 2026.6.6)
+  - OpenClaw (< 2026.6.5)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-    evidence: Attackers with lower-trust access can perform actions requiring stronger authorization by leveraging group ID validation in the affected feature.
+    evidence: Attackers can perform actions requiring stronger authorization by exploiting insufficient policy checks on configured input paths.
     confidence_band: high
 cves:
-  - id: CVE-2026-62196
-    cvss: 8.3
+  - id: CVE-2026-62207
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62196
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-fh38-965w-f6c3
-  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-whatsapp-group-ids
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62207
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-cf2p-f286-mphf
 ---
 
-OpenClaw versions 2026.3.22 up to, but not including, 2026.6.6 are affected by an authorization bypass vulnerability, identified as CVE-2026-62196. This flaw stems from an improper validation mechanism where WhatsApp group IDs can be misused to satisfy elevated sender allowlists. Attackers who possess lower-trust access can exploit this vulnerability to circumvent the intended authorization checks, thereby gaining the ability to execute operations that typically demand higher levels of privilege within the OpenClaw system. This vulnerability allows for unauthorized access to sensitive functionalities and data manipulation. The CVSS v3.1 Base Score for this vulnerability is 8.3, classifying it as a high-severity issue that could lead to significant unauthorized control or data compromise.
+OpenClaw versions prior to 2026.6.5 are susceptible to an authentication bypass vulnerability, tracked as CVE-2026-62207. This flaw stems from insufficient policy checks (CWE-862) on configured input paths within the application, allowing users with lower trust levels to access and utilize administrative functionalities. An attacker who has authenticated with standard user privileges can leverage this vulnerability to bypass authorization checks, gain access to tools intended for administrators, and execute actions that normally require higher authorization. This significantly elevates the attacker's capabilities within the affected system, potentially leading to unauthorized data manipulation, configuration changes, or full system compromise. The vulnerability was published on July 16, 2026, and affects all instances running versions older than 2026.6.5.
 
 ## Attack Chain
 
-1. An attacker obtains initial, lower-trust access to an OpenClaw instance.
-2. The attacker identifies a feature within OpenClaw that performs authorization checks based on WhatsApp group ID validation.
-3. The attacker crafts a malicious request or input that includes a WhatsApp group ID designed to satisfy the elevated sender allowlist criteria.
-4. This specially crafted request is sent to the vulnerable OpenClaw application, bypassing the intended authorization controls.
-5. OpenClaw processes the request, mistakenly granting the attacker privileges or access beyond their assigned trust level.
-6. The attacker then performs unauthorized actions, such as accessing sensitive data, modifying configurations, or executing commands that would otherwise require higher authorization.
+1. An attacker gains initial access to an OpenClaw application instance with lower-trust credentials, typically through a standard user account.
+2. The attacker identifies or crafts a request targeting admin-scoped tools or functionalities within the OpenClaw application.
+3. The attacker manipulates the configured input paths in the request, attempting to bypass standard authorization checks.
+4. Due to the insufficient policy checks (CWE-862) implemented in affected OpenClaw versions, the application fails to properly validate the attacker's authorization for the requested admin-scoped action.
+5. The application grants access to the administrative tool or functionality, treating the lower-trust caller's request as if it originated from a fully authorized administrator.
+6. The attacker successfully executes actions typically restricted to administrators, such as configuration changes, user management, or data modification, leveraging the escalated privileges.
 
 ## Impact
 
-The successful exploitation of CVE-2026-62196 can lead to significant unauthorized access and privilege escalation within affected OpenClaw deployments. Attackers can bypass critical security mechanisms, potentially gaining control over sensitive application features or data. This could result in unauthorized data disclosure, data manipulation, or disruption of service, depending on the specific functionalities accessible with elevated privileges. While no specific victim counts or targeted sectors are detailed, any organization utilizing vulnerable OpenClaw versions is at risk of severe compromise if exposed.
+A successful exploitation of CVE-2026-62207 allows attackers to bypass intended authorization boundaries within the OpenClaw application. This can lead to a severe compromise of the application's integrity, confidentiality, and availability. Attackers can gain unauthorized control over critical system functions, potentially altering configurations, exfiltrating sensitive data, or disrupting services. The impact can extend to any data managed by the OpenClaw instance and any connected systems if the administrative tools provide further access. While specific victim counts are not available, any organization running vulnerable OpenClaw instances faces a high risk of privilege escalation and subsequent malicious activity.
 
 ## Recommendation
 
-* Patch CVE-2026-62196 immediately by upgrading OpenClaw to version 2026.6.6 or later as recommended in the references.
-* Review access logs for unusual activity originating from lower-trust accounts or unexpected source IP addresses, focusing on any attempts to interact with features that process WhatsApp group IDs or require elevated privileges.
+* Immediately patch CVE-2026-62207 by updating all OpenClaw instances to version 2026.6.5 or later, as recommended in the GitHub advisory `https://github.com/openclaw/openclaw/security/advisories/GHSA-cf2p-f286-mphf`.
+* Monitor web server logs for suspicious access patterns to administrative paths (`cs-uri-stem`) originating from user accounts with typically lower privilege levels.
+* Deploy a Web Application Firewall (WAF) to filter and inspect requests, specifically focusing on parameters or input paths (`cs-uri-query`, `cs-uri-stem`) that could be manipulated to bypass authorization for administrative functions.
