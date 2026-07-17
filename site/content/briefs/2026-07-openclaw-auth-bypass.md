@@ -1,8 +1,8 @@
 ---
-title: OpenClaw Authorization Bypass Vulnerability CVE-2026-62218
+title: OpenClaw Authorization Bypass Vulnerability
 slug: 2026-07-openclaw-auth-bypass
-description: An authorization bypass vulnerability (CVE-2026-62218) in OpenClaw versions prior to 2026.5.27 allows lower-trust callers to bypass role-management checks within the `device.pair.approve` feature, leading to privilege escalation and unauthorized actions.
-date: "2026-07-17T02:28:16Z"
+description: A vulnerability, identified as CVE-2026-62219, in OpenClaw versions 2026.2.12 before 2026.5.26 allows a lower-trust caller to bypass agent ID restrictions by submitting blank agent IDs during the `hooks.allowedAgentIds` validation, leading to unauthorized actions and effective privilege escalation.
+date: "2026-07-17T02:29:14Z"
 type: advisory
 types:
   - advisory
@@ -10,44 +10,45 @@ severities:
   - high
 tags:
   - authorization-bypass
+  - vulnerability
+  - cve
   - privilege-escalation
-  - application-vulnerability
 vendors:
   - OpenClaw
 products:
-  - OpenClaw (before 2026.5.27)
+  - OpenClaw (before 2026.5.26)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-    evidence: OpenClaw 2026.1.20 before 2026.5.27 contain an authorization bypass vulnerability in the device.pair.approve feature that allows lower-trust callers to bypass role-management checks. Attackers can perform actions requiring stronger authorization by reaching the affected feature through configured input paths.
+    evidence: A lower-trust caller or configured input path can bypass agent ID restrictions by submitting blank agent IDs, allowing actions that should require stronger authorization or policy checks.
     confidence_band: high
 cves:
-  - id: CVE-2026-62218
-    cvss: 8.8
+  - id: CVE-2026-62219
+    cvss: 7.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62218
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-8v95-qqcm-qp9h
-  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-device-pair-approve
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62219
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-724r-v4wf-mqc5
+  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-blank-agent-ids
 ---
 
-CVE-2026-62218 describes a critical authorization bypass vulnerability affecting OpenClaw versions from 2026.1.20 up to, but not including, 2026.5.27. This flaw resides specifically within the `device.pair.approve` feature, which is intended to manage device pairing authorizations. The vulnerability permits callers with lower trust levels to circumvent established role-management checks. This means that an attacker, even with limited privileges within the OpenClaw system, can exploit this oversight to perform actions that typically require higher authorization. The exploit allows unauthorized execution of privileged functions by manipulating input paths to the affected feature, posing a significant risk for privilege escalation and unauthorized system control. The vulnerability has a CVSS v3.1 base score of 8.8, indicating a high severity threat.
+A critical authorization bypass vulnerability, tracked as CVE-2026-62219, has been discovered in OpenClaw versions 2026.2.12 through 2026.5.25. This flaw resides within the `hooks.allowedAgentIds` validation mechanism. A malicious actor, operating with lower trust or through a configured input path, can circumvent existing agent ID restrictions by supplying blank agent IDs. This bypass enables the actor to execute actions that should ordinarily demand a higher level of authorization or adhere to stricter policy controls. This vulnerability directly impacts the security integrity of OpenClaw deployments and could lead to unauthorized access to sensitive functions or data.
 
 ## Attack Chain
 
-1. An attacker gains initial, low-privileged access to an affected OpenClaw system, potentially through compromised credentials or another vulnerability.
-2. The attacker identifies the `device.pair.approve` feature as a potential target for privilege escalation due to its critical role in device management.
-3. The attacker crafts a malicious request or API call to invoke the `device.pair.approve` feature, intending to perform an action requiring elevated privileges.
-4. Due to the authorization bypass flaw (CVE-2026-62218), the OpenClaw system fails to properly validate the attacker's low-trust authorization level against the required permissions for the requested action.
-5. The system proceeds to execute the intended privileged action through the `device.pair.approve` feature, believing the request to be legitimate despite the caller's insufficient rights.
-6. The attacker successfully performs an unauthorized, highly privileged action, effectively escalating their privileges within the OpenClaw environment.
+1. **Vulnerable Component Identification**: An attacker identifies an OpenClaw instance running an affected version (2026.2.12 before 2026.5.26) that relies on the `hooks.allowedAgentIds` validation for authorization.
+2. **Access as Lower-Trust User**: The attacker gains initial access or already possesses credentials as a user with lower authorization within the OpenClaw application.
+3. **Request Crafting with Blank Agent ID**: The attacker crafts a specific request or input, targeting functionality protected by `allowedAgentIds` validation, and intentionally includes blank agent IDs in the request.
+4. **Authorization Bypass**: The vulnerable OpenClaw application's `hooks.allowedAgentIds` validation component fails to correctly process or reject these blank agent IDs, thus bypassing the intended agent ID restrictions.
+5. **Unauthorized Action Execution**: The application proceeds to execute the requested action, treating the blank agent ID as valid or unrestricted, thereby circumventing established security policies and authorization checks.
+6. **Privilege Escalation/Access**: The attacker successfully performs actions or accesses resources that should have been strictly limited to higher-privileged users or specific, validated agent IDs, resulting in an effective privilege escalation.
 
 ## Impact
 
-Successful exploitation of CVE-2026-62218 allows an attacker to achieve privilege escalation within the affected OpenClaw system. This means individuals with otherwise limited permissions can execute administrative functions or other actions requiring higher authorization, potentially leading to full system compromise. The impact includes unauthorized configuration changes, device pairing without proper approval, data manipulation, or potentially broader control over the system's operations and connected devices. The specific damage depends on the critical functions managed by the `device.pair.approve` feature and the attacker's objectives.
+The successful exploitation of CVE-2026-62219 allows an attacker to perform unauthorized actions within the OpenClaw application that should typically be restricted to users with stronger authorization. This can lead to privilege escalation, enabling the attacker to gain access to sensitive data, modify critical configurations, or execute administrative functions without proper permission. The exact scope of impact depends on the specific functionalities protected by the `allowedAgentIds` validation, but any such functionality could be compromised. Organizations using vulnerable OpenClaw versions face a significant risk of data breaches, system integrity compromise, and unauthorized operational control.
 
 ## Recommendation
 
-* Patch affected OpenClaw instances immediately to version 2026.5.27 or later to address CVE-2026-62218.
-* Review application logs for unusual or unauthorized calls to the `device.pair.approve` feature, especially from lower-privileged accounts.
+* Patch CVE-2026-62219 by upgrading OpenClaw to version 2026.5.26 or later immediately.
+* Review application logs for any instances of requests containing blank agent IDs, especially for actions requiring elevated privileges, as this could indicate attempted or successful exploitation of CVE-2026-62219.
