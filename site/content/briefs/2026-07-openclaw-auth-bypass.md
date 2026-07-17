@@ -3,7 +3,7 @@ title: Authentication Bypass Vulnerability in OpenClaw (CVE-2026-62207)
 slug: 2026-07-openclaw-auth-bypass
 description: OpenClaw versions before 2026.6.5 are affected by an authentication bypass vulnerability (CVE-2026-62207) that allows lower-trust callers to access and utilize administrative tools, effectively escalating their privileges by exploiting insufficient policy checks on configured input paths, enabling attackers to perform actions requiring stronger authorization.
 date: "2026-07-17T02:24:37Z"
-lastmod: "2026-07-17T02:25:41Z"
+lastmod: "2026-07-17T02:26:35Z"
 type: advisory
 types:
   - advisory
@@ -42,12 +42,24 @@ mitre_ttps:
 cves:
   - id: CVE-2026-62207
     cvss: 8.8
+  - id: CVE-2026-62215
+    cvss: 8
+  - id: CVE-2026-62209
+    cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62207
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-cf2p-f286-mphf
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62209
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-wp73-f3gg-w4vr
   - https://www.vulncheck.com/advisories/openclaw-beta-1-authorization-bypass-via-agent-mode-dispatch
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62215
+iocs:
+  - type: url
+    value: https://github.com/openclaw/openclaw/security/advisories/GHSA-vr7j-7684-7gm5
+  - type: url
+    value: https://www.vulncheck.com/advisories/openclaw-authentication-bypass-via-http-canvas
+ioc_counts:
+  url: 2
 updates:
   - at: "2026-07-17T02:25:41Z"
     level: L2
@@ -56,6 +68,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62209
+  - at: "2026-07-17T02:26:35Z"
+    level: L2
+    summary: added CVE-2026-62209 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62215
 ---
 
 OpenClaw versions prior to 2026.6.5 are susceptible to an authentication bypass vulnerability, tracked as CVE-2026-62207. This flaw stems from insufficient policy checks (CWE-862) on configured input paths within the application, allowing users with lower trust levels to access and utilize administrative functionalities. An attacker who has authenticated with standard user privileges can leverage this vulnerability to bypass authorization checks, gain access to tools intended for administrators, and execute actions that normally require higher authorization. This significantly elevates the attacker's capabilities within the affected system, potentially leading to unauthorized data manipulation, configuration changes, or full system compromise. The vulnerability was published on July 16, 2026, and affects all instances running versions older than 2026.6.5.
