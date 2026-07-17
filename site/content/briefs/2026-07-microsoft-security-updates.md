@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-17T12:58:19Z"
+lastmod: "2026-07-17T13:02:09Z"
 type: advisory
 types:
   - advisory
@@ -57,6 +57,11 @@ cpes:
   - cpe:2.3:a:microsoft:powerpoint:2016:*:*:*:*:*:x64:*
   - cpe:2.3:a:microsoft:powerpoint:2016:*:*:*:*:*:x86:*
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x86:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -492,6 +497,7 @@ products:
   - 7-Zip
   - Azure Virtual Machines
   - Azure VM Scale Sets
+  - Windows 11 (<= build 26200.8737)
 affected_os:
   - Windows
   - macOS
@@ -698,6 +704,21 @@ cves:
   - id: CVE-2026-50465
     cvss: 7.1
     epss: 0.00219
+  - id: CVE-2026-50663
+    cvss: 8.8
+    epss: 0.0065
+  - id: CVE-2026-55130
+    cvss: 7.8
+    epss: 0.00303
+  - id: CVE-2026-57083
+    cvss: 5.5
+    epss: 0.00506
+  - id: CVE-2026-49808
+    cvss: 7.8
+    epss: 0.00156
+  - id: CVE-2026-50452
+    cvss: 7
+    epss: 0.00255
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1314,6 +1335,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2396
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/short_lived_scheduled_task.yml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_vm_extension_unusual_for_host.toml
+  - https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1677,10 +1699,14 @@ iocs:
     value: codebasecode[.]com
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58598
+  - type: url
+    value: https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33
+  - type: domain
+    value: sploitus.com
 ioc_counts:
   application_id: 1
   asn: 3
-  domain: 21
+  domain: 22
   email: 3
   error_code: 3
   file: 4
@@ -1700,16 +1726,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 88
+  url: 89
   user_agent: 6
 updates:
-  - at: "2026-07-17T02:00:55Z"
-    level: L2
-    summary: added CVE-2026-42900 +4
-    sources:
-      - isc-stormcast
-    source_urls:
-      - https://isc.sans.edu/podcastdetail/10012
   - at: "2026-07-17T04:58:20Z"
     level: L2
     summary: added CVE-2026-50414 +3
@@ -1738,6 +1757,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_vm_extension_unusual_for_host.toml
+  - at: "2026-07-17T13:02:09Z"
+    level: L2
+    summary: poc_available; added CVE-2026-49808 +4
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
