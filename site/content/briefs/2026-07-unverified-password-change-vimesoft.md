@@ -3,6 +3,7 @@ title: 'CVE-2026-12692: Unverified Password Change Vulnerability in Vimesoft Ent
 slug: 2026-07-unverified-password-change-vimesoft
 description: An unverified password change vulnerability (CVE-2026-12692) exists in Vimesoft Inc.'s Enterprise Video Platform, affecting versions from 3.11.0.0 up to, but not including, 3.25.0, which allows an attacker to bypass authentication mechanisms, potentially leading to unauthorized access to the platform by changing user passwords without proper verification.
 date: "2026-07-17T17:18:34Z"
+lastmod: "2026-07-17T17:20:18Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - Vimesoft Inc.
 products:
   - Enterprise Video Platform (3.11.0.0 before 3.25.0)
+  - Enterprise Video Platform (from 3.11.0.0 before 3.25.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -28,14 +30,25 @@ mitre_ttps:
 cves:
   - id: CVE-2026-12692
     cvss: 9.8
+  - id: CVE-2026-12694
+    cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-12692
   - https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0574
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-12694
 iocs:
   - type: url
     value: https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0574
 ioc_counts:
   url: 1
+updates:
+  - at: "2026-07-17T17:20:18Z"
+    level: L2
+    summary: added CVE-2026-12694
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-12694
 ---
 
 A critical authentication bypass vulnerability, identified as CVE-2026-12692, has been discovered in Vimesoft Inc.'s Enterprise Video Platform. This flaw, present in versions ranging from 3.11.0.0 through to 3.24.9 (before 3.25.0), allows an unauthenticated attacker to change user passwords without prior verification. The vulnerability stems from an "Unverified Password Change" (CWE-620) mechanism, enabling malicious actors to reset or set new passwords for existing user accounts without requiring the current password or a secure token. Successful exploitation grants attackers complete unauthorized access to affected user accounts and the entire video platform, posing a severe risk to data integrity, confidentiality, and system availability. This vulnerability carries a CVSS v3.1 base score of 9.8, indicating its critical severity and ease of exploitation.
