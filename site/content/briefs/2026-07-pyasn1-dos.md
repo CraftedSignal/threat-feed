@@ -1,8 +1,8 @@
 ---
-title: 'CVE-2026-59884: pyasn1 BER/CER/DER Decoder Denial of Service Vulnerability'
+title: 'pyasn1: Quadratic Complexity in OBJECT IDENTIFIER and RELATIVE-OID Processing Allows Denial of Service'
 slug: 2026-07-pyasn1-dos
-description: A high-severity denial-of-service vulnerability, CVE-2026-59884, exists in the pyasn1 library's BER/CER/DER decoder due to unbounded long-form tag IDs, which could allow an unauthenticated attacker to trigger resource exhaustion, rendering affected applications unresponsive or unavailable.
-date: "2026-07-17T07:07:43Z"
+description: A denial of service vulnerability, identified as CVE-2026-59885, exists in the pyasn1 library caused by quadratic complexity in the processing of OBJECT IDENTIFIER and RELATIVE-OID, which can lead to a denial of service.
+date: "2026-07-17T07:11:02Z"
 type: advisory
 types:
   - advisory
@@ -10,40 +10,37 @@ severities:
   - low
 tags:
   - denial-of-service
-  - library-vulnerability
-  - python
+  - vulnerability
+  - library
 vendors:
-  - pyasn1 project
+  - pyasn1
 products:
   - pyasn1
 cves:
-  - id: CVE-2026-59884
+  - id: CVE-2026-59885
     cvss: 7.5
-    epss: 0.00354
+    epss: 0.00339
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59884
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59885
 ---
 
-A significant denial-of-service vulnerability, tracked as CVE-2026-59884, has been identified in the `pyasn1` library, specifically within its BER/CER/DER decoding functionality. This flaw arises from the decoder's inability to properly handle unbounded long-form tag IDs. An attacker could craft a specially malformed BER/CER/DER encoded message containing such an ID. When a vulnerable application attempts to process this message using `pyasn1`, the decoding operation will consume excessive system resources, leading to resource exhaustion, memory leaks, or an infinite loop. This resource depletion ultimately causes the affected application to become unresponsive or crash, resulting in a denial of service to legitimate users. While no specific attack campaigns are detailed in the initial disclosure, the ease of exploitation for such DoS vulnerabilities makes patching critical for any system processing untrusted ASN.1 data.
+CVE-2026-59885 is a denial-of-service vulnerability affecting the `pyasn1` library. This vulnerability stems from quadratic complexity in how the library processes `OBJECT IDENTIFIER` and `RELATIVE-OID` data structures. An attacker can craft malicious ASN.1 data inputs that, when processed by `pyasn1`, consume excessive CPU resources due to the inefficient parsing algorithm, leading to a denial of service for applications or services relying on the library for ASN.1 data handling. This can disrupt services that use `pyasn1` for cryptographic operations, certificate validation, or network protocol parsing. The specific versions affected are not detailed in the MSRC brief, but users of `pyasn1` should review their implementations and update promptly.
 
 ## Attack Chain
 
-1. An attacker identifies an internet-facing application that uses the `pyasn1` library to process BER/CER/DER encoded data.
-2. The attacker crafts a malicious BER/CER/DER message specifically designed to exploit the unbounded long-form tag ID vulnerability.
-3. The crafted message includes a malformed tag ID structure intended to cause excessive parsing and resource consumption.
-4. The attacker transmits this malicious BER/CER/DER message to a public-facing input endpoint of the vulnerable application.
-5. The application receives the input and attempts to decode the malicious message using the vulnerable `pyasn1` BER/CER/DER decoder.
-6. During the decoding process, the `pyasn1` library encounters the unbounded long-form tag ID.
-7. The decoder enters a state of excessive resource consumption, leading to high CPU usage, memory exhaustion, or an infinite loop.
-8. The application becomes unresponsive or crashes, resulting in a denial of service for legitimate users.
+1. An attacker identifies a target system or application that uses the `pyasn1` library to process ASN.1 encoded data from untrusted sources.
+2. The attacker crafts a malformed or excessively complex `OBJECT IDENTIFIER` or `RELATIVE-OID` within an ASN.1 data structure.
+3. The attacker sends this specially crafted ASN.1 data to the vulnerable application.
+4. When the `pyasn1` library attempts to parse the malicious `OBJECT IDENTIFIER` or `RELATIVE-OID` field, its quadratic complexity processing algorithm is triggered.
+5. This leads to the application consuming excessive CPU resources and memory as it attempts to parse the malformed data.
+6. The application becomes unresponsive or crashes due to resource exhaustion.
+7. The result is a denial-of-service condition for the target application or system, rendering it unavailable.
 
 ## Impact
 
-Successful exploitation of CVE-2026-59884 primarily leads to a denial of service (DoS) for applications utilizing the vulnerable `pyasn1` library. Attackers can render an affected system or service completely unresponsive or unavailable, disrupting business operations and user access. The immediate consequence for victims is a loss of availability for critical services, which can lead to reputational damage, operational downtime, and potential financial losses. The scope of impact depends on the criticality of the application using `pyasn1` and its exposure to untrusted data.
+A successful exploitation of CVE-2026-59885 would result in affected applications or services becoming unavailable due to resource exhaustion, specifically excessive CPU and memory consumption. Organizations relying on the `pyasn1` library for critical functions, such as authentication mechanisms, secure communication channels, or data parsing from external inputs, could experience significant operational disruption, data processing delays, and potential business losses. While no specific victims or targeting details are provided, any system processing untrusted ASN.1 data with a vulnerable `pyasn1` version is at risk of service interruption.
 
 ## Recommendation
 
-* Upgrade the `pyasn1` library to a patched version immediately to remediate CVE-2026-59884.
-* Review all applications that process BER/CER/DER encoded data, especially those exposed to untrusted external input, to identify `pyasn1` dependencies.
-* Implement robust input validation and sanitization for all BER/CER/DER data processed by your applications to mitigate risks from similar parsing vulnerabilities.
-* Monitor application logs for sudden spikes in CPU or memory usage, particularly after processing external data, which could indicate a denial of service attempt related to CVE-2026-59884.
+* Patch CVE-2026-59885 by updating the `pyasn1` library to a version that addresses this quadratic complexity vulnerability immediately.
+* Review applications that process `OBJECT IDENTIFIER` and `RELATIVE-OID` data using `pyasn1` to understand potential exposure and ensure input validation.
