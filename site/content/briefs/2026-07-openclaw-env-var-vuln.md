@@ -3,6 +3,7 @@ title: OpenClaw Environment Variable Filtering Vulnerability Allows Execution an
 slug: 2026-07-openclaw-env-var-vuln
 description: OpenClaw versions prior to 2026.6.6 contain an environment variable filtering vulnerability in its host exec component that fails to properly sanitize rustup startup variables, allowing attackers with lower-trust caller access or configured input paths to execute or persist actions beyond their intended authorization level.
 date: "2026-07-17T02:23:26Z"
+lastmod: "2026-07-17T02:23:53Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - OpenClaw
 products:
   - OpenClaw (before 2026.6.6)
+  - OpenClaw (< 2026.6.6)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -34,10 +36,21 @@ mitre_ttps:
 cves:
   - id: CVE-2026-62203
     cvss: 8.8
+  - id: CVE-2026-62205
+    cvss: 7.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62203
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-wxh3-g47h-q3mc
   - https://www.vulncheck.com/advisories/openclaw-environment-variable-injection-via-rustup
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62205
+updates:
+  - at: "2026-07-17T02:23:53Z"
+    level: L2
+    summary: added CVE-2026-62205
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62205
 ---
 
 A high-severity vulnerability, identified as CVE-2026-62203, affects OpenClaw versions before 2026.6.6. This flaw resides within the `host exec` component, which is responsible for executing commands, and specifically relates to its failure to properly sanitize `rustup` startup environment variables. Attackers who have already gained lower-trust caller access to a system running a vulnerable OpenClaw application, or who can provide input through configured paths, can exploit this vulnerability. Successful exploitation grants the attacker the ability to execute arbitrary commands or establish persistence on the affected system, bypassing intended authorization levels and potentially leading to full system compromise. The vulnerability was published on July 17, 2026.
