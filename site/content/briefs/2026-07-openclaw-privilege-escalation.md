@@ -3,6 +3,7 @@ title: CVE-2026-62202 - OpenClaw Privilege Escalation via Isolated Cron Jobs
 slug: 2026-07-openclaw-privilege-escalation
 description: OpenClaw versions 2026.6.1 before 2026.6.9 contain a privilege escalation vulnerability, CVE-2026-62202, in isolated cron jobs that allows lower-trust callers to regain denied execution tools and execute or persist actions beyond their intended authorization by leveraging misconfigured input paths.
 date: "2026-07-17T02:22:20Z"
+lastmod: "2026-07-17T02:24:07Z"
 type: threat
 types:
   - threat
@@ -33,10 +34,28 @@ mitre_ttps:
 cves:
   - id: CVE-2026-62202
     cvss: 8.8
+  - id: CVE-2026-62206
+    cvss: 7.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62202
   - https://github.com/openclaw/openclaw/security/advisories/GHSA-mm9g-83wh-mhwj
   - https://www.vulncheck.com/advisories/openclaw-privilege-escalation-via-cron
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62206
+iocs:
+  - type: url
+    value: https://github.com/openclaw/openclaw/security/advisories/GHSA-f6p7-6326-vf7v
+  - type: url
+    value: https://www.vulncheck.com/advisories/openclaw-authentication-bypass-via-moderation-actions
+ioc_counts:
+  url: 2
+updates:
+  - at: "2026-07-17T02:24:07Z"
+    level: L2
+    summary: added CVE-2026-62206
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62206
 ---
 
 OpenClaw versions 2026.6.1 through 2026.6.8 are affected by a high-severity privilege escalation vulnerability, tracked as CVE-2026-62202, located within the isolated cron job feature. This flaw permits users or processes with lower trust to bypass intended authorization and re-enable execution tools that were previously denied to them. Attackers can leverage misconfigured input paths within this cron functionality to execute commands or establish persistence on the system with elevated privileges. The vulnerability has a CVSS v3.1 base score of 8.8, indicating a critical risk if exploited. There is currently no public information suggesting active exploitation of this vulnerability in the wild; however, its nature allows for significant impact upon successful exploitation.
