@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-07-17T15:08:04Z"
+lastmod: "2026-07-17T17:12:39Z"
 type: threat
 types:
   - threat
@@ -23,14 +23,20 @@ vendors:
   - Acosol
   - VMware
   - Carbon Black
+  - Toshiba
 products:
   - www.acosol.es
   - vCenter
   - ESXi
   - Cloud Sensor AV
+  - VMware vCenter
+  - VMware ESXi
+  - Carbon Black Cloud Sensor AV
+  - Toshiba power management driver
 affected_os:
   - Windows
   - Unix
+  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -251,11 +257,15 @@ iocs:
     value: www.acosol.es
   - type: url
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=06db273a-dad1-49d1-98ea-f59c947de0b6
+  - type: domain
+    value: www.cafar.org.ar
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=534f0ef4-d3fb-4650-ae42-445c281986c6
 ioc_counts:
-  domain: 6
+  domain: 7
   hash_md5: 54
   ip: 5
-  url: 2
+  url: 3
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -286,6 +296,13 @@ updates:
   - at: "2026-07-17T15:08:04Z"
     level: L1
     summary: OS windows; OS unix
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-07-17T17:12:39Z"
+    level: L1
+    summary: OS linux
     sources:
       - ransomware-live
     source_urls:
