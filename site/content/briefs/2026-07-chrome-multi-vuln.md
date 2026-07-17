@@ -3,7 +3,7 @@ title: Multiple Vulnerabilities in Google Chrome (CVE-2026-13774 through CVE-202
 slug: 2026-07-chrome-multi-vuln
 description: Multiple vulnerabilities, including CVE-2026-13774 through CVE-2026-13895, have been discovered in Google Chrome, allowing an attacker to cause an unspecified security problem on affected Windows, Linux, and macOS systems by exploiting these flaws.
 date: "2026-07-02T13:56:05Z"
-lastmod: "2026-07-17T12:02:11Z"
+lastmod: "2026-07-17T21:29:38Z"
 type: advisory
 types:
   - advisory
@@ -20,13 +20,20 @@ tags:
   - browser
   - google-chrome
   - cve
+  - chromium
+  - v8
+  - rce
+  - oob-read-write
 vendors:
   - Google
+  - Microsoft
 products:
   - Chrome (< 150.0.7871.46)
   - Chrome (< 150.0.7871.47)
   - Google Chrome
   - V8 (<= 14.9.207.29)
+  - Microsoft Edge (Chromium-based)
+  - Chromium V8 Engine
 affected_os:
   - Windows
   - Linux
@@ -173,6 +180,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-13894
   - https://www.cve.org/CVERecord?id=CVE-2026-13895
   - https://sploitus.com/exploit?id=3297FA74-345B-5662-AE60-ACE4BD802600&utm_source=rss&utm_medium=rss
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15903
+  - https://chromereleases.googleblog.com/2025
 iocs:
   - type: url
     value: https://sploitus.com/exploit?id=3297FA74-345B-5662-AE60-ACE4BD802600&utm_source=rss&utm_medium=rss
@@ -195,6 +204,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=3297FA74-345B-5662-AE60-ACE4BD802600&utm_source=rss&utm_medium=rss
+  - at: "2026-07-17T21:29:38Z"
+    level: L2
+    summary: 'merged source coverage: Chromium V8 Out-of-Bounds Read and Write Vulnerability (CVE-2026-15903)'
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15903
 ---
 
 On July 2, 2026, CERT-FR published an advisory detailing multiple security vulnerabilities affecting Google Chrome. These vulnerabilities, encompassing CVE-2026-13774 through CVE-2026-13895, exist in Chrome versions prior to 150.0.7871.46 for Windows and Linux, and prior to 150.0.7871.47 for macOS. The advisory indicates that these flaws could allow an attacker to cause an unspecified security problem. While the specific nature of each vulnerability (e.g., use-after-free, type confusion) is not detailed by CERT-FR, such browser vulnerabilities often lead to arbitrary code execution, denial of service, or information disclosure. Organizations are advised to update affected Chrome instances promptly to mitigate potential risks.
