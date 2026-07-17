@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-17T14:33:46Z"
+lastmod: "2026-07-17T14:34:05Z"
 type: advisory
 types:
   - advisory
@@ -64,6 +64,8 @@ cpes:
   - cpe:2.3:a:microsoft:powerpoint:2016:*:*:*:*:*:x86:*
   - cpe:2.3:a:microsoft:visual_studio_2022:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
 tags:
   - roundup
 vendors:
@@ -794,6 +796,18 @@ cves:
   - id: CVE-2026-50452
     cvss: 7
     epss: 0.00255
+  - id: CVE-2026-42982
+    cvss: 7.8
+    epss: 0.00276
+  - id: CVE-2026-50358
+    cvss: 7
+    epss: 0.00252
+  - id: CVE-2026-50428
+    cvss: 7.1
+    epss: 0.00302
+  - id: CVE-2026-58533
+    cvss: 6.5
+    epss: 0.00887
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1417,6 +1431,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_kubelet_proxy_command_endpoint.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/lateral_movement_azure_aks_api_server_proxy_to_kubelet.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_illicit_consent_grant_via_registered_application.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_illicit_consent_grant_via_registered_application.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1820,13 +1835,6 @@ ioc_counts:
   url: 94
   user_agent: 6
 updates:
-  - at: "2026-07-17T13:10:32Z"
-    level: L2
-    summary: added CVE-2026-33117 +3
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_ropc_unknown_client_id.toml
   - at: "2026-07-17T13:51:28Z"
     level: L2
     summary: added CVE-2026-47305 +3
@@ -1855,6 +1863,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_illicit_consent_grant_via_registered_application.toml
+  - at: "2026-07-17T14:34:05Z"
+    level: L2
+    summary: added CVE-2026-42982 +3
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_illicit_consent_grant_via_registered_application.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
