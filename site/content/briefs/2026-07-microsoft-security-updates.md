@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-17T12:37:46Z"
+lastmod: "2026-07-17T12:58:19Z"
 type: advisory
 types:
   - advisory
@@ -490,6 +490,8 @@ products:
   - Windows Hello for Business
   - NGINX
   - 7-Zip
+  - Azure Virtual Machines
+  - Azure VM Scale Sets
 affected_os:
   - Windows
   - macOS
@@ -681,6 +683,21 @@ cves:
   - id: CVE-2026-50491
     cvss: 7
     epss: 0.00252
+  - id: CVE-2026-54986
+    cvss: 7.8
+    epss: 0.01725
+  - id: CVE-2026-54119
+    cvss: 7.5
+    epss: 0.00834
+  - id: CVE-2026-49178
+    cvss: 8.8
+    epss: 0.00617
+  - id: CVE-2026-49791
+    cvss: 7.1
+    epss: 0.00278
+  - id: CVE-2026-50465
+    cvss: 7.1
+    epss: 0.00219
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1296,6 +1313,7 @@ references:
   - https://www.reddit.com/r/blueteamsec/comments/1uypwfp/there_and_back_again_an_operators_guide_on_ntlm/
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2396
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/short_lived_scheduled_task.yml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_vm_extension_unusual_for_host.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1685,13 +1703,6 @@ ioc_counts:
   url: 88
   user_agent: 6
 updates:
-  - at: "2026-07-16T22:18:50Z"
-    level: L2
-    summary: added CVE-2026-50382 +4
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-58598
   - at: "2026-07-17T02:00:55Z"
     level: L2
     summary: added CVE-2026-42900 +4
@@ -1720,6 +1731,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/short_lived_scheduled_task.yml
+  - at: "2026-07-17T12:58:19Z"
+    level: L2
+    summary: added CVE-2026-49178 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_vm_extension_unusual_for_host.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
