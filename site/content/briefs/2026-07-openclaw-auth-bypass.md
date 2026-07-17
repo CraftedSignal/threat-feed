@@ -1,120 +1,72 @@
 ---
-title: Authentication Bypass Vulnerability in OpenClaw (CVE-2026-62207)
+title: OpenClaw Authorization Bypass Vulnerability via Exec Allowlist Glob Matching (CVE-2026-62229)
 slug: 2026-07-openclaw-auth-bypass
-description: OpenClaw versions before 2026.6.5 are affected by an authentication bypass vulnerability (CVE-2026-62207) that allows lower-trust callers to access and utilize administrative tools, effectively escalating their privileges by exploiting insufficient policy checks on configured input paths, enabling attackers to perform actions requiring stronger authorization.
-date: "2026-07-17T02:24:37Z"
-lastmod: "2026-07-17T02:33:32Z"
+description: OpenClaw versions prior to 2026.5.18 contain an authorization bypass vulnerability (CVE-2026-62229) in its exec allowlist glob matching feature, allowing lower-trust callers to execute or persist unauthorized actions by crafting input paths that traverse the allowlist patterns, potentially leading to system compromise.
+date: "2026-07-17T02:34:09Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - authentication-bypass
-  - vulnerability
-  - web
-  - cve
   - authorization-bypass
+  - path-traversal
+  - privilege-escalation
   - openclaw
 vendors:
   - OpenClaw
 products:
-  - OpenClaw (< 2026.6.5)
+  - OpenClaw < 2026.5.18
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-    evidence: Attackers can perform actions requiring stronger authorization by exploiting insufficient policy checks on configured input paths.
+    evidence: allows lower-trust callers to execute actions beyond intended authorization
     confidence_band: high
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: OpenClaw versions 2026.5.10-beta.1 before 2026.6.5 contain an authorization bypass in the ClickClack agent-mode dispatch feature, which could ignore the toolsAllow policy check. When the affected feature is enabled and reachable, a lower-trust caller or configured input path could perform actions that should have required a stronger authorization or policy check.
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: execute actions beyond intended authorization
     confidence_band: high
   - tactic_id: TA0003
     tactic_name: Persistence
-    technique_id: T1078
-    technique_name: Valid Accounts
-    evidence: a lower-trust caller or configured input path could perform actions that should have required a stronger authorization or policy check.
-    confidence_band: high
+    technique_id: T1547
+    technique_name: Boot or Logon Autostart Execution
+    evidence: persist unauthorized actions when the affected feature is enabled
+    confidence_band: med
 cves:
-  - id: CVE-2026-62207
-    cvss: 8.8
-  - id: CVE-2026-62215
-    cvss: 8
-  - id: CVE-2026-62209
-    cvss: 8.1
-  - id: CVE-2026-62228
+  - id: CVE-2026-62229
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62207
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-cf2p-f286-mphf
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62209
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-wp73-f3gg-w4vr
-  - https://www.vulncheck.com/advisories/openclaw-beta-1-authorization-bypass-via-agent-mode-dispatch
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62215
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62228
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62229
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-34mr-7r3m-gfg7
+  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-glob-matching
 iocs:
   - type: url
-    value: https://github.com/openclaw/openclaw/security/advisories/GHSA-vr7j-7684-7gm5
+    value: https://github.com/openclaw/openclaw/security/advisories/GHSA-34mr-7r3m-gfg7
   - type: url
-    value: https://www.vulncheck.com/advisories/openclaw-authentication-bypass-via-http-canvas
-  - type: url
-    value: https://github.com/openclaw/openclaw/security/advisories/GHSA-8f46-3xx3-8c9m
-  - type: url
-    value: https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-node-exec-approvals
-  - type: url
-    value: https://nvd.nist.gov
-  - type: email
-    value: nvd@nist.gov
-  - type: email
-    value: soc@us-cert.gov
+    value: https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-glob-matching
 ioc_counts:
-  email: 2
-  url: 5
-updates:
-  - at: "2026-07-17T02:25:41Z"
-    level: L2
-    summary: 'merged source coverage: OpenClaw Authorization Bypass Vulnerability CVE-2026-62209'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-62209
-  - at: "2026-07-17T02:26:35Z"
-    level: L2
-    summary: added CVE-2026-62209 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-62215
-  - at: "2026-07-17T02:33:32Z"
-    level: L2
-    summary: added CVE-2026-62228
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-62228
+  url: 2
 ---
 
-OpenClaw versions prior to 2026.6.5 are susceptible to an authentication bypass vulnerability, tracked as CVE-2026-62207. This flaw stems from insufficient policy checks (CWE-862) on configured input paths within the application, allowing users with lower trust levels to access and utilize administrative functionalities. An attacker who has authenticated with standard user privileges can leverage this vulnerability to bypass authorization checks, gain access to tools intended for administrators, and execute actions that normally require higher authorization. This significantly elevates the attacker's capabilities within the affected system, potentially leading to unauthorized data manipulation, configuration changes, or full system compromise. The vulnerability was published on July 16, 2026, and affects all instances running versions older than 2026.6.5.
+A critical authorization bypass vulnerability, identified as CVE-2026-62229, affects OpenClaw software versions released before 2026.5.18. This flaw resides specifically within the `exec` allowlist glob matching functionality, which is designed to restrict actions based on trust levels. However, a malicious actor or lower-trust caller can exploit this vulnerability by carefully constructing input paths that leverage directory traversal sequences. By doing so, they can bypass the intended authorization controls and execute or persist actions that fall outside their assigned permissions, even when the `exec` allowlist feature is enabled. The vulnerability could lead to arbitrary code execution, unauthorized data manipulation, or system compromise depending on the context of the unauthorized actions performed. This vulnerability was published on July 17, 2026, and carries a CVSS v3.1 Base Score of 8.8, indicating a high severity risk.
 
 ## Attack Chain
 
-1. An attacker gains initial access to an OpenClaw application instance with lower-trust credentials, typically through a standard user account.
-2. The attacker identifies or crafts a request targeting admin-scoped tools or functionalities within the OpenClaw application.
-3. The attacker manipulates the configured input paths in the request, attempting to bypass standard authorization checks.
-4. Due to the insufficient policy checks (CWE-862) implemented in affected OpenClaw versions, the application fails to properly validate the attacker's authorization for the requested admin-scoped action.
-5. The application grants access to the administrative tool or functionality, treating the lower-trust caller's request as if it originated from a fully authorized administrator.
-6. The attacker successfully executes actions typically restricted to administrators, such as configuration changes, user management, or data modification, leveraging the escalated privileges.
+1. A lower-trust caller (e.g., an authenticated user with limited privileges) gains access to the OpenClaw application.
+2. The attacker identifies an input mechanism within OpenClaw that utilizes the `exec` allowlist glob matching feature for path validation.
+3. The attacker crafts a malicious input string that combines directory traversal sequences (e.g., `../../`) with valid glob patterns expected by the application.
+4. This crafted input path is submitted to the vulnerable OpenClaw feature, exploiting the authorization bypass.
+5. Due to the vulnerability (CVE-2026-62229), the application incorrectly processes the input, allowing the crafted path to bypass intended restrictions.
+6. OpenClaw then executes or persists an unauthorized action on the underlying system, such as running arbitrary commands, modifying sensitive files, or establishing persistence mechanisms, despite the user's lower trust level.
 
 ## Impact
 
-A successful exploitation of CVE-2026-62207 allows attackers to bypass intended authorization boundaries within the OpenClaw application. This can lead to a severe compromise of the application's integrity, confidentiality, and availability. Attackers can gain unauthorized control over critical system functions, potentially altering configurations, exfiltrating sensitive data, or disrupting services. The impact can extend to any data managed by the OpenClaw instance and any connected systems if the administrative tools provide further access. While specific victim counts are not available, any organization running vulnerable OpenClaw instances faces a high risk of privilege escalation and subsequent malicious activity.
+Successful exploitation of CVE-2026-62229 allows lower-trust callers to execute or persist unauthorized actions, effectively escalating their privileges within the OpenClaw environment and potentially impacting the underlying operating system. The consequences can range from unauthorized data modification and sensitive information disclosure to full system compromise, depending on the capabilities granted by the bypass and the attacker's objectives. Organizations using affected OpenClaw versions are at risk of suffering unauthorized access, data integrity loss, and potential business disruption if this vulnerability is exploited.
 
 ## Recommendation
 
-* Immediately patch CVE-2026-62207 by updating all OpenClaw instances to version 2026.6.5 or later, as recommended in the GitHub advisory `https://github.com/openclaw/openclaw/security/advisories/GHSA-cf2p-f286-mphf`.
-* Monitor web server logs for suspicious access patterns to administrative paths (`cs-uri-stem`) originating from user accounts with typically lower privilege levels.
-* Deploy a Web Application Firewall (WAF) to filter and inspect requests, specifically focusing on parameters or input paths (`cs-uri-query`, `cs-uri-stem`) that could be manipulated to bypass authorization for administrative functions.
+* Patch CVE-2026-62229 immediately by upgrading OpenClaw to version 2026.5.18 or later, as referenced in the provided GitHub advisory URL and VulnCheck advisory URL.
