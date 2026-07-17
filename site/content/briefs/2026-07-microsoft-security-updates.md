@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-16T22:18:50Z"
+lastmod: "2026-07-17T02:00:55Z"
 type: advisory
 types:
   - advisory
@@ -48,6 +48,14 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:powerpoint:2016:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:powerpoint:2016:*:*:*:*:*:x86:*
 tags:
   - roundup
 vendors:
@@ -103,6 +111,8 @@ vendors:
   - Valve
   - Polygon
   - Signal
+  - F5
+  - 7-Zip Project
 products:
   - PowerShell
   - Windows
@@ -476,6 +486,9 @@ products:
   - Office installers
   - Signal messaging app
   - Windows 10 Version 22H2
+  - Windows Hello for Business
+  - NGINX
+  - 7-Zip
 affected_os:
   - Windows
   - macOS
@@ -610,6 +623,21 @@ cves:
   - id: CVE-2026-50382
     cvss: 8.8
     epss: 0.00276
+  - id: CVE-2026-42900
+    cvss: 8.1
+    epss: 0.00398
+  - id: CVE-2026-49797
+    cvss: 7.8
+    epss: 0.00368
+  - id: CVE-2026-50368
+    cvss: 7.5
+    epss: 0.00797
+  - id: CVE-2026-55120
+    cvss: 7.8
+    epss: 0.0034
+  - id: CVE-2026-56176
+    cvss: 7.8
+    epss: 0.00245
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1221,6 +1249,7 @@ references:
   - https://therecord.media/ukraine-sandworm-hacks-captcha-powershell
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59117
   - https://nvd.nist.gov/vuln/detail/CVE-2026-58598
+  - https://isc.sans.edu/podcastdetail/10012
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1610,13 +1639,6 @@ ioc_counts:
   url: 88
   user_agent: 6
 updates:
-  - at: "2026-07-16T12:29:40Z"
-    level: L2
-    summary: added CVE-2026-50305 +14
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/07/daxin-resurfaces-in-taiwan-alongside.html
   - at: "2026-07-16T13:26:12Z"
     level: L1
     summary: new IOCs
@@ -1645,6 +1667,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-58598
+  - at: "2026-07-17T02:00:55Z"
+    level: L2
+    summary: added CVE-2026-42900 +4
+    sources:
+      - isc-stormcast
+    source_urls:
+      - https://isc.sans.edu/podcastdetail/10012
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
