@@ -3,7 +3,7 @@ title: IBM Langflow OSS Remote Code Execution via Deserialization
 slug: 2026-07-ibm-langflow-rce
 description: IBM Langflow OSS versions 1.0.0 through 1.10.0 contain a critical deserialization vulnerability (CVE-2026-8476) in its disk-based caching mechanism, which uses Python's unsafe `pickle.loads()` function without proper validation, allowing attackers to process malicious pickle payloads and achieve arbitrary code execution with the privileges of the Langflow server process, leading to complete system compromise.
 date: "2026-07-17T20:20:29Z"
-lastmod: "2026-07-17T20:21:47Z"
+lastmod: "2026-07-17T20:23:41Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,7 @@ tags:
   - rce
   - authentication-bypass
   - critical-vulnerability
+  - ibm
 vendors:
   - IBM
 products:
@@ -33,6 +34,7 @@ products:
   - Langflow OSS 1.9.0
   - Langflow OSS 1.10.0
   - Langflow OSS 1.0.0 through 1.10.0
+  - Langflow OSS 1.10.1
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -62,11 +64,27 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8481
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8505
   - https://www.ibm.com/support/pages/node/7278921
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-13448
+  - https://www.ibm.com/support/pages/node/7279997
 iocs:
   - type: url
     value: https://www.ibm.com/support/pages/node/7278923
 ioc_counts:
   url: 1
+rules:
+  - title: Detects CVE-2026-13448 Exploitation Attempt - IBM Langflow OSS RCE
+    description: Detects CVE-2026-13448 exploitation attempts targeting the public flow build endpoint in IBM Langflow OSS for unauthenticated remote code execution.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1059
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 updates:
   - at: "2026-07-17T20:20:57Z"
     level: L2
@@ -82,6 +100,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-8505
+  - at: "2026-07-17T20:23:41Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-13448 Exploitation Attempt - IBM Langflow OSS RCE'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-13448
 ---
 
 IBM Langflow OSS, specifically versions 1.0.0 through 1.10.0, is affected by a critical remote code execution vulnerability, identified as CVE-2026-8476. The flaw resides within the `AsyncDiskCache` class, which is part of the application's disk-based caching mechanism. This class insecurely employs Python's `pickle.loads()` function to deserialize cached objects without implementing validation, integrity verification, or authentication measures. This critical oversight allows an attacker to inject and process specially crafted malicious pickle payloads. By influencing cached data through various methods, such as direct file system access, malicious workflow inputs, custom components, or API manipulation, threat actors can trigger arbitrary code execution. Successful exploitation results in complete system compromise with the privileges of the Langflow server process.
