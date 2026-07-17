@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-17T02:00:55Z"
+lastmod: "2026-07-17T04:58:20Z"
 type: advisory
 types:
   - advisory
@@ -638,6 +638,18 @@ cves:
   - id: CVE-2026-56176
     cvss: 7.8
     epss: 0.00245
+  - id: CVE-2026-50440
+    cvss: 7.8
+    epss: 0.00188
+  - id: CVE-2026-50414
+    cvss: 7.5
+    epss: 0.00474
+  - id: CVE-2026-50435
+    cvss: 7.8
+    epss: 0.00245
+  - id: CVE-2026-50667
+    cvss: 7.8
+    epss: 0.02156
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1250,6 +1262,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59117
   - https://nvd.nist.gov/vuln/detail/CVE-2026-58598
   - https://isc.sans.edu/podcastdetail/10012
+  - https://www.reddit.com/r/blueteamsec/comments/1uypwfp/there_and_back_again_an_operators_guide_on_ntlm/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1639,13 +1652,6 @@ ioc_counts:
   url: 88
   user_agent: 6
 updates:
-  - at: "2026-07-16T13:26:12Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/07/new-telepuz-malware-spreads-via.html
   - at: "2026-07-16T13:57:50Z"
     level: L2
     summary: added CVE-2026-50305 +24
@@ -1674,6 +1680,13 @@ updates:
       - isc-stormcast
     source_urls:
       - https://isc.sans.edu/podcastdetail/10012
+  - at: "2026-07-17T04:58:20Z"
+    level: L2
+    summary: added CVE-2026-50414 +3
+    sources:
+      - reddit-blueteamsec
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1uypwfp/there_and_back_again_an_operators_guide_on_ntlm/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
