@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-17T13:51:28Z"
+lastmod: "2026-07-17T13:59:38Z"
 type: advisory
 types:
   - advisory
@@ -507,6 +507,7 @@ products:
   - SharePoint Server 2019 (< 16.0.10417.20175)
   - SharePoint Server Subscription Edition (< 16.0.19725.20434)
   - Remote Desktop Web Client (< 2.1.65.2)
+  - Azure Kubernetes Service
 affected_os:
   - Windows
   - macOS
@@ -761,6 +762,18 @@ cves:
   - id: CVE-2026-47305
     cvss: 7.8
     epss: 0.00343
+  - id: CVE-2026-58288
+    cvss: 8.3
+    epss: 0.00438
+  - id: CVE-2026-55041
+    cvss: 7.8
+    epss: 0.0031
+  - id: CVE-2026-55145
+    cvss: 6.3
+    epss: 0.0037
+  - id: CVE-2026-56188
+    cvss: 9.8
+    epss: 0.00998
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1381,6 +1394,7 @@ references:
   - https://sploitus.com/exploit?id=0136FBFD-5983-5F81-959C-30B22846A9AA&utm_source=rss&utm_medium=rss
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_ropc_unknown_client_id.toml
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0896/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_kubelet_proxy_command_endpoint.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1784,13 +1798,6 @@ ioc_counts:
   url: 94
   user_agent: 6
 updates:
-  - at: "2026-07-17T12:58:19Z"
-    level: L2
-    summary: added CVE-2026-49178 +4
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_vm_extension_unusual_for_host.toml
   - at: "2026-07-17T13:02:09Z"
     level: L2
     summary: poc_available; added CVE-2026-49808 +4
@@ -1819,6 +1826,13 @@ updates:
       - anssi
     source_urls:
       - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0896/
+  - at: "2026-07-17T13:59:38Z"
+    level: L2
+    summary: added CVE-2026-55041 +3
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_kubelet_proxy_command_endpoint.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
