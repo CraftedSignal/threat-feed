@@ -1,8 +1,8 @@
 ---
-title: OpenClaw Authorization Bypass Vulnerability
+title: CVE-2026-62223 OpenClaw Authorization Bypass Vulnerability
 slug: 2026-07-openclaw-auth-bypass
-description: A vulnerability, identified as CVE-2026-62219, in OpenClaw versions 2026.2.12 before 2026.5.26 allows a lower-trust caller to bypass agent ID restrictions by submitting blank agent IDs during the `hooks.allowedAgentIds` validation, leading to unauthorized actions and effective privilege escalation.
-date: "2026-07-17T02:29:14Z"
+description: OpenClaw versions prior to 2026.5.18 are vulnerable to an authorization bypass (CVE-2026-62223) within its device-pair approval feature, allowing lower-trust callers to execute actions beyond their intended permissions by exploiting misconfigured input paths, leading to unauthorized actions or persistence if the feature is enabled and reachable.
+date: "2026-07-17T02:31:11Z"
 type: advisory
 types:
   - advisory
@@ -11,44 +11,51 @@ severities:
 tags:
   - authorization-bypass
   - vulnerability
+  - openclaw
   - cve
-  - privilege-escalation
 vendors:
   - OpenClaw
 products:
-  - OpenClaw (before 2026.5.26)
+  - OpenClaw (< 2026.5.18)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-    evidence: A lower-trust caller or configured input path can bypass agent ID restrictions by submitting blank agent IDs, allowing actions that should require stronger authorization or policy checks.
+    evidence: allows lower-trust callers to execute actions beyond their intended authorization
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1547
+    technique_name: Boot or Logon Autostart Execution
+    evidence: Attackers can exploit misconfigured input paths to execute or persist unauthorized actions
     confidence_band: high
 cves:
-  - id: CVE-2026-62219
-    cvss: 7.1
+  - id: CVE-2026-62223
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62219
-  - https://github.com/openclaw/openclaw/security/advisories/GHSA-724r-v4wf-mqc5
-  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-blank-agent-ids
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62223
+  - https://github.com/openclaw/openclaw/security/advisories/GHSA-hx85-fgcw-9vrc
+  - https://www.vulncheck.com/advisories/openclaw-authorization-bypass-via-device-pair
 ---
 
-A critical authorization bypass vulnerability, tracked as CVE-2026-62219, has been discovered in OpenClaw versions 2026.2.12 through 2026.5.25. This flaw resides within the `hooks.allowedAgentIds` validation mechanism. A malicious actor, operating with lower trust or through a configured input path, can circumvent existing agent ID restrictions by supplying blank agent IDs. This bypass enables the actor to execute actions that should ordinarily demand a higher level of authorization or adhere to stricter policy controls. This vulnerability directly impacts the security integrity of OpenClaw deployments and could lead to unauthorized access to sensitive functions or data.
+A critical authorization bypass vulnerability, identified as CVE-2026-62223, affects OpenClaw software versions prior to 2026.5.18. This flaw resides within the application's device-pair approval feature, enabling attackers with lower trust privileges to execute actions that should be restricted. By exploiting misconfigured input paths when the device-pair approval feature is active and accessible, malicious actors can circumvent intended security controls. This vulnerability allows for the execution of unauthorized actions or the establishment of persistence mechanisms within the compromised system, posing a significant risk to the integrity and confidentiality of data. Organizations using affected OpenClaw versions are urged to update immediately to mitigate potential exploitation.
 
 ## Attack Chain
 
-1. **Vulnerable Component Identification**: An attacker identifies an OpenClaw instance running an affected version (2026.2.12 before 2026.5.26) that relies on the `hooks.allowedAgentIds` validation for authorization.
-2. **Access as Lower-Trust User**: The attacker gains initial access or already possesses credentials as a user with lower authorization within the OpenClaw application.
-3. **Request Crafting with Blank Agent ID**: The attacker crafts a specific request or input, targeting functionality protected by `allowedAgentIds` validation, and intentionally includes blank agent IDs in the request.
-4. **Authorization Bypass**: The vulnerable OpenClaw application's `hooks.allowedAgentIds` validation component fails to correctly process or reject these blank agent IDs, thus bypassing the intended agent ID restrictions.
-5. **Unauthorized Action Execution**: The application proceeds to execute the requested action, treating the blank agent ID as valid or unrestricted, thereby circumventing established security policies and authorization checks.
-6. **Privilege Escalation/Access**: The attacker successfully performs actions or accesses resources that should have been strictly limited to higher-privileged users or specific, validated agent IDs, resulting in an effective privilege escalation.
+1. Attacker identifies a vulnerable OpenClaw instance running a version prior to 2026.5.18.
+2. The attacker confirms that the "device-pair approval" feature is enabled and reachable on the target OpenClaw deployment.
+3. A specialized request is crafted by the attacker, targeting known or inferred "misconfigured input paths" within the device-pair approval feature.
+4. The crafted request bypasses the authorization checks implemented in OpenClaw, due to the presence of CVE-2026-62223.
+5. OpenClaw processes the attacker's request, granting the attacker the ability to execute actions normally reserved for higher-privileged users or processes.
+6. The attacker leverages this unauthorized access to perform privileged actions, such as gaining access to sensitive data or modifying system configurations.
+7. The attacker may establish "persistence" on the system through their newly acquired unauthorized capabilities to maintain access.
 
 ## Impact
 
-The successful exploitation of CVE-2026-62219 allows an attacker to perform unauthorized actions within the OpenClaw application that should typically be restricted to users with stronger authorization. This can lead to privilege escalation, enabling the attacker to gain access to sensitive data, modify critical configurations, or execute administrative functions without proper permission. The exact scope of impact depends on the specific functionalities protected by the `allowedAgentIds` validation, but any such functionality could be compromised. Organizations using vulnerable OpenClaw versions face a significant risk of data breaches, system integrity compromise, and unauthorized operational control.
+Successful exploitation of CVE-2026-62223 can lead to severe consequences for organizations utilizing OpenClaw. Attackers gaining unauthorized access can execute actions beyond their legitimate permissions, potentially leading to data breaches, system compromise, or service disruption. The CVSS 3.1 base score of 8.8 (High) indicates a high impact on confidentiality, integrity, and availability. While specific victim counts or targeted sectors are not detailed, any organization running affected OpenClaw versions with the vulnerable feature enabled is at risk of significant operational and security damage.
 
 ## Recommendation
 
-* Patch CVE-2026-62219 by upgrading OpenClaw to version 2026.5.26 or later immediately.
-* Review application logs for any instances of requests containing blank agent IDs, especially for actions requiring elevated privileges, as this could indicate attempted or successful exploitation of CVE-2026-62219.
+* Patch CVE-2026-62223 immediately by upgrading OpenClaw to version 2026.5.18 or later. Refer to the GitHub and VulnCheck advisories in the references.
+* Review and secure configurations of OpenClaw's device-pair approval feature to ensure all input paths are correctly configured and authorization checks are robust.
