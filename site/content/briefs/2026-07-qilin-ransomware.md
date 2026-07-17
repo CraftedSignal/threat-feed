@@ -3,6 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
+lastmod: "2026-07-17T15:08:04Z"
 type: threat
 types:
   - threat
@@ -18,6 +19,18 @@ tags:
   - golang
   - agriculture
   - food-production
+vendors:
+  - Acosol
+  - VMware
+  - Carbon Black
+products:
+  - www.acosol.es
+  - vCenter
+  - ESXi
+  - Cloud Sensor AV
+affected_os:
+  - Windows
+  - Unix
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -234,11 +247,15 @@ iocs:
     value: 31.41.244.100
   - type: ip
     value: 85.209.11.49
+  - type: domain
+    value: www.acosol.es
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=06db273a-dad1-49d1-98ea-f59c947de0b6
 ioc_counts:
-  domain: 5
+  domain: 6
   hash_md5: 54
   ip: 5
-  url: 1
+  url: 2
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -265,6 +282,14 @@ rules:
       - network_connection
       - windows
 rules_count: 2
+updates:
+  - at: "2026-07-17T15:08:04Z"
+    level: L1
+    summary: OS windows; OS unix
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
 ---
 
 The Qilin ransomware group, a highly active threat actor first observed in July 2022, continues its double extortion operations, with a recent claim against Danone (International Delights), a US-based company in the Agriculture and Food Production sector. Qilin ransomware is written in Golang, offering multiple encryption modes controlled by the operators, and its campaigns typically involve both data encryption and the threat of public release of stolen sensitive information if a ransom is not paid. The group has accumulated over 2000 victims across various industries, including manufacturing, business services, technology, and healthcare, primarily targeting entities in the United States. This ongoing activity highlights Qilin's persistent threat to critical infrastructure and diverse commercial enterprises globally.
