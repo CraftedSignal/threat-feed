@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-17T13:02:09Z"
+lastmod: "2026-07-17T13:02:35Z"
 type: advisory
 types:
   - advisory
@@ -62,6 +62,7 @@ cpes:
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=0136FBFD-5983-5F81-959C-30B22846A9AA&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -498,6 +499,7 @@ products:
   - Azure Virtual Machines
   - Azure VM Scale Sets
   - Windows 11 (<= build 26200.8737)
+  - Windows 11 (Insider build 10.0.28020.2149)
 affected_os:
   - Windows
   - macOS
@@ -719,6 +721,15 @@ cves:
   - id: CVE-2026-50452
     cvss: 7
     epss: 0.00255
+  - id: CVE-2026-50429
+    cvss: 8.2
+    epss: 0.00785
+  - id: CVE-2026-50650
+    cvss: 7.8
+    epss: 0.00285
+  - id: CVE-2026-58531
+    cvss: 7.5
+    epss: 0.00503
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1336,6 +1347,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/short_lived_scheduled_task.yml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_vm_extension_unusual_for_host.toml
   - https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=0136FBFD-5983-5F81-959C-30B22846A9AA&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1703,6 +1715,8 @@ iocs:
     value: https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33
   - type: domain
     value: sploitus.com
+  - type: url
+    value: https://sploitus.com/exploit?id=0136FBFD-5983-5F81-959C-30B22846A9AA
 ioc_counts:
   application_id: 1
   asn: 3
@@ -1726,16 +1740,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 89
+  url: 90
   user_agent: 6
 updates:
-  - at: "2026-07-17T04:58:20Z"
-    level: L2
-    summary: added CVE-2026-50414 +3
-    sources:
-      - reddit-blueteamsec
-    source_urls:
-      - https://www.reddit.com/r/blueteamsec/comments/1uypwfp/there_and_back_again_an_operators_guide_on_ntlm/
   - at: "2026-07-17T10:43:37Z"
     level: L2
     summary: added CVE-2026-50381 +4
@@ -1764,6 +1771,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=2CC212A7-032B-5922-B8BE-86F87D50EA33&utm_source=rss&utm_medium=rss
+  - at: "2026-07-17T13:02:35Z"
+    level: L2
+    summary: added CVE-2026-50429 +2
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=0136FBFD-5983-5F81-959C-30B22846A9AA&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
