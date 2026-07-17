@@ -3,7 +3,7 @@ title: IBM Langflow OSS Remote Code Execution via Deserialization
 slug: 2026-07-ibm-langflow-rce
 description: IBM Langflow OSS versions 1.0.0 through 1.10.0 contain a critical deserialization vulnerability (CVE-2026-8476) in its disk-based caching mechanism, which uses Python's unsafe `pickle.loads()` function without proper validation, allowing attackers to process malicious pickle payloads and achieve arbitrary code execution with the privileges of the Langflow server process, leading to complete system compromise.
 date: "2026-07-17T20:20:29Z"
-lastmod: "2026-07-17T20:30:22Z"
+lastmod: "2026-07-17T20:30:36Z"
 type: advisory
 types:
   - advisory
@@ -71,6 +71,8 @@ cves:
     cvss: 8.1
   - id: CVE-2026-7667
     cvss: 8.8
+  - id: CVE-2026-7872
+    cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8476
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8481
@@ -81,6 +83,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7667
   - https://www.ibm.com/support/pages/node/7278931
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7755
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7872
 iocs:
   - type: url
     value: https://www.ibm.com/support/pages/node/7278923
@@ -101,13 +104,6 @@ rules:
       - webserver
 rules_count: 1
 updates:
-  - at: "2026-07-17T20:20:57Z"
-    level: L2
-    summary: added CVE-2026-8481
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-8481
   - at: "2026-07-17T20:21:47Z"
     level: L2
     summary: 'merged source coverage: IBM Langflow OSS Webhook Authentication Bypass Leads to Remote Code Execution'
@@ -136,6 +132,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-7755
+  - at: "2026-07-17T20:30:36Z"
+    level: L2
+    summary: added CVE-2026-7872
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-7872
 ---
 
 IBM Langflow OSS, specifically versions 1.0.0 through 1.10.0, is affected by a critical remote code execution vulnerability, identified as CVE-2026-8476. The flaw resides within the `AsyncDiskCache` class, which is part of the application's disk-based caching mechanism. This class insecurely employs Python's `pickle.loads()` function to deserialize cached objects without implementing validation, integrity verification, or authentication measures. This critical oversight allows an attacker to inject and process specially crafted malicious pickle payloads. By influencing cached data through various methods, such as direct file system access, malicious workflow inputs, custom components, or API manipulation, threat actors can trigger arbitrary code execution. Successful exploitation results in complete system compromise with the privileges of the Langflow server process.
