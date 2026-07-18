@@ -3,6 +3,7 @@ title: Shibby Tomato Router Firmware Out-of-Bounds Write Vulnerability (CVE-2026
 slug: 2026-07-shibby-tomato-oob-write
 description: A remote out-of-bounds write vulnerability, CVE-2026-16095, affects Shibby Tomato firmware version 1.28 RT-N5x MIPSR2 Build 124, where manipulating the `ct_tcp_timeout` argument in the `setup_conntrack` function of `/sbin/rc` can lead to memory corruption, potentially allowing arbitrary code execution or denial of service.
 date: "2026-07-18T11:17:55Z"
+lastmod: "2026-07-18T12:18:06Z"
 type: advisory
 types:
   - advisory
@@ -40,6 +41,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-16095
     cvss: 8.8
+  - id: CVE-2026-16096
+    cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-16095
   - https://gitee.com/Fengyi-Wang/CVE/issues/IJTQ5S
@@ -47,6 +50,15 @@ references:
   - https://vuldb.com/submit/855123
   - https://vuldb.com/vuln/379799
   - https://vuldb.com/vuln/379799/cti
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-16096
+updates:
+  - at: "2026-07-18T12:18:06Z"
+    level: L2
+    summary: added CVE-2026-16096
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-16096
 ---
 
 A critical out-of-bounds write vulnerability, identified as CVE-2026-16095, has been discovered in Shibby Tomato firmware version 1.28 RT-N5x MIPSR2 Build 124. This flaw resides within the `setup_conntrack` function of the `/sbin/rc` executable, which is responsible for connection tracking. Attackers can remotely exploit this vulnerability by manipulating the `ct_tcp_timeout` argument, leading to an out-of-bounds write. This memory corruption can result in system instability, denial of service, or potentially arbitrary code execution, granting an attacker full control over the affected router. The vulnerability is assigned a CVSS v3.1 base score of 8.8 (High) and affects a superseded project, as Shibby Tomato has been replaced by FreshTomato. Organizations still utilizing this legacy firmware version face significant risk.
