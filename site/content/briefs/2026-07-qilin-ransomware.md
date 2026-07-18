@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-07-17T17:12:39Z"
+lastmod: "2026-07-18T00:19:59Z"
 type: threat
 types:
   - threat
@@ -24,6 +24,8 @@ vendors:
   - VMware
   - Carbon Black
   - Toshiba
+  - Powder River Heating
+  - Martorani
 products:
   - www.acosol.es
   - vCenter
@@ -261,11 +263,19 @@ iocs:
     value: www.cafar.org.ar
   - type: url
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=534f0ef4-d3fb-4650-ae42-445c281986c6
+  - type: domain
+    value: www.powderriverheating.com
+  - type: domain
+    value: www.martorani.com
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=7e150d05-bd34-404d-8824-a10358840d67
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=cddad5ee-72f3-48fd-9310-4858484d5f59
 ioc_counts:
-  domain: 7
+  domain: 9
   hash_md5: 54
   ip: 5
-  url: 3
+  url: 5
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -303,6 +313,13 @@ updates:
   - at: "2026-07-17T17:12:39Z"
     level: L1
     summary: OS linux
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-07-18T00:19:59Z"
+    level: L1
+    summary: new IOCs
     sources:
       - ransomware-live
     source_urls:
