@@ -3,6 +3,7 @@ title: SQL Injection Vulnerability in SourceCodester Class and Exam Timetabling 
 slug: 2026-07-sql-injection-timetabling-system
 description: An unauthenticated remote attacker can exploit CVE-2026-16152, a SQL injection vulnerability in SourceCodester Class and Exam Timetabling System version 1.0, by manipulating the `ID` argument within the `/edit_rooma.php` file, potentially leading to unauthorized database access and data compromise, with a public exploit available.
 date: "2026-07-18T21:18:11Z"
+lastmod: "2026-07-18T21:18:35Z"
 type: advisory
 types:
   - advisory
@@ -32,6 +33,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-16152
     cvss: 7.3
+  - id: CVE-2026-16154
+    cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-16152
   - https://github.com/justconter/cve/issues/6
@@ -40,6 +43,7 @@ references:
   - https://vuldb.com/vuln/379918
   - https://vuldb.com/vuln/379918/cti
   - https://www.sourcecodester.com/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-16154
 rules:
   - title: Detects CVE-2026-16152 Exploitation - SQL Injection in /edit_rooma.php
     description: Detects exploitation attempts against CVE-2026-16152, a SQL injection vulnerability in SourceCodester Class and Exam Timetabling System 1.0, by monitoring HTTP requests for suspicious SQL metacharacters in the 'ID' parameter of the /edit_rooma.php endpoint.
@@ -53,6 +57,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-18T21:18:35Z"
+    level: L2
+    summary: added CVE-2026-16154
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-16154
 ---
 
 A high-severity SQL injection vulnerability, identified as CVE-2026-16152, has been discovered in SourceCodester Class and Exam Timetabling System version 1.0. This flaw allows an unauthenticated, remote attacker to execute arbitrary SQL commands by manipulating the `ID` argument within the `/edit_rooma.php` file. The vulnerability stems from improper neutralization of special elements used in SQL commands. The exploit for this vulnerability has been made public, significantly increasing the risk of widespread exploitation. Organizations using this system are at risk of unauthorized data access, modification, or deletion from the backend database, potentially leading to data breaches and integrity issues.
