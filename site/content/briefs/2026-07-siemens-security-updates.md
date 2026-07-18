@@ -3,12 +3,15 @@ title: Siemens Security Updates — July 2026
 slug: 2026-07-siemens-security-updates
 description: Roundup of Siemens security advisories published in July 2026.
 date: "2026-07-07T16:48:32Z"
-lastmod: "2026-07-16T16:10:50Z"
+lastmod: "2026-07-18T10:02:27Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=3C5CB3A8-939D-5A76-A4A2-D99026CB82D9&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -37,6 +40,7 @@ products:
   - CP-8010
   - CP-8012
   - SICAM S8000
+  - Simatic_S7-1500_Cpu_1518F-4_Pn/Dp_Mfp_Firmware
 cves:
   - id: CVE-2026-48192
     cvss: 5.4
@@ -58,11 +62,14 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-54429
   - https://cyber.gc.ca/en/alerts-advisories/control-systems-siemens-security-advisory-av26-689
   - https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-05
+  - https://sploitus.com/exploit?id=3C5CB3A8-939D-5A76-A4A2-D99026CB82D9&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://cert-portal.siemens.com/productcert/html/ssa-229470.html
+  - type: url
+    value: https://sploitus.com/exploit?id=3C5CB3A8-939D-5A76-A4A2-D99026CB82D9&utm_source=rss&utm_medium=rss
 ioc_counts:
-  url: 1
+  url: 2
 updates:
   - at: "2026-07-09T15:18:49Z"
     level: L2
@@ -92,6 +99,13 @@ updates:
       - cisa
     source_urls:
       - https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-05
+  - at: "2026-07-18T10:02:27Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=3C5CB3A8-939D-5A76-A4A2-D99026CB82D9&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Siemens security advisories for July 2026. CVEs from this cycle are folded
