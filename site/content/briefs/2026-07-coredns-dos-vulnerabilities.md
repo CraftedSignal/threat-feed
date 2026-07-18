@@ -3,6 +3,7 @@ title: 'CoreDNS: Multiple Vulnerabilities Enable Denial of Service'
 slug: 2026-07-coredns-dos-vulnerabilities
 description: Multiple vulnerabilities exist in CoreDNS that allow a remote, unauthenticated attacker to execute a Denial of Service (DoS) attack against the service, potentially leading to service disruption and unavailability for affected systems utilizing CoreDNS.
 date: "2026-07-17T06:09:21Z"
+lastmod: "2026-07-18T07:04:43Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - CoreDNS
 products:
   - CoreDNS
+  - proxyproto plugin
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -25,8 +27,21 @@ mitre_ttps:
     technique_name: Denial of Service
     evidence: Ein entfernter, anonymer Angreifer kann mehrere Schwachstellen in CoreDNS ausnutzen, um einen Denial of Service Angriff durchzuführen.
     confidence_band: high
+cves:
+  - id: CVE-2026-62309
+    cvss: 7.5
+    epss: 0.0035
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2271
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62309
+updates:
+  - at: "2026-07-18T07:04:43Z"
+    level: L2
+    summary: added CVE-2026-62309
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62309
 ---
 
 Recently disclosed by CERT-Bund, multiple vulnerabilities have been identified in CoreDNS, a widely used DNS server. These vulnerabilities can be exploited by a remote, unauthenticated attacker to initiate a Denial of Service (DoS) attack against affected CoreDNS instances. This threat is critical because CoreDNS is often deployed in foundational network infrastructure, including Kubernetes clusters, where its disruption can severely impact critical services and applications. The specifics of these vulnerabilities and their exploitation methods are not detailed in the public advisory, but their existence poses a significant risk to the availability and stability of DNS resolution within an organization's network. Organizations utilizing CoreDNS should prioritize patching to mitigate potential service outages.
