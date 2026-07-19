@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-07-19T09:12:45Z"
+lastmod: "2026-07-19T16:12:30Z"
 type: threat
 types:
   - threat
@@ -305,11 +305,19 @@ iocs:
     value: www.famesa.com.pe
   - type: url
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=319f4978-5d69-49df-a821-e9debceb58af
+  - type: domain
+    value: www.dontortaco.com
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=41fcdb99-7cf5-4296-9690-fc9938f213c0
+  - type: domain
+    value: www.associatedtheatrical.com
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=d5df444b-e533-4535-9797-08f40baf4f0b
 ioc_counts:
-  domain: 16
+  domain: 18
   hash_md5: 54
   ip: 5
-  url: 10
+  url: 12
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -337,13 +345,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-07-18T00:19:59Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-07-18T10:46:01Z"
     level: L1
     summary: OS esxi
@@ -366,6 +367,13 @@ updates:
     source_urls:
       - https://www.ransomware.live/group/qilin
   - at: "2026-07-19T09:12:45Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-07-19T16:12:30Z"
     level: L1
     summary: new IOCs
     sources:
