@@ -3,12 +3,16 @@ title: 'CVE-2026-63030: Critical Remote Code Execution Vulnerability in WordPres
 slug: 2026-07-wp2shell-rce-wordpress
 description: CVE-2026-63030 is a critical unauthenticated remote code execution vulnerability affecting WordPress Core versions 6.9.0 through 6.9.4 and 7.0.0 through 7.0.1, allowing an unauthenticated attacker to execute arbitrary code via the WordPress REST API batch endpoint, potentially leading to complete website compromise.
 date: "2026-07-17T22:47:35Z"
+lastmod: "2026-07-19T15:00:33Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=1BE287ED-2D37-54AE-B8E7-515C18143FB2&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - rce
@@ -24,6 +28,9 @@ products:
   - WordPress Core 6.9.4
   - WordPress Core 7.0.0
   - WordPress Core 7.0.1
+  - WordPress (6.8.0 – 6.8.5)
+  - WordPress (6.9.0 – 6.9.4)
+  - WordPress (7.0.0 – 7.0.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -39,7 +46,11 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-63030
-    cvss: 7.5
+    cvss: 9.8
+    epss: 0.08946
+  - id: CVE-2026-60137
+    cvss: 5.9
+    epss: 0.04026
 references:
   - https://www.rapid7.com/blog/post/etr-cve-2026-63030-wp2shell-a-critical-remote-code-execution-vulnerability-in-wordpress-core
   - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-ff9f-jf42-662q
@@ -47,6 +58,15 @@ references:
   - https://wordpress.org/news/2026/07/wordpress-7-0-2-release/
   - https://slcyber.io/research-center/wp2shell-pre-authentication-rce-in-wordpress-core/
   - https://blog.cloudflare.com/wordpress-vulnerabilities/
+  - https://sploitus.com/exploit?id=1BE287ED-2D37-54AE-B8E7-515C18143FB2&utm_source=rss&utm_medium=rss
+updates:
+  - at: "2026-07-19T15:00:33Z"
+    level: L2
+    summary: poc_available; added CVE-2026-60137
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=1BE287ED-2D37-54AE-B8E7-515C18143FB2&utm_source=rss&utm_medium=rss
 ---
 
 On July 17, 2026, a GitHub Security Advisory was published detailing CVE-2026-63030, a critical unauthenticated remote code execution vulnerability in WordPress Core. This flaw affects WordPress versions 6.9.0 through 6.9.4 and 7.0.0 through 7.0.1. The vulnerability allows an unauthenticated attacker to execute arbitrary code by exploiting the WordPress REST API batch endpoint, specifically when a persistent object cache is not in use. This could lead to a complete compromise of the website and its underlying data without requiring any valid account or user interaction. While the vulnerability has a CVSS score of 7.5, its unauthenticated nature and widespread deployment of WordPress elevate its criticality. The issue is fixed in WordPress 6.9.5 and 7.0.2. At the time of publication, no publicly confirmed in-the-wild exploitation has been observed, but given WordPress's open-source nature and the potential for AI analysis, public proof-of-concept exploits are highly anticipated.
