@@ -1,8 +1,8 @@
 ---
-title: Detection of DNS Queries to Suspicious Top-Level Domains
+title: DNS Request to Suspicious Top Level Domain
 slug: 2026-07-suspicious-tld-dns
-description: This rule detects DNS queries originating from Linux systems that target commonly abused top-level domains, which adversaries frequently leverage to establish command and control (C2) communications, exfiltrate sensitive data, or stage and deliver malicious payloads, indicating potential compromise or ongoing malicious activity.
-date: "2026-07-06T17:29:03Z"
+description: This threat brief details how Linux systems making DNS queries to commonly abused top-level domains may indicate malware-related command and control (C2) communications, data exfiltration, or payload downloads, often blending into normal name resolution, signaling a potential compromise of servers, workstations, or containerized workloads.
+date: "2026-07-20T13:14:03Z"
 type: advisory
 types:
   - advisory
@@ -12,7 +12,9 @@ tags:
   - command-and-control
   - exfiltration
   - linux
-  - dns
+  - endpoint
+  - network
+  - detection
 affected_os:
   - Linux
 mitre_ttps:
@@ -20,196 +22,193 @@ mitre_ttps:
     tactic_name: Command and Control
     technique_id: T1071
     technique_name: Application Layer Protocol
-    evidence: Malware authors may use these domains to host command and control infrastructure
+    evidence: This rule detects DNS queries to commonly abused top level domains. Malware authors may use these domains to host command and control infrastructure, exfiltrate data, or to download payloads for later execution.
     confidence_band: high
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1090
     technique_name: Proxy
-    evidence: Malware authors may use these domains to host command and control infrastructure
+    evidence: This rule detects DNS queries to commonly abused top level domains that malware authors may use to host command and control infrastructure, which can involve external proxy usage.
     confidence_band: med
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1102
     technique_name: Web Service
-    evidence: Malware authors may use these domains to host command and control infrastructure
-    confidence_band: med
+    evidence: Malware authors may use these domains to host command and control infrastructure, exfiltrate data, or to download payloads, often leveraging web services or dead drop resolvers.
+    confidence_band: high
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1102
     technique_name: Web Service
-    evidence: Malware authors may use these domains to host command and control infrastructure
-    confidence_band: med
+    evidence: Malware authors may use these domains to host command and control infrastructure, facilitating bidirectional communication.
+    confidence_band: high
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1568
     technique_name: Dynamic Resolution
-    evidence: Malware authors may use these domains to host command and control infrastructure
-    confidence_band: med
-  - tactic_id: TA0010
-    tactic_name: Exfiltration
-    technique_id: T1567
-    technique_name: Exfiltration Over Web Service
-    evidence: Malware authors may use these domains to ... exfiltrate data
+    evidence: This rule flags a Linux process making DNS lookups for top-level domains that threat actors frequently abuse, which can reveal command-and-control staging, payload retrieval, or data theft paths that blend into normal name resolution. A common pattern is a compromised Linux server or container resolving a .xyz, .top, or .ru domain immediately before a downloader, backdoor, or script beacon starts exchanging instructions or uploading collected data.
     confidence_band: high
   - tactic_id: TA0010
     tactic_name: Exfiltration
     technique_id: T1567
     technique_name: Exfiltration Over Web Service
-    evidence: Malware authors may use these domains to ... exfiltrate data
+    evidence: Malware authors may use these domains to host command and control infrastructure, exfiltrate data, or to download payloads for later execution.
     confidence_band: high
   - tactic_id: TA0010
     tactic_name: Exfiltration
     technique_id: T1567
     technique_name: Exfiltration Over Web Service
-    evidence: Malware authors may use these domains to ... exfiltrate data
+    evidence: Malware authors may use these domains to host command and control infrastructure, exfiltrate data, or to download payloads for later execution.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1567
+    technique_name: Exfiltration Over Web Service
+    evidence: Malware authors may use these domains to host command and control infrastructure, exfiltrate data, or to download payloads for later execution.
     confidence_band: high
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/linux/command_and_control_dns_query_to_sus_top_level_domain.toml
 iocs:
   - type: domain
-    value: .forum
+    value: '*.forum'
   - type: domain
-    value: .pro
+    value: '*.pro'
   - type: domain
-    value: .team
+    value: '*.team'
   - type: domain
-    value: .lol
+    value: '*.lol'
   - type: domain
-    value: .kr
+    value: '*.kr'
   - type: domain
-    value: .ke
+    value: '*.ke'
   - type: domain
-    value: .nu
+    value: '*.nu'
   - type: domain
-    value: .space
+    value: '*.space'
   - type: domain
-    value: .capital
+    value: '*.capital'
   - type: domain
-    value: .in
+    value: '*.in'
   - type: domain
-    value: .cfd
+    value: '*.cfd'
   - type: domain
-    value: .online
+    value: '*.online'
   - type: domain
-    value: .ru
+    value: '*.ru'
   - type: domain
-    value: .info
+    value: '*.info'
   - type: domain
-    value: .top
+    value: '*.top'
   - type: domain
-    value: .buzz
+    value: '*.buzz'
   - type: domain
-    value: .xyz
+    value: '*.xyz'
   - type: domain
-    value: .rest
+    value: '*.rest'
   - type: domain
-    value: .ml
+    value: '*.ml'
   - type: domain
-    value: .cf
+    value: '*.cf'
   - type: domain
-    value: .gq
+    value: '*.gq'
   - type: domain
-    value: .ga
+    value: '*.ga'
   - type: domain
-    value: .onion
+    value: '*.onion'
   - type: domain
-    value: .network
+    value: '*.network'
   - type: domain
-    value: .monster
+    value: '*.monster'
   - type: domain
-    value: .marketing
+    value: '*.marketing'
   - type: domain
-    value: .cyou
+    value: '*.cyou'
   - type: domain
-    value: .quest
+    value: '*.quest'
   - type: domain
-    value: .cc
+    value: '*.cc'
   - type: domain
-    value: .bar
+    value: '*.bar'
   - type: domain
-    value: .click
+    value: '*.click'
   - type: domain
-    value: .cam
+    value: '*.cam'
   - type: domain
-    value: .surf
+    value: '*.surf'
   - type: domain
-    value: .tk
+    value: '*.tk'
   - type: domain
-    value: .shop
+    value: '*.shop'
   - type: domain
-    value: .club
+    value: '*.club'
   - type: domain
-    value: .icu
+    value: '*.icu'
   - type: domain
-    value: .pw
+    value: '*.pw'
   - type: domain
-    value: .ws
+    value: '*.ws'
   - type: domain
-    value: .fun
+    value: '*.fun'
   - type: domain
-    value: .life
+    value: '*.life'
   - type: domain
-    value: .boats
+    value: '*.boats'
   - type: domain
-    value: .store
+    value: '*.store'
   - type: domain
-    value: .hair
+    value: '*.hair'
   - type: domain
-    value: .mom
+    value: '*.mom'
   - type: domain
-    value: .beauty
+    value: '*.beauty'
   - type: domain
-    value: .bond
+    value: '*.bond'
   - type: domain
-    value: .biz
+    value: '*.biz'
   - type: domain
-    value: .live
+    value: '*.live'
   - type: domain
-    value: .zone
+    value: '*.zone'
 ioc_counts:
   domain: 50
 rules:
   - title: DNS Request to Suspicious Top Level Domain
-    description: Detects DNS queries from Linux systems to commonly abused top-level domains used by malware for C2, exfiltration, or payload delivery.
+    description: Detects DNS queries originating from Linux systems to commonly abused top-level domains that malware authors frequently use for command and control (C2), data exfiltration, or payload delivery.
     platform: sigma
     severity: low
     tactics:
       - command_and_control
       - exfiltration
     techniques:
-      - T1071
       - T1071.004
-      - T1090
-      - T1090.002
-      - T1102
-      - T1102.001
-      - T1102.002
       - T1567
-      - T1567.001
-      - T1567.002
-      - T1567.003
-      - T1568
-      - T1568.002
     data_sources:
       - dns_query
       - linux
 rules_count: 1
 ---
 
-This brief details a detection rule from Elastic designed to identify suspicious DNS queries originating from Linux systems. The rule targets a broad list of top-level domains (TLDs) that are frequently abused by threat actors for various malicious purposes. These TLDs, such as .ru, .xyz, .top, .info, and many others, are common choices for hosting command and control (C2) infrastructure, facilitating data exfiltration, or serving as staging grounds for downloading additional malware payloads. The goal of this detection is to provide early warning of potential compromises or ongoing malicious activities by flagging communications with infrastructure known for its illicit use. Defenders can deploy this rule to monitor network traffic for anomalous outbound connections from Linux endpoints, thereby enhancing their ability to detect and respond to covert attacker communications.
+This brief focuses on the detection of suspicious DNS queries originating from Linux systems to Top Level Domains (TLDs) frequently exploited by malicious actors. These TLDs, such as `.xyz`, `.top`, `.ru`, and numerous others including `.onion`, are chosen by malware authors to host command and control (C2) infrastructure, facilitate data exfiltration, or serve as distribution points for additional malicious payloads. The presence of such DNS lookups can be a critical indicator of compromise on a Linux server, workstation, or containerized workload, revealing hidden malicious network activity that may otherwise blend into legitimate name resolution traffic. The pattern often observed is a compromised Linux host resolving one of these TLDs just before a downloader, backdoor, or script beacon initiates communication, exchanges instructions, or attempts to upload collected data. This activity, while not an initial access vector, is a strong signal of post-exploitation activity, highlighting the need for vigilance against such network behaviors.
 
 ## Attack Chain
 
-(No specific attack chain is documented in the source. This detection focuses on identifying post-compromise network behaviors rather than initial access or specific exploitation.)
+1. An attacker gains initial access to a Linux system through various means, such as exploiting a vulnerability, phishing, or compromised credentials.
+2. Malware is deployed and executed on the compromised Linux host, establishing a foothold within the environment.
+3. The malicious process initiates a DNS lookup to resolve a command and control (C2) server or data exfiltration endpoint.
+4. The DNS query targets a domain residing under a suspicious or commonly abused Top Level Domain (TLD), such as `malicious.xyz` or `beacon.ru`, attempting to blend with legitimate network traffic.
+5. The DNS request is resolved, providing the malware with the IP address of its C2 infrastructure or data drop point.
+6. The malware establishes an outbound connection to the resolved malicious IP address for data exfiltration, payload download, or receiving further commands.
+7. Data is exfiltrated from the compromised system, or additional malware components are downloaded and executed, furthering the attacker's objectives.
+8. The attacker maintains persistence and control over the compromised Linux system, continuing C2 communications through domains within suspicious TLDs.
 
 ## Impact
 
-Failure to detect and block DNS queries to suspicious TLDs can lead to significant consequences for an organization. If a compromised Linux system successfully establishes command and control (C2) with attacker infrastructure, it enables persistent access, further exploitation, data exfiltration, or the deployment of ransomware. The impact can range from data breaches and intellectual property theft to complete network disruption and financial losses. Early detection of such communication attempts is crucial to prevent the progression of an attack and mitigate potential damage, which could otherwise affect any system within the network communicating with these domains.
+The successful execution of an attack leveraging suspicious TLDs for C2 or data exfiltration can lead to significant impact, including unauthorized access to sensitive data, installation of further malicious software like ransomware, and establishment of persistent access for future exploitation. Compromised Linux servers or workstations could become part of a botnet, serve as launchpads for lateral movement, or be used to disrupt critical services. While this brief does not detail specific victim counts or sectors, the use of such TLDs is prevalent across various cybercrime and advanced persistent threat (APT) campaigns targeting any organization operating Linux environments. The primary damage is data breach, system compromise, and potential financial and reputational losses due to attacker control and malicious actions.
 
 ## Recommendation
 
-*   Deploy the provided Sigma rule to your SIEM and tune it for your Linux environment, prioritizing critical servers and workstations.
-*   Ensure DNS logging is enabled for all Linux endpoints, capturing `dns.question.name`, `host.os.type`, and `process.name` to activate the rule effectively.
-*   Consider implementing network egress filtering to restrict outbound DNS queries to only known, legitimate TLDs or internal DNS resolvers.
-*   Investigate all alerts generated by the "DNS Request to Suspicious Top Level Domain" rule by examining the source process and the full domain name for context.
+* Deploy the provided Sigma rule to your SIEM and tune for your environment to detect DNS queries to commonly abused TLDs on Linux systems.
+* Ensure DNS logging is enabled on all Linux endpoints and network devices to capture `dns.question.name` data, which is crucial for the rule to function.
+* Enrich the queried domain and any resolved IPs with passive DNS, registration age, reputation, ASN, or geolocation information to distinguish newly created or low-reputation infrastructure from known business services, as suggested in the "Investigating DNS Request to Suspicious Top Level Domain" guide.
+* Block the suspicious Top Level Domains (TLDs) listed in the IOC table at your network's DNS resolver and firewall controls to prevent connections to known malicious infrastructure.
+* Isolate any Linux host or container flagged by the "DNS Request to Suspicious Top Level Domain" rule from the network, except for approved management access, and immediately block associated suspicious domains and IP addresses.
