@@ -3,7 +3,7 @@ title: Pillow BdfFontFile Decompression Bomb Bypass Vulnerability
 slug: 2026-07-pillow-bdf-bomb-bypass
 description: A vulnerability (CVE-2026-55379) in Pillow's BdfFontFile component allows attackers to craft a malicious BDF font file with oversized BBX dimensions and an empty BITMAP section, bypassing documented decompression bomb protection and causing the Image.new() function to silently allocate large amounts of memory in the C-heap, leading to resource exhaustion and denial-of-service for applications processing untrusted BDF fonts.
 date: "2026-07-20T21:14:14Z"
-lastmod: "2026-07-20T23:09:59Z"
+lastmod: "2026-07-20T23:13:10Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,7 @@ tags:
   - integer-overflow
   - image-processing
   - python-library
+  - cve-2026-59199
 vendors:
   - Pillow
 products:
@@ -55,6 +56,7 @@ references:
   - https://github.com/advisories/GHSA-45hq-cxwh-f6vc
   - https://github.com/advisories/GHSA-phj9-mv4w-65pm
   - https://github.com/advisories/GHSA-xj96-63gp-2gmr
+  - https://github.com/advisories/GHSA-6r8x-57c9-28j4
 updates:
   - at: "2026-07-20T21:21:04Z"
     level: L1
@@ -70,6 +72,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-xj96-63gp-2gmr
+  - at: "2026-07-20T23:13:10Z"
+    level: L1
+    summary: 'merged source coverage: Pillow Heap Out-of-Bounds Write Vulnerability (CVE-2026-59199)'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6r8x-57c9-28j4
 ---
 
 The Pillow imaging library, a critical component in many Python applications, contains a denial-of-service vulnerability (CVE-2026-55379) in its `BdfFontFile` component, affecting versions prior to 12.3.0. This flaw allows an attacker to bypass Pillow's documented decompression bomb protection mechanism by crafting a malicious BDF font file. Specifically, when a BDF file defines a glyph with excessively large dimensions in its `BBX` field (e.g., `20000 20000`) but an empty `BITMAP` section, the `Image.frombytes()` call fails. The fallback `Image.new()` function then allocates a substantial amount of memory in the C-heap (e.g., 50 MB for a single glyph) without performing the necessary `_decompression_bomb_check()`. This silent, unbounded memory allocation, especially when combined with multiple such glyphs, can quickly exhaust system resources, leading to a denial-of-service condition for any application that processes untrusted BDF fonts.
