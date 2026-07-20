@@ -3,6 +3,7 @@ title: Pillow BdfFontFile Decompression Bomb Bypass Vulnerability
 slug: 2026-07-pillow-bdf-bomb-bypass
 description: A vulnerability (CVE-2026-55379) in Pillow's BdfFontFile component allows attackers to craft a malicious BDF font file with oversized BBX dimensions and an empty BITMAP section, bypassing documented decompression bomb protection and causing the Image.new() function to silently allocate large amounts of memory in the C-heap, leading to resource exhaustion and denial-of-service for applications processing untrusted BDF fonts.
 date: "2026-07-20T21:14:14Z"
+lastmod: "2026-07-20T21:21:04Z"
 type: advisory
 types:
   - advisory
@@ -30,12 +31,33 @@ mitre_ttps:
     technique_name: Denial of Service
     evidence: A BDF glyph with BBX 20000 20000 and an empty BITMAP section causes Image.new('1', (20000, 20000)) to allocate 50 MB of C-heap silently.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Any public endpoint accepting image uploads is affected
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: a single 1,037-byte malicious `.gd` file causes the host process to attempt a ~4.3 GB C-heap allocation. On systems with insufficient memory this crashes the process. Repeatable — attacker can loop requests to keep the server down.
+    confidence_band: high
 cves:
   - id: CVE-2026-55379
     cvss: 7.5
     epss: 0.00364
 references:
   - https://github.com/advisories/GHSA-45hq-cxwh-f6vc
+  - https://github.com/advisories/GHSA-phj9-mv4w-65pm
+updates:
+  - at: "2026-07-20T21:21:04Z"
+    level: L1
+    summary: 'merged source coverage: Pillow GdImageFile Decompression Bomb Bypass Leads to Denial of Service'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-phj9-mv4w-65pm
 ---
 
 The Pillow imaging library, a critical component in many Python applications, contains a denial-of-service vulnerability (CVE-2026-55379) in its `BdfFontFile` component, affecting versions prior to 12.3.0. This flaw allows an attacker to bypass Pillow's documented decompression bomb protection mechanism by crafting a malicious BDF font file. Specifically, when a BDF file defines a glyph with excessively large dimensions in its `BBX` field (e.g., `20000 20000`) but an empty `BITMAP` section, the `Image.frombytes()` call fails. The fallback `Image.new()` function then allocates a substantial amount of memory in the C-heap (e.g., 50 MB for a single glyph) without performing the necessary `_decompression_bomb_check()`. This silent, unbounded memory allocation, especially when combined with multiple such glyphs, can quickly exhaust system resources, leading to a denial-of-service condition for any application that processes untrusted BDF fonts.
