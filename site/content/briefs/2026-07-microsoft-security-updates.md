@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-20T09:10:44Z"
+lastmod: "2026-07-20T10:00:30Z"
 type: advisory
 types:
   - advisory
@@ -70,6 +70,9 @@ cpes:
   - cpe:2.3:a:microsoft:365_copilot:-:*:*:*:*:iphone_os:*:*
   - cpe:2.3:a:microsoft:office_2021:*:*:*:*:ltsc:macos:-:*
   - cpe:2.3:a:microsoft:office_2024:*:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - roundup
 vendors:
@@ -127,6 +130,7 @@ vendors:
   - Signal
   - F5
   - 7-Zip Project
+  - 7-Zip
 products:
   - PowerShell
   - Windows
@@ -516,6 +520,7 @@ products:
   - f2fs
   - Windows Backup Service
   - Windows Remote Desktop Web Client
+  - 7-Zip < 26.02
 affected_os:
   - Windows
   - macOS
@@ -839,6 +844,18 @@ cves:
   - id: CVE-2026-58277
     cvss: 8.8
     epss: 0.0074
+  - id: CVE-2026-57993
+    cvss: 7.4
+    epss: 0.00603
+  - id: CVE-2026-54886
+    cvss: 4.3
+    epss: 0.0033
+  - id: CVE-2026-50392
+    cvss: 7
+    epss: 0.00225
+  - id: CVE-2026-57090
+    cvss: 8.8
+    epss: 0.00812
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1465,6 +1482,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_illicit_consent_grant_via_registered_application.toml
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-63818
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2401
+  - https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1868,13 +1886,6 @@ ioc_counts:
   url: 94
   user_agent: 6
 updates:
-  - at: "2026-07-17T13:59:58Z"
-    level: L2
-    summary: azure kubernetes service version AKS
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/lateral_movement_azure_aks_api_server_proxy_to_kubelet.toml
   - at: "2026-07-17T14:33:46Z"
     level: L2
     summary: added CVE-2026-33117 +85
@@ -1903,6 +1914,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2401
+  - at: "2026-07-20T10:00:30Z"
+    level: L2
+    summary: poc_available; added CVE-2026-50392 +3
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
