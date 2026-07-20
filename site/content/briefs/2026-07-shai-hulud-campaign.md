@@ -3,7 +3,7 @@ title: Shai-Hulud Campaign Activity
 slug: 2026-07-shai-hulud-campaign
 description: Tracking brief for the Shai-Hulud campaign; individual sightings are folded in as reported.
 date: "2026-07-09T13:04:28Z"
-lastmod: "2026-07-15T09:41:39Z"
+lastmod: "2026-07-20T13:12:56Z"
 type: advisory
 types:
   - advisory
@@ -65,6 +65,7 @@ products:
   - Firefox
   - Edge
   - macOS Keychain
+  - GitHub
 affected_os:
   - Windows
   - macOS
@@ -73,6 +74,7 @@ references:
   - https://thehackernews.com/2026/07/compromised-jscrambler-8140-npm-release.html
   - https://www.wiz.io/blog/m-red-team-asyncapi-supply-chain-compromise-via-github-actions
   - https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/impact_high_number_of_protected_branch_force_pushes_by_user.toml
 iocs:
   - type: package
     value: jscrambler@8.14.0
@@ -136,6 +138,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html
+  - at: "2026-07-20T13:12:56Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/impact_high_number_of_protected_branch_force_pushes_by_user.toml
 ---
 
 This brief tracks activity attributed to the Shai-Hulud campaign. Sightings and
