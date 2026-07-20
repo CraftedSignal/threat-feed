@@ -3,7 +3,7 @@ title: 'CVE-2026-63030: Critical Remote Code Execution Vulnerability in WordPres
 slug: 2026-07-wp2shell-rce-wordpress
 description: CVE-2026-63030 is a critical unauthenticated remote code execution vulnerability affecting WordPress Core versions 6.9.0 through 6.9.4 and 7.0.0 through 7.0.1, allowing an unauthenticated attacker to execute arbitrary code via the WordPress REST API batch endpoint, potentially leading to complete website compromise.
 date: "2026-07-17T22:47:35Z"
-lastmod: "2026-07-19T15:00:33Z"
+lastmod: "2026-07-20T05:22:22Z"
 type: threat
 types:
   - threat
@@ -31,6 +31,8 @@ products:
   - WordPress (6.8.0 – 6.8.5)
   - WordPress (6.9.0 – 6.9.4)
   - WordPress (7.0.0 – 7.0.1)
+  - WordPress (< 6.9.5)
+  - WordPress (< 7.0.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -59,6 +61,7 @@ references:
   - https://slcyber.io/research-center/wp2shell-pre-authentication-rce-in-wordpress-core/
   - https://blog.cloudflare.com/wordpress-vulnerabilities/
   - https://sploitus.com/exploit?id=1BE287ED-2D37-54AE-B8E7-515C18143FB2&utm_source=rss&utm_medium=rss
+  - https://www.securityweek.com/wp2shell-wordpress-vulnerabilities-exploited-in-the-wild/
 updates:
   - at: "2026-07-19T15:00:33Z"
     level: L2
@@ -67,6 +70,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=1BE287ED-2D37-54AE-B8E7-515C18143FB2&utm_source=rss&utm_medium=rss
+  - at: "2026-07-20T05:22:22Z"
+    level: L1
+    summary: new product
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/wp2shell-wordpress-vulnerabilities-exploited-in-the-wild/
 ---
 
 On July 17, 2026, a GitHub Security Advisory was published detailing CVE-2026-63030, a critical unauthenticated remote code execution vulnerability in WordPress Core. This flaw affects WordPress versions 6.9.0 through 6.9.4 and 7.0.0 through 7.0.1. The vulnerability allows an unauthenticated attacker to execute arbitrary code by exploiting the WordPress REST API batch endpoint, specifically when a persistent object cache is not in use. This could lead to a complete compromise of the website and its underlying data without requiring any valid account or user interaction. While the vulnerability has a CVSS score of 7.5, its unauthenticated nature and widespread deployment of WordPress elevate its criticality. The issue is fixed in WordPress 6.9.5 and 7.0.2. At the time of publication, no publicly confirmed in-the-wild exploitation has been observed, but given WordPress's open-source nature and the potential for AI analysis, public proof-of-concept exploits are highly anticipated.
