@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-20T10:40:04Z"
+lastmod: "2026-07-20T13:12:28Z"
 type: advisory
 types:
   - advisory
@@ -522,6 +522,7 @@ products:
   - Windows Remote Desktop Web Client
   - 7-Zip < 26.02
   - GitHub Enterprise Server
+  - Exchange ActiveSync
 affected_os:
   - Windows
   - macOS
@@ -869,6 +870,18 @@ cves:
   - id: CVE-2026-58626
     cvss: 8.8
     epss: 0.00852
+  - id: CVE-2026-58298
+    cvss: 7.2
+    epss: 0.0024
+  - id: CVE-2026-54997
+    cvss: 5.5
+    epss: 0.00306
+  - id: CVE-2026-54115
+    cvss: 7.8
+    epss: 0.00318
+  - id: CVE-2026-50680
+    cvss: 8.2
+    epss: 0.00359
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1497,6 +1510,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2401
   - https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2418
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_excessive_account_lockouts.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1900,13 +1914,6 @@ ioc_counts:
   url: 94
   user_agent: 6
 updates:
-  - at: "2026-07-17T14:34:05Z"
-    level: L2
-    summary: added CVE-2026-42982 +3
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_illicit_consent_grant_via_registered_application.toml
   - at: "2026-07-20T07:20:05Z"
     level: L2
     summary: added CVE-2026-48561 +3
@@ -1935,6 +1942,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2418
+  - at: "2026-07-20T13:12:28Z"
+    level: L2
+    summary: added CVE-2026-50680 +3
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_excessive_account_lockouts.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
