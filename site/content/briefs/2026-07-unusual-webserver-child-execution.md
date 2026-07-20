@@ -3,7 +3,7 @@ title: Unusual Child Process Execution by Web Servers on Linux
 slug: 2026-07-unusual-webserver-child-execution
 description: This detection rule identifies suspicious child process executions originating from web server processes on Linux systems, indicating that attackers may have exploited web application vulnerabilities such as command injection or remote file inclusion to establish persistence or execute malicious commands.
 date: "2026-07-20T11:50:58Z"
-lastmod: "2026-07-20T20:23:13Z"
+lastmod: "2026-07-20T20:24:38Z"
 type: advisory
 types:
   - advisory
@@ -48,6 +48,7 @@ vendors:
   - Dropwizard Community
   - Microsoft
   - GitHub
+  - Azure
 products:
   - Elastic Defend
   - Apache HTTP Server
@@ -93,6 +94,8 @@ products:
   - Kibana
   - Fleet
   - Elastic Cloud
+  - Elastic Stack (>= 9.3.0)
+  - Elastic General Purpose LLM v2
 affected_os:
   - Linux
   - Windows
@@ -134,6 +137,37 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/linux/privilege_escalation_potential_suid_sgid_exploitation.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/initial_access_exfiltration_new_usb_device_mounted.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_llm_triage.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_wget_activity_llm_triage.toml
+iocs:
+  - type: ip
+    value: 0.0.0.0
+  - type: ip
+    value: 169.254.169.254
+  - type: ip
+    value: 168.63.129.16
+  - type: domain
+    value: mcr.microsoft.com
+  - type: domain
+    value: acs-mirror.azureedge.net
+  - type: domain
+    value: packages.aks.azure.com
+  - type: domain
+    value: packages.microsoft.com
+  - type: domain
+    value: login.microsoftonline.com
+  - type: domain
+    value: management.azure.com
+  - type: domain
+    value: storage.googleapis.com
+  - type: domain
+    value: api.github.com
+  - type: domain
+    value: artifacts.elastic.co
+  - type: domain
+    value: download.elastic.co
+ioc_counts:
+  domain: 10
+  ip: 3
 rules:
   - title: Detect Unusual Child Execution by Web Server Process on Linux
     description: Detects web server processes spawning unusual child processes, which can indicate compromise through vulnerabilities like command injection or remote file inclusion, used for persistence or further execution.
@@ -197,6 +231,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_llm_triage.toml
+  - at: "2026-07-20T20:24:38Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_wget_activity_llm_triage.toml
 ---
 
 This brief describes a detection mechanism designed to identify unusual child process executions spawned by web server processes on Linux systems. Attackers frequently exploit vulnerabilities in internet-facing web applications, such as command injection, remote file inclusion, or deserialization flaws, to gain initial access and establish persistence. Once a web server (e.g., Apache, NGINX, or various application servers like those based on Python, Ruby, or Java) is compromised, attackers often leverage its privileges to launch atypical child processes. These child processes might include shells, script interpreters, downloaders like `curl` or `wget`, or archive utilities, which deviate significantly from the web server's normal operational behavior. Such activity serves as a strong indicator that the system has been compromised and is being used for further malicious actions like installing backdoors, exfiltrating data, or deploying additional tooling.
