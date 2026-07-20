@@ -3,6 +3,7 @@ title: Web Server Local File Inclusion Activity
 slug: 2026-07-web-server-local-file-inclusion
 description: This brief details how attackers exploit Local File Inclusion (LFI) vulnerabilities on web servers such as Nginx, Apache, IIS, and Traefik, by using directory traversal or direct sensitive file path requests to disclose system information, credentials, and configuration files, potentially leading to remote code execution and system compromise.
 date: "2026-07-20T13:06:27Z"
+lastmod: "2026-07-20T13:07:01Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
   - Apache Software Foundation
   - Microsoft
   - Traefik Labs
+  - Apache
 products:
   - Nginx
   - Apache HTTP Server
@@ -55,6 +57,12 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/discovery_web_server_local_file_inclusion_activity.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/discovery_web_server_remote_file_inclusion_activity.toml
+iocs:
+  - type: url
+    value: http://203.0.113.10/drop.txt
+ioc_counts:
+  url: 1
 rules:
   - title: Detect Web Server Local File Inclusion Activity
     description: Detects potential Local File Inclusion (LFI) attempts on web servers by identifying HTTP GET requests with directory traversal patterns, sensitive file paths, or protocol wrappers.
@@ -74,6 +82,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-20T13:07:01Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/discovery_web_server_remote_file_inclusion_activity.toml
 ---
 
 This brief details a common web server vulnerability, Local File Inclusion (LFI), which attackers exploit to access sensitive information or potentially achieve remote code execution. The Elastic detection rule, published in July 2026, identifies LFI activity by monitoring HTTP GET requests that use directory traversal techniques or directly target known sensitive file paths. These attempts often aim to retrieve critical system files like `/etc/passwd`, `/proc/self/environ`, or `wp-config.php`, and can involve various protocol wrappers such as `php://` or `data://`. Successful exploitation of LFI on web servers running Nginx, Apache, Apache Tomcat, IIS, or Traefik can lead to the exposure of credentials, configuration data, and system context, paving the way for further compromise including webshell deployment or full system takeover.
