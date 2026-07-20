@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-20T13:13:05Z"
+lastmod: "2026-07-20T13:59:06Z"
 type: advisory
 types:
   - advisory
@@ -109,6 +109,7 @@ products:
   - kube-controller-manager
   - Google OAuth
   - Apps Script
+  - Kubernetes API (TokenRequest)
 affected_os:
   - Windows
   - Linux
@@ -195,6 +196,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15899
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15901
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15902
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_service_account_token_created_via_tokenrequest.toml
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -243,13 +245,6 @@ ioc_counts:
   filename: 1
   url: 14
 updates:
-  - at: "2026-07-15T10:03:01Z"
-    level: L2
-    summary: poc_available; added CVE-2023-45866; OS android 4.2.2; OS android 9
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=D0DC4908-C0DC-539F-BC8B-A87CCD40BBFF&utm_source=rss&utm_medium=rss
   - at: "2026-07-15T14:39:49Z"
     level: L1
     summary: new IOCs
@@ -278,6 +273,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/google_workspace/initial_access_object_copied_to_external_drive_with_app_consent.toml
+  - at: "2026-07-20T13:59:06Z"
+    level: L2
+    summary: kubernetes api version TokenRequest
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_service_account_token_created_via_tokenrequest.toml
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
