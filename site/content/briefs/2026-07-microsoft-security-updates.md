@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-20T10:00:30Z"
+lastmod: "2026-07-20T10:40:04Z"
 type: advisory
 types:
   - advisory
@@ -521,6 +521,7 @@ products:
   - Windows Backup Service
   - Windows Remote Desktop Web Client
   - 7-Zip < 26.02
+  - GitHub Enterprise Server
 affected_os:
   - Windows
   - macOS
@@ -606,7 +607,7 @@ cves:
     epss: 0.00332
   - id: CVE-2026-55948
     cvss: 7.8
-    epss: 0.0031
+    epss: 0.00303
   - id: CVE-2026-56155
     cvss: 7.8
     epss: 0.00379
@@ -856,6 +857,18 @@ cves:
   - id: CVE-2026-57090
     cvss: 8.8
     epss: 0.00812
+  - id: CVE-2026-50302
+    cvss: 4.2
+    epss: 0.00236
+  - id: CVE-2026-50307
+    cvss: 7
+    epss: 0.002
+  - id: CVE-2026-55019
+    cvss: 4.6
+    epss: 0.00447
+  - id: CVE-2026-58626
+    cvss: 8.8
+    epss: 0.00852
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1483,6 +1496,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-63818
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2401
   - https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2418
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1886,13 +1900,6 @@ ioc_counts:
   url: 94
   user_agent: 6
 updates:
-  - at: "2026-07-17T14:33:46Z"
-    level: L2
-    summary: added CVE-2026-33117 +85
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_illicit_consent_grant_via_registered_application.toml
   - at: "2026-07-17T14:34:05Z"
     level: L2
     summary: added CVE-2026-42982 +3
@@ -1921,6 +1928,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html
+  - at: "2026-07-20T10:40:04Z"
+    level: L2
+    summary: added CVE-2026-50302 +3
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2418
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
