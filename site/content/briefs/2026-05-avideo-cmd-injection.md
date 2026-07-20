@@ -3,11 +3,14 @@ title: AVideo OS Command Injection via Unescaped m3u8 URL (CVE-2026-45578)
 slug: 2026-05-avideo-cmd-injection
 description: AVideo is vulnerable to OS command injection (CVE-2026-45578) in the `on_publish.php` file due to improper sanitization of the m3u8 URL, allowing attackers to execute arbitrary commands by injecting shell metacharacters.
 date: "2026-05-15T18:34:29Z"
+lastmod: "2026-07-20T22:21:43Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:wwbn:avideo:*:*:*:*:*:*:*:*
 tags:
   - command injection
   - avideo
@@ -16,17 +19,35 @@ vendors:
   - WWBN
 products:
   - AVideo
+  - AVideo < 29.0
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2026-45578
+    cvss: 8.8
+    epss: 0.00318
+  - id: CVE-2026-64625
+    cvss: 9.8
 references:
   - https://github.com/advisories/GHSA-xw67-cg5f-4m2r
   - CVE-2026-45578
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-64625
+iocs:
+  - type: url
+    value: https://github.com/WWBN/AVideo/security/advisories/GHSA-rc5x-vh5v-473f
+  - type: url
+    value: https://www.vulncheck.com/advisories/avideo-before-os-command-injection-via-execasync
+  - type: filename
+    value: on_publish.php
+ioc_counts:
+  filename: 1
+  url: 2
 rules:
   - title: Detect AVideo on_publish.php Command Injection Attempt
-    description: Detects CVE-2026-45578 exploitation - HTTP POST to /plugin/Live/on_publish.php with shell metacharacters in the name parameter indicating a command injection attempt.
+    description: Detects CVE-2026-45578 exploitation — HTTP POST to /plugin/Live/on_publish.php with shell metacharacters in the name parameter indicating a command injection attempt.
     platform: sigma
     severity: high
     tactics:
@@ -47,6 +68,14 @@ rules:
       - process_creation
       - linux
 rules_count: 2
+updates:
+  - at: "2026-07-20T22:21:43Z"
+    level: L2
+    summary: added CVE-2026-45578 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-64625
 ---
 
 AVideo, a video-sharing platform, is susceptible to a critical OS command injection vulnerability (CVE-2026-45578) within the `on_publish.php` file. The issue stems from constructing a command line for `execAsync()` by directly concatenating strings, single-quoting arguments without proper escaping using `escapeshellarg()`. This flaw, located in the YPTSocket notification branch of the Live plugin, enables a malicious actor to inject arbitrary commands by embedding a single quote (`'`) within the `$m3u8` URL or other command parameters. Successful exploitation allows the attacker to execute arbitrary OS commands with the privileges of the web server runtime user. This vulnerability affects AVideo versions up to and including 29.0. The lack of input sanitization and direct web accessibility to `on_publish.php` are key factors enabling this attack.
