@@ -3,7 +3,7 @@ title: Unusual Child Process Execution by Web Servers on Linux
 slug: 2026-07-unusual-webserver-child-execution
 description: This detection rule identifies suspicious child process executions originating from web server processes on Linux systems, indicating that attackers may have exploited web application vulnerabilities such as command injection or remote file inclusion to establish persistence or execute malicious commands.
 date: "2026-07-20T11:50:58Z"
-lastmod: "2026-07-20T13:07:12Z"
+lastmod: "2026-07-20T20:23:13Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +46,8 @@ vendors:
   - Micronaut Foundation
   - Vert.x Community
   - Dropwizard Community
+  - Microsoft
+  - GitHub
 products:
   - Elastic Defend
   - Apache HTTP Server
@@ -90,6 +92,7 @@ products:
   - Elastic Agent
   - Kibana
   - Fleet
+  - Elastic Cloud
 affected_os:
   - Linux
   - Windows
@@ -130,6 +133,7 @@ references:
   - https://attack.mitre.org/techniques/T1548/
   - https://github.com/elastic/detection-rules/blob/main/rules/linux/privilege_escalation_potential_suid_sgid_exploitation.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/initial_access_exfiltration_new_usb_device_mounted.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_llm_triage.toml
 rules:
   - title: Detect Unusual Child Execution by Web Server Process on Linux
     description: Detects web server processes spawning unusual child processes, which can indicate compromise through vulnerabilities like command injection or remote file inclusion, used for persistence or further execution.
@@ -186,6 +190,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/initial_access_exfiltration_new_usb_device_mounted.toml
+  - at: "2026-07-20T20:23:13Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_llm_triage.toml
 ---
 
 This brief describes a detection mechanism designed to identify unusual child process executions spawned by web server processes on Linux systems. Attackers frequently exploit vulnerabilities in internet-facing web applications, such as command injection, remote file inclusion, or deserialization flaws, to gain initial access and establish persistence. Once a web server (e.g., Apache, NGINX, or various application servers like those based on Python, Ruby, or Java) is compromised, attackers often leverage its privileges to launch atypical child processes. These child processes might include shells, script interpreters, downloaders like `curl` or `wget`, or archive utilities, which deviate significantly from the web server's normal operational behavior. Such activity serves as a strong indicator that the system has been compromised and is being used for further malicious actions like installing backdoors, exfiltrating data, or deploying additional tooling.
