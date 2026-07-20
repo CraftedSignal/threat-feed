@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-17T15:11:50Z"
+lastmod: "2026-07-20T19:21:02Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,46 @@ cpes:
   - cpe:2.3:a:adobe:c2pa:*:*:*:*:*:rust:*:*
   - cpe:2.3:a:adobe:c2pa-web:*:*:*:*:*:node.js:*:*
   - cpe:2.3:a:adobe:c2patool:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:-:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p1:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p10:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p11:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p12:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p13:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p14:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p15:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p16:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p17:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p18:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p2:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p3:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p4:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p5:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p6:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p7:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p8:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.4:p9:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:commerce:2.4.5:-:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:-:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update1:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update10:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update11:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update12:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update13:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update14:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update15:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update16:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update17:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update18:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update19:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update2:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update20:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update21:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update3:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update4:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update5:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update6:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update7:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -99,6 +139,7 @@ products:
   - Adobe Experience Manager
   - Avi Load Balancer
   - VMware Avi Load Balancer
+  - DNG SDK < 1.7.1 2536
 affected_os:
   - Windows
   - macOS
@@ -113,6 +154,18 @@ cves:
   - id: CVE-2026-48352
     cvss: 7.5
     epss: 0.00407
+  - id: CVE-2026-48358
+    cvss: 9.1
+    epss: 0.00912
+  - id: CVE-2026-48284
+    cvss: 9.6
+    epss: 0.0794
+  - id: CVE-2026-48332
+    cvss: 7.7
+    epss: 0.11938
+  - id: CVE-2026-48287
+    cvss: 7.4
+    epss: 0.00139
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -156,6 +209,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2367
   - https://thehackernews.com/2026/07/firefox-chrome-adobe-and-vmware-updates.html
   - https://cyber.gc.ca/en/alerts-advisories/broadcom-vmware-security-advisory-av26-712
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48389
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -188,13 +242,6 @@ ioc_counts:
   email: 2
   url: 9
 updates:
-  - at: "2026-07-14T22:21:36Z"
-    level: L2
-    summary: added CVE-2026-48340
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48352
   - at: "2026-07-15T10:51:20Z"
     level: L2
     summary: added CVE-2026-48341 +1
@@ -223,6 +270,13 @@ updates:
       - cccs
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/broadcom-vmware-security-advisory-av26-712
+  - at: "2026-07-20T19:21:02Z"
+    level: L2
+    summary: added CVE-2026-48284 +3
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48389
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
