@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-17T14:34:05Z"
+lastmod: "2026-07-20T07:20:05Z"
 type: advisory
 types:
   - advisory
@@ -66,6 +66,10 @@ cpes:
   - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:365_copilot:-:*:*:*:*:android:*:*
+  - cpe:2.3:a:microsoft:365_copilot:-:*:*:*:*:iphone_os:*:*
+  - cpe:2.3:a:microsoft:office_2021:*:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:a:microsoft:office_2024:*:*:*:*:ltsc:macos:-:*
 tags:
   - roundup
 vendors:
@@ -509,6 +513,7 @@ products:
   - Remote Desktop Web Client (< 2.1.65.2)
   - Azure Kubernetes Service
   - Azure Kubernetes Service (AKS)
+  - f2fs
 affected_os:
   - Windows
   - macOS
@@ -808,6 +813,18 @@ cves:
   - id: CVE-2026-58533
     cvss: 6.5
     epss: 0.00887
+  - id: CVE-2026-48561
+    cvss: 9.6
+    epss: 0.00748
+  - id: CVE-2026-54999
+    cvss: 8.8
+    epss: 0.00298
+  - id: CVE-2026-50405
+    cvss: 7.8
+    epss: 0.00219
+  - id: CVE-2026-55050
+    cvss: 5.5
+    epss: 0.00382
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1432,6 +1449,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/lateral_movement_azure_aks_api_server_proxy_to_kubelet.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_illicit_consent_grant_via_registered_application.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_illicit_consent_grant_via_registered_application.toml
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-63818
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1835,13 +1853,6 @@ ioc_counts:
   url: 94
   user_agent: 6
 updates:
-  - at: "2026-07-17T13:51:28Z"
-    level: L2
-    summary: added CVE-2026-47305 +3
-    sources:
-      - anssi
-    source_urls:
-      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0896/
   - at: "2026-07-17T13:59:38Z"
     level: L2
     summary: added CVE-2026-55041 +3
@@ -1870,6 +1881,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/initial_access_identity_illicit_consent_grant_via_registered_application.toml
+  - at: "2026-07-20T07:20:05Z"
+    level: L2
+    summary: added CVE-2026-48561 +3
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-63818
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
