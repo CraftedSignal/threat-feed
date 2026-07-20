@@ -3,6 +3,7 @@ title: AWS IAM Virtual MFA Device Registration Attempt with Session Token
 slug: 2026-07-aws-iam-virtual-mfa-device-registration
 description: Adversaries are exploiting compromised temporary AWS session credentials (access keys starting with 'ASIA') to register or enable virtual MFA devices, establishing persistence and maintaining access to high-privilege accounts even after credential rotation or password resets.
 date: "2026-07-15T14:14:33Z"
+lastmod: "2026-07-20T13:11:18Z"
 type: advisory
 types:
   - advisory
@@ -15,9 +16,12 @@ tags:
   - identity-and-access-audit
 vendors:
   - AWS
+  - Amazon Web Services
 products:
   - IAM
   - CloudTrail
+  - AWS IAM
+  - AWS CloudTrail
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -40,6 +44,7 @@ mitre_ttps:
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_aws_attempt_to_register_virtual_mfa_device.toml
   - https://www.sygnia.co/blog/sygnia-investigation-bybit-hack/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_iam_user_created_access_keys_for_another_user.toml
 rules:
   - title: AWS IAM Virtual MFA Device Registration Attempt with Session Token
     description: Detects attempts to create or enable a Virtual MFA device (CreateVirtualMFADevice, EnableMFADevice) using temporary AWS credentials (access keys beginning with ASIA) outside of console login sessions, indicating a potential persistence mechanism.
@@ -58,6 +63,14 @@ rules:
       - cloud
       - aws
 rules_count: 1
+updates:
+  - at: "2026-07-20T13:11:18Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_aws_attempt_to_register_virtual_mfa_device.toml
 ---
 
 Adversaries are leveraging compromised temporary AWS session credentials, identifiable by access keys prefixed with "ASIA", to create or enable virtual Multi-Factor Authentication (MFA) devices within AWS Identity and Access Management (IAM). These temporary credentials, typically short-lived and tied to existing authenticated sessions, are not ordinarily used for modifying core IAM authentication mechanisms. By exploiting this unusual behavior, attackers can establish a persistent backdoor to privileged AWS accounts. This technique allows them to maintain unauthorized access even if the primary credentials (passwords, long-term access keys) are rotated or reset, effectively bypassing standard security measures. The activity is observed as `CreateVirtualMFADevice` or `EnableMFADevice` API calls originating from non-console sessions with "ASIA" prefixed access keys, indicating an attacker-controlled, non-legitimate session token usage for persistence. This method has been observed in real-world incidents, such as the Bybit hack.
