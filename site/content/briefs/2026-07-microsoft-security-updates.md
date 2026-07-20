@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-20T13:12:28Z"
+lastmod: "2026-07-20T13:12:41Z"
 type: advisory
 types:
   - advisory
@@ -596,7 +596,7 @@ cves:
     epss: 0.01725
   - id: CVE-2026-54112
     cvss: 7.8
-    epss: 0.00156
+    epss: 0.00153
   - id: CVE-2026-54119
     cvss: 7.5
     epss: 0.00834
@@ -882,6 +882,15 @@ cves:
   - id: CVE-2026-50680
     cvss: 8.2
     epss: 0.00359
+  - id: CVE-2026-50318
+    cvss: 7.8
+    epss: 0.00257
+  - id: CVE-2026-50487
+    cvss: 8.1
+    epss: 0.00674
+  - id: CVE-2026-55040
+    cvss: 9.1
+    epss: 0.00668
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1511,6 +1520,7 @@ references:
   - https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2418
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_excessive_account_lockouts.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_service_principal_federated_issuer_modified.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1914,13 +1924,6 @@ ioc_counts:
   url: 94
   user_agent: 6
 updates:
-  - at: "2026-07-20T07:20:05Z"
-    level: L2
-    summary: added CVE-2026-48561 +3
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-63818
   - at: "2026-07-20T09:10:44Z"
     level: L2
     summary: added CVE-2026-50359 +3
@@ -1949,6 +1952,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_excessive_account_lockouts.toml
+  - at: "2026-07-20T13:12:41Z"
+    level: L2
+    summary: added CVE-2026-50318 +2
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_service_principal_federated_issuer_modified.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
