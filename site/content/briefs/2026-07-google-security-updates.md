@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-20T13:59:06Z"
+lastmod: "2026-07-20T13:59:39Z"
 type: advisory
 types:
   - advisory
@@ -110,6 +110,8 @@ products:
   - Google OAuth
   - Apps Script
   - Kubernetes API (TokenRequest)
+  - Kubernetes API Server
+  - Kubernetes Kubelet API
 affected_os:
   - Windows
   - Linux
@@ -197,6 +199,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15901
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15902
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_service_account_token_created_via_tokenrequest.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_gke_exposed_service_created_with_type_nodeport.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_api_proxy_to_node.toml
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -245,13 +249,6 @@ ioc_counts:
   filename: 1
   url: 14
 updates:
-  - at: "2026-07-15T14:39:49Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - mandiant
-    source_urls:
-      - https://cloud.google.com/blog/topics/threat-intelligence/exposed-cloud-functions-harden/
   - at: "2026-07-16T19:03:32Z"
     level: L2
     summary: added CVE-2023-45866
@@ -280,6 +277,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_service_account_token_created_via_tokenrequest.toml
+  - at: "2026-07-20T13:59:39Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_api_proxy_to_node.toml
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
