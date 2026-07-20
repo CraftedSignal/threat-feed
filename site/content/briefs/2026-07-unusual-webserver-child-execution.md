@@ -3,11 +3,12 @@ title: Unusual Child Process Execution by Web Servers on Linux
 slug: 2026-07-unusual-webserver-child-execution
 description: This detection rule identifies suspicious child process executions originating from web server processes on Linux systems, indicating that attackers may have exploited web application vulnerabilities such as command injection or remote file inclusion to establish persistence or execute malicious commands.
 date: "2026-07-20T11:50:58Z"
+lastmod: "2026-07-20T12:42:22Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - persistence
   - execution
@@ -16,6 +17,11 @@ tags:
   - linux
   - webserver
   - webshell
+  - privilege-escalation
+  - suid
+  - sgid
+  - threat-detection
+  - endpoint
 vendors:
   - Elastic
   - Digium
@@ -108,8 +114,15 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: This alert flags a Linux web service starting a child program it does not normally launch, which can reveal a compromised application server being used for persistence or follow-on actions. A common pattern is an attacker exploiting a web app bug.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1548
+    technique_name: Abuse Elevation Control Mechanism
+    evidence: Adversaries exploit misconfigured SUID/SGID binaries to gain elevated access or persistence. This rule identifies processes running with root privileges but initiated by non-root users, flagging potential misuse of SUID/SGID permissions.
+    confidence_band: high
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_webserver_unusual_child_execution.toml
+  - https://attack.mitre.org/techniques/T1548/
 rules:
   - title: Detect Unusual Child Execution by Web Server Process on Linux
     description: Detects web server processes spawning unusual child processes, which can indicate compromise through vulnerabilities like command injection or remote file inclusion, used for persistence or further execution.
@@ -130,7 +143,28 @@ rules:
     data_sources:
       - process_creation
       - linux
-rules_count: 1
+  - title: Detect Potential SUID/SGID Privilege Escalation on Linux
+    description: Detects potential privilege escalation under the root effective user or group when the real user or parent user/group are not root, indicative of the execution of binaries with SUID or SGID bits set. This rule filters for suspicious parent processes and excludes known legitimate SUID/SGID binaries.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1548
+      - T1548.001
+      - T1548.003
+    data_sources:
+      - process_creation
+      - linux
+rules_count: 2
+updates:
+  - at: "2026-07-20T12:42:22Z"
+    level: L2
+    summary: 'added detection rule: Detect Potential SUID/SGID Privilege Escalation on Linux'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/linux/privilege_escalation_potential_suid_lpe_via_process_args.toml
 ---
 
 This brief describes a detection mechanism designed to identify unusual child process executions spawned by web server processes on Linux systems. Attackers frequently exploit vulnerabilities in internet-facing web applications, such as command injection, remote file inclusion, or deserialization flaws, to gain initial access and establish persistence. Once a web server (e.g., Apache, NGINX, or various application servers like those based on Python, Ruby, or Java) is compromised, attackers often leverage its privileges to launch atypical child processes. These child processes might include shells, script interpreters, downloaders like `curl` or `wget`, or archive utilities, which deviate significantly from the web server's normal operational behavior. Such activity serves as a strong indicator that the system has been compromised and is being used for further malicious actions like installing backdoors, exfiltrating data, or deploying additional tooling.
