@@ -1,18 +1,18 @@
 ---
-title: SurrealDB HTTP RPC Session Race Condition Allows Privilege Escalation
+title: SurrealDB RPC Endpoint Race Condition Allows Privilege Escalation (CVE-2026-63756)
 slug: 2026-07-surrealdb-rpc-race-condition
-description: An unauthenticated time-of-check/time-of-use (TOCTOU) race condition exists in the HTTP /rpc endpoint of SurrealDB versions prior to 3.1.0, allowing an attacker to inherit the session and privileges of an authenticated user by sending concurrent requests, potentially leading to full control over the database if a highly privileged session is hijacked.
-date: "2026-07-03T12:35:23Z"
+description: SurrealDB versions before 3.1.0 contain a time-of-check/time-of-use (TOCTOU) race condition in the HTTP /rpc endpoint that allows unauthenticated attackers to hijack authenticated session state and execute operations with elevated user privileges, leading to privilege escalation.
+date: "2026-07-20T12:27:17Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - privilege-escalation
   - race-condition
-  - webserver
-  - surrealdb
+  - privilege-escalation
+  - web-application
+  - vulnerability
 vendors:
   - SurrealDB
 products:
@@ -22,30 +22,41 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-    evidence: An unauthenticated attacker who can reach the `/rpc` endpoint can escalate privileges by racing against any active authenticated session.
+    evidence: Unauthenticated attackers can send concurrent requests to the /rpc endpoint while legitimate authenticated traffic is active to execute operations with hijacked user privileges.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: SurrealDB versions before 3.1.0 contain a time-of-check/time-of-use race condition in the HTTP /rpc endpoint that allows unauthenticated requests to inherit authenticated session state.
+    confidence_band: high
+cves:
+  - id: CVE-2026-63756
+    cvss: 8.1
 references:
-  - https://github.com/advisories/GHSA-4vgr-h27g-cf9p
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-63756
+  - https://github.com/surrealdb/surrealdb/security/advisories/GHSA-4vgr-h27g-cf9p
+  - https://www.vulncheck.com/advisories/surrealdb-before-privilege-escalation-via-rpc-session-race-condition
 ---
 
-SurrealDB, a multi-model database, is affected by a critical time-of-check/time-of-use (TOCTOU) race condition (CVE-2024-XXXX, though not explicitly numbered in source) within its HTTP `/rpc` endpoint. This vulnerability impacts versions prior to `v3.1.0` and allows an unauthenticated attacker to escalate privileges. The flaw stems from concurrent requests sharing mutable authentication state; an unauthenticated request can race to inherit the session context of a legitimate, concurrently executing authenticated request. This mechanism, affecting the primary interface used by all official SurrealDB SDKs, allows attackers to bypass authentication and execute actions with the hijacked user's permissions, potentially leading to complete compromise of the SurrealDB instance if a root or namespace-level session is targeted.
+CVE-2026-63756 describes a critical time-of-check/time-of-use (TOCTOU) race condition vulnerability affecting SurrealDB versions prior to 3.1.0. This flaw resides within the HTTP /rpc endpoint, enabling unauthenticated attackers to exploit a timing window. By sending concurrent requests to this endpoint while legitimate authenticated users are active, an attacker can cause their unauthenticated requests to inherit the session state of an authenticated user. This session hijacking allows the attacker to perform actions with the privileges of the compromised user, effectively leading to privilege escalation within the SurrealDB instance. The vulnerability has a CVSS v3.1 base score of 8.1 (High severity), indicating a significant risk for organizations using vulnerable versions of SurrealDB.
 
 ## Attack Chain
 
-1.  An authenticated user sends a legitimate `POST` request to the `/rpc` endpoint of a vulnerable SurrealDB instance.
-2.  During the processing of this legitimate request, the server temporarily sets its internal, shared session state to the authenticated user's context.
-3.  An unauthenticated attacker, with network access to the `/rpc` endpoint, concurrently sends a `POST` request to the same `/rpc` endpoint.
-4.  Due to the TOCTOU race condition, the attacker's unauthenticated request is processed while the internal session state still holds the authenticated user's context.
-5.  The attacker's request incorrectly inherits the session and privileges of the legitimate, authenticated user.
-6.  The attacker's request is then executed with the elevated privileges of the hijacked session, bypassing authentication.
-7.  If the hijacked session belonged to a root or namespace-level user, the attacker gains full control over the database, including reading, modifying, or deleting any data and creating persistent namespace-level users.
-8.  If the hijacked session belonged to a scoped record user, the attacker's actions are limited to that user's defined permissions.
+1. An unauthenticated attacker identifies a vulnerable SurrealDB instance running a version prior to 3.1.0.
+2. The attacker monitors for active, legitimate user sessions to the HTTP /rpc endpoint.
+3. The attacker sends a crafted unauthenticated request to the /rpc endpoint.
+4. Concurrently, the attacker rapidly sends additional requests to the same /rpc endpoint, attempting to coincide with the execution flow of an authenticated user's request.
+5. Due to the TOCTOU race condition, one of the attacker's requests is processed within the context of an authenticated session.
+6. The attacker's request inherits the authenticated session state, allowing them to execute operations with the hijacked user's privileges.
+7. The attacker performs unauthorized actions, such as data manipulation, unauthorized access, or further privilege escalation.
 
 ## Impact
 
-An unauthenticated attacker exploiting this race condition can achieve privilege escalation within the SurrealDB instance. The severity of the impact is directly tied to the privileges of the authenticated user whose session is hijacked. If a highly privileged user, such as a root or namespace-level administrator, has their session compromised, the attacker can gain complete control over the database, including the ability to read, modify, or delete any data, as well as create new persistent users at the namespace level. This could lead to data integrity loss, unauthorized data access, and persistent compromise of the database environment.
+Successful exploitation of CVE-2026-63756 can lead to severe consequences for organizations using vulnerable SurrealDB instances. An attacker gaining hijacked user privileges can perform any action that the compromised legitimate user is authorized to do. This includes, but is not limited to, accessing sensitive data, modifying database records, deleting critical information, or manipulating system configurations, potentially leading to data breaches, data integrity issues, or complete system compromise. The impact is significant as it allows unauthenticated remote attackers to gain high privileges within the database.
 
 ## Recommendation
 
-*   Upgrade SurrealDB instances to version `3.1.0` or newer immediately to apply the patch that introduces per-request session isolation.
-*   Implement network-level controls (e.g., firewall rules, WAFs) to restrict access to the `/rpc` endpoint to only trusted clients and applications, reducing the exposure surface.
+* Patch CVE-2026-63756 immediately by upgrading all SurrealDB instances to version 3.1.0 or later.
+* Implement robust monitoring of HTTP /rpc endpoint access for SurrealDB instances, looking for unusual patterns of concurrent requests from unauthenticated or unknown sources.
+* Review web application firewall (WAF) rules to identify and potentially block suspicious traffic patterns targeting the /rpc endpoint, especially high volumes of concurrent requests.
