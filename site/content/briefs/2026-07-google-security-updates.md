@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-16T19:03:54Z"
+lastmod: "2026-07-20T13:13:05Z"
 type: advisory
 types:
   - advisory
@@ -107,6 +107,8 @@ products:
   - Cloud Run
   - Google Cloud Platform (GCP)
   - kube-controller-manager
+  - Google OAuth
+  - Apps Script
 affected_os:
   - Windows
   - Linux
@@ -188,6 +190,11 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_gke_sensitive_role_created_or_modified.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_service_account_modified_rbac_objects.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_suspicious_assignment_of_controller_service_account.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_unusual_sensitive_workload_modification.toml
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15904
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15899
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15901
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-15902
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -236,13 +243,6 @@ ioc_counts:
   filename: 1
   url: 14
 updates:
-  - at: "2026-07-14T20:27:52Z"
-    level: L1
-    summary: new product
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_key_created_for_service_account.toml
   - at: "2026-07-15T10:03:01Z"
     level: L2
     summary: poc_available; added CVE-2023-45866; OS android 4.2.2; OS android 9
@@ -271,6 +271,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_suspicious_assignment_of_controller_service_account.toml
+  - at: "2026-07-20T13:13:05Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/google_workspace/initial_access_object_copied_to_external_drive_with_app_consent.toml
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
