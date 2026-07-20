@@ -3,7 +3,7 @@ title: Linux Kernel ip_gre Module Vulnerability CVE-2026-63829
 slug: 2026-07-linux-kernel-ip-gre
 description: A vulnerability identified as CVE-2026-63829 affects the `ip_gre` module in the Linux kernel, involving a security fix to ensure that the `changelink` operation properly requires `CAP_NET_ADMIN` capabilities within the device's network namespace, addressing a potential privilege escalation or security bypass scenario.
 date: "2026-07-20T07:10:51Z"
-lastmod: "2026-07-20T07:12:50Z"
+lastmod: "2026-07-20T07:17:34Z"
 type: threat
 types:
   - threat
@@ -17,6 +17,8 @@ tags:
   - privilege-escalation
   - nfs
   - information-disclosure
+  - linux-kernel
+  - oob-read
 vendors:
   - Linux Foundation
 products:
@@ -28,6 +30,7 @@ cves:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-63829
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-53397
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-53402
 updates:
   - at: "2026-07-20T07:12:50Z"
     level: L1
@@ -36,6 +39,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-53397
+  - at: "2026-07-20T07:17:34Z"
+    level: L1
+    summary: 'merged source coverage: Linux Kernel fbdev Out-of-Bounds Read (CVE-2026-53402)'
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-53402
 ---
 
 The Microsoft Security Response Center (MSRC) has published information regarding CVE-2026-63829, a vulnerability affecting the `ip_gre` module within the Linux kernel. This flaw enables a potential privilege escalation or security bypass scenario due to insufficient permission checks during the `changelink` operation. The vulnerability arises because the `ip_gre` module did not properly require `CAP_NET_ADMIN` capabilities within the device's network namespace for certain operations. An attacker could potentially leverage this oversight to bypass existing security controls or elevate their privileges on an affected Linux system. While no active exploitation has been detailed, the nature of the vulnerability implies that an attacker could exploit it to gain unauthorized access or control, undermining the integrity and security of the host. This vulnerability highlights the ongoing need for strict access control enforcement in kernel modules to prevent unauthorized operations.
