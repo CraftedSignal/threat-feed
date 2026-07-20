@@ -1,8 +1,8 @@
 ---
-title: Tornado Web Server Quadratic DoS Vulnerability (CVE-2025-67726)
+title: Tornado Quadratic DoS via Repeated HTTP Header Coalescing (CVE-2025-67725)
 slug: 2026-07-tornado-quadratic-dos
-description: A high-severity quadratic time complexity vulnerability (CVE-2025-67726) in Tornado's `_parseparam` function allows an attacker to cause a Denial of Service (DoS) by sending crafted `multipart/form-data` requests with malicious parameters in the `Content-Disposition` header to vulnerable Tornado web servers versions prior to 6.5.3.
-date: "2026-07-20T18:58:57Z"
+description: A quadratic Denial of Service (DoS) vulnerability exists in Tornado's `HTTPHeaders.add` method due to inefficient string concatenation for repeated header names, which, when processing a maliciously crafted HTTP request with numerous repeated headers, can block the server's single event loop for an extended period, leading to a high severity DoS if `max_header_size` is increased from its default 64KB.
+date: "2026-07-20T18:59:34Z"
 type: advisory
 types:
   - advisory
@@ -12,46 +12,45 @@ cpes:
   - cpe:2.3:a:tornadoweb:tornado:*:*:*:*:*:*:*:*
 tags:
   - denial-of-service
-  - vulnerability
-  - web-application
+  - web-vulnerability
   - python
+  - tornado
 vendors:
-  - Tornado Project
+  - Tornado Web Server
 products:
   - Tornado (< 6.5.3)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
-    technique_id: T1499
-    technique_name: Endpoint Denial of Service
-    evidence: a single malicious request can cause the entire server to become unresponsive for an extended period, leading to a Denial of Service (DoS).
+    technique_id: T1498
+    technique_name: Denial of Service
+    evidence: A quadratic Denial of Service (DoS) vulnerability exists in Tornado's `HTTPHeaders.add` method due to inefficient string concatenation for repeated header names.
     confidence_band: high
 cves:
-  - id: CVE-2025-67726
+  - id: CVE-2025-67725
     cvss: 7.5
-    epss: 0.00378
+    epss: 0.00403
 references:
-  - https://github.com/advisories/GHSA-jhmp-mqwm-3gq8
+  - https://github.com/advisories/GHSA-c98p-7wgm-6p64
 ---
 
-A high-severity Denial of Service (DoS) vulnerability, tracked as CVE-2025-67726, exists in the Tornado web framework, affecting versions prior to 6.5.3. This vulnerability stems from an inefficient algorithm within the `_parseparam` function located in `httputil.py`, which is responsible for parsing HTTP header values such as those found in `multipart/form-data` requests. Specifically, the function repeatedly calls `string.count()` within a nested loop when processing quoted semicolons (e.g., `param=";"`). An attacker can exploit this by sending a crafted HTTP request containing a large number of such parameters in a `Content-Disposition` header. This triggers a quadratic increase (O(n²)) in server CPU usage during parsing. Due to Tornado's single event loop architecture, a single malicious request can render the entire server unresponsive for an extended period, leading to a complete DoS.
+A significant Denial of Service (DoS) vulnerability, tracked as CVE-2025-67725, has been identified in the `HTTPHeaders.add` method of the Tornado web server framework, affecting versions prior to 6.5.3. This vulnerability stems from the inefficient handling of repeated HTTP header names. When the same header name is used multiple times in an HTTP request, Tornado's `add` method uses string concatenation to accumulate values. Due to the immutable nature of strings in Python, each concatenation operation creates a new string object, leading to an O(n²) time complexity for processing the headers. Given Tornado's single event loop architecture, a single, specially crafted HTTP request containing an excessive number of repeated header names can consume substantial CPU resources, effectively blocking the event loop and causing a sustained DoS for legitimate users. The severity of this vulnerability is considered high if the `max_header_size` configuration has been increased from its default 64KB, as this allows larger, more impactful malicious requests to be processed.
 
 ## Attack Chain
 
-1. Attacker identifies a web server running an unpatched Tornado instance, specifically versions prior to 6.5.3.
-2. Attacker crafts a malicious HTTP request intended to exploit the `_parseparam` function.
-3. The request includes a `Content-Disposition` header, typically found within `multipart/form-data` requests.
-4. Within this `Content-Disposition` header, the attacker embeds a large quantity of specially crafted parameters.
-5. These parameters are designed to leverage quoted semicolons (e.g., `filename="data;a=b;c=d;;"`), which trigger the inefficient parsing logic.
-6. Upon receiving the malicious request, the vulnerable Tornado server initiates parsing of the `Content-Disposition` header using the `_parseparam` function in `httputil.py`.
-7. The quadratic time complexity (O(n²)) of `_parseparam` when processing these crafted parameters consumes excessive CPU resources.
-8. Due to Tornado's single event loop architecture, the server becomes unresponsive to legitimate requests, resulting in a Denial of Service.
+1. An attacker crafts an HTTP request specifically designed with an unusually high number of repeated header names.
+2. The attacker sends this maliciously crafted HTTP request to a vulnerable Tornado server instance.
+3. The Tornado server receives the HTTP request and begins processing its headers using the `HTTPHeaders.add` method.
+4. During header processing, the `add` method attempts to concatenate the values for the repeated header names.
+5. Due to Python's string immutability, each concatenation step results in the creation of a new string object, leading to quadratic (O(n²)) time complexity as the number of repeated headers increases.
+6. This computationally intensive operation consumes significant CPU resources, causing the server's single event loop to become unresponsive or significantly delayed.
+7. The blocking of the event loop prevents the Tornado server from processing other incoming requests, resulting in a Denial of Service for all clients.
 
 ## Impact
 
-Successful exploitation of CVE-2025-67726 leads to a complete Denial of Service for the affected Tornado web server. The server's CPU usage increases quadratically, rendering it unresponsive and unable to process legitimate requests. This can cause significant disruption to services, downtime, and potential data loss for applications reliant on the vulnerable Tornado instance. The impact is primarily on the availability of the web service.
+Successful exploitation of CVE-2025-67725 results in a Denial of Service (DoS) for the affected Tornado web server and its clients. Attackers can render the server inaccessible or severely degrade its performance by sending a single, malformed HTTP request. The impact severity is particularly high if the `max_header_size` configuration setting in the Tornado server has been increased from its default value of 64KB, as this allows for larger malicious requests to be processed, exacerbating the O(n²) overhead. Organizations using vulnerable Tornado versions are at risk of service disruption, lost revenue, and reputational damage.
 
 ## Recommendation
 
-* Patch CVE-2025-67726 immediately by upgrading all Tornado installations to version 6.5.3 or later.
-* Implement a Web Application Firewall (WAF) or intrusion prevention system (IPS) capable of inspecting and blocking HTTP requests with abnormally large or malformed `Content-Disposition` headers containing repeated quoted semicolons, to mitigate attacks against CVE-2025-67726 before patching is complete.
+* Patch CVE-2025-67725 by upgrading your `pip/tornado` package to version 6.5.3 or later immediately.
+* Review your Tornado server configuration to ensure `max_header_size` is set to its default value or an appropriate limit to mitigate the potential impact of large malicious headers.
