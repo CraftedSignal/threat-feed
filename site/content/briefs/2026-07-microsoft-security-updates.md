@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-20T22:45:55Z"
+lastmod: "2026-07-20T23:02:48Z"
 type: advisory
 types:
   - advisory
@@ -528,6 +528,9 @@ products:
   - System.Security.Cryptography.Xml (< 10.0.10)
   - System.Security.Cryptography.Xml (< 9.0.18)
   - System.Security.Cryptography.Xml (< 8.0.29)
+  - .NET (System.Security.Cryptography.Xml >= 8.0.0, <= 8.0.28)
+  - .NET (System.Security.Cryptography.Xml >= 9.0.0, <= 9.0.17)
+  - .NET (System.Security.Cryptography.Xml >= 10.0.0, <= 10.0.9)
 affected_os:
   - Windows
   - macOS
@@ -610,7 +613,7 @@ cves:
     epss: 0.00423
   - id: CVE-2026-50675
     cvss: 7.8
-    epss: 0.00332
+    epss: 0.00325
   - id: CVE-2026-55948
     cvss: 7.8
     epss: 0.00303
@@ -920,6 +923,18 @@ cves:
   - id: CVE-2026-54108
     cvss: 6.5
     epss: 0.00713
+  - id: CVE-2026-55003
+    cvss: 6.5
+    epss: 0.00666
+  - id: CVE-2026-54995
+    cvss: 8.1
+    epss: 0.00572
+  - id: CVE-2026-50404
+    cvss: 7
+    epss: 0.00156
+  - id: CVE-2026-56194
+    cvss: 8.8
+    epss: 0.00851
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1552,6 +1567,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_service_principal_federated_issuer_modified.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_user_exec_into_pod.toml
   - https://github.com/advisories/GHSA-g8r8-53c2-pm3f
+  - https://github.com/advisories/GHSA-8q5v-6pqq-x66h
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1955,13 +1971,6 @@ ioc_counts:
   url: 94
   user_agent: 6
 updates:
-  - at: "2026-07-20T10:40:04Z"
-    level: L2
-    summary: added CVE-2026-50302 +3
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2418
   - at: "2026-07-20T13:12:28Z"
     level: L2
     summary: added CVE-2026-50680 +3
@@ -1990,6 +1999,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-g8r8-53c2-pm3f
+  - at: "2026-07-20T23:02:48Z"
+    level: L2
+    summary: added CVE-2026-50404 +3; .net version System.Security.Cryptography.Xml >= 10.0.0, <= 10.0.9
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-8q5v-6pqq-x66h
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
