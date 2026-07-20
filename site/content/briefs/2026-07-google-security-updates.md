@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-20T15:22:41Z"
+lastmod: "2026-07-20T17:21:48Z"
 type: advisory
 types:
   - advisory
@@ -89,6 +89,7 @@ products:
   - Kubernetes Kubelet API
   - CertificateSigningRequest (CSR)
   - GCP Fleet integration
+  - Kubernetes Engine
 affected_os:
   - Windows
   - Linux
@@ -166,6 +167,12 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_certificate_signing_request_api_client_signer_requested.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_pod_exec_cloud_instance_metadata.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_pod_exec_sensitive_file_access.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/execution_gcp_gke_pod_exec_curl_wget_https.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/execution_gcp_gke_pod_exec_potential_reverse_shell.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/discovery_gcp_gke_anonymous_endpoint_permission_enumeration.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/execution_gcp_gke_anonymous_pod_create_update_patch.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/execution_gcp_gke_forbidden_request_from_unusual_user_agent.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/initial_access_gcp_gke_anonymous_request_authorized.toml
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -228,13 +235,6 @@ ioc_counts:
   other: 4
   url: 14
 updates:
-  - at: "2026-07-20T13:59:06Z"
-    level: L2
-    summary: kubernetes api version TokenRequest
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_service_account_token_created_via_tokenrequest.toml
   - at: "2026-07-20T13:59:39Z"
     level: L1
     summary: new product
@@ -263,6 +263,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_pod_exec_sensitive_file_access.toml
+  - at: "2026-07-20T17:21:48Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/initial_access_gcp_gke_anonymous_request_authorized.toml
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
