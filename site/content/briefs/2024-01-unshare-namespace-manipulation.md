@@ -3,11 +3,22 @@ title: Suspicious Unshare Usage for Namespace Manipulation
 slug: 2024-01-unshare-namespace-manipulation
 description: The `unshare` command is used to create new namespaces in Linux, which can be exploited to break out of containers or elevate privileges by creating namespaces that bypass security controls.
 date: "2024-01-02T12:00:00Z"
+lastmod: "2026-07-20T12:48:38Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+cpes:
+  - cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h410c_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h300s_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h500s_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h700s_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h300e_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h500e_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h700e_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:netapp:h410s_firmware:-:*:*:*:*:*:*:*
 tags:
   - privilege-escalation
   - container-escape
@@ -15,11 +26,15 @@ tags:
 vendors:
   - Elastic
   - SentinelOne
+  - Linux Foundation
 products:
   - Elastic Defend
   - Auditbeat
   - Elastic Endgame
   - SentinelOne Cloud Funnel
+  - Linux Kernel
+  - util-linux
+  - Kubernetes
 affected_os:
   - Linux
 mitre_ttps:
@@ -31,9 +46,14 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1611
     technique_name: Escape to Host
+cves:
+  - id: CVE-2022-0185
+    cvss: 8.4
+    epss: 0.25151
 references:
   - https://man7.org/linux/man-pages/man1/unshare.1.html
   - https://www.crowdstrike.com/blog/cve-2022-0185-kubernetes-container-escape-using-linux-kernel-exploit/
+  - https://github.com/elastic/detection-rules/blob/main/rules/linux/privilege_escalation_unshare_namespace_manipulation.toml
 rules:
   - title: Namespace Manipulation Using Unshare
     description: Detects suspicious usage of the unshare command to manipulate system namespaces, potentially leading to privilege escalation or container escape.
@@ -60,6 +80,14 @@ rules:
       - process_creation
       - linux
 rules_count: 2
+updates:
+  - at: "2026-07-20T12:48:38Z"
+    level: L2
+    summary: added CVE-2022-0185
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/linux/privilege_escalation_unshare_namespace_manipulation.toml
 ---
 
 The `unshare` command in Linux is a utility used to create new namespaces, providing isolation for processes. While crucial for containerization and security, attackers can misuse `unshare` to escape container boundaries or escalate privileges by manipulating system namespaces. This occurs by creating namespaces that bypass established security controls. This activity is often observed when threat actors attempt to gain unauthorized access to host resources or elevate their privileges within a compromised system. The focus of this detection is on identifying unusual `unshare` executions that deviate from legitimate system management activities.
