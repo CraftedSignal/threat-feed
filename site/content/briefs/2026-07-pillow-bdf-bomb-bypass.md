@@ -3,7 +3,7 @@ title: Pillow BdfFontFile Decompression Bomb Bypass Vulnerability
 slug: 2026-07-pillow-bdf-bomb-bypass
 description: A vulnerability (CVE-2026-55379) in Pillow's BdfFontFile component allows attackers to craft a malicious BDF font file with oversized BBX dimensions and an empty BITMAP section, bypassing documented decompression bomb protection and causing the Image.new() function to silently allocate large amounts of memory in the C-heap, leading to resource exhaustion and denial-of-service for applications processing untrusted BDF fonts.
 date: "2026-07-20T21:14:14Z"
-lastmod: "2026-07-20T23:13:10Z"
+lastmod: "2026-07-20T23:20:04Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,8 @@ tags:
   - image-processing
   - python-library
   - cve-2026-59199
+  - rce
+  - dos
 vendors:
   - Pillow
 products:
@@ -48,6 +50,12 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: a single 1,037-byte malicious `.gd` file causes the host process to attempt a ~4.3 GB C-heap allocation. On systems with insufficient memory this crashes the process. Repeatable — attacker can loop requests to keep the server down.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: This is a heap out-of-bounds write in Pillow's native ImageCms extension, reachable through public API... This can result in denial of service (application crash) or, with precise manipulation, arbitrary code execution, as attacker-controlled input influences the overwritten memory.
+    confidence_band: high
 cves:
   - id: CVE-2026-55379
     cvss: 7.5
@@ -57,6 +65,7 @@ references:
   - https://github.com/advisories/GHSA-phj9-mv4w-65pm
   - https://github.com/advisories/GHSA-xj96-63gp-2gmr
   - https://github.com/advisories/GHSA-6r8x-57c9-28j4
+  - https://github.com/advisories/GHSA-9hw9-ch79-4vh6
 updates:
   - at: "2026-07-20T21:21:04Z"
     level: L1
@@ -79,6 +88,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-6r8x-57c9-28j4
+  - at: "2026-07-20T23:20:04Z"
+    level: L1
+    summary: 'merged source coverage: Pillow ImageCms Heap Out-of-Bounds Write (CVE-2026-59205)'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9hw9-ch79-4vh6
 ---
 
 The Pillow imaging library, a critical component in many Python applications, contains a denial-of-service vulnerability (CVE-2026-55379) in its `BdfFontFile` component, affecting versions prior to 12.3.0. This flaw allows an attacker to bypass Pillow's documented decompression bomb protection mechanism by crafting a malicious BDF font file. Specifically, when a BDF file defines a glyph with excessively large dimensions in its `BBX` field (e.g., `20000 20000`) but an empty `BITMAP` section, the `Image.frombytes()` call fails. The fallback `Image.new()` function then allocates a substantial amount of memory in the C-heap (e.g., 50 MB for a single glyph) without performing the necessary `_decompression_bomb_check()`. This silent, unbounded memory allocation, especially when combined with multiple such glyphs, can quickly exhaust system resources, leading to a denial-of-service condition for any application that processes untrusted BDF fonts.
