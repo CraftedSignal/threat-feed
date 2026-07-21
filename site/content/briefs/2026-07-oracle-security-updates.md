@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:55:39Z"
+lastmod: "2026-07-21T22:55:50Z"
 type: advisory
 types:
   - advisory
@@ -152,6 +152,8 @@ products:
   - Oracle Product Hub (12.2.3-12.2.15)
   - OpenSearch Dashboards
   - Oracle Document Management and Collaboration (12.2.3-12.2.15)
+  - Oracle Bills of Material (12.2.3-12.2.15)
+  - Oracle E-Business Suite (12.2.3-12.2.15)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -435,6 +437,8 @@ cves:
     cvss: 7.3
   - id: CVE-2026-47015
     cvss: 7.1
+  - id: CVE-2026-46941
+    cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -611,14 +615,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47019
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47026
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47028
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-47031
 updates:
-  - at: "2026-07-21T22:53:57Z"
-    level: L2
-    summary: added CVE-2026-46954 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-47017
   - at: "2026-07-21T22:54:03Z"
     level: L1
     summary: new product
@@ -647,6 +645,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-47028
+  - at: "2026-07-21T22:55:50Z"
+    level: L2
+    summary: added CVE-2026-46941
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-47031
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
