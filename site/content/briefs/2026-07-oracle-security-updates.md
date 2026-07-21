@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:50:34Z"
+lastmod: "2026-07-21T22:50:43Z"
 type: advisory
 types:
   - advisory
@@ -129,6 +129,7 @@ products:
   - PeopleSoft Enterprise CC Common Application Objects (9.2)
   - Oracle Public Sector Financials (International) (12.2.3-12.2.15)
   - Oracle E-Business Suite
+  - Oracle Cost Management (12.2.3-12.2.15)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -526,14 +527,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60606
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35287
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46923
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-46941
 updates:
-  - at: "2026-07-21T22:47:50Z"
-    level: L2
-    summary: added CVE-2026-60388 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60566
   - at: "2026-07-21T22:48:00Z"
     level: L2
     summary: added CVE-2026-60435
@@ -562,6 +557,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-46923
+  - at: "2026-07-21T22:50:43Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-46941
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
