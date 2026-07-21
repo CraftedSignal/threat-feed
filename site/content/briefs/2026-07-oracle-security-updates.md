@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:21:42Z"
+lastmod: "2026-07-21T22:22:01Z"
 type: advisory
 types:
   - advisory
@@ -42,6 +42,7 @@ products:
   - Oracle WebLogic Server (14.1.1.0.0)
   - Oracle WebLogic Server (14.1.2.0.0)
   - Oracle WebLogic Server (15.1.1.0.0)
+  - Oracle Fusion Middleware
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -71,6 +72,10 @@ cves:
     cvss: 9.8
   - id: CVE-2026-60200
     cvss: 9.8
+  - id: CVE-2026-60199
+    cvss: 9.8
+  - id: CVE-2026-60202
+    cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -88,14 +93,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60199
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60200
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60202
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60204
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60205
 updates:
-  - at: "2026-07-21T22:20:50Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60168
   - at: "2026-07-21T22:20:58Z"
     level: L1
     summary: new product
@@ -124,6 +124,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60202
+  - at: "2026-07-21T22:22:01Z"
+    level: L2
+    summary: added CVE-2026-60199 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60205
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
