@@ -3,6 +3,7 @@ title: Home Assistant Core Path Traversal Vulnerability (CVE-2026-64825)
 slug: 2026-07-home-assistant-pathtraversal
 description: A critical path traversal vulnerability, CVE-2026-64825, in Home Assistant Core versions before 2026.6.0 allows unauthenticated attackers to write arbitrary files to any directory on the host filesystem by uploading a crafted backup archive during the initial onboarding window, potentially leading to full system compromise with root privileges.
 date: "2026-07-21T16:30:46Z"
+lastmod: "2026-07-21T16:31:40Z"
 type: advisory
 types:
   - advisory
@@ -37,8 +38,19 @@ mitre_ttps:
 cves:
   - id: CVE-2026-64825
     cvss: 9.3
+  - id: CVE-2026-64824
+    cvss: 8.4
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-64825
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-64824
+updates:
+  - at: "2026-07-21T16:31:40Z"
+    level: L2
+    summary: added CVE-2026-64824
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-64824
 ---
 
 A critical path traversal vulnerability, identified as CVE-2026-64825, affects Home Assistant Core versions prior to 2026.6.0. This flaw allows unauthenticated attackers to write arbitrary files to any directory on the host filesystem during the initial onboarding process. Attackers exploit this by uploading a specially crafted backup archive. Within this archive, the `backup.json` file's 'name' field is modified to include an absolute path. The vulnerability lies in how Home Assistant handles this path with `pathlib.Path.__truediv__`, causing the intended backup directory prefix to be ignored. This allows attacker-controlled content to be placed at arbitrary locations, potentially leading to full filesystem compromise. If the Home Assistant process operates with root privileges, this can escalate to full system control. The vulnerability's high CVSS v3.1 base score of 9.3 underscores its severe impact, enabling unauthenticated remote attackers to gain significant control over affected systems.
