@@ -3,7 +3,7 @@ title: SolarWinds Serv-U Insecure Direct Object Reference (IDOR) Vulnerability A
 slug: 2026-07-solarwinds-servu-idor
 description: A critical insecure direct object reference (IDOR) vulnerability, CVE-2026-28302, in SolarWinds Serv-U allows authenticated group administrators to achieve privilege escalation and remote code execution as root.
 date: "2026-07-21T16:18:04Z"
-lastmod: "2026-07-21T16:22:39Z"
+lastmod: "2026-07-21T16:28:09Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +22,7 @@ vendors:
 products:
   - Serv-U
   - Serv-U (<= 15.5.4 HF1)
+  - Serv-U <= 15.5.4 HF1
 affected_os:
   - Windows
   - Linux
@@ -51,6 +52,8 @@ cves:
     cvss: 9.1
   - id: CVE-2026-28305
     cvss: 9.1
+  - id: CVE-2026-28314
+    cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-28302
   - https://documentation.solarwinds.com/en/success_center/servu/content/release_notes/servu_2026-3_release_notes.htm
@@ -58,6 +61,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-28305
   - https://www.solarwinds.com/trust-center/security-advisories/CVE-2026-28305
   - https://nvd.nist.gov/vuln/detail/CVE-2026-28308
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-28314
 updates:
   - at: "2026-07-21T16:20:33Z"
     level: L2
@@ -73,6 +77,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-28308
+  - at: "2026-07-21T16:28:09Z"
+    level: L2
+    summary: added CVE-2026-28314
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-28314
 ---
 
 SolarWinds Serv-U is affected by CVE-2026-28302, an insecure direct object reference (IDOR) vulnerability, that allows authenticated group administrators to escalate privileges and achieve remote code execution (RCE) as root. This critical vulnerability, with a CVSS v3.1 base score of 9.1, impacts Serv-U versions 15.5.4 HF1 and below. While the vulnerability affects both Linux and Windows deployments, the potential impact is noted to be lower in Windows environments. Exploitation requires an attacker to first gain group administrator access to a Serv-U instance. Once exploited, it grants the attacker the highest level of system access, posing a significant risk to the integrity and confidentiality of the affected servers and potentially the broader network.
