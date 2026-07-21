@@ -3,7 +3,7 @@ title: Remote Code Execution Vulnerability in SolarWinds Serv-U (CVE-2026-28304)
 slug: 2026-07-solarwinds-serv-u-rce
 description: A critical remote code execution vulnerability (CVE-2026-28304) has been identified in SolarWinds Serv-U versions 15.5.4 HF1 and below, allowing an attacker with high privileges to execute arbitrary code remotely as root, posing a severe risk to affected systems, though with lower impact on Windows deployments.
 date: "2026-07-21T16:19:10Z"
-lastmod: "2026-07-21T16:22:18Z"
+lastmod: "2026-07-21T16:25:13Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,7 @@ vendors:
   - SolarWinds
 products:
   - Serv-U (15.5.4 HF1 and below)
+  - Serv-U (<= 15.5.4 HF1)
 affected_os:
   - Windows
   - Linux
@@ -40,6 +41,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-28304
     cvss: 9.1
+  - id: CVE-2026-28309
+    cvss: 9.1
+  - id: CVE-2026-28306
+    cvss: 9.1
+  - id: CVE-2026-28307
+    cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-28304
   - https://documentation.solarwinds.com/en/success_center/servu/content/release_notes/servu_2026-3_release_notes.htm
@@ -48,6 +55,7 @@ references:
   - https://www.solarwinds.com/trust-center/security-advisories/CVE-2026-28306
   - https://nvd.nist.gov/vuln/detail/CVE-2026-28307
   - https://www.solarwinds.com/trust-center/security-advisories/CVE-2026-28307
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-28309
 updates:
   - at: "2026-07-21T16:21:17Z"
     level: L2
@@ -63,6 +71,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-28307
+  - at: "2026-07-21T16:25:13Z"
+    level: L2
+    summary: added CVE-2026-28306 +2
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-28309
 ---
 
 A critical remote code execution (RCE) vulnerability, identified as CVE-2026-28304, affects SolarWinds Serv-U File Transfer Protocol (FTP) server versions 15.5.4 HF1 and below. This flaw enables an attacker with high privileges to achieve arbitrary code execution remotely as the root user. While the vulnerability's impact is noted to be lower in Windows deployments, it presents a significant risk for full system compromise on other operating systems where "root" is a more powerful user. Given the nature of Serv-U, often used for critical file transfers, successful exploitation could lead to extensive data exfiltration, system integrity breaches, and service disruption. Defenders must prioritize patching to mitigate this severe risk. The specifics of the exploit, such as which high privilege allows the RCE, are not detailed in the NVD entry.
