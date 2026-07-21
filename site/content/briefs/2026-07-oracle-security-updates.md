@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:40:00Z"
+lastmod: "2026-07-21T22:40:07Z"
 type: advisory
 types:
   - advisory
@@ -88,6 +88,8 @@ products:
   - Fusion Middleware Service Delivery Platform (12.2.1.4.0)
   - Fusion Middleware Service Delivery Platform (14.1.2.0.0)
   - Service Delivery Platform (component Messaging Enabler, versions 12.2.1.4.0, 14.1.2.0.0)
+  - Oracle Fusion Middleware Service Delivery Platform (Messaging Enabler 12.2.1.4.0)
+  - Oracle Fusion Middleware Service Delivery Platform (Messaging Enabler 14.1.2.0.0)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -369,14 +371,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60376
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60377
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60378
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60379
 updates:
-  - at: "2026-07-21T22:37:50Z"
-    level: L2
-    summary: added CVE-2026-60358 +3
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60374
   - at: "2026-07-21T22:37:58Z"
     level: L2
     summary: added CVE-2026-60375
@@ -405,6 +401,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60378
+  - at: "2026-07-21T22:40:07Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60379
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
