@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-21T08:42:16Z"
+lastmod: "2026-07-21T13:04:17Z"
 type: advisory
 types:
   - advisory
@@ -533,6 +533,10 @@ products:
   - .NET (System.Security.Cryptography.Xml >= 10.0.0, <= 10.0.9)
   - Microsoft Outlook
   - Microsoft Entra
+  - BitLocker
+  - RDP
+  - MSSQL
+  - Windows Explorer
 affected_os:
   - Windows
   - macOS
@@ -964,6 +968,18 @@ cves:
   - id: CVE-2026-55025
     cvss: 7.8
     epss: 0.00303
+  - id: CVE-2026-49783
+    cvss: 7.8
+    epss: 0.00263
+  - id: CVE-2026-50296
+    cvss: 7
+    epss: 0.00199
+  - id: CVE-2026-50430
+    cvss: 5.5
+    epss: 0.00362
+  - id: CVE-2026-50336
+    cvss: 7.8
+    epss: 0.00318
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1599,6 +1615,7 @@ references:
   - https://github.com/advisories/GHSA-8q5v-6pqq-x66h
   - https://any.run/cybersecurity-blog/kali365-phishing-targeting-us/
   - https://securelist.com/project-cav3rn-cyberespionage-framework-using-outlook-and-dns/120757/
+  - https://securelist.com/new-extortion-scheme-printers-bitlocker/120718/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2014,13 +2031,6 @@ ioc_counts:
   url: 95
   user_agent: 6
 updates:
-  - at: "2026-07-20T15:55:27Z"
-    level: L2
-    summary: added CVE-2026-50364 +3
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_user_exec_into_pod.toml
   - at: "2026-07-20T22:45:55Z"
     level: L2
     summary: added CVE-2026-50520 +3
@@ -2049,6 +2059,13 @@ updates:
       - securelist
     source_urls:
       - https://securelist.com/project-cav3rn-cyberespionage-framework-using-outlook-and-dns/120757/
+  - at: "2026-07-21T13:04:17Z"
+    level: L2
+    summary: added CVE-2026-49783 +3
+    sources:
+      - securelist
+    source_urls:
+      - https://securelist.com/new-extortion-scheme-printers-bitlocker/120718/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
