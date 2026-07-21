@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:22:24Z"
+lastmod: "2026-07-21T22:22:30Z"
 type: advisory
 types:
   - advisory
@@ -47,6 +47,10 @@ products:
   - WebLogic Server 14.1.1.0.0
   - WebLogic Server 14.1.2.0.0
   - WebLogic Server 15.1.1.0.0
+  - Oracle Coherence 12.2.1.4.0
+  - Oracle Coherence 14.1.1.0.0
+  - Oracle Coherence 14.1.2.0.0
+  - Oracle Coherence 15.1.1.0.0
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -107,14 +111,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60205
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60206
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60208
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60209
 updates:
-  - at: "2026-07-21T22:21:17Z"
-    level: L2
-    summary: added CVE-2026-47036 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60198
   - at: "2026-07-21T22:21:42Z"
     level: L2
     summary: added CVE-2026-60200
@@ -143,6 +141,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60208
+  - at: "2026-07-21T22:22:30Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60209
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
