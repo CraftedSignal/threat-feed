@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:54:03Z"
+lastmod: "2026-07-21T22:54:18Z"
 type: advisory
 types:
   - advisory
@@ -148,6 +148,7 @@ products:
   - PeopleSoft Enterprise PeopleTools (8.62)
   - PeopleSoft Enterprise PeopleTools (8.61)
   - Siebel CRM Cloud Applications (22.3-26.5)
+  - Oracle Product Hub (12.2.3-12.2.15)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -425,6 +426,10 @@ cves:
     cvss: 9.9
   - id: CVE-2026-46954
     cvss: 7.2
+  - id: CVE-2026-60355
+    cvss: 9.8
+  - id: CVE-2026-47007
+    cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -598,14 +603,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47015
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47017
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47018
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-47019
 updates:
-  - at: "2026-07-21T22:53:17Z"
-    level: L2
-    summary: added CVE-2026-46923
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-47007
   - at: "2026-07-21T22:53:30Z"
     level: L2
     summary: added CVE-2026-60461 +1
@@ -634,6 +633,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-47018
+  - at: "2026-07-21T22:54:18Z"
+    level: L2
+    summary: added CVE-2026-47007 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-47019
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
