@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:58:46Z"
+lastmod: "2026-07-21T22:58:55Z"
 type: advisory
 types:
   - advisory
@@ -168,6 +168,7 @@ products:
   - Oracle GoldenGate (Service Manager) 19.1.0.0.0-19.29.0.0
   - Oracle GoldenGate (Service Manager) 21.3-21.21
   - Oracle GoldenGate (Service Manager) 23.4-23.26.1.0.0
+  - Oracle VM VirtualBox (<= 7.2.12)
 affected_os:
   - Windows
 cves:
@@ -481,6 +482,10 @@ cves:
     cvss: 8.5
   - id: CVE-2026-47054
     cvss: 7.8
+  - id: CVE-2026-60447
+    cvss: 9.9
+  - id: CVE-2026-60561
+    cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -671,14 +676,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60153
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60155
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60157
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60159
 updates:
-  - at: "2026-07-21T22:57:05Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-47058
   - at: "2026-07-21T22:58:11Z"
     level: L2
     summary: added CVE-2026-47019
@@ -707,6 +706,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60157
+  - at: "2026-07-21T22:58:55Z"
+    level: L2
+    summary: added CVE-2026-60447 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60159
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
