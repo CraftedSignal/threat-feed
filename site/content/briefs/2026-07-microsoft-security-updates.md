@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-21T07:02:40Z"
+lastmod: "2026-07-21T08:42:16Z"
 type: advisory
 types:
   - advisory
@@ -531,6 +531,8 @@ products:
   - .NET (System.Security.Cryptography.Xml >= 8.0.0, <= 8.0.28)
   - .NET (System.Security.Cryptography.Xml >= 9.0.0, <= 9.0.17)
   - .NET (System.Security.Cryptography.Xml >= 10.0.0, <= 10.0.9)
+  - Microsoft Outlook
+  - Microsoft Entra
 affected_os:
   - Windows
   - macOS
@@ -947,6 +949,21 @@ cves:
   - id: CVE-2026-58536
     cvss: 7.8
     epss: 0.01751
+  - id: CVE-2026-50423
+    cvss: 7.8
+    epss: 0.02478
+  - id: CVE-2026-58282
+    cvss: 8.1
+    epss: 0.00312
+  - id: CVE-2026-55005
+    cvss: 8.8
+    epss: 0.00663
+  - id: CVE-2026-50310
+    cvss: 4.7
+    epss: 0.00298
+  - id: CVE-2026-55025
+    cvss: 7.8
+    epss: 0.00303
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1581,6 +1598,7 @@ references:
   - https://github.com/advisories/GHSA-g8r8-53c2-pm3f
   - https://github.com/advisories/GHSA-8q5v-6pqq-x66h
   - https://any.run/cybersecurity-blog/kali365-phishing-targeting-us/
+  - https://securelist.com/project-cav3rn-cyberespionage-framework-using-outlook-and-dns/120757/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1960,13 +1978,23 @@ iocs:
     value: https://www.cve.org/CVERecord?id=CVE-2026-62826
   - type: url
     value: https://app.any.run/tasks/d078f430-c3cc-44e8-a809-5506205049c3?utm_source=anyrunblog&utm_medium=article&utm_campaign=kali365-phishing-targeting-us&utm_term=210726&utm_content=linktoservice
+  - type: domain
+    value: cloudlanecdn[.]com
+  - type: file
+    value: uxtheme.dll
+  - type: file
+    value: n-HTCommp.dll
+  - type: file
+    value: AzureCommunication.dll
+  - type: file
+    value: logAzure.txt
 ioc_counts:
   application_id: 1
   asn: 3
-  domain: 22
+  domain: 23
   email: 3
   error_code: 3
-  file: 4
+  file: 8
   file-path: 2
   file_name: 5
   filename: 5
@@ -1986,13 +2014,6 @@ ioc_counts:
   url: 95
   user_agent: 6
 updates:
-  - at: "2026-07-20T13:12:41Z"
-    level: L2
-    summary: added CVE-2026-50318 +2
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/persistence_entra_id_service_principal_federated_issuer_modified.toml
   - at: "2026-07-20T15:55:27Z"
     level: L2
     summary: added CVE-2026-50364 +3
@@ -2021,6 +2042,13 @@ updates:
       - any-run
     source_urls:
       - https://any.run/cybersecurity-blog/kali365-phishing-targeting-us/
+  - at: "2026-07-21T08:42:16Z"
+    level: L2
+    summary: added CVE-2026-50310 +4
+    sources:
+      - securelist
+    source_urls:
+      - https://securelist.com/project-cav3rn-cyberespionage-framework-using-outlook-and-dns/120757/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
