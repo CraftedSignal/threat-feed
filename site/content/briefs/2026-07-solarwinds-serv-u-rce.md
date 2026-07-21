@@ -3,7 +3,7 @@ title: Remote Code Execution Vulnerability in SolarWinds Serv-U (CVE-2026-28304)
 slug: 2026-07-solarwinds-serv-u-rce
 description: A critical remote code execution vulnerability (CVE-2026-28304) has been identified in SolarWinds Serv-U versions 15.5.4 HF1 and below, allowing an attacker with high privileges to execute arbitrary code remotely as root, posing a severe risk to affected systems, though with lower impact on Windows deployments.
 date: "2026-07-21T16:19:10Z"
-lastmod: "2026-07-21T16:28:41Z"
+lastmod: "2026-07-21T16:29:51Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,8 @@ tags:
   - idor
   - account-takeover
   - server-software
+  - access-control
+  - server-application
 vendors:
   - SolarWinds
 products:
@@ -92,6 +94,8 @@ references:
   - https://www.solarwinds.com/trust-center/security-advisories/CVE-2026-28313
   - https://nvd.nist.gov/vuln/detail/CVE-2026-28316
   - https://nvd.nist.gov/vuln/detail/CVE-2026-28317
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-28321
+  - https://www.solarwinds.com/trust-center/security-advisories/CVE-2026-28321
 iocs:
   - type: url
     value: https://documentation.solarwinds.com/en/success_center/servu/content/release_notes/servu_2026-3_release_notes.htm
@@ -102,13 +106,6 @@ iocs:
 ioc_counts:
   url: 3
 updates:
-  - at: "2026-07-21T16:25:13Z"
-    level: L2
-    summary: added CVE-2026-28306 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-28309
   - at: "2026-07-21T16:26:50Z"
     level: L2
     summary: 'merged source coverage: SolarWinds Serv-U Privilege Escalation Vulnerability (CVE-2026-28312)'
@@ -137,6 +134,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-28317
+  - at: "2026-07-21T16:29:51Z"
+    level: L2
+    summary: 'merged source coverage: SolarWinds Serv-U Broken Access Control Vulnerability (CVE-2026-28321) Allows Root Code Execution'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-28321
 ---
 
 A critical remote code execution (RCE) vulnerability, identified as CVE-2026-28304, affects SolarWinds Serv-U File Transfer Protocol (FTP) server versions 15.5.4 HF1 and below. This flaw enables an attacker with high privileges to achieve arbitrary code execution remotely as the root user. While the vulnerability's impact is noted to be lower in Windows deployments, it presents a significant risk for full system compromise on other operating systems where "root" is a more powerful user. Given the nature of Serv-U, often used for critical file transfers, successful exploitation could lead to extensive data exfiltration, system integrity breaches, and service disruption. Defenders must prioritize patching to mitigate this severe risk. The specifics of the exploit, such as which high privilege allows the RCE, are not detailed in the NVD entry.
