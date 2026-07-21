@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:55:28Z"
+lastmod: "2026-07-21T22:55:39Z"
 type: advisory
 types:
   - advisory
@@ -151,6 +151,7 @@ products:
   - Siebel CRM Cloud Applications (22.3-26.5)
   - Oracle Product Hub (12.2.3-12.2.15)
   - OpenSearch Dashboards
+  - Oracle Document Management and Collaboration (12.2.3-12.2.15)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -432,6 +433,8 @@ cves:
     cvss: 9.8
   - id: CVE-2026-47007
     cvss: 7.3
+  - id: CVE-2026-47015
+    cvss: 7.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -607,14 +610,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47018
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47019
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47026
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-47028
 updates:
-  - at: "2026-07-21T22:53:46Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-47015
   - at: "2026-07-21T22:53:57Z"
     level: L2
     summary: added CVE-2026-46954 +1
@@ -643,6 +640,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-47026
+  - at: "2026-07-21T22:55:39Z"
+    level: L2
+    summary: added CVE-2026-47015
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-47028
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
