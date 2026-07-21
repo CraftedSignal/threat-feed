@@ -3,7 +3,7 @@ title: Gitea Repository Migration SSRF and Internal Git Repository Exfiltration
 slug: 2026-07-gitea-repo-exfil-ssrf
 description: A critical vulnerability in Gitea allows an authenticated, low-privileged user to exfiltrate internal Git repositories by exploiting a validation bypass, where Gitea's initial URL validation for repository migration is circumvented by the Git command-line client's default behavior of following HTTP redirects to otherwise blocked internal IP addresses, leading to server-side request forgery (SSRF) and the theft of sensitive code, credentials, and configuration into an attacker-controlled repository, with persistent exfiltration possible through pull mirrors.
 date: "2026-07-21T19:20:38Z"
-lastmod: "2026-07-21T21:50:08Z"
+lastmod: "2026-07-21T21:50:25Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,7 @@ vendors:
   - Gitea
 products:
   - Gitea
+  - Gitea < 1.26.3
 affected_os:
   - Windows
   - Linux
@@ -70,10 +71,15 @@ mitre_ttps:
     technique_name: Data from Information Repositories
     evidence: An information disclosure issue in the Gitea Notification API allows users who have lost access to a private repository to continue accessing private issue or pull request information through existing notification threads.
     confidence_band: high
+cves:
+  - id: CVE-2026-25038
+    cvss: 7.5
+    epss: 0.00482
 references:
   - https://github.com/advisories/GHSA-82f7-87hm-852x
   - https://github.com/advisories/GHSA-xxjv-752h-3vp2
   - https://github.com/advisories/GHSA-44qc-pgvp-wx7v
+  - https://github.com/advisories/GHSA-v73x-hx65-6pf4
 rules:
   - title: Gitea Git Client Connecting to RFC1918 IPs (Linux)
     description: Detects the `git` process, potentially spawned by Gitea, initiating network connections to RFC1918 private IP ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 127.0.0.0/8). This may indicate SSRF exploitation via repository migration redirect.
@@ -110,6 +116,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-44qc-pgvp-wx7v
+  - at: "2026-07-21T21:50:25Z"
+    level: L2
+    summary: added CVE-2026-25038
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-v73x-hx65-6pf4
 ---
 
 A critical server-side request forgery (SSRF) vulnerability has been identified in Gitea, affecting versions where repository migrations are enabled by default. This flaw enables an authenticated, low-privileged user to bypass Gitea's URL allow/block validation and exfiltrate internal Git repositories. The issue stems from a trust boundary mismatch: Gitea validates the initial public URL provided for repository migration, but the subsequent `git clone` or `git fetch --tags` operation, delegated to the Git command-line client, automatically follows HTTP redirects. Git's default `http.followRedirects=initial` setting allows an attacker to provide a public, seemingly benign URL that redirects the Gitea server to an internal Git HTTP(S) endpoint (e.g., `http://127.0.0.1:PORT/internal.git/`). This results in the Gitea server cloning internal code, configuration, and potentially sensitive credentials into an attacker-controlled repository. The vulnerability impacts all Gitea instances with repository migrations enabled, posing a significant risk for organizations hosting internal development resources, with persistent data exfiltration possible via pull mirrors continuously updating the attacker's repository.
