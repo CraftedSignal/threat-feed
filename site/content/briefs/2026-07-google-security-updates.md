@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-21T14:45:57Z"
+lastmod: "2026-07-21T22:05:31Z"
 type: advisory
 types:
   - advisory
@@ -91,6 +91,7 @@ products:
   - GCP Fleet integration
   - Kubernetes Engine
   - Google Ads Sync Accounts (MMC)
+  - google.golang.org/grpc (< 1.82.1)
 affected_os:
   - Windows
   - Linux
@@ -98,6 +99,15 @@ affected_os:
   - macOS
   - Android 4.2.2
   - Android 9
+cves:
+  - id: CVE-2026-15904
+    epss: 0.00217
+  - id: CVE-2026-15899
+    epss: 0.00217
+  - id: CVE-2026-15901
+    epss: 0.00233
+  - id: CVE-2026-15902
+    epss: 0.00267
 references:
   - https://github.com/advisories/GHSA-rm3j-f69w-wqmq
   - https://github.com/advisories/GHSA-vgwf-h737-ff37
@@ -175,6 +185,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/execution_gcp_gke_forbidden_request_from_unusual_user_agent.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/initial_access_gcp_gke_anonymous_request_authorized.toml
   - https://cofense.com/blog/click-to-sync-from-google-ads-maintenance-notice-to-credential-theft
+  - https://github.com/advisories/GHSA-hrxh-6v49-42gf
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -243,13 +254,6 @@ ioc_counts:
   other: 4
   url: 14
 updates:
-  - at: "2026-07-20T14:34:40Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_certificate_signing_request_api_client_signer_requested.toml
   - at: "2026-07-20T15:22:32Z"
     level: L1
     summary: new IOCs
@@ -278,6 +282,13 @@ updates:
       - cofense
     source_urls:
       - https://cofense.com/blog/click-to-sync-from-google-ads-maintenance-notice-to-credential-theft
+  - at: "2026-07-21T22:05:31Z"
+    level: L2
+    summary: added CVE-2026-15899 +3
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-hrxh-6v49-42gf
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
