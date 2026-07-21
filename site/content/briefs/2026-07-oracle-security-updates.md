@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:51:54Z"
+lastmod: "2026-07-21T22:52:04Z"
 type: advisory
 types:
   - advisory
@@ -137,6 +137,8 @@ products:
   - Oracle Utilities Network Management System (2.6.0.1.0-2.6.0.1.12)
   - Oracle Utilities Network Management System (2.6.0.2.0-2.6.0.2.8)
   - Oracle Utilities Network Management System (25.12.0.0.0-25.12.0.0.2)
+  - Oracle Enterprise Manager Base Platform (Agent Next Gen) 13.5
+  - Oracle Enterprise Manager Base Platform (Agent Next Gen) 24.1
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -552,14 +554,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46988
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46990
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46992
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-46993
 updates:
-  - at: "2026-07-21T22:51:02Z"
-    level: L2
-    summary: oracle e-business suite version Data Removal Tool) 12.2.3-12.2.15
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-46954
   - at: "2026-07-21T22:51:12Z"
     level: L1
     summary: new product
@@ -588,6 +584,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-46992
+  - at: "2026-07-21T22:52:04Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-46993
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
