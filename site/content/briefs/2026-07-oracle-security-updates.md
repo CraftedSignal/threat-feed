@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:50:55Z"
+lastmod: "2026-07-21T22:51:02Z"
 type: advisory
 types:
   - advisory
@@ -131,6 +131,7 @@ products:
   - Oracle E-Business Suite
   - Oracle Cost Management (12.2.3-12.2.15)
   - Oracle Retail EFTLink (21.0.0-25.0.0)
+  - Oracle E-Business Suite (Data Removal Tool) 12.2.3-12.2.15
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -530,14 +531,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46923
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46941
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46943
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-46954
 updates:
-  - at: "2026-07-21T22:48:08Z"
-    level: L2
-    summary: added CVE-2026-60380 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60568
   - at: "2026-07-21T22:48:19Z"
     level: L1
     summary: new product
@@ -566,6 +561,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-46943
+  - at: "2026-07-21T22:51:02Z"
+    level: L2
+    summary: oracle e-business suite version Data Removal Tool) 12.2.3-12.2.15
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-46954
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
