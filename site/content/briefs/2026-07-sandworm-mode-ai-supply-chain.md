@@ -3,11 +3,13 @@ title: 'Denying the Worm: Detecting SANDWORM_MODE and AI Toolchain Supply Chain 
 slug: 2026-07-sandworm-mode-ai-supply-chain
 description: The SANDWORM_MODE campaign is a multi-stage npm supply chain worm that targets AI-augmented development workflows by exploiting runtime behaviors of AI coding assistants and CI/CD pipelines, leading to credential theft, supply chain poisoning, and persistence through obfuscated loaders, credential harvesting, and malicious Git hooks.
 date: "2026-07-21T17:23:33Z"
+lastmod: "2026-07-21T17:52:31Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
 tags:
   - supply-chain-attack
   - npm
@@ -26,6 +28,9 @@ vendors:
   - Anthropic
   - Google
   - Cloudflare
+  - npm
+  - PyPI
+  - Microsoft
 products:
   - npm
   - PyPI
@@ -41,9 +46,16 @@ products:
   - Google APIs
   - Cloudflare Workers
   - Git
+  - Cloudflare Worker
+  - Windsurf
+  - GitHub Secrets
+  - OpenAI API
+  - Anthropic API
+  - Google API
 affected_os:
   - Linux
   - macOS
+  - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -166,6 +178,14 @@ rules:
       - process_creation
       - linux
 rules_count: 3
+updates:
+  - at: "2026-07-21T17:52:31Z"
+    level: L2
+    summary: poc_available; OS windows
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
 ---
 
 CrowdStrike has identified a sophisticated multi-stage npm supply chain worm, internally tracked as SANDWORM_MODE, which has affected 19 malicious packages distributed across two unique publisher aliases. This campaign, active since at least February 2026, represents a new class of attacks targeting AI-augmented development workflows. Unlike typical supply chain attacks that focus on build outputs or static backdoors, SANDWORM_MODE is designed to exploit the runtime behaviors of AI coding assistants, CI automation, and large language model (LLM) toolchains. Its primary evasion technique involves multi-layer obfuscation and delayed payload unpacking, bypassing static analysis. The worm conducts reconnaissance to steal sensitive credentials, including npm tokens, environment variables (KEY, SECRET, TOKEN, PASSWORD), and cryptocurrency wallet keys, exfiltrating them to attacker-controlled Cloudflare Workers. It achieves persistence and propagates by injecting malicious code into new npm packages, modifying GitHub repositories via API or SSH, and establishing malicious Git hooks in developer environments, posing a significant threat to software development integrity.
