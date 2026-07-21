@@ -3,7 +3,7 @@ title: 'CVE-2026-38754: Busybox Heap Overflow Leads to Denial of Service'
 slug: 2026-07-busybox-heap-overflow-dos
 description: A heap overflow vulnerability (CVE-2026-38754) exists in the ifsbreakup() function (shell/ash.c) of Busybox v1.38.0. This flaw allows attackers to trigger a Denial of Service (DoS) by providing a specially crafted input, leading to application instability or unavailability.
 date: "2026-07-21T07:19:06Z"
-lastmod: "2026-07-21T07:22:07Z"
+lastmod: "2026-07-21T07:29:28Z"
 type: advisory
 types:
   - advisory
@@ -36,9 +36,13 @@ cves:
   - id: CVE-2026-38755
     cvss: 2.9
     epss: 0.00307
+  - id: CVE-2026-38753
+    cvss: 4.9
+    epss: 0.00278
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-38754
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-38755
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-38753
 updates:
   - at: "2026-07-21T07:22:07Z"
     level: L2
@@ -47,6 +51,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-38755
+  - at: "2026-07-21T07:29:28Z"
+    level: L2
+    summary: added CVE-2026-38753
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-38753
 ---
 
 A critical heap overflow vulnerability, tracked as CVE-2026-38754, has been identified in Busybox version 1.38.0. The flaw resides within the `ifsbreakup()` function, located in the `shell/ash.c` component of the utility. Attackers can exploit this vulnerability by supplying a specially crafted input, which leads to memory corruption in the heap. This ultimately results in a Denial of Service (DoS) condition, causing the Busybox application to crash or become unstable. Given Busybox's widespread use in embedded systems, IoT devices, and various Linux environments, successful exploitation could lead to significant operational disruptions for affected systems that rely on Busybox for core command-line functionalities. The vulnerability was published by Microsoft Security Response Center (MSRC).
