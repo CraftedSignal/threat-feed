@@ -3,6 +3,7 @@ title: Gitea Incomplete SSRF Protection in Webhook and Migration Allow-list
 slug: 2026-07-gitea-ssrf-bypass
 description: An incomplete Server-Side Request Forgery (SSRF) protection in Gitea versions prior to 1.26.3 allows authenticated users to bypass the allow-list in webhook delivery and repository migrations, enabling internal network probing and data exfiltration from sensitive services like cloud metadata endpoints.
 date: "2026-07-21T20:30:56Z"
+lastmod: "2026-07-21T21:43:47Z"
 type: advisory
 types:
   - advisory
@@ -14,8 +15,15 @@ tags:
   - data-exfiltration
   - vulnerability
   - github
+  - gitea
+  - authorization-bypass
+  - information-disclosure
+  - api
+  - server-side
+  - github-advisory
 vendors:
   - Gitea Ltd
+  - Gitea
 products:
   - Gitea (< 1.26.3)
 mitre_ttps:
@@ -31,6 +39,12 @@ mitre_ttps:
     technique_name: Exfiltration Over C2 Channel
     evidence: Attackers can read full HTTP response bodies through the webhook history UI.
     confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1213
+    technique_name: Data from Information Repositories
+    evidence: content added during the private period becomes available through the fork repository after synchronization.
+    confidence_band: high
 cves:
   - id: CVE-2026-22874
     cvss: 9.6
@@ -45,11 +59,21 @@ references:
   - https://github.com/go-gitea/gitea/blob/4c37f4dacbac022f7beca75272439331f0368830/services/webhook/deliver.go#L259-L270
   - https://github.com/go-gitea/gitea/blob/4c37f4dacbac022f7beca75272439331f0368830/templates/repo/settings/webhook/history.tmpl#L75-L85
   - https://github.com/cc-tweaked/CC-Tweaked/blob/3e7ce15ba6d5ab030092850f7e49829b64ba3555/projects/core/src/main/java/dan200/computercraft/core/apis/http/options/AddressPredicate.java#L116-L169
+  - https://github.com/advisories/GHSA-wrf9-r3h7-7x5v
+  - https://anonymous.4open.science/r/Gitea_PoC-EC93/4_poc_merge_upstream
 iocs:
   - type: ip
     value: 168.63.129.16
 ioc_counts:
   ip: 1
+updates:
+  - at: "2026-07-21T21:43:47Z"
+    level: L2
+    summary: 'merged source coverage: Gitea Fork Synchronization Bypass Exposes Private Repository Content'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-wrf9-r3h7-7x5v
 ---
 
 A critical vulnerability, CVE-2026-22874, exists in Gitea versions prior to 1.26.3, stemming from an incomplete Server-Side Request Forgery (SSRF) protection mechanism. The allow-list, `MatchBuiltinExternal`, used for webhook delivery and repository migrations, relies on Go's standard library `net.IP.IsPrivate()` function. This function's definition of "private" is too narrow, covering only RFC 1918 and RFC 4193 ranges. As a result, several commonly used internal IP ranges, such as RFC 6598 Carrier-Grade NAT (`100.64.0.0/10`), Azure WireServer (`168.63.129.16`), specific non-RFC1918 `172.x.x.x` ranges, and various IPv6 transition mechanisms (e.g., NAT64 `64:ff9b::/96`, Teredo `2001::/32`), are not blocked. An authenticated user can exploit this to make Gitea initiate HTTP requests to these unblocked internal or cloud metadata endpoints and retrieve the full responses via the webhook history UI. This allows for internal network reconnaissance and sensitive data exfiltration.
