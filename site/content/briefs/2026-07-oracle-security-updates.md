@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:48:08Z"
+lastmod: "2026-07-21T22:48:19Z"
 type: advisory
 types:
   - advisory
@@ -126,6 +126,7 @@ products:
   - Oracle WebCenter Portal (14.1.2.0.0)
   - Oracle WebCenter Portal 12.2.1.4.0
   - Oracle WebCenter Portal 14.1.2.0.0
+  - PeopleSoft Enterprise CC Common Application Objects (9.2)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -520,14 +521,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60566
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60567
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60568
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60606
 updates:
-  - at: "2026-07-21T22:47:22Z"
-    level: L2
-    summary: added CVE-2026-60402
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60562
   - at: "2026-07-21T22:47:42Z"
     level: L2
     summary: added CVE-2026-60551 +1
@@ -556,6 +551,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60568
+  - at: "2026-07-21T22:48:19Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60606
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
