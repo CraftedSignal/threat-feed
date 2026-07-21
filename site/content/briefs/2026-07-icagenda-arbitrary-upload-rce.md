@@ -3,7 +3,7 @@ title: iCagenda Unrestricted File Upload Vulnerability Leading to RCE (CVE-2026-
 slug: 2026-07-icagenda-arbitrary-upload-rce
 description: Attackers are actively exploiting CVE-2026-48939, an unrestricted file upload vulnerability in iCagenda, to upload malicious PHP code and achieve remote code execution on affected web servers.
 date: "2026-07-10T17:16:18Z"
-lastmod: "2026-07-13T07:02:12Z"
+lastmod: "2026-07-21T18:04:09Z"
 type: threat
 types:
   - threat
@@ -13,6 +13,8 @@ exploited: true
 cpes:
   - cpe:2.3:a:craftcms:craft_cms:*:*:*:*:*:*:*:*
 has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=D24236F7-331C-5472-8852-CB4854D642E5&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - rce
@@ -34,6 +36,7 @@ vendors:
   - MetInfo
   - JCE
   - WordPress
+  - Craftcms
 products:
   - iCagenda
   - Balbooa Forms
@@ -52,6 +55,11 @@ products:
   - MetInfo CMS
   - Joomla JCE
   - WordPress
+  - Craft CMS (< 3.9.15)
+  - Craft CMS (< 4.14.15)
+  - Craft CMS (< 5.6.17)
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -68,10 +76,10 @@ mitre_ttps:
 cves:
   - id: CVE-2025-7852
     cvss: 9.8
-    epss: 0.01207
+    epss: 0.01217
   - id: CVE-2025-32432
     cvss: 10
-    epss: 0.99803
+    epss: 0.99829
   - id: CVE-2026-0740
     cvss: 9.8
     epss: 0.54254
@@ -80,7 +88,7 @@ cves:
     epss: 0.36512
   - id: CVE-2025-12057
     cvss: 9.8
-    epss: 0.00419
+    epss: 0.00448
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-48939
   - https://www.icagenda.com/#download
@@ -89,6 +97,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48939
   - https://www.cisa.gov/news-events/alerts/2026/07/10/cisa-adds-two-known-exploited-vulnerabilities-catalog
   - https://thehackernews.com/2026/07/icagenda-and-balbooa-forms-joomla-flaws.html
+  - https://sploitus.com/exploit?id=D24236F7-331C-5472-8852-CB4854D642E5&utm_source=rss&utm_medium=rss
 iocs:
   - type: other
     value: icagenda-batch/1.0
@@ -100,9 +109,14 @@ iocs:
     value: suspicious administrator accounts
   - type: filepath
     value: '*.php'
+  - type: url
+    value: https://sploitus.com/exploit?id=D24236F7-331C-5472-8852-CB4854D642E5
+  - type: url
+    value: https://sensepost.com/blog/2025/investigating-an-in-the-wild-campaign-using-rce-in-craftcms/
 ioc_counts:
   filepath: 3
   other: 2
+  url: 2
 rules:
   - title: Detects CVE-2026-48939 Exploitation - Unrestricted File Upload of PHP Files
     description: Detects CVE-2026-48939 exploitation by monitoring web server logs for HTTP POST requests to iCagenda upload paths that include dangerous file extensions like .php, indicating an attempt to upload a web shell.
@@ -132,6 +146,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/icagenda-and-balbooa-forms-joomla-flaws.html
+  - at: "2026-07-21T18:04:09Z"
+    level: L2
+    summary: craft cms version < 5.6.17; OS linux
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=D24236F7-331C-5472-8852-CB4854D642E5&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-48939, an unrestricted upload of file with dangerous type vulnerability in the iCagenda component for Joomla, is being actively exploited in the wild. This critical vulnerability allows remote, unauthenticated attackers to upload arbitrary files, including malicious PHP web shells, through the file attachment feature of the application. Upon successful upload, the attacker can execute the planted PHP code, leading to full remote code execution on the compromised web server. CISA has added CVE-2026-48939 to its Known Exploited Vulnerabilities Catalog, requiring federal agencies to apply mitigations by July 13, 2026. This vulnerability poses a significant risk as it can lead to complete system compromise, data exfiltration, or further network penetration.
