@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:20:40Z"
+lastmod: "2026-07-21T22:20:50Z"
 type: advisory
 types:
   - advisory
@@ -30,6 +30,9 @@ products:
   - Oracle Database Server (23.4.0-23.26.2)
   - Oracle Data Integrator (12.2.1.4.0)
   - Oracle Data Integrator (14.1.2.0.0)
+  - Oracle Hospitality Simphony (19.8-19.8.5)
+  - Oracle Hospitality Simphony (19.9-19.9.3)
+  - Oracle Hospitality Simphony (19.10)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -57,14 +60,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47036
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47040
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47056
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60168
 updates:
-  - at: "2026-07-21T22:19:53Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-46989
   - at: "2026-07-21T22:20:06Z"
     level: L2
     summary: added CVE-2026-46989 +1
@@ -93,6 +90,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-47056
+  - at: "2026-07-21T22:20:50Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60168
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
