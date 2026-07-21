@@ -3,6 +3,7 @@ title: Autonomous AI Agents Pose New Supply Chain and Data Exfiltration Risks
 slug: 2026-07-emerging-ai-agent-threats
 description: This content introduces AI Detection and Response (AIDR) as a new cybersecurity category to address emerging threats from autonomous AI agents, including supply chain attacks and unintended data sharing, highlighting their ability to execute with inherited privileges across endpoints, SaaS, and cloud environments.
 date: "2026-07-21T05:53:01Z"
+lastmod: "2026-07-21T05:57:16Z"
 type: advisory
 types:
   - advisory
@@ -21,11 +22,20 @@ vendors:
   - Microsoft
   - OpenAI
   - Anthropic
+  - OpenClaw
+  - ClawHub
+  - Google
 products:
   - ClawHub
   - OpenAI Codex
   - Claude Code
   - Kubernetes AI Applications
+  - OpenClaw
+  - Anthropic Claude Mythos Preview
+  - Microsoft ClickOnce Technology
+  - Azure
+  - Google Cloud
+  - trivy-action
 affected_os:
   - Windows
   - macOS
@@ -57,6 +67,14 @@ mitre_ttps:
     confidence_band: med
 references:
   - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
+updates:
+  - at: "2026-07-21T05:57:16Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
 ---
 
 The proliferation of autonomous AI agents, such as Claude Code and OpenAI Codex, is introducing a new class of cybersecurity threats that traditional security tools are ill-equipped to handle. These AI agents operate across endpoints, SaaS applications, and cloud environments, executing code, calling tools, invoking APIs, and accessing credentials with inherited privileges at machine speed. Attackers are actively exploiting this evolving threat landscape; CrowdStrike's OverWatch team observes agent-triggered detection leads at 2.5 times the rate of human-triggered leads. Key threat vectors include supply chain attacks targeting AI skill registries, as seen with the ClawHub compromise which deployed silent data exfiltration payloads, as well as prompt injection attacks and compromised agents exploiting inherited credentials. These new attack surfaces necessitate a unified, runtime security approach, defined as AI Detection and Response (AIDR), to detect, investigate, and respond to threats originating from AI systems.
