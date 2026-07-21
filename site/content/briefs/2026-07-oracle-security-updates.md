@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:20:14Z"
+lastmod: "2026-07-21T22:20:32Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,10 @@ products:
   - Siebel CRM (17.0-26.3)
   - Siebel CRM Development (17.0-26.3)
   - Siebel Approval Manager (17.0-26.3)
+  - Oracle Net Services
+  - Oracle Database Server (19.3-19.31)
+  - Oracle Database Server (21.3-21.22)
+  - Oracle Database Server (23.4.0-23.26.2)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -47,14 +51,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46989
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46994
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47036
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-47040
 updates:
-  - at: "2026-07-21T22:19:32Z"
-    level: L2
-    summary: added CVE-2026-46982
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-46982
   - at: "2026-07-21T22:19:41Z"
     level: L2
     summary: added CVE-2026-46983
@@ -83,6 +81,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-47036
+  - at: "2026-07-21T22:20:32Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-47040
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
