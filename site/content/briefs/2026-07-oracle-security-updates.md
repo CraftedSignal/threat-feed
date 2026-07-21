@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:37:50Z"
+lastmod: "2026-07-21T22:37:58Z"
 type: advisory
 types:
   - advisory
@@ -83,6 +83,8 @@ products:
   - Oracle Weblogic Server Proxy Plug-in (15.1.1.0.0)
   - Service Delivery Platform (12.2.1.4.0)
   - Service Delivery Platform (14.1.2.0.0)
+  - Oracle Fusion Middleware Service Delivery Platform (12.2.1.4.0)
+  - Oracle Fusion Middleware Service Delivery Platform (14.1.2.0.0)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -252,6 +254,8 @@ cves:
     cvss: 9.8
   - id: CVE-2026-60364
     cvss: 9.8
+  - id: CVE-2026-60375
+    cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -350,14 +354,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60364
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60365
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60374
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60375
 updates:
-  - at: "2026-07-21T22:37:08Z"
-    level: L2
-    summary: added CVE-2026-60306
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60362
   - at: "2026-07-21T22:37:16Z"
     level: L2
     summary: oracle fusion middleware version Apache Plugin
@@ -386,6 +384,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60374
+  - at: "2026-07-21T22:37:58Z"
+    level: L2
+    summary: added CVE-2026-60375
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60375
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
