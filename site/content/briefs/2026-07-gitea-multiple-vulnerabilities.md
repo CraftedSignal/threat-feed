@@ -3,6 +3,7 @@ title: 'Gitea: Multiple Vulnerabilities'
 slug: 2026-07-gitea-multiple-vulnerabilities
 description: An anonymous, remote attacker can exploit multiple vulnerabilities in Gitea to manipulate data or trigger a denial of service.
 date: "2026-07-16T10:22:20Z"
+lastmod: "2026-07-21T20:26:20Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,8 @@ vendors:
   - Gitea
 products:
   - Gitea
+affected_os:
+  - Debian
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -32,6 +35,15 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0633
+  - https://github.com/advisories/GHSA-6hm7-3pwj-22rm
+updates:
+  - at: "2026-07-21T20:26:20Z"
+    level: L1
+    summary: OS debian
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6hm7-3pwj-22rm
 ---
 
 A security advisory from CERT-Bund details multiple unspecified vulnerabilities affecting Gitea, an open-source self-hosted Git service. These vulnerabilities can be exploited by a remote, anonymous attacker to achieve unauthorized data manipulation or trigger a denial of service. The advisory, published on July 16, 2026, highlights the critical risk posed to organizations utilizing Gitea for version control and collaborative development. Given Gitea's role in managing source code, successful exploitation could lead to integrity compromises of critical intellectual property, disruption of development pipelines, and severe operational outages. Defenders should prioritize patching and monitoring to mitigate these risks, as the nature of the vulnerabilities could allow attackers to alter repositories, user accounts, or render the service inaccessible.
