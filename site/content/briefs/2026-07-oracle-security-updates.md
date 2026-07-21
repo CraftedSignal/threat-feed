@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:55:58Z"
+lastmod: "2026-07-21T22:56:24Z"
 type: advisory
 types:
   - advisory
@@ -155,6 +155,7 @@ products:
   - Oracle Bills of Material (12.2.3-12.2.15)
   - Oracle E-Business Suite (12.2.3-12.2.15)
   - Oracle Contracts Integration (12.2.3-12.2.15)
+  - Oracle VM VirtualBox (7.2.12)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -440,6 +441,10 @@ cves:
     cvss: 7.1
   - id: CVE-2026-46941
     cvss: 7.5
+  - id: CVE-2026-60606
+    cvss: 9.1
+  - id: CVE-2026-35287
+    cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -618,14 +623,10 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47028
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47031
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47033
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-47037
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-47046
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-47047
 updates:
-  - at: "2026-07-21T22:54:18Z"
-    level: L2
-    summary: added CVE-2026-47007 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-47019
   - at: "2026-07-21T22:55:28Z"
     level: L1
     summary: new product
@@ -654,6 +655,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-47033
+  - at: "2026-07-21T22:56:24Z"
+    level: L2
+    summary: added CVE-2026-35287 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-47047
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
