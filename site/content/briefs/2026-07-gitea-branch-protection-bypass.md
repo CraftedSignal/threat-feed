@@ -3,7 +3,7 @@ title: Gitea Branch Protection Bypass via Pull Request Retargeting
 slug: 2026-07-gitea-branch-protection-bypass
 description: An attacker with write access to a Gitea repository can bypass branch protection rules by exploiting a logic flaw, obtaining an 'official' approval on a pull request (PR) targeting an unprotected branch, then retargeting the PR to a protected branch, preserving the stale approval and leading to unauthorized code merges and privilege escalation.
 date: "2026-07-21T20:15:57Z"
-lastmod: "2026-07-21T20:26:02Z"
+lastmod: "2026-07-21T20:48:29Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,10 @@ tags:
   - vulnerability
   - defense-evasion
   - network
+  - credential-theft
+  - mitm
+  - certificate-validation-bypass
+  - cve
 vendors:
   - Gitea
 products:
@@ -48,12 +52,19 @@ mitre_ttps:
     technique_name: Account Manipulation
     evidence: An attacker with a restricted token (e.g. write:user from a leaked CI secret) can therefore create a fully-privileged all-scoped token without knowing the account password.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1557
+    technique_name: Adversary-in-the-Middle
+    evidence: An attacker with on-path position on that internal segment can MITM the connection and capture the static high-privilege INTERNAL_TOKEN
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-w5pg-649r-p6gg
   - https://github.com/advisories/GHSA-rgv6-xp99-6mgj
   - https://github.com/go-gitea/gitea/blob/689ace1ce28fd74244b8aa335d9928cdbf6b22f9/services/auth/auth_token.go#L33-L64
   - https://github.com/go-gitea/gitea/blob/689ace1ce28fd74244b8aa335d9928cdbf6b22f9/services/auth/auth_token.go#L21
   - https://github.com/advisories/GHSA-683j-3ff6-hh2x
+  - https://github.com/advisories/GHSA-94v3-77j7-vm48
 rules:
   - title: Detects CVE-2026-58439 Exploitation Attempt - Gitea Pull Request Retargeting
     description: Detects CVE-2026-58439 exploitation - Gitea API PATCH requests targeting pull requests, which is a key step in the branch protection bypass. This rule monitors for attempts to retarget a PR's base branch.
@@ -83,6 +94,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-683j-3ff6-hh2x
+  - at: "2026-07-21T20:48:29Z"
+    level: L2
+    summary: 'merged source coverage: Gitea Internal API InsecureSkipVerify Vulnerability (CVE-2026-54481)'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-94v3-77j7-vm48
 ---
 
 A critical vulnerability, CVE-2026-58439, affects Gitea versions prior to 1.27.0, enabling attackers with write access to a repository to bypass branch protection rules. The flaw stems from Gitea's failure to re-evaluate the `official` flag on existing pull request reviews when a PR's target branch is changed. This allows an attacker to first create a pull request (PR) targeting an unprotected branch, obtain a seemingly legitimate "official: true" approval from any non-whitelisted account, and then retarget the PR to a protected branch (e.g., `master`). Because the stale "official: true" flag is preserved, it satisfies the protected branch's required approval count, enabling the attacker to merge malicious code without true maintainer oversight. This bypass effectively escalates privileges and undermines secure code collaboration workflows.
