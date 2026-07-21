@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:36:26Z"
+lastmod: "2026-07-21T22:36:32Z"
 type: advisory
 types:
   - advisory
@@ -72,6 +72,7 @@ products:
   - Oracle Access Manager (14.1.2.1.0)
   - Oracle Identity Manager (12.2.1.4.0)
   - Oracle Identity Manager (14.1.2.1.0)
+  - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -308,14 +309,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60328
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60329
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60333
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60355
 updates:
-  - at: "2026-07-21T22:35:52Z"
-    level: L2
-    summary: added CVE-2026-60294
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60308
   - at: "2026-07-21T22:36:03Z"
     level: L1
     summary: new product
@@ -344,6 +339,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60333
+  - at: "2026-07-21T22:36:32Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60355
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
