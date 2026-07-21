@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-20T23:02:48Z"
+lastmod: "2026-07-21T07:02:40Z"
 type: advisory
 types:
   - advisory
@@ -736,7 +736,7 @@ cves:
     epss: 0.00352
   - id: CVE-2026-55032
     cvss: 7.8
-    epss: 0.0031
+    epss: 0.00303
   - id: CVE-2026-55041
     cvss: 7.8
     epss: 0.0031
@@ -935,6 +935,18 @@ cves:
   - id: CVE-2026-56194
     cvss: 8.8
     epss: 0.00851
+  - id: CVE-2026-50346
+    cvss: 7.8
+    epss: 0.00284
+  - id: CVE-2026-50480
+    cvss: 7.8
+    epss: 0.00245
+  - id: CVE-2026-55052
+    cvss: 8.8
+    epss: 0.00526
+  - id: CVE-2026-58536
+    cvss: 7.8
+    epss: 0.01751
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1568,6 +1580,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_user_exec_into_pod.toml
   - https://github.com/advisories/GHSA-g8r8-53c2-pm3f
   - https://github.com/advisories/GHSA-8q5v-6pqq-x66h
+  - https://any.run/cybersecurity-blog/kali365-phishing-targeting-us/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1945,6 +1958,8 @@ iocs:
     value: https://www.cve.org/CVERecord?id=CVE-2026-56171
   - type: url
     value: https://www.cve.org/CVERecord?id=CVE-2026-62826
+  - type: url
+    value: https://app.any.run/tasks/d078f430-c3cc-44e8-a809-5506205049c3?utm_source=anyrunblog&utm_medium=article&utm_campaign=kali365-phishing-targeting-us&utm_term=210726&utm_content=linktoservice
 ioc_counts:
   application_id: 1
   asn: 3
@@ -1968,16 +1983,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 94
+  url: 95
   user_agent: 6
 updates:
-  - at: "2026-07-20T13:12:28Z"
-    level: L2
-    summary: added CVE-2026-50680 +3
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_entra_id_excessive_account_lockouts.toml
   - at: "2026-07-20T13:12:41Z"
     level: L2
     summary: added CVE-2026-50318 +2
@@ -2006,6 +2014,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-8q5v-6pqq-x66h
+  - at: "2026-07-21T07:02:40Z"
+    level: L2
+    summary: added CVE-2026-50346 +3
+    sources:
+      - any-run
+    source_urls:
+      - https://any.run/cybersecurity-blog/kali365-phishing-targeting-us/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
