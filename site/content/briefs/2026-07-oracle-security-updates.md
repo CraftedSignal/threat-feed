@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:46:29Z"
+lastmod: "2026-07-21T22:46:39Z"
 type: advisory
 types:
   - advisory
@@ -335,6 +335,10 @@ cves:
     cvss: 9.9
   - id: CVE-2026-60438
     cvss: 9.1
+  - id: CVE-2026-60445
+    cvss: 9.9
+  - id: CVE-2026-60524
+    cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -473,14 +477,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60540
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60541
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60542
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60547
 updates:
-  - at: "2026-07-21T22:45:55Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60537
   - at: "2026-07-21T22:46:05Z"
     level: L2
     summary: added CVE-2026-60538
@@ -509,6 +507,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60542
+  - at: "2026-07-21T22:46:39Z"
+    level: L2
+    summary: added CVE-2026-60445 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60547
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
