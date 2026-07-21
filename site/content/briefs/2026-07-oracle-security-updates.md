@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:26:58Z"
+lastmod: "2026-07-21T22:27:10Z"
 type: advisory
 types:
   - advisory
@@ -55,6 +55,9 @@ products:
   - Oracle Coherence <= 14.1.1.0.0
   - Oracle Coherence <= 14.1.2.0.0
   - Oracle Coherence <= 15.1.1.0.0
+  - Coherence (14.1.1.0.0)
+  - Coherence (14.1.2.0.0)
+  - Coherence (15.1.1.0.0)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -162,14 +165,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60236
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60239
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60240
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60241
 updates:
-  - at: "2026-07-21T22:25:29Z"
-    level: L2
-    summary: added CVE-2026-60219
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60225
   - at: "2026-07-21T22:25:37Z"
     level: L2
     summary: added CVE-2026-60221 +1
@@ -198,6 +195,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60240
+  - at: "2026-07-21T22:27:10Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60241
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
