@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:42:03Z"
+lastmod: "2026-07-21T22:42:40Z"
 type: advisory
 types:
   - advisory
@@ -100,6 +100,8 @@ products:
   - Oracle Unified Directory 14.1.2.1.0
   - Oracle WebCenter Content 12.2.1.4.0
   - Oracle WebCenter Content 14.1.2.0.0
+  - Oracle WebCenter Enterprise Capture (12.2.1.4.0)
+  - Oracle WebCenter Enterprise Capture (14.1.2.0.0)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -291,6 +293,8 @@ cves:
     cvss: 10
   - id: CVE-2026-60272
     cvss: 9.8
+  - id: CVE-2026-60365
+    cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -407,14 +411,11 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60424
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60429
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60435
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60438
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60441
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60442
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60445
 updates:
-  - at: "2026-07-21T22:41:01Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60387
   - at: "2026-07-21T22:41:14Z"
     level: L2
     summary: added CVE-2026-60272 +1
@@ -443,6 +444,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60435
+  - at: "2026-07-21T22:42:40Z"
+    level: L2
+    summary: added CVE-2026-60365
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60445
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
