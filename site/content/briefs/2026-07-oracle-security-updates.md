@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:56:37Z"
+lastmod: "2026-07-21T22:56:45Z"
 type: advisory
 types:
   - advisory
@@ -157,6 +157,9 @@ products:
   - Oracle Contracts Integration (12.2.3-12.2.15)
   - Oracle VM VirtualBox (7.2.12)
   - Oracle VM VirtualBox (Core) 7.2.8
+  - VirtualBox <= 7.2.12
+affected_os:
+  - Windows
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -448,6 +451,8 @@ cves:
     cvss: 7.5
   - id: CVE-2026-60552
     cvss: 9.9
+  - id: CVE-2026-47026
+    cvss: 7.4
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -630,14 +635,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47046
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47047
   - https://nvd.nist.gov/vuln/detail/CVE-2026-47050
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-47054
 updates:
-  - at: "2026-07-21T22:55:39Z"
-    level: L2
-    summary: added CVE-2026-47015
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-47028
   - at: "2026-07-21T22:55:50Z"
     level: L2
     summary: added CVE-2026-46941
@@ -666,6 +665,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-47050
+  - at: "2026-07-21T22:56:45Z"
+    level: L2
+    summary: added CVE-2026-47026; OS windows
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-47054
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
