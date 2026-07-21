@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:37:08Z"
+lastmod: "2026-07-21T22:37:16Z"
 type: advisory
 types:
   - advisory
@@ -75,6 +75,9 @@ products:
   - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
   - Oracle Unified Directory (12.2.1.4.0)
   - Oracle Unified Directory (14.1.2.1.0)
+  - Oracle HTTP Server (12.2.1.4.0)
+  - Oracle HTTP Server (14.1.2.0.0)
+  - Oracle Fusion Middleware (Apache Plugin)
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -322,14 +325,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60360
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60361
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60362
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60363
 updates:
-  - at: "2026-07-21T22:36:26Z"
-    level: L2
-    summary: added CVE-2026-60292 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60333
   - at: "2026-07-21T22:36:32Z"
     level: L1
     summary: new product
@@ -358,6 +355,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60362
+  - at: "2026-07-21T22:37:16Z"
+    level: L2
+    summary: oracle fusion middleware version Apache Plugin
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60363
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
