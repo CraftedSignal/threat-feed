@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-21T22:41:35Z"
+lastmod: "2026-07-21T22:42:03Z"
 type: advisory
 types:
   - advisory
@@ -98,6 +98,8 @@ products:
   - Service Delivery Platform 14.1.2.0.0
   - TimesTen In-Memory Database Kubernetes Operator (26.1.1.1.0)
   - Oracle Unified Directory 14.1.2.1.0
+  - Oracle WebCenter Content 12.2.1.4.0
+  - Oracle WebCenter Content 14.1.2.0.0
 cves:
   - id: CVE-2026-35290
     cvss: 9.8
@@ -402,14 +404,10 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60389
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60402
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60422
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60424
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60429
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60435
 updates:
-  - at: "2026-07-21T22:40:53Z"
-    level: L2
-    summary: added CVE-2026-60381
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60386
   - at: "2026-07-21T22:41:01Z"
     level: L1
     summary: new product
@@ -438,6 +436,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60422
+  - at: "2026-07-21T22:42:03Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60435
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
