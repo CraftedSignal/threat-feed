@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-22T09:57:37Z"
+lastmod: "2026-07-22T09:57:52Z"
 type: advisory
 types:
   - advisory
@@ -184,6 +184,7 @@ products:
   - Oracle Financial Services Applications
   - JD Edwards
   - MySQL
+  - Oracle Retail Applications
 affected_os:
   - Windows
 cves:
@@ -521,6 +522,8 @@ cves:
     cvss: 8.8
   - id: CVE-2026-46988
     cvss: 7.2
+  - id: CVE-2026-60565
+    cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -727,14 +730,8 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2445
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2442
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2441
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2439
 updates:
-  - at: "2026-07-22T09:54:25Z"
-    level: L2
-    summary: added CVE-2026-60568
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2435
   - at: "2026-07-22T09:56:42Z"
     level: L1
     summary: new product
@@ -763,6 +760,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2441
+  - at: "2026-07-22T09:57:52Z"
+    level: L2
+    summary: added CVE-2026-60565
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2439
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
