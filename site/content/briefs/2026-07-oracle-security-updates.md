@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-22T09:56:57Z"
+lastmod: "2026-07-22T09:57:20Z"
 type: advisory
 types:
   - advisory
@@ -182,6 +182,7 @@ products:
   - E-Business Suite
   - Oracle Enterprise Manager
   - Oracle Financial Services Applications
+  - JD Edwards
 affected_os:
   - Windows
 cves:
@@ -513,6 +514,10 @@ cves:
     cvss: 7.8
   - id: CVE-2026-60568
     cvss: 9.9
+  - id: CVE-2026-47050
+    cvss: 7.4
+  - id: CVE-2026-60175
+    cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -717,14 +722,8 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2435
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2446
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2445
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2442
 updates:
-  - at: "2026-07-22T09:53:56Z"
-    level: L2
-    summary: added CVE-2026-60150
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2438
   - at: "2026-07-22T09:54:10Z"
     level: L1
     summary: new product
@@ -753,6 +752,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2445
+  - at: "2026-07-22T09:57:20Z"
+    level: L2
+    summary: added CVE-2026-47050 +1
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2442
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
