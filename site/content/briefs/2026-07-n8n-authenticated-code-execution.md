@@ -3,6 +3,7 @@ title: Authenticated Code Execution Vulnerability in n8n Git Node
 slug: 2026-07-n8n-authenticated-code-execution
 description: An authenticated n8n user with workflow creation and execution rights can achieve arbitrary code execution on the n8n host by staging a crafted local Git repository within the Git node, causing Git to run malicious hooks as the n8n process user.
 date: "2026-07-22T22:10:04Z"
+lastmod: "2026-07-22T22:14:45Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,8 @@ tags:
   - vulnerability
   - n8n
   - authenticated-rce
+  - prototype-pollution
+  - denial-of-service
 vendors:
   - n8n GmbH
 products:
@@ -26,8 +29,29 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: an attacker could cause `git` to run hooks, executing arbitrary commands as the n8n process user.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Denial of Service
+    evidence: causing a instance-wide denial of service for all users until the process was restarted.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: an authenticated user could name a field
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-rcv6-pvrj-4xcg
+  - https://github.com/advisories/GHSA-xwx6-jjhv-84p8
+updates:
+  - at: "2026-07-22T22:14:45Z"
+    level: L1
+    summary: 'merged source coverage: n8n Prototype Pollution Leads to Instance-Wide Denial of Service'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-xwx6-jjhv-84p8
 ---
 
 A high-severity authenticated code execution vulnerability has been discovered in the n8n automation platform's Git node. Authenticated n8n users with permissions to create and execute workflows can exploit this flaw to execute arbitrary commands on the underlying n8n host. The vulnerability, present in versions prior to 1.123.67, 2.31.5, and 2.32.1, leverages the default security settings of the Git node. By crafting a malicious local Git repository, an attacker can trick Git into running arbitrary hooks, thereby achieving code execution as the n8n process user. This impacts both self-hosted and cloud instances where authenticated users have workflow creation and execution capabilities, posing a significant risk of system compromise and data breach.
