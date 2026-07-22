@@ -3,6 +3,7 @@ title: Ubuntu Desktop Vulnerability Allows Local Root Access via snap-confine
 slug: 2026-07-ubuntu-snap-confine-lpe
 description: A high-severity vulnerability, CVE-2026-8933, in Ubuntu's snap-confine component of the snapd service allows an unprivileged local user to gain root access on affected Ubuntu Desktop systems by exploiting race conditions during temporary file creation, enabling full administrative control.
 date: "2026-07-22T11:20:49Z"
+lastmod: "2026-07-22T18:38:20Z"
 type: advisory
 types:
   - advisory
@@ -18,11 +19,15 @@ vendors:
   - Canonical
 products:
   - snapd
+  - snap-confine
 affected_os:
   - Ubuntu 22.04 LTS
   - Ubuntu 24.04 LTS
   - Ubuntu 25.10
   - Ubuntu 26.04 LTS
+  - Ubuntu Desktop 24.04
+  - Ubuntu Desktop 25.10
+  - Ubuntu Desktop 26.04
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -35,6 +40,15 @@ cves:
     cvss: 7.8
 references:
   - https://hackread.com/ubuntu-desktop-vulnerability-local-access-root-control/
+  - https://thehackernews.com/2026/07/ubuntu-snap-confine-flaw-could-give.html
+updates:
+  - at: "2026-07-22T18:38:20Z"
+    level: L1
+    summary: OS ubuntu desktop 24.04; OS ubuntu desktop 25.10; OS ubuntu desktop 26.04
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/ubuntu-snap-confine-flaw-could-give.html
 ---
 
 Qualys researchers have disclosed a high-severity local privilege escalation vulnerability, CVE-2026-8933, affecting Ubuntu Desktop systems. This flaw resides in `snap-confine`, a crucial part of the `snapd` service responsible for preparing the sandboxed environment where Snap applications run. The vulnerability allows an unprivileged local user to obtain root access by exploiting a race condition during the creation and ownership transfer of temporary files and directories under `/tmp`. This issue arose after a security hardening change replaced `snap-confine`'s setuid-root design with a Linux capabilities model, creating a brief window where a user can manipulate these temporary files. An attacker must first have local access to an affected system, either through a compromised account, stolen credentials, or another vulnerability. Successful exploitation grants complete administrative control, enabling arbitrary code execution as root. Affected Ubuntu Desktop systems include 22.04 LTS, 24.04 LTS, and 26.04 LTS, requiring `snapd` package updates to versions 2.76+ubuntu22.04.1, 2.76+ubuntu24.04.1, and 2.76+ubuntu26.04.3 respectively. Ubuntu 25.10, which reached end-of-life in July 2026, was also affected.
