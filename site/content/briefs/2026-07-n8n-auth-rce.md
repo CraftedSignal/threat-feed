@@ -3,6 +3,7 @@ title: n8n Authenticated Code Execution Vulnerability
 slug: 2026-07-n8n-auth-rce
 description: A security advisory from CCCS highlights an authenticated code execution vulnerability (GHSA-rcv6-pvrj-4xcg) within the n8n Git node, affecting multiple versions prior to 1.123.67, 2.32.1, and 2.31.5, which could allow an authenticated attacker to execute arbitrary code on the host system.
 date: "2026-07-22T18:08:49Z"
+lastmod: "2026-07-22T22:09:45Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,14 @@ tags:
   - vulnerability
 vendors:
   - n8n GmbH
+  - n8n
 products:
   - n8n versions prior to 1.123.67
   - n8n versions prior to 2.32.1
   - n8n versions prior to 2.31.5
+  - n8n < 1.123.67
+  - n8n >= 2.0.0-rc.0 < 2.31.5
+  - n8n >= 2.32.0 < 2.32.1
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -29,6 +34,15 @@ references:
   - https://cyber.gc.ca/en/alerts-advisories/n8n-security-advisory-av26-733
   - https://github.com/n8n-io/n8n/security/advisories/GHSA-rcv6-pvrj-4xcg
   - https://github.com/n8n-io/n8n/security
+  - https://github.com/advisories/GHSA-2x35-3fw4-9jr4
+updates:
+  - at: "2026-07-22T22:09:45Z"
+    level: L1
+    summary: new product
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-2x35-3fw4-9jr4
 ---
 
 The Canadian Centre for Cyber Security (CCCS) has issued an advisory regarding an authenticated code execution vulnerability (GHSA-rcv6-pvrj-4xcg) affecting the n8n workflow automation platform. Specifically, this flaw resides in the n8n Git node and impacts versions prior to 1.123.67, 2.32.1, and 2.31.5. An attacker who has already gained authenticated access to an n8n instance could exploit this vulnerability to execute arbitrary code on the underlying server. Given n8n's function in automating various tasks and integrating disparate systems, a successful compromise could lead to significant unauthorized access to data, system control, or disruption of critical business operations. Organizations leveraging vulnerable n8n versions are strongly advised to apply the recommended updates immediately to mitigate this risk.
