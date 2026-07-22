@@ -3,7 +3,7 @@ title: Autonomous AI Agents Pose New Supply Chain and Data Exfiltration Risks
 slug: 2026-07-emerging-ai-agent-threats
 description: This content introduces AI Detection and Response (AIDR) as a new cybersecurity category to address emerging threats from autonomous AI agents, including supply chain attacks and unintended data sharing, highlighting their ability to execute with inherited privileges across endpoints, SaaS, and cloud environments.
 date: "2026-07-21T05:53:01Z"
-lastmod: "2026-07-22T10:27:12Z"
+lastmod: "2026-07-22T10:57:45Z"
 type: advisory
 types:
   - advisory
@@ -52,6 +52,7 @@ products:
   - Microsoft Windows
   - Claude Mythos
   - Windows
+  - Microsoft products (multiple)
 affected_os:
   - Windows
   - macOS
@@ -84,13 +85,6 @@ mitre_ttps:
 references:
   - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
 updates:
-  - at: "2026-07-22T03:57:13Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
   - at: "2026-07-22T04:47:03Z"
     level: L1
     summary: new product
@@ -115,6 +109,13 @@ updates:
   - at: "2026-07-22T10:27:12Z"
     level: L1
     summary: new vendor
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
+  - at: "2026-07-22T10:57:45Z"
+    level: L1
+    summary: new product
     sources:
       - crowdstrike
     source_urls:
