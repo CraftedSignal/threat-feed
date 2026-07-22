@@ -3,47 +3,45 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-21T13:04:17Z"
+lastmod: "2026-07-22T07:38:10Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
-  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
-  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:azure_sdk_for_java:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
   - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
   - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x64:*
   - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x86:*
-  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x86:*
   - cpe:2.3:a:microsoft:microsoft_365:-:*:*:*:*:macos:*:*
+  - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x64:*
+  - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x86:*
   - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x64:*
   - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x86:*
   - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x64:*
@@ -52,27 +50,6 @@ cpes:
   - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
   - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
   - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:a:microsoft:office_online_server:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x64:*
-  - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x86:*
-  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x86:*
-  - cpe:2.3:a:microsoft:powerpoint:2016:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:powerpoint:2016:*:*:*:*:*:x86:*
-  - cpe:2.3:a:microsoft:visual_studio_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:365_copilot:-:*:*:*:*:android:*:*
-  - cpe:2.3:a:microsoft:365_copilot:-:*:*:*:*:iphone_os:*:*
-  - cpe:2.3:a:microsoft:office_2021:*:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:a:microsoft:office_2024:*:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:visual_studio_code:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -566,420 +543,27 @@ affected_os:
   - Windows 11 25H2
   - Windows 11 26H1
 cves:
-  - id: CVE-2026-58288
-    cvss: 8.3
-    epss: 0.00438
-  - id: CVE-2026-58297
-    cvss: 7.1
-    epss: 0.00309
-  - id: CVE-2026-58525
-    cvss: 8.2
-    epss: 0.00362
-  - id: CVE-2026-50425
-    cvss: 7.8
-    epss: 0.00245
-  - id: CVE-2026-50449
-    cvss: 7
-    epss: 0.00204
-  - id: CVE-2026-50478
-    cvss: 7.8
-    epss: 0.00318
-  - id: CVE-2026-33117
-    cvss: 9.1
-    epss: 0.00479
-  - id: CVE-2026-58286
-    cvss: 8.1
-    epss: 0.00312
-  - id: CVE-2026-57991
-    cvss: 7.4
-    epss: 0.00745
-  - id: CVE-2026-42900
-    cvss: 8.1
-    epss: 0.00398
-  - id: CVE-2026-50663
-    cvss: 8.8
-    epss: 0.0065
-  - id: CVE-2026-50695
-    cvss: 7.5
-    epss: 0.00813
-  - id: CVE-2026-54991
-    cvss: 7.8
-    epss: 0.00188
-  - id: CVE-2026-54986
-    cvss: 7.8
-    epss: 0.01725
-  - id: CVE-2026-54112
-    cvss: 7.8
-    epss: 0.00153
-  - id: CVE-2026-54119
-    cvss: 7.5
-    epss: 0.00834
-  - id: CVE-2026-55011
-    cvss: 7.8
-    epss: 0.00423
-  - id: CVE-2026-50675
-    cvss: 7.8
-    epss: 0.00325
-  - id: CVE-2026-55948
-    cvss: 7.8
-    epss: 0.00303
   - id: CVE-2026-56155
     cvss: 7.8
     epss: 0.00379
-  - id: CVE-2026-56169
-    cvss: 8.1
-    epss: 0.00492
-  - id: CVE-2026-57107
-    cvss: 7.8
-    epss: 0.00219
-  - id: CVE-2026-57969
-    cvss: 8.8
-    epss: 0.00538
-  - id: CVE-2026-57979
-    cvss: 6.5
-    epss: 0.00666
-  - id: CVE-2026-58608
-    cvss: 8.8
-    epss: 0.00532
-  - id: CVE-2026-58610
-    cvss: 7.8
-    epss: 0.00319
-  - id: CVE-2026-58614
-    cvss: 5.5
-    epss: 0.00285
-  - id: CVE-2026-49178
-    cvss: 8.8
-    epss: 0.00617
-  - id: CVE-2026-49791
-    cvss: 7.1
-    epss: 0.00278
-  - id: CVE-2026-49792
-    cvss: 7.8
-    epss: 0.00263
-  - id: CVE-2026-49797
-    cvss: 7.8
-    epss: 0.00368
-  - id: CVE-2026-49799
-    cvss: 6.5
-    epss: 0.0079
-  - id: CVE-2026-50325
-    cvss: 7
-    epss: 0.00207
-  - id: CVE-2026-50381
-    cvss: 5.5
-    epss: 0.00292
-  - id: CVE-2026-50305
-    cvss: 7.8
-    epss: 0.00188
-  - id: CVE-2026-50368
-    cvss: 7.5
-    epss: 0.00797
-  - id: CVE-2026-50440
-    cvss: 7.8
-    epss: 0.00188
-  - id: CVE-2026-50355
-    cvss: 7.5
-    epss: 0.01098
-  - id: CVE-2026-50373
-    cvss: 7.8
-    epss: 0.00284
-  - id: CVE-2026-50388
-    cvss: 7.8
-    epss: 0.00444
-  - id: CVE-2026-50410
-    cvss: 7
-    epss: 0.00204
-  - id: CVE-2026-50414
-    cvss: 7.5
-    epss: 0.00474
-  - id: CVE-2026-50471
-    cvss: 7.8
-    epss: 0.0031
-  - id: CVE-2026-50466
-    cvss: 7.8
-    epss: 0.00245
-  - id: CVE-2026-50435
-    cvss: 7.8
-    epss: 0.00245
-  - id: CVE-2026-50465
-    cvss: 7.1
-    epss: 0.00219
-  - id: CVE-2026-50399
-    cvss: 7.8
-    epss: 0.00246
-  - id: CVE-2026-50474
-    cvss: 8.8
-    epss: 0.00625
-  - id: CVE-2026-50415
-    cvss: 5.3
-    epss: 0.00576
-  - id: CVE-2026-50429
-    cvss: 8.2
-    epss: 0.00785
-  - id: CVE-2026-50489
-    cvss: 8.8
-    epss: 0.00369
-  - id: CVE-2026-50490
-    cvss: 7
-    epss: 0.00252
-  - id: CVE-2026-50491
-    cvss: 7
-    epss: 0.00252
-  - id: CVE-2026-50509
-    cvss: 7.8
-    epss: 0.02312
-  - id: CVE-2026-50650
-    cvss: 7.8
-    epss: 0.00285
-  - id: CVE-2026-50667
-    cvss: 7.8
-    epss: 0.02156
-  - id: CVE-2026-50467
-    cvss: 7.8
-    epss: 0.00348
-  - id: CVE-2026-50408
-    cvss: 5.5
-    epss: 0.00352
-  - id: CVE-2026-55032
-    cvss: 7.8
-    epss: 0.00303
-  - id: CVE-2026-55041
-    cvss: 7.8
-    epss: 0.0031
-  - id: CVE-2026-55037
-    cvss: 7.8
-    epss: 0.0031
-  - id: CVE-2026-55058
-    cvss: 7.8
-    epss: 0.0031
-  - id: CVE-2026-55137
-    cvss: 7.8
-    epss: 0.00303
-  - id: CVE-2026-55131
-    cvss: 7.8
-    epss: 0.00303
-  - id: CVE-2026-55130
-    cvss: 7.8
-    epss: 0.00303
-  - id: CVE-2026-55139
-    cvss: 5.5
-    epss: 0.00361
-  - id: CVE-2026-55043
-    cvss: 7.8
-    epss: 0.00348
-  - id: CVE-2026-55120
-    cvss: 7.8
-    epss: 0.0034
-  - id: CVE-2026-55135
-    cvss: 4.6
-    epss: 0.00283
-  - id: CVE-2026-55145
-    cvss: 6.3
-    epss: 0.0037
-  - id: CVE-2026-55944
-    cvss: 9.8
-    epss: 0.01309
-  - id: CVE-2026-56176
-    cvss: 7.8
-    epss: 0.00245
-  - id: CVE-2026-56188
-    cvss: 9.8
-    epss: 0.00998
-  - id: CVE-2026-56196
-    cvss: 8.8
-    epss: 0.00954
-  - id: CVE-2026-57083
-    cvss: 5.5
-    epss: 0.00506
-  - id: CVE-2026-57108
-    cvss: 7.5
-    epss: 0.01099
-  - id: CVE-2026-58530
-    cvss: 7.8
-    epss: 0.00444
-  - id: CVE-2026-58538
-    cvss: 7.8
-    epss: 0.00318
-  - id: CVE-2026-58531
-    cvss: 7.5
-    epss: 0.00503
-  - id: CVE-2026-58541
-    cvss: 7.8
-    epss: 0.00296
-  - id: CVE-2026-47305
-    cvss: 7.8
-    epss: 0.00343
-  - id: CVE-2026-58613
-    cvss: 7.8
-    epss: 0.00327
-  - id: CVE-2026-49808
-    cvss: 7.8
-    epss: 0.00156
-  - id: CVE-2026-50331
-    cvss: 7.8
-    epss: 0.00245
-  - id: CVE-2026-50382
-    cvss: 8.8
-    epss: 0.00276
-  - id: CVE-2026-50452
-    cvss: 7
-    epss: 0.00255
-  - id: CVE-2026-42982
-    cvss: 7.8
-    epss: 0.00276
-  - id: CVE-2026-50358
-    cvss: 7
-    epss: 0.00252
-  - id: CVE-2026-50428
-    cvss: 7.1
-    epss: 0.00302
-  - id: CVE-2026-58533
-    cvss: 6.5
-    epss: 0.00887
-  - id: CVE-2026-48561
-    cvss: 9.6
-    epss: 0.00748
-  - id: CVE-2026-54999
-    cvss: 8.8
-    epss: 0.00298
-  - id: CVE-2026-50405
-    cvss: 7.8
-    epss: 0.00219
-  - id: CVE-2026-55050
-    cvss: 5.5
-    epss: 0.00382
-  - id: CVE-2026-55000
-    cvss: 6.4
-    epss: 0.00253
-  - id: CVE-2026-50407
-    cvss: 7.8
-    epss: 0.00318
-  - id: CVE-2026-50359
-    cvss: 7
-    epss: 0.00252
-  - id: CVE-2026-58277
-    cvss: 8.8
-    epss: 0.0074
-  - id: CVE-2026-57993
-    cvss: 7.4
-    epss: 0.00603
-  - id: CVE-2026-54886
-    cvss: 4.3
-    epss: 0.0033
-  - id: CVE-2026-50392
-    cvss: 7
-    epss: 0.00225
-  - id: CVE-2026-57090
-    cvss: 8.8
-    epss: 0.00812
-  - id: CVE-2026-50302
-    cvss: 4.2
-    epss: 0.00236
-  - id: CVE-2026-50307
-    cvss: 7
-    epss: 0.002
-  - id: CVE-2026-55019
-    cvss: 4.6
-    epss: 0.00447
-  - id: CVE-2026-58626
-    cvss: 8.8
-    epss: 0.00852
-  - id: CVE-2026-58298
-    cvss: 7.2
-    epss: 0.0024
-  - id: CVE-2026-54997
-    cvss: 5.5
-    epss: 0.00306
-  - id: CVE-2026-54115
-    cvss: 7.8
-    epss: 0.00318
-  - id: CVE-2026-50680
-    cvss: 8.2
-    epss: 0.00359
-  - id: CVE-2026-50318
-    cvss: 7.8
-    epss: 0.00257
-  - id: CVE-2026-50487
-    cvss: 8.1
-    epss: 0.00674
-  - id: CVE-2026-55040
-    cvss: 9.1
-    epss: 0.00668
   - id: CVE-2026-56164
     cvss: 5.3
     epss: 0.05601
-  - id: CVE-2026-54117
-    cvss: 8.8
-    epss: 0.01287
-  - id: CVE-2026-50364
-    cvss: 7.3
-    epss: 0.00343
-  - id: CVE-2026-50401
-    cvss: 5.5
-    epss: 0.00306
-  - id: CVE-2026-55008
-    cvss: 9.6
-    epss: 0.00725
-  - id: CVE-2026-58295
-    cvss: 8.3
-    epss: 0.00372
-  - id: CVE-2026-50520
-    cvss: 8.4
-    epss: 0.00253
-  - id: CVE-2026-54108
-    cvss: 6.5
-    epss: 0.00713
-  - id: CVE-2026-55003
-    cvss: 6.5
-    epss: 0.00666
-  - id: CVE-2026-54995
-    cvss: 8.1
-    epss: 0.00572
   - id: CVE-2026-50404
     cvss: 7
-    epss: 0.00156
-  - id: CVE-2026-56194
-    cvss: 8.8
-    epss: 0.00851
-  - id: CVE-2026-50346
-    cvss: 7.8
-    epss: 0.00284
-  - id: CVE-2026-50480
-    cvss: 7.8
-    epss: 0.00245
-  - id: CVE-2026-55052
-    cvss: 8.8
-    epss: 0.00526
-  - id: CVE-2026-58536
-    cvss: 7.8
-    epss: 0.01751
+    epss: 0.00153
   - id: CVE-2026-50423
     cvss: 7.8
     epss: 0.02478
-  - id: CVE-2026-58282
-    cvss: 8.1
-    epss: 0.00312
-  - id: CVE-2026-55005
+  - id: CVE-2026-48564
     cvss: 8.8
-    epss: 0.00663
-  - id: CVE-2026-50310
-    cvss: 4.7
-    epss: 0.00298
-  - id: CVE-2026-55025
-    cvss: 7.8
-    epss: 0.00303
-  - id: CVE-2026-49783
-    cvss: 7.8
-    epss: 0.00263
-  - id: CVE-2026-50296
+    epss: 0.00763
+  - id: CVE-2026-55045
+    cvss: 8.4
+    epss: 0.00295
+  - id: CVE-2026-56183
     cvss: 7
-    epss: 0.00199
-  - id: CVE-2026-50430
-    cvss: 5.5
-    epss: 0.00362
-  - id: CVE-2026-50336
-    cvss: 7.8
-    epss: 0.00318
+    epss: 0.00252
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1616,6 +1200,7 @@ references:
   - https://any.run/cybersecurity-blog/kali365-phishing-targeting-us/
   - https://securelist.com/project-cav3rn-cyberespionage-framework-using-outlook-and-dns/120757/
   - https://securelist.com/new-extortion-scheme-printers-bitlocker/120718/
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26199
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2031,13 +1616,6 @@ ioc_counts:
   url: 95
   user_agent: 6
 updates:
-  - at: "2026-07-20T22:45:55Z"
-    level: L2
-    summary: added CVE-2026-50520 +3
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-g8r8-53c2-pm3f
   - at: "2026-07-20T23:02:48Z"
     level: L2
     summary: added CVE-2026-50404 +3; .net version System.Security.Cryptography.Xml >= 10.0.0, <= 10.0.9
@@ -2066,6 +1644,13 @@ updates:
       - securelist
     source_urls:
       - https://securelist.com/new-extortion-scheme-printers-bitlocker/120718/
+  - at: "2026-07-22T07:38:10Z"
+    level: L2
+    summary: added CVE-2026-48564 +2
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26199
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
