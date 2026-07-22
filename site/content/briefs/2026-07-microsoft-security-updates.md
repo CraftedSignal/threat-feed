@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-22T13:17:18Z"
+lastmod: "2026-07-22T17:31:02Z"
 type: advisory
 types:
   - advisory
@@ -31,6 +31,20 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_code:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x64:*
+  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x86:*
+  - cpe:2.3:a:microsoft:microsoft_365:-:*:*:*:*:macos:*:*
+  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x86:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x64:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x86:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:a:microsoft:office_online_server:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -497,6 +511,7 @@ products:
   - MSSQL
   - Windows Explorer
   - Visual Studio Code Ansible Lightspeed extension
+  - Windows CLFS Driver
 affected_os:
   - Windows
   - macOS
@@ -541,6 +556,21 @@ cves:
   - id: CVE-2026-50666
     cvss: 8.8
     epss: 0.00617
+  - id: CVE-2026-50520
+    cvss: 8.4
+    epss: 0.00253
+  - id: CVE-2026-50328
+    cvss: 7.5
+    epss: 0.0118
+  - id: CVE-2026-50346
+    cvss: 7.8
+    epss: 0.00278
+  - id: CVE-2026-47642
+    cvss: 7.8
+    epss: 0.00393
+  - id: CVE-2026-49173
+    cvss: 7.8
+    epss: 0.0024
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1181,6 +1211,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_large_number_of_computer_service_tickets_requested.yml
   - https://nvd.nist.gov/vuln/detail/CVE-2026-44189
   - https://nvd.nist.gov/vuln/detail/CVE-2026-44191
+  - https://www.ransomware.live/group/BrainCipher
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1570,16 +1601,69 @@ iocs:
     value: AzureCommunication.dll
   - type: file
     value: logAzure.txt
+  - type: domain
+    value: windiam.com
+  - type: url
+    value: http://vkvsgl7lhipjirmz6j5ubp3w3bwvxgcdbpi3fsbqngfynetqtw4w5hyd.onion/n/windiam
+  - type: domain
+    value: vkvsgl7lhipjirmz6j5ubp3w3bwvxgcdbpi3fsbqngfynetqtw4w5hyd.onion
+  - type: domain
+    value: mybmtbgd7aprdnw2ekxht5qap5daam2wch25coqerrq2zdioanob34ad.onion
+  - type: domain
+    value: brain4zoadgr6clxecixffvxjsw43cflyprnpfeak72nfh664kqqriyd.onion
+  - type: domain
+    value: 77nrxelcwh47yikvpaz2rvtsten4sen2elybo5r5st6wlxsbitv255qd.onion
+  - type: domain
+    value: p6wmotxzvg34tdmpwm4beqgrcyp5iys43snkccsahnw74la3k3xx6pad.onion
+  - type: domain
+    value: zktnif5vckhmz5tyrukp5bamatbfhkxjnb23rspsanyzywcrx3bvtqad.onion
+  - type: domain
+    value: 4ldgw2wuidqu5ef3rzx4byonf3y7rdnh43jiw2z4sbtjiwic6gkov7yd.onion
+  - type: domain
+    value: cuuhrxbg52c5agytmtjpwfu7mrs4xtaitc4mukkiy2kqdxeqbcmuhaid.onion
+  - type: email
+    value: brain.dataleak@cyberfear.com
+  - type: email
+    value: brain.decrypt@cyberfear.com
+  - type: email
+    value: brain.support@cyberfear.com
+  - type: email
+    value: ibrain.support@cyberfear.com
+  - type: hash_md5
+    value: 0da1f4ede654e83241eaad7719a708a0
+  - type: hash_md5
+    value: 41050b2b9f619cdd9916e3bdd5b9f2f9
+  - type: hash_md5
+    value: 448f1796fe8de02194b21c0715e0a5f6
+  - type: hash_md5
+    value: 523c501118ef5d7957ce54aee86d9b1d
+  - type: hash_md5
+    value: 714b31629c37dee57038ca4e52ef65ac
+  - type: hash_md5
+    value: 71c109f3bf4da2fc0173b9bcff07e979
+  - type: hash_md5
+    value: 8b3a45ebb7f2331e90ac57a2a20536fd
+  - type: hash_md5
+    value: 8dbd57b042bc63b9ecdc9e3e5506ce85
+  - type: hash_md5
+    value: 9c5698924d4d1881efaf88651a304cb3
+  - type: hash_md5
+    value: a0efa7fb6dff1e035510ec1f42e083e4
+  - type: hash_md5
+    value: b32a8951fc4c2e4c2d63d17200ca0032
+  - type: hash_md5
+    value: f94d17b5f232e9cfd2255ca9823cb18a
 ioc_counts:
   application_id: 1
   asn: 3
-  domain: 23
-  email: 3
+  domain: 32
+  email: 7
   error_code: 3
   file: 8
   file-path: 2
   file_name: 5
   filename: 5
+  hash_md5: 12
   hash_sha256: 3
   infrastructure_provider: 2
   ip: 1
@@ -1593,16 +1677,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 95
+  url: 96
   user_agent: 6
 updates:
-  - at: "2026-07-21T13:04:17Z"
-    level: L2
-    summary: added CVE-2026-49783 +3
-    sources:
-      - securelist
-    source_urls:
-      - https://securelist.com/new-extortion-scheme-printers-bitlocker/120718/
   - at: "2026-07-22T07:38:10Z"
     level: L2
     summary: added CVE-2026-48564 +2
@@ -1631,6 +1708,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-44191
+  - at: "2026-07-22T17:31:02Z"
+    level: L2
+    summary: added CVE-2026-47642 +4
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/BrainCipher
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
