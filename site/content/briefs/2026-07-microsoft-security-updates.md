@@ -3,66 +3,34 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-22T12:20:42Z"
+lastmod: "2026-07-22T13:17:18Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x64:*
-  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x86:*
-  - cpe:2.3:a:microsoft:microsoft_365:-:*:*:*:*:macos:*:*
-  - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x64:*
-  - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x86:*
-  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x86:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x64:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x86:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
   - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
-  - cpe:2.3:a:microsoft:configuration_manager_2503:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:configuration_manager_2509:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:configuration_manager_2603:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -558,51 +526,21 @@ affected_os:
   - Windows 11 25H2
   - Windows 11 26H1
 cves:
-  - id: CVE-2026-56155
+  - id: CVE-2026-49166
     cvss: 7.8
-    epss: 0.00379
-  - id: CVE-2026-56164
-    cvss: 5.3
-    epss: 0.05601
-  - id: CVE-2026-50404
-    cvss: 7
-    epss: 0.00153
-  - id: CVE-2026-50423
-    cvss: 7.8
-    epss: 0.02478
-  - id: CVE-2026-48564
-    cvss: 8.8
-    epss: 0.00763
-  - id: CVE-2026-55045
-    cvss: 8.4
-    epss: 0.00295
-  - id: CVE-2026-56183
-    cvss: 7
-    epss: 0.00252
-  - id: CVE-2026-50670
-    cvss: 8.8
     epss: 0.0024
-  - id: CVE-2026-54121
-    cvss: 8.8
-    epss: 0.00802
-  - id: CVE-2026-57093
-    cvss: 7
-    epss: 0.0026
-  - id: CVE-2026-47301
-    cvss: 8.8
-    epss: 0.00526
-  - id: CVE-2026-58595
-    cvss: 8.1
-    epss: 0.00469
-  - id: CVE-2026-49784
-    cvss: 7
-    epss: 0.00153
-  - id: CVE-2026-50391
+  - id: CVE-2026-55002
     cvss: 7.8
-    epss: 0.00284
-  - id: CVE-2026-58531
-    cvss: 7.5
-    epss: 0.00504
+    epss: 0.00241
+  - id: CVE-2026-50422
+    cvss: 7.8
+    epss: 0.00311
+  - id: CVE-2026-50485
+    cvss: 4.5
+    epss: 0.00369
+  - id: CVE-2026-50666
+    cvss: 8.8
+    epss: 0.00617
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1242,6 +1180,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26199
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_large_number_of_computer_service_tickets_requested.yml
   - https://nvd.nist.gov/vuln/detail/CVE-2026-44189
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-44191
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1657,13 +1596,6 @@ ioc_counts:
   url: 95
   user_agent: 6
 updates:
-  - at: "2026-07-21T08:42:16Z"
-    level: L2
-    summary: added CVE-2026-50310 +4
-    sources:
-      - securelist
-    source_urls:
-      - https://securelist.com/project-cav3rn-cyberespionage-framework-using-outlook-and-dns/120757/
   - at: "2026-07-21T13:04:17Z"
     level: L2
     summary: added CVE-2026-49783 +3
@@ -1692,6 +1624,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-44189
+  - at: "2026-07-22T13:17:18Z"
+    level: L2
+    summary: added CVE-2026-49166 +4
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-44191
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
