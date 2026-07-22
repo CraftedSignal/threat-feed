@@ -3,6 +3,7 @@ title: 'n8n: Stored DOM XSS via Resource Locator `cachedResultUrl`'
 slug: 2026-07-n8n-stored-dom-xss
 description: A stored DOM XSS vulnerability in n8n's Resource Locator feature allows attackers to inject malicious JavaScript into the cachedResultUrl parameter. When a victim opens a specially crafted workflow and interacts with external links, the JavaScript payload executes in their browser, due to a lack of scheme validation for `cachedResultUrl` passed to `window.open()`.
 date: "2026-07-22T18:02:15Z"
+lastmod: "2026-07-22T18:06:12Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,13 @@ tags:
   - n8n
 vendors:
   - n8n GmbH
+  - n8n
 products:
   - n8n (< 1.123.64)
   - n8n (>= 2.0.0-rc.0, < 2.29.8)
   - n8n (>= 2.30.0, < 2.30.1)
+  - n8n (< 2.29.8)
+  - n8n (< 2.30.1)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -29,6 +33,15 @@ cves:
   - id: CVE-2026-65592
 references:
   - https://github.com/advisories/GHSA-9wcp-9r3j-383q
+  - https://github.com/advisories/GHSA-h5xr-fqvj-253p
+updates:
+  - at: "2026-07-22T18:06:12Z"
+    level: L1
+    summary: new product
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-h5xr-fqvj-253p
 ---
 
 A high-severity stored DOM XSS vulnerability, identified as CVE-2026-65592, exists in the n8n workflow automation platform's Resource Locator feature. This flaw affects versions prior to 1.123.64, versions 2.0.0-rc.0 through 2.29.7, and version 2.30.0. Attackers can exploit this by injecting malicious JavaScript into the `cachedResultUrl` parameter within a crafted workflow. The vulnerability stems from a lack of scheme validation when `cachedResultUrl` is passed to `window.open()`. When a victim opens such a workflow and interacts with external links, the injected JavaScript executes in their browser. This allows for potential session hijacking, data exfiltration, or further client-side compromise, making it critical for defenders to prioritize upgrading to patched versions.
