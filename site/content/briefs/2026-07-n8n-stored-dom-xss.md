@@ -3,7 +3,7 @@ title: 'n8n: Stored DOM XSS via Resource Locator `cachedResultUrl`'
 slug: 2026-07-n8n-stored-dom-xss
 description: A stored DOM XSS vulnerability in n8n's Resource Locator feature allows attackers to inject malicious JavaScript into the cachedResultUrl parameter. When a victim opens a specially crafted workflow and interacts with external links, the JavaScript payload executes in their browser, due to a lack of scheme validation for `cachedResultUrl` passed to `window.open()`.
 date: "2026-07-22T18:02:15Z"
-lastmod: "2026-07-22T18:06:12Z"
+lastmod: "2026-07-22T22:06:29Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +13,7 @@ tags:
   - xss
   - vulnerability
   - n8n
+  - privilege-escalation
 vendors:
   - n8n GmbH
   - n8n
@@ -29,11 +30,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: When a victim opens the crafted workflow and interact with external links, the JavaScript payload runs in the victim's browser.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: This is a privilege-escalation issue that is exploitable only under specific conditions.
+    confidence_band: high
 cves:
   - id: CVE-2026-65592
 references:
   - https://github.com/advisories/GHSA-9wcp-9r3j-383q
   - https://github.com/advisories/GHSA-h5xr-fqvj-253p
+  - https://github.com/advisories/GHSA-35q8-9mj6-wjmf
 updates:
   - at: "2026-07-22T18:06:12Z"
     level: L1
@@ -42,6 +50,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-h5xr-fqvj-253p
+  - at: "2026-07-22T22:06:29Z"
+    level: L2
+    summary: 'merged source coverage: n8n Enterprise SSO Flaw Allows Privilege Escalation to Instance Owner'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-35q8-9mj6-wjmf
 ---
 
 A high-severity stored DOM XSS vulnerability, identified as CVE-2026-65592, exists in the n8n workflow automation platform's Resource Locator feature. This flaw affects versions prior to 1.123.64, versions 2.0.0-rc.0 through 2.29.7, and version 2.30.0. Attackers can exploit this by injecting malicious JavaScript into the `cachedResultUrl` parameter within a crafted workflow. The vulnerability stems from a lack of scheme validation when `cachedResultUrl` is passed to `window.open()`. When a victim opens such a workflow and interacts with external links, the injected JavaScript executes in their browser. This allows for potential session hijacking, data exfiltration, or further client-side compromise, making it critical for defenders to prioritize upgrading to patched versions.
