@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-22T19:01:18Z"
+lastmod: "2026-07-22T21:00:55Z"
 type: advisory
 types:
   - advisory
@@ -49,9 +49,18 @@ cpes:
   - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=B4E1D3A6-7173-5883-9366-19658411A20B&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -518,6 +527,7 @@ products:
   - Windows Explorer
   - Visual Studio Code Ansible Lightspeed extension
   - Windows CLFS Driver
+  - Windows Defender Exploit Protection (<= 2023-11-14)
 affected_os:
   - Windows
   - macOS
@@ -591,6 +601,24 @@ cves:
     epss: 0.0038
   - id: CVE-2026-26199
     epss: 0.00282
+  - id: CVE-2026-50522
+    cvss: 9.8
+    epss: 0.20346
+  - id: CVE-2026-50437
+    cvss: 5.5
+    epss: 0.00298
+  - id: CVE-2026-50415
+    cvss: 5.3
+    epss: 0.00618
+  - id: CVE-2026-55131
+    cvss: 7.8
+    epss: 0.00303
+  - id: CVE-2026-55949
+    cvss: 7.8
+    epss: 0.00303
+  - id: CVE-2026-58628
+    cvss: 7.8
+    epss: 0.00181
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1233,6 +1261,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-44191
   - https://www.ransomware.live/group/BrainCipher
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=B4E1D3A6-7173-5883-9366-19658411A20B&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1676,6 +1705,8 @@ iocs:
     value: f94d17b5f232e9cfd2255ca9823cb18a
   - type: url
     value: https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038
+  - type: url
+    value: https://sploitus.com/exploit?id=B4E1D3A6-7173-5883-9366-19658411A20B
 ioc_counts:
   application_id: 1
   asn: 3
@@ -1700,16 +1731,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 97
+  url: 98
   user_agent: 6
 updates:
-  - at: "2026-07-22T09:09:42Z"
-    level: L2
-    summary: added CVE-2026-47301 +3
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_large_number_of_computer_service_tickets_requested.yml
   - at: "2026-07-22T12:20:42Z"
     level: L2
     summary: added CVE-2026-49784 +3
@@ -1738,6 +1762,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
+  - at: "2026-07-22T21:00:55Z"
+    level: L2
+    summary: added CVE-2026-50415 +5
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=B4E1D3A6-7173-5883-9366-19658411A20B&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
