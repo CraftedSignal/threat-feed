@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-22T09:09:42Z"
+lastmod: "2026-07-22T12:20:42Z"
 type: advisory
 types:
   - advisory
@@ -122,6 +122,7 @@ vendors:
   - F5
   - 7-Zip Project
   - 7-Zip
+  - Red Hat
 products:
   - PowerShell
   - Windows
@@ -527,6 +528,7 @@ products:
   - RDP
   - MSSQL
   - Windows Explorer
+  - Visual Studio Code Ansible Lightspeed extension
 affected_os:
   - Windows
   - macOS
@@ -589,6 +591,18 @@ cves:
   - id: CVE-2026-47301
     cvss: 8.8
     epss: 0.00526
+  - id: CVE-2026-58595
+    cvss: 8.1
+    epss: 0.00469
+  - id: CVE-2026-49784
+    cvss: 7
+    epss: 0.00153
+  - id: CVE-2026-50391
+    cvss: 7.8
+    epss: 0.00284
+  - id: CVE-2026-58531
+    cvss: 7.5
+    epss: 0.00504
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1227,6 +1241,7 @@ references:
   - https://securelist.com/new-extortion-scheme-printers-bitlocker/120718/
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26199
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_large_number_of_computer_service_tickets_requested.yml
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-44189
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1642,13 +1657,6 @@ ioc_counts:
   url: 95
   user_agent: 6
 updates:
-  - at: "2026-07-21T07:02:40Z"
-    level: L2
-    summary: added CVE-2026-50346 +3
-    sources:
-      - any-run
-    source_urls:
-      - https://any.run/cybersecurity-blog/kali365-phishing-targeting-us/
   - at: "2026-07-21T08:42:16Z"
     level: L2
     summary: added CVE-2026-50310 +4
@@ -1677,6 +1685,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_large_number_of_computer_service_tickets_requested.yml
+  - at: "2026-07-22T12:20:42Z"
+    level: L2
+    summary: added CVE-2026-49784 +3
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-44189
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
