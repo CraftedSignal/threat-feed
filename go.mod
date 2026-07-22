@@ -4,7 +4,7 @@ go 1.25.8
 
 require (
 	cloud.google.com/go/compute/metadata v0.9.0
-	cloud.google.com/go/firestore v1.22.0
+	cloud.google.com/go/firestore v1.24.0
 	golang.org/x/sync v0.22.0
 	golang.org/x/text v0.40.0
 	google.golang.org/api v0.288.0
