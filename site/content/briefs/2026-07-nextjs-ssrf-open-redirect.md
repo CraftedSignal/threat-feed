@@ -3,6 +3,7 @@ title: Next.js Server-Side Request Forgery and Open Redirect Vulnerability (CVE-
 slug: 2026-07-nextjs-ssrf-open-redirect
 description: A vulnerability (CVE-2026-64645) in Next.js allows Server-Side Request Forgery (SSRF) and Open Redirect when `rewrites()` or `redirects()` rules in `next.config.js` use attacker-controlled input to construct external destination hostnames, enabling attackers to manipulate dynamic segments from the path or `has` captures to point the rewrite to an arbitrary hostname, potentially leading to internal network access, information disclosure, or redirection of users to malicious sites, affecting Next.js versions from 12.0.0 up to, but not including, 15.5.21, and versions from 16.0.0 up to, but not including, 16.2.11.
 date: "2026-07-22T23:03:56Z"
+lastmod: "2026-07-22T23:12:01Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,7 @@ tags:
   - open-redirect
   - next.js
   - web-vulnerability
+  - cve
 vendors:
   - Vercel
 products:
@@ -21,6 +23,8 @@ products:
   - Next.js 14.x
   - Next.js 15.x
   - Next.js 16.x
+  - Next.js (< 15.5.21)
+  - Next.js (< 16.2.11)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -42,6 +46,7 @@ mitre_ttps:
     confidence_band: med
 references:
   - https://github.com/advisories/GHSA-p9j2-gv94-2wf4
+  - https://github.com/advisories/GHSA-89xv-2m56-2m9x
 rules:
   - title: Detects CVE-2026-64645 Exploitation - Next.js SSRF/Open Redirect via crafted dynamic segment
     description: Detects exploitation attempts against CVE-2026-64645 in Next.js where attacker-controlled input used in rewrites or redirects contains URL-forming characters (e.g., '://', '@') indicating an SSRF or Open Redirect attempt. This rule targets suspicious patterns in dynamic segments of URL paths or query parameters.
@@ -54,7 +59,27 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-64649 Exploitation - SSRF Attempt via Host Header Manipulation
+    description: Detects CVE-2026-64649 exploitation by identifying HTTP requests where the Host or X-Forwarded-Host header is manipulated to target internal IP addresses or loopback hosts, indicating a Server-Side Request Forgery attempt.
+    platform: sigma
+    severity: high
+    tactics:
+      - discovery
+      - initial_access
+    techniques:
+      - T1190
+      - T1595.002
+    data_sources:
+      - webserver
+rules_count: 2
+updates:
+  - at: "2026-07-22T23:12:01Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-64649 Exploitation - SSRF Attempt via Host Header Manipulation'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-89xv-2m56-2m9x
 ---
 
 A high-severity vulnerability, CVE-2026-64645, has been identified in the Next.js framework, affecting versions from 12.0.0 up to 15.5.20 and from 16.0.0 up to 16.2.10. This flaw allows for Server-Side Request Forgery (SSRF) and Open Redirect when an application's `next.config.js` file contains `rewrites()` or `redirects()` rules that construct external destination hostnames using dynamic segments from request-controlled input. An attacker can craft a malicious HTTP request that injects an arbitrary hostname or URL into these dynamic segments, regardless of any intended hostname suffix configured in the rule. This manipulation causes the Next.js application to either proxy requests to an attacker-specified internal or external host (SSRF), or redirect users to a malicious external site (Open Redirect). The vulnerability poses a significant risk for unauthorized access to internal systems, data exfiltration, or successful phishing campaigns.
