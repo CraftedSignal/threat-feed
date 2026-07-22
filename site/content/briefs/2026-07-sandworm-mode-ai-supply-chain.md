@@ -3,7 +3,7 @@ title: 'Denying the Worm: Detecting SANDWORM_MODE and AI Toolchain Supply Chain 
 slug: 2026-07-sandworm-mode-ai-supply-chain
 description: The SANDWORM_MODE campaign is a multi-stage npm supply chain worm that targets AI-augmented development workflows by exploiting runtime behaviors of AI coding assistants and CI/CD pipelines, leading to credential theft, supply chain poisoning, and persistence through obfuscated loaders, credential harvesting, and malicious Git hooks.
 date: "2026-07-21T17:23:33Z"
-lastmod: "2026-07-22T09:01:15Z"
+lastmod: "2026-07-22T09:30:53Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +43,7 @@ vendors:
   - Claude AI
   - npmjs
   - Claude
+  - Python Package Index
 products:
   - npm
   - PyPI
@@ -235,13 +236,6 @@ rules:
       - linux
 rules_count: 3
 updates:
-  - at: "2026-07-22T06:58:51Z"
-    level: L1
-    summary: new vendor
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
   - at: "2026-07-22T07:29:00Z"
     level: L1
     summary: new vendor
@@ -266,6 +260,13 @@ updates:
   - at: "2026-07-22T09:01:15Z"
     level: L2
     summary: poc_available
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
+  - at: "2026-07-22T09:30:53Z"
+    level: L1
+    summary: new vendor
     sources:
       - crowdstrike
     source_urls:
