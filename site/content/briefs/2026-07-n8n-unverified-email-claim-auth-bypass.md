@@ -3,6 +3,7 @@ title: n8n Account Takeover via Unverified Email Claim in Token Exchange Embed L
 slug: 2026-07-n8n-unverified-email-claim-auth-bypass
 description: A high-severity vulnerability in n8n's embed login feature (CVE-2026-XXXX) allows attackers to achieve full account takeover by leveraging unverified email claims in incoming tokens, enabling authentication as any existing user if the instance has embed login enabled and a trusted key source configured that emits unverified email addresses.
 date: "2026-07-22T22:05:38Z"
+lastmod: "2026-07-22T22:11:47Z"
 type: advisory
 types:
   - advisory
@@ -14,11 +15,14 @@ tags:
   - account-takeover
   - n8n
   - embed-login
+  - credential-access
+  - exfiltration
 vendors:
   - n8n GmbH
 products:
   - n8n (< 2.31.5)
   - n8n (>= 2.32.0, < 2.32.1)
+  - n8n (2.32.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -38,8 +42,29 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: gaining full account control
     confidence_band: med
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: A low-privileged workflow editor with use-only access to such a shared credential could point one of these nodes at an attacker-controlled host and cause the credential secret to be transmitted there
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1041
+    technique_name: Exfiltration Over C2 Channel
+    evidence: cause the credential secret to be transmitted there, then reuse it against the underlying service.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-8342-988q-86cr
+  - https://github.com/advisories/GHSA-64xh-79j6-r5v8
+updates:
+  - at: "2026-07-22T22:11:47Z"
+    level: L2
+    summary: 'merged source coverage: n8n Credential Restriction Bypass in AI/LLM Nodes Leading to Secret Exfiltration'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-64xh-79j6-r5v8
 ---
 
 A high-severity authentication bypass vulnerability has been identified in the workflow automation platform n8n, affecting versions prior to 2.31.5 and between 2.32.0 and 2.32.1. This flaw, present when the embed login feature is enabled and at least one trusted key source is configured, allows an attacker to achieve full account takeover. Specifically, if a trusted identity provider issues tokens containing unverified email claims, n8n's token exchange mechanism fails to validate that the trusted key's permitted role ceiling covers the account or that the email claim itself is verified. This oversight enables an adversary to forge or intercept a validly-signed token from such an issuer and authenticate as any existing n8n user by matching the unverified email claim to a local account. This vulnerability poses a critical risk to data integrity and access control for affected n8n instances.
