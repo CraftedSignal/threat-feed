@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-22T09:53:56Z"
+lastmod: "2026-07-22T09:54:10Z"
 type: advisory
 types:
   - advisory
@@ -178,6 +178,7 @@ products:
   - MySQL Connector/C++ (9.7.0-9.7.1)
   - Oracle Database Server
   - Oracle Commerce
+  - Oracle Construction and Engineering
 affected_os:
   - Windows
 cves:
@@ -707,14 +708,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60179
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2430
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2438
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2436
 updates:
-  - at: "2026-07-21T22:59:36Z"
-    level: L2
-    summary: added CVE-2026-46999 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60170
   - at: "2026-07-21T22:59:51Z"
     level: L1
     summary: new product
@@ -743,6 +738,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2438
+  - at: "2026-07-22T09:54:10Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2436
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
