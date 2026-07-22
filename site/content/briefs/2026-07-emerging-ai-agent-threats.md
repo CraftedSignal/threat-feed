@@ -3,7 +3,7 @@ title: Autonomous AI Agents Pose New Supply Chain and Data Exfiltration Risks
 slug: 2026-07-emerging-ai-agent-threats
 description: This content introduces AI Detection and Response (AIDR) as a new cybersecurity category to address emerging threats from autonomous AI agents, including supply chain attacks and unintended data sharing, highlighting their ability to execute with inherited privileges across endpoints, SaaS, and cloud environments.
 date: "2026-07-21T05:53:01Z"
-lastmod: "2026-07-22T08:36:43Z"
+lastmod: "2026-07-22T10:27:12Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +29,7 @@ vendors:
   - GitHub
   - Trivy
   - Cloud Native Computing Foundation
+  - trivy-action
 products:
   - ClawHub
   - OpenAI Codex
@@ -83,13 +84,6 @@ mitre_ttps:
 references:
   - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
 updates:
-  - at: "2026-07-22T00:23:33Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
   - at: "2026-07-22T03:57:13Z"
     level: L1
     summary: new IOCs
@@ -114,6 +108,13 @@ updates:
   - at: "2026-07-22T08:36:43Z"
     level: L1
     summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
+  - at: "2026-07-22T10:27:12Z"
+    level: L1
+    summary: new vendor
     sources:
       - crowdstrike
     source_urls:
