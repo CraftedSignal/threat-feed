@@ -3,12 +3,12 @@ title: Netty SPDY SETTINGS Frame Denial of Service Vulnerability
 slug: 2026-07-netty-spdy-dos
 description: A high-severity vulnerability, CVE-2026-55831, in Netty's SPDY SETTINGS decoder allows a remote unauthenticated attacker to trigger a denial of service by sending a crafted SPDY/3.1 SETTINGS frame that leads to excessive heap growth and CPU consumption due to unbounded map entries in `DefaultSpdySettingsFrame`.
 date: "2026-07-22T21:08:13Z"
-lastmod: "2026-07-22T21:25:39Z"
+lastmod: "2026-07-22T21:34:03Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
 cpes:
   - cpe:2.3:a:netty:netty:*:*:*:*:*:*:*:*
 tags:
@@ -17,6 +17,8 @@ tags:
   - netty
   - spdy
   - java
+  - memory-leak
+  - DoS
 vendors:
   - Netty
 products:
@@ -50,6 +52,7 @@ cves:
 references:
   - https://github.com/advisories/GHSA-6jqx-86gh-f27w
   - https://github.com/advisories/GHSA-mvh2-crg5-v77c
+  - https://github.com/advisories/GHSA-jppx-w49h-x2qq
 iocs:
   - type: url
     value: https://github.com/user-attachments/files/28445737/poc.zip
@@ -63,6 +66,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-mvh2-crg5-v77c
+  - at: "2026-07-22T21:34:03Z"
+    level: L1
+    summary: 'merged source coverage: Netty SpdyHttpDecoder ByteBuf Reference Leak Leads to Native Memory Exhaustion'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-jppx-w49h-x2qq
 ---
 
 A remote unauthenticated denial of service vulnerability, identified as CVE-2026-55831, affects Netty's `netty-codec-http` library, specifically versions 4.2.0.Final through 4.2.15.Final and 4.1.0.Final through 4.1.135.Final. The flaw lies within the SPDY SETTINGS decoder, which does not impose an implementation-level cap on the number of unique setting IDs it will accept and materialize in its `DefaultSpdySettingsFrame`'s internal `TreeMap`. Attackers can exploit this by sending a specially crafted SPDY/3.1 SETTINGS frame containing up to 262,144 unique setting IDs. This leads to significant heap memory exhaustion, estimated at 17-18 MiB per frame, and high CPU utilization due to ordered-map insertion work, effectively rendering the affected Netty application unresponsive. The vulnerability highlights a critical resource management oversight in handling protocol-level data that can be manipulated by external parties.
