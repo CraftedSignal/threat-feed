@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-21T22:05:31Z"
+lastmod: "2026-07-22T14:52:10Z"
 type: advisory
 types:
   - advisory
@@ -92,6 +92,8 @@ products:
   - Kubernetes Engine
   - Google Ads Sync Accounts (MMC)
   - google.golang.org/grpc (< 1.82.1)
+  - Chrome (< 150.0.7871.181)
+  - Chrome (< 150.0.7871.182)
 affected_os:
   - Windows
   - Linux
@@ -100,14 +102,14 @@ affected_os:
   - Android 4.2.2
   - Android 9
 cves:
-  - id: CVE-2026-15904
-    epss: 0.00217
   - id: CVE-2026-15899
     epss: 0.00217
   - id: CVE-2026-15901
     epss: 0.00233
-  - id: CVE-2026-15902
-    epss: 0.00267
+  - id: CVE-2026-16413
+  - id: CVE-2026-16414
+  - id: CVE-2026-16423
+    cvss: 8.8
 references:
   - https://github.com/advisories/GHSA-rm3j-f69w-wqmq
   - https://github.com/advisories/GHSA-vgwf-h737-ff37
@@ -186,6 +188,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/initial_access_gcp_gke_anonymous_request_authorized.toml
   - https://cofense.com/blog/click-to-sync-from-google-ads-maintenance-notice-to-credential-theft
   - https://github.com/advisories/GHSA-hrxh-6v49-42gf
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0907/
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -245,6 +248,8 @@ iocs:
     value: syncmcchub[.]blogspot[.]com
   - type: domain
     value: mcc-sync-ads[.]com
+  - type: url
+    value: https://chromereleases.googleblog.com/2026/07/stable-channel-update-for-desktop_0256605430.html
 ioc_counts:
   domain: 5
   file_name: 2
@@ -252,15 +257,8 @@ ioc_counts:
   filename: 1
   ip: 1
   other: 4
-  url: 14
+  url: 15
 updates:
-  - at: "2026-07-20T15:22:32Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_pod_exec_cloud_instance_metadata.toml
   - at: "2026-07-20T15:22:41Z"
     level: L1
     summary: new product
@@ -289,6 +287,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-hrxh-6v49-42gf
+  - at: "2026-07-22T14:52:10Z"
+    level: L2
+    summary: added CVE-2026-16413 +2
+    sources:
+      - anssi
+    source_urls:
+      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0907/
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
