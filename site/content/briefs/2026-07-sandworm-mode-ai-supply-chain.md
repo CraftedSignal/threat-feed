@@ -3,12 +3,13 @@ title: 'Denying the Worm: Detecting SANDWORM_MODE and AI Toolchain Supply Chain 
 slug: 2026-07-sandworm-mode-ai-supply-chain
 description: The SANDWORM_MODE campaign is a multi-stage npm supply chain worm that targets AI-augmented development workflows by exploiting runtime behaviors of AI coding assistants and CI/CD pipelines, leading to credential theft, supply chain poisoning, and persistence through obfuscated loaders, credential harvesting, and malicious Git hooks.
 date: "2026-07-21T17:23:33Z"
-lastmod: "2026-07-22T08:20:31Z"
+lastmod: "2026-07-22T09:01:15Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
 tags:
   - supply-chain-attack
   - npm
@@ -183,10 +184,19 @@ iocs:
     value: /dev/shm
   - type: domain
     value: git@github.com
+  - type: file
+    value: .npmrc
+  - type: path
+    value: ~/.git-templates/hooks/
+  - type: operating_system_function
+    value: /dev/shm
 ioc_counts:
   domain: 2
+  file: 1
   file-path: 2
+  operating_system_function: 1
   other: 6
+  path: 1
 rules:
   - title: Detect Git Global Template Directory Modification for Persistence
     description: Detects SANDWORM_MODE setting git config --global init.templateDir to an arbitrary path to establish persistence by ensuring future git operations inherit malicious hooks.
@@ -225,13 +235,6 @@ rules:
       - linux
 rules_count: 3
 updates:
-  - at: "2026-07-22T04:56:40Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
   - at: "2026-07-22T06:58:51Z"
     level: L1
     summary: new vendor
@@ -256,6 +259,13 @@ updates:
   - at: "2026-07-22T08:20:31Z"
     level: L1
     summary: new IOCs
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
+  - at: "2026-07-22T09:01:15Z"
+    level: L2
+    summary: poc_available
     sources:
       - crowdstrike
     source_urls:
