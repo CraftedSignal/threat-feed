@@ -3,7 +3,7 @@ title: Authenticated Code Execution Vulnerability in n8n Git Node
 slug: 2026-07-n8n-authenticated-code-execution
 description: An authenticated n8n user with workflow creation and execution rights can achieve arbitrary code execution on the n8n host by staging a crafted local Git repository within the Git node, causing Git to run malicious hooks as the n8n process user.
 date: "2026-07-22T22:10:04Z"
-lastmod: "2026-07-22T22:14:45Z"
+lastmod: "2026-07-22T22:17:05Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +16,7 @@ tags:
   - authenticated-rce
   - prototype-pollution
   - denial-of-service
+  - credential-access
 vendors:
   - n8n GmbH
 products:
@@ -41,9 +42,22 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: an authenticated user could name a field
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Because the pre-execution permission check compared the unresolved expression instead of the real credential type, the ownership check was skipped and the credential was loaded at execution time, letting the member use or exfiltrate a credential they were never granted.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1041
+    technique_name: Exfiltration Over C2 Channel
+    evidence: letting the member use or exfiltrate a credential they were never granted.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-rcv6-pvrj-4xcg
   - https://github.com/advisories/GHSA-xwx6-jjhv-84p8
+  - https://github.com/advisories/GHSA-6qc9-mqvw-jg7x
 updates:
   - at: "2026-07-22T22:14:45Z"
     level: L1
@@ -52,6 +66,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-xwx6-jjhv-84p8
+  - at: "2026-07-22T22:17:05Z"
+    level: L2
+    summary: 'merged source coverage: n8n Credential Authorization Bypass via Expression in HTTP Request Node'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6qc9-mqvw-jg7x
 ---
 
 A high-severity authenticated code execution vulnerability has been discovered in the n8n automation platform's Git node. Authenticated n8n users with permissions to create and execute workflows can exploit this flaw to execute arbitrary commands on the underlying n8n host. The vulnerability, present in versions prior to 1.123.67, 2.31.5, and 2.32.1, leverages the default security settings of the Git node. By crafting a malicious local Git repository, an attacker can trick Git into running arbitrary hooks, thereby achieving code execution as the n8n process user. This impacts both self-hosted and cloud instances where authenticated users have workflow creation and execution capabilities, posing a significant risk of system compromise and data breach.
