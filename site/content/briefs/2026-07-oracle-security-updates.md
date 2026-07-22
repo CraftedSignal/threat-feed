@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-22T23:20:31Z"
+lastmod: "2026-07-22T23:20:47Z"
 type: advisory
 types:
   - advisory
@@ -187,6 +187,7 @@ products:
   - Oracle Retail Applications
   - Oracle Platform Security for Java (12.2.1.4.0)
   - Oracle Platform Security for Java (14.1.2.0.0)
+  - Oracle Platform Security for Java (12.2.1.4.0, 14.1.2.0.0)
 affected_os:
   - Windows
 cves:
@@ -222,6 +223,10 @@ cves:
     cvss: 9.9
   - id: CVE-2026-60606
     cvss: 9.1
+  - id: CVE-2026-60205
+    cvss: 9.8
+  - id: CVE-2026-46923
+    cvss: 8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -434,14 +439,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60369
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60372
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60368
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60370
 updates:
-  - at: "2026-07-22T23:19:37Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60366
   - at: "2026-07-22T23:19:47Z"
     level: L2
     summary: added CVE-2026-60249 +4
@@ -470,6 +469,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60368
+  - at: "2026-07-22T23:20:47Z"
+    level: L2
+    summary: added CVE-2026-46923 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60370
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
