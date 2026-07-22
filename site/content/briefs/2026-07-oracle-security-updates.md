@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-22T09:54:25Z"
+lastmod: "2026-07-22T09:56:42Z"
 type: advisory
 types:
   - advisory
@@ -180,6 +180,7 @@ products:
   - Oracle Commerce
   - Oracle Construction and Engineering
   - E-Business Suite
+  - Oracle Enterprise Manager
 affected_os:
   - Windows
 cves:
@@ -713,14 +714,8 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2438
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2436
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2435
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2446
 updates:
-  - at: "2026-07-21T23:00:03Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60179
   - at: "2026-07-22T09:34:40Z"
     level: L1
     summary: new product
@@ -749,6 +744,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2435
+  - at: "2026-07-22T09:56:42Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2446
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
