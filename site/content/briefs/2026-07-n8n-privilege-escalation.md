@@ -1,8 +1,8 @@
 ---
-title: AI Agents Project Viewer Privilege Escalation in n8n
+title: n8n Privilege Escalation and Code Execution via Flawed JWT Scope Assignment (CVE-2026-65595)
 slug: 2026-07-n8n-privilege-escalation
-description: A privilege escalation vulnerability exists in n8n's AI Agents feature, specifically within the node-execution tool, due to a lack of proper authorization checks, allowing a Project Viewer user to escalate their privileges by interacting with an agent configured with enabled node tools, thereby executing arbitrary nodes and gaining unauthorized access to credential secrets in n8n versions prior to 2.30.1.
-date: "2026-07-22T17:57:45Z"
+description: A critical vulnerability, CVE-2026-65595, in n8n's Token Exchange module allows low-privileged users to achieve privilege escalation and potential code execution by exploiting incorrect Public API key scope assignments to JWTs, enabling administrative operations.
+date: "2026-07-22T22:02:39Z"
 type: advisory
 types:
   - advisory
@@ -10,40 +10,53 @@ severities:
   - high
 tags:
   - privilege-escalation
+  - code-execution
   - vulnerability
-  - n8n
+  - jwt-exploitation
 vendors:
-  - n8n
+  - n8n GmbH
 products:
-  - n8n (< 2.30.1)
+  - n8n >= 2.30.0, < 2.30.1
+  - n8n < 2.29.8
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-    evidence: A Project Viewer user can escalate privileges by chatting with an agent that has node tools enabled, executing arbitrary nodes and accessing credential secrets without proper authorization verification.
+    evidence: JWTs issued through the Token Exchange module were assigned all Public API key scopes, regardless of the acting user's actual role. A low-privileged user who could obtain a valid external JWT trusted by a configured issuer could therefore use the resulting access token to invoke administrator-only Public API operations, such as role escalation, user creation, and user deletion.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Community Package installation additionally requires `N8N_COMMUNITY_PACKAGES_ENABLED=true` and `N8N_UNVERIFIED_PACKAGES_ENABLED=true`... to eliminate the code execution path.
+    confidence_band: high
+cves:
+  - id: CVE-2026-65595
 references:
-  - https://github.com/advisories/GHSA-w46p-w7w2-fr9g
+  - https://github.com/advisories/GHSA-777w-rpr6-c52h
 ---
 
-A high-severity privilege escalation vulnerability (GHSA-w46p-w7w2-fr9g) has been identified in n8n, an open-source workflow automation platform, specifically affecting versions prior to 2.30.1. This flaw resides within the AI Agents feature's `run_node_tool` where authorization checks are insufficient. An authenticated Project Viewer user can exploit this weakness by engaging with an AI agent that has node tools enabled. This interaction allows the viewer to execute arbitrary nodes and gain unauthorized access to sensitive credential secrets, effectively escalating their privileges beyond their intended scope. The vulnerability can lead to critical data exposure and system compromise if not addressed promptly.
+A high-severity vulnerability, identified as CVE-2026-65595, has been discovered in n8n versions prior to 2.30.1 and 2.29.8. This flaw resides within the Token Exchange module, where JSON Web Tokens (JWTs) issued via this mechanism are erroneously assigned all Public API key scopes, irrespective of the authenticating user's actual permissions. This critical misconfiguration allows a low-privileged attacker, who successfully obtains a valid external JWT trusted by a configured issuer, to exchange it for an overly permissive n8n access token. With this escalated token, the attacker can then invoke administrator-only Public API operations, potentially leading to full privilege escalation within the n8n instance and even arbitrary code execution if the Community Packages feature is enabled. The issue impacts n8n instances with both Token Exchange (`N8N_TOKEN_EXCHANGE_ENABLED=true`) and the Public API enabled.
 
 ## Attack Chain
 
-1. A Project Viewer user, who already possesses legitimate but limited access to an n8n project, identifies an AI agent configured within the environment.
-2. The AI agent in question has "node tools" functionality enabled, allowing it to execute n8n nodes based on user input.
-3. The Project Viewer user interacts with this AI agent via the chat interface, crafting malicious input or queries.
-4. The AI agent, due to the lack of proper authorization checks in its `run_node_tool` component, processes the viewer's input as legitimate.
-5. The AI agent then executes arbitrary n8n nodes as specified by the Project Viewer user.
-6. Through these arbitrarily executed nodes, the Project Viewer user gains unauthorized access to credential secrets or other sensitive data that should only be accessible to higher-privileged users.
-7. This unauthorized access to sensitive resources constitutes a privilege escalation, allowing the Project Viewer to perform actions beyond their assigned role.
+1. An attacker, initially possessing low privileges, obtains a valid external JWT that is trusted by a configured issuer within the target n8n instance.
+2. The attacker sends a request to the n8n instance's Token Exchange module, presenting the valid external JWT for exchange.
+3. The n8n system processes the token exchange, and due to CVE-2026-65595, mistakenly assigns all available Public API key scopes to the newly issued internal access token.
+4. The attacker receives the over-privileged internal JWT, which now grants them full administrative access to the Public API, bypassing their original low-privileged role.
+5. Using this compromised token, the attacker performs administrator-only Public API operations, such as escalating roles for existing users, creating new administrative user accounts, or deleting users.
+6. If n8n's Community Packages feature is enabled (`N8N_COMMUNITY_PACKAGES_ENABLED=true` and `N8N_UNVERIFIED_PACKAGES_ENABLED=true`), the attacker can leverage their administrative privileges.
+7. The attacker installs and executes unverified or malicious packages through the Public API.
+8. This leads to arbitrary code execution on the underlying server hosting the n8n instance, achieving full system compromise.
 
 ## Impact
 
-The successful exploitation of this vulnerability leads to privilege escalation within the n8n platform. A Project Viewer user, typically restricted from accessing sensitive configurations, can gain unauthorized access to credential secrets. This exposure of credentials could lead to broader system compromise, unauthorized access to integrated services, or data exfiltration from connected applications. While the advisory does not specify the number of victims or targeted sectors, any organization using affected n8n versions with the AI Agents feature enabled is at risk of sensitive data exposure and potential breaches.
+The vulnerability allows a low-privileged user to achieve full privilege escalation within an affected n8n instance, gaining administrative control. If successful, an attacker can perform actions typically reserved for administrators, including altering user roles, creating new administrative accounts, or deleting existing users. In scenarios where the instance also has the Community Packages feature enabled, this can further lead to remote code execution, granting the attacker arbitrary control over the host system. While the number of specific victims is not public, any organization using affected n8n versions with the Token Exchange and Public API features enabled is at risk. Role escalation impact is greater for instances with an Advanced Permissions license.
 
 ## Recommendation
 
-* Update n8n to version 2.30.1 or later immediately to patch the GHSA-w46p-w7w2-fr9g vulnerability.
-* Review the configuration of AI Agents in n8n, ensuring that node tools are only enabled when strictly necessary and with appropriate access controls.
+* **Patch CVE-2026-65595 immediately:** Upgrade all n8n instances to version 2.30.1, 2.29.8, or later to remediate the vulnerability.
+* **Disable Token Exchange as a workaround:** If immediate patching is not possible, disable the Token Exchange feature by setting `N8N_TOKEN_EXCHANGE_ENABLED=false` or `N8N_ENV_FEAT_TOKEN_EXCHANGE=false` in your n8n environment configuration.
+* **Restrict Public API access:** As a temporary mitigation, restrict Public API access at the network level to only trusted clients.
+* **Disable unverified Community Package installation:** To eliminate the code execution path, set `N8N_UNVERIFIED_PACKAGES_ENABLED=false` in your n8n environment configuration.
