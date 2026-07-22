@@ -3,11 +3,19 @@ title: Pillow Decompression Bomb DoS via PdfParser.PdfStream.decode()
 slug: 2026-07-pillow-pdfparser-dos
 description: A denial-of-service vulnerability (CVE-2026-59200) exists in Pillow's `PdfParser.PdfStream.decode()` function across versions 5.1.0 to 12.2.x, allowing an unauthenticated attacker to craft a malicious PDF file that, when processed by a vulnerable application, triggers excessive memory allocation (e.g., a ~950 KB file expanding to 1 GB), leading to server Out-of-Memory termination or severe service degradation.
 date: "2026-07-20T23:12:09Z"
+lastmod: "2026-07-22T01:01:12Z"
 type: advisory
 types:
   - advisory
 severities:
   - low
+cpes:
+  - cpe:2.3:a:python:pillow:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:pdfminer:pdfminer.six:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:debian:debian_linux:11.0:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=11AD219D-F4A5-5008-908F-FEF87CC3F5A8&utm_source=rss&utm_medium=rss
 tags:
   - denial-of-service
   - vulnerability
@@ -16,8 +24,10 @@ tags:
   - pdf
 vendors:
   - Pillow
+  - Pdfminer
 products:
   - Pillow (>= 5.1.0, < 12.3.0)
+  - pdfminer.six < 20251107
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -29,8 +39,27 @@ cves:
   - id: CVE-2026-59200
     cvss: 7.5
     epss: 0.0035
+  - id: CVE-2025-64512
+    cvss: 8.6
+    epss: 0.00314
 references:
   - https://github.com/advisories/GHSA-jjj6-mw9f-p565
+  - https://sploitus.com/exploit?id=11AD219D-F4A5-5008-908F-FEF87CC3F5A8&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=11AD219D-F4A5-5008-908F-FEF87CC3F5A8
+  - type: url
+    value: https://github.com/MehdiChyhab/CVE-2025-64512-exploit.git
+ioc_counts:
+  url: 2
+updates:
+  - at: "2026-07-22T01:01:12Z"
+    level: L2
+    summary: poc_available; added CVE-2025-64512
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=11AD219D-F4A5-5008-908F-FEF87CC3F5A8&utm_source=rss&utm_medium=rss
 ---
 
 A denial-of-service (DoS) vulnerability, tracked as CVE-2026-59200, has been identified in Pillow, a widely used Python imaging library. Specifically, the `PdfParser.PdfStream.decode()` function in `PdfParser.py` incorrectly utilizes the `Length` field from a PDF stream as the `bufsize` parameter for Python's `zlib.decompress()`. While `bufsize` is intended as an initial buffer hint, it does not impose a maximum memory limit, allowing `zlib.decompress()` to expand memory until the entire decompressed result is produced. An unauthenticated attacker can exploit this by crafting a specially designed PDF file containing a highly compressed FlateDecode stream. When an application using Pillow's `PdfParser` processes such a file, the malicious stream decompresses into a significantly larger memory footprint (e.g., a ~950 KB file can expand to 1 GB), leading to Out-of-Memory (OOM) errors and service termination or severe degradation for the host system. This vulnerability affects Pillow versions greater than or equal to 5.1.0 and less than 12.3.0.
