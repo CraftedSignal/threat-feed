@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-22T07:38:10Z"
+lastmod: "2026-07-22T09:09:42Z"
 type: advisory
 types:
   - advisory
@@ -50,6 +50,19 @@ cpes:
   - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
   - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
   - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
+  - cpe:2.3:a:microsoft:configuration_manager_2503:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:configuration_manager_2509:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:configuration_manager_2603:-:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -564,6 +577,18 @@ cves:
   - id: CVE-2026-56183
     cvss: 7
     epss: 0.00252
+  - id: CVE-2026-50670
+    cvss: 8.8
+    epss: 0.0024
+  - id: CVE-2026-54121
+    cvss: 8.8
+    epss: 0.00802
+  - id: CVE-2026-57093
+    cvss: 7
+    epss: 0.0026
+  - id: CVE-2026-47301
+    cvss: 8.8
+    epss: 0.00526
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1201,6 +1226,7 @@ references:
   - https://securelist.com/project-cav3rn-cyberespionage-framework-using-outlook-and-dns/120757/
   - https://securelist.com/new-extortion-scheme-printers-bitlocker/120718/
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26199
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_large_number_of_computer_service_tickets_requested.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1616,13 +1642,6 @@ ioc_counts:
   url: 95
   user_agent: 6
 updates:
-  - at: "2026-07-20T23:02:48Z"
-    level: L2
-    summary: added CVE-2026-50404 +3; .net version System.Security.Cryptography.Xml >= 10.0.0, <= 10.0.9
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-8q5v-6pqq-x66h
   - at: "2026-07-21T07:02:40Z"
     level: L2
     summary: added CVE-2026-50346 +3
@@ -1651,6 +1670,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26199
+  - at: "2026-07-22T09:09:42Z"
+    level: L2
+    summary: added CVE-2026-47301 +3
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_large_number_of_computer_service_tickets_requested.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
