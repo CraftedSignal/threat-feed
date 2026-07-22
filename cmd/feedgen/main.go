@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 	"time"
 
@@ -57,6 +58,10 @@ func main() {
 	fmt.Printf("feedgen: loaded %d brief(s), %d total rules\n", len(briefs), countRules(briefs))
 
 	// Compile to bundle format (exclude old briefs)
+	if *maxAgeDays < 0 {
+		fmt.Fprintln(os.Stderr, "error: -max-age-days must be >= 0")
+		os.Exit(1)
+	}
 	maxAge := compiler.DefaultMaxBriefAge
 	if *maxAgeDays > 0 {
 		maxAge = time.Duration(*maxAgeDays) * 24 * time.Hour
@@ -78,9 +83,12 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := os.MkdirAll("output", 0o755); err != nil {
-		fmt.Fprintf(os.Stderr, "error creating output directory: %v\n", err)
-		os.Exit(1)
+	outDir := filepath.Dir(*outFile)
+	if outDir != "" && outDir != "." {
+		if err := os.MkdirAll(outDir, 0o755); err != nil {
+			fmt.Fprintf(os.Stderr, "error creating output directory: %v\n", err)
+			os.Exit(1)
+		}
 	}
 
 	if err := os.WriteFile(*outFile, data, 0o644); err != nil {
@@ -92,8 +100,15 @@ func main() {
 }
 
 // gitVersion returns the short git commit SHA, or a fallback.
+// It runs git from the repository root so the command works even when feedgen
+// is invoked from another directory.
 func gitVersion() string {
-	out, err := exec.Command("git", "rev-parse", "--short", "HEAD").Output()
+	repoRoot := locateRepoRoot(".")
+	cmd := exec.Command("git", "rev-parse", "--short", "HEAD")
+	if repoRoot != "" {
+		cmd.Dir = repoRoot
+	}
+	out, err := cmd.Output()
 	if err != nil {
 		return time.Now().UTC().Format("2006.01.02")
 	}
@@ -101,6 +116,25 @@ func gitVersion() string {
 	// Prefix with date for human readability
 	date := time.Now().UTC().Format("2006.01.02")
 	return date + "." + sha
+}
+
+// locateRepoRoot walks upward from start looking for a .git directory.
+// If none is found it returns an empty string.
+func locateRepoRoot(start string) string {
+	cwd, err := filepath.Abs(start)
+	if err != nil {
+		return ""
+	}
+	for {
+		if fi, err := os.Stat(filepath.Join(cwd, ".git")); err == nil && fi.IsDir() {
+			return cwd
+		}
+		parent := filepath.Dir(cwd)
+		if parent == cwd {
+			return ""
+		}
+		cwd = parent
+	}
 }
 
 func countRules(briefs []compiler.Brief) int {

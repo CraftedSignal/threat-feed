@@ -34,7 +34,7 @@ rules:
     severity: "high"
 iocs:
   - type: ip
-    value: "1.2.3.4"
+    value: "8.8.8.8"
 ttps:
   - tactic_id: "TA0001"
     technique_id: "T1566"
@@ -104,7 +104,7 @@ func TestCompileAndEncrypt(t *testing.T) {
 					},
 				},
 			},
-			IOCs: []IOC{{Type: "ip", Value: "10.0.0.1"}},
+			IOCs: []IOC{{Type: "ip", Value: "8.8.8.8"}},
 			TTPs: []TTP{{TacticID: "TA0001", TechniqueID: "T1566"}},
 		},
 	}

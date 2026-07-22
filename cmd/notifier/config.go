@@ -12,7 +12,10 @@ type config struct {
 	SiteOrigin  string
 	ServiceURL  string // self URL (Cloud Run); used in verify/unsub email links
 
-	DispatchToken string
+	DispatchToken      string // authorizes /dispatch
+	DispatchFlushToken string // authorizes /flush-pending; falls back to DispatchToken if unset
+
+	RecaptchaSecret string // Google reCAPTCHA v2/v3 secret; empty disables validation
 
 	MailerBackend string // "gmail" (default) or "smtp"
 	Gmail         gmailConfig
@@ -32,25 +35,60 @@ type smtpConfig struct {
 }
 
 func loadConfig() (*config, error) {
+	projectID, err := mustEnv("PROJECT_ID")
+	if err != nil {
+		return nil, err
+	}
+	siteOrigin, err := mustEnv("SITE_ORIGIN")
+	if err != nil {
+		return nil, err
+	}
+	dispatchToken, err := mustEnv("DISPATCH_TOKEN")
+	if err != nil {
+		return nil, err
+	}
+	smtpFrom, err := mustEnv("SMTP_FROM")
+	if err != nil {
+		return nil, err
+	}
+
 	cfg := &config{
-		ProjectID:     mustEnv("PROJECT_ID"),
-		Environment:   getEnv("ENVIRONMENT", "dev"),
-		SiteOrigin:    mustEnv("SITE_ORIGIN"),
-		ServiceURL:    getEnv("SERVICE_URL", ""), // optional; set after first deploy
-		DispatchToken: mustEnv("DISPATCH_TOKEN"),
-		MailerBackend: getEnv("MAILER_BACKEND", "gmail"),
+		ProjectID:          projectID,
+		Environment:        getEnv("ENVIRONMENT", "dev"),
+		SiteOrigin:         siteOrigin,
+		ServiceURL:         getEnv("SERVICE_URL", ""), // optional; set after first deploy
+		DispatchToken:      dispatchToken,
+		DispatchFlushToken: getEnv("DISPATCH_FLUSH_TOKEN", ""),
+		RecaptchaSecret:    getEnv("RECAPTCHA_SECRET", ""),
+		MailerBackend:      getEnv("MAILER_BACKEND", "gmail"),
 		SMTP: smtpConfig{
-			From: mustEnv("SMTP_FROM"), // From: header for both backends
+			From: smtpFrom, // From: header for both backends
 		},
 	}
 
 	switch cfg.MailerBackend {
 	case "gmail":
-		cfg.Gmail.Subject = mustEnv("GMAIL_SUBJECT")
+		subject, err := mustEnv("GMAIL_SUBJECT")
+		if err != nil {
+			return nil, err
+		}
+		cfg.Gmail.Subject = subject
 	case "smtp":
-		cfg.SMTP.Host = mustEnv("SMTP_HOST")
-		cfg.SMTP.Username = mustEnv("SMTP_USERNAME")
-		cfg.SMTP.Password = mustEnv("SMTP_PASSWORD")
+		host, err := mustEnv("SMTP_HOST")
+		if err != nil {
+			return nil, err
+		}
+		username, err := mustEnv("SMTP_USERNAME")
+		if err != nil {
+			return nil, err
+		}
+		password, err := mustEnv("SMTP_PASSWORD")
+		if err != nil {
+			return nil, err
+		}
+		cfg.SMTP.Host = host
+		cfg.SMTP.Username = username
+		cfg.SMTP.Password = password
 		port, err := strconv.Atoi(getEnv("SMTP_PORT", "587"))
 		if err != nil {
 			return nil, fmt.Errorf("SMTP_PORT: %w", err)
@@ -60,15 +98,19 @@ func loadConfig() (*config, error) {
 		return nil, fmt.Errorf("MAILER_BACKEND must be gmail or smtp, got %q", cfg.MailerBackend)
 	}
 
+	if cfg.DispatchFlushToken == "" {
+		cfg.DispatchFlushToken = cfg.DispatchToken
+	}
+
 	return cfg, nil
 }
 
-func mustEnv(key string) string {
+func mustEnv(key string) (string, error) {
 	v := os.Getenv(key)
 	if v == "" {
-		panic(fmt.Sprintf("required env %s is empty", key))
+		return "", fmt.Errorf("required env %s is empty", key)
 	}
-	return v
+	return v, nil
 }
 
 func getEnv(key, fallback string) string {

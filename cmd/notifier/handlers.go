@@ -17,11 +17,13 @@ import (
 )
 
 type server struct {
-	cfg        *config
-	store      *firestoreStore
-	mailer     mailer
-	dispatcher *dispatcher
-	logger     *slog.Logger
+	cfg            *config
+	store          *firestoreStore
+	mailer         mailer
+	dispatcher     *dispatcher
+	logger         *slog.Logger
+	rateLimiter    *subscribeRateLimiter
+	recaptchaClient *http.Client
 }
 
 const (
@@ -64,12 +66,30 @@ func (s *server) handleSubscribe(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+
+	ip := clientIP(r)
+	target := sub.Email
+	if target == "" {
+		target = sub.WebhookURL
+	}
+	if !s.rateLimiter.allow(ip, target) {
+		s.logger.Warn("subscribe rate limit exceeded", "ip", ip, "target", target)
+		http.Error(w, "rate limit exceeded", http.StatusTooManyRequests)
+		return
+	}
+
+	ctx := r.Context()
+	if err := verifyRecaptcha(ctx, s.recaptchaClient, s.cfg.RecaptchaSecret, req.RecaptchaToken); err != nil {
+		s.logger.Warn("recaptcha verification failed", "ip", ip, "err", err)
+		http.Error(w, "verification failed", http.StatusBadRequest)
+		return
+	}
+
 	sub.ID = newToken()
 	sub.UnsubscribeToken = newToken()
 	sub.CreatedAt = time.Now().UTC()
 
 	verifyToken := newToken()
-	ctx := r.Context()
 
 	switch sub.Channel {
 	case ChannelEmail:
@@ -79,25 +99,34 @@ func (s *server) handleSubscribe(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "internal error", http.StatusInternalServerError)
 			return
 		}
-		body := s.verifyEmailContent(verifyToken)
+		body, err := s.verifyEmailContent(verifyToken)
+		if err != nil {
+			s.logger.Error("rendering verification email failed", "err", err)
+			http.Error(w, "internal error", http.StatusInternalServerError)
+			return
+		}
 		if err := s.mailer.Send(sub.Email, "Confirm your CraftedSignal feed subscription", body.Text, body.HTML); err != nil {
 			s.logger.Error("verification mail failed", "err", err)
+			if _, delErr := s.store.ConsumePending(ctx, verifyToken); delErr != nil {
+				s.logger.Warn("failed to clean up pending verification after send failure", "token", verifyToken, "err", delErr)
+			}
 			http.Error(w, "email send failed", http.StatusBadGateway)
 			return
 		}
 	case ChannelSlack, ChannelTeams:
-		// Webhook channels can't receive an email-style confirmation.
-		// Post a small confirmation first so validation, DNS checks,
-		// provider auth, and delivery all happen before persistence.
-		if err := SendWebhookWelcome(sub.Channel, sub.WebhookURL, s.cfg.SiteOrigin); err != nil {
-			s.logger.Error("webhook verification failed", "channel", sub.Channel, "err", err)
-			http.Error(w, "webhook verification failed", http.StatusBadGateway)
-			return
-		}
+		// Persist first, then prove the destination is reachable. If the
+		// welcome fails, delete the subscription so we don't spam a dead
+		// endpoint on the next dispatch.
 		sub.VerifiedAt = time.Now().UTC()
 		if err := s.store.SaveSubscription(ctx, sub); err != nil {
 			s.logger.Error("save sub failed", "err", err)
 			http.Error(w, "internal error", http.StatusInternalServerError)
+			return
+		}
+		if err := SendWebhookWelcome(sub.Channel, sub.WebhookURL, s.cfg.SiteOrigin); err != nil {
+			_ = s.store.DeleteByUnsubscribeToken(ctx, sub.UnsubscribeToken)
+			s.logger.Error("webhook verification failed", "channel", sub.Channel, "err", err)
+			http.Error(w, "webhook verification failed", http.StatusBadGateway)
 			return
 		}
 	default:
@@ -203,7 +232,7 @@ func (s *server) handleDispatch(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	if !s.checkDispatchAuth(r) {
+	if !s.checkDispatchAuth(r, s.cfg.DispatchToken) {
 		http.Error(w, "unauthorized", http.StatusUnauthorized)
 		return
 	}
@@ -241,7 +270,7 @@ func (s *server) handleFlushPending(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	if !s.checkDispatchAuth(r) {
+	if !s.checkDispatchAuth(r, s.cfg.DispatchFlushToken) {
 		http.Error(w, "unauthorized", http.StatusUnauthorized)
 		return
 	}
@@ -258,14 +287,14 @@ func (s *server) handleFlushPending(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func (s *server) checkDispatchAuth(r *http.Request) bool {
+func (s *server) checkDispatchAuth(r *http.Request, wantToken string) bool {
 	auth := r.Header.Get("Authorization")
 	const prefix = "Bearer "
 	if !strings.HasPrefix(auth, prefix) {
 		return false
 	}
 	got := []byte(auth[len(prefix):])
-	want := []byte(s.cfg.DispatchToken)
+	want := []byte(wantToken)
 	return subtle.ConstantTimeCompare(got, want) == 1
 }
 
@@ -273,10 +302,11 @@ func (s *server) checkDispatchAuth(r *http.Request) bool {
 // Request shapes
 
 type subscribeRequest struct {
-	Channel    string `json:"channel"`
-	Email      string `json:"email,omitempty"`
-	WebhookURL string `json:"webhook_url,omitempty"`
-	Filter     Filter `json:"filter"`
+	Channel        string `json:"channel"`
+	Email          string `json:"email,omitempty"`
+	WebhookURL     string `json:"webhook_url,omitempty"`
+	Filter         Filter `json:"filter"`
+	RecaptchaToken string `json:"recaptcha_token,omitempty"`
 }
 
 func (r subscribeRequest) toSubscription() (Subscription, error) {
@@ -332,17 +362,24 @@ func respondJSON(w http.ResponseWriter, status int, v any) {
 }
 
 // ---------------------------------------------------------------------------
-// CORS + access log middleware
+// Middleware
 
-func withCORSAndLog(next http.Handler, origin string, logger *slog.Logger) http.Handler {
+// withSecurityHeaders adds baseline security headers to every response.
+func withSecurityHeaders(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// HSTS - every response served over HTTPS by the LB; tell
 		// browsers to never downgrade.
 		w.Header().Set("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
 		w.Header().Set("X-Content-Type-Options", "nosniff")
 		w.Header().Set("Referrer-Policy", "no-referrer")
+		next.ServeHTTP(w, r)
+	})
+}
 
-		// CORS for /subscribe - only the configured origin.
+// withCORS handles CORS preflight and response headers for the configured
+// site origin.
+func withCORS(next http.Handler, origin string) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Vary", "Origin")
 		if r.Header.Get("Origin") == origin {
 			w.Header().Set("Access-Control-Allow-Origin", origin)
@@ -354,9 +391,15 @@ func withCORSAndLog(next http.Handler, origin string, logger *slog.Logger) http.
 			w.WriteHeader(http.StatusNoContent)
 			return
 		}
+		next.ServeHTTP(w, r)
+	})
+}
 
+// withRequestLog logs every request with method, path, status, and latency.
+func withRequestLog(next http.Handler, logger *slog.Logger) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
-		ww := &statusRecorder{ResponseWriter: w, status: 200}
+		ww := &statusRecorder{ResponseWriter: w, status: http.StatusOK}
 		next.ServeHTTP(ww, r)
 		logger.Info("http",
 			"method", r.Method,
@@ -365,6 +408,15 @@ func withCORSAndLog(next http.Handler, origin string, logger *slog.Logger) http.
 			"duration_ms", time.Since(start).Milliseconds(),
 		)
 	})
+}
+
+// chain applies middlewares right-to-left so the first in the list is the
+// outermost layer.
+func chain(next http.Handler, middlewares ...func(http.Handler) http.Handler) http.Handler {
+	for i := len(middlewares) - 1; i >= 0; i-- {
+		next = middlewares[i](next)
+	}
+	return next
 }
 
 type statusRecorder struct {

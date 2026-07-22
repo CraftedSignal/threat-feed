@@ -9,6 +9,7 @@ type Brief struct {
 	Title       string   `yaml:"title"`
 	Summary     string   `yaml:"summary"`
 	Content     string   `yaml:"content"`
+	Type        string   `yaml:"type"`
 	Severity    string   `yaml:"severity"`
 	ThreatActor string   `yaml:"threat_actor"`
 	PublishedAt string   `yaml:"published_at"`

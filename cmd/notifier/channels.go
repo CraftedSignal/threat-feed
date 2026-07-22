@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 	"strings"
+	"time"
 )
 
 // webhookClient is shared across Slack/Teams sends. Reuse the same
@@ -61,6 +62,11 @@ func SendTeams(webhook string, b Brief) error {
 	return postWebhookJSON(ChannelTeams, webhook, card)
 }
 
+// maxSlackAttachments caps the number of legacy attachments in a single
+// Slack message. Slack rejects payloads with too many attachments, so excess
+// briefs are folded into a tail summary.
+const maxSlackAttachments = 20
+
 // SendSlackBatch posts a single Slack message containing multiple
 // briefs as separate attachments. Single-brief case mirrors SendSlack
 // so existing webhook recipients see no regression.
@@ -88,6 +94,15 @@ func SendSlackBatch(webhook string, briefs []Brief) error {
 		if severityRank(b.Severity) > severityRank(top) {
 			top = b.Severity
 		}
+	}
+	tail := 0
+	if len(atts) > maxSlackAttachments {
+		tail = len(atts) - maxSlackAttachments
+		atts = atts[:maxSlackAttachments]
+		atts = append(atts, map[string]any{
+			"color": "#94a3b8",
+			"text":  fmt.Sprintf("…and %d more briefs.", tail),
+		})
 	}
 	payload := map[string]any{
 		"text":        fmt.Sprintf("%s+%d more - %d briefs match your filter", strings.ToUpper(top), len(briefs)-1, len(briefs)),
@@ -194,21 +209,51 @@ func postWebhookJSON(channel Channel, rawURL string, body any) error {
 	if err != nil {
 		return fmt.Errorf("marshal: %w", err)
 	}
-	req, err := http.NewRequest(http.MethodPost, webhookURL, bytes.NewReader(buf))
-	if err != nil {
-		return err
-	}
-	req.Header.Set("Content-Type", "application/json")
-	resp, err := webhookClient.Do(req)
-	if err != nil {
-		return err
-	}
-	defer func() { _ = resp.Body.Close() }()
-	if resp.StatusCode >= 300 {
+
+	delays := []time.Duration{1 * time.Second, 2 * time.Second}
+	var lastErr error
+	for attempt := 0; attempt <= len(delays); attempt++ {
+		if attempt > 0 {
+			time.Sleep(delays[attempt-1])
+		}
+
+		req, err := http.NewRequest(http.MethodPost, webhookURL, bytes.NewReader(buf))
+		if err != nil {
+			return err
+		}
+		req.Header.Set("Content-Type", "application/json")
+		resp, err := webhookClient.Do(req)
+		if err != nil {
+			lastErr = fmt.Errorf("webhook request failed: %w", err)
+			if !isRetryableWebhookError(err) {
+				return lastErr
+			}
+			continue
+		}
 		bodyBytes, _ := io.ReadAll(io.LimitReader(resp.Body, 512))
-		return fmt.Errorf("webhook HTTP %d: %s", resp.StatusCode, string(bodyBytes))
+		resp.Body.Close()
+		if resp.StatusCode < 300 {
+			return nil
+		}
+		lastErr = fmt.Errorf("webhook HTTP %d: %s", resp.StatusCode, string(bodyBytes))
+		if resp.StatusCode != http.StatusTooManyRequests && resp.StatusCode < 500 {
+			return lastErr
+		}
 	}
-	return nil
+	return fmt.Errorf("webhook failed after %d attempts: %w", len(delays)+1, lastErr)
+}
+
+func isRetryableWebhookError(err error) bool {
+	if err == nil {
+		return false
+	}
+	msg := err.Error()
+	return strings.Contains(msg, "connection refused") ||
+		strings.Contains(msg, "connection reset") ||
+		strings.Contains(msg, "i/o timeout") ||
+		strings.Contains(msg, "EOF") ||
+		strings.Contains(msg, "temporary failure") ||
+		strings.Contains(msg, "no such host")
 }
 
 func slackColor(sev string) string {

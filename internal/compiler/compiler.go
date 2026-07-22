@@ -8,6 +8,7 @@ import (
 	"encoding/base64"
 	"encoding/hex"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"os"
@@ -16,6 +17,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/craftedsignal/threat-feed/pkg/ioc"
 	"github.com/craftedsignal/threat-feed/internal/mitre"
 	"gopkg.in/yaml.v3"
 )
@@ -58,6 +60,7 @@ type BundleBrief struct {
 	Title       string       `json:"title"`
 	Summary     string       `json:"summary"`
 	Content     string       `json:"content,omitempty"`
+	Type        string       `json:"type,omitempty"`
 	Severity    string       `json:"severity"`
 	ThreatActor string       `json:"threat_actor,omitempty"`
 	PublishedAt string       `json:"published_at"`
@@ -114,7 +117,43 @@ type BundleTTP struct {
 	ConfidenceBand   string  `json:"confidence_band,omitempty"`
 }
 
-// LoadBriefs reads all YAML files from the given directory.
+// Enumerated values used to validate YAML brief source files. Keep these in
+// sync with the public feed schema and the notifier/email templates.
+var (
+	validBriefSeverities = map[string]bool{
+		"critical":      true,
+		"high":          true,
+		"medium":        true,
+		"low":           true,
+		"rumour":        true,
+		"informational": true,
+	}
+	validBriefTypes = map[string]bool{
+		"threat":   true,
+		"coverage": true,
+		"advisory": true,
+		"rumour":   true,
+	}
+	validRuleSeverities = map[string]bool{
+		"critical":      true,
+		"high":          true,
+		"medium":        true,
+		"low":           true,
+		"informational": true,
+	}
+	validRulePlatforms = map[string]bool{
+		"sigma":    true,
+		"spl":      true,
+		"kql":      true,
+		"eql":      true,
+		"fql":      true,
+		"leql":     true,
+		"falconql": true,
+	}
+)
+
+// LoadBriefs reads all YAML files from the given directory. It reports every
+// parse and validation error it finds rather than stopping at the first one.
 func LoadBriefs(dir string) ([]Brief, error) {
 	entries, err := os.ReadDir(dir)
 	if err != nil {
@@ -122,6 +161,7 @@ func LoadBriefs(dir string) ([]Brief, error) {
 	}
 
 	var briefs []Brief
+	var errs []error
 	for _, entry := range entries {
 		if entry.IsDir() {
 			continue
@@ -134,19 +174,26 @@ func LoadBriefs(dir string) ([]Brief, error) {
 		path := filepath.Join(dir, name)
 		data, err := os.ReadFile(path)
 		if err != nil {
-			return nil, fmt.Errorf("reading %s: %w", path, err)
+			errs = append(errs, fmt.Errorf("reading %s: %w", path, err))
+			continue
 		}
 
 		var b Brief
 		if err := yaml.Unmarshal(data, &b); err != nil {
-			return nil, fmt.Errorf("parsing %s: %w", path, err)
+			errs = append(errs, fmt.Errorf("parsing %s: %w", path, err))
+			continue
 		}
 
-		if err := validateBrief(&b, name); err != nil {
-			return nil, err
+		if verrs := validateBrief(&b, name); len(verrs) > 0 {
+			errs = append(errs, verrs...)
+			continue
 		}
 
 		briefs = append(briefs, b)
+	}
+
+	if len(errs) > 0 {
+		return nil, errors.Join(errs...)
 	}
 
 	// Sort by published_at descending for deterministic output
@@ -157,40 +204,59 @@ func LoadBriefs(dir string) ([]Brief, error) {
 	return briefs, nil
 }
 
-func validateBrief(b *Brief, filename string) error {
+func validateBrief(b *Brief, filename string) []error {
+	var errs []error
 	if b.ID == "" {
-		return fmt.Errorf("%s: missing required field 'id'", filename)
+		errs = append(errs, fmt.Errorf("%s: missing required field 'id'", filename))
 	}
 	if b.Slug == "" {
-		return fmt.Errorf("%s: missing required field 'slug'", filename)
+		errs = append(errs, fmt.Errorf("%s: missing required field 'slug'", filename))
 	}
 	if b.Title == "" {
-		return fmt.Errorf("%s: missing required field 'title'", filename)
+		errs = append(errs, fmt.Errorf("%s: missing required field 'title'", filename))
 	}
 	if b.Summary == "" {
-		return fmt.Errorf("%s: missing required field 'summary'", filename)
+		errs = append(errs, fmt.Errorf("%s: missing required field 'summary'", filename))
 	}
 	if b.Severity == "" {
-		return fmt.Errorf("%s: missing required field 'severity'", filename)
+		errs = append(errs, fmt.Errorf("%s: missing required field 'severity'", filename))
+	} else if !validBriefSeverities[strings.ToLower(b.Severity)] {
+		errs = append(errs, fmt.Errorf("%s: invalid severity %q", filename, b.Severity))
+	}
+	if b.Type != "" && !validBriefTypes[strings.ToLower(b.Type)] {
+		errs = append(errs, fmt.Errorf("%s: invalid type %q", filename, b.Type))
 	}
 	if b.PublishedAt == "" {
-		return fmt.Errorf("%s: missing required field 'published_at'", filename)
+		errs = append(errs, fmt.Errorf("%s: missing required field 'published_at'", filename))
 	}
 	for i, r := range b.Rules {
 		if r.Title == "" {
-			return fmt.Errorf("%s: rule[%d]: missing title", filename, i)
+			errs = append(errs, fmt.Errorf("%s: rule[%d]: missing title", filename, i))
+			continue
 		}
 		if r.Query == "" {
-			return fmt.Errorf("%s: rule[%d] %q: missing query", filename, i, r.Title)
+			errs = append(errs, fmt.Errorf("%s: rule[%d] %q: missing query", filename, i, r.Title))
 		}
 		if r.Platform == "" {
-			return fmt.Errorf("%s: rule[%d] %q: missing platform", filename, i, r.Title)
+			errs = append(errs, fmt.Errorf("%s: rule[%d] %q: missing platform", filename, i, r.Title))
+		} else if !validRulePlatforms[strings.ToLower(r.Platform)] {
+			errs = append(errs, fmt.Errorf("%s: rule[%d] %q: invalid platform %q", filename, i, r.Title, r.Platform))
+		}
+		if r.Severity != "" && !validRuleSeverities[strings.ToLower(r.Severity)] {
+			errs = append(errs, fmt.Errorf("%s: rule[%d] %q: invalid severity %q", filename, i, r.Title, r.Severity))
+		}
+	}
+	for i, ind := range b.IOCs {
+		if !ioc.KnownTypes[strings.ToLower(ind.Type)] {
+			errs = append(errs, fmt.Errorf("%s: ioc[%d]: unknown type %q", filename, i, ind.Type))
+		} else if err := ioc.Validate(ind.Type, ind.Value); err != nil {
+			errs = append(errs, fmt.Errorf("%s: ioc[%d]: invalid %s: %w", filename, i, ind.Type, err))
 		}
 	}
 	if err := ValidateBriefTTPs(*b); err != nil {
-		return fmt.Errorf("%s: %w", filename, err)
+		errs = append(errs, fmt.Errorf("%s: %w", filename, err))
 	}
-	return nil
+	return errs
 }
 
 // ValidateBriefTTPs returns an error if any TTP references a tactic,
@@ -232,6 +298,7 @@ func Compile(briefs []Brief, maxAge time.Duration) *BundleContent {
 			Title:       b.Title,
 			Summary:     b.Summary,
 			Content:     b.Content,
+			Type:        b.Type,
 			Severity:    b.Severity,
 			ThreatActor: b.ThreatActor,
 			PublishedAt: b.PublishedAt,

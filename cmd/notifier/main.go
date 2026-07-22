@@ -69,11 +69,13 @@ func main() {
 	}
 
 	srv := &server{
-		cfg:        cfg,
-		store:      store,
-		mailer:     mailer,
-		dispatcher: dispatcher,
-		logger:     logger,
+		cfg:             cfg,
+		store:           store,
+		mailer:          mailer,
+		dispatcher:      dispatcher,
+		logger:          logger,
+		rateLimiter:     newSubscribeRateLimiter(5, 15*time.Minute),
+		recaptchaClient: &http.Client{Timeout: 10 * time.Second},
 	}
 
 	mux := http.NewServeMux()
@@ -94,9 +96,15 @@ func main() {
 		port = "8080"
 	}
 
+	handler := chain(mux,
+		func(next http.Handler) http.Handler { return withRequestLog(next, logger) },
+		func(next http.Handler) http.Handler { return withCORS(next, cfg.SiteOrigin) },
+		withSecurityHeaders,
+	)
+
 	httpSrv := &http.Server{
 		Addr:              ":" + port,
-		Handler:           withCORSAndLog(mux, cfg.SiteOrigin, logger),
+		Handler:           handler,
 		ReadHeaderTimeout: 5 * time.Second,
 		ReadTimeout:       15 * time.Second,
 		WriteTimeout:      30 * time.Second,

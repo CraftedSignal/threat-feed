@@ -25,6 +25,11 @@ const (
 	// the queue. Keeps the doc comfortably under Firestore's 1 MB
 	// limit even with verbose briefs.
 	pendingDispatchCap = 50
+
+	// verifiedPageSize limits how many verified subscriptions are read in one
+	// Firestore query. Cursor-based pagination avoids unbounded memory usage
+	// and keeps each read under Firestore's 1 MB document/response limits.
+	verifiedPageSize = 500
 )
 
 type firestoreStore struct {
@@ -149,29 +154,47 @@ func (s *firestoreStore) DeleteByUnsubscribeToken(ctx context.Context, token str
 	return err
 }
 
-// ForEachVerified streams every verified subscription. Cheap at our
-// scale - one read per sub per dispatch. Add cursor-based pagination
-// if subscription count grows past ~10k.
+// ForEachVerified streams every verified subscription using cursor-based
+// pagination so memory use stays bounded as the subscriber list grows.
 func (s *firestoreStore) ForEachVerified(ctx context.Context, fn func(Subscription) error) error {
-	iter := s.c.Collection(collSubscriptions).
+	q := s.c.Collection(collSubscriptions).
 		Where("verified_at", ">", time.Time{}).
-		Documents(ctx)
-	defer iter.Stop()
+		OrderBy("verified_at", firestore.Asc).
+		Limit(verifiedPageSize)
+
+	var lastDoc *firestore.DocumentSnapshot
 	for {
-		snap, err := iter.Next()
-		if errors.Is(err, iterator.Done) {
+		if lastDoc != nil {
+			q = q.StartAfter(lastDoc)
+		}
+		iter := q.Documents(ctx)
+		docsRead := 0
+		for {
+			snap, err := iter.Next()
+			if errors.Is(err, iterator.Done) {
+				break
+			}
+			if err != nil {
+				iter.Stop()
+				return err
+			}
+			docsRead++
+			lastDoc = snap
+
+			var sub Subscription
+			if err := snap.DataTo(&sub); err != nil {
+				iter.Stop()
+				return err
+			}
+			sub.ID = snap.Ref.ID
+			if err := fn(sub); err != nil {
+				iter.Stop()
+				return err
+			}
+		}
+		iter.Stop()
+		if docsRead == 0 {
 			return nil
-		}
-		if err != nil {
-			return err
-		}
-		var sub Subscription
-		if err := snap.DataTo(&sub); err != nil {
-			return err
-		}
-		sub.ID = snap.Ref.ID
-		if err := fn(sub); err != nil {
-			return err
 		}
 	}
 }

@@ -51,11 +51,30 @@ type emailMeta struct {
 	Value string
 }
 
-func (s *server) verifyEmailContent(token string) emailContent {
+func (s *server) verifyEmailContent(token string) (emailContent, error) {
 	verifyURL := ""
 	base := strings.TrimRight(s.cfg.ServiceURL, "/")
 	if base != "" {
 		verifyURL = fmt.Sprintf("%s/verify?token=%s", base, url.QueryEscape(token))
+	}
+
+	data := struct {
+		VerifyURL string
+		Token     string
+	}{VerifyURL: verifyURL, Token: token}
+	body, err := renderEmailTemplate(verifyEmailBodyTemplate, data)
+	if err != nil {
+		return emailContent{}, fmt.Errorf("rendering verify email body: %w", err)
+	}
+	shell, err := emailShell(emailShellData{
+		Title:     "Confirm subscription",
+		Kicker:    "Threat Feed",
+		Intro:     "Confirm this address to receive matching threat-feed alerts.",
+		Preheader: "Confirm this address to start receiving CraftedSignal Threat Feed alerts.",
+		Body:      template.HTML(body),
+	})
+	if err != nil {
+		return emailContent{}, fmt.Errorf("rendering verify email shell: %w", err)
 	}
 
 	if verifyURL == "" {
@@ -65,20 +84,7 @@ Verification token: %s
 
 SERVICE_URL is not configured. Contact the operator.
 `, token)
-		body := renderEmailTemplate(verifyEmailBodyTemplate, struct {
-			VerifyURL string
-			Token     string
-		}{Token: token})
-		return emailContent{
-			Text: text,
-			HTML: emailShell(emailShellData{
-				Title:     "Confirm subscription",
-				Kicker:    "Threat Feed",
-				Intro:     "Your subscription is waiting for confirmation.",
-				Preheader: "Use the verification token to confirm this address.",
-				Body:      template.HTML(body),
-			}),
-		}
+		return emailContent{Text: text, HTML: shell}, nil
 	}
 
 	text := fmt.Sprintf(`Confirm your CraftedSignal Threat Feed subscription:
@@ -88,26 +94,12 @@ SERVICE_URL is not configured. Contact the operator.
 This link expires in 24 hours. If you did not request this, ignore this email.
 `, verifyURL)
 
-	body := renderEmailTemplate(verifyEmailBodyTemplate, struct {
-		VerifyURL string
-		Token     string
-	}{VerifyURL: verifyURL})
-
-	return emailContent{
-		Text: text,
-		HTML: emailShell(emailShellData{
-			Title:     "Confirm subscription",
-			Kicker:    "Threat Feed",
-			Intro:     "Confirm this address to receive matching threat-feed alerts.",
-			Preheader: "Confirm this address to start receiving CraftedSignal Threat Feed alerts.",
-			Body:      template.HTML(body),
-		}),
-	}
+	return emailContent{Text: text, HTML: shell}, nil
 }
 
-func emailHTMLBatch(briefs []Brief, serviceURL, unsubToken string) string {
+func emailHTMLBatch(briefs []Brief, serviceURL, unsubToken string) (string, error) {
 	if len(briefs) == 0 {
-		return ""
+		return "", nil
 	}
 
 	title := "Brief matched filter"
@@ -132,7 +124,10 @@ func emailHTMLBatch(briefs []Brief, serviceURL, unsubToken string) string {
 		data.UnsubscribeURL = fmt.Sprintf("%s/unsubscribe?token=%s", base, url.QueryEscape(unsubToken))
 	}
 
-	body := renderEmailTemplate(alertEmailBodyTemplate, data)
+	body, err := renderEmailTemplate(alertEmailBodyTemplate, data)
+	if err != nil {
+		return "", fmt.Errorf("rendering alert email body: %w", err)
+	}
 	return emailShell(emailShellData{
 		Title:     title,
 		Kicker:    "Threat Feed",
@@ -188,16 +183,16 @@ func newBriefEmailCard(b Brief) briefEmailCard {
 	return card
 }
 
-func emailShell(data emailShellData) string {
+func emailShell(data emailShellData) (string, error) {
 	return renderEmailTemplate(emailShellTemplate, data)
 }
 
-func renderEmailTemplate(t *template.Template, data any) string {
+func renderEmailTemplate(t *template.Template, data any) (string, error) {
 	var out bytes.Buffer
 	if err := t.Execute(&out, data); err != nil {
-		panic(err)
+		return "", err
 	}
-	return out.String()
+	return out.String(), nil
 }
 
 func normalizeSeverity(severity string) string {

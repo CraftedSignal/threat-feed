@@ -46,105 +46,6 @@ type dispatcher struct {
 	logger *slog.Logger
 }
 
-type emailDeliveryJob struct {
-	sub Subscription
-	pd  PendingDispatch
-}
-
-type emailRecipientDelivery struct {
-	to   string
-	jobs []emailDeliveryJob
-	msg  SmtpMessage
-}
-
-func normalizeEmailRecipient(email string) string {
-	return strings.ToLower(strings.TrimSpace(email))
-}
-
-func groupEmailDeliveries(jobs []emailDeliveryJob, serviceURL string) []emailRecipientDelivery {
-	deliveries := make([]emailRecipientDelivery, 0, len(jobs))
-	byRecipient := make(map[string]int, len(jobs))
-
-	for _, job := range jobs {
-		to := normalizeEmailRecipient(job.sub.Email)
-		key := to
-		if key == "" {
-			key = "\x00" + job.sub.ID
-			to = strings.TrimSpace(job.sub.Email)
-		}
-		idx, ok := byRecipient[key]
-		if !ok {
-			idx = len(deliveries)
-			byRecipient[key] = idx
-			deliveries = append(deliveries, emailRecipientDelivery{to: to})
-		}
-		deliveries[idx].jobs = append(deliveries[idx].jobs, job)
-	}
-
-	for i := range deliveries {
-		briefs := mergeEmailBriefs(deliveries[i].jobs)
-		unsubToken := firstUnsubscribeToken(deliveries[i].jobs)
-		deliveries[i].msg = SmtpMessage{
-			To:       deliveries[i].to,
-			Subject:  emailSubjectBatch(briefs),
-			TextBody: emailBodyBatch(briefs, serviceURL, unsubToken),
-			HTMLBody: emailHTMLBatch(briefs, serviceURL, unsubToken),
-		}
-	}
-
-	return deliveries
-}
-
-func mergeEmailBriefs(jobs []emailDeliveryJob) []Brief {
-	var out []Brief
-	seen := make(map[string]struct{})
-
-	for _, job := range jobs {
-		for _, b := range job.pd.Briefs {
-			key := briefDedupeKey(b)
-			if key != "" {
-				if _, ok := seen[key]; ok {
-					continue
-				}
-				seen[key] = struct{}{}
-			}
-			out = append(out, b)
-		}
-	}
-
-	return out
-}
-
-func briefDedupeKey(b Brief) string {
-	if slug := strings.TrimSpace(b.Slug); slug != "" {
-		return "slug:" + slug
-	}
-	if u := strings.TrimSpace(b.URL); u != "" {
-		return "url:" + u
-	}
-	if title := strings.TrimSpace(b.Title); title != "" {
-		return "title:" + title
-	}
-	return ""
-}
-
-func firstUnsubscribeToken(jobs []emailDeliveryJob) string {
-	for _, job := range jobs {
-		if job.sub.UnsubscribeToken != "" {
-			return job.sub.UnsubscribeToken
-		}
-	}
-	return ""
-}
-
-func emailDeliverySubIDs(jobs []emailDeliveryJob) []string {
-	ids := make([]string, 0, len(jobs))
-	for _, job := range jobs {
-		ids = append(ids, job.sub.ID)
-	}
-	return ids
-}
-
 // Dispatch is the per-/dispatch hot path. It used to deliver one
 // message per (subscription, brief) match - fine for one-brief-per-call
 // but spammy when ti-bot pushes a burst. Now matches are enqueued into
@@ -211,35 +112,64 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 	}
 
 	if len(emailOvf) > 0 {
-		var jobs []emailDeliveryJob
-		for _, o := range emailOvf {
-			pd, err := d.store.GetPending(ctx, o.sub.ID)
-			if err != nil || len(pd.Briefs) == 0 {
-				continue
+		backoff, _ := d.store.GetSmtpBackoffUntil(ctx)
+		if time.Now().Before(backoff) {
+			d.logger.Warn("smtp in backoff, skipping overflow email flush", "backoff_until", backoff)
+		} else {
+			type emailOvfJob struct {
+				sub Subscription
+				pd  PendingDispatch
 			}
-			jobs = append(jobs, emailDeliveryJob{sub: o.sub, pd: pd})
-		}
-		deliveries := groupEmailDeliveries(jobs, serviceURL)
-		msgs := make([]SmtpMessage, len(deliveries))
-		for i, delivery := range deliveries {
-			msgs[i] = delivery.msg
-		}
-		if len(msgs) > 0 {
-			results := d.mailer.SendBatch(msgs)
-			for i, delivery := range deliveries {
-				if i >= len(results) || results[i] != nil {
-					var err error
-					if i < len(results) {
-						err = results[i]
-					}
-					d.logger.Error("overflow flush failed", "sub_ids", emailDeliverySubIDs(delivery.jobs), "err", err)
+			var jobs []emailOvfJob
+			var msgs []SmtpMessage
+			for _, o := range emailOvf {
+				pd, err := d.store.GetPending(ctx, o.sub.ID)
+				if err != nil || len(pd.Briefs) == 0 {
 					continue
 				}
-				for _, job := range delivery.jobs {
-					_ = d.store.DeletePending(ctx, job.pd.SubscriptionID)
-					_ = d.store.MarkSent(ctx, job.sub.ID, time.Now().UTC())
+				msg, err := d.buildEmailMessage(pd.Briefs, o.sub, serviceURL)
+				if err != nil {
+					d.logger.Error("building overflow email failed", "sub_id", o.sub.ID, "err", err)
+					continue
 				}
-				flushedN.Add(1)
+				jobs = append(jobs, emailOvfJob{sub: o.sub, pd: pd})
+				msgs = append(msgs, msg)
+			}
+			if len(msgs) > 0 {
+				results := d.mailer.SendBatch(msgs)
+
+				// All-connection failure sets SMTP backoff for future flushes.
+				connFails := 0
+				for _, r := range results {
+					var ce *smtpConnError
+					if r != nil && errors.As(r, &ce) {
+						connFails++
+					}
+				}
+				if connFails == len(results) {
+					backoffUntil := time.Now().Add(smtpBackoffDuration)
+					if err := d.store.SetSmtpBackoffUntil(ctx, backoffUntil); err != nil {
+						d.logger.Warn("smtp backoff persist failed", "err", err)
+					} else {
+						d.logger.Warn("smtp connection failed, backing off", "duration", smtpBackoffDuration, "until", backoffUntil)
+					}
+				}
+
+				for i, job := range jobs {
+					if i < len(results) && results[i] != nil {
+						d.logger.Error("overflow flush failed", "sub_id", job.sub.ID, "err", results[i])
+						continue
+					}
+					if err := d.store.DeletePending(ctx, job.pd.SubscriptionID); err != nil {
+						d.logger.Error("overflow flush: delete pending failed", "sub_id", job.sub.ID, "err", err)
+						continue
+					}
+					if err := d.store.MarkSent(ctx, job.sub.ID, time.Now().UTC()); err != nil {
+						d.logger.Error("overflow flush: mark sent failed", "sub_id", job.sub.ID, "err", err)
+						continue
+					}
+					flushedN.Add(1)
+				}
 			}
 		}
 	}
@@ -265,7 +195,7 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 //
 // Cleanup: queues are deleted only after a successful delivery and
 // MarkSent. Failures leave the queue intact so the next sweep retries.
-func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, serviceURL string) (sent int, failed int) {
+func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, serviceURL string) (int, int) {
 	// Sliding-window gate. A queue is flushable when EITHER:
 	//   - no new briefs arrived in the last `debounce` (idle window) -
 	//     the natural end of an activity burst, or
@@ -276,9 +206,16 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 	idleAge := now.Add(-debounce)
 	maxCutoff := now.Add(-maxAge)
 
-	// Collect everything first so SMTP/Gmail gets one batch call regardless
+	var sentN, failedN atomic.Int64
+
+	// Collect everything first so SMTP gets one connection regardless
 	// of how many email subscribers have pending queues.
-	var emailJobs []emailDeliveryJob
+	type emailJob struct {
+		sub Subscription
+		pd  PendingDispatch
+		msg SmtpMessage
+	}
+	var emailJobs []emailJob
 
 	type webhookJob struct {
 		sub Subscription
@@ -302,7 +239,14 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 		}
 		switch sub.Channel {
 		case ChannelEmail:
-			emailJobs = append(emailJobs, emailDeliveryJob{sub: sub, pd: pd})
+			msg, err := d.buildEmailMessage(pd.Briefs, sub, serviceURL)
+			if err != nil {
+				d.logger.Error("building flush email failed", "sub_id", sub.ID, "err", err)
+				return nil
+			}
+			emailJobs = append(emailJobs, emailJob{
+				sub: sub, pd: pd, msg: msg,
+			})
 		case ChannelSlack, ChannelTeams:
 			webhookJobs = append(webhookJobs, webhookJob{sub: sub, pd: pd})
 		default:
@@ -319,16 +263,15 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 	// relay while it recovers. Per-recipient errors come back from
 	// SendBatch; only delete a queue + bump last_sent for recipients
 	// whose delivery actually succeeded.
-	emailDeliveries := groupEmailDeliveries(emailJobs, serviceURL)
-	if len(emailDeliveries) > 0 {
+	if len(emailJobs) > 0 {
 		backoff, _ := d.store.GetSmtpBackoffUntil(ctx)
 		if time.Now().Before(backoff) {
 			d.logger.Warn("smtp in backoff, skipping email flush", "backoff_until", backoff)
-			failed += len(emailDeliveries)
+			failedN.Add(int64(len(emailJobs)))
 		} else {
-			msgs := make([]SmtpMessage, len(emailDeliveries))
-			for i, delivery := range emailDeliveries {
-				msgs[i] = delivery.msg
+			msgs := make([]SmtpMessage, len(emailJobs))
+			for i, j := range emailJobs {
+				msgs[i] = j.msg
 			}
 			results := d.mailer.SendBatch(msgs)
 
@@ -350,16 +293,21 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 				}
 			}
 
-			for i, delivery := range emailDeliveries {
-				if i >= len(results) || results[i] != nil {
-					failed++
+			for i, j := range emailJobs {
+				if i < len(results) && results[i] != nil {
+					failedN.Add(1)
 					continue
 				}
-				for _, job := range delivery.jobs {
-					_ = d.store.MarkSent(ctx, job.sub.ID, time.Now().UTC())
-					_ = d.store.DeletePending(ctx, job.pd.SubscriptionID)
+				if err := d.store.MarkSent(ctx, j.sub.ID, time.Now().UTC()); err != nil {
+					d.logger.Error("flush: mark sent failed", "sub_id", j.sub.ID, "err", err)
+					failedN.Add(1)
+					continue
 				}
-				sent++
+				if err := d.store.DeletePending(ctx, j.pd.SubscriptionID); err != nil {
+					d.logger.Error("flush: delete pending failed", "sub_id", j.sub.ID, "err", err)
+					// Already marked sent; next flush will see no pending doc.
+				}
+				sentN.Add(1)
 			}
 		}
 	}
@@ -379,18 +327,24 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 			}
 			if err != nil {
 				d.logger.Error("webhook send failed", "sub_id", w.sub.ID, "channel", w.sub.Channel, "err", err)
-				failed++
+				failedN.Add(1)
 				return nil
 			}
-			_ = d.store.MarkSent(gctx, w.sub.ID, time.Now().UTC())
-			_ = d.store.DeletePending(gctx, w.pd.SubscriptionID)
-			sent++
+			if merr := d.store.MarkSent(gctx, w.sub.ID, time.Now().UTC()); merr != nil {
+				d.logger.Error("flush: mark sent failed", "sub_id", w.sub.ID, "err", merr)
+				failedN.Add(1)
+				return nil
+			}
+			if derr := d.store.DeletePending(gctx, w.pd.SubscriptionID); derr != nil {
+				d.logger.Error("flush: delete pending failed", "sub_id", w.sub.ID, "err", derr)
+			}
+			sentN.Add(1)
 			return nil
 		})
 	}
 	_ = g.Wait()
 
-	return sent, failed
+	return int(sentN.Load()), int(failedN.Load())
 }
 
 // flushSubscription is the inline overflow path: fetch the queued
@@ -444,12 +398,11 @@ func (d *dispatcher) deliverBatch(sub Subscription, briefs []Brief, serviceURL s
 	}
 	switch sub.Channel {
 	case ChannelEmail:
-		return d.mailer.Send(
-			sub.Email,
-			emailSubjectBatch(briefs),
-			emailBodyBatch(briefs, serviceURL, sub.UnsubscribeToken),
-			emailHTMLBatch(briefs, serviceURL, sub.UnsubscribeToken),
-		)
+		msg, err := d.buildEmailMessage(briefs, sub, serviceURL)
+		if err != nil {
+			return err
+		}
+		return d.mailer.Send(msg.To, msg.Subject, msg.TextBody, msg.HTMLBody)
 	case ChannelSlack:
 		return SendSlackBatch(sub.WebhookURL, briefs)
 	case ChannelTeams:
@@ -457,6 +410,20 @@ func (d *dispatcher) deliverBatch(sub Subscription, briefs []Brief, serviceURL s
 	default:
 		return fmt.Errorf("unknown channel: %q", sub.Channel)
 	}
+}
+
+// buildEmailMessage renders the text and HTML bodies for a batch of briefs.
+func (d *dispatcher) buildEmailMessage(briefs []Brief, sub Subscription, serviceURL string) (SmtpMessage, error) {
+	html, err := emailHTMLBatch(briefs, serviceURL, sub.UnsubscribeToken)
+	if err != nil {
+		return SmtpMessage{}, fmt.Errorf("rendering HTML body: %w", err)
+	}
+	return SmtpMessage{
+		To:       sub.Email,
+		Subject:  emailSubjectBatch(briefs),
+		TextBody: emailBodyBatch(briefs, serviceURL, sub.UnsubscribeToken),
+		HTMLBody: html,
+	}, nil
 }
 
 // emailSubjectBatch produces a single-line subject for a batch
