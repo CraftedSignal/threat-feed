@@ -3,6 +3,7 @@ title: PHP File Creation in WordPress Plugin Directory
 slug: 2026-07-php-file-creation-wordpress-plugin
 description: Attackers commonly establish persistence on compromised Linux WordPress web servers by creating malicious PHP files, often web shells, within the WordPress plugin directory, enabling remote access and command execution following initial compromise of a public-facing application.
 date: "2026-07-20T11:41:12Z"
+lastmod: "2026-07-22T13:13:54Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +23,7 @@ tags:
   - vulnerability
 vendors:
   - Automattic
+  - WordPress
 products:
   - WordPress
 affected_os:
@@ -51,6 +53,12 @@ cves:
     epss: 0.01593
 references:
   - https://github.com/Icex0/wp2shell-poc
+  - https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_webserver_php_file_creation_in_wordpress_plugin_dir.toml
+iocs:
+  - type: url
+    value: https://github.com/Icex0/wp2shell-poc
+ioc_counts:
+  url: 1
 rules:
   - title: Detect PHP File Creation in WordPress Plugin Directory
     description: Detects the creation or modification of PHP files within the WordPress plugin directory, which is a common technique used by attackers to establish persistence on a compromised Linux web server via web shells.
@@ -69,6 +77,14 @@ rules:
       - file_event
       - linux
 rules_count: 1
+updates:
+  - at: "2026-07-22T13:13:54Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_webserver_php_file_creation_in_wordpress_plugin_dir.toml
 ---
 
 Threat actors frequently target WordPress installations on Linux web servers to establish persistence through the creation of malicious PHP files, typically web shells. This technique involves an initial compromise, often via a vulnerable public-facing application, followed by the upload or creation of a PHP file within the `/wp-content/plugins/` directory. Once deployed, these web shells can be accessed remotely via a web browser, allowing attackers to execute arbitrary commands, exfiltrate data, or further compromise the server and potentially the broader network. This activity is a critical indicator of post-exploitation, even if the initial access vector is unknown, and monitoring such file creations helps detect malicious activity aimed at maintaining long-term unauthorized access.
