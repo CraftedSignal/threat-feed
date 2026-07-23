@@ -1,89 +1,69 @@
 ---
-title: 'n8n: Multiple Vulnerabilities'
+title: Multiple Vulnerabilities in n8n Workflow Automation Platform
 slug: 2026-07-n8n-multiple-vulnerabilities
-description: A remote, authenticated attacker can exploit multiple vulnerabilities in the n8n application to perform SQL injection, bypass security measures, disclose confidential information, manipulate data, or cause a denial-of-service condition.
-date: "2026-07-09T08:33:44Z"
-lastmod: "2026-07-09T10:52:19Z"
-type: advisory
+description: An attacker can exploit multiple vulnerabilities in the n8n workflow automation platform to bypass security measures, perform a Denial of Service attack, disclose sensitive information, manipulate files, conduct SQL injection, and execute arbitrary code.
+date: "2026-07-23T11:03:21Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 tags:
   - vulnerability
-  - web-application
+  - rce
   - sql-injection
-  - data-exfiltration
   - denial-of-service
-  - n8n
-  - authentication-bypass
+  - data-exfiltration
+  - defense-evasion
 vendors:
   - n8n GmbH
-  - n8n
 products:
   - n8n
+affected_os:
+  - Windows
+  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: Ein entfernter, authentisierter Angreifer kann mehrere Schwachstellen in n8n ausnutzen
-    confidence_band: high
+    evidence: Ein Angreifer kann mehrere Schwachstellen in n8n ausnutzen
+    confidence_band: med
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1562
     technique_name: Impair Defenses
-    evidence: Sicherheitsmaßnahmen zu umgehen
-    confidence_band: high
-  - tactic_id: TA0009
-    tactic_name: Collection
-    technique_id: T1005
-    technique_name: Data from Local System
-    evidence: vertrauliche Informationen offenzulegen
-    confidence_band: high
-  - tactic_id: TA0010
-    tactic_name: Exfiltration
-    technique_id: T1020
-    technique_name: Automated Exfiltration
-    evidence: vertrauliche Informationen offenzulegen
+    evidence: Sicherheitsvorkehrungen zu umgehen
     confidence_band: med
-  - tactic_id: TA0040
-    tactic_name: Impact
-    technique_id: T1490
-    technique_name: Inhibit System Recovery
-    evidence: Daten zu manipulieren
-    confidence_band: high
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
-    evidence: einen Denial-of-Service-Zustand zu verursachen
-    confidence_band: high
+    evidence: einen Denial of Service Angriff durchzuführen
+    confidence_band: med
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1005
+    technique_name: Data from Local System
+    evidence: Informationen offenzulegen
+    confidence_band: med
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: beliebigen Programmcode auszuführen
+    confidence_band: med
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2067
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2267
-updates:
-  - at: "2026-07-09T10:52:19Z"
-    level: L1
-    summary: new vendor
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2267
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2489
 ---
 
-The German Federal Office for Information Security (BSI) has issued a high-severity alert regarding multiple vulnerabilities within the n8n automation platform. These flaws can be leveraged by a remote, authenticated attacker. While specific CVEs were not detailed in the advisory, the vulnerabilities collectively enable SQL injection, circumvention of security controls, unauthorized disclosure of sensitive data, data manipulation, and denial-of-service attacks. The requirement for prior authentication means an attacker would first need to gain access to a legitimate user's credentials or compromise a session. The widespread use of n8n in enterprise automation workflows makes these vulnerabilities particularly critical, as successful exploitation could lead to significant data breaches, operational disruption, and integrity compromises across integrated systems. Defenders should prioritize patching and robust authentication measures.
-
-## Attack Chain
-
-[No detailed attack chain available in the source material. The advisory describes potential exploit outcomes rather than a step-by-step process.]
+The German Federal Office for Information Security (BSI) has released an advisory concerning multiple vulnerabilities discovered in n8n, an open-source workflow automation platform. These vulnerabilities, while not individually detailed in the advisory, collectively allow an attacker to bypass security mechanisms, perform Denial of Service attacks, disclose sensitive information, manipulate files, execute SQL injection attacks, and achieve arbitrary code execution. The advisory does not specify if these vulnerabilities are actively being exploited in the wild, but due to the critical nature of remote code execution and data compromise, immediate attention from users of n8n is highly recommended. The scope of impact extends across various environments where n8n is deployed, including Windows, Linux, and cloud-based systems, emphasizing the broad potential for compromise across diverse infrastructure.
 
 ## Impact
 
-Should an attacker successfully exploit these vulnerabilities, organizations utilizing n8n could face severe consequences. The ability to perform SQL injection implies a risk of full database compromise, leading to mass exfiltration of sensitive user data, customer records, or proprietary business logic. Bypassing security measures could allow the attacker to escalate privileges or move laterally within the n8n environment and potentially connected systems. Data manipulation could lead to fraudulent transactions, corrupted business records, or altered automation workflows, causing operational chaos and financial loss. Finally, the threat of denial-of-service could render critical automation processes inoperable, severely disrupting business continuity.
+Successful exploitation of these vulnerabilities in n8n could lead to severe consequences for affected organizations. Attackers could gain unauthorized access to sensitive data stored or processed by n8n workflows, potentially resulting in data exfiltration or compliance breaches. The ability to manipulate files or execute arbitrary code implies a complete compromise of the n8n instance and potentially the underlying system, allowing for further lateral movement or the deployment of additional malicious payloads. Denial of Service attacks could disrupt critical business operations reliant on n8n workflows, leading to financial losses and reputational damage. The advisory from BSI highlights the broad spectrum of risks, from data integrity issues to complete system control, if these flaws are left unaddressed.
 
 ## Recommendation
 
-* Prioritize updating all n8n instances to the latest secure version immediately to address the underlying vulnerabilities.
-* Implement strong authentication policies, including multi-factor authentication, for all n8n users to mitigate the risk posed by authenticated attackers.
-* Monitor n8n application logs for unusual activities, failed authentication attempts, and SQL injection patterns.
+* Organizations using the n8n platform (affected_products: n8n) should apply all available security updates and patches released by n8n GmbH immediately to address the multiple vulnerabilities.
+* Monitor n8n application server logs (affected_products: n8n) for any anomalies indicative of attempted exploitation, such as unusual process creations, file modifications, or network connections.
