@@ -1,8 +1,8 @@
 ---
-title: 'Budibase: Multiple Vulnerabilities Allow Information Disclosure, File Manipulation, and SQL Injection'
+title: 'Budibase: Multiple Vulnerabilities'
 slug: 2026-07-budibase-multiple-vulnerabilities
-description: A remote, authenticated attacker can exploit multiple vulnerabilities in Budibase, allowing for information disclosure, manipulation of files, and the execution of SQL injection attacks, potentially leading to unauthorized data access or system compromise.
-date: "2026-07-22T12:06:11Z"
+description: Multiple vulnerabilities in Budibase allow an attacker to gain elevated privileges, perform SQL injection, bypass security measures, take over user accounts, manipulate or disclose data, and trigger a denial-of-service condition, enabling various malicious activities impacting data integrity, confidentiality, and system availability.
+date: "2026-07-23T10:25:34Z"
 type: advisory
 types:
   - advisory
@@ -11,61 +11,55 @@ severities:
 tags:
   - vulnerability
   - sql-injection
-  - information-disclosure
-  - file-manipulation
-  - budibase
+  - privilege-escalation
+  - defense-evasion
+  - data-exfiltration
+  - denial-of-service
 vendors:
   - Budibase
 products:
   - Budibase
 mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: Exploiting SQL injection can lead to execution of arbitrary queries or commands.
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Ein Angreifer kann mehrere Schwachstellen in Budibase ausnutzen, um erweiterte Berechtigungen zu erlangen, SQL-Injection durchzuführen, Sicherheitsmaßnahmen zu umgehen, Konten zu übernehmen, Daten zu manipulieren oder offenzulegen sowie einen Denial-of-Service-Zustand auszulösen.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562
+    technique_name: Impair Defenses
+    evidence: Ein Angreifer kann mehrere Schwachstellen in Budibase ausnutzen, um erweiterte Berechtigungen zu erlangen, SQL-Injection durchzuführen, Sicherheitsmaßnahmen zu umgehen, Konten zu übernehmen, Daten zu manipulieren oder offenzulegen sowie einen Denial-of-Service-Zustand auszulösen.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1003
+    technique_name: OS Credential Dumping
+    evidence: Ein Angreifer kann mehrere Schwachstellen in Budibase ausnutzen, um erweiterte Berechtigungen zu erlangen, SQL-Injection durchzuführen, Sicherheitsmaßnahmen zu umgehen, Konten zu übernehmen, Daten zu manipulieren oder offenzulegen sowie einen Denial-of-Service-Zustand auszulösen.
     confidence_band: high
   - tactic_id: TA0009
     tactic_name: Collection
-    technique_id: T1530
-    technique_name: Data from Local System
-    evidence: An attacker can exploit vulnerabilities to achieve information disclosure.
+    technique_id: T1537
+    technique_name: Transfer Data to Cloud Account
+    evidence: Ein Angreifer kann mehrere Schwachstellen in Budibase ausnutzen, um erweiterte Berechtigungen zu erlangen, SQL-Injection durchzuführen, Sicherheitsmaßnahmen zu umgehen, Konten zu übernehmen, Daten zu manipulieren oder offenzulegen sowie einen Denial-of-Service-Zustand auszulösen.
     confidence_band: high
   - tactic_id: TA0040
     tactic_name: Impact
-    technique_id: T1490
-    technique_name: Inhibit System Recovery
-    evidence: An attacker can exploit vulnerabilities to manipulate files, which could include critical system files leading to integrity loss or denial of service.
-    confidence_band: med
-  - tactic_id: TA0008
-    tactic_name: Lateral Movement
-    technique_id: T1505
-    technique_name: ""
-    evidence: A remote, authenticated attacker can exploit multiple vulnerabilities in Budibase.
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: Ein Angreifer kann mehrere Schwachstellen in Budibase ausnutzen, um erweiterte Berechtigungen zu erlangen, SQL-Injection durchzuführen, Sicherheitsmaßnahmen zu umgehen, Konten zu übernehmen, Daten zu manipulieren oder offenzulegen sowie einen Denial-of-Service-Zustand auszulösen.
     confidence_band: high
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2472
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2483
 ---
 
-German federal cybersecurity agency BSI (Bundesamt für Sicherheit in der Informationstechnik) has issued an advisory regarding multiple vulnerabilities in Budibase, an open-source low-code platform. These vulnerabilities, identified by the BSI with a high severity rating, can be exploited by a remote, authenticated attacker. The successful exploitation of these flaws could lead to unauthorized information disclosure, arbitrary file manipulation on the server, and the execution of SQL injection attacks against the underlying database. While specific version numbers of Budibase affected are not detailed in the brief, the advisory indicates a broad impact across the platform. This threat underscores the critical need for organizations using Budibase to implement immediate security updates and robust monitoring to prevent data breaches or system compromise.
-
-## Attack Chain
-
-1. **Initial Authentication:** An attacker first obtains legitimate credentials for a Budibase instance through various means such as phishing, credential stuffing, or exploiting weaker authentication mechanisms.
-2. **Exploitation for Information Disclosure:** The authenticated attacker leverages specific vulnerabilities within Budibase's application logic or APIs to bypass authorization controls, leading to unauthorized information disclosure beyond their assigned user role.
-3. **Exploitation for File Manipulation:** The attacker identifies and exploits another set of vulnerabilities to achieve arbitrary file manipulation, enabling them to read, write, modify, or delete files on the Budibase server's operating system.
-4. **Exploitation for SQL Injection:** The authenticated attacker utilizes SQL injection vulnerabilities present in Budibase's data handling to execute arbitrary SQL queries against the underlying database, gaining access to or modifying sensitive database content.
-5. **Data Exfiltration:** Through successful SQL injection or information disclosure, the attacker extracts sensitive data from the database (e.g., user credentials, proprietary business logic, application data) or from manipulated server files.
-6. **Impact on System Integrity:** Leveraging file manipulation or SQL injection, the attacker modifies critical application configuration files, injects malicious scripts, or corrupts essential database tables, potentially leading to denial of service, privilege escalation, or complete system compromise.
+The German Federal Office for Information Security (BSI) has issued an advisory highlighting multiple critical vulnerabilities within the Budibase low-code development platform. These security flaws allow a remote attacker to achieve various severe impacts, including gaining elevated privileges, executing SQL injection attacks, bypassing existing security controls, compromising user accounts, manipulating or exfiltrating sensitive data, and causing denial-of-service conditions. While the advisory does not detail specific exploitation methods or observed in-the-wild campaigns, the breadth of potential impacts underscores the importance of prompt remediation. Organizations utilizing Budibase should be aware that successful exploitation could lead to significant data breaches, unauthorized system access, and operational disruption. The vulnerabilities affect Budibase across its various deployments, posing risks to data integrity, confidentiality, and system availability. This advisory serves as a warning for defenders to prioritize updates to prevent potential attacks.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities by a remote, authenticated attacker could lead to severe consequences for organizations utilizing Budibase. The attacker could gain unauthorized access to sensitive corporate data, including customer information, proprietary application logic, and confidential business records. File manipulation capabilities could allow for the injection of malicious web shells or scripts, leading to persistent access or further compromise of the hosting server. SQL injection capabilities could result in full database compromise, enabling data theft, alteration, or deletion, potentially impacting data integrity, confidentiality, and availability. The overall impact includes data breaches, service disruptions, and potential regulatory non-compliance.
+Successful exploitation of these multiple vulnerabilities in Budibase can lead to significant compromise across several fronts. Attackers could gain elevated privileges within the platform, allowing for unauthorized access and control. The ability to perform SQL injection attacks jeopardizes the integrity and confidentiality of stored data, potentially leading to its manipulation or complete disclosure. Furthermore, attackers can bypass security measures, facilitating account takeover and further unauthorized actions. The culmination of these issues includes the potential for extensive data breaches, where sensitive information is exfiltrated, and system unavailability due to denial-of-service conditions, severely disrupting business operations.
 
 ## Recommendation
 
-* **Patch Budibase Immediately:** Apply the latest security patches and updates released by Budibase to remediate these vulnerabilities.
-* **Implement Principle of Least Privilege:** Ensure Budibase users and service accounts operate with the minimum necessary permissions to perform their tasks, limiting the scope of damage if an account is compromised.
-* **Enable Web Application Firewall (WAF):** Deploy and configure a WAF to inspect and filter HTTP requests, helping to block common web attack vectors like SQL injection and unauthorized file access attempts against Budibase instances.
-* **Monitor Budibase Access Logs:** Regularly review access logs for Budibase applications and underlying web servers for suspicious authentication attempts, unusual data access patterns, or unexpected file modifications.
-* **Implement Database Activity Monitoring (DAM):** Deploy DAM solutions to monitor for unusual SQL query patterns or direct access attempts to the Budibase backend database that could indicate SQL injection exploitation.
+* Update Budibase to the latest secure version immediately to remediate the multiple vulnerabilities described in this brief that affect the "Budibase" product.
