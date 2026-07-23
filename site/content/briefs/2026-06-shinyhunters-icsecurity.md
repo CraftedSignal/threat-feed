@@ -3,7 +3,7 @@ title: ShinyHunters Ransomware Group Claims icsecurity.com Victim, Exfiltrates 2
 slug: 2026-06-shinyhunters-icsecurity
 description: The financially motivated ShinyHunters ransomware group, operating its shinysp1d3r RaaS, has claimed icsecurity.com as a new victim, compromising over 2.7 million records via credential stuffing and exploitation of cloud services like Snowflake, with the intent to extort through data leakage.
 date: "2026-06-18T15:45:22Z"
-lastmod: "2026-07-21T11:13:31Z"
+lastmod: "2026-07-23T04:04:59Z"
 type: threat
 types:
   - threat
@@ -17,6 +17,9 @@ cpes:
   - cpe:2.3:a:cisco:unified_communications_manager:*:*:*:*:session_management:*:*:*
   - cpe:2.3:a:cisco:unified_communications_manager_im_and_presence_service:*:*:*:*:*:*:*:*
   - cpe:2.3:a:cisco:unity_connection:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=DB5A9BFC-C8FB-5C07-8F9A-B86B35E387EB&utm_source=rss&utm_medium=rss
 tags:
   - ransomware
   - data-theft
@@ -39,6 +42,9 @@ products:
   - Google BigQuery
   - Anodot
   - Oracle E-Business Suite (<= 2025-10-01)
+  - Oracle Concurrent_Processing
+  - Oracle E-Business Suite 12.2.3 through 12.2.14
+  - BI Publisher
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -78,6 +84,7 @@ cves:
 references:
   - https://www.ransomware.live/group/shinyhunters
   - https://www.securityweek.com/estee-lauder-discloses-impact-from-oracle-ebs-zero-day-hack/
+  - https://sploitus.com/exploit?id=DB5A9BFC-C8FB-5C07-8F9A-B86B35E387EB&utm_source=rss&utm_medium=rss
 iocs:
   - type: domain
     value: icsecurity.com
@@ -99,10 +106,16 @@ iocs:
     value: https://t.me/s/shinygr0up
   - type: url
     value: https://t.me/s/specialagentadam
+  - type: url
+    value: https://sploitus.com/exploit?id=DB5A9BFC-C8FB-5C07-8F9A-B86B35E387EB
+  - type: url
+    value: https://nvd.nist.gov/vuln/detail/CVE-2025-61882
+  - type: url
+    value: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 ioc_counts:
   domain: 5
   email: 1
-  url: 4
+  url: 7
 rules:
   - title: Detect Suspected Credential Stuffing Attempts to Web Applications
     description: Detects multiple failed login attempts from a single source IP to common web application login paths, indicative of credential stuffing activity used by groups like ShinyHunters. This often precedes successful unauthorized access.
@@ -137,6 +150,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/estee-lauder-discloses-impact-from-oracle-ebs-zero-day-hack/
+  - at: "2026-07-23T04:04:59Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=DB5A9BFC-C8FB-5C07-8F9A-B86B35E387EB&utm_source=rss&utm_medium=rss
 ---
 
 The ShinyHunters ransomware group, a financially motivated data-theft and extortion entity active since 2020, has claimed icsecurity.com as a recent victim. This group, known for high-profile breaches including Ticketmaster via Snowflake, launched its Ransomware-as-a-Service (RaaS) offering, "shinysp1d3r," in 2025. For the icsecurity.com incident, ShinyHunters claims to have compromised over 2.7 million records and other internal corporate data, threatening public data leakage by June 22, 2026, if ransom demands are not met. The group leverages techniques such as credential stuffing against cloud platforms like Snowflake, and exploits vulnerabilities including CVE-2025-61882 in Oracle E-Business Suite and CVE-2026-20045 in Cisco Unified Communications to gain initial access and exfiltrate sensitive data for extortion purposes. They primarily target organizations across technology, consumer services, financial services, and education sectors, with a significant focus on US-based entities.
