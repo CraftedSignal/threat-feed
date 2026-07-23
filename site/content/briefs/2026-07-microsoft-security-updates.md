@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-23T07:36:29Z"
+lastmod: "2026-07-23T10:12:02Z"
 type: advisory
 types:
   - advisory
@@ -545,6 +545,17 @@ products:
   - Windows CLFS Driver
   - Windows Defender Exploit Protection (<= 2023-11-14)
   - rpcbind
+  - LSASS
+  - Active Directory database
+  - procdump
+  - ProcessDump.exe
+  - WriteMiniDump.exe
+  - RUNDLL32.exe
+  - RdrLeakDiag.exe
+  - SqlDumper.exe
+  - TTTracer.exe
+  - ntdsutil.exe
+  - diskshadow.exe
 affected_os:
   - Windows
   - macOS
@@ -742,6 +753,18 @@ cves:
   - id: CVE-2026-55122
     cvss: 7.1
     epss: 0.00335
+  - id: CVE-2026-57975
+    cvss: 7.5
+    epss: 0.00429
+  - id: CVE-2026-54997
+    cvss: 5.5
+    epss: 0.00298
+  - id: CVE-2026-50343
+    cvss: 7.8
+    epss: 0.02838
+  - id: CVE-2026-55042
+    cvss: 5.5
+    epss: 0.00382
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1392,6 +1415,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16277
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56416
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54478
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_cmdline_dump_tool.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1864,13 +1888,6 @@ ioc_counts:
   url: 98
   user_agent: 6
 updates:
-  - at: "2026-07-23T07:28:57Z"
-    level: L2
-    summary: added CVE-2026-32665 +4
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32665
   - at: "2026-07-23T07:31:16Z"
     level: L2
     summary: added CVE-2026-50499 +4
@@ -1899,6 +1916,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54478
+  - at: "2026-07-23T10:12:02Z"
+    level: L2
+    summary: added CVE-2026-50343 +3
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_cmdline_dump_tool.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
