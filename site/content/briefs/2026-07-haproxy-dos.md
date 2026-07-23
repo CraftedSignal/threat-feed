@@ -3,27 +3,39 @@ title: HAProxy Denial of Service Vulnerability (CVE-2026-26080)
 slug: 2026-07-haproxy-dos
 description: A denial of service vulnerability (CVE-2026-26080) in HAProxy Community Edition versions 3.2.x through 3.3.x before 3.3.3, HAProxy Enterprise, and ALOHA can lead to a loop or crash due to mishandled varint, impacting service availability.
 date: "2026-07-23T07:32:02Z"
+lastmod: "2026-07-23T07:33:18Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
 tags:
   - denial-of-service
   - vulnerability
   - haproxy
+  - load-balancer
 vendors:
   - HAProxy
 products:
   - HAProxy Community Edition
   - HAProxy Enterprise
   - ALOHA
+  - HAProxy Community Edition < 3.3.3
 cves:
   - id: CVE-2026-26080
     cvss: 3.7
     epss: 0.00416
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26080
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26081
+updates:
+  - at: "2026-07-23T07:33:18Z"
+    level: L1
+    summary: 'merged source coverage: HAProxy Vulnerability CVE-2026-26081 Due to Missing Length Check'
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26081
 ---
 
 A denial of service (DoS) vulnerability, identified as CVE-2026-26080, has been disclosed affecting HAProxy Community Edition versions 3.2.x up to, but not including, 3.3.3, as well as HAProxy Enterprise and ALOHA products. This flaw stems from improper handling of varint, a method of serializing integers, which can cause the HAProxy instance to enter an infinite loop or crash unexpectedly. Such an event would severely disrupt the availability and performance of applications and services relying on HAProxy for load balancing and proxying. While the full technical details of exploitation are not provided, successful exploitation would lead to service outages and potential data path disruption for affected organizations. The vulnerability specifically targets the core functionality of HAProxy, making it a critical concern for environments deploying these versions.
