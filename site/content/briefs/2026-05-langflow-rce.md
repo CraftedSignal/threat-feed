@@ -3,37 +3,47 @@ title: Langflow 1.3.0 Remote Code Execution Vulnerability
 slug: 2026-05-langflow-rce
 description: Langflow 1.3.0 contains a remote code execution vulnerability (CVE-2026-0770) due to untrusted input in the exec_globals parameter at the validate endpoint, allowing remote attackers to execute arbitrary code as root without authentication, as demonstrated by a public exploit.
 date: "2026-05-29T08:21:41Z"
-lastmod: "2026-07-21T15:00:09Z"
+lastmod: "2026-07-23T04:05:14Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
-cpes:
-  - cpe:2.3:a:langflow:langflow:1.4.2:-:*:*:*:*:*:*
 tags:
   - remote-code-execution
   - webapps
   - langflow
 vendors:
   - langflow
+  - langflow-ai
 products:
   - langflow 1.3.0
   - langflow 1.2.0
   - Langflow < v1.9.0
+  - Langflow 0.x series through early 2026
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1505
     technique_name: Server-Side Code Injection
-cves:
-  - id: CVE-2026-0770
-    cvss: 9.8
-    epss: 0.10371
 references:
   - https://www.exploit-db.com/exploits/52597
   - CVE-2026-0770
   - https://www.cve.org/CVERecord?id=CVE-2026-0770
+  - https://sploitus.com/exploit?id=81AF37E3-C535-56D1-BC46-2EE165A8A66E&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=81AF37E3-C535-56D1-BC46-2EE165A8A66E
+  - type: url
+    value: https://github.com/langflow-ai/langflow
+  - type: url
+    value: https://www.zerodayinitiative.com/advisories/ZDI-26-000/
+  - type: url
+    value: https://cwe.mitre.org/data/definitions/829.html
+  - type: url
+    value: https://nvd.nist.gov/vuln/detail/CVE-2026-0770
+ioc_counts:
+  url: 5
 rules:
   - title: Detect Langflow RCE via Validate Endpoint
     description: Detects CVE-2026-0770 exploitation — HTTP POST to /api/v1/validate/code endpoint with shell metacharacters in the code parameter indicating command injection attempt.
@@ -54,6 +64,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-0770
+  - at: "2026-07-23T04:05:14Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=81AF37E3-C535-56D1-BC46-2EE165A8A66E&utm_source=rss&utm_medium=rss
 ---
 
 A remote code execution (RCE) vulnerability exists in Langflow version 1.3.0, tracked as CVE-2026-0770. This flaw stems from the inclusion of functionality from an untrusted control sphere within the `exec_globals` parameter located at the `/api/v1/validate/code` endpoint. The vulnerability allows unauthenticated remote attackers to execute arbitrary code with root privileges on affected systems. Exploit-DB has published a working exploit (EDB-52597) for this vulnerability, which exacerbates the risk for organizations using unpatched instances of Langflow. Version 1.2.0 is also affected.
