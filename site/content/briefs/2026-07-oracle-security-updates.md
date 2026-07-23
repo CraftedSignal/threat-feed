@@ -3,7 +3,7 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-22T23:21:41Z"
+lastmod: "2026-07-23T11:53:50Z"
 type: advisory
 types:
   - advisory
@@ -190,8 +190,13 @@ products:
   - Oracle Platform Security for Java (12.2.1.4.0, 14.1.2.0.0)
   - Oracle Platform Security for Java 12.2.1.4.0
   - Oracle Platform Security for Java 14.1.2.0.0
+  - Oracle Process Manufacturing Systems (12.2.3 - 12.2.15)
+  - Oracle Solaris (11.3)
+  - Oracle Solaris (11.4)
 affected_os:
   - Windows
+  - Oracle Solaris 11.3
+  - Oracle Solaris 11.4
 cves:
   - id: CVE-2026-60365
     cvss: 10
@@ -245,6 +250,16 @@ cves:
     cvss: 9.8
   - id: CVE-2026-60272
     cvss: 9.8
+  - id: CVE-2026-60565
+    cvss: 9.9
+  - id: CVE-2026-46996
+    cvss: 7.1
+  - id: CVE-2026-47007
+    cvss: 7.3
+  - id: CVE-2026-47014
+    cvss: 8.1
+  - id: CVE-2026-60157
+    cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -462,14 +477,13 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60439
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60455
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61246
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0918/
+iocs:
+  - type: url
+    value: https://www.oracle.com/security-alerts/cpujul2026.html
+ioc_counts:
+  url: 1
 updates:
-  - at: "2026-07-22T23:20:47Z"
-    level: L2
-    summary: added CVE-2026-46923 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60370
   - at: "2026-07-22T23:21:05Z"
     level: L2
     summary: added CVE-2026-46998 +2
@@ -498,6 +512,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-61246
+  - at: "2026-07-23T11:53:50Z"
+    level: L2
+    summary: added CVE-2026-46996 +4; OS oracle solaris 11.3; OS oracle solaris 11.4
+    sources:
+      - anssi
+    source_urls:
+      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0918/
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
