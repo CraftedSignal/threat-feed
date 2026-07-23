@@ -1,41 +1,38 @@
 ---
-title: Multiple HAProxy Vulnerabilities Lead to Denial of Service
+title: HAProxy Denial of Service Vulnerability (CVE-2026-26080)
 slug: 2026-07-haproxy-dos
-description: Multiple vulnerabilities exist in HAProxy Enterprise, Community, and ALOHA, specifically impacting QUIC implementations, which a remote, unauthenticated attacker can exploit to execute a Denial of Service (DoS) attack, disrupting service availability.
-date: "2026-07-21T07:45:33Z"
+description: A denial of service vulnerability (CVE-2026-26080) in HAProxy Community Edition versions 3.2.x through 3.3.x before 3.3.3, HAProxy Enterprise, and ALOHA can lead to a loop or crash due to mishandled varint, impacting service availability.
+date: "2026-07-23T07:32:02Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - low
 tags:
-  - vulnerability
   - denial-of-service
-  - network-device
+  - vulnerability
+  - haproxy
 vendors:
-  - HAProxy Technologies
+  - HAProxy
 products:
-  - HAProxy Enterprise (QUIC)
-  - HAProxy Community (QUIC)
-  - HAProxy ALOHA (QUIC)
-mitre_ttps:
-  - tactic_id: TA0040
-    tactic_name: Impact
-    technique_id: T1499
-    technique_name: Denial of Service
-    evidence: Ein entfernter, anonymer Angreifer kann mehrere Schwachstellen in HAProxy Enterprise, Community und ALOHA ausnutzen, um einen Denial of Service Angriff durchzuführen.
-    confidence_band: high
+  - HAProxy Community Edition
+  - HAProxy Enterprise
+  - ALOHA
+cves:
+  - id: CVE-2026-26080
+    cvss: 3.7
+    epss: 0.00416
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0410
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26080
 ---
 
-The German Federal Office for Information Security (BSI) issued an advisory on July 21, 2026, detailing multiple vulnerabilities within HAProxy Enterprise, Community, and ALOHA products, specifically affecting their QUIC implementations. These flaws can be exploited by a remote, unauthenticated attacker to execute a Denial of Service (DoS) attack. The lack of authentication required for exploitation means these vulnerabilities pose a significant risk to the availability and stability of services relying on HAProxy as a load balancer or proxy, allowing attackers to disrupt critical network infrastructure. The advisory does not specify the exact nature of the vulnerabilities or provide CVEs, but emphasizes the potential for complete service disruption across affected versions.
+A denial of service (DoS) vulnerability, identified as CVE-2026-26080, has been disclosed affecting HAProxy Community Edition versions 3.2.x up to, but not including, 3.3.3, as well as HAProxy Enterprise and ALOHA products. This flaw stems from improper handling of varint, a method of serializing integers, which can cause the HAProxy instance to enter an infinite loop or crash unexpectedly. Such an event would severely disrupt the availability and performance of applications and services relying on HAProxy for load balancing and proxying. While the full technical details of exploitation are not provided, successful exploitation would lead to service outages and potential data path disruption for affected organizations. The vulnerability specifically targets the core functionality of HAProxy, making it a critical concern for environments deploying these versions.
 
 ## Impact
 
-A successful exploitation of these vulnerabilities leads to a Denial of Service against HAProxy instances, affecting critical services that rely on them for load balancing, traffic routing, or proxying. While specific victim numbers or targeted sectors are not detailed, any organization utilizing affected versions of HAProxy Enterprise, Community, or ALOHA with QUIC enabled is at risk. The primary impact is a loss of availability for networked applications and services, which can lead to significant operational disruptions, financial losses, and reputational damage.
+The primary impact of CVE-2026-26080 is a denial of service for any applications or services utilizing vulnerable versions of HAProxy. If exploited, the HAProxy instance could crash or become unresponsive, leading to service outages, degraded performance, and unavailability of critical network resources. Organizations relying on HAProxy for high availability and load balancing could experience significant operational disruption, reputational damage, and potential financial losses due to prolonged downtime. The vulnerability affects a broad range of HAProxy deployments, including enterprise and appliance-based solutions.
 
 ## Recommendation
 
-* Consult the vendor advisory for specific patch versions or mitigation strategies to address the identified Denial of Service vulnerabilities in HAProxy Enterprise, Community, and ALOHA products utilizing QUIC.
-* Review network logs, specifically `category: network_connection` logs, for unusual traffic patterns or connection drops that could indicate a Denial of Service attack against HAProxy instances.
+* Patch CVE-2026-26080 by upgrading HAProxy Community Edition to version 3.3.3 or newer immediately on all affected servers. Consult HAProxy Enterprise and ALOHA documentation for specific patch instructions.
+* Review HAProxy configurations for unusual traffic patterns that might indicate attempts to trigger the varint mishandling vulnerability.
