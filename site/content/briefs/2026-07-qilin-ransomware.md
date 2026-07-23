@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-07-22T18:11:58Z"
+lastmod: "2026-07-23T04:31:48Z"
 type: threat
 types:
   - threat
@@ -383,11 +383,15 @@ iocs:
     value: www.paconst.com
   - type: url
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=e3c69462-969a-4bfd-8992-06497d92921c
+  - type: domain
+    value: www.sunway.com.my
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=29c74989-187f-43cd-a8bf-c3d3adfd8b78
 ioc_counts:
-  domain: 27
+  domain: 28
   hash_md5: 54
   ip: 5
-  url: 22
+  url: 23
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -415,13 +419,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-07-21T15:14:11Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-07-21T20:28:52Z"
     level: L1
     summary: new IOCs
@@ -446,6 +443,13 @@ updates:
   - at: "2026-07-22T18:11:58Z"
     level: L1
     summary: OS vmware esxi
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-07-23T04:31:48Z"
+    level: L1
+    summary: new IOCs
     sources:
       - ransomware-live
     source_urls:
