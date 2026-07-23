@@ -3,6 +3,7 @@ title: Bold Reports Standalone Report Designer Path Traversal Vulnerability (CVE
 slug: 2026-07-bold-reports-svg-rce
 description: CVE-2026-65687 describes a path traversal vulnerability in Bold Reports Standalone Report Designer prior to version 14.1.12, allowing an unauthenticated attacker to read arbitrary files from the server filesystem by exploiting a missing filepath validation flaw in the SVG processing feature, potentially leading to full unauthorized access via disclosure of sensitive server files like authentication credentials.
 date: "2026-07-23T14:19:51Z"
+lastmod: "2026-07-23T14:20:31Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - SyncFusion
 products:
   - Bold Reports Standalone Report Designer
+  - Bold Reports Standalone Report Designer < 14.1.12
 mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection
@@ -33,10 +35,13 @@ mitre_ttps:
 cves:
   - id: CVE-2026-65687
     cvss: 9.8
+  - id: CVE-2026-65688
+    cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-65687
   - https://www.boldreports.com/resources/release-history/standalone-report-designer/14-1#14-1-12
   - https://www.vulncheck.com/advisories/bold-reports-standalone-report-designer-arbitrary-file-read-via-svg-processing
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-65688
 rules:
   - title: Detects CVE-2026-65687 Exploitation - Bold Reports SVG Path Traversal
     description: Detects CVE-2026-65687 exploitation - HTTP requests containing path traversal sequences in the URI or query parameters, indicating an attempt to read arbitrary files via the Bold Reports Standalone Report Designer's SVG processing feature.
@@ -51,6 +56,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-23T14:20:31Z"
+    level: L2
+    summary: added CVE-2026-65688
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-65688
 ---
 
 A critical path traversal vulnerability, tracked as CVE-2026-65687, affects Bold Reports Standalone Report Designer versions prior to 14.1.12. This flaw resides within the SVG processing feature, where a missing filepath validation allows unauthenticated attackers to read arbitrary files directly from the server's filesystem. By crafting and sending a malicious HTTP request, adversaries can exploit this weakness to disclose sensitive server files, including critical configuration data and authentication credentials. Successful exploitation could grant attackers full unauthorized access to the application and potentially the underlying system, posing a severe risk to data integrity and confidentiality. The vulnerability has been assigned a CVSS v3.1 base score of 9.8, indicating its critical severity and ease of exploitation.
