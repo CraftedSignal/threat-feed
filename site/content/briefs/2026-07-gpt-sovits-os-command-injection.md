@@ -3,11 +3,15 @@ title: 'CVE-2026-63766: Unauthenticated OS Command Injection in GPT-SoVITS webui
 slug: 2026-07-gpt-sovits-os-command-injection
 description: An unauthenticated OS command injection vulnerability (CVE-2026-63766) in GPT-SoVITS through version 20250606v2pro's webui.py allows attackers to execute arbitrary operating system commands via shell metacharacters in Gradio textbox inputs, leading to remote code execution.
 date: "2026-07-20T20:18:01Z"
+lastmod: "2026-07-23T12:03:01Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=37D5777E-3101-5732-B15F-FEBD39E19E6F&utm_source=rss&utm_medium=rss
 tags:
   - command-injection
   - rce
@@ -18,6 +22,9 @@ vendors:
   - RVC-Boss
 products:
   - GPT-SoVITS through 20250606v2pro
+  - GPT-SoVITS <= 20250606v2pro
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -34,10 +41,19 @@ mitre_ttps:
 cves:
   - id: CVE-2026-63766
     cvss: 9.8
+    epss: 0.0139
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-63766
   - https://github.com/RVC-Boss/GPT-SoVITS/issues/2793
   - https://www.vulncheck.com/advisories/gpt-sovits-20250606v2pro-os-command-injection-via-webui-py
+  - https://sploitus.com/exploit?id=37D5777E-3101-5732-B15F-FEBD39E19E6F&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=37D5777E-3101-5732-B15F-FEBD39E19E6F
+  - type: url
+    value: https://github.com/RVC-Boss/GPT-SoVITS
+ioc_counts:
+  url: 2
 rules:
   - title: Detects CVE-2026-63766 Exploitation - GPT-SoVITS OS Command Injection
     description: Detects CVE-2026-63766 exploitation attempts in GPT-SoVITS webui.py by identifying HTTP requests targeting vulnerable functions with shell metacharacters in the URI query or path.
@@ -52,6 +68,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-23T12:03:01Z"
+    level: L2
+    summary: poc_available; OS linux
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=37D5777E-3101-5732-B15F-FEBD39E19E6F&utm_source=rss&utm_medium=rss
 ---
 
 GPT-SoVITS, a platform for text-to-speech and voice cloning, is affected by a critical OS command injection vulnerability, CVE-2026-63766, impacting versions through 20250606v2pro. This flaw resides in the `webui.py` component, specifically within the `ASR`, `slice`, `denoise`, and `uvr5` functions. These functions insecurely interpolate unsanitized Gradio textbox values directly into shell commands executed with `shell=True`. An unauthenticated attacker can exploit this by injecting shell metacharacters (e.g., semicolons, pipes, ampersands) through path parameters in HTTP requests. Successful exploitation grants the attacker arbitrary OS command execution privileges, running commands as the user associated with the GPT-SoVITS server process, potentially leading to full system compromise. The vulnerability has a CVSS v3.1 base score of 9.8, indicating a critical severity and ease of exploitation.
