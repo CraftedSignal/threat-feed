@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-23T07:31:16Z"
+lastmod: "2026-07-23T07:34:03Z"
 type: advisory
 types:
   - advisory
@@ -68,6 +68,11 @@ cpes:
   - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x64:*
   - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x86:*
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:sql_server_2016:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2017:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2019:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2022:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2025:*:*:*:*:*:*:x64:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -539,6 +544,7 @@ products:
   - Visual Studio Code Ansible Lightspeed extension
   - Windows CLFS Driver
   - Windows Defender Exploit Protection (<= 2023-11-14)
+  - rpcbind
 affected_os:
   - Windows
   - macOS
@@ -695,6 +701,21 @@ cves:
   - id: CVE-2026-55051
     cvss: 6.5
     epss: 0.00577
+  - id: CVE-2026-54118
+    cvss: 8.8
+    epss: 0.01287
+  - id: CVE-2026-55058
+    cvss: 7.8
+    epss: 0.00303
+  - id: CVE-2026-57094
+    cvss: 8.8
+    epss: 0.00812
+  - id: CVE-2026-58547
+    cvss: 5.5
+    epss: 0.00353
+  - id: CVE-2026-58544
+    cvss: 7
+    epss: 0.00229
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1342,6 +1363,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-44687
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-32665
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50243
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16277
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1814,13 +1836,6 @@ ioc_counts:
   url: 98
   user_agent: 6
 updates:
-  - at: "2026-07-22T21:00:55Z"
-    level: L2
-    summary: added CVE-2026-50415 +5
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=B4E1D3A6-7173-5883-9366-19658411A20B&utm_source=rss&utm_medium=rss
   - at: "2026-07-23T07:27:08Z"
     level: L2
     summary: added CVE-2026-50442 +6
@@ -1849,6 +1864,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50243
+  - at: "2026-07-23T07:34:03Z"
+    level: L2
+    summary: added CVE-2026-54118 +4
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16277
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
