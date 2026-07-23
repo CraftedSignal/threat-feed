@@ -3,13 +3,12 @@ title: 'Denying the Worm: Detecting SANDWORM_MODE and AI Toolchain Supply Chain 
 slug: 2026-07-sandworm-mode-ai-supply-chain
 description: The SANDWORM_MODE campaign is a multi-stage npm supply chain worm that targets AI-augmented development workflows by exploiting runtime behaviors of AI coding assistants and CI/CD pipelines, leading to credential theft, supply chain poisoning, and persistence through obfuscated loaders, credential harvesting, and malicious Git hooks.
 date: "2026-07-21T17:23:33Z"
-lastmod: "2026-07-23T12:32:59Z"
+lastmod: "2026-07-23T14:46:25Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
-has_poc: true
 tags:
   - supply-chain-attack
   - npm
@@ -216,6 +215,12 @@ iocs:
     value: /dev/shm
   - type: filepath
     value: ~/.git-templates/hooks/
+  - type: path
+    value: /dev/shm
+  - type: filename
+    value: .npmrc
+  - type: keyword
+    value: SANDWORM_MODE
 ioc_counts:
   campaign-name: 1
   campaign_name: 1
@@ -223,12 +228,13 @@ ioc_counts:
   file: 1
   file-path: 2
   file_path: 3
-  filename: 1
+  filename: 2
   filepath: 1
+  keyword: 1
   npm package: 1
   operating_system_function: 1
   other: 6
-  path: 1
+  path: 2
 rules:
   - title: Detect Git Global Template Directory Modification for Persistence
     description: Detects SANDWORM_MODE setting git config --global init.templateDir to an arbitrary path to establish persistence by ensuring future git operations inherit malicious hooks.
@@ -267,13 +273,6 @@ rules:
       - linux
 rules_count: 3
 updates:
-  - at: "2026-07-23T07:39:40Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
   - at: "2026-07-23T08:07:53Z"
     level: L1
     summary: new IOCs
@@ -296,6 +295,13 @@ updates:
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
   - at: "2026-07-23T12:32:59Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
+  - at: "2026-07-23T14:46:25Z"
     level: L1
     summary: new IOCs
     sources:
