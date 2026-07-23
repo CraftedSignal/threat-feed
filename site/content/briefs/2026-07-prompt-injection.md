@@ -3,7 +3,7 @@ title: CrowdStrike Uncovers New Prompt Injection Techniques
 slug: 2026-07-prompt-injection
 description: CrowdStrike's AI security research team has identified 18 new prompt injection techniques, expanding its taxonomy to over 200 methods, which enable adversaries to manipulate AI systems and agents through indirect means like hidden context, delayed triggers, and special token injection, leading to unauthorized actions such as data exfiltration or arbitrary command execution.
 date: "2026-07-08T07:51:34Z"
-lastmod: "2026-07-22T12:04:22Z"
+lastmod: "2026-07-23T16:43:40Z"
 type: advisory
 types:
   - advisory
@@ -56,6 +56,7 @@ products:
   - OpenAI TAC
   - Anthropic Claude Mythos
   - Claude Mythos
+  - Claude Integration
 affected_os:
   - Windows
   - Linux
@@ -163,13 +164,6 @@ rules:
       - windows
 rules_count: 1
 updates:
-  - at: "2026-07-22T08:16:44Z"
-    level: L1
-    summary: new product
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
   - at: "2026-07-22T09:32:00Z"
     level: L1
     summary: new IOCs
@@ -194,6 +188,13 @@ updates:
   - at: "2026-07-22T12:04:22Z"
     level: L1
     summary: new IOCs
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
+  - at: "2026-07-23T16:43:40Z"
+    level: L1
+    summary: new product
     sources:
       - crowdstrike
     source_urls:
