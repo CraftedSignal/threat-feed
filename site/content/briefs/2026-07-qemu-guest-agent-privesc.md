@@ -3,6 +3,7 @@ title: QEMU Guest Agent Vulnerability Allows Local Privilege Escalation (CVE-202
 slug: 2026-07-qemu-guest-agent-privesc
 description: A local unprivileged user within a QEMU guest can exploit CVE-2026-12080, a vulnerability in the QEMU Guest Agent's 'guest-ssh-add-authorized-keys' command handler, by manipulating symbolic links through a directory-symlink bypass or a Time-of-Check to Time-of-Use (TOCTOU) file-symlink race to gain ownership of arbitrary root-owned files or directories, leading to root access within the guest OS.
 date: "2026-07-20T13:21:23Z"
+lastmod: "2026-07-23T07:33:51Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - QEMU
 products:
   - QEMU Guest Agent
+  - qemu-guest-agent
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -33,8 +35,18 @@ mitre_ttps:
 cves:
   - id: CVE-2026-12080
     cvss: 7.3
+    epss: 0.00181
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-12080
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-12080
+updates:
+  - at: "2026-07-23T07:33:51Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-12080
 ---
 
 A significant local privilege escalation vulnerability, tracked as CVE-2026-12080, has been identified in the QEMU Guest Agent (qga). This flaw allows a local unprivileged user within a QEMU guest operating system to achieve root access. The vulnerability resides within the `guest-ssh-add-authorized-keys` command handler, which can be triggered by an external management layer like libvirt. Attackers can exploit this by manipulating symbolic links, either through a deterministic directory-symlink bypass or by winning a Time-of-Check to Time-of-Use (TOCTOU) file-symlink race. Successful exploitation enables the attacker to gain ownership of arbitrary root-owned files or directories, thereby escalating their privileges to root within the guest system. The exploit requires the guest-ssh-add-authorized-keys command to be invoked, which is typically done by management tools.
