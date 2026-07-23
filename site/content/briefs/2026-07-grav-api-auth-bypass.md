@@ -1,56 +1,59 @@
 ---
-title: Grav API Plugin Authorization Bypass (CVE-2026-62231)
+title: Grav API Plugin Missing Authorization Allows Security Settings Modification
 slug: 2026-07-grav-api-auth-bypass
-description: A critical authorization bypass vulnerability (CVE-2026-62231) in the Grav API plugin versions prior to 1.0.6 allows API keys with restricted scopes to perform any operation the owning user is authorized for, potentially leading to full administrative control of the Grav instance.
-date: "2026-07-17T02:35:54Z"
+description: Grav API Plugin versions prior to 1.0.10 contain a missing authorization vulnerability (CVE-2026-65895) allowing authenticated users with the 'api.config.write' privilege to modify critical security settings, including disabling site-wide rate limiting to enable credential brute-forcing attacks and reconfiguring CORS policies to include attacker-controlled origins with credentials enabled, potentially leading to unauthorized data access.
+date: "2026-07-23T12:22:35Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - authorization-bypass
-  - grav
-  - cve
-  - cms
+  - grav-cms
+  - api-plugin
+  - vulnerability
+  - access-control
+  - cwe-862
 vendors:
   - Grav
 products:
-  - Grav API plugin
+  - Grav API Plugin (versions before 1.0.10)
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-    evidence: API keys can be created with a restricted scopes array, but the ApiKeyAuthenticator class never reads or enforces these scopes. It loads and returns the owning user's full account object, so a key created with limited scopes (e.g. read-only) can perform any write, delete, or administrative operation the owning user is authorized for.
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1110
+    technique_name: Brute Force
+    evidence: Attackers can disable rate limiting site-wide to enable credential brute-forcing attacks
     confidence_band: high
 cves:
-  - id: CVE-2026-62231
-    cvss: 8.1
+  - id: CVE-2026-65895
+    cvss: 8.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62231
-  - https://github.com/getgrav/grav/security/advisories/GHSA-x7hm-jc32-v39j
-  - https://www.vulncheck.com/advisories/grav-api-key-scope-bypass-via-apikeyauthenticator
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-65895
+  - https://github.com/getgrav/grav/commit/f9438d4e71389b1041ac60b69b0b5714ecfa3bdd
+  - https://github.com/getgrav/grav/security/advisories/GHSA-4pqv-2qj5-38fp
+  - https://www.vulncheck.com/advisories/grav-api-plugin-before-broken-access-control
 ---
 
-A significant authorization bypass vulnerability, identified as CVE-2026-62231, affects the Grav API plugin (getgrav/grav-plugin-api) in all versions prior to 1.0.6. This flaw stems from a logical error within the `ApiKeyAuthenticator` class, which is responsible for validating API key permissions. While API keys can be configured with restricted scopes, the authenticator fails to enforce these limitations. Instead, it loads and returns the full account object of the API key's owning user, effectively granting the API key all privileges associated with that user, regardless of its defined scope. This means an API key intended for read-only access could be exploited to perform write, delete, or even administrative operations, leading to unauthorized data modification, deletion, or complete compromise of the Grav content management system. The vulnerability was patched in version 1.0.6 of the Grav API plugin.
+CVE-2026-65895 identifies a critical missing authorization vulnerability within Grav API Plugin versions prior to 1.0.10. This flaw allows authenticated users who possess the `api.config.write` privilege to bypass intended access controls and modify security-critical configurations. Specifically, an attacker can disable the site's rate limiting feature, paving the way for credential brute-forcing attacks. Furthermore, the vulnerability enables the modification of Cross-Origin Resource Sharing (CORS) policies, allowing an attacker to include their own controlled origins with credentials enabled. This manipulation can lead to unauthorized access to sensitive data and credentials, impacting the integrity and confidentiality of the Grav installation and its users. The vulnerability carries a CVSS v3.1 Base Score of 8.5 (High), emphasizing its significant potential impact.
 
 ## Attack Chain
 
-1. An attacker obtains a legitimate, but scope-restricted, API key for a Grav user account. This key might have been acquired through various means such as phishing, credential stuffing, or other vulnerabilities, but is intended to have limited permissions (e.g., read-only access).
-2. The attacker crafts an API request to a Grav endpoint that requires higher privileges than the obtained API key's defined scope (e.g., an endpoint for creating new content, deleting existing users, or modifying system configurations).
-3. The malicious request is sent to the Grav API, where the `ApiKeyAuthenticator` class initiates the authentication and authorization process.
-4. During authentication, the `ApiKeyAuthenticator` successfully validates the API key as legitimate.
-5. Crucially, the `ApiKeyAuthenticator` proceeds to load the full account object of the API key's owning user without actually checking or enforcing the `scopes` array associated with the API key itself.
-6. The Grav system grants the attacker's request based on the comprehensive permissions of the owning user, completely disregarding the API key's intended restricted scope.
-7. The attacker successfully executes an unauthorized, high-privilege action (e.g., data modification, administrative changes), effectively escalating privileges to the full extent of the owning user's capabilities.
+1. An attacker gains authenticated access to a Grav instance, potentially through compromised credentials or other means.
+2. The attacker's account possesses the `api.config.write` privilege, which is overly broad due to CVE-2026-65895 and allows modification of critical settings.
+3. The attacker crafts and sends an API request to the Grav instance, targeting the rate limiting configuration endpoint.
+4. Leveraging the missing authorization vulnerability, the attacker successfully disables site-wide rate limiting, bypassing intended security restrictions.
+5. Subsequently, the attacker sends another API request to reconfigure the Cross-Origin Resource Sharing (CORS) policies of the Grav instance.
+6. The attacker adds attacker-controlled origins to the CORS policy, enabling the inclusion of credentials and circumventing the browser's same-origin policy.
+7. With rate limiting disabled, the attacker can now perform high-volume credential brute-forcing attempts against other user accounts on the Grav instance.
+8. The manipulated CORS policies facilitate unauthorized access to sensitive data and credentials from victim browsers interacting with the compromised Grav instance.
 
 ## Impact
 
-Successful exploitation of CVE-2026-62231 can lead to severe consequences for affected Grav instances. If the compromised API key belongs to an administrator, the attacker can achieve full administrative control over the content management system. This enables arbitrary data modification, deletion, or creation, potentially defacing websites, injecting malicious content, or exfiltrating sensitive information. For organizations using Grav as a critical web presence or internal documentation platform, this could result in significant reputational damage, operational disruption, and compliance failures due to data integrity breaches. The number of potential victims includes any organization using unpatched Grav API plugin versions prior to 1.0.6.
+If successfully exploited, CVE-2026-65895 enables severe consequences for affected Grav instances. The ability to disable rate limiting allows attackers to launch efficient, high-volume credential brute-forcing attacks, potentially leading to the compromise of additional user accounts. Reconfiguring CORS policies permits unauthorized cross-origin requests, leading to data exfiltration, session hijacking, and other web-based attacks that compromise the confidentiality of user information. The vulnerability could result in widespread account compromise and unauthorized data access across the platform.
 
 ## Recommendation
 
-* Patch CVE-2026-62231 immediately by upgrading the Grav API plugin to version 1.0.6 or later.
-* Audit existing Grav API keys to ensure they are assigned to users with the least privilege necessary and revoke any unnecessary keys.
-* Monitor web server and Grav application logs for unusual API activity, particularly requests from API keys performing actions outside their expected scope.
+* Patch Grav API Plugin immediately to version 1.0.10 or later to address CVE-2026-65895.
+* Review Grav access control policies to ensure that only trusted administrators have the `api.config.write` privilege.
+* Monitor Grav API logs for any unauthorized or suspicious modifications to rate limiting and CORS configuration settings.
