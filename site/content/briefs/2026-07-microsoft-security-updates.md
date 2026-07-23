@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-22T21:00:55Z"
+lastmod: "2026-07-23T07:27:08Z"
 type: advisory
 types:
   - advisory
@@ -57,6 +57,10 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
+  - cpe:2.3:a:microsoft:powerpoint:2016:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:powerpoint:2016:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -619,6 +623,27 @@ cves:
   - id: CVE-2026-58628
     cvss: 7.8
     epss: 0.00181
+  - id: CVE-2026-56164
+    cvss: 5.3
+    epss: 0.05601
+  - id: CVE-2026-58291
+    cvss: 6.1
+    epss: 0.00586
+  - id: CVE-2026-56155
+    cvss: 7.8
+    epss: 0.00379
+  - id: CVE-2026-50442
+    cvss: 5.5
+    epss: 0.00362
+  - id: CVE-2026-55043
+    cvss: 7.8
+    epss: 0.0034
+  - id: CVE-2026-56197
+    cvss: 8.8
+    epss: 0.0092
+  - id: CVE-2026-57096
+    cvss: 7.8
+    epss: 0.00311
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1262,6 +1287,7 @@ references:
   - https://www.ransomware.live/group/BrainCipher
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
   - https://sploitus.com/exploit?id=B4E1D3A6-7173-5883-9366-19658411A20B&utm_source=rss&utm_medium=rss
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55973
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1734,13 +1760,6 @@ ioc_counts:
   url: 98
   user_agent: 6
 updates:
-  - at: "2026-07-22T12:20:42Z"
-    level: L2
-    summary: added CVE-2026-49784 +3
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-44189
   - at: "2026-07-22T13:17:18Z"
     level: L2
     summary: added CVE-2026-49166 +4
@@ -1769,6 +1788,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=B4E1D3A6-7173-5883-9366-19658411A20B&utm_source=rss&utm_medium=rss
+  - at: "2026-07-23T07:27:08Z"
+    level: L2
+    summary: added CVE-2026-50442 +6
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55973
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
