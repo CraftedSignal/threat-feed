@@ -1,8 +1,8 @@
 ---
-title: FFmpeg Out-of-Bounds Write Vulnerability CVE-2026-65704
+title: Critical Out-of-Bounds Write Vulnerability in FFmpeg (CVE-2026-65706)
 slug: 2026-07-ffmpeg-oob-write
-description: An out-of-bounds write vulnerability, identified as CVE-2026-65704, in FFmpeg through version 8.1.2 allows attackers to cause heap corruption by providing a specially crafted ffconcat file processed with the '-safe 0' flag.
-date: "2026-07-23T20:21:03Z"
+description: A critical out-of-bounds write vulnerability (CVE-2026-65706) exists in FFmpeg versions 3.0 through 8.1.2 within the vf_swaprect video filter, allowing attackers to corrupt heap memory and achieve potential remote code execution by providing a specially crafted NV12 video frame with odd width dimensions.
+date: "2026-07-23T20:22:25Z"
 type: advisory
 types:
   - advisory
@@ -10,39 +10,46 @@ severities:
   - high
 tags:
   - vulnerability
-  - ffmpeg
+  - RCE
   - out-of-bounds-write
-  - heap-corruption
+  - video-processing
+  - FFmpeg
 vendors:
   - FFmpeg
 products:
-  - FFmpeg (through 8.1.2)
+  - FFmpeg versions 3.0 through 8.1.2
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: FFmpeg versions 3.0 through 8.1.2 contain an out-of-bounds write vulnerability ... that allows attackers to corrupt heap memory ... with potential for code execution.
+    confidence_band: high
 cves:
-  - id: CVE-2026-65704
+  - id: CVE-2026-65706
     cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-65704
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-65706
 ---
 
-A critical out-of-bounds write vulnerability, CVE-2026-65704, has been identified in FFmpeg, impacting all versions up to and including 8.1.2. This flaw allows a remote attacker to cause heap corruption by processing a maliciously crafted `ffconcat` file, specifically when FFmpeg is invoked with the `-safe 0` flag. The vulnerability resides within the `TY demuxer`'s `demux_audio()` function, which fails to perform proper bounds checking when decrementing packet size. This can lead to a negative size value being passed to `memcpy()` in `shorten_decode_frame()`, causing the value to wrap to near `SIZE_MAX`. Consequently, `memcpy()` attempts to read beyond its allocated source memory and write far beyond the Shorten decoder's bitstream buffer, resulting in heap corruption. Organizations utilizing FFmpeg in multimedia processing pipelines, especially those that process untrusted media files or use the `-safe 0` flag, are at risk.
+A critical out-of-bounds write vulnerability, identified as CVE-2026-65706, affects FFmpeg versions 3.0 through 8.1.2. This flaw resides within the `vf_swaprect` video filter, specifically impacting how it handles NV12 video frames with odd width dimensions. Threat actors can exploit this by supplying a specially crafted video frame, causing the `filter_frame()` function to perform an 18-byte `memcpy` operation into a 17-byte heap allocation. This discrepancy, stemming from incorrect temporary buffer sizing for interleaved chroma planes, leads to heap corruption and a subsequent process crash. Successful exploitation can enable remote code execution, granting attackers unauthorized control over the affected system. This vulnerability poses a significant risk to applications and services utilizing vulnerable FFmpeg versions for video processing, as it can be triggered by merely processing a malicious video file or stream.
 
 ## Attack Chain
 
-1. An attacker crafts a malicious `ffconcat` file designed to trigger the out-of-bounds write.
-2. The crafted `ffconcat` file includes specific parameters within its `TY demuxer` section to exploit the vulnerability.
-3. The attacker delivers this malicious file to a victim system or application that uses FFmpeg.
-4. The victim's system processes the malicious `ffconcat` file using FFmpeg, crucially with the `-safe 0` flag enabled.
-5. During demuxing, the FFmpeg `TY demuxer`'s `demux_audio()` function processes the specially crafted data.
-6. The `demux_audio()` function decrements a packet size value without proper bounds checking, leading to a negative result.
-7. This negative size value is then passed to the `memcpy()` function within `shorten_decode_frame()`.
-8. The negative size value is converted to an unsigned `size_t` type, wrapping to a very large positive number (near `SIZE_MAX`), causing `memcpy()` to attempt to read and write far outside the intended buffer boundaries, leading to heap corruption.
+1. An attacker crafts a malicious NV12 video frame designed with odd width dimensions.
+2. The crafted video frame includes specially structured data intended to trigger an out-of-bounds write condition.
+3. The victim's system, running a vulnerable FFmpeg version (3.0 through 8.1.2), processes the attacker-supplied malicious NV12 video frame.
+4. The FFmpeg `vf_swaprect` video filter's `filter_frame()` function is invoked to process the crafted frame.
+5. During the processing of the two-byte-per-sample interleaved chroma plane, the `filter_frame()` function reuses a temporary row buffer sized for plane 0's single-byte pixel step.
+6. This incorrect sizing causes an 18-byte `memcpy` operation to occur into a 17-byte heap allocation, triggering an out-of-bounds write.
+7. The out-of-bounds write corrupts heap memory, leading to a process crash of the FFmpeg application or service.
+8. With sophisticated crafting, this heap corruption can be exploited to achieve arbitrary code execution, allowing the attacker to gain control over the affected FFmpeg process and potentially the underlying system.
 
 ## Impact
 
-Successful exploitation of CVE-2026-65704 leads to heap corruption. This type of memory corruption can result in various severe consequences, including denial of service (DoS) by crashing the FFmpeg process or the application embedding it. More critically, heap corruption often creates conditions that can be leveraged for arbitrary code execution (RCE) by overwriting critical memory structures, allowing an attacker to run malicious code with the privileges of the affected FFmpeg process. This could compromise the integrity, confidentiality, and availability of data and systems processing untrusted media files. While specific victim counts are not available, any system processing untrusted media with vulnerable FFmpeg versions and the `-safe 0` flag is at risk.
+Successful exploitation of CVE-2026-65706 results in heap memory corruption, leading to denial of service through application crashes. The vulnerability carries a high CVSS v3.1 base score of 7.8, indicating significant severity. The primary risk is the potential for remote code execution, which would allow an attacker to execute arbitrary commands and take complete control of the system running the vulnerable FFmpeg software. This could lead to data exfiltration, further network compromise, or the installation of additional malicious software. Any application or service that uses FFmpeg for video processing, including media players, video conferencing tools, transcoding services, and content management systems, is at risk. The number of potential victims is vast due to the widespread use of FFmpeg across various industries.
 
 ## Recommendation
 
-* Upgrade FFmpeg to a patched version beyond 8.1.2 immediately to remediate CVE-2026-65704.
-* Avoid processing untrusted `ffconcat` files from external sources, especially when FFmpeg is invoked with the `-safe 0` flag.
-* Review all FFmpeg invocations in your environment and remove the `-safe 0` flag if it is not absolutely necessary, as it bypasses critical security checks.
+* Patch CVE-2026-65706 immediately by upgrading FFmpeg to a version beyond 8.1.2 that addresses this vulnerability.
+* Monitor systems for unexpected process crashes related to FFmpeg or media processing applications to detect potential exploitation attempts of CVE-2026-65706.
