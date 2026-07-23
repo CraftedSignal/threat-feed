@@ -3,7 +3,7 @@ title: FrostyNeighbor Targets Ukraine with Updated PicassoLoader Chain
 slug: 2026-05-frostyneighbor-ukraine
 description: The FrostyNeighbor threat actor is targeting Ukrainian governmental organizations with spearphishing emails containing malicious PDFs that deliver a JavaScript dropper (PicassoLoader) and ultimately a Cobalt Strike beacon.
 date: "2026-05-15T07:00:16Z"
-lastmod: "2026-07-10T19:17:06Z"
+lastmod: "2026-07-23T14:07:56Z"
 type: threat
 types:
   - threat
@@ -12,8 +12,30 @@ severities:
 actors:
   - FrostyNeighbor
 cpes:
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:-:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p1:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p10:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p11:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p12:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p13:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p14:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p15:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p16:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p17:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p18:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p19:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p2:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p20:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p21:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p22:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p23:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p24:*:*:*:*:*:*
+  - cpe:2.3:a:synacor:zimbra_collaboration_suite:9.0.0:p24.1:*:*:*:*:*:*
+  - cpe:2.3:a:mdaemon:email_server:*:*:*:*:*:*:*:*
   - cpe:2.3:a:roundcube:webmail:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:debian:debian_linux:11.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:debian:debian_linux:10.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:ruoyi:ruoyi:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - frostyneighbor
@@ -26,12 +48,20 @@ vendors:
   - Cloudflare
   - Roundcube
   - WinRAR
+  - Alinto
+  - Zimbra
+  - MDaemon Technologies
+  - Kerio Technologies
 products:
   - Cobalt Strike
   - WinRAR
   - Roundcube
   - Webmail (< 1.5.10)
   - Webmail (< 1.6.11)
+  - SOGo webmail (< 5.12.8)
+  - Zimbra webmail
+  - MDaemon Email Server
+  - Kerio Webmail
 affected_os:
   - Windows
 mitre_ttps:
@@ -48,15 +78,25 @@ mitre_ttps:
     technique_id: T1053.005
     technique_name: 'Scheduled Task/Job: Scheduled Task'
 cves:
-  - id: CVE-2025-49113
-    cvss: 9.9
-    epss: 0.89462
-  - id: CVE-2024-42009
-    cvss: 9.3
-    epss: 0.83387
+  - id: CVE-2025-27915
+    cvss: 5.4
+    epss: 0.04344
+  - id: CVE-2025-3929
+    cvss: 6.1
+    epss: 0.00517
+  - id: CVE-2023-43770
+    cvss: 6.1
+    epss: 0.58483
+  - id: CVE-2026-8496
+    cvss: 6.1
+    epss: 0.00283
+  - id: CVE-2024-42900
+    cvss: 6.1
+    epss: 0.00341
 references:
   - https://www.welivesecurity.com/en/eset-research/frostyneighbor-fresh-mischief-digital-shenanigans/
   - https://cyber.gc.ca/en/alerts-advisories/vulnerability-impacting-roundcube-webmail-cve-2025-49113
+  - https://www.proofpoint.com/us/blog/threat-insight/ta458-roundpress-exploits
 iocs:
   - type: domain
     value: book-happy.needbinding[.]icu
@@ -64,8 +104,35 @@ iocs:
     value: https://book-happy.needbinding[.]icu/wp-content/uploads/2023/10/1GreenAM.jpg
   - type: domain
     value: nama-belakang.nebao[.]icu
+  - type: domain
+    value: share-ya.space
+  - type: domain
+    value: xwe.us
+  - type: domain
+    value: hgmydr.wiki
+  - type: domain
+    value: xsza.net
+  - type: domain
+    value: zxzaq.com
+  - type: domain
+    value: upgybj.store
+  - type: hash_sha256
+    value: 625e4c166c7a1d5a1becf56b27d4f76a2f95935cbd8d556c30a493263d10dbf8
+  - type: hash_sha256
+    value: a0c80cab70d6672b01710a70f93311fc1c1db2fbbf9cd6daa543c34b87e3444a
+  - type: hash_sha256
+    value: fb8ec4dbed14c0a91361abd82ebe9fb083615c3dbb15348f57317af7cc41dd34
+  - type: hash_sha256
+    value: 3a449148a0e3cac604fb93210dd7d91ccf48e06ed9aae064bc53a419a84ce9ba
+  - type: hash_sha256
+    value: 8b5a4dc237a4c89042176bc89864a4c357dcdd14fa544fe6496ccb6c31cd5b7f
+  - type: hash_sha256
+    value: 6b2c02bf82087a3ca5fb7ef8046554ff29ce85d52202bdcfae2b2653aede139a
+  - type: hash_sha256
+    value: e27d1bf82249002a66395c89dbda6ec5d8df012a84b79d36fffbbf7808d28878
 ioc_counts:
-  domain: 2
+  domain: 8
+  hash_sha256: 7
   url: 1
 rules:
   - title: Detect JavaScript Dropping Another JavaScript File
@@ -99,6 +166,13 @@ updates:
       - cccs
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/vulnerability-impacting-roundcube-webmail-cve-2025-49113
+  - at: "2026-07-23T14:07:56Z"
+    level: L2
+    summary: added CVE-2023-43770 +4
+    sources:
+      - proofpoint
+    source_urls:
+      - https://www.proofpoint.com/us/blog/threat-insight/ta458-roundpress-exploits
 ---
 
 ESET researchers have identified new activity from FrostyNeighbor (aka Ghostwriter, UNC1151, UAC-0057, TA445, PUSHCHA, Storm-0257) targeting governmental organizations in Ukraine starting in March 2026. FrostyNeighbor, believed to be aligned with Belarus' interests, has been active since at least 2016, primarily targeting countries neighboring Belarus. The group employs spearphishing, disinformation campaigns, and credential harvesting to compromise various entities. This recent campaign utilizes malicious PDFs delivered via spearphishing emails, exploiting server-side validation to deliver a malicious payload only to victims with Ukrainian IP addresses. The group continually updates its toolset and compromise chains to evade detection, with a focus on Ukraine, Poland, and Lithuania. The attack culminates in the deployment of a Cobalt Strike beacon for persistent access and control.
