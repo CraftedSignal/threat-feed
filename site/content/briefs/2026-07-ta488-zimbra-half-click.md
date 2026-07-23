@@ -3,7 +3,7 @@ title: TA488 Exploits Zimbra Mailservers with Half-Click Vulnerability CVE-2025-
 slug: 2026-07-ta488-zimbra-half-click
 description: Russia-aligned threat actor TA488 (Void Blizzard, Laundry Bear) exploited CVE-2025-66376, a critical XSS vulnerability in Zimbra Collaboration Suite webmail, for at least five months in 2025 via crafted emails to gain persistent access, exfiltrate user credentials, 2FA codes, and bulk emails from Ukrainian government and US defense industrial base targets.
 date: "2026-07-23T14:04:47Z"
-lastmod: "2026-07-23T15:16:34Z"
+lastmod: "2026-07-23T21:34:50Z"
 type: threat
 types:
   - threat
@@ -15,6 +15,7 @@ actors:
   - Laundry Bear
 cpes:
   - cpe:2.3:a:synacor:zimbra_collaboration_suite:*:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - espionage
   - xss
@@ -26,10 +27,12 @@ tags:
 vendors:
   - Zimbra
   - Microsoft
+  - Synacor
 products:
   - Zimbra Collaboration Suite
   - Zimbra Collaboration Suite (<= 2025-11)
   - Microsoft Exchange
+  - Zimbra Collaboration Suite (ZCS) < 10.1.13
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -92,6 +95,7 @@ cves:
 references:
   - https://www.proofpoint.com/us/blog/threat-insight/ta488-targets-zimbra-mailservers-half-click-exploits
   - https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-204a
+  - https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets
 rules:
   - title: Detect ZimReaper DNS Exfiltration Activity
     description: Detects ZimReaper malware exfiltrating sensitive data (credentials, 2FA codes, Zimbra info) via DNS queries, characterized by specific keys (2fa, c, e, pa, pw, url) and Base32 encoded data in subdomains, as described in TA488 campaigns.
@@ -127,6 +131,13 @@ updates:
       - cisa
     source_urls:
       - https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-204a
+  - at: "2026-07-23T21:34:50Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - dark-reading
+    source_urls:
+      - https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets
 ---
 
 Proofpoint, in coordination with the NSA and FBI, has identified TA488 (also known as Void Blizzard or Laundry Bear), a Russia-aligned threat actor, exploiting a critical cross-site scripting (XSS) vulnerability, CVE-2025-66376, in Zimbra Collaboration Suite mailservers. This campaign, active for at least five months during 2025, leveraged a "half-click" exploit, meaning victims needed only to open or preview a specially crafted email for malicious JavaScript to execute. The attacks primarily targeted Ukrainian government entities, along with US government, high science, and defense industrial base organizations. After successful exploitation, TA488 established persistent access to compromised systems, stole credentials and two-factor authentication codes, and exfiltrated emails using a custom malware Proofpoint tracks as "ZimReaper." The actor's use of this stealthy method underscores a continued focus by Russian state-sponsored groups on exploiting webmail vulnerabilities to achieve espionage objectives.
