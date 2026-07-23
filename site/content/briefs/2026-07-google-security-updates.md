@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-22T14:52:10Z"
+lastmod: "2026-07-23T10:03:58Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,8 @@ vendors:
   - Elastic
   - Kubernetes
   - OPPO
+  - Cloudflare
+  - Twilio
 products:
   - golang.org/x/crypto/ssh (< 0.52.0)
   - golang.org/x/crypto/ssh < 0.52.0
@@ -94,6 +96,8 @@ products:
   - google.golang.org/grpc (< 1.82.1)
   - Chrome (< 150.0.7871.181)
   - Chrome (< 150.0.7871.182)
+  - Cloudflare Workers
+  - Twilio TURN
 affected_os:
   - Windows
   - Linux
@@ -110,6 +114,12 @@ cves:
   - id: CVE-2026-16414
   - id: CVE-2026-16423
     cvss: 8.8
+  - id: CVE-2026-15904
+    cvss: 8.8
+    epss: 0.00217
+  - id: CVE-2026-15902
+    cvss: 9.6
+    epss: 0.00267
 references:
   - https://github.com/advisories/GHSA-rm3j-f69w-wqmq
   - https://github.com/advisories/GHSA-vgwf-h737-ff37
@@ -189,6 +199,7 @@ references:
   - https://cofense.com/blog/click-to-sync-from-google-ads-maintenance-notice-to-credential-theft
   - https://github.com/advisories/GHSA-hrxh-6v49-42gf
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0907/
+  - https://blog.talosintelligence.com/chaos-msarat-living-off-the-browser-to-build-covert-c2-channel/
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -250,22 +261,34 @@ iocs:
     value: mcc-sync-ads[.]com
   - type: url
     value: https://chromereleases.googleblog.com/2026/07/stable-channel-update-for-desktop_0256605430.html
+  - type: url
+    value: http://172.86.126.18:443/update_ms.msi
+  - type: ip
+    value: 172.86.126.18
+  - type: file_name
+    value: update_ms.msi
+  - type: file_path
+    value: C:\programdata\update_ms.msi
+  - type: file_name
+    value: lib.dll
+  - type: product_name
+    value: msaRAT
+  - type: product_name
+    value: Chaos ransomware
+  - type: domain
+    value: cloudflare.com
+  - type: domain
+    value: twilio.com
 ioc_counts:
-  domain: 5
-  file_name: 2
-  file_path: 2
+  domain: 7
+  file_name: 4
+  file_path: 3
   filename: 1
-  ip: 1
+  ip: 2
   other: 4
-  url: 15
+  product_name: 2
+  url: 16
 updates:
-  - at: "2026-07-20T15:22:41Z"
-    level: L1
-    summary: new product
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_pod_exec_sensitive_file_access.toml
   - at: "2026-07-20T17:21:48Z"
     level: L1
     summary: new product
@@ -294,6 +317,13 @@ updates:
       - anssi
     source_urls:
       - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0907/
+  - at: "2026-07-23T10:03:58Z"
+    level: L2
+    summary: added CVE-2026-15902 +1
+    sources:
+      - talos
+    source_urls:
+      - https://blog.talosintelligence.com/chaos-msarat-living-off-the-browser-to-build-covert-c2-channel/
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
