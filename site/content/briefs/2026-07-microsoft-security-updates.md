@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-24T09:01:29Z"
+lastmod: "2026-07-24T09:01:59Z"
 type: advisory
 types:
   - advisory
@@ -932,6 +932,9 @@ cves:
   - id: CVE-2026-56194
     cvss: 8.8
     epss: 0.00851
+  - id: CVE-2026-50382
+    cvss: 8.8
+    epss: 0.00269
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1600,6 +1603,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59676
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/detect_mshta_url_in_command_line.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/domain_controller_discovery_with_nltest.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/executables_or_script_creation_in_suspicious_path.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2047,6 +2051,38 @@ iocs:
     value: https://sploitus.com/exploit?id=B4E1D3A6-7173-5883-9366-19658411A20B
   - type: domain
     value: .ru
+  - type: file_path
+    value: '*:\PerfLogs\*'
+  - type: file_path
+    value: '*:\Users\Administrator\Music\*'
+  - type: file_path
+    value: '*:\Users\Default\*'
+  - type: file_path
+    value: '*:\Users\Public\*'
+  - type: file_path
+    value: '*:\Windows\debug\*'
+  - type: file_path
+    value: '*:\Windows\fonts\*'
+  - type: file_path
+    value: '*:\Windows\Media\*'
+  - type: file_path
+    value: '*:\Windows\repair\*'
+  - type: file_path
+    value: '*:\Windows\servicing\*'
+  - type: file_path
+    value: '*\inetpub\*'
+  - type: file_path
+    value: '*\Microsoft\Windows\Libraries\*'
+  - type: file_path
+    value: '*Recycle.bin*'
+  - type: url
+    value: https://thedfirreport.com/2020/04/20/sqlserver-or-the-miner-in-the-basement/
+  - type: url
+    value: https://twitter.com/pr0xylife/status/1590394227758104576
+  - type: url
+    value: https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/
+  - type: url
+    value: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1036/executables_suspicious_file_path/exec_susp_path2.log
 ioc_counts:
   application_id: 1
   asn: 3
@@ -2056,6 +2092,7 @@ ioc_counts:
   file: 8
   file-path: 2
   file_name: 5
+  file_path: 12
   filename: 5
   hash_md5: 12
   hash_sha256: 3
@@ -2071,16 +2108,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 98
+  url: 102
   user_agent: 6
 updates:
-  - at: "2026-07-24T00:01:25Z"
-    level: L2
-    summary: added CVE-2026-55053 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62835
   - at: "2026-07-24T01:18:36Z"
     level: L2
     summary: added CVE-2026-40400 +3
@@ -2109,6 +2139,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/domain_controller_discovery_with_nltest.yml
+  - at: "2026-07-24T09:01:59Z"
+    level: L2
+    summary: added CVE-2026-50382
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/executables_or_script_creation_in_suspicious_path.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
