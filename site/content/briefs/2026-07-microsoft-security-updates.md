@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-23T23:59:06Z"
+lastmod: "2026-07-23T23:59:19Z"
 type: advisory
 types:
   - advisory
@@ -564,6 +564,7 @@ products:
   - Microsoft Account
   - Azure Red Hat OpenShift
   - Azure API Management
+  - M365 Copilot
 affected_os:
   - Windows
   - macOS
@@ -827,6 +828,12 @@ cves:
   - id: CVE-2026-57969
     cvss: 8.8
     epss: 0.00538
+  - id: CVE-2026-57977
+    cvss: 7.1
+    epss: 0.00397
+  - id: CVE-2026-58631
+    cvss: 7.8
+    epss: 0.00289
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1485,6 +1492,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56160
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-35425
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49159
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50517
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1959,13 +1967,6 @@ ioc_counts:
   url: 98
   user_agent: 6
 updates:
-  - at: "2026-07-23T23:58:05Z"
-    level: L2
-    summary: added CVE-2026-49171 +4
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56163
   - at: "2026-07-23T23:58:22Z"
     level: L2
     summary: added CVE-2026-50303 +1
@@ -1994,6 +1995,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-49159
+  - at: "2026-07-23T23:59:19Z"
+    level: L2
+    summary: added CVE-2026-57977 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50517
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
