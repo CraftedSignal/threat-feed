@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-23T15:20:56Z"
+lastmod: "2026-07-23T23:57:53Z"
 type: advisory
 types:
   - advisory
@@ -73,6 +73,8 @@ cpes:
   - cpe:2.3:a:microsoft:sql_server_2019:*:*:*:*:*:*:x64:*
   - cpe:2.3:a:microsoft:sql_server_2022:*:*:*:*:*:*:x64:*
   - cpe:2.3:a:microsoft:sql_server_2025:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:remote_desktop_web_client:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:windows_admin_center:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -557,6 +559,7 @@ products:
   - ntdsutil.exe
   - diskshadow.exe
   - Microsoft authentication service
+  - Azure AI Search
 affected_os:
   - Windows
   - macOS
@@ -781,6 +784,12 @@ cves:
   - id: CVE-2026-54125
     cvss: 7.8
     epss: 0.00184
+  - id: CVE-2026-56171
+    cvss: 7.1
+    epss: 0.00553
+  - id: CVE-2026-48572
+    cvss: 7
+    epss: 0.00164
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1433,6 +1442,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54478
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_cmdline_dump_tool.toml
   - https://www.microsoft.com/en-us/security/blog/2026/07/23/email-threat-landscape-q2-2026-trends-and-insights/
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56167
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1907,13 +1917,6 @@ ioc_counts:
   url: 98
   user_agent: 6
 updates:
-  - at: "2026-07-23T07:34:03Z"
-    level: L2
-    summary: added CVE-2026-54118 +4
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16277
   - at: "2026-07-23T07:36:11Z"
     level: L2
     summary: added CVE-2026-50500 +3
@@ -1942,6 +1945,13 @@ updates:
       - microsoft-threat-intel
     source_urls:
       - https://www.microsoft.com/en-us/security/blog/2026/07/23/email-threat-landscape-q2-2026-trends-and-insights/
+  - at: "2026-07-23T23:57:53Z"
+    level: L2
+    summary: added CVE-2026-48572 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56167
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
