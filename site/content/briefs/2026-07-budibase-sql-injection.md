@@ -3,7 +3,7 @@ title: SQL Injection Vulnerability in Budibase MySQL Integration
 slug: 2026-07-budibase-sql-injection
 description: 'A critical SQL injection vulnerability was discovered in Budibase''s MySQL integration (versions <= 3.38.1) that allows remote attackers to execute arbitrary SQL commands through user input fields due to the `multipleStatements: true` configuration, leading to complete database compromise.'
 date: "2026-07-24T21:19:19Z"
-lastmod: "2026-07-24T21:28:31Z"
+lastmod: "2026-07-24T21:31:58Z"
 type: advisory
 types:
   - advisory
@@ -16,10 +16,13 @@ tags:
   - nosql-injection
   - data-exfiltration
   - data-destruction
+  - application-vulnerability
 vendors:
   - Budibase
+  - Oracle
 products:
   - Budibase Server (<= 3.38.1)
+  - MySQL
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -45,9 +48,16 @@ mitre_ttps:
     technique_name: Data Destruction
     evidence: Through `deleteMany` queries, attackers can delete all documents matching an injected filter, potentially wiping entire collections.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Because `multipleStatements` is enabled, any statement appended after the backtick break-out executes as a second query in the same round trip. ...allows a malicious table name to break out and inject a second, attacker-controlled statement.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-q6x4-v3qx-85qw
   - https://github.com/advisories/GHSA-qw6m-8fw2-2v64
+  - https://github.com/advisories/GHSA-2xgg-r2wc-c5r2
 updates:
   - at: "2026-07-24T21:28:31Z"
     level: L2
@@ -56,6 +66,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-qw6m-8fw2-2v64
+  - at: "2026-07-24T21:31:58Z"
+    level: L2
+    summary: 'merged source coverage: Budibase MySQL Integration Vulnerable to Backtick Injection Leading to Arbitrary SQL Execution'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-2xgg-r2wc-c5r2
 ---
 
 A critical SQL injection vulnerability, identified in Budibase's MySQL integration in versions up to and including 3.38.1, allows remote attackers to execute arbitrary SQL commands. The vulnerability stems from the MySQL client configuration within Budibase, specifically setting `multipleStatements: true` in the `mysql.ts` file, which permits the execution of multiple SQL statements in a single query. Attackers can leverage this misconfiguration by injecting malicious SQL payloads into user input fields, bypassing typical query sanitization. This vulnerability can lead to severe consequences, including complete database compromise, data destruction, data theft, privilege escalation, and denial of service, posing a significant risk to organizations using affected Budibase deployments. The vulnerability was publicly disclosed by GitHub Security Advisories (GHSA).
