@@ -1,55 +1,53 @@
 ---
-title: 'CVE-2026-13149: brace-expansion Denial of Service Vulnerability'
+title: Denial of Service via Unbounded Expansion Length in Node.js brace-expansion Library (CVE-2026-14257)
 slug: 2026-07-brace-expansion-dos
-description: A Denial of Service vulnerability, tracked as CVE-2026-13149, exists in the `brace-expansion` JavaScript library (versions < 1.1.16, >= 2.0.0 < 2.1.2, and >= 3.0.0 < 5.0.7) that allows an attacker to cause exponential time complexity in the `expand()` function via crafted input, leading to a CPU hang and denial of service in Node.js applications.
-date: "2026-07-20T20:53:00Z"
+description: An attacker can exploit CVE-2026-14257, a denial of service vulnerability in the `brace-expansion` Node.js library, by crafting an input with deeply chained brace groups that causes the expanded string length to grow without bound, leading to an uncatchable out-of-memory process crash in any application processing untrusted input via `expand()` directly or through dependencies like `minimatch` or `glob`.
+date: "2026-07-24T22:02:52Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - low
 tags:
   - denial-of-service
-  - javascript
-  - npm
+  - vulnerability
   - node.js
+  - software-supply-chain
 products:
-  - brace-expansion (< 1.1.16)
-  - brace-expansion (>= 2.0.0 < 2.1.2)
-  - brace-expansion (>= 3.0.0 < 5.0.7)
+  - brace-expansion (<= 5.0.7)
 mitre_ttps:
   - tactic_id: TA0040
-    tactic_name: Resource Development
+    tactic_name: Impact
     technique_id: T1499
     technique_name: Denial of Service
-    evidence: A short, all-ASCII input (~90 bytes/30 groups) blocks the calling thread for minutes; a slightly longer input hangs it effectively indefinitely. Because the dominant consumers run on Node's single-threaded event loop, one small input can fully stall a worker/process.
+    evidence: Any application that passes attacker-influenced strings to brace-expansion.expand() — directly, or transitively via minimatch / glob brace patterns — can be crashed by a small request. Because the failure is a fatal V8 out-of-memory error rather than a thrown exception, it cannot be caught and it takes down the whole worker/process, denying service.
     confidence_band: high
 cves:
-  - id: CVE-2026-13149
-    epss: 0.00361
+  - id: CVE-2026-14257
+    cvss: 7.5
 references:
-  - https://github.com/advisories/GHSA-3jxr-9vmj-r5cp
-  - CVE-2026-13149
+  - https://github.com/advisories/GHSA-mh99-v99m-4gvg
 ---
 
-A high-severity Denial of Service (DoS) vulnerability, identified as CVE-2026-13149, has been discovered in the `brace-expansion` JavaScript library, affecting versions prior to 1.1.16, versions from 2.0.0 up to but not including 2.1.2, and versions from 3.0.0 up to but not including 5.0.7. This flaw stems from an exponential-time complexity issue (O(2ⁿ)) within the `expand()` function when processing strings containing consecutive non-expanding brace groups, such as `a{},{},{},{}...`. An attacker can exploit this by providing a short, specially crafted ASCII input (e.g., ~90 bytes with 30 non-expanding groups), causing the application's CPU to hang for several minutes or even indefinitely. Since Node.js applications often rely on a single-threaded event loop, successful exploitation can lead to a complete denial of service for the affected worker or process, disrupting application availability.
+A high-severity denial of service (DoS) vulnerability, tracked as CVE-2026-14257, exists in the Node.js `brace-expansion` library, affecting versions up to and including 5.0.7. The library's `expand()` function, which is used for generating string expansions from brace patterns, fails to properly bound the total length of the expanded strings despite having a limit on the number of results. Attackers can leverage this by crafting input with many chained brace groups, such as `'{a,b}'.repeat(N)`. This input causes each individual expanded result to grow in length with the number of groups, leading to excessive memory consumption. When processing even a relatively small input (~7.5 KB with `'{a,b}'.repeat(1500)`), the Node.js process exhausts its memory and crashes due to an uncatchable fatal out-of-memory error, resulting in a denial of service for the application. Applications directly using `brace-expansion` or indirectly through common dependencies like `minimatch` or `glob` are at risk.
 
 ## Attack Chain
 
-1. An attacker crafts a malicious input string containing a series of consecutive non-expanding brace groups (e.g., `a{},{},{},{}...`).
-2. This crafted string is delivered to a vulnerable application that utilizes the `brace-expansion` library (versions < 1.1.16, >= 2.0.0 < 2.1.2, or >= 3.0.0 < 5.0.7) to process user-controlled input.
-3. The vulnerable application calls the `brace-expansion.expand()` function, passing the attacker-controlled string as an argument.
-4. Within the `expand_` internal function of `brace-expansion`, the `post` variable is unconditionally computed recursively for each non-expanding group, even when it's not immediately used.
-5. This recursive pattern, combined with a rewrite branch, results in an exponential increase in processing time (O(2ⁿ)) as the number of consecutive non-expanding groups in the input string grows.
-6. For relatively small inputs (e.g., 30 non-expanding groups, approximately 90 bytes), the vulnerable process experiences extreme CPU utilization and a prolonged hang (minutes to indefinite).
-7. In single-threaded environments, such as Node.js, this CPU hang leads to the entire application process becoming unresponsive, effectively causing a denial of service.
+1. An attacker crafts a malicious input string containing numerous chained brace groups (e.g., `'{a,b}'.repeat(1500)`).
+2. The attacker delivers this crafted input to a vulnerable application that processes user-supplied strings.
+3. The vulnerable application passes the crafted input string to the `brace-expansion.expand()` function, either directly or via a transitive dependency like `minimatch` or `glob`.
+4. The `expand()` function begins processing the input, attempting to generate all possible expansions.
+5. During expansion, `brace-expansion` generates intermediate and final string results where the individual string length grows linearly with the number of brace groups.
+6. The `brace-expansion` process allocates and holds an increasing amount of memory for these growing strings and intermediate arrays.
+7. The Node.js V8 engine exhausts its available heap memory as the total output size (`max` results * `N` character length) grows without bound.
+8. The Node.js process terminates abruptly due to a fatal, uncatchable out-of-memory error, leading to a complete denial of service for the affected application.
 
 ## Impact
 
-Any application that directly or indirectly passes attacker-influenced strings to `brace-expansion.expand()` is susceptible to a denial of service. The vulnerability primarily impacts Node.js applications, which are single-threaded, allowing a small, maliciously crafted input (e.g., ~90 bytes) to cause a multi-minute or indefinite CPU hang. This effectively stalls the entire worker or process, preventing it from handling legitimate requests and rendering the service unavailable. For example, a 30-group input can block a thread for minutes, while a slightly longer input can cause an indefinite hang.
+This vulnerability allows an attacker to cause a fatal denial of service for any Node.js application that processes untrusted or attacker-controlled strings through `brace-expansion.expand()`, either directly or indirectly via popular libraries such as `minimatch` or `glob`. The issue is critical because the out-of-memory error is uncatchable, meaning `try/catch` blocks around the `expand()` call will not prevent the process from crashing entirely. Even a small payload of approximately 7.5 KB is sufficient to crash a default Node.js process, leading to severe availability impacts for affected services. The vulnerability impacts application stability and reliability.
 
 ## Recommendation
 
-* Upgrade the `brace-expansion` library to a patched version (>= 5.0.7) immediately to remediate CVE-2026-13149.
-* If immediate upgrade is not possible, ensure that untrusted input is not passed directly to `brace-expansion.expand()` or functions that transitively use it (e.g., `minimatch`/`glob` brace patterns).
-* Implement timeouts or run `brace-expansion` operations within separate worker threads/processes to isolate the impact of potential CPU hangs.
+* Upgrade the `brace-expansion` package to a patched release (version 5.0.8 or later) to remediate CVE-2026-14257.
+* If immediate upgrade is not feasible, avoid passing untrusted input directly to `brace-expansion.expand()` or to components that use it (e.g., `minimatch`, `glob`).
+* For applications that must process untrusted input, explicitly configure a small `max` and the new `maxLength` option when using `brace-expansion` to limit both the number and total length of expansions.
