@@ -3,60 +3,12 @@ title: DNS Kerberos Coercion Attempt Detection
 slug: 2024-01-03-dns-kerberos-coercion
 description: This brief details the detection of DNS-based Kerberos coercion attacks, where adversaries inject marshaled credential structures into DNS records to spoof SPNs and redirect authentication, as seen in CVE-2025-33073, using Suricata and Sysmon event ID 22.
 date: "2024-01-03T12:00:00Z"
-lastmod: "2026-07-13T13:02:08Z"
+lastmod: "2026-07-24T07:06:14Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-cpes:
-  - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_22h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_server_2008:r2:sp1:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2022_23h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:fortinet:fortiproxy:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:fortinet:fortios:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:fortinet:fortiweb:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:fortinet:fortiweb:8.0.0:*:*:*:*:*:*:*
-  - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:confd_basic:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:network_services_orchestrator:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:cloud_native_broadband_network_gateway:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:inode_manager:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:smart_phy:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:ultra_packet_core:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:ultra_services_platform:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:cisco:staros:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:optical_site_manager:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:cisco:ncs_2000_shelf_virtualization_orchestrator_firmware:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:enterprise_nfv_infrastructure_software:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:cisco:ultra_cloud_core:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:cisco:rv160w_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:cisco:rv260_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:cisco:rv160_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:cisco:rv260p_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:cisco:rv260w_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:cisco:rv340_firmware:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:cisco:rv340w_firmware:-:*:*:*:*:*:*:*
-has_poc: true
-poc_references:
-  - https://sploitus.com/exploit?id=67F637FC-5651-557F-9948-A2BFAA8982D4&utm_source=rss&utm_medium=rss
 tags:
   - kerberos
   - coercion
@@ -76,6 +28,9 @@ vendors:
   - Rocket.Chat
   - Erlang
   - TechPowerUp
+  - RabbitMQ
+  - Riak
+  - CouchDB
 products:
   - Fortinet edge appliances
   - Cisco edge appliances
@@ -110,6 +65,11 @@ products:
   - Windows SMB Client
   - ThrottleStop
   - ESXi
+  - Erlang/OTP (<= 27.3.1)
+  - Erlang/OTP (<= 26.2.5)
+  - RabbitMQ Server
+  - Riak
+  - CouchDB
 affected_os:
   - linux
   - Linux Kernel
@@ -134,21 +94,6 @@ mitre_ttps:
     tactic_name: Command and Control
     technique_id: T1071
     technique_name: Application Layer Protocol
-cves:
-  - id: CVE-2025-33073
-    cvss: 8.8
-    epss: 0.64987
-  - id: CVE-2024-55591
-    cvss: 9.8
-    epss: 0.98259
-  - id: CVE-2025-59719
-    cvss: 9.8
-    epss: 0.2405
-  - id: CVE-2025-32433
-    cvss: 10
-    epss: 0.97859
-  - id: CVE-2025-7771
-    epss: 0.06702
 references:
   - https://web.archive.org/web/20250617122747/https://www.synacktiv.com/publications/ntlm-reflection-is-dead-long-live-ntlm-reflection-an-in-depth-analysis-of-cve-2025
   - https://www.synacktiv.com/publications/relaying-kerberos-over-smb-using-krbrelayx
@@ -162,14 +107,18 @@ references:
   - https://blog.qualys.com/vulnerabilities-threat-research/2026/07/08/fortibleed-fortigate-credential-reuse-internet-exposed
   - https://unit42.paloaltonetworks.com/the-gentlemen-ransomware/
   - https://sploitus.com/exploit?id=67F637FC-5651-557F-9948-A2BFAA8982D4&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=31A595C4-0B5A-5669-8E0C-5ED13794D9D1&utm_source=rss&utm_medium=rss
 iocs:
   - type: domain
     value: gleeze[.]com
   - type: ip
     value: 176.120.22.127
+  - type: url
+    value: https://sploitus.com/exploit?id=31A595C4-0B5A-5669-8E0C-5ED13794D9D1
 ioc_counts:
   domain: 1
   ip: 1
+  url: 1
 rules:
   - title: Detect DNS Queries with Kerberos Coercion Patterns (Suricata)
     description: Detects suspicious DNS queries containing specific patterns indicative of Kerberos coercion attacks, using Suricata logs.
@@ -209,11 +158,6 @@ rules:
       - suricata
 rules_count: 3
 updates:
-  - at: "2026-06-18T15:29:16Z"
-    level: L2
-    summary: added CVE-2025-59718 +1
-    sources:
-      - cccs
   - at: "2026-06-22T09:39:06Z"
     level: L1
     summary: new product
@@ -240,6 +184,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=67F637FC-5651-557F-9948-A2BFAA8982D4&utm_source=rss&utm_medium=rss
+  - at: "2026-07-24T07:06:14Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=31A595C4-0B5A-5669-8E0C-5ED13794D9D1&utm_source=rss&utm_medium=rss
 ---
 
 This brief addresses the threat of DNS-based Kerberos coercion attacks, which are designed to compromise authentication processes within a network. Attackers inject specifically crafted marshaled credential structures, identified by patterns like '*1UWhRC*', '*AAAAA*', and '*YBAAAA*', into DNS records. This injection allows the attacker to spoof Service Principal Names (SPNs) and redirect authentication requests, potentially leading to unauthorized access and lateral movement. The attack leverages vulnerabilities such as CVE-2025-33073. This activity has been observed leveraging both Suricata network monitoring and Windows Sysmon (Event ID 22) to detect the presence of these malicious DNS queries. Detection of this activity is critical to prevent Kerberos relay attacks and maintain the integrity of network authentication.
