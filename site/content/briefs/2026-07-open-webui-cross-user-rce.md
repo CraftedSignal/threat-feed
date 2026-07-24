@@ -3,6 +3,7 @@ title: 'Open WebUI: Cross-User Code-Interpreter and Tool Execution via Unvalidat
 slug: 2026-07-open-webui-cross-user-rce
 description: An authenticated low-privilege user can exploit CVE-2026-59216 in Open WebUI versions prior to 0.10.0 to execute arbitrary Python code or tools within another user's authenticated session by supplying an unvalidated `session_id`, which, if targeting an administrator, leads to remote code execution on the server as the root process.
 date: "2026-07-24T17:04:31Z"
+lastmod: "2026-07-24T20:53:43Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,10 @@ tags:
   - session-hijacking
   - open-webui
   - python
+  - vulnerability
+  - web-application
+  - identity-spoofing
+  - privilege-escalation
 vendors:
   - Open WebUI
 products:
@@ -35,12 +40,40 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: When the victim is an administrator, that hijacked context reaches the admin-only Functions API, whose source is executed server-side, yielding remote code execution as the server process (root in the default container).
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1134
+    technique_name: Access Token Manipulation
+    evidence: A normal authenticated user can make the terminal proxy present another user's identity to the upstream backend coordinator. On backend coordinator-backed (`policy_id`) servers that scope terminal containers by `user_id`, this reaches another user's terminal scope; combined with a known active session ID [...] it allows attaching to that user's live PTY.
+    confidence_band: high
 cves:
   - id: CVE-2026-59216
     cvss: 7.7
     epss: 0.00308
 references:
   - https://github.com/advisories/GHSA-74h3-cxq7-vc5q
+  - https://github.com/advisories/GHSA-j657-m4c4-24jq
+rules:
+  - title: Detects CVE-2026-59224 Exploitation - Open WebUI ws_terminal Session ID Injection
+    description: Detects CVE-2026-59224 exploitation attempts by monitoring webserver logs for requests to the Open WebUI ws_terminal endpoint where the session_id parameter within the URL path contains URL-encoded query delimiters ('%3F' or '%26') followed by a 'user_id=' parameter, indicating an identity spoofing attempt.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1134
+      - T1134.001
+    data_sources:
+      - webserver
+rules_count: 1
+updates:
+  - at: "2026-07-24T20:53:43Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-59224 Exploitation - Open WebUI ws_terminal Session ID Injection'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-j657-m4c4-24jq
 ---
 
 CVE-2026-59216 impacts Open WebUI versions prior to 0.10.0, allowing an authenticated low-privilege user to execute arbitrary code-interpreter Python commands and tools within another user's authenticated session. The vulnerability stems from the `get_event_call()` function in `backend/open_webui/socket/main.py`, which delivers `execute:python` or `execute:tool` events to a client-supplied `session_id` without validating that the session belongs to the requesting user. The malicious `session_id` is supplied in the request body for chat completions and is not validated against the authenticated user's actual session. Attackers can obtain a victim's live session ID through the `ydoc:document:join` event, which exposes collaborator socket IDs in shared notes. If the targeted victim is an administrator, the hijacked session can interact with the admin-only Functions API, leading to server-side remote code execution as the root process. This vulnerability was confirmed on `ghcr.io/open-webui/open-webui:0.9.6` and the `v0.9.6` tag, with a proof of concept demonstrating root-level RCE.
