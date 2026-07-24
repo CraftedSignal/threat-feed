@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-24T09:07:10Z"
+lastmod: "2026-07-24T09:33:21Z"
 type: advisory
 types:
   - advisory
@@ -579,6 +579,9 @@ products:
   - seunshare
   - MSHTA
   - mshta.exe
+  - Microsoft Azure
+  - Microsoft Exchange
+  - Microsoft Apps Surface
 affected_os:
   - Windows
   - macOS
@@ -757,7 +760,7 @@ cves:
     epss: 0.0024
   - id: CVE-2026-50500
     cvss: 7.5
-    epss: 0.00618
+    epss: 0.00692
   - id: CVE-2026-57087
     cvss: 8.8
     epss: 0.00785
@@ -980,6 +983,8 @@ cves:
   - id: CVE-2026-50369
     cvss: 8.8
     epss: 0.00653
+  - id: CVE-2026-54120
+    cvss: 9.9
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1653,6 +1658,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/set_default_powershell_execution_policy_to_unrestricted_or_bypass.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_mshta_execution_in_registry.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_powershell_scheduletask.yml
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2502
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2164,13 +2170,6 @@ ioc_counts:
   url: 104
   user_agent: 6
 updates:
-  - at: "2026-07-24T09:01:59Z"
-    level: L2
-    summary: added CVE-2026-50382
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/executables_or_script_creation_in_suspicious_path.yml
   - at: "2026-07-24T09:02:10Z"
     level: L2
     summary: added CVE-2026-49176 +1
@@ -2199,6 +2198,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_powershell_scheduletask.yml
+  - at: "2026-07-24T09:33:21Z"
+    level: L2
+    summary: added CVE-2026-54120
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2502
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
