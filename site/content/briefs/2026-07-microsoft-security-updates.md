@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-24T09:04:33Z"
+lastmod: "2026-07-24T09:06:51Z"
 type: advisory
 types:
   - advisory
@@ -80,6 +80,9 @@ cpes:
   - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x86:*
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:.net:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -575,6 +578,7 @@ products:
   - Surface Management Services
   - seunshare
   - MSHTA
+  - mshta.exe
 affected_os:
   - Windows
   - macOS
@@ -958,6 +962,15 @@ cves:
   - id: CVE-2026-50379
     cvss: 7.5
     epss: 0.00365
+  - id: CVE-2026-50425
+    cvss: 7.8
+    epss: 0.0024
+  - id: CVE-2026-58289
+    cvss: 9
+    epss: 0.00438
+  - id: CVE-2026-50524
+    cvss: 7.5
+    epss: 0.00647
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1629,6 +1642,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/executables_or_script_creation_in_suspicious_path.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/malicious_powershell_process___execution_policy_bypass.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/set_default_powershell_execution_policy_to_unrestricted_or_bypass.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_mshta_execution_in_registry.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2136,13 +2150,6 @@ ioc_counts:
   url: 102
   user_agent: 6
 updates:
-  - at: "2026-07-24T09:01:14Z"
-    level: L2
-    summary: added CVE-2026-50329 +4
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/detect_mshta_url_in_command_line.yml
   - at: "2026-07-24T09:01:29Z"
     level: L2
     summary: added CVE-2026-50296 +3
@@ -2171,6 +2178,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/set_default_powershell_execution_policy_to_unrestricted_or_bypass.yml
+  - at: "2026-07-24T09:06:51Z"
+    level: L2
+    summary: added CVE-2026-50425 +2
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_mshta_execution_in_registry.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
