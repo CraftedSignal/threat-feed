@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-24T09:33:21Z"
+lastmod: "2026-07-24T15:31:36Z"
 type: advisory
 types:
   - advisory
@@ -582,6 +582,9 @@ products:
   - Microsoft Azure
   - Microsoft Exchange
   - Microsoft Apps Surface
+  - Kiota < 1.32.3
+  - nuget/Microsoft.OpenApi.Kiota < 1.32.3
+  - nuget/Microsoft.OpenApi.Kiota.Builder < 1.32.3
 affected_os:
   - Windows
   - macOS
@@ -985,6 +988,12 @@ cves:
     epss: 0.00653
   - id: CVE-2026-54120
     cvss: 9.9
+  - id: CVE-2026-50293
+    cvss: 7.8
+    epss: 0.00257
+  - id: CVE-2026-49178
+    cvss: 8.8
+    epss: 0.00618
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1659,6 +1668,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_mshta_execution_in_registry.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_powershell_scheduletask.yml
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2502
+  - https://github.com/advisories/GHSA-3hrf-2gc2-mx32
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2170,13 +2180,6 @@ ioc_counts:
   url: 104
   user_agent: 6
 updates:
-  - at: "2026-07-24T09:02:10Z"
-    level: L2
-    summary: added CVE-2026-49176 +1
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/malicious_powershell_process___execution_policy_bypass.yml
   - at: "2026-07-24T09:04:33Z"
     level: L2
     summary: added CVE-2026-48564 +4
@@ -2205,6 +2208,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2502
+  - at: "2026-07-24T15:31:36Z"
+    level: L2
+    summary: added CVE-2026-49178 +1
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-3hrf-2gc2-mx32
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
