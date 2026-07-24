@@ -3,7 +3,7 @@ title: Microsoft Addresses Two Actively Exploited Zero-Day Vulnerabilities in Ju
 slug: 2026-07-microsoft-patches-zero-days
 description: Microsoft's July 2026 Patch Tuesday addressed 622 vulnerabilities, including two actively exploited zero-day elevation of privilege flaws, CVE-2026-56155 in Active Directory Federation Services and CVE-2026-56164 in SharePoint, allowing local and remote attackers to gain administrative control.
 date: "2026-07-21T03:36:29Z"
-lastmod: "2026-07-23T20:49:20Z"
+lastmod: "2026-07-24T08:57:15Z"
 type: threat
 types:
   - threat
@@ -74,6 +74,7 @@ products:
   - Microsoft Active Directory Federation Services
   - Microsoft BitLocker
   - Microsoft Windows User Profile Service
+  - BitLocker
 affected_os:
   - Windows
   - Windows Server
@@ -158,13 +159,6 @@ iocs:
 ioc_counts:
   other: 4
 updates:
-  - at: "2026-07-22T07:20:24Z"
-    level: L1
-    summary: OS all currently supported windows desktop and server versions
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-july-2026/
   - at: "2026-07-22T11:11:02Z"
     level: L2
     summary: extended security updates version ESU
@@ -187,6 +181,13 @@ updates:
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-july-2026/
   - at: "2026-07-23T20:49:20Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-july-2026/
+  - at: "2026-07-24T08:57:15Z"
     level: L1
     summary: new product
     sources:
