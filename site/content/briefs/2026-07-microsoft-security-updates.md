@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-24T15:50:01Z"
+lastmod: "2026-07-24T15:50:11Z"
 type: advisory
 types:
   - advisory
@@ -588,6 +588,9 @@ products:
   - Kiota PHP generator
   - Microsoft.OpenApi.Kiota < 1.32.4
   - Microsoft.OpenApi.Kiota.Builder < 1.32.4
+  - Kiota Python Generator
+  - Microsoft.OpenAPI.Kiota < 1.32.0
+  - Microsoft.OpenAPI.Kiota.Builder < 1.32.0
 affected_os:
   - Windows
   - macOS
@@ -1009,6 +1012,15 @@ cves:
   - id: CVE-2026-58546
     cvss: 6.5
     epss: 0.00503
+  - id: CVE-2026-47303
+    cvss: 8.8
+    epss: 0.0057
+  - id: CVE-2026-50391
+    cvss: 7.8
+    epss: 0.00278
+  - id: CVE-2026-55033
+    cvss: 7.8
+    epss: 0.00471
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1685,6 +1697,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2502
   - https://github.com/advisories/GHSA-3hrf-2gc2-mx32
   - https://github.com/advisories/GHSA-jqwh-526h-c92j
+  - https://github.com/advisories/GHSA-7f3j-j7jj-r3vr
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2196,13 +2209,6 @@ ioc_counts:
   url: 104
   user_agent: 6
 updates:
-  - at: "2026-07-24T09:06:51Z"
-    level: L2
-    summary: added CVE-2026-50425 +2
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_mshta_execution_in_registry.yml
   - at: "2026-07-24T09:07:10Z"
     level: L2
     summary: added CVE-2026-49784 +2
@@ -2231,6 +2237,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-jqwh-526h-c92j
+  - at: "2026-07-24T15:50:11Z"
+    level: L2
+    summary: added CVE-2026-47303 +2
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-7f3j-j7jj-r3vr
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
