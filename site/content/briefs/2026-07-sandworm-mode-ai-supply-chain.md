@@ -3,7 +3,7 @@ title: 'Denying the Worm: Detecting SANDWORM_MODE and AI Toolchain Supply Chain 
 slug: 2026-07-sandworm-mode-ai-supply-chain
 description: The SANDWORM_MODE campaign is a multi-stage npm supply chain worm that targets AI-augmented development workflows by exploiting runtime behaviors of AI coding assistants and CI/CD pipelines, leading to credential theft, supply chain poisoning, and persistence through obfuscated loaders, credential harvesting, and malicious Git hooks.
 date: "2026-07-21T17:23:33Z"
-lastmod: "2026-07-24T14:21:22Z"
+lastmod: "2026-07-24T16:02:32Z"
 type: advisory
 types:
   - advisory
@@ -255,6 +255,12 @@ iocs:
     value: environment variables matching distinct patterns (KEY, SECRET, TOKEN, or PASSWORD)
   - type: string
     value: cryptocurrency wallet keys
+  - type: other
+    value: environment variables matching patterns (KEY, SECRET, TOKEN, PASSWORD)
+  - type: other
+    value: Stage 0 loader shim
+  - type: other
+    value: carrier dependency
 ioc_counts:
   campaign-name: 1
   campaign_name: 1
@@ -268,7 +274,7 @@ ioc_counts:
   keyword: 1
   npm package: 1
   operating_system_function: 1
-  other: 6
+  other: 9
   path: 2
   string: 4
   variable: 4
@@ -310,13 +316,6 @@ rules:
       - linux
 rules_count: 3
 updates:
-  - at: "2026-07-24T09:52:30Z"
-    level: L1
-    summary: new vendor
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
   - at: "2026-07-24T10:04:36Z"
     level: L1
     summary: new IOCs
@@ -341,6 +340,13 @@ updates:
   - at: "2026-07-24T14:21:22Z"
     level: L1
     summary: OS node.js runtime
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
+  - at: "2026-07-24T16:02:32Z"
+    level: L1
+    summary: new IOCs
     sources:
       - crowdstrike
     source_urls:
