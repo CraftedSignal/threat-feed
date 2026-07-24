@@ -3,7 +3,7 @@ title: 'Budibase: Multiple Vulnerabilities'
 slug: 2026-07-budibase-multiple-vulnerabilities
 description: Multiple vulnerabilities in Budibase allow an attacker to gain elevated privileges, perform SQL injection, bypass security measures, take over user accounts, manipulate or disclose data, and trigger a denial-of-service condition, enabling various malicious activities impacting data integrity, confidentiality, and system availability.
 date: "2026-07-23T10:25:34Z"
-lastmod: "2026-07-24T21:19:52Z"
+lastmod: "2026-07-24T21:22:17Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,8 @@ vendors:
 products:
   - Budibase
   - npm/@budibase/server <= 3.39.14
+  - '@budibase/server (<= 3.38.1)'
+  - account.budibase.app
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -55,6 +57,7 @@ mitre_ttps:
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2483
   - https://github.com/advisories/GHSA-xg5g-26x8-cvf4
+  - https://github.com/advisories/GHSA-c8vc-7pv3-g98p
 iocs:
   - type: ip
     value: 8.8.8.8
@@ -62,10 +65,23 @@ iocs:
     value: rebind.test
   - type: url
     value: http://rebind.test:<port>/openapi.json
+  - type: domain
+    value: account.budibase.app
+  - type: email
+    value: attacker-controlled@example.net
+  - type: url
+    value: https://account.budibase.app/api/v2/email
+  - type: url
+    value: https://account.budibase.app/api/v2/email/verification
+  - type: url
+    value: https://account.budibase.app/api/v2/auth/password
+  - type: url
+    value: https://account.budibase.app/api/v2/auth/password/verification
 ioc_counts:
-  domain: 1
+  domain: 2
+  email: 1
   ip: 1
-  url: 1
+  url: 5
 updates:
   - at: "2026-07-24T21:19:52Z"
     level: L1
@@ -74,6 +90,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-xg5g-26x8-cvf4
+  - at: "2026-07-24T21:22:17Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-c8vc-7pv3-g98p
 ---
 
 The German Federal Office for Information Security (BSI) has issued an advisory highlighting multiple critical vulnerabilities within the Budibase low-code development platform. These security flaws allow a remote attacker to achieve various severe impacts, including gaining elevated privileges, executing SQL injection attacks, bypassing existing security controls, compromising user accounts, manipulating or exfiltrating sensitive data, and causing denial-of-service conditions. While the advisory does not detail specific exploitation methods or observed in-the-wild campaigns, the breadth of potential impacts underscores the importance of prompt remediation. Organizations utilizing Budibase should be aware that successful exploitation could lead to significant data breaches, unauthorized system access, and operational disruption. The vulnerabilities affect Budibase across its various deployments, posing risks to data integrity, confidentiality, and system availability. This advisory serves as a warning for defenders to prioritize updates to prevent potential attacks.
