@@ -3,6 +3,7 @@ title: Budibase MongoDB Datasource Vulnerability Allows Server Filesystem Existe
 slug: 2026-07-budibase-file-oracle
 description: A vulnerability in Budibase's MongoDB datasource configuration allows authenticated attackers to specify arbitrary absolute server-side file paths for `tlsCertificateKeyFile` and `tlsCAFile`, enabling the `/api/datasources/verify` endpoint to act as an arbitrary-path existence/read oracle on the underlying multi-tenant server, distinguishing between existing and non-existing files and potentially exfiltrating certificate content.
 date: "2026-07-24T21:21:32Z"
+lastmod: "2026-07-24T21:29:19Z"
 type: advisory
 types:
   - advisory
@@ -15,10 +16,14 @@ tags:
   - information-disclosure
   - cloud
   - mongodb
+  - api
+  - web-vulnerability
+  - cwe-200
 vendors:
   - Budibase
 products:
   - npm/@budibase/server <= 3.38.1
+  - Budibase Worker service
 affected_os:
   - Linux
 mitre_ttps:
@@ -46,8 +51,21 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The `/api/datasources/verify` endpoint acts as an arbitrary-path existence/read oracle.
     confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Reconnaissance
+    technique_id: T1589
+    technique_name: Gather Victim Identity Information
+    evidence: Any unauthenticated party can enumerate user emails or IDs to extract sensitive tenant and user metadata, enabling targeted attacks against multi-tenant deployments.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Reconnaissance
+    technique_id: T1595
+    technique_name: Active Scanning
+    evidence: Confirm user existence through different HTTP responses (200 vs 400) [enabling enumeration]
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-ppr4-5f46-j9c6
+  - https://github.com/advisories/GHSA-hr66-5mqr-8mpx
 iocs:
   - type: domain
     value: hasinocompany.budibase.app
@@ -56,6 +74,38 @@ iocs:
 ioc_counts:
   domain: 1
   url: 1
+rules:
+  - title: Detect Budibase Unauthenticated User Information Disclosure - Success
+    description: Detects successful unauthenticated GET requests to the Budibase user lookup endpoint, indicating potential user enumeration or sensitive data disclosure. Look for HTTP 200 OK responses to this specific URI path.
+    platform: sigma
+    severity: high
+    tactics:
+      - reconnaissance
+    techniques:
+      - T1589
+      - T1589.001
+    data_sources:
+      - webserver
+  - title: Detect Budibase Unauthenticated User Information Disclosure - Enumeration Attempt
+    description: Detects unauthenticated GET requests to the Budibase user lookup endpoint resulting in an HTTP 400 error, which indicates an attempt to enumerate non-existent users.
+    platform: sigma
+    severity: medium
+    tactics:
+      - reconnaissance
+    techniques:
+      - T1595
+      - T1595.002
+    data_sources:
+      - webserver
+rules_count: 2
+updates:
+  - at: "2026-07-24T21:29:19Z"
+    level: L2
+    summary: 'added detection rule: Detect Budibase Unauthenticated User Information Disclosure - Success'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-hr66-5mqr-8mpx
 ---
 
 A high-severity vulnerability (GHSA-ppr4-5f46-j9c6) has been identified in Budibase, a low-code platform, specifically affecting versions of `npm/@budibase/server` up to and including `3.38.1`. This flaw allows an authenticated attacker with "builder" privileges to exploit the MongoDB datasource configuration. When configuring a new MongoDB datasource, the `tlsCertificateKeyFile` and `tlsCAFile` fields are passed directly to the MongoDB driver as server-side file paths without proper validation or confinement. By crafting a POST request to the `/api/datasources/verify` endpoint, an attacker can supply arbitrary absolute paths (e.g., `/etc/passwd`) within these fields. The server's differential error responses (a "PEM routines" error for existing, readable files versus an "ENOENT" error for non-existent files) create an arbitrary-path existence and read oracle across the entire server filesystem, including multi-tenant cloud environments. This enables malicious actors to discover sensitive system files and potentially exfiltrate the content of certificate-related files.
