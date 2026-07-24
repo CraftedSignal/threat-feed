@@ -3,6 +3,7 @@ title: Detection of Registry Keys Used for Persistence
 slug: 2026-07-registry-persistence
 description: This brief outlines a detection strategy for identifying modifications to Windows registry keys commonly used for persistence, including Run, Winlogon, and Image File Execution Options, enabling detection engineers to alert on unauthorized system startup entries for malicious code execution to prevent persistent access.
 date: "2026-07-24T09:03:56Z"
+lastmod: "2026-07-24T09:07:29Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,16 @@ tags:
   - windows
   - endpoint
   - malware
+vendors:
+  - Splunk
+  - Trend Micro
+  - Microsoft
+  - CrowdStrike
+products:
+  - Splunk Enterprise
+  - Splunk Enterprise Security
+  - Splunk Cloud
+  - Endpoint Detection and Response
 affected_os:
   - Windows
 mitre_ttps:
@@ -25,6 +36,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_suspicious_process_file_path.yml
 rules:
   - title: Detect Registry Key Modifications for Persistence
     description: Detects modifications to Windows registry keys commonly used for establishing and maintaining persistence, including Run, Winlogon, and Image File Execution Options.
@@ -38,6 +50,14 @@ rules:
       - registry_set
       - windows
 rules_count: 1
+updates:
+  - at: "2026-07-24T09:07:29Z"
+    level: L1
+    summary: new product
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_suspicious_process_file_path.yml
 ---
 
 This intelligence describes a detection capability designed to identify modifications to critical Windows registry keys frequently leveraged by threat actors for establishing and maintaining persistence on compromised systems. The detection monitors registry paths such as those associated with `RunOnce`, `StartupApproved\Run`, various `Shell Folders`, `Winlogon` entries, `Appinit_Dlls`, `Image File Execution Options`, and others known to automatically launch applications or services upon system startup or user logon. Unauthorized changes to these keys are a strong indicator of malicious activity, as they allow attackers to achieve persistent access, execute arbitrary code, or maintain control over compromised systems even after reboots, posing a severe threat to system integrity and security. This detection is crucial for identifying backdoor installations, malware loaders, and other forms of persistent access.
