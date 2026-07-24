@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-07-23T15:41:16Z"
+lastmod: "2026-07-24T10:43:36Z"
 type: threat
 types:
   - threat
@@ -92,6 +92,7 @@ affected_os:
   - VMware ESXi
   - FortiOS
   - WatchGuard Fireware OS
+  - Fireware OS
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -418,11 +419,17 @@ iocs:
     value: www.abmenviro.ca
   - type: url
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=9f71de4a-ee6f-4382-8148-85ab3c440fc4
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=9f76650e-5eea-4165-9e20-b375488e9ec6
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=67e53658-cf53-4b9d-a2df-a6b7a9361416
+  - type: hash_md5
+    value: 5862f9fc9a9a0d766eba29eb4945f619
 ioc_counts:
   domain: 33
-  hash_md5: 54
+  hash_md5: 55
   ip: 5
-  url: 28
+  url: 30
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -450,13 +457,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-07-22T18:11:58Z"
-    level: L1
-    summary: OS vmware esxi
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-07-23T04:31:48Z"
     level: L1
     summary: new IOCs
@@ -481,6 +481,13 @@ updates:
   - at: "2026-07-23T15:41:16Z"
     level: L1
     summary: new IOCs
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-07-24T10:43:36Z"
+    level: L1
+    summary: OS fireware os
     sources:
       - ransomware-live
     source_urls:
