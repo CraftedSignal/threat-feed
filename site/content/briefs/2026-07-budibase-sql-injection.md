@@ -3,6 +3,7 @@ title: SQL Injection Vulnerability in Budibase MySQL Integration
 slug: 2026-07-budibase-sql-injection
 description: 'A critical SQL injection vulnerability was discovered in Budibase''s MySQL integration (versions <= 3.38.1) that allows remote attackers to execute arbitrary SQL commands through user input fields due to the `multipleStatements: true` configuration, leading to complete database compromise.'
 date: "2026-07-24T21:19:19Z"
+lastmod: "2026-07-24T21:28:31Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,9 @@ tags:
   - sql-injection
   - web-application
   - vulnerability
+  - nosql-injection
+  - data-exfiltration
+  - data-destruction
 vendors:
   - Budibase
 products:
@@ -23,8 +27,35 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: A critical SQL injection vulnerability was discovered in Budibase's MySQL integration that allows remote attackers to execute arbitrary SQL commands.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: The route requires only `PermissionType.QUERY, PermissionLevel.WRITE` [...] which is available to regular app users
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1041
+    technique_name: Exfiltration Over C2 Channel
+    evidence: Any app user with query write permission can bypass intended query filters to read all documents in a MongoDB collection, including sensitive data belonging to other users or tenants.
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1485
+    technique_name: Data Destruction
+    evidence: Through `deleteMany` queries, attackers can delete all documents matching an injected filter, potentially wiping entire collections.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-q6x4-v3qx-85qw
+  - https://github.com/advisories/GHSA-qw6m-8fw2-2v64
+updates:
+  - at: "2026-07-24T21:28:31Z"
+    level: L2
+    summary: 'merged source coverage: Budibase NoSQL Injection via JSON Parameter Interpolation'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-qw6m-8fw2-2v64
 ---
 
 A critical SQL injection vulnerability, identified in Budibase's MySQL integration in versions up to and including 3.38.1, allows remote attackers to execute arbitrary SQL commands. The vulnerability stems from the MySQL client configuration within Budibase, specifically setting `multipleStatements: true` in the `mysql.ts` file, which permits the execution of multiple SQL statements in a single query. Attackers can leverage this misconfiguration by injecting malicious SQL payloads into user input fields, bypassing typical query sanitization. This vulnerability can lead to severe consequences, including complete database compromise, data destruction, data theft, privilege escalation, and denial of service, posing a significant risk to organizations using affected Budibase deployments. The vulnerability was publicly disclosed by GitHub Security Advisories (GHSA).
