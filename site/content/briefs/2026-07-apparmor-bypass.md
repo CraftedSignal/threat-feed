@@ -1,82 +1,87 @@
 ---
-title: AppArmor Policy Bypass via Direct File Manipulation
+title: Linux AppArmor Bypass via aa-exec (CVE-2026-46331)
 slug: 2026-07-apparmor-bypass
-description: This rule detects processes attempting to bypass AppArmor protections by directly writing to AppArmor policy management files in `/sys/kernel/security/apparmor/`.
-date: "2026-07-03T12:00:00Z"
+description: Adversaries can exploit CVE-2026-46331 to bypass AppArmor and unprivileged user namespace restrictions on Linux systems by abusing the `aa-exec` utility with `trinity`, `chrome`, or `flatpak` AppArmor profiles, leading to privilege escalation when the `aa-exec` binary itself is executed from a non-standard path.
+date: "2026-07-24T15:28:33Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
+cpes:
+  - cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:linux:linux_kernel:5.18:-:*:*:*:*:*:*
+  - cpe:2.3:o:linux:linux_kernel:5.18:rc7:*:*:*:*:*:*
+  - cpe:2.3:o:linux:linux_kernel:7.1:rc1:*:*:*:*:*:*
+  - cpe:2.3:o:linux:linux_kernel:7.1:rc2:*:*:*:*:*:*
+  - cpe:2.3:o:linux:linux_kernel:7.1:rc3:*:*:*:*:*:*
+  - cpe:2.3:o:linux:linux_kernel:7.1:rc4:*:*:*:*:*:*
+  - cpe:2.3:o:linux:linux_kernel:7.1:rc5:*:*:*:*:*:*
+  - cpe:2.3:o:linux:linux_kernel:7.1:rc6:*:*:*:*:*:*
 tags:
-  - apparmor
-  - defense-evasion
   - linux
+  - privilege-escalation
+  - apparmor
+  - cve
+  - endpoint
+vendors:
+  - Ubuntu
+products:
+  - AppArmor
+  - aa-exec
+  - AppArmor trinity profile
+  - AppArmor chrome profile
+  - AppArmor flatpak profile
+affected_os:
+  - Ubuntu
 mitre_ttps:
-  - tactic_id: TA0005
-    tactic_name: Defense Evasion
-    technique_id: T1562
-    technique_name: Impair Defenses
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: The following analytic detects aa-exec being used to launch a binary under the trinity, chrome, or flatpak AppArmor profiles where the executed target is not the legitimate application those profiles are intended to confine. This behavior is consistent with abuse of userns,-carrying AppArmor profiles to bypass Ubuntu's unprivileged user namespace restrictions as seen in the CVE-2026-46331 privilege escalation exploit.
+    confidence_band: high
+cves:
+  - id: CVE-2026-46331
+    cvss: 7.8
+    epss: 0.00321
 references:
-  - https://cdn2.qualys.com/advisory/2026/03/10/crack-armor.txt
-  - https://blog.qualys.com/vulnerabilities-threat-research/2026/03/12/crackarmor-critical-apparmor-flaws-enable-local-privilege-escalation-to-root
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/linux_apparmor_bypass_via_aaexec.yml
+  - https://github.com/sgkdev/packet_edit_meme
+  - https://tuxcare.com/blog/pedit-cow-cve/
 rules:
-  - title: Suspicious AppArmor Policy Modification
-    description: Detects processes attempting to modify AppArmor policies by writing to the /sys/kernel/security/apparmor directory.
+  - title: Detects CVE-2026-46331 Exploitation - Linux AppArmor Bypass via aa-exec
+    description: Detects attempts to bypass AppArmor and unprivileged user namespace restrictions on Linux systems by abusing the aa-exec utility. This rule specifically flags the execution of 'aa-exec' with '-p' and '--' arguments targeting 'trinity', 'chrome', or 'flatpak' AppArmor profiles, when the 'aa-exec' binary itself is executed from a non-standard or unexpected path not covered by known legitimate application bundle directories.
     platform: sigma
     severity: high
     tactics:
-      - defense_evasion
+      - privilege_escalation
     techniques:
-      - T1562.001
+      - T1068
     data_sources:
       - process_creation
       - linux
-  - title: Suspicious Shell Activity Writing to AppArmor
-    description: Detects shell commands writing directly to AppArmor policy files.
-    platform: sigma
-    severity: medium
-    tactics:
-      - defense_evasion
-    techniques:
-      - T1562.001
-    data_sources:
-      - process_creation
-      - linux
-  - title: Scripting Languages Writing to AppArmor Policy
-    description: Detects scripting languages (Python, Perl, etc.) writing to AppArmor policy management files.
-    platform: sigma
-    severity: medium
-    tactics:
-      - defense_evasion
-    techniques:
-      - T1562.001
-    data_sources:
-      - process_creation
-      - linux
-rules_count: 3
+rules_count: 1
 ---
 
-This rule detects attempts to bypass AppArmor by directly writing to policy management files. AppArmor is a Linux kernel security module that provides mandatory access control, and direct manipulation of its policy files is highly unusual. The activity is triggered when processes attempt to load, replace, or remove AppArmor profiles by writing to the special kernel interfaces under `/sys/kernel/security/apparmor/`. While legitimate administrative tools like `apparmor_parser` handle policy management, direct interaction with these files from shell utilities or scripts could signify malicious intent. This technique may be used by adversaries to weaken or disable AppArmor protections, introduce malicious profiles, or exploit vulnerabilities in the AppArmor policy parser, often as a component of local privilege escalation chains. The rule is sourced from Elastic and has been actively maintained.
+CVE-2026-46331 describes a privilege escalation vulnerability on Linux systems, specifically targeting the `aa-exec` utility when combined with certain AppArmor profiles like `trinity`, `chrome`, or `flatpak`. This vulnerability allows attackers to bypass Ubuntu's unprivileged user namespace restrictions by tricking `aa-exec` into granting namespace-creation capabilities to an arbitrary binary, rather than the legitimate application the profile was intended to confine. Defenders should be aware that adversaries may exploit this to gain elevated privileges, enabling further compromise of the system. Detection focuses on instances where `aa-exec` is invoked with specific profile arguments (`-p`, `--`) and when the `aa-exec` binary itself is executed from unexpected or non-standard directory paths, signaling an attempt to exploit this bypass. This technique can lead to full system compromise if successful.
 
 ## Attack Chain
 
-1.  Attacker gains initial access to the system (e.g., via compromised service or account).
-2.  Attacker executes a shell (bash, sh, zsh) or scripting language (python, perl) on the target system.
-3.  The shell or scripting language attempts to write to AppArmor policy management files under `/sys/kernel/security/apparmor/`, such as `.load`, `.replace`, or `.remove`. This can be achieved using utilities like `echo`, `tee`, or `cat`.
-4.  The attacker attempts to load a modified or weakened AppArmor profile using `echo "profile <profile_name> {...}" > /sys/kernel/security/apparmor/.load`.
-5.  Alternatively, the attacker attempts to remove an existing profile with `echo "<profile_name>" > /sys/kernel/security/apparmor/.remove`.
-6.  If successful, the AppArmor policy is modified, potentially weakening the security posture.
-7.  The attacker leverages the weakened AppArmor profile to execute previously restricted actions.
-8.  The attacker performs privilege escalation by exploiting the relaxed security constraints.
+1. An attacker gains initial user-level access to a vulnerable Linux system.
+2. The attacker identifies a `aa-exec` configuration on the system that utilizes `userns`-carrying AppArmor profiles, such as `trinity`, `chrome`, or `flatpak`.
+3. The attacker crafts a malicious command that invokes `aa-exec` with arguments specifying one of the vulnerable AppArmor profiles (e.g., `-p flatpak`).
+4. The crafted command includes the `--` separator, followed by a path to an arbitrary, attacker-controlled binary (e.g., a shell or a privilege escalation tool).
+5. To evade detection, the attacker ensures the `aa-exec` binary itself is executed from a non-standard or unusual directory path, outside of common system locations or application bundles.
+6. Upon execution, the vulnerable `aa-exec` utility is tricked into granting namespace-creation capabilities to the attacker's arbitrary binary.
+7. The arbitrary binary executes with elevated privileges, bypassing AppArmor and unprivileged user namespace restrictions, achieving privilege escalation on the system.
 
 ## Impact
 
-Successful exploitation could lead to a complete bypass of AppArmor protections, allowing attackers to perform actions normally restricted by the security policy. This could result in privilege escalation, unauthorized access to sensitive data, and the ability to install malware or perform other malicious activities. The Qualys advisory "CrackArmor" details critical AppArmor flaws that enable local privilege escalation to root when these protections are circumvented. The rule is sourced from Elastic and has been actively maintained.
+Successful exploitation of CVE-2026-46331 grants attackers privilege escalation on affected Linux systems, particularly Ubuntu. This can lead to a full system compromise, allowing attackers to execute arbitrary code with root privileges. The impact includes unauthorized access to sensitive data, installation of persistent backdoors, modification of system configurations, or deployment of additional malicious payloads such as ransomware or cryptocurrency miners. Organizations using vulnerable Linux distributions could face significant operational disruption and data loss.
 
 ## Recommendation
 
-*   Deploy the Sigma rule `Suspicious AppArmor Policy Modification` to your SIEM and tune for your environment to detect direct writes to AppArmor policy management files.
-*   Enable process creation logging with command-line arguments to capture the full command being executed (reference: `logsource.category: process_creation`).
-*   Investigate any alerts generated by the `Suspicious AppArmor Policy Modification` rule, focusing on the parent process and the content being written to the AppArmor policy files.
-*   Review the investigation guide within the rule's note section for guidance on triage, false positive analysis, response, and remediation.
+* Patch CVE-2026-46331 on all affected Ubuntu systems immediately to prevent privilege escalation.
+* Deploy the `Detects CVE-2026-46331 Exploitation - Linux AppArmor Bypass via aa-exec` Sigma rule to your SIEM for early detection of exploitation attempts.
+* Enable Sysmon for Linux EventID 1 to ensure process creation events are collected, which is essential for activating the detection rule.
