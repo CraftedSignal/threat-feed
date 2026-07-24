@@ -3,6 +3,7 @@ title: Python .pth File Creation for Persistence
 slug: 2024-07-python-pth-persistence
 description: Attackers can establish persistence on Linux systems by creating malicious .pth files in Python package directories, causing arbitrary code execution on interpreter startup.
 date: "2024-07-03T12:00:00Z"
+lastmod: "2026-07-24T07:03:25Z"
 type: advisory
 types:
   - advisory
@@ -15,9 +16,15 @@ tags:
   - pth
   - file_creation
 vendors:
-  - Python
+  - Microsoft
+  - Palo Alto Networks
 products:
-  - Python
+  - Copilot Studio
+  - PAN-OS GlobalProtect (10.2.x < 10.2.9-h1)
+  - PAN-OS GlobalProtect (11.0.x < 11.0.4-h1)
+  - PAN-OS GlobalProtect (11.1.x < 11.1.2-h3)
+  - PAN-OS GlobalProtect (12.0.x < 12.0.0-h1)
+  - PAN-OS GlobalProtect (12.1.x < 12.1.0-h1)
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -35,6 +42,16 @@ references:
   - https://dfir.ch/posts/publish_python_pth_extension/
   - https://www.volexity.com/blog/2024/04/12/zero-day-exploitation-of-unauthenticated-remote-code-execution-vulnerability-in-globalprotect-cve-2024-3400/
   - https://futuresearch.ai/blog/litellm-pypi-supply-chain-attack/
+  - https://hackread.com/aembit-extends-iam-for-agentic-ai-to-microsoft-copilot-studio/
+  - https://sploitus.com/exploit?id=F640E363-33EA-5879-AB31-C2F1B1B5A088&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=F640E363-33EA-5879-AB31-C2F1B1B5A088
+  - type: domain
+    value: vuln-panos.example.com
+ioc_counts:
+  domain: 1
+  url: 1
 rules:
   - title: Detect Suspicious Python .pth File Creation
     description: Detects creation of .pth files in standard Python library directories, excluding known legitimate processes.
@@ -57,6 +74,19 @@ rules:
       - file_event
       - linux
 rules_count: 2
+updates:
+  - at: "2026-06-16T15:02:04Z"
+    level: L2
+    summary: added CVE-2024-3400
+    sources:
+      - hackread
+  - at: "2026-07-24T07:03:25Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=F640E363-33EA-5879-AB31-C2F1B1B5A088&utm_source=rss&utm_medium=rss
 ---
 
 Attackers can exploit Python's .pth file mechanism to achieve persistence on Linux systems. These files, placed in standard Python library directories, automatically execute arbitrary Python code when the interpreter starts. This technique allows for stealthy and persistent execution, bypassing traditional startup scripts or scheduled tasks. The Elastic detection rule identifies unauthorized creation of .pth files, excluding legitimate package managers and known benign processes. Volexity reported on CVE-2024-3400 which exploited this persistence technique in April 2024. This is relevant for defenders as it highlights a method for attackers to maintain access and execute malicious code within compromised environments, even after system reboots or updates.
