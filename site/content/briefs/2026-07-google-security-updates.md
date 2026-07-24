@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-23T10:03:58Z"
+lastmod: "2026-07-24T13:24:01Z"
 type: advisory
 types:
   - advisory
@@ -98,6 +98,8 @@ products:
   - Chrome (< 150.0.7871.182)
   - Cloudflare Workers
   - Twilio TURN
+  - Google Chrome (< 150.0.7871.186)
+  - Google Chrome (< 150.0.7871.187)
 affected_os:
   - Windows
   - Linux
@@ -107,19 +109,22 @@ affected_os:
   - Android 9
 cves:
   - id: CVE-2026-15899
-    epss: 0.00217
+    cvss: 9.6
+    epss: 0.00306
   - id: CVE-2026-15901
-    epss: 0.00233
+    cvss: 9.6
+    epss: 0.00328
   - id: CVE-2026-16413
   - id: CVE-2026-16414
+    epss: 0.001
   - id: CVE-2026-16423
     cvss: 8.8
   - id: CVE-2026-15904
     cvss: 8.8
-    epss: 0.00217
+    epss: 0.00306
   - id: CVE-2026-15902
-    cvss: 9.6
-    epss: 0.00267
+    cvss: 8.8
+    epss: 0.00409
 references:
   - https://github.com/advisories/GHSA-rm3j-f69w-wqmq
   - https://github.com/advisories/GHSA-vgwf-h737-ff37
@@ -200,6 +205,8 @@ references:
   - https://github.com/advisories/GHSA-hrxh-6v49-42gf
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0907/
   - https://blog.talosintelligence.com/chaos-msarat-living-off-the-browser-to-build-covert-c2-channel/
+  - https://www.recordedfuture.com/research/tag-195-evolves-maas-ecosystem
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0925/
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -279,6 +286,8 @@ iocs:
     value: cloudflare.com
   - type: domain
     value: twilio.com
+  - type: url
+    value: https://chromereleases.googleblog.com/2026/07/stable-channel-update-for-desktop_01320465736.html
 ioc_counts:
   domain: 7
   file_name: 4
@@ -287,15 +296,8 @@ ioc_counts:
   ip: 2
   other: 4
   product_name: 2
-  url: 16
+  url: 17
 updates:
-  - at: "2026-07-20T17:21:48Z"
-    level: L1
-    summary: new product
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/initial_access_gcp_gke_anonymous_request_authorized.toml
   - at: "2026-07-21T14:45:57Z"
     level: L1
     summary: new IOCs
@@ -324,6 +326,13 @@ updates:
       - talos
     source_urls:
       - https://blog.talosintelligence.com/chaos-msarat-living-off-the-browser-to-build-covert-c2-channel/
+  - at: "2026-07-24T13:24:01Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - anssi
+    source_urls:
+      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0925/
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
