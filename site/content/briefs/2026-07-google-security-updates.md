@@ -3,7 +3,7 @@ title: Google Security Updates — July 2026
 slug: 2026-07-google-security-updates
 description: Roundup of Google security advisories published in July 2026.
 date: "2026-07-03T10:41:13Z"
-lastmod: "2026-07-24T13:24:01Z"
+lastmod: "2026-07-24T14:34:34Z"
 type: advisory
 types:
   - advisory
@@ -100,6 +100,7 @@ products:
   - Twilio TURN
   - Google Chrome (< 150.0.7871.186)
   - Google Chrome (< 150.0.7871.187)
+  - Chrome for Desktop (< 150.0.7871.186/.187 for Windows/Mac, < 150.0.7871.186 for Linux)
 affected_os:
   - Windows
   - Linux
@@ -107,6 +108,7 @@ affected_os:
   - macOS
   - Android 4.2.2
   - Android 9
+  - Mac
 cves:
   - id: CVE-2026-15899
     cvss: 9.6
@@ -115,10 +117,13 @@ cves:
     cvss: 9.6
     epss: 0.00328
   - id: CVE-2026-16413
+    cvss: 8.3
+    epss: 0.00179
   - id: CVE-2026-16414
     epss: 0.001
   - id: CVE-2026-16423
     cvss: 8.8
+    epss: 0.00186
   - id: CVE-2026-15904
     cvss: 8.8
     epss: 0.00306
@@ -207,6 +212,7 @@ references:
   - https://blog.talosintelligence.com/chaos-msarat-living-off-the-browser-to-build-covert-c2-channel/
   - https://www.recordedfuture.com/research/tag-195-evolves-maas-ecosystem
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0925/
+  - https://cyber.gc.ca/en/alerts-advisories/google-chrome-security-advisory-av26-741
 iocs:
   - type: url
     value: https://www.recordedfuture.com/research/from-castleloader-to-castlerat-tag-150-advances-operations
@@ -298,13 +304,6 @@ ioc_counts:
   product_name: 2
   url: 17
 updates:
-  - at: "2026-07-21T14:45:57Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - cofense
-    source_urls:
-      - https://cofense.com/blog/click-to-sync-from-google-ads-maintenance-notice-to-credential-theft
   - at: "2026-07-21T22:05:31Z"
     level: L2
     summary: added CVE-2026-15899 +3
@@ -333,6 +332,13 @@ updates:
       - anssi
     source_urls:
       - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0925/
+  - at: "2026-07-24T14:34:34Z"
+    level: L1
+    summary: OS mac
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/google-chrome-security-advisory-av26-741
 ---
 
 Aggregated Google security advisories for July 2026. CVEs from this cycle are folded
