@@ -3,7 +3,7 @@ title: CVE-2026-66032 - libssh2 SFTP Double-Free Vulnerability
 slug: 2026-07-libssh2-double-free
 description: A double-free vulnerability, CVE-2026-66032, in libssh2 versions through 1.11.1 allows a malicious SSH server to corrupt the heap of an authenticated client opening an SFTP session, potentially leading to arbitrary code execution.
 date: "2026-07-24T17:20:23Z"
-lastmod: "2026-07-24T17:22:14Z"
+lastmod: "2026-07-24T17:22:29Z"
 type: advisory
 types:
   - advisory
@@ -56,10 +56,17 @@ mitre_ttps:
 cves:
   - id: CVE-2026-66032
     cvss: 8.8
+  - id: CVE-2026-66035
+    cvss: 7.5
+  - id: CVE-2026-66033
+    cvss: 7.5
+  - id: CVE-2026-66034
+    cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66032
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66033
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66034
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-66035
 updates:
   - at: "2026-07-24T17:21:27Z"
     level: L1
@@ -75,6 +82,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-66034
+  - at: "2026-07-24T17:22:29Z"
+    level: L2
+    summary: added CVE-2026-66033 +2
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-66035
 ---
 
 A critical double-free vulnerability, identified as CVE-2026-66032, exists in libssh2 versions up to and including 1.11.1. This flaw resides within the `sftp_open()` function in `src/sftp.c` and can be exploited by a malicious SSH server. When an authenticated client attempts to open an SFTP session to such a server, the server can trigger a heap corruption on the client side. This occurs if the server responds to an `SSH_FXP_OPEN` request with an `SSH_FXP_STATUS` containing `FX_OK`, causing the response data buffer to be freed. If a subsequent `sftp_packet_require()` call then returns a specific error like `LIBSSH2_ERROR_CHANNEL_PACKET_EXCEEDED`, the same pointer is freed a second time. On glibc systems, this double-free condition can lead to tcache dup, enabling overlapping memory allocations and ultimately function pointer overwrites, which could result in arbitrary code execution on the vulnerable client system.
