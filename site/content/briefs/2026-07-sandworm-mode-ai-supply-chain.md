@@ -3,7 +3,7 @@ title: 'Denying the Worm: Detecting SANDWORM_MODE and AI Toolchain Supply Chain 
 slug: 2026-07-sandworm-mode-ai-supply-chain
 description: The SANDWORM_MODE campaign is a multi-stage npm supply chain worm that targets AI-augmented development workflows by exploiting runtime behaviors of AI coding assistants and CI/CD pipelines, leading to credential theft, supply chain poisoning, and persistence through obfuscated loaders, credential harvesting, and malicious Git hooks.
 date: "2026-07-21T17:23:33Z"
-lastmod: "2026-07-24T17:09:54Z"
+lastmod: "2026-07-24T18:49:23Z"
 type: advisory
 types:
   - advisory
@@ -99,6 +99,7 @@ products:
   - OpenAI services
   - Anthropic services
   - Google LLM APIs
+  - GitHub (Secrets, REST/GraphQL API)
 affected_os:
   - Linux
   - macOS
@@ -323,13 +324,6 @@ rules:
       - linux
 rules_count: 3
 updates:
-  - at: "2026-07-24T12:50:31Z"
-    level: L1
-    summary: new product
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
   - at: "2026-07-24T13:55:57Z"
     level: L1
     summary: new product
@@ -354,6 +348,13 @@ updates:
   - at: "2026-07-24T17:09:54Z"
     level: L2
     summary: claude code version AI assistant; windsurf version AI assistant; cursor version AI assistant
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
+  - at: "2026-07-24T18:49:23Z"
+    level: L2
+    summary: github version Secrets, REST/GraphQL API
     sources:
       - crowdstrike
     source_urls:
