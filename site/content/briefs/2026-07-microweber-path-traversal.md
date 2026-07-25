@@ -3,11 +3,15 @@ title: Microweber CMS Path Traversal Vulnerability (CVE-2026-65694)
 slug: 2026-07-microweber-path-traversal
 description: An unauthenticated path traversal vulnerability (CVE-2026-65694) in the static file controller of Microweber CMS, affecting versions through 2.0.20, allows remote attackers to read arbitrary files by supplying directory traversal sequences in the 'path' query parameter via a single unauthenticated HTTP GET request, potentially disclosing sensitive information like environment configuration files containing credentials or system files.
 date: "2026-07-23T22:25:27Z"
+lastmod: "2026-07-25T12:02:06Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=566642C7-D80C-5E20-9790-03A5CE91EF92&utm_source=rss&utm_medium=rss
 tags:
   - web-vulnerability
   - path-traversal
@@ -17,6 +21,9 @@ vendors:
   - Microweber
 products:
   - Microweber CMS
+  - Microweber CMS ≤ 2.0.20 and current master
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection
@@ -33,8 +40,17 @@ mitre_ttps:
 cves:
   - id: CVE-2026-65694
     cvss: 7.5
+    epss: 0.00793
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-65694
+  - https://sploitus.com/exploit?id=566642C7-D80C-5E20-9790-03A5CE91EF92&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=566642C7-D80C-5E20-9790-03A5CE91EF92
+  - type: url
+    value: https://github.com/microweber/microweber
+ioc_counts:
+  url: 2
 rules:
   - title: Detects CVE-2026-65694 Exploitation - Microweber Path Traversal
     description: Detects CVE-2026-65694 exploitation attempts targeting Microweber CMS via path traversal sequences in the 'path' query parameter.
@@ -49,6 +65,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-25T12:02:06Z"
+    level: L2
+    summary: poc_available; OS linux
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=566642C7-D80C-5E20-9790-03A5CE91EF92&utm_source=rss&utm_medium=rss
 ---
 
 A critical path traversal vulnerability, tracked as CVE-2026-65694, has been identified in Microweber CMS versions up to and including 2.0.20. This flaw resides within the static file controller, specifically due to the `normalize_path()` function's failure to properly sanitize or strip directory traversal sequences provided in the `path` query parameter of HTTP GET requests. Unauthenticated remote attackers can leverage this vulnerability to bypass intended access controls and read arbitrary files on the server. Exploitation requires only a single unauthenticated HTTP GET request, making it highly accessible to attackers. Successful exploitation can lead to the disclosure of sensitive data, such as environment configuration files that often contain database credentials, API keys, or other confidential information, as well as critical system files. This poses a significant risk for data breaches and further system compromise.
