@@ -3,6 +3,7 @@ title: Multiple Out-of-Bounds Write Vulnerabilities in Rockwell Automation Arena
 slug: 2026-07-rockwell-arena-cves
 description: Multiple out-of-bounds write vulnerabilities (CVE-2026-8085, CVE-2026-8312, CVE-2026-8313, CVE-2026-8314) in Rockwell Automation Arena versions prior to V17.00.01 could allow an attacker to execute arbitrary code by convincing a user to open a malicious file.
 date: "2026-07-16T16:14:38Z"
+lastmod: "2026-07-25T08:31:39Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +23,7 @@ vendors:
   - Rockwell Automation
 products:
   - Rockwell Automation Arena <=V17.00.00
+  - Arena Simulation (<= 17.00.00)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -44,22 +46,23 @@ mitre_ttps:
 cves:
   - id: CVE-2026-8085
     cvss: 7.3
-    epss: 0.00115
+    epss: 0.0018
   - id: CVE-2026-8312
     cvss: 7.3
-    epss: 0.00115
+    epss: 0.0018
   - id: CVE-2026-8313
     cvss: 7.3
-    epss: 0.00115
+    epss: 0.0018
   - id: CVE-2026-8314
     cvss: 7.3
-    epss: 0.00115
+    epss: 0.0018
 references:
   - https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-01
   - https://www.cve.org/CVERecord?id=CVE-2026-8085
   - https://www.cve.org/CVERecord?id=CVE-2026-8312
   - https://www.cve.org/CVERecord?id=CVE-2026-8313
   - https://www.cve.org/CVERecord?id=CVE-2026-8314
+  - https://www.securityweek.com/rockwell-patches-code-execution-flaws-in-arena-simulation-software/
 rules:
   - title: Detects Rockwell Automation Arena Exploitation - Unexpected Child Process
     description: Detects CVE-2026-8085, CVE-2026-8312, CVE-2026-8313, CVE-2026-8314 exploitation - Processes of Rockwell Automation Arena (model.exe, expmt.exe, linker.exe, siman.exe) launching suspicious or unexpected child processes, indicating arbitrary code execution.
@@ -74,6 +77,14 @@ rules:
       - process_creation
       - windows
 rules_count: 1
+updates:
+  - at: "2026-07-25T08:31:39Z"
+    level: L1
+    summary: new product
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/rockwell-patches-code-execution-flaws-in-arena-simulation-software/
 ---
 
 CISA has released an advisory detailing multiple memory corruption vulnerabilities, specifically out-of-bounds writes, affecting Rockwell Automation Arena simulation software versions prior to V17.00.01. These vulnerabilities, tracked as CVE-2026-8085, CVE-2026-8312, CVE-2026-8313, and CVE-2026-8314, reside in core components such as `model.exe`, `expmt.exe`, `linker.exe`, and `siman.exe`. Successful exploitation requires an attacker to convince a user to open a specially crafted malicious file. Upon opening, the improper validation of user-supplied data can lead to an out-of-bounds write, enabling arbitrary code execution in the context of the user running the Arena application. This affects the critical manufacturing sector worldwide.
