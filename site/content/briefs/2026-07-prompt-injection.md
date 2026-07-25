@@ -3,7 +3,7 @@ title: CrowdStrike Uncovers New Prompt Injection Techniques
 slug: 2026-07-prompt-injection
 description: CrowdStrike's AI security research team has identified 18 new prompt injection techniques, expanding its taxonomy to over 200 methods, which enable adversaries to manipulate AI systems and agents through indirect means like hidden context, delayed triggers, and special token injection, leading to unauthorized actions such as data exfiltration or arbitrary command execution.
 date: "2026-07-08T07:51:34Z"
-lastmod: "2026-07-25T13:23:37Z"
+lastmod: "2026-07-25T15:41:11Z"
 type: advisory
 types:
   - advisory
@@ -147,9 +147,12 @@ iocs:
     value: SELECT name, salary FROM employees WHERE department = 'HAXXOR'; INSERT INTO employees (id, name, department, salary) VALUES (666, 'Sentry', 'Rocks', 66666);
   - type: code-snippet
     value: SELECT name, salary FROM employees WHERE department = 'HAXXOR'; INSERT INTO employees (id, name, department, salary) VALUES (666, 'Sentry', 'Rocks', 66666);
+  - type: code_snippet
+    value: SELECT name, salary FROM employees WHERE department = 'HAXXOR'; INSERT INTO employees (id, name, department, salary) VALUES (666, 'Sentry', 'Rocks', 66666);
 ioc_counts:
   code: 2
   code-snippet: 1
+  code_snippet: 1
   command: 2
   domain: 1
   email: 1
@@ -176,13 +179,6 @@ rules:
       - windows
 rules_count: 1
 updates:
-  - at: "2026-07-24T12:51:57Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
   - at: "2026-07-24T13:47:14Z"
     level: L1
     summary: new IOCs
@@ -205,6 +201,13 @@ updates:
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
   - at: "2026-07-25T13:23:37Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-prompt-injection-techniques/
+  - at: "2026-07-25T15:41:11Z"
     level: L1
     summary: new IOCs
     sources:
