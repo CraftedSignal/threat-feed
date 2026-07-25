@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-07-25T12:01:52Z"
+lastmod: "2026-07-25T13:02:48Z"
 type: threat
 types:
   - threat
@@ -441,11 +441,17 @@ iocs:
     value: www.guntert.com
   - type: url
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=fe0866f0-5661-4013-be19-98c2a0c1dfc6
+  - type: domain
+    value: www.jubileejobs.org
+  - type: domain
+    value: www.cooper-co.com
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion
 ioc_counts:
-  domain: 36
+  domain: 38
   hash_md5: 55
   ip: 5
-  url: 34
+  url: 35
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -473,13 +479,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-07-24T10:43:36Z"
-    level: L1
-    summary: OS fireware os
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-07-24T11:39:05Z"
     level: L1
     summary: new IOCs
@@ -502,6 +501,13 @@ updates:
     source_urls:
       - https://www.ransomware.live/group/qilin
   - at: "2026-07-25T12:01:52Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-07-25T13:02:48Z"
     level: L1
     summary: new IOCs
     sources:
