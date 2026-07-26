@@ -3,11 +3,15 @@ title: Critical RCE Vulnerability in Blocksy Companion Pro WordPress Plugin (CVE
 slug: 2026-07-wordpress-blocksy-file-upload-rce
 description: An unauthenticated arbitrary file upload vulnerability (CVE-2026-58480) in Blocksy Companion Pro plugin for WordPress versions prior to 2.1.47 allows attackers to bypass extension validation via double-extension files, leading to remote code execution by forcing the web server to execute uploaded PHP files.
 date: "2026-07-08T14:19:33Z"
+lastmod: "2026-07-26T10:00:37Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=EDE1A579-A410-5EA8-ACAE-60A03E18B511&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - plugin
@@ -17,9 +21,11 @@ tags:
 vendors:
   - Blocksy
   - WordPress
+  - WordPress Foundation
 products:
   - Blocksy Companion Pro plugin < 2.1.47
   - WordPress
+  - Blocksy Companion Pro (< 2.1.47)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -42,8 +48,18 @@ mitre_ttps:
 cves:
   - id: CVE-2026-58480
     cvss: 9.8
+    epss: 0.00605
+  - id: CVE-2026-15158
+    cvss: 9.8
+    epss: 0.00611
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-58480
+  - https://sploitus.com/exploit?id=EDE1A579-A410-5EA8-ACAE-60A03E18B511&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=EDE1A579-A410-5EA8-ACAE-60A03E18B511
+ioc_counts:
+  url: 1
 rules:
   - title: Detects CVE-2026-58480 Exploitation - Blocksy Companion Pro File Upload Bypass
     description: Detects CVE-2026-58480 exploitation attempts by monitoring suspicious file upload requests to WordPress admin-ajax.php with double extensions that bypass validation, indicative of arbitrary file upload leading to RCE in Blocksy Companion Pro plugin.
@@ -60,6 +76,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-26T10:00:37Z"
+    level: L2
+    summary: poc_available; added CVE-2026-15158
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=EDE1A579-A410-5EA8-ACAE-60A03E18B511&utm_source=rss&utm_medium=rss
 ---
 
 A critical unauthenticated arbitrary file upload vulnerability, tracked as CVE-2026-58480, has been identified in the Blocksy Companion Pro plugin for WordPress, affecting all versions prior to 2.1.47. This flaw enables remote attackers to achieve arbitrary code execution on vulnerable WordPress installations. The vulnerability resides within the `save_attachments` function, exposed through the Advanced Reviews feature, where inadequate extension validation allows attackers to upload executable files. Specifically, a flawed `strpos()` substring check in the Custom Fonts extension's validation mechanism can be bypassed by using double-extension filenames (e.g., `shell.woff2.php`). This bypass tricks the web server into executing the uploaded file as PHP, giving attackers full control over the compromised website. This vulnerability presents a significant risk to affected organizations, allowing for website defacement, data theft, or further network compromise.
