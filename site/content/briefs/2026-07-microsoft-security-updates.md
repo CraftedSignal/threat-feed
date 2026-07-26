@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-26T00:41:36Z"
+lastmod: "2026-07-26T18:19:04Z"
 type: advisory
 types:
   - advisory
@@ -36,6 +36,34 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:.net:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.8.1:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.8:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.6.2:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.7:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.7.1:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.7.2:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:3.5:-:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x64:*
+  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x86:*
+  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x86:*
+  - cpe:2.3:a:microsoft:microsoft_365:-:*:*:*:*:macos:*:*
+  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x86:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x64:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x86:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:a:microsoft:office_online_server:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -623,6 +651,21 @@ cves:
   - id: CVE-2026-50518
     cvss: 9.8
     epss: 0.11058
+  - id: CVE-2026-48564
+    cvss: 8.8
+    epss: 0.00763
+  - id: CVE-2026-50526
+    cvss: 7
+    epss: 0.00236
+  - id: CVE-2026-50649
+    cvss: 7.8
+    epss: 0.00918
+  - id: CVE-2026-55141
+    cvss: 7.8
+    epss: 0.00303
+  - id: CVE-2026-49173
+    cvss: 7.8
+    epss: 0.0024
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1308,6 +1351,7 @@ references:
   - https://github.com/advisories/GHSA-4rj6-vrwv-wr8m
   - https://sploitus.com/exploit?id=FBD3DBC5-71EE-57F6-A156-58C2288B70BD&utm_source=rss&utm_medium=rss
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_local_scheduled_job_creation.toml
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-57989
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1823,13 +1867,6 @@ ioc_counts:
   url: 106
   user_agent: 6
 updates:
-  - at: "2026-07-24T16:16:28Z"
-    level: L2
-    summary: added CVE-2026-50528 +1
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-hq9q-27g5-qwpj
   - at: "2026-07-24T16:16:53Z"
     level: L2
     summary: added CVE-2026-50467 +2
@@ -1858,6 +1895,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_local_scheduled_job_creation.toml
+  - at: "2026-07-26T18:19:04Z"
+    level: L2
+    summary: added CVE-2026-48564 +4
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-57989
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
