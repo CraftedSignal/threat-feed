@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-07-26T14:31:35Z"
+lastmod: "2026-07-26T15:14:33Z"
 type: threat
 types:
   - threat
@@ -86,6 +86,9 @@ products:
   - AntiLogger
   - vCenters
   - FortiOS & FortiProxy
+  - Contacto Garantido
+  - Check Point VPN Remote Access
+  - Check Point Mobile Access
 affected_os:
   - Windows
   - Unix
@@ -451,11 +454,15 @@ iocs:
     value: www.uvvg.ro
   - type: url
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=1f231bbf-689b-4a64-be81-ee0b50e736ba
+  - type: domain
+    value: www.contactogarantido.com
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=c80be6d9-9f48-4983-8d7d-a66e4387bdac
 ioc_counts:
-  domain: 39
+  domain: 40
   hash_md5: 55
   ip: 5
-  url: 36
+  url: 37
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -483,13 +490,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-07-24T23:08:47Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-07-25T11:39:21Z"
     level: L1
     summary: new IOCs
@@ -512,6 +512,13 @@ updates:
     source_urls:
       - https://www.ransomware.live/group/qilin
   - at: "2026-07-26T14:31:35Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-07-26T15:14:33Z"
     level: L1
     summary: new IOCs
     sources:
