@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-25T13:00:48Z"
+lastmod: "2026-07-26T00:41:36Z"
 type: advisory
 types:
   - advisory
@@ -35,6 +35,7 @@ cpes:
   - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -607,6 +608,21 @@ cves:
   - id: CVE-2026-50676
     cvss: 7.8
     epss: 0.00199
+  - id: CVE-2026-58286
+    cvss: 8.1
+    epss: 0.00324
+  - id: CVE-2026-50412
+    cvss: 7.8
+    epss: 0.00311
+  - id: CVE-2026-50469
+    cvss: 7.8
+    epss: 0.00271
+  - id: CVE-2026-50444
+    cvss: 8.8
+    epss: 0.00604
+  - id: CVE-2026-50518
+    cvss: 9.8
+    epss: 0.11058
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1291,6 +1307,7 @@ references:
   - https://github.com/advisories/GHSA-4vv7-jj25-4gh6
   - https://github.com/advisories/GHSA-4rj6-vrwv-wr8m
   - https://sploitus.com/exploit?id=FBD3DBC5-71EE-57F6-A156-58C2288B70BD&utm_source=rss&utm_medium=rss
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_local_scheduled_job_creation.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1806,13 +1823,6 @@ ioc_counts:
   url: 106
   user_agent: 6
 updates:
-  - at: "2026-07-24T16:11:20Z"
-    level: L2
-    summary: added CVE-2026-47632 +2
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-rg4h-fpcp-2qm8
   - at: "2026-07-24T16:16:28Z"
     level: L2
     summary: added CVE-2026-50528 +1
@@ -1841,6 +1851,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=FBD3DBC5-71EE-57F6-A156-58C2288B70BD&utm_source=rss&utm_medium=rss
+  - at: "2026-07-26T00:41:36Z"
+    level: L2
+    summary: added CVE-2026-50412 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_local_scheduled_job_creation.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
