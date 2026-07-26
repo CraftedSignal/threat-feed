@@ -3,6 +3,7 @@ title: WPForms Pro Plugin Arbitrary File Upload Vulnerability Leading to RCE
 slug: 2026-07-wpforms-pro-arbitrary-file-upload
 description: The WPForms Pro plugin for WordPress, in versions up to and including 1.10.1.1, is vulnerable to arbitrary file upload via the ajax_chunk_upload_finalize function, allowing unauthenticated attackers to upload executable files due to improper file type validation occurring after file contents are written to disk, which can lead to remote code execution on the affected server.
 date: "2026-07-25T07:18:55Z"
+lastmod: "2026-07-26T10:00:51Z"
 type: advisory
 types:
   - advisory
@@ -15,8 +16,10 @@ tags:
   - web-vulnerability
 vendors:
   - WPForms
+  - WordPress
 products:
   - WPForms Pro plugin for WordPress <= 1.10.1.1
+  - WPForms Pro <= 1.10.1.1
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,11 +33,14 @@ mitre_ttps:
     technique_name: Server Software Component
     evidence: This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible.
     confidence_band: high
-cves:
-  - id: CVE-2026-10818
-    cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10818
+  - https://sploitus.com/exploit?id=92EBD3D2-4256-54EE-9C2C-C4BA105BAC3E&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=92EBD3D2-4256-54EE-9C2C-C4BA105BAC3E
+ioc_counts:
+  url: 1
 rules:
   - title: Detects CVE-2026-10818 Exploitation - WPForms Pro Arbitrary File Upload Attempt
     description: Detects exploitation attempts against CVE-2026-10818, an arbitrary file upload vulnerability in WPForms Pro plugin, by looking for POST requests to the ajax_chunk_upload_finalize function with suspicious executable file extensions.
@@ -49,6 +55,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-26T10:00:51Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=92EBD3D2-4256-54EE-9C2C-C4BA105BAC3E&utm_source=rss&utm_medium=rss
 ---
 
 The WPForms Pro plugin for WordPress, specifically all versions up to and including 1.10.1.1, contains a critical arbitrary file upload vulnerability tracked as CVE-2026-10818. This flaw resides within the `ajax_chunk_upload_finalize` function, where file type validation occurs *after* chunk metadata and file contents have already been written to the server's disk. Compounding the issue, the plugin fails to delete these assembled files even when validation ultimately fails. This design defect permits unauthenticated attackers to upload potentially executable files, such as PHP web shells, to the WordPress installation. Successful exploitation can lead to full remote code execution on the underlying web server, allowing threat actors to gain control of the compromised system, exfiltrate sensitive data, or further compromise the network.
