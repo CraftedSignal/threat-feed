@@ -3,11 +3,15 @@ title: WordPress SAML Single Sign On Plugin Authentication Bypass (CVE-2026-1598
 slug: 2026-07-wordpress-saml-auth-bypass
 description: A critical authentication bypass vulnerability, CVE-2026-15981, affects the SAML Single Sign On - SSO Login plugin for WordPress (versions up to and including 5.4.4), allowing unauthenticated attackers to log in as any existing user, including administrators, by crafting a malformed SAMLResponse that misleads the plugin's signature validation logic.
 date: "2026-07-23T21:18:41Z"
+lastmod: "2026-07-26T10:01:09Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=ACA86828-5C21-5718-A982-2A0E64261DF1&utm_source=rss&utm_medium=rss
 tags:
   - authentication-bypass
   - wordpress
@@ -15,8 +19,11 @@ tags:
   - cve-2026-15981
 vendors:
   - WordPress
+  - miniOrange
 products:
   - SAML Single Sign On – SSO Login plugin (<= 5.4.4)
+  - miniOrange SAML 2.0 Single Sign On – SSO Login (WordPress) <= 5.4.4
+  - WordPress
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -33,8 +40,25 @@ mitre_ttps:
 cves:
   - id: CVE-2026-15981
     cvss: 9.8
+    epss: 0.00547
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15981
+  - https://sploitus.com/exploit?id=ACA86828-5C21-5718-A982-2A0E64261DF1&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=ACA86828-5C21-5718-A982-2A0E64261DF1
+  - type: url
+    value: https://target.com/wp-content/plugins/nxproof/Nx.php
+ioc_counts:
+  url: 2
+updates:
+  - at: "2026-07-26T10:01:09Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=ACA86828-5C21-5718-A982-2A0E64261DF1&utm_source=rss&utm_medium=rss
 ---
 
 The SAML Single Sign On - SSO Login plugin for WordPress, in all versions up to and including 5.4.4, is affected by a critical authentication bypass vulnerability, identified as CVE-2026-15981. This flaw, discovered and published on July 23, 2026, stems from a logical error within the `mo_saml_validate_signature()` function. Specifically, a loose boolean check incorrectly interprets an OpenSSL `openssl_verify()` error return value of `-1` as a successful signature verification. This design flaw enables unauthenticated attackers to craft specific SAMLResponse messages. By including an attacker-controlled NameID for a target user and a specially malformed signature designed to trigger the OpenSSL error, adversaries can completely bypass the authentication process, allowing them to log in as any existing WordPress user, including those with administrative privileges.
