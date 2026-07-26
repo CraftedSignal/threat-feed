@@ -3,6 +3,7 @@ title: SiYuan Missing Authorization Vulnerability in /mcp Endpoint (CVE-2026-660
 slug: 2026-07-siyuan-mcp-authz
 description: A critical missing authorization vulnerability, CVE-2026-66012, in SiYuan before version 3.7.2 allows a remote unauthenticated attacker to exploit the POST /mcp kernel endpoint when the Publish server is in anonymous mode, leading to arbitrary file writes, sensitive credential exposure, malicious plugin execution, and ultimately administrator takeover on affected systems.
 date: "2026-07-25T11:19:14Z"
+lastmod: "2026-07-26T11:00:50Z"
 type: advisory
 types:
   - advisory
@@ -49,11 +50,25 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: leading to administrator takeover.
     confidence_band: high
-cves:
-  - id: CVE-2026-66012
-    cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66012
+  - https://sploitus.com/exploit?id=966D5755-38DD-590D-A412-4BFEABA9FEE1&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=966D5755-38DD-590D-A412-4BFEABA9FEE1
+  - type: domain
+    value: attacker.com
+ioc_counts:
+  domain: 1
+  url: 1
+updates:
+  - at: "2026-07-26T11:00:50Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=966D5755-38DD-590D-A412-4BFEABA9FEE1&utm_source=rss&utm_medium=rss
 ---
 
 A critical missing authorization vulnerability, tracked as CVE-2026-66012, affects SiYuan versions prior to 3.7.2. This flaw exists in the POST /mcp kernel endpoint, which lacks proper administrative role enforcement and is only protected by a general authentication check. When the SiYuan Publish server is configured in anonymous mode (Conf.Publish.Enable=true and Conf.Publish.Auth.Enable=false), a remote unauthenticated attacker can exploit this vulnerability. The Publish reverse proxy, in this configuration, attaches an anonymous RoleReader JWT to proxied requests, granting the attacker access to 31 internal MCP tools. These tools include a file utility with comprehensive read, write, delete, rename, and copy capabilities across the entire workspace. Exploitation enables attackers to read sensitive configuration files containing plaintext API tokens and cookies, write arbitrary files, and plant malicious plugins that execute with elevated privileges upon the next desktop application launch, leading to complete system compromise and administrator takeover.
