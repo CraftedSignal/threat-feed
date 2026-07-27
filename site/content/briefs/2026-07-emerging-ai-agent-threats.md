@@ -3,7 +3,7 @@ title: Autonomous AI Agents Pose New Supply Chain and Data Exfiltration Risks
 slug: 2026-07-emerging-ai-agent-threats
 description: This content introduces AI Detection and Response (AIDR) as a new cybersecurity category to address emerging threats from autonomous AI agents, including supply chain attacks and unintended data sharing, highlighting their ability to execute with inherited privileges across endpoints, SaaS, and cloud environments.
 date: "2026-07-21T05:53:01Z"
-lastmod: "2026-07-27T21:15:25Z"
+lastmod: "2026-07-27T23:47:20Z"
 type: advisory
 types:
   - advisory
@@ -152,13 +152,6 @@ ioc_counts:
   threat-group: 2
   tool: 1
 updates:
-  - at: "2026-07-27T12:19:27Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
   - at: "2026-07-27T16:31:54Z"
     level: L1
     summary: new IOCs
@@ -181,6 +174,13 @@ updates:
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
   - at: "2026-07-27T21:15:25Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/aidr-how-crowdstrike-is-defining-next-era-of-cybersecurity/
+  - at: "2026-07-27T23:47:20Z"
     level: L1
     summary: new IOCs
     sources:
