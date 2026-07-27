@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:26:48Z"
+lastmod: "2026-07-27T18:28:23Z"
 type: advisory
 types:
   - advisory
@@ -1051,6 +1051,18 @@ cves:
     epss: 0.00736
   - id: CVE-2026-57989
     cvss: 7.4
+  - id: CVE-2026-50694
+    cvss: 8.1
+    epss: 0.00662
+  - id: CVE-2026-56193
+    cvss: 7.1
+    epss: 0.00365
+  - id: CVE-2026-50489
+    cvss: 8.8
+    epss: 0.00361
+  - id: CVE-2026-62825
+    cvss: 10
+    epss: 0.00697
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1763,6 +1775,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_installutil_url_in_command_line.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_kerberos_local_successful_logon.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_mark_of_the_web_bypass.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_with_namedpipe_commandline.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2396,6 +2409,10 @@ iocs:
     value: https://github.com/nmantani/PS-MOTW#remove-motwps1
   - type: url
     value: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1553.005/mark_of_the_web_bypass/possible-motw-deletion.log
+  - type: url
+    value: https://blog.talosintelligence.com/2018/02/olympic-destroyer.html
+  - type: url
+    value: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/olympic_destroyer/sysmon.log
 ioc_counts:
   application_id: 1
   asn: 3
@@ -2427,16 +2444,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 118
+  url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:24:04Z"
-    level: L2
-    summary: added CVE-2026-49784
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_http_network_communication_from_msiexec.yml
   - at: "2026-07-27T18:24:19Z"
     level: L2
     summary: added CVE-2026-50380 +2
@@ -2465,6 +2475,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_mark_of_the_web_bypass.yml
+  - at: "2026-07-27T18:28:23Z"
+    level: L2
+    summary: added CVE-2026-50489 +3
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_with_namedpipe_commandline.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
