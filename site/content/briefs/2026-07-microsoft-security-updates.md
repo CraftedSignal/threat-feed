@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:06:28Z"
+lastmod: "2026-07-27T18:06:41Z"
 type: advisory
 types:
   - advisory
@@ -825,6 +825,21 @@ cves:
   - id: CVE-2026-50502
     cvss: 8
     epss: 0.006
+  - id: CVE-2026-58300
+    cvss: 6.2
+    epss: 0.00337
+  - id: CVE-2026-50340
+    cvss: 8.5
+    epss: 0.00502
+  - id: CVE-2026-55058
+    cvss: 7.8
+    epss: 0.00303
+  - id: CVE-2026-55052
+    cvss: 8.8
+    epss: 0.00537
+  - id: CVE-2026-57088
+    cvss: 7.8
+    epss: 0.00278
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1522,6 +1537,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/application/email_files_written_outside_of_the_outlook_directory.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/batch_file_write_to_system32.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___mshtml_or_mshta_network_execution_without_url_in_cli.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___non_network_binary_making_network_connection.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2107,13 +2123,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T15:32:55Z"
-    level: L2
-    summary: added CVE-2026-50427 +2
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_windows_rare_user_type10_remote_login.toml
   - at: "2026-07-27T17:01:01Z"
     level: L2
     summary: added CVE-2026-50318 +3
@@ -2142,6 +2151,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___mshtml_or_mshta_network_execution_without_url_in_cli.yml
+  - at: "2026-07-27T18:06:41Z"
+    level: L2
+    summary: added CVE-2026-50340 +4
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___non_network_binary_making_network_connection.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
