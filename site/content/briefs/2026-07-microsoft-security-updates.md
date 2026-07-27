@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:28:46Z"
+lastmod: "2026-07-27T18:30:10Z"
 type: advisory
 types:
   - advisory
@@ -678,6 +678,7 @@ products:
   - certutil.exe
   - InstallUtil.exe
   - Windows Jump List
+  - WMIC
 affected_os:
   - Windows
   - macOS
@@ -1081,6 +1082,21 @@ cves:
   - id: CVE-2026-56644
     cvss: 7.8
     epss: 0.00311
+  - id: CVE-2026-44806
+    cvss: 5.3
+    epss: 0.00816
+  - id: CVE-2026-49796
+    cvss: 7.8
+    epss: 0.00389
+  - id: CVE-2026-50370
+    cvss: 8.8
+    epss: 0.00494
+  - id: CVE-2026-50322
+    cvss: 7
+    epss: 0.00188
+  - id: CVE-2026-55020
+    cvss: 4.6
+    epss: 0.00335
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1796,6 +1812,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_with_namedpipe_commandline.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rdp_automaticdestinations_deletion.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rdp_cache_file_deletion.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/wmic_xsl_execution_via_url.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2467,13 +2484,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:24:47Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_kerberos_local_successful_logon.yml
   - at: "2026-07-27T18:26:48Z"
     level: L2
     summary: added CVE-2023-38146 +115
@@ -2502,6 +2512,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rdp_cache_file_deletion.yml
+  - at: "2026-07-27T18:30:10Z"
+    level: L2
+    summary: added CVE-2026-44806 +4
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/wmic_xsl_execution_via_url.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
