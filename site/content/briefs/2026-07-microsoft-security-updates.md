@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:23:45Z"
+lastmod: "2026-07-27T18:24:04Z"
 type: advisory
 types:
   - advisory
@@ -1020,6 +1020,9 @@ cves:
   - id: CVE-2026-32665
     cvss: 7.5
     epss: 0.00285
+  - id: CVE-2026-49784
+    cvss: 7
+    epss: 0.00153
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1727,6 +1730,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_appcertdll_modification_via_registry.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_file_download_via_certutil.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_file_without_extension_in_critical_folder.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_http_network_communication_from_msiexec.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2388,13 +2392,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:14:50Z"
-    level: L2
-    summary: added CVE-2026-50410 +3
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/detect_html_help_url_in_command_line.yml
   - at: "2026-07-27T18:21:58Z"
     level: L2
     summary: added CVE-2023-38146 +4
@@ -2423,6 +2420,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_file_without_extension_in_critical_folder.yml
+  - at: "2026-07-27T18:24:04Z"
+    level: L2
+    summary: added CVE-2026-49784
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_http_network_communication_from_msiexec.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
