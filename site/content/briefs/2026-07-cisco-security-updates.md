@@ -3,7 +3,7 @@ title: Cisco Security Updates — July 2026
 slug: 2026-07-cisco-security-updates
 description: Roundup of Cisco security advisories published in July 2026.
 date: "2026-07-03T13:36:20Z"
-lastmod: "2026-07-27T18:06:59Z"
+lastmod: "2026-07-27T18:11:32Z"
 type: advisory
 types:
   - advisory
@@ -35,6 +35,7 @@ tags:
 vendors:
   - Cisco
   - Splunk
+  - Microsoft
 products:
   - Cisco devices
   - Cisco’s Smart Install (SMI) feature
@@ -87,6 +88,9 @@ products:
   - Splunk Enterprise
   - Splunk Enterprise Security
   - Splunk Cloud
+  - Windows
+affected_os:
+  - Windows
 cves:
   - id: CVE-2026-20146
     cvss: 5.5
@@ -94,6 +98,15 @@ cves:
   - id: CVE-2026-20187
     cvss: 7.5
     epss: 0.00252
+  - id: CVE-2026-20150
+    cvss: 8.8
+    epss: 0.00222
+  - id: CVE-2026-20156
+    cvss: 8.1
+    epss: 0.00228
+  - id: CVE-2026-20157
+    cvss: 7.5
+    epss: 0.00061
 references:
   - https://www.ncsc.gov.uk/news/uk-and-allies-urge-critical-sectors-to-improve-defences-against-russian-intelligence-targeting
   - https://www.darkreading.com/endpoint-security/weak-security-fuel-russian-cyberattacks
@@ -104,6 +117,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20187
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2374
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___outbound_connection_to_suspicious_port.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_from_process_with_no_args.yml
 iocs:
   - type: url
     value: https://media.defense.gov/2026/Jul/09/2003959498/-1/-1/1/CSA_IMPROVE_ROUTER_HYGIENE.PDF
@@ -129,13 +143,6 @@ ioc_counts:
   port: 3
   url: 3
 updates:
-  - at: "2026-07-15T17:17:58Z"
-    level: L2
-    summary: added CVE-2026-20156
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20156
   - at: "2026-07-15T17:18:29Z"
     level: L2
     summary: added CVE-2026-20157
@@ -164,6 +171,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___outbound_connection_to_suspicious_port.yml
+  - at: "2026-07-27T18:11:32Z"
+    level: L2
+    summary: added CVE-2026-20150 +2; OS windows
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_from_process_with_no_args.yml
 ---
 
 Aggregated Cisco security advisories for July 2026. CVEs from this cycle are folded
