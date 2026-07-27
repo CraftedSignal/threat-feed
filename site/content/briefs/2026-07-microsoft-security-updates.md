@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:23:33Z"
+lastmod: "2026-07-27T18:23:45Z"
 type: advisory
 types:
   - advisory
@@ -1005,6 +1005,21 @@ cves:
   - id: CVE-2026-56165
     cvss: 9.8
     epss: 0.00736
+  - id: CVE-2026-57986
+    cvss: 7.5
+    epss: 0.00429
+  - id: CVE-2026-34346
+    cvss: 5.5
+    epss: 0.00202
+  - id: CVE-2026-49803
+    cvss: 7
+    epss: 0.00153
+  - id: CVE-2026-50309
+    cvss: 7.8
+    epss: 0.0024
+  - id: CVE-2026-32665
+    cvss: 7.5
+    epss: 0.00285
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1711,6 +1726,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/time_provider_persistence_registry.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_appcertdll_modification_via_registry.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_file_download_via_certutil.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_file_without_extension_in_critical_folder.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2372,13 +2388,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:11:43Z"
-    level: L2
-    summary: added CVE-2026-50310 +4
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_initiated_via_msxsl.yml
   - at: "2026-07-27T18:14:50Z"
     level: L2
     summary: added CVE-2026-50410 +3
@@ -2407,6 +2416,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_file_download_via_certutil.yml
+  - at: "2026-07-27T18:23:45Z"
+    level: L2
+    summary: added CVE-2026-32665 +4
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_file_without_extension_in_critical_folder.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
