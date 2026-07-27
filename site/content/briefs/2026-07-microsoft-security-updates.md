@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T15:28:12Z"
+lastmod: "2026-07-27T15:29:44Z"
 type: advisory
 types:
   - advisory
@@ -71,6 +71,8 @@ cpes:
   - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x64:*
   - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x86:*
+  - cpe:2.3:a:erlang:erlang\/otp:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:erlang:erlang\/ssh:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -743,6 +745,21 @@ cves:
   - id: CVE-2026-55140
     cvss: 7.8
     epss: 0.0034
+  - id: CVE-2026-50357
+    cvss: 7.8
+    epss: 0.00311
+  - id: CVE-2026-57977
+    cvss: 7.1
+    epss: 0.00412
+  - id: CVE-2026-54886
+    cvss: 4.3
+    epss: 0.00331
+  - id: CVE-2026-54122
+    cvss: 8.4
+    epss: 0.00283
+  - id: CVE-2026-56192
+    cvss: 5.5
+    epss: 0.00382
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1434,6 +1451,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_high_count_group_management_events.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_high_count_special_logon_events.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_high_count_special_privilege_use_events.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_group_name_by_user.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1949,13 +1967,6 @@ ioc_counts:
   url: 106
   user_agent: 6
 updates:
-  - at: "2026-07-27T12:10:45Z"
-    level: L2
-    summary: added CVE-2026-49184 +4
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_dcsync_replication_rights.toml
   - at: "2026-07-27T13:29:16Z"
     level: L2
     summary: added CVE-2026-50342 +4
@@ -1984,6 +1995,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_high_count_special_privilege_use_events.toml
+  - at: "2026-07-27T15:29:44Z"
+    level: L2
+    summary: added CVE-2026-50357 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_group_name_by_user.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
