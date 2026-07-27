@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:30:10Z"
+lastmod: "2026-07-27T18:37:46Z"
 type: advisory
 types:
   - advisory
@@ -679,6 +679,7 @@ products:
   - InstallUtil.exe
   - Windows Jump List
   - WMIC
+  - Microsoft Quick Assist
 affected_os:
   - Windows
   - macOS
@@ -1097,6 +1098,15 @@ cves:
   - id: CVE-2026-55020
     cvss: 4.6
     epss: 0.00335
+  - id: CVE-2026-54109
+    cvss: 7.8
+    epss: 0.0024
+  - id: CVE-2026-50346
+    cvss: 7.8
+    epss: 0.00278
+  - id: CVE-2026-50689
+    cvss: 7.8
+    epss: 0.00238
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1813,6 +1823,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rdp_automaticdestinations_deletion.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rdp_cache_file_deletion.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/wmic_xsl_execution_via_url.yml
+  - https://www.reddit.com/r/blueteamsec/comments/1v8791f/helpdesk_hijackers_teams_vishing_quick_assist_and/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2484,13 +2495,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:26:48Z"
-    level: L2
-    summary: added CVE-2023-38146 +115
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_mark_of_the_web_bypass.yml
   - at: "2026-07-27T18:28:23Z"
     level: L2
     summary: added CVE-2026-50489 +3
@@ -2519,6 +2523,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/wmic_xsl_execution_via_url.yml
+  - at: "2026-07-27T18:37:46Z"
+    level: L2
+    summary: added CVE-2026-50346 +2
+    sources:
+      - reddit-blueteamsec
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1v8791f/helpdesk_hijackers_teams_vishing_quick_assist_and/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
