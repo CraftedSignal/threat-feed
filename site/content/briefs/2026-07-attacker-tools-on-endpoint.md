@@ -3,6 +3,7 @@ title: Detection of Attacker Tools on Endpoints
 slug: 2026-07-attacker-tools-on-endpoint
 description: This analytic detects the execution of tools commonly used by attackers for activities such as unauthorized access, network scanning, privilege escalation, password dumping, or data exfiltration, leveraging process activity data from Endpoint Detection and Response (EDR) agents to identify known attacker tool names.
 date: "2026-07-27T18:04:13Z"
+lastmod: "2026-07-27T18:13:46Z"
 type: advisory
 types:
   - advisory
@@ -18,11 +19,15 @@ vendors:
   - Microsoft
   - CrowdStrike
   - Cisco
+  - Splunk
 products:
   - Sysmon
   - Windows Event Log
   - CrowdStrike EDR
   - Cisco Network Visibility Module
+  - Splunk Enterprise
+  - Splunk Enterprise Security
+  - Splunk Cloud
 affected_os:
   - Windows
 mitre_ttps:
@@ -46,6 +51,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/attacker_tools_on_endpoint.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/common_ransomware_extensions.yml
 rules:
   - title: Detect Execution of Known Attacker Tools
     description: Detects the execution of known tools commonly leveraged by threat actors for activities like credential dumping, network scanning, or privilege escalation, as identified through process creation events.
@@ -65,6 +71,14 @@ rules:
       - process_creation
       - windows
 rules_count: 1
+updates:
+  - at: "2026-07-27T18:13:46Z"
+    level: L1
+    summary: new product
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/common_ransomware_extensions.yml
 ---
 
 Cybercriminals frequently deploy specialized tools on compromised endpoints to further their objectives, ranging from initial reconnaissance to data exfiltration. This threat brief highlights the importance of detecting the execution of such attacker tools, which are commonly employed for unauthorized access, network scanning, privilege escalation, password dumping, and data exfiltration. The detection mechanism relies on analyzing process activity data from Endpoint Detection and Response (EDR) agents, specifically by identifying known malicious tool names. This activity serves as a critical early warning for potential security incidents, enabling defenders to respond promptly. If confirmed as malicious, the execution of these tools could lead to significant unauthorized access, sensitive data theft, and further compromise of an organization's network infrastructure, posing a severe and immediate threat. The continuous modification of detection rules, as indicated by the analytic's modification date of July 14, 2026, underscores the ongoing nature of this threat and the need for adaptive defenses against evolving attacker toolsets.
