@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:04:51Z"
+lastmod: "2026-07-27T18:06:28Z"
 type: advisory
 types:
   - advisory
@@ -609,6 +609,7 @@ products:
   - n8n < 2.31.5
   - n8n >= 2.32.0,<2.32.1
   - SharePoint Server 2016 (< 16.0.5561.1001)
+  - mshtml.dll
 affected_os:
   - Windows
   - macOS
@@ -815,6 +816,15 @@ cves:
   - id: CVE-2026-50460
     cvss: 8.1
     epss: 0.00506
+  - id: CVE-2026-54997
+    cvss: 5.5
+    epss: 0.00298
+  - id: CVE-2026-50384
+    cvss: 7
+    epss: 0.00153
+  - id: CVE-2026-50502
+    cvss: 8
+    epss: 0.006
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1511,6 +1521,7 @@ references:
   - https://sploitus.com/exploit?id=411122DF-F525-5EBC-9FBF-47D3F8CA07B7&utm_source=rss&utm_medium=rss
   - https://github.com/splunk/security_content/blob/main/detections/application/email_files_written_outside_of_the_outlook_directory.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/batch_file_write_to_system32.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___mshtml_or_mshta_network_execution_without_url_in_cli.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2096,13 +2107,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T15:29:44Z"
-    level: L2
-    summary: added CVE-2026-50357 +4
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_group_name_by_user.toml
   - at: "2026-07-27T15:32:55Z"
     level: L2
     summary: added CVE-2026-50427 +2
@@ -2131,6 +2135,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/batch_file_write_to_system32.yml
+  - at: "2026-07-27T18:06:28Z"
+    level: L2
+    summary: added CVE-2026-50384 +2
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___mshtml_or_mshta_network_execution_without_url_in_cli.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
