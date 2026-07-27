@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:08:39Z"
+lastmod: "2026-07-27T18:08:58Z"
 type: advisory
 types:
   - advisory
@@ -82,6 +82,8 @@ cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:power_bi_report_server:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:age_of_empires_ii:*:*:*:*:definitive:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -148,6 +150,7 @@ vendors:
   - 7-Zip
   - Red Hat
   - n8n
+  - RARLAB
 products:
   - PowerShell
   - Windows
@@ -611,6 +614,8 @@ products:
   - n8n >= 2.32.0,<2.32.1
   - SharePoint Server 2016 (< 16.0.5561.1001)
   - mshtml.dll
+  - WinRAR
+  - 7-Zip File Manager
 affected_os:
   - Windows
   - macOS
@@ -856,6 +861,20 @@ cves:
   - id: CVE-2026-50504
     cvss: 6.5
     epss: 0.00622
+  - id: CVE-2026-57985
+    cvss: 7.6
+    epss: 0.00479
+  - id: CVE-2026-42982
+    cvss: 7.8
+    epss: 0.00269
+  - id: CVE-2026-55948
+    cvss: 7.8
+    epss: 0.00303
+  - id: CVE-2026-56416
+    cvss: 4.8
+    epss: 0.00118
+  - id: CVE-2026-57989
+    cvss: 7.4
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1555,6 +1574,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___mshtml_or_mshta_network_execution_without_url_in_cli.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___non_network_binary_making_network_connection.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___rundll32_abuse_of_mshtml_dll_for_payload_download.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___susp_script_from_archive_triggering_network_activity.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2108,6 +2128,24 @@ iocs:
     value: Exploit:Script/ToolPaneAuthBypass.C
   - type: detection
     value: Backdoor:MSIL/LeakFang.A!dha
+  - type: process_name
+    value: explorer.exe
+  - type: process_name
+    value: winrar.exe
+  - type: process_name
+    value: 7zFM.exe
+  - type: process_name
+    value: wscript.exe
+  - type: process_name
+    value: cscript.exe
+  - type: process_argument_pattern
+    value: '*\AppData\Local\Temp\*'
+  - type: process_argument_pattern
+    value: '*\rar*'
+  - type: process_argument_pattern
+    value: '*\7z*'
+  - type: process_argument_pattern
+    value: '*.zip*'
 ioc_counts:
   application_id: 1
   asn: 3
@@ -2132,6 +2170,8 @@ ioc_counts:
   pattern: 4
   platform: 1
   process: 11
+  process_argument_pattern: 4
+  process_name: 5
   scheduled_task: 1
   signature: 3
   software: 5
@@ -2140,13 +2180,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:03:27Z"
-    level: L2
-    summary: added CVE-2026-47305 +3
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/application/email_files_written_outside_of_the_outlook_directory.yml
   - at: "2026-07-27T18:04:51Z"
     level: L2
     summary: added CVE-2026-50440 +3
@@ -2175,6 +2208,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___rundll32_abuse_of_mshtml_dll_for_payload_download.yml
+  - at: "2026-07-27T18:08:58Z"
+    level: L2
+    summary: added CVE-2026-42982 +4
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___susp_script_from_archive_triggering_network_activity.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
