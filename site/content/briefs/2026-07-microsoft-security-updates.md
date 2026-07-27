@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:08:58Z"
+lastmod: "2026-07-27T18:09:33Z"
 type: advisory
 types:
   - advisory
@@ -151,6 +151,23 @@ vendors:
   - Red Hat
   - n8n
   - RARLAB
+  - AnonFiles
+  - Discord
+  - Ghostbin
+  - Glitch
+  - Gofile
+  - Hastebin
+  - MediaFire
+  - MEGA
+  - Render
+  - Paste.ee
+  - Pastebin
+  - PasteText
+  - Storj
+  - Supabase
+  - Transfer.sh
+  - Ufile
+  - W3Schools
 products:
   - PowerShell
   - Windows
@@ -616,6 +633,30 @@ products:
   - mshtml.dll
   - WinRAR
   - 7-Zip File Manager
+  - Windows Operating System
+  - Cisco Network Visibility Module
+  - GitHub
+  - Discord CDN
+  - Dropbox
+  - MediaFire
+  - MEGA
+  - Google Cloud Storage
+  - Cloudflare Pages
+  - Cloudflare Workers
+  - Render
+  - Supabase
+  - AnonFiles
+  - Ghostbin
+  - Glitch
+  - Gofile
+  - Hastebin
+  - Paste.ee
+  - Pastebin
+  - PasteText
+  - StorjShare
+  - Transfer.sh
+  - Ufile
+  - W3Spaces
 affected_os:
   - Windows
   - macOS
@@ -875,6 +916,15 @@ cves:
     epss: 0.00118
   - id: CVE-2026-57989
     cvss: 7.4
+  - id: CVE-2026-50305
+    cvss: 7.8
+    epss: 0.00184
+  - id: CVE-2026-50528
+    cvss: 8.2
+    epss: 0.00551
+  - id: CVE-2026-58628
+    cvss: 7.8
+    epss: 0.00181
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1575,6 +1625,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___non_network_binary_making_network_connection.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___rundll32_abuse_of_mshtml_dll_for_payload_download.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___susp_script_from_archive_triggering_network_activity.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_download_from_file_sharing_website.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2146,11 +2197,67 @@ iocs:
     value: '*\7z*'
   - type: process_argument_pattern
     value: '*.zip*'
+  - type: domain
+    value: githubusercontent.com
+  - type: domain
+    value: anonfiles.com
+  - type: domain
+    value: cdn.discordapp.com
+  - type: domain
+    value: ddns.net
+  - type: domain
+    value: dl.dropboxusercontent.com
+  - type: domain
+    value: ghostbin.co
+  - type: domain
+    value: glitch.me
+  - type: domain
+    value: gofile.io
+  - type: domain
+    value: hastebin.com
+  - type: domain
+    value: mediafire.com
+  - type: domain
+    value: mega.nz
+  - type: domain
+    value: onrender.com
+  - type: domain
+    value: pages.dev
+  - type: domain
+    value: paste.ee
+  - type: domain
+    value: pastebin.com
+  - type: domain
+    value: pastetext.net
+  - type: domain
+    value: privatlab.com
+  - type: domain
+    value: send.exploit.in
+  - type: domain
+    value: sendspace.com
+  - type: domain
+    value: storage.googleapis.com
+  - type: domain
+    value: storjshare.io
+  - type: domain
+    value: supabase.co
+  - type: domain
+    value: temp.sh
+  - type: domain
+    value: transfer.sh
+  - type: domain
+    value: trycloudflare.com
+  - type: domain
+    value: ufile.io
+  - type: domain
+    value: w3spaces.com
+  - type: domain
+    value: workers.dev
 ioc_counts:
   application_id: 1
   asn: 3
   detection: 4
-  domain: 33
+  domain: 61
   email: 7
   error_code: 3
   file: 8
@@ -2180,13 +2287,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:04:51Z"
-    level: L2
-    summary: added CVE-2026-50440 +3
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/batch_file_write_to_system32.yml
   - at: "2026-07-27T18:06:28Z"
     level: L2
     summary: added CVE-2026-50384 +2
@@ -2215,6 +2315,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___susp_script_from_archive_triggering_network_activity.yml
+  - at: "2026-07-27T18:09:33Z"
+    level: L2
+    summary: added CVE-2026-50305 +2
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_download_from_file_sharing_website.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
