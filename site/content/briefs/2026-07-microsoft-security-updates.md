@@ -3,16 +3,17 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T19:52:38Z"
+lastmod: "2026-07-27T20:32:16Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
-  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
@@ -25,12 +26,6 @@ cpes:
   - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
   - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
@@ -45,6 +40,9 @@ cpes:
   - cpe:2.3:a:microsoft:.net:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:visual_studio_2022:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:minecraft_bedrock_dedicated_server:-:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -647,27 +645,21 @@ affected_os:
   - Windows 11 25H2
   - Windows 11 26H1
 cves:
-  - id: CVE-2026-56164
-    cvss: 5.3
-    epss: 0.18395
-  - id: CVE-2026-49175
-    cvss: 7.8
-    epss: 0.0024
-  - id: CVE-2026-56155
-    cvss: 7.8
-    epss: 0.02333
-  - id: CVE-2026-62825
-    cvss: 10
-    epss: 0.00697
   - id: CVE-2026-50405
     cvss: 7.8
     epss: 0.00214
   - id: CVE-2026-50648
     cvss: 7.5
     epss: 0.0084
-  - id: CVE-2026-50680
-    cvss: 8.2
-    epss: 0.00341
+  - id: CVE-2026-58635
+    cvss: 7.8
+    epss: 0.00387
+  - id: CVE-2026-55010
+    cvss: 9.8
+    epss: 0.0074
+  - id: CVE-2026-56159
+    cvss: 9.8
+    epss: 0.00996
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1385,6 +1377,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rdp_cache_file_deletion.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/wmic_xsl_execution_via_url.yml
   - https://www.reddit.com/r/blueteamsec/comments/1v8791f/helpdesk_hijackers_teams_vishing_quick_assist_and/
+  - https://www.reddit.com/r/blueteamsec/comments/1v896ql/the_sid_that_wasnt_there_bypassing_kb5014754_to/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2056,13 +2049,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:28:35Z"
-    level: L2
-    summary: added CVE-2026-50361 +2
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rdp_automaticdestinations_deletion.yml
   - at: "2026-07-27T18:28:46Z"
     level: L2
     summary: added CVE-2026-56644 +1
@@ -2091,6 +2077,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/time_provider_persistence_registry.yml
+  - at: "2026-07-27T20:32:16Z"
+    level: L2
+    summary: added CVE-2026-55010 +2
+    sources:
+      - reddit-blueteamsec
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1v896ql/the_sid_that_wasnt_there_bypassing_kb5014754_to/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
