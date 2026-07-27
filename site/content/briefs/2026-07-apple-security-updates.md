@@ -3,7 +3,7 @@ title: Apple Security Updates — July 2026
 slug: 2026-07-apple-security-updates
 description: Roundup of Apple security advisories published in July 2026.
 date: "2026-07-03T13:48:34Z"
-lastmod: "2026-07-15T06:42:32Z"
+lastmod: "2026-07-27T20:04:45Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +27,7 @@ cpes:
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=379FFFB3-48FB-5D0C-92C2-23B434647F8D&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=2C60D315-2B9E-5345-A2A8-F702C037CF66&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -97,6 +98,9 @@ products:
   - macOS Sequoia
   - macOS Sonoma
   - macOS Ventura
+  - macOS Sonoma (< 14.8.8)
+  - macOS Sequoia (< 15.7.8)
+  - macOS Tahoe (< 26.6)
 affected_os:
   - macOS
   - iOS 17
@@ -106,6 +110,7 @@ affected_os:
   - macOS Sequoia
   - macOS Sonoma
   - macOS Ventura
+  - macOS Tahoe
 cves:
   - id: CVE-1999-0524
     cvss: 4
@@ -119,6 +124,7 @@ references:
   - https://thehackernews.com/2026/07/crashstealer-macos-malware-uses.html
   - https://sploitus.com/exploit?id=379FFFB3-48FB-5D0C-92C2-23B434647F8D&utm_source=rss&utm_medium=rss
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1672
+  - https://sploitus.com/exploit?id=2C60D315-2B9E-5345-A2A8-F702C037CF66&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://github.com/F4R3SX0/iOS-Bluetooth-Ethernet-Exploit
@@ -138,18 +144,15 @@ iocs:
     value: Emil Grigorov (WWB7JA7AQV)
   - type: url
     value: https://sploitus.com/exploit?id=379FFFB3-48FB-5D0C-92C2-23B434647F8D
+  - type: url
+    value: https://sploitus.com/exploit?id=2C60D315-2B9E-5345-A2A8-F702C037CF66
 ioc_counts:
   domain: 1
   filename: 4
   ip: 1
   other: 1
-  url: 2
+  url: 3
 updates:
-  - at: "2026-07-07T13:27:17Z"
-    level: L1
-    summary: OS ios 17.5.1; OS ios 17
-    sources:
-      - exploit-db
   - at: "2026-07-13T09:40:00Z"
     level: L1
     summary: new product
@@ -178,6 +181,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1672
+  - at: "2026-07-27T20:04:45Z"
+    level: L2
+    summary: macos sequoia version < 15.7.8; macos sonoma version < 14.8.8; OS macos tahoe
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=2C60D315-2B9E-5345-A2A8-F702C037CF66&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Apple security advisories for July 2026. CVEs from this cycle are folded
