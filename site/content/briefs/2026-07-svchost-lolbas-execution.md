@@ -3,6 +3,7 @@ title: Svchost LOLBAS Execution Process Spawn
 slug: 2026-07-svchost-lolbas-execution
 description: This brief details the detection of `svchost.exe` spawning Living Off The Land Binaries and Scripts (LOLBAS) processes, indicating potential malicious code execution, privilege escalation, or persistence attempts by adversaries within a Windows environment.
 date: "2026-07-27T18:34:16Z"
+lastmod: "2026-07-27T19:52:31Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,10 @@ tags:
   - lateral-movement
   - windows
   - system-binary-proxy-execution
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
@@ -49,6 +54,14 @@ rules:
       - process_creation
       - windows
 rules_count: 1
+updates:
+  - at: "2026-07-27T19:52:31Z"
+    level: L1
+    summary: new product
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/svchost_lolbas_execution_process_spawn.yml
 ---
 
 This intelligence brief focuses on the detection of `svchost.exe`, a legitimate Windows process, spawning various Living Off The Land Binaries and Scripts (LOLBAS) executables. This activity is a significant indicator of malicious behavior, as adversaries frequently leverage LOLBAS techniques to execute commands, maintain persistence, and move laterally across networks while attempting to evade detection by blending in with legitimate system processes. The detection mechanism relies on monitoring child processes of `svchost.exe` and identifying known LOLBAS binaries such as `schtasks.exe`, `bitsadmin.exe`, `mshta.exe`, and `wmic.exe`, among others. The use of `svchost.exe` as a parent process for these binaries is highly suspicious and warrants immediate investigation, as it often signifies a compromise where an attacker has gained control over a service or process hosted by `svchost`. This technique enables stealthy execution of malicious payloads or system modifications, posing a critical risk to endpoint security.
