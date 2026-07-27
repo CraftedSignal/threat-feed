@@ -3,11 +3,16 @@ title: Critical Eval Injection Vulnerability in vBulletin Allows Remote Code Exe
 slug: 2026-07-vbulletin-eval-injection
 description: An eval injection vulnerability, identified as CVE-2026-61511, exists in vBulletin versions 5.x through 5.7.5 and 6.x through 6.2.1, specifically within the vB5_Template_Runtime::runMaths() method, allowing unauthenticated remote attackers to achieve arbitrary PHP code execution by manipulating the pagenav[pagenumber] parameter through the unauthenticated ajax/render template route with phpfuck-style encoding.
 date: "2026-07-27T14:19:04Z"
+lastmod: "2026-07-27T15:42:03Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:vbulletin:vbulletin:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:vbulletin:vbulletin:6.0.3:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - web-vulnerability
   - remote-code-execution
@@ -19,6 +24,9 @@ vendors:
 products:
   - vBulletin 5.x through 5.7.5
   - vBulletin 6.x through 6.2.1
+  - vBulletin (< 6.2.2)
+  - vBulletin (< 6.1.7)
+  - vBulletin Cloud
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -35,8 +43,28 @@ mitre_ttps:
 cves:
   - id: CVE-2026-61511
     cvss: 9.8
+  - id: CVE-2025-48827
+    cvss: 10
+    epss: 0.77681
+  - id: CVE-2025-48828
+    cvss: 9
+    epss: 0.60786
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61511
+  - https://thehackernews.com/2026/07/public-exploit-released-for-patched.html
+iocs:
+  - type: path
+    value: /includes/vb5/template/runtime.php
+  - type: path
+    value: ajax/render/pagenav
+  - type: pattern
+    value: POST requests carrying routestring=ajax/render/pagenav with unusually long or operator-heavy pagenav[pagenumber] values
+  - type: technique
+    value: phpfuck
+ioc_counts:
+  path: 2
+  pattern: 1
+  technique: 1
 rules:
   - title: Detects CVE-2026-61511 Exploitation - vBulletin Eval Injection
     description: Detects CVE-2026-61511 exploitation attempts against vBulletin by identifying malicious input in the pagenav[pagenumber] parameter via the unauthenticated ajax/render template route.
@@ -51,6 +79,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-27T15:42:03Z"
+    level: L2
+    summary: poc_available; added CVE-2025-48827 +1
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/public-exploit-released-for-patched.html
 ---
 
 A critical eval injection vulnerability (CVE-2026-61511) has been discovered in vBulletin versions 5.x up to 5.7.5 and 6.x up to 6.2.1. This flaw resides within the `vB5_Template_Runtime::runMaths()` method of the template runtime engine. Unauthenticated remote attackers can leverage this vulnerability to execute arbitrary PHP code on affected vBulletin instances. The attack vector involves supplying specially crafted input through the `pagenav[pagenumber]` parameter via the unauthenticated `ajax/render` template route. Attackers can bypass existing regex filters designed to sanitize input by utilizing "phpfuck-style" encoding techniques, which use a limited set of characters to construct and execute complex PHP payloads. This vulnerability poses a severe risk as it allows for complete compromise of the vBulletin server without requiring any prior authentication, making it highly attractive to threat actors targeting forums and community platforms.
