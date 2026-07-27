@@ -3,6 +3,7 @@ title: Windows Curl Download to Suspicious Path Detection
 slug: 2026-07-20-curl-suspicious-path
 description: This analytic detects the use of Windows Curl.exe to download files to suspicious locations, such as AppData, ProgramData, or Public directories, leveraging Endpoint Detection and Response (EDR) data by focusing on command-line executions that include the -O or --output options; this activity is significant as it can indicate an attempt to bypass security controls or establish persistence, potentially leading to unauthorized code execution, data exfiltration, or further system compromise.
 date: "2026-07-24T09:06:10Z"
+lastmod: "2026-07-27T18:23:18Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - endpoint
   - command-and-control
   - defense-evasion
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
@@ -40,6 +45,14 @@ rules:
       - process_creation
       - windows
 rules_count: 1
+updates:
+  - at: "2026-07-27T18:23:18Z"
+    level: L1
+    summary: new product
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_curl_download_to_suspicious_path.yml
 ---
 
 This threat brief describes a detection for the use of `curl.exe` on Windows systems to download files into directories commonly abused by attackers for persistence, defense evasion, or temporary storage of malicious payloads. These locations include `AppData`, `ProgramData`, `PerfLogs`, `Windows\Temp`, and `Users\Public`. Attackers leverage the legitimate `curl.exe` utility to retrieve malicious executables, scripts, or other files, often using command-line options like `-O` (output to file) or `--output` to specify a destination path. By placing files in these system or user-specific directories, adversaries attempt to blend in with legitimate system activity, maintain access, or facilitate further stages of an attack. This activity, while sometimes legitimate for administrative tasks, is highly suspicious in typical enterprise environments and warrants investigation due to its potential for leading to unauthorized code execution, data exfiltration, or further system compromise.
