@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-07-26T15:14:33Z"
+lastmod: "2026-07-27T16:03:34Z"
 type: threat
 types:
   - threat
@@ -48,6 +48,7 @@ vendors:
   - Triton
   - API
   - Microsoft
+  - Palo Alto Networks
 products:
   - www.acosol.es
   - vCenter
@@ -89,6 +90,8 @@ products:
   - Contacto Garantido
   - Check Point VPN Remote Access
   - Check Point Mobile Access
+  - www.wilberts.com
+  - Cloud NGFW
 affected_os:
   - Windows
   - Unix
@@ -458,11 +461,15 @@ iocs:
     value: www.contactogarantido.com
   - type: url
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=c80be6d9-9f48-4983-8d7d-a66e4387bdac
+  - type: domain
+    value: www.wilberts.com
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=af6a747d-1fc7-42e2-a953-0c198cf49576
 ioc_counts:
-  domain: 40
+  domain: 41
   hash_md5: 55
   ip: 5
-  url: 37
+  url: 38
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -490,13 +497,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-07-25T11:39:21Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-07-25T12:01:52Z"
     level: L1
     summary: new IOCs
@@ -519,6 +519,13 @@ updates:
     source_urls:
       - https://www.ransomware.live/group/qilin
   - at: "2026-07-26T15:14:33Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-07-27T16:03:34Z"
     level: L1
     summary: new IOCs
     sources:
