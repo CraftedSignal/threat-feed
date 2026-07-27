@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T15:32:55Z"
+lastmod: "2026-07-27T17:01:01Z"
 type: advisory
 types:
   - advisory
@@ -83,6 +83,7 @@ poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
   - https://sploitus.com/exploit?id=B4E1D3A6-7173-5883-9366-19658411A20B&utm_source=rss&utm_medium=rss
   - https://sploitus.com/exploit?id=FBD3DBC5-71EE-57F6-A156-58C2288B70BD&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=411122DF-F525-5EBC-9FBF-47D3F8CA07B7&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -604,6 +605,7 @@ products:
   - Azure AD Connect
   - n8n < 2.31.5
   - n8n >= 2.32.0,<2.32.1
+  - SharePoint Server 2016 (< 16.0.5561.1001)
 affected_os:
   - Windows
   - macOS
@@ -774,6 +776,18 @@ cves:
   - id: CVE-2026-55054
     cvss: 6.5
     epss: 0.00623
+  - id: CVE-2026-50318
+    cvss: 7.8
+    epss: 0.00257
+  - id: CVE-2026-50505
+    cvss: 7.5
+    epss: 0.00502
+  - id: CVE-2026-57982
+    cvss: 6.5
+    epss: 0.00953
+  - id: CVE-2026-50379
+    cvss: 7.5
+    epss: 0.00365
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1467,6 +1481,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_high_count_special_privilege_use_events.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_group_name_by_user.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_windows_rare_user_type10_remote_login.toml
+  - https://sploitus.com/exploit?id=411122DF-F525-5EBC-9FBF-47D3F8CA07B7&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1954,9 +1969,76 @@ iocs:
     value: https://attacker.example/x.sh
   - type: url
     value: https://sploitus.com/exploit?id=FBD3DBC5-71EE-57F6-A156-58C2288B70BD
+  - type: url
+    value: https://sploitus.com/exploit?id=411122DF-F525-5EBC-9FBF-47D3F8CA07B7
+  - type: url
+    value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50522
+  - type: url
+    value: https://vulners.com/cve/CVE-2026-50522
+  - type: url
+    value: https://nvd.nist.gov/vuln/detail/CVE-2026-50522
+  - type: url
+    value: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-50522
+  - type: url
+    value: https://www.zerodayinitiative.com/advisories/ZDI-26-412/
+  - type: url
+    value: https://digital.nhs.uk/cyber-alerts/2026/cc-4818
+  - type: url
+    value: https://www.bleepingcomputer.com/news/security/critical-sharepoint-rce-flaw-exploited-to-steal-machine-keys/
+  - type: url
+    value: https://censys.com/advisory/cve-2026-50522-cve-2026-58644/
+  - type: indicator
+    value: POST /_trust/default.aspx
+  - type: signature
+    value: SecurityContextToken
+  - type: signature
+    value: BinaryFormatter
+  - type: signature
+    value: AAEAAAD
+  - type: process
+    value: w3wp.exe
+  - type: process
+    value: cmd.exe
+  - type: process
+    value: powershell.exe
+  - type: process
+    value: pwsh.exe
+  - type: process
+    value: certutil.exe
+  - type: process
+    value: bitsadmin.exe
+  - type: process
+    value: mshta.exe
+  - type: process
+    value: rundll32.exe
+  - type: process
+    value: regsvr32.exe
+  - type: process
+    value: cscript.exe
+  - type: process
+    value: wscript.exe
+  - type: filename
+    value: '*.aspx'
+  - type: filename
+    value: '*.ashx'
+  - type: filename
+    value: '*.asmx'
+  - type: filename
+    value: '*.dll'
+  - type: filename
+    value: web.config
+  - type: detection
+    value: Exploit:Script/SuspSignoutReqBody.A
+  - type: detection
+    value: Exploit:Script/ToolPaneAuthBypass.A
+  - type: detection
+    value: Exploit:Script/ToolPaneAuthBypass.C
+  - type: detection
+    value: Backdoor:MSIL/LeakFang.A!dha
 ioc_counts:
   application_id: 1
   asn: 3
+  detection: 4
   domain: 33
   email: 7
   error_code: 3
@@ -1964,9 +2046,10 @@ ioc_counts:
   file-path: 2
   file_name: 5
   file_path: 12
-  filename: 5
+  filename: 10
   hash_md5: 12
   hash_sha256: 3
+  indicator: 1
   infrastructure_provider: 2
   ip: 1
   language: 1
@@ -1975,20 +2058,15 @@ ioc_counts:
   other: 3
   pattern: 4
   platform: 1
+  process: 11
   scheduled_task: 1
+  signature: 3
   software: 5
   string: 5
   tool: 4
-  url: 106
+  url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T15:27:39Z"
-    level: L2
-    summary: added CVE-2026-50345 +4
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_high_count_group_management_events.toml
   - at: "2026-07-27T15:27:55Z"
     level: L2
     summary: added CVE-2026-49797 +4
@@ -2017,6 +2095,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_windows_rare_user_type10_remote_login.toml
+  - at: "2026-07-27T17:01:01Z"
+    level: L2
+    summary: added CVE-2026-50318 +3
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=411122DF-F525-5EBC-9FBF-47D3F8CA07B7&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
