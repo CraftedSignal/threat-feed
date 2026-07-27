@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:09:33Z"
+lastmod: "2026-07-27T18:11:43Z"
 type: advisory
 types:
   - advisory
@@ -84,6 +84,11 @@ cpes:
   - cpe:2.3:a:microsoft:age_of_empires_ii:*:*:*:*:definitive:*:*:*
   - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2016:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2017:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2019:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2022:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2025:*:*:*:*:*:*:x64:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -925,6 +930,21 @@ cves:
   - id: CVE-2026-58628
     cvss: 7.8
     epss: 0.00181
+  - id: CVE-2026-54117
+    cvss: 8.8
+    epss: 0.01288
+  - id: CVE-2026-50364
+    cvss: 7.3
+    epss: 0.00343
+  - id: CVE-2026-50310
+    cvss: 4.7
+    epss: 0.00298
+  - id: CVE-2026-50494
+    cvss: 7.8
+    epss: 0.00311
+  - id: CVE-2026-55041
+    cvss: 7.8
+    epss: 0.00303
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1626,6 +1646,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___rundll32_abuse_of_mshtml_dll_for_payload_download.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___susp_script_from_archive_triggering_network_activity.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_download_from_file_sharing_website.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_initiated_via_msxsl.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2287,13 +2308,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:06:28Z"
-    level: L2
-    summary: added CVE-2026-50384 +2
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___mshtml_or_mshta_network_execution_without_url_in_cli.yml
   - at: "2026-07-27T18:06:41Z"
     level: L2
     summary: added CVE-2026-50340 +4
@@ -2322,6 +2336,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_download_from_file_sharing_website.yml
+  - at: "2026-07-27T18:11:43Z"
+    level: L2
+    summary: added CVE-2026-50310 +4
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_initiated_via_msxsl.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
