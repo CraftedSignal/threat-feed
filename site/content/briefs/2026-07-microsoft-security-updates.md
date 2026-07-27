@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:06:41Z"
+lastmod: "2026-07-27T18:08:39Z"
 type: advisory
 types:
   - advisory
@@ -81,6 +81,7 @@ cpes:
   - cpe:2.3:a:nlnetlabs:unbound:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:power_bi_report_server:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:age_of_empires_ii:*:*:*:*:definitive:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -840,6 +841,21 @@ cves:
   - id: CVE-2026-57088
     cvss: 7.8
     epss: 0.00278
+  - id: CVE-2026-58295
+    cvss: 8.3
+    epss: 0.00372
+  - id: CVE-2026-50663
+    cvss: 8.8
+    epss: 0.00679
+  - id: CVE-2026-50308
+    cvss: 7.8
+    epss: 0.0036
+  - id: CVE-2026-50480
+    cvss: 7.8
+    epss: 0.0024
+  - id: CVE-2026-50504
+    cvss: 6.5
+    epss: 0.00622
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1538,6 +1554,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/batch_file_write_to_system32.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___mshtml_or_mshta_network_execution_without_url_in_cli.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___non_network_binary_making_network_connection.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___rundll32_abuse_of_mshtml_dll_for_payload_download.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2123,13 +2140,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T17:01:01Z"
-    level: L2
-    summary: added CVE-2026-50318 +3
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=411122DF-F525-5EBC-9FBF-47D3F8CA07B7&utm_source=rss&utm_medium=rss
   - at: "2026-07-27T18:03:27Z"
     level: L2
     summary: added CVE-2026-47305 +3
@@ -2158,6 +2168,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___non_network_binary_making_network_connection.yml
+  - at: "2026-07-27T18:08:39Z"
+    level: L2
+    summary: added CVE-2026-50308 +4
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___rundll32_abuse_of_mshtml_dll_for_payload_download.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
