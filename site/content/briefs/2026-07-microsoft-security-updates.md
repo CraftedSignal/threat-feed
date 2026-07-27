@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T13:29:16Z"
+lastmod: "2026-07-27T15:27:39Z"
 type: advisory
 types:
   - advisory
@@ -65,6 +65,8 @@ cpes:
   - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
   - cpe:2.3:a:microsoft:office_online_server:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:azure_cyclecloud:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -701,6 +703,21 @@ cves:
   - id: CVE-2026-50659
     cvss: 6.5
     epss: 0.0055
+  - id: CVE-2026-58291
+    cvss: 6.1
+    epss: 0.00586
+  - id: CVE-2026-58608
+    cvss: 8.8
+    epss: 0.00425
+  - id: CVE-2026-50345
+    cvss: 7
+    epss: 0.00188
+  - id: CVE-2026-50428
+    cvss: 7.1
+    epss: 0.00304
+  - id: CVE-2026-58627
+    cvss: 7.5
+    epss: 0.00871
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1389,6 +1406,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-57989
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_dcsync_replication_rights.toml
   - https://thehackernews.com/2026/07/n8n-sandbox-escape-lets-workflow.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_high_count_group_management_events.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1904,13 +1922,6 @@ ioc_counts:
   url: 106
   user_agent: 6
 updates:
-  - at: "2026-07-25T13:00:48Z"
-    level: L2
-    summary: added CVE-2026-49783 +3
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=FBD3DBC5-71EE-57F6-A156-58C2288B70BD&utm_source=rss&utm_medium=rss
   - at: "2026-07-26T00:41:36Z"
     level: L2
     summary: added CVE-2026-50412 +4
@@ -1939,6 +1950,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/n8n-sandbox-escape-lets-workflow.html
+  - at: "2026-07-27T15:27:39Z"
+    level: L2
+    summary: added CVE-2026-50345 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_high_count_group_management_events.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
