@@ -3,7 +3,7 @@ title: Cisco Security Updates — July 2026
 slug: 2026-07-cisco-security-updates
 description: Roundup of Cisco security advisories published in July 2026.
 date: "2026-07-03T13:36:20Z"
-lastmod: "2026-07-27T18:11:32Z"
+lastmod: "2026-07-27T18:12:05Z"
 type: advisory
 types:
   - advisory
@@ -118,6 +118,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2374
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___outbound_connection_to_suspicious_port.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_from_process_with_no_args.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_to_ip_lookup_service_api.yml
 iocs:
   - type: url
     value: https://media.defense.gov/2026/Jul/09/2003959498/-1/-1/1/CSA_IMPROVE_ROUTER_HYGIENE.PDF
@@ -137,19 +138,98 @@ iocs:
     value: "2222"
   - type: port
     value: "51820"
+  - type: domain
+    value: api.2ip.ua
+  - type: domain
+    value: api.bigdatacloud.net
+  - type: domain
+    value: api.ipify.org
+  - type: domain
+    value: whatismyipaddress.com
+  - type: domain
+    value: canireachthe.net
+  - type: domain
+    value: checkip.amazonaws.com
+  - type: domain
+    value: checkip.dyndns.org
+  - type: domain
+    value: curlmyip.com
+  - type: domain
+    value: db-ip.com
+  - type: domain
+    value: edns.ip-api.com
+  - type: domain
+    value: eth0.me
+  - type: domain
+    value: freegeoip.app
+  - type: domain
+    value: geoipy.com
+  - type: domain
+    value: getip.pro
+  - type: domain
+    value: icanhazip.com
+  - type: domain
+    value: ident.me
+  - type: domain
+    value: ifconfig.io
+  - type: domain
+    value: ifconfig.me
+  - type: domain
+    value: ip-api.com
+  - type: domain
+    value: ip.360.cn
+  - type: domain
+    value: ip.anysrc.net
+  - type: domain
+    value: ip.taobao.com
+  - type: domain
+    value: ip.tyk.nu
+  - type: domain
+    value: ipaddressworld.com
+  - type: domain
+    value: ipapi.co
+  - type: domain
+    value: ipconfig.io
+  - type: domain
+    value: ipecho.net
+  - type: domain
+    value: ipinfo.io
+  - type: domain
+    value: ipip.net
+  - type: domain
+    value: iplocation.net
+  - type: domain
+    value: ipof.in
+  - type: domain
+    value: ipv6-test.com
+  - type: domain
+    value: ipwho.is
+  - type: domain
+    value: trackip.net
+  - type: domain
+    value: inet-ip.info
+  - type: domain
+    value: jsonip.com
+  - type: domain
+    value: myexternalip.com
+  - type: domain
+    value: seeip.org
+  - type: domain
+    value: wgetip.com
+  - type: domain
+    value: whatismyip.akamai.com
+  - type: domain
+    value: whois.pconline.com.cn
+  - type: domain
+    value: wtfismyip.com
+  - type: domain
+    value: ip.cn
 ioc_counts:
-  domain: 1
+  domain: 44
   email: 2
   port: 3
   url: 3
 updates:
-  - at: "2026-07-15T17:18:29Z"
-    level: L2
-    summary: added CVE-2026-20157
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20157
   - at: "2026-07-15T17:18:42Z"
     level: L2
     summary: added CVE-2026-20187
@@ -178,6 +258,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_from_process_with_no_args.yml
+  - at: "2026-07-27T18:12:05Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_to_ip_lookup_service_api.yml
 ---
 
 Aggregated Cisco security advisories for July 2026. CVEs from this cycle are folded
