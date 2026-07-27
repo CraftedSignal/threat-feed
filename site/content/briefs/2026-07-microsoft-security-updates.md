@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:23:11Z"
+lastmod: "2026-07-27T18:23:33Z"
 type: advisory
 types:
   - advisory
@@ -679,6 +679,7 @@ products:
   - Transfer.sh
   - Ufile
   - W3Spaces
+  - certutil.exe
 affected_os:
   - Windows
   - macOS
@@ -1001,6 +1002,9 @@ cves:
   - id: CVE-2026-55032
     cvss: 7.8
     epss: 0.00303
+  - id: CVE-2026-56165
+    cvss: 9.8
+    epss: 0.00736
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1706,6 +1710,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/detect_html_help_url_in_command_line.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/time_provider_persistence_registry.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_appcertdll_modification_via_registry.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_file_download_via_certutil.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2367,13 +2372,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:09:33Z"
-    level: L2
-    summary: added CVE-2026-50305 +2
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_download_from_file_sharing_website.yml
   - at: "2026-07-27T18:11:43Z"
     level: L2
     summary: added CVE-2026-50310 +4
@@ -2402,6 +2400,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_appcertdll_modification_via_registry.yml
+  - at: "2026-07-27T18:23:33Z"
+    level: L2
+    summary: added CVE-2026-56165
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_file_download_via_certutil.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
