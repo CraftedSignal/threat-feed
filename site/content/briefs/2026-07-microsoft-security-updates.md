@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-26T18:19:04Z"
+lastmod: "2026-07-27T12:10:45Z"
 type: advisory
 types:
   - advisory
@@ -586,6 +586,7 @@ products:
   - Microsoft.OpenApi.Kiota < 1.32.5
   - Microsoft.OpenApi.Kiota.Builder < 1.32.5
   - 7-Zip <= 26.01
+  - Azure AD Connect
 affected_os:
   - Windows
   - macOS
@@ -666,6 +667,21 @@ cves:
   - id: CVE-2026-49173
     cvss: 7.8
     epss: 0.0024
+  - id: CVE-2026-58294
+    cvss: 7.5
+    epss: 0.0034
+  - id: CVE-2026-49184
+    cvss: 8.4
+    epss: 0.00265
+  - id: CVE-2026-49795
+    cvss: 8.8
+    epss: 0.01897
+  - id: CVE-2026-50295
+    cvss: 5.5
+    epss: 0.00217
+  - id: CVE-2026-55131
+    cvss: 7.8
+    epss: 0.00303
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1352,6 +1368,7 @@ references:
   - https://sploitus.com/exploit?id=FBD3DBC5-71EE-57F6-A156-58C2288B70BD&utm_source=rss&utm_medium=rss
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_local_scheduled_job_creation.toml
   - https://nvd.nist.gov/vuln/detail/CVE-2026-57989
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_dcsync_replication_rights.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1867,13 +1884,6 @@ ioc_counts:
   url: 106
   user_agent: 6
 updates:
-  - at: "2026-07-24T16:16:53Z"
-    level: L2
-    summary: added CVE-2026-50467 +2
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-4vv7-jj25-4gh6
   - at: "2026-07-24T16:17:07Z"
     level: L2
     summary: added CVE-2026-50313 +3
@@ -1902,6 +1912,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-57989
+  - at: "2026-07-27T12:10:45Z"
+    level: L2
+    summary: added CVE-2026-49184 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_dcsync_replication_rights.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
