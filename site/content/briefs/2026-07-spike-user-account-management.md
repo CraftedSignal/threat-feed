@@ -3,7 +3,7 @@ title: Spike in User Account Management Events
 slug: 2026-07-spike-user-account-management
 description: Elastic Security's machine learning rule detects an unusual spike in Windows user account management events, including account creation, modification, or deletion, indicating potential privilege escalation or unauthorized activity by an adversary.
 date: "2026-07-27T15:28:54Z"
-lastmod: "2026-07-27T15:29:59Z"
+lastmod: "2026-07-27T15:30:10Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,7 @@ tags:
   - persistence
 vendors:
   - Elastic
+  - Okta
 products:
   - Privileged Access Detection integration
   - System integration
@@ -27,6 +28,7 @@ products:
   - Elastic Agent
   - Okta
   - Elastic Fleet
+  - Fleet Server
 affected_os:
   - Windows
 mitre_ttps:
@@ -65,6 +67,7 @@ references:
   - https://docs.elastic.co/en/integrations/pad
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_device_by_user.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_privilege_assigned_to_user.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_region_name_by_user.toml
 updates:
   - at: "2026-07-27T15:29:30Z"
     level: L1
@@ -80,6 +83,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_privilege_assigned_to_user.toml
+  - at: "2026-07-27T15:30:10Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_region_name_by_user.toml
 ---
 
 This threat brief details a detection rule developed by Elastic Security, designed to identify potential privilege escalation or unauthorized activity on Windows systems. The rule, part of the Privileged Access Detection (PAD) integration, leverages machine learning to detect unusual spikes in user account management events for individual users. Such events include the creation, modification, or deletion of user accounts. Adversaries frequently exploit these activities to gain unauthorized access, elevate privileges, or establish persistence within an environment. The rule helps defenders identify deviations from normal behavior patterns, enabling timely intervention against threats related to account manipulation. While the rule itself is a detection mechanism, the underlying activity it identifies is critical for understanding adversary behavior.
