@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:28:23Z"
+lastmod: "2026-07-27T18:28:35Z"
 type: advisory
 types:
   - advisory
@@ -675,6 +675,7 @@ products:
   - W3Spaces
   - certutil.exe
   - InstallUtil.exe
+  - Windows Jump List
 affected_os:
   - Windows
   - macOS
@@ -1063,6 +1064,15 @@ cves:
   - id: CVE-2026-62825
     cvss: 10
     epss: 0.00697
+  - id: CVE-2026-50430
+    cvss: 5.5
+    epss: 0.00353
+  - id: CVE-2026-50361
+    cvss: 7.8
+    epss: 0.00184
+  - id: CVE-2026-55021
+    cvss: 7.3
+    epss: 0.00539
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1776,6 +1786,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_kerberos_local_successful_logon.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_mark_of_the_web_bypass.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_with_namedpipe_commandline.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rdp_automaticdestinations_deletion.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2447,13 +2458,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:24:19Z"
-    level: L2
-    summary: added CVE-2026-50380 +2
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_installutil_remote_network_connection.yml
   - at: "2026-07-27T18:24:35Z"
     level: L1
     summary: new IOCs
@@ -2482,6 +2486,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_with_namedpipe_commandline.yml
+  - at: "2026-07-27T18:28:35Z"
+    level: L2
+    summary: added CVE-2026-50361 +2
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rdp_automaticdestinations_deletion.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
