@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T18:24:35Z"
+lastmod: "2026-07-27T18:24:47Z"
 type: advisory
 types:
   - advisory
@@ -1316,6 +1316,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_http_network_communication_from_msiexec.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_installutil_remote_network_connection.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_installutil_url_in_command_line.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_kerberos_local_successful_logon.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1977,13 +1978,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:23:33Z"
-    level: L2
-    summary: added CVE-2026-56165
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_file_download_via_certutil.yml
   - at: "2026-07-27T18:23:45Z"
     level: L2
     summary: added CVE-2026-32665 +4
@@ -2012,6 +2006,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_installutil_url_in_command_line.yml
+  - at: "2026-07-27T18:24:47Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_kerberos_local_successful_logon.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
