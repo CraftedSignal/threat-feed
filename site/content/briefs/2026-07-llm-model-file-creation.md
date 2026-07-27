@@ -3,6 +3,7 @@ title: Detection of Local LLM Model File Creation on Endpoints
 slug: 2026-07-llm-model-file-creation
 description: This brief describes how the creation of Large Language Model (LLM) files, including formats like .gguf, .safetensors, .ggml, and Modelfiles, by local AI inference frameworks such as Ollama, llama.cpp, GPT4All, and LM Studio can be detected on Windows endpoints, indicating potential shadow AI deployments, unauthorized model downloads, or rogue LLM infrastructure which poses data exfiltration risks and policy violations.
 date: "2026-07-27T18:17:13Z"
+lastmod: "2026-07-27T18:26:33Z"
 type: advisory
 types:
   - advisory
@@ -14,13 +15,29 @@ tags:
   - data-exfiltration
   - policy-violation
   - endpoint
+  - shadow-ai
+  - local-llm
+  - intellectual-property-theft
+  - endpoint-security
+  - windows
 vendors:
   - Ollama
+  - GGUF.ai
+  - Nomic AI
+  - Jan
+  - Hugging Face
+  - LangChain
 products:
   - Ollama
   - llama.cpp
   - GPT4All
   - LM Studio
+  - Jan AI
+  - KoboldCPP
+  - NutStudio
+  - Oobabooga
+  - HuggingFace Transformers
+  - LangChain
 affected_os:
   - Windows
 mitre_ttps:
@@ -42,11 +59,25 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: These file types are characteristic of local inference frameworks such as Ollama, llama.cpp, GPT4All, LM Studio, and similar tools that enable running LLMs locally without cloud dependencies.
     confidence_band: med
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1119
+    technique_name: Automated Collection
+    evidence: This activity is significant as it may indicate ... unauthorized model inference operations, or potential data exfiltration through local AI systems. If confirmed malicious, this could lead to ... intellectual property theft.
+    confidence_band: med
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1041
+    technique_name: Exfiltration Over C2 Channel
+    evidence: This activity is significant as it may indicate ... potential data exfiltration through local AI systems.
+    confidence_band: med
 references:
   - https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
   - https://www.ibm.com/think/topics/shadow-ai
   - https://www.splunk.com/en_us/blog/artificial-intelligence/splunk-technology-add-on-for-ollama.html
   - https://blogs.cisco.com/security/detecting-exposed-llm-servers-shodan-case-study-on-ollama
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_local_llm_framework_execution.yml
+  - https://splunkbase.splunk.com/app/8024
 rules:
   - title: Detect Local LLM Model File Creation
     description: Detects the creation of Large Language Model (LLM) files by monitoring file creation events for specific model file formats and extensions used by local AI frameworks. This helps identify potential shadow AI deployments and unauthorized model downloads.
@@ -63,7 +94,26 @@ rules:
     data_sources:
       - file_event
       - windows
-rules_count: 1
+  - title: Detect Windows Local LLM Framework Execution
+    description: Detects the execution of unauthorized local LLM frameworks (Ollama, LM Studio, GPT4All, Jan, llama.cpp, KoboldCPP, Oobabooga, NutStudio) and Python-based AI/ML libraries (HuggingFace Transformers, LangChain) on Windows endpoints by monitoring process creation events for known executables or command-line arguments.
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+    techniques:
+      - T1059
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
+updates:
+  - at: "2026-07-27T18:26:33Z"
+    level: L1
+    summary: 'added detection rule: Detect Windows Local LLM Framework Execution'
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_local_llm_framework_execution.yml
 ---
 
 This threat brief focuses on the detection of Large Language Model (LLM) file creation on Windows endpoints, a key indicator of potential "shadow AI" deployments or unauthorized local LLM infrastructure. Organizations are facing increasing risks from employees downloading and running open-source or local LLMs on corporate devices, often bypassing established security controls and data governance policies. These local inference frameworks, such as Ollama, llama.cpp, GPT4All, and LM Studio, utilize specific file formats like quantized models (.gguf, .ggml), safetensors files, and proprietary Modelfiles. The creation of these files suggests that LLMs are being run locally, potentially processing sensitive company data outside of approved, monitored environments. This can lead to significant data exfiltration risks, intellectual property leakage, and security blind spots, as these decentralized AI deployments often operate without the oversight of enterprise monitoring systems, making it difficult to track data usage and ensure compliance. This detection method provides visibility into such activities, enabling defenders to identify and mitigate these risks proactively.
