@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T17:01:01Z"
+lastmod: "2026-07-27T18:03:27Z"
 type: advisory
 types:
   - advisory
@@ -78,6 +78,7 @@ cpes:
   - cpe:2.3:a:microsoft:office_2021:*:*:*:*:ltsc:macos:-:*
   - cpe:2.3:a:microsoft:office_2024:*:*:*:*:ltsc:macos:-:*
   - cpe:2.3:a:microsoft:office_365:*:*:*:*:-:*:*:*
+  - cpe:2.3:a:nlnetlabs:unbound:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -788,6 +789,18 @@ cves:
   - id: CVE-2026-50379
     cvss: 7.5
     epss: 0.00365
+  - id: CVE-2026-50302
+    cvss: 4.2
+    epss: 0.00236
+  - id: CVE-2026-47305
+    cvss: 7.8
+    epss: 0.00335
+  - id: CVE-2026-58619
+    cvss: 7
+    epss: 0.00229
+  - id: CVE-2026-50243
+    cvss: 3.7
+    epss: 0.00107
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1482,6 +1495,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_group_name_by_user.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_windows_rare_user_type10_remote_login.toml
   - https://sploitus.com/exploit?id=411122DF-F525-5EBC-9FBF-47D3F8CA07B7&utm_source=rss&utm_medium=rss
+  - https://github.com/splunk/security_content/blob/main/detections/application/email_files_written_outside_of_the_outlook_directory.yml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2067,13 +2081,6 @@ ioc_counts:
   url: 115
   user_agent: 6
 updates:
-  - at: "2026-07-27T15:27:55Z"
-    level: L2
-    summary: added CVE-2026-49797 +4
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_high_count_special_logon_events.toml
   - at: "2026-07-27T15:28:12Z"
     level: L2
     summary: added CVE-2026-55003 +1
@@ -2102,6 +2109,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=411122DF-F525-5EBC-9FBF-47D3F8CA07B7&utm_source=rss&utm_medium=rss
+  - at: "2026-07-27T18:03:27Z"
+    level: L2
+    summary: added CVE-2026-47305 +3
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/application/email_files_written_outside_of_the_outlook_directory.yml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
