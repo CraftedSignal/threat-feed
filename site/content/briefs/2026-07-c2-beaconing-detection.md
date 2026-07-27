@@ -1,22 +1,18 @@
 ---
-title: Statistical Model Detected Command-and-Control Beaconing Activity
+title: High Confidence Command and Control Beaconing Detected by Statistical Model
 slug: 2026-07-c2-beaconing-detection
-description: Elastic Security's statistical model identifies command-and-control (C2) beaconing activity in network logs on Windows and Linux systems by analyzing network traffic patterns and excluding known benign processes, enabling defenders to detect and respond to stealthy adversary communications for persistence and data exfiltration.
-date: "2026-07-27T15:26:08Z"
+description: This Elastic detection rule identifies high-confidence command-and-control (C2) beaconing activity, a technique allowing threat actors to maintain stealthy communication, receive instructions, exfiltrate data, and sustain persistence in compromised networks.
+date: "2026-07-27T15:27:04Z"
 type: advisory
 types:
   - advisory
 severities:
   - low
 tags:
+  - network
+  - c2-beaconing
   - command-and-control
-  - beaconing
-  - network-detection
-  - endpoint-security
-  - machine-learning
-affected_os:
-  - Windows
-  - Linux
+  - anomaly-detection
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
@@ -30,32 +26,30 @@ mitre_ttps:
     technique_name: Web Service
     evidence: Beaconing can help attackers maintain stealthy communication with their C2 servers, receive instructions and payloads, exfiltrate data and maintain persistence in a network.
     confidence_band: high
-  - tactic_id: TA0011
-    tactic_name: Command and Control
-    technique_id: T1102
-    technique_name: ""
-    evidence: Beaconing can help attackers maintain stealthy communication with their C2 servers, receive instructions and payloads, exfiltrate data and maintain persistence in a network.
-    confidence_band: high
 references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
   - https://docs.elastic.co/en/integrations/beaconing
   - https://www.elastic.co/security-labs/identifying-beaconing-malware-using-elastic
 ---
 
-This brief describes a detection capability from Elastic Security designed to identify command-and-control (C2) beaconing activity. The detection relies on a statistical model that analyzes network logs to pinpoint periodic, stealthy communication patterns indicative of C2. C2 beaconing allows attackers to maintain covert communication channels with compromised systems, receive instructions, deliver additional payloads, exfiltrate sensitive data, and ensure persistence within a network. The rule specifically targets the output of Elastic's Network Beaconing Identification integration, which processes network events collected by the Elastic Defend integration from both Windows and Linux endpoints. It intelligently filters out known benign processes like `metricbeat.exe`, `MsMpEng.exe`, `OUTLOOK.EXE`, and `dnf` to reduce false positives and focus on genuinely anomalous behavior. This detection capability is crucial for identifying sophisticated post-exploitation activities often associated with various threat actors.
+This brief describes an Elastic Security detection rule designed to identify command-and-control (C2) beaconing activity with high confidence using a statistical model. C2 beaconing is a critical technique used by adversaries to maintain covert communication channels with compromised systems, enabling them to receive instructions, deploy additional payloads, exfiltrate sensitive data, and ensure persistence within a targeted network. The detection leverages Elastic's Network Beaconing Identification integration, which employs a statistical framework to analyze network logs and assign a beaconing score. A high score, specifically a `beacon_stats.beaconing_score` of 3, indicates a strong likelihood of malicious C2 activity. This detection capability requires the Elastic Defend integration for network log collection and a Fleet Server for the Network Beaconing Identification integration.
 
 ## Attack Chain
 
-This brief describes a detection mechanism for command-and-control (C2) beaconing, which is a post-compromise activity. It does not detail a specific attack chain from initial access through impact, as the focus is on the detection of the C2 communication behavior itself rather than the full sequence of an adversary's actions. The beaconing activity typically occurs after initial access has been gained and malware has been deployed, serving to maintain persistent communication between the compromised host and the attacker's C2 infrastructure.
+This brief describes a detection mechanism for command-and-control beaconing, not a full attack chain from initial access to impact. The detection occurs during the command and control phase of an attack.
 
 ## Impact
 
-Successful C2 beaconing enables adversaries to maintain long-term unauthorized access to compromised systems and networks. This can lead to various severe impacts including persistent data exfiltration of sensitive information, deployment of additional malicious payloads (e.g., ransomware), lateral movement across the network, and establishment of backdoors for future access. The stealthy nature of beaconing, by mimicking legitimate traffic patterns, allows attackers to operate undetected for extended periods, maximizing the potential for damage and intellectual property theft. The specific number of victims and sectors targeted can vary widely depending on the adversary and their objectives, but the underlying capability of sustained C2 communication significantly elevates the risk of profound financial, reputational, and operational damage.
+If C2 beaconing activity goes undetected, attackers can maintain a persistent foothold within the network, allowing for sustained control over compromised systems. This can lead to significant data exfiltration, deployment of further malicious payloads (such as ransomware or destructive malware), privilege escalation, and lateral movement across the organization's infrastructure. The long-term presence enabled by effective C2 communication can result in severe financial loss, reputational damage, and operational disruption.
 
 ## Recommendation
 
-* Deploy the Network Beaconing Identification integration and Elastic Defend to collect the necessary `ml_beaconing.all` log data for this detection.
-* Monitor alerts generated by the "Statistical Model Detected C2 Beaconing Activity" rule in your Elastic Security environment for potential C2 communications.
-* Investigate network traffic logs and associated processes for any alerts, cross-referencing IP addresses with threat intelligence as part of your incident response process.
-* Regularly review and update the list of excluded `process.name` values in the rule's query to minimize false positives arising from legitimate applications that exhibit periodic network communication.
-* Isolate systems identified with C2 beaconing activity to prevent further communication and conduct a thorough forensic analysis and malware scan.
+* Deploy the Network Beaconing Identification integration and Elastic Defend to collect the necessary network logs for the detection rule.
+* Review the network traffic logs from the `ml_beaconing.all` index to investigate the source and destination IP addresses associated with detected beaconing activity.
+* Correlate identified IP addresses and domain names with known malicious IP databases or threat intelligence feeds.
+* Analyze the frequency and pattern of beaconing activity to assess alignment with typical C2 communication patterns.
+* Examine payloads or data transferred during flagged communication sessions for sensitive information exfiltration or malicious instructions.
+* Consult the investigation guide provided in the source material for detailed triage steps.
+* Isolate affected systems from the network to prevent further communication with C2 servers and contain the threat.
+* Conduct thorough analysis of network traffic logs to identify additional compromised systems or lateral movement within the network.
+* Apply security patches and updates to all affected systems and change all associated credentials to prevent unauthorized access.
