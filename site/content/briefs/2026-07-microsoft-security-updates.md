@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T12:10:45Z"
+lastmod: "2026-07-27T13:29:16Z"
 type: advisory
 types:
   - advisory
@@ -64,6 +64,7 @@ cpes:
   - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
   - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
   - cpe:2.3:a:microsoft:office_online_server:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:azure_cyclecloud:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=1994C25F-7EC9-5173-B572-042AF6615038&utm_source=rss&utm_medium=rss
@@ -128,6 +129,7 @@ vendors:
   - 7-Zip Project
   - 7-Zip
   - Red Hat
+  - n8n
 products:
   - PowerShell
   - Windows
@@ -587,6 +589,8 @@ products:
   - Microsoft.OpenApi.Kiota.Builder < 1.32.5
   - 7-Zip <= 26.01
   - Azure AD Connect
+  - n8n < 2.31.5
+  - n8n >= 2.32.0,<2.32.1
 affected_os:
   - Windows
   - macOS
@@ -682,6 +686,21 @@ cves:
   - id: CVE-2026-55131
     cvss: 7.8
     epss: 0.00303
+  - id: CVE-2026-57969
+    cvss: 8.8
+    epss: 0.00526
+  - id: CVE-2026-50342
+    cvss: 8.8
+    epss: 0.00214
+  - id: CVE-2026-50347
+    cvss: 7.8
+    epss: 0.00435
+  - id: CVE-2026-50376
+    cvss: 6.5
+    epss: 0.00868
+  - id: CVE-2026-50659
+    cvss: 6.5
+    epss: 0.0055
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1369,6 +1388,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_local_scheduled_job_creation.toml
   - https://nvd.nist.gov/vuln/detail/CVE-2026-57989
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_dcsync_replication_rights.toml
+  - https://thehackernews.com/2026/07/n8n-sandbox-escape-lets-workflow.html
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1884,13 +1904,6 @@ ioc_counts:
   url: 106
   user_agent: 6
 updates:
-  - at: "2026-07-24T16:17:07Z"
-    level: L2
-    summary: added CVE-2026-50313 +3
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-4rj6-vrwv-wr8m
   - at: "2026-07-25T13:00:48Z"
     level: L2
     summary: added CVE-2026-49783 +3
@@ -1919,6 +1932,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_dcsync_replication_rights.toml
+  - at: "2026-07-27T13:29:16Z"
+    level: L2
+    summary: added CVE-2026-50342 +4
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/n8n-sandbox-escape-lets-workflow.html
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
