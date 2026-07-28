@@ -3,7 +3,7 @@ title: Unusual Process Writing Data to an External Device Detected by Machine Le
 slug: 2026-07-unusual-process-external-device
 description: Elastic's Data Exfiltration Detection integration leverages machine learning to identify rare processes writing data to external devices, indicating potential data exfiltration by adversaries using benign-looking processes.
 date: "2026-07-28T18:05:39Z"
-lastmod: "2026-07-28T18:40:28Z"
+lastmod: "2026-07-28T18:41:15Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +43,7 @@ tags:
   - command-and-control
   - persistence
   - network-anomaly
+  - network-traffic-analysis
 vendors:
   - Elastic
   - Microsoft
@@ -213,14 +214,14 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_high_count_network_events.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_linux_anomalous_network_port_activity.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_rare_destination_country.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_spike_in_traffic_to_a_country.toml
+  - https://www.elastic.co/guide/en/kibana/current/xpack-ml-anomalies.html
+  - https://www.elastic.co/guide/en/fleet/current/fleet-server.html
+  - https://www.elastic.co/guide/en/security/current/configure-endpoint-integration-policy.html
+  - https://www.elastic.co/guide/en/fleet/current/agent-policy.html
+  - https://www.elastic.co/guide/en/security/current/install-endpoint.html
+  - https://docs.elastic.co/integrations/network_traffic
 updates:
-  - at: "2026-07-28T18:33:56Z"
-    level: L1
-    summary: 'merged source coverage: Detection of Unusual Linux Username Activity via Machine Learning'
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_linux_anomalous_user_name.toml
   - at: "2026-07-28T18:35:09Z"
     level: L1
     summary: 'merged source coverage: Spike in Host-Based Traffic Detected by Machine Learning'
@@ -249,6 +250,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_rare_destination_country.toml
+  - at: "2026-07-28T18:41:15Z"
+    level: L1
+    summary: 'merged source coverage: Spike in Network Traffic To a Country Detection'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_spike_in_traffic_to_a_country.toml
 ---
 
 Elastic has released a machine learning-based detection rule designed to identify potential data exfiltration attempts. This rule, part of the Data Exfiltration Detection integration, focuses on detecting unusual or rare processes that write data to external devices. Adversaries frequently use seemingly legitimate processes to mask their data exfiltration activities, making such abnormal behavior a strong indicator of compromise. The detection relies on Elastic's Anomaly Detection feature, analyzing network and file events collected via integrations like Elastic Defend and Network Packet Capture. This capability, available for Elastic Stack version 9.4.0 and higher, helps defenders identify deviations from typical process behavior, flagging potential threats where sensitive data might be transferred out of the network via an unapproved or suspicious channel.
