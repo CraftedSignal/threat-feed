@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-28T19:24:33Z"
+lastmod: "2026-07-28T19:24:48Z"
 type: advisory
 types:
   - advisory
@@ -157,6 +157,8 @@ products:
   - Adobe Bridge <= 15.1.6
   - Adobe Bridge (< 16.0.6)
   - Adobe Bridge (< 15.1.7)
+  - Adobe Bridge (<= 16.0.5)
+  - Adobe Bridge (<= 15.1.6)
 affected_os:
   - Windows
   - macOS
@@ -217,6 +219,11 @@ cves:
   - id: CVE-2026-48337
     cvss: 7.8
     epss: 0.00138
+  - id: CVE-2026-48336
+    cvss: 7.8
+    epss: 0.00138
+  - id: CVE-2026-48391
+    cvss: 8.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -266,6 +273,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48388
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48374
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48391
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48392
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -300,13 +308,6 @@ ioc_counts:
   email: 2
   url: 10
 updates:
-  - at: "2026-07-28T14:42:11Z"
-    level: L2
-    summary: added CVE-2026-48321 +2
-    sources:
-      - reddit-blueteamsec
-    source_urls:
-      - https://www.reddit.com/r/blueteamsec/comments/1v8xk9z/hermeticreader_the_vulnerability_that_turned/
   - at: "2026-07-28T18:53:14Z"
     level: L2
     summary: added CVE-2026-48274 +4
@@ -335,6 +336,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48391
+  - at: "2026-07-28T19:24:48Z"
+    level: L2
+    summary: added CVE-2026-48336 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48392
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
