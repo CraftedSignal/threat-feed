@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-28T18:07:24Z"
+lastmod: "2026-07-28T18:08:23Z"
 type: advisory
 types:
   - advisory
@@ -79,6 +79,8 @@ cpes:
   - cpe:2.3:a:microsoft:sql_server_2019:*:*:*:*:*:*:x64:*
   - cpe:2.3:a:microsoft:sql_server_2022:*:*:*:*:*:*:x64:*
   - cpe:2.3:a:microsoft:sql_server_2025:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x64:*
+  - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x86:*
 has_poc: true
 tags:
   - roundup
@@ -802,6 +804,15 @@ cves:
   - id: CVE-2026-50448
     cvss: 7.8
     epss: 0.00335
+  - id: CVE-2026-50339
+    cvss: 5.5
+    epss: 0.00353
+  - id: CVE-2026-50314
+    cvss: 7.8
+    epss: 0.00437
+  - id: CVE-2026-63818
+    cvss: 8.4
+    epss: 0.00132
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1526,6 +1537,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_ephemeral_container_added.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_process_args.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_session_duration.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_variance_rdp_session_duration.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2251,13 +2263,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-28T10:52:09Z"
-    level: L2
-    summary: added CVE-2026-50303 +4
-    sources:
-      - hackread
-    source_urls:
-      - https://hackread.com/fake-it-calls-microsoft-teams-gogrpc-backdoor/
   - at: "2026-07-28T12:56:30Z"
     level: L2
     summary: added CVE-2026-50388 +4
@@ -2286,6 +2291,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_session_duration.toml
+  - at: "2026-07-28T18:08:23Z"
+    level: L2
+    summary: added CVE-2026-50314 +2
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_variance_rdp_session_duration.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
