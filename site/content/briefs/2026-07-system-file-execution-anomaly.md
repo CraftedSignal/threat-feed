@@ -3,6 +3,7 @@ title: System File Execution Location Anomaly
 slug: 2026-07-system-file-execution-anomaly
 description: This brief describes the detection of Windows system binaries executing from uncommon locations, a defense evasion and stealth technique employed by various threat actors including Lazarus Group and Sidewinder APT, indicating potential malicious activity on an endpoint.
 date: "2026-07-08T23:28:00Z"
+lastmod: "2026-07-28T08:27:28Z"
 type: threat
 types:
   - threat
@@ -70,6 +71,14 @@ rules:
       - process_creation
       - windows
 rules_count: 1
+updates:
+  - at: "2026-07-28T08:27:28Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_system_exe_anomaly.yml
 ---
 
 This threat brief focuses on detecting anomalous executions of standard Windows system binaries from non-standard or unexpected file system locations. While these binaries (such as `certutil.exe`, `dfrgui.exe`, `svchost.exe`, `wsmprovhost.exe`) are legitimate components of the operating system, their execution from directories outside of `C:\Windows\System32\` or other designated system paths is highly suspicious. Threat actors, including groups like Lazarus Group and Sidewinder APT, leverage this technique for defense evasion and stealth, attempting to blend malicious activity with legitimate system processes. By relocating and executing these binaries, adversaries can bypass security controls that only monitor typical system paths, establish persistence, load malicious modules, or achieve other post-exploitation objectives, making their activities harder to detect. This anomaly indicates an active compromise and warrants immediate investigation.
