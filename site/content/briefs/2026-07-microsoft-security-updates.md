@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-28T10:05:23Z"
+lastmod: "2026-07-28T10:52:09Z"
 type: advisory
 types:
   - advisory
@@ -62,6 +62,7 @@ cpes:
   - cpe:2.3:a:microsoft:office_online_server:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:windows_admin_center:*:*:*:*:*:*:*:*
   - cpe:2.3:a:nlnetlabs:unbound:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:365_copilot:*:*:*:*:*:android:*:*
 has_poc: true
 tags:
   - roundup
@@ -640,6 +641,7 @@ products:
   - Windows Time Service
   - MeshAgent
   - Zoho Assist Unattended Agent
+  - Amazon S3
 affected_os:
   - Windows
   - macOS
@@ -705,6 +707,21 @@ cves:
   - id: CVE-2026-44687
     cvss: 3.7
     epss: 0.00218
+  - id: CVE-2026-50695
+    cvss: 7.5
+    epss: 0.00796
+  - id: CVE-2026-55899
+    cvss: 7.8
+    epss: 0.00303
+  - id: CVE-2026-58618
+    cvss: 7.8
+    epss: 0.00282
+  - id: CVE-2026-50303
+    cvss: 5.5
+    epss: 0.00202
+  - id: CVE-2026-50387
+    cvss: 7.8
+    epss: 0.01921
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1424,6 +1441,7 @@ references:
   - https://www.reddit.com/r/blueteamsec/comments/1v8791f/helpdesk_hijackers_teams_vishing_quick_assist_and/
   - https://www.reddit.com/r/blueteamsec/comments/1v896ql/the_sid_that_wasnt_there_bypassing_kb5014754_to/
   - https://blog.talosintelligence.com/ir-trends-q2-2026/
+  - https://hackread.com/fake-it-calls-microsoft-teams-gogrpc-backdoor/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2098,13 +2116,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:30:10Z"
-    level: L2
-    summary: added CVE-2026-44806 +4
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/wmic_xsl_execution_via_url.yml
   - at: "2026-07-27T18:37:46Z"
     level: L2
     summary: added CVE-2026-50346 +2
@@ -2133,6 +2144,13 @@ updates:
       - talos
     source_urls:
       - https://blog.talosintelligence.com/ir-trends-q2-2026/
+  - at: "2026-07-28T10:52:09Z"
+    level: L2
+    summary: added CVE-2026-50303 +4
+    sources:
+      - hackread
+    source_urls:
+      - https://hackread.com/fake-it-calls-microsoft-teams-gogrpc-backdoor/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
