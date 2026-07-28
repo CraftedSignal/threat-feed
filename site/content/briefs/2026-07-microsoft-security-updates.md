@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-28T10:52:09Z"
+lastmod: "2026-07-28T12:56:30Z"
 type: advisory
 types:
   - advisory
@@ -63,6 +63,11 @@ cpes:
   - cpe:2.3:a:microsoft:windows_admin_center:*:*:*:*:*:*:*:*
   - cpe:2.3:a:nlnetlabs:unbound:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:365_copilot:*:*:*:*:*:android:*:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -144,6 +149,7 @@ vendors:
   - W3Schools
   - MeshCentral
   - Zoho
+  - RemSupp
 products:
   - PowerShell
   - Windows
@@ -642,6 +648,8 @@ products:
   - MeshAgent
   - Zoho Assist Unattended Agent
   - Amazon S3
+  - RemSupp
+  - Chaos ransomware
 affected_os:
   - Windows
   - macOS
@@ -722,6 +730,21 @@ cves:
   - id: CVE-2026-50387
     cvss: 7.8
     epss: 0.01921
+  - id: CVE-2026-50388
+    cvss: 7.8
+    epss: 0.00435
+  - id: CVE-2026-50461
+    cvss: 7.8
+    epss: 0.00335
+  - id: CVE-2026-50659
+    cvss: 6.5
+    epss: 0.0055
+  - id: CVE-2026-50674
+    cvss: 7
+    epss: 0.0026
+  - id: CVE-2026-56186
+    cvss: 8.1
+    epss: 0.01059
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1442,6 +1465,7 @@ references:
   - https://www.reddit.com/r/blueteamsec/comments/1v896ql/the_sid_that_wasnt_there_bypassing_kb5014754_to/
   - https://blog.talosintelligence.com/ir-trends-q2-2026/
   - https://hackread.com/fake-it-calls-microsoft-teams-gogrpc-backdoor/
+  - https://www.sophos.com/en-us/blog/chaos-in-teams-vishing
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2081,24 +2105,74 @@ iocs:
     value: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/olympic_destroyer/sysmon.log
   - type: file-extension
     value: .SINOBI
+  - type: domain
+    value: sequrityupdate.top
+  - type: domain
+    value: scan-security.top
+  - type: domain
+    value: system-online.top
+  - type: domain
+    value: system-connect.top
+  - type: domain
+    value: corp-connect.top
+  - type: domain
+    value: info-secure.top
+  - type: domain
+    value: supportsoft.top
+  - type: domain
+    value: update-syscontrol.top
+  - type: domain
+    value: sequpdate.top
+  - type: domain
+    value: service-clien.top
+  - type: domain
+    value: service-corporation.top
+  - type: domain
+    value: scansequrity.top
+  - type: domain
+    value: service-help.top
+  - type: domain
+    value: it-service.top
+  - type: domain
+    value: sequritycheck.top
+  - type: domain
+    value: upsecscan.top
+  - type: ip
+    value: 94.140.114.192
+  - type: ip
+    value: 94.140.115.18
+  - type: ip
+    value: 94.140.115.129
+  - type: file_path
+    value: C:\ProgramData\AppSreen\logs\appscreen.log
+  - type: registry_key
+    value: HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Realtek HD Audio Universal Service
+  - type: registry_key
+    value: HKCU\Software\Microsoft\Windows\CurrentVersion\Run\WinAudio
+  - type: filename
+    value: sekv*.exe
+  - type: filename
+    value: helper*.exe
+  - type: filename
+    value: 74fs*.exe
 ioc_counts:
   application_id: 1
   asn: 3
   detection: 4
-  domain: 61
+  domain: 77
   email: 7
   error_code: 3
   file: 8
   file-extension: 1
   file-path: 2
   file_name: 5
-  file_path: 12
-  filename: 10
+  file_path: 13
+  filename: 13
   hash_md5: 12
   hash_sha256: 3
   indicator: 1
   infrastructure_provider: 2
-  ip: 1
+  ip: 4
   language: 1
   library: 9
   os_version: 1
@@ -2108,6 +2182,7 @@ ioc_counts:
   process: 11
   process_argument_pattern: 4
   process_name: 5
+  registry_key: 2
   scheduled_task: 1
   signature: 3
   software: 5
@@ -2116,13 +2191,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:37:46Z"
-    level: L2
-    summary: added CVE-2026-50346 +2
-    sources:
-      - reddit-blueteamsec
-    source_urls:
-      - https://www.reddit.com/r/blueteamsec/comments/1v8791f/helpdesk_hijackers_teams_vishing_quick_assist_and/
   - at: "2026-07-27T19:52:38Z"
     level: L2
     summary: added CVE-2026-50405 +2
@@ -2151,6 +2219,13 @@ updates:
       - hackread
     source_urls:
       - https://hackread.com/fake-it-calls-microsoft-teams-gogrpc-backdoor/
+  - at: "2026-07-28T12:56:30Z"
+    level: L2
+    summary: added CVE-2026-50388 +4
+    sources:
+      - sophos-xops
+    source_urls:
+      - https://www.sophos.com/en-us/blog/chaos-in-teams-vishing
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
