@@ -3,7 +3,7 @@ title: 'CVE-2026-50107: NGINX Gateway Fabric Configuration Injection Vulnerabili
 slug: 2026-06-nginx-gateway-fabric-config-injection
 description: An injection vulnerability, CVE-2026-50107, exists in the NGINX configuration generator component of NGINX Gateway Fabric when configured with NGINX Plus or NGINX Open Source as the data plane, allowing authenticated attackers with CRD modification permissions to inject arbitrary NGINX configuration directives via unsanitized user-supplied string values in the access log format setting, leading to control plane compromise and potential defense evasion or system impact.
 date: "2026-06-17T20:39:52Z"
-lastmod: "2026-07-10T11:52:12Z"
+lastmod: "2026-07-28T08:00:48Z"
 type: advisory
 types:
   - advisory
@@ -11,14 +11,41 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:f5:nginx_gateway_fabric:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r33:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r33:p1:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r33:p2:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r33:p3:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r34:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r34:p1:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r34:p2:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r35:p1:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r36:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r36:p1:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r36:p2:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_open_source:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:dos:4.9.0:*:*:*:*:nginx:*:*
+  - cpe:2.3:a:f5:nginx_app_protect_dos:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_app_protect_waf:*:*:*:*:*:*:*:*
   - cpe:2.3:a:f5:nginx_ingress_controller:*:*:*:*:*:*:*:*
   - cpe:2.3:a:f5:nginx_ingress_controller:4.0.0:*:*:*:*:*:*:*
   - cpe:2.3:a:f5:nginx_ingress_controller:4.0.1:*:*:*:*:*:*:*
   - cpe:2.3:a:f5:nginx_instance_manager:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:f5:nginx_open_source:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_open_source:1.31.1:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r3:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r30:-:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r30:p1:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r30:p2:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r31:-:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r31:p1:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r31:p2:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r31:p3:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_plus:r32:-:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_open_source:1.31.0:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=B132E072-36D8-5390-949D-A06FA9ADC7B5&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=55A2FAF2-9583-513B-A7DC-8A6DC7AAB473&utm_source=rss&utm_medium=rss
 tags:
   - config-injection
   - nginx
@@ -38,6 +65,11 @@ products:
   - nginx < 1.31.2
   - XQUIC (<= v1.9.4)
   - Tengine
+  - F5 Nginx_Plus
+  - NGINX Open Source < 1.28.3
+  - NGINX Open Source < 1.29.7
+  - NGINX Open Source < 1.30.4
+  - NGINX Open Source < 1.31.3
 affected_os:
   - Linux
 mitre_ttps:
@@ -46,20 +78,34 @@ mitre_ttps:
     technique_id: T1562
     technique_name: Impair Defenses
 cves:
-  - id: CVE-2026-50107
-    cvss: 8.1
-    epss: 0.00492
-  - id: CVE-2026-42530
-    cvss: 8.1
-    epss: 0.03225
   - id: CVE-2026-11311
     cvss: 8.1
     epss: 0.00567
+  - id: CVE-2026-28755
+    cvss: 5.4
+    epss: 0.00133
+  - id: CVE-2026-42055
+    cvss: 8.1
+    epss: 0.04044
+  - id: CVE-2026-42926
+    cvss: 5.8
+    epss: 0.00339
+  - id: CVE-2026-9256
+    cvss: 8.1
+    epss: 0.09884
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50107
   - https://www.securityweek.com/f5-patches-critical-high-severity-nginx-vulnerabilities/
   - https://sploitus.com/exploit?id=B132E072-36D8-5390-949D-A06FA9ADC7B5&utm_source=rss&utm_medium=rss
   - https://thehackernews.com/2026/07/unpatched-xring-flaw-in-xquic-lets.html
+  - https://sploitus.com/exploit?id=55A2FAF2-9583-513B-A7DC-8A6DC7AAB473&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=55A2FAF2-9583-513B-A7DC-8A6DC7AAB473
+  - type: url
+    value: https://github.com/0xCyberstan/CVE-2026-42533-Config-Scanner
+ioc_counts:
+  url: 2
 rules:
   - title: Detect NginxProxy CRD Modification with Malicious Access Log Format
     description: Detects CVE-2026-50107 exploitation — attempts to create or update NginxProxy CRDs with NGINX configuration injection keywords in the access log format setting, indicative of arbitrary NGINX directive injection.
@@ -105,6 +151,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/unpatched-xring-flaw-in-xquic-lets.html
+  - at: "2026-07-28T08:00:48Z"
+    level: L2
+    summary: added CVE-2026-28755 +3
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=55A2FAF2-9583-513B-A7DC-8A6DC7AAB473&utm_source=rss&utm_medium=rss
 ---
 
 A critical injection vulnerability, identified as CVE-2026-50107, affects NGINX Gateway Fabric when utilizing NGINX Plus or NGINX Open Source as its data plane. This flaw resides within the NGINX configuration generator component, where user-supplied string values provided in the `access log format` setting of `NginxProxy` Custom Resource Definitions (CRDs) are directly rendered into NGINX configuration templates without proper sanitization or escaping. An authenticated attacker, possessing the necessary permissions to create or modify these CRDs, can exploit this vulnerability to craft malicious values, effectively injecting arbitrary NGINX configuration directives. This is fundamentally a control plane issue, meaning the direct trigger occurs at the management layer, enabling unauthorized changes to the NGINX data plane's behavior without direct data plane exposure during the exploitation itself.
