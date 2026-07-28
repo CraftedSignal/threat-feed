@@ -3,7 +3,7 @@ title: Shai-Hulud Campaign Activity
 slug: 2026-07-shai-hulud-campaign
 description: Tracking brief for the Shai-Hulud campaign; individual sightings are folded in as reported.
 date: "2026-07-09T13:04:28Z"
-lastmod: "2026-07-20T13:12:56Z"
+lastmod: "2026-07-28T22:00:31Z"
 type: advisory
 types:
   - advisory
@@ -34,6 +34,12 @@ vendors:
   - AsyncAPI
   - Brave
   - Mozilla
+  - GitLab
+  - JFrog
+  - Docker
+  - Node.js
+  - Python
+  - Ruby
 products:
   - jscrambler 8.14.0
   - npm
@@ -66,6 +72,21 @@ products:
   - Edge
   - macOS Keychain
   - GitHub
+  - npm packages
+  - PyPI packages
+  - RubyGems packages
+  - JFrog Artifactory
+  - GitLab
+  - Docker
+  - Kubernetes
+  - Bun runtime
+  - PowerShell
+  - curl
+  - wget
+  - Node.js
+  - Python
+  - systemctl
+  - kubectl
 affected_os:
   - Windows
   - macOS
@@ -75,6 +96,7 @@ references:
   - https://www.wiz.io/blog/m-red-team-asyncapi-supply-chain-compromise-via-github-actions
   - https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/impact_high_number_of_protected_branch_force_pushes_by_user.toml
+  - https://www.intel471.com/blog/software-supply-chain-attacks-weaponizing-trusted-developer-workflows
 iocs:
   - type: package
     value: jscrambler@8.14.0
@@ -145,6 +167,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/impact_high_number_of_protected_branch_force_pushes_by_user.toml
+  - at: "2026-07-28T22:00:31Z"
+    level: L1
+    summary: new product
+    sources:
+      - intel471
+    source_urls:
+      - https://www.intel471.com/blog/software-supply-chain-attacks-weaponizing-trusted-developer-workflows
 ---
 
 This brief tracks activity attributed to the Shai-Hulud campaign. Sightings and
