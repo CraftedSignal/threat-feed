@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-28T13:31:58Z"
+lastmod: "2026-07-28T18:07:11Z"
 type: advisory
 types:
   - advisory
@@ -71,6 +71,9 @@ cpes:
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
 has_poc: true
 tags:
   - roundup
@@ -764,6 +767,21 @@ cves:
   - id: CVE-2026-49788
     cvss: 7.5
     epss: 0.0078
+  - id: CVE-2026-50293
+    cvss: 7.8
+    epss: 0.00257
+  - id: CVE-2026-54992
+    cvss: 8.4
+    epss: 0.00471
+  - id: CVE-2026-44800
+    cvss: 7.8
+    epss: 0.00153
+  - id: CVE-2026-50432
+    cvss: 5.3
+    epss: 0.00662
+  - id: CVE-2026-50655
+    cvss: 7.8
+    epss: 0.00505
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1486,6 +1504,7 @@ references:
   - https://hackread.com/fake-it-calls-microsoft-teams-gogrpc-backdoor/
   - https://www.sophos.com/en-us/blog/chaos-in-teams-vishing
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_ephemeral_container_added.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_process_args.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2211,13 +2230,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-27T20:32:16Z"
-    level: L2
-    summary: added CVE-2026-55010 +2
-    sources:
-      - reddit-blueteamsec
-    source_urls:
-      - https://www.reddit.com/r/blueteamsec/comments/1v896ql/the_sid_that_wasnt_there_bypassing_kb5014754_to/
   - at: "2026-07-28T10:05:23Z"
     level: L2
     summary: poc_available; added CVE-2026-44687 +6
@@ -2246,6 +2258,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_ephemeral_container_added.toml
+  - at: "2026-07-28T18:07:11Z"
+    level: L2
+    summary: added CVE-2026-44800 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_process_args.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
