@@ -3,7 +3,7 @@ title: Apple Security Updates — July 2026
 slug: 2026-07-apple-security-updates
 description: Roundup of Apple security advisories published in July 2026.
 date: "2026-07-03T13:48:34Z"
-lastmod: "2026-07-28T10:56:32Z"
+lastmod: "2026-07-28T18:05:13Z"
 type: advisory
 types:
   - advisory
@@ -104,6 +104,7 @@ products:
   - macOS Tahoe (< 26.6)
   - iPadOS
   - macOS Tahoe
+  - Airdrop
 affected_os:
   - macOS
   - iOS 17
@@ -140,6 +141,7 @@ references:
   - https://sploitus.com/exploit?id=2C60D315-2B9E-5345-A2A8-F702C037CF66&utm_source=rss&utm_medium=rss
   - https://www.ncsc.nl/alerts/meerdere-kwetsbaarheden-in-apple-ios-en-ipados-update-je-apparaten-zo-snel-mogelijk
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2543
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/ded/exfiltration_ml_high_bytes_written_to_external_device_airdrop.toml
 iocs:
   - type: url
     value: https://github.com/F4R3SX0/iOS-Bluetooth-Ethernet-Exploit
@@ -168,13 +170,6 @@ ioc_counts:
   other: 1
   url: 3
 updates:
-  - at: "2026-07-14T08:04:07Z"
-    level: L2
-    summary: poc_available; added CVE-1999-0524; OS linux; OS windows
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=379FFFB3-48FB-5D0C-92C2-23B434647F8D&utm_source=rss&utm_medium=rss
   - at: "2026-07-15T06:42:32Z"
     level: L1
     summary: OS macos sequoia; OS macos sonoma; OS macos ventura
@@ -203,6 +198,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2543
+  - at: "2026-07-28T18:05:13Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/ded/exfiltration_ml_high_bytes_written_to_external_device_airdrop.toml
 ---
 
 Aggregated Apple security advisories for July 2026. CVEs from this cycle are folded
