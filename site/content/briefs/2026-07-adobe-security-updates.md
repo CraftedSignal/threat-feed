@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-28T18:53:14Z"
+lastmod: "2026-07-28T18:53:29Z"
 type: advisory
 types:
   - advisory
@@ -56,6 +56,8 @@ cpes:
   - cpe:2.3:a:adobe:coldfusion:2023:update21:*:*:*:*:*:*
   - cpe:2.3:a:adobe:after_effects:*:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:bridge:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:premiere_pro:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:illustrator:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -145,6 +147,7 @@ products:
   - Adobe Extension
   - WhatsApp
   - Format Plugins (<= 2026.05)
+  - Adobe Photoshop Installer
 affected_os:
   - Windows
   - macOS
@@ -179,6 +182,15 @@ cves:
   - id: CVE-2026-48389
     cvss: 7.8
     epss: 0.00186
+  - id: CVE-2026-48269
+    cvss: 7.8
+    epss: 0.00297
+  - id: CVE-2026-48320
+    cvss: 8.5
+    epss: 0.08601
+  - id: CVE-2026-48275
+    cvss: 8.6
+    epss: 0.00161
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -225,6 +237,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48389
   - https://www.reddit.com/r/blueteamsec/comments/1v8xk9z/hermeticreader_the_vulnerability_that_turned/
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48372
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48388
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -259,13 +272,6 @@ ioc_counts:
   email: 2
   url: 10
 updates:
-  - at: "2026-07-15T13:56:28Z"
-    level: L2
-    summary: poc_available; added CVE-2026-48336; OS linux
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/07/firefox-chrome-adobe-and-vmware-updates.html
   - at: "2026-07-17T15:11:50Z"
     level: L2
     summary: added CVE-2026-48352
@@ -294,6 +300,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48372
+  - at: "2026-07-28T18:53:29Z"
+    level: L2
+    summary: added CVE-2026-48269 +2
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48388
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
