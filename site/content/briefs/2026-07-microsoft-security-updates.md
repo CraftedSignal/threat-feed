@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-28T18:21:41Z"
+lastmod: "2026-07-28T18:24:16Z"
 type: advisory
 types:
   - advisory
@@ -887,6 +887,18 @@ cves:
   - id: CVE-2026-55037
     cvss: 7.8
     epss: 0.00303
+  - id: CVE-2026-54997
+    cvss: 5.5
+    epss: 0.00298
+  - id: CVE-2026-50375
+    cvss: 6.3
+    epss: 0.01813
+  - id: CVE-2026-50334
+    cvss: 5.5
+    epss: 0.00353
+  - id: CVE-2026-50469
+    cvss: 7.8
+    epss: 0.00271
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1616,6 +1628,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_region_name_by_user.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/problemchild/defense_evasion_ml_rare_process_for_a_host.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/problemchild/defense_evasion_ml_rare_process_for_a_parent_process.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/problemchild/defense_evasion_ml_suspicious_windows_process_cluster_from_user.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2341,13 +2354,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-28T18:11:10Z"
-    level: L2
-    summary: added CVE-2026-49796 +3
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_spike_in_rdp_processes.toml
   - at: "2026-07-28T18:20:22Z"
     level: L2
     summary: added CVE-2026-50411 +4
@@ -2376,6 +2382,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/problemchild/defense_evasion_ml_rare_process_for_a_parent_process.toml
+  - at: "2026-07-28T18:24:16Z"
+    level: L2
+    summary: added CVE-2026-50334 +3
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/problemchild/defense_evasion_ml_suspicious_windows_process_cluster_from_user.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
