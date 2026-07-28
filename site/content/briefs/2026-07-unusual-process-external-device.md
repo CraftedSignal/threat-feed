@@ -3,7 +3,7 @@ title: Unusual Process Writing Data to an External Device Detected by Machine Le
 slug: 2026-07-unusual-process-external-device
 description: Elastic's Data Exfiltration Detection integration leverages machine learning to identify rare processes writing data to external devices, indicating potential data exfiltration by adversaries using benign-looking processes.
 date: "2026-07-28T18:05:39Z"
-lastmod: "2026-07-28T18:38:45Z"
+lastmod: "2026-07-28T18:40:28Z"
 type: advisory
 types:
   - advisory
@@ -42,6 +42,7 @@ tags:
   - endpoint-security
   - command-and-control
   - persistence
+  - network-anomaly
 vendors:
   - Elastic
   - Microsoft
@@ -174,6 +175,24 @@ mitre_ttps:
     technique_name: Traffic Signaling
     evidence: Identifies unusual destination port activity that can indicate command-and-control, persistence mechanism, or data exfiltration activity.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: when a user clicks on a link in a phishing email or opens a malicious document, a request may be sent to download and run a payload from a server in a country which does not normally appear in network traffic or business work-flows.
+    confidence_band: high
+  - tactic_id: TA0011
+    tactic_name: Command and Control
+    technique_id: T1105
+    technique_name: Ingress Tool Transfer
+    evidence: a request may be sent to download and run a payload from a server in a country which does not normally appear in network traffic or business work-flows.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1204
+    technique_name: User Execution
+    evidence: when a user clicks on a link in a phishing email or opens a malicious document, a request may be sent to download and run a payload from a server in a country which does not normally appear in network traffic or business work-flows.
+    confidence_band: high
 references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
   - https://docs.elastic.co/en/integrations/ded
@@ -193,14 +212,8 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_high_count_network_denies.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_high_count_network_events.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_linux_anomalous_network_port_activity.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_rare_destination_country.toml
 updates:
-  - at: "2026-07-28T18:33:07Z"
-    level: L1
-    summary: 'merged source coverage: Unusual Source IP for User Logon Detection by Elastic ML'
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_auth_rare_source_ip_for_a_user.toml
   - at: "2026-07-28T18:33:56Z"
     level: L1
     summary: 'merged source coverage: Detection of Unusual Linux Username Activity via Machine Learning'
@@ -229,6 +242,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_linux_anomalous_network_port_activity.toml
+  - at: "2026-07-28T18:40:28Z"
+    level: L1
+    summary: 'merged source coverage: Network Traffic to Rare Destination Country'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_rare_destination_country.toml
 ---
 
 Elastic has released a machine learning-based detection rule designed to identify potential data exfiltration attempts. This rule, part of the Data Exfiltration Detection integration, focuses on detecting unusual or rare processes that write data to external devices. Adversaries frequently use seemingly legitimate processes to mask their data exfiltration activities, making such abnormal behavior a strong indicator of compromise. The detection relies on Elastic's Anomaly Detection feature, analyzing network and file events collected via integrations like Elastic Defend and Network Packet Capture. This capability, available for Elastic Stack version 9.4.0 and higher, helps defenders identify deviations from typical process behavior, flagging potential threats where sensitive data might be transferred out of the network via an unapproved or suspicious channel.
