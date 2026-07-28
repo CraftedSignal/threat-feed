@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-28T19:23:17Z"
+lastmod: "2026-07-28T19:24:33Z"
 type: advisory
 types:
   - advisory
@@ -155,6 +155,8 @@ products:
   - Adobe Photoshop Installer
   - Adobe Bridge <= 16.0.5
   - Adobe Bridge <= 15.1.6
+  - Adobe Bridge (< 16.0.6)
+  - Adobe Bridge (< 15.1.7)
 affected_os:
   - Windows
   - macOS
@@ -209,6 +211,12 @@ cves:
   - id: CVE-2026-48334
     cvss: 9.3
     epss: 0.00435
+  - id: CVE-2026-48340
+    cvss: 7.8
+    epss: 0.0017
+  - id: CVE-2026-48337
+    cvss: 7.8
+    epss: 0.00138
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -257,6 +265,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48372
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48388
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48374
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48391
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -291,13 +300,6 @@ ioc_counts:
   email: 2
   url: 10
 updates:
-  - at: "2026-07-20T19:21:02Z"
-    level: L2
-    summary: added CVE-2026-48284 +3
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48389
   - at: "2026-07-28T14:42:11Z"
     level: L2
     summary: added CVE-2026-48321 +2
@@ -326,6 +328,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48374
+  - at: "2026-07-28T19:24:33Z"
+    level: L2
+    summary: added CVE-2026-48337 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48391
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
