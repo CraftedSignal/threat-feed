@@ -3,7 +3,7 @@ title: IBM WebSphere Application Server Authentication Bypass Vulnerability (CVE
 slug: 2026-07-ibm-websphere-auth-bypass
 description: A remote attacker can bypass authentication in IBM WebSphere Application Server versions 9.0 and 8.5 by sending a crafted unauthenticated request, potentially leading to unauthorized access and impact on confidentiality, integrity, and availability.
 date: "2026-07-28T20:21:12Z"
-lastmod: "2026-07-28T21:26:25Z"
+lastmod: "2026-07-28T21:28:32Z"
 type: advisory
 types:
   - advisory
@@ -19,12 +19,16 @@ tags:
   - RCE
   - server-side-request-forgery
   - cwe-502
+  - http-smuggling
+  - server-side
 vendors:
   - IBM
 products:
   - WebSphere Application Server 9.0
   - WebSphere Application Server 8.5
   - WebSphere Application Server - Liberty >= 17.0.0.3 <= 26.0.0.7
+  - WebSphere Application Server - Liberty 17.0.0.3
+  - WebSphere Application Server - Liberty 26.0.0.7
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -64,6 +68,8 @@ references:
   - https://www.ibm.com/support/pages/node/7281649
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14528
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14981
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-15064
+  - https://www.ibm.com/support/pages/node/7281625
 iocs:
   - type: domain
     value: nvd.nist.gov
@@ -108,6 +114,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-14981
+  - at: "2026-07-28T21:28:32Z"
+    level: L2
+    summary: 'merged source coverage: IBM WebSphere Application Server Vulnerable to HTTP Response Smuggling (CVE-2026-15064)'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-15064
 ---
 
 IBM has identified a high-severity vulnerability, CVE-2026-16184, affecting its WebSphere Application Server versions 9.0 and 8.5. This flaw, categorized as a Missing Authorization (CWE-862), allows a remote, unauthenticated attacker to bypass the server's authentication mechanisms. By sending a specially crafted request, an attacker can gain unauthorized access to the application server. This vulnerability can lead to unauthorized information disclosure, data modification, or denial of service, depending on the accessed resources and the attacker's capabilities post-bypass. Organizations using affected WebSphere versions are advised to apply the necessary patches provided by IBM to mitigate the risk of exploitation.
