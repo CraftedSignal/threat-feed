@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-27T20:32:16Z"
+lastmod: "2026-07-28T10:05:23Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +43,26 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:minecraft_bedrock_dedicated_server:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x64:*
+  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x86:*
+  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x86:*
+  - cpe:2.3:a:microsoft:microsoft_365:-:*:*:*:*:macos:*:*
+  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x86:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x64:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x86:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:a:microsoft:office_online_server:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:windows_admin_center:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:nlnetlabs:unbound:*:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - roundup
 vendors:
@@ -121,6 +141,8 @@ vendors:
   - Transfer.sh
   - Ufile
   - W3Schools
+  - MeshCentral
+  - Zoho
 products:
   - PowerShell
   - Windows
@@ -616,6 +638,8 @@ products:
   - WMIC
   - Microsoft Quick Assist
   - Windows Time Service
+  - MeshAgent
+  - Zoho Assist Unattended Agent
 affected_os:
   - Windows
   - macOS
@@ -660,6 +684,27 @@ cves:
   - id: CVE-2026-56159
     cvss: 9.8
     epss: 0.00996
+  - id: CVE-2026-56164
+    cvss: 5.3
+    epss: 0.18395
+  - id: CVE-2026-56155
+    cvss: 7.8
+    epss: 0.02333
+  - id: CVE-2026-50296
+    cvss: 7
+    epss: 0.00199
+  - id: CVE-2026-50369
+    cvss: 8.8
+    epss: 0.00682
+  - id: CVE-2026-55044
+    cvss: 7.8
+    epss: 0.00303
+  - id: CVE-2026-56197
+    cvss: 8.8
+    epss: 0.0092
+  - id: CVE-2026-44687
+    cvss: 3.7
+    epss: 0.00218
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1378,6 +1423,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/wmic_xsl_execution_via_url.yml
   - https://www.reddit.com/r/blueteamsec/comments/1v8791f/helpdesk_hijackers_teams_vishing_quick_assist_and/
   - https://www.reddit.com/r/blueteamsec/comments/1v896ql/the_sid_that_wasnt_there_bypassing_kb5014754_to/
+  - https://blog.talosintelligence.com/ir-trends-q2-2026/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2015,6 +2061,8 @@ iocs:
     value: https://blog.talosintelligence.com/2018/02/olympic-destroyer.html
   - type: url
     value: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/olympic_destroyer/sysmon.log
+  - type: file-extension
+    value: .SINOBI
 ioc_counts:
   application_id: 1
   asn: 3
@@ -2023,6 +2071,7 @@ ioc_counts:
   email: 7
   error_code: 3
   file: 8
+  file-extension: 1
   file-path: 2
   file_name: 5
   file_path: 12
@@ -2049,13 +2098,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-27T18:28:46Z"
-    level: L2
-    summary: added CVE-2026-56644 +1
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_rdp_cache_file_deletion.yml
   - at: "2026-07-27T18:30:10Z"
     level: L2
     summary: added CVE-2026-44806 +4
@@ -2084,6 +2126,13 @@ updates:
       - reddit-blueteamsec
     source_urls:
       - https://www.reddit.com/r/blueteamsec/comments/1v896ql/the_sid_that_wasnt_there_bypassing_kb5014754_to/
+  - at: "2026-07-28T10:05:23Z"
+    level: L2
+    summary: poc_available; added CVE-2026-44687 +6
+    sources:
+      - talos
+    source_urls:
+      - https://blog.talosintelligence.com/ir-trends-q2-2026/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
