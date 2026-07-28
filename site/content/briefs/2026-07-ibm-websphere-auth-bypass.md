@@ -3,7 +3,7 @@ title: IBM WebSphere Application Server Authentication Bypass Vulnerability (CVE
 slug: 2026-07-ibm-websphere-auth-bypass
 description: A remote attacker can bypass authentication in IBM WebSphere Application Server versions 9.0 and 8.5 by sending a crafted unauthenticated request, potentially leading to unauthorized access and impact on confidentiality, integrity, and availability.
 date: "2026-07-28T20:21:12Z"
-lastmod: "2026-07-28T21:19:02Z"
+lastmod: "2026-07-28T21:19:58Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,10 @@ tags:
   - websphere
   - broken-access-control
   - privilege-escalation
+  - deserialization
+  - RCE
+  - server-side-request-forgery
+  - cwe-502
 vendors:
   - IBM
 products:
@@ -33,6 +37,12 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: IBM WebSphere Application Server 9.0, and 8.5 is vulnerable to broken access control/privilege escalation in the administrative console.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: unsafe deserialization which could allow a remote attacker to [...] execute arbitrary code.
+    confidence_band: high
 cves:
   - id: CVE-2026-16184
     cvss: 7
@@ -41,6 +51,8 @@ references:
   - https://www.ibm.com/support/pages/node/7281628
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14446
   - https://www.ibm.com/support/pages/node/7281631
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-14512
+  - https://www.ibm.com/support/pages/node/7281649
 updates:
   - at: "2026-07-28T21:19:02Z"
     level: L2
@@ -49,6 +61,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-14446
+  - at: "2026-07-28T21:19:58Z"
+    level: L2
+    summary: 'merged source coverage: CVE-2026-14512: IBM WebSphere Pre-Authentication Deserialization RCE'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-14512
 ---
 
 IBM has identified a high-severity vulnerability, CVE-2026-16184, affecting its WebSphere Application Server versions 9.0 and 8.5. This flaw, categorized as a Missing Authorization (CWE-862), allows a remote, unauthenticated attacker to bypass the server's authentication mechanisms. By sending a specially crafted request, an attacker can gain unauthorized access to the application server. This vulnerability can lead to unauthorized information disclosure, data modification, or denial of service, depending on the accessed resources and the attacker's capabilities post-bypass. Organizations using affected WebSphere versions are advised to apply the necessary patches provided by IBM to mitigate the risk of exploitation.
