@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-28T18:34:05Z"
+lastmod: "2026-07-28T18:44:41Z"
 type: advisory
 types:
   - advisory
@@ -86,6 +86,7 @@ cpes:
   - cpe:2.3:a:microsoft:pc_manager:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:azure_spring_cloud:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:terminal:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_code:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -912,6 +913,21 @@ cves:
   - id: CVE-2026-59117
     cvss: 7.5
     epss: 0.00442
+  - id: CVE-2026-50423
+    cvss: 7.8
+    epss: 0.0263
+  - id: CVE-2026-50520
+    cvss: 8.4
+    epss: 0.00254
+  - id: CVE-2026-49184
+    cvss: 8.4
+    epss: 0.00265
+  - id: CVE-2026-55018
+    cvss: 7.8
+    epss: 0.0034
+  - id: CVE-2026-57083
+    cvss: 5.5
+    epss: 0.00495
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1643,6 +1659,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/problemchild/defense_evasion_ml_rare_process_for_a_parent_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/problemchild/defense_evasion_ml_suspicious_windows_process_cluster_from_user.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_windows_anomalous_user_name.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/persistence_ml_windows_anomalous_process_all_hosts.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2368,13 +2385,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-28T18:20:50Z"
-    level: L2
-    summary: added CVE-2026-49799 +3
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_region_name_by_user.toml
   - at: "2026-07-28T18:21:22Z"
     level: L2
     summary: added CVE-2026-50355 +4
@@ -2403,6 +2413,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_windows_anomalous_user_name.toml
+  - at: "2026-07-28T18:44:41Z"
+    level: L2
+    summary: added CVE-2026-49184 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/persistence_ml_windows_anomalous_process_all_hosts.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
