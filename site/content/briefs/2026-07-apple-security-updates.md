@@ -3,7 +3,7 @@ title: Apple Security Updates — July 2026
 slug: 2026-07-apple-security-updates
 description: Roundup of Apple security advisories published in July 2026.
 date: "2026-07-03T13:48:34Z"
-lastmod: "2026-07-28T09:50:59Z"
+lastmod: "2026-07-28T10:56:32Z"
 type: advisory
 types:
   - advisory
@@ -103,6 +103,7 @@ products:
   - macOS Sequoia (< 15.7.8)
   - macOS Tahoe (< 26.6)
   - iPadOS
+  - macOS Tahoe
 affected_os:
   - macOS
   - iOS 17
@@ -138,6 +139,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1672
   - https://sploitus.com/exploit?id=2C60D315-2B9E-5345-A2A8-F702C037CF66&utm_source=rss&utm_medium=rss
   - https://www.ncsc.nl/alerts/meerdere-kwetsbaarheden-in-apple-ios-en-ipados-update-je-apparaten-zo-snel-mogelijk
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2543
 iocs:
   - type: url
     value: https://github.com/F4R3SX0/iOS-Bluetooth-Ethernet-Exploit
@@ -166,13 +168,6 @@ ioc_counts:
   other: 1
   url: 3
 updates:
-  - at: "2026-07-13T18:02:11Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/07/crashstealer-macos-malware-uses.html
   - at: "2026-07-14T08:04:07Z"
     level: L2
     summary: poc_available; added CVE-1999-0524; OS linux; OS windows
@@ -201,6 +196,13 @@ updates:
       - ncsc-nl
     source_urls:
       - https://www.ncsc.nl/alerts/meerdere-kwetsbaarheden-in-apple-ios-en-ipados-update-je-apparaten-zo-snel-mogelijk
+  - at: "2026-07-28T10:56:32Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2543
 ---
 
 Aggregated Apple security advisories for July 2026. CVEs from this cycle are folded
