@@ -3,6 +3,7 @@ title: Unusual Process Writing Data to an External Device Detected by Machine Le
 slug: 2026-07-unusual-process-external-device
 description: Elastic's Data Exfiltration Detection integration leverages machine learning to identify rare processes writing data to external devices, indicating potential data exfiltration by adversaries using benign-looking processes.
 date: "2026-07-28T18:05:39Z"
+lastmod: "2026-07-28T18:08:33Z"
 type: advisory
 types:
   - advisory
@@ -15,11 +16,15 @@ tags:
   - endpoint
 vendors:
   - Elastic
+  - Microsoft
 products:
   - Elastic Defend
   - Data Exfiltration Detection integration
   - Fleet
   - Kibana
+  - Windows RDP
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0010
     tactic_name: Exfiltration
@@ -31,6 +36,15 @@ references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
   - https://docs.elastic.co/en/integrations/ded
   - https://www.elastic.co/blog/detect-data-exfiltration-activity-with-kibanas-new-integration
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_rare_remote_file_directory.toml
+updates:
+  - at: "2026-07-28T18:08:33Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_rare_remote_file_directory.toml
 ---
 
 Elastic has released a machine learning-based detection rule designed to identify potential data exfiltration attempts. This rule, part of the Data Exfiltration Detection integration, focuses on detecting unusual or rare processes that write data to external devices. Adversaries frequently use seemingly legitimate processes to mask their data exfiltration activities, making such abnormal behavior a strong indicator of compromise. The detection relies on Elastic's Anomaly Detection feature, analyzing network and file events collected via integrations like Elastic Defend and Network Packet Capture. This capability, available for Elastic Stack version 9.4.0 and higher, helps defenders identify deviations from typical process behavior, flagging potential threats where sensitive data might be transferred out of the network via an unapproved or suspicious channel.
