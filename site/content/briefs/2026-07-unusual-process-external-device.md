@@ -3,7 +3,7 @@ title: Unusual Process Writing Data to an External Device Detected by Machine Le
 slug: 2026-07-unusual-process-external-device
 description: Elastic's Data Exfiltration Detection integration leverages machine learning to identify rare processes writing data to external devices, indicating potential data exfiltration by adversaries using benign-looking processes.
 date: "2026-07-28T18:05:39Z"
-lastmod: "2026-07-28T18:41:15Z"
+lastmod: "2026-07-28T18:42:21Z"
 type: advisory
 types:
   - advisory
@@ -44,6 +44,9 @@ tags:
   - persistence
   - network-anomaly
   - network-traffic-analysis
+  - windows
+  - ml
+  - investigation-guide
 vendors:
   - Elastic
   - Microsoft
@@ -194,6 +197,12 @@ mitre_ttps:
     technique_name: User Execution
     evidence: when a user clicks on a link in a phishing email or opens a malicious document, a request may be sent to download and run a payload from a server in a country which does not normally appear in network traffic or business work-flows.
     confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1055
+    technique_name: Process Injection
+    evidence: A process with unusual network activity can denote process exploitation or injection, where the process is used to run persistence mechanisms that allow a malicious actor remote access or control of the host, data exfiltration, and execution of unauthorized network applications.
+    confidence_band: high
 references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
   - https://docs.elastic.co/en/integrations/ded
@@ -221,14 +230,8 @@ references:
   - https://www.elastic.co/guide/en/fleet/current/agent-policy.html
   - https://www.elastic.co/guide/en/security/current/install-endpoint.html
   - https://docs.elastic.co/integrations/network_traffic
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_windows_anomalous_network_activity.toml
 updates:
-  - at: "2026-07-28T18:35:09Z"
-    level: L1
-    summary: 'merged source coverage: Spike in Host-Based Traffic Detected by Machine Learning'
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_high_count_events_for_a_host_name.toml
   - at: "2026-07-28T18:36:13Z"
     level: L1
     summary: 'merged source coverage: Spike in Firewall Denies Machine Learning Rule Detection'
@@ -257,6 +260,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_spike_in_traffic_to_a_country.toml
+  - at: "2026-07-28T18:42:21Z"
+    level: L1
+    summary: 'merged source coverage: Unusual Windows Network Activity Detected by Elastic ML Rule'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_windows_anomalous_network_activity.toml
 ---
 
 Elastic has released a machine learning-based detection rule designed to identify potential data exfiltration attempts. This rule, part of the Data Exfiltration Detection integration, focuses on detecting unusual or rare processes that write data to external devices. Adversaries frequently use seemingly legitimate processes to mask their data exfiltration activities, making such abnormal behavior a strong indicator of compromise. The detection relies on Elastic's Anomaly Detection feature, analyzing network and file events collected via integrations like Elastic Defend and Network Packet Capture. This capability, available for Elastic Stack version 9.4.0 and higher, helps defenders identify deviations from typical process behavior, flagging potential threats where sensitive data might be transferred out of the network via an unapproved or suspicious channel.
