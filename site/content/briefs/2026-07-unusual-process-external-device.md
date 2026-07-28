@@ -3,7 +3,7 @@ title: Unusual Process Writing Data to an External Device Detected by Machine Le
 slug: 2026-07-unusual-process-external-device
 description: Elastic's Data Exfiltration Detection integration leverages machine learning to identify rare processes writing data to external devices, indicating potential data exfiltration by adversaries using benign-looking processes.
 date: "2026-07-28T18:05:39Z"
-lastmod: "2026-07-28T18:35:09Z"
+lastmod: "2026-07-28T18:36:13Z"
 type: advisory
 types:
   - advisory
@@ -33,6 +33,11 @@ tags:
   - malware
   - system-compromise
   - elastic-security
+  - anomaly_detection
+  - network_denial
+  - firewall
+  - machine_learning
+  - threat_detection
 vendors:
   - Elastic
   - Microsoft
@@ -51,6 +56,7 @@ products:
   - Elastic Agent
   - System
   - Windows
+  - Network Packet Capture
 affected_os:
   - Windows
   - Linux
@@ -121,6 +127,36 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: This can be due to a range of security issues, such as a compromised system, DDoS attacks, malware infections, privilege escalation, or data exfiltration.
     confidence_band: high
+  - tactic_id: TA0011
+    tactic_name: Command and Control
+    technique_id: T1071
+    technique_name: Application Layer Protocol
+    evidence: Unsuccessful attempts at network transit, in order to connect to command-and-control (C2)... may produce a burst of failed connections.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1018
+    technique_name: Remote System Discovery
+    evidence: This could also be due to unusually large amounts of reconnaissance or enumeration traffic.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1046
+    technique_name: Network Service Discovery
+    evidence: This could also be due to unusually large amounts of reconnaissance or enumeration traffic.
+    confidence_band: high
+  - tactic_id: TA0043
+    tactic_name: Reconnaissance
+    technique_id: T1590
+    technique_name: Gather Victim Network Information
+    evidence: This could also be due to unusually large amounts of reconnaissance or enumeration traffic.
+    confidence_band: high
+  - tactic_id: TA0043
+    tactic_name: Reconnaissance
+    technique_id: T1595
+    technique_name: Active Scanning
+    evidence: This could also be due to unusually large amounts of reconnaissance or enumeration traffic.
+    confidence_band: high
 references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
   - https://docs.elastic.co/en/integrations/ded
@@ -137,14 +173,8 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_auth_rare_user_logon.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_linux_anomalous_user_name.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_high_count_events_for_a_host_name.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_high_count_network_denies.toml
 updates:
-  - at: "2026-07-28T18:12:58Z"
-    level: L1
-    summary: 'merged source coverage: Spike in Privileged Command Execution by a User'
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_linux_high_count_privileged_process_events_by_user.toml
   - at: "2026-07-28T18:31:02Z"
     level: L1
     summary: 'merged source coverage: Unusual Linux Network Connection Discovery Detected by Elastic ML'
@@ -173,6 +203,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_high_count_events_for_a_host_name.toml
+  - at: "2026-07-28T18:36:13Z"
+    level: L1
+    summary: 'merged source coverage: Spike in Firewall Denies Machine Learning Rule Detection'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_high_count_network_denies.toml
 ---
 
 Elastic has released a machine learning-based detection rule designed to identify potential data exfiltration attempts. This rule, part of the Data Exfiltration Detection integration, focuses on detecting unusual or rare processes that write data to external devices. Adversaries frequently use seemingly legitimate processes to mask their data exfiltration activities, making such abnormal behavior a strong indicator of compromise. The detection relies on Elastic's Anomaly Detection feature, analyzing network and file events collected via integrations like Elastic Defend and Network Packet Capture. This capability, available for Elastic Stack version 9.4.0 and higher, helps defenders identify deviations from typical process behavior, flagging potential threats where sensitive data might be transferred out of the network via an unapproved or suspicious channel.
