@@ -3,11 +3,15 @@ title: Sigstore/OCI Credential Confusion Vulnerability (CVE-2026-59891)
 slug: 2026-07-sigstore-oci-credential-confusion
 description: A critical credential exposure vulnerability (CVE-2026-59891) exists in `@sigstore/oci` versions prior to 0.7.1. The `getRegistryCredentials()` function, used to read credentials from `~/.docker/config.json`, employs a substring match instead of an exact host match when selecting credentials. This flaw allows credentials for a legitimate registry (e.g., `ghcr.io`) to be inadvertently transmitted to an attacker-controlled registry if its hostname is a substring of the legitimate one (e.g., `cr.io`). This impacts consumers of `@sigstore/oci` and related GitHub Actions (`actions/attest`, `actions/attest-build-provenance`, `actions/attest-sbom`) when pushing artifacts to untrusted or attacker-influenced destination registries, potentially leading to the leakage of long-lived registry tokens. The vulnerability is fixed in `@sigstore/oci@0.7.1` by enforcing exact host matching.
 date: "2026-07-21T19:35:10Z"
+lastmod: "2026-07-28T13:03:42Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=AE2EDBC2-2D20-55B5-9D67-33336915F964&utm_source=rss&utm_medium=rss
 tags:
   - credential-exposure
   - vulnerability
@@ -36,9 +40,23 @@ mitre_ttps:
 cves:
   - id: CVE-2026-59891
     cvss: 9.6
-    epss: 0.00321
+    epss: 0.00317
 references:
   - https://github.com/advisories/GHSA-pf56-329r-95rw
+  - https://sploitus.com/exploit?id=AE2EDBC2-2D20-55B5-9D67-33336915F964&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=AE2EDBC2-2D20-55B5-9D67-33336915F964
+ioc_counts:
+  url: 1
+updates:
+  - at: "2026-07-28T13:03:42Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=AE2EDBC2-2D20-55B5-9D67-33336915F964&utm_source=rss&utm_medium=rss
 ---
 
 A critical credential exposure vulnerability, tracked as CVE-2026-59891, has been identified in `@sigstore/oci` versions `<= 0.7.0`. This flaw resides within the `getRegistryCredentials()` function, which is responsible for retrieving OCI registry authentication tokens from the Docker configuration file (`~/.docker/config.json`). The vulnerability stems from an insecure credential selection mechanism that uses a substring match instead of a precise host match. This means that credentials configured for a legitimate registry (e.g., `ghcr.io`) could be mistakenly associated with, and subsequently transmitted to, an attacker-controlled registry if its hostname is a substring of the legitimate one (e.g., `cr.io`). This impacts any application using `@sigstore/oci` to upload artifacts, including `@actions/attest` and the `actions/attest`, `actions/attest-build-provenance`, and `actions/attest-sbom` GitHub Actions, particularly when the destination registry or image reference (`subject-name` input) can be influenced by untrusted sources. This could lead to the leakage of long-lived registry tokens to malicious actors. The vulnerability was patched in `@sigstore/oci@0.7.1`, which implements exact host matching.
