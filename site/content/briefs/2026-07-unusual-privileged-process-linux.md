@@ -3,6 +3,7 @@ title: Unusual Process Detected for Privileged Commands by a User on Linux
 slug: 2026-07-unusual-privileged-process-linux
 description: Elastic's machine learning rule identifies anomalous execution of privileged commands by a user on Linux systems, indicative of potential privilege escalation or misuse of valid accounts.
 date: "2026-07-28T18:14:20Z"
+lastmod: "2026-07-28T18:20:37Z"
 type: advisory
 types:
   - advisory
@@ -16,13 +17,17 @@ tags:
   - anomaly-detection
 vendors:
   - Elastic
+  - Okta
 products:
   - Privileged Access Detection integration
   - Elastic Defend
   - Sysmon Linux
   - Fleet
+  - System integration
+  - Kibana
 affected_os:
   - Linux
+  - Windows
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -42,6 +47,15 @@ references:
   - https://www.elastic.co/guide/en/fleet/current/fleet-server.html
   - https://www.elastic.co/guide/en/security/current/install-endpoint.html
   - https://www.elastic.co/guide/en/fleet/current/add-integration-to-policy.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_privilege_assigned_to_user.toml
+updates:
+  - at: "2026-07-28T18:20:37Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_privilege_assigned_to_user.toml
 ---
 
 This threat brief details a machine learning-driven detection rule developed by Elastic, designed to identify unusual process execution patterns related to privileged commands by a user on Linux environments. The rule leverages Elastic's anomaly detection capabilities, specifically the `pad_linux_rare_process_executed_by_user_ea` ML job, which operates on data collected by Elastic Defend and Sysmon Linux. It aims to flag atypical processes that might signify an adversary exploiting legitimate user accounts to perform unauthorized privileged actions, ultimately seeking privilege escalation. This detection is crucial for early identification of potential misuse of elevated access or compromised accounts. The rule, with an anomaly threshold of 75, was updated on 2026/07/27 and is applicable for environments running Elastic Stack version 9.4.0 and higher, utilizing Entity Analytics (EA) fields.
