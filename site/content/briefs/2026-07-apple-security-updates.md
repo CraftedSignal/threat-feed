@@ -3,7 +3,7 @@ title: Apple Security Updates — July 2026
 slug: 2026-07-apple-security-updates
 description: Roundup of Apple security advisories published in July 2026.
 date: "2026-07-03T13:48:34Z"
-lastmod: "2026-07-27T20:04:45Z"
+lastmod: "2026-07-28T09:50:59Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,7 @@ cpes:
   - cpe:2.3:o:sco:sco_unix:-:*:*:*:*:*:*:*
   - cpe:2.3:o:sgi:irix:-:*:*:*:*:*:*:*
   - cpe:2.3:o:windriver:bsdos:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:haxx:curl:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=379FFFB3-48FB-5D0C-92C2-23B434647F8D&utm_source=rss&utm_medium=rss
@@ -101,6 +102,7 @@ products:
   - macOS Sonoma (< 14.8.8)
   - macOS Sequoia (< 15.7.8)
   - macOS Tahoe (< 26.6)
+  - iPadOS
 affected_os:
   - macOS
   - iOS 17
@@ -111,10 +113,20 @@ affected_os:
   - macOS Sonoma
   - macOS Ventura
   - macOS Tahoe
+  - iOS
+  - iPadOS
 cves:
   - id: CVE-1999-0524
     cvss: 4
     epss: 0.31586
+  - id: CVE-2026-3783
+    cvss: 5.3
+    epss: 0.00333
+  - id: CVE-2026-3784
+    cvss: 6.5
+    epss: 0.00302
+  - id: CVE-2026-43723
+    cvss: 7.8
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/macos/persistence_suspicious_launch_agent_or_launch_daemon.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/macos/lateral_movement_remote_ssh_login_enabled.toml
@@ -125,6 +137,7 @@ references:
   - https://sploitus.com/exploit?id=379FFFB3-48FB-5D0C-92C2-23B434647F8D&utm_source=rss&utm_medium=rss
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1672
   - https://sploitus.com/exploit?id=2C60D315-2B9E-5345-A2A8-F702C037CF66&utm_source=rss&utm_medium=rss
+  - https://www.ncsc.nl/alerts/meerdere-kwetsbaarheden-in-apple-ios-en-ipados-update-je-apparaten-zo-snel-mogelijk
 iocs:
   - type: url
     value: https://github.com/F4R3SX0/iOS-Bluetooth-Ethernet-Exploit
@@ -153,13 +166,6 @@ ioc_counts:
   other: 1
   url: 3
 updates:
-  - at: "2026-07-13T09:40:00Z"
-    level: L1
-    summary: new product
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2282
   - at: "2026-07-13T18:02:11Z"
     level: L1
     summary: new IOCs
@@ -188,6 +194,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=2C60D315-2B9E-5345-A2A8-F702C037CF66&utm_source=rss&utm_medium=rss
+  - at: "2026-07-28T09:50:59Z"
+    level: L2
+    summary: added CVE-2026-3783 +2; OS ios; OS ipados
+    sources:
+      - ncsc-nl
+    source_urls:
+      - https://www.ncsc.nl/alerts/meerdere-kwetsbaarheden-in-apple-ios-en-ipados-update-je-apparaten-zo-snel-mogelijk
 ---
 
 Aggregated Apple security advisories for July 2026. CVEs from this cycle are folded
