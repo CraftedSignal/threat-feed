@@ -3,6 +3,7 @@ title: Unusual Remote File Size Detected by ML
 slug: 2026-07-unusual-remote-file-size
 description: An Elastic machine learning job detects unusually large file transfers by remote hosts, indicating potential lateral movement or data exfiltration by adversaries who consolidate data into single large files to avoid detection.
 date: "2026-07-28T18:07:58Z"
+lastmod: "2026-07-28T18:08:45Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +22,7 @@ products:
   - Elastic Defend (8.18 and above)
   - Lateral Movement Detection integration
   - Fleet
+  - Kibana (min_stack_version 9.4.0)
 affected_os:
   - Windows
 mitre_ttps:
@@ -47,6 +49,15 @@ references:
   - https://docs.elastic.co/en/integrations/lmd
   - https://www.elastic.co/blog/detecting-lateral-movement-activity-a-new-kibana-integration
   - https://www.elastic.co/blog/remote-desktop-protocol-connections-elastic-security
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_rare_remote_file_extension.toml
+updates:
+  - at: "2026-07-28T18:08:45Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_rare_remote_file_extension.toml
 ---
 
 The Elastic machine learning rule, "Unusual Remote File Size", identifies potential lateral movement or data exfiltration by flagging abnormally large file sizes transferred from remote hosts. Attackers often consolidate data into single large files to circumvent detection mechanisms that might trigger on multiple smaller transfers. This rule, part of the Lateral Movement Detection integration, leverages Elastic's Anomaly Detection feature to analyze file and Windows RDP process events, requiring the `host.ip` field to be populated. For Elastic Defend versions 8.18 and above, explicit configuration is needed to enable host IP collection. The integration also requires the installation of preconfigured anomaly detection jobs within Fleet. This detection helps defenders identify suspicious network activity that could indicate an adversary moving within the network or preparing to exfiltrate data.
