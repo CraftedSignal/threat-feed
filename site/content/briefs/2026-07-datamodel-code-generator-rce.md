@@ -1,24 +1,24 @@
 ---
-title: datamodel-code-generator Vulnerable to Remote Code Execution via Template Data
+title: '`datamodel-code-generator` Vulnerable to Code Injection via `default_factory` Field'
 slug: 2026-07-datamodel-code-generator-rce
-description: The datamodel-code-generator tool, when configured for Pydantic v2 output and utilizing the --extra-template-data option, is vulnerable to arbitrary code execution (CVE-2026-54656) by injecting unescaped Python expressions into generated Pydantic field validators, leading to remote code execution (RCE) in the developer's interpreter or CI/CD environment upon module import.
-date: "2026-07-28T21:45:58Z"
+description: The `datamodel-code-generator` library is vulnerable to code injection (CVE-2026-54653) when generating Python models from attacker-controlled schemas (e.g., JSON Schema, OpenAPI, YAML). This occurs because the `default_factory` schema field's value is interpolated directly as a raw Python expression into the generated code, allowing an attacker who controls the input schema to achieve arbitrary Python code execution within the consumer's process at module import time, affecting developers or CI pipelines that process untrusted schemas.
+date: "2026-07-28T21:54:03Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - python
-  - code-generation
-  - rce
+  - code-injection
   - supply-chain
-  - vulnerability
-  - template-injection
+  - developer-tools
+  - python
+  - rce
+  - cve
 vendors:
   - datamodel-code-generator
 products:
-  - datamodel-code-generator (>= 0.52.1, <= 0.60.1)
+  - datamodel-code-generator (>= 0.17.0, <= 0.60.1)
 affected_os:
   - Windows
   - Linux
@@ -28,29 +28,37 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: The expression is evaluated at class-definition time, i.e. the moment the developer imports the generated module. This is... full RCE
+    evidence: arbitrary Python code execution in the importer's process at `import` time
     confidence_band: high
 references:
-  - https://github.com/advisories/GHSA-8m8r-38jm-f355
+  - https://github.com/advisories/GHSA-386q-5hp3-95m9
+iocs:
+  - type: url
+    value: https://gist.github.com/thegr1ffyn/9648b0fe4fcf7d569ac8e61dd11eebaf
+ioc_counts:
+  url: 1
 ---
 
-A critical remote code execution vulnerability (CVE-2026-54656, GHSA-8m8r-38jm-f355) has been identified in `datamodel-code-generator`, a Python tool used to generate Pydantic models from data schemas. Affecting versions 0.52.1 through 0.60.1, the flaw arises when the tool is configured for Pydantic v2 output and processes `--extra-template-data` containing a maliciously crafted `validators` entry. The tool unescapes input within this entry, allowing an attacker to inject arbitrary Python expressions into the generated `Pydantic @field_validator` decorator. This injected code executes with full RCE privileges within the developer's environment (e.g., interpreter or CI/CD runner) at the moment the generated Python module is imported. This vulnerability poses a significant supply chain risk for organizations that integrate `datamodel-code-generator` into their build processes, particularly if they accept template data from untrusted sources such as pull requests, public configuration snippets, or multi-tenant CI environments.
+`datamodel-code-generator` versions 0.17.0 through 0.60.1 are affected by a high-severity code injection vulnerability (CVE-2026-54653) that allows for arbitrary Python code execution. This vulnerability arises when the tool generates Python models from an attacker-controlled JSON Schema, OpenAPI, YAML, JSON, Avro, Protobuf, or XSD schema. Specifically, if a property within the input schema contains a `"default_factory"` key, its value is interpolated verbatim as a raw Python expression into the generated `Field(default_factory=...)` or `field(default_factory=...)` call. This code executes at class-definition time when the generated Python module is imported by a consumer. No special CLI flags are required for exploitation, making any developer or CI pipeline processing untrusted schemas susceptible. The fix involves validating `default_factory` values to only accept `dict`, `list`, and `set`.
 
 ## Attack Chain
 
-1. **Attacker crafts malicious template data**: An attacker creates a `--extra-template-data` file containing a `validators` entry with unescaped Python code injected into the `fields` or `mode` parameters.
-2. **Developer uses `datamodel-code-generator`**: A developer or automated system runs the `datamodel-code-generator` tool, targeting a Pydantic v2 output mode and specifying the attacker's crafted `--extra-template-data` file.
-3. **Tool processes malicious input**: The `datamodel-code-generator` tool, specifically within the `_process_validators` function in `src/datamodel_code_generator/model/pydantic_v2/base_model.py`, interpolates the unescaped malicious strings directly into the Python code for the generated `Pydantic @field_validator` decorator.
-4. **Malicious Python code is embedded**: The tool generates and writes a new Python module (e.g., `BaseModel.jinja2`) which includes the attacker's injected arbitrary Python expression within the `field_validator` decorator call.
-5. **Developer imports generated module**: The developer or a downstream system attempts to import the newly generated Python module into their environment.
-6. **Arbitrary code execution**: At the time of module import, the Python interpreter evaluates the malicious expression embedded within the `@field_validator` decorator, leading to arbitrary code execution within the context of the importing process.
-7. **Impact on development environment**: The attacker's code executes on the developer's machine or the CI/CD runner, allowing for actions such as data exfiltration, further system compromise, or manipulation of the software supply chain.
+1. An attacker crafts a malicious schema (e.g., JSON Schema, OpenAPI, YAML) containing a `"default_factory"` key with arbitrary Python code as its value.
+2. A victim developer or CI pipeline uses `datamodel-code-generator` (versions 0.17.0 through 0.60.1) to generate Python data models from this attacker-controlled schema.
+3. During code generation, the `datamodel-code-generator` parser (e.g., `jsonschema.py`) identifies the `"default_factory"` key.
+4. The value associated with `"default_factory"` is retrieved from `self.extras` within the `JsonSchemaObject`.
+5. When constructing the Python model (e.g., Pydantic v2, dataclass, msgspec), `datamodel-code-generator` interpolates the raw, unvalidated `default_factory` value directly into the generated Python code without sanitization.
+6. The victim's Python application or environment imports the newly generated Python module.
+7. Upon import, the interpolated malicious Python code embedded in the `default_factory` argument is executed at class-definition time within the importing process, leading to arbitrary code execution.
+8. The attacker achieves their objective, such as filesystem reads (e.g., copying `/etc/passwd`), environment variable exfiltration, or secondary network calls.
 
 ## Impact
 
-Successful exploitation of CVE-2026-54656 results in arbitrary code execution within the developer's interpreter or CI/CD runner the moment the generated Python module is imported. This grants attackers the ability to execute commands, exfiltrate sensitive data, install backdoors, or tamper with the build process. The vulnerability affects `datamodel-code-generator` versions `>= 0.52.1` and `<= 0.60.1`. This impact is significantly higher than the previously discovered GHSA-wjv6-jcfj-mf9r, which allowed for docstring injection, as this vulnerability provides silent remote code execution under the same threat model. Organizations accepting `--extra-template-data` from untrusted sources in their development pipelines are directly at risk.
+This vulnerability poses a significant supply chain risk to developers and CI pipelines. Any environment that uses `datamodel-code-generator` to process schemas not authored internally (e.g., third-party API specs, public schema registries, vendored files, remote introspection endpoints) is directly affected. Successful exploitation leads to arbitrary Python code execution within the importing process at module import time. This can result in data exfiltration, system compromise (e.g., filesystem read/write, network access), or further malicious activity on CI runners where build environments often have elevated privileges. While `typing.TypedDict` output models are not vulnerable, all other supported output model types, including Pydantic v2, dataclasses, and msgspec, are susceptible.
 
 ## Recommendation
 
-* Upgrade `datamodel-code-generator` to version `0.60.2` or later immediately to remediate `CVE-2026-54656`.
-* Restrict the use of the `--extra-template-data` option in `datamodel-code-generator` to trusted sources only, especially for affected versions `>= 0.52.1, <= 0.60.1`.
+* Upgrade `datamodel-code-generator` to version `0.60.2` or later immediately to patch CVE-2026-54653.
+* Review CI/CD pipelines and developer workstations to ensure all instances of `datamodel-code-generator` are updated.
+* Implement controls to validate or restrict the source of schemas used for code generation, especially those from external or untrusted origins.
+* Monitor for unexpected process execution or file system modifications originating from Python processes that have recently imported newly generated data models, particularly if untrusted schemas are processed.
