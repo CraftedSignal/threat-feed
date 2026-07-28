@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-28T18:11:10Z"
+lastmod: "2026-07-28T18:20:22Z"
 type: advisory
 types:
   - advisory
@@ -165,6 +165,7 @@ vendors:
   - Zoho
   - RemSupp
   - Kubernetes
+  - Okta
 products:
   - PowerShell
   - Windows
@@ -665,6 +666,12 @@ products:
   - Amazon S3
   - RemSupp
   - Chaos ransomware
+  - Elastic's Anomaly Detection
+  - Fleet
+  - Fleet Server
+  - Kibana
+  - Privileged Access Detection integration
+  - System integration
 affected_os:
   - Windows
   - macOS
@@ -826,6 +833,21 @@ cves:
   - id: CVE-2026-57085
     cvss: 5.5
     epss: 0.00273
+  - id: CVE-2026-54991
+    cvss: 7.8
+    epss: 0.00154
+  - id: CVE-2026-50421
+    cvss: 7.8
+    epss: 0.00311
+  - id: CVE-2026-50411
+    cvss: 7.5
+    epss: 0.0078
+  - id: CVE-2026-50501
+    cvss: 7.8
+    epss: 0.00338
+  - id: CVE-2026-50650
+    cvss: 7.8
+    epss: 0.0029
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -2277,13 +2299,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-28T13:31:58Z"
-    level: L2
-    summary: added CVE-2026-40400 +4
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_ephemeral_container_added.toml
   - at: "2026-07-28T18:07:11Z"
     level: L2
     summary: added CVE-2026-44800 +4
@@ -2312,6 +2327,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_spike_in_rdp_processes.toml
+  - at: "2026-07-28T18:20:22Z"
+    level: L2
+    summary: added CVE-2026-50411 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_group_name_by_user.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
