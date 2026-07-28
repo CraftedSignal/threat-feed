@@ -3,7 +3,7 @@ title: Host Detected with Suspicious Windows Processes via Machine Learning
 slug: 2026-07-host-suspicious-windows-process-ml
 description: Elastic's machine learning job, utilizing the ProblemChild supervised model and unsupervised techniques, detects Windows hosts exhibiting clusters of suspicious processes with unusually high malicious probability scores, often indicative of defense evasion through Living Off The Land Binaries (LOLbins) and masquerading techniques.
 date: "2026-07-28T18:23:04Z"
-lastmod: "2026-07-28T18:24:31Z"
+lastmod: "2026-07-28T18:30:16Z"
 type: advisory
 types:
   - advisory
@@ -25,8 +25,11 @@ products:
   - Fleet
   - Kibana
   - Network Packet Capture
+  - Auditd Manager
+  - Elastic Stack >= 9.4.0
 affected_os:
   - Windows
+  - Linux
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -45,6 +48,7 @@ references:
   - https://docs.elastic.co/en/integrations/problemchild
   - https://www.elastic.co/security-labs/detecting-living-off-the-land-attacks-with-new-elastic-integration
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/command_and_control_ml_dns_tunneling.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/discovery_ml_linux_system_network_configuration_discovery.toml
 updates:
   - at: "2026-07-28T18:24:31Z"
     level: L1
@@ -53,6 +57,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/ml/command_and_control_ml_dns_tunneling.toml
+  - at: "2026-07-28T18:30:16Z"
+    level: L1
+    summary: OS linux
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/discovery_ml_linux_system_network_configuration_discovery.toml
 ---
 
 This threat brief describes an Elastic machine learning (ML) detection rule designed to identify hosts exhibiting suspicious Windows process activity indicative of defense evasion. The rule leverages a combination of Elastic's ProblemChild supervised ML model and unsupervised ML techniques to flag clusters of processes with unusually high malicious probability scores. Attackers frequently use Living Off The Land Binaries (LOLbins) and masquerading tactics to evade traditional signature-based detections. This ML-driven approach is designed to catch such sophisticated behaviors by identifying anomalous process clusters that may involve legitimate system tools being used maliciously. The detection aims to provide early warning for potential compromise by highlighting activity that might otherwise go unnoticed by conventional security rules.
