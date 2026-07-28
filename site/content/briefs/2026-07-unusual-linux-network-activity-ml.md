@@ -3,6 +3,7 @@ title: Unusual Linux Network Activity Detected by Machine Learning
 slug: 2026-07-unusual-linux-network-activity-ml
 description: This Elastic machine learning rule detects anomalous network activity originating from Linux processes that typically do not engage in network communication, signifying potential command-and-control, lateral movement, persistence, or data exfiltration activity, often via process exploitation or injection.
 date: "2026-07-27T15:33:49Z"
+lastmod: "2026-07-28T18:37:58Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,12 @@ tags:
   - threat-detection
   - machine-learning
   - detection-rule
+vendors:
+  - Elastic
+products:
+  - Elastic Defend
+  - Network Packet Capture
+  - Elastic Agent
 affected_os:
   - Linux
 mitre_ttps:
@@ -37,6 +44,15 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_linux_anomalous_network_activity.toml
+updates:
+  - at: "2026-07-28T18:37:58Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_linux_anomalous_network_activity.toml
 ---
 
 This brief details an Elastic Machine Learning (ML) rule designed to identify unusual network activity originating from Linux processes that typically do not engage in network communication. Published by Elastic, this rule, `Unusual Linux Network Activity`, was updated on `2026-07-24` and requires Elastic Stack version `9.4.0` or newer with Entity Analytics (EA) fields. Its primary purpose is to detect potential malicious behaviors such as command-and-control (C2) communications, lateral movement attempts, the establishment of persistence mechanisms, or data exfiltration. The rule operates by monitoring network traffic from Linux endpoints and flagging processes exhibiting unexpected outbound connections. This anomaly can signify process exploitation or injection, where legitimate applications are compromised and leveraged by threat actors to gain remote access, control the host, or execute unauthorized network operations. This capability is crucial for defenders to spot subtle indications of compromise that traditional signature-based methods might miss.
