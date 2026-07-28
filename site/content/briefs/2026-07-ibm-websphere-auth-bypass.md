@@ -3,7 +3,7 @@ title: IBM WebSphere Application Server Authentication Bypass Vulnerability (CVE
 slug: 2026-07-ibm-websphere-auth-bypass
 description: A remote attacker can bypass authentication in IBM WebSphere Application Server versions 9.0 and 8.5 by sending a crafted unauthenticated request, potentially leading to unauthorized access and impact on confidentiality, integrity, and availability.
 date: "2026-07-28T20:21:12Z"
-lastmod: "2026-07-28T21:24:21Z"
+lastmod: "2026-07-28T21:26:25Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,7 @@ vendors:
 products:
   - WebSphere Application Server 9.0
   - WebSphere Application Server 8.5
+  - WebSphere Application Server - Liberty >= 17.0.0.3 <= 26.0.0.7
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -52,6 +53,8 @@ cves:
     cvss: 9.8
   - id: CVE-2026-14512
     cvss: 9.8
+  - id: CVE-2026-14981
+    cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-16184
   - https://www.ibm.com/support/pages/node/7281628
@@ -60,6 +63,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14512
   - https://www.ibm.com/support/pages/node/7281649
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14528
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-14981
 iocs:
   - type: domain
     value: nvd.nist.gov
@@ -97,6 +101,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-14528
+  - at: "2026-07-28T21:26:25Z"
+    level: L2
+    summary: added CVE-2026-14981
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-14981
 ---
 
 IBM has identified a high-severity vulnerability, CVE-2026-16184, affecting its WebSphere Application Server versions 9.0 and 8.5. This flaw, categorized as a Missing Authorization (CWE-862), allows a remote, unauthenticated attacker to bypass the server's authentication mechanisms. By sending a specially crafted request, an attacker can gain unauthorized access to the application server. This vulnerability can lead to unauthorized information disclosure, data modification, or denial of service, depending on the accessed resources and the attacker's capabilities post-bypass. Organizations using affected WebSphere versions are advised to apply the necessary patches provided by IBM to mitigate the risk of exploitation.
