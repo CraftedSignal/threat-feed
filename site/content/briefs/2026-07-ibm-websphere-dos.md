@@ -1,50 +1,55 @@
 ---
-title: IBM WebSphere Application Server Liberty Denial of Service Vulnerability
+title: IBM WebSphere Application Server - Liberty Denial of Service via Uncontrolled Heap Allocation (CVE-2026-15057)
 slug: 2026-07-ibm-websphere-dos
-description: A remote and anonymous attacker can exploit a vulnerability within IBM WebSphere Application Server Liberty to conduct a Denial of Service (DoS) attack, potentially disrupting the availability of the application server.
-date: "2026-07-08T09:08:14Z"
+description: IBM WebSphere Application Server - Liberty versions 17.0.0.3 through 26.0.0.7 are vulnerable to a denial of service (DoS) due to uncontrolled heap allocation, allowing an unauthenticated attacker to exhaust server resources and disrupt legitimate services.
+date: "2026-07-28T21:27:25Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - low
 tags:
   - denial-of-service
-  - application-server
   - vulnerability
-  - ibm
+  - java-application-server
 vendors:
   - IBM
 products:
-  - WebSphere Application Server Liberty
+  - WebSphere Application Server - Liberty (17.0.0.3)
+  - WebSphere Application Server - Liberty (26.0.0.7)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
-    technique_name: Endpoint Denial of Service
-    evidence: Ein entfernter, anonymer Angreifer kann eine Schwachstelle in IBM WebSphere Application Server Liberty ausnutzen, um einen Denial of Service Angriff durchzuführen.
-    confidence_band: med
+    technique_name: Denial of Service
+    evidence: IBM WebSphere Application Server - Liberty ... is vulnerable to a denial of service due to uncontrolled heap allocation.
+    confidence_band: high
+cves:
+  - id: CVE-2026-15057
+    cvss: 7.5
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2233
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-15057
+  - https://www.ibm.com/support/pages/node/7280126
 ---
 
-The German Federal Office for Information Security (BSI) has reported a vulnerability in IBM WebSphere Application Server Liberty that could lead to a Denial of Service (DoS) condition. This flaw allows an unauthenticated, remote attacker to disrupt the availability of the affected application server. While specific exploitation details are not disclosed in the brief, the potential for service disruption poses a significant concern for organizations relying on WebSphere Liberty for critical applications. The ability for an anonymous attacker to trigger this DoS without authentication means that systems exposed to the internet are particularly at risk, highlighting the importance of timely patching. This vulnerability, if exploited, could lead to severe operational impacts and loss of access to services.
+IBM WebSphere Application Server - Liberty is susceptible to a high-severity denial of service vulnerability, identified as CVE-2026-15057. This flaw affects versions 17.0.0.3 through 26.0.0.7 and is caused by uncontrolled heap allocation. An unauthenticated remote attacker can exploit this vulnerability by sending specially crafted requests, leading to excessive memory consumption on the server. This can result in resource exhaustion, causing the application server to become unresponsive or crash, thereby disrupting legitimate services. The vulnerability's CVSS v3.1 base score is 7.5 (High), emphasizing the critical need for immediate patching for organizations utilizing the affected software versions.
 
 ## Attack Chain
 
-1. An unauthenticated attacker identifies an exposed IBM WebSphere Application Server Liberty instance.
-2. The attacker crafts and sends a specially malformed request to the vulnerable service endpoint.
-3. The vulnerable component in WebSphere Application Server Liberty processes the malformed request.
-4. The server's resources (e.g., CPU, memory, network connections) become exhausted or the service crashes.
-5. Legitimate users are unable to access the application server, resulting in a Denial of Service.
-6. The application server remains unavailable until manually restarted or the vulnerability is mitigated.
+1. **Target Identification**: An attacker identifies publicly accessible instances of IBM WebSphere Application Server - Liberty.
+2. **Vulnerability Confirmation**: The attacker verifies the server's version and determines it falls within the vulnerable range (17.0.0.3 through 26.0.0.7).
+3. **Request Crafting**: The attacker constructs specific HTTP requests designed to trigger the uncontrolled heap allocation mechanism within the vulnerable server.
+4. **DoS Initiation**: A high volume of these specially crafted malicious requests are sent to the target WebSphere Liberty server.
+5. **Resource Consumption**: Upon receiving these requests, the server's application logic continuously allocates memory on the heap without proper release or boundary checks.
+6. **Memory Exhaustion**: The server's available memory resources are rapidly depleted due to the uncontrolled heap growth.
+7. **Service Interruption**: The server becomes unresponsive, experiences severe performance degradation, or crashes, leading to a denial of service for all legitimate users and applications.
 
 ## Impact
 
-A successful Denial of Service attack against IBM WebSphere Application Server Liberty can lead to significant operational disruption for organizations. This could include loss of access to critical business applications, interruption of online services, and potential financial losses due to downtime. The absence of specific victim counts or targeted sectors in this brief suggests the vulnerability is newly reported, but any organization utilizing this product should consider the potential for service unavailability as a serious consequence, impacting continuity and potentially brand reputation.
+Successful exploitation of CVE-2026-15057 leads to a complete denial of service for the affected IBM WebSphere Application Server - Liberty instance. This can result in severe business disruption, as critical applications and services hosted on the server become unavailable. Organizations may face reputational damage, financial losses due to service downtime, and potential breaches of service level agreements. The impact is primarily on availability, with no direct confidentiality or integrity compromise mentioned in the vulnerability details.
 
 ## Recommendation
 
-* Apply available security patches and updates for IBM WebSphere Application Server Liberty as soon as they are released by the vendor to address the reported vulnerability.
-* Implement robust monitoring for the affected IBM WebSphere Application Server Liberty product to detect unusual resource utilization (CPU, memory, network I/O) or unexpected service stoppages.
-* Ensure proper network segmentation and access controls are in place to limit exposure of IBM WebSphere Application Server Liberty instances to untrusted networks.
+* Immediately apply the patch or update provided by IBM for CVE-2026-15057 to all affected IBM WebSphere Application Server - Liberty instances. The IBM support page reference provides details: `https://www.ibm.com/support/pages/node/7280126`.
+* Monitor system resource utilization (CPU, memory, heap usage) on your IBM WebSphere Application Server - Liberty instances for sudden and unexplained spikes.
+* Implement rate limiting and traffic filtering at the network edge (firewall/WAF) to mitigate the impact of high-volume, potentially malicious requests targeting application servers.
