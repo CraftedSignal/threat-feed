@@ -3,7 +3,7 @@ title: Unusual Process Writing Data to an External Device Detected by Machine Le
 slug: 2026-07-unusual-process-external-device
 description: Elastic's Data Exfiltration Detection integration leverages machine learning to identify rare processes writing data to external devices, indicating potential data exfiltration by adversaries using benign-looking processes.
 date: "2026-07-28T18:05:39Z"
-lastmod: "2026-07-28T18:31:02Z"
+lastmod: "2026-07-28T18:33:07Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,8 @@ tags:
   - discovery
   - reconnaissance
   - threat-detection
+  - initial-access
+  - credential-access
 vendors:
   - Elastic
   - Microsoft
@@ -40,6 +42,7 @@ products:
   - Privileged Access Detection integration
   - Auditd Manager
   - Elastic Agent
+  - System
 affected_os:
   - Windows
   - Linux
@@ -80,6 +83,12 @@ mitre_ttps:
     technique_name: System Network Connections Discovery
     evidence: A compromised account may be used by a threat actor to engage in system network connection discovery in order to increase their understanding of connected services and systems.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: A machine learning job detected a user logging in from an IP address that is unusual for the user. This can be due to credentialed access via a compromised account when the user and the threat actor are in different locations.
+    confidence_band: high
 references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
   - https://docs.elastic.co/en/integrations/ded
@@ -92,14 +101,8 @@ references:
   - https://docs.elastic.co/en/integrations/pad
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/discovery_ml_linux_system_network_connection_discovery.toml
   - https://attack.mitre.org/techniques/T1049/
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_auth_rare_source_ip_for_a_user.toml
 updates:
-  - at: "2026-07-28T18:08:33Z"
-    level: L1
-    summary: OS windows
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_rare_remote_file_directory.toml
   - at: "2026-07-28T18:11:21Z"
     level: L1
     summary: new product
@@ -128,6 +131,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/ml/discovery_ml_linux_system_network_connection_discovery.toml
+  - at: "2026-07-28T18:33:07Z"
+    level: L1
+    summary: 'merged source coverage: Unusual Source IP for User Logon Detection by Elastic ML'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_auth_rare_source_ip_for_a_user.toml
 ---
 
 Elastic has released a machine learning-based detection rule designed to identify potential data exfiltration attempts. This rule, part of the Data Exfiltration Detection integration, focuses on detecting unusual or rare processes that write data to external devices. Adversaries frequently use seemingly legitimate processes to mask their data exfiltration activities, making such abnormal behavior a strong indicator of compromise. The detection relies on Elastic's Anomaly Detection feature, analyzing network and file events collected via integrations like Elastic Defend and Network Packet Capture. This capability, available for Elastic Stack version 9.4.0 and higher, helps defenders identify deviations from typical process behavior, flagging potential threats where sensitive data might be transferred out of the network via an unapproved or suspicious channel.
