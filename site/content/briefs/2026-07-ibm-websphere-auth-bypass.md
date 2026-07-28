@@ -3,7 +3,7 @@ title: IBM WebSphere Application Server Authentication Bypass Vulnerability (CVE
 slug: 2026-07-ibm-websphere-auth-bypass
 description: A remote attacker can bypass authentication in IBM WebSphere Application Server versions 9.0 and 8.5 by sending a crafted unauthenticated request, potentially leading to unauthorized access and impact on confidentiality, integrity, and availability.
 date: "2026-07-28T20:21:12Z"
-lastmod: "2026-07-28T21:29:35Z"
+lastmod: "2026-07-28T21:30:35Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,9 @@ tags:
   - cwe-502
   - http-smuggling
   - server-side
+  - http-request-smuggling
+  - web-vulnerability
+  - cve
 vendors:
   - IBM
 products:
@@ -32,6 +35,7 @@ products:
   - WebSphere Application Server (9.0)
   - WebSphere Application Server (8.5)
   - WebSphere Application Server - Liberty (>= 17.0.0.3, <= 26.0.0.7)
+  - WebSphere Application Server - Liberty
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -51,6 +55,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: unsafe deserialization which could allow a remote attacker to [...] execute arbitrary code.
     confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562
+    technique_name: Impair Defenses
+    evidence: HTTP request smuggling allows attackers to bypass security controls.
+    confidence_band: med
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1546
+    technique_name: Event Triggered Execution
+    evidence: Exploitation could lead to web cache poisoning.
+    confidence_band: med
 cves:
   - id: CVE-2026-16184
     cvss: 7
@@ -78,6 +94,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15064
   - https://www.ibm.com/support/pages/node/7281625
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15325
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-15328
 iocs:
   - type: domain
     value: nvd.nist.gov
@@ -94,13 +111,6 @@ ioc_counts:
   email: 2
   url: 2
 updates:
-  - at: "2026-07-28T21:19:58Z"
-    level: L2
-    summary: 'merged source coverage: CVE-2026-14512: IBM WebSphere Pre-Authentication Deserialization RCE'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-14512
   - at: "2026-07-28T21:24:21Z"
     level: L2
     summary: added CVE-2026-14446 +2
@@ -129,6 +139,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-15325
+  - at: "2026-07-28T21:30:35Z"
+    level: L2
+    summary: 'merged source coverage: IBM WebSphere Application Server HTTP Request Smuggling Vulnerability'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-15328
 ---
 
 IBM has identified a high-severity vulnerability, CVE-2026-16184, affecting its WebSphere Application Server versions 9.0 and 8.5. This flaw, categorized as a Missing Authorization (CWE-862), allows a remote, unauthenticated attacker to bypass the server's authentication mechanisms. By sending a specially crafted request, an attacker can gain unauthorized access to the application server. This vulnerability can lead to unauthorized information disclosure, data modification, or denial of service, depending on the accessed resources and the attacker's capabilities post-bypass. Organizations using affected WebSphere versions are advised to apply the necessary patches provided by IBM to mitigate the risk of exploitation.
