@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-28T18:08:23Z"
+lastmod: "2026-07-28T18:11:10Z"
 type: advisory
 types:
   - advisory
@@ -81,6 +81,7 @@ cpes:
   - cpe:2.3:a:microsoft:sql_server_2025:*:*:*:*:*:*:x64:*
   - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x64:*
   - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x86:*
+  - cpe:2.3:a:microsoft:github_copilot:*:*:*:*:*:jetbrains:*:*
 has_poc: true
 tags:
   - roundup
@@ -813,6 +814,18 @@ cves:
   - id: CVE-2026-63818
     cvss: 8.4
     epss: 0.00132
+  - id: CVE-2026-50510
+    cvss: 7.8
+    epss: 0.00233
+  - id: CVE-2026-49796
+    cvss: 7.8
+    epss: 0.00389
+  - id: CVE-2026-55039
+    cvss: 7.8
+    epss: 0.00303
+  - id: CVE-2026-57085
+    cvss: 5.5
+    epss: 0.00273
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1538,6 +1551,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_process_args.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_session_duration.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_variance_rdp_session_duration.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_spike_in_rdp_processes.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2263,13 +2277,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-28T12:56:30Z"
-    level: L2
-    summary: added CVE-2026-50388 +4
-    sources:
-      - sophos-xops
-    source_urls:
-      - https://www.sophos.com/en-us/blog/chaos-in-teams-vishing
   - at: "2026-07-28T13:31:58Z"
     level: L2
     summary: added CVE-2026-40400 +4
@@ -2298,6 +2305,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_variance_rdp_session_duration.toml
+  - at: "2026-07-28T18:11:10Z"
+    level: L2
+    summary: added CVE-2026-49796 +3
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_spike_in_rdp_processes.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
