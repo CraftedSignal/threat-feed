@@ -3,6 +3,7 @@ title: Detection of Rare PowerShell Scripts on Windows Systems
 slug: 2026-07-rare-powershell-script
 description: Elastic's machine learning job detects rare PowerShell script executions on Windows hosts, identified by their script block hash, indicating potential malware activity or persistence mechanisms that deviate from an established baseline.
 date: "2026-07-27T15:31:41Z"
+lastmod: "2026-07-28T18:32:09Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,9 @@ vendors:
 products:
   - Kibana 9.4.0+
   - Elastic Agent System Windows Integration
+  - Elastic Agent
+  - Kibana
+  - Elastic Stack (>= 9.4.0)
 affected_os:
   - Windows
 mitre_ttps:
@@ -31,6 +35,15 @@ mitre_ttps:
 references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
   - https://www.elastic.co/security-labs/detecting-living-off-the-land-attacks-with-new-elastic-integration
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/execution_ml_windows_rare_script.toml
+updates:
+  - at: "2026-07-28T18:32:09Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/execution_ml_windows_rare_script.toml
 ---
 
 Elastic has developed a machine learning rule to identify the execution of rare PowerShell scripts on Windows systems, leveraging script block hashes to detect deviations from established environmental baselines. This detection method focuses on scripts that have rarely or never been observed within a specific Windows host's historical activity, differentiating it from entropy-based anomaly detection. The objective is to uncover potentially malicious activity such as malware execution, the establishment of persistence mechanisms, or other suspicious behaviors that leverage PowerShell. This rule is integrated into the Elastic security platform, requiring specific ML jobs and data from the Windows integration to be active in Kibana version 9.4.0 or higher. While the rule identifies unusual behavior, false positives may occur with newly installed legitimate programs or infrequently run legitimate scripts.
