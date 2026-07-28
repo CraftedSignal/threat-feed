@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-28T14:42:11Z"
+lastmod: "2026-07-28T18:53:14Z"
 type: advisory
 types:
   - advisory
@@ -54,6 +54,8 @@ cpes:
   - cpe:2.3:a:adobe:coldfusion:2023:update7:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update8:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update21:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:after_effects:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:bridge:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -142,6 +144,7 @@ products:
   - DNG SDK < 1.7.1 2536
   - Adobe Extension
   - WhatsApp
+  - Format Plugins (<= 2026.05)
 affected_os:
   - Windows
   - macOS
@@ -162,6 +165,20 @@ cves:
   - id: CVE-2026-48351
     cvss: 7.5
     epss: 0.00407
+  - id: CVE-2026-48372
+    cvss: 7.8
+  - id: CVE-2026-48284
+    cvss: 9.6
+    epss: 0.28002
+  - id: CVE-2026-48274
+    cvss: 7.8
+    epss: 0.00148
+  - id: CVE-2026-48343
+    cvss: 7.8
+    epss: 0.00148
+  - id: CVE-2026-48389
+    cvss: 7.8
+    epss: 0.00186
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -207,6 +224,7 @@ references:
   - https://cyber.gc.ca/en/alerts-advisories/broadcom-vmware-security-advisory-av26-712
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48389
   - https://www.reddit.com/r/blueteamsec/comments/1v8xk9z/hermeticreader_the_vulnerability_that_turned/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48372
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -234,18 +252,13 @@ iocs:
     value: https://helpx.adobe.com/security/products/illustrator/apsb26-79.html
   - type: url
     value: https://helpx.adobe.com/security/products/content-authenticity-sdk/apsb26-80.html
+  - type: url
+    value: https://helpx.adobe.com/security/products/formatplugins/apsb26-87.html
 ioc_counts:
   domain: 2
   email: 2
-  url: 9
+  url: 10
 updates:
-  - at: "2026-07-15T11:01:30Z"
-    level: L2
-    summary: added CVE-2026-48332
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2367
   - at: "2026-07-15T13:56:28Z"
     level: L2
     summary: poc_available; added CVE-2026-48336; OS linux
@@ -274,6 +287,13 @@ updates:
       - reddit-blueteamsec
     source_urls:
       - https://www.reddit.com/r/blueteamsec/comments/1v8xk9z/hermeticreader_the_vulnerability_that_turned/
+  - at: "2026-07-28T18:53:14Z"
+    level: L2
+    summary: added CVE-2026-48274 +4
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48372
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
