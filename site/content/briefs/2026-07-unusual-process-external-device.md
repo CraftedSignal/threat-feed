@@ -3,7 +3,7 @@ title: Unusual Process Writing Data to an External Device Detected by Machine Le
 slug: 2026-07-unusual-process-external-device
 description: Elastic's Data Exfiltration Detection integration leverages machine learning to identify rare processes writing data to external devices, indicating potential data exfiltration by adversaries using benign-looking processes.
 date: "2026-07-28T18:05:39Z"
-lastmod: "2026-07-28T18:12:58Z"
+lastmod: "2026-07-28T18:31:02Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,9 @@ tags:
   - linux
   - behavioral-detection
   - elastic
+  - discovery
+  - reconnaissance
+  - threat-detection
 vendors:
   - Elastic
   - Microsoft
@@ -35,6 +38,8 @@ products:
   - Elastic Security
   - Sysmon Linux
   - Privileged Access Detection integration
+  - Auditd Manager
+  - Elastic Agent
 affected_os:
   - Windows
   - Linux
@@ -69,6 +74,12 @@ mitre_ttps:
     technique_name: Abuse Elevation Control Mechanism
     evidence: A machine learning job has detected an increase in the execution of privileged commands by a user, suggesting potential privileged access activity.
     confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1049
+    technique_name: System Network Connections Discovery
+    evidence: A compromised account may be used by a threat actor to engage in system network connection discovery in order to increase their understanding of connected services and systems.
+    confidence_band: high
 references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
   - https://docs.elastic.co/en/integrations/ded
@@ -79,6 +90,8 @@ references:
   - https://www.elastic.co/blog/detecting-lateral-movement-activity-a-new-kibana-integration
   - https://www.elastic.co/blog/remote-desktop-protocol-connections-elastic-security
   - https://docs.elastic.co/en/integrations/pad
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/discovery_ml_linux_system_network_connection_discovery.toml
+  - https://attack.mitre.org/techniques/T1049/
 updates:
   - at: "2026-07-28T18:08:33Z"
     level: L1
@@ -108,6 +121,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_linux_high_count_privileged_process_events_by_user.toml
+  - at: "2026-07-28T18:31:02Z"
+    level: L1
+    summary: 'merged source coverage: Unusual Linux Network Connection Discovery Detected by Elastic ML'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/discovery_ml_linux_system_network_connection_discovery.toml
 ---
 
 Elastic has released a machine learning-based detection rule designed to identify potential data exfiltration attempts. This rule, part of the Data Exfiltration Detection integration, focuses on detecting unusual or rare processes that write data to external devices. Adversaries frequently use seemingly legitimate processes to mask their data exfiltration activities, making such abnormal behavior a strong indicator of compromise. The detection relies on Elastic's Anomaly Detection feature, analyzing network and file events collected via integrations like Elastic Defend and Network Packet Capture. This capability, available for Elastic Stack version 9.4.0 and higher, helps defenders identify deviations from typical process behavior, flagging potential threats where sensitive data might be transferred out of the network via an unapproved or suspicious channel.
