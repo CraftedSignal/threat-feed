@@ -3,7 +3,7 @@ title: Unusual Process Writing Data to an External Device Detected by Machine Le
 slug: 2026-07-unusual-process-external-device
 description: Elastic's Data Exfiltration Detection integration leverages machine learning to identify rare processes writing data to external devices, indicating potential data exfiltration by adversaries using benign-looking processes.
 date: "2026-07-28T18:05:39Z"
-lastmod: "2026-07-28T18:11:21Z"
+lastmod: "2026-07-28T18:12:05Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,9 @@ tags:
   - machine-learning
   - elastic-defend
   - endpoint
+  - lateral-movement
+  - rdp
+  - anomaly-detection
 vendors:
   - Elastic
   - Microsoft
@@ -25,6 +28,7 @@ products:
   - Windows RDP
   - Elastic Stack >= 9.4.0
   - Lateral Movement Detection integration
+  - Elastic Security
 affected_os:
   - Windows
 mitre_ttps:
@@ -34,12 +38,27 @@ mitre_ttps:
     technique_name: Exfiltration Over Physical Medium
     evidence: A machine learning job has detected a rare process writing data to an external device. Malicious actors often use benign-looking processes to mask their data exfiltration activities.
     confidence_band: high
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021
+    technique_name: Remote Services
+    evidence: An RDP session at an unusual time could be followed by other suspicious activities, so catching this is a good first step in detecting a larger attack.
+    confidence_band: high
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1210
+    technique_name: Exploitation of Remote Services
+    evidence: Remote Desktop Protocol (RDP) enables remote access to systems, crucial for IT management but also a target for adversaries seeking unauthorized access. Attackers exploit RDP by initiating sessions at odd hours to avoid detection.
+    confidence_band: med
 references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
   - https://docs.elastic.co/en/integrations/ded
   - https://www.elastic.co/blog/detect-data-exfiltration-activity-with-kibanas-new-integration
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_rare_remote_file_directory.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_spike_in_remote_file_transfers.toml
+  - https://docs.elastic.co/en/integrations/lmd
+  - https://www.elastic.co/blog/detecting-lateral-movement-activity-a-new-kibana-integration
+  - https://www.elastic.co/blog/remote-desktop-protocol-connections-elastic-security
 updates:
   - at: "2026-07-28T18:08:33Z"
     level: L1
@@ -55,6 +74,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_spike_in_remote_file_transfers.toml
+  - at: "2026-07-28T18:12:05Z"
+    level: L1
+    summary: 'merged source coverage: Unusual Time or Day for an RDP Session'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_unusual_time_for_an_rdp_session.toml
 ---
 
 Elastic has released a machine learning-based detection rule designed to identify potential data exfiltration attempts. This rule, part of the Data Exfiltration Detection integration, focuses on detecting unusual or rare processes that write data to external devices. Adversaries frequently use seemingly legitimate processes to mask their data exfiltration activities, making such abnormal behavior a strong indicator of compromise. The detection relies on Elastic's Anomaly Detection feature, analyzing network and file events collected via integrations like Elastic Defend and Network Packet Capture. This capability, available for Elastic Stack version 9.4.0 and higher, helps defenders identify deviations from typical process behavior, flagging potential threats where sensitive data might be transferred out of the network via an unapproved or suspicious channel.
