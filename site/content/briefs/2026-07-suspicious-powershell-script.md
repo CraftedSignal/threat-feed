@@ -3,6 +3,7 @@ title: Suspicious Powershell Script Detected by ML
 slug: 2026-07-suspicious-powershell-script
 description: An Elastic machine learning job detects anomalous PowerShell script behavior, specifically focusing on unusual data characteristics like obfuscation, indicating potential malicious scripts adversaries use for execution and defense evasion on Windows systems.
 date: "2026-07-27T15:30:56Z"
+lastmod: "2026-07-28T18:32:00Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,10 @@ tags:
   - machine-learning
   - execution
   - investigation-guide
+vendors:
+  - Microsoft
+products:
+  - PowerShell
 affected_os:
   - Windows
 mitre_ttps:
@@ -33,6 +38,15 @@ mitre_ttps:
 references:
   - https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html
   - https://www.elastic.co/security-labs/detecting-living-off-the-land-attacks-with-new-elastic-integration
+  - https://github.com/elastic/detection-rules/blob/main/rules/ml/execution_ml_windows_anomalous_script.toml
+updates:
+  - at: "2026-07-28T18:32:00Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/ml/execution_ml_windows_anomalous_script.toml
 ---
 
 Elastic has developed a machine learning rule designed to detect suspicious PowerShell scripts exhibiting unusual data characteristics, such as obfuscation. This rule, with a `machine_learning_job_id` of `v3_windows_anomalous_script_ea`, targets the common adversary tactic of leveraging PowerShell's capabilities for task automation and configuration management while attempting to evade detection. Adversaries frequently employ obfuscation techniques to conceal malicious payloads and commands within PowerShell scripts, making them harder for traditional signature-based security tools to identify. This ML-driven detection helps defenders by flagging these anomalous scripts in Windows environments, providing an early warning of potential malicious execution or defense evasion attempts. The rule helps to identify scripts that might be part of various attack campaigns.
