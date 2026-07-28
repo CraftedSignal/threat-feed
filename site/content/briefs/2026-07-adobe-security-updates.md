@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-28T18:53:29Z"
+lastmod: "2026-07-28T19:23:17Z"
 type: advisory
 types:
   - advisory
@@ -58,6 +58,11 @@ cpes:
   - cpe:2.3:a:adobe:bridge:*:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:premiere_pro:*:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:illustrator:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:*:*:*:*:-:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:*:*:*:*:aem_cloud_service:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:6.5:-:*:*:lts:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:6.5:sp1:*:*:lts:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:6.5:sp2:*:*:lts:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -148,6 +153,8 @@ products:
   - WhatsApp
   - Format Plugins (<= 2026.05)
   - Adobe Photoshop Installer
+  - Adobe Bridge <= 16.0.5
+  - Adobe Bridge <= 15.1.6
 affected_os:
   - Windows
   - macOS
@@ -191,6 +198,17 @@ cves:
   - id: CVE-2026-48275
     cvss: 8.6
     epss: 0.00161
+  - id: CVE-2026-48374
+    cvss: 7.8
+  - id: CVE-2026-48364
+    cvss: 8.2
+    epss: 0.00158
+  - id: CVE-2026-48359
+    cvss: 9.6
+    epss: 0.01705
+  - id: CVE-2026-48334
+    cvss: 9.3
+    epss: 0.00435
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -238,6 +256,7 @@ references:
   - https://www.reddit.com/r/blueteamsec/comments/1v8xk9z/hermeticreader_the_vulnerability_that_turned/
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48372
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48388
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48374
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -272,13 +291,6 @@ ioc_counts:
   email: 2
   url: 10
 updates:
-  - at: "2026-07-17T15:11:50Z"
-    level: L2
-    summary: added CVE-2026-48352
-    sources:
-      - cccs
-    source_urls:
-      - https://cyber.gc.ca/en/alerts-advisories/broadcom-vmware-security-advisory-av26-712
   - at: "2026-07-20T19:21:02Z"
     level: L2
     summary: added CVE-2026-48284 +3
@@ -307,6 +319,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48388
+  - at: "2026-07-28T19:23:17Z"
+    level: L2
+    summary: added CVE-2026-48334 +3
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48374
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
