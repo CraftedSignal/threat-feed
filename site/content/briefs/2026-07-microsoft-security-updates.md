@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-28T18:07:11Z"
+lastmod: "2026-07-28T18:07:24Z"
 type: advisory
 types:
   - advisory
@@ -74,6 +74,11 @@ cpes:
   - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2016:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2017:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2019:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2022:*:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:sql_server_2025:*:*:*:*:*:*:x64:*
 has_poc: true
 tags:
   - roundup
@@ -782,6 +787,21 @@ cves:
   - id: CVE-2026-50655
     cvss: 7.8
     epss: 0.00505
+  - id: CVE-2026-54118
+    cvss: 8.8
+    epss: 0.01288
+  - id: CVE-2026-50368
+    cvss: 7.5
+    epss: 0.0078
+  - id: CVE-2026-50370
+    cvss: 8.8
+    epss: 0.00494
+  - id: CVE-2026-50336
+    cvss: 7.8
+    epss: 0.00311
+  - id: CVE-2026-50448
+    cvss: 7.8
+    epss: 0.00335
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1505,6 +1525,7 @@ references:
   - https://www.sophos.com/en-us/blog/chaos-in-teams-vishing
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/execution_azure_aks_ephemeral_container_added.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_process_args.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_session_duration.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2230,13 +2251,6 @@ ioc_counts:
   url: 120
   user_agent: 6
 updates:
-  - at: "2026-07-28T10:05:23Z"
-    level: L2
-    summary: poc_available; added CVE-2026-44687 +6
-    sources:
-      - talos
-    source_urls:
-      - https://blog.talosintelligence.com/ir-trends-q2-2026/
   - at: "2026-07-28T10:52:09Z"
     level: L2
     summary: added CVE-2026-50303 +4
@@ -2265,6 +2279,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_process_args.toml
+  - at: "2026-07-28T18:07:24Z"
+    level: L2
+    summary: added CVE-2026-50336 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/lmd/lateral_movement_ml_high_mean_rdp_session_duration.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
