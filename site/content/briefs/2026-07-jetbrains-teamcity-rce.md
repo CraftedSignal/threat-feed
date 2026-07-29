@@ -1,51 +1,68 @@
 ---
-title: 'JetBrains TeamCity: Multiple Vulnerabilities Enable Code Execution'
+title: Critical Unauthenticated RCE in JetBrains TeamCity
 slug: 2026-07-jetbrains-teamcity-rce
-description: Multiple vulnerabilities in JetBrains TeamCity allow a remote, authenticated attacker to execute arbitrary program code on the affected system, potentially leading to full compromise of the CI/CD instance and underlying infrastructure.
-date: "2026-07-24T10:25:09Z"
-type: advisory
+description: A critical insecure deserialization vulnerability (CVE-2026-63077) in JetBrains TeamCity allows unauthenticated remote attackers to execute arbitrary system commands via the agent polling protocol.
+date: "2026-07-29T16:47:46Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
-  - high
+  - critical
+exploited: true
 tags:
   - vulnerability
-  - code-execution
-  - teamcity
-  - ci-cd
+  - rce
+  - cicd
+  - jetbrains
 vendors:
   - JetBrains
 products:
-  - TeamCity
+  - TeamCity On-Premises
 mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An unauthenticated remote attacker with HTTP(S) access to a TeamCity server can exploit the agent polling protocol to bypass authentication checks and execute arbitrary operating system commands.
+    confidence_band: high
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: A remote, authenticated attacker can exploit multiple vulnerabilities in JetBrains TeamCity to execute arbitrary program code.
+    evidence: attackers... can... execute arbitrary operating system commands with the privileges of the TeamCity server process.
     confidence_band: high
+cves:
+  - id: CVE-2026-63077
+    cvss: 9.8
+    epss: 0.00649
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2504
+  - https://www.rapid7.com/blog/post/etr-cve-2026-63077-critical-unauthenticated-remote-code-execution-in-jetbrains-teamcity
+  - https://blog.jetbrains.com/teamcity/2026/07/cve-2026-63077/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-63077
 ---
 
-The German Federal Office for Information Security (BSI) has issued an advisory regarding multiple critical vulnerabilities discovered in JetBrains TeamCity, a widely used continuous integration and continuous delivery (CI/CD) server. These vulnerabilities, when exploited by a remote and authenticated attacker, can lead to arbitrary program code execution on the server. While specific CVEs or exploit details were not provided, the implication of code execution on a CI/CD platform is severe. Successful exploitation could grant an attacker full control over the build environment, access to sensitive source code repositories, credentials, and potentially enable supply chain attacks by injecting malicious code into compiled artifacts. The advisory highlights the importance of immediate patching for organizations relying on TeamCity for their software development pipelines.
+On July 27, 2026, JetBrains disclosed CVE-2026-63077, a critical deserialization vulnerability affecting all versions of TeamCity On-Premises. With a CVSS score of 9.8, the vulnerability allows an unauthenticated remote attacker to interact with the server's agent polling protocol to bypass authentication mechanisms. By sending specifically crafted payloads, an attacker can achieve remote code execution (RCE) with the privileges of the underlying TeamCity server process. 
+
+This vulnerability presents a severe risk to CI/CD environments, as successful exploitation enables attackers to harvest stored credentials, manipulate build artifacts, and gain persistent access to the broader development infrastructure. While JetBrains reported no evidence of active exploitation at the time of disclosure, the simplicity of the attack vector makes patching or applying the provided security plugin an immediate requirement for all on-premises deployments.
 
 ## Attack Chain
 
-1. **Initial Access**: A remote attacker obtains valid authentication credentials for a JetBrains TeamCity instance.
-2. **Exploitation**: The attacker leverages unspecified vulnerabilities within the authenticated TeamCity session to manipulate server processes or configurations.
-3. **Code Injection**: Malicious code is injected into the TeamCity server's environment or directly into a running process.
-4. **Arbitrary Code Execution**: The injected code is executed with the privileges of the TeamCity server process on the underlying host operating system.
-5. **System Compromise**: The attacker gains full control over the TeamCity server, allowing the execution of arbitrary commands and unauthorized access.
-6. **Post-Exploitation Actions**: The attacker may then establish persistence, exfiltrate sensitive data such as source code, build artifacts, or credentials, or move laterally within the network.
-7. **Impact**: The CI/CD pipeline and potentially connected production systems are fully compromised, enabling supply chain attacks or significant operational disruption.
+1. Attacker performs reconnaissance to identify internet-facing TeamCity instances.
+2. Attacker establishes a connection to the TeamCity server using the agent polling protocol.
+3. Attacker sends a malicious, serialized payload to the targeted endpoint.
+4. The TeamCity server deserializes the untrusted data without sufficient validation.
+5. The deserialization process triggers execution of arbitrary code within the context of the server process.
+6. Attacker gains initial access and executes OS commands to dump credentials or deploy further malicious payloads.
+7. Attacker uses compromised credentials to move laterally into the CI/CD pipeline.
+8. Attacker compromises build processes or exfiltrates proprietary source code from the build environment.
 
 ## Impact
 
-A successful exploitation of these vulnerabilities would result in the complete compromise of the JetBrains TeamCity server. This level of access allows an attacker to manipulate or steal intellectual property, inject malicious code into software builds, access sensitive development credentials, and launch further attacks against production environments. The pervasive use of TeamCity in software development pipelines means that organizations could face significant data breaches, supply chain disruptions, and reputational damage if their instances are compromised. The potential for widespread impact on customers downstream of affected CI/CD processes is high.
+Successful exploitation allows for full system compromise of the TeamCity server, enabling attackers to read sensitive build configurations, steal hardcoded credentials, and inject malicious code into CI/CD pipelines. This could lead to a wide-scale supply chain attack, impacting software integrity for downstream users of the organization's products.
 
 ## Recommendation
 
-* Apply all available security updates for JetBrains TeamCity as soon as possible to mitigate these vulnerabilities.
-* Ensure strong, multi-factor authentication (MFA) is enforced for all user accounts on your JetBrains TeamCity instances.
-* Monitor your TeamCity server logs for any unusual process creation, unexpected outbound network connections from the TeamCity service account, or anomalous file modifications.
+Prioritize patching or applying workarounds to mitigate CVE-2026-63077:
+- Upgrade TeamCity On-Premises to version 2025.11.7 or 2026.1.3 immediately.
+- If upgrading is not feasible, apply the JetBrains security patch plugin for all versions 2017.1 and later.
+- Restrict network access to TeamCity servers via firewall rules to ensure only authorized agent IPs and management workstations have ingress access to the polling protocol.
