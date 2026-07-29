@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-28T20:35:11Z"
+lastmod: "2026-07-29T08:03:34Z"
 type: advisory
 types:
   - advisory
@@ -87,6 +87,9 @@ cpes:
   - cpe:2.3:a:microsoft:windows_admin_center:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:terminal:-:*:*:*:*:*:*:*
   - cpe:2.3:a:nlnetlabs:unbound:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -678,6 +681,7 @@ products:
   - System integration
   - Azure Arc
   - Domain Controller
+  - WalletService (vulnerable before July 2026 update)
 affected_os:
   - Windows
   - macOS
@@ -709,7 +713,7 @@ affected_os:
 cves:
   - id: CVE-2026-56164
     cvss: 5.3
-    epss: 0.18395
+    epss: 0.20127
   - id: CVE-2026-50293
     cvss: 7.8
     epss: 0.00257
@@ -953,6 +957,18 @@ cves:
   - id: CVE-2026-44687
     cvss: 3.7
     epss: 0.00218
+  - id: CVE-2026-58285
+    cvss: 8.3
+    epss: 0.00455
+  - id: CVE-2026-57984
+    cvss: 7.5
+    epss: 0.00429
+  - id: CVE-2026-58609
+    cvss: 7.8
+    epss: 0.00312
+  - id: CVE-2026-58277
+    cvss: 8.8
+    epss: 0.0074
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1687,6 +1703,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/ml/persistence_ml_windows_anomalous_process_all_hosts.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_azure_aks_suspicious_self_subject_review.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_dollar_account_relay.toml
+  - https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2376,6 +2393,24 @@ iocs:
     value: helper*.exe
   - type: filename
     value: 74fs*.exe
+  - type: url
+    value: https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F
+  - type: url
+    value: https://github.com/DavidCarliez/CVE-2026-49176_LPE_POC
+  - type: url
+    value: https://davidcarliez.github.io/blog/cve-2026-49176-walletservice-to-system/
+  - type: file_path
+    value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\Wallet\wallet.db'
+  - type: file_path
+    value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\payload\wallet_callback.dll'
+  - type: file_path
+    value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\payload\shell_broker.exe'
+  - type: file_path
+    value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\payload\command.txt'
+  - type: file_path
+    value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\payload\result.txt'
+  - type: service_name
+    value: CVE49176_*
 ioc_counts:
   application_id: 1
   asn: 3
@@ -2387,7 +2422,7 @@ ioc_counts:
   file-extension: 1
   file-path: 2
   file_name: 5
-  file_path: 13
+  file_path: 18
   filename: 13
   hash_md5: 12
   hash_sha256: 3
@@ -2405,20 +2440,14 @@ ioc_counts:
   process_name: 5
   registry_key: 2
   scheduled_task: 1
+  service_name: 1
   signature: 3
   software: 5
   string: 5
   tool: 4
-  url: 120
+  url: 123
   user_agent: 6
 updates:
-  - at: "2026-07-28T18:24:16Z"
-    level: L2
-    summary: added CVE-2026-50334 +3
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/problemchild/defense_evasion_ml_suspicious_windows_process_cluster_from_user.toml
   - at: "2026-07-28T18:34:05Z"
     level: L2
     summary: added CVE-2026-42982 +3
@@ -2447,6 +2476,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_dollar_account_relay.toml
+  - at: "2026-07-29T08:03:34Z"
+    level: L2
+    summary: poc_available; added CVE-2026-57984 +3
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
