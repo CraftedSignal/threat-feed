@@ -3,6 +3,7 @@ title: Public Exploit for Linux Kernel Use-After-Free Vulnerability CVE-2026-434
 slug: 2026-07-linux-kernel-uaf
 description: A public exploit has been published for CVE-2026-43499, a Use-After-Free vulnerability in the Linux Kernel, demonstrated to achieve KASLR bypass and potential privilege escalation on Android 15 devices running Linux Kernel 5.15.149, significantly elevating risk for unpatched systems.
 date: "2026-07-13T08:01:56Z"
+lastmod: "2026-07-29T13:08:38Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,8 @@ severities:
   - high
 cpes:
   - cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:mozilla:firefox:*:*:*:*:-:*:*:*
+has_poc: true
 tags:
   - linux
   - kernel
@@ -20,11 +23,19 @@ tags:
 vendors:
   - Linux Foundation
   - OPPO
+  - Mozilla
+  - Tor Project
+  - Google
 products:
   - Linux Kernel 5.15.149
   - OPPO Find X6 Pro (PGEM10)
+  - Firefox 147-151.0.2
+  - Tor Browser
+  - Android 17
+  - Linux kernel
 affected_os:
   - Android 15 (ColorOS 15.0)
+  - Android 17
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -35,7 +46,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-43499
     cvss: 7.8
-    epss: 0.00125
+    epss: 0.00725
+  - id: CVE-2026-10702
+    cvss: 4.3
+    epss: 0.00553
 references:
   - https://sploitus.com/exploit?id=529FD1C2-FD47-576F-AE7C-1F592B7CB594
   - https://github.com/NebuSec/CyberMeowfia
@@ -43,6 +57,7 @@ references:
   - https://nebusec.ai/research/ionstack-part-2/
   - https://github.com/oppo-source/android_kernel_oppo_sm8550
   - https://github.com/oppo-source/android_kernel_common_oppo_sm8550
+  - https://thehackernews.com/2026/07/researchers-show-single-malicious.html
 iocs:
   - type: url
     value: https://sploitus.com/exploit?id=529FD1C2-FD47-576F-AE7C-1F592B7CB594
@@ -58,6 +73,14 @@ iocs:
     value: https://github.com/oppo-source/android_kernel_common_oppo_sm8550
 ioc_counts:
   url: 6
+updates:
+  - at: "2026-07-29T13:08:38Z"
+    level: L2
+    summary: poc_available; added CVE-2026-10702; OS android 17
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/researchers-show-single-malicious.html
 ---
 
 A public exploit has been made available on Sploitus for CVE-2026-43499, a critical Use-After-Free vulnerability in the Linux Kernel. This exploit, codenamed "GhostLock," has been specifically adapted and demonstrated on the OPPO Find X6 Pro (PGEM10) device, which runs Android 15 (ColorOS 15.0) on Linux Kernel 5.15.149-android13. The adaptation includes a successful Kernel Address Space Layout Randomization (KASLR) bypass, achieved through the use of `perf_event_open` with `callchain sampling`. The existence of a readily available and working exploit significantly increases the risk for organizations and individuals operating unpatched Linux systems, particularly those with similar kernel versions or Android devices, enabling attackers to achieve local privilege escalation to kernel level.
