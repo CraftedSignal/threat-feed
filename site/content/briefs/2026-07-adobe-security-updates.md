@@ -3,7 +3,7 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-29T11:36:45Z"
+lastmod: "2026-07-29T14:41:12Z"
 type: advisory
 types:
   - advisory
@@ -63,6 +63,7 @@ cpes:
   - cpe:2.3:a:adobe:experience_manager:6.5:-:*:*:lts:*:*:*
   - cpe:2.3:a:adobe:experience_manager:6.5:sp1:*:*:lts:*:*:*
   - cpe:2.3:a:adobe:experience_manager:6.5:sp2:*:*:lts:*:*:*
+  - cpe:2.3:a:adobe:creative_cloud_desktop_application:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - roundup
@@ -164,6 +165,7 @@ products:
   - Creative Cloud
   - Bridge
   - Format Plugins
+  - Format Plugins < 2026.07
 affected_os:
   - Windows
   - macOS
@@ -249,6 +251,11 @@ cves:
   - id: CVE-2026-48259
     cvss: 9.6
     epss: 0.00682
+  - id: CVE-2026-48344
+    cvss: 7.8
+    epss: 0.00104
+  - id: CVE-2026-48396
+    cvss: 8.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -302,6 +309,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48394
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48396
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2566
+  - https://cyber.gc.ca/en/alerts-advisories/adobe-security-advisory-av26-756
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -338,13 +346,6 @@ ioc_counts:
   email: 2
   url: 11
 updates:
-  - at: "2026-07-28T19:24:33Z"
-    level: L2
-    summary: added CVE-2026-48337 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48391
   - at: "2026-07-28T19:24:48Z"
     level: L2
     summary: added CVE-2026-48336 +1
@@ -373,6 +374,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2566
+  - at: "2026-07-29T14:41:12Z"
+    level: L2
+    summary: added CVE-2026-48344 +1
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/adobe-security-advisory-av26-756
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
