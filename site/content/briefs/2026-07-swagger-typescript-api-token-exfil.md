@@ -3,6 +3,7 @@ title: Swagger-typescript-api Vulnerable to Authorization Token Exfiltration via
 slug: 2026-07-swagger-typescript-api-token-exfil
 description: The `swagger-typescript-api` tool is vulnerable to authorization token exfiltration. When a developer provides an `--authorizationToken` to fetch an OpenAPI specification, the tool attaches this token to all subsequent HTTP requests made while resolving external `$ref` URLs within the spec. Critically, it lacks same-origin checks, allowing a malicious OpenAPI spec containing a `$ref` to an attacker-controlled URL to cause the authorization token (e.g., GitHub PAT, OAuth bearer) to be sent verbatim to the attacker. This credential disclosure provides an attacker with the same scope of access as the stolen token, affecting development environments, CI/CD pipelines, and multi-tenant SaaS platforms.
 date: "2026-07-29T14:24:07Z"
+lastmod: "2026-07-29T14:33:31Z"
 type: advisory
 types:
   - advisory
@@ -15,8 +16,15 @@ tags:
   - openapi
   - api-security
   - nodejs
+  - code-injection
+  - npm
+  - node.js
+  - code-generation
 products:
   - swagger-typescript-api (<= 13.12.1)
+affected_os:
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -30,8 +38,50 @@ mitre_ttps:
     technique_name: Exfiltration Over Web Service
     evidence: A malicious OpenAPI spec containing a `$ref` to an attacker-controlled URL therefore causes the developer's bearer token to be sent verbatim to that URL during code generation.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1195
+    technique_name: Supply Chain Compromise
+    evidence: The attacker controls the OpenAPI spec; the victim is any consumer of the generated client.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: A computed property key whose value is an IIFE executes arbitrary code every time new HttpClient() ... is constructed.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1003
+    technique_name: OS Credential Dumping
+    evidence: The PoC ... schedules `fs.readFileSync('/etc/passwd')`, and writes the exfiltrated contents to `/tmp/sta_canary`.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-h754-fxp7-88wx
+  - https://github.com/advisories/GHSA-38c3-wv3c-v3xj
+rules:
+  - title: Detect Node.js Processes Accessing Sensitive System Files
+    description: Detects CVE-2026-54661 post-exploitation behavior where a Node.js process might attempt to read sensitive system files like /etc/passwd or /etc/shadow as a result of arbitrary code execution.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+      - execution
+    techniques:
+      - T1003.008
+      - T1059.007
+    data_sources:
+      - file_event
+      - linux
+rules_count: 1
+updates:
+  - at: "2026-07-29T14:33:31Z"
+    level: L2
+    summary: 'added detection rule: Detect Node.js Processes Accessing Sensitive System Files'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-38c3-wv3c-v3xj
 ---
 
 The `swagger-typescript-api` tool, specifically versions up to and including 13.12.1, is vulnerable to authorization token exfiltration (CVE-2026-54660). This vulnerability arises when the tool is used to generate API clients from an OpenAPI specification, and a developer provides an `--authorizationToken` flag to authenticate against a private spec. The tool's `getRemoteRequestHeaders()` function unconditionally attaches this token to the `Authorization` header of *every* subsequent HTTP request made while resolving external `$ref` URLs within the specification. Crucially, it fails to perform a same-origin check, host allowlist, or scope-down, meaning that a maliciously crafted OpenAPI spec with an external `$ref` pointing to an attacker-controlled domain will cause the developer's sensitive token (such as a GitHub Personal Access Token, OAuth bearer token, or API key) to be sent verbatim to the attacker. This flaw poses a significant risk to development environments, CI/CD pipelines, and multi-tenant SaaS platforms, as the captured token grants attackers the same level of access as the legitimate developer.
