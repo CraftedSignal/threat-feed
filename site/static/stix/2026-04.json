@@ -1,197 +1,13 @@
 {
   "type": "bundle",
-  "id": "bundle--1abd4596-a7e8-533b-a442-495c5f9508e8",
+  "id": "bundle--c6dcc130-64e2-519d-9bd6-f7e484fad126",
   "objects": [
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
-      "name": "Use Alternate Account",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1550",
-          "url": "https://attack.mitre.org/techniques/T1550"
-        }
-      ]
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f714251d-6172-5d99-a04c-0717aff868fb",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f342aa24-2dd0-5ca8-b602-51f5c711e7f6",
-      "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
-    },
-    {
-      "type": "software",
-      "id": "software--9ff7b031-1b76-5f57-94e7-81b3dab3909b",
-      "name": "sentry",
-      "vendor": "Sentry"
-    },
-    {
-      "type": "software",
-      "id": "software--8deab1ab-24d2-518f-a51c-445c165a6e7d",
-      "name": "Sentry SaaS",
-      "vendor": "Sentry"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--f342aa24-2dd0-5ca8-b602-51f5c711e7f6",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
-      "name": "Sentry SAML SSO Improper Authentication Allows User Identity Linking",
-      "description": "## Overview\n\nA critical vulnerability, CVE-2026-42354, has been identified in the SAML Single Sign-On (SSO) implementation of Sentry, potentially allowing an attacker to compromise user accounts. This vulnerability stems from improper authentication during the SAML SSO process, leading to the possibility of user identity linking. The vulnerability affects Sentry versions 21.12.0 up to and including 26.4.0. To exploit this vulnerability, an attacker requires a malicious SAML Identity Provider and access to another organization within the same Sentry instance, coupled with knowledge of the victim's email address. This attack vector poses a significant risk to self-hosted Sentry instances that are configured with multiple organizations (SENTRY_SINGLE_ORGANIZATION = False), where a malicious user possesses the necessary permissions to modify SSO settings for a different organization. Sentry SaaS has already been patched in April.\n\n## Attack Chain\n\n1.  The attacker gains access to a Sentry instance that has multiple organizations configured.\n2.  The attacker obtains permissions to modify the SAML SSO settings of at least one organization within the Sentry instance.\n3.  The attacker crafts a malicious SAML Identity Provider (IdP) designed to inject or manipulate user identity attributes.\n4.  The attacker uses the malicious SAML IdP to initiate a single sign-on (SSO) process to a Sentry organization they control.\n5.  The attacker provides the email address of the targeted victim, linking the victim's identity in the Sentry instance to the malicious SAML IdP.\n6.  The victim attempts to log in to their Sentry account through SAML SSO.\n7.  Due to the vulnerability, Sentry incorrectly authenticates the victim based on the attributes provided by the attacker's malicious SAML IdP.\n8.  The attacker successfully takes over the victim's account, gaining access to sensitive data and functionalities associated with the victim's privileges.\n\n## Impact\n\nSuccessful exploitation of this vulnerability can lead to complete account takeover, resulting in unauthorized access to sensitive project data, configuration settings, and potentially even administrative privileges within the Sentry instance. This poses a substantial risk to organizations using vulnerable Sentry versions, as attackers could exfiltrate sensitive information, modify configurations, or disrupt services. The impact is particularly severe for self-hosted Sentry instances with multiple organizations, where a single compromised account could lead to broader access across the entire platform.\n\n## Recommendation\n\n*   Upgrade self-hosted Sentry instances to version 26.4.1 or higher to patch CVE-2026-42354.\n*   Enable user account-based two-factor authentication (2FA) for all Sentry accounts as a preventative measure, as mentioned in the Workarounds section.\n*   Monitor Sentry audit logs for any unauthorized changes to SAML SSO configurations, particularly within multi-organization setups, to detect potential exploitation attempts.\n*   Review and restrict permissions for modifying SSO settings across all organizations to minimize the attack surface, as described in the Overview.\n",
-      "published": "2026-04-30T20:45:20Z",
-      "labels": [
-        "authentication",
-        "saml",
-        "sso",
-        "account takeover",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
-        "software--9ff7b031-1b76-5f57-94e7-81b3dab3909b",
-        "software--8deab1ab-24d2-518f-a51c-445c165a6e7d"
-      ],
-      "external_references": [
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-rcmw-7mc7-3rj7"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/getsentry/sentry/pull/113720"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sentry.io/settings/account/security/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sentry.zendesk.com/hc/en-us/articles/46773315774235-How-do-I-enable-two-factor-authentication-2FA-on-my-Sentry-account"
-        }
-      ],
-      "confidence": 60
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
-      "name": "Boot or Logon Autostart Execution",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1547",
-          "url": "https://attack.mitre.org/techniques/T1547"
-        }
-      ]
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--376040da-017b-5427-a902-3be8e2889ad6",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2d3ec6c8-d7fa-5909-bd6e-e242e4d1c7fd",
-      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
-      "name": "Exploitation for Privilege Escalation",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1068",
-          "url": "https://attack.mitre.org/techniques/T1068"
-        }
-      ]
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dfa7dd44-ef74-5240-b2f5-4e89c3fb9910",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2d3ec6c8-d7fa-5909-bd6e-e242e4d1c7fd",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "software",
-      "id": "software--15c9bd4d-6f47-5786-88f2-b5c56b806ae1",
-      "name": "Contrast CLI"
-    },
-    {
-      "type": "software",
-      "id": "software--0f903f1a-3d1b-5ad8-a69a-0d423a0bd480",
-      "name": "contrast generate"
-    },
-    {
-      "type": "software",
-      "id": "software--974b0239-8a6d-5927-b09c-10d847ac9eaf",
-      "name": "Kata agent"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2d3ec6c8-d7fa-5909-bd6e-e242e4d1c7fd",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
-      "name": "Contrast CLI CopyFile Policy Subversion via Symlinks Allows Guest Root Filesystem Writes",
-      "description": "## Overview\n\nA vulnerability exists in the Kata agent policies generated by the Contrast CLI (versions prior to v1.19.1). Specifically, the `CopyFile` verification process is flawed, enabling a malicious host process to write arbitrary data to the guest root filesystem. This attack vector leverages the Kata agent's VSOCK interface, allowing a compromised host to connect to the agent and issue malicious `CopyFile` requests. The successful exploitation can overwrite critical security files or deceive the workload into divulging sensitive data. This flaw has a high impact, potentially resulting in a complete guest takeover. The issue was patched in Contrast v1.19.1.\n\n## Attack Chain\n\n1. A malicious process gains the capability to connect to the Kata agent VSOCK.\n2. The malicious process connects to the Kata agent via VSOCK.\n3. The attacker crafts a series of `CopyFile` requests.\n4. These `CopyFile` requests are designed to exploit the vulnerability in the Contrast CLI-generated Kata agent policies.\n5. The attacker uses the `CopyFile` requests to create symlinks pointing to sensitive or critical system files.\n6. The attacker then uses `CopyFile` requests to write arbitrary data to the targeted files via the created symlinks.\n7. Security-critical files within the guest root filesystem are overwritten or modified by the attacker.\n8. The compromised system facilitates a full guest takeover, potentially enabling further malicious activities within the containerized environment.\n\n## Impact\n\nSuccessful exploitation allows a malicious host process to gain full control over the guest container. This can lead to data exfiltration, denial of service, or further lateral movement within the infrastructure. While the exact number of affected systems is not specified, any environment relying on affected Contrast CLI versions to generate Kata agent policies is potentially at risk. The impact is a full guest takeover.\n\n## Recommendation\n\n*   Upgrade Contrast CLI to version v1.19.1 or later to remediate the vulnerability.\n*   If upgrading is not immediately possible, implement the policy-only fix described in the provided resources, specifically the rego fix, and pass it to `contrast generate --policy`.\n*   Monitor network connections to the Kata agent VSOCK for unusual or unauthorized activity, especially originating from untrusted processes.\n*   Implement host-based intrusion detection systems (HIDS) to detect unauthorized file modifications within the guest root filesystem.\n",
-      "published": "2026-04-30T20:57:17Z",
-      "labels": [
-        "kata-containers",
-        "container-security",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "software--15c9bd4d-6f47-5786-88f2-b5c56b806ae1",
-        "software--0f903f1a-3d1b-5ad8-a69a-0d423a0bd480",
-        "software--974b0239-8a6d-5927-b09c-10d847ac9eaf"
-      ],
-      "external_references": [
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-rh99-wc69-c255"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://docs.edgeless.systems/contrast/architecture/components/policies"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/kata-containers/kata-containers/security/advisories/GHSA-q49m-57vm-c8cc"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://gist.github.com/burgerdev/304dd0ab0fff1665b7c27e18a30cf96e"
-        }
-      ],
-      "confidence": 80
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Exploitation for Privilege Escalation",
       "external_references": [
         {
@@ -205,8 +21,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--973c254a-3b90-5bbb-a375-4485bb66a027",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--83b4c72c-b672-5e50-bc10-982de1f11742",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -215,8 +31,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--429a6830-d83b-5acb-a98c-8015a8ae6a71",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Data from Information Repositories",
       "external_references": [
         {
@@ -230,8 +46,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--d88c17f1-db1f-500e-94b6-11bea7a07309",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--83b4c72c-b672-5e50-bc10-982de1f11742",
       "target_ref": "attack-pattern--429a6830-d83b-5acb-a98c-8015a8ae6a71"
@@ -264,8 +80,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--83b4c72c-b672-5e50-bc10-982de1f11742",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Kirby CMS Missing Authorization Vulnerability",
       "description": "## Overview\n\nKirby CMS versions prior to 4.9.0 and between 5.0.0 and 5.3.3 are vulnerable to a missing authorization flaw. This vulnerability impacts Kirby sites where user roles are intentionally configured with restricted access to pages or files through disabled `pages.access`, `pages.list`, `files.access`, or `files.list` permissions. The issue stems from inconsistent permission checks within the Kirby Panel and REST API, allowing authenticated users to access resources they should not be able to. Updating to versions 4.9.0, 5.4.0, or later resolves this vulnerability by implementing consistent permission checks. The vulnerability is identified as CVE-2026-42137.\n\n## Attack Chain\n\n1. An authenticated user logs into the Kirby CMS Panel or REST API.\n2. The user attempts to access a page or file for which their role lacks the necessary `pages.access`/`files.access` or `pages.list`/`files.list` permissions.\n3. Due to inconsistent permission checks, the user can view the page or file details via the \"changes\" dialog in the Panel, even if listing is disabled.\n4. The user accesses the REST API, which, despite direct access checks, fails to properly filter collections or related models (children, drafts, files, etc.).\n5. The attacker views images associated with restricted site, pages, or user resources in lists within the Panel.\n6. The user exploits the incorrect permission check (using `pages.access` instead of `pages.list` or `files.access` instead of `files.list` in specific API routes).\n7. The user traverses to previous or next files using direct links in the files view, even if those files should not be listable.\n8. The attacker gains unauthorized access to sensitive information or modifies content due to the bypassed permission checks.\n\n## Impact\n\nThis vulnerability allows authenticated users to bypass intended access restrictions within Kirby CMS, leading to potential unauthorized access to sensitive information and/or unauthorized content modification. The inconsistent permission checks in the Panel and REST API could result in unintended disclosure of data restricted by role-based access controls. Successful exploitation could compromise the confidentiality and integrity of the affected Kirby CMS instance. While the advisory does not list the number of victims, this flaw impacts any Kirby site with restricted roles.\n\n## Recommendation\n\n*   Upgrade to Kirby CMS version 4.9.0 or 5.4.0 (or later) to patch the vulnerability as recommended in the advisory.\n*   Review user role permissions and blueprint configurations to ensure appropriate access controls are in place after patching, as described in the overview.\n*   Monitor web server logs for unusual API requests to resources that should be restricted, using the rules below, to identify potential exploitation attempts.\n*   Implement rate limiting on API endpoints to mitigate potential brute-force attacks attempting to exploit this or other vulnerabilities.\n",
       "published": "2026-04-30T21:03:20Z",
@@ -306,8 +122,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -321,8 +137,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--53f40f3f-6223-54fe-8967-ce9c99132dcb",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--e3c1f85f-8faf-5104-9ef7-b26bdc4adebe",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -337,8 +153,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--c99425c7-b71c-5797-bef6-e2748aa5966e",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "CVE-2026-4503",
       "external_references": [
         {
@@ -352,8 +168,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--aaf70a5a-1e59-5f17-9052-4df778f74c98",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "has",
       "source_ref": "software--ee377948-b4bf-57b0-8869-fc5197685a33",
       "target_ref": "vulnerability--c99425c7-b71c-5797-bef6-e2748aa5966e"
@@ -362,8 +178,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--e3c1f85f-8faf-5104-9ef7-b26bdc4adebe",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "IBM Langflow Desktop Unauthenticated Image Access via IDOR",
       "description": "## Overview\n\nIBM Langflow Desktop versions 1.0.0 through 1.8.4 are susceptible to an indirect object reference (IDOR) vulnerability, designated as CVE-2026-4503. This flaw enables unauthenticated attackers to access and view images belonging to other users. The vulnerability arises from the application's reliance on a user-controlled key to reference objects, which can be manipulated to bypass authorization checks and gain unauthorized access to sensitive image data. This poses a risk to user privacy and data security, as attackers can potentially view confidential or personal images without proper authentication.\n\n## Attack Chain\n\n1. An unauthenticated attacker identifies a user-controlled key used to reference image objects within Langflow Desktop.\n2. The attacker modifies this key to point to another user's image object.\n3. The attacker sends a request to the Langflow Desktop application using the modified key.\n4. The application, due to the IDOR vulnerability, fails to properly validate the attacker's authorization to access the requested image object.\n5. The application retrieves and returns the image data associated with the targeted user's image.\n6. The attacker views the image without authentication.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an unauthenticated attacker to view other users' images within IBM Langflow Desktop. This can lead to a breach of privacy, as sensitive or personal images may be exposed. The number of affected users depends on the number of installations of Langflow Desktop within the vulnerable version range (1.0.0 through 1.8.4).\n\n## Recommendation\n\n*   Apply the security patch or upgrade to a version of IBM Langflow Desktop that addresses CVE-2026-4503 as detailed in the IBM advisory.\n*   Implement stricter authorization checks on image object references to prevent unauthorized access, mitigating CVE-2026-4503.\n",
       "published": "2026-04-30T21:16:33Z",
@@ -393,8 +209,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -408,8 +224,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--bf53773f-dc9e-52d8-be07-2430ad4c2bea",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--5cc37e9e-0dc0-5a9b-9bc2-14cfb171455f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -424,8 +240,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--89dca221-05d6-5af1-8726-60705d67da13",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "CVE-2026-7435",
       "external_references": [
         {
@@ -439,8 +255,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--f8eec074-8339-5c2f-8f9f-3f5de47e846b",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "has",
       "source_ref": "software--57347a0f-e70b-5b33-a655-cac3668212b8",
       "target_ref": "vulnerability--89dca221-05d6-5af1-8726-60705d67da13"
@@ -449,8 +265,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--5cc37e9e-0dc0-5a9b-9bc2-14cfb171455f",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "SSCMS v7.4.0 SQL Injection Vulnerability in stl:sqlContent Tag",
       "description": "## Overview\n\nSSCMS v7.4.0 is susceptible to a SQL injection vulnerability (CVE-2026-7435) within the `stl:sqlContent` tag. The vulnerability arises because the `queryString` attribute is passed directly to database execution without adequate sanitization or parameterization. This flaw enables attackers to inject malicious SQL code by crafting encrypted payloads and submitting them to the `/api/stl/actions/dynamic` endpoint. Successful exploitation can lead to unauthorized access to the database, disclosure of sensitive information, authentication bypass, modification of data, or even complete compromise of the database. This vulnerability poses a significant risk to organizations using the affected SSCMS version, potentially leading to severe data breaches and system disruption.\n\n## Attack Chain\n\n1.  The attacker identifies an SSCMS v7.4.0 instance.\n2.  The attacker crafts a malicious SQL injection payload, specifically targeting the `queryString` attribute within the `stl:sqlContent` tag.\n3.  The attacker encrypts the crafted SQL injection payload.\n4.  The attacker sends the encrypted payload to the `/api/stl/actions/dynamic` endpoint using an HTTP POST request.\n5.  The SSCMS application receives the request and processes the `stl:sqlContent` tag without proper sanitization.\n6.  The application executes the attacker-controlled SQL query against the database.\n7.  The attacker gains unauthorized access to the database, potentially extracting sensitive data or modifying existing records.\n8.  The attacker may escalate privileges or move laterally within the compromised system, depending on the level of access gained.\n\n## Impact\n\nSuccessful exploitation of this SQL injection vulnerability could lead to severe consequences. An attacker could gain complete control over the SSCMS database, potentially exposing sensitive user data, confidential business information, or proprietary intellectual property. Data breaches resulting from this vulnerability could lead to significant financial losses, reputational damage, and legal liabilities. The lack of specifics about victim count or sectors targeted makes quantification difficult, but the potential impact is high for any organization using the affected software.\n\n## Recommendation\n\n*   Apply any available patches or updates for SSCMS v7.4.0 to address the SQL injection vulnerability described in CVE-2026-7435.\n*   Implement input validation and sanitization measures to prevent SQL injection attacks, specifically focusing on the `queryString` attribute of the `stl:sqlContent` tag.\n*   Deploy the Sigma rule `Detect Suspicious SSCMS stl:sqlContent Requests` to identify potential exploitation attempts targeting the `/api/stl/actions/dynamic` endpoint.\n",
       "published": "2026-04-30T21:16:34Z",
@@ -488,8 +304,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Exploitation for Privilege Escalation",
       "external_references": [
         {
@@ -503,8 +319,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--a66686f9-375a-5851-a726-c7ea6188e27c",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--94b8291f-045b-521f-b183-33f596ce62d0",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -513,8 +329,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Unsecured Credentials",
       "external_references": [
         {
@@ -528,8 +344,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--563d2107-d685-564f-9815-a011e8c5cc93",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--94b8291f-045b-521f-b183-33f596ce62d0",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -550,8 +366,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--27a48303-c49a-5a25-b379-e06a8fd48140",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "CVE-2026-6389",
       "external_references": [
         {
@@ -565,8 +381,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--0dc9034e-7754-531a-bccc-40a09223c2c9",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "has",
       "source_ref": "software--199bf3db-7733-5c43-b3e6-0eef4b7116eb",
       "target_ref": "vulnerability--27a48303-c49a-5a25-b379-e06a8fd48140"
@@ -575,8 +391,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--691206b5-e334-5848-bba0-cf83b80b0ff0",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "has",
       "source_ref": "software--2209bb0d-1efd-5c3f-bfac-00ca193315ee",
       "target_ref": "vulnerability--27a48303-c49a-5a25-b379-e06a8fd48140"
@@ -585,8 +401,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--94b8291f-045b-521f-b183-33f596ce62d0",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "IBM Turbonomic prometurbo Agent Privilege Escalation via Excessive Permissions (CVE-2026-6389)",
       "description": "## Overview\n\nCVE-2026-6389 affects IBM Turbonomic prometurbo agent versions 8.16.0 through 8.17.6. The vulnerability stems from the agent granting excessive cluster-wide permissions within IBM Turbonomic Application Resource Management. A successful exploit allows an attacker who has compromised the operator or its associated service account to gain unrestricted read access to all secrets within the cluster. This vulnerability was reported on April 30, 2026, and poses a significant risk to organizations using the affected versions, potentially leading to complete cluster compromise. Defenders should prioritize patching and monitoring for unauthorized access to sensitive resources.\n\n## Attack Chain\n\n1.  Attacker gains initial access to the Kubernetes cluster, potentially through exploiting a vulnerability in a separate application or service running within the cluster, or via compromised credentials.\n2.  The attacker identifies the IBM Turbonomic prometurbo agent and its associated service account within the compromised cluster.\n3.  The attacker leverages the compromised service account or operator to interact with the Kubernetes API, exploiting the excessive cluster-wide permissions granted to the prometurbo agent.\n4.  The attacker utilizes the unrestricted read access to enumerate and exfiltrate sensitive credentials stored as secrets within the cluster, including database passwords, API keys, and other sensitive information.\n5.  Using the stolen credentials, the attacker escalates privileges by accessing other services and resources within the cluster, such as deploying malicious pods or modifying existing deployments.\n6.  The attacker achieves persistence by creating or modifying service accounts, roles, and role bindings to maintain access to the cluster even if the initial point of compromise is remediated.\n7.  The attacker moves laterally within the cluster, compromising additional nodes and workloads to expand their control and access to sensitive data.\n8.  The attacker achieves full cluster compromise, gaining complete control over all resources and data within the Kubernetes environment.\n\n## Impact\n\nA successful exploitation of CVE-2026-6389 can lead to a full compromise of the Kubernetes cluster. This includes unrestricted access to sensitive data and the ability to control all workloads and resources within the environment. The impact includes potential data breaches, service disruptions, and significant financial and reputational damage. Organizations in any sector using the affected versions of IBM Turbonomic are at risk, and the severity is heightened in environments handling sensitive data or critical infrastructure.\n\n## Recommendation\n\n*   Upgrade IBM Turbonomic prometurbo agent to a version beyond 8.17.6 to patch CVE-2026-6389.\n*   Review and restrict the permissions granted to the prometurbo agent service account, adhering to the principle of least privilege (reference: CVE-2026-6389).\n*   Implement Kubernetes audit logging to monitor for unauthorized access to secrets and other sensitive resources (reference: Kubernetes documentation).\n*   Deploy the Sigma rule \"Detect Kubernetes Secret Access via Turbonomic Agent\" to identify potential exploitation attempts (reference: Sigma rule below).\n*   Monitor for unusual activity originating from the prometurbo agent service account, such as attempts to access or exfiltrate large amounts of data (reference: network_connection log source).\n*   Implement network segmentation to limit the potential impact of a compromised cluster, preventing lateral movement to other environments.\n",
       "published": "2026-04-30T22:16:26Z",
@@ -619,8 +435,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Command and Scripting Interpreter",
       "external_references": [
         {
@@ -634,8 +450,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--13deb6bf-56a4-5469-9994-72e3b16f33ae",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--1d4e2076-d100-57b9-a36b-7fcecbd43699",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -644,16 +460,16 @@
       "type": "threat-actor",
       "spec_version": "2.1",
       "id": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Unattributed"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--e3769cd5-5989-5a7f-ad99-1783d13d52d5",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--1d4e2076-d100-57b9-a36b-7fcecbd43699",
       "target_ref": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a"
@@ -668,8 +484,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--2f6f164e-63e1-5b14-944e-1105b52a31d2",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "CVE-2026-6543",
       "external_references": [
         {
@@ -683,8 +499,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--766c0146-946f-56e0-a987-68c93e306737",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "has",
       "source_ref": "software--18d32d64-e239-565e-aa4d-4849ad15c0dc",
       "target_ref": "vulnerability--2f6f164e-63e1-5b14-944e-1105b52a31d2"
@@ -693,8 +509,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--1d4e2076-d100-57b9-a36b-7fcecbd43699",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "IBM Langflow Desktop Vulnerable to Remote Command Execution (CVE-2026-6543)",
       "description": "## Overview\n\nIBM Langflow Desktop, a tool designed to build and experiment with language models, versions 1.0.0 through 1.8.4, contains a remote command execution vulnerability (CVE-2026-6543). An attacker with the ability to influence Langflow's execution can inject and execute arbitrary commands with the same privileges as the Langflow process. This flaw can be exploited to read sensitive environment variables containing API keys and database credentials, modify critical files, and propagate further attacks within the internal network. The vulnerability poses a significant risk to organizations utilizing affected versions of Langflow Desktop, potentially leading to data breaches and system compromise. Defenders should prioritize patching or implementing mitigations to prevent exploitation.\n\n## Attack Chain\n\n1.  Attacker gains initial access to a system with Langflow Desktop installed (versions 1.0.0 - 1.8.4). This could be achieved through social engineering or by compromising a user account with access to the system.\n2.  The attacker crafts a malicious input or payload designed to exploit the command execution vulnerability within Langflow.\n3.  The attacker triggers Langflow to process the malicious payload, leveraging the vulnerability to inject and execute arbitrary commands.\n4.  The injected command executes with the privileges of the Langflow process, allowing the attacker to interact with the underlying operating system.\n5.  The attacker leverages command execution to read sensitive environment variables, potentially obtaining API keys, database credentials, or other sensitive information.\n6.  The attacker uses the acquired credentials to access sensitive data or systems within the internal network, escalating their privileges and expanding their reach.\n7.  The attacker modifies critical files or installs malicious software, establishing persistence and compromising the integrity of the system.\n8.  The attacker launches further attacks on the internal network, leveraging the compromised system as a pivot point to compromise additional systems and data.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-6543 allows attackers to execute arbitrary commands on systems running vulnerable versions of IBM Langflow Desktop. This can lead to the exposure of sensitive environment variables containing API keys and database credentials, the modification of critical files, and the launching of further attacks on the internal network. The impact can range from data breaches and system compromise to complete control over affected systems and networks. Given the nature of Langflow, targeted sectors likely include organizations involved in AI/ML development and related fields.\n\n## Recommendation\n\n*   Upgrade IBM Langflow Desktop to a patched version beyond 1.8.4 to remediate CVE-2026-6543, as recommended by IBM.\n*   Deploy the Sigma rule \"Detect Langflow Process Spawning Suspicious Processes\" to identify potential exploitation attempts based on unusual child processes spawned by Langflow.\n*   Monitor network connections from Langflow Desktop instances for suspicious outbound traffic, indicating potential data exfiltration or command-and-control activity.\n*   Implement least privilege principles to limit the impact of successful exploitation by restricting the permissions of the Langflow process.\n",
       "published": "2026-04-30T22:16:26Z",
@@ -726,8 +542,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -741,8 +557,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c8bfb820-ce0c-594d-a33f-0150bfb33691",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--8b0d8396-5450-5ed3-9254-b1c226eb4eaf",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -751,8 +567,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Exploitation of Remote Services",
       "external_references": [
         {
@@ -766,8 +582,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--8799edcc-f6cf-54fd-a54f-2bd96cd70b36",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--8b0d8396-5450-5ed3-9254-b1c226eb4eaf",
       "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
@@ -782,8 +598,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--6f268f9d-7bcd-5193-9d2e-15ac668a7800",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "CVE-2026-7503",
       "external_references": [
         {
@@ -797,8 +613,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--b6e192fb-7a2a-51b3-9bcb-8546fef308e3",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "has",
       "source_ref": "software--b1be3d5b-ab98-5077-9cae-ff23d76db519",
       "target_ref": "vulnerability--6f268f9d-7bcd-5193-9d2e-15ac668a7800"
@@ -807,8 +623,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--8b0d8396-5450-5ed3-9254-b1c226eb4eaf",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "code-projects Plugin 4.1.2cu.5137 Buffer Overflow Vulnerability",
       "description": "## Overview\n\nA critical buffer overflow vulnerability, identified as CVE-2026-7503, has been discovered in code-projects Plugin version 4.1.2cu.5137. The vulnerability resides within the `setWiFiMultipleConfig` function in the `/lib/cste_modules/wireless.so` library, which is part of the `/cgi-bin/cstecgi.cgi` executable. Successful exploitation is achieved through manipulation of the `wepkey2` argument, allowing for remote code execution. The vulnerability is considered highly critical due to the availability of a public exploit, increasing the likelihood of widespread exploitation and potential compromise of affected systems. This poses a significant threat to devices utilizing the vulnerable plugin version.\n\n## Attack Chain\n\n1.  Attacker identifies a system running code-projects Plugin 4.1.2cu.5137.\n2.  The attacker crafts a malicious HTTP request targeting the `/cgi-bin/cstecgi.cgi` endpoint.\n3.  The request includes a specially crafted payload for the `wepkey2` argument within the `setWiFiMultipleConfig` function.\n4.  The vulnerable function `setWiFiMultipleConfig` processes the malicious input without proper bounds checking.\n5.  The oversized `wepkey2` argument overflows the buffer, overwriting adjacent memory regions.\n6.  The attacker injects malicious code into the memory space via the buffer overflow.\n7.  The injected code executes, granting the attacker control over the affected system.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-7503 can lead to complete system compromise, allowing attackers to execute arbitrary code, steal sensitive information, or cause denial-of-service conditions. Due to the ready availability of an exploit, any system running the vulnerable code-projects plugin version 4.1.2cu.5137 is at immediate risk. The lack of specific victim numbers or sector targeting information in the provided source does not diminish the critical nature of the vulnerability given the high CVSS score (8.8) and public exploit.\n\n## Recommendation\n\n*   Deploy the Sigma rule \"Detect Code-Projects WiFi Configuration Buffer Overflow Attempt\" to your SIEM to detect exploitation attempts targeting the vulnerable `setWiFiMultipleConfig` function and monitor web server logs (cs-uri-query).\n*   Apply input validation and sanitization to prevent buffer overflows. This issue occurs within the `/lib/cste_modules/wireless.so` library called by `/cgi-bin/cstecgi.cgi`.\n*   Monitor network traffic for suspicious requests targeting the `/cgi-bin/cstecgi.cgi` endpoint, as this is the entry point for exploiting CVE-2026-7503.\n",
       "published": "2026-04-30T22:16:26Z",
@@ -855,8 +671,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Command and Scripting Interpreter",
       "external_references": [
         {
@@ -870,8 +686,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--2d7c307e-804c-506b-85dd-8634fe69d5a8",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--cd4d36e0-62ce-5991-8a3d-00d076ce495d",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -886,8 +702,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--e20df7e5-f1d0-5e6f-8b3b-7881fad17745",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "CVE-2026-7551",
       "external_references": [
         {
@@ -901,8 +717,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c31ad7d6-c177-5d8e-b975-2f23419c480d",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "has",
       "source_ref": "software--d9aa498a-760d-51e5-a647-94765f6ab638",
       "target_ref": "vulnerability--e20df7e5-f1d0-5e6f-8b3b-7881fad17745"
@@ -911,8 +727,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--cd4d36e0-62ce-5991-8a3d-00d076ce495d",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "HKUDS OpenHarness Remote Code Execution via /bridge Slash Command (CVE-2026-7551)",
       "description": "## Overview\n\nHKUDS OpenHarness is vulnerable to a remote code execution flaw (CVE-2026-7551) affecting the /bridge slash command. This vulnerability permits remote attackers, who are authorized by the OpenHarness configuration, to execute arbitrary operating system commands on the host system. The attack leverages the /bridge spawn command, which, when supplied with attacker-controlled command text, is processed by the bridge session manager and executed through a shared shell subprocess. This execution context grants attackers the ability to spawn shell sessions with the privileges of the OpenHarness process user, potentially exposing local files, credentials, workspace state, and repository contents. Successful exploitation results in a complete compromise of the OpenHarness instance.\n\n## Attack Chain\n\n1.  Attacker identifies an accessible OpenHarness instance with the vulnerable /bridge slash command enabled.\n2.  The attacker authenticates or gains access to a communication channel (e.g., chat application) accepted by OpenHarness.\n3.  The attacker crafts a malicious /bridge spawn command containing OS commands to be executed.\n4.  The attacker sends the crafted /bridge spawn command to the OpenHarness instance via the configured communication channel.\n5.  OpenHarness processes the /bridge command and forwards the attacker-controlled command text to the bridge session manager.\n6.  The bridge session manager executes the injected OS commands through a shared shell subprocess.\n7.  The attacker gains a shell session with the privileges of the OpenHarness process user.\n8.  The attacker accesses local files, credentials, workspace state, and repository contents, potentially exfiltrating sensitive data or establishing persistence.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-7551 allows attackers to execute arbitrary operating system commands on the OpenHarness server. This grants them the ability to spawn shell sessions as the OpenHarness process user, which can lead to the exposure of sensitive information such as local files, credentials, workspace state, and repository contents. The impact of this vulnerability is significant, potentially allowing for complete system compromise and data exfiltration, but the exact number of victims is currently unknown.\n\n## Recommendation\n\n*   Apply available patches or updates provided by HKUDS to address CVE-2026-7551 on all OpenHarness instances.\n*   Implement input validation and sanitization on the /bridge slash command to prevent the injection of malicious OS commands.\n*   Monitor process creation events for suspicious shell executions originating from the OpenHarness process using the provided Sigma rule.\n*   Restrict network access to the OpenHarness server to only authorized users and systems.\n*   Review OpenHarness configurations to ensure that only trusted communication channels are accepted.\n",
       "published": "2026-04-30T22:17:40Z",
@@ -938,8 +754,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "Credentials on Shared Drives",
       "external_references": [
         {
@@ -953,8 +769,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--2c722ed7-fd10-58f6-a0f8-57f3d38e8beb",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "uses",
       "source_ref": "report--028ef52c-587f-5041-acf2-4dd4ac48689a",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
@@ -975,8 +791,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--5c8964f2-d365-5202-bf62-0ee50cf68d43",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "CVE-2026-7505",
       "external_references": [
         {
@@ -990,8 +806,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--f976550e-b829-51fd-a686-d71ab523a371",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "has",
       "source_ref": "software--837b35cb-c2bd-562c-9db7-3fc1e272795d",
       "target_ref": "vulnerability--5c8964f2-d365-5202-bf62-0ee50cf68d43"
@@ -1000,8 +816,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--080d85ad-cc7c-5d0b-94cc-b63970630058",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "relationship_type": "has",
       "source_ref": "software--4c00a1d2-ca27-5246-be40-54602cf46b11",
       "target_ref": "vulnerability--5c8964f2-d365-5202-bf62-0ee50cf68d43"
@@ -1010,8 +826,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--028ef52c-587f-5041-acf2-4dd4ac48689a",
-      "created": "2026-07-29T19:18:55Z",
-      "modified": "2026-07-29T19:18:55Z",
+      "created": "2026-07-29T21:02:15Z",
+      "modified": "2026-07-29T21:02:15Z",
       "name": "nextlevelbuilder GoClaw and GoClaw Lite Improper Authorization Vulnerability",
       "description": "## Overview\n\nnextlevelbuilder GoClaw and GoClaw Lite, up to version 3.8.5, contain an improper authorization vulnerability within the RPC Handler component. This flaw allows remote attackers to potentially bypass intended security restrictions, leading to unauthorized access or modification of data. Publicly available exploit code exists, increasing the risk of exploitation. The vulnerability is identified as CVE-2026-7505. Organizations using affected versions of GoClaw or GoClaw Lite should upgrade to version 3.9.0, which includes a patch (406022e79f4a18b3070a446712080571eff11e30) to mitigate this issue. Successful exploitation could lead to unauthorized data access, modification, or other malicious activities.\n\n## Attack Chain\n\n1. The attacker identifies a vulnerable instance of nextlevelbuilder GoClaw or GoClaw Lite running version 3.8.5 or earlier.\n2. The attacker crafts a malicious RPC request targeting the vulnerable RPC Handler component.\n3. The attacker sends the crafted RPC request to the vulnerable GoClaw/GoClaw Lite instance remotely.\n4. Due to the improper authorization, the RPC Handler processes the request without proper authentication or authorization checks.\n5. The attacker gains unauthorized access to functions or data within the GoClaw/GoClaw Lite application.\n6. The attacker modifies data, executes unauthorized commands, or performs other malicious actions within the application's scope.\n7. The attacker leverages the compromised application to further escalate privileges or gain access to other systems.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-7505 allows an unauthenticated remote attacker to bypass authorization controls in nextlevelbuilder GoClaw and GoClaw Lite. This can lead to unauthorized access to sensitive data, modification of system configurations, or execution of arbitrary commands. While the number of affected installations is unknown, organizations utilizing these products should consider this a high-risk vulnerability due to the availability of exploit code.\n\n## Recommendation\n\n*   Immediately upgrade nextlevelbuilder GoClaw and GoClaw Lite to version 3.9.0 to apply the security patch (406022e79f4a18b3070a446712080571eff11e30), as mentioned in the overview.\n*   Monitor network traffic for suspicious RPC requests targeting GoClaw/GoClaw Lite servers using network connection logs.\n*   Deploy web server access rules to detect and block access to the RPC Handler component from unauthorized IP addresses.\n*   Review and harden access control lists for the GoClaw/GoClaw Lite application to prevent unauthorized access.\n",
       "published": "2026-04-30T23:16:20Z",
