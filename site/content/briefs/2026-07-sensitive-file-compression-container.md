@@ -3,6 +3,7 @@ title: Sensitive File Compression Detected in Linux Containers for Credential Ac
 slug: 2026-07-sensitive-file-compression-container
 description: Elastic Defend for Containers detects the use of compression utilities like tar or zip within Linux containers to collect sensitive files such as SSH keys, AWS credentials, or system configurations, indicating potential credential access and data collection attempts by adversaries.
 date: "2026-07-29T12:32:00Z"
+lastmod: "2026-07-29T12:41:35Z"
 type: advisory
 types:
   - advisory
@@ -41,6 +42,12 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/credential_access_collection_sensitive_files_compression_inside_a_container.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/discovery_kubelet_certificate_file_access.toml
+iocs:
+  - type: filepath
+    value: /var/lib/kubelet/pki/
+ioc_counts:
+  filepath: 1
 rules:
   - title: Sensitive File Compression Detected via Defend for Containers
     description: Detects the use of compression utilities to collect known files containing sensitive information, such as credentials and system configurations, inside a Linux container.
@@ -59,6 +66,14 @@ rules:
       - process_creation
       - linux
 rules_count: 1
+updates:
+  - at: "2026-07-29T12:41:35Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/discovery_kubelet_certificate_file_access.toml
 ---
 
 This brief describes a detection mechanism implemented by Elastic Defend for Containers aimed at identifying credential access and collection activities within Linux container environments. Adversaries often exploit compromised containers to locate and gather sensitive information, including cloud provider credentials (AWS, Azure, GCP), SSH keys, Docker configurations, and system configuration files (e.g., `/etc/passwd`, `/etc/shadow`). The detection focuses on the use of common compression utilities such as `zip`, `tar`, `gzip`, `hdiutil`, `7z`, `rar`, `7zip`, or `p7zip`, either executed directly or via shell processes (`bash`, `sh`, `zsh`), when their command-line arguments target known sensitive file paths. This activity signals an attacker's attempt to stage data for exfiltration after gaining access to a container. The detection was reintroduced with Elastic Stack version 9.3.0.
