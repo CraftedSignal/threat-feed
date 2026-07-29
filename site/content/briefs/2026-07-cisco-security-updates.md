@@ -3,7 +3,7 @@ title: Cisco Security Updates — July 2026
 slug: 2026-07-cisco-security-updates
 description: Roundup of Cisco security advisories published in July 2026.
 date: "2026-07-03T13:36:20Z"
-lastmod: "2026-07-29T15:57:45Z"
+lastmod: "2026-07-29T16:01:19Z"
 type: advisory
 types:
   - advisory
@@ -108,6 +108,9 @@ cves:
   - id: CVE-2026-20079
     cvss: 10
     epss: 0.387
+  - id: CVE-2026-20187
+    cvss: 7.5
+    epss: 0.00252
 references:
   - https://www.ncsc.gov.uk/news/uk-and-allies-urge-critical-sectors-to-improve-defences-against-russian-intelligence-targeting
   - https://www.darkreading.com/endpoint-security/weak-security-fuel-russian-cyberattacks
@@ -121,6 +124,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_from_process_with_no_args.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_to_ip_lookup_service_api.yml
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Authentication%20Bypass%20%20Vulnerability%26vs_k=1
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Static%20Credential%20Vulnerability%26vs_k=1
 iocs:
   - type: url
     value: https://media.defense.gov/2026/Jul/09/2003959498/-1/-1/1/CSA_IMPROVE_ROUTER_HYGIENE.PDF
@@ -228,19 +232,14 @@ iocs:
     value: ip.cn
   - type: url
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2
+  - type: url
+    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh
 ioc_counts:
   domain: 44
   email: 2
   port: 3
-  url: 4
+  url: 5
 updates:
-  - at: "2026-07-16T11:02:00Z"
-    level: L1
-    summary: new product
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2374
   - at: "2026-07-27T18:06:59Z"
     level: L1
     summary: new IOCs
@@ -269,6 +268,13 @@ updates:
       - cisco-psirt
     source_urls:
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Authentication%20Bypass%20%20Vulnerability%26vs_k=1
+  - at: "2026-07-29T16:01:19Z"
+    level: L2
+    summary: added CVE-2026-20187
+    sources:
+      - cisco-psirt
+    source_urls:
+      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Static%20Credential%20Vulnerability%26vs_k=1
 ---
 
 Aggregated Cisco security advisories for July 2026. CVEs from this cycle are folded
