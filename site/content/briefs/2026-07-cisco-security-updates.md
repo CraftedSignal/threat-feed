@@ -3,7 +3,7 @@ title: Cisco Security Updates — July 2026
 slug: 2026-07-cisco-security-updates
 description: Roundup of Cisco security advisories published in July 2026.
 date: "2026-07-03T13:36:20Z"
-lastmod: "2026-07-29T16:01:19Z"
+lastmod: "2026-07-29T18:58:28Z"
 type: advisory
 types:
   - advisory
@@ -90,6 +90,7 @@ products:
   - Splunk Cloud
   - Windows
   - Secure Firewall Management Center
+  - Secure Firewall Management Center (FMC)
 affected_os:
   - Windows
 cves:
@@ -125,6 +126,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_to_ip_lookup_service_api.yml
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Authentication%20Bypass%20%20Vulnerability%26vs_k=1
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Static%20Credential%20Vulnerability%26vs_k=1
+  - https://www.cve.org/CVERecord?id=CVE-2026-20316
 iocs:
   - type: url
     value: https://media.defense.gov/2026/Jul/09/2003959498/-1/-1/1/CSA_IMPROVE_ROUTER_HYGIENE.PDF
@@ -240,13 +242,6 @@ ioc_counts:
   port: 3
   url: 5
 updates:
-  - at: "2026-07-27T18:06:59Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___outbound_connection_to_suspicious_port.yml
   - at: "2026-07-27T18:11:32Z"
     level: L2
     summary: added CVE-2026-20150 +2; OS windows
@@ -275,6 +270,13 @@ updates:
       - cisco-psirt
     source_urls:
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Static%20Credential%20Vulnerability%26vs_k=1
+  - at: "2026-07-29T18:58:28Z"
+    level: L2
+    summary: secure firewall management center version FMC
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-20316
 ---
 
 Aggregated Cisco security advisories for July 2026. CVEs from this cycle are folded
