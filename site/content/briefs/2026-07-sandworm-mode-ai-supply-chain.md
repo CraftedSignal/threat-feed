@@ -3,13 +3,12 @@ title: 'Denying the Worm: Detecting SANDWORM_MODE and AI Toolchain Supply Chain 
 slug: 2026-07-sandworm-mode-ai-supply-chain
 description: The SANDWORM_MODE campaign is a multi-stage npm supply chain worm that targets AI-augmented development workflows by exploiting runtime behaviors of AI coding assistants and CI/CD pipelines, leading to credential theft, supply chain poisoning, and persistence through obfuscated loaders, credential harvesting, and malicious Git hooks.
 date: "2026-07-21T17:23:33Z"
-lastmod: "2026-07-28T20:54:59Z"
+lastmod: "2026-07-29T07:10:16Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
-has_poc: true
 tags:
   - supply-chain-attack
   - npm
@@ -306,17 +305,26 @@ iocs:
     value: PASSWORD
   - type: campaign
     value: SANDWORM_MODE
+  - type: filename
+    value: /dev/shm/
+  - type: directory
+    value: ~/.git-templates/hooks/
+  - type: filename
+    value: pre-commit
+  - type: filename
+    value: pre-push
 ioc_counts:
   campaign: 1
   campaign-name: 1
   campaign_name: 1
   cryptocurrency_wallet: 1
+  directory: 1
   domain: 5
   environment_variable: 4
   file: 3
   file-path: 2
   file_path: 3
-  filename: 2
+  filename: 5
   filepath: 3
   keyword: 1
   npm package: 1
@@ -363,13 +371,6 @@ rules:
       - linux
 rules_count: 3
 updates:
-  - at: "2026-07-27T08:45:34Z"
-    level: L2
-    summary: openai version API; anthropic version API; google version API
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
   - at: "2026-07-27T17:37:20Z"
     level: L1
     summary: new IOCs
@@ -394,6 +395,13 @@ updates:
   - at: "2026-07-28T20:54:59Z"
     level: L2
     summary: poc_available
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
+  - at: "2026-07-29T07:10:16Z"
+    level: L1
+    summary: new IOCs
     sources:
       - crowdstrike
     source_urls:
