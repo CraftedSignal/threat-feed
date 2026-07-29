@@ -3,7 +3,7 @@ title: Sensitive File Compression Detected in Linux Containers for Credential Ac
 slug: 2026-07-sensitive-file-compression-container
 description: Elastic Defend for Containers detects the use of compression utilities like tar or zip within Linux containers to collect sensitive files such as SSH keys, AWS credentials, or system configurations, indicating potential credential access and data collection attempts by adversaries.
 date: "2026-07-29T12:32:00Z"
-lastmod: "2026-07-29T12:47:47Z"
+lastmod: "2026-07-29T13:01:41Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,10 @@ tags:
   - network-scanning
   - network-sniffing
   - elastic-defend
+  - container-security
+  - cloud-security
+  - execution
+  - command-and-control
 vendors:
   - Elastic
 products:
@@ -69,10 +73,18 @@ mitre_ttps:
     technique_name: Network Sniffing
     evidence: Network utilities like nc, nmap, dig, tcpdump, ngrep, telnet, mitmproxy, zmap can be used for malicious purposes such as network reconnaissance, monitoring, or exploitation.
     confidence_band: med
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1072
+    technique_name: Software Deployment Tools
+    evidence: 'This rule detects the installation of tools inside a container. An adversary may need to install additional software to enumerate the container, its environment, and move laterally within the environment. Example attacker pattern: after gaining a shell in a pod, they run apt/apk/pacman to add curl, netcat, or socat.'
+    confidence_band: high
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/credential_access_collection_sensitive_files_compression_inside_a_container.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/discovery_kubelet_certificate_file_access.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/discovery_suspicious_network_tool_launched_inside_a_container.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/execution_tool_installation.toml
+  - https://flare.io/learn/resources/blog/teampcp-cloud-native-ransomware
 iocs:
   - type: filepath
     value: /var/lib/kubelet/pki/
@@ -112,7 +124,20 @@ rules:
     data_sources:
       - process_creation
       - linux
-rules_count: 2
+  - title: Detect Suspicious Tool Installation in Linux Containers
+    description: Detects the installation of common adversary tools (e.g., netcat, curl, python interpreters) using Linux package managers within container environments. This indicates potential post-exploitation activity like reconnaissance, ingress tool transfer, or C2 establishment.
+    platform: sigma
+    severity: low
+    tactics:
+      - command_and_control
+      - execution
+    techniques:
+      - T1072
+      - T1105
+    data_sources:
+      - process_creation
+      - linux
+rules_count: 3
 updates:
   - at: "2026-07-29T12:41:35Z"
     level: L1
@@ -128,6 +153,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/discovery_suspicious_network_tool_launched_inside_a_container.toml
+  - at: "2026-07-29T13:01:41Z"
+    level: L1
+    summary: 'added detection rule: Detect Suspicious Tool Installation in Linux Containers'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/execution_tool_installation.toml
 ---
 
 This brief describes a detection mechanism implemented by Elastic Defend for Containers aimed at identifying credential access and collection activities within Linux container environments. Adversaries often exploit compromised containers to locate and gather sensitive information, including cloud provider credentials (AWS, Azure, GCP), SSH keys, Docker configurations, and system configuration files (e.g., `/etc/passwd`, `/etc/shadow`). The detection focuses on the use of common compression utilities such as `zip`, `tar`, `gzip`, `hdiutil`, `7z`, `rar`, `7zip`, or `p7zip`, either executed directly or via shell processes (`bash`, `sh`, `zsh`), when their command-line arguments target known sensitive file paths. This activity signals an attacker's attempt to stage data for exfiltration after gaining access to a container. The detection was reintroduced with Elastic Stack version 9.3.0.
