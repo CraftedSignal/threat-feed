@@ -3,6 +3,7 @@ title: Authenticated Remote Code Execution in Wolf CMS
 slug: 2026-07-wolf-cms-rce
 description: Wolf CMS versions up to 0.8.3.1 contain a remote code execution vulnerability in the FileManagerController allowing authenticated users with specific permissions to upload and execute arbitrary PHP files.
 date: "2026-07-30T21:31:53Z"
+lastmod: "2026-07-30T21:32:01Z"
 type: advisory
 types:
   - advisory
@@ -28,10 +29,19 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: Attackers with the file_manager_mkfile capability can write malicious PHP content into the web-accessible FILES_DIR directory and trigger execution
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Wolf CMS through 0.8.3.1 contains an authorization bypass vulnerability in BackupRestoreController that allows authenticated non-administrative users to access restricted backup functionality
+    confidence_band: high
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67206
   - https://github.com/Caycon/cve-advisories/blob/main/2026/WolfCms/CVE-2026-67206.md
   - https://www.vulncheck.com/advisories/wolf-cms-authenticated-rce-via-filemanagercontroller-file-upload
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67207
+  - https://www.vulncheck.com/advisories/wolf-cms-authorization-bypass-via-backuprestorecontroller
+  - https://github.com/Caycon/cve-advisories/blob/main/2026/WolfCms/CVE-2026-67207.md
 rules:
   - title: Detects CVE-2026-67206 Exploitation - File Upload to FileManagerController
     description: Detects potential exploitation of CVE-2026-67206 by monitoring HTTP POST requests to the File Manager module's creation functions.
@@ -44,6 +54,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-30T21:32:01Z"
+    level: L2
+    summary: 'merged source coverage: Authorization Bypass in Wolf CMS BackupRestoreController'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-67207
 ---
 
 Wolf CMS versions 0.8.3.1 and earlier contain a critical remote code execution (RCE) vulnerability (CVE-2026-67206) residing within the `FileManagerController`. The vulnerability stems from improper validation of file extensions in the `create_file()` and `save()` functions. An attacker who has authenticated to the CMS and possesses the `file_manager_mkfile` capability can exploit this flaw to create and upload arbitrary PHP files into the web-accessible `FILES_DIR` directory. Once the file is uploaded, an attacker can trigger remote code execution by sending an HTTP request directly to the newly created file. This vulnerability poses a significant risk to organizations using Wolf CMS, as it effectively elevates the access of a standard CMS user to full system code execution.
