@@ -3,6 +3,7 @@ title: Unauthenticated SSRF and Secret Exfiltration in Flyto Core
 slug: 2026-07-flyto-ssrf-exfiltration
 description: An unauthenticated SSRF vulnerability in the Flyto Core /run endpoint allows attackers to exfiltrate the internal FLYTO_RUNNER_SECRET and perform unauthorized requests against internal infrastructure.
 date: "2026-07-30T15:29:02Z"
+lastmod: "2026-07-30T15:29:13Z"
 type: threat
 types:
   - threat
@@ -13,6 +14,10 @@ tags:
   - credential-theft
   - vulnerability
   - cve-2026-67426
+  - path-traversal
+  - arbitrary-file-write
+  - rce
+  - framework
 vendors:
   - Flyto
 products:
@@ -30,12 +35,26 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: 'The service unconditionally attaches X-Internal-Key: $FLYTO_RUNNER_SECRET to outgoing requests.'
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Replace a Python module, leading to code execution in typical deployments.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1547.001
+    technique_name: 'Persistence: Boot or Logon Autostart Execution'
+    evidence: Overwrite config, drop a shell profile, cron job or authorized_keys.
+    confidence_band: high
 cves:
   - id: CVE-2026-67426
     cvss: 9.3
     epss: 0.00291
 references:
   - https://github.com/advisories/GHSA-jx74-cqjv-2c67
+  - https://github.com/advisories/GHSA-2956-977x-2w3r
+  - CVE-2026-67429
 rules:
   - title: Detect Exploitation of Flyto Core CVE-2026-67426
     description: Detects unauthenticated POST requests to the /run endpoint of the Flyto verification service, which is indicative of exploitation attempts.
@@ -48,6 +67,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-30T15:29:13Z"
+    level: L2
+    summary: 'merged source coverage: Arbitrary File Write in Flyto Core via Path Traversal'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-2956-977x-2w3r
 ---
 
 Flyto Core versions 2.26.6 and earlier are vulnerable to a critical SSRF and credential exfiltration flaw in the `flyto-verification` service. The `/run` endpoint, which is exposed by default on all interfaces (0.0.0.0) via the standard Docker configuration, lacks authentication. When a request is submitted to this endpoint, the `callback_url` parameter is processed without validation against an allowlist or SSRF protection guards.
