@@ -3,7 +3,7 @@ title: Astaroth Botnet Deploys New WhatsApp Web Spambot Component
 slug: 2026-07-astaroth-spambot-component
 description: Operators of the Astaroth (aka Guildma) botnet, which targets Brazil-based users, introduced a new spambot component in Q4 2025 that leverages WhatsApp Web in headless browser mode for malware distribution, exhibiting evasion techniques like payload encryption and WebDriver automation indicator stripping.
 date: "2026-07-29T14:53:41Z"
-lastmod: "2026-07-30T07:16:31Z"
+lastmod: "2026-07-30T15:23:29Z"
 type: threat
 types:
   - threat
@@ -21,6 +21,7 @@ vendors:
   - Microsoft
   - Google
   - Meta
+  - WhatsApp
 products:
   - Windows
   - Google Chrome
@@ -126,6 +127,13 @@ updates:
   - at: "2026-07-30T07:16:31Z"
     level: L1
     summary: OS windows
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/inside-astaroths-new-spambot-component/
+  - at: "2026-07-30T15:23:29Z"
+    level: L1
+    summary: new vendor
     sources:
       - crowdstrike
     source_urls:
