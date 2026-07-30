@@ -3,7 +3,7 @@ title: Shai-Hulud Campaign Activity
 slug: 2026-07-shai-hulud-campaign
 description: Tracking brief for the Shai-Hulud campaign; individual sightings are folded in as reported.
 date: "2026-07-09T13:04:28Z"
-lastmod: "2026-07-28T22:00:31Z"
+lastmod: "2026-07-30T14:35:34Z"
 type: advisory
 types:
   - advisory
@@ -40,6 +40,12 @@ vendors:
   - Node.js
   - Python
   - Ruby
+  - SAP
+  - TanStack
+  - Mistral AI
+  - UiPath
+  - OpenSearch
+  - Red Hat
 products:
   - jscrambler 8.14.0
   - npm
@@ -87,6 +93,9 @@ products:
   - Python
   - systemctl
   - kubectl
+  - PyPI
+  - Docker Hub
+  - OpenVSX
 affected_os:
   - Windows
   - macOS
@@ -97,6 +106,7 @@ references:
   - https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/impact_high_number_of_protected_branch_force_pushes_by_user.toml
   - https://www.intel471.com/blog/software-supply-chain-attacks-weaponizing-trusted-developer-workflows
+  - https://www.ncsc.nl/expertblogs/het-nieuwe-trojaanse-paard-zit-in-je-dependencies
 iocs:
   - type: package
     value: jscrambler@8.14.0
@@ -139,13 +149,6 @@ ioc_counts:
   ip: 3
   package: 1
 updates:
-  - at: "2026-07-11T18:52:27Z"
-    level: L1
-    summary: OS windows; OS macos; OS linux
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/07/compromised-jscrambler-8140-npm-release.html
   - at: "2026-07-14T10:49:09Z"
     level: L2
     summary: poc_available
@@ -174,6 +177,13 @@ updates:
       - intel471
     source_urls:
       - https://www.intel471.com/blog/software-supply-chain-attacks-weaponizing-trusted-developer-workflows
+  - at: "2026-07-30T14:35:34Z"
+    level: L1
+    summary: new product
+    sources:
+      - ncsc-nl
+    source_urls:
+      - https://www.ncsc.nl/expertblogs/het-nieuwe-trojaanse-paard-zit-in-je-dependencies
 ---
 
 This brief tracks activity attributed to the Shai-Hulud campaign. Sightings and
