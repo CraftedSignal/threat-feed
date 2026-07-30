@@ -3,6 +3,7 @@ title: Credential Exfiltration via Unrestricted Base URL in Flyto-core
 slug: 2026-07-flyto-core-leak
 description: Flyto-core versions prior to 2.26.7 allow unauthenticated callers to exfiltrate API provider keys by supplying a malicious 'base_url' parameter, which forces the library to append operator-configured secrets to requests sent to attacker-controlled infrastructure.
 date: "2026-07-30T15:29:30Z"
+lastmod: "2026-07-30T15:29:38Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - vulnerability
   - cloud-security
   - cve-2026-67425
+  - cve-2026-67427
+  - exfiltration
+  - flyto
+  - variable-interpolation
 vendors:
   - Flyto
 products:
@@ -34,6 +39,16 @@ cves:
   - id: CVE-2026-67425
     cvss: 8.6
     epss: 0.00319
+references:
+  - https://github.com/advisories/GHSA-hr7p-wg7r-hg9m
+updates:
+  - at: "2026-07-30T15:29:38Z"
+    level: L2
+    summary: 'merged source coverage: Flyto Core Variable Resolver Environment Variable Exfiltration'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-hr7p-wg7r-hg9m
 ---
 
 Flyto-core is susceptible to a credential exfiltration vulnerability (CVE-2026-67425) affecting multiple modules including `llm.chat`, `ai.model`, `llm.agent`, and `vector.connector`. The vulnerability exists because the library automatically fetches sensitive environment variables, such as `OPENAI_API_KEY` or `QDRANT_API_KEY`, and appends them as `Authorization: Bearer` headers to outgoing HTTP requests. While the library implements an SSRF guard, this mechanism only validates that the target host is not private; it does not prevent the application from sending requests to public, attacker-controlled servers. An attacker capable of influencing the `base_url` parameter via the MCP agent surface or hosted API can redirect these requests to an arbitrary public endpoint, successfully capturing the operator's environment-stored credentials. This vulnerability affects all `flyto-core` versions prior to 2.26.7 and can result in significant financial and data impact through unauthorized account usage.
