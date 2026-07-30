@@ -3,6 +3,7 @@ title: Leantime Authenticated LFI and SSRF via Blueprints
 slug: 2026-07-leantime-lfi-ssrf
 description: Leantime 3.6.2 contains a vulnerability in the Blueprints::import method allowing authenticated attackers to perform SSRF and LFI via the JSON-RPC API.
 date: "2026-07-30T19:30:56Z"
+lastmod: "2026-07-30T19:31:03Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ tags:
   - lfi
   - ssrf
   - cve-2026-66415
+  - web-vulnerability
+  - csrf
+  - cve-2026-66416
 vendors:
   - Leantime
 products:
@@ -29,6 +33,15 @@ cves:
     cvss: 8.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66415
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-66416
+updates:
+  - at: "2026-07-30T19:31:03Z"
+    level: L2
+    summary: 'merged source coverage: Cross-Site Request Forgery Vulnerability in Leantime'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-66416
 ---
 
 Leantime version 3.6.2 is susceptible to a combined server-side request forgery (SSRF) and local file inclusion (LFI) vulnerability stemming from improper input validation. The vulnerability exists within the Blueprints::import() method, which utilizes the user-supplied filename parameter directly within the PHP file_get_contents() function without sufficient sanitization or path validation. An authenticated attacker can exploit this flaw by submitting a crafted JSON-RPC API request containing path traversal sequences (such as ../) or URL wrappers (like file:// or http://). 
