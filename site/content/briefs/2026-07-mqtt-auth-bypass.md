@@ -3,7 +3,7 @@ title: Unauthenticated Remote Access to Phoenix Contact CHARX SEC MQTT Broker
 slug: 2026-07-mqtt-auth-bypass
 description: A critical vulnerability (CVE-2026-44090) in Phoenix Contact CHARX SEC controllers allows unauthenticated remote attackers to gain full device control by bypassing authentication on the MQTT broker.
 date: "2026-07-30T08:12:15Z"
-lastmod: "2026-07-30T08:13:52Z"
+lastmod: "2026-07-30T08:14:03Z"
 type: advisory
 types:
   - advisory
@@ -36,6 +36,10 @@ products:
   - CHARX SEC-3100
   - CHARX SEC-3050
   - CHARX SEC-3000
+  - CHARX SEC-3150 (< 1.9.1)
+  - CHARX SEC-3100 (< 1.9.1)
+  - CHARX SEC-3050 (< 1.9.1)
+  - CHARX SEC-3000 (< 1.9.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -70,6 +74,28 @@ mitre_ttps:
 cves:
   - id: CVE-2026-44090
     cvss: 9.8
+  - id: CVE-2026-44099
+    cvss: 7.8
+  - id: CVE-2026-44091
+    cvss: 9.1
+  - id: CVE-2026-44092
+    cvss: 9.1
+  - id: CVE-2026-44100
+    cvss: 9.4
+  - id: CVE-2026-44101
+    cvss: 9.8
+  - id: CVE-2026-44104
+    cvss: 9.8
+  - id: CVE-2026-44108
+    cvss: 9.8
+  - id: CVE-2026-44093
+    cvss: 7.8
+  - id: CVE-2026-44094
+    cvss: 8.6
+  - id: CVE-2026-44096
+    cvss: 7.8
+  - id: CVE-2026-44097
+    cvss: 7.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-44090
   - https://www.certvde.com/en/advisories/VDE-2026-008/
@@ -83,6 +109,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-44094
   - https://nvd.nist.gov/vuln/detail/CVE-2026-44096
   - https://nvd.nist.gov/vuln/detail/CVE-2026-44097
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-44099
 rules:
   - title: Detect Unauthorized MQTT Connection to Phoenix CHARX Controllers
     description: Detects potential exploitation of CVE-2026-44090 by identifying unauthenticated MQTT connection attempts directed at known controller ports.
@@ -106,13 +133,6 @@ rules:
       - webserver
 rules_count: 2
 updates:
-  - at: "2026-07-30T08:13:05Z"
-    level: L2
-    summary: 'merged source coverage: Premature Firewall Termination in Phoenix Contact CHARX Controllers (CVE-2026-44108)'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-44108
   - at: "2026-07-30T08:13:21Z"
     level: L2
     summary: 'merged source coverage: Local Privilege Escalation in Phoenix Contact CHARX SEC Controllers'
@@ -141,6 +161,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-44097
+  - at: "2026-07-30T08:14:03Z"
+    level: L2
+    summary: added CVE-2026-44091 +10; charx sec-3000 version < 1.9.1; charx sec-3150 version < 1.9.1; charx sec-3100 version < 1.9.1; charx sec-3050 version < 1.9.1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-44099
 ---
 
 Phoenix Contact has disclosed a critical security vulnerability, CVE-2026-44090, affecting its CHARX SEC series controllers. The vulnerability stems from a missing authentication mechanism within the onboard MQTT broker, which handles message queuing and device communication. Because the broker lacks required authentication, an unauthenticated remote attacker with network reach to the device can interface directly with the broker. While these devices are typically intended to be protected by external firewalls, the absence of internal authentication means that any misconfiguration or firewall bypass permits full unauthorized command execution and device compromise. The vulnerability affects firmware versions prior to 1.9.1. Organizations utilizing these controllers in industrial or EV charging infrastructure should prioritize upgrading to firmware version 1.9.1 or later and verify that network exposure is strictly limited.
