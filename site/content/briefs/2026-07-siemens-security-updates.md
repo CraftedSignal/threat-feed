@@ -3,7 +3,7 @@ title: Siemens Security Updates — July 2026
 slug: 2026-07-siemens-security-updates
 description: Roundup of Siemens security advisories published in July 2026.
 date: "2026-07-07T16:48:32Z"
-lastmod: "2026-07-18T10:02:27Z"
+lastmod: "2026-07-30T22:31:39Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,8 @@ tags:
 vendors:
   - Siemens
   - Palo Alto Networks
+  - Rockwell Automation
+  - Schneider Electric
 products:
   - CPCI85 Central Processing/Communication < V26.20
   - SICORE Base system < V26.20.0
@@ -41,6 +43,11 @@ products:
   - CP-8012
   - SICAM S8000
   - Simatic_S7-1500_Cpu_1518F-4_Pn/Dp_Mfp_Firmware
+  - CompactLogix
+  - Micro850
+  - Modicon M340
+  - S7-1200
+  - MicroLogix 1400
 cves:
   - id: CVE-2026-48192
     cvss: 5.4
@@ -50,7 +57,7 @@ cves:
     epss: 0.0034
   - id: CVE-2026-54429
     cvss: 7.4
-    epss: 0.00215
+    epss: 0.00163
   - id: CVE-2026-54798
     cvss: 6.5
     epss: 0.0024
@@ -63,6 +70,7 @@ references:
   - https://cyber.gc.ca/en/alerts-advisories/control-systems-siemens-security-advisory-av26-689
   - https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-05
   - https://sploitus.com/exploit?id=3C5CB3A8-939D-5A76-A4A2-D99026CB82D9&utm_source=rss&utm_medium=rss
+  - https://www.securityweek.com/cisa-urges-water-sector-to-protect-ot-after-coordinated-attacks-on-plcs/
 iocs:
   - type: url
     value: https://cert-portal.siemens.com/productcert/html/ssa-229470.html
@@ -71,13 +79,6 @@ iocs:
 ioc_counts:
   url: 2
 updates:
-  - at: "2026-07-09T15:18:49Z"
-    level: L2
-    summary: added CVE-2026-54801
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-54801
   - at: "2026-07-14T10:18:54Z"
     level: L2
     summary: added CVE-2026-54429
@@ -106,6 +107,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=3C5CB3A8-939D-5A76-A4A2-D99026CB82D9&utm_source=rss&utm_medium=rss
+  - at: "2026-07-30T22:31:39Z"
+    level: L1
+    summary: new product
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/cisa-urges-water-sector-to-protect-ot-after-coordinated-attacks-on-plcs/
 ---
 
 Aggregated Siemens security advisories for July 2026. CVEs from this cycle are folded
