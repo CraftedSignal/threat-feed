@@ -3,15 +3,20 @@ title: Denial of Service Vulnerability in IBM WebSphere Application Server - Lib
 slug: 2026-07-websphere-dos
 description: A remote unauthenticated denial-of-service vulnerability in IBM WebSphere Application Server - Liberty allows attackers to cause excessive memory consumption via crafted requests.
 date: "2026-07-30T15:31:34Z"
+lastmod: "2026-07-30T15:31:53Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - denial-of-service
   - vulnerability
   - web-server
+  - web-application
+  - csrf
+  - ssrf
+  - privilege-escalation
 vendors:
   - IBM
 products:
@@ -22,6 +27,16 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-11897
   - https://www.ibm.com/support/pages/node/7280695
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-14980
+  - https://www.ibm.com/support/pages/node/7281651
+updates:
+  - at: "2026-07-30T15:31:53Z"
+    level: L2
+    summary: 'merged source coverage: CSRF to SSRF Vulnerability in IBM WebSphere Application Server Liberty'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-14980
 ---
 
 IBM WebSphere Application Server - Liberty versions 17.0.0.3 through 26.0.0.7 contain a vulnerability identified as CVE-2026-11897. This issue is categorized under CWE-770 (Allocation of Resources Without Limits or Throttling). A remote, unauthenticated attacker can exploit this flaw by sending a specially crafted request to the application server. The vulnerability allows the attacker to trigger uncontrolled memory consumption, which may result in a denial-of-service condition, service instability, or system-wide resource exhaustion. This affects deployments of the Liberty profile across various environments, as the flaw resides within the request handling logic of the server. Defenders should identify vulnerable versions in their environment and prioritize applying patches provided by IBM to prevent resource exhaustion attacks.
