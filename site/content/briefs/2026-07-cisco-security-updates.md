@@ -3,7 +3,7 @@ title: Cisco Security Updates — July 2026
 slug: 2026-07-cisco-security-updates
 description: Roundup of Cisco security advisories published in July 2026.
 date: "2026-07-03T13:36:20Z"
-lastmod: "2026-07-29T18:58:28Z"
+lastmod: "2026-07-30T07:16:28Z"
 type: advisory
 types:
   - advisory
@@ -30,6 +30,8 @@ cpes:
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.4.0:patch4:*:*:*:*:*:*
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.4.0:patch5:*:*:*:*:*:*
   - cpe:2.3:a:cisco:identity_services_engine_passive_identity_connector:3.4.0:patch6:*:*:*:*:*:*
+  - cpe:2.3:a:cisco:secure_firewall_management_center:*:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - roundup
 vendors:
@@ -91,6 +93,7 @@ products:
   - Windows
   - Secure Firewall Management Center
   - Secure Firewall Management Center (FMC)
+  - Secure Firewall Management Center (FMC) Software
 affected_os:
   - Windows
 cves:
@@ -100,18 +103,14 @@ cves:
   - id: CVE-2026-20150
     cvss: 8.8
     epss: 0.00222
-  - id: CVE-2026-20156
-    cvss: 8.1
-    epss: 0.00228
-  - id: CVE-2026-20157
-    cvss: 7.5
-    epss: 0.00061
   - id: CVE-2026-20079
     cvss: 10
     epss: 0.387
   - id: CVE-2026-20187
     cvss: 7.5
     epss: 0.00252
+  - id: CVE-2026-20316
+    cvss: 5.3
 references:
   - https://www.ncsc.gov.uk/news/uk-and-allies-urge-critical-sectors-to-improve-defences-against-russian-intelligence-targeting
   - https://www.darkreading.com/endpoint-security/weak-security-fuel-russian-cyberattacks
@@ -127,6 +126,7 @@ references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Authentication%20Bypass%20%20Vulnerability%26vs_k=1
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Static%20Credential%20Vulnerability%26vs_k=1
   - https://www.cve.org/CVERecord?id=CVE-2026-20316
+  - https://thehackernews.com/2026/07/cisco-fmc-zero-day-actively-exploited.html
 iocs:
   - type: url
     value: https://media.defense.gov/2026/Jul/09/2003959498/-1/-1/1/CSA_IMPROVE_ROUTER_HYGIENE.PDF
@@ -236,19 +236,14 @@ iocs:
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-onprem-fmc-authbypass-5JPp45V2
   - type: url
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-static-cred-BET3Cjh
+  - type: domain
+    value: /var/tmp/license.tmp
 ioc_counts:
-  domain: 44
+  domain: 45
   email: 2
   port: 3
   url: 5
 updates:
-  - at: "2026-07-27T18:11:32Z"
-    level: L2
-    summary: added CVE-2026-20150 +2; OS windows
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___suspicious_network_connection_from_process_with_no_args.yml
   - at: "2026-07-27T18:12:05Z"
     level: L1
     summary: new IOCs
@@ -277,6 +272,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-20316
+  - at: "2026-07-30T07:16:28Z"
+    level: L2
+    summary: poc_available; added CVE-2026-20316
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/07/cisco-fmc-zero-day-actively-exploited.html
 ---
 
 Aggregated Cisco security advisories for July 2026. CVEs from this cycle are folded
