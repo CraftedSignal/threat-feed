@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-07-30T12:12:23Z"
+lastmod: "2026-07-30T13:38:00Z"
 type: threat
 types:
   - threat
@@ -477,11 +477,19 @@ iocs:
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=1c576d86-ae95-48bb-8449-5bb196395dfd
   - type: url
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=bae9234e-d528-484c-b3f9-7aa6966ef175
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=a87b7c7e-0b27-4645-ab95-af9452a79966
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=66939367-d4ce-4eb0-aee7-8b5f105e1a1e
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=2d747df3-258f-4cf7-bb51-bac84535c9d5
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=64f4ee06-03dc-4857-a00d-db3d4fc4c9ab
 ioc_counts:
   domain: 42
   hash_md5: 55
   ip: 5
-  url: 43
+  url: 47
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -509,13 +517,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-07-26T14:31:35Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-07-26T15:14:33Z"
     level: L1
     summary: new IOCs
@@ -538,6 +539,13 @@ updates:
     source_urls:
       - https://www.ransomware.live/group/qilin
   - at: "2026-07-30T12:12:23Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-07-30T13:38:00Z"
     level: L1
     summary: new IOCs
     sources:
