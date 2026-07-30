@@ -3,6 +3,7 @@ title: Authentication Bypass Vulnerability in IBM WebSphere Application Server
 slug: 2026-07-websphere-auth-bypass
 description: A critical authentication bypass vulnerability (CVE-2026-10842) allows remote, unauthenticated attackers to circumvent security constraints in IBM WebSphere Application Server and Liberty versions.
 date: "2026-07-30T17:29:55Z"
+lastmod: "2026-07-30T17:30:18Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,16 @@ cves:
 references:
   - https://www.ibm.com/support/pages/node/7280131
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10842
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9322
+  - https://www.ibm.com/support/pages/node/7278576
+updates:
+  - at: "2026-07-30T17:30:18Z"
+    level: L1
+    summary: 'merged source coverage: Denial of Service Vulnerability in IBM WebSphere Application Server'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-9322
 ---
 
 IBM has disclosed a security vulnerability, CVE-2026-10842, identified as an authentication bypass via alternate name (CWE-289). This vulnerability affects IBM WebSphere Application Server versions 8.5 and 9.0, as well as IBM WebSphere Application Server - Liberty versions 17.0.0.3 through 26.0.0.7. The flaw permits a remote, unauthenticated attacker to bypass established security constraints, potentially leading to unauthorized access to sensitive application resources or administrative functions. Given the base CVSS score of 7.5, this vulnerability represents a significant risk to enterprise environments where WebSphere serves as a critical middleware component. Defenders should prioritize patching affected instances and monitoring for unusual traffic patterns targeting authentication-related endpoints or administrative interfaces.
