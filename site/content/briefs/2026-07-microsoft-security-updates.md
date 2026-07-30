@@ -3,17 +3,30 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-30T14:40:56Z"
+lastmod: "2026-07-30T21:31:44Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
+  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
   - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:windows_subsystem_for_linux:*:*:*:*:*:-:*:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
@@ -26,36 +39,9 @@ cpes:
   - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x64:*
-  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x86:*
-  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x86:*
-  - cpe:2.3:a:microsoft:microsoft_365:-:*:*:*:*:macos:*:*
-  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x86:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x64:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x86:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:a:microsoft:office_online_server:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F&utm_source=rss&utm_medium=rss
@@ -654,6 +640,7 @@ products:
   - Windows Management Instrumentation
   - Korean financial security software
   - Microsoft processes
+  - Azure Cosmos DB
 affected_os:
   - Windows
   - macOS
@@ -683,42 +670,24 @@ affected_os:
   - Windows 11 25H2
   - Windows 11 26H1
 cves:
-  - id: CVE-2026-50407
-    cvss: 7.8
-    epss: 0.00311
-  - id: CVE-2026-50345
-    cvss: 7
-    epss: 0.00188
-  - id: CVE-2026-50463
-    cvss: 7.5
-    epss: 0.00738
-  - id: CVE-2026-50461
-    cvss: 7.8
-    epss: 0.00335
-  - id: CVE-2026-50474
-    cvss: 8.8
-    epss: 0.00612
   - id: CVE-2026-56164
     cvss: 5.3
-    epss: 0.20127
-  - id: CVE-2026-58290
-    cvss: 7.5
-    epss: 0.00249
-  - id: CVE-2026-49172
-    cvss: 9.8
-    epss: 0.00673
+    epss: 0.22439
   - id: CVE-2026-56155
     cvss: 7.8
     epss: 0.02333
-  - id: CVE-2026-50392
-    cvss: 7
-    epss: 0.0022
-  - id: CVE-2026-50414
-    cvss: 7.5
-    epss: 0.0053
-  - id: CVE-2026-55949
+  - id: CVE-2026-47300
+    cvss: 8.8
+    epss: 0.00527
+  - id: CVE-2026-57968
     cvss: 7.8
-    epss: 0.00303
+    epss: 0.00311
+  - id: CVE-2026-58539
+    cvss: 6.5
+    epss: 0.00868
+  - id: CVE-2026-58542
+    cvss: 7.8
+    epss: 0.00341
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1458,6 +1427,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_azure_aks_api_request_failure_burst.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_mofcomp.toml
   - https://therecord.media/north-korea-hackers-ransomware
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-66803
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2202,13 +2172,6 @@ ioc_counts:
   url: 123
   user_agent: 6
 updates:
-  - at: "2026-07-29T08:03:34Z"
-    level: L2
-    summary: poc_available; added CVE-2026-57984 +3
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F&utm_source=rss&utm_medium=rss
   - at: "2026-07-30T07:20:49Z"
     level: L2
     summary: added CVE-2026-49791 +4
@@ -2237,6 +2200,13 @@ updates:
       - therecord
     source_urls:
       - https://therecord.media/north-korea-hackers-ransomware
+  - at: "2026-07-30T21:31:44Z"
+    level: L2
+    summary: added CVE-2026-47300 +3
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-66803
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
