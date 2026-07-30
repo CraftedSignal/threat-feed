@@ -3,6 +3,7 @@ title: Unauthenticated Remote Code Execution in IBM Langflow OSS
 slug: 2026-07-langflow-rce
 description: IBM Langflow OSS versions 1.0.0 through 1.10.1 are susceptible to unauthenticated remote code execution due to improper sanitization of environment variables in the MCP stdio launcher.
 date: "2026-07-30T17:29:49Z"
+lastmod: "2026-07-30T19:30:32Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ tags:
   - cve-2026-12940
   - ibm
   - langflow
+  - code-injection
+  - vulnerability
+  - rce
 vendors:
   - IBM
 products:
@@ -30,12 +34,28 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Unix Shell'
     evidence: The vulnerability exists in src/lfx/src/lfx/base/mcp/util.py where the DANGEROUS_ENV_VARS blocklist fails to include SHELLOPTS , BASHOPTS , and PS4 environment variables.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: IBM Langflow OSS 1.0.0 through 1.10.1 contains an improper input validation vulnerability in the PythonREPL sandbox implementation.
+    confidence_band: high
 cves:
   - id: CVE-2026-12940
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-12940
   - https://www.ibm.com/support/pages/node/7279995
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-13435
+  - https://www.ibm.com/support/pages/node/7279987
+updates:
+  - at: "2026-07-30T19:30:32Z"
+    level: L2
+    summary: 'merged source coverage: Improper Input Validation Vulnerability in IBM Langflow OSS PythonREPL'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-13435
 ---
 
 IBM Langflow OSS versions 1.0.0 through 1.10.1 contain a critical vulnerability (CVE-2026-12940) in the Model Context Protocol (MCP) stdio launcher. The flaw originates in 'src/lfx/src/lfx/base/mcp/util.py', where the 'DANGEROUS_ENV_VARS' blocklist fails to filter sensitive environment variables, specifically 'SHELLOPTS', 'BASHOPTS', and 'PS4'. 
