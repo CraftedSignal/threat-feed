@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-07-24T16:21:05Z"
+lastmod: "2026-07-30T15:23:47Z"
 type: advisory
 types:
   - advisory
@@ -32,6 +32,10 @@ vendors:
   - Vivaldi
   - MetaMask
   - OpenAI
+  - Docker
+  - Python Software Foundation
+  - npm
+  - axios
 products:
   - open source packages
   - GitHub repositories
@@ -66,6 +70,10 @@ products:
   - iCloud Keychain
   - Microsoft Defender
   - OpenAI ChatGPT
+  - PyPI
+  - npm
+  - Docker Hub
+  - axios
 affected_os:
   - Windows
   - macOS
@@ -78,6 +86,8 @@ references:
   - https://blog.talosintelligence.com/uat-11795-deploys-novel-starland-rat-and-bespoke-wldr-c2-implant-in-financially-motivated-campaign/
   - https://www.securityweek.com/clicklock-stealer-bypasses-macos-security-with-social-engineering-process-killing/
   - https://thehackernews.com/2026/07/bluenoroff-zoom-phishing-kit-profiles.html
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_powershell_fakecaptcha_clipboard_execution.yml
+  - https://cloud.google.com/blog/topics/threat-intelligence/mitigation-guidance-for-supply-chain-compromise/
 iocs:
   - type: github_account_name
     value: Xpos587
@@ -112,11 +122,6 @@ ioc_counts:
   telegram channel: 1
   telegram handle: 1
 updates:
-  - at: "2026-07-07T22:11:34Z"
-    level: L1
-    summary: OS windows
-    sources:
-      - unit42
   - at: "2026-07-16T08:52:23Z"
     level: L1
     summary: new IOCs
@@ -145,6 +150,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/07/bluenoroff-zoom-phishing-kit-profiles.html
+  - at: "2026-07-30T15:23:47Z"
+    level: L1
+    summary: new product
+    sources:
+      - mandiant
+    source_urls:
+      - https://cloud.google.com/blog/topics/threat-intelligence/mitigation-guidance-for-supply-chain-compromise/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
