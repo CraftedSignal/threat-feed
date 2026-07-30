@@ -3,6 +3,7 @@ title: CVE-2026-54366 CentreStack XXE Injection
 slug: 2026-07-centrestack-xxe
 description: CentreStack versions prior to 17.4 are vulnerable to an unauthenticated XXE injection via the SharePoint storage configuration handler, allowing attackers to exfiltrate sensitive server-side files.
 date: "2026-07-30T13:41:05Z"
+lastmod: "2026-07-30T13:41:18Z"
 type: advisory
 types:
   - advisory
@@ -23,11 +24,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: CentreStack before 17.4 contains an XML external entity (XXE) injection vulnerability that allows unauthenticated attackers to exfiltrate arbitrary files by supplying a malicious URL.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Attackers can exploit unsanitized interpolation of the Field parameter directly into SQL query strings to write arbitrary files to the server filesystem... enabling remote code execution.
+    confidence_band: high
 cves:
   - id: CVE-2026-54366
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-54366
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-54368
 rules:
   - title: Detect CVE-2026-54366 Exploitation Attempt
     description: Detects exploitation attempts against CVE-2026-54366 by identifying suspicious XML entities in POST requests to the StorageConfig endpoint
@@ -41,6 +49,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-07-30T13:41:18Z"
+    level: L2
+    summary: 'merged source coverage: SQL Injection in CentreStack Leads to Remote Code Execution'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-54368
 ---
 
 CentreStack versions prior to 17.4 contain an XML external entity (XXE) injection vulnerability in the SharePoint storage configuration handler. This flaw allows an unauthenticated attacker to supply a malicious URL to the StorageConfig endpoint. The vulnerability exists because the application improperly processes user-supplied XML data without sufficient validation, permitting the inclusion of external DTD references. By sending a crafted request, an attacker can force the server to parse an external entity and exfiltrate the contents of local files out-of-band. This represents a significant risk, as the exfiltration of files such as Web.config can expose sensitive database credentials, configuration details, and cryptographic keys, leading to full system compromise or unauthorized access to backend storage.
