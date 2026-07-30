@@ -3,6 +3,7 @@ title: Privilege Escalation Vulnerability in Phoenix Contact CHARX Controllers
 slug: 2026-07-phoenix-charx-privesc
 description: A local OS command injection vulnerability (CVE-2026-44095) in Phoenix Contact CHARX charging controllers allows low-privileged users to execute arbitrary commands as root.
 date: "2026-07-30T08:13:36Z"
+lastmod: "2026-07-30T08:14:01Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +12,8 @@ severities:
 tags:
   - privilege-escalation
   - industrial-control-systems
+  - cve
+  - command-injection
 vendors:
   - Phoenix Contact
 products:
@@ -25,12 +28,33 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: A privilege escalation vulnerability in a script used for network configuration allows a low-privileged local user to execute arbitrary commands as root.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: This vulnerability allows an unauthenticated remote attacker with control over the OCPP backend via firewall-bypass to perform an OS command injection.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: This vulnerability allows ... an OS command injection, resulting in the execution of arbitrary commands as the limited user charx-oa.
+    confidence_band: high
 cves:
   - id: CVE-2026-44095
     cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-44095
   - https://www.certvde.com/en/advisories/VDE-2026-008/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-44098
+updates:
+  - at: "2026-07-30T08:14:01Z"
+    level: L2
+    summary: 'merged source coverage: OS Command Injection in Phoenix Contact CHARX Controllers'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-44098
 ---
 
 Phoenix Contact has disclosed a critical security vulnerability, tracked as CVE-2026-44095, affecting its CHARX SEC series of charging controllers. The vulnerability stems from improper neutralization of special elements used in OS commands (CWE-78) within a script responsible for network configuration. A low-privileged local user can leverage this flaw to escape restricted execution environments and inject arbitrary commands that execute with root-level privileges. This vulnerability affects CHARX SEC-3000, 3050, 3100, and 3150 models running firmware versions earlier than 1.9.1. Successful exploitation results in complete system compromise, enabling attackers to gain full control over the charging controller hardware, potentially impacting industrial control and power management functions.
