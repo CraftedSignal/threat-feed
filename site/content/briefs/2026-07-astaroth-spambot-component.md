@@ -3,6 +3,7 @@ title: Astaroth Botnet Deploys New WhatsApp Web Spambot Component
 slug: 2026-07-astaroth-spambot-component
 description: Operators of the Astaroth (aka Guildma) botnet, which targets Brazil-based users, introduced a new spambot component in Q4 2025 that leverages WhatsApp Web in headless browser mode for malware distribution, exhibiting evasion techniques like payload encryption and WebDriver automation indicator stripping.
 date: "2026-07-29T14:53:41Z"
+lastmod: "2026-07-30T07:16:31Z"
 type: threat
 types:
   - threat
@@ -25,6 +26,10 @@ products:
   - Google Chrome
   - Microsoft Edge
   - WhatsApp Web
+  - Chrome
+  - Edge
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -117,6 +122,14 @@ rules:
       - file_event
       - windows
 rules_count: 1
+updates:
+  - at: "2026-07-30T07:16:31Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/inside-astaroths-new-spambot-component/
 ---
 
 The Astaroth botnet, also known as Guildma, has evolved its capabilities by integrating a new spambot component since Q4 2025. This component is designed to turn infected victims into unwitting distributors of the malware by automating message delivery via WhatsApp Web. Primarily targeting Brazil-based users, the spambot operates by running a browser instance in headless mode, using WebDriver, and actively stripping automation indicators to avoid detection. The infection chain typically starts with a downloader script, often a malicious Windows shortcut (LNK) file executing JScript, followed by an AutoIt-based loader and a Delphi-based loader DLL that executes Astaroth's core components in memory. This development signifies a significant shift from traditional email-based spam propagation to leveraging trusted social messaging platforms, highlighting the evolving tactics of Latin American eCrime groups.
