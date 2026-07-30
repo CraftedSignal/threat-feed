@@ -3,16 +3,13 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-30T07:21:07Z"
+lastmod: "2026-07-30T13:32:22Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
-  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
   - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
@@ -27,33 +24,18 @@ cpes:
   - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
   - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x64:*
-  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x86:*
-  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:excel:2016:*:*:*:*:*:x86:*
-  - cpe:2.3:a:microsoft:microsoft_365:-:*:*:*:*:macos:*:*
-  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x64:*
-  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x86:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x64:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x86:*
-  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
-  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
-  - cpe:2.3:a:microsoft:office_online_server:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x64:*
-  - cpe:2.3:a:microsoft:office_2016:-:*:*:*:-:*:x86:*
-  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F&utm_source=rss&utm_medium=rss
@@ -649,6 +631,7 @@ products:
   - Azure Arc
   - Domain Controller
   - WalletService (vulnerable before July 2026 update)
+  - Windows Management Instrumentation
 affected_os:
   - Windows
   - macOS
@@ -678,33 +661,21 @@ affected_os:
   - Windows 11 25H2
   - Windows 11 26H1
 cves:
-  - id: CVE-2026-56164
-    cvss: 5.3
-    epss: 0.20127
-  - id: CVE-2026-49791
-    cvss: 7.1
-    epss: 0.00278
-  - id: CVE-2026-50384
-    cvss: 7
-    epss: 0.00153
-  - id: CVE-2026-50305
-    cvss: 7.8
-    epss: 0.00184
-  - id: CVE-2026-55029
-    cvss: 7.8
-    epss: 0.00303
-  - id: CVE-2026-56195
-    cvss: 5.5
-    epss: 0.00382
-  - id: CVE-2026-58284
-    cvss: 8.3
-    epss: 0.00421
-  - id: CVE-2026-50336
+  - id: CVE-2026-50407
     cvss: 7.8
     epss: 0.00311
-  - id: CVE-2026-50436
+  - id: CVE-2026-50345
+    cvss: 7
+    epss: 0.00188
+  - id: CVE-2026-50463
+    cvss: 7.5
+    epss: 0.00738
+  - id: CVE-2026-50461
     cvss: 7.8
-    epss: 0.0178
+    epss: 0.00335
+  - id: CVE-2026-50474
+    cvss: 8.8
+    epss: 0.00612
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1442,6 +1413,7 @@ references:
   - https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F&utm_source=rss&utm_medium=rss
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/defense_evasion_azure_aks_events_deleted.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_azure_aks_api_request_failure_burst.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_mofcomp.toml
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2186,13 +2158,6 @@ ioc_counts:
   url: 123
   user_agent: 6
 updates:
-  - at: "2026-07-28T19:32:18Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_azure_aks_suspicious_self_subject_review.toml
   - at: "2026-07-28T20:35:11Z"
     level: L2
     summary: added CVE-2026-40378 +81
@@ -2221,6 +2186,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_azure_aks_api_request_failure_burst.toml
+  - at: "2026-07-30T13:32:22Z"
+    level: L2
+    summary: added CVE-2026-50345 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_mofcomp.toml
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
