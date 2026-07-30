@@ -3,36 +3,13 @@ title: Adobe Security Updates — July 2026
 slug: 2026-07-adobe-security-updates
 description: Roundup of Adobe security advisories published in July 2026.
 date: "2026-07-08T10:47:04Z"
-lastmod: "2026-07-29T14:41:12Z"
+lastmod: "2026-07-30T07:19:24Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
-  - cpe:2.3:a:adobe:commerce:2.4.4:-:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p1:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p10:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p11:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p12:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p13:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p14:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p15:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p16:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p17:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p18:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p2:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p3:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p4:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p5:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p6:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p7:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p8:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.4:p9:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:commerce:2.4.5:-:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:c2pa:*:*:*:*:*:rust:*:*
-  - cpe:2.3:a:adobe:c2pa-web:*:*:*:*:*:node.js:*:*
-  - cpe:2.3:a:adobe:c2patool:*:*:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:-:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update1:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update10:*:*:*:*:*:*
@@ -47,22 +24,12 @@ cpes:
   - cpe:2.3:a:adobe:coldfusion:2023:update19:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update2:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update20:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update21:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update3:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update4:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update5:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update6:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update7:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:coldfusion:2023:update8:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:coldfusion:2023:update21:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:after_effects:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:bridge:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:premiere_pro:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:illustrator:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:adobe:experience_manager:*:*:*:*:-:*:*:*
-  - cpe:2.3:a:adobe:experience_manager:*:*:*:*:aem_cloud_service:*:*:*
-  - cpe:2.3:a:adobe:experience_manager:6.5:-:*:*:lts:*:*:*
-  - cpe:2.3:a:adobe:experience_manager:6.5:sp1:*:*:lts:*:*:*
-  - cpe:2.3:a:adobe:experience_manager:6.5:sp2:*:*:lts:*:*:*
   - cpe:2.3:a:adobe:creative_cloud_desktop_application:*:*:*:*:*:*:*:*
 has_poc: true
 tags:
@@ -166,96 +133,27 @@ products:
   - Bridge
   - Format Plugins
   - Format Plugins < 2026.07
+  - Adobe Campaign Classic (<= 7.4.3 build 9397)
 affected_os:
   - Windows
   - macOS
   - Linux
 cves:
-  - id: CVE-2026-48358
-    cvss: 9.1
-    epss: 0.01501
-  - id: CVE-2026-48287
-    cvss: 7.4
-    epss: 0.00139
-  - id: CVE-2026-48363
-    cvss: 8.2
-    epss: 0.00158
-  - id: CVE-2026-48321
-    cvss: 9.3
-    epss: 0.00819
-  - id: CVE-2026-48351
-    cvss: 7.5
-    epss: 0.00407
-  - id: CVE-2026-48372
-    cvss: 7.8
-  - id: CVE-2026-48284
-    cvss: 9.6
-    epss: 0.28002
-  - id: CVE-2026-48274
-    cvss: 7.8
-    epss: 0.00148
-  - id: CVE-2026-48343
-    cvss: 7.8
-    epss: 0.00148
-  - id: CVE-2026-48389
-    cvss: 7.8
-    epss: 0.00186
-  - id: CVE-2026-48269
-    cvss: 7.8
-    epss: 0.00297
   - id: CVE-2026-48320
     cvss: 8.5
     epss: 0.08601
-  - id: CVE-2026-48275
-    cvss: 8.6
-    epss: 0.00161
-  - id: CVE-2026-48374
-    cvss: 7.8
-  - id: CVE-2026-48364
-    cvss: 8.2
-    epss: 0.00158
-  - id: CVE-2026-48359
-    cvss: 9.6
-    epss: 0.01705
-  - id: CVE-2026-48334
-    cvss: 9.3
-    epss: 0.00435
-  - id: CVE-2026-48340
-    cvss: 7.8
-    epss: 0.0017
-  - id: CVE-2026-48337
-    cvss: 7.8
-    epss: 0.00138
-  - id: CVE-2026-48336
-    cvss: 7.8
-    epss: 0.00138
   - id: CVE-2026-48391
     cvss: 8.2
-  - id: CVE-2026-48394
-    cvss: 7.8
-  - id: CVE-2026-48319
-    cvss: 9.1
-    epss: 0.26956
-  - id: CVE-2026-48270
-    cvss: 7.8
-    epss: 0.00196
-  - id: CVE-2026-48367
-    cvss: 7.8
-    epss: 0.00149
-  - id: CVE-2026-48356
-    cvss: 9.3
-    epss: 0.28225
+    epss: 0.00155
   - id: CVE-2026-48325
     cvss: 9.3
     epss: 0.00513
-  - id: CVE-2026-48259
-    cvss: 9.6
-    epss: 0.00682
   - id: CVE-2026-48344
     cvss: 7.8
     epss: 0.00104
-  - id: CVE-2026-48396
-    cvss: 8.6
+  - id: CVE-2026-48324
+    cvss: 9.1
+    epss: 0.01071
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48363
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48364
@@ -310,6 +208,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48396
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2566
   - https://cyber.gc.ca/en/alerts-advisories/adobe-security-advisory-av26-756
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48449
 iocs:
   - type: url
     value: https://helpx.adobe.com/security/products/coldfusion/apsb26-68.html
@@ -346,13 +245,6 @@ ioc_counts:
   email: 2
   url: 11
 updates:
-  - at: "2026-07-28T19:24:48Z"
-    level: L2
-    summary: added CVE-2026-48336 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48392
   - at: "2026-07-28T19:25:57Z"
     level: L2
     summary: added CVE-2026-48270 +3
@@ -381,6 +273,13 @@ updates:
       - cccs
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/adobe-security-advisory-av26-756
+  - at: "2026-07-30T07:19:24Z"
+    level: L2
+    summary: added CVE-2026-48324
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48449
 ---
 
 Aggregated Adobe security advisories for July 2026. CVEs from this cycle are folded
