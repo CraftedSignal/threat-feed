@@ -3,7 +3,7 @@ title: Apple Security Updates — July 2026
 slug: 2026-07-apple-security-updates
 description: Roundup of Apple security advisories published in July 2026.
 date: "2026-07-03T13:48:34Z"
-lastmod: "2026-07-28T18:05:13Z"
+lastmod: "2026-07-31T15:25:56Z"
 type: advisory
 types:
   - advisory
@@ -25,6 +25,12 @@ cpes:
   - cpe:2.3:o:sgi:irix:-:*:*:*:*:*:*:*
   - cpe:2.3:o:windriver:bsdos:-:*:*:*:*:*:*:*
   - cpe:2.3:a:haxx:curl:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:ipados:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:iphone_os:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:macos:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:tvos:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:visionos:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:apple:watchos:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=379FFFB3-48FB-5D0C-92C2-23B434647F8D&utm_source=rss&utm_medium=rss
@@ -59,6 +65,8 @@ vendors:
   - Enpass
   - RoboForm
   - Cisco
+  - Telegram
+  - GitHub
 products:
   - macOS LaunchAgents
   - macOS LaunchDaemons
@@ -105,6 +113,8 @@ products:
   - iPadOS
   - macOS Tahoe
   - Airdrop
+  - Xcode
+  - Telegram Desktop
 affected_os:
   - macOS
   - iOS 17
@@ -129,6 +139,7 @@ cves:
     epss: 0.00302
   - id: CVE-2026-43723
     cvss: 7.8
+    epss: 0.00149
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/macos/persistence_suspicious_launch_agent_or_launch_daemon.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/macos/lateral_movement_remote_ssh_login_enabled.toml
@@ -142,6 +153,7 @@ references:
   - https://www.ncsc.nl/alerts/meerdere-kwetsbaarheden-in-apple-ios-en-ipados-update-je-apparaten-zo-snel-mogelijk
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2543
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/ded/exfiltration_ml_high_bytes_written_to_external_device_airdrop.toml
+  - https://unit42.paloaltonetworks.com/xcsset-v40-malware-analysis/
 iocs:
   - type: url
     value: https://github.com/F4R3SX0/iOS-Bluetooth-Ethernet-Exploit
@@ -170,13 +182,6 @@ ioc_counts:
   other: 1
   url: 3
 updates:
-  - at: "2026-07-15T06:42:32Z"
-    level: L1
-    summary: OS macos sequoia; OS macos sonoma; OS macos ventura
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1672
   - at: "2026-07-27T20:04:45Z"
     level: L2
     summary: macos sequoia version < 15.7.8; macos sonoma version < 14.8.8; OS macos tahoe
@@ -205,6 +210,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/ded/exfiltration_ml_high_bytes_written_to_external_device_airdrop.toml
+  - at: "2026-07-31T15:25:56Z"
+    level: L1
+    summary: new product
+    sources:
+      - unit42
+    source_urls:
+      - https://unit42.paloaltonetworks.com/xcsset-v40-malware-analysis/
 ---
 
 Aggregated Apple security advisories for July 2026. CVEs from this cycle are folded
