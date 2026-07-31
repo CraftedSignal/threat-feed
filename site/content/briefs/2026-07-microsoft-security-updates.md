@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-30T21:31:44Z"
+lastmod: "2026-07-31T15:31:29Z"
 type: advisory
 types:
   - advisory
@@ -42,6 +42,15 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F&utm_source=rss&utm_medium=rss
@@ -688,6 +697,21 @@ cves:
   - id: CVE-2026-58542
     cvss: 7.8
     epss: 0.00341
+  - id: CVE-2026-42982
+    cvss: 7.8
+    epss: 0.00269
+  - id: CVE-2026-50434
+    cvss: 5.5
+    epss: 0.00353
+  - id: CVE-2026-56644
+    cvss: 7.8
+    epss: 0.00311
+  - id: CVE-2026-57089
+    cvss: 7.5
+    epss: 0.0061
+  - id: CVE-2026-58634
+    cvss: 7.8
+    epss: 0.00289
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1428,6 +1452,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_mofcomp.toml
   - https://therecord.media/north-korea-hackers-ransomware
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66803
+  - https://www.reddit.com/r/blueteamsec/comments/1vbtjg0/cosmosescape_taking_over_every_azure_cosmos_db/
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -2135,6 +2160,8 @@ iocs:
     value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\payload\result.txt'
   - type: service_name
     value: CVE49176_*
+  - type: url
+    value: https://www.wiz.io/blog/cosmosescape-taking-over-every-database-in-azure-cosmos-db
 ioc_counts:
   application_id: 1
   asn: 3
@@ -2169,16 +2196,9 @@ ioc_counts:
   software: 5
   string: 5
   tool: 4
-  url: 123
+  url: 124
   user_agent: 6
 updates:
-  - at: "2026-07-30T07:20:49Z"
-    level: L2
-    summary: added CVE-2026-49791 +4
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/defense_evasion_azure_aks_events_deleted.toml
   - at: "2026-07-30T07:21:07Z"
     level: L2
     summary: added CVE-2026-50336 +2
@@ -2207,6 +2227,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-66803
+  - at: "2026-07-31T15:31:29Z"
+    level: L2
+    summary: added CVE-2026-42982 +4
+    sources:
+      - reddit-blueteamsec
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1vbtjg0/cosmosescape_taking_over_every_azure_cosmos_db/
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
