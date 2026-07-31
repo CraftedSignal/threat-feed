@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-07-31T09:30:42Z"
+lastmod: "2026-07-31T17:34:20Z"
 type: threat
 types:
   - threat
@@ -517,13 +517,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-07-27T16:03:34Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-07-28T14:18:09Z"
     level: L1
     summary: new IOCs
@@ -546,6 +539,13 @@ updates:
     source_urls:
       - https://www.ransomware.live/group/qilin
   - at: "2026-07-31T09:30:42Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-07-31T17:34:20Z"
     level: L1
     summary: new IOCs
     sources:
