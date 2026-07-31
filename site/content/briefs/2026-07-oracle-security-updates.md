@@ -3,12 +3,44 @@ title: Oracle Security Updates — July 2026
 slug: 2026-07-oracle-security-updates
 description: Roundup of Oracle security advisories published in July 2026.
 date: "2026-07-21T22:19:09Z"
-lastmod: "2026-07-23T11:53:50Z"
+lastmod: "2026-07-31T19:10:21Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:percona:percona_server:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:mariadb:mariadb:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:debian:debian_linux:8.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:redhat:openstack:5.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:redhat:openstack:6.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:redhat:openstack:7.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:redhat:openstack:8:*:*:*:*:*:*:*
+  - cpe:2.3:a:redhat:openstack:9:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux:7.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux_desktop:6.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux_desktop:7.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux_server:6.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux_server_aus:7.3:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux_server_aus:7.4:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux_server_aus:7.6:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux_server_eus:7.3:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux_server_eus:7.4:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux_server_eus:7.5:*:*:*:*:*:*:*
+  - cpe:2.3:o:redhat:enterprise_linux_server_eus:7.6:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:weblogic_server:12.2.1.4.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:weblogic_server:14.1.1.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:weblogic_server:14.1.2.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:weblogic_server:15.1.1.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:coherence:12.2.1.4.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:coherence:14.1.1.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:coherence:14.1.2.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:coherence:15.1.1.0.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:access_manager:12.2.1.4.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:access_manager:14.1.2.1.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:human_resources:*:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -198,68 +230,21 @@ affected_os:
   - Oracle Solaris 11.3
   - Oracle Solaris 11.4
 cves:
-  - id: CVE-2026-60365
-    cvss: 10
-  - id: CVE-2026-60429
-    cvss: 9.9
-  - id: CVE-2026-60532
+  - id: CVE-2016-6662
     cvss: 9.8
-  - id: CVE-2026-46943
-    cvss: 7.4
-  - id: CVE-2026-46993
-    cvss: 8.2
-  - id: CVE-2026-60249
-    cvss: 9
-  - id: CVE-2026-60286
+    epss: 0.6773
+  - id: CVE-2026-60200
     cvss: 9.8
-  - id: CVE-2026-60364
+    epss: 0.00508
+  - id: CVE-2026-60240
     cvss: 9.8
-  - id: CVE-2026-60441
+    epss: 0.00473
+  - id: CVE-2026-60355
     cvss: 9.8
-  - id: CVE-2026-60447
-    cvss: 9.9
-  - id: CVE-2026-46941
-    cvss: 7.5
-  - id: CVE-2026-60257
-    cvss: 9.8
-  - id: CVE-2026-60287
-    cvss: 9.8
-  - id: CVE-2026-46982
-    cvss: 9.8
-  - id: CVE-2026-60333
-    cvss: 9.9
-  - id: CVE-2026-60606
-    cvss: 9.1
-  - id: CVE-2026-60205
-    cvss: 9.8
-  - id: CVE-2026-46923
-    cvss: 8
-  - id: CVE-2026-60459
-    cvss: 9.9
-  - id: CVE-2026-46998
-    cvss: 8.8
-  - id: CVE-2026-60368
-    cvss: 8.8
-  - id: CVE-2026-60376
-    cvss: 9.8
-  - id: CVE-2026-60155
-    cvss: 7.5
-  - id: CVE-2026-60247
-    cvss: 9.8
-  - id: CVE-2026-60264
-    cvss: 9.8
-  - id: CVE-2026-60272
-    cvss: 9.8
-  - id: CVE-2026-60565
-    cvss: 9.9
-  - id: CVE-2026-46996
-    cvss: 7.1
-  - id: CVE-2026-47007
-    cvss: 7.3
-  - id: CVE-2026-47014
-    cvss: 8.1
-  - id: CVE-2026-60157
-    cvss: 8.8
+    epss: 0.00473
+  - id: CVE-2026-46954
+    cvss: 7.2
+    epss: 0.00453
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46876
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46924
@@ -478,19 +463,13 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60455
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61246
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0918/
+  - https://github.com/elastic/detection-rules/blob/main/rules/network/persistence_mysql_udf_injection.toml
 iocs:
   - type: url
     value: https://www.oracle.com/security-alerts/cpujul2026.html
 ioc_counts:
   url: 1
 updates:
-  - at: "2026-07-22T23:21:05Z"
-    level: L2
-    summary: added CVE-2026-46998 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60373
   - at: "2026-07-22T23:21:18Z"
     level: L2
     summary: added CVE-2026-60155 +1
@@ -519,6 +498,13 @@ updates:
       - anssi
     source_urls:
       - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0918/
+  - at: "2026-07-31T19:10:21Z"
+    level: L2
+    summary: added CVE-2016-6662 +4
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/network/persistence_mysql_udf_injection.toml
 ---
 
 Aggregated Oracle security advisories for July 2026. CVEs from this cycle are folded
