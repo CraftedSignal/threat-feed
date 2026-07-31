@@ -1,41 +1,46 @@
 ---
-title: Multiple Vulnerabilities in PHP Interpreter
+title: Multiple Vulnerabilities in PHP Language
 slug: 2026-07-php-vulnerabilities
-description: Multiple vulnerabilities in PHP allow remote attackers to perform SQL injection, execute arbitrary code, manipulate data, or trigger a denial-of-service condition.
-date: "2026-07-31T09:28:01Z"
+description: Multiple vulnerabilities, including CVE-2026-17543, CVE-2026-17544, CVE-2026-7260, and CVE-2026-9672, have been identified in PHP, potentially enabling SQL injection and denial-of-service attacks.
+date: "2026-07-31T15:28:32Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-tags:
-  - web-vulnerability
-  - php
-  - rce
 vendors:
-  - PHP Group
-products:
   - PHP
-mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: An attacker can exploit multiple vulnerabilities in PHP to execute arbitrary code.
-    confidence_band: high
+products:
+  - PHP 8.2
+  - PHP 8.3
+  - PHP 8.4
+  - PHP 8.5
+cves:
+  - id: CVE-2026-17543
+  - id: CVE-2026-17544
+    epss: 0.00428
+  - id: CVE-2026-7260
+    epss: 0.00168
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2598
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0952/
+  - https://www.php.net/ChangeLog-8.php#8.2.33
+  - https://www.php.net/ChangeLog-8.php#8.3.33
+  - https://www.php.net/ChangeLog-8.php#8.4.24
+  - https://www.php.net/ChangeLog-8.php#8.5.9
+  - https://www.cve.org/CVERecord?id=CVE-2026-17543
+  - https://www.cve.org/CVERecord?id=CVE-2026-17544
+  - https://www.cve.org/CVERecord?id=CVE-2026-7260
+  - https://www.cve.org/CVERecord?id=CVE-2026-9672
 ---
 
-The PHP Group has identified multiple vulnerabilities within the PHP interpreter that pose significant risks to web applications. These flaws enable unauthenticated remote attackers to perform a variety of malicious actions, including SQL injection, arbitrary code execution, unauthorized data manipulation, and the triggering of denial-of-service (DoS) conditions. Because PHP is a foundational component of the modern web stack, these vulnerabilities could lead to total compromise of underlying web servers if successfully exploited. Security operations teams should prioritize identifying all instances of PHP within their environment, ensure that they are running the latest patched versions, and monitor web server traffic for indicators of injection-style attacks or anomalous application behavior.
+The PHP development team has released security updates for multiple active branches of the PHP scripting language to address several critical vulnerabilities. The flaws affect PHP versions prior to 8.2.33, 8.3.33, 8.4.24, and 8.5.9. These vulnerabilities, tracked under CVE-2026-17543, CVE-2026-17544, CVE-2026-7260, and CVE-2026-9672, include issues that could allow a remote attacker to perform SQL injection attacks, induce denial-of-service (DoS) conditions, or exploit other unspecified security weaknesses within web applications relying on the vulnerable PHP versions. Organizations running web servers utilizing these PHP versions are advised to upgrade to the latest versions (8.2.33, 8.3.33, 8.4.24, or 8.5.9) immediately to mitigate potential exploitation.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities can lead to full compromise of web application servers, exfiltration of database contents via SQL injection, and availability loss due to DoS. The impact extends to any organization hosting or utilizing services built on the affected versions of PHP, potentially affecting a broad range of enterprise and consumer web platforms.
+Successful exploitation of these vulnerabilities can lead to unauthorized database access and manipulation via SQL injection, or the degradation of service availability through DoS attacks. These flaws represent a significant risk to any environment hosting web applications or services written in PHP, potentially resulting in data exfiltration or service outages.
 
 ## Recommendation
 
-- Perform an inventory of all web servers and applications utilizing PHP to identify vulnerable instances.
-- Apply the latest security patches provided by the PHP Group to all deployed PHP interpreters.
-- Implement and monitor web application firewall (WAF) rules to detect and block common SQL injection patterns and malformed requests targeting web endpoints.
-- Monitor web server logs for anomalous patterns such as unexpected HTTP POST/GET parameters that contain shell metacharacters or SQL syntax.
+- Upgrade all PHP installations to versions 8.2.33, 8.3.33, 8.4.24, or 8.5.9 to remediate CVE-2026-17543, CVE-2026-17544, CVE-2026-7260, and CVE-2026-9672.
+- Review web application logs for suspicious patterns associated with SQL injection attempts (e.g., unexpected union statements, tautology strings, or database command syntax).
+- Prioritize patching for internet-facing applications utilizing affected PHP branches.
