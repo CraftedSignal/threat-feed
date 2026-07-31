@@ -3,7 +3,7 @@ title: Thumbor Path Traversal via URL Decoding Bypass
 slug: 2026-07-thumbor-path-traversal
 description: Thumbor version 7.7.7 and earlier is vulnerable to arbitrary file read via a path traversal flaw in file_loader.py, where security checks are performed before decoding percent-encoded traversal sequences.
 date: "2026-07-31T19:20:49Z"
-lastmod: "2026-07-31T19:29:08Z"
+lastmod: "2026-07-31T19:29:15Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,9 @@ tags:
   - hmac-bypass
   - image-processing
   - cve-2026-53501
+  - ssrf
+  - web-application
+  - input-validation
 vendors:
   - Thumbor
 products:
@@ -42,6 +45,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-53503
   - https://github.com/advisories/GHSA-mw3h-qjxj-6xg9
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-53501
+  - https://github.com/advisories/GHSA-6x26-6r6f-m537
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-53500
 iocs:
   - type: url
     value: http://thumbor-host:8888/unsafe/filters:watermark(%252e%252e/%252e%252e/%252e%252e/%252e%252e/etc/passwd,0,0,100)/some-valid-image.jpg
@@ -81,6 +86,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-mw3h-qjxj-6xg9
+  - at: "2026-07-31T19:29:15Z"
+    level: L2
+    summary: 'merged source coverage: Thumbor SSRF via Unescaped Regex in ALLOWED_SOURCES'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6x26-6r6f-m537
 ---
 
 Thumbor, an open-source image processing service, contains a path traversal vulnerability (CVE-2026-53502) in its `file_loader` component. The flaw arises because the application performs security validation - using `abspath()` and `startswith()` - on the file path before calling `unquote()`. Attackers can supply double-percent-encoded traversal sequences, such as `%252e%252e`, which evade the initial security check by being treated as literal directory names. Once the check passes, `unquote()` decodes these sequences into standard traversal characters (`..`), allowing the loader to traverse outside the designated root directory. 
