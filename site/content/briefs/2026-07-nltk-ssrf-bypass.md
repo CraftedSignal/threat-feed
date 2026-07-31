@@ -3,6 +3,7 @@ title: NLTK pathsec DNS Rebinding SSRF Filter Bypass
 slug: 2026-07-nltk-ssrf-bypass
 description: A DNS rebinding vulnerability in the NLTK pathsec module allows attackers to bypass SSRF filters and access restricted internal resources by manipulating hostname resolution during the validation and connection phases.
 date: "2026-07-31T19:29:56Z"
+lastmod: "2026-07-31T19:30:20Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,9 @@ tags:
   - ssrf
   - dns-rebinding
   - vulnerability
+  - path-traversal
+  - arbitrary-file-read
+  - library-vulnerability
 products:
   - NLTK (<= 3.9.4)
 mitre_ttps:
@@ -24,6 +28,16 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-qvv7-cg9c-w4x3
   - CVE-2026-12075
+  - https://github.com/advisories/GHSA-xh95-f55m-82fw
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-12074
+updates:
+  - at: "2026-07-31T19:30:20Z"
+    level: L2
+    summary: 'merged source coverage: NLTK FramenetCorpusReader Path Traversal Vulnerability'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-xh95-f55m-82fw
 ---
 
 The NLTK library (version 3.9.4 and earlier) contains a critical SSRF filter bypass vulnerability in its `nltk.pathsec` module, specifically within the `urlopen` function and underlying utilities like `nltk.data.load`. The vulnerability stems from a race condition or logic flaw involving independent DNS resolutions: `validate_network_url` performs an initial check against forbidden IP ranges (loopback, private, link-local), but the subsequent HTTP connection initiated by `urllib` performs a second, independent DNS resolution.
