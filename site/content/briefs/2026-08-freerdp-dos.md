@@ -3,7 +3,7 @@ title: FreeRDP Denial of Service via Smartcard Cache Request
 slug: 2026-08-freerdp-dos
 description: A null pointer dereference vulnerability in FreeRDP prior to 3.29.0 allows remote attackers to trigger a crash in the client process via crafted smartcard cache requests.
 date: "2026-08-01T13:51:41Z"
-lastmod: "2026-08-01T13:52:28Z"
+lastmod: "2026-08-01T13:52:31Z"
 type: advisory
 types:
   - advisory
@@ -42,6 +42,8 @@ cves:
     cvss: 7.5
   - id: CVE-2026-67299
     cvss: 7.5
+  - id: CVE-2026-67301
+    cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67288
   - https://github.com/FreeRDP/FreeRDP/security/advisories/GHSA-ph3q-f9w8-7jf3
@@ -54,14 +56,8 @@ references:
   - https://www.vulncheck.com/advisories/freerdp-before-denial-of-service-via-rdpei-pdu
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67300
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67301
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67304
 updates:
-  - at: "2026-08-01T13:51:49Z"
-    level: L1
-    summary: 'merged source coverage: Heap Out-of-Bounds Read in FreeRDP TSMF FFmpeg Decoder'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-67290
   - at: "2026-08-01T13:52:02Z"
     level: L1
     summary: 'merged source coverage: Denial of Service Vulnerability in FreeRDP RDPEI Channel Handler'
@@ -90,6 +86,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-67301
+  - at: "2026-08-01T13:52:31Z"
+    level: L2
+    summary: added CVE-2026-67301
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-67304
 ---
 
 FreeRDP versions prior to 3.29.0 are susceptible to a null pointer dereference vulnerability within their smartcard cache request decoders. This issue occurs when the application handles SCARD_IOCTL_READCACHEA and SCARD_IOCTL_WRITECACHEA operations. Specifically, the decoder fails to properly validate NDR (Network Data Representation) pointers for the 'LookupName' field. When smartcard emulation is enabled, an attacker can transmit a crafted smartcard cache request containing a NULL pointer for this field. When the client process attempts to execute a strlen() function call on this NULL pointer, it results in an immediate crash of the FreeRDP client process. This vulnerability (CVE-2026-67288) presents a high-impact denial-of-service risk for environments utilizing FreeRDP with smartcard features enabled.
