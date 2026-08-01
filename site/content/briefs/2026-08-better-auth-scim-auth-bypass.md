@@ -1,39 +1,48 @@
 ---
-title: Authorization Bypass in @better-auth/scim Plugin
+title: Authorization Bypass Vulnerability in better-auth SCIM
 slug: 2026-08-better-auth-scim-auth-bypass
-description: An authorization bypass vulnerability in @better-auth/scim allows authenticated users to mint tokens that collide with provider IDs, enabling unauthorized modification and takeover of global user accounts.
-date: "2026-08-01T13:51:03Z"
+description: An authorization bypass vulnerability in better-auth SCIM (CVE-2026-67331) allows authenticated users to manage and manipulate SCIM providers belonging to other users due to missing owner-binding checks.
+date: "2026-08-01T13:54:41Z"
 type: advisory
 types:
   - advisory
 severities:
-  - critical
+  - high
 tags:
-  - authentication-bypass
+  - cve-2026-67331
+  - authorization-bypass
   - scim
-  - identity-management
-  - cve-2026-67330
+  - better-auth
 vendors:
-  - Better Auth
+  - better-auth
 products:
-  - '@better-auth/scim'
+  - scim
+mitre_ttps:
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: The vulnerability allows authenticated users to manage other users' providers and regenerate SCIM bearer tokens.
+    confidence_band: high
 cves:
-  - id: CVE-2026-67330
-    cvss: 9.9
+  - id: CVE-2026-67331
+    cvss: 8.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-67330
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67331
+  - https://github.com/better-auth/better-auth/security/advisories/GHSA-j8v8-g9cx-5qf4
+  - https://www.vulncheck.com/advisories/better-auth-scim-before-beta-4-authorization-bypass
 ---
 
-The @better-auth/scim plugin is susceptible to an authorization bypass vulnerability identified as CVE-2026-67330, affecting versions 1.4.0-beta.27 through 1.6.21 and 1.7.0-beta.0 through 1.7.0-beta.9. The flaw resides in the SCIM token issuance logic, which fails to restrict provider IDs to those uniquely belonging to the SCIM configuration. 
+The better-auth SCIM package (versions 1.5.0 through 1.6.x) contains a critical authorization flaw tracked as CVE-2026-67331. The vulnerability stems from the application's failure to properly bind non-organization SCIM providers to the specific user account that created them. By default, the system assumes global accessibility for these provider objects, which results in an insecure direct object reference (IDOR) or similar authorization bypass condition. 
 
-Because the system uses the same logical provider ID for both SCIM configuration and account ownership, an authenticated user can craft a SCIM token with a provider ID that matches an existing SSO, SAML, OIDC, or social account provider. When this malicious token is used, the system incorrectly resolves the request to account rows that were not provisioned by that specific SCIM token. This allows an attacker to interact with global user accounts and sessions belonging to other providers, facilitating profile and email manipulation without uniqueness checks, unauthorized data exfiltration, and account takeover. The vulnerability is resolved in versions 1.6.22 and 1.7.0-beta.10.
+This issue allows any authenticated user within the application to perform administrative actions on SCIM providers owned by other users. The impact is significant, as an attacker can list, modify, or delete existing providers, invalidate legitimate SCIM bearer tokens, and generate new tokens under the context of the victim's provider configuration. This effectively permits an attacker to perform account takeover or unauthorized data synchronization by intercepting or manipulating SCIM API traffic. Organizations using affected versions are advised to upgrade to 1.7.0-beta.4 or later immediately.
 
 ## Impact
 
-The vulnerability poses a severe risk of account takeover and unauthorized administrative control over user sessions. By manipulating global user profile fields and email addresses, an attacker can hijack accounts or delete them entirely, causing significant service disruption and loss of confidentiality for all identity providers integrated through the affected @better-auth/scim plugin.
+Successful exploitation allows unauthorized users to fully control the SCIM integration lifecycle of other users within the platform. This leads to the compromise of identity synchronization processes, potential unauthorized provisioning or deprovisioning of accounts, and the ability to exfiltrate or modify sensitive identity data transmitted through SCIM. The vulnerability has a CVSS v3.1 base score of 8.3, reflecting the high risk to confidentiality and integrity in enterprise environments relying on SCIM for user lifecycle management.
 
 ## Recommendation
 
-- Upgrade the @better-auth/scim plugin to version 1.6.22 or 1.7.0-beta.10 immediately to remediate CVE-2026-67330.
-- Audit application logs for abnormal SCIM administrative activity or mass profile modification events associated with non-standard provider ID patterns.
-- Review all existing SCIM token configurations to ensure provider ID namespaces are not colliding with other established SSO or OIDC providers.
+- Upgrade the better-auth SCIM package to version 1.7.0-beta.4 or higher to resolve the authorization logic flaw documented in CVE-2026-67331.
+- Audit existing SCIM provider configurations in your environment to identify any unauthorized provider objects or unexpected token changes.
+- Review web access logs for anomalous API activity directed at SCIM endpoints, specifically looking for repeated modifications of token resources by non-administrative users.
