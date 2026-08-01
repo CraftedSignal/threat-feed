@@ -3,6 +3,7 @@ title: LLM-Based Detection of Suspicious Curl Activity on Linux
 slug: 2026-07-llm-curl-triage
 description: Elastic's LLM-based detection rule identifies suspicious `curl` activity on Linux systems, aiming to detect command and control, data exfiltration, or ingress tool transfer by analyzing command-line parameters and network destinations via Auditd Manager or Auditbeat logs, which, if left unaddressed, could lead to system compromise or data breach.
 date: "2026-07-20T20:22:43Z"
+lastmod: "2026-08-01T01:42:03Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,15 @@ tags:
   - Command and Control
   - Exfiltration
   - Auditd Manager
+vendors:
+  - Microsoft
+  - Elastic
+  - Google
+products:
+  - Azure
+  - GitHub
+  - Google Cloud Storage
+  - Elastic Stack
 affected_os:
   - Linux
 mitre_ttps:
@@ -41,6 +51,15 @@ mitre_ttps:
 references:
   - https://www.elastic.co/docs/reference/query-languages/esql/esql-commands#esql-completion
   - https://www.elastic.co/security-labs/beyond-behaviors-ai-augmented-detection-engineering-with-esql-completion
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_auditd_llm_triage.toml
+updates:
+  - at: "2026-08-01T01:42:03Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_auditd_llm_triage.toml
 ---
 
 Elastic has developed an LLM-based detection rule designed to identify non-allowlisted `curl` activity on Linux hosts. This rule leverages telemetry from Auditd Manager or Auditbeat to monitor `curl` executions, which can be indicators of command and control (C2), data exfiltration, or ingress tool transfer. The system parses and normalizes destination hosts, redacts sensitive command-line information, and aggregates activity by host before utilizing the ES|QL COMPLETION command. An embedded Large Language Model (LLM) then assesses whether the activity is malicious (True Positive), benign (False Positive), or suspicious, with only high-confidence suspicious or true positive verdicts generating alerts. This approach aims to distinguish legitimate automation or package management from actual threats, providing detailed investigative context such as process ancestry, user names, and command samples for further analysis.
