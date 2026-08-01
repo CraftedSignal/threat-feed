@@ -3,11 +3,15 @@ title: Multiple Vulnerabilities in GLPI
 slug: 2026-07-multiple-glpi-vulnerabilities
 description: Multiple vulnerabilities have been discovered in GLPI, including SQL injection, cross-site scripting (XSS), and privilege escalation, which could allow an attacker to compromise data integrity, bypass security policies, and elevate their privileges within the system.
 date: "2026-07-27T12:39:43Z"
+lastmod: "2026-08-01T13:57:02Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=25417D6C-FFA2-5EE0-AEDB-34821218CD45&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - web-application
@@ -16,9 +20,11 @@ tags:
   - privilege-escalation
 vendors:
   - GLPI Project
+  - GLPI
 products:
   - GLPI (< 11.0.8)
   - GLPI (< 10.0.26)
+  - GLPI (0.70 - 11.0.7)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -38,6 +44,8 @@ mitre_ttps:
     technique_name: Create Account
     evidence: Atteinte à l'intégrité des données, Contournement de la politique de sécurité, Injection SQL (SQLi)
     confidence_band: med
+cves:
+  - id: CVE-2026-53625
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0935/
   - https://github.com/glpi-project/glpi/security/advisories/GHSA-76v9-ch69-g67r
@@ -56,6 +64,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-53629
   - https://www.cve.org/CVERecord?id=CVE-2026-55214
   - https://www.cve.org/CVERecord?id=CVE-2026-57152
+  - https://sploitus.com/exploit?id=25417D6C-FFA2-5EE0-AEDB-34821218CD45&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://github.com/glpi-project/glpi/security/advisories/GHSA-7v5q-w6f3-2v8p
@@ -71,8 +80,20 @@ iocs:
     value: https://github.com/glpi-project/glpi/security/advisories/GHSA-v774-5g3p-vxg2
   - type: url
     value: https://github.com/glpi-project/glpi/security/advisories/GHSA-x5r8-r6vj-79cw
+  - type: url
+    value: https://sploitus.com/exploit?id=25417D6C-FFA2-5EE0-AEDB-34821218CD45
+  - type: url
+    value: https://github.com/7h30th3r0n3/CVE-2026-53625-GLPI-PoC.git
 ioc_counts:
-  url: 7
+  url: 9
+updates:
+  - at: "2026-08-01T13:57:02Z"
+    level: L2
+    summary: poc_available; added CVE-2026-53625
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=25417D6C-FFA2-5EE0-AEDB-34821218CD45&utm_source=rss&utm_medium=rss
 ---
 
 Multiple critical vulnerabilities have been identified in GLPI versions 11.0.x prior to 11.0.8 and versions prior to 10.0.26. These vulnerabilities, detailed across several GLPI security advisories (GHSAs) and CVEs, include SQL injection (SQLi), cross-site scripting (XSS), and privilege escalation flaws. If exploited, these weaknesses could allow an attacker to gain unauthorized access to sensitive data, tamper with existing information, circumvent established security controls, or escalate their privileges within the GLPI application. The advisory, issued by CERT-FR on July 27, 2026, urges users to apply immediate patches to prevent potential compromise of their GLPI instances. These vulnerabilities pose a significant risk to the integrity and confidentiality of information managed by GLPI.
