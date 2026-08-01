@@ -1,44 +1,48 @@
 ---
-title: GitPython Command Injection and File Truncation Vulnerability
+title: Command Injection Vulnerability in GitPython
 slug: 2026-08-gitpython-injection
-description: GitPython versions prior to 3.1.51 contain vulnerabilities allowing command injection and arbitrary file truncation through insufficient sanitization of keyword arguments and revision inputs.
-date: "2026-08-01T13:52:42Z"
+description: GitPython versions prior to 3.1.51 are vulnerable to command injection because the library's security blocklist fails to account for Git command-line option abbreviation, allowing attackers to execute arbitrary commands.
+date: "2026-08-01T13:52:49Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
+  - vulnerability
   - command-injection
   - python
-  - library-vulnerability
 vendors:
-  - GitPython
+  - gitpython-developers
 products:
-  - GitPython (< 3.1.51)
+  - GitPython
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: The flaw allows command injection via options such as --exec/--upload-pack leading to arbitrary command execution.
+    evidence: Attackers can bypass the unsafe options guard by using abbreviated option names like upload_p instead of upload_pack, which git resolves to dangerous options and executes arbitrary commands.
     confidence_band: high
 cves:
-  - id: CVE-2026-67323
-    cvss: 8.4
+  - id: CVE-2026-67325
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-67323
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67325
+  - https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-2f96-g7mh-g2hx
+  - https://www.vulncheck.com/advisories/gitpython-before-command-injection-via-option-prefix-abbreviation
 ---
 
-GitPython versions before 3.1.51 are susceptible to command injection and arbitrary file manipulation due to improper input validation when handling keyword arguments and revision strings. Specifically, the methods Repo.archive() and git.ls_remote() fail to sanitize keyword arguments, enabling attackers to inject dangerous Git options such as --exec or --upload-pack, which results in arbitrary command execution on the host system. Furthermore, the methods Repo.iter_commits() and Repo.blame() do not validate revision arguments for leading dashes. This allows an attacker to pass crafted strings such as --output=&lt;path>, causing the underlying Git process to open and truncate arbitrary files on the filesystem. This vulnerability affects any application that passes untrusted user input directly into these specific GitPython method arguments.
+GitPython, a widely used library for interacting with Git repositories in Python, contains a critical security vulnerability (CVE-2026-67325) in versions prior to 3.1.51. The library implements a blocklist to prevent the passing of dangerous command-line options to the underlying git binary. However, the blocklist is incomplete as it does not account for Git's feature that allows for the abbreviation of long command-line options.
+
+An attacker can bypass these security restrictions by providing abbreviated versions of forbidden options, such as 'upload_p' instead of the full 'upload_pack'. When GitPython processes these inputs, the underlying system executes the git command with the injected, restricted flags. This leads to OS command injection, enabling unauthenticated or low-privilege users to achieve arbitrary command execution on the host running the application. This vulnerability is highly significant for any automated system or web application using GitPython to handle user-supplied Git repository configurations or operations.
 
 ## Impact
 
-The vulnerability allows for remote command execution and local file destruction. An attacker who can influence the inputs processed by these GitPython methods can achieve full control over the application's runtime environment or perform denial-of-service attacks by corrupting critical system or application files. This impacts any environment running software that integrates GitPython versions older than 3.1.51 for repository management or CI/CD pipeline automation.
+Successful exploitation allows remote attackers to execute arbitrary system commands with the privileges of the application process. This can lead to full system compromise, data exfiltration, or lateral movement within the environment. Applications leveraging GitPython for CI/CD pipelines, automated repository management, or source code analysis tools are at high risk.
 
 ## Recommendation
 
-- Upgrade the GitPython library to version 3.1.51 or later in all application dependencies to remediate CVE-2026-67323.
-- Audit application code to identify where user-supplied input is passed as arguments to Repo.archive(), git.ls_remote(), Repo.iter_commits(), and Repo.blame().
-- Implement strict input validation or allowlisting for any variables that are passed to GitPython methods to prevent the injection of flags starting with dashes.
-- Review application logs for unusual process command lines triggered by Python application workers.
+- Upgrade the GitPython library to version 3.1.51 or later immediately to incorporate the corrected blocklist logic.
+- Review all application code utilizing GitPython to identify instances where user-supplied input is used to construct Git commands.
+- Audit logs for suspicious git process arguments that utilize abbreviated long-options, such as --upload-p, --receive-p, or similar abbreviated variants that could indicate exploitation attempts.
+- Apply the principle of least privilege by running applications that use GitPython under restricted service accounts to minimize the potential impact of a successful command injection.
