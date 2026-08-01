@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-01T01:41:54Z"
+lastmod: "2026-08-01T01:42:07Z"
 type: advisory
 types:
   - advisory
@@ -13,14 +13,46 @@ tags:
   - roundup
 vendors:
   - Microsoft
+  - Elastic
+  - Google
 products:
   - Windows
   - Microsoft Entra ID
+  - curl
 affected_os:
   - Windows
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_llm_triage.toml
+iocs:
+  - type: domain
+    value: mcr.microsoft.com
+  - type: domain
+    value: acs-mirror.azureedge.net
+  - type: domain
+    value: packages.aks.azure.com
+  - type: domain
+    value: packages.microsoft.com
+  - type: domain
+    value: login.microsoftonline.com
+  - type: domain
+    value: management.azure.com
+  - type: domain
+    value: storage.googleapis.com
+  - type: domain
+    value: api.github.com
+  - type: domain
+    value: artifacts.elastic.co
+  - type: domain
+    value: download.elastic.co
+  - type: ip
+    value: 169.254.169.254
+  - type: ip
+    value: 168.63.129.16
+ioc_counts:
+  domain: 10
+  ip: 2
 updates:
   - at: "2026-08-01T01:41:51Z"
     level: L1
@@ -36,6 +68,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
+  - at: "2026-08-01T01:42:07Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_llm_triage.toml
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
