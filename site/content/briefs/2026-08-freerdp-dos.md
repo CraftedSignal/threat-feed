@@ -1,9 +1,8 @@
 ---
-title: FreeRDP Denial of Service via Smartcard Cache Request
+title: FreeRDP Resource Exhaustion via Malicious HTTP Chunked Encoding
 slug: 2026-08-freerdp-dos
-description: A null pointer dereference vulnerability in FreeRDP prior to 3.29.0 allows remote attackers to trigger a crash in the client process via crafted smartcard cache requests.
-date: "2026-08-01T13:51:41Z"
-lastmod: "2026-08-01T13:52:02Z"
+description: FreeRDP versions prior to 3.29.0 contain a vulnerability in the http_response_recv_body function that allows remote attackers to trigger memory exhaustion via oversized chunked HTTP responses.
+date: "2026-08-01T13:52:08Z"
 type: advisory
 types:
   - advisory
@@ -12,70 +11,46 @@ severities:
 tags:
   - denial-of-service
   - vulnerability
-  - remote-execution
+  - remote-access
 vendors:
   - FreeRDP
 products:
-  - FreeRDP
-  - FreeRDP (< 3.29.0)
+  - FreeRDP (Before 3.29.0)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
-    technique_id: T1498
-    technique_name: Network Denial of Service
-    evidence: When smartcard emulation is enabled, attackers can send crafted smartcard cache requests with NULL lookup-name pointers to trigger strlen() on a null pointer, causing client process termination.
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: Attackers controlling a malicious RD Gateway endpoint can send oversized chunked response bodies to exhaust client memory resources without triggering the configured size limit.
     confidence_band: high
 cves:
-  - id: CVE-2026-67288
+  - id: CVE-2026-67297
     cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-67288
-  - https://github.com/FreeRDP/FreeRDP/security/advisories/GHSA-ph3q-f9w8-7jf3
-  - https://www.vulncheck.com/advisories/freerdp-before-denial-of-service-via-smartcard-cache
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-67290
-  - https://github.com/FreeRDP/FreeRDP/security/advisories/GHSA-whq8-c3v3-p8v8
-  - https://www.vulncheck.com/advisories/freerdp-before-heap-out-of-bounds-read-via-tsmf
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-67296
-  - https://github.com/FreeRDP/FreeRDP/security/advisories/GHSA-jm8r-22j6-4m4v
-  - https://www.vulncheck.com/advisories/freerdp-before-denial-of-service-via-rdpei-pdu
-updates:
-  - at: "2026-08-01T13:51:49Z"
-    level: L1
-    summary: 'merged source coverage: Heap Out-of-Bounds Read in FreeRDP TSMF FFmpeg Decoder'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-67290
-  - at: "2026-08-01T13:52:02Z"
-    level: L1
-    summary: 'merged source coverage: Denial of Service Vulnerability in FreeRDP RDPEI Channel Handler'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-67296
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67297
+  - https://github.com/FreeRDP/FreeRDP/security/advisories/GHSA-2c6r-4pr4-9x8m
+  - https://www.vulncheck.com/advisories/freerdp-before-resource-exhaustion-via-chunked-http-response
 ---
 
-FreeRDP versions prior to 3.29.0 are susceptible to a null pointer dereference vulnerability within their smartcard cache request decoders. This issue occurs when the application handles SCARD_IOCTL_READCACHEA and SCARD_IOCTL_WRITECACHEA operations. Specifically, the decoder fails to properly validate NDR (Network Data Representation) pointers for the 'LookupName' field. When smartcard emulation is enabled, an attacker can transmit a crafted smartcard cache request containing a NULL pointer for this field. When the client process attempts to execute a strlen() function call on this NULL pointer, it results in an immediate crash of the FreeRDP client process. This vulnerability (CVE-2026-67288) presents a high-impact denial-of-service risk for environments utilizing FreeRDP with smartcard features enabled.
+FreeRDP versions before 3.29.0 are vulnerable to a resource exhaustion flaw (CVE-2026-67297) when processing HTTP responses that utilize `Transfer-Encoding: chunked`. The vulnerability resides within the `http_response_recv_body()` function, which fails to correctly enforce the `RESPONSE_SIZE_LIMIT` during the assembly of chunked data. An attacker controlling a malicious Remote Desktop (RD) Gateway endpoint can leverage this flaw to send specifically crafted, oversized HTTP responses to a connecting client. This causes the client's memory consumption to grow unbounded, ultimately leading to a denial-of-service (DoS) state for the FreeRDP process. Because this occurs at the gateway negotiation phase, it can be triggered by a remote attacker without prior authentication, posing a significant risk to organizations relying on FreeRDP-based clients for remote connectivity.
 
 ## Attack Chain
 
-1. Attacker identifies a target system utilizing FreeRDP with smartcard emulation features enabled.
-2. Attacker initiates an RDP connection to the target system.
-3. Attacker negotiates smartcard redirection capabilities during the RDP handshake process.
-4. Attacker sends a specially crafted SCARD_IOCTL_READCACHEA or SCARD_IOCTL_WRITECACHEA packet.
-5. The packet is structured to provide a NULL pointer in the 'LookupName' field of the request.
-6. The FreeRDP client process receives the malicious packet and passes it to the decoder.
-7. The decoder attempts to process the NULL pointer using the strlen() function.
-8. The process encounters a memory access violation, leading to an immediate termination of the FreeRDP application.
+1. Attacker configures a malicious server acting as an RD Gateway.
+2. Victim initiates a standard connection attempt to the malicious RD Gateway using an affected version of FreeRDP.
+3. The malicious server initiates the HTTP handshake for the RD Gateway protocol.
+4. The malicious server issues a response header indicating `Transfer-Encoding: chunked`.
+5. The attacker sends a continuous stream of large data chunks, bypassing the expected `RESPONSE_SIZE_LIMIT` check in `http_response_recv_body()`.
+6. The client process allocates memory to buffer the incoming chunked data.
+7. Sustained delivery of chunks forces the client process to reach memory limits, resulting in a crash or system instability.
+8. The final objective is the denial-of-service of the remote access client on the victim machine.
 
 ## Impact
 
-Successful exploitation results in a persistent denial-of-service condition for the FreeRDP client process. In environments where FreeRDP is used for critical administrative access or remote workstation connectivity, this enables an attacker to disrupt operations, disconnect users, and prevent legitimate administrative access to remote systems. The vulnerability is exploitable over the network without requiring authentication.
+Successful exploitation results in a denial-of-service condition for the FreeRDP client process. This can disrupt remote access for users who rely on this software for connectivity to corporate environments. The vulnerability is exploitable remotely without user interaction or authentication, increasing the risk of service interruption across an enterprise deployment.
 
 ## Recommendation
 
-Prioritized actions for detection and remediation:
-- Upgrade all instances of FreeRDP to version 3.29.0 or higher to include the fix for CVE-2026-67288.
-- Disable smartcard emulation in FreeRDP configurations if it is not strictly required for business workflows to reduce the attack surface.
-- Monitor endpoint process logs for abnormal termination or crashes of the FreeRDP client executable (e.g., `xfreerdp` or `wfreerdp`).
-- While network-based detection is difficult due to the nature of the protocol, prioritize monitoring for unauthorized RDP connection attempts to sensitive infrastructure.
+1. Upgrade all FreeRDP client installations to version 3.29.0 or later to ensure the `RESPONSE_SIZE_LIMIT` is correctly enforced.
+2. Audit client configurations to verify that only trusted and authenticated RD Gateways are utilized in remote access profiles.
+3. Monitor endpoint logs for abnormal process crashes or memory-related errors originating from the `xfreerdp` or associated client executables.
