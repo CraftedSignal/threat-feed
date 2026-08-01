@@ -3,6 +3,7 @@ title: LLM-Based Triage of Wget Activity on Linux Hosts
 slug: 2026-07-llm-wget-triage
 description: Elastic has developed a detection rule that monitors non-allowlisted `wget` activity on Linux hosts using Auditd Manager or Auditbeat, leveraging an Elastic LLM to triage `wget` executions for potential ingress tool transfer, command and control, or data exfiltration attempts to untrusted destinations, generating alerts only for high-confidence positive or suspicious verdicts.
 date: "2026-07-20T20:24:01Z"
+lastmod: "2026-08-01T01:42:09Z"
 type: advisory
 types:
   - advisory
@@ -20,11 +21,17 @@ tags:
   - detection-rule
 vendors:
   - Elastic
+  - Microsoft
+  - Google
+  - GitHub
 products:
   - Elastic Stack
   - Auditd Manager
   - Auditbeat
   - General Purpose LLM v2
+  - Azure
+  - Google Cloud Storage
+  - GitHub
 affected_os:
   - Linux
 mitre_ttps:
@@ -97,6 +104,14 @@ rules:
       - process_creation
       - linux
 rules_count: 1
+updates:
+  - at: "2026-08-01T01:42:09Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_wget_activity_auditd_llm_triage.toml
 ---
 
 Elastic has released an LLM-powered detection rule designed to identify potentially malicious `wget` activity on Linux systems. This rule, updated in July 2026, integrates with Auditd Manager or Auditbeat to collect process execution events, specifically targeting `wget` invocations. It normalizes command-line arguments, redacts sensitive information like credentials, and then uses Elastic's General Purpose LLM v2 to assess whether the activity indicates ingress tool transfer (T1105), command and control (TA0011), or data exfiltration (T1048, T1005). The rule is configured to filter out known benign `wget` destinations, such as local loopbacks, cloud platform services (Azure, GCP), and common vendor repositories (Microsoft, GitHub, Elastic), to reduce false positives. Alerts are generated only for high-confidence (above 0.7) positive or suspicious verdicts from the LLM, providing security teams with intelligent triage for `wget` usage.
