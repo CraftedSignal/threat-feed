@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-07-30T15:23:47Z"
+lastmod: "2026-08-01T19:48:02Z"
 type: advisory
 types:
   - advisory
@@ -88,6 +88,7 @@ references:
   - https://thehackernews.com/2026/07/bluenoroff-zoom-phishing-kit-profiles.html
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_powershell_fakecaptcha_clipboard_execution.yml
   - https://cloud.google.com/blog/topics/threat-intelligence/mitigation-guidance-for-supply-chain-compromise/
+  - https://www.malware-traffic-analysis.net/2026/07/31/index.html
 iocs:
   - type: github_account_name
     value: Xpos587
@@ -113,6 +114,14 @@ iocs:
     value: '@alchemy_john_mac'
   - type: telegram channel
     value: Aurora
+  - type: url
+    value: https://pewtercanto.top/user/throttle-effect.js
+  - type: url
+    value: https://pewtercanto.top/user/acl-dom?JSMlAATp
+  - type: url
+    value: https://pewtercanto.top/user/version-deploy.js?18c7713e5fb5a572
+  - type: url
+    value: http://deltaode.com/po
 ioc_counts:
   domain: 5
   github_account_name: 1
@@ -121,14 +130,8 @@ ioc_counts:
   packagist_namespace: 1
   telegram channel: 1
   telegram handle: 1
+  url: 4
 updates:
-  - at: "2026-07-16T08:52:23Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - any-run
-    source_urls:
-      - https://any.run/cybersecurity-blog/phantomenigma-research/
   - at: "2026-07-16T10:01:31Z"
     level: L2
     summary: poc_available
@@ -157,6 +160,13 @@ updates:
       - mandiant
     source_urls:
       - https://cloud.google.com/blog/topics/threat-intelligence/mitigation-guidance-for-supply-chain-compromise/
+  - at: "2026-08-01T19:48:02Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - malware-traffic-analysis
+    source_urls:
+      - https://www.malware-traffic-analysis.net/2026/07/31/index.html
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
