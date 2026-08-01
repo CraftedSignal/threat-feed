@@ -3,7 +3,7 @@ title: Authorization Bypass in ArcadeDB SQL DEFINE FUNCTION
 slug: 2026-08-arcadedb-auth-bypass
 description: ArcadeDB versions before 26.7.2 contain an authorization bypass vulnerability (CVE-2026-67341) that permits unprivileged users to execute arbitrary JavaScript code via the DEFINE FUNCTION statement.
 date: "2026-08-01T13:51:18Z"
-lastmod: "2026-08-01T13:51:26Z"
+lastmod: "2026-08-01T13:55:04Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,12 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Attackers with database access can execute arbitrary JavaScript code by submitting DEFINE FUNCTION statements, bypassing security controls intended to restrict scripting to administrators.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Attackers can use the leaked token with X-ArcadeDB-Cluster-Token and X-ArcadeDB-Forwarded-User headers to impersonate root.
+    confidence_band: high
 cves:
   - id: CVE-2026-67341
     cvss: 9.8
@@ -32,6 +38,8 @@ references:
   - https://www.vulncheck.com/advisories/arcadedb-before-authorization-bypass-via-sql-define-function
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67342
   - https://github.com/ArcadeData/arcadedb/security/advisories/GHSA-x8mg-6r4p-87pf
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67343
+  - https://github.com/ArcadeData/arcadedb/security/advisories/GHSA-46hj-24h4-j8gf
 rules:
   - title: Detect CVE-2026-67342 Exploitation - ArcadeDB Unauthorized API Access
     description: Detects potential exploitation of CVE-2026-67342 by monitoring for unauthorized access attempts to sensitive ArcadeDB endpoints.
@@ -43,7 +51,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect ArcadeDB Cluster Token Impersonation
+    description: Detects exploitation of CVE-2026-67343 by identifying suspicious requests using the cluster token impersonation headers.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege-escalation
+    techniques:
+      - T1068
+    data_sources:
+      - webserver
+rules_count: 2
 updates:
   - at: "2026-08-01T13:51:26Z"
     level: L2
@@ -52,6 +70,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-67342
+  - at: "2026-08-01T13:55:04Z"
+    level: L2
+    summary: 'added detection rule: Detect ArcadeDB Cluster Token Impersonation'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-67343
 ---
 
 ArcadeDB versions prior to 26.7.2 are vulnerable to an authorization bypass flaw, tracked as CVE-2026-67341. The vulnerability exists within the SQL engine's handling of the `DEFINE FUNCTION` command when the `LANGUAGE` parameter is set to `js`. The application fails to properly enforce security checks that should restrict the registration of functions to administrative users. An attacker with database access can leverage this defect to register and execute arbitrary JavaScript code. This vulnerability has a critical impact, potentially allowing for full system compromise or unauthorized access to sensitive database data, as the code executes within the context of the database process.
