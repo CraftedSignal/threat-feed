@@ -3,6 +3,7 @@ title: Monitoring High-Risk Sign-ins in Microsoft Entra ID
 slug: 2026-08-entra-high-risk-signin
 description: This brief details the detection of compromised cloud accounts by leveraging Microsoft Identity Protection telemetry to identify high-risk authentication events indicative of credential abuse.
 date: "2026-08-01T01:42:00Z"
+lastmod: "2026-08-01T01:45:33Z"
 type: threat
 types:
   - threat
@@ -15,8 +16,15 @@ tags:
   - account-compromise
 vendors:
   - Microsoft
+  - Google
 products:
   - Microsoft Entra ID
+  - Microsoft 365
+  - Windows
+  - Android
+affected_os:
+  - Windows
+  - Android
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -27,6 +35,7 @@ mitre_ttps:
 references:
   - https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-risk
   - https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection
+  - https://www.microsoft.com/en-us/security/blog/2026/07/31/captivecrunch-midnight-blizzard-targets-travelers-worldwide-for-malware-delivery-and-credential-theft/
 rules:
   - title: Detect High Risk Microsoft Entra ID Sign-in
     description: Detects high-risk sign-ins in Microsoft Entra ID as identified by Identity Protection machine learning and heuristics.
@@ -39,6 +48,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-08-01T01:45:33Z"
+    level: L1
+    summary: OS windows; OS android
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/07/31/captivecrunch-midnight-blizzard-targets-travelers-worldwide-for-malware-delivery-and-credential-theft/
 ---
 
 Microsoft Entra ID utilizes machine learning and heuristic analysis through Microsoft Identity Protection to evaluate the risk associated with every authentication request. When a sign-in event is flagged with a 'high' risk level, it indicates a strong likelihood of credential compromise or unauthorized access. This detection mechanism is critical for Security Operations centers as it enables the identification of accounts under active attack, even when the threat actor is using valid credentials. Defenders should focus on these high-risk events to catch account takeovers in progress before the attacker can perform lateral movement or data exfiltration within the cloud environment.
