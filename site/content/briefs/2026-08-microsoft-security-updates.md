@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-01T01:42:07Z"
+lastmod: "2026-08-01T01:42:11Z"
 type: advisory
 types:
   - advisory
@@ -15,16 +15,22 @@ vendors:
   - Microsoft
   - Elastic
   - Google
+  - GitHub
 products:
   - Windows
   - Microsoft Entra ID
   - curl
+  - Azure Kubernetes Service
+  - Azure Storage
+  - GitHub
+  - Elastic Stack
 affected_os:
   - Windows
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_llm_triage.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_wget_activity_llm_triage.toml
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -75,6 +81,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_llm_triage.toml
+  - at: "2026-08-01T01:42:11Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_wget_activity_llm_triage.toml
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
