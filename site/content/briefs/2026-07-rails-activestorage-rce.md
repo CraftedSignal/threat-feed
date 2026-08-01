@@ -3,7 +3,7 @@ title: Remote Code Execution and Arbitrary File Read in Ruby on Rails Active Sto
 slug: 2026-07-rails-activestorage-rce
 description: A vulnerability (CVE-2026-66066) in Ruby on Rails Active Storage allows unauthenticated attackers to achieve arbitrary file read and remote code execution during the variant processing phase.
 date: "2026-07-30T15:25:56Z"
-lastmod: "2026-07-30T21:28:59Z"
+lastmod: "2026-08-01T11:53:14Z"
 type: advisory
 types:
   - advisory
@@ -23,13 +23,16 @@ products:
   - Ruby on Rails Active Storage (6.0.0 <= 6.1.7.10)
   - libvips (< 8.13)
   - ruby-vips (< 2.2.1)
+  - Active Storage (7.2.3.2, 8.0.5.1, 8.1.3.1)
 cves:
   - id: CVE-2026-66066
+    epss: 0.01701
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0948/
   - https://discuss.rubyonrails.org/t/cve-2026-66066-possible-arbitrary-file-read-and-remote-code-execution-in-active-storage-variant-processing/91432
   - https://www.cve.org/CVERecord?id=CVE-2026-66066
   - https://www.rapid7.com/blog/post/etr-kindarails2shell-cve-2026-66066-critical-arbitrary-file-read-and-possible-remote-code-execution-in-ruby-on-rails
+  - https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability/
 updates:
   - at: "2026-07-30T21:28:59Z"
     level: L2
@@ -38,6 +41,13 @@ updates:
       - rapid7
     source_urls:
       - https://www.rapid7.com/blog/post/etr-kindarails2shell-cve-2026-66066-critical-arbitrary-file-read-and-possible-remote-code-execution-in-ruby-on-rails
+  - at: "2026-08-01T11:53:14Z"
+    level: L1
+    summary: new product
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability/
 ---
 
 A critical vulnerability, tracked as CVE-2026-66066, has been identified in the Ruby on Rails Active Storage component. The flaw arises from improper handling of image variants during the processing phase. An attacker can exploit this weakness to perform arbitrary file reads or achieve remote code execution (RCE) on the underlying server hosting the application. This vulnerability is particularly dangerous as it targets the file processing pipeline, which is a common feature in web applications handling user-uploaded content. Impacted versions include Active Storage 8.0.x versions prior to 8.0.5.1, 8.1.x versions prior to 8.1.3.1, and versions prior to 7.2.3.2. Organizations utilizing these affected versions of Rails are encouraged to update immediately to the patched releases provided by the Ruby on Rails security team to prevent potential exploitation.
