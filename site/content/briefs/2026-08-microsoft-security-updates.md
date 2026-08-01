@@ -1,0 +1,22 @@
+---
+title: Microsoft Security Updates — August 2026
+slug: 2026-08-microsoft-security-updates
+description: Roundup of Microsoft security advisories published in August 2026.
+date: "2026-08-01T01:41:40Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+tags:
+  - roundup
+vendors:
+  - Microsoft
+---
+
+Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
+into the list below as they are published.
+
+## Recommendation
+
+Review affected products and apply Microsoft's August 2026 security updates.
