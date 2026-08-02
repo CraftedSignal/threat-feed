@@ -3,11 +3,15 @@ title: Gitea Actions Fork Pull Request Approval Gate Bypass
 slug: 2026-07-gitea-fork-pr-bypass
 description: A vulnerability in Gitea Actions (versions v1.20.0 and later) allows an unprivileged attacker to permanently bypass the fork pull request approval gate for a repository after a single, initial workflow approval, enabling arbitrary shell command execution on the Gitea Actions runner without further maintainer interaction, leading to source code disclosure and potential system compromise.
 date: "2026-07-21T20:43:25Z"
+lastmod: "2026-08-02T10:40:52Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=53B6B9C6-5A4C-57DB-913E-E9A91C88A5D2&utm_source=rss&utm_medium=rss
 tags:
   - logic-bug
   - ci-cd
@@ -18,6 +22,7 @@ vendors:
   - Gitea
 products:
   - Gitea (v1.20.0 and later)
+  - Gitea (<= 1.26.2)
 affected_os:
   - Linux
   - macOS
@@ -46,8 +51,26 @@ mitre_ttps:
     technique_name: Exfiltration Over Web Service
     evidence: Source code disclosure... with outbound network access
     confidence_band: med
+cves:
+  - id: CVE-2026-58424
+    cvss: 8.9
+    epss: 0.00202
 references:
   - https://github.com/advisories/GHSA-777r-4v59-6486
+  - https://sploitus.com/exploit?id=53B6B9C6-5A4C-57DB-913E-E9A91C88A5D2&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=53B6B9C6-5A4C-57DB-913E-E9A91C88A5D2
+ioc_counts:
+  url: 1
+updates:
+  - at: "2026-08-02T10:40:52Z"
+    level: L2
+    summary: poc_available; added CVE-2026-58424
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=53B6B9C6-5A4C-57DB-913E-E9A91C88A5D2&utm_source=rss&utm_medium=rss
 ---
 
 A critical logic flaw, identified as GITEA-2026-004, has been discovered in Gitea Actions affecting all versions v1.20.0 and later. This vulnerability allows an unprivileged Gitea user with the ability to fork a repository to bypass the intended approval mechanism for fork pull requests. The flawed logic, introduced in commit `edf98a2dc3` (February 24, 2023), mistakenly interprets a single approval of any workflow run from a contributor on a given repository as permanent, unconditional trust for that user on that repository. Consequently, after a repository administrator approves a single benign pull request's workflow from an attacker, all subsequent malicious pull requests from the same attacker on the same repository will automatically execute their workflows on the Gitea Actions runner without requiring any further maintainer intervention. This effectively grants the attacker arbitrary code execution capabilities on the runner, leading to potential source code disclosure, exfiltration of sensitive data, or broader system compromise.
