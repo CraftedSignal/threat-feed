@@ -3,11 +3,16 @@ title: ArcadeDB Privilege Escalation via JavaScript Triggers
 slug: 2026-08-arcadedb-privilege-escalation
 description: ArcadeDB versions before 26.7.3 insecurely expose the LocalDatabase object to JavaScript triggers, allowing attackers with schema update permissions to perform unauthorized administrative actions.
 date: "2026-08-02T13:35:54Z"
+lastmod: "2026-08-02T13:36:04Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - information-disclosure
+  - privilege-escalation
+  - database
 vendors:
   - ArcadeData
 products:
@@ -26,6 +31,29 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67356
   - https://github.com/ArcadeData/arcadedb/security/advisories/GHSA-38pf-6hp2-pxww
   - https://www.vulncheck.com/advisories/arcadedb-before-privilege-escalation-via-javascript-trigger
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67357
+  - https://github.com/ArcadeData/arcadedb/security/advisories/GHSA-p9wc-4fhr-78wm
+  - https://www.vulncheck.com/advisories/arcadedb-information-disclosure-via-get-server-settings
+rules:
+  - title: Detect ArcadeDB Cluster Token Impersonation Attempt
+    description: Detects HTTP requests using X-ArcadeDB-Forwarded-User set to root, which indicates a potential impersonation attempt exploiting CVE-2026-67357.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege-escalation
+    techniques:
+      - T1005
+    data_sources:
+      - webserver
+rules_count: 1
+updates:
+  - at: "2026-08-02T13:36:04Z"
+    level: L2
+    summary: 'added detection rule: Detect ArcadeDB Cluster Token Impersonation Attempt'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-67357
 ---
 
 ArcadeDB versions prior to 26.7.3 contain a security flaw where the `LocalDatabase` object is bound into JavaScript trigger contexts with `HostAccess.ALL`. This misconfiguration allows users with the `UPDATE_SCHEMA` permission to execute arbitrary JavaScript code that bypasses the security manager. Specifically, an authenticated attacker can invoke sensitive methods such as `getSecurity().createUser()` without appropriate authorization checks. By creating a malicious database trigger, a low-privileged user can escalate their privileges to become a server-wide administrator. This vulnerability (CVE-2026-67356) represents a significant risk for environments where database schema management is delegated to non-administrative users.
