@@ -93,6 +93,8 @@
         </section>
         {{ end }}
 
+        {{ partial "brief-response-plan.html" . }}
+
         {{ if $rules }}
         <section class="space-y-3">
           <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Detection coverage <span class="text-text font-mono">{{ $rulesCount }}</span></h2>
