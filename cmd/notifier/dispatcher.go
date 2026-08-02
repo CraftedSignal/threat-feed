@@ -46,6 +46,18 @@ type dispatcher struct {
 	logger *slog.Logger
 }
 
+type emailPendingJob struct {
+	sub Subscription
+	pd  PendingDispatch
+}
+
+type emailDeliveryJob struct {
+	sub        Subscription
+	jobs       []emailPendingJob
+	briefs     []Brief
+	seenBriefs map[string]struct{}
+}
+
 // Dispatch is the per-/dispatch hot path. It used to deliver one
 // message per (subscription, brief) match - fine for one-brief-per-call
 // but spammy when ti-bot pushes a burst. Now matches are enqueued into
@@ -116,25 +128,15 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 		if time.Now().Before(backoff) {
 			d.logger.Warn("smtp in backoff, skipping overflow email flush", "backoff_until", backoff)
 		} else {
-			type emailOvfJob struct {
-				sub Subscription
-				pd  PendingDispatch
-			}
-			var jobs []emailOvfJob
-			var msgs []SmtpMessage
+			var jobs []emailPendingJob
 			for _, o := range emailOvf {
 				pd, err := d.store.GetPending(ctx, o.sub.ID)
 				if err != nil || len(pd.Briefs) == 0 {
 					continue
 				}
-				msg, err := d.buildEmailMessage(pd.Briefs, o.sub, serviceURL)
-				if err != nil {
-					d.logger.Error("building overflow email failed", "sub_id", o.sub.ID, "err", err)
-					continue
-				}
-				jobs = append(jobs, emailOvfJob{sub: o.sub, pd: pd})
-				msgs = append(msgs, msg)
+				jobs = append(jobs, emailPendingJob{sub: o.sub, pd: pd})
 			}
+			deliveries, msgs := d.buildEmailDeliveryJobs(jobs, serviceURL)
 			if len(msgs) > 0 {
 				results := d.mailer.SendBatch(msgs)
 
@@ -155,18 +157,21 @@ func (d *dispatcher) Dispatch(ctx context.Context, briefs []Brief, serviceURL st
 					}
 				}
 
-				for i, job := range jobs {
+				for i, delivery := range deliveries {
 					if i < len(results) && results[i] != nil {
-						d.logger.Error("overflow flush failed", "sub_id", job.sub.ID, "err", results[i])
+						d.logger.Error("overflow flush failed", "sub_id", delivery.sub.ID, "err", results[i])
 						continue
 					}
-					if err := d.store.DeletePending(ctx, job.pd.SubscriptionID); err != nil {
-						d.logger.Error("overflow flush: delete pending failed", "sub_id", job.sub.ID, "err", err)
-						continue
-					}
-					if err := d.store.MarkSent(ctx, job.sub.ID, time.Now().UTC()); err != nil {
-						d.logger.Error("overflow flush: mark sent failed", "sub_id", job.sub.ID, "err", err)
-						continue
+					now := time.Now().UTC()
+					for _, job := range delivery.jobs {
+						if err := d.store.DeletePending(ctx, job.pd.SubscriptionID); err != nil {
+							d.logger.Error("overflow flush: delete pending failed", "sub_id", job.sub.ID, "err", err)
+							continue
+						}
+						if err := d.store.MarkSent(ctx, job.sub.ID, now); err != nil {
+							d.logger.Error("overflow flush: mark sent failed", "sub_id", job.sub.ID, "err", err)
+							continue
+						}
 					}
 					flushedN.Add(1)
 				}
@@ -210,12 +215,7 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 
 	// Collect everything first so SMTP gets one connection regardless
 	// of how many email subscribers have pending queues.
-	type emailJob struct {
-		sub Subscription
-		pd  PendingDispatch
-		msg SmtpMessage
-	}
-	var emailJobs []emailJob
+	var emailJobs []emailPendingJob
 
 	type webhookJob struct {
 		sub Subscription
@@ -239,14 +239,7 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 		}
 		switch sub.Channel {
 		case ChannelEmail:
-			msg, err := d.buildEmailMessage(pd.Briefs, sub, serviceURL)
-			if err != nil {
-				d.logger.Error("building flush email failed", "sub_id", sub.ID, "err", err)
-				return nil
-			}
-			emailJobs = append(emailJobs, emailJob{
-				sub: sub, pd: pd, msg: msg,
-			})
+			emailJobs = append(emailJobs, emailPendingJob{sub: sub, pd: pd})
 		case ChannelSlack, ChannelTeams:
 			webhookJobs = append(webhookJobs, webhookJob{sub: sub, pd: pd})
 		default:
@@ -269,45 +262,47 @@ func (d *dispatcher) FlushPending(ctx context.Context, debounce time.Duration, s
 			d.logger.Warn("smtp in backoff, skipping email flush", "backoff_until", backoff)
 			failedN.Add(int64(len(emailJobs)))
 		} else {
-			msgs := make([]SmtpMessage, len(emailJobs))
-			for i, j := range emailJobs {
-				msgs[i] = j.msg
-			}
-			results := d.mailer.SendBatch(msgs)
+			deliveries, msgs := d.buildEmailDeliveryJobs(emailJobs, serviceURL)
+			if len(msgs) > 0 {
+				results := d.mailer.SendBatch(msgs)
 
-			// All slots filled with a connection error → relay is down.
-			// Set a backoff so future sweeps skip SMTP until it recovers.
-			connFails := 0
-			for _, r := range results {
-				var ce *smtpConnError
-				if r != nil && errors.As(r, &ce) {
-					connFails++
+				// All slots filled with a connection error → relay is down.
+				// Set a backoff so future sweeps skip SMTP until it recovers.
+				connFails := 0
+				for _, r := range results {
+					var ce *smtpConnError
+					if r != nil && errors.As(r, &ce) {
+						connFails++
+					}
 				}
-			}
-			if connFails == len(results) {
-				backoffUntil := time.Now().Add(smtpBackoffDuration)
-				if err := d.store.SetSmtpBackoffUntil(ctx, backoffUntil); err != nil {
-					d.logger.Warn("smtp backoff persist failed", "err", err)
-				} else {
-					d.logger.Warn("smtp connection failed, backing off", "duration", smtpBackoffDuration, "until", backoffUntil)
+				if connFails == len(results) {
+					backoffUntil := time.Now().Add(smtpBackoffDuration)
+					if err := d.store.SetSmtpBackoffUntil(ctx, backoffUntil); err != nil {
+						d.logger.Warn("smtp backoff persist failed", "err", err)
+					} else {
+						d.logger.Warn("smtp connection failed, backing off", "duration", smtpBackoffDuration, "until", backoffUntil)
+					}
 				}
-			}
 
-			for i, j := range emailJobs {
-				if i < len(results) && results[i] != nil {
-					failedN.Add(1)
-					continue
+				for i, delivery := range deliveries {
+					if i < len(results) && results[i] != nil {
+						failedN.Add(int64(len(delivery.jobs)))
+						continue
+					}
+					now := time.Now().UTC()
+					for _, job := range delivery.jobs {
+						if err := d.store.MarkSent(ctx, job.sub.ID, now); err != nil {
+							d.logger.Error("flush: mark sent failed", "sub_id", job.sub.ID, "err", err)
+							failedN.Add(1)
+							continue
+						}
+						if err := d.store.DeletePending(ctx, job.pd.SubscriptionID); err != nil {
+							d.logger.Error("flush: delete pending failed", "sub_id", job.sub.ID, "err", err)
+							// Already marked sent; next flush will see no pending doc.
+						}
+					}
+					sentN.Add(1)
 				}
-				if err := d.store.MarkSent(ctx, j.sub.ID, time.Now().UTC()); err != nil {
-					d.logger.Error("flush: mark sent failed", "sub_id", j.sub.ID, "err", err)
-					failedN.Add(1)
-					continue
-				}
-				if err := d.store.DeletePending(ctx, j.pd.SubscriptionID); err != nil {
-					d.logger.Error("flush: delete pending failed", "sub_id", j.sub.ID, "err", err)
-					// Already marked sent; next flush will see no pending doc.
-				}
-				sentN.Add(1)
 			}
 		}
 	}
@@ -409,6 +404,74 @@ func (d *dispatcher) deliverBatch(sub Subscription, briefs []Brief, serviceURL s
 		return SendTeamsBatch(sub.WebhookURL, briefs)
 	default:
 		return fmt.Errorf("unknown channel: %q", sub.Channel)
+	}
+}
+
+func (d *dispatcher) buildEmailDeliveryJobs(jobs []emailPendingJob, serviceURL string) ([]emailDeliveryJob, []SmtpMessage) {
+	byRecipient := make(map[string]*emailDeliveryJob)
+	var ordered []*emailDeliveryJob
+	for _, job := range jobs {
+		recipient := normalizeEmailRecipient(job.sub.Email)
+		if recipient == "" {
+			d.logger.Warn("email delivery skipped: empty recipient", "sub_id", job.sub.ID)
+			continue
+		}
+		delivery, ok := byRecipient[recipient]
+		if !ok {
+			sub := job.sub
+			sub.Email = recipient
+			delivery = &emailDeliveryJob{
+				sub:        sub,
+				seenBriefs: make(map[string]struct{}),
+			}
+			byRecipient[recipient] = delivery
+			ordered = append(ordered, delivery)
+		}
+		delivery.jobs = append(delivery.jobs, job)
+		delivery.briefs = appendUniqueEmailBriefs(delivery.briefs, delivery.seenBriefs, job.pd.Briefs)
+	}
+
+	deliveries := make([]emailDeliveryJob, 0, len(ordered))
+	msgs := make([]SmtpMessage, 0, len(ordered))
+	for _, delivery := range ordered {
+		if len(delivery.briefs) == 0 {
+			continue
+		}
+		msg, err := d.buildEmailMessage(delivery.briefs, delivery.sub, serviceURL)
+		if err != nil {
+			d.logger.Error("building email batch failed", "sub_id", delivery.sub.ID, "err", err)
+			continue
+		}
+		deliveries = append(deliveries, *delivery)
+		msgs = append(msgs, msg)
+	}
+	return deliveries, msgs
+}
+
+func appendUniqueEmailBriefs(dst []Brief, seen map[string]struct{}, briefs []Brief) []Brief {
+	for _, b := range briefs {
+		key := emailBriefDedupeKey(b)
+		if key != "" {
+			if _, ok := seen[key]; ok {
+				continue
+			}
+			seen[key] = struct{}{}
+		}
+		dst = append(dst, b)
+	}
+	return dst
+}
+
+func emailBriefDedupeKey(b Brief) string {
+	switch {
+	case b.Slug != "":
+		return "slug:" + b.Slug
+	case b.URL != "":
+		return "url:" + b.URL
+	case b.Title != "":
+		return "title:" + b.Title
+	default:
+		return ""
 	}
 }
 

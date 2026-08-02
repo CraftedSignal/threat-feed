@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"strings"
 	"time"
 
 	"cloud.google.com/go/firestore"
@@ -206,6 +207,10 @@ func (s *firestoreStore) MarkSent(ctx context.Context, id string, t time.Time) e
 		{Path: "last_sent", Value: t},
 	})
 	return err
+}
+
+func normalizeEmailRecipient(email string) string {
+	return strings.ToLower(strings.TrimSpace(email))
 }
 
 var (

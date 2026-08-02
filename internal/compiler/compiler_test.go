@@ -145,6 +145,59 @@ func TestCompileAndEncrypt(t *testing.T) {
 	}
 }
 
+func TestCompileCarriesCTIMetadata(t *testing.T) {
+	t.Parallel()
+
+	briefs := []Brief{{
+		ID:          "b1",
+		Slug:        "b1-slug",
+		Title:       "Brief One",
+		Summary:     "Summary",
+		Severity:    "high",
+		PublishedAt: "2026-01-01T00:00:00Z",
+		SourceAssessment: &SourceAssessment{
+			Rating:     "B2",
+			Confidence: "moderate",
+			Flags:      []SourceFlag{{Type: "single_source", Detail: "one source"}},
+		},
+		QAStatus:   &QAStatus{Verdict: "pass_with_fixes", ManualVerification: []string{"validate telemetry"}},
+		ActionPlan: &ActionPlan{ImmediateActions: []ActionItem{{Action: "review rule", Owner: "SOC"}}},
+		Rules: []Rule{{
+			Title:    "R1",
+			Query:    "index=main",
+			Platform: "spl",
+			Severity: "high",
+			Handoff:  &Handoff{DetectionConfidence: "high", RequiredTelemetry: []RequiredTelemetry{{LogSource: "Sysmon", RequiredFields: []string{"Image"}}}},
+		}},
+		IOCs: []IOC{{
+			Type:       "domain",
+			Value:      "evil.example",
+			Context:    "Observed C2",
+			Confidence: 0.8,
+			Handling:   &IOCHandling{RecommendedAction: "monitor-only", LogSources: []string{"dns"}},
+		}},
+		TTPs: []TTP{{TacticID: "TA0001", TechniqueID: "T1566"}},
+	}}
+
+	content := Compile(briefs, 0)
+	got := content.Briefs[0]
+	if got.SourceAssessment == nil || got.SourceAssessment.Rating != "B2" || got.SourceAssessment.Flags[0].Type != "single_source" {
+		t.Fatalf("source assessment not carried: %+v", got.SourceAssessment)
+	}
+	if got.QAStatus == nil || got.QAStatus.ManualVerification[0] != "validate telemetry" {
+		t.Fatalf("QA status not carried: %+v", got.QAStatus)
+	}
+	if got.ActionPlan == nil || got.ActionPlan.ImmediateActions[0].Owner != "SOC" {
+		t.Fatalf("action plan not carried: %+v", got.ActionPlan)
+	}
+	if got.Rules[0].Handoff == nil || got.Rules[0].Handoff.RequiredTelemetry[0].LogSource != "Sysmon" {
+		t.Fatalf("handoff not carried: %+v", got.Rules[0].Handoff)
+	}
+	if got.IOCs[0].Confidence != 0.8 || got.IOCs[0].Handling == nil || got.IOCs[0].Handling.RecommendedAction != "monitor-only" {
+		t.Fatalf("ioc metadata not carried: %+v", got.IOCs[0])
+	}
+}
+
 func TestDeriveKey(t *testing.T) {
 	pubKey := testPublicKey()
 
