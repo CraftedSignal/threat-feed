@@ -3,20 +3,31 @@ title: Authentication Bypass in Single Sign On For TNG WordPress Plugin
 slug: 2026-08-tng-auth-bypass
 description: An unauthenticated password reset vulnerability in the Single Sign On For TNG plugin (CVE-2026-15964) allows attackers to perform full site takeover by bypassing AJAX nonce protections.
 date: "2026-08-01T09:49:47Z"
+lastmod: "2026-08-02T00:00:10Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=C35BE27A-CED0-5CAF-9327-BF1996B864CD&utm_source=rss&utm_medium=rss
 vendors:
   - WordPress
 products:
   - Single Sign On For TNG (<= 2.0.0)
+  - Single Sign On For TNG (< 2.1.0)
 cves:
   - id: CVE-2026-15964
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15964
+  - https://sploitus.com/exploit?id=C35BE27A-CED0-5CAF-9327-BF1996B864CD&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=C35BE27A-CED0-5CAF-9327-BF1996B864CD
+ioc_counts:
+  url: 1
 rules:
   - title: Detect CVE-2026-15964 Exploitation Attempts
     description: Detects unauthorized password reset requests targeting the ssoprocess_ajax action in the Single Sign On For TNG plugin.
@@ -30,6 +41,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-08-02T00:00:10Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=C35BE27A-CED0-5CAF-9327-BF1996B864CD&utm_source=rss&utm_medium=rss
 ---
 
 The Single Sign On For TNG plugin for WordPress, in versions up to and including 2.0.0, contains a critical authentication bypass vulnerability (CVE-2026-15964). The flaw resides in the `ssoprocess_ajax()` function, which is exposed to unauthenticated users via the `wp_ajax_nopriv_ssoprocess_ajax` action. By submitting a `setnewpassword` operation along with a target user's email address, an attacker can trigger the `reset_password()` function without any ownership verification, such as an email confirmation or security token. 
