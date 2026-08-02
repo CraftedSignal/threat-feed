@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-01T01:42:11Z"
+lastmod: "2026-08-02T23:52:04Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,7 @@ products:
   - Azure Storage
   - GitHub
   - Elastic Stack
+  - Azure Kubernetes Service (AKS)
 affected_os:
   - Windows
 references:
@@ -31,6 +32,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_llm_triage.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_wget_activity_llm_triage.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_coredns_configmap_modified.toml
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -88,6 +90,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_wget_activity_llm_triage.toml
+  - at: "2026-08-02T23:52:04Z"
+    level: L2
+    summary: azure kubernetes service version AKS
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_coredns_configmap_modified.toml
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
