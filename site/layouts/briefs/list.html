@@ -1,7 +1,7 @@
 {{ define "main" }}
-{{ $allPages := .RegularPages.ByDate.Reverse }}
+{{ $allPages := .RegularPages.ByLastmod.Reverse }}
 {{ $paginator := .Paginate $allPages 30 }}
-{{ $byMonth := $paginator.Pages.GroupByDate "January 2006" }}
+{{ $byMonth := $paginator.Pages.GroupByLastmod "January 2006" }}
 {{ $hasMorePages := gt $paginator.TotalPages 1 }}
 
 <section class="px-4 md:px-0 pt-10 pb-4">
