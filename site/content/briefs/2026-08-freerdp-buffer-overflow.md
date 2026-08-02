@@ -3,6 +3,7 @@ title: Heap-based Buffer Overflow in FreeRDP Windows Clipboard Client
 slug: 2026-08-freerdp-buffer-overflow
 description: A heap-based buffer overflow in FreeRDP versions 3.29.0 and earlier allows a malicious RDP server to execute an out-of-bounds write in the memory of a paste consumer process when handling clipboard file transfers.
 date: "2026-08-02T13:35:34Z"
+lastmod: "2026-08-02T13:36:20Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +25,17 @@ cves:
     cvss: 9.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-68579
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-68580
+  - https://github.com/FreeRDP/FreeRDP/security/advisories/GHSA-69xf-pqrw-596x
+  - https://www.vulncheck.com/advisories/freerdp-before-integer-overflow-via-audio-input-channel
+updates:
+  - at: "2026-08-02T13:36:20Z"
+    level: L2
+    summary: 'merged source coverage: Integer Overflow in FreeRDP Audio Input Redirection'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-68580
 ---
 
 CVE-2026-68579 is a critical heap-based buffer overflow vulnerability residing in the Windows clipboard client component of FreeRDP, specifically within the CliprdrStream_Read function in file client/Windows/wf_cliprdr.c. The vulnerability occurs when the RDP client interacts with a malicious or compromised RDP server. During a clipboard file transfer operation, the consumer process (such as Windows Explorer) invokes IStream::Read with a specific buffer size. The CliprdrStream_Read function incorrectly trusts the server-supplied length (req_fsize) when copying data into the caller's fixed-size buffer, rather than respecting the caller's buffer constraint. An attacker can exploit this by returning an oversized CB_FILECONTENTS_RESPONSE, triggering a heap-based out-of-bounds write in the target process. This vulnerability impacts all versions of FreeRDP up to and including 3.29.0 and requires successful connection to a malicious RDP server followed by a user-initiated clipboard paste action.
