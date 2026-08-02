@@ -3,7 +3,7 @@ title: ArcadeDB Privilege Escalation via JavaScript Triggers
 slug: 2026-08-arcadedb-privilege-escalation
 description: ArcadeDB versions before 26.7.3 insecurely expose the LocalDatabase object to JavaScript triggers, allowing attackers with schema update permissions to perform unauthorized administrative actions.
 date: "2026-08-02T13:35:54Z"
-lastmod: "2026-08-02T13:36:04Z"
+lastmod: "2026-08-02T13:36:13Z"
 type: advisory
 types:
   - advisory
@@ -13,16 +13,32 @@ tags:
   - information-disclosure
   - privilege-escalation
   - database
+  - authentication-bypass
+  - database-security
+  - cve-2026-68578
 vendors:
   - ArcadeData
 products:
   - ArcadeDB
+  - ArcadeDB (< 26.7.3)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
     evidence: Attackers with UPDATE_SCHEMA permission can create triggers that execute JavaScript to create server-wide admin users.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: ArcadeDB versions before 26.7.3 fail to bind the authenticated principal in the MCP HTTP transport, causing all engine permission checks to silently pass as no-ops.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1059.007
+    technique_name: JavaScript
+    evidence: Non-root MCP-allowed users can perform arbitrary database writes, DDL, schema mutations, and execute arbitrary JavaScript code via the query tool.
     confidence_band: high
 cves:
   - id: CVE-2026-67356
@@ -34,6 +50,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67357
   - https://github.com/ArcadeData/arcadedb/security/advisories/GHSA-p9wc-4fhr-78wm
   - https://www.vulncheck.com/advisories/arcadedb-information-disclosure-via-get-server-settings
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-68578
+  - https://github.com/ArcadeData/arcadedb/security/advisories/GHSA-6x73-v3rc-f57c
+  - https://www.vulncheck.com/advisories/arcadedb-authentication-bypass-via-mcp-transport
 rules:
   - title: Detect ArcadeDB Cluster Token Impersonation Attempt
     description: Detects HTTP requests using X-ArcadeDB-Forwarded-User set to root, which indicates a potential impersonation attempt exploiting CVE-2026-67357.
@@ -54,6 +73,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-67357
+  - at: "2026-08-02T13:36:13Z"
+    level: L2
+    summary: 'merged source coverage: Authentication Bypass in ArcadeDB MCP Transport'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-68578
 ---
 
 ArcadeDB versions prior to 26.7.3 contain a security flaw where the `LocalDatabase` object is bound into JavaScript trigger contexts with `HostAccess.ALL`. This misconfiguration allows users with the `UPDATE_SCHEMA` permission to execute arbitrary JavaScript code that bypasses the security manager. Specifically, an authenticated attacker can invoke sensitive methods such as `getSecurity().createUser()` without appropriate authorization checks. By creating a malicious database trigger, a low-privileged user can escalate their privileges to become a server-wide administrator. This vulnerability (CVE-2026-67356) represents a significant risk for environments where database schema management is delegated to non-administrative users.
