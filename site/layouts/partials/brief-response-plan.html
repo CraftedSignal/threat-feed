@@ -4,29 +4,21 @@
 {{ $enrichment := $plan.enrichment_needed | default slice }}
 {{ $mitigations := $plan.mitigation_plan | default slice }}
 {{ $gaps := $plan.gaps | default slice }}
-{{ if or $plan.priority $plan.owners $immediate $hunts $enrichment $mitigations $gaps }}
-<section class="rounded-xl border border-accent/30 bg-accent/5 p-4 space-y-4" data-pagefind-ignore>
-  <div class="flex flex-wrap items-start justify-between gap-3">
-    <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-accent">Response plan</h2>
-    <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
-      {{ with $plan.priority }}<span class="inline-flex px-1.5 py-0.5 rounded bg-accent/10 text-accent border border-accent/20">{{ replace . "_" " " }}</span>{{ end }}
-      {{ range $plan.owners }}<span class="inline-flex px-1.5 py-0.5 rounded bg-panel-2 text-muted">{{ . }}</span>{{ end }}
-    </div>
-  </div>
-
+{{ if or $plan.owners $immediate $hunts $enrichment $mitigations $gaps }}
+<section class="space-y-6" data-pagefind-ignore>
   {{ if $immediate }}
-  <div class="space-y-2">
-    <h3 class="text-[11px] font-mono uppercase tracking-wider text-muted">Immediate actions</h3>
-    <div class="grid gap-2">
+  <hr class="border-accent/30 my-6" />
+  <div class="space-y-3 pt-2">
+    <h3 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Immediate actions</h3>
+    <div class="grid gap-3">
       {{ range $immediate }}
-      <div class="rounded-lg border border-stroke bg-panel/60 p-3 text-sm">
+      <div class="rounded-xl border border-stroke bg-panel/60 p-5 space-y-3">
         {{ with .action }}<p class="text-text">{{ . }}</p>{{ end }}
-        <div class="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] font-mono text-muted">
+        <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-[11px] font-mono text-muted">
           {{ with .owner }}<span>{{ . }}</span>{{ end }}
           {{ with .due }}<span>{{ . }}</span>{{ end }}
           {{ with .status }}<span>{{ replace . "_" " " }}</span>{{ end }}
         </div>
-        {{ with .evidence }}<p class="mt-1 text-xs text-muted italic">{{ . }}</p>{{ end }}
       </div>
       {{ end }}
     </div>
@@ -34,20 +26,19 @@
   {{ end }}
 
   {{ if $hunts }}
-  <div class="space-y-2">
-    <h3 class="text-[11px] font-mono uppercase tracking-wider text-muted">Hunt leads</h3>
-    <div class="grid gap-2">
+  <div class="space-y-3">
+    <h3 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Threat Hunt</h3>
+    <div class="grid gap-3">
       {{ range $hunts }}
-      <div class="rounded-lg border border-stroke bg-panel/60 p-3 text-sm">
+      <div class="rounded-xl border border-stroke bg-panel/60 p-5 space-y-3">
         {{ with .lead }}<p class="text-text">{{ . }}</p>{{ end }}
-        <div class="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] font-mono text-muted">
+        <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-[11px] font-mono text-muted">
           {{ with .technique_id }}<span class="text-accent">{{ . }}</span>{{ end }}
           {{ with .priority }}<span>{{ . }}</span>{{ end }}
           {{ with .confidence }}<span>{{ . }} confidence</span>{{ end }}
           {{ with .disposition }}<span>{{ replace . "_" " " }}</span>{{ end }}
         </div>
-        {{ with .data_needed }}<p class="mt-1 text-xs text-muted">Data: {{ delimit . ", " }}</p>{{ end }}
-        {{ with .evidence }}<p class="mt-1 text-xs text-muted italic">{{ . }}</p>{{ end }}
+        {{ with .data_needed }}<p class="mt-2 text-xs text-muted">Data: {{ delimit . ", " }}</p>{{ end }}
       </div>
       {{ end }}
     </div>
@@ -55,9 +46,9 @@
   {{ end }}
 
   {{ if $enrichment }}
-  <div class="space-y-2">
-    <h3 class="text-[11px] font-mono uppercase tracking-wider text-muted">Enrichment needed</h3>
-    <ul class="space-y-1.5 text-sm text-muted">
+  <div class="space-y-3">
+    <h3 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Enrichment needed</h3>
+    <ul class="space-y-2 text-sm text-muted">
       {{ range $enrichment }}
       <li>
         {{ with .item }}<span class="text-text">{{ . }}</span>{{ end }}
@@ -70,18 +61,17 @@
   {{ end }}
 
   {{ if $mitigations }}
-  <div class="space-y-2">
-    <h3 class="text-[11px] font-mono uppercase tracking-wider text-muted">Mitigations</h3>
-    <div class="grid gap-2">
+  <div class="space-y-3">
+    <h3 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Mitigations</h3>
+    <div class="grid gap-3">
       {{ range $mitigations }}
-      <div class="rounded-lg border border-stroke bg-panel/60 p-3 text-sm">
+      <div class="rounded-xl border border-stroke bg-panel/60 p-5 space-y-3">
         {{ with .action }}<p class="text-text">{{ . }}</p>{{ end }}
-        <div class="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] font-mono text-muted">
+        <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-[11px] font-mono text-muted">
           {{ with .priority }}<span>{{ . }}</span>{{ end }}
           {{ with .owner }}<span>{{ . }}</span>{{ end }}
         </div>
-        {{ with .addresses }}<p class="mt-1 text-xs text-muted">{{ . }}</p>{{ end }}
-        {{ with .evidence }}<p class="mt-1 text-xs text-muted italic">{{ . }}</p>{{ end }}
+        {{ with .addresses }}<p class="mt-2 text-xs text-muted">{{ . }}</p>{{ end }}
       </div>
       {{ end }}
     </div>
@@ -89,9 +79,9 @@
   {{ end }}
 
   {{ if $gaps }}
-  <div class="space-y-2">
-    <h3 class="text-[11px] font-mono uppercase tracking-wider text-muted">Gaps</h3>
-    <ul class="space-y-1.5 text-sm text-muted">
+  <div class="space-y-3">
+    <h3 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">Gaps</h3>
+    <ul class="space-y-2 text-sm text-muted">
       {{ range $gaps }}<li>{{ . }}</li>{{ end }}
     </ul>
   </div>
