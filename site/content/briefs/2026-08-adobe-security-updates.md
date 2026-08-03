@@ -3,6 +3,7 @@ title: Adobe Security Updates — August 2026
 slug: 2026-08-adobe-security-updates
 description: Roundup of Adobe security advisories published in August 2026.
 date: "2026-08-03T23:42:20Z"
+lastmod: "2026-08-03T23:42:23Z"
 type: advisory
 types:
   - advisory
@@ -12,8 +13,23 @@ tags:
   - roundup
 vendors:
   - Adobe
+products:
+  - Adobe Campaign Classic (<= 7.4.3 build 9398)
 cves:
   - id: CVE-2026-48317
+    cvss: 9.6
+  - id: CVE-2026-48323
+    cvss: 10
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48323
+updates:
+  - at: "2026-08-03T23:42:23Z"
+    level: L2
+    summary: added CVE-2026-48323
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48323
 ---
 
 Aggregated Adobe security advisories for August 2026. CVEs from this cycle are folded
