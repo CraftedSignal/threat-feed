@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-03T10:03:02Z"
+lastmod: "2026-08-03T11:58:30Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +27,7 @@ products:
   - Azure Kubernetes Service (AKS)
   - Microsoft 365
   - SOHO routers
+  - Azure Cosmos DB
 affected_os:
   - Windows
   - Android
@@ -38,6 +39,8 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_coredns_configmap_modified.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_secret_access_suspicious_user_agent.toml
   - https://www.securityweek.com/russian-state-apt-linked-to-recent-public-wi-fi-gateway-hacking/
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_service_windows_service_winlog.toml
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2617
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -67,13 +70,6 @@ ioc_counts:
   domain: 10
   ip: 2
 updates:
-  - at: "2026-08-01T01:41:54Z"
-    level: L1
-    summary: new product
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
   - at: "2026-08-01T01:42:07Z"
     level: L1
     summary: new IOCs
@@ -102,6 +98,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/russian-state-apt-linked-to-recent-public-wi-fi-gateway-hacking/
+  - at: "2026-08-03T11:58:30Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2617
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
