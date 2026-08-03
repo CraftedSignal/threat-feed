@@ -3,11 +3,14 @@ title: Diffusers TOCTOU Vulnerability Leads to Remote Code Execution
 slug: 2026-05-diffusers-rce
 description: A Time-of-Check Time-of-Use (TOCTOU) vulnerability in the `diffusers` package allows arbitrary code execution via a race condition when loading pipelines from the Hugging Face Hub, bypassing trust checks.
 date: "2026-05-20T15:32:30Z"
+lastmod: "2026-08-03T07:59:13Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:huggingface:diffusers:*:*:*:*:*:python:*:*
 tags:
   - toctou
   - rce
@@ -21,9 +24,20 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2026-44827
+    cvss: 8.8
+    epss: 0.00562
+  - id: CVE-2026-45804
+    cvss: 7.5
+    epss: 0.00268
+  - id: CVE-2026-44513
+    cvss: 8.8
+    epss: 0.00848
 references:
   - https://github.com/advisories/GHSA-7wx4-6vff-v64p
   - CVE-2026-45804
+  - https://thehackernews.com/2026/08/hugging-face-diffusers-flaws-could-let.html
 rules:
   - title: Detect Diffusers from_pretrained without trust_remote_code
     description: Detects calls to DiffusionPipeline.from_pretrained without explicit trust_remote_code, which may indicate a potential TOCTOU exploit attempt targeting CVE-2026-45804.
@@ -48,6 +62,14 @@ rules:
       - network_connection
       - windows
 rules_count: 2
+updates:
+  - at: "2026-08-03T07:59:13Z"
+    level: L2
+    summary: added CVE-2026-44513 +2
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/08/hugging-face-diffusers-flaws-could-let.html
 ---
 
 A TOCTOU vulnerability exists in the `diffusers` package (versions prior to 0.38.0), a library used for diffusion models. The vulnerability resides within the `DiffusionPipeline.from_pretrained` function, which is responsible for loading pipelines from the Hugging Face Hub. This function has a `trust_remote_code` guard intended to prevent the execution of untrusted code from custom pipelines. However, a race condition between two HTTP calls (`hf_hub_download` and `snapshot_download`) allows an attacker to introduce malicious code into the repository between the calls, effectively bypassing the trust check and enabling remote code execution. This occurs because the vulnerability allows arbitrary code to be loaded through the custom pipeline flow from a Hub repo, even without explicitly passing `custom_pipeline` or `trust_remote_code` arguments.
