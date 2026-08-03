@@ -3,7 +3,7 @@ title: Remote Command Injection in GL.iNet GL-MT3000 Firmware
 slug: 2026-08-gl-inet-rce
 description: A command injection vulnerability in the Logread Lua RPC plugin of GL.iNet GL-MT3000 firmware versions 4.4.5 and earlier allows authenticated remote attackers to execute arbitrary system commands via the module argument.
 date: "2026-08-03T14:03:31Z"
-lastmod: "2026-08-03T16:04:58Z"
+lastmod: "2026-08-03T18:05:31Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,7 @@ vendors:
   - GL.iNet
 products:
   - GL-MT3000
+  - GL-MT3000 (<= 4.4.5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -57,6 +58,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-18598
     cvss: 8.8
+  - id: CVE-2026-18602
+    cvss: 9.8
+  - id: CVE-2026-18599
+    cvss: 8
+  - id: CVE-2026-18601
+    cvss: 9.8
+  - id: CVE-2026-18600
+    cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18598
   - https://github.com/StrTzz123/iot_vul/blob/main/GL-iNet/MT3000/4.4.5/logread_get_system_log_rpc_rce/CVE.md
@@ -65,6 +74,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18601
   - https://github.com/StrTzz123/iot_vul/blob/main/GL-iNet/MT3000/4.4.5/ovpn_check_config_glc_rce/CVE.md
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18600
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18602
 rules:
   - title: Detects CVE-2026-18598 Exploitation - Remote Command Injection
     description: Detects exploitation attempts against the Logread Lua RPC plugin by searching for shell metacharacters within the module parameter of HTTP requests.
@@ -127,6 +137,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-18600
+  - at: "2026-08-03T18:05:31Z"
+    level: L2
+    summary: added CVE-2026-18599 +3; gl-mt3000 version <= 4.4.5
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18602
 ---
 
 A critical security vulnerability (CVE-2026-18598) exists in the GL.iNet GL-MT3000 wireless router, affecting firmware versions up to 4.4.5. The vulnerability is located within the Logread Lua RPC plugin, specifically in the `logread.get_system_log` function handled by the `/usr/lib/oui-httpd/rpc/logread` file. An authenticated remote attacker can manipulate the `module` argument to inject and execute arbitrary system commands on the underlying host operating system. This vulnerability stems from improper neutralization of special elements used in command execution (CWE-77). Public exploit code for this flaw is available, significantly lowering the barrier for exploitation. Given the network-facing nature of these devices, organizations should prioritize updating to a patched firmware version or restricting access to the management RPC interface.
