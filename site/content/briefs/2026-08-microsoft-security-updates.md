@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-03T17:53:45Z"
+lastmod: "2026-08-03T17:53:48Z"
 type: advisory
 types:
   - advisory
@@ -30,6 +30,7 @@ products:
   - Azure Cosmos DB
   - Android
   - Windows Subsystem for Linux
+  - PowerShell
 affected_os:
   - Windows
   - Android
@@ -45,6 +46,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2617
   - https://therecord.media/russian-wifi-hackers-hotels
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_wsl_bash_exec.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_windows_powershell_susp_args.toml
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -74,13 +76,6 @@ ioc_counts:
   domain: 10
   ip: 2
 updates:
-  - at: "2026-08-02T23:52:04Z"
-    level: L2
-    summary: azure kubernetes service version AKS
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_coredns_configmap_modified.toml
   - at: "2026-08-03T10:03:02Z"
     level: L1
     summary: OS android
@@ -109,6 +104,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_wsl_bash_exec.toml
+  - at: "2026-08-03T17:53:48Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_windows_powershell_susp_args.toml
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
