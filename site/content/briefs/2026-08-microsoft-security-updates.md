@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-03T17:53:48Z"
+lastmod: "2026-08-03T17:58:57Z"
 type: advisory
 types:
   - advisory
@@ -31,9 +31,16 @@ products:
   - Android
   - Windows Subsystem for Linux
   - PowerShell
+  - Microsoft 365 Apps for Enterprise
+  - Microsoft Excel 2016 (< 16.0.5561.1001)
+  - Microsoft Office 2019
+  - Microsoft Office LTSC 2021
+  - Microsoft Office LTSC 2024
 affected_os:
   - Windows
   - Android
+cves:
+  - id: CVE-2026-62870
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -47,6 +54,11 @@ references:
   - https://therecord.media/russian-wifi-hackers-hotels
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_wsl_bash_exec.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_windows_powershell_susp_args.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/lateral_movement_executable_tool_transfer_smb.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_local_scheduled_task_creation.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_suspicious_com_hijack_registry.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_csr_created_or_approved.toml
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0961/
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -76,13 +88,6 @@ ioc_counts:
   domain: 10
   ip: 2
 updates:
-  - at: "2026-08-03T10:03:02Z"
-    level: L1
-    summary: OS android
-    sources:
-      - securityweek
-    source_urls:
-      - https://www.securityweek.com/russian-state-apt-linked-to-recent-public-wi-fi-gateway-hacking/
   - at: "2026-08-03T11:58:30Z"
     level: L1
     summary: new product
@@ -111,6 +116,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_windows_powershell_susp_args.toml
+  - at: "2026-08-03T17:58:57Z"
+    level: L2
+    summary: added CVE-2026-62870
+    sources:
+      - anssi
+    source_urls:
+      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0961/
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
