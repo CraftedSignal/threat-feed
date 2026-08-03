@@ -1,91 +1,99 @@
 ---
-title: SQL Injection in SiYuan via /api/search/searchEmbedBlock
+title: SQL Injection in SiYuan fullTextSearchAssetContent Endpoint
 slug: 2026-08-siyuan-sqli
-description: SiYuan versions 3.7.2 and earlier contain a critical SQL injection vulnerability in the /api/search/searchEmbedBlock endpoint, allowing unauthenticated or low-privileged users to execute stacked SQL queries and modify database content.
-date: "2026-08-03T16:04:48Z"
-type: threat
+description: SiYuan versions before 3.7.3 contain a critical SQL injection vulnerability in the fullTextSearchAssetContent endpoint, allowing unauthenticated attackers to execute arbitrary SQL commands on the backend asset-content database.
+date: "2026-08-03T16:04:30Z"
+lastmod: "2026-08-03T16:05:53Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
   - critical
-exploited: true
 tags:
-  - sqli
-  - vulnerability
-  - web-application
+  - sql-injection
+  - web-vulnerability
 vendors:
-  - SiYuan
+  - siyuan-note
 products:
-  - SiYuan (<= 3.7.2)
+  - SiYuan (< 3.7.3)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: SiYuan versions <= v3.7.2 expose the /api/search/searchEmbedBlock endpoint, which passes a client-supplied SQL statement verbatim.
+    evidence: SiYuan versions before v3.7.3 contain SQL injection vulnerabilities in the fullTextSearchAssetContent endpoint reachable by unauthenticated users.
     confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
-    evidence: Because the underlying driver executes stacked statements, an attacker can read and modify content.
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: Anonymous readers or publish RoleReader tokens can supply a heading block ID to read full rendered content of publish-disabled documents that should be restricted.
     confidence_band: high
 cves:
-  - id: CVE-2026-69084
+  - id: CVE-2026-69083
     cvss: 10
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69084
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69083
+  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-fph3-ghq9-vw66
+  - https://www.vulncheck.com/advisories/siyuan-before-sql-injection-via-fulltextsearchassetcontent
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-68587
+  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-69mh-gvh4-8gp7
 rules:
-  - title: Detects CVE-2026-69084 Exploitation - SQL Injection in /api/search/searchEmbedBlock
-    description: Detects exploitation of CVE-2026-69084 by identifying suspicious SQL metacharacters or stacked query indicators in requests to the vulnerable searchEmbedBlock endpoint.
+  - title: Detect CVE-2026-69083 Exploitation - SQL Injection in fullTextSearchAssetContent
+    description: Detects potential exploitation of CVE-2026-69083 where an unauthenticated user sends a request to the fullTextSearchAssetContent endpoint containing suspicious SQL injection patterns.
     platform: sigma
     severity: critical
     tactics:
-      - execution
       - initial_access
     techniques:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-68587 Exploitation - Unauthorized Access to SiYuan Heading Endpoints
+    description: Detects potential exploitation attempts of CVE-2026-68587 by monitoring for unauthorized access to sensitive heading transaction endpoints in SiYuan.
+    platform: sigma
+    severity: high
+    tactics:
+      - collection
+    techniques:
+      - T1592
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - IT Operations
-    - Detection Engineering
+    - SOC
   immediate_actions:
-    - action: Upgrade all instances of SiYuan to v3.7.3.
+    - action: Upgrade SiYuan to version 3.7.3 or later
       owner: IT Operations
       due: 24h
-      evidence: Fixed in v3.7.3.
-  hunt_leads:
-    - lead: Search logs for POST/GET requests to /api/search/searchEmbedBlock with SQL delimiters.
-      technique_id: T1190
-      data_needed:
-        - Web server access logs
-      priority: high
-      confidence: high
-      disposition: hunt_now
-      evidence: Endpoint exposes database to raw SQL input.
+      evidence: Vendor advisory GHSA-fph3-ghq9-vw66
   mitigation_plan:
     - priority: immediate
-      action: Enforce strict authentication and block unauthorized access to the application API.
+      action: Restrict external access to the fullTextSearchAssetContent endpoint
       owner: IT Operations
-      addresses: CVE-2026-69084
-      evidence: Endpoint is gated only by CheckAuth, making it reachable by anonymous users when publish authentication is disabled.
+      addresses: CVE-2026-69083
+      evidence: Vulnerability reachable by unauthenticated users
+updates:
+  - at: "2026-08-03T16:05:53Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-68587 Exploitation - Unauthorized Access to SiYuan Heading Endpoints'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-68587
 ---
 
-SiYuan versions v3.7.2 and earlier are affected by a critical SQL injection vulnerability identified as CVE-2026-69084. The application exposes the /api/search/searchEmbedBlock endpoint, which fails to sanitize client-supplied SQL statements before passing them to the main read-write siyuan.db database handle. The implementation does not enforce read-only or admin-level restrictions on this endpoint, and it improperly validates authorization via the CheckAuth function.
-
-Consequently, the vulnerability is accessible to users with minimal privileges, such as those holding a 'RoleReader' token, or even to anonymous users if publish authentication is disabled. Because the underlying database driver supports stacked queries, an attacker can execute arbitrary SQL commands. This allows for unauthorized reading and modification of data stored in all unencrypted notebooks within the SiYuan environment. The issue is resolved in version v3.7.3.
+SiYuan versions prior to 3.7.3 are vulnerable to an unauthenticated SQL injection vulnerability located in the fullTextSearchAssetContent endpoint. The vulnerability is caused by improper neutralization of special elements in input parameters, specifically when processing REGEXP clauses. An unauthenticated attacker can exploit this flaw to execute arbitrary SQL commands against the read-write asset-content database. This allows for unauthorized reading, modification, or deletion of stored notebook data. The vulnerability is considered high-risk due to the lack of required authentication and the potential for full data compromise within the application environment.
 
 ## Impact
 
-The successful exploitation of this vulnerability grants attackers the ability to read and modify sensitive content within unencrypted notebooks. Given the base CVSS score of 10.0, the impact is comprehensive regarding data integrity and confidentiality for the affected application instances. Any environment utilizing an outdated version of SiYuan, particularly those with enabled publish features, is at significant risk of unauthorized data manipulation.
+Successful exploitation allows unauthenticated attackers to perform unauthorized operations on the SiYuan database. This can result in complete loss of confidentiality and integrity for user data stored within notebooks, including the potential for mass data deletion or unauthorized exfiltration of sensitive information across all notebooks managed by the instance.
 
 ## Recommendation
 
-- Upgrade all SiYuan installations to version v3.7.3 or later immediately to patch CVE-2026-69084.
-- Audit webserver access logs for POST or GET requests targeting the /api/search/searchEmbedBlock path, specifically looking for anomalous query parameters containing SQL syntax (e.g., semicolons, 'DROP', 'UPDATE', 'UNION').
-- Ensure that publish authentication is strictly enforced in any environment where SiYuan is exposed to a network.
-- Monitor for unauthorized database modifications that deviate from standard user activity logs.
+1. Upgrade all SiYuan installations to version 3.7.3 or later immediately to resolve the vulnerability documented in CVE-2026-69083.
+2. Implement strict ingress filtering for the application, specifically restricting access to the fullTextSearchAssetContent API endpoint from untrusted networks.
+3. Review webserver logs for requests to the fullTextSearchAssetContent endpoint containing SQL injection markers, such as unexpected use of semicolon, comments, or REGEXP keywords in query parameters.
