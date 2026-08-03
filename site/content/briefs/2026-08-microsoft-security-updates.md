@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-03T13:04:39Z"
+lastmod: "2026-08-03T17:53:45Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +29,7 @@ products:
   - SOHO routers
   - Azure Cosmos DB
   - Android
+  - Windows Subsystem for Linux
 affected_os:
   - Windows
   - Android
@@ -43,6 +44,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_service_windows_service_winlog.toml
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2617
   - https://therecord.media/russian-wifi-hackers-hotels
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_wsl_bash_exec.toml
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -72,13 +74,6 @@ ioc_counts:
   domain: 10
   ip: 2
 updates:
-  - at: "2026-08-01T01:42:11Z"
-    level: L1
-    summary: new product
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_wget_activity_llm_triage.toml
   - at: "2026-08-02T23:52:04Z"
     level: L2
     summary: azure kubernetes service version AKS
@@ -107,6 +102,13 @@ updates:
       - therecord
     source_urls:
       - https://therecord.media/russian-wifi-hackers-hotels
+  - at: "2026-08-03T17:53:45Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_wsl_bash_exec.toml
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
