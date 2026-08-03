@@ -3,7 +3,7 @@ title: Remote Command Injection in GL.iNet GL-MT3000 Firmware
 slug: 2026-08-gl-inet-rce
 description: A command injection vulnerability in the Logread Lua RPC plugin of GL.iNet GL-MT3000 firmware versions 4.4.5 and earlier allows authenticated remote attackers to execute arbitrary system commands via the module argument.
 date: "2026-08-03T14:03:31Z"
-lastmod: "2026-08-03T16:04:15Z"
+lastmod: "2026-08-03T16:04:58Z"
 type: advisory
 types:
   - advisory
@@ -48,6 +48,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Unix Shell'
     evidence: Performing a manipulation of the argument filename results in command injection.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: Such manipulation of the argument switch leads to command injection.
+    confidence_band: high
 cves:
   - id: CVE-2026-18598
     cvss: 8.8
@@ -58,6 +64,7 @@ references:
   - https://github.com/StrTzz123/iot_vul/blob/main/GL-iNet/MT3000/4.4.5/logread_set_config_rpc_rce/CVE.md
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18601
   - https://github.com/StrTzz123/iot_vul/blob/main/GL-iNet/MT3000/4.4.5/ovpn_check_config_glc_rce/CVE.md
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18600
 rules:
   - title: Detects CVE-2026-18598 Exploitation - Remote Command Injection
     description: Detects exploitation attempts against the Logread Lua RPC plugin by searching for shell metacharacters within the module parameter of HTTP requests.
@@ -113,6 +120,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-18601
+  - at: "2026-08-03T16:04:58Z"
+    level: L2
+    summary: 'merged source coverage: Remote Command Injection in GL.iNet GL-MT3000 Network Lua RPC Plugin'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18600
 ---
 
 A critical security vulnerability (CVE-2026-18598) exists in the GL.iNet GL-MT3000 wireless router, affecting firmware versions up to 4.4.5. The vulnerability is located within the Logread Lua RPC plugin, specifically in the `logread.get_system_log` function handled by the `/usr/lib/oui-httpd/rpc/logread` file. An authenticated remote attacker can manipulate the `module` argument to inject and execute arbitrary system commands on the underlying host operating system. This vulnerability stems from improper neutralization of special elements used in command execution (CWE-77). Public exploit code for this flaw is available, significantly lowering the barrier for exploitation. Given the network-facing nature of these devices, organizations should prioritize updating to a patched firmware version or restricting access to the management RPC interface.
