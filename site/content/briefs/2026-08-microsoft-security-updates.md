@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-03T11:58:30Z"
+lastmod: "2026-08-03T13:04:39Z"
 type: advisory
 types:
   - advisory
@@ -28,6 +28,7 @@ products:
   - Microsoft 365
   - SOHO routers
   - Azure Cosmos DB
+  - Android
 affected_os:
   - Windows
   - Android
@@ -41,6 +42,7 @@ references:
   - https://www.securityweek.com/russian-state-apt-linked-to-recent-public-wi-fi-gateway-hacking/
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_service_windows_service_winlog.toml
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2617
+  - https://therecord.media/russian-wifi-hackers-hotels
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -70,13 +72,6 @@ ioc_counts:
   domain: 10
   ip: 2
 updates:
-  - at: "2026-08-01T01:42:07Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_curl_activity_llm_triage.toml
   - at: "2026-08-01T01:42:11Z"
     level: L1
     summary: new product
@@ -105,6 +100,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2617
+  - at: "2026-08-03T13:04:39Z"
+    level: L1
+    summary: new product
+    sources:
+      - therecord
+    source_urls:
+      - https://therecord.media/russian-wifi-hackers-hotels
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
