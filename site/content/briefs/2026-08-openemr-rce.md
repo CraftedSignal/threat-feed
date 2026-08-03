@@ -3,7 +3,7 @@ title: Remote Code Execution in OpenEMR Document Category Tree
 slug: 2026-08-openemr-rce
 description: OpenEMR versions 8.2.0 and earlier are vulnerable to authenticated remote code execution via SQL injection and unsafe eval() calls in the document category tree component.
 date: "2026-08-03T18:05:37Z"
-lastmod: "2026-08-03T18:06:46Z"
+lastmod: "2026-08-03T20:06:27Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +16,9 @@ tags:
   - cve-2026-39931
   - sql-injection
   - web-application
+  - vulnerability
+  - authentication-bypass
+  - fhir
 vendors:
   - OpenEMR
 products:
@@ -64,6 +67,12 @@ mitre_ttps:
     technique_name: Use Alternate Authentication Material
     evidence: Attackers can register an OAuth2 client via the unauthenticated registration endpoint and use the password grant to exchange credentials for an API access token, bypassing the normal web interface authentication.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1550.001
+    technique_name: 'Use Alternate Authentication Material: Application Access Token'
+    evidence: Once an administrator approves the registered client, attackers can use the client_credentials grant with a self-signed JWT assertion to obtain access tokens.
+    confidence_band: high
 cves:
   - id: CVE-2026-39932
     cvss: 9.1
@@ -71,6 +80,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-39932
   - https://nvd.nist.gov/vuln/detail/CVE-2026-39931
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67611
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67610
 action_plan:
   priority: elevated
   owners:
@@ -102,6 +112,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-67611
+  - at: "2026-08-03T20:06:27Z"
+    level: L2
+    summary: 'merged source coverage: Improper Authentication in OpenEMR OAuth2 Dynamic Client Registration'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-67610
 ---
 
 OpenEMR versions up to and including 8.2.0 contain a critical remote code execution vulnerability located within the document category tree component, specifically in the library/classes/Tree.class.php file. The vulnerability stems from an insecure implementation that allows an authenticated administrator to inject arbitrary PHP payloads into the categories database table. By leveraging SQL injection to alter the id column type to VARCHAR, an attacker can insert a malicious payload. This payload is subsequently executed via an unsanitized eval() function call whenever the CategoryTree component is instantiated. Because this component is used across various parts of the application, including pages accessible to unauthenticated users or those with low privileges, a successful exploit results in arbitrary command execution under the context of the web server user. This vulnerability requires administrative access to initiate, but the impact extends to full system compromise from the web server's privilege level.
