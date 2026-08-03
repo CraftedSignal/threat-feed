@@ -3,7 +3,7 @@ title: Remote Command Injection in GL-iNet GL-MT3000 Firmware
 slug: 2026-08-gl-inet-rce
 description: A critical command injection vulnerability in the GL-iNet GL-MT3000 router firmware (up to 4.4.5) allows remote, unauthenticated attackers to execute arbitrary commands via the /cgi-bin/glc binary.
 date: "2026-08-03T20:05:56Z"
-lastmod: "2026-08-03T20:06:00Z"
+lastmod: "2026-08-03T20:06:10Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,8 @@ tags:
   - remote-code-execution
   - command-injection
   - router
+  - cve-2026-18614
+  - network-device
 vendors:
   - GL-iNet
 products:
@@ -42,6 +44,8 @@ references:
   - https://github.com/StrTzz123/iot_vul/blob/main/GL-iNet/MT3000/4.4.5/plugins_package_name_glc_rce/CVE.md
   - https://vuldb.com/vuln/385532
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18613
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18614
+  - https://github.com/StrTzz123/iot_vul/blob/main/GL-iNet/MT3000/4.4.5/s2s_enable_echo_server_glc_rce/CVE.md
 rules:
   - title: Detects CVE-2026-18612 Exploitation - Command Injection via /cgi-bin/glc
     description: Detects suspicious HTTP POST requests to the /cgi-bin/glc binary containing shell metacharacters indicative of command injection exploitation.
@@ -53,7 +57,18 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-18614 Exploitation - Command Injection in /cgi-bin/glc
+    description: Detects attempts to exploit CVE-2026-18614 by identifying shell metacharacters in the port parameter passed to the /cgi-bin/glc endpoint.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1059
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -82,6 +97,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-18613
+  - at: "2026-08-03T20:06:10Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-18614 Exploitation - Command Injection in /cgi-bin/glc'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18614
 ---
 
 A critical security vulnerability (CVE-2026-18612) has been identified in the GL-iNet GL-MT3000 router firmware, affecting all versions up to and including 4.4.5. The vulnerability resides within the 'plugins.so' native plugin, specifically impacting the 'plugins.remove_package' and 'plugins.install_package' functions invoked via the '/cgi-bin/glc' CGI binary. An unauthenticated, remote attacker can leverage this flaw to perform command injection, resulting in full remote code execution on the device.
