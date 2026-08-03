@@ -3,7 +3,7 @@ title: Google Security Updates — August 2026
 slug: 2026-08-google-security-updates
 description: Roundup of Google security advisories published in August 2026.
 date: "2026-08-01T01:42:27Z"
-lastmod: "2026-08-03T17:59:17Z"
+lastmod: "2026-08-03T17:59:27Z"
 type: advisory
 types:
   - advisory
@@ -20,10 +20,15 @@ products:
   - Google Cloud Authenticator (<= 2026-08-03)
   - Angular compiler (< 22.0.1, < 21.2.19, < 20.3.27, <= 19.2.25)
   - Angular core (< 22.0.1, < 21.2.19, < 20.3.27, <= 19.2.25)
+  - Angular (>= 22.0.0-next.0, < 22.0.2)
+  - Angular (>= 21.0.0-next.0, < 21.2.19)
+  - Angular (>= 20.0.0-next.0, < 20.3.27)
+  - Angular (<= 19.2.25)
 affected_os:
   - Windows
 cves:
   - id: CVE-2026-69151
+  - id: CVE-2026-68945
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_secret_access_via_unusual_user_agent.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_unusual_service_account_secret_get.toml
@@ -32,6 +37,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/privilege_escalation_gcp_gke_sensitive_rbac_change_followed_by_workload_modification.toml
   - https://unit42.paloaltonetworks.com/passwordless-authentication-security-risks/
   - https://github.com/advisories/GHSA-jj27-h5hq-8x99
+  - https://github.com/advisories/GHSA-jhpw-976m-542j
 updates:
   - at: "2026-08-01T01:42:29Z"
     level: L1
@@ -54,6 +60,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-jj27-h5hq-8x99
+  - at: "2026-08-03T17:59:27Z"
+    level: L2
+    summary: added CVE-2026-68945
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-jhpw-976m-542j
 ---
 
 Aggregated Google security advisories for August 2026. CVEs from this cycle are folded
