@@ -3,6 +3,7 @@ title: Remote Code Execution in OpenEMR Document Category Tree
 slug: 2026-08-openemr-rce
 description: OpenEMR versions 8.2.0 and earlier are vulnerable to authenticated remote code execution via SQL injection and unsafe eval() calls in the document category tree component.
 date: "2026-08-03T18:05:37Z"
+lastmod: "2026-08-03T18:06:26Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,9 @@ tags:
   - web-application-vulnerability
   - remote-code-execution
   - healthcare
+  - cve-2026-39931
+  - sql-injection
+  - web-application
 vendors:
   - OpenEMR
 products:
@@ -35,11 +39,30 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: The execution of payloads via unauthenticated pages allows an attacker to escalate access beyond administrative boundaries into system-level code execution.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: OpenEMR through 8.2.0 contains an authenticated SQL injection vulnerability in the backup configuration import feature.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: Attackers can exploit the unfiltered shell_exec invocation of the mysql command-line client to execute commands.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1505.002
+    technique_name: 'Server Software Component: SQL Stored Procedures'
+    evidence: Attackers can inject backdoor accounts, create persistent triggers or stored procedures.
+    confidence_band: high
 cves:
   - id: CVE-2026-39932
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-39932
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-39931
 action_plan:
   priority: elevated
   owners:
@@ -56,6 +79,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-39932
       evidence: Exploit requires administrative access.
+updates:
+  - at: "2026-08-03T18:06:26Z"
+    level: L2
+    summary: 'merged source coverage: Authenticated SQL Injection in OpenEMR Backup Configuration'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-39931
 ---
 
 OpenEMR versions up to and including 8.2.0 contain a critical remote code execution vulnerability located within the document category tree component, specifically in the library/classes/Tree.class.php file. The vulnerability stems from an insecure implementation that allows an authenticated administrator to inject arbitrary PHP payloads into the categories database table. By leveraging SQL injection to alter the id column type to VARCHAR, an attacker can insert a malicious payload. This payload is subsequently executed via an unsanitized eval() function call whenever the CategoryTree component is instantiated. Because this component is used across various parts of the application, including pages accessible to unauthenticated users or those with low privileges, a successful exploit results in arbitrary command execution under the context of the web server user. This vulnerability requires administrative access to initiate, but the impact extends to full system compromise from the web server's privilege level.
