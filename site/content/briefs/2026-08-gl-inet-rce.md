@@ -1,95 +1,45 @@
 ---
-title: Remote Command Injection in GL.iNet GL-MT3000 Firmware
+title: Remote Command Injection in GL-iNet GL-MT3000 Firmware
 slug: 2026-08-gl-inet-rce
-description: A command injection vulnerability in the Logread Lua RPC plugin of GL.iNet GL-MT3000 firmware versions 4.4.5 and earlier allows authenticated remote attackers to execute arbitrary system commands via the module argument.
-date: "2026-08-03T14:03:31Z"
-lastmod: "2026-08-03T18:05:31Z"
+description: A critical command injection vulnerability in the GL-iNet GL-MT3000 router firmware (up to 4.4.5) allows remote, unauthenticated attackers to execute arbitrary commands via the /cgi-bin/glc binary.
+date: "2026-08-03T20:05:56Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
 tags:
+  - cve-2026-18612
   - remote-code-execution
   - command-injection
-  - cve-2026-18598
-  - iot-security
-  - cve-2026-18599
   - router
-  - rce
-  - cve-2026-18601
-  - iot
 vendors:
-  - GL.iNet
+  - GL-iNet
 products:
   - GL-MT3000
-  - GL-MT3000 (<= 4.4.5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: The attack can be launched remotely.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: The manipulation of the argument module results in command injection.
+    evidence: The attack can be initiated remotely.
     confidence_band: high
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: This manipulation of the argument record_size causes command injection.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Unix Shell'
-    evidence: Performing a manipulation of the argument filename results in command injection.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
-    evidence: Such manipulation of the argument switch leads to command injection.
+    evidence: This manipulation causes command injection.
     confidence_band: high
 cves:
-  - id: CVE-2026-18598
-    cvss: 8.8
-  - id: CVE-2026-18602
+  - id: CVE-2026-18612
     cvss: 9.8
-  - id: CVE-2026-18599
-    cvss: 8
-  - id: CVE-2026-18601
-    cvss: 9.8
-  - id: CVE-2026-18600
-    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-18598
-  - https://github.com/StrTzz123/iot_vul/blob/main/GL-iNet/MT3000/4.4.5/logread_get_system_log_rpc_rce/CVE.md
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-18599
-  - https://github.com/StrTzz123/iot_vul/blob/main/GL-iNet/MT3000/4.4.5/logread_set_config_rpc_rce/CVE.md
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-18601
-  - https://github.com/StrTzz123/iot_vul/blob/main/GL-iNet/MT3000/4.4.5/ovpn_check_config_glc_rce/CVE.md
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-18600
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-18602
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18612
+  - https://github.com/StrTzz123/iot_vul/blob/main/GL-iNet/MT3000/4.4.5/plugins_package_name_glc_rce/CVE.md
+  - https://vuldb.com/vuln/385532
 rules:
-  - title: Detects CVE-2026-18598 Exploitation - Remote Command Injection
-    description: Detects exploitation attempts against the Logread Lua RPC plugin by searching for shell metacharacters within the module parameter of HTTP requests.
-    platform: sigma
-    severity: high
-    tactics:
-      - execution
-      - initial_access
-    techniques:
-      - T1190
-      - T1203
-    data_sources:
-      - webserver
-  - title: Detect CVE-2026-18601 Exploitation - RCE via /cgi-bin/glc
-    description: Detects exploitation attempts against CVE-2026-18601 by identifying HTTP requests to the /cgi-bin/glc endpoint containing shell injection metacharacters.
+  - title: Detects CVE-2026-18612 Exploitation - Command Injection via /cgi-bin/glc
+    description: Detects suspicious HTTP POST requests to the /cgi-bin/glc binary containing shell metacharacters indicative of command injection exploitation.
     platform: sigma
     severity: critical
     tactics:
@@ -98,73 +48,40 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 2
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
     - SOC
     - IT Operations
   immediate_actions:
-    - action: Patch firmware on all GL-MT3000 devices to version > 4.4.5
+    - action: Patch GL-MT3000 devices to firmware versions > 4.4.5
       owner: IT Operations
       due: 24h
-      evidence: Vulnerability exists in firmware up to 4.4.5.
+      evidence: Source confirms versions up to 4.4.5 are affected.
+    - action: Monitor web logs for /cgi-bin/glc exploitation patterns
+      owner: SOC
+      due: 4h
+      evidence: Exploit code is public.
   mitigation_plan:
     - priority: immediate
-      action: Disable external access to management interface
+      action: Restrict access to web management port 80/443
       owner: IT Operations
-      addresses: CVE-2026-18598
-      evidence: Attack can be launched remotely.
-updates:
-  - at: "2026-08-03T14:03:43Z"
-    level: L2
-    summary: 'merged source coverage: Command Injection in GL.iNet GL-MT3000 Firmware'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-18599
-  - at: "2026-08-03T16:04:15Z"
-    level: L2
-    summary: 'added detection rule: Detect CVE-2026-18601 Exploitation - RCE via /cgi-bin/glc'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-18601
-  - at: "2026-08-03T16:04:58Z"
-    level: L2
-    summary: 'merged source coverage: Remote Command Injection in GL.iNet GL-MT3000 Network Lua RPC Plugin'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-18600
-  - at: "2026-08-03T18:05:31Z"
-    level: L2
-    summary: added CVE-2026-18599 +3; gl-mt3000 version <= 4.4.5
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-18602
+      addresses: CVE-2026-18612
+      evidence: Vulnerability allows remote execution via web interface.
 ---
 
-A critical security vulnerability (CVE-2026-18598) exists in the GL.iNet GL-MT3000 wireless router, affecting firmware versions up to 4.4.5. The vulnerability is located within the Logread Lua RPC plugin, specifically in the `logread.get_system_log` function handled by the `/usr/lib/oui-httpd/rpc/logread` file. An authenticated remote attacker can manipulate the `module` argument to inject and execute arbitrary system commands on the underlying host operating system. This vulnerability stems from improper neutralization of special elements used in command execution (CWE-77). Public exploit code for this flaw is available, significantly lowering the barrier for exploitation. Given the network-facing nature of these devices, organizations should prioritize updating to a patched firmware version or restricting access to the management RPC interface.
+A critical security vulnerability (CVE-2026-18612) has been identified in the GL-iNet GL-MT3000 router firmware, affecting all versions up to and including 4.4.5. The vulnerability resides within the 'plugins.so' native plugin, specifically impacting the 'plugins.remove_package' and 'plugins.install_package' functions invoked via the '/cgi-bin/glc' CGI binary. An unauthenticated, remote attacker can leverage this flaw to perform command injection, resulting in full remote code execution on the device.
 
-## Attack Chain
-
-1. Attacker performs network reconnaissance to identify reachable GL.iNet management interfaces.
-2. Attacker obtains valid low-privileged credentials for the GL-MT3000 web management portal.
-3. Attacker accesses the OUI-based RPC service endpoint used by the Logread Lua RPC plugin.
-4. Attacker crafts a malicious HTTP request containing a payload injected into the `module` argument of the `logread.get_system_log` function.
-5. The `oui-httpd` service processes the request and passes the tainted `module` argument to the system shell.
-6. The system shell executes the attacker-supplied commands with the privileges of the web service process.
-7. Attacker achieves remote code execution for persistence, further system exploitation, or network traversal.
+Public exploit code has been released, significantly lowering the barrier for exploitation. Given the prevalence of this hardware in edge and small-office network environments, organizations utilizing these devices should prioritize patching or restricting access to the management interface. The vendor has acknowledged the flaw, and users are advised to update to the latest available firmware version that addresses this issue.
 
 ## Impact
 
-Successful exploitation allows unauthenticated (if PR is bypassed) or low-privileged remote attackers to gain full control over the router. This can lead to complete compromise of the network traffic passing through the device, unauthorized exfiltration of sensitive information, or the potential for lateral movement into the internal network protected by the router.
+The vulnerability carries a CVSS 3.1 base score of 9.8 (Critical), indicating high risk for confidentiality, integrity, and availability. Successful exploitation grants an attacker administrative control over the router, enabling further network compromise, traffic interception, or the deployment of persistent implants within the affected network.
 
 ## Recommendation
 
-* Update GL-MT3000 firmware to version 4.4.6 or later immediately to patch CVE-2026-18598.
-* Disable remote access to the web management interface on all internet-facing GL.iNet devices.
-* Implement strictly limited access control lists (ACLs) for the device management interface.
-* Monitor network logs for unusual HTTP POST requests to `/rpc/logread` or similar paths containing shell metacharacters such as semicolon, pipe, or backticks in query parameters.
+- Update GL-iNet GL-MT3000 firmware to the latest version immediately to remediate CVE-2026-18612.
+- Restrict access to the router's web management interface to trusted internal IP ranges or VPNs.
+- Deploy web application firewall or IDS/IPS signatures capable of detecting anomalous POST requests targeting '/cgi-bin/glc' with suspicious shell metacharacters (e.g., ;, |, &&).
+- Deploy the provided Sigma rule to monitor for suspicious attempts to access the vulnerable CGI binary.
