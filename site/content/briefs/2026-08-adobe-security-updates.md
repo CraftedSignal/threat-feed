@@ -3,7 +3,7 @@ title: Adobe Security Updates — August 2026
 slug: 2026-08-adobe-security-updates
 description: Roundup of Adobe security advisories published in August 2026.
 date: "2026-08-03T23:42:20Z"
-lastmod: "2026-08-03T23:42:25Z"
+lastmod: "2026-08-03T23:42:27Z"
 type: advisory
 types:
   - advisory
@@ -22,9 +22,12 @@ cves:
     cvss: 10
   - id: CVE-2026-48326
     cvss: 9.9
+  - id: CVE-2026-48330
+    cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48323
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48326
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48330
 updates:
   - at: "2026-08-03T23:42:23Z"
     level: L2
@@ -40,6 +43,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48326
+  - at: "2026-08-03T23:42:27Z"
+    level: L2
+    summary: added CVE-2026-48330
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48330
 ---
 
 Aggregated Adobe security advisories for August 2026. CVEs from this cycle are folded
