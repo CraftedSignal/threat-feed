@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-03T17:58:57Z"
+lastmod: "2026-08-03T18:03:32Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +16,9 @@ vendors:
   - Elastic
   - Google
   - GitHub
+  - Roblox
+  - Discord
+  - Mojang
 products:
   - Windows
   - Microsoft Entra ID
@@ -36,6 +39,10 @@ products:
   - Microsoft Office 2019
   - Microsoft Office LTSC 2021
   - Microsoft Office LTSC 2024
+  - Roblox
+  - Discord
+  - Minecraft
+  - Xbox Game Bar
 affected_os:
   - Windows
   - Android
@@ -59,6 +66,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_suspicious_com_hijack_registry.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_csr_created_or_approved.toml
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0961/
+  - https://www.bitdefender.com/en-us/blog/labs/fake-xeno-roblox-discord-executor
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -84,17 +92,19 @@ iocs:
     value: 169.254.169.254
   - type: ip
     value: 168.63.129.16
+  - type: url
+    value: https://solthere.net/justacoolkat10
+  - type: url
+    value: https://solthere.net/api/v1/redeem
+  - type: domain
+    value: ipapi.co
+  - type: domain
+    value: ipwho.is
 ioc_counts:
-  domain: 10
+  domain: 12
   ip: 2
+  url: 2
 updates:
-  - at: "2026-08-03T11:58:30Z"
-    level: L1
-    summary: new product
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2617
   - at: "2026-08-03T13:04:39Z"
     level: L1
     summary: new product
@@ -123,6 +133,13 @@ updates:
       - anssi
     source_urls:
       - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0961/
+  - at: "2026-08-03T18:03:32Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - bitdefender
+    source_urls:
+      - https://www.bitdefender.com/en-us/blog/labs/fake-xeno-roblox-discord-executor
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
