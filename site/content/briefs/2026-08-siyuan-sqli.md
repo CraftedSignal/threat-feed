@@ -3,7 +3,7 @@ title: SQL Injection in SiYuan fullTextSearchAssetContent Endpoint
 slug: 2026-08-siyuan-sqli
 description: SiYuan versions before 3.7.3 contain a critical SQL injection vulnerability in the fullTextSearchAssetContent endpoint, allowing unauthenticated attackers to execute arbitrary SQL commands on the backend asset-content database.
 date: "2026-08-03T16:04:30Z"
-lastmod: "2026-08-03T16:05:53Z"
+lastmod: "2026-08-03T16:06:08Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +12,9 @@ severities:
 tags:
   - sql-injection
   - web-vulnerability
+  - path-traversal
+  - cve-2026-69086
+  - web-application
 vendors:
   - siyuan-note
 products:
@@ -38,6 +41,8 @@ references:
   - https://www.vulncheck.com/advisories/siyuan-before-sql-injection-via-fulltextsearchassetcontent
   - https://nvd.nist.gov/vuln/detail/CVE-2026-68587
   - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-69mh-gvh4-8gp7
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69086
+  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-7hm9-v7vf-7g4w
 rules:
   - title: Detect CVE-2026-69083 Exploitation - SQL Injection in fullTextSearchAssetContent
     description: Detects potential exploitation of CVE-2026-69083 where an unauthenticated user sends a request to the fullTextSearchAssetContent endpoint containing suspicious SQL injection patterns.
@@ -59,7 +64,17 @@ rules:
       - T1592
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detect CVE-2026-69086 - Path Traversal in SiYuan
+    description: Detects exploitation attempts against CVE-2026-69086 by identifying directory traversal sequences within the avID parameter in web requests.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: immediate_escalation
   owners:
@@ -84,6 +99,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-68587
+  - at: "2026-08-03T16:06:08Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-69086 - Path Traversal in SiYuan'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69086
 ---
 
 SiYuan versions prior to 3.7.3 are vulnerable to an unauthenticated SQL injection vulnerability located in the fullTextSearchAssetContent endpoint. The vulnerability is caused by improper neutralization of special elements in input parameters, specifically when processing REGEXP clauses. An unauthenticated attacker can exploit this flaw to execute arbitrary SQL commands against the read-write asset-content database. This allows for unauthorized reading, modification, or deletion of stored notebook data. The vulnerability is considered high-risk due to the lack of required authentication and the potential for full data compromise within the application environment.
