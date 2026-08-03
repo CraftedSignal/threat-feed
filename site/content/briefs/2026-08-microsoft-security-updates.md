@@ -3,12 +3,15 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-03T18:03:32Z"
+lastmod: "2026-08-03T22:22:14Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=C70098EC-8455-5303-80B5-BD82E10260AE&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -43,11 +46,17 @@ products:
   - Discord
   - Minecraft
   - Xbox Game Bar
+  - .NET Framework (<= 4.8.1)
+  - .NET Runtime (8.0.0 - 8.0.28, 9.0.0 - 9.0.17, 10.0.0 - 10.0.9)
+  - Visual Studio 2022 (<= 17.14)
+  - Visual Studio 2026 (<= 18.7)
 affected_os:
   - Windows
   - Android
+  - Alpine Linux
 cves:
   - id: CVE-2026-62870
+  - id: CVE-2026-56158
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -67,6 +76,8 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_csr_created_or_approved.toml
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0961/
   - https://www.bitdefender.com/en-us/blog/labs/fake-xeno-roblox-discord-executor
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_service_account_token_requested.toml
+  - https://sploitus.com/exploit?id=C70098EC-8455-5303-80B5-BD82E10260AE&utm_source=rss&utm_medium=rss
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -105,13 +116,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-03T13:04:39Z"
-    level: L1
-    summary: new product
-    sources:
-      - therecord
-    source_urls:
-      - https://therecord.media/russian-wifi-hackers-hotels
   - at: "2026-08-03T17:53:45Z"
     level: L1
     summary: new product
@@ -140,6 +144,13 @@ updates:
       - bitdefender
     source_urls:
       - https://www.bitdefender.com/en-us/blog/labs/fake-xeno-roblox-discord-executor
+  - at: "2026-08-03T22:22:14Z"
+    level: L2
+    summary: poc_available; added CVE-2026-56158; OS alpine linux
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=C70098EC-8455-5303-80B5-BD82E10260AE&utm_source=rss&utm_medium=rss
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
