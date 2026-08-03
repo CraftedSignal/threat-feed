@@ -3,6 +3,7 @@ title: Detection of Unusual File Creation by Web Server Processes on Linux
 slug: 2026-07-linux-web-persistence
 description: This brief details a behavioral detection strategy for identifying potential web shell deployment and persistence mechanisms by monitoring anomalous file creation activities originating from common web server processes on Linux.
 date: "2026-07-30T13:32:31Z"
+lastmod: "2026-08-03T17:54:08Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,70 @@ tags:
   - web-shell
   - linux
   - behavioral-detection
+vendors:
+  - Nginx
+  - Apache Software Foundation
+  - Caddy
+  - LiteSpeed Technologies
+  - PHP
+  - Oracle
+  - Node.js
+  - Microsoft
+  - Mono Project
+  - Python Software Foundation
+  - Ruby
+  - Perl
+  - Lua
+  - Tomcat
+  - Eclipse Foundation
+  - JBoss
+  - GlassFish
+products:
+  - nginx
+  - apache2
+  - httpd
+  - caddy
+  - lighttpd
+  - php-cgi
+  - frankenphp
+  - litespeed
+  - openlitespeed
+  - fcgiwrap
+  - uwsgi
+  - daphne
+  - uvicorn
+  - hypercorn
+  - granian
+  - waitress-serve
+  - flask
+  - puma
+  - unicorn
+  - thin
+  - rackup
+  - mongrel_rails
+  - starman
+  - plackup
+  - twiggy
+  - hypnotoad
+  - starlet
+  - unitd
+  - php-fpm
+  - lsphp
+  - gunicorn
+  - java
+  - node
+  - dotnet
+  - mono
+  - xsp
+  - python
+  - ruby
+  - perl
+  - lua
+  - tomcat
+  - jetty
+  - wildfly
+  - glassfish
+  - resin
 affected_os:
   - Linux
 mitre_ttps:
@@ -40,6 +105,8 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Attackers often exploit public-facing web applications to write malicious files.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_webserver_unusual_file_creation.toml
 rules:
   - title: Unusual File Creation via Web Server
     description: Detects anomalous file creation or renaming events initiated by web server processes in sensitive web directories, indicating potential web shell deployment.
@@ -53,6 +120,14 @@ rules:
       - process_creation
       - linux
 rules_count: 1
+updates:
+  - at: "2026-08-03T17:54:08Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_webserver_unusual_file_creation.toml
 ---
 
 Attackers frequently target public-facing web applications to establish persistence, execute commands, or facilitate command-and-control communication. A common technique involves exploiting a vulnerability to write malicious scripts (such as web shells or backdoored application components) to web-accessible directories. Because web servers legitimatey create and modify files (e.g., during deployments, session management, or cache updates), static detection often leads to high false-positive rates.
