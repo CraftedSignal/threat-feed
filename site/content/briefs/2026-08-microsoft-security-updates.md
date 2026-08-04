@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-04T01:42:32Z"
+lastmod: "2026-08-04T01:42:35Z"
 type: advisory
 types:
   - advisory
@@ -52,6 +52,7 @@ products:
   - Visual Studio 2026 (<= 18.7)
   - Microsoft Edge (Android) (< 151.0.4129.59)
   - Microsoft Edge for Android (< 151.0.4129.59)
+  - Microsoft Edge (Chromium-based) (< 151.0.4129.59)
 affected_os:
   - Windows
   - Android
@@ -63,6 +64,8 @@ cves:
     cvss: 7.4
   - id: CVE-2026-66310
     cvss: 7.7
+  - id: CVE-2026-66315
+    cvss: 7.5
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -86,6 +89,7 @@ references:
   - https://sploitus.com/exploit?id=C70098EC-8455-5303-80B5-BD82E10260AE&utm_source=rss&utm_medium=rss
   - https://nvd.nist.gov/vuln/detail/CVE-2026-65802
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66310
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-66315
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -124,13 +128,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-03T17:58:57Z"
-    level: L2
-    summary: added CVE-2026-62870
-    sources:
-      - anssi
-    source_urls:
-      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0961/
   - at: "2026-08-03T18:03:32Z"
     level: L1
     summary: new IOCs
@@ -159,6 +156,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-66310
+  - at: "2026-08-04T01:42:35Z"
+    level: L2
+    summary: added CVE-2026-66315
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-66315
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
