@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-04T13:39:51Z"
+lastmod: "2026-08-04T13:42:35Z"
 type: advisory
 types:
   - advisory
@@ -59,6 +59,8 @@ products:
   - Office 2021
   - Office 2024
   - Microsoft 365 Apps Enterprise
+  - SharePoint Server
+  - Internet Information Services
 affected_os:
   - Windows
   - Android
@@ -76,6 +78,8 @@ cves:
     cvss: 7.1
   - id: CVE-2026-66321
     cvss: 7.4
+  - id: CVE-2026-66318
+    cvss: 8.1
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -105,6 +109,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66322
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2643
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2625
+  - https://therecord.media/swiss-bit-foitt-hacked-possibly-sharepoint-vulnerabilities
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -143,13 +148,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-04T01:42:30Z"
-    level: L2
-    summary: added CVE-2026-65802
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-65802
   - at: "2026-08-04T01:42:32Z"
     level: L2
     summary: added CVE-2026-66310
@@ -178,6 +176,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2625
+  - at: "2026-08-04T13:42:35Z"
+    level: L2
+    summary: added CVE-2026-66318
+    sources:
+      - therecord
+    source_urls:
+      - https://therecord.media/swiss-bit-foitt-hacked-possibly-sharepoint-vulnerabilities
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
