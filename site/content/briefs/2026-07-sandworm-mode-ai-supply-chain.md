@@ -20,105 +20,35 @@ tags:
   - persistence
   - evasion
 vendors:
+  - npm
   - GitHub
   - GitLab
-  - Atlassian
-  - OpenAI
-  - Anthropic
-  - Google
-  - Cloudflare
-  - npm
-  - PyPI
-  - Microsoft
-  - Cursor
   - Bitbucket
-  - Windsurf
-  - Socket.dev
-  - CrowdStrike
-  - npm Inc.
-  - Python Software Foundation
-  - Cursor.sh
-  - Cursor AI
-  - Claude AI
-  - npmjs
-  - Claude
-  - Python Package Index
-  - OpenJS Foundation
-  - Software Freedom Conservancy
-  - Copilot
-  - Claude Code
-  - Git
-  - Node.js Foundation
-  - npm, Inc.
+  - PyPI
+  - Cloudflare
   - Node.js
 products:
   - npm
+  - npm packages
+  - npm registry
   - PyPI
+  - PyPI packages
+  - PyPI registry
   - GitHub Actions
+  - GitHub API
+  - GitHub Secrets
   - GitLab CI
   - Bitbucket Pipelines
-  - GitHub Copilot
-  - Cursor
-  - Claude Code
-  - GitHub
-  - OpenAI
-  - Anthropic
-  - Google APIs
   - Cloudflare Workers
-  - Git
-  - Cloudflare Worker
-  - Windsurf
-  - GitHub Secrets
-  - OpenAI API
-  - Anthropic API
-  - Google API
-  - OpenAI APIs
-  - Anthropic APIs
   - Node.js
-  - GitHub REST/GraphQL API
-  - Copilot
-  - npm packages
-  - PyPI packages
-  - .npmrc
-  - GitHub REST API
-  - GitHub GraphQL API
-  - Google AI APIs
-  - npm registry
-  - PyPI registry
-  - GitHub API
-  - npm package registry
-  - GitLab
-  - Bitbucket
   - Node.js runtime
+  - Git
+  - .npmrc
   - git hooks
-  - OpenAI LLM provider services
-  - Anthropic LLM provider services
-  - Google LLM provider services
-  - PyPI package registry
-  - Cursor (AI assistant)
-  - Claude Code (AI assistant)
-  - Windsurf (AI assistant)
-  - OpenAI services
-  - Anthropic services
-  - Google LLM APIs
-  - GitHub (Secrets, REST/GraphQL API)
-  - Google
-  - .npmrc tokens
-  - .git-templates/hooks
-  - Anthropic Claude Code
-  - git config
-  - npmrc tokens
-  - OpenAI (API)
-  - Anthropic (API)
-  - Google (API)
-  - GitHub (REST/GraphQL API)
-  - Google Cloud APIs
-  - npm (package registry)
 affected_os:
   - Linux
   - macOS
   - Windows
-  - Node.js runtime
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -205,144 +135,27 @@ mitre_ttps:
 references:
   - https://www.crowdstrike.com/en-us/blog/denying-the-worm-sandworm-mode-and-ai-toolchain-supply-chain-attacks/
 iocs:
-  - type: domain
-    value: github.com
-  - type: other
-    value: ~/.git-templates/hooks/
-  - type: other
-    value: git config --global init.templateDir
   - type: file-path
     value: ~/.git-templates/hooks/
-  - type: other
-    value: /dev/shm
-  - type: other
-    value: .npmrc tokens
-  - type: other
-    value: GitHub API tokens
-  - type: other
-    value: cryptocurrency wallet keys
   - type: file-path
     value: /dev/shm
-  - type: domain
-    value: git@github.com
-  - type: file
-    value: .npmrc
-  - type: path
-    value: ~/.git-templates/hooks/
-  - type: operating_system_function
-    value: /dev/shm
-  - type: npm package
-    value: 19 malicious packages
-  - type: domain
-    value: cloudflare.com
-  - type: file_path
-    value: /.git-templates/hooks/
-  - type: campaign_name
-    value: SANDWORM_MODE
-  - type: file_path
-    value: /dev/shm
-  - type: file_path
-    value: ~/.git-templates/hooks/
-  - type: campaign-name
-    value: SANDWORM_MODE
-  - type: filename
-    value: /dev/shm
-  - type: filepath
-    value: ~/.git-templates/hooks/
-  - type: path
-    value: /dev/shm
-  - type: filename
-    value: .npmrc
-  - type: keyword
-    value: SANDWORM_MODE
-  - type: file
-    value: .npmrc tokens
-  - type: file
-    value: ~/.git-templates/hooks/
-  - type: variable
-    value: KEY
-  - type: variable
-    value: SECRET
-  - type: variable
-    value: TOKEN
-  - type: variable
-    value: PASSWORD
-  - type: cryptocurrency_wallet
-    value: cryptocurrency wallet keys
-  - type: string
-    value: SANDWORM_MODE
-  - type: string
-    value: .npmrc tokens
-  - type: string
-    value: environment variables matching distinct patterns (KEY, SECRET, TOKEN, or PASSWORD)
-  - type: string
-    value: cryptocurrency wallet keys
-  - type: other
-    value: environment variables matching patterns (KEY, SECRET, TOKEN, PASSWORD)
-  - type: other
-    value: Stage 0 loader shim
-  - type: other
-    value: carrier dependency
-  - type: other
-    value: attacker-controlled Cloudflare Worker endpoint
-  - type: other
-    value: 19 malicious npm packages
-  - type: other
-    value: SANDWORM_MODE
-  - type: filepath
-    value: /dev/shm
-  - type: domain
-    value: npmjs.com
-  - type: domain
-    value: cloudflareworkers.com
-  - type: filepath
+  - type: file-path
     value: ~/.npmrc
-  - type: environment_variable
-    value: KEY
-  - type: environment_variable
-    value: SECRET
-  - type: environment_variable
-    value: TOKEN
-  - type: environment_variable
-    value: PASSWORD
-  - type: campaign
-    value: SANDWORM_MODE
-  - type: filename
-    value: /dev/shm/
-  - type: directory
-    value: ~/.git-templates/hooks/
   - type: filename
     value: pre-commit
   - type: filename
     value: pre-push
-  - type: path
-    value: ~/.dev-utils/server.js
-  - type: domain
-    value: workers.dev
-  - type: domain
-    value: cloudflare.net
+  - type: filename
+    value: .npmrc
+  - type: keyword
+    value: SANDWORM_MODE
   - type: domain
     value: '*.workers.dev'
 ioc_counts:
-  campaign: 1
-  campaign-name: 1
-  campaign_name: 1
-  cryptocurrency_wallet: 1
-  directory: 1
-  domain: 8
-  environment_variable: 4
-  file: 3
-  file-path: 2
-  file_path: 3
-  filename: 5
-  filepath: 3
+  file-path: 3
+  filename: 3
   keyword: 1
-  npm package: 1
-  operating_system_function: 1
-  other: 12
-  path: 3
-  string: 4
-  variable: 4
+  domain: 1
 rules:
   - title: Detect Git Global Template Directory Modification for Persistence
     description: Detects SANDWORM_MODE setting git config --global init.templateDir to an arbitrary path to establish persistence by ensuring future git operations inherit malicious hooks.
