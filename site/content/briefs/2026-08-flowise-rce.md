@@ -1,77 +1,67 @@
 ---
-title: Remote Code Execution in Flowise via SQLite Configuration Overwrite
+title: Remote Code Execution in Flowise CSVAgent via pandas.read_pickle
 slug: 2026-08-flowise-rce
-description: Flowise version 3.1.2 is vulnerable to Remote Code Execution (RCE) where an attacker can override the SQLite database path and inject malicious shell commands into the database file structure.
-date: "2026-08-04T17:23:45Z"
+description: A critical remote code execution vulnerability (CVE-2026-69256) in the Flowise CSVAgent node allows attackers to bypass security filters by deserializing malicious pickled payloads using pandas.
+date: "2026-08-04T17:23:57Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
   - rce
-  - sqlite
-  - injection
-  - flowise
-  - remote-code-execution
+  - python
+  - deserialization
+  - web-security
 vendors:
-  - FlowiseAI
+  - Flowise
 products:
-  - Flowise (3.1.2)
+  - flowise
+  - flowise-components
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
-    evidence: The injected ' could then be used to wrap the problematic () characters within the cell, which is then closed by the namespace input that also contains a reverse shell payload.
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: An attacker can supply a crafted pickled payload via the customReadCSVFunc parameter to achieve arbitrary command execution.
     confidence_band: high
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: An attacker could abuse this weakness to write an SQLite database to an arbitrary filepath.
-    confidence_band: high
+cves:
+  - id: CVE-2026-69256
 references:
-  - https://github.com/advisories/GHSA-x3hf-7cj6-3r4m
-action_plan:
-  priority: elevated
-  owners:
-    - SOC
-    - IT Operations
-  immediate_actions:
-    - action: Audit Flowise deployments for version 3.1.2 and upgrade
-      owner: IT Operations
-      due: 24h
-      evidence: Source advisory confirms version 3.1.2 as the affected product.
-  mitigation_plan:
-    - priority: immediate
-      action: Run Flowise containers as a non-root user
-      owner: IT Operations
-      addresses: RCE privilege escalation risk
-      evidence: Source notes the Docker image runs as root.
+  - https://github.com/advisories/GHSA-x6vm-w76m-8j7g
+rules:
+  - title: Detect CVE-2026-69256 Exploitation - pandas.read_pickle in CSVAgent
+    description: Detects exploitation attempts against the CSVAgent node by monitoring for the use of read_pickle in user-supplied parameters to the prediction API.
+    platform: sigma
+    severity: critical
+    tactics:
+      - execution
+    techniques:
+      - T1059.003
+    data_sources:
+      - webserver
+rules_count: 1
 ---
 
-Flowise version 3.1.2 contains a critical vulnerability in the "SQLite Record Manager" node that allows for Remote Code Execution. An attacker can leverage the `additionalConfig` input parameter to override the intended SQLite database path, allowing the application to write a database file to arbitrary locations on the filesystem, such as system configuration directories. Because the Flowise Docker image runs with root privileges, this creates an opportunity for privilege escalation or full system compromise.
-
-The vulnerability is exploitable by manipulating the `tableName` and `namespace` inputs to inject shell payloads into the SQLite binary structure. By carefully crafting the table name length, an attacker can manipulate the serial type of the database metadata to wrap malicious commands. If a system process, such as Chromium launched via Puppeteer, reads the resulting malicious SQLite database file (e.g., from an arbitrary path like /etc/chromium/exploit.conf), the injected shell commands are executed, potentially resulting in a reverse shell.
+Flowise versions 3.1.2 and below contain a remote code execution (RCE) vulnerability in the CSVAgent node (CVE-2026-69256). The component was designed to allow users to process CSV data via the pandas library while restricting potentially dangerous Python constructs through a denylist-based validation mechanism. However, the existing filter fails to account for the pandas `read_pickle()` function, which can be leveraged to deserialize arbitrary data. By crafting a malicious pickle payload that triggers OS-level execution (e.g., via `os.system`) and providing it through the `customReadCSVFunc` parameter, an attacker can bypass all configured security checks. Since the environment lacks standard I/O modules due to the filter, attackers can implement custom file-like classes to bridge the object into the `read_pickle()` function, successfully achieving full system command execution.
 
 ## Attack Chain
 
-1. The attacker configures a malicious SQLite Record Manager node within a Flowise Chatflow.
-2. The attacker uses the `additionalConfig` input to set `database` to an arbitrary path, such as `/etc/chromium/exploit.conf`.
-3. The attacker sets the `tableName` input to a specific length (e.g., `AAAAAAAAAAAAA`) to force the SQLite serial type to `0x27` (ASCII single quote).
-4. The attacker provides a reverse shell payload in the `namespace` field, formatted to close the injection context and execute commands via shell substitution.
-5. The attacker triggers an Upsert Vector Store operation, causing Flowise to create the SQLite database file at the attacker-chosen location.
-6. The system or application environment launches a process, such as a Chromium browser via Puppeteer, that parses or references the maliciously crafted SQLite file.
-7. The process interprets the contents of the database file as commands, leading to the execution of the reverse shell and the establishment of a network connection to the attacker.
+1. Attacker creates a malicious pickle object containing a payload designed to execute arbitrary shell commands (e.g., `os.system`).
+2. The payload is encoded in base64 to ensure successful transport within the Flowise input parameters.
+3. The attacker defines a custom Python class (e.g., `MiniBytesIO`) within the `customReadCSVFunc` parameter to simulate a file-like object, bypassing constraints on importing standard library I/O modules.
+4. The attacker injects the encoded pickle string into the `read_pickle()` call within the `customReadCSVFunc` parameter in the Flowise UI.
+5. The Flowise CSVAgent node accepts the user-supplied input, as it does not explicitly filter for `read_pickle` or the required pickle-loading logic.
+6. The `pyodide` execution environment processes the provided string and invokes `pandas.read_pickle()`.
+7. The pickle deserialization occurs, triggering the `__reduce__` method of the malicious object and executing the embedded shell commands.
+8. The attacker triggers the execution by sending a POST request to the prediction endpoint (`/api/v1/prediction/<UUID>`), resulting in unauthorized command execution on the host.
 
 ## Impact
 
-Successful exploitation allows an unauthenticated or authenticated user to gain arbitrary code execution on the host machine. Given that the default Flowise Docker container runs as root, this provides attackers with full control over the application environment and potentially the host node, enabling data exfiltration or lateral movement within the network.
+Successful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary commands with the privileges of the Flowise application process. This can lead to full system compromise, exfiltration of sensitive configuration or chat data, and potential lateral movement within the environment.
 
 ## Recommendation
 
-* Update Flowise to the latest patched version immediately to remediate the input validation and configuration override vulnerabilities.
-* Restrict the ability of the Flowise process to write files to sensitive system directories using container security policies or AppArmor/SELinux profiles.
-* Run the Flowise container with a non-root user to mitigate the impact of arbitrary file write and execution vulnerabilities.
-* Implement egress filtering to block unexpected outbound network connections from the Flowise environment to unauthorized external IPs.
+- Upgrade Flowise and the flowise-components package to version 3.1.3 or higher to apply the vendor-provided patch.
+- Apply the following webserver detection rule to identify and block incoming requests targeting the prediction endpoint with suspicious `customReadCSVFunc` payloads.
+- Implement egress filtering on the Flowise host to restrict unexpected network connections originating from the application process, mitigating the impact of successful RCE (e.g., reverse shells).
