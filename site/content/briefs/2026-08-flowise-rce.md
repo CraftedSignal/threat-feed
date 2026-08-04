@@ -1,86 +1,111 @@
 ---
-title: Flowise Remote Code Execution via Sandbox Escape
+title: Flowise Unauthenticated RCE via Environment Variable Bypass
 slug: 2026-08-flowise-rce
-description: Authenticated users can achieve remote code execution in Flowise by exploiting an insecure object merge in the executeJavaScriptCode function to override sandbox restrictions.
-date: "2026-08-04T17:24:08Z"
-lastmod: "2026-08-04T19:33:07Z"
+description: Flowise v3.1.2 and earlier are vulnerable to unauthenticated remote code execution because the CVE-2025-8943 patch relies on an incomplete environment variable blocklist, allowing attackers to inject configuration variables that force arbitrary package installation.
+date: "2026-08-04T17:24:33Z"
+lastmod: "2026-08-04T19:33:20Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
-has_poc: true
+  - critical
+cpes:
+  - cpe:2.3:a:flowiseai:flowise:*:*:*:*:*:*:*:*
 tags:
   - rce
-  - sandbox-escape
-  - nodejs
+  - injection
   - flowise
+  - cve-2026-69263
+  - python-injection
 vendors:
-  - FlowiseAI
-products:
   - Flowise
-  - Flowise (<= 3.1.2)
-  - flowise-components (<= 3.1.2)
-affected_os:
-  - Ubuntu 25.10
+products:
+  - Flowise (3.1.2)
+  - Flowise Components (3.1.2)
+  - Flowise
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
-    evidence: The executeJavaScriptCode() function allows the execution of arbitrary JavaScript code inside a NodeVM sandbox which can be leveraged to achieve RCE.
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The following variables are also absent from the blocklist and influence execution through the other permitted interpreters.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Once the chatflow is exposed via the (whitelisted, public) POST /api/v1/prediction/:id endpoint, any unauthenticated request triggers the host RCE.
     confidence_band: high
 cves:
-  - id: CVE-2026-70477
+  - id: CVE-2025-8943
+    cvss: 9.8
+    epss: 0.7231
+  - id: CVE-2026-69263
 references:
-  - https://github.com/advisories/GHSA-3769-jgqc-cxm7
-  - https://github.com/advisories/GHSA-5xvg-pmgg-3mxr
+  - https://github.com/advisories/GHSA-xc48-889x-5qmw
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69263
+  - https://nvd.nist.gov/vuln/detail/CVE-2025-8943
+  - https://github.com/advisories/GHSA-4j8x-x6v7-w9rq
+rules:
+  - title: Detect Suspicious Dynamic Import in Node.js via Pyodide
+    description: Detects attempts to use dynamic import for child_process or fs modules, often associated with sandbox breakouts in Node.js environments.
+    platform: sigma
+    severity: critical
+    tactics:
+      - execution
+    techniques:
+      - T1059.003
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - IT Operations
+    - Security Engineering
   immediate_actions:
-    - action: Patch Flowise instance to version containing fix for GHSA-3769-jgqc-cxm7
+    - action: Upgrade Flowise to the latest patched release immediately
       owner: IT Operations
-      due: 48h
-      evidence: Source advisory recommends updating to patched version
+      due: 24h
+      evidence: Flowise (<= 3.1.2) is vulnerable to unauthenticated RCE
   mitigation_plan:
     - priority: immediate
-      action: Restrict access to /api/v1/node-custom-function
+      action: Enable authentication for the Flowise instance if currently unauthenticated
       owner: IT Operations
-      addresses: Sandbox escape and unauthorized function execution
-      evidence: Exploit requires interaction with this specific endpoint
+      addresses: Unauthenticated API access
+      evidence: On a default deployment with no authentication, any unauthenticated user who can reach the Flowise API can trigger this.
 updates:
-  - at: "2026-08-04T19:33:07Z"
+  - at: "2026-08-04T19:33:20Z"
     level: L2
-    summary: poc_available; added CVE-2026-70477; flowise version <= 3.1.2; OS ubuntu 25.10
+    summary: 'added detection rule: Detect Suspicious Dynamic Import in Node.js via Pyodide'
     sources:
       - ghsa
     source_urls:
-      - https://github.com/advisories/GHSA-5xvg-pmgg-3mxr
+      - https://github.com/advisories/GHSA-4j8x-x6v7-w9rq
 ---
 
-Flowise is susceptible to a high-severity sandbox escape vulnerability that allows unauthenticated or authenticated users (depending on deployment configuration) to execute arbitrary code with the privileges of the Flowise process. The vulnerability exists within the `executeJavaScriptCode()` utility, which employs an insecure merge strategy when initializing the NodeVM sandbox. Specifically, the application uses the JavaScript spread operator (`{ ...defaultNodeVMOptions, ...nodeVMOptions }`) to combine default security settings with user-supplied options. Because the user-supplied options are applied last, an attacker can override the restricted `require.builtin` allowlist, re-enabling access to powerful Node.js modules such as `child_process` and `fs`. By bypassing the module restrictions, an attacker can instantiate a nested VM or directly interact with the host filesystem and OS, leading to full system compromise.
+Flowise (v3.1.2 and earlier) contains a critical security flaw involving an incomplete environment variable blocklist, identified as CVE-2026-69263. This vulnerability allows an attacker to bypass the intended security controls for the Model Context Protocol (MCP) server configuration, specifically those established in the previous CVE-2025-8943 patch. While the original patch successfully filtered dangerous CLI flags like `-y` for `npx`, it failed to account for `npm` configuration that can be passed via environment variables (e.g., `npm_config_yes`).
+
+Because Flowise defaults to an unauthenticated state, a remote attacker can interact with the API to register a malicious MCP server. By including specific environment variables in the configuration, an attacker can influence the behavior of `npx`, `node`, or `python3` to achieve remote code execution. This is a classic case of incomplete denylisting, where developers attempted to enumerate dangerous inputs rather than implementing a secure allowlist, leaving the environment vulnerable to various configuration injection vectors.
 
 ## Attack Chain
 
-1. Attacker authenticates to the Flowise API to obtain a valid Bearer token.
-2. Attacker interacts with the `/api/v1/node-custom-function` endpoint.
-3. Attacker submits a payload containing a malicious `javascriptFunction` string.
-4. The Flowise backend controller passes the user-supplied JavaScript code into the `executeCustomNodeFunction` service.
-5. The application invokes `executeJavaScriptCode()`, which initializes a NodeVM instance.
-6. The attacker uses an absolute path to require internal Flowise utility modules, bypassing existing module resolution restrictions.
-7. The attacker calls `executeJavaScriptCode()` again from within the sandbox, providing a malicious `nodeVMOptions` object.
-8. The `finalNodeVMOptions` object is constructed, overriding the default sandbox security constraints with `{ require: { builtin: ["*"] } }`.
-9. The attacker executes arbitrary OS commands via the `child_process` module, gaining RCE on the server.
+1. Attacker discovers an internet-facing, unauthenticated Flowise instance.
+2. Attacker interacts with the Flowise API to create or update an MCP server configuration.
+3. Attacker crafts a JSON payload containing the `mcpServers` object with a command like `npx`.
+4. Attacker inserts environment variables such as `npm_config_yes=true` into the `env` field of the payload.
+5. Flowise validation logic (`validateCommandFlags`) is bypassed because the CLI flags are clean.
+6. Flowise validation logic (`validateEnvironmentVariables`) is bypassed because the blocklist only contains four hardcoded entries (PATH, LD_LIBRARY_PATH, DYLD_LIBRARY_PATH, NODE_OPTIONS).
+7. Flowise spawns the `npx` process, which reads the injected environment variable and proceeds with automatic package installation.
+8. Malicious code is executed under the privileges of the Flowise process, resulting in full system compromise.
 
 ## Impact
 
-Successful exploitation results in full remote code execution on the server hosting the Flowise instance. If the Flowise application is running with root or elevated service account privileges, the attacker gains complete control over the host environment. This allows for data exfiltration, lateral movement within the network, and the deployment of persistent threats. All Flowise instances utilizing `executeJavaScriptCode()` are affected.
+Successful exploitation results in unauthenticated remote code execution on the server running Flowise. Given the tool's nature as an LLM integration platform, successful compromise often grants an attacker access to connected sensitive data, API keys for AI providers, and internal network resources. All versions up to and including 3.1.2 are confirmed to be vulnerable.
 
 ## Recommendation
 
-* Update Flowise to the latest patched version provided by FlowiseAI that remediates the insecure object spread in `executeJavaScriptCode()`.
-* Implement strict network egress filtering for the container or server running Flowise to prevent the execution of malicious payloads that require outbound C2 communication.
-* Review and restrict access to the `/api/v1/node-custom-function` endpoint using an identity-aware proxy or firewall, ensuring only trusted administrative users can access this functionality.
-* Run the Flowise service with a non-privileged, dedicated service account to limit the impact of potential RCE vulnerabilities.
+1. Upgrade to a version of Flowise that implements an allowlist-based validation approach for environment variables rather than a denylist.
+2. Implement strict authentication on all Flowise API endpoints to prevent unauthenticated access to configuration interfaces.
+3. Restrict outbound network access for the server running Flowise to prevent the automatic installation of arbitrary npm/pip packages from the internet.
+4. Ensure that the service account running the Flowise process operates with the principle of least privilege, minimizing the damage from a successful code execution event.
