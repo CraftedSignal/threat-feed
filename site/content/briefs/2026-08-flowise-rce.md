@@ -1,81 +1,85 @@
 ---
-title: Flowise Unauthenticated RCE via Environment Variable Bypass
+title: Remote Code Execution in Flowise CSVAgent via pandas.read_pickle
 slug: 2026-08-flowise-rce
-description: Flowise v3.1.2 and earlier are vulnerable to unauthenticated remote code execution because the CVE-2025-8943 patch relies on an incomplete environment variable blocklist, allowing attackers to inject configuration variables that force arbitrary package installation.
-date: "2026-08-04T17:24:33Z"
+description: A critical remote code execution vulnerability (CVE-2026-69256) in the Flowise CSVAgent node allows attackers to bypass security filters by deserializing malicious pickled payloads using pandas.
+date: "2026-08-04T17:23:57Z"
+lastmod: "2026-08-04T17:24:42Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
-cpes:
-  - cpe:2.3:a:flowiseai:flowise:*:*:*:*:*:*:*:*
+  - critical
 tags:
   - rce
-  - injection
-  - flowise
-  - cve-2026-69263
+  - python
+  - deserialization
+  - web-security
 vendors:
   - Flowise
 products:
-  - Flowise (3.1.2)
-  - Flowise Components (3.1.2)
+  - flowise
+  - flowise-components
+  - Flowise (<= 3.1.2)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: The following variables are also absent from the blocklist and influence execution through the other permitted interpreters.
+    evidence: An attacker can supply a crafted pickled payload via the customReadCSVFunc parameter to achieve arbitrary command execution.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1548.001
+    technique_name: Abuse Elevation Control Mechanism
+    evidence: The delete route accepts either chatflows:delete or agentflows:delete, and the subsequent logic does not validate the target resource type.
     confidence_band: high
 cves:
-  - id: CVE-2025-8943
-    cvss: 9.8
-    epss: 0.7231
-  - id: CVE-2026-69263
+  - id: CVE-2026-69256
 references:
-  - https://github.com/advisories/GHSA-xc48-889x-5qmw
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69263
-  - https://nvd.nist.gov/vuln/detail/CVE-2025-8943
-action_plan:
-  priority: immediate_escalation
-  owners:
-    - IT Operations
-    - Security Engineering
-  immediate_actions:
-    - action: Upgrade Flowise to the latest patched release immediately
-      owner: IT Operations
-      due: 24h
-      evidence: Flowise (<= 3.1.2) is vulnerable to unauthenticated RCE
-  mitigation_plan:
-    - priority: immediate
-      action: Enable authentication for the Flowise instance if currently unauthenticated
-      owner: IT Operations
-      addresses: Unauthenticated API access
-      evidence: On a default deployment with no authentication, any unauthenticated user who can reach the Flowise API can trigger this.
+  - https://github.com/advisories/GHSA-x6vm-w76m-8j7g
+  - https://github.com/advisories/GHSA-p5w8-m249-4r4v
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69262
+rules:
+  - title: Detect CVE-2026-69256 Exploitation - pandas.read_pickle in CSVAgent
+    description: Detects exploitation attempts against the CSVAgent node by monitoring for the use of read_pickle in user-supplied parameters to the prediction API.
+    platform: sigma
+    severity: critical
+    tactics:
+      - execution
+    techniques:
+      - T1059.003
+    data_sources:
+      - webserver
+rules_count: 1
+updates:
+  - at: "2026-08-04T17:24:42Z"
+    level: L2
+    summary: 'merged source coverage: Flowise Authorization Bypass in DELETE API Endpoint'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-p5w8-m249-4r4v
 ---
 
-Flowise (v3.1.2 and earlier) contains a critical security flaw involving an incomplete environment variable blocklist, identified as CVE-2026-69263. This vulnerability allows an attacker to bypass the intended security controls for the Model Context Protocol (MCP) server configuration, specifically those established in the previous CVE-2025-8943 patch. While the original patch successfully filtered dangerous CLI flags like `-y` for `npx`, it failed to account for `npm` configuration that can be passed via environment variables (e.g., `npm_config_yes`).
-
-Because Flowise defaults to an unauthenticated state, a remote attacker can interact with the API to register a malicious MCP server. By including specific environment variables in the configuration, an attacker can influence the behavior of `npx`, `node`, or `python3` to achieve remote code execution. This is a classic case of incomplete denylisting, where developers attempted to enumerate dangerous inputs rather than implementing a secure allowlist, leaving the environment vulnerable to various configuration injection vectors.
+Flowise versions 3.1.2 and below contain a remote code execution (RCE) vulnerability in the CSVAgent node (CVE-2026-69256). The component was designed to allow users to process CSV data via the pandas library while restricting potentially dangerous Python constructs through a denylist-based validation mechanism. However, the existing filter fails to account for the pandas `read_pickle()` function, which can be leveraged to deserialize arbitrary data. By crafting a malicious pickle payload that triggers OS-level execution (e.g., via `os.system`) and providing it through the `customReadCSVFunc` parameter, an attacker can bypass all configured security checks. Since the environment lacks standard I/O modules due to the filter, attackers can implement custom file-like classes to bridge the object into the `read_pickle()` function, successfully achieving full system command execution.
 
 ## Attack Chain
 
-1. Attacker discovers an internet-facing, unauthenticated Flowise instance.
-2. Attacker interacts with the Flowise API to create or update an MCP server configuration.
-3. Attacker crafts a JSON payload containing the `mcpServers` object with a command like `npx`.
-4. Attacker inserts environment variables such as `npm_config_yes=true` into the `env` field of the payload.
-5. Flowise validation logic (`validateCommandFlags`) is bypassed because the CLI flags are clean.
-6. Flowise validation logic (`validateEnvironmentVariables`) is bypassed because the blocklist only contains four hardcoded entries (PATH, LD_LIBRARY_PATH, DYLD_LIBRARY_PATH, NODE_OPTIONS).
-7. Flowise spawns the `npx` process, which reads the injected environment variable and proceeds with automatic package installation.
-8. Malicious code is executed under the privileges of the Flowise process, resulting in full system compromise.
+1. Attacker creates a malicious pickle object containing a payload designed to execute arbitrary shell commands (e.g., `os.system`).
+2. The payload is encoded in base64 to ensure successful transport within the Flowise input parameters.
+3. The attacker defines a custom Python class (e.g., `MiniBytesIO`) within the `customReadCSVFunc` parameter to simulate a file-like object, bypassing constraints on importing standard library I/O modules.
+4. The attacker injects the encoded pickle string into the `read_pickle()` call within the `customReadCSVFunc` parameter in the Flowise UI.
+5. The Flowise CSVAgent node accepts the user-supplied input, as it does not explicitly filter for `read_pickle` or the required pickle-loading logic.
+6. The `pyodide` execution environment processes the provided string and invokes `pandas.read_pickle()`.
+7. The pickle deserialization occurs, triggering the `__reduce__` method of the malicious object and executing the embedded shell commands.
+8. The attacker triggers the execution by sending a POST request to the prediction endpoint (`/api/v1/prediction/<UUID>`), resulting in unauthorized command execution on the host.
 
 ## Impact
 
-Successful exploitation results in unauthenticated remote code execution on the server running Flowise. Given the tool's nature as an LLM integration platform, successful compromise often grants an attacker access to connected sensitive data, API keys for AI providers, and internal network resources. All versions up to and including 3.1.2 are confirmed to be vulnerable.
+Successful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary commands with the privileges of the Flowise application process. This can lead to full system compromise, exfiltration of sensitive configuration or chat data, and potential lateral movement within the environment.
 
 ## Recommendation
 
-1. Upgrade to a version of Flowise that implements an allowlist-based validation approach for environment variables rather than a denylist.
-2. Implement strict authentication on all Flowise API endpoints to prevent unauthenticated access to configuration interfaces.
-3. Restrict outbound network access for the server running Flowise to prevent the automatic installation of arbitrary npm/pip packages from the internet.
-4. Ensure that the service account running the Flowise process operates with the principle of least privilege, minimizing the damage from a successful code execution event.
+- Upgrade Flowise and the flowise-components package to version 3.1.3 or higher to apply the vendor-provided patch.
+- Apply the following webserver detection rule to identify and block incoming requests targeting the prediction endpoint with suspicious `customReadCSVFunc` payloads.
+- Implement egress filtering on the Flowise host to restrict unexpected network connections originating from the application process, mitigating the impact of successful RCE (e.g., reverse shells).
