@@ -3,7 +3,7 @@ title: Google Security Updates — August 2026
 slug: 2026-08-google-security-updates
 description: Roundup of Google security advisories published in August 2026.
 date: "2026-08-01T01:42:27Z"
-lastmod: "2026-08-03T17:59:27Z"
+lastmod: "2026-08-04T11:38:53Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +13,7 @@ tags:
   - roundup
 vendors:
   - Google
+  - GitHub
 products:
   - Google Kubernetes Engine
   - Chrome (<= 2026-08-03)
@@ -24,6 +25,9 @@ products:
   - Angular (>= 21.0.0-next.0, < 21.2.19)
   - Angular (>= 20.0.0-next.0, < 20.3.27)
   - Angular (<= 19.2.25)
+  - adk-python
+  - Antigravity-SDK
+  - github.com
 affected_os:
   - Windows
 cves:
@@ -38,6 +42,7 @@ references:
   - https://unit42.paloaltonetworks.com/passwordless-authentication-security-risks/
   - https://github.com/advisories/GHSA-jj27-h5hq-8x99
   - https://github.com/advisories/GHSA-jhpw-976m-542j
+  - https://www.securityweek.com/gemini-agent-to-agent-attack-exposed-secrets-enabled-pull-request-tampering/
 updates:
   - at: "2026-08-01T01:42:29Z"
     level: L1
@@ -67,6 +72,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-jhpw-976m-542j
+  - at: "2026-08-04T11:38:53Z"
+    level: L1
+    summary: new product
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/gemini-agent-to-agent-attack-exposed-secrets-enabled-pull-request-tampering/
 ---
 
 Aggregated Google security advisories for August 2026. CVEs from this cycle are folded
