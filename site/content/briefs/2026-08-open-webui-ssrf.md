@@ -3,11 +3,13 @@ title: SSRF Vulnerability in Open WebUI via NAT64-encoded URLs
 slug: 2026-08-open-webui-ssrf
 description: Authenticated users can bypass SSRF protection in Open WebUI by wrapping internal IPv4 addresses in NAT64 IPv6 transition prefixes, allowing unauthorized access to cloud metadata and internal network services.
 date: "2026-08-04T20:00:53Z"
+lastmod: "2026-08-04T20:00:59Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
 tags:
   - ssrf
   - vulnerability
@@ -16,6 +18,7 @@ vendors:
   - Open WebUI
 products:
   - Open WebUI
+  - Open WebUI (< 0.11.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,8 +32,11 @@ mitre_ttps:
     technique_name: 'Dynamic Resolution: Domain Generation Algorithms'
     evidence: The NAT64 well-known prefix is by design a global prefix carrying an arbitrary IPv4 destination, so an internal target wrapped in it satisfies the check.
     confidence_band: high
+cves:
+  - id: CVE-2026-70482
 references:
   - https://github.com/advisories/GHSA-8x5v-cpv7-8jjp
+  - https://github.com/advisories/GHSA-rq84-p6rr-vf89
 rules:
   - title: Detect Potential SSRF Exploitation via NAT64 Encodings
     description: Detects web-retrieval API requests containing NAT64-encoded IPv6 literals, which may indicate an attempt to bypass SSRF filters (CVE-2026-70485).
@@ -60,6 +66,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-70485
       evidence: Vulnerability allows access to cloud metadata including IAM role credentials
+updates:
+  - at: "2026-08-04T20:00:59Z"
+    level: L2
+    summary: poc_available; added CVE-2026-70482; open webui version < 0.11.0
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-rq84-p6rr-vf89
 ---
 
 Open WebUI (v0.9.0 through v0.10.x) contains an SSRF vulnerability (CVE-2026-70485) stemming from insecure URL validation logic. When processing user-supplied URLs for RAG or web-search features, the application performs connectivity checks to ensure the destination is globally routable. However, this validation uses the `ipaddress.ip_address(ip).is_global` check on the literal IPv6 address, failing to account for embedded IPv4 addresses within NAT64 transition prefixes (specifically `64:ff9b::/96`). 
