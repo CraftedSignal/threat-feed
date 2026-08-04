@@ -3,7 +3,7 @@ title: Critical Vulnerabilities in HUMANIST Digital Human Resources
 slug: 2026-08-bilin-humanist-hardcoded-key
 description: Multiple critical vulnerabilities in Bilin Software and Informatics Consultancy Inc. HUMANIST Digital Human Resources version 26.0 allow unauthorized access, web shell upload, session hijacking, and remote code execution. Upgrade to version 26.1 immediately.
 date: "2026-08-04T11:39:04Z"
-lastmod: "2026-08-04T13:28:03Z"
+lastmod: "2026-08-04T13:48:34Z"
 type: advisory
 types:
   - advisory
@@ -104,19 +104,15 @@ action_plan:
       addresses: CVE-2026-14804
       evidence: Source reporting of critical severity CVE-2026-14804.
 updates:
-  - at: "2026-08-04T11:39:22Z"
+  - at: "2026-08-04T13:28:03Z"
     level: L2
-    summary: 'merged source coverage: Critical SQL Injection Vulnerability in HUMANIST Digital Human Resources'
+    summary: 'Merged related HUMANIST Digital Human Resources vulnerabilities (CVE-2026-14804, CVE-2026-14175, CVE-2026-15721, CVE-2026-14838) into a single advisory'
     sources:
       - nvd
     source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-14804
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-14175
       - https://nvd.nist.gov/vuln/detail/CVE-2026-15721
-  - at: "2026-08-04T11:39:30Z"
-    level: L2
-    summary: 'merged source coverage: Session Hijacking Vulnerability in HUMANIST Digital Human Resources'
-    sources:
-      - nvd
-    source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-14838
 aliases:
   - 2026-08-cve-2026-14175

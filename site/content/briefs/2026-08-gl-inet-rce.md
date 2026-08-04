@@ -3,7 +3,7 @@ title: Remote Command Injection in GL.iNet GL-MT3000
 slug: 2026-08-gl-inet-rce
 description: Multiple unauthenticated remote command injection vulnerabilities in the GL.iNet GL-MT3000 router allow arbitrary code execution via the /cgi-bin/glc component. Public exploit code is available; patch firmware immediately.
 date: "2026-08-04T01:42:16Z"
-lastmod: "2026-08-04T13:28:03Z"
+lastmod: "2026-08-04T13:48:34Z"
 type: advisory
 types:
   - advisory
@@ -103,6 +103,15 @@ action_plan:
       evidence: Vulnerability allows unauthenticated remote access
   gaps:
     - Visibility into legacy management console logs
+updates:
+  - at: "2026-08-04T13:48:34Z"
+    level: L2
+    summary: 'Merged related GL.iNet GL-MT3000 command injection vulnerabilities (CVE-2026-18685, CVE-2026-18686) into a single advisory'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18685
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18686
 aliases:
   - 2026-08-glinet-rce
 ---
