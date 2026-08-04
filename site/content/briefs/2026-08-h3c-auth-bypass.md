@@ -3,6 +3,7 @@ title: Unauthenticated Access Vulnerability in H3C NX15
 slug: 2026-08-h3c-auth-bypass
 description: A missing authentication vulnerability in the H3C NX15 network device firmware (CVE-2026-18810) allows unauthenticated remote attackers to access the /api/wizard/networkSetup endpoint, potentially enabling unauthorized configuration changes.
 date: "2026-08-04T22:02:27Z"
+lastmod: "2026-08-04T22:02:38Z"
 type: advisory
 types:
   - advisory
@@ -12,12 +13,19 @@ vendors:
   - H3C
 products:
   - NX15 (V100R017)
+  - NX15
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
     evidence: A security vulnerability has been detected in H3C NX15 V100R017. Impacted is an unknown function of the file /api/wizard/networkSetup. Such manipulation leads to missing authentication.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Performing a manipulation of the argument esps.filter.url results in command injection.
     confidence_band: high
 cves:
   - id: CVE-2026-18810
@@ -26,6 +34,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18810
   - https://vuldb.com/cve/CVE-2026-18810
   - https://github.com/coconut652-7/IOT_Vul_Public/tree/main/H3C/NX15R017/api_wizard_networksetup_preauth_hijack
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18811
+  - https://github.com/coconut652-7/IOT_Vul_Public/tree/main/H3C/NX15R017/esps_filter_url_add_root_rce
 rules:
   - title: Detects CVE-2026-18810 Exploitation - Unauthenticated Access to Network Setup
     description: Detects unauthenticated HTTP requests to the /api/wizard/networkSetup endpoint associated with CVE-2026-18810 exploitation.
@@ -37,7 +47,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-18811 Exploitation Attempt
+    description: Detects exploitation attempts against H3C NX15 devices targeting the /api/esps endpoint by looking for shell metacharacters in the esps.filter.url parameter.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -54,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-18810
       evidence: Vulnerability requires firmware update or configuration change
+updates:
+  - at: "2026-08-04T22:02:38Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-18811 Exploitation Attempt'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18811
 ---
 
 A security vulnerability identified as CVE-2026-18810 affects H3C NX15 devices running firmware version V100R017. The vulnerability exists within the /api/wizard/networkSetup endpoint, where improper authentication handling allows remote, unauthenticated actors to interact with the device. This flaw is classified as CWE-306 (Missing Authentication for Critical Function), meaning the device fails to verify the identity of the requester before allowing access to administrative or setup functionalities. Successful exploitation can allow an attacker to bypass intended security controls and potentially reconfigure the network device remotely. This vulnerability is significant as it affects the management plane of network infrastructure equipment, providing a vector for persistent unauthorized access or further network-level exploitation if the device is internet-facing.
