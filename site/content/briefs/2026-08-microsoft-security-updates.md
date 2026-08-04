@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-04T13:37:22Z"
+lastmod: "2026-08-04T13:39:51Z"
 type: advisory
 types:
   - advisory
@@ -54,6 +54,11 @@ products:
   - Microsoft Edge for Android (< 151.0.4129.59)
   - Microsoft Edge (Chromium-based) (< 151.0.4129.59)
   - Edge
+  - Excel 2016
+  - Office 2019
+  - Office 2021
+  - Office 2024
+  - Microsoft 365 Apps Enterprise
 affected_os:
   - Windows
   - Android
@@ -69,6 +74,8 @@ cves:
     cvss: 7.5
   - id: CVE-2026-66322
     cvss: 7.1
+  - id: CVE-2026-66321
+    cvss: 7.4
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -97,6 +104,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66321
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66322
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2643
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2625
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -135,13 +143,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-03T22:22:14Z"
-    level: L2
-    summary: poc_available; added CVE-2026-56158; OS alpine linux
-    sources:
-      - sploitus
-    source_urls:
-      - https://sploitus.com/exploit?id=C70098EC-8455-5303-80B5-BD82E10260AE&utm_source=rss&utm_medium=rss
   - at: "2026-08-04T01:42:30Z"
     level: L2
     summary: added CVE-2026-65802
@@ -170,6 +171,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2643
+  - at: "2026-08-04T13:39:51Z"
+    level: L2
+    summary: added CVE-2026-66321
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2625
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
