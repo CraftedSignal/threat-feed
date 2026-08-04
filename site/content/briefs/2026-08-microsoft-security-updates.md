@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of five Microsoft security advisories affecting Microsoft Office Excel and Microsoft Edge, with CVSS scores from 7.4 to 8.8.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-04T14:29:26Z"
+lastmod: "2026-08-04T14:37:52Z"
 type: advisory
 types:
   - advisory
@@ -88,22 +88,66 @@ updates:
 
 ## Overview
 
-This roundup covers five Microsoft security vulnerabilities released in the July 2026 security update cycle and tracked here in August 2026. All are rated **Important** by the Microsoft Security Response Center (MSRC), with CVSS base scores ranging from **7.4 to 8.8**. At the time of release, none of the issues are reported as actively exploited in the wild or publicly disclosed.
-
-The vulnerabilities fall into two product families:
-
-- **Microsoft Office / Excel (1 CVE):** a use-after-free in Excel that can be exploited for remote code execution when a user opens a malicious file.
-- **Microsoft Edge (4 CVEs):** two information-disclosure issues in Edge for Android, plus one remote-code-execution and one information-disclosure issue in the Chromium-based Edge desktop/mobile builds.
+This roundup covers 5 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 8.8. None are reported as actively exploited at the time of release. The issues affect Microsoft Office Excel, Microsoft Edge.
 
 ## Summary
 
-| CVE | CVSS | Product | Impact | Attack vector |
-|-----|------|---------|--------|---------------|
-| CVE-2026-62870 | 8.8 | Microsoft Office Excel | Remote Code Execution | User opens a specially crafted file |
-| CVE-2026-65802 | 7.4 | Microsoft Edge for Android | Information Disclosure | Network-based, user interaction required |
-| CVE-2026-66310 | 7.7 | Microsoft Edge for Android | Information Disclosure | Network-based, user interaction required |
-| CVE-2026-66315 | 7.5 | Microsoft Edge (Chromium-based) | Remote Code Execution | User visits attacker-controlled webpage |
-| CVE-2026-66318 | 8.1 | Microsoft Edge (Chromium-based) | Information Disclosure | User visits attacker-controlled webpage |
+| CVE | CVSS | Product | Summary |
+|-----|------|---------|---------|
+| CVE-2026-62870 | 8.8 | Microsoft Office Excel | Use after free in Microsoft Office Excel allows an unauthorized attacker to execute code over a network. |
+| CVE-2026-65802 | 7.4 | Microsoft Edge for Android | External control of file name or path in Microsoft Edge for Android allows an unauthorized attacker to disclose information over a network. |
+| CVE-2026-66310 | 7.7 | Microsoft Edge for Android | External control of file name or path in Microsoft Edge for Android allows an unauthorized attacker to disclose information locally. |
+| CVE-2026-66315 | 7.5 | Microsoft Edge (Chromium-based) | Use after free in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network. |
+| CVE-2026-66318 | 8.1 | Microsoft Edge (Chromium-based) | Origin validation error in Microsoft Edge (Chromium-based) allows an unauthorized attacker to disclose information over a network. |
+
+## CVE-2026-62870
+
+Use after free in Microsoft Office Excel allows an unauthorized attacker to execute code over a network.
+
+Affected products:
+- Microsoft Office 2019
+- Microsoft Office LTSC 2021
+- Microsoft Office LTSC 2024
+- Microsoft 365 Apps for Enterprise
+- Microsoft Excel 2016 (< 16.0.5561.1001)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62870
+
+## CVE-2026-65802
+
+External control of file name or path in Microsoft Edge for Android allows an unauthorized attacker to disclose information over a network.
+
+Affected products:
+- Microsoft Edge for Android (< 151.0.4129.59)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65802
+
+## CVE-2026-66310
+
+External control of file name or path in Microsoft Edge for Android allows an unauthorized attacker to disclose information locally.
+
+Affected products:
+- Microsoft Edge for Android (< 151.0.4129.59)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66310
+
+## CVE-2026-66315
+
+Use after free in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network.
+
+Affected products:
+- Microsoft Edge (Chromium-based) (< 151.0.4129.59)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66315
+
+## CVE-2026-66318
+
+Origin validation error in Microsoft Edge (Chromium-based) allows an unauthorized attacker to disclose information over a network.
+
+Affected products:
+- Microsoft Edge (Chromium-based) (< 151.0.4129.59)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66318
 
 ## Recommendation
 
