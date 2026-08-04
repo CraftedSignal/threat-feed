@@ -3,7 +3,7 @@ title: Unauthenticated Remote Code Execution in Perspective 5.0.0
 slug: 2026-08-perspective-rce
 description: Perspective version 5.0.0 is vulnerable to unauthenticated remote code execution via unsafe Python eval() calls within the PolarsVirtualServer backend triggered by crafted protobuf messages.
 date: "2026-08-04T15:44:15Z"
-lastmod: "2026-08-04T15:44:24Z"
+lastmod: "2026-08-04T15:44:26Z"
 type: advisory
 types:
   - advisory
@@ -42,11 +42,16 @@ mitre_ttps:
 cves:
   - id: CVE-2026-67195
     cvss: 8.8
+  - id: CVE-2026-67200
+    cvss: 7.5
+  - id: CVE-2026-67198
+    cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67195
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67198
   - https://www.vulncheck.com/advisories/perspective-dos-via-virtualserver-protocol-dispatcher
   - https://christbowel.com/blog/perspective-5-0-0-five-cves/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67200
 updates:
   - at: "2026-08-04T15:44:24Z"
     level: L1
@@ -55,6 +60,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-67198
+  - at: "2026-08-04T15:44:26Z"
+    level: L2
+    summary: added CVE-2026-67198 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-67200
 ---
 
 Perspective version 5.0.0 contains a critical remote code execution vulnerability (CVE-2026-67195) located within its PolarsVirtualServer backend component. The vulnerability originates from the unsafe handling of client-supplied expression strings, which are passed directly to Python's eval() function. Although the application attempts to restrict the environment by clearing __builtins__, this mechanism is insufficient as it does not prevent object attribute traversal. An attacker can leverage this limitation to traverse the interpreter's loaded class hierarchy, eventually accessing subprocess.Popen to execute arbitrary operating system commands. This flaw is reachable by unauthenticated attackers who can deliver specially crafted TableValidateExprReq or TableMakeViewReq protobuf messages to the service. Given that Perspective is often deployed in data-intensive environments, successful exploitation allows an attacker to gain full control over the host process and the underlying system.
