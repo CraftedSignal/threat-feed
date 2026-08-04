@@ -3,7 +3,7 @@ title: Shai-Hulud Campaign Activity
 slug: 2026-07-shai-hulud-campaign
 description: Tracking brief for the Shai-Hulud campaign; individual sightings are folded in as reported.
 date: "2026-07-09T13:04:28Z"
-lastmod: "2026-07-30T14:35:34Z"
+lastmod: "2026-08-04T13:39:57Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +46,10 @@ vendors:
   - UiPath
   - OpenSearch
   - Red Hat
+  - Keyv
+  - Cacheable
+  - Ornikar
+  - Qlik
 products:
   - jscrambler 8.14.0
   - npm
@@ -96,6 +100,48 @@ products:
   - PyPI
   - Docker Hub
   - OpenVSX
+  - keyv (6.0.0)
+  - '@cacheable/utils (2.5.1)'
+  - '@hubsync/web-sdk-react (6.3.7)'
+  - '@nebula.js/nucleus (0.5.1)'
+  - '@ornikar/babel-preset-base (6.0.3)'
+  - '@ornikar/babel-preset-kitt-universal (8.0.3)'
+  - '@ornikar/babel-preset-react (6.1.4)'
+  - '@ornikar/browserslist-config (8.0.3)'
+  - '@ornikar/commitlint-config (8.3.2)'
+  - '@ornikar/eslint-config-babel (24.0.1)'
+  - '@ornikar/eslint-config-react (24.0.1)'
+  - '@ornikar/eslint-config-typescript (24.0.1)'
+  - '@ornikar/eslint-config-typescript-react (24.0.1)'
+  - '@ornikar/eslint-plugin-neverthrow (1.3.1)'
+  - '@ornikar/eslint-plugin-ornikar (24.0.1)'
+  - '@ornikar/graphql-config (1.1.1)'
+  - '@ornikar/intl-config (10.0.2)'
+  - '@ornikar/kitt (21.0.1)'
+  - '@ornikar/monorepo-config (14.3.2)'
+  - '@ornikar/postcss-config (9.1.2)'
+  - '@ornikar/prettier-config (9.0.3)'
+  - '@ornikar/prismic-components (0.0.2)'
+  - '@ornikar/react-modern-calendar-datepicker (3.2.1)'
+  - '@ornikar/react-native-svg-transformer (1.0.6)'
+  - '@ornikar/renovate-config (9.0.2)'
+  - '@ornikar/repo-config-react (13.0.8)'
+  - '@ornikar/repo-config-react-legacy-css (15.1.2)'
+  - '@ornikar/rollup-plugin-postcss (2.0.5)'
+  - '@ornikar/stylelint-config (14.0.3)'
+  - '@ornikar/typed-css-modules-loader (0.8.2)'
+  - '@qlik/embed-react (2.5.3)'
+  - '@qlik/embed-runtime (1.6.4)'
+  - '@qlik/embed-web-components (1.7.3)'
+  - '@qlik/runtime-module-loader (1.5.1)'
+  - '@thiennq/docs-viewer (1.6.2)'
+  - babel-plugin-linaria-css-to-undefined (0.3.1)
+  - cache-manager (7.2.10)
+  - cacheable-request (13.0.20)
+  - http-metrics-middleware (2.2.2)
+  - picasso-plugin-hammer (2.11.6)
+  - picasso-plugin-q (2.11.6)
+  - pob-test-package-in-monorepo (5.2.1)
 affected_os:
   - Windows
   - macOS
@@ -107,6 +153,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/impact_high_number_of_protected_branch_force_pushes_by_user.toml
   - https://www.intel471.com/blog/software-supply-chain-attacks-weaponizing-trusted-developer-workflows
   - https://www.ncsc.nl/expertblogs/het-nieuwe-trojaanse-paard-zit-in-je-dependencies
+  - https://www.wiz.io/blog/keyv-and-cacheable-npm-supply-chain-attack
 iocs:
   - type: package
     value: jscrambler@8.14.0
@@ -142,20 +189,29 @@ iocs:
     value: ipfs.io
   - type: domain
     value: rentry.co
+  - type: domain
+    value: npm-cache.com
+  - type: domain
+    value: eth-mainnet.nodereal.io
+  - type: domain
+    value: go.getblock.io
+  - type: domain
+    value: eth.llamarpc.com
+  - type: ip
+    value: 104.21.35.216
+  - type: ip
+    value: 35.175.164.77
+  - type: ip
+    value: 185.44.207.215
+  - type: ip
+    value: 172.67.167.200
 ioc_counts:
-  domain: 4
+  domain: 8
   file: 4
   hash_sha256: 5
-  ip: 3
+  ip: 7
   package: 1
 updates:
-  - at: "2026-07-14T10:49:09Z"
-    level: L2
-    summary: poc_available
-    sources:
-      - wiz
-    source_urls:
-      - https://www.wiz.io/blog/m-red-team-asyncapi-supply-chain-compromise-via-github-actions
   - at: "2026-07-15T09:41:39Z"
     level: L1
     summary: new IOCs
@@ -184,6 +240,13 @@ updates:
       - ncsc-nl
     source_urls:
       - https://www.ncsc.nl/expertblogs/het-nieuwe-trojaanse-paard-zit-in-je-dependencies
+  - at: "2026-08-04T13:39:57Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - wiz
+    source_urls:
+      - https://www.wiz.io/blog/keyv-and-cacheable-npm-supply-chain-attack
 ---
 
 This brief tracks activity attributed to the Shai-Hulud campaign. Sightings and
