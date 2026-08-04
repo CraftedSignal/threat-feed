@@ -3,6 +3,7 @@ title: Authentication Bypass in Puwell IP Camera Firmware
 slug: 2026-08-puwell-auth-bypass
 description: Puwell IP Camera firmware versions 2.x through 4.x contain an authentication bypass vulnerability (CVE-2026-61514) allowing unauthenticated attackers to control device functions via TCP port 23456.
 date: "2026-08-04T15:43:50Z"
+lastmod: "2026-08-04T15:43:54Z"
 type: advisory
 types:
   - advisory
@@ -10,8 +11,10 @@ severities:
   - critical
 vendors:
   - Puwell Technology Inc.
+  - Puwell
 products:
   - IP Camera
+  - IP Camera (firmware 2.x - 4.x)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -28,10 +31,18 @@ mitre_ttps:
 cves:
   - id: CVE-2026-61514
     cvss: 9.8
+  - id: CVE-2026-61515
+    cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61514
   - https://www.vulncheck.com/advisories/puwell-ip-camera-2-x-4-x-unauthenticated-access-via-tcp-port-23456
   - https://damiri.fr/fr/cve/CVE-2026-61514
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-61515
+iocs:
+  - type: port
+    value: "34567"
+ioc_counts:
+  port: 1
 action_plan:
   priority: elevated
   owners:
@@ -48,6 +59,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-61514
       evidence: Unauthenticated access vulnerability
+updates:
+  - at: "2026-08-04T15:43:54Z"
+    level: L2
+    summary: added CVE-2026-61515; ip camera version firmware 2.x - 4.x
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-61515
 ---
 
 Puwell IP Camera firmware versions 2.x through 4.x are affected by an authentication bypass vulnerability, identified as CVE-2026-61514. The flaw resides in the proprietary control protocol used by the devices, specifically in how they handle the Session field within the protocol header. An unauthenticated attacker can send crafted, protocol-conforming packets to TCP port 23456 to bypass security checks. Successful exploitation grants an attacker full control over the device, including the ability to view live video streams, manipulate pan and tilt motor functions, toggle audio recording, or force a remote device restart. This vulnerability poses a significant risk to the integrity and privacy of environments deploying these cameras, as it requires no credentials to execute.
