@@ -3,7 +3,7 @@ title: Flowise Unauthenticated RCE via Environment Variable Bypass
 slug: 2026-08-flowise-rce
 description: Flowise v3.1.2 and earlier are vulnerable to unauthenticated remote code execution because the CVE-2025-8943 patch relies on an incomplete environment variable blocklist, allowing attackers to inject configuration variables that force arbitrary package installation.
 date: "2026-08-04T17:24:33Z"
-lastmod: "2026-08-04T19:39:43Z"
+lastmod: "2026-08-04T19:39:51Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +27,7 @@ products:
   - Flowise Components (3.1.2)
   - Flowise
   - Flowise (<= 3.1.2)
+  - flowise-components
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -52,6 +53,12 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: The server decrypts the stored credential (containing clientId, clientSecret, refresh_token), sends a refresh request to the configured OAuth provider, and returns the new access_token directly in the response body.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The script leverages child_process.execSync to run arbitrary OS commands on the Flowise host.
+    confidence_band: high
 cves:
   - id: CVE-2025-8943
     cvss: 9.8
@@ -63,6 +70,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-8943
   - https://github.com/advisories/GHSA-4j8x-x6v7-w9rq
   - https://github.com/advisories/GHSA-qgvm-j2hm-6m38
+  - https://github.com/advisories/GHSA-52fh-8v99-63c2
+  - https://github.com/FlowiseAI/Flowise/pull/5701
+  - https://github.com/FlowiseAI/Flowise/pull/5836
 rules:
   - title: Detect Suspicious Dynamic Import in Node.js via Pyodide
     description: Detects attempts to use dynamic import for child_process or fs modules, often associated with sandbox breakouts in Node.js environments.
@@ -116,6 +126,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-qgvm-j2hm-6m38
+  - at: "2026-08-04T19:39:51Z"
+    level: L2
+    summary: added coverage for flowise +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-52fh-8v99-63c2
 ---
 
 Flowise (v3.1.2 and earlier) contains a critical security flaw involving an incomplete environment variable blocklist, identified as CVE-2026-69263. This vulnerability allows an attacker to bypass the intended security controls for the Model Context Protocol (MCP) server configuration, specifically those established in the previous CVE-2025-8943 patch. While the original patch successfully filtered dangerous CLI flags like `-y` for `npx`, it failed to account for `npm` configuration that can be passed via environment variables (e.g., `npm_config_yes`).
