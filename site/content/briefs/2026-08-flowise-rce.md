@@ -3,7 +3,7 @@ title: Flowise Unauthenticated RCE via Environment Variable Bypass
 slug: 2026-08-flowise-rce
 description: Flowise v3.1.2 and earlier are vulnerable to unauthenticated remote code execution because the CVE-2025-8943 patch relies on an incomplete environment variable blocklist, allowing attackers to inject configuration variables that force arbitrary package installation.
 date: "2026-08-04T17:24:33Z"
-lastmod: "2026-08-04T19:40:16Z"
+lastmod: "2026-08-04T19:40:25Z"
 type: advisory
 types:
   - advisory
@@ -81,6 +81,12 @@ mitre_ttps:
     technique_name: Credentials from Password Stores
     evidence: The server reads the stored refresh_token, exchanges it at the accessTokenUrl, and returns fresh token metadata.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Reconnaissance
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: The response includes sensitive configuration data such as Qdrant Server URL and collection name, resulting in a High severity information disclosure.
+    confidence_band: high
 cves:
   - id: CVE-2025-8943
     cvss: 9.8
@@ -100,6 +106,7 @@ references:
   - https://github.com/advisories/GHSA-fm2f-4339-4p2f
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70475
   - https://github.com/advisories/GHSA-wch5-xp77-fxg4
+  - https://github.com/advisories/GHSA-fr6g-7cq8-fg82
 rules:
   - title: Detect Suspicious Dynamic Import in Node.js via Pyodide
     description: Detects attempts to use dynamic import for child_process or fs modules, often associated with sandbox breakouts in Node.js environments.
@@ -151,7 +158,17 @@ rules:
       - T1555.003
     data_sources:
       - webserver
-rules_count: 5
+  - title: Detect Excessive Data Exposure via Flowise API
+    description: Detects potentially anomalous large response sizes from the Flowise upsert-history endpoint which may indicate data exfiltration.
+    platform: sigma
+    severity: high
+    tactics:
+      - exfiltration
+    techniques:
+      - T1597
+    data_sources:
+      - webserver
+rules_count: 6
 action_plan:
   priority: immediate_escalation
   owners:
@@ -169,13 +186,6 @@ action_plan:
       addresses: Unauthenticated API access
       evidence: On a default deployment with no authentication, any unauthenticated user who can reach the Flowise API can trigger this.
 updates:
-  - at: "2026-08-04T19:39:43Z"
-    level: L2
-    summary: 'added detection rule: Detect Unauthenticated OAuth2 Refresh Attempts'
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-qgvm-j2hm-6m38
   - at: "2026-08-04T19:39:51Z"
     level: L2
     summary: added coverage for flowise +1 products
@@ -204,6 +214,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-wch5-xp77-fxg4
+  - at: "2026-08-04T19:40:25Z"
+    level: L2
+    summary: 'added detection rule: Detect Excessive Data Exposure via Flowise API'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-fr6g-7cq8-fg82
 ---
 
 Flowise (v3.1.2 and earlier) contains a critical security flaw involving an incomplete environment variable blocklist, identified as CVE-2026-69263. This vulnerability allows an attacker to bypass the intended security controls for the Model Context Protocol (MCP) server configuration, specifically those established in the previous CVE-2025-8943 patch. While the original patch successfully filtered dangerous CLI flags like `-y` for `npx`, it failed to account for `npm` configuration that can be passed via environment variables (e.g., `npm_config_yes`).
