@@ -3,7 +3,7 @@ title: Remote Code Execution in Flowise CSVAgent via pandas.read_pickle
 slug: 2026-08-flowise-rce
 description: A critical remote code execution vulnerability (CVE-2026-69256) in the Flowise CSVAgent node allows attackers to bypass security filters by deserializing malicious pickled payloads using pandas.
 date: "2026-08-04T17:23:57Z"
-lastmod: "2026-08-04T17:24:50Z"
+lastmod: "2026-08-04T17:24:58Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,10 @@ tags:
   - python
   - deserialization
   - web-security
+  - ssrf
+  - web-application
+  - cloud
+  - flowise
 vendors:
   - Flowise
 products:
@@ -47,6 +51,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69262
   - https://github.com/advisories/GHSA-6vh2-wg4h-4vwj
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69258
+  - https://github.com/advisories/GHSA-c6xh-wv4j-ppv5
 rules:
   - title: Detect CVE-2026-69256 Exploitation - pandas.read_pickle in CSVAgent
     description: Detects exploitation attempts against the CSVAgent node by monitoring for the use of read_pickle in user-supplied parameters to the prediction API.
@@ -74,6 +79,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-6vh2-wg4h-4vwj
+  - at: "2026-08-04T17:24:58Z"
+    level: L2
+    summary: 'merged source coverage: Flowise SSRF Protection Bypass via IPv4-Mapped IPv6 Addresses'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-c6xh-wv4j-ppv5
 ---
 
 Flowise versions 3.1.2 and below contain a remote code execution (RCE) vulnerability in the CSVAgent node (CVE-2026-69256). The component was designed to allow users to process CSV data via the pandas library while restricting potentially dangerous Python constructs through a denylist-based validation mechanism. However, the existing filter fails to account for the pandas `read_pickle()` function, which can be leveraged to deserialize arbitrary data. By crafting a malicious pickle payload that triggers OS-level execution (e.g., via `os.system`) and providing it through the `customReadCSVFunc` parameter, an attacker can bypass all configured security checks. Since the environment lacks standard I/O modules due to the filter, attackers can implement custom file-like classes to bridge the object into the `read_pickle()` function, successfully achieving full system command execution.
