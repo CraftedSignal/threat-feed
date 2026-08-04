@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in Red Hat Enterprise Linux Perl Modules
 slug: 2026-08-red-hat-vulnerabilities
 description: Multiple vulnerabilities in Red Hat Enterprise Linux within DBI and perl-GD components allow local or remote attackers to execute arbitrary code, manipulate data, or trigger denial-of-service conditions.
 date: "2026-08-04T13:38:15Z"
+lastmod: "2026-08-04T13:39:49Z"
 type: advisory
 types:
   - advisory
@@ -17,8 +18,10 @@ vendors:
   - Red Hat
 products:
   - Enterprise Linux
+  - p11-kit
 affected_os:
   - Red Hat Enterprise Linux
+  - RHEL
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -28,6 +31,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2630
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2626
 action_plan:
   priority: elevated
   owners:
@@ -44,6 +48,14 @@ action_plan:
       owner: IT Operations
       addresses: Vulnerable Perl modules in RHEL
       evidence: Standard security advisory remediation guidance.
+updates:
+  - at: "2026-08-04T13:39:49Z"
+    level: L1
+    summary: OS rhel
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2626
 ---
 
 The German Federal Office for Information Security (BSI) has reported multiple security vulnerabilities affecting Red Hat Enterprise Linux (RHEL), specifically involving the DBI and perl-GD Perl modules. These vulnerabilities present significant risks, potentially allowing an attacker to execute arbitrary code with the privileges of the affected application, manipulate sensitive data, or induce a denial-of-service (DoS) state. 
