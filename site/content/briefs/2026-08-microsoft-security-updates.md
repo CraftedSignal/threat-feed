@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-04T01:42:35Z"
+lastmod: "2026-08-04T13:37:22Z"
 type: advisory
 types:
   - advisory
@@ -53,6 +53,7 @@ products:
   - Microsoft Edge (Android) (< 151.0.4129.59)
   - Microsoft Edge for Android (< 151.0.4129.59)
   - Microsoft Edge (Chromium-based) (< 151.0.4129.59)
+  - Edge
 affected_os:
   - Windows
   - Android
@@ -66,6 +67,8 @@ cves:
     cvss: 7.7
   - id: CVE-2026-66315
     cvss: 7.5
+  - id: CVE-2026-66322
+    cvss: 7.1
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -90,6 +93,10 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-65802
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66310
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66315
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-66318
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-66321
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-66322
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2643
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -128,13 +135,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-03T18:03:32Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - bitdefender
-    source_urls:
-      - https://www.bitdefender.com/en-us/blog/labs/fake-xeno-roblox-discord-executor
   - at: "2026-08-03T22:22:14Z"
     level: L2
     summary: poc_available; added CVE-2026-56158; OS alpine linux
@@ -163,6 +163,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-66315
+  - at: "2026-08-04T13:37:22Z"
+    level: L2
+    summary: added CVE-2026-66322
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2643
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
