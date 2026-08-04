@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-04T01:42:30Z"
+lastmod: "2026-08-04T01:42:32Z"
 type: advisory
 types:
   - advisory
@@ -51,6 +51,7 @@ products:
   - Visual Studio 2022 (<= 17.14)
   - Visual Studio 2026 (<= 18.7)
   - Microsoft Edge (Android) (< 151.0.4129.59)
+  - Microsoft Edge for Android (< 151.0.4129.59)
 affected_os:
   - Windows
   - Android
@@ -60,6 +61,8 @@ cves:
     cvss: 8.8
   - id: CVE-2026-65802
     cvss: 7.4
+  - id: CVE-2026-66310
+    cvss: 7.7
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -82,6 +85,7 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_service_account_token_requested.toml
   - https://sploitus.com/exploit?id=C70098EC-8455-5303-80B5-BD82E10260AE&utm_source=rss&utm_medium=rss
   - https://nvd.nist.gov/vuln/detail/CVE-2026-65802
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-66310
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -120,13 +124,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-03T17:53:48Z"
-    level: L1
-    summary: new product
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_windows_powershell_susp_args.toml
   - at: "2026-08-03T17:58:57Z"
     level: L2
     summary: added CVE-2026-62870
@@ -155,6 +152,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-65802
+  - at: "2026-08-04T01:42:32Z"
+    level: L2
+    summary: added CVE-2026-66310
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-66310
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
