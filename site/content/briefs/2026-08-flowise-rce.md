@@ -3,7 +3,7 @@ title: Remote Code Execution in Flowise CSVAgent via pandas.read_pickle
 slug: 2026-08-flowise-rce
 description: A critical remote code execution vulnerability (CVE-2026-69256) in the Flowise CSVAgent node allows attackers to bypass security filters by deserializing malicious pickled payloads using pandas.
 date: "2026-08-04T17:23:57Z"
-lastmod: "2026-08-04T17:24:42Z"
+lastmod: "2026-08-04T17:24:50Z"
 type: advisory
 types:
   - advisory
@@ -33,12 +33,20 @@ mitre_ttps:
     technique_name: Abuse Elevation Control Mechanism
     evidence: The delete route accepts either chatflows:delete or agentflows:delete, and the subsequent logic does not validate the target resource type.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The POST /api/v1/prediction/:id endpoint — which is unauthenticated (whitelisted in WHITELIST_URLS) — accepts an overrideConfig object in the request body.
+    confidence_band: high
 cves:
   - id: CVE-2026-69256
 references:
   - https://github.com/advisories/GHSA-x6vm-w76m-8j7g
   - https://github.com/advisories/GHSA-p5w8-m249-4r4v
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69262
+  - https://github.com/advisories/GHSA-6vh2-wg4h-4vwj
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69258
 rules:
   - title: Detect CVE-2026-69256 Exploitation - pandas.read_pickle in CSVAgent
     description: Detects exploitation attempts against the CSVAgent node by monitoring for the use of read_pickle in user-supplied parameters to the prediction API.
@@ -59,6 +67,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-p5w8-m249-4r4v
+  - at: "2026-08-04T17:24:50Z"
+    level: L2
+    summary: 'merged source coverage: Flowise Unauthenticated Property Injection in Prediction API'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6vh2-wg4h-4vwj
 ---
 
 Flowise versions 3.1.2 and below contain a remote code execution (RCE) vulnerability in the CSVAgent node (CVE-2026-69256). The component was designed to allow users to process CSV data via the pandas library while restricting potentially dangerous Python constructs through a denylist-based validation mechanism. However, the existing filter fails to account for the pandas `read_pickle()` function, which can be leveraged to deserialize arbitrary data. By crafting a malicious pickle payload that triggers OS-level execution (e.g., via `os.system`) and providing it through the `customReadCSVFunc` parameter, an attacker can bypass all configured security checks. Since the environment lacks standard I/O modules due to the filter, attackers can implement custom file-like classes to bridge the object into the `read_pickle()` function, successfully achieving full system command execution.
