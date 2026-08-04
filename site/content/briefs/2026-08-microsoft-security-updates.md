@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-03T22:22:14Z"
+lastmod: "2026-08-04T01:42:30Z"
 type: advisory
 types:
   - advisory
@@ -50,13 +50,16 @@ products:
   - .NET Runtime (8.0.0 - 8.0.28, 9.0.0 - 9.0.17, 10.0.0 - 10.0.9)
   - Visual Studio 2022 (<= 17.14)
   - Visual Studio 2026 (<= 18.7)
+  - Microsoft Edge (Android) (< 151.0.4129.59)
 affected_os:
   - Windows
   - Android
   - Alpine Linux
 cves:
   - id: CVE-2026-62870
-  - id: CVE-2026-56158
+    cvss: 8.8
+  - id: CVE-2026-65802
+    cvss: 7.4
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -78,6 +81,7 @@ references:
   - https://www.bitdefender.com/en-us/blog/labs/fake-xeno-roblox-discord-executor
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_aks_service_account_token_requested.toml
   - https://sploitus.com/exploit?id=C70098EC-8455-5303-80B5-BD82E10260AE&utm_source=rss&utm_medium=rss
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-65802
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -116,13 +120,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-03T17:53:45Z"
-    level: L1
-    summary: new product
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_wsl_bash_exec.toml
   - at: "2026-08-03T17:53:48Z"
     level: L1
     summary: new product
@@ -151,6 +148,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=C70098EC-8455-5303-80B5-BD82E10260AE&utm_source=rss&utm_medium=rss
+  - at: "2026-08-04T01:42:30Z"
+    level: L2
+    summary: added CVE-2026-65802
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-65802
 ---
 
 Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
