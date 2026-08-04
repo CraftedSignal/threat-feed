@@ -3,7 +3,7 @@ title: Remote Code Execution in Flowise CSVAgent via pandas.read_pickle
 slug: 2026-08-flowise-rce
 description: A critical remote code execution vulnerability (CVE-2026-69256) in the Flowise CSVAgent node allows attackers to bypass security filters by deserializing malicious pickled payloads using pandas.
 date: "2026-08-04T17:23:57Z"
-lastmod: "2026-08-04T17:24:58Z"
+lastmod: "2026-08-04T17:25:15Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,9 @@ tags:
   - web-application
   - cloud
   - flowise
+  - auth-bypass
+  - exfiltration
+  - cve-2026-69250
 vendors:
   - Flowise
 products:
@@ -43,6 +46,12 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The POST /api/v1/prediction/:id endpoint — which is unauthenticated (whitelisted in WHITELIST_URLS) — accepts an overrideConfig object in the request body.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: The application captures the HTTP response body from the remote target and reflects it directly to the user in the API response field tokenInfo, facilitating... the exfiltration of credentials.
+    confidence_band: high
 cves:
   - id: CVE-2026-69256
 references:
@@ -52,6 +61,7 @@ references:
   - https://github.com/advisories/GHSA-6vh2-wg4h-4vwj
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69258
   - https://github.com/advisories/GHSA-c6xh-wv4j-ppv5
+  - https://github.com/advisories/GHSA-r745-8hwv-h473
 rules:
   - title: Detect CVE-2026-69256 Exploitation - pandas.read_pickle in CSVAgent
     description: Detects exploitation attempts against the CSVAgent node by monitoring for the use of read_pickle in user-supplied parameters to the prediction API.
@@ -63,7 +73,17 @@ rules:
       - T1059.003
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect Unauthenticated Access to OAuth2 Refresh Endpoint
+    description: Detects potentially malicious unauthenticated requests to the Flowise OAuth2 refresh endpoint which should be protected by authentication.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 updates:
   - at: "2026-08-04T17:24:42Z"
     level: L2
@@ -86,6 +106,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-c6xh-wv4j-ppv5
+  - at: "2026-08-04T17:25:15Z"
+    level: L2
+    summary: 'added detection rule: Detect Unauthenticated Access to OAuth2 Refresh Endpoint'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-r745-8hwv-h473
 ---
 
 Flowise versions 3.1.2 and below contain a remote code execution (RCE) vulnerability in the CSVAgent node (CVE-2026-69256). The component was designed to allow users to process CSV data via the pandas library while restricting potentially dangerous Python constructs through a denylist-based validation mechanism. However, the existing filter fails to account for the pandas `read_pickle()` function, which can be leveraged to deserialize arbitrary data. By crafting a malicious pickle payload that triggers OS-level execution (e.g., via `os.system`) and providing it through the `customReadCSVFunc` parameter, an attacker can bypass all configured security checks. Since the environment lacks standard I/O modules due to the filter, attackers can implement custom file-like classes to bridge the object into the `read_pickle()` function, successfully achieving full system command execution.
