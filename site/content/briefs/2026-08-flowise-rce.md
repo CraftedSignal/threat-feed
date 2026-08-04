@@ -3,7 +3,7 @@ title: Flowise Unauthenticated RCE via Environment Variable Bypass
 slug: 2026-08-flowise-rce
 description: Flowise v3.1.2 and earlier are vulnerable to unauthenticated remote code execution because the CVE-2025-8943 patch relies on an incomplete environment variable blocklist, allowing attackers to inject configuration variables that force arbitrary package installation.
 date: "2026-08-04T17:24:33Z"
-lastmod: "2026-08-04T19:40:07Z"
+lastmod: "2026-08-04T19:40:16Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,9 @@ tags:
   - authentication-bypass
   - oauth
   - cve-2026-70478
+  - web-vulnerability
+  - broken-access-control
+  - oauth2
 vendors:
   - Flowise
   - FlowiseAI
@@ -72,6 +75,12 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: The endpoint lacks the checkAnyPermission() middleware that protects all other execution endpoints, allowing any authenticated user to modify any execution record.
     confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1555
+    technique_name: Credentials from Password Stores
+    evidence: The server reads the stored refresh_token, exchanges it at the accessTokenUrl, and returns fresh token metadata.
+    confidence_band: high
 cves:
   - id: CVE-2025-8943
     cvss: 9.8
@@ -90,6 +99,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70476
   - https://github.com/advisories/GHSA-fm2f-4339-4p2f
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70475
+  - https://github.com/advisories/GHSA-wch5-xp77-fxg4
 rules:
   - title: Detect Suspicious Dynamic Import in Node.js via Pyodide
     description: Detects attempts to use dynamic import for child_process or fs modules, often associated with sandbox breakouts in Node.js environments.
@@ -131,7 +141,17 @@ rules:
       - T1068
     data_sources:
       - webserver
-rules_count: 4
+  - title: Detect Unauthenticated OAuth2 Credential Refresh Attempts
+    description: Detects potential exploitation of the unauthenticated OAuth2 token refresh endpoint in Flowise.
+    platform: sigma
+    severity: critical
+    tactics:
+      - collection
+    techniques:
+      - T1555.003
+    data_sources:
+      - webserver
+rules_count: 5
 action_plan:
   priority: immediate_escalation
   owners:
@@ -149,13 +169,6 @@ action_plan:
       addresses: Unauthenticated API access
       evidence: On a default deployment with no authentication, any unauthenticated user who can reach the Flowise API can trigger this.
 updates:
-  - at: "2026-08-04T19:33:20Z"
-    level: L2
-    summary: 'added detection rule: Detect Suspicious Dynamic Import in Node.js via Pyodide'
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-4j8x-x6v7-w9rq
   - at: "2026-08-04T19:39:43Z"
     level: L2
     summary: 'added detection rule: Detect Unauthenticated OAuth2 Refresh Attempts'
@@ -184,6 +197,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-fm2f-4339-4p2f
+  - at: "2026-08-04T19:40:16Z"
+    level: L2
+    summary: 'added detection rule: Detect Unauthenticated OAuth2 Credential Refresh Attempts'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-wch5-xp77-fxg4
 ---
 
 Flowise (v3.1.2 and earlier) contains a critical security flaw involving an incomplete environment variable blocklist, identified as CVE-2026-69263. This vulnerability allows an attacker to bypass the intended security controls for the Model Context Protocol (MCP) server configuration, specifically those established in the previous CVE-2025-8943 patch. While the original patch successfully filtered dangerous CLI flags like `-y` for `npx`, it failed to account for `npm` configuration that can be passed via environment variables (e.g., `npm_config_yes`).
