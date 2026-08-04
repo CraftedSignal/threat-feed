@@ -3,11 +3,15 @@ title: Unauthenticated Remote Code Execution in Realtyna Organic IDX and WPL Rea
 slug: 2026-07-realtyna-rce
 description: The Realtyna Organic IDX and WPL Real Estate plugins contain an arbitrary file upload vulnerability (CVE-2026-14483) allowing unauthenticated remote code execution via static, default API credentials.
 date: "2026-07-31T07:36:11Z"
+lastmod: "2026-08-04T13:42:42Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=FF51B164-5684-5C69-BE3E-5B777005D22B&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - rce
@@ -18,11 +22,19 @@ vendors:
 products:
   - Organic IDX plugin (<= 5.2.0)
   - WPL Real Estate plugin (<= 5.2.0)
+  - Real Estate Listing - WPL (<= 5.2.0)
 cves:
   - id: CVE-2026-14483
     cvss: 9.8
+    epss: 0.00611
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14483
+  - https://sploitus.com/exploit?id=FF51B164-5684-5C69-BE3E-5B777005D22B&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=FF51B164-5684-5C69-BE3E-5B777005D22B
+ioc_counts:
+  url: 1
 rules:
   - title: Detect CVE-2026-14483 Exploitation Attempt
     description: Detects exploitation attempts against Realtyna plugins by monitoring for the usage of hardcoded static API credentials against the WPL I/O endpoint.
@@ -35,6 +47,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-08-04T13:42:42Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=FF51B164-5684-5C69-BE3E-5B777005D22B&utm_source=rss&utm_medium=rss
 ---
 
 The Realtyna Organic IDX and WPL Real Estate plugins for WordPress (versions 5.2.0 and below) contain a critical security vulnerability, tracked as CVE-2026-14483, which allows for unauthenticated remote code execution (RCE). The vulnerability stems from an insecure implementation of the plugin's I/O service endpoint. This endpoint is exposed to the public WordPress init hook without requiring standard WordPress user capability checks. 
