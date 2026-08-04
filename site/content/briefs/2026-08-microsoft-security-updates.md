@@ -1,9 +1,9 @@
 ---
-title: Microsoft Security Updates — August 2026
+title: Microsoft Security Updates - August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of five Microsoft security advisories affecting Microsoft Office Excel and Microsoft Edge, with CVSS scores from 7.4 to 8.8.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-04T14:37:52Z"
+lastmod: "2026-08-04T14:42:20Z"
 type: advisory
 types:
   - advisory
