@@ -1,67 +1,69 @@
 ---
-title: Remote Code Execution in Flowise CSVAgent via pandas.read_pickle
+title: Flowise Remote Code Execution via Sandbox Escape
 slug: 2026-08-flowise-rce
-description: A critical remote code execution vulnerability (CVE-2026-69256) in the Flowise CSVAgent node allows attackers to bypass security filters by deserializing malicious pickled payloads using pandas.
-date: "2026-08-04T17:23:57Z"
+description: Authenticated users can achieve remote code execution in Flowise by exploiting an insecure object merge in the executeJavaScriptCode function to override sandbox restrictions.
+date: "2026-08-04T17:24:08Z"
 type: advisory
 types:
   - advisory
 severities:
-  - critical
+  - high
 tags:
   - rce
-  - python
-  - deserialization
-  - web-security
-vendors:
-  - Flowise
-products:
+  - sandbox-escape
+  - nodejs
   - flowise
-  - flowise-components
+vendors:
+  - FlowiseAI
+products:
+  - Flowise
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: An attacker can supply a crafted pickled payload via the customReadCSVFunc parameter to achieve arbitrary command execution.
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    evidence: The executeJavaScriptCode() function allows the execution of arbitrary JavaScript code inside a NodeVM sandbox which can be leveraged to achieve RCE.
     confidence_band: high
-cves:
-  - id: CVE-2026-69256
 references:
-  - https://github.com/advisories/GHSA-x6vm-w76m-8j7g
-rules:
-  - title: Detect CVE-2026-69256 Exploitation - pandas.read_pickle in CSVAgent
-    description: Detects exploitation attempts against the CSVAgent node by monitoring for the use of read_pickle in user-supplied parameters to the prediction API.
-    platform: sigma
-    severity: critical
-    tactics:
-      - execution
-    techniques:
-      - T1059.003
-    data_sources:
-      - webserver
-rules_count: 1
+  - https://github.com/advisories/GHSA-3769-jgqc-cxm7
+action_plan:
+  priority: elevated
+  owners:
+    - IT Operations
+  immediate_actions:
+    - action: Patch Flowise instance to version containing fix for GHSA-3769-jgqc-cxm7
+      owner: IT Operations
+      due: 48h
+      evidence: Source advisory recommends updating to patched version
+  mitigation_plan:
+    - priority: immediate
+      action: Restrict access to /api/v1/node-custom-function
+      owner: IT Operations
+      addresses: Sandbox escape and unauthorized function execution
+      evidence: Exploit requires interaction with this specific endpoint
 ---
 
-Flowise versions 3.1.2 and below contain a remote code execution (RCE) vulnerability in the CSVAgent node (CVE-2026-69256). The component was designed to allow users to process CSV data via the pandas library while restricting potentially dangerous Python constructs through a denylist-based validation mechanism. However, the existing filter fails to account for the pandas `read_pickle()` function, which can be leveraged to deserialize arbitrary data. By crafting a malicious pickle payload that triggers OS-level execution (e.g., via `os.system`) and providing it through the `customReadCSVFunc` parameter, an attacker can bypass all configured security checks. Since the environment lacks standard I/O modules due to the filter, attackers can implement custom file-like classes to bridge the object into the `read_pickle()` function, successfully achieving full system command execution.
+Flowise is susceptible to a high-severity sandbox escape vulnerability that allows unauthenticated or authenticated users (depending on deployment configuration) to execute arbitrary code with the privileges of the Flowise process. The vulnerability exists within the `executeJavaScriptCode()` utility, which employs an insecure merge strategy when initializing the NodeVM sandbox. Specifically, the application uses the JavaScript spread operator (`{ ...defaultNodeVMOptions, ...nodeVMOptions }`) to combine default security settings with user-supplied options. Because the user-supplied options are applied last, an attacker can override the restricted `require.builtin` allowlist, re-enabling access to powerful Node.js modules such as `child_process` and `fs`. By bypassing the module restrictions, an attacker can instantiate a nested VM or directly interact with the host filesystem and OS, leading to full system compromise.
 
 ## Attack Chain
 
-1. Attacker creates a malicious pickle object containing a payload designed to execute arbitrary shell commands (e.g., `os.system`).
-2. The payload is encoded in base64 to ensure successful transport within the Flowise input parameters.
-3. The attacker defines a custom Python class (e.g., `MiniBytesIO`) within the `customReadCSVFunc` parameter to simulate a file-like object, bypassing constraints on importing standard library I/O modules.
-4. The attacker injects the encoded pickle string into the `read_pickle()` call within the `customReadCSVFunc` parameter in the Flowise UI.
-5. The Flowise CSVAgent node accepts the user-supplied input, as it does not explicitly filter for `read_pickle` or the required pickle-loading logic.
-6. The `pyodide` execution environment processes the provided string and invokes `pandas.read_pickle()`.
-7. The pickle deserialization occurs, triggering the `__reduce__` method of the malicious object and executing the embedded shell commands.
-8. The attacker triggers the execution by sending a POST request to the prediction endpoint (`/api/v1/prediction/<UUID>`), resulting in unauthorized command execution on the host.
+1. Attacker authenticates to the Flowise API to obtain a valid Bearer token.
+2. Attacker interacts with the `/api/v1/node-custom-function` endpoint.
+3. Attacker submits a payload containing a malicious `javascriptFunction` string.
+4. The Flowise backend controller passes the user-supplied JavaScript code into the `executeCustomNodeFunction` service.
+5. The application invokes `executeJavaScriptCode()`, which initializes a NodeVM instance.
+6. The attacker uses an absolute path to require internal Flowise utility modules, bypassing existing module resolution restrictions.
+7. The attacker calls `executeJavaScriptCode()` again from within the sandbox, providing a malicious `nodeVMOptions` object.
+8. The `finalNodeVMOptions` object is constructed, overriding the default sandbox security constraints with `{ require: { builtin: ["*"] } }`.
+9. The attacker executes arbitrary OS commands via the `child_process` module, gaining RCE on the server.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary commands with the privileges of the Flowise application process. This can lead to full system compromise, exfiltration of sensitive configuration or chat data, and potential lateral movement within the environment.
+Successful exploitation results in full remote code execution on the server hosting the Flowise instance. If the Flowise application is running with root or elevated service account privileges, the attacker gains complete control over the host environment. This allows for data exfiltration, lateral movement within the network, and the deployment of persistent threats. All Flowise instances utilizing `executeJavaScriptCode()` are affected.
 
 ## Recommendation
 
-- Upgrade Flowise and the flowise-components package to version 3.1.3 or higher to apply the vendor-provided patch.
-- Apply the following webserver detection rule to identify and block incoming requests targeting the prediction endpoint with suspicious `customReadCSVFunc` payloads.
-- Implement egress filtering on the Flowise host to restrict unexpected network connections originating from the application process, mitigating the impact of successful RCE (e.g., reverse shells).
+* Update Flowise to the latest patched version provided by FlowiseAI that remediates the insecure object spread in `executeJavaScriptCode()`.
+* Implement strict network egress filtering for the container or server running Flowise to prevent the execution of malicious payloads that require outbound C2 communication.
+* Review and restrict access to the `/api/v1/node-custom-function` endpoint using an identity-aware proxy or firewall, ensuring only trusted administrative users can access this functionality.
+* Run the Flowise service with a non-privileged, dedicated service account to limit the impact of potential RCE vulnerabilities.
