@@ -3,7 +3,7 @@ title: Flowise Unauthenticated RCE via Environment Variable Bypass
 slug: 2026-08-flowise-rce
 description: Flowise v3.1.2 and earlier are vulnerable to unauthenticated remote code execution because the CVE-2025-8943 patch relies on an incomplete environment variable blocklist, allowing attackers to inject configuration variables that force arbitrary package installation.
 date: "2026-08-04T17:24:33Z"
-lastmod: "2026-08-04T19:39:51Z"
+lastmod: "2026-08-04T19:39:59Z"
 type: advisory
 types:
   - advisory
@@ -59,6 +59,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: The script leverages child_process.execSync to run arbitrary OS commands on the Flowise host.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1548
+    technique_name: Abuse Elevation Control Mechanism
+    evidence: The server trusts the user-supplied subscriptionId and forwards it to the Stripe integration layer.
+    confidence_band: high
 cves:
   - id: CVE-2025-8943
     cvss: 9.8
@@ -73,6 +79,8 @@ references:
   - https://github.com/advisories/GHSA-52fh-8v99-63c2
   - https://github.com/FlowiseAI/Flowise/pull/5701
   - https://github.com/FlowiseAI/Flowise/pull/5836
+  - https://github.com/advisories/GHSA-gmmw-qg98-6j6p
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70476
 rules:
   - title: Detect Suspicious Dynamic Import in Node.js via Pyodide
     description: Detects attempts to use dynamic import for child_process or fs modules, often associated with sandbox breakouts in Node.js environments.
@@ -94,7 +102,17 @@ rules:
       - T1550.001
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detect CVE-2026-70476 Exploitation - Unauthorized Billing Modification
+    description: Detects unauthorized attempts to modify billing or subscription plans via the organization API endpoints.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1548
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: immediate_escalation
   owners:
@@ -133,6 +151,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-52fh-8v99-63c2
+  - at: "2026-08-04T19:39:59Z"
+    level: L1
+    summary: 'added detection rule: Detect CVE-2026-70476 Exploitation - Unauthorized Billing Modification'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-gmmw-qg98-6j6p
 ---
 
 Flowise (v3.1.2 and earlier) contains a critical security flaw involving an incomplete environment variable blocklist, identified as CVE-2026-69263. This vulnerability allows an attacker to bypass the intended security controls for the Model Context Protocol (MCP) server configuration, specifically those established in the previous CVE-2025-8943 patch. While the original patch successfully filtered dangerous CLI flags like `-y` for `npx`, it failed to account for `npm` configuration that can be passed via environment variables (e.g., `npm_config_yes`).
