@@ -3,7 +3,7 @@ title: Flowise Unauthenticated RCE via Environment Variable Bypass
 slug: 2026-08-flowise-rce
 description: Flowise v3.1.2 and earlier are vulnerable to unauthenticated remote code execution because the CVE-2025-8943 patch relies on an incomplete environment variable blocklist, allowing attackers to inject configuration variables that force arbitrary package installation.
 date: "2026-08-04T17:24:33Z"
-lastmod: "2026-08-04T19:33:20Z"
+lastmod: "2026-08-04T19:39:43Z"
 type: advisory
 types:
   - advisory
@@ -17,12 +17,16 @@ tags:
   - flowise
   - cve-2026-69263
   - python-injection
+  - authentication-bypass
+  - oauth
+  - cve-2026-70478
 vendors:
   - Flowise
 products:
   - Flowise (3.1.2)
   - Flowise Components (3.1.2)
   - Flowise
+  - Flowise (<= 3.1.2)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -36,6 +40,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Once the chatflow is exposed via the (whitelisted, public) POST /api/v1/prediction/:id endpoint, any unauthenticated request triggers the host RCE.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: An attacker can supply a known or enumerated credential ID to an unauthenticated POST endpoint, forcing the application to perform an OAuth2 token refresh and return the new access token directly in the response body.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: The server decrypts the stored credential (containing clientId, clientSecret, refresh_token), sends a refresh request to the configured OAuth provider, and returns the new access_token directly in the response body.
+    confidence_band: high
 cves:
   - id: CVE-2025-8943
     cvss: 9.8
@@ -46,6 +62,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69263
   - https://nvd.nist.gov/vuln/detail/CVE-2025-8943
   - https://github.com/advisories/GHSA-4j8x-x6v7-w9rq
+  - https://github.com/advisories/GHSA-qgvm-j2hm-6m38
 rules:
   - title: Detect Suspicious Dynamic Import in Node.js via Pyodide
     description: Detects attempts to use dynamic import for child_process or fs modules, often associated with sandbox breakouts in Node.js environments.
@@ -57,7 +74,17 @@ rules:
       - T1059.003
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect Unauthenticated OAuth2 Refresh Attempts
+    description: Detects unauthorized attempts to access the Flowise OAuth2 credential refresh endpoint by monitoring for POST requests to the refresh path that may indicate exploitation of CVE-2026-70478.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1550.001
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -82,6 +109,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-4j8x-x6v7-w9rq
+  - at: "2026-08-04T19:39:43Z"
+    level: L2
+    summary: 'added detection rule: Detect Unauthenticated OAuth2 Refresh Attempts'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-qgvm-j2hm-6m38
 ---
 
 Flowise (v3.1.2 and earlier) contains a critical security flaw involving an incomplete environment variable blocklist, identified as CVE-2026-69263. This vulnerability allows an attacker to bypass the intended security controls for the Model Context Protocol (MCP) server configuration, specifically those established in the previous CVE-2025-8943 patch. While the original patch successfully filtered dangerous CLI flags like `-y` for `npx`, it failed to account for `npm` configuration that can be passed via environment variables (e.g., `npm_config_yes`).
