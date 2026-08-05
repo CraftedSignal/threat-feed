@@ -3,7 +3,7 @@ title: Stack-based Buffer Overflow in Autodesk FBX SDK
 slug: 2026-08-fbx-sdk-overflow
 description: A stack-based buffer overflow vulnerability (CVE-2026-10709) in the Autodesk FBX SDK allows arbitrary code execution via maliciously crafted FBX files.
 date: "2026-08-04T13:43:17Z"
-lastmod: "2026-08-04T13:43:22Z"
+lastmod: "2026-08-05T15:17:28Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +13,8 @@ tags:
   - vulnerability
   - rce
   - sdk
+  - code-execution
+  - 3d-rendering
 vendors:
   - Autodesk
 products:
@@ -25,6 +27,12 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: A malicious actor can leverage this vulnerability to execute arbitrary code in the context of the current process.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Ein lokaler Angreifer kann mehrere Schwachstellen in Autodesk FBX SDK ausnutzen, um beliebigen Programmcode mit den Rechten des Dienstes auszuführen.
+    confidence_band: high
 cves:
   - id: CVE-2026-10709
     cvss: 7.8
@@ -34,6 +42,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10709
   - https://www.autodesk.com/trust/security-advisories/adsk-sa-2026-0010
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10710
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2652
 action_plan:
   priority: elevated
   owners:
@@ -53,11 +62,18 @@ action_plan:
 updates:
   - at: "2026-08-04T13:43:22Z"
     level: L2
-    summary: added CVE-2026-10710; fbx sdk version < 2020.3.10
+    summary: added CVE-2026-10710;
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-10710
+  - at: "2026-08-05T15:17:28Z"
+    level: L1
+    summary: added coverage for FBX SDK
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2652
 ---
 
 Autodesk has disclosed a stack-based buffer overflow vulnerability, tracked as CVE-2026-10709, affecting the FBX SDK. The vulnerability is located within the `fbxsdk::FbxIO::BinaryReadSectionHeader` function. This flaw allows a remote attacker to achieve arbitrary code execution in the context of the application parsing a maliciously crafted FBX file. The FBX SDK is widely integrated into various 3D modeling, game development, and rendering software, making this vulnerability highly relevant for organizations utilizing professional design and animation workflows. The vulnerability impacts FBX SDK versions prior to 2020.3.10. Successful exploitation requires user interaction, such as opening a malicious file in a vulnerable application. Given the ubiquity of 3D asset processing in media and engineering sectors, this vulnerability represents a significant risk for the execution of unauthorized code on workstations or build servers.
