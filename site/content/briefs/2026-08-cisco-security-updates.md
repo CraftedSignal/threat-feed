@@ -3,7 +3,7 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-05T21:26:32Z"
+lastmod: "2026-08-05T21:26:35Z"
 type: threat
 types:
   - threat
@@ -19,6 +19,7 @@ products:
   - Integrated Management Controller
   - IOS Software
   - RoomOS
+  - Catalyst SD-WAN Manager
 cves:
   - id: CVE-2026-20267
     cvss: 9
@@ -56,6 +57,7 @@ references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Integrated%20Management%20Controller%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20Information%20Disclosure%20Vulnerability%26vs_k=1
 iocs:
   - type: url
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW
@@ -63,16 +65,17 @@ iocs:
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp
   - type: url
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm
+  - type: url
+    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe
 ioc_counts:
-  url: 3
+  url: 4
 updates:
-  - at: "2026-08-05T17:21:08Z"
+  - at: "2026-08-05T17:21:13Z"
     level: L2
-    summary: added CVE-2026-20200, CVE-2026-20263
+    summary: added CVE-2026-20263
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20301
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20313
   - at: "2026-08-05T21:26:28Z"
     level: L2
@@ -95,9 +98,16 @@ updates:
       - cisco-psirt
     source_urls:
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1
+  - at: "2026-08-05T21:26:35Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - cisco-psirt
+    source_urls:
+      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20Information%20Disclosure%20Vulnerability%26vs_k=1
 ---
 
-This roundup covers 15 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, IOS Software, IOS XE Software, Integrated Management Controller.
+This roundup covers 16 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS.
 
 ## Summary
 
@@ -118,6 +128,7 @@ This roundup covers 15 Cisco security vulnerabilities. None are reported as acti
 | CVE-2026-20313 | 7.7 | Catalyst SD-WAN | Cisco Catalyst SD-WAN is affected by a vulnerability involving improper link resolution before file access, categorized under CWE-1284. This vulnerability was identified during an internal security review and addressed via software hardening releases. |
 | CVE-2026-20311 | 6.3 | IOS XE Software | A vulnerability in the web-based management interface of Cisco IOS XE Software allows an authenticated, low-privileged remote attacker to trigger a denial-of-service condition. By submitting a malformed certificate to the interface, an attacker can cause the device to reload, resulting in an unexpected service disruption. Cisco has released software updates to address this flaw. |
 | CVE-2026-20198 | 0.0 | Integrated Management Controller | A cross-site scripting (XSS) vulnerability exists in the web-based management interface of the Cisco Integrated Management Controller due to improper input validation. An authenticated remote attacker can exploit this by convincing a user to interact with a malicious link, potentially leading to arbitrary script execution within the victim's browser context. |
+| CVE-2026-20289 | 0.0 | RoomOS | A vulnerability in the logging subsystem of Cisco RoomOS allows an authenticated, local attacker with low privileges to access sensitive information, such as user login credentials, by enabling specific logging levels and accessing system logs. There are no workarounds available, and patching is required. |
 
 
 ## CVE-2026-20267
@@ -255,3 +266,12 @@ Affected products:
 - Integrated Management Controller
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Integrated%20Management%20Controller%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
+
+## CVE-2026-20289
+
+A vulnerability in the logging subsystem of Cisco RoomOS allows an authenticated, local attacker with low privileges to access sensitive information, such as user login credentials, by enabling specific logging levels and accessing system logs. There are no workarounds available, and patching is required.
+
+Affected products:
+- RoomOS
+
+Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1
