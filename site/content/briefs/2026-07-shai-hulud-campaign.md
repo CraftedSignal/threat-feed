@@ -3,7 +3,7 @@ title: Shai-Hulud Campaign Activity
 slug: 2026-07-shai-hulud-campaign
 description: Tracking brief for the Shai-Hulud campaign; individual sightings are folded in as reported.
 date: "2026-07-09T13:04:28Z"
-lastmod: "2026-08-04T13:39:57Z"
+lastmod: "2026-08-05T01:58:47Z"
 type: advisory
 types:
   - advisory
@@ -50,6 +50,9 @@ vendors:
   - Cacheable
   - Ornikar
   - Qlik
+  - Kubernetes
+  - HashiCorp
+  - Claude
 products:
   - jscrambler 8.14.0
   - npm
@@ -142,6 +145,9 @@ products:
   - picasso-plugin-hammer (2.11.6)
   - picasso-plugin-q (2.11.6)
   - pob-test-package-in-monorepo (5.2.1)
+  - HashiCorp Vault
+  - Claude
+  - Visual Studio Code
 affected_os:
   - Windows
   - macOS
@@ -154,9 +160,8 @@ references:
   - https://www.intel471.com/blog/software-supply-chain-attacks-weaponizing-trusted-developer-workflows
   - https://www.ncsc.nl/expertblogs/het-nieuwe-trojaanse-paard-zit-in-je-dependencies
   - https://www.wiz.io/blog/keyv-and-cacheable-npm-supply-chain-attack
+  - https://www.microsoft.com/en-us/security/blog/2026/08/04/chaindrop-supply-chain-compromise-anatomy-self-propagating-worm/
 iocs:
-  - type: package
-    value: jscrambler@8.14.0
   - type: hash_sha256
     value: a742de963f14a92d24ebcbc7b44ac867e23a20d31d1b0094a13a4f83287f4e60
   - type: hash_sha256
@@ -175,14 +180,6 @@ iocs:
     value: check.torproject.org
   - type: domain
     value: archive.torproject.org
-  - type: file
-    value: .{random}
-  - type: file
-    value: .{random}.exe
-  - type: file
-    value: ~/Library/LaunchAgents/*
-  - type: file
-    value: Windows Scheduled Task
   - type: ip
     value: 85.137.53.71
   - type: domain
@@ -207,18 +204,9 @@ iocs:
     value: 172.67.167.200
 ioc_counts:
   domain: 8
-  file: 4
   hash_sha256: 5
   ip: 7
-  package: 1
 updates:
-  - at: "2026-07-15T09:41:39Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html
   - at: "2026-07-20T13:12:56Z"
     level: L1
     summary: new product
@@ -247,6 +235,13 @@ updates:
       - wiz
     source_urls:
       - https://www.wiz.io/blog/keyv-and-cacheable-npm-supply-chain-attack
+  - at: "2026-08-05T01:58:47Z"
+    level: L1
+    summary: new product
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/08/04/chaindrop-supply-chain-compromise-anatomy-self-propagating-worm/
 ---
 
 This brief tracks activity attributed to the Shai-Hulud campaign. Sightings and
