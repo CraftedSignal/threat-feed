@@ -3,7 +3,7 @@ title: SSRF Vulnerability in Open WebUI via NAT64-encoded URLs
 slug: 2026-08-open-webui-ssrf
 description: Authenticated users can bypass SSRF protection in Open WebUI by wrapping internal IPv4 addresses in NAT64 IPv6 transition prefixes, allowing unauthorized access to cloud metadata and internal network services.
 date: "2026-08-04T20:00:53Z"
-lastmod: "2026-08-05T02:01:27Z"
+lastmod: "2026-08-05T02:01:37Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +29,7 @@ products:
   - Open WebUI (0.9.6 to 0.10.x)
   - Open WebUI (0.10)
   - Open WebUI (0.10.0-0.10.2)
+  - Open WebUI (0.9.0 to 0.10.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -48,6 +49,24 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: JavaScript'
     evidence: When that happens the renderer falls back to inserting the original math source into the page as HTML rather than as text, so script in the message runs in the browser of whoever views it.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: Getting the malicious file written and displayed still requires a prompt-injection or a social step
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Script in a previewed file could read the victim's session token and take over the account.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1041
+    technique_name: Exfiltration Over C2 Channel
+    evidence: the token is exfiltrated.
+    confidence_band: high
 cves:
   - id: CVE-2026-70482
 references:
@@ -58,6 +77,7 @@ references:
   - https://github.com/open-webui/open-webui/pull/27003
   - https://github.com/advisories/GHSA-pwxh-7358-jq2x
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70492
+  - https://github.com/advisories/GHSA-3xpf-xq7r-v8c5
 rules:
   - title: Detect Potential SSRF Exploitation via NAT64 Encodings
     description: Detects web-retrieval API requests containing NAT64-encoded IPv6 literals, which may indicate an attempt to bypass SSRF filters (CVE-2026-70485).
@@ -124,6 +144,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-pwxh-7358-jq2x
+  - at: "2026-08-05T02:01:37Z"
+    level: L2
+    summary: added coverage for Open WebUI (0.9.0 to 0.10.2)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-3xpf-xq7r-v8c5
 ---
 
 Open WebUI (v0.9.0 through v0.10.x) contains an SSRF vulnerability (CVE-2026-70485) stemming from insecure URL validation logic. When processing user-supplied URLs for RAG or web-search features, the application performs connectivity checks to ensure the destination is globally routable. However, this validation uses the `ipaddress.ip_address(ip).is_global` check on the literal IPv6 address, failing to account for embedded IPv4 addresses within NAT64 transition prefixes (specifically `64:ff9b::/96`). 
