@@ -3,7 +3,7 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-05T17:20:12Z"
+lastmod: "2026-08-05T17:20:14Z"
 type: threat
 types:
   - threat
@@ -13,8 +13,15 @@ tags:
   - roundup
 vendors:
   - Cisco
+products:
+  - IOS XE Software
 cves:
   - id: CVE-2026-20267
+    cvss: 9
+  - id: CVE-2026-20272
+    cvss: 9.8
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20272
 updates:
   - at: "2026-08-05T17:20:12Z"
     level: L1
@@ -23,6 +30,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20267
+  - at: "2026-08-05T17:20:14Z"
+    level: L2
+    summary: added CVE-2026-20272
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-20272
 ---
 
 This roundup covers 1 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect IOS XE Software.
