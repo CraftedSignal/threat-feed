@@ -3,6 +3,7 @@ title: Authorization Bypass in rclone serve restic --private-repos
 slug: 2026-08-rclone-auth-bypass
 description: An authorization bypass vulnerability in rclone's restic server allows authenticated users to access and manipulate repositories of other users via path traversal, impacting multi-tenant environments using backend storage that canonicalizes path segments.
 date: "2026-08-05T21:25:39Z"
+lastmod: "2026-08-05T21:25:50Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - rclone
 products:
   - rclone (1.74.3)
+  - rclone
 affected_os:
   - linux
   - windows
@@ -29,8 +31,28 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: Any authenticated user can read... the victim's restic config and keys/* files.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: An attacker-controlled filename can therefore terminate the intended path literal and append PowerShell statements executed as the victim's SSH account.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-fqj9-69pf-6pjg
+  - https://github.com/advisories/GHSA-2m8m-jhrm-w6j2
+rules:
+  - title: Detect rclone Process Executing PowerShell
+    description: Detects rclone invoking PowerShell, which may indicate exploitation of CVE-2026-71312 when rclone is used with SFTP remotes.
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+    techniques:
+      - T1059.003
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -50,6 +72,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The bypass relies on sending '..' in the URL path.
+updates:
+  - at: "2026-08-05T21:25:50Z"
+    level: L2
+    summary: 'added detection rule: Detect rclone Process Executing PowerShell'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-2m8m-jhrm-w6j2
 ---
 
 The rclone `serve restic` command includes a `--private-repos` feature intended to provide multi-tenant isolation by restricting users to their own path prefix (e.g., `/<username>/`). This security boundary is enforced by two separate chi middlewares that handle request authorization and object path resolution differently. The `checkPrivate` middleware validates that the authenticated user matches the initial path segment. However, the `WithRemote` middleware constructs the backend object key using the raw, un-cleaned URL path.
