@@ -3,7 +3,7 @@ title: Shai-Hulud Campaign Activity
 slug: 2026-07-shai-hulud-campaign
 description: Tracking brief for the Shai-Hulud campaign; individual sightings are folded in as reported.
 date: "2026-07-09T13:04:28Z"
-lastmod: "2026-08-05T09:15:27Z"
+lastmod: "2026-08-05T21:25:18Z"
 type: advisory
 types:
   - advisory
@@ -53,6 +53,7 @@ vendors:
   - Kubernetes
   - HashiCorp
   - Claude
+  - ServiceTitan
 products:
   - jscrambler 8.14.0
   - npm
@@ -149,6 +150,9 @@ products:
   - Claude
   - Visual Studio Code
   - npm registry
+  - keyv
+  - cacheable
+  - Vault
 affected_os:
   - Windows
   - macOS
@@ -163,6 +167,7 @@ references:
   - https://www.wiz.io/blog/keyv-and-cacheable-npm-supply-chain-attack
   - https://www.microsoft.com/en-us/security/blog/2026/08/04/chaindrop-supply-chain-compromise-anatomy-self-propagating-worm/
   - https://www.securityweek.com/over-400-npm-packages-infected-in-chaindrop-supply-chain-attack/
+  - https://www.sonatype.com/blog/mini-shai-hulud-npm-attack-more-than-2200-components-impacted
 iocs:
   - type: hash_sha256
     value: a742de963f14a92d24ebcbc7b44ac867e23a20d31d1b0094a13a4f83287f4e60
@@ -209,13 +214,6 @@ ioc_counts:
   hash_sha256: 5
   ip: 7
 updates:
-  - at: "2026-07-28T22:00:31Z"
-    level: L1
-    summary: new product
-    sources:
-      - intel471
-    source_urls:
-      - https://www.intel471.com/blog/software-supply-chain-attacks-weaponizing-trusted-developer-workflows
   - at: "2026-07-30T14:35:34Z"
     level: L1
     summary: new product
@@ -244,6 +242,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/over-400-npm-packages-infected-in-chaindrop-supply-chain-attack/
+  - at: "2026-08-05T21:25:18Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - sonatype
+    source_urls:
+      - https://www.sonatype.com/blog/mini-shai-hulud-npm-attack-more-than-2200-components-impacted
 ---
 
 This brief tracks activity attributed to the Shai-Hulud campaign. Sightings and
