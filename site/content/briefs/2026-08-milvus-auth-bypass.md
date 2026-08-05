@@ -3,13 +3,12 @@ title: Authentication Bypass and RCE Vulnerabilities in Milvus
 slug: 2026-08-milvus-auth-bypass
 description: Milvus vector database versions prior to 2.5.27 and 2.6.10 are vulnerable to multiple authentication bypass flaws and arbitrary expression execution, allowing attackers to gain full administrative access.
 date: "2026-08-05T06:08:49Z"
+lastmod: "2026-08-05T21:20:43Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
-cpes:
-  - cpe:2.3:a:milvus:milvus:*:*:*:*:*:*:*:*
 tags:
   - milvus
   - authentication-bypass
@@ -21,6 +20,7 @@ vendors:
 products:
   - Milvus (2.5.x)
   - Milvus (2.6.x)
+  - Milvus (<= 2.6.22, 3.0.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -34,14 +34,9 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: The sourceId backdoor allows an attacker to masquerade as root and gain administrative access.
     confidence_band: high
-cves:
-  - id: CVE-2025-64513
-    epss: 0.0107
-  - id: CVE-2026-26190
-    cvss: 9.8
-    epss: 0.36912
 references:
   - https://sploitus.com/exploit?id=CCE27BEF-74DE-5AC7-8FA0-F4D0E1A5839B
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69111
 action_plan:
   priority: immediate_escalation
   owners:
@@ -58,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-26190
       evidence: Source material indicates internal port 53100 should not be exposed to external traffic.
+updates:
+  - at: "2026-08-05T21:20:43Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69111
 ---
 
 Milvus is susceptible to critical authentication vulnerabilities that permit unauthenticated remote attackers to bypass security controls and gain administrative access. The most notable issue, CVE-2025-64513, involves a hardcoded 'sourceId' header ('@@milvus-member@@') used in the `validSourceID()` function within `internal/proxy/authentication_interceptor.go`. This header forces the proxy to skip authentication entirely, allowing an attacker to forge an identity and gain administrative privileges by providing a base64-encoded 'root' credential.
