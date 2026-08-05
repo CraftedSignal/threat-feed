@@ -3,7 +3,7 @@ title: IBM Langflow OSS Unauthenticated Remote Code Execution via Chained API En
 slug: 2026-07-ibm-langflow-oss-rce
 description: Unauthenticated attackers can achieve Remote Code Execution (RCE) on default IBM Langflow OSS deployments, versions 1.0.0 through 1.10.0, by chaining access to the `/api/v1/auto_login` endpoint, which mints SUPERUSER tokens, with the `/api/v1/validate/code` endpoint, which executes user-supplied code via `exec()`.
 date: "2026-07-17T18:18:35Z"
-lastmod: "2026-08-05T10:15:32Z"
+lastmod: "2026-08-05T17:20:47Z"
 type: advisory
 types:
   - advisory
@@ -50,6 +50,7 @@ products:
   - Langflow OSS (< 1.10.1)
   - N-central
   - Tomcat
+  - Langflow OSS (1.0.0 <= 1.10.3)
 affected_os:
   - Linux
 mitre_ttps:
@@ -94,6 +95,7 @@ references:
   - https://sploitus.com/exploit?id=96D39E7C-13B2-5997-AC48-7DF13218918C&utm_source=rss&utm_medium=rss
   - https://www.cve.org/CVERecord?id=CVE-2026-9198
   - https://www.securityweek.com/cisa-warns-of-exploited-langflow-n-central-and-tomcat-vulnerabilities/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-17623
 iocs:
   - type: url
     value: https://www.ibm.com/support/pages/node/7278929
@@ -142,6 +144,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/cisa-warns-of-exploited-langflow-n-central-and-tomcat-vulnerabilities/
+  - at: "2026-08-05T17:20:47Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-17623
 ---
 
 IBM Langflow OSS, an open-source framework for building and deploying AI/LLM applications, contains a critical vulnerability (CVE-2026-9198) affecting versions 1.0.0 through 1.10.0. This flaw allows unauthenticated attackers to achieve full Remote Code Execution (RCE) on default installations. The exploitation involves a two-step chaining process: first, an attacker leverages the `/api/v1/auto_login` endpoint to obtain SUPERUSER tokens without authentication; second, these tokens are then used to invoke the `/api/v1/validate/code` endpoint, which insecurely executes arbitrary user-provided code using Python's `exec()` function. This vulnerability bypasses authentication, granting an attacker complete control over the compromised Langflow instance and its underlying system, posing a severe risk to data integrity, confidentiality, and system availability.
