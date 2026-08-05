@@ -3,12 +3,13 @@ title: Unauthenticated Access Vulnerability in H3C NX15
 slug: 2026-08-h3c-auth-bypass
 description: A missing authentication vulnerability in the H3C NX15 network device firmware (CVE-2026-18810) allows unauthenticated remote attackers to access the /api/wizard/networkSetup endpoint, potentially enabling unauthorized configuration changes.
 date: "2026-08-04T22:02:27Z"
-lastmod: "2026-08-05T06:05:04Z"
+lastmod: "2026-08-05T08:06:29Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
 tags:
   - cve-2026-18812
   - command-injection
@@ -46,6 +47,8 @@ cves:
     cvss: 7.2
   - id: CVE-2026-18813
     cvss: 7.2
+  - id: CVE-2026-18901
+    cvss: 7.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18810
   - https://vuldb.com/cve/CVE-2026-18810
@@ -59,6 +62,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18814
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18900
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18901
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18902
 iocs:
   - type: url
     value: https://github.com/coconut652-7/IOT_Vul_Public/tree/main/H3C/NX15R017/service_add_root_rce
@@ -66,8 +70,10 @@ iocs:
     value: https://github.com/coconut652-7/IOT_Vul_Public/blob/main/H3C/NX15R017/file_exec_root_rce/poc/postauth_file_exec_rce.py
   - type: url
     value: https://github.com/coconut652-7/IOT_Vul_Public/blob/main/H3C/NX15R017/service_add_root_rce_chain/poc/postauth_service_add_rce.py
+  - type: url
+    value: https://github.com/coconut652-7/IOT_Vul_Public/blob/main/H3C/NX15R017/esps.wan.repeater.set-repeaterproc/poc/postauth_esps_wan_repeater_repeaterproc_rce.py
 ioc_counts:
-  url: 3
+  url: 4
 rules:
   - title: Detects CVE-2026-18810 Exploitation - Unauthenticated Access to Network Setup
     description: Detects unauthenticated HTTP requests to the /api/wizard/networkSetup endpoint associated with CVE-2026-18810 exploitation.
@@ -128,13 +134,6 @@ action_plan:
       addresses: CVE-2026-18810
       evidence: Vulnerability requires firmware update or configuration change
 updates:
-  - at: "2026-08-04T22:02:47Z"
-    level: L2
-    summary: 'added detection rule: Detects CVE-2026-18812 Exploitation - Command Injection in H3C NX15'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-18812
   - at: "2026-08-04T22:02:57Z"
     level: L2
     summary: 'added detection rule: Detects CVE-2026-18813 Exploitation - Command Injection in H3C NX15'
@@ -157,6 +156,13 @@ updates:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-18900
       - https://nvd.nist.gov/vuln/detail/CVE-2026-18901
+  - at: "2026-08-05T08:06:29Z"
+    level: L2
+    summary: poc_available; added CVE-2026-18901
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18902
 ---
 
 A security vulnerability identified as CVE-2026-18810 affects H3C NX15 devices running firmware version V100R017. The vulnerability exists within the /api/wizard/networkSetup endpoint, where improper authentication handling allows remote, unauthenticated actors to interact with the device. This flaw is classified as CWE-306 (Missing Authentication for Critical Function), meaning the device fails to verify the identity of the requester before allowing access to administrative or setup functionalities. Successful exploitation can allow an attacker to bypass intended security controls and potentially reconfigure the network device remotely. This vulnerability is significant as it affects the management plane of network infrastructure equipment, providing a vector for persistent unauthorized access or further network-level exploitation if the device is internet-facing.
