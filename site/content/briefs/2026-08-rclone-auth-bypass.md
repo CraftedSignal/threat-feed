@@ -3,7 +3,7 @@ title: Authorization Bypass in rclone serve restic --private-repos
 slug: 2026-08-rclone-auth-bypass
 description: An authorization bypass vulnerability in rclone's restic server allows authenticated users to access and manipulate repositories of other users via path traversal, impacting multi-tenant environments using backend storage that canonicalizes path segments.
 date: "2026-08-05T21:25:39Z"
-lastmod: "2026-08-05T21:25:58Z"
+lastmod: "2026-08-05T21:26:05Z"
 type: advisory
 types:
   - advisory
@@ -43,11 +43,19 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: This yields arbitrary file write as the victim user, e.g. overwriting ~/.ssh/authorized_keys... i.e. code execution.
     confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1006
+    technique_name: Direct Volume Access
+    evidence: The primary vulnerable component is the backend-independent WithRemote middleware... it accepts a leading parent component and stores that unsafe relative path.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-fqj9-69pf-6pjg
   - https://github.com/advisories/GHSA-2m8m-jhrm-w6j2
   - https://github.com/advisories/GHSA-cf44-9pgv-m4xc
   - https://nvd.nist.gov/vuln/detail/CVE-2026-54572
+  - https://github.com/advisories/GHSA-45pq-889g-fcgh
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-71309
 rules:
   - title: Detect rclone Process Executing PowerShell
     description: Detects rclone invoking PowerShell, which may indicate exploitation of CVE-2026-71312 when rclone is used with SFTP remotes.
@@ -95,6 +103,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-cf44-9pgv-m4xc
+  - at: "2026-08-05T21:26:05Z"
+    level: L2
+    summary: added coverage for rclone
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-45pq-889g-fcgh
 ---
 
 The rclone `serve restic` command includes a `--private-repos` feature intended to provide multi-tenant isolation by restricting users to their own path prefix (e.g., `/<username>/`). This security boundary is enforced by two separate chi middlewares that handle request authorization and object path resolution differently. The `checkPrivate` middleware validates that the authenticated user matches the initial path segment. However, the `WithRemote` middleware constructs the backend object key using the raw, un-cleaned URL path.
