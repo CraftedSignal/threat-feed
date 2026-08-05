@@ -3,12 +3,14 @@ title: IBM Langflow OSS Unauthenticated Remote Code Execution via Chained API En
 slug: 2026-07-ibm-langflow-oss-rce
 description: Unauthenticated attackers can achieve Remote Code Execution (RCE) on default IBM Langflow OSS deployments, versions 1.0.0 through 1.10.0, by chaining access to the `/api/v1/auto_login` endpoint, which mints SUPERUSER tokens, with the `/api/v1/validate/code` endpoint, which executes user-supplied code via `exec()`.
 date: "2026-07-17T18:18:35Z"
-lastmod: "2026-08-05T19:20:36Z"
+lastmod: "2026-08-05T19:20:38Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:langflow:langflow:*:*:*:*:*:*:*:*
 tags:
   - remote-code-execution
   - api-exploitation
@@ -52,6 +54,25 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: /api/v1/auto_login (mints SUPERUSER tokens to any network caller)
     confidence_band: high
+cves:
+  - id: CVE-2026-9198
+    cvss: 9.8
+    epss: 0.01886
+  - id: CVE-2026-9202
+    cvss: 9.8
+    epss: 0.00279
+  - id: CVE-2026-17623
+    cvss: 8.8
+  - id: CVE-2026-17626
+    cvss: 8.8
+  - id: CVE-2026-17630
+    cvss: 7.2
+  - id: CVE-2026-8446
+    cvss: 7.5
+  - id: CVE-2026-9077
+    cvss: 8.5
+  - id: CVE-2026-17632
+    cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9198
   - https://www.ibm.com/support/pages/node/7278927
@@ -72,6 +93,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8470
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8478
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9130
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9196
 iocs:
   - type: url
     value: https://www.ibm.com/support/pages/node/7278929
@@ -92,13 +114,6 @@ rules:
       - webserver
 rules_count: 1
 updates:
-  - at: "2026-08-05T17:20:47Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-17623
   - at: "2026-08-05T17:20:49Z"
     level: L1
     summary: new product
@@ -127,6 +142,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-9130
+  - at: "2026-08-05T19:20:38Z"
+    level: L2
+    summary: added CVE-2026-17623 +7
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-9196
 ---
 
 IBM Langflow OSS, an open-source framework for building and deploying AI/LLM applications, contains a critical vulnerability (CVE-2026-9198) affecting versions 1.0.0 through 1.10.0. This flaw allows unauthenticated attackers to achieve full Remote Code Execution (RCE) on default installations. The exploitation involves a two-step chaining process: first, an attacker leverages the `/api/v1/auto_login` endpoint to obtain SUPERUSER tokens without authentication; second, these tokens are then used to invoke the `/api/v1/validate/code` endpoint, which insecurely executes arbitrary user-provided code using Python's `exec()` function. This vulnerability bypasses authentication, granting an attacker complete control over the compromised Langflow instance and its underlying system, posing a severe risk to data integrity, confidentiality, and system availability.
