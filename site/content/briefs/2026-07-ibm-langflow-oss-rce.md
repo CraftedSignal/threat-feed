@@ -3,34 +3,12 @@ title: IBM Langflow OSS Unauthenticated Remote Code Execution via Chained API En
 slug: 2026-07-ibm-langflow-oss-rce
 description: Unauthenticated attackers can achieve Remote Code Execution (RCE) on default IBM Langflow OSS deployments, versions 1.0.0 through 1.10.0, by chaining access to the `/api/v1/auto_login` endpoint, which mints SUPERUSER tokens, with the `/api/v1/validate/code` endpoint, which executes user-supplied code via `exec()`.
 date: "2026-07-17T18:18:35Z"
-lastmod: "2026-08-05T19:20:22Z"
+lastmod: "2026-08-05T19:20:36Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
-cpes:
-  - cpe:2.3:a:langflow:langflow:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:n-able:n-central:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:n-able:n-central:2026.3:-:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:9.0.116:*:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:10.1.53:*:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:11.0.20:*:*:*:*:*:*:*
-  - cpe:2.3:a:redhat:jboss_web_server:7.0.0:*:*:*:*:*:*:*
-  - cpe:2.3:o:redhat:enterprise_linux:8.0:*:*:*:*:*:*:*
-  - cpe:2.3:o:redhat:enterprise_linux:9.0:*:*:*:*:*:*:*
-  - cpe:2.3:o:redhat:enterprise_linux:10.0:*:*:*:*:*:*:*
-  - cpe:2.3:o:redhat:enterprise_linux_els:7.0:*:*:*:*:*:*:*
-  - cpe:2.3:o:redhat:enterprise_linux_eus:10.0:*:*:*:*:*:*:*
-  - cpe:2.3:o:redhat:enterprise_linux_tus:8.8:*:*:*:*:*:*:*
-  - cpe:2.3:o:redhat:enterprise_linux_update_services_for_sap_solutions:8.8:*:*:*:*:*:*:*
-  - cpe:2.3:o:redhat:enterprise_linux_update_services_for_sap_solutions:9.2:*:*:*:*:*:*:*
-  - cpe:2.3:o:redhat:enterprise_linux_update_services_for_sap_solutions:9.4:*:*:*:*:*:*:*
-  - cpe:2.3:o:redhat:enterprise_linux_update_services_for_sap_solutions:9.6:*:*:*:*:*:*:*
-  - cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
-has_poc: true
-poc_references:
-  - https://sploitus.com/exploit?id=96D39E7C-13B2-5997-AC48-7DF13218918C&utm_source=rss&utm_medium=rss
 tags:
   - remote-code-execution
   - api-exploitation
@@ -52,6 +30,7 @@ products:
   - Tomcat
   - Langflow OSS (1.0.0 <= 1.10.3)
   - Langflow OSS (1.0.0 through 1.10.3)
+  - Langflow OSS (1.0.0 - 1.10.3)
 affected_os:
   - Linux
 mitre_ttps:
@@ -73,34 +52,6 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: /api/v1/auto_login (mints SUPERUSER tokens to any network caller)
     confidence_band: high
-cves:
-  - id: CVE-2026-9198
-    cvss: 9.8
-    epss: 0.01886
-  - id: CVE-2026-9202
-    cvss: 9.8
-    epss: 0.00279
-  - id: CVE-2026-18577
-    cvss: 8.1
-    epss: 0.02529
-  - id: CVE-2026-34486
-    cvss: 7.5
-    epss: 0.42627
-  - id: CVE-2026-29146
-    cvss: 7.5
-    epss: 0.06258
-  - id: CVE-2026-9077
-    cvss: 8.5
-  - id: CVE-2026-17623
-    cvss: 8.8
-  - id: CVE-2026-17626
-    cvss: 8.8
-  - id: CVE-2026-8446
-    cvss: 7.5
-  - id: CVE-2026-17632
-    cvss: 8.8
-  - id: CVE-2026-17630
-    cvss: 7.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9198
   - https://www.ibm.com/support/pages/node/7278927
@@ -115,6 +66,12 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9077
   - https://nvd.nist.gov/vuln/detail/CVE-2026-17624
   - https://nvd.nist.gov/vuln/detail/CVE-2026-17632
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-17633
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-8182
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-8183
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-8470
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-8478
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-9130
 iocs:
   - type: url
     value: https://www.ibm.com/support/pages/node/7278929
@@ -135,13 +92,6 @@ rules:
       - webserver
 rules_count: 1
 updates:
-  - at: "2026-08-05T10:15:32Z"
-    level: L2
-    summary: added CVE-2026-18577 +2
-    sources:
-      - securityweek
-    source_urls:
-      - https://www.securityweek.com/cisa-warns-of-exploited-langflow-n-central-and-tomcat-vulnerabilities/
   - at: "2026-08-05T17:20:47Z"
     level: L1
     summary: new product
@@ -170,6 +120,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-17632
+  - at: "2026-08-05T19:20:36Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-9130
 ---
 
 IBM Langflow OSS, an open-source framework for building and deploying AI/LLM applications, contains a critical vulnerability (CVE-2026-9198) affecting versions 1.0.0 through 1.10.0. This flaw allows unauthenticated attackers to achieve full Remote Code Execution (RCE) on default installations. The exploitation involves a two-step chaining process: first, an attacker leverages the `/api/v1/auto_login` endpoint to obtain SUPERUSER tokens without authentication; second, these tokens are then used to invoke the `/api/v1/validate/code` endpoint, which insecurely executes arbitrary user-provided code using Python's `exec()` function. This vulnerability bypasses authentication, granting an attacker complete control over the compromised Langflow instance and its underlying system, posing a severe risk to data integrity, confidentiality, and system availability.
