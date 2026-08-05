@@ -3,13 +3,12 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-08-01T19:48:02Z"
+lastmod: "2026-08-05T21:15:08Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-has_poc: true
 tags:
   - campaign
   - clickfix
@@ -89,15 +88,8 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_powershell_fakecaptcha_clipboard_execution.yml
   - https://cloud.google.com/blog/topics/threat-intelligence/mitigation-guidance-for-supply-chain-compromise/
   - https://www.malware-traffic-analysis.net/2026/07/31/index.html
+  - https://www.microsoft.com/en-us/security/blog/2026/08/05/macos-clickfix-campaign-learned-hide/
 iocs:
-  - type: github_account_name
-    value: Xpos587
-  - type: packagist_namespace
-    value: sevenspan
-  - type: malware_name
-    value: DEV#POPPER
-  - type: malware_name
-    value: OmniStealer
   - type: domain
     value: justwatch.com
   - type: ip
@@ -110,10 +102,6 @@ iocs:
     value: .gov.br
   - type: domain
     value: us.zoom.06webin.us
-  - type: telegram handle
-    value: '@alchemy_john_mac'
-  - type: telegram channel
-    value: Aurora
   - type: url
     value: https://pewtercanto.top/user/throttle-effect.js
   - type: url
@@ -122,23 +110,21 @@ iocs:
     value: https://pewtercanto.top/user/version-deploy.js?18c7713e5fb5a572
   - type: url
     value: http://deltaode.com/po
+  - type: domain
+    value: apricotfilepoint.com
+  - type: domain
+    value: filecopperbasket.com
+  - type: domain
+    value: filevelvettractor.com
+  - type: domain
+    value: fileoceanhammer.com
+  - type: domain
+    value: filemarblegarden.com
 ioc_counts:
-  domain: 5
-  github_account_name: 1
+  domain: 10
   ip: 1
-  malware_name: 2
-  packagist_namespace: 1
-  telegram channel: 1
-  telegram handle: 1
   url: 4
 updates:
-  - at: "2026-07-16T10:01:31Z"
-    level: L2
-    summary: poc_available
-    sources:
-      - talos
-    source_urls:
-      - https://blog.talosintelligence.com/uat-11795-deploys-novel-starland-rat-and-bespoke-wldr-c2-implant-in-financially-motivated-campaign/
   - at: "2026-07-16T12:45:34Z"
     level: L1
     summary: OS macos
@@ -167,6 +153,13 @@ updates:
       - malware-traffic-analysis
     source_urls:
       - https://www.malware-traffic-analysis.net/2026/07/31/index.html
+  - at: "2026-08-05T21:15:08Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/08/05/macos-clickfix-campaign-learned-hide/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
