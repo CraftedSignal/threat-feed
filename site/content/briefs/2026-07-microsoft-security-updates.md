@@ -3,57 +3,12 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-07-31T15:31:29Z"
+lastmod: "2026-08-05T09:12:32Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-cpes:
-  - cpe:2.3:a:microsoft:sharepoint_server:*:*:*:*:subscription:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2016:*:*:*:enterprise:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_server:2019:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:.net:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:visual_studio_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:windows_subsystem_for_linux:*:*:*:*:*:-:*:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
-  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
-  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:*:*
-has_poc: true
-poc_references:
-  - https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F&utm_source=rss&utm_medium=rss
 tags:
   - roundup
 vendors:
@@ -678,40 +633,6 @@ affected_os:
   - Windows 11 24H2
   - Windows 11 25H2
   - Windows 11 26H1
-cves:
-  - id: CVE-2026-56164
-    cvss: 5.3
-    epss: 0.22439
-  - id: CVE-2026-56155
-    cvss: 7.8
-    epss: 0.02333
-  - id: CVE-2026-47300
-    cvss: 8.8
-    epss: 0.00527
-  - id: CVE-2026-57968
-    cvss: 7.8
-    epss: 0.00311
-  - id: CVE-2026-58539
-    cvss: 6.5
-    epss: 0.00868
-  - id: CVE-2026-58542
-    cvss: 7.8
-    epss: 0.00341
-  - id: CVE-2026-42982
-    cvss: 7.8
-    epss: 0.00269
-  - id: CVE-2026-50434
-    cvss: 5.5
-    epss: 0.00353
-  - id: CVE-2026-56644
-    cvss: 7.8
-    epss: 0.00311
-  - id: CVE-2026-57089
-    cvss: 7.5
-    epss: 0.0061
-  - id: CVE-2026-58634
-    cvss: 7.8
-    epss: 0.00289
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1496,8 +1417,6 @@ iocs:
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58292
   - type: domain
     value: nist.gov
-  - type: domain
-    value: microsoft.com
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58297
   - type: url
@@ -1518,60 +1437,14 @@ iocs:
     value: https://github.com/its-a-feature/bifrost
   - type: url
     value: https://any.run/malware-trends/tycoon/
-  - type: other
-    value: BAV2ROPC
-  - type: other
-    value: TeamFiltration
-  - type: file-path
-    value: C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\
-  - type: file-path
-    value: C:\Windows\System32\Microsoft\Protect\S-1-5-18\
-  - type: string
-    value: 10.0.19045.2006
-  - type: string
-    value: DESKTOP-*
-  - type: string
-    value: Dsreg/10.0 (Windows 10.0.19045.2006)
-  - type: string
-    value: axios/*
-  - type: string
-    value: python-requests/*
-  - type: pattern
-    value: DESKTOP-
-  - type: os_version
-    value: 10.0.19045.2006
-  - type: user_agent
-    value: Dsreg/10.0 (Windows 10.0.19045.2006)
-  - type: user_agent
-    value: axios/*
-  - type: user_agent
-    value: python-requests/*
   - type: domain
     value: pool.supportxmr[.]com
-  - type: filename
-    value: symantec.exe
-  - type: software
-    value: PoisonX
-  - type: software
-    value: AnyDesk
-  - type: software
-    value: Mimikatz
-  - type: software
-    value: PsExec
-  - type: software
-    value: NirSoft tools
-  - type: platform
-    value: github.com
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58525
   - type: url
     value: https://www.cve.org/CVERecord?id=CVE-2026-58525
-  - type: asn
-    value: AS32167
   - type: url
     value: https://sploitus.com/exploit?id=833581E3-D09A-5C85-BB3D-46DA43EDAF50
-  - type: filename
-    value: devtools-helper.vsix
   - type: url
     value: https://api.github.com/repos/stamparm/maltrail/commits/62bcccbdb75b98a64c49f74282b0942f4661fb2a
   - type: url
@@ -1618,34 +1491,12 @@ iocs:
     value: https://jnns.de/posts/cve-2023-38146-poc/
   - type: url
     value: https://github.com/Jnnshschl/ThemeBleedReverseShellDLL
-  - type: filename
-    value: evil_theme.theme
-  - type: filename
-    value: evil_theme.themepack
-  - type: filename
-    value: Aero.msstyles_vrf_evil.dll
   - type: url
     value: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58596
   - type: domain
     value: logfriend.com
   - type: domain
     value: 334thribetlhkyo977gqrcht1k7bvdj2.oastify.com
-  - type: user_agent
-    value: python-requests/2.32.3
-  - type: infrastructure_provider
-    value: Amazon Web Services
-  - type: infrastructure_provider
-    value: Cloudflare
-  - type: error_code
-    value: AADSTS50126
-  - type: error_code
-    value: AADSTS50034
-  - type: error_code
-    value: AADSTS700016
-  - type: file_name
-    value: barr.svg
-  - type: file_name
-    value: lg.svg
   - type: url
     value: https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-56164
   - type: url
@@ -1722,62 +1573,6 @@ iocs:
     value: https://github.com/Azure/azure-sdk-for-java/pull/49252
   - type: url
     value: https://github.com/Azure/azure-sdk-for-java/pull/49033
-  - type: file
-    value: poc.py
-  - type: file
-    value: README.md
-  - type: file
-    value: termsrv.dll
-  - type: scheduled_task
-    value: Apple Sync
-  - type: file
-    value: '%PROGRAMDATA%\hwid.dat'
-  - type: other
-    value: 04b07795-
-  - type: tool
-    value: ROADrecon
-  - type: tool
-    value: ROADtools
-  - type: tool
-    value: AADInternals
-  - type: library
-    value: aiohttp
-  - type: tool
-    value: curl
-  - type: library
-    value: Go-http-client
-  - type: language
-    value: Python
-  - type: library
-    value: fasthttp
-  - type: library
-    value: okhttp
-  - type: library
-    value: axios
-  - type: library
-    value: node-fetch
-  - type: library
-    value: go-resty
-  - type: library
-    value: bav2ropc
-  - type: library
-    value: undici
-  - type: pattern
-    value: '*hound*'
-  - type: user_agent
-    value: Electron/8.5.1 (Windows)
-  - type: user_agent
-    value: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.3.00.30866 Chrome/80.0.3987.165 Electron/8.5.1 Safari/537.36
-  - type: application_id
-    value: 1fec8e78-bce4-4aaf-ab1b-5451cc387264
-  - type: asn
-    value: AS16509
-  - type: asn
-    value: AS14618
-  - type: pattern
-    value: DESKTOP-*
-  - type: pattern
-    value: 10.0.19041.928
   - type: url
     value: https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema
   - type: url
@@ -1802,12 +1597,6 @@ iocs:
     value: EC68A6BF7F104A815BD21E27E73A8DFB8AFCB282D4997BEBE9ECCD6C89259506
   - type: url
     value: https://sploitus.com/exploit?id=EE91804C-7619-5280-A1EA-CD09C9E65284
-  - type: file_name
-    value: srt64.sys
-  - type: file_name
-    value: a.dll
-  - type: file_name
-    value: kbdus1.dll
   - type: ip
     value: 112.213.124.132
   - type: domain
@@ -1834,14 +1623,6 @@ iocs:
     value: https://app.any.run/tasks/d078f430-c3cc-44e8-a809-5506205049c3?utm_source=anyrunblog&utm_medium=article&utm_campaign=kali365-phishing-targeting-us&utm_term=210726&utm_content=linktoservice
   - type: domain
     value: cloudlanecdn[.]com
-  - type: file
-    value: uxtheme.dll
-  - type: file
-    value: n-HTCommp.dll
-  - type: file
-    value: AzureCommunication.dll
-  - type: file
-    value: logAzure.txt
   - type: domain
     value: windiam.com
   - type: url
@@ -1900,30 +1681,6 @@ iocs:
     value: https://sploitus.com/exploit?id=B4E1D3A6-7173-5883-9366-19658411A20B
   - type: domain
     value: .ru
-  - type: file_path
-    value: '*:\PerfLogs\*'
-  - type: file_path
-    value: '*:\Users\Administrator\Music\*'
-  - type: file_path
-    value: '*:\Users\Default\*'
-  - type: file_path
-    value: '*:\Users\Public\*'
-  - type: file_path
-    value: '*:\Windows\debug\*'
-  - type: file_path
-    value: '*:\Windows\fonts\*'
-  - type: file_path
-    value: '*:\Windows\Media\*'
-  - type: file_path
-    value: '*:\Windows\repair\*'
-  - type: file_path
-    value: '*:\Windows\servicing\*'
-  - type: file_path
-    value: '*\inetpub\*'
-  - type: file_path
-    value: '*\Microsoft\Windows\Libraries\*'
-  - type: file_path
-    value: '*Recycle.bin*'
   - type: url
     value: https://thedfirreport.com/2020/04/20/sqlserver-or-the-miner-in-the-basement/
   - type: url
@@ -1958,72 +1715,6 @@ iocs:
     value: https://www.bleepingcomputer.com/news/security/critical-sharepoint-rce-flaw-exploited-to-steal-machine-keys/
   - type: url
     value: https://censys.com/advisory/cve-2026-50522-cve-2026-58644/
-  - type: indicator
-    value: POST /_trust/default.aspx
-  - type: signature
-    value: SecurityContextToken
-  - type: signature
-    value: BinaryFormatter
-  - type: signature
-    value: AAEAAAD
-  - type: process
-    value: w3wp.exe
-  - type: process
-    value: cmd.exe
-  - type: process
-    value: powershell.exe
-  - type: process
-    value: pwsh.exe
-  - type: process
-    value: certutil.exe
-  - type: process
-    value: bitsadmin.exe
-  - type: process
-    value: mshta.exe
-  - type: process
-    value: rundll32.exe
-  - type: process
-    value: regsvr32.exe
-  - type: process
-    value: cscript.exe
-  - type: process
-    value: wscript.exe
-  - type: filename
-    value: '*.aspx'
-  - type: filename
-    value: '*.ashx'
-  - type: filename
-    value: '*.asmx'
-  - type: filename
-    value: '*.dll'
-  - type: filename
-    value: web.config
-  - type: detection
-    value: Exploit:Script/SuspSignoutReqBody.A
-  - type: detection
-    value: Exploit:Script/ToolPaneAuthBypass.A
-  - type: detection
-    value: Exploit:Script/ToolPaneAuthBypass.C
-  - type: detection
-    value: Backdoor:MSIL/LeakFang.A!dha
-  - type: process_name
-    value: explorer.exe
-  - type: process_name
-    value: winrar.exe
-  - type: process_name
-    value: 7zFM.exe
-  - type: process_name
-    value: wscript.exe
-  - type: process_name
-    value: cscript.exe
-  - type: process_argument_pattern
-    value: '*\AppData\Local\Temp\*'
-  - type: process_argument_pattern
-    value: '*\rar*'
-  - type: process_argument_pattern
-    value: '*\7z*'
-  - type: process_argument_pattern
-    value: '*.zip*'
   - type: domain
     value: githubusercontent.com
   - type: domain
@@ -2078,8 +1769,6 @@ iocs:
     value: ufile.io
   - type: domain
     value: w3spaces.com
-  - type: domain
-    value: workers.dev
   - type: url
     value: https://attack.mitre.org/techniques/T1553/005/
   - type: url
@@ -2090,8 +1779,6 @@ iocs:
     value: https://blog.talosintelligence.com/2018/02/olympic-destroyer.html
   - type: url
     value: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/malware/olympic_destroyer/sysmon.log
-  - type: file-extension
-    value: .SINOBI
   - type: domain
     value: sequrityupdate.top
   - type: domain
@@ -2130,82 +1817,24 @@ iocs:
     value: 94.140.115.18
   - type: ip
     value: 94.140.115.129
-  - type: file_path
-    value: C:\ProgramData\AppSreen\logs\appscreen.log
-  - type: registry_key
-    value: HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Realtek HD Audio Universal Service
-  - type: registry_key
-    value: HKCU\Software\Microsoft\Windows\CurrentVersion\Run\WinAudio
-  - type: filename
-    value: sekv*.exe
-  - type: filename
-    value: helper*.exe
-  - type: filename
-    value: 74fs*.exe
   - type: url
     value: https://sploitus.com/exploit?id=C28553BE-4C45-5EF1-858E-239BEE31A10F
   - type: url
     value: https://github.com/DavidCarliez/CVE-2026-49176_LPE_POC
   - type: url
     value: https://davidcarliez.github.io/blog/cve-2026-49176-walletservice-to-system/
-  - type: file_path
-    value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\Wallet\wallet.db'
-  - type: file_path
-    value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\payload\wallet_callback.dll'
-  - type: file_path
-    value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\payload\shell_broker.exe'
-  - type: file_path
-    value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\payload\command.txt'
-  - type: file_path
-    value: '%LOCALAPPDATA%\CVE-2026-49176-BOF\payload\result.txt'
-  - type: service_name
-    value: CVE49176_*
   - type: url
     value: https://www.wiz.io/blog/cosmosescape-taking-over-every-database-in-azure-cosmos-db
+  - type: url
+    value: https://therecord.media/north-korea-hackers-ransomware
 ioc_counts:
-  application_id: 1
-  asn: 3
-  detection: 4
-  domain: 77
+  domain: 75
   email: 7
-  error_code: 3
-  file: 8
-  file-extension: 1
-  file-path: 2
-  file_name: 5
-  file_path: 18
-  filename: 13
   hash_md5: 12
   hash_sha256: 3
-  indicator: 1
-  infrastructure_provider: 2
   ip: 4
-  language: 1
-  library: 9
-  os_version: 1
-  other: 3
-  pattern: 4
-  platform: 1
-  process: 11
-  process_argument_pattern: 4
-  process_name: 5
-  registry_key: 2
-  scheduled_task: 1
-  service_name: 1
-  signature: 3
-  software: 5
-  string: 5
-  tool: 4
-  url: 124
-  user_agent: 6
+  url: 125
 updates:
-  - at: "2026-07-30T07:21:07Z"
-    level: L2
-    summary: added CVE-2026-50336 +2
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_azure_aks_api_request_failure_burst.toml
   - at: "2026-07-30T13:32:22Z"
     level: L2
     summary: added CVE-2026-50345 +4
@@ -2234,6 +1863,13 @@ updates:
       - reddit-blueteamsec
     source_urls:
       - https://www.reddit.com/r/blueteamsec/comments/1vbtjg0/cosmosescape_taking_over_every_azure_cosmos_db/
+  - at: "2026-08-05T09:12:32Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - risky-biz
+    source_urls:
+      - https://therecord.media/north-korea-hackers-ransomware
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
