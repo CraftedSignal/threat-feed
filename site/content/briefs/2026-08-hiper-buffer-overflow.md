@@ -3,6 +3,7 @@ title: Remote Buffer Overflow Vulnerability in UTT HiPER 1250GW
 slug: 2026-08-hiper-buffer-overflow
 description: A remote stack-based buffer overflow in the UTT HiPER 1250GW router, triggered via the 'cipher' parameter, allows potential arbitrary code execution due to unsafe use of strcpy.
 date: "2026-08-05T04:04:26Z"
+lastmod: "2026-08-05T04:04:51Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - UTT
 products:
   - HiPER 1250GW
+  - HiPER 1250GW (<= v3.2.7-210907-180535)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -19,14 +21,19 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: It is possible to initiate the attack remotely.
     confidence_band: high
+cves:
+  - id: CVE-2026-18897
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18895
   - https://vuldb.com/vuln/385930
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18897
 iocs:
   - type: url
     value: https://github.com/7wkajk/CVE-VUL/blob/main/101.md
+  - type: url
+    value: https://github.com/7wkajk/CVE-VUL/blob/main/102.md
 ioc_counts:
-  url: 1
+  url: 2
 rules:
   - title: Detect CVE-2026-18895 Exploitation Attempt
     description: Detects potential exploitation of CVE-2026-18895 via abnormally long 'cipher' arguments sent to the /goform/APSecurity_5g endpoint
@@ -55,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-18895
       evidence: Unpatched vulnerability with public exploit
+updates:
+  - at: "2026-08-05T04:04:51Z"
+    level: L2
+    summary: added CVE-2026-18897; hiper 1250gw version <= v3.2.7-210907-180535
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18897
 ---
 
 The UTT HiPER 1250GW router (firmware up to 3.2.7-210907-180535) is affected by a critical stack-based buffer overflow vulnerability, identified as CVE-2026-18895. The flaw exists within the /goform/APSecurity_5g file, where the strcpy function processes user-supplied input without proper bounds checking. An attacker can exploit this remotely by providing a specially crafted 'cipher' argument to the affected endpoint. Publicly available exploit code exists, increasing the risk of exploitation for this legacy network device. The vendor has not provided a patch to remediate this issue, leaving exposed devices susceptible to potential arbitrary code execution and system compromise.
