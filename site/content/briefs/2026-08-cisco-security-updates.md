@@ -3,12 +3,13 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-05T21:26:35Z"
+lastmod: "2026-08-05T21:26:37Z"
 type: threat
 types:
   - threat
 severities:
   - high
+has_poc: true
 tags:
   - roundup
 vendors:
@@ -37,6 +38,8 @@ cves:
     cvss: 8.6
   - id: CVE-2026-20273
     cvss: 8.6
+  - id: CVE-2026-20301
+    cvss: 8.6
   - id: CVE-2026-20313
     cvss: 7.7
   - id: CVE-2026-20311
@@ -58,6 +61,7 @@ references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Integrated%20Management%20Controller%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20Information%20Disclosure%20Vulnerability%26vs_k=1
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-iosxe-V8NMuMZJ?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Security%20Hardening%20Release:%20August%202026%26vs_k=1
 iocs:
   - type: url
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW
@@ -67,16 +71,11 @@ iocs:
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm
   - type: url
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe
+  - type: url
+    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-iosxe-V8NMuMZJ
 ioc_counts:
-  url: 4
+  url: 5
 updates:
-  - at: "2026-08-05T17:21:13Z"
-    level: L2
-    summary: added CVE-2026-20263
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20313
   - at: "2026-08-05T21:26:28Z"
     level: L2
     summary: added CVE-2026-20269 +2
@@ -105,9 +104,16 @@ updates:
       - cisco-psirt
     source_urls:
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20Information%20Disclosure%20Vulnerability%26vs_k=1
+  - at: "2026-08-05T21:26:37Z"
+    level: L2
+    summary: poc_available; added CVE-2026-20301
+    sources:
+      - cisco-psirt
+    source_urls:
+      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-iosxe-V8NMuMZJ?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Security%20Hardening%20Release:%20August%202026%26vs_k=1
 ---
 
-This roundup covers 16 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS.
+This roundup covers 17 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, Catalyst SD-WAN Manager, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS.
 
 ## Summary
 
@@ -129,6 +135,7 @@ This roundup covers 16 Cisco security vulnerabilities. None are reported as acti
 | CVE-2026-20311 | 6.3 | IOS XE Software | A vulnerability in the web-based management interface of Cisco IOS XE Software allows an authenticated, low-privileged remote attacker to trigger a denial-of-service condition. By submitting a malformed certificate to the interface, an attacker can cause the device to reload, resulting in an unexpected service disruption. Cisco has released software updates to address this flaw. |
 | CVE-2026-20198 | 0.0 | Integrated Management Controller | A cross-site scripting (XSS) vulnerability exists in the web-based management interface of the Cisco Integrated Management Controller due to improper input validation. An authenticated remote attacker can exploit this by convincing a user to interact with a malicious link, potentially leading to arbitrary script execution within the victim's browser context. |
 | CVE-2026-20289 | 0.0 | RoomOS | A vulnerability in the logging subsystem of Cisco RoomOS allows an authenticated, local attacker with low privileges to access sensitive information, such as user login credentials, by enabling specific logging levels and accessing system logs. There are no workarounds available, and patching is required. |
+| CVE-2026-20294 | 0.0 | Catalyst SD-WAN Manager | An information disclosure vulnerability exists in the web-based management interface of Cisco Catalyst SD-WAN Manager due to insufficient access control on specific template types. Authenticated attackers with low privileges can exploit this to view sensitive authentication credentials in clear text within local or remote logs, potentially leading to escalation of privilege and further infrastructure compromise. |
 
 
 ## CVE-2026-20267
@@ -275,3 +282,12 @@ Affected products:
 - RoomOS
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1
+
+## CVE-2026-20294
+
+An information disclosure vulnerability exists in the web-based management interface of Cisco Catalyst SD-WAN Manager due to insufficient access control on specific template types. Authenticated attackers with low privileges can exploit this to view sensitive authentication credentials in clear text within local or remote logs, potentially leading to escalation of privilege and further infrastructure compromise.
+
+Affected products:
+- Catalyst SD-WAN Manager
+
+Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20Information%20Disclosure%20Vulnerability%26vs_k=1
