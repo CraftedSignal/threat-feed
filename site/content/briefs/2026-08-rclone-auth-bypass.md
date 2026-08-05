@@ -1,0 +1,79 @@
+---
+title: Authorization Bypass in rclone serve restic --private-repos
+slug: 2026-08-rclone-auth-bypass
+description: An authorization bypass vulnerability in rclone's restic server allows authenticated users to access and manipulate repositories of other users via path traversal, impacting multi-tenant environments using backend storage that canonicalizes path segments.
+date: "2026-08-05T21:25:39Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+vendors:
+  - rclone
+products:
+  - rclone (1.74.3)
+affected_os:
+  - linux
+  - windows
+  - macos
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The rclone 'serve restic' command, when configured with the '--private-repos' flag, suffers from an authorization bypass vulnerability due to a path traversal flaw.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Any authenticated user can read... the victim's restic config and keys/* files.
+    confidence_band: high
+references:
+  - https://github.com/advisories/GHSA-fqj9-69pf-6pjg
+action_plan:
+  priority: immediate_escalation
+  owners:
+    - IT Operations
+    - Detection Engineering
+  immediate_actions:
+    - action: Audit and patch all instances of rclone 1.74.3 utilizing --private-repos.
+      owner: IT Operations
+      due: 24h
+      evidence: Source advisory recommends this as the primary resolution.
+  hunt_leads:
+    - lead: Search web/proxy logs for HTTP requests containing '..' or '%2e%2e' patterns in the URI path directed at rclone restic endpoints.
+      technique_id: T1190
+      data_needed:
+        - web_server_logs
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: The bypass relies on sending '..' in the URL path.
+---
+
+The rclone `serve restic` command includes a `--private-repos` feature intended to provide multi-tenant isolation by restricting users to their own path prefix (e.g., `/<username>/`). This security boundary is enforced by two separate chi middlewares that handle request authorization and object path resolution differently. The `checkPrivate` middleware validates that the authenticated user matches the initial path segment. However, the `WithRemote` middleware constructs the backend object key using the raw, un-cleaned URL path.
+
+An authenticated user can bypass this confinement by sending a request with a traversal sequence, such as `GET /<attacker>/../<victim>/config`. Because the path starts with the attacker's username, the authorization middleware permits the request. However, backends that use POSIX `path.Clean` semantics (including the common `sftp`, `ftp`, and `memory` backends) resolve the `..` segment, directing the operation to the victim's repository. This vulnerability enables unauthorized reading, overwriting, or deletion of another tenant's backup metadata and blobs. The vulnerability affects rclone version 1.74.3.
+
+## Attack Chain
+
+1. Attacker establishes a valid, low-privileged authenticated session on the target rclone instance configured with `--private-repos`.
+2. Attacker crafts a malicious HTTP request using path traversal sequences, targeting a victim's repository path (e.g., `/mallory/../alice/config`).
+3. The `checkPrivate` middleware observes the initial path segment (`mallory`) and confirms it matches the authenticated session user, allowing the request to proceed.
+4. The `WithRemote` middleware captures the un-cleaned URL path `mallory/../alice/config` and passes it as the remote key to the storage backend.
+5. The storage backend (e.g., SFTP/FTP) invokes POSIX path normalization, collapsing `mallory/../alice/config` into `alice/config`.
+6. The backend handler executes the requested operation (GET, POST, or DELETE) against the victim's resource.
+7. Attacker successfully exfiltrates metadata/blobs, poisons the repository, or deletes the victim's backups.
+
+## Impact
+
+Successful exploitation results in a total loss of confidentiality, integrity, and availability for the victim's restic repository on the affected server. Attackers can read sensitive restic `config` and `keys` metadata, poison existing backups by overwriting objects, or delete the entire repository. This vulnerability effectively nullifies the multi-tenant isolation provided by the `--private-repos` flag. The impact is critical for hosting providers or organizations sharing a single rclone restic server among multiple users.
+
+## Recommendation
+
+Prioritize the following actions to secure rclone instances:
+- Upgrade rclone to the latest patched version addressing this bypass, or disable the `--private-repos` flag until an update is applied.
+- Audit existing multi-tenant rclone deployments to identify those utilizing the `--private-repos` flag with backends like SFTP or FTP.
+- Implement network-level access controls or proxy-based URL path normalization to reject requests containing `..` or `%2e%2e` sequences before they reach the rclone server.
+- Use backends that do not rely on implicit POSIX path normalization if available, or isolate multi-tenant backup repositories at the infrastructure level rather than relying on application-layer flags.
