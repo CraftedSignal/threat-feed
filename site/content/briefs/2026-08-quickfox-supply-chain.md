@@ -3,6 +3,7 @@ title: QuickFox Supply Chain Attack and FDMTP Implant Deployment
 slug: 2026-08-quickfox-supply-chain
 description: Threat actors compromised QuickFox software supply chain to distribute trojanized Windows installers, resulting in the installation of a custom FDMTP implant for persistent access.
 date: "2026-08-04T13:43:09Z"
+lastmod: "2026-08-05T12:12:29Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - implant
   - windows
   - fortiguard
+vendors:
+  - QuickFox
+products:
+  - QuickFox
 affected_os:
   - Windows
 mitre_ttps:
@@ -24,6 +29,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://feeds.fortinet.com/~/966214247/0/fortinet/blog/threat-research~QuickFox-Supply-Chain-Attack-Used-to-Deploy-FDMTP-Implant
+  - https://www.reddit.com/r/blueteamsec/comments/1vg5b2a/quickfox_supply_chain_attack_used_to_deploy_fdmtp/
 action_plan:
   priority: elevated
   owners:
@@ -44,6 +50,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Threat involves deployment of FDMTP implant for persistence.
+updates:
+  - at: "2026-08-05T12:12:29Z"
+    level: L1
+    summary: new product
+    sources:
+      - reddit-blueteamsec
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1vg5b2a/quickfox_supply_chain_attack_used_to_deploy_fdmtp/
 ---
 
 The FortiGuard Labs Incident Response team has identified a sophisticated supply chain attack targeting users of the QuickFox application. Attackers successfully trojanized legitimate Windows installers, allowing them to gain initial access to victim environments through a trusted delivery mechanism. Upon execution of the compromised installer, the attack proceeds to deploy a custom, evolving malware implant identified as FDMTP. This implant is designed for persistent access and modular functionality, enabling the operators to conduct targeted operations within compromised networks. The selective nature of the targeting suggests a focused campaign rather than indiscriminate mass distribution, which increases the risk to enterprise environments that rely on this software for network optimization. Defenders should prioritize auditing the integrity of software deployment pipelines and monitoring for unauthorized persistence mechanisms associated with this implant.
