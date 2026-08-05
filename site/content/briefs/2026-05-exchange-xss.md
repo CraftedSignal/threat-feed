@@ -3,7 +3,7 @@ title: CVE-2026-42897 Microsoft Exchange Server Cross-Site Scripting Vulnerabili
 slug: 2026-05-exchange-xss
 description: CVE-2026-42897 is a cross-site scripting (XSS) vulnerability in Microsoft Exchange Server that allows an attacker to perform spoofing attacks by injecting malicious scripts into web pages.
 date: "2026-05-14T17:03:19Z"
-lastmod: "2026-07-29T15:03:22Z"
+lastmod: "2026-08-05T09:12:18Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +46,7 @@ products:
   - Outlook Web Access
   - Microsoft Outlook Web Access (<= 2026-05)
   - Zimbra Collaboration Suite
+  - Outlook Webmail
 affected_os:
   - Windows
 mitre_ttps:
@@ -60,7 +61,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-42897
     cvss: 8.1
-    epss: 0.0564
+    epss: 0.70307
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-42897
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42897
@@ -82,9 +83,11 @@ iocs:
     value: ew-info@jpcert.or.jp
   - type: url
     value: https://www.jpcert.or.jp/english/
+  - type: url
+    value: https://therecord.media/russia-hackers-outlook-webmail-malware
 ioc_counts:
   email: 1
-  url: 6
+  url: 7
 rules:
   - title: Detects CVE-2026-42897 Exploitation — Suspicious URI Containing Script Tags
     description: Detects CVE-2026-42897 exploitation — HTTP requests to Exchange Server with suspicious script tags in the URI indicating potential XSS attempts.
@@ -132,6 +135,13 @@ updates:
     summary: new product
     sources:
       - therecord
+    source_urls:
+      - https://therecord.media/russia-hackers-outlook-webmail-malware
+  - at: "2026-08-05T09:12:18Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - risky-biz
     source_urls:
       - https://therecord.media/russia-hackers-outlook-webmail-malware
 ---
