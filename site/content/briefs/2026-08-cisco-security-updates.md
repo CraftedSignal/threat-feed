@@ -3,7 +3,7 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-05T21:26:42Z"
+lastmod: "2026-08-06T07:34:37Z"
 type: threat
 types:
   - threat
@@ -22,6 +22,12 @@ products:
   - RoomOS
   - Catalyst SD-WAN Manager
   - Terminal Services Agent
+  - IOS XE
+  - Secure Firewall Management Center
+  - IOS
+  - Terminal Service Agent
+  - UCS C-Series M7 Rack Servers
+  - UCS C-Series M8 Rack Servers
 cves:
   - id: CVE-2026-20267
     cvss: 9
@@ -41,10 +47,16 @@ cves:
     cvss: 8.6
   - id: CVE-2026-20301
     cvss: 8.6
+  - id: CVE-2026-20312
+    cvss: 8.8
   - id: CVE-2026-20313
     cvss: 7.7
   - id: CVE-2026-20311
     cvss: 6.3
+  - id: CVE-2026-20198
+    cvss: 4.8
+  - id: CVE-2026-20303
+    cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20272
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20310
@@ -65,6 +77,7 @@ references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-iosxe-V8NMuMZJ?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Security%20Hardening%20Release:%20August%202026%26vs_k=1
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ts-agent-fw-bypass-MYBTMrev?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Terminal%20Services%20Agent%20Firewall%20Rules%20Bypass%20Vulnerability%26vs_k=1
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+  - https://www.securityweek.com/cisco-patches-critical-sd-wan-ios-xe-fmc-vulnerabilities/
 iocs:
   - type: url
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW
@@ -83,13 +96,6 @@ iocs:
 ioc_counts:
   url: 7
 updates:
-  - at: "2026-08-05T21:26:32Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - cisco-psirt
-    source_urls:
-      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1
   - at: "2026-08-05T21:26:35Z"
     level: L1
     summary: new IOCs
@@ -118,9 +124,16 @@ updates:
       - cisco-psirt
     source_urls:
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+  - at: "2026-08-06T07:34:37Z"
+    level: L2
+    summary: added CVE-2026-20198 +2
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/cisco-patches-critical-sd-wan-ios-xe-fmc-vulnerabilities/
 ---
 
-This roundup covers 18 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, Catalyst SD-WAN Manager, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS, Terminal Services Agent.
+This roundup covers 19 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, Catalyst SD-WAN Manager, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS, Terminal Services Agent.
 
 ## Summary
 
@@ -144,6 +157,7 @@ This roundup covers 18 Cisco security vulnerabilities. None are reported as acti
 | CVE-2026-20289 | 0.0 | RoomOS | A vulnerability in the logging subsystem of Cisco RoomOS allows an authenticated, local attacker with low privileges to access sensitive information, such as user login credentials, by enabling specific logging levels and accessing system logs. There are no workarounds available, and patching is required. |
 | CVE-2026-20294 | 0.0 | Catalyst SD-WAN Manager | An information disclosure vulnerability exists in the web-based management interface of Cisco Catalyst SD-WAN Manager due to insufficient access control on specific template types. Authenticated attackers with low privileges can exploit this to view sensitive authentication credentials in clear text within local or remote logs, potentially leading to escalation of privilege and further infrastructure compromise. |
 | CVE-2026-20028 | 0.0 | Terminal Services Agent | A vulnerability in the Cisco Terminal Services Agent network driver allows an authenticated remote attacker with user-level credentials to bypass firewall rules by incorrectly mapping network connections to user accounts, effectively inheriting the firewall policy of another user. |
+| CVE-2026-20308 | 0.0 | IOS XE Software | An authenticated remote attacker with low privileges can trigger a denial of service (DoS) condition in the web-based management interface of Cisco IOS XE Software by sending crafted input, resulting in the interface becoming unresponsive due to insufficient input validation. |
 
 
 ## CVE-2026-20267
@@ -308,3 +322,12 @@ Affected products:
 - Terminal Services Agent
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ts-agent-fw-bypass-MYBTMrev?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Terminal%20Services%20Agent%20Firewall%20Rules%20Bypass%20Vulnerability%26vs_k=1
+
+## CVE-2026-20308
+
+An authenticated remote attacker with low privileges can trigger a denial of service (DoS) condition in the web-based management interface of Cisco IOS XE Software by sending crafted input, resulting in the interface becoming unresponsive due to insufficient input validation.
+
+Affected products:
+- IOS XE Software
+
+Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
