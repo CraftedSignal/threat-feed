@@ -3,6 +3,7 @@ title: Heap Buffer Overflow in FFmpeg DVB Subtitle Parser
 slug: 2026-08-ffmpeg-integer-overflow
 description: FFmpeg versions 0.5 through 8.9 are vulnerable to a signed integer overflow in the DVB subtitle parser that can be triggered via a crafted WTV file to achieve remote code execution.
 date: "2026-08-06T23:31:28Z"
+lastmod: "2026-08-06T23:31:35Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,7 @@ vendors:
   - FFmpeg
 products:
   - FFmpeg (0.5 to < 9.0)
+  - FFmpeg (4.4-8.x)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -28,6 +30,7 @@ cves:
     cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70628
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70632
 action_plan:
   priority: elevated
   owners:
@@ -44,6 +47,14 @@ action_plan:
       owner: Security Engineering
       addresses: CVE-2026-70628
       evidence: Source notes WTV file as trigger for overflow.
+updates:
+  - at: "2026-08-06T23:31:35Z"
+    level: L2
+    summary: added coverage for FFmpeg (4.4-8.x)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70632
 ---
 
 FFmpeg versions ranging from 0.5 up to, but not including, 9.0 contain a critical signed integer overflow vulnerability within the DVB subtitle parser located in the `libavcodec/dvbsub_parser.c` source file. The vulnerability is triggered when the parser processes a maliciously crafted WTV (Windows Recorded TV) container file. During parsing, the logic responsible for bounds checking is susceptible to a signed integer overflow. Specifically, the guard expression wraps to a negative value (INT_MIN), which inadvertently bypasses the critical `PARSE_BUF_SIZE` comparison. This bypass leads to an unchecked `memcpy()` operation, resulting in an out-of-bounds heap write. Successful exploitation allows for memory corruption, which can lead to application crashes (Denial of Service) or arbitrary code execution under the context of the user running the FFmpeg-based application. Defenders should prioritize patching all internal and third-party software leveraging FFmpeg libraries to version 9.0 or later.
