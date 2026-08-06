@@ -3,6 +3,7 @@ title: Remote OS Command Injection in Shibby Tomato
 slug: 2026-08-shibby-tomato-rce
 description: Shibby Tomato version 1.28.0000 is vulnerable to remote OS command injection via the wan_iface parameter in the new_qoslimit_stop function, allowing unauthenticated or authenticated administrative attackers to execute arbitrary code.
 date: "2026-08-06T11:23:13Z"
+lastmod: "2026-08-06T13:24:01Z"
 type: threat
 types:
   - threat
@@ -23,9 +24,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-19034
     cvss: 7.2
+  - id: CVE-2026-19035
+    cvss: 7.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19034
   - https://gitee.com/WH-YHUST/tomato-rc-qos-ppp-cve/blob/master/advisories/en/01-new_qoslimit_stop.md
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19035
 action_plan:
   priority: elevated
   owners:
@@ -41,6 +45,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-19034
       evidence: Attack can be launched remotely
+updates:
+  - at: "2026-08-06T13:24:01Z"
+    level: L2
+    summary: added CVE-2026-19035
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-19035
 ---
 
 Shibby Tomato version 1.28.0000 contains a critical vulnerability involving OS command injection within the new_qoslimit_stop function located in the script /tmp/qoslimittc_stop.sh. An attacker can reach this function by providing malicious input to the wan_iface argument. Because this script executes system-level commands, manipulating this input allows for arbitrary command execution on the underlying Linux-based networking device. This vulnerability is of significant concern as the affected software is widely deployed on home and small-office wireless routers. The project has been superseded by FreshTomato, and users are advised to migrate, as no patches are expected for this legacy firmware. Publicly available exploit proof-of-concept code has been disclosed, increasing the likelihood of opportunistic exploitation in the wild.
