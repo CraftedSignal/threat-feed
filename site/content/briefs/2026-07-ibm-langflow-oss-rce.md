@@ -3,7 +3,7 @@ title: IBM Langflow OSS Unauthenticated Remote Code Execution via Chained API En
 slug: 2026-07-ibm-langflow-oss-rce
 description: Unauthenticated attackers can achieve Remote Code Execution (RCE) on default IBM Langflow OSS deployments, versions 1.0.0 through 1.10.0, by chaining access to the `/api/v1/auto_login` endpoint, which mints SUPERUSER tokens, with the `/api/v1/validate/code` endpoint, which executes user-supplied code via `exec()`.
 date: "2026-07-17T18:18:35Z"
-lastmod: "2026-08-06T19:26:35Z"
+lastmod: "2026-08-06T21:30:11Z"
 type: advisory
 types:
   - advisory
@@ -78,6 +78,8 @@ cves:
     cvss: 7.2
   - id: CVE-2026-17633
     cvss: 8.5
+  - id: CVE-2026-8182
+    cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9198
   - https://www.ibm.com/support/pages/node/7278927
@@ -102,6 +104,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9201
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9205
   - https://nvd.nist.gov/vuln/detail/CVE-2026-17625
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-10547
 iocs:
   - type: url
     value: https://www.ibm.com/support/pages/node/7278929
@@ -122,13 +125,6 @@ rules:
       - webserver
 rules_count: 1
 updates:
-  - at: "2026-08-05T19:20:22Z"
-    level: L2
-    summary: added CVE-2026-17630 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-17632
   - at: "2026-08-05T19:20:36Z"
     level: L1
     summary: new IOCs
@@ -157,6 +153,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-17625
+  - at: "2026-08-06T21:30:11Z"
+    level: L2
+    summary: added CVE-2026-8182
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-10547
 ---
 
 IBM Langflow OSS, an open-source framework for building and deploying AI/LLM applications, contains a critical vulnerability (CVE-2026-9198) affecting versions 1.0.0 through 1.10.0. This flaw allows unauthenticated attackers to achieve full Remote Code Execution (RCE) on default installations. The exploitation involves a two-step chaining process: first, an attacker leverages the `/api/v1/auto_login` endpoint to obtain SUPERUSER tokens without authentication; second, these tokens are then used to invoke the `/api/v1/validate/code` endpoint, which insecurely executes arbitrary user-provided code using Python's `exec()` function. This vulnerability bypasses authentication, granting an attacker complete control over the compromised Langflow instance and its underlying system, posing a severe risk to data integrity, confidentiality, and system availability.
