@@ -3,6 +3,7 @@ title: Service Exhaustion via Stalled TLS ALPN Handshakes
 slug: 2026-08-stalled-tls-handshakes
 description: Attackers are exploiting unpatched TLS listeners by flooding them with incomplete ACME ALPN handshakes to exhaust server-side resources like goroutines and worker threads.
 date: "2026-08-05T21:11:55Z"
+lastmod: "2026-08-06T21:30:03Z"
 type: advisory
 types:
   - advisory
@@ -10,16 +11,19 @@ severities:
   - low
 cpes:
   - cpe:2.3:a:traefik:traefik:*:*:*:*:*:*:*:*
+has_poc: true
 vendors:
   - Traefik Labs
   - nginx
   - HAProxy
   - Caddy
+  - Traefik
 products:
   - Traefik
   - nginx
   - HAProxy
   - Caddy
+  - Traefik (v3.7.0 <= v3.7.7)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -39,6 +43,20 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2024-5535
   - https://www.rfc-editor.org/rfc/rfc8737
   - https://www.elastic.co/guide/en/beats/packetbeat/current/configuration-tls.html
+  - https://github.com/advisories/GHSA-8rxv-jg7p-wvg3
+iocs:
+  - type: hash_sha256
+    value: 5c8ff19144683f862c04e8ac01893e8cd94a3519d3d9ca3e6fbd0a7de73261ba
+ioc_counts:
+  hash_sha256: 1
+updates:
+  - at: "2026-08-06T21:30:03Z"
+    level: L2
+    summary: poc_available; traefik version v3.7.0 <= v3.7.7
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-8rxv-jg7p-wvg3
 ---
 
 This threat involves the abuse of the acme-tls/1 ALPN extension to trigger denial-of-service conditions against TLS-enabled reverse proxies. Attackers initiate high volumes of TLS connections advertising the acme-tls/1 extension, a protocol intended only for ACME TLS-ALPN-01 certificate validation, and deliberately stall the handshake process. By failing to complete the handshake, the attacker forces the destination service to maintain open connection states, effectively exhausting available goroutines, worker threads, or accept queue depths. This exploitation pattern is specifically documented as a technique to target CVE-2026-22045, which affects services like Traefik that lack adequate handshake timeout enforcement. When performed at scale, this resource exhaustion results in a denial-of-service (DoS) for legitimate users. Defenders should monitor for repeated incomplete TLS sessions originating from non-authorized sources to identify exploitation attempts against edge infrastructure.
