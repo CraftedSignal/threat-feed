@@ -3,7 +3,7 @@ title: Shai-Hulud Campaign Activity
 slug: 2026-07-shai-hulud-campaign
 description: Tracking brief for the Shai-Hulud campaign; individual sightings are folded in as reported.
 date: "2026-07-09T13:04:28Z"
-lastmod: "2026-08-05T21:25:18Z"
+lastmod: "2026-08-06T15:16:40Z"
 type: advisory
 types:
   - advisory
@@ -153,6 +153,8 @@ products:
   - keyv
   - cacheable
   - Vault
+  - new-api
+  - one-api
 affected_os:
   - Windows
   - macOS
@@ -168,6 +170,7 @@ references:
   - https://www.microsoft.com/en-us/security/blog/2026/08/04/chaindrop-supply-chain-compromise-anatomy-self-propagating-worm/
   - https://www.securityweek.com/over-400-npm-packages-infected-in-chaindrop-supply-chain-attack/
   - https://www.sonatype.com/blog/mini-shai-hulud-npm-attack-more-than-2200-components-impacted
+  - https://unit42.paloaltonetworks.com/ai-token-jacking/
 iocs:
   - type: hash_sha256
     value: a742de963f14a92d24ebcbc7b44ac867e23a20d31d1b0094a13a4f83287f4e60
@@ -214,13 +217,6 @@ ioc_counts:
   hash_sha256: 5
   ip: 7
 updates:
-  - at: "2026-07-30T14:35:34Z"
-    level: L1
-    summary: new product
-    sources:
-      - ncsc-nl
-    source_urls:
-      - https://www.ncsc.nl/expertblogs/het-nieuwe-trojaanse-paard-zit-in-je-dependencies
   - at: "2026-08-04T13:39:57Z"
     level: L1
     summary: new IOCs
@@ -249,6 +245,13 @@ updates:
       - sonatype
     source_urls:
       - https://www.sonatype.com/blog/mini-shai-hulud-npm-attack-more-than-2200-components-impacted
+  - at: "2026-08-06T15:16:40Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - unit42
+    source_urls:
+      - https://unit42.paloaltonetworks.com/ai-token-jacking/
 ---
 
 This brief tracks activity attributed to the Shai-Hulud campaign. Sightings and
