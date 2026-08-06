@@ -3,6 +3,7 @@ title: Remote File Inclusion Vulnerability in TinyAGI
 slug: 2026-08-tinyagi-file-inclusion
 description: TinyAGI version 0.0.20 contains a remote file inclusion vulnerability in the Message API Endpoint, which allows unauthenticated attackers to access arbitrary files on the system.
 date: "2026-08-06T09:22:41Z"
+lastmod: "2026-08-06T09:22:49Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +25,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19009
   - https://github.com/TinyAGI/tinyagi/issues/282
   - https://vuldb.com/vuln/386402
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19010
+  - https://github.com/TinyAGI/tinyagi/issues/284
 rules:
   - title: Detect CVE-2026-19009 Exploitation - Path Traversal in Message API
     description: Detects potential attempts to exploit CVE-2026-19009 by monitoring for path traversal patterns in requests to the TinyAGI Message API.
@@ -55,6 +58,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: CVE-2026-19009 involves path manipulation via the collectFiles function.
+updates:
+  - at: "2026-08-06T09:22:49Z"
+    level: L2
+    summary: added coverage for TinyAGI (0.0.20)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-19010
 ---
 
 A remote file inclusion vulnerability has been identified in TinyAGI version 0.0.20, specifically within the `collectFiles` function of the `packages/core/src/response.ts` file. This component is part of the Message API Endpoint. The flaw, tracked as CVE-2026-19009, stems from improper validation of external inputs, which allows a remote, unauthenticated attacker to manipulate file paths and trigger file inclusion. This vulnerability is classified as CWE-73: External Control of File Name or Path. Publicly available exploit code exists, and the project maintainers have not yet provided a response or a patch as of the initial disclosure. Defenders should prioritize identifying instances of TinyAGI 0.0.20 in their environments and restrict network access to the affected Message API endpoint.
