@@ -3,18 +3,25 @@ title: Nuxt 4.x Runtime Payload Cache Disclosure
 slug: 2026-08-nuxt-payload-leak
 description: A vulnerability in Nuxt 4.4.0 through 4.5.0 causes sensitive SSR data in the payload cache to be disclosed to unauthorized users due to an insufficient cache key implementation.
 date: "2026-08-05T21:25:24Z"
-lastmod: "2026-08-06T03:25:58Z"
+lastmod: "2026-08-06T03:26:07Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - remote-code-execution
+  - nuxt
+  - template-injection
+  - cve-2026-71320
 vendors:
   - Nuxt
 products:
   - Nuxt (4.4.0, 4.5.0)
   - nuxt (3.x)
   - nuxt (4.x)
+  - Nuxt (3.4.0-3.21.9)
+  - Nuxt (4.0.0-4.5.0)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -22,11 +29,24 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: The internal island renderer endpoint (/__nuxt_island/...) decodes and hashes attacker-controlled request input before it validates the URL-resident hash, allowing a denial-of-service condition.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An attacker can inject a template key into the island props to achieve server-side remote code execution in the Nitro process.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    evidence: Vue's runtime template compiler compiles and executes the attacker-controlled template in the server process.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-wm8w-6qjm-cv43
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71316
   - https://github.com/advisories/GHSA-9pgf-384g-p7mv
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-71321
+  - https://github.com/advisories/GHSA-9473-5f9j-94wq
 rules:
   - title: Detect Excessive Payload Size to Nuxt Island Endpoint
     description: Detects potential exploitation of CVE-2026-71321 by monitoring for large POST requests sent to the Nuxt island renderer endpoint, which may indicate a DoS attempt.
@@ -36,7 +56,17 @@ rules:
       - impact
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-71320 Exploitation Attempt
+    description: Detects exploitation attempts targeting Nuxt server islands by checking for the 'template' key in the props object of the /__nuxt_island/ endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1059.003
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -61,6 +91,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-9pgf-384g-p7mv
+  - at: "2026-08-06T03:26:07Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-71320 Exploitation Attempt'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9473-5f9j-94wq
 ---
 
 Nuxt versions 4.4.0 through 4.5.0 contain a vulnerability (CVE-2026-71316) where the runtime payload cache incorrectly stores and retrieves data. The vulnerability resides in the `cache:nuxt:payload` storage, which utilizes a path-only cache key, ignoring session-specific context such as cookies, authorization headers, or cache variations. This allows an attacker to access sensitive SSR data by requesting the `/_payload.json` endpoint for routes that have been previously 'warmed' by an authenticated user. The SSR data typically includes results from `useFetch` or `useAsyncData`, which may contain private information like profile details, tenant identifiers, or billing data. The issue is specific to the 4.x release line and was caused by a regression where runtime payload-cache reads and writes were no longer restricted to the prerendering phase.
