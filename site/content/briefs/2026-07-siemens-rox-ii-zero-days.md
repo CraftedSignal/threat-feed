@@ -3,6 +3,7 @@ title: Three Chained Zero-Days in Siemens ROX II OT Switches Lead to Root Access
 slug: 2026-07-siemens-rox-ii-zero-days
 description: Unit 42 and Siemens collaborated to disclose three critical chained zero-day vulnerabilities (CVE-2025-40948, CVE-2025-40947, CVE-2025-40949) in Siemens ROX II operational technology switches, allowing an attacker to achieve arbitrary file disclosure, privilege escalation to root, and persistent root-level code execution.
 date: "2026-07-17T10:06:00Z"
+lastmod: "2026-08-06T17:31:33Z"
 type: threat
 types:
   - threat
@@ -21,6 +22,9 @@ cpes:
   - cpe:2.3:o:siemens:ruggedcom_rox_rx1524_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:siemens:ruggedcom_rox_rx1536_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:siemens:ruggedcom_rox_rx5000_firmware:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:mongodb:mongodb:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:mongodb:mongodb:*:*:*:*:-:*:*:*
+has_poc: true
 tags:
   - industrial-control-systems
   - ot-security
@@ -32,8 +36,12 @@ tags:
   - vulnerability-exploit
 vendors:
   - Siemens
+  - ABB
+  - MongoDB
 products:
   - ROX II OT switches
+  - ABB Ability Zenon
+  - MongoDB Server
 affected_os:
   - ROX II OS
   - Linux
@@ -65,18 +73,25 @@ mitre_ttps:
 cves:
   - id: CVE-2025-40948
     cvss: 6.8
-    epss: 0.00286
+    epss: 0.00397
   - id: CVE-2025-40947
     cvss: 7.5
-    epss: 0.00442
-  - id: CVE-2025-40949
-    cvss: 9.1
-    epss: 0.00543
+    epss: 0.0054
+  - id: CVE-2025-14847
+    cvss: 7.5
+    epss: 0.83007
+  - id: CVE-2020-7928
+    cvss: 6.5
+    epss: 0.01412
+  - id: CVE-2020-7921
+    cvss: 4.6
+    epss: 0.0066
 references:
   - https://unit42.paloaltonetworks.com/siemens-rox-ii-zero-day-vulnerabilities/
   - SSA-973901
   - SSA-078743
   - SSA-081142
+  - https://www.cisa.gov/news-events/ics-advisories/icsa-26-218-01
 rules:
   - title: Detects CVE-2025-40948 Exploitation - Arbitrary File Disclosure via xz
     description: Detects exploitation of CVE-2025-40948 where an attacker misuses the xz utility with specific flags (-f -c -d) to read arbitrary files on the system, indicating arbitrary file disclosure on Siemens ROX II OT switches.
@@ -117,6 +132,14 @@ rules:
       - process_creation
       - linux
 rules_count: 3
+updates:
+  - at: "2026-08-06T17:31:33Z"
+    level: L2
+    summary: poc_available; added CVE-2020-7921 +2
+    sources:
+      - cisa
+    source_urls:
+      - https://www.cisa.gov/news-events/ics-advisories/icsa-26-218-01
 ---
 
 A critical chain of three zero-day vulnerabilities (CVE-2025-40948, CVE-2025-40947, and CVE-2025-40949) has been discovered and detailed by Unit 42 in partnership with Siemens, affecting Siemens ROX II operational technology (OT) switches. Successful exploitation of this chain grants an attacker full privilege escalation and persistent root access on these devices, which are integral components of industrial control networks. The vulnerabilities range from Medium to Critical severity, with CVSS 3.1 scores of 6.8, 7.5, and 9.1 respectively. The attack vector progresses through arbitrary file disclosure via insecure `xz` utility configuration, privilege escalation through command injection in the feature key validation function, and persistent root code execution by injecting malicious commands into the web management task scheduler's cron table. Siemens has released advisories SSA-973901, SSA-078743, and SSA-081142, recommending customers update affected ROX II devices to firmware version V2.17.1.
