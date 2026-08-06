@@ -3,6 +3,7 @@ title: Arbitrary Password Reset Vulnerability in Craft CMS
 slug: 2026-08-craft-cms-password-reset
 description: An insecure mass-assignment vulnerability in the Craft CMS user element save action allows authenticated users with specific permissions to modify passwords without requiring the current password or elevated verification.
 date: "2026-08-06T21:29:10Z"
+lastmod: "2026-08-06T21:29:25Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,7 @@ vendors:
   - Craft CMS
 products:
   - Craft CMS (5.x)
+  - Craft CMS (4.x)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -29,6 +31,20 @@ mitre_ttps:
     technique_name: 'Valid Accounts: Domain Accounts'
     evidence: An attacker with any authenticated session (whether it is hijacked or a normal / low-privileged user) can change their own password, and potentially take over administrator accounts.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An authenticated remote code execution issue in the control panel element-search condition handling.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: In the confirmed local lab, this led to command execution as the PHP/web user.
+    confidence_band: high
+references:
+  - https://github.com/advisories/GHSA-265m-7826-wjqm
 action_plan:
   priority: elevated
   owners:
@@ -45,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: Account takeover exploitation vector
       evidence: Users with Edit users permission can change any user’s password, including administrators.
+updates:
+  - at: "2026-08-06T21:29:25Z"
+    level: L2
+    summary: added coverage for Craft CMS (4.x) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-265m-7826-wjqm
 ---
 
 Craft CMS versions 5.0.0-RC1 through 5.10.7 contain an insecure mass-assignment vulnerability in the user element save mechanism. The vulnerability resides in the `elements/save` action, where the `newPassword` field is processed by the `UserPasswordValidator` without proper scenario-based restrictions. 
