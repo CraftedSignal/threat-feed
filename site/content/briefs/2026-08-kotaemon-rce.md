@@ -3,15 +3,20 @@ title: Unauthenticated Remote Code Execution in kotaemon
 slug: 2026-08-kotaemon-rce
 description: An insecure deserialization vulnerability (CVE-2026-69098) in the kotaemon check_connection endpoint allows unauthenticated attackers to achieve remote code execution by injecting malicious __type__ fields.
 date: "2026-08-04T17:25:23Z"
+lastmod: "2026-08-06T12:36:32Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=C724A8F6-03D9-59D1-9E5F-9CFBB245DB14&utm_source=rss&utm_medium=rss
 vendors:
   - Cinnamon
 products:
   - kotaemon
+  - kotaemon (<= 0.12.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -28,6 +33,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-69098
     cvss: 9.8
+    epss: 0.00508
+references:
+  - https://sploitus.com/exploit?id=C724A8F6-03D9-59D1-9E5F-9CFBB245DB14&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=C724A8F6-03D9-59D1-9E5F-9CFBB245DB14
+ioc_counts:
+  url: 1
 rules:
   - title: Detect CVE-2026-69098 Exploitation - Insecure Deserialization in kotaemon
     description: Detects potential exploitation attempts of CVE-2026-69098 by identifying POST requests to the check_connection endpoint containing potential deserialization markers like __type__ and shell-like subprocess strings.
@@ -58,6 +71,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-69098
       evidence: Vulnerability is in the check_connection endpoint.
+updates:
+  - at: "2026-08-06T12:36:32Z"
+    level: L2
+    summary: poc_available; kotaemon version <= 0.12.0
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=C724A8F6-03D9-59D1-9E5F-9CFBB245DB14&utm_source=rss&utm_medium=rss
 ---
 
 Cinnamon kotaemon versions through 0.12.0 contain a critical insecure deserialization vulnerability identified as CVE-2026-69098. The vulnerability exists within the application's 'check_connection' endpoint, which fails to properly sanitize user-supplied input when deserializing YAML or JSON data. By crafting a specific payload containing a '__type__' field, an unauthenticated remote attacker can instruct the application to instantiate arbitrary Python classes. 
