@@ -3,6 +3,7 @@ title: Out-of-Bounds Read in TimescaleDB Dictionary Compression
 slug: 2026-08-timescaledb-oob-read
 description: An out-of-bounds read vulnerability in the TimescaleDB Dictionary compression reverse row iterator allows authenticated attackers with DML access to disclose sensitive backend memory and shared buffer pool contents.
 date: "2026-08-06T23:31:41Z"
+lastmod: "2026-08-06T23:31:44Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - Timescale
 products:
   - TimescaleDB (2.29.1)
+  - TimescaleDB (<= 2.29.1)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -22,8 +24,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-70634
     cvss: 8.1
+  - id: CVE-2026-70635
+    cvss: 7.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70634
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70635
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +45,14 @@ action_plan:
       owner: Database Administration
       addresses: CVE-2026-70634
       evidence: Source states vulnerability requires DML access
+updates:
+  - at: "2026-08-06T23:31:44Z"
+    level: L2
+    summary: added CVE-2026-70635
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70635
 ---
 
 TimescaleDB versions up to and including 2.29.1 contain an out-of-bounds read vulnerability (CVE-2026-70634) located within the Dictionary compression reverse row iterator (tsl/src/compression/algorithms/dictionary.c). While the forward decoding path correctly validates index values, the reverse path relies on an assertion that is omitted in production release builds. This oversight leaves the 64-bit Simple8b index unvalidated and the read offset effectively attacker-controlled. 
