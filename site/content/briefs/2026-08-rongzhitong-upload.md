@@ -3,6 +3,7 @@ title: Unrestricted File Upload Vulnerability in Rongzhitong Visual Integrated C
 slug: 2026-08-rongzhitong-upload
 description: An unauthenticated remote code execution vulnerability (CVE-2026-18969) exists in the Rongzhitong Visual Integrated Command and Dispatch Platform due to an unrestricted file upload flaw in the /dm/dispatch/userinfo/upload endpoint.
 date: "2026-08-06T01:21:18Z"
+lastmod: "2026-08-06T01:21:21Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - Rongzhitong
 products:
   - Visual Integrated Command and Dispatch Platform
+  - Visual Integrated Command and Dispatch Platform (<= 20260617)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -28,9 +30,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-18969
     cvss: 7.3
+  - id: CVE-2026-18970
+    cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18969
   - https://vuldb.com/vuln/386260
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18970
 rules:
   - title: Detects CVE-2026-18969 Exploitation - Unrestricted File Upload
     description: Detects potential exploitation attempts by monitoring POST requests to the vulnerable upload endpoint in the Rongzhitong platform.
@@ -60,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-18969
       evidence: Vulnerability is remotely exploitable.
+updates:
+  - at: "2026-08-06T01:21:21Z"
+    level: L2
+    summary: added CVE-2026-18970; visual integrated command and dispatch platform version <= 20260617
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18970
 ---
 
 CVE-2026-18969 is a high-severity security vulnerability affecting the Rongzhitong Visual Integrated Command and Dispatch Platform versions up to 20260617. The flaw resides in the handling of the 'File' argument within the `/dm/dispatch/userinfo/upload` function. Due to improper access control and insufficient validation of uploaded files, an unauthenticated remote attacker can upload arbitrary files to the server. This vulnerability allows for the potential execution of malicious code, leading to system compromise. Publicly available exploit material for this vulnerability is documented, and the vendor has not provided a response or a patch as of the time of disclosure.
