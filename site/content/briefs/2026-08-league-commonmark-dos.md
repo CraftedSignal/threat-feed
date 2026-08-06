@@ -3,6 +3,7 @@ title: Algorithmic Complexity Denial of Service in league/commonmark
 slug: 2026-08-league-commonmark-dos
 description: A quadratic time complexity vulnerability in the UniqueSlugNormalizer component of league/commonmark 2.x allows attackers to trigger CPU exhaustion via specially crafted Markdown documents.
 date: "2026-08-06T21:29:30Z"
+lastmod: "2026-08-06T21:29:33Z"
 type: advisory
 types:
   - advisory
@@ -16,12 +17,14 @@ vendors:
   - league
 products:
   - commonmark (>= 2.0.0, < 2.9.0)
+  - commonmark (>= 1.5.0, < 2.9.0)
 cves:
   - id: CVE-2025-27144
     epss: 0.00385
 references:
   - https://github.com/advisories/GHSA-mh25-x5hq-wrqp
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27144
+  - https://github.com/advisories/GHSA-jfm3-95jq-q3rf
 action_plan:
   priority: elevated
   owners:
@@ -38,6 +41,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2025-27144
       evidence: Source provided workarounds for non-patchable environments
+updates:
+  - at: "2026-08-06T21:29:33Z"
+    level: L1
+    summary: new product
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-jfm3-95jq-q3rf
 ---
 
 The league/commonmark library, specifically versions 2.0.0 through 2.8.x, contains an algorithmic complexity vulnerability (CVE-2025-27144) within its `UniqueSlugNormalizer` component. This component is designed to ensure document-unique heading anchors by appending numeric suffixes to duplicate slugs. However, the implementation resets the search for an unused suffix to index '1' upon every collision. Consequently, processing K colliding slugs results in O(K²) time complexity.
