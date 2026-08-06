@@ -3,6 +3,7 @@ title: Unauthenticated Remote Code Execution in OpenChamber
 slug: 2026-08-openchamber-rce
 description: OpenChamber 1.11.7 contains a critical unauthenticated RCE vulnerability in the /api/fs/exec endpoint due to improper command input validation and flawed authentication middleware.
 date: "2026-08-06T15:25:36Z"
+lastmod: "2026-08-06T15:25:46Z"
 type: advisory
 types:
   - advisory
@@ -29,11 +30,24 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: The application fails to validate input before passing it to Node.js spawn().
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1083
+    technique_name: File and Directory Discovery
+    evidence: The path traversal vulnerability in file-serving endpoints allows unauthenticated remote attackers to read arbitrary files.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1083
+    technique_name: File and Directory Discovery
+    evidence: Attackers can exploit the vacuous isPathWithinRoot guard to read sensitive files such as the JWT signing secret.
+    confidence_band: high
 cves:
   - id: CVE-2026-53975
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-53975
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-53976
 rules:
   - title: Detects CVE-2026-53975 Exploitation - Unauthenticated RCE via /api/fs/exec
     description: Detects POST requests to the /api/fs/exec endpoint which is used for command execution in OpenChamber 1.11.7
@@ -46,7 +60,17 @@ rules:
       - T1059.003
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-53976 Exploitation - Path Traversal in OpenChamber
+    description: Detects exploitation attempts against OpenChamber file-serving endpoints using the allowOutsideWorkspace parameter to bypass directory restrictions.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1083
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -63,6 +87,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-53975
       evidence: Vulnerability analysis indicates authentication is bypassed when this variable is not set
+updates:
+  - at: "2026-08-06T15:25:46Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-53976 Exploitation - Path Traversal in OpenChamber'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-53976
 ---
 
 OpenChamber version 1.11.7 is susceptible to a critical unauthenticated remote code execution vulnerability (CVE-2026-53975). The vulnerability exists in the /api/fs/exec endpoint, which passes user-provided input directly to the Node.js spawn() function without any validation or sanitization. Furthermore, the application's authentication middleware fails to enforce security when the UI_PASSWORD environment variable is unset. As the default Docker deployment configuration leaves this variable unconfigured, most deployments are exposed to unauthenticated exploitation. An attacker can submit a crafted POST request to trigger arbitrary command execution as the application user, resulting in the server returning the full command output, including stdout, stderr, and the exit code. This poses a significant risk to the integrity and availability of the host environment, particularly in containerized deployments.
