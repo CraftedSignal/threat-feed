@@ -3,7 +3,7 @@ title: Unauthenticated Remote Code Execution in OpenChamber
 slug: 2026-08-openchamber-rce
 description: OpenChamber 1.11.7 contains a critical unauthenticated RCE vulnerability in the /api/fs/exec endpoint due to improper command input validation and flawed authentication middleware.
 date: "2026-08-06T15:25:36Z"
-lastmod: "2026-08-06T15:25:46Z"
+lastmod: "2026-08-06T17:25:56Z"
 type: advisory
 types:
   - advisory
@@ -45,9 +45,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-53975
     cvss: 9.8
+  - id: CVE-2026-53977
+    cvss: 7.5
+  - id: CVE-2026-53976
+    cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-53975
   - https://nvd.nist.gov/vuln/detail/CVE-2026-53976
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-53977
 rules:
   - title: Detects CVE-2026-53975 Exploitation - Unauthenticated RCE via /api/fs/exec
     description: Detects POST requests to the /api/fs/exec endpoint which is used for command execution in OpenChamber 1.11.7
@@ -95,6 +100,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-53976
+  - at: "2026-08-06T17:25:56Z"
+    level: L2
+    summary: added CVE-2026-53976 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-53977
 ---
 
 OpenChamber version 1.11.7 is susceptible to a critical unauthenticated remote code execution vulnerability (CVE-2026-53975). The vulnerability exists in the /api/fs/exec endpoint, which passes user-provided input directly to the Node.js spawn() function without any validation or sanitization. Furthermore, the application's authentication middleware fails to enforce security when the UI_PASSWORD environment variable is unset. As the default Docker deployment configuration leaves this variable unconfigured, most deployments are exposed to unauthenticated exploitation. An attacker can submit a crafted POST request to trigger arbitrary command execution as the application user, resulting in the server returning the full command output, including stdout, stderr, and the exit code. This poses a significant risk to the integrity and availability of the host environment, particularly in containerized deployments.
