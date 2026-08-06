@@ -3,6 +3,7 @@ title: Heap Buffer Overflow in llama.cpp KV Cache Restoration
 slug: 2026-08-llama-cpp-heap-overflow
 description: A heap buffer overflow vulnerability in llama.cpp builds b4882 through b9058 allows attackers with write access to the slot_save_path directory to achieve arbitrary code execution via malicious KV cache state files.
 date: "2026-08-06T23:30:22Z"
+lastmod: "2026-08-06T23:31:48Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,9 @@ vendors:
   - ggerganov
 products:
   - llama.cpp (b4882-b9058)
+  - llama.cpp (b1886-b7445)
+affected_os:
+  - Android
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -24,6 +28,7 @@ cves:
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-43629
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70638
 action_plan:
   priority: elevated
   owners:
@@ -39,6 +44,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-43629
       evidence: Vulnerability requires write access to the slot_save_path directory
+updates:
+  - at: "2026-08-06T23:31:48Z"
+    level: L1
+    summary: OS android
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70638
 ---
 
 The llama.cpp project is affected by a heap buffer overflow vulnerability, identified as CVE-2026-43629, impacting builds from b4882 through b9058. The issue resides in the state_read_data() function, which is responsible for restoring the Key-Value (KV) cache state. During this process, the application performs size calculations for memory allocation without sufficient overflow checks. Specifically, the multiplication of the cell_count can result in an integer overflow, leading to an undersized tensor buffer allocation. An attacker who can write files to the configured slot_save_path directory can provide a crafted state file to trigger this overflow, writing arbitrary data beyond the allocated buffer boundaries. This allows for heap metadata corruption, model weight tampering, or arbitrary code execution through the overwriting of function pointers in memory.
