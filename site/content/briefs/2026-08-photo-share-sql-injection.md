@@ -3,6 +3,7 @@ title: SQL Injection in SourceCodester Photo Share Website
 slug: 2026-08-photo-share-sql-injection
 description: SourceCodester Photo Share Website 1.0 contains an SQL injection vulnerability in the login function of the /social/ajax.php script, allowing remote attackers to execute arbitrary SQL commands via the email parameter.
 date: "2026-08-07T07:31:00Z"
+lastmod: "2026-08-07T17:34:15Z"
 type: advisory
 types:
   - advisory
@@ -19,12 +20,10 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The manipulation of the argument email results in sql injection. The attack can be launched remotely.
     confidence_band: high
-cves:
-  - id: CVE-2026-19196
-    cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19196
   - https://vuldb.com/vuln/386713
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19211
 rules:
   - title: Detects CVE-2026-19196 Exploitation - SQL Injection in Photo Share
     description: Detects potential SQL injection attempts targeting the /social/ajax.php login endpoint by looking for common SQL syntax characters in the email parameter.
@@ -53,6 +52,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-19196
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-08-07T17:34:15Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-19211
 ---
 
 A SQL injection vulnerability exists in the login functionality of the SourceCodester Photo Share Website version 1.0. The vulnerability resides within the /social/ajax.php script, where the 'email' argument is processed without adequate input sanitization. This flaw allows remote, unauthenticated attackers to manipulate the SQL queries executed by the application backend. 
