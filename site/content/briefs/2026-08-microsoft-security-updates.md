@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-07T01:29:45Z"
+lastmod: "2026-08-07T01:29:47Z"
 type: threat
 types:
   - threat
@@ -70,6 +70,7 @@ products:
   - Power Apps
   - Azure SRE Agent
   - Microsoft 365 Admin Center
+  - Microsoft Teams
 affected_os:
   - Windows
   - Android
@@ -132,6 +133,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-59118
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62830
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62873
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62896
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -170,13 +172,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-07T01:29:34Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-56161
   - at: "2026-08-07T01:29:37Z"
     level: L1
     summary: new product
@@ -205,9 +200,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62873
+  - at: "2026-08-07T01:29:47Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62896
 ---
 
-This roundup covers 6 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft Entra Provisioning Service, Power Apps.
+This roundup covers 7 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Power Apps.
 
 ## Summary
 
@@ -219,6 +221,7 @@ This roundup covers 6 Microsoft security vulnerabilities. None are reported as a
 | CVE-2026-59115 | 0.0 | Microsoft Entra Provisioning Service | CVE-2026-59115 is a critical path traversal vulnerability in the Microsoft Entra Provisioning Service (SyncFabric). An authorized attacker can leverage this vulnerability by using a specific input string ('.../...//') to elevate their privileges over a network. The vulnerability has a CVSS base score of 9.9, indicating a significant risk to the integrity, confidentiality, and availability of the affected cloud service. |
 | CVE-2026-59118 | 0.0 | Power Apps | CVE-2026-59118 is an improper authorization vulnerability in Microsoft Power Apps that allows an unauthorized attacker to perform a privilege escalation over a network. The vulnerability carries a CVSS 3.1 base score of 9.3, indicating a critical severity impact on confidentiality and integrity, necessitating restricted access controls within the affected cloud service. |
 | CVE-2026-62830 | 0.0 | Azure SRE Agent | A vulnerability in the Azure SRE Agent stemming from missing authorization (CWE-862) allows an already authorized network attacker to perform privilege escalation. The vulnerability is rated critical with a CVSS 3.1 score of 9.9, as it enables full scope impact across confidentiality, integrity, and availability within the cloud environment. |
+| CVE-2026-62873 | 0.0 | Microsoft 365 Admin Center | The Microsoft 365 Admin Center is vulnerable to an improper verification of cryptographic signature vulnerability (CWE-347). This flaw allows a remote, unauthorized attacker to elevate their privileges over a network, potentially leading to full compromise of confidentiality, integrity, and availability. |
 
 
 ## CVE-2026-50481
@@ -274,3 +277,12 @@ Affected products:
 - Azure SRE Agent
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62830
+
+## CVE-2026-62873
+
+The Microsoft 365 Admin Center is vulnerable to an improper verification of cryptographic signature vulnerability (CWE-347). This flaw allows a remote, unauthorized attacker to elevate their privileges over a network, potentially leading to full compromise of confidentiality, integrity, and availability.
+
+Affected products:
+- Microsoft 365 Admin Center
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62873
