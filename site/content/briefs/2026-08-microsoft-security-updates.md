@@ -3,10 +3,10 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-07T01:29:30Z"
-type: advisory
+lastmod: "2026-08-07T01:29:32Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
 cpes:
@@ -64,11 +64,14 @@ products:
   - SharePoint Server
   - Internet Information Services
   - Azure Active Directory
+  - Azure Service Bus
 affected_os:
   - Windows
   - Android
   - Alpine Linux
 cves:
+  - id: CVE-2026-50481
+    cvss: 9.9
   - id: CVE-2026-62870
     cvss: 8.8
     epss: 0.00837
@@ -84,6 +87,9 @@ cves:
   - id: CVE-2026-66321
     cvss: 7.4
     epss: 0.00943
+  - id: CVE-2026-66318
+    cvss: 8.1
+    epss: 0.00368
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -115,6 +121,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2625
   - https://therecord.media/swiss-bit-foitt-hacked-possibly-sharepoint-vulnerabilities
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50481
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-50515
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -153,13 +160,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-04T01:42:35Z"
-    level: L2
-    summary: added CVE-2026-66315
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-66315
   - at: "2026-08-04T13:37:22Z"
     level: L2
     summary: added CVE-2026-66322
@@ -188,11 +188,29 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-50481
+  - at: "2026-08-07T01:29:32Z"
+    level: L2
+    summary: added CVE-2026-50481 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-50515
 ---
 
-Aggregated Microsoft security advisories for August 2026. CVEs from this cycle are folded
-into the list below as they are published.
+This roundup covers 1 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory.
 
-## Recommendation
+## Summary
 
-Review affected products and apply Microsoft's August 2026 security updates.
+| CVE | CVSS | Product | Summary |
+|-----|------|---------|---------|
+| CVE-2026-50481 | 0.0 | Azure Active Directory | CVE-2026-50481 is a critical vulnerability in Microsoft Azure Active Directory involving the modification of assumed-immutable data (MAID). An authorized attacker can exploit this flaw to escalate privileges within the environment over a network, potentially leading to unauthorized administrative access. |
+
+
+## CVE-2026-50481
+
+CVE-2026-50481 is a critical vulnerability in Microsoft Azure Active Directory involving the modification of assumed-immutable data (MAID). An authorized attacker can exploit this flaw to escalate privileges within the environment over a network, potentially leading to unauthorized administrative access.
+
+Affected products:
+- Azure Active Directory
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-50481
