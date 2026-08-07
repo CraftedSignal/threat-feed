@@ -3,7 +3,7 @@ title: GitPython Command Injection via Unsafe Git Option Guard Bypass
 slug: 2026-08-gitpython-bypass
 description: A bypass of the GitPython safety guard allows arbitrary OS command execution via token smuggling when using single-character keyword arguments with split_single_char_options=False.
 date: "2026-08-07T21:31:23Z"
-lastmod: "2026-08-07T21:31:32Z"
+lastmod: "2026-08-07T21:31:55Z"
 type: advisory
 types:
   - advisory
@@ -37,6 +37,7 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-wvpp-8hx9-p66j
   - https://github.com/advisories/GHSA-jm78-9fvv-mhgr
+  - https://github.com/advisories/GHSA-4gmw-gg2m-w46p
 action_plan:
   priority: elevated
   owners:
@@ -61,6 +62,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-jm78-9fvv-mhgr
+  - at: "2026-08-07T21:31:55Z"
+    level: L2
+    summary: added coverage for GitPython (<= 3.1.57)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-4gmw-gg2m-w46p
 ---
 
 GitPython versions up to and including 3.1.57 contain a command injection vulnerability stemming from an incomplete fix for a previous guard bypass (GHSA-r9mr-m37c-5fr3). The library provides an `unsafe_git_clone_options` guard to prevent the passage of dangerous flags (e.g., `--upload-pack`) to the underlying git binary. An attacker who can control keyword arguments passed to GitPython methods (like `clone_from`, `fetch`, or `push`) can bypass this guard by setting `split_single_char_options=False` and providing a single-character key with a value containing a malicious command. 
