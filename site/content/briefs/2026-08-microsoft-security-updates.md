@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-07T01:30:16Z"
+lastmod: "2026-08-07T01:30:19Z"
 type: threat
 types:
   - threat
@@ -75,6 +75,7 @@ products:
   - Azure Confidential Ledger
   - SharePoint Online
   - Application Insights Profiler
+  - Azure SQL Managed Instance
 affected_os:
   - Windows
   - Android
@@ -82,6 +83,8 @@ affected_os:
 cves:
   - id: CVE-2026-50481
     cvss: 9.9
+  - id: CVE-2026-56161
+    cvss: 9.6
   - id: CVE-2026-62870
     cvss: 8.8
     epss: 0.00837
@@ -143,6 +146,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-68823
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70332
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49163
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62836
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -181,13 +185,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-07T01:29:47Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-62896
   - at: "2026-08-07T01:29:50Z"
     level: L1
     summary: new product
@@ -216,9 +213,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-49163
+  - at: "2026-08-07T01:30:19Z"
+    level: L2
+    summary: added CVE-2026-56161
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62836
 ---
 
-This roundup covers 12 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Teams, Power Apps, SharePoint Online.
+This roundup covers 13 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Teams, Power Apps, SharePoint Online.
 
 ## Summary
 
@@ -236,6 +240,7 @@ This roundup covers 12 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-65667 | 0.0 | Microsoft Teams | CVE-2026-65667 is a critical security vulnerability in Microsoft Teams involving missing authorization (CWE-862). This flaw allows a remote, unauthenticated attacker to elevate privileges over a network, potentially leading to unauthorized access to sensitive information and system integrity compromises. |
 | CVE-2026-68823 | 0.0 | Azure Confidential Ledger | CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1. |
 | CVE-2026-70332 | 0.0 | SharePoint Online | CVE-2026-70332 is a Server-Side Request Forgery (SSRF) vulnerability in Microsoft SharePoint Online. An unauthenticated attacker can exploit this flaw to perform spoofing over a network, potentially leading to unauthorized information disclosure, interaction with internal services, or further lateral movement within the cloud environment. |
+| CVE-2026-49163 | 0.0 | Application Insights Profiler | Application Insights Profiler is vulnerable to a path traversal flaw (CWE-22) that allows an authorized attacker to elevate their privileges over a network. This vulnerability indicates improper limitation of a pathname to a restricted directory. |
 
 
 ## CVE-2026-50481
@@ -345,3 +350,12 @@ Affected products:
 - SharePoint Online
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70332
+
+## CVE-2026-49163
+
+Application Insights Profiler is vulnerable to a path traversal flaw (CWE-22) that allows an authorized attacker to elevate their privileges over a network. This vulnerability indicates improper limitation of a pathname to a restricted directory.
+
+Affected products:
+- Application Insights Profiler
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-49163
