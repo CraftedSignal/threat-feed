@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-07T01:29:37Z"
+lastmod: "2026-08-07T01:29:40Z"
 type: threat
 types:
   - threat
@@ -67,6 +67,7 @@ products:
   - Azure Service Bus
   - Azure Logic Apps
   - Microsoft Entra Provisioning Service
+  - Power Apps
 affected_os:
   - Windows
   - Android
@@ -126,6 +127,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-50515
   - https://nvd.nist.gov/vuln/detail/CVE-2026-56161
   - https://nvd.nist.gov/vuln/detail/CVE-2026-59115
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-59118
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -164,13 +166,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-04T13:42:35Z"
-    level: L2
-    summary: added CVE-2026-66318
-    sources:
-      - therecord
-    source_urls:
-      - https://therecord.media/swiss-bit-foitt-hacked-possibly-sharepoint-vulnerabilities
   - at: "2026-08-07T01:29:30Z"
     level: L1
     summary: new product
@@ -199,9 +194,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-59115
+  - at: "2026-08-07T01:29:40Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-59118
 ---
 
-This roundup covers 3 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure Service Bus.
+This roundup covers 4 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure Service Bus, Microsoft Entra Provisioning Service.
 
 ## Summary
 
@@ -210,6 +212,7 @@ This roundup covers 3 Microsoft security vulnerabilities. None are reported as a
 | CVE-2026-50481 | 9.9 | Azure Active Directory | CVE-2026-50481 is a critical vulnerability in Microsoft Azure Active Directory involving the modification of assumed-immutable data (MAID). An authorized attacker can exploit this flaw to escalate privileges within the environment over a network, potentially leading to unauthorized administrative access. |
 | CVE-2026-50515 | 0.0 | Azure Service Bus | CVE-2026-50515 is a critical deserialization of untrusted data vulnerability in Azure Service Bus that permits an authenticated attacker with low privileges to achieve remote code execution. Detection efforts should focus on monitoring anomalous serialized data payloads sent to service bus endpoints and unexpected process execution spawned by the Azure Service Bus service account. |
 | CVE-2026-56161 | 0.0 | Azure Logic Apps | CVE-2026-56161 describes an improper access control vulnerability in Microsoft Azure Logic Apps. An authenticated attacker can exploit this vulnerability to disclose sensitive information over a network. The vulnerability carries a CVSS 3.1 base score of 9.6, indicating a critical risk. |
+| CVE-2026-59115 | 0.0 | Microsoft Entra Provisioning Service | CVE-2026-59115 is a critical path traversal vulnerability in the Microsoft Entra Provisioning Service (SyncFabric). An authorized attacker can leverage this vulnerability by using a specific input string ('.../...//') to elevate their privileges over a network. The vulnerability has a CVSS base score of 9.9, indicating a significant risk to the integrity, confidentiality, and availability of the affected cloud service. |
 
 
 ## CVE-2026-50481
@@ -238,3 +241,12 @@ Affected products:
 - Azure Logic Apps
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-56161
+
+## CVE-2026-59115
+
+CVE-2026-59115 is a critical path traversal vulnerability in the Microsoft Entra Provisioning Service (SyncFabric). An authorized attacker can leverage this vulnerability by using a specific input string ('.../...//') to elevate their privileges over a network. The vulnerability has a CVSS base score of 9.9, indicating a significant risk to the integrity, confidentiality, and availability of the affected cloud service.
+
+Affected products:
+- Microsoft Entra Provisioning Service
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-59115
