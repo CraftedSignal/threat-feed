@@ -3,12 +3,13 @@ title: Phishing-as-a-Service Campaign Impersonating RingCentral for M365 Credent
 slug: 2026-08-phishing-ringcentral-m365
 description: Threat actors are leveraging a phishing-as-a-service platform to conduct spearphishing attacks impersonating RingCentral, targeting Microsoft 365 credentials.
 date: "2026-08-05T09:12:24Z"
-lastmod: "2026-08-06T21:19:34Z"
+lastmod: "2026-08-07T11:53:34Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+has_poc: true
 vendors:
   - Microsoft
   - RingCentral
@@ -32,6 +33,8 @@ mitre_ttps:
 references:
   - https://www.bleepingcomputer.com/news/security/phishing-service-spoofs-ringcentral-to-steal-microsoft-365-accounts
   - https://cloud.google.com/blog/topics/threat-intelligence/unc6671-targets-financial-services-and-enterprise-cloud-environments/
+  - https://arcticwolf.com/resources/blog/payroll-pirates-strange-new-tides-in-business-email-compromise/
+  - https://www.securityweek.com/vishing-extortion-group-unc6671-rebrands-after-making-millions/
 iocs:
   - type: domain
     value: passkeyhelpdesk.com
@@ -53,8 +56,10 @@ iocs:
     value: setupsso.com
   - type: domain
     value: idokta.com
+  - type: domain
+    value: passkeyuser.com
 ioc_counts:
-  domain: 10
+  domain: 11
 action_plan:
   priority: elevated
   owners:
@@ -79,6 +84,13 @@ updates:
       - mandiant
     source_urls:
       - https://cloud.google.com/blog/topics/threat-intelligence/unc6671-targets-financial-services-and-enterprise-cloud-environments/
+  - at: "2026-08-07T11:53:34Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/vishing-extortion-group-unc6671-rebrands-after-making-millions/
 ---
 
 Security researchers have identified an active phishing-as-a-service campaign that impersonates RingCentral communications to facilitate the theft of Microsoft 365 user credentials. This campaign relies on the delivery of deceptive emails that mimic legitimate RingCentral notifications, redirecting users to malicious phishing pages designed to capture authentication tokens and passwords. By utilizing a phishing-as-a-service model, threat actors are able to scale these campaigns effectively, bypassing traditional email filters by leveraging legitimate brand trust associated with RingCentral. The primary objective is the compromise of enterprise accounts, providing attackers with a foothold for lateral movement, data exfiltration, or further social engineering within the target organization. This threat is significant due to the prevalence of Microsoft 365 in enterprise environments and the difficulty of detecting high-quality brand impersonation via standard email security gateways.
