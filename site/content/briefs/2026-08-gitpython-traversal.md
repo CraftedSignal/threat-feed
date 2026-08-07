@@ -3,6 +3,7 @@ title: Path Traversal in GitPython via Malicious Submodule Names
 slug: 2026-08-gitpython-traversal
 description: GitPython fails to validate submodule names defined in .gitmodules files, allowing attackers to perform path traversal and create arbitrary Git repositories outside the intended working tree during submodule initialization.
 date: "2026-08-07T21:31:39Z"
+lastmod: "2026-08-07T21:31:48Z"
 type: advisory
 types:
   - advisory
@@ -23,8 +24,14 @@ cpes:
   - cpe:2.3:a:git-scm:git:*:*:*:*:*:*:*:*
   - cpe:2.3:a:git-scm:git:2.17.0:*:*:*:*:*:*:*
   - cpe:2.3:a:gitforwindows:git:*:*:*:*:*:*:*:*
+tags:
+  - remote-code-execution
+  - input-validation
+  - gitpython
+  - python
 products:
   - GitPython
+  - GitPython (<= 3.1.57)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -38,6 +45,7 @@ cves:
     epss: 0.48752
 references:
   - https://github.com/advisories/GHSA-hmq2-w58f-27jc
+  - https://github.com/advisories/GHSA-9rj7-rf2p-w77r
 action_plan:
   priority: elevated
   owners:
@@ -54,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: Affected GitPython versions <= 3.1.57
       evidence: Source advisory recommends version updates.
+updates:
+  - at: "2026-08-07T21:31:48Z"
+    level: L2
+    summary: added coverage for GitPython (<= 3.1.57)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9rj7-rf2p-w77r
 ---
 
 GitPython is vulnerable to a path traversal flaw (CWE-22) when initializing submodules. The library's `sm_name()` function, which extracts the name of a submodule from the `.gitmodules` file, performs no validation on the returned string. When `submodule_update(init=True)` is called, the library constructs an absolute path for the submodule's separate Git directory by joining the target directory with the unvalidated submodule name. 
