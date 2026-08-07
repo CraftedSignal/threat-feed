@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-07T01:29:55Z"
+lastmod: "2026-08-07T01:29:58Z"
 type: threat
 types:
   - threat
@@ -73,6 +73,7 @@ products:
   - Microsoft Teams
   - Microsoft Planetary Computer Pro (GeoCatalog)
   - Azure Confidential Ledger
+  - SharePoint Online
 affected_os:
   - Windows
   - Android
@@ -139,6 +140,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-63508
   - https://nvd.nist.gov/vuln/detail/CVE-2026-65667
   - https://nvd.nist.gov/vuln/detail/CVE-2026-68823
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70332
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -177,13 +179,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-07T01:29:42Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-62830
   - at: "2026-08-07T01:29:45Z"
     level: L1
     summary: new product
@@ -212,9 +207,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-68823
+  - at: "2026-08-07T01:29:58Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70332
 ---
 
-This roundup covers 10 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Teams, Power Apps.
+This roundup covers 11 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Teams, Power Apps.
 
 ## Summary
 
@@ -230,6 +232,7 @@ This roundup covers 10 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-62896 | 0.0 | Microsoft Teams | Microsoft Teams contains an improper authentication vulnerability that allows an authenticated attacker to perform privilege escalation over a network. This flaw represents a critical security risk due to the potential for unauthorized access elevation within the application environment. |
 | CVE-2026-63508 | 0.0 | Microsoft Planetary Computer Pro (GeoCatalog) | Microsoft Planetary Computer Pro (GeoCatalog) contains a vulnerability due to missing authentication for a critical function. This allows an unauthorized attacker to perform privilege escalation over a network. The vulnerability is classified as critical and has a CVSS base score of 10.0. |
 | CVE-2026-65667 | 0.0 | Microsoft Teams | CVE-2026-65667 is a critical security vulnerability in Microsoft Teams involving missing authorization (CWE-862). This flaw allows a remote, unauthenticated attacker to elevate privileges over a network, potentially leading to unauthorized access to sensitive information and system integrity compromises. |
+| CVE-2026-68823 | 0.0 | Azure Confidential Ledger | CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1. |
 
 
 ## CVE-2026-50481
@@ -321,3 +324,12 @@ Affected products:
 - Microsoft Teams
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65667
+
+## CVE-2026-68823
+
+CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1.
+
+Affected products:
+- Azure Confidential Ledger
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68823
