@@ -3,6 +3,7 @@ title: Use-After-Free Vulnerability in llama-server
 slug: 2026-08-llama-cpp-uaf
 description: A use-after-free vulnerability in llama-server allows for potential remote code execution via a TOCTOU race condition in tokenization endpoints when using the --sleep-idle-seconds configuration.
 date: "2026-08-06T23:30:34Z"
+lastmod: "2026-08-07T01:30:08Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - llama.cpp
 products:
   - llama-server
+  - llama-server (b7492 through b9060)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -22,8 +24,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-43632
     cvss: 8.1
+  - id: CVE-2026-43631
+    cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-43632
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-43631
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +45,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-43632
       evidence: The vulnerability triggers when --sleep-idle-seconds is configured.
+updates:
+  - at: "2026-08-07T01:30:08Z"
+    level: L2
+    summary: added CVE-2026-43631; llama-server version b7492 through b9060
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-43631
 ---
 
 CVE-2026-43632 is a use-after-free vulnerability affecting llama-server builds b7492 through b9060. The vulnerability resides in the handling of six specific tokenization-related endpoints: /tokenize, /detokenize, /infill, /apply-template, /rerank, and /anthropic/count_tokens. These endpoints bypass the standard task queue and access the 'ctx_server.vocab' memory structure directly from HTTP worker threads.
