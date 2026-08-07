@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-07T01:30:19Z"
+lastmod: "2026-08-07T01:30:25Z"
 type: threat
 types:
   - threat
@@ -76,6 +76,7 @@ products:
   - SharePoint Online
   - Application Insights Profiler
   - Azure SQL Managed Instance
+  - Microsoft Purview eDiscovery
 affected_os:
   - Windows
   - Android
@@ -85,6 +86,8 @@ cves:
     cvss: 9.9
   - id: CVE-2026-56161
     cvss: 9.6
+  - id: CVE-2026-63508
+    cvss: 10
   - id: CVE-2026-62870
     cvss: 8.8
     epss: 0.00837
@@ -147,6 +150,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70332
   - https://nvd.nist.gov/vuln/detail/CVE-2026-49163
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62836
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62918
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-65668
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -185,13 +190,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-07T01:29:50Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-63508
   - at: "2026-08-07T01:29:55Z"
     level: L1
     summary: new product
@@ -215,14 +213,15 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-49163
   - at: "2026-08-07T01:30:19Z"
     level: L2
-    summary: added CVE-2026-56161
+    summary: added CVE-2026-56161, CVE-2026-63508
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62836
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-65668
 ---
 
-This roundup covers 13 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Teams, Power Apps, SharePoint Online.
+This roundup covers 15 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Teams, Power Apps, SharePoint Online.
 
 ## Summary
 
@@ -230,7 +229,7 @@ This roundup covers 13 Microsoft security vulnerabilities. None are reported as 
 |-----|------|---------|---------|
 | CVE-2026-50481 | 9.9 | Azure Active Directory | CVE-2026-50481 is a critical vulnerability in Microsoft Azure Active Directory involving the modification of assumed-immutable data (MAID). An authorized attacker can exploit this flaw to escalate privileges within the environment over a network, potentially leading to unauthorized administrative access. |
 | CVE-2026-50515 | 0.0 | Azure Service Bus | CVE-2026-50515 is a critical deserialization of untrusted data vulnerability in Azure Service Bus that permits an authenticated attacker with low privileges to achieve remote code execution. Detection efforts should focus on monitoring anomalous serialized data payloads sent to service bus endpoints and unexpected process execution spawned by the Azure Service Bus service account. |
-| CVE-2026-56161 | 0.0 | Azure Logic Apps | CVE-2026-56161 describes an improper access control vulnerability in Microsoft Azure Logic Apps. An authenticated attacker can exploit this vulnerability to disclose sensitive information over a network. The vulnerability carries a CVSS 3.1 base score of 9.6, indicating a critical risk. |
+| CVE-2026-56161 | 9.6 | Azure Logic Apps | CVE-2026-56161 describes an improper access control vulnerability in Microsoft Azure Logic Apps. An authenticated attacker can exploit this vulnerability to disclose sensitive information over a network. The vulnerability carries a CVSS 3.1 base score of 9.6, indicating a critical risk. |
 | CVE-2026-59115 | 0.0 | Microsoft Entra Provisioning Service | CVE-2026-59115 is a critical path traversal vulnerability in the Microsoft Entra Provisioning Service (SyncFabric). An authorized attacker can leverage this vulnerability by using a specific input string ('.../...//') to elevate their privileges over a network. The vulnerability has a CVSS base score of 9.9, indicating a significant risk to the integrity, confidentiality, and availability of the affected cloud service. |
 | CVE-2026-59118 | 0.0 | Power Apps | CVE-2026-59118 is an improper authorization vulnerability in Microsoft Power Apps that allows an unauthorized attacker to perform a privilege escalation over a network. The vulnerability carries a CVSS 3.1 base score of 9.3, indicating a critical severity impact on confidentiality and integrity, necessitating restricted access controls within the affected cloud service. |
 | CVE-2026-62830 | 0.0 | Azure SRE Agent | A vulnerability in the Azure SRE Agent stemming from missing authorization (CWE-862) allows an already authorized network attacker to perform privilege escalation. The vulnerability is rated critical with a CVSS 3.1 score of 9.9, as it enables full scope impact across confidentiality, integrity, and availability within the cloud environment. |
@@ -241,6 +240,8 @@ This roundup covers 13 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68823 | 0.0 | Azure Confidential Ledger | CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1. |
 | CVE-2026-70332 | 0.0 | SharePoint Online | CVE-2026-70332 is a Server-Side Request Forgery (SSRF) vulnerability in Microsoft SharePoint Online. An unauthenticated attacker can exploit this flaw to perform spoofing over a network, potentially leading to unauthorized information disclosure, interaction with internal services, or further lateral movement within the cloud environment. |
 | CVE-2026-49163 | 0.0 | Application Insights Profiler | Application Insights Profiler is vulnerable to a path traversal flaw (CWE-22) that allows an authorized attacker to elevate their privileges over a network. This vulnerability indicates improper limitation of a pathname to a restricted directory. |
+| CVE-2026-62836 | 0.0 | Azure SQL Managed Instance | CVE-2026-62836 identifies a vulnerability in Azure SQL Managed Instance due to improper restriction of communication channels to intended endpoints. This flaw allows an unauthenticated, remote attacker to escalate privileges over a network connection by exploiting the misconfigured communication path. |
+| CVE-2026-62918 | 0.0 | Microsoft Teams | CVE-2026-62918 is a vulnerability in Microsoft Teams involving improper verification of cryptographic signatures. This flaw allows an unauthorized remote attacker to perform spoofing attacks over a network, potentially leading to unauthorized data manipulation or masquerading within the platform. |
 
 
 ## CVE-2026-50481
@@ -359,3 +360,21 @@ Affected products:
 - Application Insights Profiler
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-49163
+
+## CVE-2026-62836
+
+CVE-2026-62836 identifies a vulnerability in Azure SQL Managed Instance due to improper restriction of communication channels to intended endpoints. This flaw allows an unauthenticated, remote attacker to escalate privileges over a network connection by exploiting the misconfigured communication path.
+
+Affected products:
+- Azure SQL Managed Instance
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62836
+
+## CVE-2026-62918
+
+CVE-2026-62918 is a vulnerability in Microsoft Teams involving improper verification of cryptographic signatures. This flaw allows an unauthorized remote attacker to perform spoofing attacks over a network, potentially leading to unauthorized data manipulation or masquerading within the platform.
+
+Affected products:
+- Microsoft Teams
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62918
