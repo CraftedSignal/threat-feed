@@ -3,7 +3,7 @@ title: Progress Security Advisory (AV26-552) Addressing Multiple Critical Vulner
 slug: 2026-06-progress-security-advisory
 description: Progress released critical security advisories between June 2 and 4, 2026, addressing multiple vulnerabilities, including CVE-2026-7312, CVE-2026-7198, CVE-2026-7195, CVE-2026-7201, CVE-2026-7313, CVE-2026-8037, and CVE-2026-33691, in Sitefinity CMS, Sitefinity Insight, and Progress Kemp LoadMaster, which could lead to various impacts if exploited, necessitating immediate patching.
 date: "2026-06-14T14:21:34Z"
-lastmod: "2026-08-07T18:47:31Z"
+lastmod: "2026-08-07T21:14:57Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +46,12 @@ cves:
   - id: CVE-2026-7198
     cvss: 9.8
     epss: 0.00443
+  - id: CVE-2026-7195
+    cvss: 8.8
+    epss: 0.00471
+  - id: CVE-2026-7201
+    cvss: 8.8
+    epss: 0.00348
   - id: CVE-2026-7313
     cvss: 8.7
     epss: 0.00319
@@ -63,6 +69,7 @@ references:
   - https://sploitus.com/exploit?id=CBFB47A0-CA83-566E-88FB-C2AD0B92470A&utm_source=rss&utm_medium=rss
   - https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html
   - https://www.cisa.gov/news-events/alerts/2026/08/07/cisa-adds-one-known-exploited-vulnerability-catalog
+  - https://www.cve.org/CVERecord?id=CVE-2026-8037
 iocs:
   - type: url
     value: https://sploitus.com/exploit?id=CBFB47A0-CA83-566E-88FB-C2AD0B92470A
@@ -131,6 +138,13 @@ updates:
       - cisa
     source_urls:
       - https://www.cisa.gov/news-events/alerts/2026/08/07/cisa-adds-one-known-exploited-vulnerability-catalog
+  - at: "2026-08-07T21:14:57Z"
+    level: L2
+    summary: added CVE-2026-7195 +1
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-8037
 ---
 
 Between June 2 and 4, 2026, Progress Software released urgent security advisories (AV26-552) addressing a range of vulnerabilities across its product line, notably including critical updates for Sitefinity CMS, Sitefinity Insight, and Progress Kemp LoadMaster. These advisories detail several CVEs, specifically CVE-2026-7312, CVE-2026-7198, CVE-2026-7195, CVE-2026-7201, CVE-2026-7313 affecting Sitefinity products, and CVE-2026-8037, CVE-2026-33691 impacting Kemp LoadMaster appliances. The vulnerabilities could allow for unauthorized access, remote code execution, or denial-of-service, posing a significant risk to organizations utilizing these products. Defenders must prioritize the immediate application of patches to prevent potential exploitation by malicious actors seeking to compromise critical web applications and network infrastructure.
