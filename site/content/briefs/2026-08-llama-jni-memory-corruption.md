@@ -3,12 +3,15 @@ title: Memory Management Vulnerability in llama.cpp Android JNI Wrapper
 slug: 2026-08-llama-jni-memory-corruption
 description: A memory management mismatch in the llama.cpp Android JNI wrapper leads to heap metadata corruption, enabling potential denial of service or arbitrary code execution.
 date: "2026-08-06T17:25:52Z"
-lastmod: "2026-08-06T23:30:08Z"
+lastmod: "2026-08-07T11:50:39Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=1EE31CF2-51B3-5C44-B696-818B1B1D1244&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - integer-overflow
@@ -18,6 +21,7 @@ vendors:
 products:
   - llama.cpp (b1886 through b7445)
   - llama.cpp (b1283 - b9058)
+  - llama.cpp (b1886–b7445)
 affected_os:
   - Android
 mitre_ttps:
@@ -30,12 +34,22 @@ mitre_ttps:
 cves:
   - id: CVE-2026-43622
     cvss: 7.8
+  - id: CVE-2026-70638
+    cvss: 7.8
+  - id: CVE-2026-43627
+    cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-43622
   - https://github.com/ggml-org/llama.cpp/releases/tag/b7446
   - https://github.com/ggml-org/llama.cpp/commit/5c0d18881e0e9794c96b2602736b758bac9d9388
   - https://nvd.nist.gov/vuln/detail/CVE-2026-43627
   - https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches
+  - https://sploitus.com/exploit?id=1EE31CF2-51B3-5C44-B696-818B1B1D1244&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=1EE31CF2-51B3-5C44-B696-818B1B1D1244
+ioc_counts:
+  url: 1
 action_plan:
   priority: elevated
   owners:
@@ -60,6 +74,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-43627
+  - at: "2026-08-07T11:50:39Z"
+    level: L2
+    summary: poc_available; added CVE-2026-43627 +1
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=1EE31CF2-51B3-5C44-B696-818B1B1D1244&utm_source=rss&utm_medium=rss
 ---
 
 A security vulnerability exists in llama.cpp builds b1886 through b7445, specifically within the LLaMA-Android JNI (Java Native Interface) wrapper. The vulnerability is caused by a memory management mismatch where the `new_1batch()` function allocates memory using the standard `malloc()` C function, but the corresponding `free_1batch()` function attempts to deallocate that memory using the C++ `delete` operator. 
