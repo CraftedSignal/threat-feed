@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-07T01:29:47Z"
+lastmod: "2026-08-07T01:29:50Z"
 type: threat
 types:
   - threat
@@ -71,6 +71,7 @@ products:
   - Azure SRE Agent
   - Microsoft 365 Admin Center
   - Microsoft Teams
+  - Microsoft Planetary Computer Pro (GeoCatalog)
 affected_os:
   - Windows
   - Android
@@ -134,6 +135,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62830
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62873
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62896
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-63508
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -172,13 +174,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-07T01:29:37Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-59115
   - at: "2026-08-07T01:29:40Z"
     level: L1
     summary: new product
@@ -207,9 +202,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62896
+  - at: "2026-08-07T01:29:50Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-63508
 ---
 
-This roundup covers 7 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Power Apps.
+This roundup covers 8 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Teams, Power Apps.
 
 ## Summary
 
@@ -222,6 +224,7 @@ This roundup covers 7 Microsoft security vulnerabilities. None are reported as a
 | CVE-2026-59118 | 0.0 | Power Apps | CVE-2026-59118 is an improper authorization vulnerability in Microsoft Power Apps that allows an unauthorized attacker to perform a privilege escalation over a network. The vulnerability carries a CVSS 3.1 base score of 9.3, indicating a critical severity impact on confidentiality and integrity, necessitating restricted access controls within the affected cloud service. |
 | CVE-2026-62830 | 0.0 | Azure SRE Agent | A vulnerability in the Azure SRE Agent stemming from missing authorization (CWE-862) allows an already authorized network attacker to perform privilege escalation. The vulnerability is rated critical with a CVSS 3.1 score of 9.9, as it enables full scope impact across confidentiality, integrity, and availability within the cloud environment. |
 | CVE-2026-62873 | 0.0 | Microsoft 365 Admin Center | The Microsoft 365 Admin Center is vulnerable to an improper verification of cryptographic signature vulnerability (CWE-347). This flaw allows a remote, unauthorized attacker to elevate their privileges over a network, potentially leading to full compromise of confidentiality, integrity, and availability. |
+| CVE-2026-62896 | 0.0 | Microsoft Teams | Microsoft Teams contains an improper authentication vulnerability that allows an authenticated attacker to perform privilege escalation over a network. This flaw represents a critical security risk due to the potential for unauthorized access elevation within the application environment. |
 
 
 ## CVE-2026-50481
@@ -286,3 +289,12 @@ Affected products:
 - Microsoft 365 Admin Center
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62873
+
+## CVE-2026-62896
+
+Microsoft Teams contains an improper authentication vulnerability that allows an authenticated attacker to perform privilege escalation over a network. This flaw represents a critical security risk due to the potential for unauthorized access elevation within the application environment.
+
+Affected products:
+- Microsoft Teams
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62896
