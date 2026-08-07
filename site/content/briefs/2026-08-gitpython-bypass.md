@@ -3,6 +3,7 @@ title: GitPython Command Injection via Unsafe Git Option Guard Bypass
 slug: 2026-08-gitpython-bypass
 description: A bypass of the GitPython safety guard allows arbitrary OS command execution via token smuggling when using single-character keyword arguments with split_single_char_options=False.
 date: "2026-08-07T21:31:23Z"
+lastmod: "2026-08-07T21:31:32Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,12 @@ tags:
   - execution
   - library-vulnerability
   - command-injection
+  - remote-code-execution
+  - injection
+  - gitpython
+  - supply-chain
+vendors:
+  - GitPython
 products:
   - GitPython (<= 3.1.57)
 mitre_ttps:
@@ -21,8 +28,15 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The guard's candidate list omits the smuggled option, but transform_kwarg emits a JOINED -n<value> argv token that git parses as --upload-pack=<cmd>, yielding arbitrary command execution
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: An attacker controlling the option name can manipulate the generated git config file to inject arbitrary directives like 'core.sshCommand', resulting in remote code execution.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-wvpp-8hx9-p66j
+  - https://github.com/advisories/GHSA-jm78-9fvv-mhgr
 action_plan:
   priority: elevated
   owners:
@@ -39,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: GitPython (<= 3.1.57)
       evidence: GitPython version 3.1.57 is explicitly listed as vulnerable
+updates:
+  - at: "2026-08-07T21:31:32Z"
+    level: L2
+    summary: added coverage for GitPython (<= 3.1.57)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-jm78-9fvv-mhgr
 ---
 
 GitPython versions up to and including 3.1.57 contain a command injection vulnerability stemming from an incomplete fix for a previous guard bypass (GHSA-r9mr-m37c-5fr3). The library provides an `unsafe_git_clone_options` guard to prevent the passage of dangerous flags (e.g., `--upload-pack`) to the underlying git binary. An attacker who can control keyword arguments passed to GitPython methods (like `clone_from`, `fetch`, or `push`) can bypass this guard by setting `split_single_char_options=False` and providing a single-character key with a value containing a malicious command. 
