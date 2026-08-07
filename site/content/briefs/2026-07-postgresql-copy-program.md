@@ -3,11 +3,14 @@ title: PostgreSQL COPY PROGRAM Command Execution
 slug: 2026-07-postgresql-copy-program
 description: The PostgreSQL 'COPY ... PROGRAM' feature enables users with elevated privileges to execute arbitrary operating-system commands, a technique frequently abused by attackers to deploy cryptominers or establish persistence.
 date: "2026-07-31T19:10:28Z"
+lastmod: "2026-08-07T15:16:44Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:postgresql:postgresql:*:*:*:*:*:*:*:*
 tags:
   - postgresql
   - execution
@@ -23,10 +26,15 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Identifies PostgreSQL COPY statements that invoke an operating-system command through the PROGRAM option.
     confidence_band: high
+cves:
+  - id: CVE-2019-9193
+    cvss: 7.2
+    epss: 0.91655
 references:
   - https://www.postgresql.org/docs/current/sql-copy.html
   - https://www.aquasec.com/blog/pg_mem-a-malware-hidden-in-the-postgres-processes/
   - https://www.wiz.io/blog/postgresql-cryptomining
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/linux_suspicious_child_process_of_postgresql.yml
 rules:
   - title: Detect PostgreSQL COPY PROGRAM Command Execution
     description: Detects usage of the PostgreSQL COPY command with the PROGRAM option, which can be abused to execute arbitrary OS commands.
@@ -39,6 +47,14 @@ rules:
     data_sources:
       - network_connection
 rules_count: 1
+updates:
+  - at: "2026-08-07T15:16:44Z"
+    level: L2
+    summary: added CVE-2019-9193
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/linux_suspicious_child_process_of_postgresql.yml
 ---
 
 The PostgreSQL database management system supports the `COPY ... FROM PROGRAM` and `COPY ... TO PROGRAM` SQL commands, which allow the database to interact directly with the underlying host operating system. While intended for administrative data-processing tasks such as importing or exporting files, this functionality provides an avenue for command execution when accessed by a superuser or a role possessing the `pg_execute_server_program` privilege.
