@@ -3,7 +3,7 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-06T07:34:37Z"
+lastmod: "2026-08-07T17:34:18Z"
 type: threat
 types:
   - threat
@@ -28,6 +28,7 @@ products:
   - Terminal Service Agent
   - UCS C-Series M7 Rack Servers
   - UCS C-Series M8 Rack Servers
+  - ClamAV
 cves:
   - id: CVE-2026-20267
     cvss: 9
@@ -35,6 +36,10 @@ cves:
     cvss: 9.8
   - id: CVE-2026-20310
     cvss: 9.1
+    epss: 0.00369
+  - id: CVE-2026-20124
+    cvss: 7.7
+    epss: 0.00345
   - id: CVE-2026-20200
     cvss: 8.8
   - id: CVE-2026-20263
@@ -43,6 +48,7 @@ cves:
     cvss: 8.6
   - id: CVE-2026-20269
     cvss: 8.6
+    epss: 0.00252
   - id: CVE-2026-20273
     cvss: 8.6
   - id: CVE-2026-20301
@@ -51,10 +57,14 @@ cves:
     cvss: 8.8
   - id: CVE-2026-20313
     cvss: 7.7
+    epss: 0.00248
   - id: CVE-2026-20311
     cvss: 6.3
   - id: CVE-2026-20198
     cvss: 4.8
+  - id: CVE-2026-20028
+    cvss: 5
+    epss: 0.00252
   - id: CVE-2026-20303
     cvss: 9.9
 references:
@@ -78,6 +88,7 @@ references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ts-agent-fw-bypass-MYBTMrev?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Terminal%20Services%20Agent%20Firewall%20Rules%20Bypass%20Vulnerability%26vs_k=1
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
   - https://www.securityweek.com/cisco-patches-critical-sd-wan-ios-xe-fmc-vulnerabilities/
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20337
 iocs:
   - type: url
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW
@@ -96,13 +107,6 @@ iocs:
 ioc_counts:
   url: 7
 updates:
-  - at: "2026-08-05T21:26:35Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - cisco-psirt
-    source_urls:
-      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20Information%20Disclosure%20Vulnerability%26vs_k=1
   - at: "2026-08-05T21:26:37Z"
     level: L2
     summary: poc_available; added CVE-2026-20301
@@ -131,6 +135,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/cisco-patches-critical-sd-wan-ios-xe-fmc-vulnerabilities/
+  - at: "2026-08-07T17:34:18Z"
+    level: L2
+    summary: added CVE-2026-20028 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-20337
 ---
 
 This roundup covers 19 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, Catalyst SD-WAN Manager, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS, Terminal Services Agent.
