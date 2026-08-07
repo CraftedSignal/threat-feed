@@ -3,16 +3,18 @@ title: Arbitrary Password Reset Vulnerability in Craft CMS
 slug: 2026-08-craft-cms-password-reset
 description: An insecure mass-assignment vulnerability in the Craft CMS user element save action allows authenticated users with specific permissions to modify passwords without requiring the current password or elevated verification.
 date: "2026-08-06T21:29:10Z"
-lastmod: "2026-08-06T21:29:25Z"
+lastmod: "2026-08-07T15:30:17Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
   - privilege-escalation
   - cms
   - web-application
+  - authentication-bypass
+  - cve-2024-45398
 vendors:
   - Craft CMS
 products:
@@ -43,8 +45,15 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: In the confirmed local lab, this led to command execution as the PHP/web user.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: An attacker who obtains one successful passkey login request body can replay it to create additional authenticated Craft sessions for that user.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-265m-7826-wjqm
+  - https://github.com/advisories/GHSA-wg23-69c2-gjc8
 action_plan:
   priority: elevated
   owners:
@@ -69,6 +78,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-265m-7826-wjqm
+  - at: "2026-08-07T15:30:17Z"
+    level: L2
+    summary: added coverage for Craft CMS (5.x)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-wg23-69c2-gjc8
 ---
 
 Craft CMS versions 5.0.0-RC1 through 5.10.7 contain an insecure mass-assignment vulnerability in the user element save mechanism. The vulnerability resides in the `elements/save` action, where the `newPassword` field is processed by the `UserPasswordValidator` without proper scenario-based restrictions. 
