@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-07T01:29:42Z"
+lastmod: "2026-08-07T01:29:45Z"
 type: threat
 types:
   - threat
@@ -69,6 +69,7 @@ products:
   - Microsoft Entra Provisioning Service
   - Power Apps
   - Azure SRE Agent
+  - Microsoft 365 Admin Center
 affected_os:
   - Windows
   - Android
@@ -130,6 +131,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-59115
   - https://nvd.nist.gov/vuln/detail/CVE-2026-59118
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62830
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62873
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -168,13 +170,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-07T01:29:32Z"
-    level: L2
-    summary: added CVE-2026-50481 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-50515
   - at: "2026-08-07T01:29:34Z"
     level: L1
     summary: new product
@@ -203,9 +198,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62830
+  - at: "2026-08-07T01:29:45Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62873
 ---
 
-This roundup covers 5 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure Service Bus, Microsoft Entra Provisioning Service, Power Apps.
+This roundup covers 6 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft Entra Provisioning Service, Power Apps.
 
 ## Summary
 
@@ -216,6 +218,7 @@ This roundup covers 5 Microsoft security vulnerabilities. None are reported as a
 | CVE-2026-56161 | 0.0 | Azure Logic Apps | CVE-2026-56161 describes an improper access control vulnerability in Microsoft Azure Logic Apps. An authenticated attacker can exploit this vulnerability to disclose sensitive information over a network. The vulnerability carries a CVSS 3.1 base score of 9.6, indicating a critical risk. |
 | CVE-2026-59115 | 0.0 | Microsoft Entra Provisioning Service | CVE-2026-59115 is a critical path traversal vulnerability in the Microsoft Entra Provisioning Service (SyncFabric). An authorized attacker can leverage this vulnerability by using a specific input string ('.../...//') to elevate their privileges over a network. The vulnerability has a CVSS base score of 9.9, indicating a significant risk to the integrity, confidentiality, and availability of the affected cloud service. |
 | CVE-2026-59118 | 0.0 | Power Apps | CVE-2026-59118 is an improper authorization vulnerability in Microsoft Power Apps that allows an unauthorized attacker to perform a privilege escalation over a network. The vulnerability carries a CVSS 3.1 base score of 9.3, indicating a critical severity impact on confidentiality and integrity, necessitating restricted access controls within the affected cloud service. |
+| CVE-2026-62830 | 0.0 | Azure SRE Agent | A vulnerability in the Azure SRE Agent stemming from missing authorization (CWE-862) allows an already authorized network attacker to perform privilege escalation. The vulnerability is rated critical with a CVSS 3.1 score of 9.9, as it enables full scope impact across confidentiality, integrity, and availability within the cloud environment. |
 
 
 ## CVE-2026-50481
@@ -262,3 +265,12 @@ Affected products:
 - Power Apps
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-59118
+
+## CVE-2026-62830
+
+A vulnerability in the Azure SRE Agent stemming from missing authorization (CWE-862) allows an already authorized network attacker to perform privilege escalation. The vulnerability is rated critical with a CVSS 3.1 score of 9.9, as it enables full scope impact across confidentiality, integrity, and availability within the cloud environment.
+
+Affected products:
+- Azure SRE Agent
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62830
