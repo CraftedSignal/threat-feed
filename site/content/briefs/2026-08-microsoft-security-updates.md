@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-07T01:29:50Z"
+lastmod: "2026-08-07T01:29:55Z"
 type: threat
 types:
   - threat
@@ -72,6 +72,7 @@ products:
   - Microsoft 365 Admin Center
   - Microsoft Teams
   - Microsoft Planetary Computer Pro (GeoCatalog)
+  - Azure Confidential Ledger
 affected_os:
   - Windows
   - Android
@@ -136,6 +137,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62873
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62896
   - https://nvd.nist.gov/vuln/detail/CVE-2026-63508
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-65667
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-68823
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -174,13 +177,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-07T01:29:40Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-59118
   - at: "2026-08-07T01:29:42Z"
     level: L1
     summary: new product
@@ -209,9 +205,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-63508
+  - at: "2026-08-07T01:29:55Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-68823
 ---
 
-This roundup covers 8 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Teams, Power Apps.
+This roundup covers 10 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Azure Active Directory, Azure Logic Apps, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Teams, Power Apps.
 
 ## Summary
 
@@ -225,6 +228,8 @@ This roundup covers 8 Microsoft security vulnerabilities. None are reported as a
 | CVE-2026-62830 | 0.0 | Azure SRE Agent | A vulnerability in the Azure SRE Agent stemming from missing authorization (CWE-862) allows an already authorized network attacker to perform privilege escalation. The vulnerability is rated critical with a CVSS 3.1 score of 9.9, as it enables full scope impact across confidentiality, integrity, and availability within the cloud environment. |
 | CVE-2026-62873 | 0.0 | Microsoft 365 Admin Center | The Microsoft 365 Admin Center is vulnerable to an improper verification of cryptographic signature vulnerability (CWE-347). This flaw allows a remote, unauthorized attacker to elevate their privileges over a network, potentially leading to full compromise of confidentiality, integrity, and availability. |
 | CVE-2026-62896 | 0.0 | Microsoft Teams | Microsoft Teams contains an improper authentication vulnerability that allows an authenticated attacker to perform privilege escalation over a network. This flaw represents a critical security risk due to the potential for unauthorized access elevation within the application environment. |
+| CVE-2026-63508 | 0.0 | Microsoft Planetary Computer Pro (GeoCatalog) | Microsoft Planetary Computer Pro (GeoCatalog) contains a vulnerability due to missing authentication for a critical function. This allows an unauthorized attacker to perform privilege escalation over a network. The vulnerability is classified as critical and has a CVSS base score of 10.0. |
+| CVE-2026-65667 | 0.0 | Microsoft Teams | CVE-2026-65667 is a critical security vulnerability in Microsoft Teams involving missing authorization (CWE-862). This flaw allows a remote, unauthenticated attacker to elevate privileges over a network, potentially leading to unauthorized access to sensitive information and system integrity compromises. |
 
 
 ## CVE-2026-50481
@@ -298,3 +303,21 @@ Affected products:
 - Microsoft Teams
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62896
+
+## CVE-2026-63508
+
+Microsoft Planetary Computer Pro (GeoCatalog) contains a vulnerability due to missing authentication for a critical function. This allows an unauthorized attacker to perform privilege escalation over a network. The vulnerability is classified as critical and has a CVSS base score of 10.0.
+
+Affected products:
+- Microsoft Planetary Computer Pro (GeoCatalog)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-63508
+
+## CVE-2026-65667
+
+CVE-2026-65667 is a critical security vulnerability in Microsoft Teams involving missing authorization (CWE-862). This flaw allows a remote, unauthenticated attacker to elevate privileges over a network, potentially leading to unauthorized access to sensitive information and system integrity compromises.
+
+Affected products:
+- Microsoft Teams
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65667
