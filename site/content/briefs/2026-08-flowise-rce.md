@@ -3,7 +3,7 @@ title: Flowise Unauthenticated RCE via Environment Variable Bypass
 slug: 2026-08-flowise-rce
 description: Flowise v3.1.2 and earlier are vulnerable to unauthenticated remote code execution because the CVE-2025-8943 patch relies on an incomplete environment variable blocklist, allowing attackers to inject configuration variables that force arbitrary package installation.
 date: "2026-08-04T17:24:33Z"
-lastmod: "2026-08-06T23:31:13Z"
+lastmod: "2026-08-08T17:43:54Z"
 type: advisory
 types:
   - advisory
@@ -121,6 +121,11 @@ cves:
     epss: 0.00381
   - id: CVE-2026-67621
     cvss: 7.6
+  - id: CVE-2026-67620
+    cvss: 7.7
+  - id: CVE-2026-67622
+    cvss: 9.9
+    epss: 0.00248
 references:
   - https://github.com/advisories/GHSA-xc48-889x-5qmw
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69263
@@ -142,6 +147,16 @@ references:
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-70471
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67622
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67621
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70636
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2703
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67620
+iocs:
+  - type: ip
+    value: 192.0.0.192
+  - type: ip
+    value: 100.100.100.200
+ioc_counts:
+  ip: 2
 rules:
   - title: Detect Suspicious Dynamic Import in Node.js via Pyodide
     description: Detects attempts to use dynamic import for child_process or fs modules, often associated with sandbox breakouts in Node.js environments.
@@ -221,13 +236,6 @@ action_plan:
       addresses: Unauthenticated API access
       evidence: On a default deployment with no authentication, any unauthenticated user who can reach the Flowise API can trigger this.
 updates:
-  - at: "2026-08-04T19:40:33Z"
-    level: L2
-    summary: added coverage for Flowise (3.1.2)
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-chm3-vqcf-52rx
   - at: "2026-08-04T19:40:41Z"
     level: L2
     summary: added coverage for Flowise
@@ -256,6 +264,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-67621
+  - at: "2026-08-08T17:43:54Z"
+    level: L2
+    summary: added CVE-2026-67620 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-67620
 ---
 
 Flowise (v3.1.2 and earlier) contains a critical security flaw involving an incomplete environment variable blocklist, identified as CVE-2026-69263. This vulnerability allows an attacker to bypass the intended security controls for the Model Context Protocol (MCP) server configuration, specifically those established in the previous CVE-2025-8943 patch. While the original patch successfully filtered dangerous CLI flags like `-y` for `npx`, it failed to account for `npm` configuration that can be passed via environment variables (e.g., `npm_config_yes`).
