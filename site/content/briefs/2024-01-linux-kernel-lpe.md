@@ -3,11 +3,16 @@ title: Linux Kernel proc_readdir_de() Use-After-Free Local Privilege Escalation
 slug: 2024-01-linux-kernel-lpe
 description: A local privilege escalation vulnerability exists in the Linux Kernel versions ~3.14+ through 6.18-rc5 due to a use-after-free in the proc_readdir_de() function, where a concurrent traversal can dereference a freed entry's fields during network device unregistration, leading to privilege escalation via modprobe_path overwrite.
 date: "2024-01-03T12:00:00Z"
+lastmod: "2026-08-08T13:06:18Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=2F4AD28B-0185-5E6A-97A3-F946B6EE5612&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=A43BF944-C2D4-5C90-991E-0DA1667A6812&utm_source=rss&utm_medium=rss
 tags:
   - local-privilege-escalation
   - kernel-vulnerability
@@ -15,10 +20,15 @@ tags:
   - linux
 vendors:
   - Linux Kernel
+  - Linux
 products:
   - Linux Kernel
+  - Linux Kernel (through 6.18-rc5)
+  - Linux kernel (6.2.0-20)
 affected_os:
   - Debian Bookworm
+  - Linux
+  - Ubuntu 23.04
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -26,11 +36,23 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
 cves:
   - id: CVE-2025-40271
-    epss: 0.04037
+    cvss: 7.8
+    epss: 0.00445
 references:
   - https://www.exploit-db.com/exploits/52550
   - https://nvd.nist.gov/vuln/detail/CVE-2025-40271
   - https://git.kernel.org/linus/895b4c0c79b092d732544011c3cecaf7322c36a1
+  - https://sploitus.com/exploit?id=2F4AD28B-0185-5E6A-97A3-F946B6EE5612&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=A43BF944-C2D4-5C90-991E-0DA1667A6812&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=2F4AD28B-0185-5E6A-97A3-F946B6EE5612
+  - type: url
+    value: https://github.com/MadExploits
+  - type: url
+    value: https://sploitus.com/exploit?id=A43BF944-C2D4-5C90-991E-0DA1667A6812
+ioc_counts:
+  url: 3
 rules:
   - title: Detect Anomalous d_ino Values in getdents64 Output
     description: Detects potential use-after-free exploitation attempts by monitoring for anomalous d_ino values (kernel heap addresses) in getdents64 output.
@@ -55,6 +77,19 @@ rules:
       - file_event
       - linux
 rules_count: 2
+updates:
+  - at: "2026-06-30T19:05:53Z"
+    level: L2
+    summary: poc_available; linux kernel version through 6.18-rc5; OS linux
+    sources:
+      - sploitus
+  - at: "2026-08-08T13:06:18Z"
+    level: L1
+    summary: OS ubuntu 23.04
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=A43BF944-C2D4-5C90-991E-0DA1667A6812&utm_source=rss&utm_medium=rss
 ---
 
 A local privilege escalation vulnerability, CVE-2025-40271, affects Linux Kernel versions from approximately 3.14 up to 6.18-rc5. The vulnerability lies in the `proc_readdir_de()` function within the kernel's proc filesystem implementation. When a `proc_dir_entry` is removed from the parent's red-black tree, it isn't properly marked as detached, leaving stale rb-links. An attacker can exploit this use-after-free condition to gain elevated privileges on the system by triggering a race condition. This involves calling `getdents64()` on a `/proc` subdirectory, specifically `/proc/self/net/dev_snmp6/`, while concurrently unregistering network devices. Successful exploitation allows an attacker to overwrite the `modprobe_path` for local privilege escalation. The vulnerability was patched in stable versions 5.10.247, 6.1.159, 6.12.73, and 6.18-rc6.
