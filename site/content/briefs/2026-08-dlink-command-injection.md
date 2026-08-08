@@ -3,7 +3,7 @@ title: Remote Command Injection in D-Link DWR-M961
 slug: 2026-08-dlink-command-injection
 description: D-Link DWR-M961 devices with hardware version C1 and firmware versions prior to 1.1.5_C1_202607071108 are vulnerable to unauthenticated command injection via the fota_url parameter.
 date: "2026-08-08T17:40:26Z"
-lastmod: "2026-08-08T19:40:53Z"
+lastmod: "2026-08-08T19:41:10Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,7 @@ products:
   - DWR-M961
   - DWR-M961 (< 1.1.5_C1_202607071108)
   - DWR-M961 (version 1.1.2_C1_202602110044)
+  - DWR-M961 (hardware version C1, software version 1.1.2_C1_202602110044)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -65,6 +66,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71954
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71955
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71956
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-71957
 rules:
   - title: Detects CVE-2026-71944 Exploitation - Potential Command Injection in D-Link DWR-M961
     description: Detects potential command injection attempts targeting the FOTA upgrade interface of D-Link DWR-M961 devices by monitoring for shell metacharacters in the fota_url parameter.
@@ -78,13 +80,12 @@ rules:
       - webserver
 rules_count: 1
 updates:
-  - at: "2026-08-08T17:42:10Z"
+  - at: "2026-08-08T17:42:27Z"
     level: L2
-    summary: added CVE-2026-71950, CVE-2026-71951
+    summary: added CVE-2026-71951
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-71950
       - https://nvd.nist.gov/vuln/detail/CVE-2026-71951
   - at: "2026-08-08T17:43:17Z"
     level: L2
@@ -101,6 +102,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-71956
+  - at: "2026-08-08T19:41:10Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-71957
 ---
 
 D-Link DWR-M961 routers, specifically hardware version C1, contain a critical command injection vulnerability identified as CVE-2026-71944. The vulnerability exists within the firmware upgrade interface located at /boafrm/formLtefotaUpgradeQuectel. An unauthenticated remote attacker can exploit this flaw by sending a crafted HTTP request containing malicious commands in the fota_url parameter. Successful exploitation allows the attacker to execute arbitrary code with root privileges on the affected device, potentially leading to a complete compromise of the router. This vulnerability highlights the risks associated with improper input validation in router administrative interfaces. Defenders should prioritize patching, as this device class is a common target for botnet recruitment and persistent unauthorized access.
