@@ -3,11 +3,15 @@ title: Multiple Vulnerabilities in WordPress
 slug: 2026-08-wordpress-vulnerabilities
 description: Multiple vulnerabilities, including CVE-2026-64638, affect WordPress versions prior to 7.0.3, enabling privilege escalation, data breaches, and Server-Side Request Forgery (SSRF).
 date: "2026-08-07T21:21:16Z"
+lastmod: "2026-08-08T00:59:45Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=742A12A7-2805-526E-80AB-8421D4832885&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - cve
@@ -17,12 +21,19 @@ vendors:
   - WordPress
 products:
   - WordPress (< 7.0.3)
+  - WordPress Core (< 7.0.3)
 cves:
   - id: CVE-2026-64638
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0979/
   - https://wordpress.org/news/2026/08/wordpress-7-0-3-release/
   - https://www.cve.org/CVERecord?id=CVE-2026-64638
+  - https://sploitus.com/exploit?id=742A12A7-2805-526E-80AB-8421D4832885&utm_source=rss&utm_medium=rss
+iocs:
+  - type: url
+    value: https://sploitus.com/exploit?id=742A12A7-2805-526E-80AB-8421D4832885
+ioc_counts:
+  url: 1
 action_plan:
   priority: elevated
   owners:
@@ -39,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-64638
       evidence: CERTFR-2026-AVI-0979
+updates:
+  - at: "2026-08-08T00:59:45Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=742A12A7-2805-526E-80AB-8421D4832885&utm_source=rss&utm_medium=rss
 ---
 
 The French National Cybersecurity Agency (ANSSI) has issued an advisory regarding multiple security vulnerabilities discovered in the WordPress content management system. These vulnerabilities affect all versions of WordPress prior to 7.0.3, which was released on August 6, 2026. The identified security flaws introduce significant risks to web server environments, including the potential for remote attackers to execute cross-site scripting (XSS), conduct Server-Side Request Forgery (SSRF), bypass security controls, and perform privilege escalation to gain unauthorized access to administrative functions. Organizations running self-hosted WordPress instances are advised to evaluate their exposure and apply the 7.0.3 patch to mitigate these vulnerabilities. Given the ubiquity of the WordPress platform, successful exploitation could facilitate widespread data exfiltration and server compromise.
