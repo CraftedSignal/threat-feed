@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-09T09:38:14Z"
+lastmod: "2026-08-09T09:38:22Z"
 type: threat
 types:
   - threat
@@ -92,6 +92,7 @@ products:
   - Rpm
   - Bluetooth
   - ims-pcu
+  - ksmbd
 affected_os:
   - Windows
   - Android
@@ -214,6 +215,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-44605
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64573
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64565
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -252,13 +254,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-09T09:35:17Z"
-    level: L2
-    summary: added CVE-2026-50515 +3
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64564
   - at: "2026-08-09T09:35:32Z"
     level: L1
     summary: new product
@@ -287,9 +282,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64565
+  - at: "2026-08-09T09:38:22Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578
 ---
 
-This roundup covers 22 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf.
+This roundup covers 23 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu.
 
 ## Summary
 
@@ -317,6 +319,7 @@ This roundup covers 22 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-54876 | 7.5 | Windows | CVE-2026-54876 describes a client-side memory leak vulnerability within the OCSP (Online Certificate Status Protocol) response checking mechanism in Microsoft Windows products. |
 | CVE-2026-44605 | 0.0 | Rpm | CVE-2026-44605 describes a heap-based buffer overflow vulnerability located in the ndb slot table parsing logic within Rpm. This vulnerability could potentially allow for arbitrary code execution or memory corruption when processing malformed slot tables. |
 | CVE-2026-64573 | 0.0 | Bluetooth | A vulnerability identified in the Bluetooth NVM tag length TLV parser leads to an underflow condition. This security update from Microsoft addresses the flaw to prevent potential memory corruption or exploitation within the Bluetooth component. |
+| CVE-2026-64565 | 0.0 | ims-pcu | CVE-2026-64565 refers to a heap-based buffer overflow vulnerability located within the ims_pcu_process_data() function of the ims-pcu component, potentially allowing for memory corruption or arbitrary code execution. |
 
 
 ## CVE-2026-50481
@@ -516,3 +519,12 @@ Affected products:
 - Bluetooth
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64573
+
+## CVE-2026-64565
+
+CVE-2026-64565 refers to a heap-based buffer overflow vulnerability located within the ims_pcu_process_data() function of the ims-pcu component, potentially allowing for memory corruption or arbitrary code execution.
+
+Affected products:
+- ims-pcu
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64565
