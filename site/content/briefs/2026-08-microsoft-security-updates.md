@@ -3,13 +3,17 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-08T09:31:58Z"
+lastmod: "2026-08-09T09:35:17Z"
 type: threat
 types:
   - threat
 severities:
   - high
 cpes:
+  - cpe:2.3:a:microsoft:azure_active_directory:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:azure_service_bus:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:power_apps:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:azure_sre_agent:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:windows_admin_center:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:teams:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:azure_confidential_ledger:-:*:*:*:*:*:*:*
@@ -87,8 +91,18 @@ affected_os:
 cves:
   - id: CVE-2026-50481
     cvss: 9.9
+    epss: 0.00456
+  - id: CVE-2026-50515
+    cvss: 9.9
+    epss: 0.0091
   - id: CVE-2026-56161
     cvss: 9.6
+  - id: CVE-2026-59118
+    cvss: 9.3
+    epss: 0.0039
+  - id: CVE-2026-62830
+    cvss: 9.9
+    epss: 0.00417
   - id: CVE-2026-62873
     cvss: 9.8
     epss: 0.0035
@@ -121,6 +135,9 @@ cves:
   - id: CVE-2026-66318
     cvss: 8.1
     epss: 0.00368
+  - id: CVE-2026-64564
+    cvss: 9.8
+    epss: 0.00187
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -168,6 +185,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62918
   - https://nvd.nist.gov/vuln/detail/CVE-2026-65668
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68480
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64564
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -206,13 +224,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-07T01:29:58Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-70332
   - at: "2026-08-07T01:30:16Z"
     level: L1
     summary: new product
@@ -235,9 +246,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68480
+  - at: "2026-08-09T09:35:17Z"
+    level: L2
+    summary: added CVE-2026-50515 +3
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64564
 ---
 
-This roundup covers 16 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, SharePoint Online.
+This roundup covers 17 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, SharePoint Online, Windows.
 
 ## Summary
 
@@ -249,16 +267,17 @@ This roundup covers 16 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-59115 | 0.0 | Microsoft Entra Provisioning Service | CVE-2026-59115 is a critical path traversal vulnerability in the Microsoft Entra Provisioning Service (SyncFabric). An authorized attacker can leverage this vulnerability by using a specific input string ('.../...//') to elevate their privileges over a network. The vulnerability has a CVSS base score of 9.9, indicating a significant risk to the integrity, confidentiality, and availability of the affected cloud service. |
 | CVE-2026-59118 | 0.0 | Power Apps | CVE-2026-59118 is an improper authorization vulnerability in Microsoft Power Apps that allows an unauthorized attacker to perform a privilege escalation over a network. The vulnerability carries a CVSS 3.1 base score of 9.3, indicating a critical severity impact on confidentiality and integrity, necessitating restricted access controls within the affected cloud service. |
 | CVE-2026-62830 | 0.0 | Azure SRE Agent | A vulnerability in the Azure SRE Agent stemming from missing authorization (CWE-862) allows an already authorized network attacker to perform privilege escalation. The vulnerability is rated critical with a CVSS 3.1 score of 9.9, as it enables full scope impact across confidentiality, integrity, and availability within the cloud environment. |
-| CVE-2026-62873 | 0.0 | Microsoft 365 Admin Center | The Microsoft 365 Admin Center is vulnerable to an improper verification of cryptographic signature vulnerability (CWE-347). This flaw allows a remote, unauthorized attacker to elevate their privileges over a network, potentially leading to full compromise of confidentiality, integrity, and availability. |
-| CVE-2026-62896 | 0.0 | Microsoft Teams | Microsoft Teams contains an improper authentication vulnerability that allows an authenticated attacker to perform privilege escalation over a network. This flaw represents a critical security risk due to the potential for unauthorized access elevation within the application environment. |
+| CVE-2026-62873 | 9.8 | Microsoft 365 Admin Center | The Microsoft 365 Admin Center is vulnerable to an improper verification of cryptographic signature vulnerability (CWE-347). This flaw allows a remote, unauthorized attacker to elevate their privileges over a network, potentially leading to full compromise of confidentiality, integrity, and availability. |
+| CVE-2026-62896 | 9.6 | Microsoft Teams | Microsoft Teams contains an improper authentication vulnerability that allows an authenticated attacker to perform privilege escalation over a network. This flaw represents a critical security risk due to the potential for unauthorized access elevation within the application environment. |
 | CVE-2026-63508 | 10.0 | Microsoft Planetary Computer Pro (GeoCatalog) | Microsoft Planetary Computer Pro (GeoCatalog) contains a vulnerability due to missing authentication for a critical function. This allows an unauthorized attacker to perform privilege escalation over a network. The vulnerability is classified as critical and has a CVSS base score of 10.0. |
 | CVE-2026-65667 | 0.0 | Microsoft Teams | CVE-2026-65667 is a critical security vulnerability in Microsoft Teams involving missing authorization (CWE-862). This flaw allows a remote, unauthenticated attacker to elevate privileges over a network, potentially leading to unauthorized access to sensitive information and system integrity compromises. |
-| CVE-2026-68823 | 0.0 | Azure Confidential Ledger | CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1. |
+| CVE-2026-68823 | 9.1 | Azure Confidential Ledger | CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1. |
 | CVE-2026-70332 | 0.0 | SharePoint Online | CVE-2026-70332 is a Server-Side Request Forgery (SSRF) vulnerability in Microsoft SharePoint Online. An unauthenticated attacker can exploit this flaw to perform spoofing over a network, potentially leading to unauthorized information disclosure, interaction with internal services, or further lateral movement within the cloud environment. |
-| CVE-2026-49163 | 0.0 | Application Insights Profiler | Application Insights Profiler is vulnerable to a path traversal flaw (CWE-22) that allows an authorized attacker to elevate their privileges over a network. This vulnerability indicates improper limitation of a pathname to a restricted directory. |
+| CVE-2026-49163 | 8.8 | Application Insights Profiler | Application Insights Profiler is vulnerable to a path traversal flaw (CWE-22) that allows an authorized attacker to elevate their privileges over a network. This vulnerability indicates improper limitation of a pathname to a restricted directory. |
 | CVE-2026-62836 | 0.0 | Azure SQL Managed Instance | CVE-2026-62836 identifies a vulnerability in Azure SQL Managed Instance due to improper restriction of communication channels to intended endpoints. This flaw allows an unauthenticated, remote attacker to escalate privileges over a network connection by exploiting the misconfigured communication path. |
 | CVE-2026-62918 | 0.0 | Microsoft Teams | CVE-2026-62918 is a vulnerability in Microsoft Teams involving improper verification of cryptographic signatures. This flaw allows an unauthorized remote attacker to perform spoofing attacks over a network, potentially leading to unauthorized data manipulation or masquerading within the platform. |
 | CVE-2026-65668 | 0.0 | Microsoft Purview eDiscovery | Microsoft Purview eDiscovery contains an improper access control vulnerability that allows an authenticated attacker to perform a privilege escalation attack over the network. Detection should focus on monitoring unauthorized account role modifications or unexpected administrative actions within the Purview compliance console. |
+| CVE-2026-68480 | 0.0 | Windows | CVE-2026-68480 relates to a vulnerability in the x86 Safe-RET implementation regarding interrupt injection, which could allow a local attacker to potentially bypass security protections or escalate privileges. Security updates for affected versions of the Windows operating system address the robustness of the return mechanism against these specific interrupt vectors. |
 
 
 ## CVE-2026-50481
@@ -404,3 +423,12 @@ Affected products:
 - Microsoft Purview eDiscovery
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65668
+
+## CVE-2026-68480
+
+CVE-2026-68480 relates to a vulnerability in the x86 Safe-RET implementation regarding interrupt injection, which could allow a local attacker to potentially bypass security protections or escalate privileges. Security updates for affected versions of the Windows operating system address the robustness of the return mechanism against these specific interrupt vectors.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68480
