@@ -3,7 +3,7 @@ title: Exploitation of Linux Kernel GSM 0710 TTY Multiplexor Race Condition
 slug: 2026-08-linux-gsm-privilege-escalation
 description: An unprivileged local user can escalate privileges to root by exploiting a race condition in the Linux kernel GSM 0710 tty multiplexor (CVE-2023-6546).
 date: "2026-08-07T15:16:03Z"
-lastmod: "2026-08-09T09:35:06Z"
+lastmod: "2026-08-09T15:35:12Z"
 type: advisory
 types:
   - advisory
@@ -44,11 +44,21 @@ cves:
   - id: CVE-2026-64577
     cvss: 7.5
     epss: 0.0018
+  - id: CVE-2026-64572
+    epss: 0.00186
+  - id: CVE-2026-64584
+    cvss: 7.8
+    epss: 0.00156
+  - id: CVE-2026-64571
+    epss: 0.00156
 references:
   - https://access.redhat.com/security/cve/cve-2023-6546
   - https://github.com/Nassim-Asrir/ZDI-24-020/
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/linux_possible_system_binary_backdoor.yml
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64577
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64584
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64571
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64572
 rules:
   - title: Detect CVE-2023-6546 Exploitation - Suspicious GSM Module Manipulation
     description: Detects command sequences involving the unloading of the n_gsm kernel module followed by shell execution, indicative of CVE-2023-6546 exploitation.
@@ -93,6 +103,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64577
+  - at: "2026-08-09T15:35:12Z"
+    level: L2
+    summary: added CVE-2026-64571 +2
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64572
 ---
 
 This threat involves a local privilege escalation vulnerability in the Linux kernel, specifically within the GSM 0710 tty multiplexor module (n_gsm). The vulnerability, tracked as CVE-2023-6546, arises from a race condition triggered when two threads execute the GSMIOC_SETCONF ioctl on the same tty file descriptor while the gsm line discipline is active. An unprivileged local attacker can leverage this race condition to gain root privileges. Defense teams should monitor for anomalous kernel module management and shell execution patterns that coincide with the loading or unloading of the n_gsm kernel module.
