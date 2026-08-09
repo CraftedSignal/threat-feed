@@ -3,7 +3,7 @@ title: Command Injection in MSI Radix AXE6600 Router
 slug: 2026-08-msi-router-command-injection
 description: The MSI Radix AXE6600 router firmware version v781521 is vulnerable to remote command injection via the wps.cgi interface, allowing unauthenticated attackers to execute arbitrary commands with root privileges.
 date: "2026-08-08T23:42:11Z"
-lastmod: "2026-08-09T01:44:22Z"
+lastmod: "2026-08-09T01:44:38Z"
 type: advisory
 types:
   - advisory
@@ -45,6 +45,8 @@ cves:
     cvss: 9.8
   - id: CVE-2026-71989
     cvss: 9.8
+  - id: CVE-2026-71988
+    cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71983
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71984
@@ -54,6 +56,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71988
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71989
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71990
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-71991
 rules:
   - title: Detects CVE-2026-71983 Exploitation - Command Injection in wps.cgi
     description: Detects attempted command injection targeting the wps.cgi endpoint on MSI Radix AXE6600 routers using shell metacharacters in specific parameters.
@@ -84,13 +87,12 @@ action_plan:
       addresses: CVE-2026-71983
       evidence: Prevent remote exploitation by limiting exposure to administrative interfaces.
 updates:
-  - at: "2026-08-09T01:42:41Z"
+  - at: "2026-08-09T01:42:58Z"
     level: L2
-    summary: added CVE-2026-71984, CVE-2026-71985
+    summary: added CVE-2026-71985
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-71984
       - https://nvd.nist.gov/vuln/detail/CVE-2026-71985
   - at: "2026-08-09T01:43:15Z"
     level: L2
@@ -102,11 +104,12 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-71987
   - at: "2026-08-09T01:44:22Z"
     level: L2
-    summary: added CVE-2026-71989
+    summary: added CVE-2026-71988, CVE-2026-71989
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-71990
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-71991
 ---
 
 The MSI Radix AXE6600 router running firmware version v781521 contains a critical command injection vulnerability in its web-based management interface. The vulnerability exists within the wps.cgi file, which fails to properly sanitize user-supplied input provided via the pin2g, pin5g, or pin6g parameters. An unauthenticated remote attacker can supply malicious payloads to these parameters to execute arbitrary commands on the underlying operating system. Because the web service operates with high privileges, successful exploitation results in full root access to the device. This poses a significant risk to the integrity and confidentiality of the network, as the compromised router can be used to facilitate man-in-the-middle attacks, exfiltration, or further lateral movement into the internal network. Defenders should monitor for anomalous HTTP requests targeting this specific CGI endpoint.
