@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-09T09:35:32Z"
+lastmod: "2026-08-09T09:38:04Z"
 type: threat
 types:
   - threat
@@ -17,6 +17,10 @@ cpes:
   - cpe:2.3:a:microsoft:windows_admin_center:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:teams:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:azure_confidential_ledger:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:sharepoint_online:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:azure_sql_managed_instance:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
+  - cpe:2.3:a:microsoft:edge:*:*:*:*:*:android:*:*
   - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
@@ -85,6 +89,7 @@ products:
   - Azure SQL Managed Instance
   - Microsoft Purview eDiscovery
   - dma-buf/udmabuf
+  - Rpm
 affected_os:
   - Windows
   - Android
@@ -115,9 +120,15 @@ cves:
   - id: CVE-2026-68823
     cvss: 9.1
     epss: 0.00511
+  - id: CVE-2026-70332
+    cvss: 9.6
+    epss: 0.00481
   - id: CVE-2026-49163
     cvss: 8.8
     epss: 0.00621
+  - id: CVE-2026-62836
+    cvss: 8.7
+    epss: 0.00359
   - id: CVE-2026-64564
     cvss: 9.8
     epss: 0.00187
@@ -126,10 +137,10 @@ cves:
     epss: 0.00837
   - id: CVE-2026-65802
     cvss: 7.4
-    epss: 0.00942
+    epss: 0.00922
   - id: CVE-2026-66310
     cvss: 7.7
-    epss: 0.00402
+    epss: 0.00364
   - id: CVE-2026-66322
     cvss: 7.1
     epss: 0.00226
@@ -139,6 +150,9 @@ cves:
   - id: CVE-2026-66318
     cvss: 8.1
     epss: 0.00368
+  - id: CVE-2026-66315
+    cvss: 7.5
+    epss: 0.00608
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -188,6 +202,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68480
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64564
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64590
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54876
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-44605
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -226,13 +242,12 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-07T01:30:19Z"
+  - at: "2026-08-07T01:30:25Z"
     level: L2
-    summary: added CVE-2026-56161, CVE-2026-63508
+    summary: added CVE-2026-63508
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-62836
       - https://nvd.nist.gov/vuln/detail/CVE-2026-65668
   - at: "2026-08-08T09:31:58Z"
     level: L2
@@ -255,9 +270,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64590
+  - at: "2026-08-09T09:38:04Z"
+    level: L2
+    summary: added CVE-2026-62836 +2
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-44605
 ---
 
-This roundup covers 18 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, SharePoint Online, Windows.
+This roundup covers 20 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, SharePoint Online, Windows, dma-buf/udmabuf.
 
 ## Summary
 
@@ -281,6 +303,8 @@ This roundup covers 18 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-65668 | 0.0 | Microsoft Purview eDiscovery | Microsoft Purview eDiscovery contains an improper access control vulnerability that allows an authenticated attacker to perform a privilege escalation attack over the network. Detection should focus on monitoring unauthorized account role modifications or unexpected administrative actions within the Purview compliance console. |
 | CVE-2026-68480 | 0.0 | Windows | CVE-2026-68480 relates to a vulnerability in the x86 Safe-RET implementation regarding interrupt injection, which could allow a local attacker to potentially bypass security protections or escalate privileges. Security updates for affected versions of the Windows operating system address the robustness of the return mechanism against these specific interrupt vectors. |
 | CVE-2026-64564 | 9.8 | Windows | CVE-2026-64564 involves a vulnerability in the SCTP (Stream Control Transmission Protocol) implementation within Microsoft Windows. The issue occurs during DEL-IP processing, where the ASCONF (Address Configuration Change Chunk) packet handling incorrectly attempts to free its own transport, potentially leading to a use-after-free or memory management error. |
+| CVE-2026-64590 | 0.0 | dma-buf/udmabuf | CVE-2026-64590 identifies an issue within the dma-buf/udmabuf component where a redundant CPU synchronization triggers a cacheline EEXIST warning. This update addresses the underlying logic to ensure proper synchronization handling. |
+| CVE-2026-54876 | 0.0 | Windows | CVE-2026-54876 describes a client-side memory leak vulnerability within the OCSP (Online Certificate Status Protocol) response checking mechanism in Microsoft Windows products. |
 
 
 ## CVE-2026-50481
@@ -444,3 +468,21 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64564
+
+## CVE-2026-64590
+
+CVE-2026-64590 identifies an issue within the dma-buf/udmabuf component where a redundant CPU synchronization triggers a cacheline EEXIST warning. This update addresses the underlying logic to ensure proper synchronization handling.
+
+Affected products:
+- dma-buf/udmabuf
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64590
+
+## CVE-2026-54876
+
+CVE-2026-54876 describes a client-side memory leak vulnerability within the OCSP (Online Certificate Status Protocol) response checking mechanism in Microsoft Windows products.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54876
