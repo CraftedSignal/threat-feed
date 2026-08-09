@@ -17,12 +17,12 @@ import (
 )
 
 type server struct {
-	cfg            *config
-	store          *firestoreStore
-	mailer         mailer
-	dispatcher     *dispatcher
-	logger         *slog.Logger
-	rateLimiter    *subscribeRateLimiter
+	cfg             *config
+	store           *firestoreStore
+	mailer          mailer
+	dispatcher      *dispatcher
+	logger          *slog.Logger
+	rateLimiter     *subscribeRateLimiter
 	recaptchaClient *http.Client
 }
 

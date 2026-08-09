@@ -129,7 +129,9 @@ func verifyRecaptcha(ctx context.Context, client *http.Client, secret, token str
 	if err != nil {
 		return fmt.Errorf("recaptcha verify request: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		_ = resp.Body.Close()
+	}()
 
 	body, err := io.ReadAll(io.LimitReader(resp.Body, 4096))
 	if err != nil {

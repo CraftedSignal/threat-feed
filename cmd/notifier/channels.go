@@ -231,7 +231,7 @@ func postWebhookJSON(channel Channel, rawURL string, body any) error {
 			continue
 		}
 		bodyBytes, _ := io.ReadAll(io.LimitReader(resp.Body, 512))
-		resp.Body.Close()
+		_ = resp.Body.Close()
 		if resp.StatusCode < 300 {
 			return nil
 		}
