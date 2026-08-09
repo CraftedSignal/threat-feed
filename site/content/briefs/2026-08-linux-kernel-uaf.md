@@ -3,6 +3,7 @@ title: Linux Kernel posix-cpu-timers Use-After-Free Vulnerability
 slug: 2026-08-linux-kernel-uaf
 description: A use-after-free vulnerability in the Linux kernel posix-cpu-timers subsystem, identified as CVE-2026-64560, allows attackers to trigger kernel memory corruption via a race condition during non-leader thread exec() calls.
 date: "2026-08-03T14:08:00Z"
+lastmod: "2026-08-09T09:38:40Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,8 @@ tags:
   - linux-kernel
   - cve
   - uaf
+vendors:
+  - Linux Foundation
 products:
   - Linux Kernel
   - Android
@@ -30,9 +33,11 @@ cves:
   - id: CVE-2026-64560
     cvss: 7.8
     epss: 0.0012
+  - id: CVE-2026-64560
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-64560
   - https://github.com/torvalds/linux/commit/920f893f735e92ba3a1cd9256899a186b161928d
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64560
 iocs:
   - type: url
     value: https://sploitus.com/exploit?id=F8E5B958-B5DC-57C1-9FA9-076BF3B70128
@@ -65,6 +70,14 @@ action_plan:
       evidence: Fix provided by upstream kernel.org.
   gaps:
     - Need to verify kernel versions across large enterprise fleets.
+updates:
+  - at: "2026-08-09T09:38:40Z"
+    level: L1
+    summary: new vendor
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64560
 ---
 
 CVE-2026-64560 is a high-severity use-after-free (UAF) and race condition vulnerability within the Linux kernel's posix-cpu-timers subsystem. Introduced in kernel version 5.7, the flaw affects processes where a non-leader thread initiates an execve() system call, triggering a race condition between thread leader transition and timer deletion. Specifically, the function posix_cpu_timer_del() can incorrectly return early if it observes a null sighand pointer during a process transition, leaving a dangling reference to a k_itimer object within the process timer queue.
