@@ -3,6 +3,7 @@ title: Kata Containers Guest-to-Host Root Escape via Virtiofs FUSE_SYMLINK
 slug: 2026-05-kata-virtiofs-escape
 description: A vulnerability in Kata Containers allows a guest root user to escalate privileges to host root by exploiting the virtiofs shared file system to create arbitrary symlinks on the host.
 date: "2026-05-27T22:51:24Z"
+lastmod: "2026-08-09T09:35:56Z"
 type: advisory
 types:
   - advisory
@@ -16,15 +17,20 @@ tags:
   - container-escape
 vendors:
   - kata-containers
+  - Kata Containers
 products:
   - kata-containers/kata-containers (< 0.0.0-20260519062212-ffa59ce3aa78)
+  - runtime-rs
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
+cves:
+  - id: CVE-2026-47243
 references:
   - https://github.com/advisories/GHSA-2gv2-cffp-j227
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47243
 rules:
   - title: Detect Cron Job File Creation
     description: Detects the creation of new cron job files in /etc/cron.d, which could indicate malicious activity if the container isolation is bypassed.
@@ -50,6 +56,14 @@ rules:
       - process_creation
       - linux
 rules_count: 2
+updates:
+  - at: "2026-08-09T09:35:56Z"
+    level: L2
+    summary: added CVE-2026-47243
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47243
 ---
 
 A guest-to-host root escape vulnerability exists in Kata Containers when using the runtime-rs standalone virtio-fs path. This configuration, which runs `virtiofsd` on the host as root without sandboxing or seccomp, allows a malicious actor with root privileges inside the Kata guest VM to send raw FUSE requests directly to the host `virtiofsd`. Specifically, the `FUSE_SYMLINK` request can be leveraged to create arbitrary symlinks outside the intended virtio-fs shared directory. By creating symlinks in sensitive host paths like `/etc/cron.d`, an attacker can inject and execute arbitrary code as host root. This attack bypasses the guest kernel's normal filesystem validation and directly interacts with the host's file system management. The vulnerability affects Kata Containers versions prior to commit `2ffd1538a296cff93a357bfba0dfca747480a1f8`, and is reproducible using QEMU and Cloud Hypervisor.
