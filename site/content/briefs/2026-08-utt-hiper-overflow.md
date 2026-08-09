@@ -3,6 +3,7 @@ title: Remote Stack-Based Buffer Overflow in UTT HiPER 1200GW
 slug: 2026-08-utt-hiper-overflow
 description: A critical stack-based buffer overflow vulnerability in UTT HiPER 1200GW allows remote attackers to achieve code execution via a malformed 'timestart' parameter in the '/goform/ConfigAdvideo' function.
 date: "2026-08-05T06:04:53Z"
+lastmod: "2026-08-09T07:43:39Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,7 @@ vendors:
   - UTT
 products:
   - HiPER 1200GW
+  - HiPER 1200GW (<= 2.5.3-170306)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,9 +34,13 @@ mitre_ttps:
 cves:
   - id: CVE-2026-18898
     cvss: 8.8
+    epss: 0.00471
+  - id: CVE-2026-19341
+    cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18898
   - https://github.com/7wkajk/CVE-VUL/blob/main/103.md
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19341
 iocs:
   - type: url
     value: https://github.com/7wkajk/CVE-VUL/blob/main/103.md
@@ -68,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-18898
       evidence: Exploit is public, rendering remote management high-risk.
+updates:
+  - at: "2026-08-09T07:43:39Z"
+    level: L2
+    summary: added CVE-2026-19341; hiper 1200gw version <= 2.5.3-170306
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-19341
 ---
 
 A security flaw (CVE-2026-18898) has been identified in UTT HiPER 1200GW routers running firmware up to v2.5.3-170306. The vulnerability resides in the `strcpy` implementation within the `/goform/ConfigAdvideo` web handler. An attacker can trigger a stack-based buffer overflow by sending a specially crafted HTTP request containing an oversized `timestart` argument. Because this endpoint is reachable remotely, it facilitates unauthenticated or low-privilege exploitation. Public exploit code for this vulnerability is currently available on GitHub. Given that the vendor has not released a patch or official response, these devices remain at high risk of compromise. Defenders should prioritize isolating affected network hardware or restricting access to administrative interfaces.
