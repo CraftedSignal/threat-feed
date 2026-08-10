@@ -3,11 +3,14 @@ title: TrueConf Client Arbitrary Code Execution via Unverified Updates (CVE-2026
 slug: 2024-01-trueconf-rce
 description: TrueConf Client downloads application updates without verifying integrity, allowing a network attacker to substitute a tampered payload, leading to arbitrary code execution.
 date: "2024-01-03T12:00:00Z"
+lastmod: "2026-08-10T13:30:41Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:trueconf:trueconf:*:*:*:*:*:windows:*:*
 tags:
   - cve-2026-3502
   - trueconf
@@ -15,16 +18,30 @@ tags:
   - update
 vendors:
   - TrueConf
+  - Infotecs
 products:
-  - TrueConf Client
+  - TrueConf Server (5.3.x < 5.3.9, 5.4.x < 5.4.9, 5.5.x < 5.5.5)
+  - ViPNet
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Execution
     technique_id: T1202
     technique_name: Indirect Command Execution
+cves:
+  - id: CVE-2026-3502
+    cvss: 7.8
+    epss: 0.0575
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-3502
   - https://trueconf.com/blog/update/trueconf-8-5
+  - https://thehackernews.com/2026/08/head-mare-exploits-trueconf-flaws-to.html
+iocs:
+  - type: url
+    value: https://mirrors.ustc.edu.cn
+ioc_counts:
+  url: 1
 rules:
   - title: Detect Suspicious TrueConf Update Server Connection
     description: Detects network connections to non-standard TrueConf update servers, potentially indicating update redirection attacks.
@@ -49,6 +66,14 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-08-10T13:30:41Z"
+    level: L2
+    summary: added CVE-2026-3502; OS windows
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/08/head-mare-exploits-trueconf-flaws-to.html
 ---
 
 TrueConf Client is vulnerable to arbitrary code execution due to a failure to validate the integrity of application updates. This vulnerability, identified as CVE-2026-3502, allows an attacker with the ability to influence the update delivery path to substitute a malicious update payload. If this tampered update is executed or installed, it can lead to arbitrary code execution within the context of the updating process or the user running the application. This poses a significant risk to organizations utilizing TrueConf Client, as successful exploitation could compromise systems and data. The vulnerability was reported by Check Point Software Technologies Ltd.
