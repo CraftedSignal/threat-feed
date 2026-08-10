@@ -3,7 +3,7 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-07T17:34:21Z"
+lastmod: "2026-08-10T14:31:33Z"
 type: threat
 types:
   - threat
@@ -29,47 +29,28 @@ products:
   - UCS C-Series M7 Rack Servers
   - UCS C-Series M8 Rack Servers
   - ClamAV
+  - ClamAV (1.5.4)
+  - Secure Endpoint Connector
+affected_os:
+  - Windows
+  - macOS
+  - Linux
 cves:
-  - id: CVE-2026-20267
-    cvss: 9
-  - id: CVE-2026-20272
-    cvss: 9.8
-  - id: CVE-2026-20310
-    cvss: 9.1
-    epss: 0.00369
-  - id: CVE-2026-20124
-    cvss: 7.7
-    epss: 0.00345
-  - id: CVE-2026-20200
-    cvss: 8.8
-  - id: CVE-2026-20263
-    cvss: 8.6
-  - id: CVE-2026-20268
-    cvss: 8.6
-  - id: CVE-2026-20269
-    cvss: 8.6
-    epss: 0.00252
-  - id: CVE-2026-20273
-    cvss: 8.6
   - id: CVE-2026-20301
     cvss: 8.6
+    epss: 0.00327
   - id: CVE-2026-20312
     cvss: 8.8
-  - id: CVE-2026-20313
-    cvss: 7.7
-    epss: 0.00248
+    epss: 0.00187
   - id: CVE-2026-20311
     cvss: 6.3
-  - id: CVE-2026-20198
-    cvss: 4.8
-  - id: CVE-2026-20294
-    cvss: 6.5
-    epss: 0.00134
-  - id: CVE-2026-20028
-    cvss: 5
-    epss: 0.00252
-  - id: CVE-2026-20303
-    cvss: 9.9
+    epss: 0.00158
+  - id: CVE-2026-20337
+    cvss: 7.5
+    epss: 0.00362
+  - id: CVE-2026-20347
+    cvss: 7.5
+    epss: 0.00327
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20272
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20310
@@ -93,6 +74,12 @@ references:
   - https://www.securityweek.com/cisco-patches-critical-sd-wan-ios-xe-fmc-vulnerabilities/
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20337
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20338
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20339
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20345
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20346
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20347
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20348
+  - https://www.securityweek.com/cisco-warns-of-high-severity-clamav-vulnerabilities-with-public-poc/
 iocs:
   - type: url
     value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW
@@ -111,13 +98,6 @@ iocs:
 ioc_counts:
   url: 7
 updates:
-  - at: "2026-08-05T21:26:39Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - cisco-psirt
-    source_urls:
-      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ts-agent-fw-bypass-MYBTMrev?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Terminal%20Services%20Agent%20Firewall%20Rules%20Bypass%20Vulnerability%26vs_k=1
   - at: "2026-08-05T21:26:42Z"
     level: L1
     summary: new IOCs
@@ -146,9 +126,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20338
+  - at: "2026-08-10T14:31:33Z"
+    level: L2
+    summary: added CVE-2026-20337 +1; clamav version 1.5.4; OS windows; OS macos; OS linux
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/cisco-warns-of-high-severity-clamav-vulnerabilities-with-public-poc/
 ---
 
-This roundup covers 20 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, Catalyst SD-WAN Manager, ClamAV, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS, Terminal Services Agent.
+This roundup covers 26 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, Catalyst SD-WAN Manager, ClamAV, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS, Terminal Services Agent.
 
 ## Summary
 
@@ -170,10 +157,16 @@ This roundup covers 20 Cisco security vulnerabilities. None are reported as acti
 | CVE-2026-20311 | 6.3 | IOS XE Software | A vulnerability in the web-based management interface of Cisco IOS XE Software allows an authenticated, low-privileged remote attacker to trigger a denial-of-service condition. By submitting a malformed certificate to the interface, an attacker can cause the device to reload, resulting in an unexpected service disruption. Cisco has released software updates to address this flaw. |
 | CVE-2026-20198 | 4.8 | Integrated Management Controller | A cross-site scripting (XSS) vulnerability exists in the web-based management interface of the Cisco Integrated Management Controller due to improper input validation. An authenticated remote attacker can exploit this by convincing a user to interact with a malicious link, potentially leading to arbitrary script execution within the victim's browser context. |
 | CVE-2026-20289 | 0.0 | RoomOS | A vulnerability in the logging subsystem of Cisco RoomOS allows an authenticated, local attacker with low privileges to access sensitive information, such as user login credentials, by enabling specific logging levels and accessing system logs. There are no workarounds available, and patching is required. |
-| CVE-2026-20294 | 0.0 | Catalyst SD-WAN Manager | An information disclosure vulnerability exists in the web-based management interface of Cisco Catalyst SD-WAN Manager due to insufficient access control on specific template types. Authenticated attackers with low privileges can exploit this to view sensitive authentication credentials in clear text within local or remote logs, potentially leading to escalation of privilege and further infrastructure compromise. |
+| CVE-2026-20294 | 6.5 | Catalyst SD-WAN Manager | An information disclosure vulnerability exists in the web-based management interface of Cisco Catalyst SD-WAN Manager due to insufficient access control on specific template types. Authenticated attackers with low privileges can exploit this to view sensitive authentication credentials in clear text within local or remote logs, potentially leading to escalation of privilege and further infrastructure compromise. |
 | CVE-2026-20028 | 5.0 | Terminal Services Agent | A vulnerability in the Cisco Terminal Services Agent network driver allows an authenticated remote attacker with user-level credentials to bypass firewall rules by incorrectly mapping network connections to user accounts, effectively inheriting the firewall policy of another user. |
 | CVE-2026-20308 | 0.0 | IOS XE Software | An authenticated remote attacker with low privileges can trigger a denial of service (DoS) condition in the web-based management interface of Cisco IOS XE Software by sending crafted input, resulting in the interface becoming unresponsive due to insufficient input validation. |
 | CVE-2026-20337 | 0.0 | ClamAV | CVE-2026-20337 is an out-of-bounds write vulnerability in the ClamAV zip archive parser caused by improper boundary checks. An unauthenticated remote attacker can exploit this by submitting a specially crafted zip file for scanning, triggering a process termination that results in a Denial of Service (DoS) condition. |
+| CVE-2026-20338 | 0.0 | ClamAV | A vulnerability in the ClamAV zip archive parser exists due to improper memory handling when processing malicious zip files. An unauthenticated, remote attacker can exploit this via a crafted file submission to trigger a double-free condition, causing the scanning process to crash and resulting in a denial-of-service state. |
+| CVE-2026-20339 | 0.0 | ClamAV | CVE-2026-20339 is a vulnerability within the ClamAV PESpin file format parser caused by improper boundary checks. An unauthenticated remote attacker can submit a maliciously crafted file for scanning, triggering an integer overflow and memory corruption. This allows the attacker to terminate the ClamAV scanning process, resulting in a Denial of Service (DoS) condition. |
+| CVE-2026-20345 | 0.0 | ClamAV | A vulnerability exists in the GPT file format parser of ClamAV due to improper endian conversion, leading to an out-of-bounds buffer write. An unauthenticated remote attacker can exploit this by submitting a malicious GPT file for scanning, triggering a denial-of-service (DoS) condition via process termination or potential memory corruption. |
+| CVE-2026-20346 | 0.0 | ClamAV | CVE-2026-20346 is a vulnerability in the ClamAV PDF file parser caused by improper boundary checks during file scanning. This flaw leads to an out-of-bounds buffer read, which an unauthenticated remote attacker can exploit by submitting a specially crafted PDF file. Successful exploitation allows the attacker to cause a denial-of-service (DoS) condition by crashing the ClamAV scanning process. |
+| CVE-2026-20347 | 0.0 | ClamAV | A vulnerability in the Mach-O file format parser within ClamAV allows an unauthenticated remote attacker to trigger an out-of-bounds read by submitting a maliciously crafted file. Successful exploitation leads to a crash of the scanning process, resulting in a denial-of-service (DoS) condition. |
+| CVE-2026-20348 | 0.0 | ClamAV | CVE-2026-20348 describes a memory corruption vulnerability in the XAR file parser of ClamAV caused by improper boundary checks. An unauthenticated remote attacker can exploit this by submitting a crafted XAR file for scanning, leading to a denial-of-service (DoS) condition via the termination of the scanning process. |
 
 
 ## CVE-2026-20267
@@ -356,3 +349,57 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20337
+
+## CVE-2026-20338
+
+A vulnerability in the ClamAV zip archive parser exists due to improper memory handling when processing malicious zip files. An unauthenticated, remote attacker can exploit this via a crafted file submission to trigger a double-free condition, causing the scanning process to crash and resulting in a denial-of-service state.
+
+Affected products:
+- ClamAV
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20338
+
+## CVE-2026-20339
+
+CVE-2026-20339 is a vulnerability within the ClamAV PESpin file format parser caused by improper boundary checks. An unauthenticated remote attacker can submit a maliciously crafted file for scanning, triggering an integer overflow and memory corruption. This allows the attacker to terminate the ClamAV scanning process, resulting in a Denial of Service (DoS) condition.
+
+Affected products:
+- ClamAV
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20339
+
+## CVE-2026-20345
+
+A vulnerability exists in the GPT file format parser of ClamAV due to improper endian conversion, leading to an out-of-bounds buffer write. An unauthenticated remote attacker can exploit this by submitting a malicious GPT file for scanning, triggering a denial-of-service (DoS) condition via process termination or potential memory corruption.
+
+Affected products:
+- ClamAV
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20345
+
+## CVE-2026-20346
+
+CVE-2026-20346 is a vulnerability in the ClamAV PDF file parser caused by improper boundary checks during file scanning. This flaw leads to an out-of-bounds buffer read, which an unauthenticated remote attacker can exploit by submitting a specially crafted PDF file. Successful exploitation allows the attacker to cause a denial-of-service (DoS) condition by crashing the ClamAV scanning process.
+
+Affected products:
+- ClamAV
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20346
+
+## CVE-2026-20347
+
+A vulnerability in the Mach-O file format parser within ClamAV allows an unauthenticated remote attacker to trigger an out-of-bounds read by submitting a maliciously crafted file. Successful exploitation leads to a crash of the scanning process, resulting in a denial-of-service (DoS) condition.
+
+Affected products:
+- ClamAV
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20347
+
+## CVE-2026-20348
+
+CVE-2026-20348 describes a memory corruption vulnerability in the XAR file parser of ClamAV caused by improper boundary checks. An unauthenticated remote attacker can exploit this by submitting a crafted XAR file for scanning, leading to a denial-of-service (DoS) condition via the termination of the scanning process.
+
+Affected products:
+- ClamAV
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20348
