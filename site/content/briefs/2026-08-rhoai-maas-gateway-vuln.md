@@ -3,6 +3,7 @@ title: Improper Configuration in Red Hat OpenShift AI MaaS Gateway
 slug: 2026-08-rhoai-maas-gateway-vuln
 description: A configuration vulnerability in the Red Hat OpenShift AI (RHOAI) MaaS Gateway enables low-privileged users to intercept and manipulate model-serving traffic, resulting in the unauthorized disclosure of access keys and AI prompts.
 date: "2026-08-10T23:36:33Z"
+lastmod: "2026-08-10T23:37:03Z"
 type: advisory
 types:
   - advisory
@@ -23,11 +24,18 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: This includes sensitive information such as access keys, input prompts, and outputs, leading to significant information disclosure and data tampering.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: This allows any user with edit ClusterRole permissions in a namespace to create, modify, and delete TrainJobs.
+    confidence_band: high
 cves:
   - id: CVE-2026-13717
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-13717
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18951
 action_plan:
   priority: elevated
   owners:
@@ -44,6 +52,14 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-13717
       evidence: Source advisory notes improper configuration allows unauthorized interception.
+updates:
+  - at: "2026-08-10T23:37:03Z"
+    level: L2
+    summary: added coverage for OpenShift AI
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18951
 ---
 
 A security flaw identified as CVE-2026-13717 affects the Red Hat OpenShift AI (RHOAI) MaaS Gateway. The vulnerability stems from improper Gateway configuration within a model-serving deployment. This misconfiguration permits a standard, low-privileged user to intercept, log, read, and modify traffic routed through the MaaS Gateway. Because this traffic often includes sensitive information such as API access keys, input prompts, and model output data, an attacker can exfiltrate credentials or tamper with model inferences. The scope of this threat is limited to environments where RHOAI is deployed with the affected Gateway configuration, creating a significant risk of data breaches within internal AI serving pipelines. Organizations should prioritize updating RHOAI and auditing their Gateway configuration settings to ensure proper isolation of user requests and model responses.
