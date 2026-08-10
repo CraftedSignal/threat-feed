@@ -36,7 +36,7 @@ func TestGmailMailer_SendEncodesAndAddressesMe(t *testing.T) {
 	if err != nil {
 		t.Fatalf("raw not base64url: %v", err)
 	}
-	if !strings.Contains(string(decoded), "From: CraftedSignal Threat Feed <noreply@craftedsignal.io>") || !strings.Contains(string(decoded), "To: x@example.com") {
+	if !strings.Contains(string(decoded), `From: "CraftedSignal Threat Feed" <noreply@craftedsignal.io>`) || !strings.Contains(string(decoded), "To: <x@example.com>") {
 		t.Fatalf("decoded message missing headers:\n%s", decoded)
 	}
 }
