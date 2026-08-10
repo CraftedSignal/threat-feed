@@ -3,25 +3,15 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-09T09:38:22Z"
+lastmod: "2026-08-10T19:33:14Z"
 type: threat
 types:
   - threat
 severities:
   - high
 cpes:
-  - cpe:2.3:a:microsoft:azure_active_directory:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:azure_service_bus:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:power_apps:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:azure_sre_agent:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:windows_admin_center:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:teams:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:azure_confidential_ledger:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_online:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:azure_sql_managed_instance:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
-  - cpe:2.3:a:microsoft:edge:*:*:*:*:*:android:*:*
-  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=C70098EC-8455-5303-80B5-BD82E10260AE&utm_source=rss&utm_medium=rss
@@ -93,75 +83,27 @@ products:
   - Bluetooth
   - ims-pcu
   - ksmbd
+  - Dynamics Business Central
+  - Dynamics NAV
 affected_os:
   - Windows
   - Android
   - Alpine Linux
 cves:
-  - id: CVE-2026-50481
-    cvss: 9.9
-    epss: 0.00456
-  - id: CVE-2026-50515
-    cvss: 9.9
-    epss: 0.0091
-  - id: CVE-2026-56161
-    cvss: 9.6
   - id: CVE-2026-59118
     cvss: 9.3
     epss: 0.0039
-  - id: CVE-2026-62830
-    cvss: 9.9
-    epss: 0.00417
-  - id: CVE-2026-62873
-    cvss: 9.8
-    epss: 0.0035
-  - id: CVE-2026-62896
-    cvss: 9.6
-    epss: 0.0039
-  - id: CVE-2026-63508
-    cvss: 10
   - id: CVE-2026-65667
     cvss: 10
     epss: 0.00442
-  - id: CVE-2026-68823
-    cvss: 9.1
-    epss: 0.00511
-  - id: CVE-2026-70332
-    cvss: 9.6
-    epss: 0.00481
-  - id: CVE-2026-49163
-    cvss: 8.8
-    epss: 0.00621
-  - id: CVE-2026-62836
-    cvss: 8.7
-    epss: 0.00359
+  - id: CVE-2026-62918
+    cvss: 7.5
+    epss: 0.00293
   - id: CVE-2026-64564
     cvss: 9.8
-    epss: 0.00187
-  - id: CVE-2026-54876
-    cvss: 7.5
-    epss: 0.00261
-  - id: CVE-2026-62870
-    cvss: 8.8
-    epss: 0.00837
-  - id: CVE-2026-65802
-    cvss: 7.4
-    epss: 0.00922
-  - id: CVE-2026-66310
-    cvss: 7.7
-    epss: 0.00364
-  - id: CVE-2026-66322
-    cvss: 7.1
-    epss: 0.00226
-  - id: CVE-2026-66321
-    cvss: 7.4
-    epss: 0.01067
-  - id: CVE-2026-66318
-    cvss: 8.1
-    epss: 0.00368
-  - id: CVE-2026-66315
-    cvss: 7.5
-    epss: 0.00608
+    epss: 0.00476
+  - id: CVE-2026-64573
+    epss: 0.00156
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/defense_evasion_mark_of_the_web_removal_unusual_process.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/initial_access_entra_id_rare_app_id_for_principal_auth.toml
@@ -216,6 +158,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64573
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64565
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21380
 iocs:
   - type: domain
     value: mcr.microsoft.com
@@ -254,13 +197,6 @@ ioc_counts:
   ip: 2
   url: 2
 updates:
-  - at: "2026-08-09T09:35:32Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64590
   - at: "2026-08-09T09:38:04Z"
     level: L2
     summary: added CVE-2026-62836 +2
@@ -289,9 +225,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578
+  - at: "2026-08-10T19:33:14Z"
+    level: L2
+    summary: added CVE-2026-62918 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21380
 ---
 
-This roundup covers 23 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu.
+This roundup covers 24 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, ksmbd.
 
 ## Summary
 
@@ -320,6 +263,7 @@ This roundup covers 23 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-44605 | 0.0 | Rpm | CVE-2026-44605 describes a heap-based buffer overflow vulnerability located in the ndb slot table parsing logic within Rpm. This vulnerability could potentially allow for arbitrary code execution or memory corruption when processing malformed slot tables. |
 | CVE-2026-64573 | 0.0 | Bluetooth | A vulnerability identified in the Bluetooth NVM tag length TLV parser leads to an underflow condition. This security update from Microsoft addresses the flaw to prevent potential memory corruption or exploitation within the Bluetooth component. |
 | CVE-2026-64565 | 0.0 | ims-pcu | CVE-2026-64565 refers to a heap-based buffer overflow vulnerability located within the ims_pcu_process_data() function of the ims-pcu component, potentially allowing for memory corruption or arbitrary code execution. |
+| CVE-2026-64578 | 0.0 | ksmbd | CVE-2026-64578 identifies a vulnerability in the ksmbd kernel-mode SMB server, where insufficient validation of compound request sizes before reading StructureSize2 can lead to memory safety issues. Detection engineering should focus on monitoring SMB traffic patterns for malformed or oversized requests that could trigger improper bounds handling. |
 
 
 ## CVE-2026-50481
@@ -528,3 +472,12 @@ Affected products:
 - ims-pcu
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64565
+
+## CVE-2026-64578
+
+CVE-2026-64578 identifies a vulnerability in the ksmbd kernel-mode SMB server, where insufficient validation of compound request sizes before reading StructureSize2 can lead to memory safety issues. Detection engineering should focus on monitoring SMB traffic patterns for malformed or oversized requests that could trigger improper bounds handling.
+
+Affected products:
+- ksmbd
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578
