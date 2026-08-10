@@ -3,7 +3,7 @@ title: Excessive Permissions Vulnerability in Data Science Pipelines Operator
 slug: 2026-08-dspo-privilege-escalation
 description: The Data Science Pipelines Operator (DSPO) ClusterRole contains excessive permissions that allow an attacker who compromises the operator pod to escalate privileges to cluster administrator.
 date: "2026-08-10T21:38:14Z"
-lastmod: "2026-08-10T21:38:17Z"
+lastmod: "2026-08-10T21:38:19Z"
 type: advisory
 types:
   - advisory
@@ -35,9 +35,12 @@ cves:
     cvss: 8.7
   - id: CVE-2026-18611
     cvss: 7.5
+  - id: CVE-2026-18617
+    cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18608
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18611
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18617
 action_plan:
   priority: elevated
   owners:
@@ -57,11 +60,12 @@ action_plan:
 updates:
   - at: "2026-08-10T21:38:17Z"
     level: L2
-    summary: added CVE-2026-18611
+    summary: added CVE-2026-18611, CVE-2026-18617
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-18611
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18617
 ---
 
 CVE-2026-18608 identifies a security configuration flaw within the Red Hat Data Science Pipelines Operator (DSPO). The operator's default ClusterRole binding provides permissions that significantly exceed operational requirements. Specifically, the role grants the operator capabilities to execute commands within pods and manage cluster-wide Roles and ClusterRoles. Because these permissions are excessive, an attacker who gains initial access to the DSPO pod through a separate exploit or vulnerability can abuse these roles to perform cluster-wide actions. This enables lateral movement and privilege escalation, potentially resulting in full administrative control over the entire Kubernetes environment. Security teams should audit existing ClusterRoleBindings associated with the DSPO and restrict permissions to the minimum necessary for the operator to function.
