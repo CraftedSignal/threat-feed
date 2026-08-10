@@ -3,6 +3,7 @@ title: OS Command Injection Vulnerability in Zyxel WAH7601
 slug: 2026-08-zyxel-command-injection
 description: An OS command injection vulnerability in Zyxel WAH7601 devices (CVE-2026-13206) allows unauthenticated remote attackers to execute arbitrary system commands.
 date: "2026-08-10T13:31:05Z"
+lastmod: "2026-08-10T13:31:30Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - zyxel
   - network-device
   - rce
+  - credential-access
+  - vulnerability
+  - networking
 vendors:
   - Zyxel
 products:
@@ -31,11 +35,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: allows OS Command Injection.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Insufficiently protected credentials vulnerability in Zyxel Networks WAH7601 allows Retrieve Embedded Sensitive Data.
+    confidence_band: high
 cves:
   - id: CVE-2026-13206
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-13206
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-12984
 action_plan:
   priority: elevated
   owners:
@@ -52,6 +63,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-13206
       evidence: Source states affected versions include 20072026.
+updates:
+  - at: "2026-08-10T13:31:30Z"
+    level: L2
+    summary: added coverage for WAH7601
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-12984
 ---
 
 Zyxel WAH7601 mobile Wi-Fi devices are vulnerable to an OS command injection flaw tracked as CVE-2026-13206. This vulnerability arises from the improper neutralization of special elements within OS commands, allowing an attacker to inject and execute arbitrary commands on the underlying device operating system. The flaw affects all firmware versions up to and including 20072026. Given the critical CVSS base score of 9.8, this vulnerability poses a severe risk to network infrastructure security. Defenders should treat this as a high-priority patch item, as successful exploitation results in full device compromise, potentially facilitating lateral movement into connected networks or interception of wireless traffic.
