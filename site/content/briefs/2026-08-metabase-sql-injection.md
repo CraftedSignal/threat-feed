@@ -3,6 +3,7 @@ title: Critical SQL Injection and Privilege Escalation Vulnerability in Metabase
 slug: 2026-08-metabase-sql-injection
 description: An unauthenticated remote attacker can exploit a vulnerability in Metabase to perform SQL injection and escalate privileges.
 date: "2026-08-10T13:25:57Z"
+lastmod: "2026-08-10T19:25:01Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,7 @@ vendors:
   - Metabase
 products:
   - Metabase
+  - Metabase (>= 1.58)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,6 +33,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2715
+  - https://www.wiz.io/blog/inside-the-metabase-sqli-exploited-in-the-wild
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: Public-facing application exploitation
       evidence: Exploit requires remote, unauthenticated access
+updates:
+  - at: "2026-08-10T19:25:01Z"
+    level: L2
+    summary: metabase version >= 1.58
+    sources:
+      - wiz
+    source_urls:
+      - https://www.wiz.io/blog/inside-the-metabase-sqli-exploited-in-the-wild
 ---
 
 Metabase contains a critical security vulnerability that allows an unauthenticated remote attacker to execute SQL injection attacks and achieve privilege escalation within the application. This flaw poses a significant risk to data confidentiality and integrity, as successful exploitation provides unauthorized access to database contents and administrative functions. Defenders should prioritize patching or restricting access to the Metabase instance until remediation is applied.
