@@ -3,6 +3,7 @@ title: Authenticated Remote Code Execution in CyberPanel
 slug: 2026-08-cyberpanel-rce
 description: CyberPanel version 2.4.3 contains an authenticated remote code execution vulnerability in its remote backup feature that allows an attacker to inject an SSH public key into the root user's authorized_keys file.
 date: "2026-08-10T21:37:02Z"
+lastmod: "2026-08-10T21:37:05Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - CyberPanel
 products:
   - CyberPanel (2.4.3)
+  - CyberPanel (<= 2.4.3)
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -28,8 +30,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-71965
     cvss: 8.8
+  - id: CVE-2026-71966
+    cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71965
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-71966
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-71965
       evidence: Vulnerability requires authentication to exploit
+updates:
+  - at: "2026-08-10T21:37:05Z"
+    level: L2
+    summary: added CVE-2026-71966
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-71966
 ---
 
 CyberPanel version 2.4.3 is vulnerable to an authenticated remote code execution flaw within its remote backup management functionality. The vulnerability arises from an insecure implementation of SSH public key retrieval, where the application fails to validate the source of remote server configurations. An authenticated attacker can supply a malicious remote server address to the backup service, which then retrieves an attacker-controlled public key and writes it directly to the '/root/.ssh/authorized_keys' file. This provides the attacker with persistent root-level SSH access to the underlying host system. This vulnerability was addressed in commit eca0c3c. Defenders should prioritize auditing CyberPanel configurations and ensuring updates to versions beyond 2.4.3 are applied to mitigate the risk of unauthorized persistence.
