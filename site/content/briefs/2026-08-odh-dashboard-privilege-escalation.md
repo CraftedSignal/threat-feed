@@ -3,6 +3,7 @@ title: 'CVE-2026-18949: Privilege Escalation via Overly Permissive Service Accou
 slug: 2026-08-odh-dashboard-privilege-escalation
 description: A vulnerability in the Open Data Hub odh-dashboard allows an attacker with a compromised Service Account token to escalate to cluster-administrator privileges due to excessive RBAC permissions.
 date: "2026-08-10T21:39:39Z"
+lastmod: "2026-08-10T21:40:02Z"
 type: advisory
 types:
   - advisory
@@ -23,11 +24,18 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: This vulnerability allows an attacker, who has compromised the dashboard's Service Account (SA) token, to exploit overly broad permissions granted to the SA.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: The system does not properly validate the roleRef field, allowing a user to specify an arbitrary role, including highly privileged ones like cluster-admin.
+    confidence_band: high
 cves:
   - id: CVE-2026-18949
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18949
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18950
 action_plan:
   priority: elevated
   owners:
@@ -38,6 +46,14 @@ action_plan:
       action: Audit and restrict RBAC permissions for the odh-dashboard Service Account
       owner: IT Operations
       addresses: CVE-2026-18949
+updates:
+  - at: "2026-08-10T21:40:02Z"
+    level: L2
+    summary: added coverage for odh-dashboard
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18950
 ---
 
 A security flaw (CVE-2026-18949) has been identified in the odh-dashboard component of the Open Data Hub platform. The vulnerability stems from an overly permissive Role-Based Access Control (RBAC) configuration assigned to the dashboard's Service Account (SA). An attacker who has already gained access to the dashboard's SA token can leverage these excessive permissions to perform unauthorized actions within the Kubernetes cluster. By escalating privileges to cluster-administrator level, the attacker can access sensitive information, including cluster credentials, secret keys, and API tokens, while effectively bypassing multi-tenant isolation boundaries. This vulnerability is significant for organizations running machine learning or data science workloads on Open Data Hub, as it allows lateral movement and total cluster control following an initial compromise of the dashboard service.
