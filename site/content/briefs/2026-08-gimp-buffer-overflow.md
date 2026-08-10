@@ -3,12 +3,16 @@ title: Heap-based Buffer Overflows in GIMP APNG and DDS Loaders
 slug: 2026-08-gimp-buffer-overflow
 description: GIMP contains multiple heap-buffer-overflow vulnerabilities in its APNG and DDS file format loaders, which can lead to arbitrary code execution when a victim opens a specially crafted image file.
 date: "2026-08-04T06:12:15Z"
-lastmod: "2026-08-08T17:43:51Z"
+lastmod: "2026-08-10T11:27:31Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - vulnerability
+  - remote-code-execution
+  - desktop-app
 vendors:
   - GIMP
 products:
@@ -31,6 +35,7 @@ references:
   - https://access.redhat.com/security/cve/CVE-2026-42169
   - https://bugzilla.redhat.com/show_bug.cgi?id=2461725
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42170
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-59087
 action_plan:
   priority: elevated
   owners:
@@ -55,6 +60,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-42170
+  - at: "2026-08-10T11:27:31Z"
+    level: L2
+    summary: added coverage for GIMP
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-59087
 ---
 
 The GNU Image Manipulation Program (GIMP) contains two distinct heap-based buffer overflow vulnerabilities identified as CVE-2026-42169. The first vulnerability resides in the APNG (Animated PNG) file loader, triggered when the `fcTL` (frame control) width value exceeds the `IHDR` (image header) width, causing the application to write pixel data beyond the allocated heap buffer. The second vulnerability occurs in the DDS (DirectDraw Surface) plug-in due to a bits-per-pixel (BPP) mismatch within the `load_layer()` function during image processing. An attacker can exploit these flaws by delivering a malicious image file to a target user and inducing them to open it within the GIMP application. Successful exploitation of these memory corruption vulnerabilities may result in arbitrary code execution within the context of the user running the application.
