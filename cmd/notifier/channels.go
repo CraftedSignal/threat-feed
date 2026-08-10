@@ -205,6 +205,9 @@ func postWebhookJSON(channel Channel, rawURL string, body any) error {
 	if err != nil {
 		return err
 	}
+	if !externalWebhookURLPattern.MatchString(webhookURL) {
+		return fmt.Errorf("invalid webhook URL")
+	}
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return fmt.Errorf("marshal: %w", err)

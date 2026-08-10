@@ -36,7 +36,11 @@ func encodeRaw(rfc822 string) string {
 }
 
 func (m *gmailMailer) Send(to, subject, textBody, htmlBody string) error {
-	raw := encodeRaw(buildRFC822(m.from, SmtpMessage{To: to, Subject: subject, TextBody: textBody, HTMLBody: htmlBody}))
+	rfc822, err := buildRFC822(m.from, SmtpMessage{To: to, Subject: subject, TextBody: textBody, HTMLBody: htmlBody})
+	if err != nil {
+		return fmt.Errorf("build RFC822: %w", err)
+	}
+	raw := encodeRaw(rfc822)
 	if err := m.sender.Send(m.userID, raw); err != nil {
 		m.logger.Error("gmail send failed", "to_hash", hashEmail(to), "err", err)
 		return fmt.Errorf("gmail send: %w", err)
@@ -50,7 +54,12 @@ func (m *gmailMailer) Send(to, subject, textBody, htmlBody string) error {
 func (m *gmailMailer) SendBatch(messages []SmtpMessage) []error {
 	out := make([]error, len(messages))
 	for i, msg := range messages {
-		raw := encodeRaw(buildRFC822(m.from, msg))
+		rfc822, err := buildRFC822(m.from, msg)
+		if err != nil {
+			out[i] = fmt.Errorf("build RFC822: %w", err)
+			continue
+		}
+		raw := encodeRaw(rfc822)
 		if err := m.sender.Send(m.userID, raw); err != nil {
 			m.logger.Error("gmail send failed", "to_hash", hashEmail(msg.To), "err", err)
 			out[i] = &smtpConnError{err: fmt.Errorf("gmail send: %w", err)}

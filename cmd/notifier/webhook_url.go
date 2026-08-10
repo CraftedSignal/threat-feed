@@ -7,11 +7,20 @@ import (
 	"net/http"
 	"net/netip"
 	"net/url"
+	"regexp"
+	"strconv"
 	"strings"
 	"time"
+
+	"golang.org/x/net/idna"
 )
 
 type webhookLookupFunc func(context.Context, string) ([]net.IPAddr, error)
+
+var (
+	externalWebhookURLPattern = regexp.MustCompile(`^https://[^[:space:]#]+$`)
+	webhookDNSNamePattern     = regexp.MustCompile(`^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+$`)
+)
 
 func newWebhookHTTPClient() *http.Client {
 	transport := &http.Transport{
@@ -34,61 +43,101 @@ func newWebhookHTTPClient() *http.Client {
 }
 
 func validateWebhookURL(raw string, channel Channel) (string, error) {
+	if channel != ChannelSlack && channel != ChannelTeams {
+		return "", fmt.Errorf("invalid webhook channel")
+	}
+
 	raw = strings.TrimSpace(raw)
 	u, err := url.Parse(raw)
 	if err != nil {
 		return "", fmt.Errorf("invalid webhook URL: %w", err)
 	}
-	if u.Scheme != "https" {
+	if !strings.EqualFold(u.Scheme, "https") {
 		return "", fmt.Errorf("invalid webhook URL: HTTPS is required")
 	}
 	if u.User != nil || u.Host == "" || u.Fragment != "" {
 		return "", fmt.Errorf("invalid webhook URL")
 	}
-	host := canonicalWebhookHost(u)
-	if host == "" || net.ParseIP(host) != nil {
-		return "", fmt.Errorf("invalid webhook URL host")
+	host, err := canonicalWebhookHost(u)
+	if err != nil {
+		return "", err
 	}
-	if port := u.Port(); port != "" && port != "443" {
-		return "", fmt.Errorf("invalid webhook URL port")
-	}
-
-	ok := false
-	switch channel {
-	case ChannelSlack:
-		ok = host == "hooks.slack.com" && strings.HasPrefix(u.EscapedPath(), "/services/")
-	case ChannelTeams:
-		ok = validTeamsWebhookURL(u, host)
-	default:
-		return "", fmt.Errorf("invalid webhook channel")
-	}
-	if !ok {
-		return "", fmt.Errorf("invalid webhook URL for %s", channel)
+	port, err := canonicalWebhookPort(u.Port())
+	if err != nil {
+		return "", err
 	}
 
 	u.Scheme = "https"
-	u.Host = host
-	return u.String(), nil
+	u.Host = webhookAuthority(host, port)
+	normalized := u.String()
+	if !externalWebhookURLPattern.MatchString(normalized) {
+		return "", fmt.Errorf("invalid webhook URL")
+	}
+	return normalized, nil
 }
 
-func canonicalWebhookHost(u *url.URL) string {
-	host := strings.TrimSpace(strings.ToLower(u.Hostname()))
+func canonicalWebhookHost(u *url.URL) (string, error) {
+	host := strings.TrimSpace(u.Hostname())
 	host = strings.TrimSuffix(host, ".")
+	if host == "" || strings.Contains(host, "%") {
+		return "", fmt.Errorf("invalid webhook URL host")
+	}
+	if addr, err := netip.ParseAddr(host); err == nil {
+		addr = addr.Unmap()
+		if isBlockedWebhookAddr(addr) {
+			return "", fmt.Errorf("invalid webhook URL host: IP must be external")
+		}
+		return addr.String(), nil
+	}
+
+	ascii, err := idna.Lookup.ToASCII(host)
+	if err != nil {
+		return "", fmt.Errorf("invalid webhook URL host: %w", err)
+	}
+	host = strings.TrimSuffix(strings.ToLower(ascii), ".")
+	if !validWebhookDNSName(host) {
+		return "", fmt.Errorf("invalid webhook URL host")
+	}
+	return host, nil
+}
+
+func canonicalWebhookPort(raw string) (string, error) {
+	if raw == "" {
+		return "", nil
+	}
+	port, err := strconv.Atoi(raw)
+	if err != nil || port < 1 || port > 65535 {
+		return "", fmt.Errorf("invalid webhook URL port")
+	}
+	if port == 443 {
+		return "", nil
+	}
+	return strconv.Itoa(port), nil
+}
+
+func webhookAuthority(host, port string) string {
+	if port != "" {
+		return net.JoinHostPort(host, port)
+	}
+	if strings.Contains(host, ":") {
+		return "[" + host + "]"
+	}
 	return host
 }
 
-func validTeamsWebhookURL(u *url.URL, host string) bool {
-	path := u.EscapedPath()
-	switch {
-	case host == "outlook.office.com":
-		return strings.HasPrefix(path, "/webhook/") || strings.HasPrefix(path, "/webhookb2/")
-	case host == "webhook.office.com" || strings.HasSuffix(host, ".webhook.office.com"):
-		return strings.HasPrefix(path, "/webhook/") || strings.HasPrefix(path, "/webhookb2/")
-	case host == "logic.azure.com" || strings.HasSuffix(host, ".logic.azure.com"):
-		return strings.HasPrefix(path, "/workflows/")
-	default:
-		return false
+func validWebhookDNSName(host string) bool {
+	return len(host) <= 253 &&
+		webhookDNSNamePattern.MatchString(host) &&
+		!blockedWebhookDNSName(host)
+}
+
+func blockedWebhookDNSName(host string) bool {
+	for _, suffix := range blockedWebhookDNSSuffixes {
+		if host == suffix || strings.HasSuffix(host, "."+suffix) {
+			return true
+		}
 	}
+	return false
 }
 
 func safeWebhookDialContext(dialer *net.Dialer, lookup webhookLookupFunc) func(context.Context, string, string) (net.Conn, error) {
@@ -137,6 +186,11 @@ func isBlockedWebhookIP(ip net.IP) bool {
 	if !ok {
 		return true
 	}
+	return isBlockedWebhookAddr(addr)
+}
+
+func isBlockedWebhookAddr(addr netip.Addr) bool {
+	addr = addr.Unmap()
 	if !addr.IsGlobalUnicast() ||
 		addr.IsPrivate() ||
 		addr.IsLoopback() ||
@@ -185,6 +239,16 @@ var specialUseWebhookIPPrefixes = []netip.Prefix{
 	mustWebhookPrefix("2001:2::/48"),
 	mustWebhookPrefix("2001:db8::/32"),
 	mustWebhookPrefix("2002::/16"),
+}
+
+var blockedWebhookDNSSuffixes = []string{
+	"example",
+	"home.arpa",
+	"invalid",
+	"internal",
+	"local",
+	"localhost",
+	"test",
 }
 
 func mustWebhookPrefix(cidr string) netip.Prefix {

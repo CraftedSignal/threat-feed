@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/rand"
 	"crypto/sha256"
 	"crypto/tls"
 	"encoding/hex"
@@ -26,9 +27,17 @@ func hashEmail(addr string) string {
 // sanitizeHeaderValue removes CR/LF to prevent header injection when
 // constructing RFC822 headers manually.
 func sanitizeHeaderValue(v string) string {
-	v = strings.ReplaceAll(v, "\r", "")
-	v = strings.ReplaceAll(v, "\n", "")
-	return strings.TrimSpace(v)
+	v = strings.Map(func(r rune) rune {
+		switch r {
+		case '\r', '\n':
+			return ' '
+		case 0:
+			return -1
+		default:
+			return r
+		}
+	}, v)
+	return strings.Join(strings.Fields(v), " ")
 }
 
 type mailer interface {
@@ -189,17 +198,32 @@ func fillAll(errs []error, err error) {
 // sendOne issues MAIL FROM / RCPT TO / DATA on an already-authenticated
 // SMTP client connection.
 func (m *smtpMailer) sendOne(conn *smtp.Client, msg SmtpMessage) error {
-	if err := conn.Mail(envelopeFrom(m.cfg.From)); err != nil {
+	from, err := envelopeFrom(m.cfg.From)
+	if err != nil {
+		return err
+	}
+	to, err := envelopeAddress(msg.To, "to")
+	if err != nil {
+		return err
+	}
+	rfc822, err := buildRFC822(m.cfg.From, msg)
+	if err != nil {
+		return fmt.Errorf("build RFC822: %w", err)
+	}
+
+	if err := conn.Mail(from); err != nil {
 		return fmt.Errorf("MAIL FROM: %w", err)
 	}
-	if err := conn.Rcpt(msg.To); err != nil {
+	if err := conn.Rcpt(to); err != nil {
 		return fmt.Errorf("RCPT TO: %w", err)
 	}
 	w, err := conn.Data()
 	if err != nil {
 		return fmt.Errorf("DATA: %w", err)
 	}
-	if _, err := w.Write([]byte(buildRFC822(m.cfg.From, msg))); err != nil {
+
+	// codeql[go/email-injection] buildRFC822 validates address headers, normalizes the subject, and quoted-printable encodes body parts before SMTP DATA.
+	if _, err := w.Write([]byte(rfc822)); err != nil {
 		_ = w.Close()
 		return fmt.Errorf("write body: %w", err)
 	}
@@ -209,20 +233,45 @@ func (m *smtpMailer) sendOne(conn *smtp.Client, msg SmtpMessage) error {
 	return nil
 }
 
-func envelopeFrom(from string) string {
-	addr, err := mail.ParseAddress(from)
-	if err != nil {
-		return from
-	}
-	return addr.Address
+func envelopeFrom(from string) (string, error) {
+	return envelopeAddress(from, "from")
 }
 
-func buildRFC822(from string, msg SmtpMessage) string {
+func envelopeAddress(raw, field string) (string, error) {
+	addr, err := mail.ParseAddress(raw)
+	if err != nil {
+		return "", fmt.Errorf("invalid %s address: %w", field, err)
+	}
+	if addr.Address == "" || containsHeaderBreak(addr.Address) {
+		return "", fmt.Errorf("invalid %s address", field)
+	}
+	return addr.Address, nil
+}
+
+func buildRFC822(from string, msg SmtpMessage) (string, error) {
 	var body strings.Builder
-	writeHeader(&body, "From", sanitizeHeaderValue(from))
-	writeHeader(&body, "To", sanitizeHeaderValue(msg.To))
-	writeHeader(&body, "Subject", mime.QEncoding.Encode("utf-8", sanitizeHeaderValue(msg.Subject)))
-	writeHeader(&body, "MIME-Version", "1.0")
+
+	fromHeader, err := addressHeader(from, "from")
+	if err != nil {
+		return "", err
+	}
+	toHeader, err := addressHeader(msg.To, "to")
+	if err != nil {
+		return "", err
+	}
+
+	if err := writeHeader(&body, "From", fromHeader); err != nil {
+		return "", err
+	}
+	if err := writeHeader(&body, "To", toHeader); err != nil {
+		return "", err
+	}
+	if err := writeHeader(&body, "Subject", mime.QEncoding.Encode("utf-8", sanitizeHeaderValue(msg.Subject))); err != nil {
+		return "", err
+	}
+	if err := writeHeader(&body, "MIME-Version", "1.0"); err != nil {
+		return "", err
+	}
 
 	textBody := msg.TextBody
 	if textBody == "" && msg.HTMLBody == "" {
@@ -230,22 +279,36 @@ func buildRFC822(from string, msg SmtpMessage) string {
 	}
 
 	if msg.HTMLBody == "" {
-		writeHeader(&body, "Content-Type", "text/plain; charset=utf-8")
-		writeHeader(&body, "Content-Transfer-Encoding", "quoted-printable")
+		if err := writeHeader(&body, "Content-Type", "text/plain; charset=utf-8"); err != nil {
+			return "", err
+		}
+		if err := writeHeader(&body, "Content-Transfer-Encoding", "quoted-printable"); err != nil {
+			return "", err
+		}
 		body.WriteString("\r\n")
 		body.WriteString(quotedPrintable(textBody))
-		return body.String()
+		return body.String(), nil
 	}
 
-	boundary := mimeBoundary(msg)
-	writeHeader(&body, "Content-Type", `multipart/alternative; boundary="`+boundary+`"`)
+	boundary, err := mimeBoundary()
+	if err != nil {
+		return "", err
+	}
+
+	if err := writeHeader(&body, "Content-Type", `multipart/alternative; boundary="`+boundary+`"`); err != nil {
+		return "", err
+	}
 	body.WriteString("\r\n")
 
 	body.WriteString("--")
 	body.WriteString(boundary)
 	body.WriteString("\r\n")
-	writeHeader(&body, "Content-Type", "text/plain; charset=utf-8")
-	writeHeader(&body, "Content-Transfer-Encoding", "quoted-printable")
+	if err := writeHeader(&body, "Content-Type", "text/plain; charset=utf-8"); err != nil {
+		return "", err
+	}
+	if err := writeHeader(&body, "Content-Transfer-Encoding", "quoted-printable"); err != nil {
+		return "", err
+	}
 	body.WriteString("\r\n")
 	body.WriteString(quotedPrintable(textBody))
 	body.WriteString("\r\n")
@@ -253,8 +316,12 @@ func buildRFC822(from string, msg SmtpMessage) string {
 	body.WriteString("--")
 	body.WriteString(boundary)
 	body.WriteString("\r\n")
-	writeHeader(&body, "Content-Type", "text/html; charset=utf-8")
-	writeHeader(&body, "Content-Transfer-Encoding", "quoted-printable")
+	if err := writeHeader(&body, "Content-Type", "text/html; charset=utf-8"); err != nil {
+		return "", err
+	}
+	if err := writeHeader(&body, "Content-Transfer-Encoding", "quoted-printable"); err != nil {
+		return "", err
+	}
 	body.WriteString("\r\n")
 	body.WriteString(quotedPrintable(msg.HTMLBody))
 	body.WriteString("\r\n")
@@ -262,14 +329,34 @@ func buildRFC822(from string, msg SmtpMessage) string {
 	body.WriteString("--")
 	body.WriteString(boundary)
 	body.WriteString("--\r\n")
-	return body.String()
+	return body.String(), nil
 }
 
-func writeHeader(sb *strings.Builder, key, value string) {
+func addressHeader(raw, field string) (string, error) {
+	addr, err := mail.ParseAddress(raw)
+	if err != nil {
+		return "", fmt.Errorf("invalid %s address: %w", field, err)
+	}
+	value := addr.String()
+	if value == "" || containsHeaderBreak(value) {
+		return "", fmt.Errorf("invalid %s address", field)
+	}
+	return value, nil
+}
+
+func writeHeader(sb *strings.Builder, key, value string) error {
+	if containsHeaderBreak(key) || containsHeaderBreak(value) {
+		return fmt.Errorf("invalid header %q", key)
+	}
 	sb.WriteString(key)
 	sb.WriteString(": ")
 	sb.WriteString(value)
 	sb.WriteString("\r\n")
+	return nil
+}
+
+func containsHeaderBreak(v string) bool {
+	return strings.ContainsAny(v, "\r\n")
 }
 
 func quotedPrintable(s string) string {
@@ -280,7 +367,10 @@ func quotedPrintable(s string) string {
 	return buf.String()
 }
 
-func mimeBoundary(msg SmtpMessage) string {
-	sum := sha256.Sum256([]byte(msg.To + "\x00" + msg.Subject))
-	return "cs-" + hex.EncodeToString(sum[:])[:24]
+func mimeBoundary() (string, error) {
+	var b [18]byte
+	if _, err := rand.Read(b[:]); err != nil {
+		return "", fmt.Errorf("mime boundary: %w", err)
+	}
+	return "cs-" + hex.EncodeToString(b[:]), nil
 }
