@@ -3,7 +3,7 @@ title: OS Command Injection Vulnerability in Zyxel WAH7601
 slug: 2026-08-zyxel-command-injection
 description: An OS command injection vulnerability in Zyxel WAH7601 devices (CVE-2026-13206) allows unauthenticated remote attackers to execute arbitrary system commands.
 date: "2026-08-10T13:31:05Z"
-lastmod: "2026-08-10T13:31:30Z"
+lastmod: "2026-08-10T13:32:12Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,7 @@ tags:
   - credential-access
   - vulnerability
   - networking
+  - network-security
 vendors:
   - Zyxel
 products:
@@ -47,6 +48,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-13206
   - https://nvd.nist.gov/vuln/detail/CVE-2026-12984
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-6374
 action_plan:
   priority: elevated
   owners:
@@ -71,6 +73,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-12984
+  - at: "2026-08-10T13:32:12Z"
+    level: L1
+    summary: added coverage for WAH7601
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-6374
 ---
 
 Zyxel WAH7601 mobile Wi-Fi devices are vulnerable to an OS command injection flaw tracked as CVE-2026-13206. This vulnerability arises from the improper neutralization of special elements within OS commands, allowing an attacker to inject and execute arbitrary commands on the underlying device operating system. The flaw affects all firmware versions up to and including 20072026. Given the critical CVSS base score of 9.8, this vulnerability poses a severe risk to network infrastructure security. Defenders should treat this as a high-priority patch item, as successful exploitation results in full device compromise, potentially facilitating lateral movement into connected networks or interception of wireless traffic.
