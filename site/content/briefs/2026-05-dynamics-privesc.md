@@ -3,11 +3,17 @@ title: 'CVE-2026-40417: Microsoft Dynamics Business Central Privilege Escalation
 slug: 2026-05-dynamics-privesc
 description: CVE-2026-40417 is a privilege escalation vulnerability affecting Microsoft Dynamics Business Central due to weak authentication, allowing an authorized attacker to elevate privileges locally.
 date: "2026-05-12T18:49:41Z"
+lastmod: "2026-08-10T19:33:16Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:microsoft:dynamics_365_business_central:2024:release_wave_2:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:dynamics_365_business_central:2025:release_wave_1:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:dynamics_365_business_central:2025:release_wave_2:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:dynamics_365_business_central:2026:release_wave_1:*:*:*:*:*:*
 tags:
   - privilege-escalation
   - cve
@@ -16,6 +22,7 @@ vendors:
   - Microsoft
 products:
   - Dynamics Business Central
+  - Dynamics 365 Business Central
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -24,12 +31,13 @@ mitre_ttps:
 cves:
   - id: CVE-2026-40417
     cvss: 7.8
+    epss: 0.00272
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-40417
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-40417
 rules:
   - title: Detect Suspicious Dynamics Business Central Process Elevation
-    description: Detects CVE-2026-40417 exploitation - Monitors process creation events for processes running with elevated privileges within Dynamics Business Central.
+    description: Detects CVE-2026-40417 exploitation — Monitors process creation events for processes running with elevated privileges within Dynamics Business Central.
     platform: sigma
     severity: high
     tactics:
@@ -40,7 +48,7 @@ rules:
       - process_creation
       - windows
   - title: Detect Suspicious Dynamics Business Central Authentication Followed by Process Creation
-    description: Detects CVE-2026-40417 exploitation - Monitors for authentication events followed by process creation events within a short timeframe, which could indicate an attacker leveraging elevated privileges.
+    description: Detects CVE-2026-40417 exploitation — Monitors for authentication events followed by process creation events within a short timeframe, which could indicate an attacker leveraging elevated privileges.
     platform: sigma
     severity: medium
     tactics:
@@ -51,6 +59,14 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-08-10T19:33:16Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-40417
 ---
 
 CVE-2026-40417 describes a privilege escalation vulnerability within Microsoft Dynamics Business Central. The vulnerability stems from weak authentication mechanisms within the application, potentially allowing an attacker with valid, low-privileged credentials to elevate their access to higher levels within the system. Successful exploitation would grant the attacker unauthorized access to sensitive data, configuration settings, and administrative functions within the Business Central environment. This vulnerability was published on 2026-05-12.
