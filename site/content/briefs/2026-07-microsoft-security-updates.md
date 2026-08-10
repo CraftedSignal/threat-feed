@@ -3,12 +3,46 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-08-05T09:12:32Z"
+lastmod: "2026-08-10T13:30:38Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:microsoft:.net_framework:4.8:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.6.2:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.7:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.7.1:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.7.2:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:3.5:-:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net_framework:4.8.1:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:.net:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:azure_app_service_for_linux:-:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -605,6 +639,10 @@ products:
   - Korean financial security software
   - Microsoft processes
   - Azure Cosmos DB
+  - Windows 10
+  - Windows 11
+  - Windows Server
+  - Google Password Manager
 affected_os:
   - Windows
   - macOS
@@ -633,6 +671,22 @@ affected_os:
   - Windows 11 24H2
   - Windows 11 25H2
   - Windows 11 26H1
+cves:
+  - id: CVE-2026-47302
+    cvss: 7.5
+    epss: 0.01029
+  - id: CVE-2026-50318
+    cvss: 7.8
+    epss: 0.00257
+  - id: CVE-2026-50313
+    cvss: 7.8
+    epss: 0.00435
+  - id: CVE-2026-50361
+    cvss: 7.8
+    epss: 0.00184
+  - id: CVE-2026-58630
+    cvss: 10
+    epss: 0.00865
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1374,6 +1428,7 @@ references:
   - https://therecord.media/north-korea-hackers-ransomware
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66803
   - https://www.reddit.com/r/blueteamsec/comments/1vbtjg0/cosmosescape_taking_over_every_azure_cosmos_db/
+  - https://thehackernews.com/2026/08/new-passkey-attacks-can-recover-synced.html
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1835,13 +1890,6 @@ ioc_counts:
   ip: 4
   url: 125
 updates:
-  - at: "2026-07-30T13:32:22Z"
-    level: L2
-    summary: added CVE-2026-50345 +4
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_mofcomp.toml
   - at: "2026-07-30T14:40:56Z"
     level: L2
     summary: added CVE-2026-49172 +6
@@ -1870,6 +1918,13 @@ updates:
       - risky-biz
     source_urls:
       - https://therecord.media/north-korea-hackers-ransomware
+  - at: "2026-08-10T13:30:38Z"
+    level: L2
+    summary: added CVE-2026-47302 +4
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/08/new-passkey-attacks-can-recover-synced.html
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
