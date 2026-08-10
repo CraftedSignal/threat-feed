@@ -3,7 +3,7 @@ title: Progress Security Advisory (AV26-552) Addressing Multiple Critical Vulner
 slug: 2026-06-progress-security-advisory
 description: Progress released critical security advisories between June 2 and 4, 2026, addressing multiple vulnerabilities, including CVE-2026-7312, CVE-2026-7198, CVE-2026-7195, CVE-2026-7201, CVE-2026-7313, CVE-2026-8037, and CVE-2026-33691, in Sitefinity CMS, Sitefinity Insight, and Progress Kemp LoadMaster, which could lead to various impacts if exploited, necessitating immediate patching.
 date: "2026-06-14T14:21:34Z"
-lastmod: "2026-08-07T21:14:57Z"
+lastmod: "2026-08-10T10:28:30Z"
 type: advisory
 types:
   - advisory
@@ -11,10 +11,6 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:progress:sitefinity:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:progress:connection_manager_for_objectscale:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:progress:ecs_connection_manager:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:progress:loadmaster:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:owasp:owasp_modsecurity_core_rule_set:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=CBFB47A0-CA83-566E-88FB-C2AD0B92470A&utm_source=rss&utm_medium=rss
@@ -34,6 +30,10 @@ products:
   - Progress Kemp LoadMaster (LTSF v7.2.54.17 and prior)
   - Kemp LoadMaster
   - LoadMaster
+  - LoadMaster (GA <= 7.2.63.1, LTSF <= 7.2.54.17)
+  - ECS Connection Manager
+  - Connection Manager for ObjectScale
+  - MOVEit WAF
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -55,12 +55,6 @@ cves:
   - id: CVE-2026-7313
     cvss: 8.7
     epss: 0.00319
-  - id: CVE-2026-8037
-    cvss: 9.6
-    epss: 0.84793
-  - id: CVE-2026-33691
-    cvss: 6.8
-    epss: 0.03579
 references:
   - https://cyber.gc.ca/en/alerts-advisories/progress-security-advisory-av26-552
   - https://community.progress.com/s/article/Sitefinity-Security-Advisory-for-Addressing-Security-Vulnerabilities-CVE-2026-7312-CVE-2026-7198-CVE-2026-7195-CVE-2026-7201-CVE-2026-7313-May-2026
@@ -70,6 +64,7 @@ references:
   - https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html
   - https://www.cisa.gov/news-events/alerts/2026/08/07/cisa-adds-one-known-exploited-vulnerability-catalog
   - https://www.cve.org/CVERecord?id=CVE-2026-8037
+  - https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-progress-loadmaster-vulnerability/
 iocs:
   - type: url
     value: https://sploitus.com/exploit?id=CBFB47A0-CA83-566E-88FB-C2AD0B92470A
@@ -145,6 +140,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-8037
+  - at: "2026-08-10T10:28:30Z"
+    level: L2
+    summary: loadmaster version GA <= 7.2.63.1, LTSF <= 7.2.54.17
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-progress-loadmaster-vulnerability/
 ---
 
 Between June 2 and 4, 2026, Progress Software released urgent security advisories (AV26-552) addressing a range of vulnerabilities across its product line, notably including critical updates for Sitefinity CMS, Sitefinity Insight, and Progress Kemp LoadMaster. These advisories detail several CVEs, specifically CVE-2026-7312, CVE-2026-7198, CVE-2026-7195, CVE-2026-7201, CVE-2026-7313 affecting Sitefinity products, and CVE-2026-8037, CVE-2026-33691 impacting Kemp LoadMaster appliances. The vulnerabilities could allow for unauthorized access, remote code execution, or denial-of-service, posing a significant risk to organizations utilizing these products. Defenders must prioritize the immediate application of patches to prevent potential exploitation by malicious actors seeking to compromise critical web applications and network infrastructure.
