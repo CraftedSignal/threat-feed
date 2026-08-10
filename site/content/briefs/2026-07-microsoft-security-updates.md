@@ -3,7 +3,7 @@ title: Microsoft Security Updates — July 2026
 slug: 2026-07-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in July 2026.
 date: "2026-07-03T10:31:01Z"
-lastmod: "2026-08-10T13:30:38Z"
+lastmod: "2026-08-10T14:37:36Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +43,14 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:azure_app_service_for_linux:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:-:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:-:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
+has_poc: true
+poc_references:
+  - https://www.exploit-db.com/exploits/52632
 tags:
   - roundup
 vendors:
@@ -643,6 +651,7 @@ products:
   - Windows 11
   - Windows Server
   - Google Password Manager
+  - Microsoft Edge (< 150.0.4078.48)
 affected_os:
   - Windows
   - macOS
@@ -687,6 +696,21 @@ cves:
   - id: CVE-2026-58630
     cvss: 10
     epss: 0.00865
+  - id: CVE-2026-58278
+    cvss: 5.4
+    epss: 0.00282
+  - id: CVE-2026-40422
+    cvss: 5.5
+    epss: 0.00298
+  - id: CVE-2026-50460
+    cvss: 8.1
+    epss: 0.00506
+  - id: CVE-2026-50650
+    cvss: 7.8
+    epss: 0.0029
+  - id: CVE-2026-50669
+    cvss: 7
+    epss: 0.00153
 references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/powershell_pinvoke_process_injection_api_chain.yml
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/registry_keys_used_for_persistence.yml
@@ -1429,6 +1453,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66803
   - https://www.reddit.com/r/blueteamsec/comments/1vbtjg0/cosmosescape_taking_over_every_azure_cosmos_db/
   - https://thehackernews.com/2026/08/new-passkey-attacks-can-recover-synced.html
+  - https://www.exploit-db.com/exploits/52632
 iocs:
   - type: url
     value: https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/
@@ -1882,21 +1907,16 @@ iocs:
     value: https://www.wiz.io/blog/cosmosescape-taking-over-every-database-in-azure-cosmos-db
   - type: url
     value: https://therecord.media/north-korea-hackers-ransomware
+  - type: url
+    value: http://localhost:8080
 ioc_counts:
   domain: 75
   email: 7
   hash_md5: 12
   hash_sha256: 3
   ip: 4
-  url: 125
+  url: 126
 updates:
-  - at: "2026-07-30T14:40:56Z"
-    level: L2
-    summary: added CVE-2026-49172 +6
-    sources:
-      - therecord
-    source_urls:
-      - https://therecord.media/north-korea-hackers-ransomware
   - at: "2026-07-30T21:31:44Z"
     level: L2
     summary: added CVE-2026-47300 +3
@@ -1925,6 +1945,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/08/new-passkey-attacks-can-recover-synced.html
+  - at: "2026-08-10T14:37:36Z"
+    level: L2
+    summary: poc_available; added CVE-2026-40422 +4; microsoft edge version < 150.0.4078.48
+    sources:
+      - exploit-db
+    source_urls:
+      - https://www.exploit-db.com/exploits/52632
 ---
 
 Aggregated Microsoft security advisories for July 2026. CVEs from this cycle are folded
