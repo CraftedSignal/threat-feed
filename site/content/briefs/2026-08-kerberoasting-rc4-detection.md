@@ -3,6 +3,7 @@ title: Detection of Kerberoasting via Newly Observed RC4 Kerberos Requests
 slug: 2026-08-kerberoasting-rc4-detection
 description: Detection logic identifies potential Kerberoasting by flagging previously unseen requester-to-service pairings utilizing the weak RC4-HMAC Kerberos encryption standard.
 date: "2026-08-07T15:14:35Z"
+lastmod: "2026-08-10T19:22:34Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,8 @@ vendors:
   - Microsoft
 products:
   - Active Directory
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -35,6 +38,14 @@ rules:
       - process_creation
       - windows
 rules_count: 1
+updates:
+  - at: "2026-08-10T19:22:34Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_kerberos_service_ticket_rc4.toml
 ---
 
 This detection intelligence addresses the risk of Kerberoasting, a technique where attackers request Kerberos service tickets for service accounts with Service Principal Names (SPNs) registered. By requesting these tickets using the weak RC4-HMAC encryption type (0x17), attackers can capture the ticket and perform offline brute-force attacks to recover the cleartext password of the service account. This detection focuses on identifying anomalous behavior by monitoring for successful ticket requests (Event ID 4769) that involve a requester-to-service relationship not observed within the previous seven days. This approach reduces noise from legitimate, established traffic while highlighting potential reconnaissance or credential harvesting activities by an adversary.
