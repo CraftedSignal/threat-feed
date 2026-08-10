@@ -3,7 +3,7 @@ title: Google Security Updates — August 2026
 slug: 2026-08-google-security-updates
 description: Roundup of Google security advisories published in August 2026.
 date: "2026-08-01T01:42:27Z"
-lastmod: "2026-08-04T13:38:08Z"
+lastmod: "2026-08-10T21:38:36Z"
 type: advisory
 types:
   - advisory
@@ -29,11 +29,16 @@ products:
   - Antigravity-SDK
   - github.com
   - Angular
+  - ml-metadata
 affected_os:
   - Windows
 cves:
   - id: CVE-2026-69151
+    epss: 0.00328
   - id: CVE-2026-68945
+    epss: 0.00193
+  - id: CVE-2026-18618
+    cvss: 7.5
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_secret_access_via_unusual_user_agent.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/credential_access_gcp_gke_unusual_service_account_secret_get.toml
@@ -45,27 +50,15 @@ references:
   - https://github.com/advisories/GHSA-jhpw-976m-542j
   - https://www.securityweek.com/gemini-agent-to-agent-attack-exposed-secrets-enabled-pull-request-tampering/
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2632
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18618
 updates:
-  - at: "2026-08-03T11:55:38Z"
-    level: L1
-    summary: OS windows
-    sources:
-      - unit42
-    source_urls:
-      - https://unit42.paloaltonetworks.com/passwordless-authentication-security-risks/
   - at: "2026-08-03T17:59:17Z"
     level: L2
-    summary: added CVE-2026-69151
+    summary: added CVE-2026-68945, CVE-2026-69151
     sources:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-jj27-h5hq-8x99
-  - at: "2026-08-03T17:59:27Z"
-    level: L2
-    summary: added CVE-2026-68945
-    sources:
-      - ghsa
-    source_urls:
       - https://github.com/advisories/GHSA-jhpw-976m-542j
   - at: "2026-08-04T11:38:53Z"
     level: L1
@@ -81,6 +74,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2632
+  - at: "2026-08-10T21:38:36Z"
+    level: L2
+    summary: added CVE-2026-18618
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18618
 ---
 
 Aggregated Google security advisories for August 2026. CVEs from this cycle are folded
