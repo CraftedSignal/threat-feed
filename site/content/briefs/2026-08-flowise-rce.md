@@ -3,7 +3,7 @@ title: Flowise Unauthenticated RCE via Environment Variable Bypass
 slug: 2026-08-flowise-rce
 description: Flowise v3.1.2 and earlier are vulnerable to unauthenticated remote code execution because the CVE-2025-8943 patch relies on an incomplete environment variable blocklist, allowing attackers to inject configuration variables that force arbitrary package installation.
 date: "2026-08-04T17:24:33Z"
-lastmod: "2026-08-08T17:43:54Z"
+lastmod: "2026-08-10T19:36:04Z"
 type: advisory
 types:
   - advisory
@@ -38,6 +38,7 @@ products:
   - Flowise (<= 3.1.2)
   - flowise-components
   - Flowise (<= 3.1.4)
+  - Flowise (2.2.4-3.1.4)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -108,24 +109,23 @@ mitre_ttps:
 cves:
   - id: CVE-2026-69263
     epss: 0.00268
-  - id: CVE-2025-8943
-    cvss: 9.8
-    epss: 0.7231
   - id: CVE-2026-70476
     epss: 0.00286
-  - id: CVE-2026-70475
-    epss: 0.00296
   - id: CVE-2026-70471
     epss: 0.00279
-  - id: CVE-2026-70478
-    epss: 0.00381
   - id: CVE-2026-67621
     cvss: 7.6
+    epss: 0.00274
   - id: CVE-2026-67620
     cvss: 7.7
-  - id: CVE-2026-67622
-    cvss: 9.9
-    epss: 0.00248
+    epss: 0.00426
+  - id: CVE-2026-71962
+    cvss: 7.5
+  - id: CVE-2026-70636
+    cvss: 7.5
+    epss: 0.00373
+  - id: CVE-2026-70478
+    epss: 0.00381
 references:
   - https://github.com/advisories/GHSA-xc48-889x-5qmw
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69263
@@ -150,6 +150,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70636
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2703
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67620
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2719
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-71962
 iocs:
   - type: ip
     value: 192.0.0.192
@@ -236,13 +238,6 @@ action_plan:
       addresses: Unauthenticated API access
       evidence: On a default deployment with no authentication, any unauthenticated user who can reach the Flowise API can trigger this.
 updates:
-  - at: "2026-08-04T19:40:41Z"
-    level: L2
-    summary: added coverage for Flowise
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-88pr-878c-24wf
   - at: "2026-08-04T19:40:48Z"
     level: L2
     summary: added coverage for Flowise (<= 3.1.2)
@@ -271,6 +266,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-67620
+  - at: "2026-08-10T19:36:04Z"
+    level: L2
+    summary: added CVE-2026-70478 +2
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-71962
 ---
 
 Flowise (v3.1.2 and earlier) contains a critical security flaw involving an incomplete environment variable blocklist, identified as CVE-2026-69263. This vulnerability allows an attacker to bypass the intended security controls for the Model Context Protocol (MCP) server configuration, specifically those established in the previous CVE-2025-8943 patch. While the original patch successfully filtered dangerous CLI flags like `-y` for `npx`, it failed to account for `npm` configuration that can be passed via environment variables (e.g., `npm_config_yes`).
