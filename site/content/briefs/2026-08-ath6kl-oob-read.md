@@ -1,41 +1,37 @@
 ---
-title: Out-of-Bounds Read in ath6kl Wi-Fi Driver
+title: Out-of-Bounds Read Vulnerability in ath6kl Wi-Fi Driver
 slug: 2026-08-ath6kl-oob-read
-description: An out-of-bounds read vulnerability in the ath6kl Wi-Fi driver's TX complete handler, identified as CVE-2026-68353, may allow an attacker to access unauthorized memory during packet processing.
-date: "2026-08-11T09:55:17Z"
+description: CVE-2026-68352 involves an out-of-bounds read vulnerability in the ath6kl Wi-Fi driver, potentially allowing local information disclosure or system instability via malicious firmware Information Element lengths.
+date: "2026-08-11T09:55:48Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
-vendors:
-  - Qualcomm
 products:
   - ath6kl
 cves:
-  - id: CVE-2026-68353
+  - id: CVE-2026-68352
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68353
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68352
 action_plan:
   priority: monitor_or_close
   owners:
     - IT Operations
   mitigation_plan:
     - priority: medium_term
-      action: Upgrade Linux kernel and firmware for affected ath6kl hardware.
+      action: Patch ath6kl drivers or firmware as provided by the device manufacturer.
       owner: IT Operations
-      addresses: CVE-2026-68353
-      evidence: Source advisory from MSRC.
+      addresses: CVE-2026-68352
+      evidence: Source disclosure from MSRC.
 ---
 
-CVE-2026-68353 is an out-of-bounds (OOB) read vulnerability affecting the ath6kl Wi-Fi driver, primarily utilized in various Linux-based wireless implementations. The vulnerability resides within the TX complete handler, where insufficient validation of the firmware provided 'num_msg' field occurs. When the driver processes messages from the firmware, an attacker-controlled or malicious firmware image could provide a manipulated 'num_msg' value that causes the driver to read memory outside the intended data buffers. This could result in system instability, kernel crashes, or potential information disclosure depending on the surrounding memory layout. Organizations utilizing devices with Qualcomm ath6kl chipsets should prioritize patching their Linux kernel or wireless firmware stacks to mitigate this risk.
+Microsoft has disclosed CVE-2026-68352, an out-of-bounds (OOB) read vulnerability affecting the ath6kl wireless driver. The flaw originates from improper validation of Information Element (IE) lengths within the firmware when processing connect events. By supplying specially crafted beacon frames or connection responses, an attacker in physical proximity to the target device may be able to trigger the vulnerability. Successful exploitation could lead to memory corruption, potential information disclosure, or a system crash (denial of service). As this vulnerability resides at the driver level during the wireless association process, it primarily impacts devices utilizing the ath6kl chipset firmware. Defenders should prioritize patching affected wireless stacks to ensure proper length validation is enforced before memory access occurs.
 
 ## Impact
 
-Successful exploitation of this vulnerability could lead to a denial-of-service state through kernel memory corruption or unexpected system behavior. The severity is currently assessed based on the potential for localized information leakage or system instability within the host operating system's networking stack.
+The vulnerability poses a risk to devices using the vulnerable ath6kl driver, specifically in environments where unauthorized wireless signals can reach the target. Impact includes potential system instability (crashes) and unauthorized memory access.
 
 ## Recommendation
 
-* Apply vendor-provided security patches for the Linux kernel and associated wireless driver firmware to address CVE-2026-68353.
-* Audit systems utilizing Qualcomm ath6kl wireless hardware to ensure kernel firmware updates are deployed.
-* Restrict access to wireless network configuration and firmware update interfaces to authorized administrative accounts to prevent the installation of malicious or compromised firmware.
+Prioritize the application of security patches provided by hardware or OS vendors for the ath6kl driver stack. Monitor system logs for repeated Wi-Fi driver-related kernel panics or service crashes that coincide with wireless network association attempts, which may indicate attempted exploitation of CVE-2026-68352.
