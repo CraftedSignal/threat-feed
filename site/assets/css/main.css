@@ -180,6 +180,44 @@ body {
    shortened to "INFO" in templates. */
 .sev-informational { background: rgb(var(--color-sev-rumour) / 0.12); color: rgb(var(--color-sev-rumour)); }
 
+/* ---------------------------------------------------------------------- */
+/* Brief sidebar */
+/* ---------------------------------------------------------------------- */
+
+.brief-sidebar-toggle {
+  @apply inline-flex h-8 w-8 items-center justify-center rounded-lg border border-stroke bg-panel/70 text-muted hover:text-accent hover:border-accent/40 transition;
+}
+
+.brief-sidebar-toggle svg {
+  transition: transform 160ms ease;
+}
+
+[data-brief-layout][data-sidebar-collapsed="true"] [data-brief-sidebar-toggle-icon] {
+  transform: rotate(180deg);
+}
+
+[data-brief-layout][data-sidebar-collapsed="true"] [data-brief-sidebar-content] {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  [data-brief-layout][data-sidebar-collapsed="true"] {
+    grid-template-columns: minmax(0, 1fr) 2.5rem;
+  }
+
+  [data-brief-layout][data-sidebar-collapsed="true"] > [data-brief-main] {
+    grid-column: 1 / span 1;
+  }
+
+  [data-brief-layout][data-sidebar-collapsed="true"] > [data-brief-sidebar] {
+    grid-column: 2 / span 1;
+    justify-self: end;
+    max-height: none;
+    overflow: visible;
+    width: 2.5rem;
+  }
+}
+
 /* Type badge - orthogonal to severity. Describes WHAT the brief is. */
 .type-badge {
   @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono font-semibold uppercase tracking-wide;

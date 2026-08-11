@@ -600,6 +600,33 @@ function initCopyIocs() {
   });
 }
 
+const BRIEF_SIDEBAR_KEY = 'feedBriefSidebarCollapsed';
+
+function initBriefSidebarToggle() {
+  document.querySelectorAll('[data-brief-layout]').forEach((layout) => {
+    const sidebar = layout.querySelector('[data-brief-sidebar]');
+    const content = sidebar?.querySelector('[data-brief-sidebar-content]');
+    const btn = sidebar?.querySelector('[data-brief-sidebar-toggle]');
+    if (!sidebar || !content || !btn) return;
+
+    const label = btn.querySelector('[data-brief-sidebar-toggle-label]');
+    const setCollapsed = (collapsed) => {
+      layout.dataset.sidebarCollapsed = collapsed ? 'true' : 'false';
+      content.hidden = collapsed;
+      btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      btn.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
+      btn.title = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
+      if (label) label.textContent = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
+      try { localStorage.setItem(BRIEF_SIDEBAR_KEY, collapsed ? 'true' : 'false'); } catch (_) {}
+    };
+
+    let collapsed = false;
+    try { collapsed = localStorage.getItem(BRIEF_SIDEBAR_KEY) === 'true'; } catch (_) {}
+    setCollapsed(collapsed);
+    btn.addEventListener('click', () => setCollapsed(layout.dataset.sidebarCollapsed !== 'true'));
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initSearch();
@@ -610,4 +637,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initLiveUpdate();
   initTaxonomyFilter();
   initCopyIocs();
+  initBriefSidebarToggle();
 });

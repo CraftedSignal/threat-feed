@@ -65,9 +65,9 @@
          analyst-facing reference card (CVEs, MITRE ATT&CK, threat
          actors, affected vendors / products / OS, tags, refs).
          Sidebar sticks to top-20 so it tracks the body when reading. */}}
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" data-brief-layout data-sidebar-collapsed="false">
 
-      <div class="lg:col-span-8 space-y-8 min-w-0">
+      <div class="lg:col-span-8 space-y-8 min-w-0" data-brief-main>
 
         {{/* "What's new" bar: rendered when a merge enriched this brief
              with structured data from a later source. Reads from the
@@ -173,8 +173,10 @@
 
       </div>
 
-      <aside class="lg:col-span-4 space-y-4 lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto min-w-0">
+      <aside class="lg:col-span-4 space-y-4 lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto min-w-0" data-brief-sidebar>
         {{ partial "brief-sidebar-jumps.html" . }}
+        {{ partial "brief-sidebar-toggle.html" . }}
+        <div id="brief-sidebar-content" class="space-y-4" data-brief-sidebar-content>
 
         {{ if or $vendors $products $os }}
         <section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-3">
@@ -223,8 +225,10 @@
                 {{/* CVSS / EPSS may decode as YAML strings (e.g. "5e-05" for
                      a tiny EPSS), so coerce to float before printf - without
                      this, Go's fmt prints "%!f(string=5e-05)" on the page. */}}
-                {{ if .cvss }}<span class="font-mono text-muted" title="CVSS">{{ printf "%.1f" (float .cvss) }}</span>{{ end }}
-                {{ if .epss }}<span class="font-mono text-muted" title="EPSS">{{ printf "%.2f" (float .epss) }}</span>{{ end }}
+                {{ $cvss := 0.0 }}{{ with .cvss }}{{ $cvss = float . }}{{ end }}
+                {{ $epss := 0.0 }}{{ with .epss }}{{ $epss = float . }}{{ end }}
+                {{ if gt $cvss 0.0 }}<span class="font-mono text-muted" title="CVSS">{{ printf "%.1f" $cvss }}</span>{{ end }}
+                {{ if gt $epss 0.0 }}<span class="font-mono text-muted" title="EPSS">{{ printf "%.2f%%" (mul $epss 100.0) }}</span>{{ end }}
                 {{ if .kev }}<span class="sev-badge sev-critical">KEV</span>{{ end }}
               </div>
             </div>
@@ -318,6 +322,7 @@
         </section>
         {{ end }}
 
+        </div>
       </aside>
 
     </div>
