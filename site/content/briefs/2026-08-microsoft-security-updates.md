@@ -16,14 +16,185 @@ tags:
 vendors:
   - Microsoft
 cves:
+  - id: CVE-2026-50481
+    product: "Azure Active Directory"
+    cvss: 9.9
+    epss: 0.0046
+  - id: CVE-2026-50515
+    product: "Azure Service Bus"
+    cvss: 9.9
+    epss: 0.0091
+  - id: CVE-2026-56161
+    product: "Azure Logic Apps"
+    cvss: 9.6
+    epss: 0.0038
+  - id: CVE-2026-59115
+    product: "Microsoft Entra Provisioning Service"
+    cvss: 9.9
+    epss: 0.0064
+  - id: CVE-2026-59118
+    product: "Power Apps"
+    cvss: 9.3
+    epss: 0.0039
+  - id: CVE-2026-62830
+    product: "Azure SRE Agent"
+    cvss: 9.9
+    epss: 0.0042
   - id: CVE-2026-62873
+    product: "Microsoft 365 Admin Center"
     cvss: 9.8
-    epss: 0.00343
+    epss: 0.0034
+  - id: CVE-2026-62896
+    product: "Microsoft Teams"
+    cvss: 9.6
+    epss: 0.0038
+  - id: CVE-2026-63508
+    product: "Microsoft Planetary Computer Pro (GeoCatalog)"
+    cvss: 10
+    epss: 0.0044
+  - id: CVE-2026-65667
+    product: "Microsoft Teams"
+    cvss: 10
+    epss: 0.0044
+  - id: CVE-2026-68823
+    product: "Azure Confidential Ledger"
+    cvss: 9.1
+    epss: 0.005
+  - id: CVE-2026-70332
+    product: "SharePoint Online"
+    cvss: 9.6
+    epss: 0.0048
   - id: CVE-2026-49163
+    product: "Application Insights Profiler"
     cvss: 8.8
-    epss: 0.00621
+    epss: 0.0062
+  - id: CVE-2026-62836
+    product: "Azure SQL Managed Instance"
+    cvss: 8.7
+    epss: 0.0036
+  - id: CVE-2026-62918
+    product: "Microsoft Teams"
+    cvss: 7.5
+    epss: 0.0029
+  - id: CVE-2026-65668
+    product: "Microsoft Purview eDiscovery"
+    cvss: 8.8
+    epss: 0.0042
+  - id: CVE-2026-68480
+    product: "Windows"
+    epss: 0.0021
+  - id: CVE-2026-64564
+    product: "Windows"
+    cvss: 9.8
+    epss: 0.0048
+  - id: CVE-2026-64590
+    product: "dma-buf/udmabuf"
+    epss: 0.0016
+  - id: CVE-2026-54876
+    product: "Windows"
+    cvss: 7.5
+    epss: 0.0026
+  - id: CVE-2026-44605
+    product: "Rpm"
+    cvss: 5.5
+    epss: 0.0014
+  - id: CVE-2026-64573
+    product: "Bluetooth"
+    epss: 0.0016
+  - id: CVE-2026-64565
+    product: "ims-pcu"
+    epss: 0.0017
+  - id: CVE-2026-64578
+    product: "ksmbd"
+    cvss: 8.2
+    epss: 0.0032
+  - id: CVE-2024-21380
+    product: "Dynamics Business Central"
+    cvss: 8
+    epss: 0.0173
+  - id: CVE-2025-2308
+    product: "HDF5"
+    cvss: 5.3
+    epss: 0.004
+  - id: CVE-2025-2309
+    product: "HDF5"
+    cvss: 5.3
+    epss: 0.0036
+  - id: CVE-2026-68097
+    product: "ksmbd"
+  - id: CVE-2026-68388
+    product: "Windows"
+  - id: CVE-2026-68187
+  - id: CVE-2026-68152
+    product: "AMT"
+  - id: CVE-2026-68189
+    product: "Windows"
+  - id: CVE-2026-68312
+    product: "Windows"
   - id: CVE-2026-68130
+    product: "ksmbd"
+  - id: CVE-2026-68176
+    product: "Windows"
+  - id: CVE-2026-68145
+    product: "iomap"
+  - id: CVE-2026-68318
+    product: "pds_core"
+  - id: CVE-2026-68118
+    product: "Windows"
+  - id: CVE-2026-68175
+    product: "Windows"
+  - id: CVE-2026-68328
+    product: "Windows"
+  - id: CVE-2026-68406
+    product: "Windows"
+  - id: CVE-2026-68317
+    product: "Windows"
+  - id: CVE-2026-68099
+    product: "ksmbd"
+  - id: CVE-2026-68354
+    product: "Windows"
+  - id: CVE-2026-68326
+    product: "Windows"
+  - id: CVE-2026-68151
+    product: "Windows"
+  - id: CVE-2026-68343
+    product: "Windows"
+  - id: CVE-2026-68184
+    product: "Windows"
+  - id: CVE-2026-68124
+    product: "mctp"
+  - id: CVE-2026-68401
+    product: "firmware"
+  - id: CVE-2026-68322
+    product: "Windows"
+  - id: CVE-2026-68214
+    product: "Windows"
+  - id: CVE-2026-68327
+    product: "wanxl"
+  - id: CVE-2026-68188
+    product: "Windows"
+  - id: CVE-2026-68132
+    product: "Windows"
+  - id: CVE-2026-68304
+    product: "Windows"
+  - id: CVE-2026-68098
+    product: "ksmbd"
+  - id: CVE-2026-68348
+    product: "Windows"
+  - id: CVE-2026-68195
+    product: "Windows"
+  - id: CVE-2026-68419
+    product: "Windows"
   - id: CVE-2026-68171
+    product: "Windows"
+  - id: CVE-2026-64523
+    product: "net/handshake"
+  - id: CVE-2026-64388
+    product: "SMB Client"
+  - id: CVE-2025-37938
+    product: "Windows"
+    cvss: 7.1
+    epss: 0.0018
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68207
 updates:
@@ -68,72 +239,72 @@ This roundup covers 64 Microsoft security vulnerabilities. None are reported as 
 
 ## Summary
 
-| CVE | Product | Severity | CVSS | EPSS | KEV | Source | Why included |
-|-----|---------|----------|------|------|-----|--------|--------------|
-| [CVE-2026-50481](#cve-2026-50481) | Azure Active Directory | Critical | 9.9 | 0.46% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50481) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure Active Directory. |
-| [CVE-2026-50515](#cve-2026-50515) | Azure Service Bus | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50515) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure Service Bus. |
-| [CVE-2026-56161](#cve-2026-56161) | Azure Logic Apps | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-56161) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure Logic Apps. |
-| [CVE-2026-59115](#cve-2026-59115) | Microsoft Entra Provisioning Service | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-59115) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Entra Provisioning Service. |
-| [CVE-2026-59118](#cve-2026-59118) | Power Apps | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-59118) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Power Apps. |
-| [CVE-2026-62830](#cve-2026-62830) | Azure SRE Agent | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62830) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure SRE Agent. |
-| [CVE-2026-62873](#cve-2026-62873) | Microsoft 365 Admin Center | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62873) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft 365 Admin Center. |
-| [CVE-2026-62896](#cve-2026-62896) | Microsoft Teams | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62896) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Teams. |
-| [CVE-2026-63508](#cve-2026-63508) | Microsoft Planetary Computer Pro (GeoCatalog) | Critical | 10.0 | 0.44% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-63508) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Planetary Computer Pro (GeoCatalog). |
-| [CVE-2026-65667](#cve-2026-65667) | Microsoft Teams | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65667) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Teams. |
-| [CVE-2026-68823](#cve-2026-68823) | Azure Confidential Ledger | Critical | 9.1 | 0.50% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68823) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure Confidential Ledger. |
-| [CVE-2026-70332](#cve-2026-70332) | SharePoint Online | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70332) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting SharePoint Online. |
-| [CVE-2026-49163](#cve-2026-49163) | Application Insights Profiler | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-49163) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Application Insights Profiler. |
-| [CVE-2026-62836](#cve-2026-62836) | Azure SQL Managed Instance | High | 8.7 | 0.36% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62836) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure SQL Managed Instance. |
-| [CVE-2026-62918](#cve-2026-62918) | Microsoft Teams | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62918) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Teams. |
-| [CVE-2026-65668](#cve-2026-65668) | Microsoft Purview eDiscovery | n/a | n/a | n/a | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65668) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Purview eDiscovery. |
-| [CVE-2026-68480](#cve-2026-68480) | Windows | n/a | n/a | 0.21% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68480) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-64564](#cve-2026-64564) | Windows | Critical | 9.8 | 0.48% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64564) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-64590](#cve-2026-64590) | dma-buf/udmabuf | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64590) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting dma-buf/udmabuf. |
-| [CVE-2026-54876](#cve-2026-54876) | Windows | High | 7.5 | 0.26% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54876) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-44605](#cve-2026-44605) | Rpm | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-44605) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Rpm. |
-| [CVE-2026-64573](#cve-2026-64573) | Bluetooth | n/a | n/a | 0.16% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64573) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Bluetooth. |
-| [CVE-2026-64565](#cve-2026-64565) | ims-pcu | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64565) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ims-pcu. |
-| [CVE-2026-64578](#cve-2026-64578) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
-| [CVE-2024-21380](#cve-2024-21380) | Dynamics Business Central | High | 8.0 | 1.73% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21380) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Dynamics Business Central. |
-| [CVE-2025-2308](#cve-2025-2308) | HDF5 | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2308) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting HDF5. |
-| [CVE-2025-2309](#cve-2025-2309) | HDF5 | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2309) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting HDF5. |
-| [CVE-2026-68097](#cve-2026-68097) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68097) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
-| [CVE-2026-68388](#cve-2026-68388) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68388) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68187](#cve-2026-68187) | n/a | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68187) (authoritative) | Included because it is part of the Microsoft patch-cycle roundup. |
-| [CVE-2026-68152](#cve-2026-68152) | AMT | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68152) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting AMT. |
-| [CVE-2026-68189](#cve-2026-68189) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68189) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68312](#cve-2026-68312) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68312) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68130](#cve-2026-68130) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
-| [CVE-2026-68176](#cve-2026-68176) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68145](#cve-2026-68145) | iomap | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68145) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting iomap. |
-| [CVE-2026-68318](#cve-2026-68318) | pds_core | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68318) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting pds_core. |
-| [CVE-2026-68118](#cve-2026-68118) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68118) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68175](#cve-2026-68175) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68175) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68328](#cve-2026-68328) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68406](#cve-2026-68406) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68406) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68317](#cve-2026-68317) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68317) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68099](#cve-2026-68099) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68099) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
-| [CVE-2026-68354](#cve-2026-68354) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68354) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68326](#cve-2026-68326) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68326) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68151](#cve-2026-68151) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68343](#cve-2026-68343) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68184](#cve-2026-68184) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68124](#cve-2026-68124) | mctp | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68124) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting mctp. |
-| [CVE-2026-68401](#cve-2026-68401) | firmware | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68401) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting firmware. |
-| [CVE-2026-68322](#cve-2026-68322) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68322) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68214](#cve-2026-68214) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68214) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68327](#cve-2026-68327) | wanxl | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68327) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting wanxl. |
-| [CVE-2026-68188](#cve-2026-68188) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68188) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68132](#cve-2026-68132) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68132) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68304](#cve-2026-68304) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68304) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68098](#cve-2026-68098) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68098) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
-| [CVE-2026-68348](#cve-2026-68348) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68348) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68195](#cve-2026-68195) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68195) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68419](#cve-2026-68419) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68419) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68171](#cve-2026-68171) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68171) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-64523](#cve-2026-64523) | net/handshake | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64523) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting net/handshake. |
-| [CVE-2026-64388](#cve-2026-64388) | SMB Client | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64388) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting SMB Client. |
-| [CVE-2025-37938](#cve-2025-37938) | Windows | High | 7.1 | 0.18% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-37938) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
+| CVE | Product | Severity | CVSS | EPSS | KEV | Source |
+|-----|---------|----------|------|------|-----|--------|
+| [CVE-2026-50481](#cve-2026-50481) | Azure Active Directory | Critical | 9.9 | 0.46% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50481) (authoritative) |
+| [CVE-2026-50515](#cve-2026-50515) | Azure Service Bus | Critical | 9.9 | 0.91% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50515) (authoritative) |
+| [CVE-2026-56161](#cve-2026-56161) | Azure Logic Apps | Critical | 9.6 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-56161) (authoritative) |
+| [CVE-2026-59115](#cve-2026-59115) | Microsoft Entra Provisioning Service | Critical | 9.9 | 0.64% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-59115) (authoritative) |
+| [CVE-2026-59118](#cve-2026-59118) | Power Apps | Critical | 9.3 | 0.39% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-59118) (authoritative) |
+| [CVE-2026-62830](#cve-2026-62830) | Azure SRE Agent | Critical | 9.9 | 0.42% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62830) (authoritative) |
+| [CVE-2026-62873](#cve-2026-62873) | Microsoft 365 Admin Center | Critical | 9.8 | 0.34% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62873) (authoritative) |
+| [CVE-2026-62896](#cve-2026-62896) | Microsoft Teams | Critical | 9.6 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62896) (authoritative) |
+| [CVE-2026-63508](#cve-2026-63508) | Microsoft Planetary Computer Pro (GeoCatalog) | Critical | 10.0 | 0.44% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-63508) (authoritative) |
+| [CVE-2026-65667](#cve-2026-65667) | Microsoft Teams | Critical | 10.0 | 0.44% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65667) (authoritative) |
+| [CVE-2026-68823](#cve-2026-68823) | Azure Confidential Ledger | Critical | 9.1 | 0.50% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68823) (authoritative) |
+| [CVE-2026-70332](#cve-2026-70332) | SharePoint Online | Critical | 9.6 | 0.48% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70332) (authoritative) |
+| [CVE-2026-49163](#cve-2026-49163) | Application Insights Profiler | High | 8.8 | 0.62% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-49163) (authoritative) |
+| [CVE-2026-62836](#cve-2026-62836) | Azure SQL Managed Instance | High | 8.7 | 0.36% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62836) (authoritative) |
+| [CVE-2026-62918](#cve-2026-62918) | Microsoft Teams | High | 7.5 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62918) (authoritative) |
+| [CVE-2026-65668](#cve-2026-65668) | Microsoft Purview eDiscovery | High | 8.8 | 0.42% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65668) (authoritative) |
+| [CVE-2026-68480](#cve-2026-68480) | Windows |  |  | 0.21% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68480) (authoritative) |
+| [CVE-2026-64564](#cve-2026-64564) | Windows | Critical | 9.8 | 0.48% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64564) (authoritative) |
+| [CVE-2026-64590](#cve-2026-64590) | dma-buf/udmabuf |  |  | 0.16% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64590) (authoritative) |
+| [CVE-2026-54876](#cve-2026-54876) | Windows | High | 7.5 | 0.26% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54876) (authoritative) |
+| [CVE-2026-44605](#cve-2026-44605) | Rpm | Medium | 5.5 | 0.14% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-44605) (authoritative) |
+| [CVE-2026-64573](#cve-2026-64573) | Bluetooth |  |  | 0.16% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64573) (authoritative) |
+| [CVE-2026-64565](#cve-2026-64565) | ims-pcu |  |  | 0.17% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64565) (authoritative) |
+| [CVE-2026-64578](#cve-2026-64578) | ksmbd | High | 8.2 | 0.32% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578) (authoritative) |
+| [CVE-2024-21380](#cve-2024-21380) | Dynamics Business Central | High | 8.0 | 1.73% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21380) (authoritative) |
+| [CVE-2025-2308](#cve-2025-2308) | HDF5 | Medium | 5.3 | 0.40% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2308) (authoritative) |
+| [CVE-2025-2309](#cve-2025-2309) | HDF5 | Medium | 5.3 | 0.36% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2309) (authoritative) |
+| [CVE-2026-68097](#cve-2026-68097) | ksmbd |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68097) (authoritative) |
+| [CVE-2026-68388](#cve-2026-68388) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68388) (authoritative) |
+| [CVE-2026-68187](#cve-2026-68187) | n/a |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68187) (authoritative) |
+| [CVE-2026-68152](#cve-2026-68152) | AMT |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68152) (authoritative) |
+| [CVE-2026-68189](#cve-2026-68189) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68189) (authoritative) |
+| [CVE-2026-68312](#cve-2026-68312) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68312) (authoritative) |
+| [CVE-2026-68130](#cve-2026-68130) | ksmbd |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130) (authoritative) |
+| [CVE-2026-68176](#cve-2026-68176) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176) (authoritative) |
+| [CVE-2026-68145](#cve-2026-68145) | iomap |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68145) (authoritative) |
+| [CVE-2026-68318](#cve-2026-68318) | pds_core |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68318) (authoritative) |
+| [CVE-2026-68118](#cve-2026-68118) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68118) (authoritative) |
+| [CVE-2026-68175](#cve-2026-68175) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68175) (authoritative) |
+| [CVE-2026-68328](#cve-2026-68328) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328) (authoritative) |
+| [CVE-2026-68406](#cve-2026-68406) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68406) (authoritative) |
+| [CVE-2026-68317](#cve-2026-68317) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68317) (authoritative) |
+| [CVE-2026-68099](#cve-2026-68099) | ksmbd |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68099) (authoritative) |
+| [CVE-2026-68354](#cve-2026-68354) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68354) (authoritative) |
+| [CVE-2026-68326](#cve-2026-68326) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68326) (authoritative) |
+| [CVE-2026-68151](#cve-2026-68151) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151) (authoritative) |
+| [CVE-2026-68343](#cve-2026-68343) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343) (authoritative) |
+| [CVE-2026-68184](#cve-2026-68184) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184) (authoritative) |
+| [CVE-2026-68124](#cve-2026-68124) | mctp |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68124) (authoritative) |
+| [CVE-2026-68401](#cve-2026-68401) | firmware |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68401) (authoritative) |
+| [CVE-2026-68322](#cve-2026-68322) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68322) (authoritative) |
+| [CVE-2026-68214](#cve-2026-68214) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68214) (authoritative) |
+| [CVE-2026-68327](#cve-2026-68327) | wanxl |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68327) (authoritative) |
+| [CVE-2026-68188](#cve-2026-68188) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68188) (authoritative) |
+| [CVE-2026-68132](#cve-2026-68132) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68132) (authoritative) |
+| [CVE-2026-68304](#cve-2026-68304) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68304) (authoritative) |
+| [CVE-2026-68098](#cve-2026-68098) | ksmbd |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68098) (authoritative) |
+| [CVE-2026-68348](#cve-2026-68348) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68348) (authoritative) |
+| [CVE-2026-68195](#cve-2026-68195) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68195) (authoritative) |
+| [CVE-2026-68419](#cve-2026-68419) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68419) (authoritative) |
+| [CVE-2026-68171](#cve-2026-68171) | Windows |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68171) (authoritative) |
+| [CVE-2026-64523](#cve-2026-64523) | net/handshake |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64523) (authoritative) |
+| [CVE-2026-64388](#cve-2026-64388) | SMB Client |  |  |  | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64388) (authoritative) |
+| [CVE-2025-37938](#cve-2025-37938) | Windows | High | 7.1 | 0.18% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-37938) (authoritative) |
 
 
 ## CVE-2026-50481
