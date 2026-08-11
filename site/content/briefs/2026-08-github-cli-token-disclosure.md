@@ -3,11 +3,12 @@ title: GitHub CLI Partial Authentication Token Disclosure
 slug: 2026-08-github-cli-token-disclosure
 description: GitHub CLI contains an information exposure vulnerability in the gh auth status command that results in the partial disclosure of authentication tokens.
 date: "2026-08-11T09:52:07Z"
+lastmod: "2026-08-11T10:17:18Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
 vendors:
   - GitHub
 products:
@@ -18,6 +19,7 @@ cves:
     epss: 0.00117
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64652
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64655
 action_plan:
   priority: elevated
   owners:
@@ -34,6 +36,14 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-64652
       evidence: Mitigate the impact of potential partial token disclosure.
+updates:
+  - at: "2026-08-11T10:17:18Z"
+    level: L1
+    summary: added coverage for GitHub CLI
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64655
 ---
 
 Microsoft has disclosed a security vulnerability, tracked as CVE-2026-64652, affecting the GitHub CLI (gh). The vulnerability resides within the gh auth status command, which, under certain conditions, may output partial authentication tokens to the standard output or logs. This information exposure poses a risk to security teams as it could reveal segments of sensitive credentials to unauthorized local users, logs, or secondary processes that capture command output. While the disclosure is partial, it may reduce the effort required for an attacker to brute-force or reconstruct valid authentication tokens. Organizations should ensure that CLI usage is managed in secure environments and that logs capturing command execution output are restricted to authorized personnel.
