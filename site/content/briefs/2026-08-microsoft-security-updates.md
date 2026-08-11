@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T09:54:46Z"
+lastmod: "2026-08-11T09:55:20Z"
 type: threat
 types:
   - threat
@@ -16,6 +16,7 @@ cpes:
   - cpe:2.3:a:microsoft:power_apps:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:azure_sre_agent:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:teams:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:planetary_computer:-:*:*:*:pro:*:*:*
   - cpe:2.3:a:microsoft:sharepoint_online:-:*:*:*:*:*:*:*
 tags:
   - roundup
@@ -40,6 +41,9 @@ cves:
   - id: CVE-2026-62896
     cvss: 9.6
     epss: 0.00381
+  - id: CVE-2026-63508
+    cvss: 10
+    epss: 0.00442
   - id: CVE-2026-70332
     cvss: 9.6
     epss: 0.00481
@@ -52,16 +56,10 @@ cves:
   - id: CVE-2026-64578
     cvss: 8.2
     epss: 0.00317
+  - id: CVE-2026-68097
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68388
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68187
 updates:
-  - at: "2026-08-10T19:33:14Z"
-    level: L2
-    summary: added CVE-2026-62918 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21380
   - at: "2026-08-11T09:51:12Z"
     level: L2
     summary: added CVE-2026-50481 +3
@@ -90,9 +88,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68388
+  - at: "2026-08-11T09:55:20Z"
+    level: L2
+    summary: added CVE-2026-63508 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68187
 ---
 
-This roundup covers 28 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, ksmbd.
+This roundup covers 29 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, ksmbd.
 
 ## Summary
 
@@ -109,8 +114,8 @@ This roundup covers 28 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-63508 | 0.0 | Microsoft Planetary Computer Pro (GeoCatalog) | Microsoft Planetary Computer Pro (GeoCatalog) contains a vulnerability due to missing authentication for a critical function. This allows an unauthorized attacker to perform privilege escalation over a network. The vulnerability is classified as critical and has a CVSS base score of 10.0. |
 | CVE-2026-65667 | 0.0 | Microsoft Teams | CVE-2026-65667 is a critical security vulnerability in Microsoft Teams involving missing authorization (CWE-862). This flaw allows a remote, unauthenticated attacker to elevate privileges over a network, potentially leading to unauthorized access to sensitive information and system integrity compromises. |
 | CVE-2026-68823 | 0.0 | Azure Confidential Ledger | CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1. |
-| CVE-2026-70332 | 0.0 | SharePoint Online | CVE-2026-70332 is a Server-Side Request Forgery (SSRF) vulnerability in Microsoft SharePoint Online. An unauthenticated attacker can exploit this flaw to perform spoofing over a network, potentially leading to unauthorized information disclosure, interaction with internal services, or further lateral movement within the cloud environment. |
-| CVE-2026-49163 | 0.0 | Application Insights Profiler | Application Insights Profiler is vulnerable to a path traversal flaw (CWE-22) that allows an authorized attacker to elevate their privileges over a network. This vulnerability indicates improper limitation of a pathname to a restricted directory. |
+| CVE-2026-70332 | 9.6 | SharePoint Online | CVE-2026-70332 is a Server-Side Request Forgery (SSRF) vulnerability in Microsoft SharePoint Online. An unauthenticated attacker can exploit this flaw to perform spoofing over a network, potentially leading to unauthorized information disclosure, interaction with internal services, or further lateral movement within the cloud environment. |
+| CVE-2026-49163 | 8.8 | Application Insights Profiler | Application Insights Profiler is vulnerable to a path traversal flaw (CWE-22) that allows an authorized attacker to elevate their privileges over a network. This vulnerability indicates improper limitation of a pathname to a restricted directory. |
 | CVE-2026-62836 | 0.0 | Azure SQL Managed Instance | CVE-2026-62836 identifies a vulnerability in Azure SQL Managed Instance due to improper restriction of communication channels to intended endpoints. This flaw allows an unauthenticated, remote attacker to escalate privileges over a network connection by exploiting the misconfigured communication path. |
 | CVE-2026-62918 | 0.0 | Microsoft Teams | CVE-2026-62918 is a vulnerability in Microsoft Teams involving improper verification of cryptographic signatures. This flaw allows an unauthorized remote attacker to perform spoofing attacks over a network, potentially leading to unauthorized data manipulation or masquerading within the platform. |
 | CVE-2026-65668 | 0.0 | Microsoft Purview eDiscovery | Microsoft Purview eDiscovery contains an improper access control vulnerability that allows an authenticated attacker to perform a privilege escalation attack over the network. Detection should focus on monitoring unauthorized account role modifications or unexpected administrative actions within the Purview compliance console. |
@@ -126,6 +131,7 @@ This roundup covers 28 Microsoft security vulnerabilities. None are reported as 
 | CVE-2025-2308 | 0.0 | HDF5 | CVE-2025-2308 is a heap-based buffer overflow vulnerability residing in the H5Z__scaleoffset_decompress_one_byte function within the HDF5 scale-offset filter, potentially allowing for arbitrary code execution if a maliciously crafted HDF5 file is processed. |
 | CVE-2025-2309 | 0.0 | HDF5 | CVE-2025-2309 refers to a heap-based buffer overflow vulnerability identified in the HDF5 library specifically within the H5T__bit_copy type conversion logic. The vulnerability could potentially lead to memory corruption or arbitrary code execution if an attacker provides a maliciously crafted HDF5 file to an application utilizing the affected library code for data processing. |
 | CVE-2026-68097 | 0.0 | ksmbd | CVE-2026-68097 identifies a vulnerability in ksmbd where the software fails to properly validate the size of an Access Control Entry (ACE) against the number of Security Identifier (SID) sub-authorities. This vulnerability could potentially lead to memory corruption or other instability issues when processing malicious SMB traffic. |
+| CVE-2026-68388 | 0.0 | Windows | CVE-2026-68388 addresses a vulnerability in the SMB client component of the Windows operating system related to the improper handling of overlapping allocated ranges during fallocate operations, which may lead to memory corruption or instability. |
 
 
 ## CVE-2026-50481
@@ -380,3 +386,12 @@ Affected products:
 - ksmbd
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68097
+
+## CVE-2026-68388
+
+CVE-2026-68388 addresses a vulnerability in the SMB client component of the Windows operating system related to the improper handling of overlapping allocated ranges during fallocate operations, which may lead to memory corruption or instability.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68388
