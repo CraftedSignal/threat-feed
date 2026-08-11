@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:01:02Z"
+lastmod: "2026-08-11T10:01:15Z"
 type: threat
 types:
   - threat
@@ -87,16 +87,12 @@ cves:
     cvss: 8
     epss: 0.01725
   - id: CVE-2026-68097
+  - id: CVE-2026-68312
+  - id: CVE-2026-68130
+  - id: CVE-2026-68176
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68145
 updates:
-  - at: "2026-08-11T09:55:20Z"
-    level: L2
-    summary: added CVE-2026-63508 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68187
   - at: "2026-08-11T09:55:26Z"
     level: L2
     summary: added CVE-2026-62873
@@ -125,9 +121,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176
+  - at: "2026-08-11T10:01:15Z"
+    level: L2
+    summary: added CVE-2026-68130 +2
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68145
 ---
 
-This roundup covers 34 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, ksmbd.
+This roundup covers 35 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, ksmbd.
 
 ## Summary
 
@@ -142,22 +145,22 @@ This roundup covers 34 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-62873 | 9.8 | Microsoft 365 Admin Center | The Microsoft 365 Admin Center is vulnerable to an improper verification of cryptographic signature vulnerability (CWE-347). This flaw allows a remote, unauthorized attacker to elevate their privileges over a network, potentially leading to full compromise of confidentiality, integrity, and availability. |
 | CVE-2026-62896 | 9.6 | Microsoft Teams | Microsoft Teams contains an improper authentication vulnerability that allows an authenticated attacker to perform privilege escalation over a network. This flaw represents a critical security risk due to the potential for unauthorized access elevation within the application environment. |
 | CVE-2026-63508 | 10.0 | Microsoft Planetary Computer Pro (GeoCatalog) | Microsoft Planetary Computer Pro (GeoCatalog) contains a vulnerability due to missing authentication for a critical function. This allows an unauthorized attacker to perform privilege escalation over a network. The vulnerability is classified as critical and has a CVSS base score of 10.0. |
-| CVE-2026-65667 | 0.0 | Microsoft Teams | CVE-2026-65667 is a critical security vulnerability in Microsoft Teams involving missing authorization (CWE-862). This flaw allows a remote, unauthenticated attacker to elevate privileges over a network, potentially leading to unauthorized access to sensitive information and system integrity compromises. |
+| CVE-2026-65667 | 10.0 | Microsoft Teams | CVE-2026-65667 is a critical security vulnerability in Microsoft Teams involving missing authorization (CWE-862). This flaw allows a remote, unauthenticated attacker to elevate privileges over a network, potentially leading to unauthorized access to sensitive information and system integrity compromises. |
 | CVE-2026-68823 | 9.1 | Azure Confidential Ledger | CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1. |
 | CVE-2026-70332 | 9.6 | SharePoint Online | CVE-2026-70332 is a Server-Side Request Forgery (SSRF) vulnerability in Microsoft SharePoint Online. An unauthenticated attacker can exploit this flaw to perform spoofing over a network, potentially leading to unauthorized information disclosure, interaction with internal services, or further lateral movement within the cloud environment. |
 | CVE-2026-49163 | 8.8 | Application Insights Profiler | Application Insights Profiler is vulnerable to a path traversal flaw (CWE-22) that allows an authorized attacker to elevate their privileges over a network. This vulnerability indicates improper limitation of a pathname to a restricted directory. |
-| CVE-2026-62836 | 0.0 | Azure SQL Managed Instance | CVE-2026-62836 identifies a vulnerability in Azure SQL Managed Instance due to improper restriction of communication channels to intended endpoints. This flaw allows an unauthenticated, remote attacker to escalate privileges over a network connection by exploiting the misconfigured communication path. |
+| CVE-2026-62836 | 8.7 | Azure SQL Managed Instance | CVE-2026-62836 identifies a vulnerability in Azure SQL Managed Instance due to improper restriction of communication channels to intended endpoints. This flaw allows an unauthenticated, remote attacker to escalate privileges over a network connection by exploiting the misconfigured communication path. |
 | CVE-2026-62918 | 0.0 | Microsoft Teams | CVE-2026-62918 is a vulnerability in Microsoft Teams involving improper verification of cryptographic signatures. This flaw allows an unauthorized remote attacker to perform spoofing attacks over a network, potentially leading to unauthorized data manipulation or masquerading within the platform. |
 | CVE-2026-65668 | 0.0 | Microsoft Purview eDiscovery | Microsoft Purview eDiscovery contains an improper access control vulnerability that allows an authenticated attacker to perform a privilege escalation attack over the network. Detection should focus on monitoring unauthorized account role modifications or unexpected administrative actions within the Purview compliance console. |
 | CVE-2026-68480 | 0.0 | Windows | CVE-2026-68480 relates to a vulnerability in the x86 Safe-RET implementation regarding interrupt injection, which could allow a local attacker to potentially bypass security protections or escalate privileges. Security updates for affected versions of the Windows operating system address the robustness of the return mechanism against these specific interrupt vectors. |
 | CVE-2026-64564 | 0.0 | Windows | CVE-2026-64564 involves a vulnerability in the SCTP (Stream Control Transmission Protocol) implementation within Microsoft Windows. The issue occurs during DEL-IP processing, where the ASCONF (Address Configuration Change Chunk) packet handling incorrectly attempts to free its own transport, potentially leading to a use-after-free or memory management error. |
 | CVE-2026-64590 | 0.0 | dma-buf/udmabuf | CVE-2026-64590 identifies an issue within the dma-buf/udmabuf component where a redundant CPU synchronization triggers a cacheline EEXIST warning. This update addresses the underlying logic to ensure proper synchronization handling. |
-| CVE-2026-54876 | 0.0 | Windows | CVE-2026-54876 describes a client-side memory leak vulnerability within the OCSP (Online Certificate Status Protocol) response checking mechanism in Microsoft Windows products. |
+| CVE-2026-54876 | 7.5 | Windows | CVE-2026-54876 describes a client-side memory leak vulnerability within the OCSP (Online Certificate Status Protocol) response checking mechanism in Microsoft Windows products. |
 | CVE-2026-44605 | 5.5 | Rpm | CVE-2026-44605 describes a heap-based buffer overflow vulnerability located in the ndb slot table parsing logic within Rpm. This vulnerability could potentially allow for arbitrary code execution or memory corruption when processing malformed slot tables. |
 | CVE-2026-64573 | 0.0 | Bluetooth | A vulnerability identified in the Bluetooth NVM tag length TLV parser leads to an underflow condition. This security update from Microsoft addresses the flaw to prevent potential memory corruption or exploitation within the Bluetooth component. |
 | CVE-2026-64565 | 0.0 | ims-pcu | CVE-2026-64565 refers to a heap-based buffer overflow vulnerability located within the ims_pcu_process_data() function of the ims-pcu component, potentially allowing for memory corruption or arbitrary code execution. |
 | CVE-2026-64578 | 8.2 | ksmbd | CVE-2026-64578 identifies a vulnerability in the ksmbd kernel-mode SMB server, where insufficient validation of compound request sizes before reading StructureSize2 can lead to memory safety issues. Detection engineering should focus on monitoring SMB traffic patterns for malformed or oversized requests that could trigger improper bounds handling. |
-| CVE-2024-21380 | 0.0 | Dynamics Business Central | CVE-2024-21380 is an information disclosure vulnerability affecting Microsoft Dynamics Business Central and Dynamics NAV. The disclosure indicates an informational update to build numbers provided by Microsoft in the Security Update Guide, with no functional changes described in the provided content. |
+| CVE-2024-21380 | 8.0 | Dynamics Business Central | CVE-2024-21380 is an information disclosure vulnerability affecting Microsoft Dynamics Business Central and Dynamics NAV. The disclosure indicates an informational update to build numbers provided by Microsoft in the Security Update Guide, with no functional changes described in the provided content. |
 | CVE-2025-2308 | 0.0 | HDF5 | CVE-2025-2308 is a heap-based buffer overflow vulnerability residing in the H5Z__scaleoffset_decompress_one_byte function within the HDF5 scale-offset filter, potentially allowing for arbitrary code execution if a maliciously crafted HDF5 file is processed. |
 | CVE-2025-2309 | 0.0 | HDF5 | CVE-2025-2309 refers to a heap-based buffer overflow vulnerability identified in the HDF5 library specifically within the H5T__bit_copy type conversion logic. The vulnerability could potentially lead to memory corruption or arbitrary code execution if an attacker provides a maliciously crafted HDF5 file to an application utilizing the affected library code for data processing. |
 | CVE-2026-68097 | 0.0 | ksmbd | CVE-2026-68097 identifies a vulnerability in ksmbd where the software fails to properly validate the size of an Access Control Entry (ACE) against the number of Security Identifier (SID) sub-authorities. This vulnerability could potentially lead to memory corruption or other instability issues when processing malicious SMB traffic. |
@@ -167,6 +170,7 @@ This roundup covers 34 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68189 | 0.0 | Windows | CVE-2026-68189 refers to a vulnerability within the Bluetooth hci_sync component in Microsoft Windows. The issue involves a lack of protection during UUID list traversal, which may lead to memory safety issues or instability during Bluetooth stack operations. |
 | CVE-2026-68312 | 0.0 | Windows | CVE-2026-68312 describes a memory leak vulnerability in the CIFS (Common Internet File System) implementation within the Windows kernel. The issue specifically occurs in the deferred close drain paths when a kmalloc memory allocation fails, leading to a cifsFileInfo object leak, which could potentially be leveraged for denial-of-service conditions. |
 | CVE-2026-68130 | 0.0 | ksmbd | CVE-2026-68130 identifies a security vulnerability in the ksmbd component within Microsoft Windows Server. The flaw involves the premature destruction of the previous session before NTLM authentication is fully completed, which could lead to authentication bypass or session handling errors. Security teams should ensure that the provided update is applied to affected server environments to enforce proper session lifecycle management during the authentication handshake. |
+| CVE-2026-68176 | 0.0 | Windows | CVE-2026-68176 describes a vulnerability in mmiotrace involving a potential NULL pointer dereferencing issue regarding the hiter->dev pointer. This flaw could lead to a system crash or unstable behavior when handled improperly during tracing operations. |
 
 
 ## CVE-2026-50481
@@ -472,3 +476,12 @@ Affected products:
 - ksmbd
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130
+
+## CVE-2026-68176
+
+CVE-2026-68176 describes a vulnerability in mmiotrace involving a potential NULL pointer dereferencing issue regarding the hiter->dev pointer. This flaw could lead to a system crash or unstable behavior when handled improperly during tracing operations.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176
