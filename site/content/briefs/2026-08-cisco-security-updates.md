@@ -3,108 +3,35 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-10T14:31:33Z"
+lastmod: "2026-08-11T17:48:38Z"
 type: threat
 types:
   - threat
 severities:
   - high
-has_poc: true
 tags:
   - roundup
 vendors:
   - Cisco
-products:
-  - IOS XE Software
-  - Catalyst SD-WAN
-  - Integrated Management Controller
-  - IOS Software
-  - RoomOS
-  - Catalyst SD-WAN Manager
-  - Terminal Services Agent
-  - IOS XE
-  - Secure Firewall Management Center
-  - IOS
-  - Terminal Service Agent
-  - UCS C-Series M7 Rack Servers
-  - UCS C-Series M8 Rack Servers
-  - ClamAV
-  - ClamAV (1.5.4)
-  - Secure Endpoint Connector
-affected_os:
-  - Windows
-  - macOS
-  - Linux
 cves:
-  - id: CVE-2026-20301
-    cvss: 8.6
-    epss: 0.00327
-  - id: CVE-2026-20312
-    cvss: 8.8
-    epss: 0.00187
-  - id: CVE-2026-20311
-    cvss: 6.3
-    epss: 0.00158
+  - id: CVE-2026-20313
+    cvss: 7.7
+    epss: 0.00248
+  - id: CVE-2026-20289
+    cvss: 5.7
+    epss: 0.00188
   - id: CVE-2026-20337
     cvss: 7.5
     epss: 0.00362
-  - id: CVE-2026-20347
+  - id: CVE-2026-20338
+    cvss: 7.5
+    epss: 0.00327
+  - id: CVE-2026-20339
     cvss: 7.5
     epss: 0.00327
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20272
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20310
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20124
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20200
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20263
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20268
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20269
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20271
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20273
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20301
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20312
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20313
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Integrated%20Management%20Controller%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20Information%20Disclosure%20Vulnerability%26vs_k=1
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-iosxe-V8NMuMZJ?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Security%20Hardening%20Release:%20August%202026%26vs_k=1
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ts-agent-fw-bypass-MYBTMrev?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Terminal%20Services%20Agent%20Firewall%20Rules%20Bypass%20Vulnerability%26vs_k=1
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
-  - https://www.securityweek.com/cisco-patches-critical-sd-wan-ios-xe-fmc-vulnerabilities/
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20337
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20338
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20339
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20345
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20346
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20347
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20348
-  - https://www.securityweek.com/cisco-warns-of-high-severity-clamav-vulnerabilities-with-public-poc/
-iocs:
-  - type: url
-    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW
-  - type: url
-    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp
-  - type: url
-    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm
-  - type: url
-    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe
-  - type: url
-    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-iosxe-V8NMuMZJ
-  - type: url
-    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ts-agent-fw-bypass-MYBTMrev
-  - type: url
-    value: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3
-ioc_counts:
-  url: 7
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-vpn-dos-dzv4mQFF?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1
 updates:
-  - at: "2026-08-05T21:26:42Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - cisco-psirt
-    source_urls:
-      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
   - at: "2026-08-06T07:34:37Z"
     level: L2
     summary: added CVE-2026-20198 +2
@@ -133,6 +60,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/cisco-warns-of-high-severity-clamav-vulnerabilities-with-public-poc/
+  - at: "2026-08-11T17:48:38Z"
+    level: L2
+    summary: added CVE-2026-20289 +3
+    sources:
+      - cisco-psirt
+    source_urls:
+      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-vpn-dos-dzv4mQFF?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1
 ---
 
 This roundup covers 26 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, Catalyst SD-WAN Manager, ClamAV, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS, Terminal Services Agent.
