@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:13:57Z"
+lastmod: "2026-08-11T10:14:12Z"
 type: threat
 types:
   - threat
@@ -119,17 +119,11 @@ cves:
   - id: CVE-2026-68406
   - id: CVE-2026-68326
   - id: CVE-2026-68151
+  - id: CVE-2026-68343
   - id: CVE-2026-68124
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68401
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68327
 updates:
-  - at: "2026-08-11T10:11:09Z"
-    level: L2
-    summary: added CVE-2026-64564 +2
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151
   - at: "2026-08-11T10:13:41Z"
     level: L2
     summary: added CVE-2026-68318
@@ -158,9 +152,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68401
+  - at: "2026-08-11T10:14:12Z"
+    level: L2
+    summary: added CVE-2026-68343
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68327
 ---
 
-This roundup covers 49 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, mctp, pds_core.
+This roundup covers 52 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, pds_core.
 
 ## Summary
 
@@ -215,6 +216,9 @@ This roundup covers 49 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68343 | 0.0 | Windows | CVE-2026-68343 describes a vulnerability in the Microsoft SMB client related to the validation of DFS referral PathConsumed. This flaw potentially allows an attacker to manipulate path validation logic within SMB communications. |
 | CVE-2026-68184 | 0.0 | Windows | CVE-2026-68184 describes a stack-based out-of-bounds read vulnerability within the CDROMVOLCTRL functionality of the Windows CD-ROM driver. This flaw could potentially be leveraged by an attacker to read sensitive data from the stack, though specific exploitation vectors are not detailed beyond the vulnerability type. |
 | CVE-2026-68124 | 0.0 | mctp | CVE-2026-68124 identifies a buffer overflow vulnerability within the MCTP serial driver components, triggered by the improper handling of zero-length frames. An attacker could potentially exploit this flaw to cause memory corruption or a system crash. |
+| CVE-2026-68401 | 0.0 | firmware | CVE-2026-68401 describes an out-of-bounds write vulnerability within the arm_ffa component of Microsoft firmware, specifically located in the ffa_setup_and_transmit() function, which requires a security update to remediate. |
+| CVE-2026-68322 | 0.0 | Windows | CVE-2026-68322 describes a NULL pointer dereference vulnerability within the rds (Reliable Datagram Sockets) component of Microsoft Windows, specifically occurring when IPv6 is disabled. This vulnerability can lead to a system crash, resulting in a denial of service condition. |
+| CVE-2026-68214 | 0.0 | Windows | CVE-2026-68214 identifies a use-after-free vulnerability located in the rtl2832 driver's remove function (rtl2832_remove) within the Windows kernel. This flaw could potentially be leveraged to trigger system instability or lead to memory corruption, requiring a kernel-level security update to address the lifetime management of the driver object. |
 
 
 ## CVE-2026-50481
@@ -655,3 +659,30 @@ Affected products:
 - mctp
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68124
+
+## CVE-2026-68401
+
+CVE-2026-68401 describes an out-of-bounds write vulnerability within the arm_ffa component of Microsoft firmware, specifically located in the ffa_setup_and_transmit() function, which requires a security update to remediate.
+
+Affected products:
+- firmware
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68401
+
+## CVE-2026-68322
+
+CVE-2026-68322 describes a NULL pointer dereference vulnerability within the rds (Reliable Datagram Sockets) component of Microsoft Windows, specifically occurring when IPv6 is disabled. This vulnerability can lead to a system crash, resulting in a denial of service condition.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68322
+
+## CVE-2026-68214
+
+CVE-2026-68214 identifies a use-after-free vulnerability located in the rtl2832 driver's remove function (rtl2832_remove) within the Windows kernel. This flaw could potentially be leveraged to trigger system instability or lead to memory corruption, requiring a kernel-level security update to address the lifetime management of the driver object.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68214
