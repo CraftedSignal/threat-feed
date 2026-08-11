@@ -3,6 +3,7 @@ title: NULL Pointer Dereference in Linux ath11k Wi-Fi Driver
 slug: 2026-08-ath11k-null-dereference
 description: CVE-2026-68362 describes a NULL pointer dereference vulnerability in the Linux kernel ath11k driver that may lead to denial-of-service or potential code execution via crafted interactions.
 date: "2026-08-11T09:57:18Z"
+lastmod: "2026-08-11T10:00:50Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,10 @@ tags:
   - linux
   - kernel-vulnerability
   - denial-of-service
+  - vulnerability
+  - linux-kernel
+  - networking
+  - cve-2026-68355
 products:
   - ath11k
 mitre_ttps:
@@ -25,6 +30,7 @@ cves:
   - id: CVE-2026-68362
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68362
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68355
 action_plan:
   priority: monitor_or_close
   owners:
@@ -36,6 +42,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-68362
       evidence: Source confirms a fix is required for the identified vulnerability.
+updates:
+  - at: "2026-08-11T10:00:50Z"
+    level: L1
+    summary: added coverage for ath11k
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68355
 ---
 
 CVE-2026-68362 concerns a vulnerability identified in the Linux kernel within the ath11k driver, specifically affecting the `ath11k_hal_srng_access_begin` function. This vulnerability is classified as a NULL pointer dereference, which occurs when the driver fails to properly validate pointers during service ring (SRNG) access operations. An attacker with local access to the system, or potentially through specific interfaces interacting with the wireless hardware, could trigger this flaw to cause a kernel panic, resulting in a denial-of-service (DoS) condition. While kernel-level memory corruption vulnerabilities can sometimes be leveraged for local privilege escalation or arbitrary code execution, this flaw is primarily documented as a stability issue in the underlying Wi-Fi driver code. Defenders should monitor for kernel-related stability reports on devices utilizing ath11k-based hardware.
