@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:13:44Z"
+lastmod: "2026-08-11T10:13:48Z"
 type: threat
 types:
   - threat
@@ -102,6 +102,9 @@ cves:
   - id: CVE-2025-2308
     cvss: 5.3
     epss: 0.00402
+  - id: CVE-2025-2309
+    cvss: 5.3
+    epss: 0.00355
   - id: CVE-2026-68097
   - id: CVE-2026-68388
   - id: CVE-2026-68187
@@ -114,17 +117,11 @@ cves:
   - id: CVE-2026-68318
   - id: CVE-2026-68118
   - id: CVE-2026-68406
+  - id: CVE-2026-68326
   - id: CVE-2026-68151
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68124
 updates:
-  - at: "2026-08-11T10:04:52Z"
-    level: L2
-    summary: added CVE-2026-65668 +2
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68406
   - at: "2026-08-11T10:07:26Z"
     level: L2
     summary: added CVE-2026-64590
@@ -153,9 +150,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184
+  - at: "2026-08-11T10:13:48Z"
+    level: L2
+    summary: added CVE-2025-2309 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68124
 ---
 
-This roundup covers 47 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
+This roundup covers 48 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
 
 ## Summary
 
@@ -208,6 +212,7 @@ This roundup covers 47 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68326 | 0.0 | Windows | CVE-2026-68326 is a vulnerability within the mwifiex Wi-Fi driver, specifically involving improper bounds checking of uAP association event Information Elements (IEs) against the event buffer. This flaw could potentially allow for memory corruption or other impacts depending on how the driver processes malformed association packets. |
 | CVE-2026-68151 | 0.0 | Windows | CVE-2026-68151 identifies a vulnerability within the binfmt_elf_fdpic loader, which incorrectly handles multiple PT_INTERP segments in an ELF file. By only honoring the first PT_INTERP, the implementation may lead to inconsistencies in how executable files are parsed and executed, potentially impacting system security and loader integrity. |
 | CVE-2026-68343 | 0.0 | Windows | CVE-2026-68343 describes a vulnerability in the Microsoft SMB client related to the validation of DFS referral PathConsumed. This flaw potentially allows an attacker to manipulate path validation logic within SMB communications. |
+| CVE-2026-68184 | 0.0 | Windows | CVE-2026-68184 describes a stack-based out-of-bounds read vulnerability within the CDROMVOLCTRL functionality of the Windows CD-ROM driver. This flaw could potentially be leveraged by an attacker to read sensitive data from the stack, though specific exploitation vectors are not detailed beyond the vulnerability type. |
 
 
 ## CVE-2026-50481
@@ -630,3 +635,12 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343
+
+## CVE-2026-68184
+
+CVE-2026-68184 describes a stack-based out-of-bounds read vulnerability within the CDROMVOLCTRL functionality of the Windows CD-ROM driver. This flaw could potentially be leveraged by an attacker to read sensitive data from the stack, though specific exploitation vectors are not detailed beyond the vulnerability type.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184
