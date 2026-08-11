@@ -1,62 +1,49 @@
 ---
-title: CVE-2026-65819 Denial of Service in gopacket DecodingLayerParser
+title: 'CVE-2026-54332: Unbounded Memory Allocation in GoPacket sFlow Decoder'
 slug: 2026-08-gopacket-dos
-description: An unauthenticated remote attacker can trigger a denial-of-service condition by sending crafted network packets that cause multiple layer decoders in the gopacket library to panic due to out-of-bounds access and integer underflow.
-date: "2026-08-11T10:32:02Z"
+description: A vulnerability in the GoPacket sFlow ExtendedGatewayFlow decoder allows unauthenticated remote attackers to trigger a massive memory allocation, resulting in a Denial of Service.
+date: "2026-08-11T10:41:42Z"
 type: advisory
 types:
   - advisory
 severities:
   - low
-tags:
-  - denial-of-service
-  - vulnerability
-  - network-security
-vendors:
-  - Google
+cpes:
+  - cpe:2.3:a:gopacket:gopacket:*:*:*:*:*:go:*:*
 products:
-  - gopacket
+  - sFlow ExtendedGatewayFlow decoder
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
-    technique_id: T1498
-    technique_name: Network Denial of Service
-    evidence: An unauthenticated remote attacker can trigger a panic in multiple layer decoders, resulting in a denial-of-service (DoS) condition.
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: A specifically crafted 104-byte UDP datagram can trigger an allocation of up to 16 GiB of memory, leading to an unauthenticated remote Denial of Service (DoS) condition.
     confidence_band: high
 cves:
-  - id: CVE-2026-65819
+  - id: CVE-2026-54332
     cvss: 7.5
-    epss: 0.00366
+    epss: 0.00429
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-65819
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54332
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - Detection Engineering
   immediate_actions:
-    - action: Inventory all software dependencies using gopacket for vulnerability identification
+    - action: Update all systems using GoPacket to remediate CVE-2026-54332
       owner: IT Operations
-      due: 48h
-      evidence: CVE-2026-65819 vulnerability advisory
-  mitigation_plan:
-    - priority: immediate
-      action: Update gopacket library versions to the patched release
-      owner: IT Operations
-      addresses: CVE-2026-65819
-      evidence: MSRC Security Update Guide
+      due: 72h
+      evidence: Vendor recommendation for CVE-2026-54332
 ---
 
-CVE-2026-65819 is a vulnerability in the popular Go-based networking library, gopacket. The issue exists within the DecodingLayerParser component, which is responsible for high-speed packet parsing. The vulnerability allows an unauthenticated remote attacker to craft and transmit specific network packets that trigger integer underflow and out-of-bounds memory read conditions. When processed by the library, these malformed packets cause multiple layer decoders to panic, leading to an immediate crash of the application using the library. This impact is significant for network security appliances, packet capture tools, and monitoring software that rely on gopacket for traffic analysis. Because the vulnerability results in a process-level panic, it provides a reliable vector for remote denial-of-service (DoS) against any service utilizing unpatched versions of this library.
+CVE-2026-54332 affects the sFlow ExtendedGatewayFlow decoder component within the GoPacket library. The vulnerability stems from an unbounded memory allocation issue that occurs during the processing of malformed sFlow UDP packets. Specifically, a remote attacker can send a crafted 104-byte UDP datagram that triggers the decoder to attempt a memory allocation of up to 16 GiB. Because the allocation occurs before the packet structure is fully validated, an unauthenticated attacker can exhaust system memory by sending a single, small packet to any service utilizing the vulnerable decoder. This condition results in an unauthenticated remote Denial of Service (DoS) impact. Defenders should prioritize patching any software or network appliances that include the GoPacket library and process sFlow traffic.
 
 ## Impact
 
-Successful exploitation results in the abnormal termination of the target process, leading to a denial-of-service condition. This affects any infrastructure component, security monitor, or network traffic analyzer that utilizes the gopacket library to parse incoming traffic. Depending on the architecture, this could blind security monitoring capabilities or drop network traffic entirely.
+Successful exploitation of this vulnerability leads to a complete Denial of Service for the affected application or service. Given that the impact is memory exhaustion (OOM), the target process will likely crash immediately. This vulnerability is particularly dangerous for network infrastructure components and security monitoring platforms that rely on GoPacket for high-speed packet ingestion and decoding, as it enables an attacker to knock out critical monitoring or routing nodes with minimal bandwidth expenditure.
 
 ## Recommendation
 
-Prioritized, concrete actions for detection engineering teams:
-- Identify all internal software and third-party tools within the environment that utilize the gopacket library as a dependency.
-- Review vendor security advisories for updates to products utilizing gopacket and schedule immediate patching cycles.
-- Implement network-level monitoring to identify malformed traffic flows if a specific application or service starts experiencing recurring, unexplained crashes.
-- Prioritize patching of internet-facing network appliances that utilize gopacket for deep packet inspection or traffic telemetry collection.
+- Identify all internal software or third-party appliances utilizing the GoPacket library and update to the patched version immediately.
+- Review network configurations to restrict sFlow traffic to trusted sources, preventing untrusted external actors from reaching the vulnerable decoder.
+- Monitor for abnormal process crashes or memory utilization spikes on systems responsible for processing UDP-based telemetry.
