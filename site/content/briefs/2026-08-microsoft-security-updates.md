@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:13:48Z"
+lastmod: "2026-08-11T10:13:57Z"
 type: threat
 types:
   - threat
@@ -119,16 +119,10 @@ cves:
   - id: CVE-2026-68406
   - id: CVE-2026-68326
   - id: CVE-2026-68151
+  - id: CVE-2026-68124
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68124
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68401
 updates:
-  - at: "2026-08-11T10:07:26Z"
-    level: L2
-    summary: added CVE-2026-64590
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68099
   - at: "2026-08-11T10:11:09Z"
     level: L2
     summary: added CVE-2026-64564 +2
@@ -157,9 +151,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68124
+  - at: "2026-08-11T10:13:57Z"
+    level: L2
+    summary: added CVE-2026-68124
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68401
 ---
 
-This roundup covers 48 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
+This roundup covers 49 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, mctp, pds_core.
 
 ## Summary
 
@@ -191,7 +192,7 @@ This roundup covers 48 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-64578 | 8.2 | ksmbd | CVE-2026-64578 identifies a vulnerability in the ksmbd kernel-mode SMB server, where insufficient validation of compound request sizes before reading StructureSize2 can lead to memory safety issues. Detection engineering should focus on monitoring SMB traffic patterns for malformed or oversized requests that could trigger improper bounds handling. |
 | CVE-2024-21380 | 8.0 | Dynamics Business Central | CVE-2024-21380 is an information disclosure vulnerability affecting Microsoft Dynamics Business Central and Dynamics NAV. The disclosure indicates an informational update to build numbers provided by Microsoft in the Security Update Guide, with no functional changes described in the provided content. |
 | CVE-2025-2308 | 5.3 | HDF5 | CVE-2025-2308 is a heap-based buffer overflow vulnerability residing in the H5Z__scaleoffset_decompress_one_byte function within the HDF5 scale-offset filter, potentially allowing for arbitrary code execution if a maliciously crafted HDF5 file is processed. |
-| CVE-2025-2309 | 0.0 | HDF5 | CVE-2025-2309 refers to a heap-based buffer overflow vulnerability identified in the HDF5 library specifically within the H5T__bit_copy type conversion logic. The vulnerability could potentially lead to memory corruption or arbitrary code execution if an attacker provides a maliciously crafted HDF5 file to an application utilizing the affected library code for data processing. |
+| CVE-2025-2309 | 5.3 | HDF5 | CVE-2025-2309 refers to a heap-based buffer overflow vulnerability identified in the HDF5 library specifically within the H5T__bit_copy type conversion logic. The vulnerability could potentially lead to memory corruption or arbitrary code execution if an attacker provides a maliciously crafted HDF5 file to an application utilizing the affected library code for data processing. |
 | CVE-2026-68097 | 0.0 | ksmbd | CVE-2026-68097 identifies a vulnerability in ksmbd where the software fails to properly validate the size of an Access Control Entry (ACE) against the number of Security Identifier (SID) sub-authorities. This vulnerability could potentially lead to memory corruption or other instability issues when processing malicious SMB traffic. |
 | CVE-2026-68388 | 0.0 | Windows | CVE-2026-68388 addresses a vulnerability in the SMB client component of the Windows operating system related to the improper handling of overlapping allocated ranges during fallocate operations, which may lead to memory corruption or instability. |
 | CVE-2026-68187 | 0.0 | n/a | CVE-2026-68187 describes an unsigned loop counter wrap vulnerability within the transfer_args_to_stack() function in Microsoft software, potentially allowing for memory corruption or unstable execution states. |
@@ -213,6 +214,7 @@ This roundup covers 48 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68151 | 0.0 | Windows | CVE-2026-68151 identifies a vulnerability within the binfmt_elf_fdpic loader, which incorrectly handles multiple PT_INTERP segments in an ELF file. By only honoring the first PT_INTERP, the implementation may lead to inconsistencies in how executable files are parsed and executed, potentially impacting system security and loader integrity. |
 | CVE-2026-68343 | 0.0 | Windows | CVE-2026-68343 describes a vulnerability in the Microsoft SMB client related to the validation of DFS referral PathConsumed. This flaw potentially allows an attacker to manipulate path validation logic within SMB communications. |
 | CVE-2026-68184 | 0.0 | Windows | CVE-2026-68184 describes a stack-based out-of-bounds read vulnerability within the CDROMVOLCTRL functionality of the Windows CD-ROM driver. This flaw could potentially be leveraged by an attacker to read sensitive data from the stack, though specific exploitation vectors are not detailed beyond the vulnerability type. |
+| CVE-2026-68124 | 0.0 | mctp | CVE-2026-68124 identifies a buffer overflow vulnerability within the MCTP serial driver components, triggered by the improper handling of zero-length frames. An attacker could potentially exploit this flaw to cause memory corruption or a system crash. |
 
 
 ## CVE-2026-50481
@@ -644,3 +646,12 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184
+
+## CVE-2026-68124
+
+CVE-2026-68124 identifies a buffer overflow vulnerability within the MCTP serial driver components, triggered by the improper handling of zero-length frames. An attacker could potentially exploit this flaw to cause memory corruption or a system crash.
+
+Affected products:
+- mctp
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68124
