@@ -13,10 +13,10 @@ import (
 	"time"
 )
 
-// subscribeRateLimiter provides per-IP and per-target rate limiting for
-// the public /subscribe endpoint. It uses a simple in-memory token bucket
-// with periodic cleanup. Limits are intentionally conservative for a
-// low-volume subscription service.
+// subscribeRateLimiter provides source-target and target-wide rate limiting
+// for the public /subscribe endpoint. It uses a simple in-memory token bucket
+// with periodic cleanup. Limits are intentionally conservative for a low-volume
+// subscription service.
 type subscribeRateLimiter struct {
 	mu        sync.Mutex
 	buckets   map[string]*rateBucket
@@ -38,13 +38,12 @@ func newSubscribeRateLimiter(limit int, window time.Duration) *subscribeRateLimi
 	}
 }
 
-// key returns a composite key for the given source IP and target (email or
-// webhook URL). This prevents a single actor from spraying many targets and
-// also prevents a single target from being flooded by many sources behind a
-// proxy (limited effectiveness, but better than nothing without authenticated
-// clients).
-func (rl *subscribeRateLimiter) key(ip, target string) string {
-	return ip + "|" + target
+func (rl *subscribeRateLimiter) sourceTargetKey(ip, target string) string {
+	return "source_target|" + ip + "|" + target
+}
+
+func (rl *subscribeRateLimiter) targetKey(target string) string {
+	return "target|" + target
 }
 
 func (rl *subscribeRateLimiter) allow(ip, target string) bool {
@@ -55,18 +54,38 @@ func (rl *subscribeRateLimiter) allow(ip, target string) bool {
 		rl.cleanup()
 	}
 
-	k := rl.key(ip, target)
 	now := time.Now()
-	b, ok := rl.buckets[k]
-	if !ok || now.After(b.reset) {
-		rl.buckets[k] = &rateBucket{tokens: rl.limit - 1, reset: now.Add(rl.window)}
-		return true
+
+	keys := []string{rl.sourceTargetKey(ip, target)}
+	if target != "" {
+		keys = append(keys, rl.targetKey(target))
 	}
-	if b.tokens <= 0 {
-		return false
+
+	for _, key := range keys {
+		if !rl.available(now, key) {
+			return false
+		}
+	}
+
+	for _, key := range keys {
+		rl.consume(now, key)
+	}
+	return true
+}
+
+func (rl *subscribeRateLimiter) available(now time.Time, key string) bool {
+	b, ok := rl.buckets[key]
+	return !ok || now.After(b.reset) || b.tokens > 0
+}
+
+func (rl *subscribeRateLimiter) consume(now time.Time, key string) {
+	b, ok := rl.buckets[key]
+	if !ok || now.After(b.reset) {
+		b = &rateBucket{tokens: rl.limit - 1, reset: now.Add(rl.window)}
+		rl.buckets[key] = b
+		return
 	}
 	b.tokens--
-	return true
 }
 
 func (rl *subscribeRateLimiter) cleanup() {
@@ -79,17 +98,27 @@ func (rl *subscribeRateLimiter) cleanup() {
 	rl.cleanupAt = now
 }
 
-// clientIP returns the most immediate untrusted client IP from r. It prefers
-// X-Forwarded-For when behind a load balancer, but falls back to r.RemoteAddr.
-// Cloud Run sets X-Forwarded-For reliably.
+// clientIP returns the most immediate untrusted client IP from r. Cloud Run and
+// the load balancer append their view of the client to X-Forwarded-For, so use
+// the right-most valid address instead of trusting a caller-supplied left-most
+// element. Fall back to r.RemoteAddr when X-Forwarded-For is absent or invalid.
 func clientIP(r *http.Request) string {
 	if xff := r.Header.Get("X-Forwarded-For"); xff != "" {
 		parts := strings.Split(xff, ",")
-		if len(parts) > 0 {
-			return strings.TrimSpace(parts[0])
+		for i := len(parts) - 1; i >= 0; i-- {
+			if ip := net.ParseIP(strings.TrimSpace(parts[i])); ip != nil {
+				return ip.String()
+			}
 		}
 	}
-	host, _, _ := net.SplitHostPort(r.RemoteAddr)
+
+	host, _, err := net.SplitHostPort(r.RemoteAddr)
+	if err != nil {
+		host = strings.TrimSpace(r.RemoteAddr)
+	}
+	if ip := net.ParseIP(strings.Trim(host, "[]")); ip != nil {
+		return ip.String()
+	}
 	return host
 }
 

@@ -68,19 +68,20 @@ func (s *server) handleSubscribe(w http.ResponseWriter, r *http.Request) {
 	}
 
 	ip := clientIP(r)
+	xff := r.Header.Get("X-Forwarded-For")
 	target := sub.Email
 	if target == "" {
 		target = sub.WebhookURL
 	}
 	if !s.rateLimiter.allow(ip, target) {
-		s.logger.Warn("subscribe rate limit exceeded", "ip", ip, "target", target)
+		s.logger.Warn("subscribe rate limit exceeded", "ip", ip, "target", target, "xff", xff, "remote_addr", r.RemoteAddr)
 		http.Error(w, "rate limit exceeded", http.StatusTooManyRequests)
 		return
 	}
 
 	ctx := r.Context()
 	if err := verifyRecaptcha(ctx, s.recaptchaClient, s.cfg.RecaptchaSecret, req.RecaptchaToken); err != nil {
-		s.logger.Warn("recaptcha verification failed", "ip", ip, "err", err)
+		s.logger.Warn("recaptcha verification failed", "ip", ip, "xff", xff, "remote_addr", r.RemoteAddr, "err", err)
 		http.Error(w, "verification failed", http.StatusBadRequest)
 		return
 	}
