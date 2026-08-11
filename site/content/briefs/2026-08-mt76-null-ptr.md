@@ -3,6 +3,7 @@ title: NULL Pointer Dereference Vulnerability in MediaTek mt76 Wi-Fi Driver
 slug: 2026-08-mt76-null-ptr
 description: A NULL pointer dereference vulnerability exists in the MediaTek mt76 driver within the mt76_connac_mcu_uni_bss_he_tlv function, potentially leading to kernel panic or denial-of-service conditions.
 date: "2026-08-11T10:08:10Z"
+lastmod: "2026-08-11T12:02:10Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ tags:
   - denial-of-service
   - kernel
   - firmware
+  - informational
+  - product-news
+  - linux
 vendors:
   - MediaTek
 products:
@@ -21,6 +25,15 @@ cves:
   - id: CVE-2026-68309
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68309
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68194
+updates:
+  - at: "2026-08-11T12:02:10Z"
+    level: L1
+    summary: added coverage for mt76
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68194
 ---
 
 CVE-2026-68309 identifies a security vulnerability within the mt76 kernel driver used for MediaTek Wi-Fi chipsets. The issue is located in the `mt76_connac_mcu_uni_bss_he_tlv()` function. A lack of proper validation when processing BSS HE (High Efficiency) TLV data structures can lead to a NULL pointer dereference. This flaw is triggered during the processing of wireless management frames or specific hardware communication packets. If exploited, an attacker capable of sending specially crafted frames to the affected wireless interface could cause the kernel to crash, resulting in a system denial-of-service. This vulnerability primarily affects devices utilizing the MediaTek mt76 driver stack, which is commonly found in Linux-based wireless network hardware.
