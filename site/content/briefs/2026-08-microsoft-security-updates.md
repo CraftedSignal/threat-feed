@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:14:12Z"
+lastmod: "2026-08-11T10:17:00Z"
 type: threat
 types:
   - threat
@@ -117,20 +117,15 @@ cves:
   - id: CVE-2026-68318
   - id: CVE-2026-68118
   - id: CVE-2026-68406
+  - id: CVE-2026-68099
   - id: CVE-2026-68326
   - id: CVE-2026-68151
   - id: CVE-2026-68343
   - id: CVE-2026-68124
+  - id: CVE-2026-68327
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68327
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68304
 updates:
-  - at: "2026-08-11T10:13:41Z"
-    level: L2
-    summary: added CVE-2026-68318
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343
   - at: "2026-08-11T10:13:44Z"
     level: L2
     summary: added CVE-2026-68145 +1
@@ -159,9 +154,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68327
+  - at: "2026-08-11T10:17:00Z"
+    level: L2
+    summary: added CVE-2026-68099 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68304
 ---
 
-This roundup covers 52 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, pds_core.
+This roundup covers 55 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, pds_core, wanxl.
 
 ## Summary
 
@@ -219,6 +221,9 @@ This roundup covers 52 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68401 | 0.0 | firmware | CVE-2026-68401 describes an out-of-bounds write vulnerability within the arm_ffa component of Microsoft firmware, specifically located in the ffa_setup_and_transmit() function, which requires a security update to remediate. |
 | CVE-2026-68322 | 0.0 | Windows | CVE-2026-68322 describes a NULL pointer dereference vulnerability within the rds (Reliable Datagram Sockets) component of Microsoft Windows, specifically occurring when IPv6 is disabled. This vulnerability can lead to a system crash, resulting in a denial of service condition. |
 | CVE-2026-68214 | 0.0 | Windows | CVE-2026-68214 identifies a use-after-free vulnerability located in the rtl2832 driver's remove function (rtl2832_remove) within the Windows kernel. This flaw could potentially be leveraged to trigger system instability or lead to memory corruption, requiring a kernel-level security update to address the lifetime management of the driver object. |
+| CVE-2026-68327 | 0.0 | wanxl | CVE-2026-68327 is a vulnerability identified in the Microsoft wanxl WAN driver component. The vulnerability relates to the handling of hardware reset sequences in relation to Base Address Register (BAR) mapping. Successful exploitation of this issue could potentially lead to undefined system behavior or stability issues within the network driver stack. |
+| CVE-2026-68188 | 0.0 | Windows | CVE-2026-68188 describes a use-after-free (UAF) vulnerability within the RFCOMM protocol implementation of the Bluetooth stack, specifically triggered during the set_termios operation. |
+| CVE-2026-68132 | 0.0 | Windows | CVE-2026-68132 is a vulnerability addressed by Microsoft that involves a deadlock condition occurring during the emergency thaw process on frozen block devices within the Windows operating system. |
 
 
 ## CVE-2026-50481
@@ -686,3 +691,30 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68214
+
+## CVE-2026-68327
+
+CVE-2026-68327 is a vulnerability identified in the Microsoft wanxl WAN driver component. The vulnerability relates to the handling of hardware reset sequences in relation to Base Address Register (BAR) mapping. Successful exploitation of this issue could potentially lead to undefined system behavior or stability issues within the network driver stack.
+
+Affected products:
+- wanxl
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68327
+
+## CVE-2026-68188
+
+CVE-2026-68188 describes a use-after-free (UAF) vulnerability within the RFCOMM protocol implementation of the Bluetooth stack, specifically triggered during the set_termios operation.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68188
+
+## CVE-2026-68132
+
+CVE-2026-68132 is a vulnerability addressed by Microsoft that involves a deadlock condition occurring during the emergency thaw process on frozen block devices within the Windows operating system.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68132
