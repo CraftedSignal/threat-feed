@@ -376,8 +376,8 @@ function initMobileMenu() {
 
 // ----------------------------------------------------------------------
 // Live feed updates: tag briefs the user hasn't seen since their last
-// visit with a "new" pill, and poll the RSS in the background to nudge
-// them when more land while the tab is open.
+// visit, and poll the RSS in the background to nudge them when more land
+// while the tab is open.
 
 const LAST_VIEWED_KEY = 'feedLastViewed';
 const FEED_POLL_MS = 5 * 60 * 1000;
@@ -399,13 +399,18 @@ function markUnseenBriefs(cards, sinceTs) {
   cards.forEach((card) => {
     const ts = +card.dataset.briefDate;
     if (!ts || ts <= sinceTs) return;
+    card.dataset.briefUnseen = 'true';
     if (card.querySelector('[data-new-pill]')) return;
     const pill = document.createElement('span');
     pill.dataset.newPill = '1';
-    pill.className = 'inline-flex items-center px-1.5 py-0.5 ml-2 rounded font-mono uppercase tracking-wider bg-accent/15 text-accent text-[10px] align-middle';
+    pill.className = 'inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-accent/15 text-accent text-[10px]';
     pill.textContent = 'new';
-    const heading = card.querySelector('h3');
-    if (heading) heading.appendChild(pill);
+    const slot = card.querySelector('[data-new-pill-slot]');
+    if (slot) {
+      slot.classList.remove('hidden');
+      slot.classList.add('inline-flex', 'items-center');
+      slot.appendChild(pill);
+    }
   });
 }
 
@@ -449,7 +454,7 @@ function initLiveUpdate() {
 
   // Mark items the user hasn't seen since their previous visit, then
   // bump the pointer to the most recent timestamp on this page so the
-  // pills don't stick around on every reload.
+  // marker doesn't stick around on every reload.
   markUnseenBriefs(cards, readLastViewed());
   if (latestOnPage > 0) writeLastViewed(latestOnPage);
 

@@ -258,6 +258,16 @@ body {
   border: 1px solid rgb(var(--color-sev-high) / 0.35);
 }
 
+/* Briefs newer than the visitor's last seen timestamp. The timestamp-side
+   "new" pill carries the label; this just gives the row a quiet visual edge. */
+.brief-card[data-brief-unseen="true"] {
+  border-color: rgb(var(--color-accent) / 0.45);
+  background:
+    linear-gradient(90deg, rgb(var(--color-accent) / 0.08), transparent 18%),
+    rgb(var(--color-panel) / 0.78);
+  box-shadow: inset 3px 0 0 rgb(var(--color-accent) / 0.65);
+}
+
 /* ---------------------------------------------------------------------- */
 /* Theme toggle - show only the icon matching the stored mode */
 /* ---------------------------------------------------------------------- */

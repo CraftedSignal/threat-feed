@@ -23,7 +23,7 @@
 {{ $freshTime := .Date }}
 {{ if $isUpdated }}{{ $freshTime = .Lastmod }}{{ end }}
 
-<a href="{{ .RelPermalink }}" class="block rounded-xl border border-stroke bg-panel/70 hover:bg-panel hover:border-accent/40 p-5 transition group" data-pagefind-ignore data-brief-date="{{ $freshTime.Unix }}" data-brief-type="{{ $type }}" data-brief-sev="{{ $sev }}" data-brief-poc="{{ if $hasPOC }}1{{ else }}0{{ end }}" data-brief-exploited="{{ if $exploited }}1{{ else }}0{{ end }}" data-brief-ioc="{{ if gt $iocTotal 0 }}1{{ else }}0{{ end }}">
+<a href="{{ .RelPermalink }}" class="brief-card block rounded-xl border border-stroke bg-panel/70 hover:bg-panel hover:border-accent/40 p-5 transition group" data-pagefind-ignore data-brief-date="{{ $freshTime.Unix }}" data-brief-type="{{ $type }}" data-brief-sev="{{ $sev }}" data-brief-poc="{{ if $hasPOC }}1{{ else }}0{{ end }}" data-brief-exploited="{{ if $exploited }}1{{ else }}0{{ end }}" data-brief-ioc="{{ if gt $iocTotal 0 }}1{{ else }}0{{ end }}">
   <div class="flex items-start gap-4">
 
     <div class="pt-0.5 flex-none flex flex-col items-stretch gap-1 min-w-[88px] max-w-[88px]">
@@ -79,7 +79,16 @@
                find the same brief). On the card we only show the
                first one, then "+N", to keep the chip row tight. */}}
           {{ range first 1 $actors }}
-          <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-accent/10 text-accent" title="{{ delimit $actors ", " }}">{{ . }}</span>
+          <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded font-mono uppercase tracking-wider bg-accent/10 text-accent" title="{{ delimit $actors ", " }}">
+            <svg class="w-3 h-3 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 2v4"></path>
+              <path d="M12 18v4"></path>
+              <path d="M2 12h4"></path>
+              <path d="M18 12h4"></path>
+            </svg>
+            {{ . }}
+          </span>
           {{ end }}
           {{ if gt (len $actors) 1 }}<span class="text-accent">+{{ sub (len $actors) 1 }}</span>{{ end }}
           {{/* Filter out tag chips that visually duplicate the product
@@ -102,7 +111,7 @@
           {{ if gt (len $visibleTags) 8 }}<span class="text-muted">+{{ sub (len $visibleTags) 8 }}</span>{{ end }}
         </div>
 
-        <div class="flex items-center gap-3 flex-none whitespace-nowrap text-muted">
+        <div class="flex items-center gap-3 flex-none whitespace-nowrap text-muted" data-brief-meta>
           <span class="md:hidden flex items-center gap-3">
             {{ if gt $rulesCount 0 }}<span title="{{ $rulesCount }} {{ if eq $rulesCount 1 }}rule{{ else }}rules{{ end }}"><span class="font-mono text-text">{{ $rulesCount }}</span>r</span>{{ end }}
             {{ if gt $ttpCount 0 }}<span title="{{ $ttpCount }} {{ if eq $ttpCount 1 }}TTP{{ else }}TTPs{{ end }}"><span class="font-mono text-text">{{ $ttpCount }}</span>t</span>{{ end }}
@@ -115,6 +124,7 @@
                last 7 days. Anything outside that window is either
                near-publish drift (uninteresting) or stale enough that
                the pill stops being a meaningful signal. */}}
+          <span class="hidden" data-new-pill-slot></span>
           {{ if $isUpdated }}
             <span class="inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[10px] bg-accent/10 text-accent" title="Last updated {{ .Lastmod.Format "January 2, 2006 15:04 MST" }}">updated</span>
           {{ end }}
