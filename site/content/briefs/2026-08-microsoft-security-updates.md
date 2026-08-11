@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:03:56Z"
+lastmod: "2026-08-11T10:04:04Z"
 type: threat
 types:
   - threat
@@ -88,22 +88,19 @@ cves:
   - id: CVE-2024-21380
     cvss: 8
     epss: 0.01725
+  - id: CVE-2025-2308
+    cvss: 5.3
+    epss: 0.00402
   - id: CVE-2026-68097
   - id: CVE-2026-68187
+  - id: CVE-2026-68152
   - id: CVE-2026-68312
   - id: CVE-2026-68130
   - id: CVE-2026-68176
   - id: CVE-2026-68118
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68175
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328
 updates:
-  - at: "2026-08-11T09:58:13Z"
-    level: L2
-    summary: added CVE-2026-68823
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130
   - at: "2026-08-11T10:01:02Z"
     level: L2
     summary: added CVE-2024-21380 +3
@@ -132,9 +129,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68175
+  - at: "2026-08-11T10:04:04Z"
+    level: L2
+    summary: added CVE-2025-2308 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328
 ---
 
-This roundup covers 38 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
+This roundup covers 39 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
 
 ## Summary
 
@@ -178,6 +182,7 @@ This roundup covers 38 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68145 | 0.0 | iomap | CVE-2026-68145 concerns an out-of-bounds vulnerability in the iomap component, specifically triggered during bitmap_set operations involving zero-length ranges. This flaw could potentially allow for memory corruption, impacting system stability or security. |
 | CVE-2026-68318 | 0.0 | pds_core | CVE-2026-68318 is a vulnerability in pds_core involving a use-after-free condition triggered during the removal process of a workqueue. The issue arises due to improper memory management, which could potentially be exploited to cause a system crash or arbitrary code execution. |
 | CVE-2026-68118 | 0.0 | Windows | CVE-2026-68118 describes a vulnerability in the TCP stack implementation where improper handling of challenge ACKs for non-exact RST packets in the SYN-RECEIVED state can be exploited to cause a denial-of-service condition or disrupt network connections. |
+| CVE-2026-68175 | 0.0 | Windows | CVE-2026-68175 refers to a resource leak vulnerability identified within the mmiotrace trace_pipe close function in Microsoft Windows, which could potentially be leveraged for local denial-of-service conditions or resource exhaustion. |
 
 
 ## CVE-2026-50481
@@ -519,3 +524,12 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68118
+
+## CVE-2026-68175
+
+CVE-2026-68175 refers to a resource leak vulnerability identified within the mmiotrace trace_pipe close function in Microsoft Windows, which could potentially be leveraged for local denial-of-service conditions or resource exhaustion.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68175
