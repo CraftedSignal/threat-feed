@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:17:00Z"
+lastmod: "2026-08-11T10:17:22Z"
 type: threat
 types:
   - threat
@@ -73,6 +73,9 @@ cves:
   - id: CVE-2026-62836
     cvss: 8.7
     epss: 0.00359
+  - id: CVE-2026-62918
+    cvss: 7.5
+    epss: 0.00293
   - id: CVE-2026-65668
     cvss: 8.8
     epss: 0.00417
@@ -116,6 +119,7 @@ cves:
   - id: CVE-2026-68145
   - id: CVE-2026-68318
   - id: CVE-2026-68118
+  - id: CVE-2026-68175
   - id: CVE-2026-68406
   - id: CVE-2026-68099
   - id: CVE-2026-68326
@@ -124,15 +128,8 @@ cves:
   - id: CVE-2026-68124
   - id: CVE-2026-68327
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68304
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68098
 updates:
-  - at: "2026-08-11T10:13:44Z"
-    level: L2
-    summary: added CVE-2026-68145 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184
   - at: "2026-08-11T10:13:48Z"
     level: L2
     summary: added CVE-2025-2309 +1
@@ -161,9 +158,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68304
+  - at: "2026-08-11T10:17:22Z"
+    level: L2
+    summary: added CVE-2026-62918 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68098
 ---
 
-This roundup covers 55 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, pds_core, wanxl.
+This roundup covers 56 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, pds_core, wanxl.
 
 ## Summary
 
@@ -224,6 +228,7 @@ This roundup covers 55 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68327 | 0.0 | wanxl | CVE-2026-68327 is a vulnerability identified in the Microsoft wanxl WAN driver component. The vulnerability relates to the handling of hardware reset sequences in relation to Base Address Register (BAR) mapping. Successful exploitation of this issue could potentially lead to undefined system behavior or stability issues within the network driver stack. |
 | CVE-2026-68188 | 0.0 | Windows | CVE-2026-68188 describes a use-after-free (UAF) vulnerability within the RFCOMM protocol implementation of the Bluetooth stack, specifically triggered during the set_termios operation. |
 | CVE-2026-68132 | 0.0 | Windows | CVE-2026-68132 is a vulnerability addressed by Microsoft that involves a deadlock condition occurring during the emergency thaw process on frozen block devices within the Windows operating system. |
+| CVE-2026-68304 | 0.0 | Windows | CVE-2026-68304 addresses a call trace warning in the brcmfmac wireless driver related to 802.1X-SHA256 authentication processing. While technical details are limited, the issue involves handling of authentication frames within the Broadcom wireless stack. |
 
 
 ## CVE-2026-50481
@@ -718,3 +723,12 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68132
+
+## CVE-2026-68304
+
+CVE-2026-68304 addresses a call trace warning in the brcmfmac wireless driver related to 802.1X-SHA256 authentication processing. While technical details are limited, the issue involves handling of authentication frames within the Broadcom wireless stack.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68304
