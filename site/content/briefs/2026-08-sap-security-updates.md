@@ -3,7 +3,7 @@ title: SAP Security Updates - August 2026
 slug: 2026-08-sap-security-updates
 description: Roundup of SAP security advisories published in August 2026.
 date: "2026-08-11T01:36:23Z"
-lastmod: "2026-08-11T01:36:23Z"
+lastmod: "2026-08-11T01:36:40Z"
 type: threat
 types:
   - threat
@@ -13,8 +13,15 @@ tags:
   - roundup
 vendors:
   - SAP
+products:
+  - Manufacturing Integration and Intelligence (MII)
 cves:
   - id: CVE-2026-34265
+    cvss: 9.8
+  - id: CVE-2026-44758
+    cvss: 9.1
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-44758
 updates:
   - at: "2026-08-11T01:36:23Z"
     level: L1
@@ -23,6 +30,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-34265
+  - at: "2026-08-11T01:36:40Z"
+    level: L2
+    summary: added CVE-2026-44758
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-44758
 ---
 
 This roundup covers 1 SAP security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect NetWeaver Application Server ABAP.
