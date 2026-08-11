@@ -3,7 +3,7 @@ title: Adobe Security Updates — August 2026
 slug: 2026-08-adobe-security-updates
 description: Roundup of Adobe security advisories published in August 2026.
 date: "2026-08-03T23:42:20Z"
-lastmod: "2026-08-11T18:38:11Z"
+lastmod: "2026-08-11T18:38:14Z"
 type: threat
 types:
   - threat
@@ -32,22 +32,27 @@ cves:
     cvss: 8.2
   - id: CVE-2026-25652
     cvss: 7.8
+  - id: CVE-2026-34635
+    cvss: 8.4
+  - id: CVE-2026-48385
+    cvss: 7.7
   - id: CVE-2026-48317
     cvss: 9.6
     epss: 0.00486
   - id: CVE-2026-48331
     cvss: 10
     epss: 0.00473
+  - id: CVE-2026-48386
+    cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-48385
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48386
 updates:
-  - at: "2026-08-11T18:36:04Z"
+  - at: "2026-08-11T18:36:12Z"
     level: L2
-    summary: added CVE-2026-21273 +3
+    summary: added CVE-2026-21273, CVE-2026-21279, CVE-2026-71384
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48362
       - https://nvd.nist.gov/vuln/detail/CVE-2026-71384
       - https://nvd.nist.gov/vuln/detail/CVE-2026-21273
       - https://nvd.nist.gov/vuln/detail/CVE-2026-25652
@@ -58,9 +63,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48385
+  - at: "2026-08-11T18:38:14Z"
+    level: L2
+    summary: added CVE-2026-34635 +2
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48386
 ---
 
-This roundup covers 6 Adobe security vulnerabilities. CVSS base scores range from 8.2 to 10.0. None are reported as actively exploited at the time of release. The issues affect ColdFusion 2025.
+This roundup covers 7 Adobe security vulnerabilities. CVSS base scores range from 7.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect ColdFusion, ColdFusion 2025.
 
 ## Summary
 
@@ -70,8 +82,9 @@ This roundup covers 6 Adobe security vulnerabilities. CVSS base scores range fro
 | [CVE-2026-71384](#cve-2026-71384) | n/a | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71384) (authoritative) |
 | [CVE-2026-21273](#cve-2026-21273) | ColdFusion 2025 (<= 2025.0.11) | High | 8.7 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-21273) (authoritative) |
 | [CVE-2026-21279](#cve-2026-21279) | n/a | High | 8.2 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-21279) (authoritative) |
-| [CVE-2026-25652](#cve-2026-25652) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-25652) (authoritative) |
+| [CVE-2026-25652](#cve-2026-25652) | n/a | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-25652) (authoritative) |
 | [CVE-2026-34635](#cve-2026-34635) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-34635) (authoritative) |
+| [CVE-2026-48385](#cve-2026-48385) | ColdFusion (<= 2025.0.11) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48385) (authoritative) |
 
 
 ## CVE-2026-48362
@@ -83,6 +96,7 @@ Affected products:
 - ColdFusion 2023 (<= 2023.0.22)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48362
+
 
 
 
@@ -108,6 +122,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-21273
 
 
 
+
 Related in this roundup: [CVE-2026-48362](#cve-2026-48362).
 
 ## CVE-2026-21279
@@ -127,3 +142,13 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-25652
 Adobe ColdFusion versions 2025 (<= 2025.0.11) and 2023 (<= 2023.0.22) contain a Use of Hard-coded Cryptographic Key vulnerability. A low-privileged attacker can exploit this issue to bypass security features and obtain unauthorized read and write access without user interaction. The vulnerability results in a scope change, potentially allowing for cross-security-domain impact.
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-34635
+
+## CVE-2026-48385
+
+Adobe ColdFusion is vulnerable to an OS command injection flaw (CVE-2026-48385) that allows low-privileged, remote attackers to bypass security features and gain unauthorized write access to the system. The vulnerability does not require user interaction and impacts the system scope.
+
+Affected products:
+- ColdFusion (<= 2025.0.11)
+- ColdFusion (<= 2023.0.22)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48385
