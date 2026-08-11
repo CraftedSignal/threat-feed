@@ -3,7 +3,7 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-11T17:48:38Z"
+lastmod: "2026-08-11T23:42:53Z"
 type: threat
 types:
   - threat
@@ -14,12 +14,27 @@ tags:
 vendors:
   - Cisco
 cves:
+  - id: CVE-2026-20271
+    cvss: 8.6
+    epss: 0.00252
+  - id: CVE-2026-20312
+    cvss: 8.8
+    epss: 0.00187
   - id: CVE-2026-20313
     cvss: 7.7
     epss: 0.00248
+  - id: CVE-2026-20198
+    cvss: 4.8
+    epss: 0.00207
   - id: CVE-2026-20289
     cvss: 5.7
     epss: 0.00188
+  - id: CVE-2026-20294
+    cvss: 6.5
+    epss: 0.00134
+  - id: CVE-2026-20308
+    cvss: 4.3
+    epss: 0.00319
   - id: CVE-2026-20337
     cvss: 7.5
     epss: 0.00362
@@ -32,13 +47,6 @@ cves:
 references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-vpn-dos-dzv4mQFF?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1
 updates:
-  - at: "2026-08-06T07:34:37Z"
-    level: L2
-    summary: added CVE-2026-20198 +2
-    sources:
-      - securityweek
-    source_urls:
-      - https://www.securityweek.com/cisco-patches-critical-sd-wan-ios-xe-fmc-vulnerabilities/
   - at: "2026-08-07T17:34:18Z"
     level: L2
     summary: added CVE-2026-20028 +1
@@ -67,40 +75,48 @@ updates:
       - cisco-psirt
     source_urls:
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-vpn-dos-dzv4mQFF?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+  - at: "2026-08-11T23:42:53Z"
+    level: L2
+    summary: added CVE-2026-20198 +4
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-20349
 ---
 
-This roundup covers 26 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Catalyst SD-WAN, Catalyst SD-WAN Manager, ClamAV, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS, Terminal Services Agent.
+This roundup covers 27 Cisco security vulnerabilities. CVSS base scores range from 5.7 to 7.7. None are reported as actively exploited at the time of release. The issues affect Adaptive Security Appliance, Catalyst SD-WAN, Catalyst SD-WAN Manager, ClamAV, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS, Terminal Services Agent.
 
 ## Summary
 
-| CVE | CVSS | Product | Summary |
-|-----|------|---------|---------|
-| CVE-2026-20267 | 9.0 | IOS XE Software | Cisco IOS XE Software contains multiple internally discovered vulnerabilities characterized by improper access control (CWE-284). These vulnerabilities were identified during an internal security review and addressed through software hardening releases, carrying a CVSS base score of 9.0. |
-| CVE-2026-20272 | 9.8 | IOS XE Software | CVE-2026-20272 represents a critical vulnerability in Cisco IOS XE Software, identified through internal security reviews as an issue involving improper neutralization of special elements, classified under CWE-74. With a CVSS base score of 9.8, the vulnerability allows for potential remote command injection, requiring immediate patching as part of Cisco's software hardening releases. |
-| CVE-2026-20310 | 9.1 | Catalyst SD-WAN | Cisco Catalyst SD-WAN is affected by a vulnerability (CVE-2026-20310) resulting from improper link resolution before file access, categorized as CWE-59. This internally discovered issue prompted security hardening updates for the affected platform. |
-| CVE-2026-20124 | 7.7 | IOS XE Software | CVE-2026-20124 is a denial of service vulnerability in the SNMP subsystem of Cisco IOS XE Software. An authenticated remote attacker with valid SNMP community strings (v1/v2c) or credentials (v3) can send a malformed SNMP request, causing the device to unexpectedly reload. Detection should focus on monitoring SNMP request traffic for anomalies or malformed packets targeting the SNMP subsystem. |
-| CVE-2026-20200 | 8.8 | Integrated Management Controller | Cisco IMC contains a vulnerability in its web-based management interface stemming from improper input validation. An authenticated remote attacker with low privileges can leverage this flaw to perform command injection, resulting in the execution of arbitrary commands with root-level privileges on the underlying operating system. |
-| CVE-2026-20263 | 8.6 | IOS XE Software | A vulnerability in the Blocks Extensible Exchange Protocol (BEEP) feature of Cisco IOS XE Software allows unauthenticated remote attackers to trigger a device reload via a crafted BEEP SOAP request, resulting in a denial-of-service (DoS) condition. |
-| CVE-2026-20268 | 8.6 | IOS XE Software | Cisco IOS XE Software contains vulnerabilities related to improper restriction of operations within the bounds of a memory buffer, categorized under CWE-119. These issues were discovered during an internal security review and addressed via software hardening releases, carrying a CVSS v3.1 base score of 8.6. |
-| CVE-2026-20269 | 8.6 | IOS XE Software | Cisco IOS XE Software contains multiple internally discovered vulnerabilities related to improper control of a resource through its lifetime, classified under CWE-664. These issues were identified during a proactive internal security review and have been addressed in software hardening releases. |
-| CVE-2026-20271 | 0.0 | IOS XE Software | Cisco IOS XE Software contains multiple vulnerabilities related to insufficient control flow management, categorized under CWE-691. These vulnerabilities were identified through an internal security review, and Cisco has released software updates to address the underlying issues. |
-| CVE-2026-20273 | 8.6 | IOS XE Software | CVE-2026-20273 refers to an improper input validation vulnerability (CWE-20) in Cisco IOS XE Software. With a CVSS base score of 8.6, this vulnerability is exploitable remotely by an unauthenticated attacker, potentially leading to a denial-of-service condition (AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H). |
-| CVE-2026-20301 | 8.6 | IOS Software | A vulnerability in the Extensible Messaging Client Protocol (XMCP) implementation within Cisco IOS and IOS XE software allows unauthenticated, remote attackers to trigger a device reload via malformed packets, resulting in a denial-of-service condition. |
-| CVE-2026-20312 | 8.8 | Catalyst SD-WAN | Cisco Catalyst SD-WAN software contains a vulnerability identified as CVE-2026-20312 involving the cleartext storage of sensitive information, classified under CWE-312. This vulnerability was identified during an internal security review and addressed through a software hardening release. |
-| CVE-2026-20313 | 7.7 | Catalyst SD-WAN | Cisco Catalyst SD-WAN is affected by a vulnerability involving improper link resolution before file access, categorized under CWE-1284. This vulnerability was identified during an internal security review and addressed via software hardening releases. |
-| CVE-2026-20311 | 6.3 | IOS XE Software | A vulnerability in the web-based management interface of Cisco IOS XE Software allows an authenticated, low-privileged remote attacker to trigger a denial-of-service condition. By submitting a malformed certificate to the interface, an attacker can cause the device to reload, resulting in an unexpected service disruption. Cisco has released software updates to address this flaw. |
-| CVE-2026-20198 | 4.8 | Integrated Management Controller | A cross-site scripting (XSS) vulnerability exists in the web-based management interface of the Cisco Integrated Management Controller due to improper input validation. An authenticated remote attacker can exploit this by convincing a user to interact with a malicious link, potentially leading to arbitrary script execution within the victim's browser context. |
-| CVE-2026-20289 | 0.0 | RoomOS | A vulnerability in the logging subsystem of Cisco RoomOS allows an authenticated, local attacker with low privileges to access sensitive information, such as user login credentials, by enabling specific logging levels and accessing system logs. There are no workarounds available, and patching is required. |
-| CVE-2026-20294 | 6.5 | Catalyst SD-WAN Manager | An information disclosure vulnerability exists in the web-based management interface of Cisco Catalyst SD-WAN Manager due to insufficient access control on specific template types. Authenticated attackers with low privileges can exploit this to view sensitive authentication credentials in clear text within local or remote logs, potentially leading to escalation of privilege and further infrastructure compromise. |
-| CVE-2026-20028 | 5.0 | Terminal Services Agent | A vulnerability in the Cisco Terminal Services Agent network driver allows an authenticated remote attacker with user-level credentials to bypass firewall rules by incorrectly mapping network connections to user accounts, effectively inheriting the firewall policy of another user. |
-| CVE-2026-20308 | 0.0 | IOS XE Software | An authenticated remote attacker with low privileges can trigger a denial of service (DoS) condition in the web-based management interface of Cisco IOS XE Software by sending crafted input, resulting in the interface becoming unresponsive due to insufficient input validation. |
-| CVE-2026-20337 | 0.0 | ClamAV | CVE-2026-20337 is an out-of-bounds write vulnerability in the ClamAV zip archive parser caused by improper boundary checks. An unauthenticated remote attacker can exploit this by submitting a specially crafted zip file for scanning, triggering a process termination that results in a Denial of Service (DoS) condition. |
-| CVE-2026-20338 | 0.0 | ClamAV | A vulnerability in the ClamAV zip archive parser exists due to improper memory handling when processing malicious zip files. An unauthenticated, remote attacker can exploit this via a crafted file submission to trigger a double-free condition, causing the scanning process to crash and resulting in a denial-of-service state. |
-| CVE-2026-20339 | 0.0 | ClamAV | CVE-2026-20339 is a vulnerability within the ClamAV PESpin file format parser caused by improper boundary checks. An unauthenticated remote attacker can submit a maliciously crafted file for scanning, triggering an integer overflow and memory corruption. This allows the attacker to terminate the ClamAV scanning process, resulting in a Denial of Service (DoS) condition. |
-| CVE-2026-20345 | 0.0 | ClamAV | A vulnerability exists in the GPT file format parser of ClamAV due to improper endian conversion, leading to an out-of-bounds buffer write. An unauthenticated remote attacker can exploit this by submitting a malicious GPT file for scanning, triggering a denial-of-service (DoS) condition via process termination or potential memory corruption. |
-| CVE-2026-20346 | 0.0 | ClamAV | CVE-2026-20346 is a vulnerability in the ClamAV PDF file parser caused by improper boundary checks during file scanning. This flaw leads to an out-of-bounds buffer read, which an unauthenticated remote attacker can exploit by submitting a specially crafted PDF file. Successful exploitation allows the attacker to cause a denial-of-service (DoS) condition by crashing the ClamAV scanning process. |
-| CVE-2026-20347 | 0.0 | ClamAV | A vulnerability in the Mach-O file format parser within ClamAV allows an unauthenticated remote attacker to trigger an out-of-bounds read by submitting a maliciously crafted file. Successful exploitation leads to a crash of the scanning process, resulting in a denial-of-service (DoS) condition. |
-| CVE-2026-20348 | 0.0 | ClamAV | CVE-2026-20348 describes a memory corruption vulnerability in the XAR file parser of ClamAV caused by improper boundary checks. An unauthenticated remote attacker can exploit this by submitting a crafted XAR file for scanning, leading to a denial-of-service (DoS) condition via the termination of the scanning process. |
+| CVE | Product | Severity | CVSS | EPSS | KEV | Source |
+|-----|---------|----------|------|------|-----|--------|
+| [CVE-2026-20267](#cve-2026-20267) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20267) (authoritative) |
+| [CVE-2026-20272](#cve-2026-20272) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20272) (authoritative) |
+| [CVE-2026-20310](#cve-2026-20310) | Catalyst SD-WAN |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20310) (authoritative) |
+| [CVE-2026-20124](#cve-2026-20124) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20124) (authoritative) |
+| [CVE-2026-20200](#cve-2026-20200) | Integrated Management Controller |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20200) (authoritative) |
+| [CVE-2026-20263](#cve-2026-20263) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20263) (authoritative) |
+| [CVE-2026-20268](#cve-2026-20268) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20268) (authoritative) |
+| [CVE-2026-20269](#cve-2026-20269) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20269) (authoritative) |
+| [CVE-2026-20271](#cve-2026-20271) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20271) (authoritative) |
+| [CVE-2026-20273](#cve-2026-20273) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20273) (authoritative) |
+| [CVE-2026-20301](#cve-2026-20301) | IOS Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20301) (authoritative) |
+| [CVE-2026-20312](#cve-2026-20312) | Catalyst SD-WAN |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20312) (authoritative) |
+| [CVE-2026-20313](#cve-2026-20313) | Catalyst SD-WAN | High | 7.7 | 0.25% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20313) (authoritative) |
+| [CVE-2026-20311](#cve-2026-20311) | IOS XE Software |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20198](#cve-2026-20198) | Integrated Management Controller |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Integrated%20Management%20Controller%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20289](#cve-2026-20289) | RoomOS | Medium | 5.7 | 0.19% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20294](#cve-2026-20294) | Catalyst SD-WAN Manager |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20Information%20Disclosure%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20028](#cve-2026-20028) | Terminal Services Agent |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ts-agent-fw-bypass-MYBTMrev?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Terminal%20Services%20Agent%20Firewall%20Rules%20Bypass%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20308](#cve-2026-20308) | IOS XE Software |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20337](#cve-2026-20337) | ClamAV | High | 7.5 | 0.36% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20337) (authoritative) |
+| [CVE-2026-20338](#cve-2026-20338) | ClamAV | High | 7.5 | 0.33% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20338) (authoritative) |
+| [CVE-2026-20339](#cve-2026-20339) | ClamAV | High | 7.5 | 0.33% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20339) (authoritative) |
+| [CVE-2026-20345](#cve-2026-20345) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20345) (authoritative) |
+| [CVE-2026-20346](#cve-2026-20346) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20346) (authoritative) |
+| [CVE-2026-20347](#cve-2026-20347) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20347) (authoritative) |
+| [CVE-2026-20348](#cve-2026-20348) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20348) (authoritative) |
+| [CVE-2026-20349](#cve-2026-20349) | Adaptive Security Appliance |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-vpn-dos-dzv4mQFF?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
 
 
 ## CVE-2026-20267
@@ -112,6 +128,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20267
 
+Related in this roundup: [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
+
 ## CVE-2026-20272
 
 CVE-2026-20272 represents a critical vulnerability in Cisco IOS XE Software, identified through internal security reviews as an issue involving improper neutralization of special elements, classified under CWE-74. With a CVSS base score of 9.8, the vulnerability allows for potential remote command injection, requiring immediate patching as part of Cisco's software hardening releases.
@@ -120,6 +138,8 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20272
+
+Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20310
 
@@ -130,6 +150,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20310
 
+Related in this roundup: [CVE-2026-20312](#cve-2026-20312), [CVE-2026-20313](#cve-2026-20313).
+
 ## CVE-2026-20124
 
 CVE-2026-20124 is a denial of service vulnerability in the SNMP subsystem of Cisco IOS XE Software. An authenticated remote attacker with valid SNMP community strings (v1/v2c) or credentials (v3) can send a malformed SNMP request, causing the device to unexpectedly reload. Detection should focus on monitoring SNMP request traffic for anomalies or malformed packets targeting the SNMP subsystem.
@@ -138,6 +160,8 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20124
+
+Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20200
 
@@ -148,6 +172,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20200
 
+Related in this roundup: [CVE-2026-20198](#cve-2026-20198).
+
 ## CVE-2026-20263
 
 A vulnerability in the Blocks Extensible Exchange Protocol (BEEP) feature of Cisco IOS XE Software allows unauthenticated remote attackers to trigger a device reload via a crafted BEEP SOAP request, resulting in a denial-of-service (DoS) condition.
@@ -156,6 +182,8 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20263
+
+Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20268
 
@@ -166,6 +194,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20268
 
+Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
+
 ## CVE-2026-20269
 
 Cisco IOS XE Software contains multiple internally discovered vulnerabilities related to improper control of a resource through its lifetime, classified under CWE-664. These issues were identified during a proactive internal security review and have been addressed in software hardening releases.
@@ -174,6 +204,8 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20269
+
+Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20271
 
@@ -184,6 +216,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20271
 
+Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
+
 ## CVE-2026-20273
 
 CVE-2026-20273 refers to an improper input validation vulnerability (CWE-20) in Cisco IOS XE Software. With a CVSS base score of 8.6, this vulnerability is exploitable remotely by an unauthenticated attacker, potentially leading to a denial-of-service condition (AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H).
@@ -192,6 +226,8 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20273
+
+Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20301
 
@@ -212,6 +248,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20312
 
+Related in this roundup: [CVE-2026-20310](#cve-2026-20310), [CVE-2026-20313](#cve-2026-20313).
+
 ## CVE-2026-20313
 
 Cisco Catalyst SD-WAN is affected by a vulnerability involving improper link resolution before file access, categorized under CWE-1284. This vulnerability was identified during an internal security review and addressed via software hardening releases.
@@ -220,6 +258,8 @@ Affected products:
 - Catalyst SD-WAN
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20313
+
+Related in this roundup: [CVE-2026-20310](#cve-2026-20310), [CVE-2026-20312](#cve-2026-20312).
 
 ## CVE-2026-20311
 
@@ -230,6 +270,8 @@ Affected products:
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
 
+Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20308](#cve-2026-20308).
+
 ## CVE-2026-20198
 
 A cross-site scripting (XSS) vulnerability exists in the web-based management interface of the Cisco Integrated Management Controller due to improper input validation. An authenticated remote attacker can exploit this by convincing a user to interact with a malicious link, potentially leading to arbitrary script execution within the victim's browser context.
@@ -238,6 +280,8 @@ Affected products:
 - Integrated Management Controller
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Integrated%20Management%20Controller%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
+
+Related in this roundup: [CVE-2026-20200](#cve-2026-20200).
 
 ## CVE-2026-20289
 
@@ -275,6 +319,8 @@ Affected products:
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
 
+Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311).
+
 ## CVE-2026-20337
 
 CVE-2026-20337 is an out-of-bounds write vulnerability in the ClamAV zip archive parser caused by improper boundary checks. An unauthenticated remote attacker can exploit this by submitting a specially crafted zip file for scanning, triggering a process termination that results in a Denial of Service (DoS) condition.
@@ -283,6 +329,8 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20337
+
+Related in this roundup: [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
 
 ## CVE-2026-20338
 
@@ -293,6 +341,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20338
 
+Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
+
 ## CVE-2026-20339
 
 CVE-2026-20339 is a vulnerability within the ClamAV PESpin file format parser caused by improper boundary checks. An unauthenticated remote attacker can submit a maliciously crafted file for scanning, triggering an integer overflow and memory corruption. This allows the attacker to terminate the ClamAV scanning process, resulting in a Denial of Service (DoS) condition.
@@ -301,6 +351,8 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20339
+
+Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
 
 ## CVE-2026-20345
 
@@ -311,6 +363,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20345
 
+Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
+
 ## CVE-2026-20346
 
 CVE-2026-20346 is a vulnerability in the ClamAV PDF file parser caused by improper boundary checks during file scanning. This flaw leads to an out-of-bounds buffer read, which an unauthenticated remote attacker can exploit by submitting a specially crafted PDF file. Successful exploitation allows the attacker to cause a denial-of-service (DoS) condition by crashing the ClamAV scanning process.
@@ -319,6 +373,8 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20346
+
+Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
 
 ## CVE-2026-20347
 
@@ -329,6 +385,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20347
 
+Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20348](#cve-2026-20348).
+
 ## CVE-2026-20348
 
 CVE-2026-20348 describes a memory corruption vulnerability in the XAR file parser of ClamAV caused by improper boundary checks. An unauthenticated remote attacker can exploit this by submitting a crafted XAR file for scanning, leading to a denial-of-service (DoS) condition via the termination of the scanning process.
@@ -337,3 +395,15 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20348
+
+Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347).
+
+## CVE-2026-20349
+
+A vulnerability in the Remote Access SSL VPN service of Cisco Secure Firewall ASA and FTD software allows an unauthenticated, remote attacker to trigger an unexpected device reload via a crafted HTTP request. This results in a denial of service (DoS) condition due to improper error handling during request processing.
+
+Affected products:
+- Adaptive Security Appliance
+- Secure Firewall Threat Defense
+
+Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-vpn-dos-dzv4mQFF?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1
