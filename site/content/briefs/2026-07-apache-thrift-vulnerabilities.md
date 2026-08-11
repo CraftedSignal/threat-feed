@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities Identified in Apache Thrift
 slug: 2026-07-apache-thrift-vulnerabilities
 description: Multiple vulnerabilities, including decompression bombs (CVE-2026-48586, CVE-2026-49158), an integer overflow (CVE-2026-55969), and a heap out-of-bounds read (CVE-2026-58023), affect Apache Thrift prior to version 0.24.0, potentially leading to denial of service, memory corruption, or arbitrary code execution, and require immediate patching.
 date: "2026-07-28T14:35:38Z"
+lastmod: "2026-08-11T10:41:46Z"
 type: threat
 types:
   - threat
@@ -19,21 +20,35 @@ vendors:
   - Apache
 products:
   - Apache Thrift (Prior to 0.24.0)
+  - Thrift
 cves:
   - id: CVE-2026-48586
     cvss: 7.5
+    epss: 0.01074
   - id: CVE-2026-49158
     cvss: 7.5
+    epss: 0.01097
   - id: CVE-2026-55969
     cvss: 7.5
+    epss: 0.01097
   - id: CVE-2026-58023
     cvss: 9.1
+    epss: 0.01083
 references:
   - https://cyber.gc.ca/en/alerts-advisories/apache-security-advisory-av26-749
   - https://lists.apache.org/thread/p008svsjf9p6bj47wyyf5dgglq5z7xoq
   - https://lists.apache.org/thread/fmjl8l415tj9zwlob8v2dr5hq1d0hts7
   - https://lists.apache.org/thread/xmkgd107k795hyrg5kf97mny30sgl5bo
   - https://lists.apache.org/thread/z2myopbovxngfvchdz8hddots9p5ffbt
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55969
+updates:
+  - at: "2026-08-11T10:41:46Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55969
 ---
 
 The Canadian Centre for Cyber Security (CCCS) has issued an advisory regarding multiple critical vulnerabilities affecting Apache Thrift, a framework for scalable cross-language services development. These vulnerabilities, identified as CVE-2026-48586, CVE-2026-49158, CVE-2026-55969, and CVE-2026-58023, impact all versions of Apache Thrift prior to 0.24.0. The issues include decompression size limits and bomb vulnerabilities in TZlibTransport and Ruby THeaderTransport, an integer overflow within TProtocol::checkReadBytesAvailable(), and a heap out-of-bounds read in the c_glib transport. While specific exploitation details are not provided, such vulnerabilities typically allow attackers to cause denial of service, corrupt memory, or potentially achieve arbitrary code execution. Organizations utilizing Apache Thrift are urged to update their installations to version 0.24.0 or later to mitigate these risks.
