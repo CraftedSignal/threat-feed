@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:01:15Z"
+lastmod: "2026-08-11T10:03:45Z"
 type: threat
 types:
   - threat
@@ -87,19 +87,13 @@ cves:
     cvss: 8
     epss: 0.01725
   - id: CVE-2026-68097
+  - id: CVE-2026-68187
   - id: CVE-2026-68312
   - id: CVE-2026-68130
   - id: CVE-2026-68176
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68145
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68118
 updates:
-  - at: "2026-08-11T09:55:26Z"
-    level: L2
-    summary: added CVE-2026-62873
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68152
   - at: "2026-08-11T09:58:04Z"
     level: L2
     summary: added CVE-2026-56161 +1
@@ -128,9 +122,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68145
+  - at: "2026-08-11T10:03:45Z"
+    level: L2
+    summary: added CVE-2026-68187
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68118
 ---
 
-This roundup covers 35 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, ksmbd.
+This roundup covers 37 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
 
 ## Summary
 
@@ -171,6 +172,8 @@ This roundup covers 35 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68312 | 0.0 | Windows | CVE-2026-68312 describes a memory leak vulnerability in the CIFS (Common Internet File System) implementation within the Windows kernel. The issue specifically occurs in the deferred close drain paths when a kmalloc memory allocation fails, leading to a cifsFileInfo object leak, which could potentially be leveraged for denial-of-service conditions. |
 | CVE-2026-68130 | 0.0 | ksmbd | CVE-2026-68130 identifies a security vulnerability in the ksmbd component within Microsoft Windows Server. The flaw involves the premature destruction of the previous session before NTLM authentication is fully completed, which could lead to authentication bypass or session handling errors. Security teams should ensure that the provided update is applied to affected server environments to enforce proper session lifecycle management during the authentication handshake. |
 | CVE-2026-68176 | 0.0 | Windows | CVE-2026-68176 describes a vulnerability in mmiotrace involving a potential NULL pointer dereferencing issue regarding the hiter->dev pointer. This flaw could lead to a system crash or unstable behavior when handled improperly during tracing operations. |
+| CVE-2026-68145 | 0.0 | iomap | CVE-2026-68145 concerns an out-of-bounds vulnerability in the iomap component, specifically triggered during bitmap_set operations involving zero-length ranges. This flaw could potentially allow for memory corruption, impacting system stability or security. |
+| CVE-2026-68318 | 0.0 | pds_core | CVE-2026-68318 is a vulnerability in pds_core involving a use-after-free condition triggered during the removal process of a workqueue. The issue arises due to improper memory management, which could potentially be exploited to cause a system crash or arbitrary code execution. |
 
 
 ## CVE-2026-50481
@@ -485,3 +488,21 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176
+
+## CVE-2026-68145
+
+CVE-2026-68145 concerns an out-of-bounds vulnerability in the iomap component, specifically triggered during bitmap_set operations involving zero-length ranges. This flaw could potentially allow for memory corruption, impacting system stability or security.
+
+Affected products:
+- iomap
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68145
+
+## CVE-2026-68318
+
+CVE-2026-68318 is a vulnerability in pds_core involving a use-after-free condition triggered during the removal process of a workqueue. The issue arises due to improper memory management, which could potentially be exploited to cause a system crash or arbitrary code execution.
+
+Affected products:
+- pds_core
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68318
