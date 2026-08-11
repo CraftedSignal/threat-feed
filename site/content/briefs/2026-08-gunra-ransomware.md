@@ -1,8 +1,8 @@
 ---
-title: Gunra Ransomware Exploitation of Fortinet and Schneider Electric Vulnerabilities
+title: Gunra Ransomware Gang Exploitation of Fortinet Appliances
 slug: 2026-08-gunra-ransomware
-description: The Gunra ransomware group is leveraging CVE-2024-5559 and CVE-2025-24472 to gain initial access and execute a double-extortion campaign against global critical infrastructure.
-date: "2026-08-11T11:28:56Z"
+description: The Gunra ransomware-as-a-service group is leveraging critical Fortinet vulnerabilities (CVE-2024-55591 and CVE-2025-24472) to gain initial access, hijack VDI sessions, and bypass multi-factor authentication in attacks against critical infrastructure.
+date: "2026-08-11T21:47:28Z"
 type: threat
 types:
   - threat
@@ -11,68 +11,91 @@ severities:
 actors:
   - Gunra
 cpes:
-  - cpe:2.3:o:schneider-electric:powerlogic_p5_firmware:*:*:*:*:*:*:*:*
   - cpe:2.3:a:fortinet:fortiproxy:*:*:*:*:*:*:*:*
   - cpe:2.3:o:fortinet:fortios:*:*:*:*:*:*:*:*
+tags:
+  - ransomware
+  - fortinet
+  - vpn
+  - critical-infrastructure
+  - authentication-bypass
 vendors:
-  - Schneider Electric
   - Fortinet
-  - AnySign4PC
 products:
-  - PowerLogic P5
   - FortiOS
   - FortiProxy
-  - AnySign4PC
-affected_os:
-  - Windows
-  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: Attacks deploying the ransomware have leveraged security flaws in internet-facing Schneider Electric PowerLogic P5 (CVE-2024-5559) and Fortinet FortiOS and FortiProxy (CVE-2025-24472) appliances to obtain initial access.
+    evidence: The FBI observed Gunra actors using two known exploited vulnerabilities in Fortinet products for initial access.
     confidence_band: high
-  - tactic_id: TA0008
-    tactic_name: Lateral Movement
-    technique_id: T1021
-    technique_name: Remote Services
-    evidence: Attack chains are known to leverage Impacket libraries psexec.py and smbclient.py for lateral movement using the Server Message Block (SMB) protocol.
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1003
+    technique_name: OS Credential Dumping
+    evidence: This includes OS credential dumping and, in one case, compromising a Hiware access control server, stealing the encryption key, and decrypting passwords stored in the database.
+    confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1556
+    technique_name: Modify Authentication Process
+    evidence: the Gunra actors modified authentication processing files on the corporate VDI authentication portal server to allow successful authentication when a specific, Gunra-designated one time password (OTP) value was entered
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1490
+    technique_name: Inhibit System Recovery
+    evidence: the FBI observed an attack in which Gunra affiliates deleted backups and archived data stored at both the victim's primary data center and disaster recovery center
     confidence_band: high
 cves:
-  - id: CVE-2024-5559
-    cvss: 6.1
-    epss: 0.00164
+  - id: CVE-2024-55591
+    cvss: 9.8
+    epss: 0.98259
   - id: CVE-2025-24472
     cvss: 8.1
-    epss: 0.03342
+    epss: 0.03873
 references:
-  - https://thehackernews.com/2026/08/gunra-ransomware-exploits-fortinet-and.html
+  - https://www.darkreading.com/cyberattacks-data-breaches/gunra-ransomware-gang-fortinet-flaws-bypasses-mfa
+action_plan:
+  priority: immediate_escalation
+  owners:
+    - SOC
+    - IT Operations
+  immediate_actions:
+    - action: Patch CVE-2024-55591 and CVE-2025-24472 on all FortiOS and FortiProxy appliances.
+      owner: IT Operations
+      due: 24h
+      evidence: Source advisory identifies these as the primary initial access vector.
+  mitigation_plan:
+    - priority: immediate
+      action: Review VDI portal authentication configurations for unauthorized file modifications.
+      owner: SOC
+      addresses: MFA bypass technique
+      evidence: Gunra actors modify authentication processing files on VDI servers.
 ---
 
-Gunra is a ransomware operation that has evolved since April 2025 to target critical infrastructure sectors globally, including government, finance, and healthcare. The group operates a Ransomware-as-a-Service (RaaS) model and is known for double extortion, combining data exfiltration with encryption. Recent activity involves the exploitation of internet-facing vulnerabilities in Schneider Electric PowerLogic P5 (CVE-2024-5559) and Fortinet FortiOS/FortiProxy (CVE-2025-24472) to obtain initial network access. 
-
-The group demonstrates high technical proficiency, including manipulating VDI and SSL-VPN authentication flows to bypass MFA and harvesting sensitive configuration data from enterprise environments. They use a mix of native tools, Impacket libraries, and custom payloads to facilitate lateral movement, credential dumping, and mass exfiltration of business data. Despite a identified cryptographic weakness in Linux variants, the group remains a significant threat due to their aggressive recruiting of initial access brokers and ability to deploy ransomware rapidly against database servers and NAS systems.
+The Gunra ransomware-as-a-service (RaaS) operation has emerged as a significant threat to global critical infrastructure, including healthcare, financial services, and government sectors. First observed in spring 2025, the group utilizes leaked Conti source code to conduct double-extortion attacks. Since early 2026, Gunra has expanded through an affiliate program, attracting less-sophisticated actors by providing user-friendly management panels and customizable ransomware builders. Gunra is notably characterized by its focus on identity and access management (IAM) infrastructure, frequently conducting credential dumping, session hijacking, and the manipulation of authentication files on VDI portals to circumvent multifactor authentication (MFA). Recent reporting by a joint multi-agency coalition identifies the group's use of N-day vulnerabilities in Fortinet appliances for initial access, specifically CVE-2024-55591 and CVE-2025-24472.
 
 ## Attack Chain
 
-1. Initial access is established by exploiting known vulnerabilities (CVE-2024-5559 or CVE-2025-24472) in internet-facing Schneider Electric or Fortinet appliances.
-2. Attackers gain administrative access to SSL-VPN or VDI portals, often by manipulating authentication files to enable bypasses or using default credentials.
-3. Persistent access is maintained by downloading OpenSSH and configuring backdoors on compromised appliances.
-4. Internal reconnaissance is conducted using compromised credentials to identify domain controllers and enterprise server infrastructure.
-5. Lateral movement is performed using Impacket tools such as psexec.py and smbclient.py, while secretsdump.py is utilized to extract credentials from NTDS files.
-6. Data is exfiltrated from Microsoft OneDrive, SharePoint, and VDI environments using a custom executable named 'main.exe' or via large compressed archives to MEGA.
-7. Backup and recovery infrastructure is identified and systematically deleted to prevent restoration.
-8. Final objective is achieved by deploying ransomware payloads to encrypt database servers, NAS systems, and critical enterprise assets.
+1. Attackers identify internet-facing Fortinet VPN or firewall appliances vulnerable to CVE-2024-55591 or CVE-2025-24472.
+2. The threat actors exploit the authentication bypass vulnerabilities to gain administrative access to the network appliance.
+3. Attackers leverage the appliance's traffic control functionality to intercept credentials and session cookies from users accessing the corporate virtual desktop infrastructure (VDI).
+4. Stolen session cookies are used to hijack legitimate VDI sessions, effectively bypassing MFA requirements.
+5. The actors gain persistence and deeper access by modifying authentication processing files on the VDI gateway to accept attacker-designated OTP values.
+6. Attackers conduct lateral movement and credential dumping, including harvesting keys from access control servers and dumping memory on compromised hosts.
+7. The group identifies and deletes primary and disaster recovery backups to prevent restoration.
+8. Final objective is reached via the deployment of Gunra ransomware to encrypt target files, followed by data exfiltration for double extortion.
 
 ## Impact
 
-Gunra has successfully targeted at least 51 victims across South Korea, Brazil, Spain, Thailand, and Hong Kong since April 2025. The attack impacts critical sectors by causing severe operational disruption and potential long-term data loss through unauthorized disclosure. Organizations that refuse to pay the ransom face the permanent leakage of sensitive business data on public forums, impacting regulatory compliance and reputation.
+Gunra has successfully targeted organizations across North and South America, Europe, the Middle East, Africa, and the Asia-Pacific region, with notable concentrations of activity in Brazil and South Korea. Successful compromises result in catastrophic operational disruption, loss of critical data via encryption, and exposure of sensitive information. The group's ability to delete offsite backups and manipulate identity verification mechanisms significantly elevates the recovery time and security risk for affected entities.
 
 ## Recommendation
 
-* Patch CVE-2024-5559 on all internet-facing Schneider Electric PowerLogic P5 devices immediately.
-* Patch CVE-2025-24472 on all Fortinet FortiOS and FortiProxy appliances to prevent initial exploitation.
-* Implement strict network segmentation and monitor for unauthorized lateral movement involving Impacket tools and SMB traffic.
-* Audit VDI and SSL-VPN authentication portals for modified configuration files or anomalous MFA bypass logic.
-* Deploy immutable, off-site backups to ensure business continuity following potential ransomware deployment.
+* Patch CVE-2024-55591 and CVE-2025-24472 on all internet-facing Fortinet VPN and firewall appliances immediately.
+* Implement offline, immutable backups for primary and disaster recovery data centers to prevent total data loss during a ransomware event.
+* Monitor authentication logs and file integrity for critical identity and access management servers, including VDI portals, for unauthorized modifications.
+* Enforce strict network segmentation to limit the reach of attackers who achieve initial access via perimeter appliances.
