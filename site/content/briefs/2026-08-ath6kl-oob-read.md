@@ -3,6 +3,7 @@ title: Out-of-Bounds Read Vulnerability in ath6kl Wi-Fi Driver
 slug: 2026-08-ath6kl-oob-read
 description: CVE-2026-68352 involves an out-of-bounds read vulnerability in the ath6kl Wi-Fi driver, potentially allowing local information disclosure or system instability via malicious firmware Information Element lengths.
 date: "2026-08-11T09:55:48Z"
+lastmod: "2026-08-11T10:33:21Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,13 @@ severities:
   - medium
 products:
   - ath6kl
+affected_os:
+  - Linux
 cves:
   - id: CVE-2026-68352
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68352
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68199
 action_plan:
   priority: monitor_or_close
   owners:
@@ -24,6 +28,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-68352
       evidence: Source disclosure from MSRC.
+updates:
+  - at: "2026-08-11T10:33:21Z"
+    level: L1
+    summary: added coverage for ath6kl
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68199
 ---
 
 Microsoft has disclosed CVE-2026-68352, an out-of-bounds (OOB) read vulnerability affecting the ath6kl wireless driver. The flaw originates from improper validation of Information Element (IE) lengths within the firmware when processing connect events. By supplying specially crafted beacon frames or connection responses, an attacker in physical proximity to the target device may be able to trigger the vulnerability. Successful exploitation could lead to memory corruption, potential information disclosure, or a system crash (denial of service). As this vulnerability resides at the driver level during the wireless association process, it primarily impacts devices utilizing the ath6kl chipset firmware. Defenders should prioritize patching affected wireless stacks to ensure proper length validation is enforced before memory access occurs.
