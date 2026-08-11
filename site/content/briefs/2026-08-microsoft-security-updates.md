@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T23:42:55Z"
+lastmod: "2026-08-11T23:48:53Z"
 type: threat
 types:
   - threat
@@ -505,6 +505,8 @@ cves:
     cvss: 7.8
   - id: CVE-2026-70313
     cvss: 7.8
+  - id: CVE-2026-70310
+    cvss: 5.5
   - id: CVE-2026-70316
     cvss: 5.5
   - id: CVE-2026-70315
@@ -663,15 +665,8 @@ cves:
   - id: CVE-2026-68804
     cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-63522
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70339
 updates:
-  - at: "2026-08-11T18:35:53Z"
-    level: L2
-    summary: added CVE-2026-70325
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-65680
   - at: "2026-08-11T18:40:06Z"
     level: L2
     summary: added CVE-2026-61363 +2
@@ -694,6 +689,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-68820
+  - at: "2026-08-11T23:48:53Z"
+    level: L2
+    summary: added CVE-2026-70310
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70339
 ---
 
 This roundup covers 459 Microsoft security vulnerabilities. CVSS base scores range from 4.3 to 10.0. None are reported as actively exploited at the time of release. The issues affect .NET, .NET Core, AMT, Access, Active Directory Certificate Services, Active Directory Domain Services, Application Information Services, Application Insights Profiler, Azure Active Directory, Azure Attestation, Azure Confidential Ledger, Azure CycleCloud, Azure Kubernetes Service, Azure Logic Apps, Azure Monitor Agent, Azure SQL Database, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Azure Storage Explorer, Bluetooth, COM, Capability Access Management Service, Defender for Endpoint, Desktop Window Manager, Dynamics 365, Dynamics Business Central, Entra Connect, Excel, Exchange Server, GitHub Copilot, HDF5, High Performance Computing, High Performance Computing Pack, Hyper-V, Local Security Authority Server, Microsoft .NET Framework, Microsoft 365 Admin Center, Microsoft Entra, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft QUIC, Microsoft Teams, Office, Office Access, Office Word, OneDrive, Outlook, Power Apps, Power BI, PowerPoint, PowerShell Core, Reliable Multicast Transport Driver, Remote Desktop Client, Remote Desktop Services, Remote Registry Service, Routing and Remote Access Service, Rpm, SMB Client, SharePoint, SharePoint Online, SharePoint Server, Teams, Virtual Hard Disk, Visual Studio Code, Visual Studio Code CoPilot Chat Extension, Windows, Windows Ancillary Function Driver for WinSock, Windows Autopilot, Windows Backup Engine, Windows Bind Filter Driver, Windows Cloud Files Mini Filter Driver, Windows Common Log File System Driver, Windows Container Isolation FS Filter Driver, Windows Cross Device Service, Windows DHCP Client, Windows DHCP Server, Windows DNS, Windows DNS Server, Windows DWM Core Library, Windows Deployment Services, Windows Device Association Service, Windows Display Enhancement Service, Windows Encrypting File System, Windows Event Logging Service, Windows GDI+, Windows Graphics Kernel, Windows HTTP Protocol Stack, Windows HTTP.sys, Windows Hello, Windows Imaging Component, Windows Installer, Windows Kerberos, Windows Kernel, Windows Key Guard, Windows LDAP, Windows License Manager, Windows MIDI Service, Windows MIDI Service Module, Windows Management Instrumentation, Windows Management Services, Windows Message Queuing, Windows Modern Device Management, Windows NTFS, Windows Narrator, Windows Network Connection Broker, Windows Network File System, Windows Package Manager, Windows Program Compatibility Assistant Service, Windows Projected File System, Windows Push Notifications, Windows Remote Access API, Windows Remote Access Connection Manager, Windows Remote Desktop Services, Windows SMB Client, Windows SMB Server, Windows Search Component, Windows Secure Socket Tunneling Protocol, Windows Sensor Data Service, Windows Storage, Windows Storage Port Driver, Windows Telephony Service, Windows Universal Disk Format File System Driver, Windows User Profile Service, Windows Work Folder Service, Windows iSCSI Target Service, Winlogon, Word, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, net/handshake, pds_core, wanxl.
