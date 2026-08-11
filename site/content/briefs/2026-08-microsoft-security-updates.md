@@ -3,142 +3,30 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:19:11Z"
+lastmod: "2026-08-11T10:32:21Z"
 type: threat
 types:
   - threat
 severities:
   - high
 cpes:
-  - cpe:2.3:a:microsoft:azure_active_directory:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:azure_service_bus:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:azure_logic_apps:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:entra_provisioning_service:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:power_apps:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:azure_sre_agent:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:windows_admin_center:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:teams:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:planetary_computer:-:*:*:*:pro:*:*:*
-  - cpe:2.3:a:microsoft:azure_confidential_ledger:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:sharepoint_online:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:azure_sql_managed_instance:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:purview_ediscovery:-:*:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:dynamics_365_business_central:2022:release_wave_2:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:dynamics_365_business_central:2023:release_wave_1:*:*:*:*:*:*
-  - cpe:2.3:a:microsoft:dynamics_365_business_central:2023:release_wave_2:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
   - Microsoft
 cves:
-  - id: CVE-2026-50481
-    cvss: 9.9
-    epss: 0.00456
-  - id: CVE-2026-50515
-    cvss: 9.9
-    epss: 0.0091
-  - id: CVE-2026-56161
-    cvss: 9.6
-    epss: 0.00381
-  - id: CVE-2026-59115
-    cvss: 9.9
-    epss: 0.00635
-  - id: CVE-2026-59118
-    cvss: 9.3
-    epss: 0.0039
-  - id: CVE-2026-62830
-    cvss: 9.9
-    epss: 0.00417
-  - id: CVE-2026-62873
-    cvss: 9.8
-    epss: 0.00343
-  - id: CVE-2026-62896
-    cvss: 9.6
-    epss: 0.00381
-  - id: CVE-2026-63508
-    cvss: 10
-    epss: 0.00442
-  - id: CVE-2026-65667
-    cvss: 10
-    epss: 0.00442
-  - id: CVE-2026-68823
-    cvss: 9.1
-    epss: 0.005
-  - id: CVE-2026-70332
-    cvss: 9.6
-    epss: 0.00481
-  - id: CVE-2026-49163
-    cvss: 8.8
-    epss: 0.00621
   - id: CVE-2026-62836
     cvss: 8.7
     epss: 0.00359
-  - id: CVE-2026-62918
-    cvss: 7.5
-    epss: 0.00293
-  - id: CVE-2026-65668
-    cvss: 8.8
-    epss: 0.00417
   - id: CVE-2026-68480
     epss: 0.00205
-  - id: CVE-2026-64564
-    cvss: 9.8
-    epss: 0.00476
-  - id: CVE-2026-64590
-    epss: 0.00156
-  - id: CVE-2026-54876
-    cvss: 7.5
-    epss: 0.00261
-  - id: CVE-2026-44605
-    cvss: 5.5
-    epss: 0.00135
-  - id: CVE-2026-64573
-    epss: 0.00156
-  - id: CVE-2026-64565
-    epss: 0.00173
-  - id: CVE-2026-64578
-    cvss: 8.2
-    epss: 0.00317
-  - id: CVE-2024-21380
-    cvss: 8
-    epss: 0.01725
-  - id: CVE-2025-2308
-    cvss: 5.3
-    epss: 0.00402
-  - id: CVE-2025-2309
-    cvss: 5.3
-    epss: 0.00355
-  - id: CVE-2026-68097
   - id: CVE-2026-68388
-  - id: CVE-2026-68187
-  - id: CVE-2026-68152
-  - id: CVE-2026-68189
-  - id: CVE-2026-68312
-  - id: CVE-2026-68130
-  - id: CVE-2026-68176
-  - id: CVE-2026-68145
-  - id: CVE-2026-68318
-  - id: CVE-2026-68118
-  - id: CVE-2026-68175
-  - id: CVE-2026-68328
-  - id: CVE-2026-68406
-  - id: CVE-2026-68099
-  - id: CVE-2026-68326
-  - id: CVE-2026-68151
+  - id: CVE-2026-68354
   - id: CVE-2026-68343
-  - id: CVE-2026-68124
-  - id: CVE-2026-68327
-  - id: CVE-2026-68132
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68348
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68195
 updates:
-  - at: "2026-08-11T10:13:57Z"
-    level: L2
-    summary: added CVE-2026-68124
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68401
   - at: "2026-08-11T10:14:12Z"
     level: L2
     summary: added CVE-2026-68343
@@ -167,71 +55,80 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68348
+  - at: "2026-08-11T10:32:21Z"
+    level: L2
+    summary: added CVE-2026-68354
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68195
 ---
 
-This roundup covers 57 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, pds_core, wanxl.
+This roundup covers 58 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, pds_core, wanxl.
 
 ## Summary
 
-| CVE | Product | Severity | CVSS | EPSS | KEV | Source | Why included |
-|-----|---------|----------|------|------|-----|--------|--------------|
-| [CVE-2026-50481](#cve-2026-50481) | Azure Active Directory | Critical | 9.9 | 0.46% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50481) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure Active Directory. |
-| [CVE-2026-50515](#cve-2026-50515) | Azure Service Bus | Critical | 9.9 | 0.91% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50515) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure Service Bus. |
-| [CVE-2026-56161](#cve-2026-56161) | Azure Logic Apps | Critical | 9.6 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-56161) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure Logic Apps. |
-| [CVE-2026-59115](#cve-2026-59115) | Microsoft Entra Provisioning Service | Critical | 9.9 | 0.64% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-59115) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Entra Provisioning Service. |
-| [CVE-2026-59118](#cve-2026-59118) | Power Apps | Critical | 9.3 | 0.39% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-59118) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Power Apps. |
-| [CVE-2026-62830](#cve-2026-62830) | Azure SRE Agent | Critical | 9.9 | 0.42% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62830) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure SRE Agent. |
-| [CVE-2026-62873](#cve-2026-62873) | Microsoft 365 Admin Center | Critical | 9.8 | 0.34% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62873) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft 365 Admin Center. |
-| [CVE-2026-62896](#cve-2026-62896) | Microsoft Teams | Critical | 9.6 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62896) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Teams. |
-| [CVE-2026-63508](#cve-2026-63508) | Microsoft Planetary Computer Pro (GeoCatalog) | Critical | 10.0 | 0.44% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-63508) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Planetary Computer Pro (GeoCatalog). |
-| [CVE-2026-65667](#cve-2026-65667) | Microsoft Teams | Critical | 10.0 | 0.44% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65667) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Teams. |
-| [CVE-2026-68823](#cve-2026-68823) | Azure Confidential Ledger | Critical | 9.1 | 0.50% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68823) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure Confidential Ledger. |
-| [CVE-2026-70332](#cve-2026-70332) | SharePoint Online | Critical | 9.6 | 0.48% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70332) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting SharePoint Online. |
-| [CVE-2026-49163](#cve-2026-49163) | Application Insights Profiler | High | 8.8 | 0.62% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-49163) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Application Insights Profiler. |
-| [CVE-2026-62836](#cve-2026-62836) | Azure SQL Managed Instance | High | 8.7 | 0.36% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62836) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Azure SQL Managed Instance. |
-| [CVE-2026-62918](#cve-2026-62918) | Microsoft Teams | High | 7.5 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62918) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Teams. |
-| [CVE-2026-65668](#cve-2026-65668) | Microsoft Purview eDiscovery | High | 8.8 | 0.42% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65668) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Microsoft Purview eDiscovery. |
-| [CVE-2026-68480](#cve-2026-68480) | Windows | n/a | n/a | 0.21% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68480) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-64564](#cve-2026-64564) | Windows | Critical | 9.8 | 0.48% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64564) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-64590](#cve-2026-64590) | dma-buf/udmabuf | n/a | n/a | 0.16% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64590) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting dma-buf/udmabuf. |
-| [CVE-2026-54876](#cve-2026-54876) | Windows | High | 7.5 | 0.26% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54876) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-44605](#cve-2026-44605) | Rpm | Medium | 5.5 | 0.14% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-44605) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Rpm. |
-| [CVE-2026-64573](#cve-2026-64573) | Bluetooth | n/a | n/a | 0.16% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64573) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Bluetooth. |
-| [CVE-2026-64565](#cve-2026-64565) | ims-pcu | n/a | n/a | 0.17% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64565) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ims-pcu. |
-| [CVE-2026-64578](#cve-2026-64578) | ksmbd | High | 8.2 | 0.32% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
-| [CVE-2024-21380](#cve-2024-21380) | Dynamics Business Central | High | 8.0 | 1.73% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21380) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Dynamics Business Central. |
-| [CVE-2025-2308](#cve-2025-2308) | HDF5 | Medium | 5.3 | 0.40% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2308) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting HDF5. |
-| [CVE-2025-2309](#cve-2025-2309) | HDF5 | Medium | 5.3 | 0.36% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2309) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting HDF5. |
-| [CVE-2026-68097](#cve-2026-68097) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68097) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
-| [CVE-2026-68388](#cve-2026-68388) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68388) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68187](#cve-2026-68187) | n/a | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68187) (authoritative) | Included because it is part of the Microsoft patch-cycle roundup. |
-| [CVE-2026-68152](#cve-2026-68152) | AMT | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68152) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting AMT. |
-| [CVE-2026-68189](#cve-2026-68189) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68189) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68312](#cve-2026-68312) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68312) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68130](#cve-2026-68130) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
-| [CVE-2026-68176](#cve-2026-68176) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68145](#cve-2026-68145) | iomap | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68145) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting iomap. |
-| [CVE-2026-68318](#cve-2026-68318) | pds_core | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68318) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting pds_core. |
-| [CVE-2026-68118](#cve-2026-68118) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68118) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68175](#cve-2026-68175) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68175) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68328](#cve-2026-68328) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68406](#cve-2026-68406) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68406) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68317](#cve-2026-68317) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68317) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68099](#cve-2026-68099) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68099) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
-| [CVE-2026-68354](#cve-2026-68354) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68354) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68326](#cve-2026-68326) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68326) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68151](#cve-2026-68151) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68343](#cve-2026-68343) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68184](#cve-2026-68184) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68124](#cve-2026-68124) | mctp | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68124) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting mctp. |
-| [CVE-2026-68401](#cve-2026-68401) | firmware | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68401) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting firmware. |
-| [CVE-2026-68322](#cve-2026-68322) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68322) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68214](#cve-2026-68214) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68214) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68327](#cve-2026-68327) | wanxl | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68327) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting wanxl. |
-| [CVE-2026-68188](#cve-2026-68188) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68188) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68132](#cve-2026-68132) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68132) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68304](#cve-2026-68304) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68304) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
-| [CVE-2026-68098](#cve-2026-68098) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68098) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
+| CVE | CVSS | Product | Summary |
+|-----|------|---------|---------|
+| CVE-2026-50481 | 9.9 | Azure Active Directory | CVE-2026-50481 is a critical vulnerability in Microsoft Azure Active Directory involving the modification of assumed-immutable data (MAID). An authorized attacker can exploit this flaw to escalate privileges within the environment over a network, potentially leading to unauthorized administrative access. |
+| CVE-2026-50515 | 9.9 | Azure Service Bus | CVE-2026-50515 is a critical deserialization of untrusted data vulnerability in Azure Service Bus that permits an authenticated attacker with low privileges to achieve remote code execution. Detection efforts should focus on monitoring anomalous serialized data payloads sent to service bus endpoints and unexpected process execution spawned by the Azure Service Bus service account. |
+| CVE-2026-56161 | 9.6 | Azure Logic Apps | CVE-2026-56161 describes an improper access control vulnerability in Microsoft Azure Logic Apps. An authenticated attacker can exploit this vulnerability to disclose sensitive information over a network. The vulnerability carries a CVSS 3.1 base score of 9.6, indicating a critical risk. |
+| CVE-2026-59115 | 9.9 | Microsoft Entra Provisioning Service | CVE-2026-59115 is a critical path traversal vulnerability in the Microsoft Entra Provisioning Service (SyncFabric). An authorized attacker can leverage this vulnerability by using a specific input string ('.../...//') to elevate their privileges over a network. The vulnerability has a CVSS base score of 9.9, indicating a significant risk to the integrity, confidentiality, and availability of the affected cloud service. |
+| CVE-2026-59118 | 9.3 | Power Apps | CVE-2026-59118 is an improper authorization vulnerability in Microsoft Power Apps that allows an unauthorized attacker to perform a privilege escalation over a network. The vulnerability carries a CVSS 3.1 base score of 9.3, indicating a critical severity impact on confidentiality and integrity, necessitating restricted access controls within the affected cloud service. |
+| CVE-2026-62830 | 9.9 | Azure SRE Agent | A vulnerability in the Azure SRE Agent stemming from missing authorization (CWE-862) allows an already authorized network attacker to perform privilege escalation. The vulnerability is rated critical with a CVSS 3.1 score of 9.9, as it enables full scope impact across confidentiality, integrity, and availability within the cloud environment. |
+| CVE-2026-62873 | 9.8 | Microsoft 365 Admin Center | The Microsoft 365 Admin Center is vulnerable to an improper verification of cryptographic signature vulnerability (CWE-347). This flaw allows a remote, unauthorized attacker to elevate their privileges over a network, potentially leading to full compromise of confidentiality, integrity, and availability. |
+| CVE-2026-62896 | 9.6 | Microsoft Teams | Microsoft Teams contains an improper authentication vulnerability that allows an authenticated attacker to perform privilege escalation over a network. This flaw represents a critical security risk due to the potential for unauthorized access elevation within the application environment. |
+| CVE-2026-63508 | 10.0 | Microsoft Planetary Computer Pro (GeoCatalog) | Microsoft Planetary Computer Pro (GeoCatalog) contains a vulnerability due to missing authentication for a critical function. This allows an unauthorized attacker to perform privilege escalation over a network. The vulnerability is classified as critical and has a CVSS base score of 10.0. |
+| CVE-2026-65667 | 10.0 | Microsoft Teams | CVE-2026-65667 is a critical security vulnerability in Microsoft Teams involving missing authorization (CWE-862). This flaw allows a remote, unauthenticated attacker to elevate privileges over a network, potentially leading to unauthorized access to sensitive information and system integrity compromises. |
+| CVE-2026-68823 | 9.1 | Azure Confidential Ledger | CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1. |
+| CVE-2026-70332 | 9.6 | SharePoint Online | CVE-2026-70332 is a Server-Side Request Forgery (SSRF) vulnerability in Microsoft SharePoint Online. An unauthenticated attacker can exploit this flaw to perform spoofing over a network, potentially leading to unauthorized information disclosure, interaction with internal services, or further lateral movement within the cloud environment. |
+| CVE-2026-49163 | 8.8 | Application Insights Profiler | Application Insights Profiler is vulnerable to a path traversal flaw (CWE-22) that allows an authorized attacker to elevate their privileges over a network. This vulnerability indicates improper limitation of a pathname to a restricted directory. |
+| CVE-2026-62836 | 8.7 | Azure SQL Managed Instance | CVE-2026-62836 identifies a vulnerability in Azure SQL Managed Instance due to improper restriction of communication channels to intended endpoints. This flaw allows an unauthenticated, remote attacker to escalate privileges over a network connection by exploiting the misconfigured communication path. |
+| CVE-2026-62918 | 7.5 | Microsoft Teams | CVE-2026-62918 is a vulnerability in Microsoft Teams involving improper verification of cryptographic signatures. This flaw allows an unauthorized remote attacker to perform spoofing attacks over a network, potentially leading to unauthorized data manipulation or masquerading within the platform. |
+| CVE-2026-65668 | 8.8 | Microsoft Purview eDiscovery | Microsoft Purview eDiscovery contains an improper access control vulnerability that allows an authenticated attacker to perform a privilege escalation attack over the network. Detection should focus on monitoring unauthorized account role modifications or unexpected administrative actions within the Purview compliance console. |
+| CVE-2026-68480 | 0.0 | Windows | CVE-2026-68480 relates to a vulnerability in the x86 Safe-RET implementation regarding interrupt injection, which could allow a local attacker to potentially bypass security protections or escalate privileges. Security updates for affected versions of the Windows operating system address the robustness of the return mechanism against these specific interrupt vectors. |
+| CVE-2026-64564 | 9.8 | Windows | CVE-2026-64564 involves a vulnerability in the SCTP (Stream Control Transmission Protocol) implementation within Microsoft Windows. The issue occurs during DEL-IP processing, where the ASCONF (Address Configuration Change Chunk) packet handling incorrectly attempts to free its own transport, potentially leading to a use-after-free or memory management error. |
+| CVE-2026-64590 | 0.0 | dma-buf/udmabuf | CVE-2026-64590 identifies an issue within the dma-buf/udmabuf component where a redundant CPU synchronization triggers a cacheline EEXIST warning. This update addresses the underlying logic to ensure proper synchronization handling. |
+| CVE-2026-54876 | 7.5 | Windows | CVE-2026-54876 describes a client-side memory leak vulnerability within the OCSP (Online Certificate Status Protocol) response checking mechanism in Microsoft Windows products. |
+| CVE-2026-44605 | 5.5 | Rpm | CVE-2026-44605 describes a heap-based buffer overflow vulnerability located in the ndb slot table parsing logic within Rpm. This vulnerability could potentially allow for arbitrary code execution or memory corruption when processing malformed slot tables. |
+| CVE-2026-64573 | 0.0 | Bluetooth | A vulnerability identified in the Bluetooth NVM tag length TLV parser leads to an underflow condition. This security update from Microsoft addresses the flaw to prevent potential memory corruption or exploitation within the Bluetooth component. |
+| CVE-2026-64565 | 0.0 | ims-pcu | CVE-2026-64565 refers to a heap-based buffer overflow vulnerability located within the ims_pcu_process_data() function of the ims-pcu component, potentially allowing for memory corruption or arbitrary code execution. |
+| CVE-2026-64578 | 8.2 | ksmbd | CVE-2026-64578 identifies a vulnerability in the ksmbd kernel-mode SMB server, where insufficient validation of compound request sizes before reading StructureSize2 can lead to memory safety issues. Detection engineering should focus on monitoring SMB traffic patterns for malformed or oversized requests that could trigger improper bounds handling. |
+| CVE-2024-21380 | 8.0 | Dynamics Business Central | CVE-2024-21380 is an information disclosure vulnerability affecting Microsoft Dynamics Business Central and Dynamics NAV. The disclosure indicates an informational update to build numbers provided by Microsoft in the Security Update Guide, with no functional changes described in the provided content. |
+| CVE-2025-2308 | 5.3 | HDF5 | CVE-2025-2308 is a heap-based buffer overflow vulnerability residing in the H5Z__scaleoffset_decompress_one_byte function within the HDF5 scale-offset filter, potentially allowing for arbitrary code execution if a maliciously crafted HDF5 file is processed. |
+| CVE-2025-2309 | 5.3 | HDF5 | CVE-2025-2309 refers to a heap-based buffer overflow vulnerability identified in the HDF5 library specifically within the H5T__bit_copy type conversion logic. The vulnerability could potentially lead to memory corruption or arbitrary code execution if an attacker provides a maliciously crafted HDF5 file to an application utilizing the affected library code for data processing. |
+| CVE-2026-68097 | 0.0 | ksmbd | CVE-2026-68097 identifies a vulnerability in ksmbd where the software fails to properly validate the size of an Access Control Entry (ACE) against the number of Security Identifier (SID) sub-authorities. This vulnerability could potentially lead to memory corruption or other instability issues when processing malicious SMB traffic. |
+| CVE-2026-68388 | 0.0 | Windows | CVE-2026-68388 addresses a vulnerability in the SMB client component of the Windows operating system related to the improper handling of overlapping allocated ranges during fallocate operations, which may lead to memory corruption or instability. |
+| CVE-2026-68187 | 0.0 | n/a | CVE-2026-68187 describes an unsigned loop counter wrap vulnerability within the transfer_args_to_stack() function in Microsoft software, potentially allowing for memory corruption or unstable execution states. |
+| CVE-2026-68152 | 0.0 | AMT | CVE-2026-68152 addresses a use-after-free vulnerability within the AMT delayed works component in Microsoft products, which could potentially lead to system instability or arbitrary code execution. |
+| CVE-2026-68189 | 0.0 | Windows | CVE-2026-68189 refers to a vulnerability within the Bluetooth hci_sync component in Microsoft Windows. The issue involves a lack of protection during UUID list traversal, which may lead to memory safety issues or instability during Bluetooth stack operations. |
+| CVE-2026-68312 | 0.0 | Windows | CVE-2026-68312 describes a memory leak vulnerability in the CIFS (Common Internet File System) implementation within the Windows kernel. The issue specifically occurs in the deferred close drain paths when a kmalloc memory allocation fails, leading to a cifsFileInfo object leak, which could potentially be leveraged for denial-of-service conditions. |
+| CVE-2026-68130 | 0.0 | ksmbd | CVE-2026-68130 identifies a security vulnerability in the ksmbd component within Microsoft Windows Server. The flaw involves the premature destruction of the previous session before NTLM authentication is fully completed, which could lead to authentication bypass or session handling errors. Security teams should ensure that the provided update is applied to affected server environments to enforce proper session lifecycle management during the authentication handshake. |
+| CVE-2026-68176 | 0.0 | Windows | CVE-2026-68176 describes a vulnerability in mmiotrace involving a potential NULL pointer dereferencing issue regarding the hiter->dev pointer. This flaw could lead to a system crash or unstable behavior when handled improperly during tracing operations. |
+| CVE-2026-68145 | 0.0 | iomap | CVE-2026-68145 concerns an out-of-bounds vulnerability in the iomap component, specifically triggered during bitmap_set operations involving zero-length ranges. This flaw could potentially allow for memory corruption, impacting system stability or security. |
+| CVE-2026-68318 | 0.0 | pds_core | CVE-2026-68318 is a vulnerability in pds_core involving a use-after-free condition triggered during the removal process of a workqueue. The issue arises due to improper memory management, which could potentially be exploited to cause a system crash or arbitrary code execution. |
+| CVE-2026-68118 | 0.0 | Windows | CVE-2026-68118 describes a vulnerability in the TCP stack implementation where improper handling of challenge ACKs for non-exact RST packets in the SYN-RECEIVED state can be exploited to cause a denial-of-service condition or disrupt network connections. |
+| CVE-2026-68175 | 0.0 | Windows | CVE-2026-68175 refers to a resource leak vulnerability identified within the mmiotrace trace_pipe close function in Microsoft Windows, which could potentially be leveraged for local denial-of-service conditions or resource exhaustion. |
+| CVE-2026-68328 | 0.0 | Windows | CVE-2026-68328 identifies a vulnerability within the Windows nfp (Near-Field Proximity) driver related to resource mutex allocation, as reported by the Microsoft Security Response Center. |
+| CVE-2026-68406 | 0.0 | Windows | CVE-2026-68406 identifies a vulnerability in the wifi cfg80211 subsystem where the PMSR FTM preamble range is improperly validated. This flaw can potentially lead to memory corruption or instability within the wireless driver stack, necessitating a security update to ensure proper bounds checking for wireless frame parameters. |
+| CVE-2026-68317 | 0.0 | Windows | CVE-2026-68317 refers to a vulnerability in pds_core involving race conditions during auxiliary device addition or deletion. The issue requires patching to ensure stability and prevent potential exploitation via race conditions. |
+| CVE-2026-68099 | 0.0 | ksmbd | CVE-2026-68099 is a vulnerability in the ksmbd component within Microsoft Windows, where an integer overflow check in check_add_overflow() fails to correctly restore DACL size, potentially leading to the processing of malformed ACLs. This flaw could be exploited to cause memory corruption or denial of service conditions by submitting specially crafted SMB packets. |
+| CVE-2026-68354 | 0.0 | Windows | CVE-2026-68354 refers to a vulnerability within the Windows firewire network driver stack involving improper handling of fragmented datagram reassembly, which may allow for potential exploitation during network packet processing. |
+| CVE-2026-68326 | 0.0 | Windows | CVE-2026-68326 is a vulnerability within the mwifiex Wi-Fi driver, specifically involving improper bounds checking of uAP association event Information Elements (IEs) against the event buffer. This flaw could potentially allow for memory corruption or other impacts depending on how the driver processes malformed association packets. |
+| CVE-2026-68151 | 0.0 | Windows | CVE-2026-68151 identifies a vulnerability within the binfmt_elf_fdpic loader, which incorrectly handles multiple PT_INTERP segments in an ELF file. By only honoring the first PT_INTERP, the implementation may lead to inconsistencies in how executable files are parsed and executed, potentially impacting system security and loader integrity. |
+| CVE-2026-68343 | 0.0 | Windows | CVE-2026-68343 describes a vulnerability in the Microsoft SMB client related to the validation of DFS referral PathConsumed. This flaw potentially allows an attacker to manipulate path validation logic within SMB communications. |
+| CVE-2026-68184 | 0.0 | Windows | CVE-2026-68184 describes a stack-based out-of-bounds read vulnerability within the CDROMVOLCTRL functionality of the Windows CD-ROM driver. This flaw could potentially be leveraged by an attacker to read sensitive data from the stack, though specific exploitation vectors are not detailed beyond the vulnerability type. |
+| CVE-2026-68124 | 0.0 | mctp | CVE-2026-68124 identifies a buffer overflow vulnerability within the MCTP serial driver components, triggered by the improper handling of zero-length frames. An attacker could potentially exploit this flaw to cause memory corruption or a system crash. |
+| CVE-2026-68401 | 0.0 | firmware | CVE-2026-68401 describes an out-of-bounds write vulnerability within the arm_ffa component of Microsoft firmware, specifically located in the ffa_setup_and_transmit() function, which requires a security update to remediate. |
+| CVE-2026-68322 | 0.0 | Windows | CVE-2026-68322 describes a NULL pointer dereference vulnerability within the rds (Reliable Datagram Sockets) component of Microsoft Windows, specifically occurring when IPv6 is disabled. This vulnerability can lead to a system crash, resulting in a denial of service condition. |
+| CVE-2026-68214 | 0.0 | Windows | CVE-2026-68214 identifies a use-after-free vulnerability located in the rtl2832 driver's remove function (rtl2832_remove) within the Windows kernel. This flaw could potentially be leveraged to trigger system instability or lead to memory corruption, requiring a kernel-level security update to address the lifetime management of the driver object. |
+| CVE-2026-68327 | 0.0 | wanxl | CVE-2026-68327 is a vulnerability identified in the Microsoft wanxl WAN driver component. The vulnerability relates to the handling of hardware reset sequences in relation to Base Address Register (BAR) mapping. Successful exploitation of this issue could potentially lead to undefined system behavior or stability issues within the network driver stack. |
+| CVE-2026-68188 | 0.0 | Windows | CVE-2026-68188 describes a use-after-free (UAF) vulnerability within the RFCOMM protocol implementation of the Bluetooth stack, specifically triggered during the set_termios operation. |
+| CVE-2026-68132 | 0.0 | Windows | CVE-2026-68132 is a vulnerability addressed by Microsoft that involves a deadlock condition occurring during the emergency thaw process on frozen block devices within the Windows operating system. |
+| CVE-2026-68304 | 0.0 | Windows | CVE-2026-68304 addresses a call trace warning in the brcmfmac wireless driver related to 802.1X-SHA256 authentication processing. While technical details are limited, the issue involves handling of authentication frames within the Broadcom wireless stack. |
+| CVE-2026-68098 | 0.0 | ksmbd | CVE-2026-68098 is a vulnerability in the ksmbd kernel-mode SMB server component within Microsoft Windows. The issue involves improper handling of DACL (Discretionary Access Control List) deduplication during ACE (Access Control Entry) copying operations, which may lead to memory safety issues when processing malformed requests. |
+| CVE-2026-68348 | 0.0 | Windows | CVE-2026-68348 involves an issue in the ASoC (ALSA System on Chip) subsystem specifically related to the tas2781 audio amplifier driver, where firmware description string parsing is not properly bounded, potentially leading to memory corruption or related stability issues. |
+
 
 ## CVE-2026-50481
 
@@ -305,8 +202,6 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62896
 
-Related in this roundup: [CVE-2026-65667](#cve-2026-65667), [CVE-2026-62918](#cve-2026-62918).
-
 ## CVE-2026-63508
 
 Microsoft Planetary Computer Pro (GeoCatalog) contains a vulnerability due to missing authentication for a critical function. This allows an unauthorized attacker to perform privilege escalation over a network. The vulnerability is classified as critical and has a CVSS base score of 10.0.
@@ -324,8 +219,6 @@ Affected products:
 - Microsoft Teams
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65667
-
-Related in this roundup: [CVE-2026-62896](#cve-2026-62896), [CVE-2026-62918](#cve-2026-62918).
 
 ## CVE-2026-68823
 
@@ -372,8 +265,6 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62918
 
-Related in this roundup: [CVE-2026-62896](#cve-2026-62896), [CVE-2026-65667](#cve-2026-65667).
-
 ## CVE-2026-65668
 
 Microsoft Purview eDiscovery contains an improper access control vulnerability that allows an authenticated attacker to perform a privilege escalation attack over the network. Detection should focus on monitoring unauthorized account role modifications or unexpected administrative actions within the Purview compliance console.
@@ -392,8 +283,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68480
 
-Related in this roundup: [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
-
 ## CVE-2026-64564
 
 CVE-2026-64564 involves a vulnerability in the SCTP (Stream Control Transmission Protocol) implementation within Microsoft Windows. The issue occurs during DEL-IP processing, where the ASCONF (Address Configuration Change Chunk) packet handling incorrectly attempts to free its own transport, potentially leading to a use-after-free or memory management error.
@@ -402,8 +291,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64564
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-64590
 
@@ -422,8 +309,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54876
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-44605
 
@@ -461,8 +346,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578
 
-Related in this roundup: [CVE-2026-68097](#cve-2026-68097), [CVE-2026-68130](#cve-2026-68130), [CVE-2026-68099](#cve-2026-68099), [CVE-2026-68098](#cve-2026-68098).
-
 ## CVE-2024-21380
 
 CVE-2024-21380 is an information disclosure vulnerability affecting Microsoft Dynamics Business Central and Dynamics NAV. The disclosure indicates an informational update to build numbers provided by Microsoft in the Security Update Guide, with no functional changes described in the provided content.
@@ -482,8 +365,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2308
 
-Related in this roundup: [CVE-2025-2309](#cve-2025-2309).
-
 ## CVE-2025-2309
 
 CVE-2025-2309 refers to a heap-based buffer overflow vulnerability identified in the HDF5 library specifically within the H5T__bit_copy type conversion logic. The vulnerability could potentially lead to memory corruption or arbitrary code execution if an attacker provides a maliciously crafted HDF5 file to an application utilizing the affected library code for data processing.
@@ -492,8 +373,6 @@ Affected products:
 - HDF5
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2309
-
-Related in this roundup: [CVE-2025-2308](#cve-2025-2308).
 
 ## CVE-2026-68097
 
@@ -504,8 +383,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68097
 
-Related in this roundup: [CVE-2026-64578](#cve-2026-64578), [CVE-2026-68130](#cve-2026-68130), [CVE-2026-68099](#cve-2026-68099), [CVE-2026-68098](#cve-2026-68098).
-
 ## CVE-2026-68388
 
 CVE-2026-68388 addresses a vulnerability in the SMB client component of the Windows operating system related to the improper handling of overlapping allocated ranges during fallocate operations, which may lead to memory corruption or instability.
@@ -514,8 +391,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68388
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-68187
 
@@ -541,8 +416,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68189
 
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
-
 ## CVE-2026-68312
 
 CVE-2026-68312 describes a memory leak vulnerability in the CIFS (Common Internet File System) implementation within the Windows kernel. The issue specifically occurs in the deferred close drain paths when a kmalloc memory allocation fails, leading to a cifsFileInfo object leak, which could potentially be leveraged for denial-of-service conditions.
@@ -551,8 +424,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68312
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-68130
 
@@ -563,8 +434,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130
 
-Related in this roundup: [CVE-2026-64578](#cve-2026-64578), [CVE-2026-68097](#cve-2026-68097), [CVE-2026-68099](#cve-2026-68099), [CVE-2026-68098](#cve-2026-68098).
-
 ## CVE-2026-68176
 
 CVE-2026-68176 describes a vulnerability in mmiotrace involving a potential NULL pointer dereferencing issue regarding the hiter->dev pointer. This flaw could lead to a system crash or unstable behavior when handled improperly during tracing operations.
@@ -573,8 +442,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-68145
 
@@ -603,8 +470,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68118
 
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
-
 ## CVE-2026-68175
 
 CVE-2026-68175 refers to a resource leak vulnerability identified within the mmiotrace trace_pipe close function in Microsoft Windows, which could potentially be leveraged for local denial-of-service conditions or resource exhaustion.
@@ -613,8 +478,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68175
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-68328
 
@@ -625,8 +488,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328
 
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
-
 ## CVE-2026-68406
 
 CVE-2026-68406 identifies a vulnerability in the wifi cfg80211 subsystem where the PMSR FTM preamble range is improperly validated. This flaw can potentially lead to memory corruption or instability within the wireless driver stack, necessitating a security update to ensure proper bounds checking for wireless frame parameters.
@@ -635,8 +496,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68406
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-68317
 
@@ -647,8 +506,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68317
 
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
-
 ## CVE-2026-68099
 
 CVE-2026-68099 is a vulnerability in the ksmbd component within Microsoft Windows, where an integer overflow check in check_add_overflow() fails to correctly restore DACL size, potentially leading to the processing of malformed ACLs. This flaw could be exploited to cause memory corruption or denial of service conditions by submitting specially crafted SMB packets.
@@ -657,8 +514,6 @@ Affected products:
 - ksmbd
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68099
-
-Related in this roundup: [CVE-2026-64578](#cve-2026-64578), [CVE-2026-68097](#cve-2026-68097), [CVE-2026-68130](#cve-2026-68130), [CVE-2026-68098](#cve-2026-68098).
 
 ## CVE-2026-68354
 
@@ -669,8 +524,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68354
 
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
-
 ## CVE-2026-68326
 
 CVE-2026-68326 is a vulnerability within the mwifiex Wi-Fi driver, specifically involving improper bounds checking of uAP association event Information Elements (IEs) against the event buffer. This flaw could potentially allow for memory corruption or other impacts depending on how the driver processes malformed association packets.
@@ -679,8 +532,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68326
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-68151
 
@@ -691,8 +542,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151
 
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
-
 ## CVE-2026-68343
 
 CVE-2026-68343 describes a vulnerability in the Microsoft SMB client related to the validation of DFS referral PathConsumed. This flaw potentially allows an attacker to manipulate path validation logic within SMB communications.
@@ -702,8 +551,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343
 
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
-
 ## CVE-2026-68184
 
 CVE-2026-68184 describes a stack-based out-of-bounds read vulnerability within the CDROMVOLCTRL functionality of the Windows CD-ROM driver. This flaw could potentially be leveraged by an attacker to read sensitive data from the stack, though specific exploitation vectors are not detailed beyond the vulnerability type.
@@ -712,8 +559,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-68124
 
@@ -742,8 +587,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68322
 
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
-
 ## CVE-2026-68214
 
 CVE-2026-68214 identifies a use-after-free vulnerability located in the rtl2832 driver's remove function (rtl2832_remove) within the Windows kernel. This flaw could potentially be leveraged to trigger system instability or lead to memory corruption, requiring a kernel-level security update to address the lifetime management of the driver object.
@@ -752,8 +595,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68214
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-68327
 
@@ -773,8 +614,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68188
 
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304).
-
 ## CVE-2026-68132
 
 CVE-2026-68132 is a vulnerability addressed by Microsoft that involves a deadlock condition occurring during the emergency thaw process on frozen block devices within the Windows operating system.
@@ -783,8 +622,6 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68132
-
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68304](#cve-2026-68304).
 
 ## CVE-2026-68304
 
@@ -795,8 +632,6 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68304
 
-Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132).
-
 ## CVE-2026-68098
 
 CVE-2026-68098 is a vulnerability in the ksmbd kernel-mode SMB server component within Microsoft Windows. The issue involves improper handling of DACL (Discretionary Access Control List) deduplication during ACE (Access Control Entry) copying operations, which may lead to memory safety issues when processing malformed requests.
@@ -806,4 +641,11 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68098
 
-Related in this roundup: [CVE-2026-64578](#cve-2026-64578), [CVE-2026-68097](#cve-2026-68097), [CVE-2026-68130](#cve-2026-68130), [CVE-2026-68099](#cve-2026-68099).
+## CVE-2026-68348
+
+CVE-2026-68348 involves an issue in the ASoC (ALSA System on Chip) subsystem specifically related to the tas2781 audio amplifier driver, where firmware description string parsing is not properly bounded, potentially leading to memory corruption or related stability issues.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68348
