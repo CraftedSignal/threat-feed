@@ -3,6 +3,7 @@ title: Unauthenticated Arbitrary File Write in AVideo
 slug: 2026-08-avideo-arbitrary-file-write
 description: An unauthenticated arbitrary file write vulnerability (CVE-2026-72748) in the AVideo aVideoEncoderChunk.json.php endpoint allows remote attackers to upload arbitrary content to the server, potentially leading to remote code execution.
 date: "2026-08-11T14:02:13Z"
+lastmod: "2026-08-11T14:03:21Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ tags:
   - rce
   - file-write
   - cve-2026-72748
+  - web-application
+  - xss
+  - injection
 vendors:
   - WWBN
 products:
@@ -30,6 +34,12 @@ mitre_ttps:
     technique_name: 'Endpoint Denial of Service: Disk Exhaustion'
     evidence: Attackers can exhaust disk space causing denial of service
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.007
+    technique_name: JavaScript
+    evidence: executing the injected script in the admin's browser session
+    confidence_band: high
 cves:
   - id: CVE-2026-72748
     cvss: 9.1
@@ -37,6 +47,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72748
   - https://github.com/WWBN/AVideo/security/advisories/GHSA-v7p7-jccx-h37c
   - https://www.vulncheck.com/advisories/avideo-unauthenticated-arbitrary-file-write-via-avideoencoderchunk-json-php
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72747
+  - https://github.com/WWBN/AVideo/security/advisories/GHSA-cfvq-r985-84wj
+  - https://github.com/WWBN/AVideo/commit/1adcb75458a3b31058655698a833e8cbde4d0593
 rules:
   - title: Detect CVE-2026-72748 Exploitation Attempt
     description: Detects unauthenticated HTTP PUT requests to the aVideoEncoderChunk.json.php endpoint
@@ -48,7 +61,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-72747 Exploitation - XSS via Registration Phone Field
+    description: Detects potential exploitation attempts where a script tag is injected into the phone field during AVideo user registration.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -66,6 +89,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-72748
       evidence: Vendor security advisory GHSA-v7p7-jccx-h37c
+updates:
+  - at: "2026-08-11T14:03:21Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-72747 Exploitation - XSS via Registration Phone Field'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72747
 ---
 
 AVideo, an open-source video platform, contains a critical vulnerability (CVE-2026-72748) in the `aVideoEncoderChunk.json.php` endpoint. This vulnerability allows remote, unauthenticated attackers to perform an arbitrary file write to the server's filesystem using HTTP PUT requests. The flaw permits the upload of files up to 4 GB in size. This can be used by attackers to exhaust server disk space (causing a denial-of-service condition), poison the video encoding pipeline, or, if chained with local file inclusion (LFI) vulnerabilities, achieve remote code execution. Defenders should prioritize patching or restricting access to the affected endpoint immediately.
