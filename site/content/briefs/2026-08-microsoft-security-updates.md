@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:13:41Z"
+lastmod: "2026-08-11T10:13:44Z"
 type: threat
 types:
   - threat
@@ -106,23 +106,18 @@ cves:
   - id: CVE-2026-68388
   - id: CVE-2026-68187
   - id: CVE-2026-68152
+  - id: CVE-2026-68189
   - id: CVE-2026-68312
   - id: CVE-2026-68130
   - id: CVE-2026-68176
+  - id: CVE-2026-68145
   - id: CVE-2026-68318
   - id: CVE-2026-68118
   - id: CVE-2026-68406
   - id: CVE-2026-68151
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184
 updates:
-  - at: "2026-08-11T10:04:04Z"
-    level: L2
-    summary: added CVE-2025-2308 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328
   - at: "2026-08-11T10:04:52Z"
     level: L2
     summary: added CVE-2026-65668 +2
@@ -151,9 +146,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343
+  - at: "2026-08-11T10:13:44Z"
+    level: L2
+    summary: added CVE-2026-68145 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184
 ---
 
-This roundup covers 46 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
+This roundup covers 47 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
 
 ## Summary
 
@@ -205,6 +207,7 @@ This roundup covers 46 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68354 | 0.0 | Windows | CVE-2026-68354 refers to a vulnerability within the Windows firewire network driver stack involving improper handling of fragmented datagram reassembly, which may allow for potential exploitation during network packet processing. |
 | CVE-2026-68326 | 0.0 | Windows | CVE-2026-68326 is a vulnerability within the mwifiex Wi-Fi driver, specifically involving improper bounds checking of uAP association event Information Elements (IEs) against the event buffer. This flaw could potentially allow for memory corruption or other impacts depending on how the driver processes malformed association packets. |
 | CVE-2026-68151 | 0.0 | Windows | CVE-2026-68151 identifies a vulnerability within the binfmt_elf_fdpic loader, which incorrectly handles multiple PT_INTERP segments in an ELF file. By only honoring the first PT_INTERP, the implementation may lead to inconsistencies in how executable files are parsed and executed, potentially impacting system security and loader integrity. |
+| CVE-2026-68343 | 0.0 | Windows | CVE-2026-68343 describes a vulnerability in the Microsoft SMB client related to the validation of DFS referral PathConsumed. This flaw potentially allows an attacker to manipulate path validation logic within SMB communications. |
 
 
 ## CVE-2026-50481
@@ -618,3 +621,12 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151
+
+## CVE-2026-68343
+
+CVE-2026-68343 describes a vulnerability in the Microsoft SMB client related to the validation of DFS referral PathConsumed. This flaw potentially allows an attacker to manipulate path validation logic within SMB communications.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343
