@@ -3,7 +3,7 @@ title: Siemens Security Updates - August 2026
 slug: 2026-08-siemens-security-updates
 description: Roundup of Siemens security advisories published in August 2026.
 date: "2026-08-11T14:02:04Z"
-lastmod: "2026-08-11T14:02:34Z"
+lastmod: "2026-08-11T14:02:40Z"
 type: threat
 types:
   - threat
@@ -25,17 +25,15 @@ cves:
   - id: CVE-2026-50060
     cvss: 7.8
   - id: CVE-2026-50061
+    product: Solid Edge SE2025 (< V225.0 Update 15)
+    cvss: 7.8
+  - id: CVE-2026-50062
+    cvss: 7.8
+  - id: CVE-2026-50063
     cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-50061
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-50063
 updates:
-  - at: "2026-08-11T14:02:04Z"
-    level: L1
-    summary: posted roundup
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-58115
   - at: "2026-08-11T14:02:25Z"
     level: L2
     summary: added CVE-2026-50058 +3
@@ -46,9 +44,16 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-50059
       - https://nvd.nist.gov/vuln/detail/CVE-2026-50060
       - https://nvd.nist.gov/vuln/detail/CVE-2026-50061
+  - at: "2026-08-11T14:02:40Z"
+    level: L2
+    summary: added CVE-2026-50062 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-50063
 ---
 
-This roundup covers 4 Siemens security vulnerabilities. CVSS base scores range from 7.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect SIMATIC IoT2050 Advanced, Solid Edge SE2025.
+This roundup covers 6 Siemens security vulnerabilities. CVSS base scores range from 7.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect SIMATIC IoT2050 Advanced, Solid Edge SE2025.
 
 ## Summary
 
@@ -58,6 +63,8 @@ This roundup covers 4 Siemens security vulnerabilities. CVSS base scores range f
 | [CVE-2026-50058](#cve-2026-50058) | Solid Edge SE2025 (< V225.0 Update 15) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50058) (authoritative) |
 | [CVE-2026-50059](#cve-2026-50059) | n/a | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50059) (authoritative) |
 | [CVE-2026-50060](#cve-2026-50060) | n/a | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50060) (authoritative) |
+| [CVE-2026-50061](#cve-2026-50061) | Solid Edge SE2025 (< V225.0 Update 15) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50061) (authoritative) |
+| [CVE-2026-50062](#cve-2026-50062) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50062) (authoritative) |
 
 
 ## CVE-2026-58115
@@ -79,6 +86,9 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-50058
 
+
+Related in this roundup: [CVE-2026-50061](#cve-2026-50061).
+
 ## CVE-2026-50059
 
 Siemens Solid Edge SE2025 and SE2026 are vulnerable to an out-of-bounds write when parsing specially crafted DFT files. An attacker could exploit this vulnerability to execute arbitrary code within the context of the current process, typically requiring user interaction.
@@ -90,3 +100,22 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-50059
 A use-after-free vulnerability exists in Siemens Solid Edge SE2025 and SE2026 due to improper handling of specially crafted DFT files. An attacker could exploit this by tricking a user into opening a malicious DFT file, leading to potential arbitrary code execution within the context of the Solid Edge application process.
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-50060
+
+## CVE-2026-50061
+
+A use-after-free vulnerability exists in Siemens Solid Edge SE2025 and SE2026 software when parsing specially crafted DFT files. An attacker could exploit this vulnerability to execute arbitrary code within the context of the current process, typically requiring user interaction.
+
+Affected products:
+- Solid Edge SE2025 (< V225.0 Update 15)
+- Solid Edge SE2026 (< V226.0 Update 7)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-50061
+
+
+Related in this roundup: [CVE-2026-50058](#cve-2026-50058).
+
+## CVE-2026-50062
+
+An out-of-bounds read vulnerability exists in Siemens Solid Edge SE2025 and SE2026 when parsing maliciously crafted PAR files. Successful exploitation of this vulnerability could allow an attacker to achieve code execution within the context of the running application process.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-50062
