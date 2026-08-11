@@ -3,11 +3,15 @@ title: 'CVE-2026-3576: Planyo WordPress Plugin Vulnerable to SSRF and LFI'
 slug: 2026-07-planyo-wordpress-ssrf-lfi
 description: The Planyo Online Reservation System plugin for WordPress, in all versions up to and including 3.0, is vulnerable to Server-Side Request Forgery (SSRF) leading to Local File Inclusion (LFI), allowing an unauthenticated attacker to exploit the `ulap.php` file by supplying a `file://` URL that bypasses the host allowlist, reading arbitrary local files on the server and retrieving their contents in the HTTP response, potentially disclosing sensitive data.
 date: "2026-07-11T05:20:30Z"
+lastmod: "2026-08-11T14:05:55Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://www.exploit-db.com/exploits/52636
 tags:
   - wordpress
   - plugin
@@ -38,8 +42,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-3576
     cvss: 7.2
+    epss: 0.0039
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-3576
+  - https://www.exploit-db.com/exploits/52636
 rules:
   - title: Detects CVE-2026-3576 Exploitation - Planyo WordPress Plugin SSRF/LFI
     description: Detects CVE-2026-3576 exploitation by identifying HTTP POST requests to the Planyo WordPress plugin's ulap.php endpoint with a file://localhost/ URI in the query string, indicative of SSRF leading to LFI.
@@ -53,6 +59,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-08-11T14:05:55Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - exploit-db
+    source_urls:
+      - https://www.exploit-db.com/exploits/52636
 ---
 
 The Planyo Online Reservation System plugin for WordPress, in all versions up to and including 3.0, contains a critical Server-Side Request Forgery (SSRF) vulnerability, identified as CVE-2026-3576, which can be leveraged for Local File Inclusion (LFI). The `ulap.php` file, functioning as an AJAX proxy, is directly accessible without requiring WordPress bootstrapping or any authentication. This vulnerability arises because the `send_http_post()` function validates the host of a provided URL against an allowlist that includes 'localhost' but critically fails to validate the URL scheme or protocol. This oversight allows unauthenticated attackers to supply a `file://` URL, such as `file://localhost/etc/passwd`, which bypasses the host allowlist check because `parse_url()` correctly identifies 'localhost' as the host. The malicious URL is then processed by `curl_init()` or `fopen()`, both of which support the `file://` protocol, enabling the attacker to read arbitrary local files on the server and receive their contents in the HTTP response. This flaw can lead to the disclosure of highly sensitive information, including system configuration files like `/etc/passwd` and WordPress specific credentials in `wp-config.php`.
