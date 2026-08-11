@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:07:26Z"
+lastmod: "2026-08-11T10:11:09Z"
 type: threat
 types:
   - threat
@@ -78,6 +78,9 @@ cves:
     epss: 0.00417
   - id: CVE-2026-68480
     epss: 0.00205
+  - id: CVE-2026-64564
+    cvss: 9.8
+    epss: 0.00476
   - id: CVE-2026-64590
     epss: 0.00156
   - id: CVE-2026-54876
@@ -107,16 +110,11 @@ cves:
   - id: CVE-2026-68130
   - id: CVE-2026-68176
   - id: CVE-2026-68118
+  - id: CVE-2026-68406
+  - id: CVE-2026-68151
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68099
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151
 updates:
-  - at: "2026-08-11T10:03:45Z"
-    level: L2
-    summary: added CVE-2026-68187
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68118
   - at: "2026-08-11T10:03:56Z"
     level: L2
     summary: added CVE-2026-64573 +1
@@ -145,9 +143,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68099
+  - at: "2026-08-11T10:11:09Z"
+    level: L2
+    summary: added CVE-2026-64564 +2
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151
 ---
 
-This roundup covers 42 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
+This roundup covers 45 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
 
 ## Summary
 
@@ -195,6 +200,9 @@ This roundup covers 42 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68328 | 0.0 | Windows | CVE-2026-68328 identifies a vulnerability within the Windows nfp (Near-Field Proximity) driver related to resource mutex allocation, as reported by the Microsoft Security Response Center. |
 | CVE-2026-68406 | 0.0 | Windows | CVE-2026-68406 identifies a vulnerability in the wifi cfg80211 subsystem where the PMSR FTM preamble range is improperly validated. This flaw can potentially lead to memory corruption or instability within the wireless driver stack, necessitating a security update to ensure proper bounds checking for wireless frame parameters. |
 | CVE-2026-68317 | 0.0 | Windows | CVE-2026-68317 refers to a vulnerability in pds_core involving race conditions during auxiliary device addition or deletion. The issue requires patching to ensure stability and prevent potential exploitation via race conditions. |
+| CVE-2026-68099 | 0.0 | ksmbd | CVE-2026-68099 is a vulnerability in the ksmbd component within Microsoft Windows, where an integer overflow check in check_add_overflow() fails to correctly restore DACL size, potentially leading to the processing of malformed ACLs. This flaw could be exploited to cause memory corruption or denial of service conditions by submitting specially crafted SMB packets. |
+| CVE-2026-68354 | 0.0 | Windows | CVE-2026-68354 refers to a vulnerability within the Windows firewire network driver stack involving improper handling of fragmented datagram reassembly, which may allow for potential exploitation during network packet processing. |
+| CVE-2026-68326 | 0.0 | Windows | CVE-2026-68326 is a vulnerability within the mwifiex Wi-Fi driver, specifically involving improper bounds checking of uAP association event Information Elements (IEs) against the event buffer. This flaw could potentially allow for memory corruption or other impacts depending on how the driver processes malformed association packets. |
 
 
 ## CVE-2026-50481
@@ -572,3 +580,30 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68317
+
+## CVE-2026-68099
+
+CVE-2026-68099 is a vulnerability in the ksmbd component within Microsoft Windows, where an integer overflow check in check_add_overflow() fails to correctly restore DACL size, potentially leading to the processing of malformed ACLs. This flaw could be exploited to cause memory corruption or denial of service conditions by submitting specially crafted SMB packets.
+
+Affected products:
+- ksmbd
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68099
+
+## CVE-2026-68354
+
+CVE-2026-68354 refers to a vulnerability within the Windows firewire network driver stack involving improper handling of fragmented datagram reassembly, which may allow for potential exploitation during network packet processing.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68354
+
+## CVE-2026-68326
+
+CVE-2026-68326 is a vulnerability within the mwifiex Wi-Fi driver, specifically involving improper bounds checking of uAP association event Information Elements (IEs) against the event buffer. This flaw could potentially allow for memory corruption or other impacts depending on how the driver processes malformed association packets.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68326
