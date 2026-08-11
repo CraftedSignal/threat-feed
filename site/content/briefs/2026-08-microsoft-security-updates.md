@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:04:04Z"
+lastmod: "2026-08-11T10:04:52Z"
 type: threat
 types:
   - threat
@@ -22,6 +22,7 @@ cpes:
   - cpe:2.3:a:microsoft:azure_confidential_ledger:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:sharepoint_online:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:azure_sql_managed_instance:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:purview_ediscovery:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:dynamics_365_business_central:2022:release_wave_2:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:dynamics_365_business_central:2023:release_wave_1:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:dynamics_365_business_central:2023:release_wave_2:*:*:*:*:*:*
@@ -72,6 +73,11 @@ cves:
   - id: CVE-2026-62836
     cvss: 8.7
     epss: 0.00359
+  - id: CVE-2026-65668
+    cvss: 8.8
+    epss: 0.00417
+  - id: CVE-2026-68480
+    epss: 0.00205
   - id: CVE-2026-54876
     cvss: 7.5
     epss: 0.00261
@@ -92,6 +98,7 @@ cves:
     cvss: 5.3
     epss: 0.00402
   - id: CVE-2026-68097
+  - id: CVE-2026-68388
   - id: CVE-2026-68187
   - id: CVE-2026-68152
   - id: CVE-2026-68312
@@ -99,15 +106,8 @@ cves:
   - id: CVE-2026-68176
   - id: CVE-2026-68118
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68406
 updates:
-  - at: "2026-08-11T10:01:02Z"
-    level: L2
-    summary: added CVE-2024-21380 +3
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176
   - at: "2026-08-11T10:01:15Z"
     level: L2
     summary: added CVE-2026-68130 +2
@@ -136,9 +136,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328
+  - at: "2026-08-11T10:04:52Z"
+    level: L2
+    summary: added CVE-2026-65668 +2
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68406
 ---
 
-This roundup covers 39 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
+This roundup covers 40 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
 
 ## Summary
 
@@ -169,7 +176,7 @@ This roundup covers 39 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-64565 | 0.0 | ims-pcu | CVE-2026-64565 refers to a heap-based buffer overflow vulnerability located within the ims_pcu_process_data() function of the ims-pcu component, potentially allowing for memory corruption or arbitrary code execution. |
 | CVE-2026-64578 | 8.2 | ksmbd | CVE-2026-64578 identifies a vulnerability in the ksmbd kernel-mode SMB server, where insufficient validation of compound request sizes before reading StructureSize2 can lead to memory safety issues. Detection engineering should focus on monitoring SMB traffic patterns for malformed or oversized requests that could trigger improper bounds handling. |
 | CVE-2024-21380 | 8.0 | Dynamics Business Central | CVE-2024-21380 is an information disclosure vulnerability affecting Microsoft Dynamics Business Central and Dynamics NAV. The disclosure indicates an informational update to build numbers provided by Microsoft in the Security Update Guide, with no functional changes described in the provided content. |
-| CVE-2025-2308 | 0.0 | HDF5 | CVE-2025-2308 is a heap-based buffer overflow vulnerability residing in the H5Z__scaleoffset_decompress_one_byte function within the HDF5 scale-offset filter, potentially allowing for arbitrary code execution if a maliciously crafted HDF5 file is processed. |
+| CVE-2025-2308 | 5.3 | HDF5 | CVE-2025-2308 is a heap-based buffer overflow vulnerability residing in the H5Z__scaleoffset_decompress_one_byte function within the HDF5 scale-offset filter, potentially allowing for arbitrary code execution if a maliciously crafted HDF5 file is processed. |
 | CVE-2025-2309 | 0.0 | HDF5 | CVE-2025-2309 refers to a heap-based buffer overflow vulnerability identified in the HDF5 library specifically within the H5T__bit_copy type conversion logic. The vulnerability could potentially lead to memory corruption or arbitrary code execution if an attacker provides a maliciously crafted HDF5 file to an application utilizing the affected library code for data processing. |
 | CVE-2026-68097 | 0.0 | ksmbd | CVE-2026-68097 identifies a vulnerability in ksmbd where the software fails to properly validate the size of an Access Control Entry (ACE) against the number of Security Identifier (SID) sub-authorities. This vulnerability could potentially lead to memory corruption or other instability issues when processing malicious SMB traffic. |
 | CVE-2026-68388 | 0.0 | Windows | CVE-2026-68388 addresses a vulnerability in the SMB client component of the Windows operating system related to the improper handling of overlapping allocated ranges during fallocate operations, which may lead to memory corruption or instability. |
@@ -183,6 +190,7 @@ This roundup covers 39 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68318 | 0.0 | pds_core | CVE-2026-68318 is a vulnerability in pds_core involving a use-after-free condition triggered during the removal process of a workqueue. The issue arises due to improper memory management, which could potentially be exploited to cause a system crash or arbitrary code execution. |
 | CVE-2026-68118 | 0.0 | Windows | CVE-2026-68118 describes a vulnerability in the TCP stack implementation where improper handling of challenge ACKs for non-exact RST packets in the SYN-RECEIVED state can be exploited to cause a denial-of-service condition or disrupt network connections. |
 | CVE-2026-68175 | 0.0 | Windows | CVE-2026-68175 refers to a resource leak vulnerability identified within the mmiotrace trace_pipe close function in Microsoft Windows, which could potentially be leveraged for local denial-of-service conditions or resource exhaustion. |
+| CVE-2026-68328 | 0.0 | Windows | CVE-2026-68328 identifies a vulnerability within the Windows nfp (Near-Field Proximity) driver related to resource mutex allocation, as reported by the Microsoft Security Response Center. |
 
 
 ## CVE-2026-50481
@@ -533,3 +541,12 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68175
+
+## CVE-2026-68328
+
+CVE-2026-68328 identifies a vulnerability within the Windows nfp (Near-Field Proximity) driver related to resource mutex allocation, as reported by the Microsoft Security Response Center.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328
