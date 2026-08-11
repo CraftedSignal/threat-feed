@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-08-05T21:15:08Z"
+lastmod: "2026-08-11T07:48:24Z"
 type: advisory
 types:
   - advisory
@@ -35,6 +35,11 @@ vendors:
   - Python Software Foundation
   - npm
   - axios
+  - Fortinet
+  - Teltonika
+  - WAGO
+  - Siemens
+  - Moxa
 products:
   - open source packages
   - GitHub repositories
@@ -73,6 +78,12 @@ products:
   - npm
   - Docker Hub
   - axios
+  - FortiGate
+  - RUTX50
+  - PFC200
+  - S7-300
+  - S7-1200
+  - S7-1500
 affected_os:
   - Windows
   - macOS
@@ -89,6 +100,7 @@ references:
   - https://cloud.google.com/blog/topics/threat-intelligence/mitigation-guidance-for-supply-chain-compromise/
   - https://www.malware-traffic-analysis.net/2026/07/31/index.html
   - https://www.microsoft.com/en-us/security/blog/2026/08/05/macos-clickfix-campaign-learned-hide/
+  - https://thehackernews.com/2026/08/hackers-breach-polish-power-plant.html
 iocs:
   - type: domain
     value: justwatch.com
@@ -125,13 +137,6 @@ ioc_counts:
   ip: 1
   url: 4
 updates:
-  - at: "2026-07-16T12:45:34Z"
-    level: L1
-    summary: OS macos
-    sources:
-      - securityweek
-    source_urls:
-      - https://www.securityweek.com/clicklock-stealer-bypasses-macos-security-with-social-engineering-process-killing/
   - at: "2026-07-24T16:21:05Z"
     level: L1
     summary: new IOCs
@@ -160,6 +165,13 @@ updates:
       - microsoft-threat-intel
     source_urls:
       - https://www.microsoft.com/en-us/security/blog/2026/08/05/macos-clickfix-campaign-learned-hide/
+  - at: "2026-08-11T07:48:24Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/08/hackers-breach-polish-power-plant.html
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
