@@ -3,11 +3,15 @@ title: LuCI DHCPv6 Lease Hostname Stored Cross-Site Scripting Vulnerability (CVE
 slug: 2026-07-luci-dhcpv6-xss
 description: LuCI versions are vulnerable to CVE-2026-61876, a stored Cross-Site Scripting (XSS) flaw in their DHCPv6 lease hostname rendering logic, allowing an adjacent network attacker to inject malicious HTML markup that executes in an administrator's browser when viewing DHCP lease status pages.
 date: "2026-07-12T12:26:40Z"
+lastmod: "2026-08-11T14:05:52Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://www.exploit-db.com/exploits/52637
 tags:
   - xss
   - web-vulnerability
@@ -30,10 +34,20 @@ mitre_ttps:
 cves:
   - id: CVE-2026-61876
     cvss: 8.8
+    epss: 0.002
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61876
   - https://github.com/openwrt/luci/security/advisories/GHSA-686p-p8p9-x6fh
   - https://www.vulncheck.com/advisories/luci-dhcpv6-lease-hostname-stored-cross-site-scripting
+  - https://www.exploit-db.com/exploits/52637
+updates:
+  - at: "2026-08-11T14:05:52Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - exploit-db
+    source_urls:
+      - https://www.exploit-db.com/exploits/52637
 ---
 
 CVE-2026-61876 identifies a high-severity stored Cross-Site Scripting (XSS) vulnerability affecting LuCI, the default web interface for OpenWrt-based routers and network devices. This flaw arises from LuCI's failure to properly encode DHCPv6 lease hostnames before displaying them in administrative status tables. An attacker with adjacent network access can craft a malicious DHCPv6 Client FQDN containing script tags or other HTML markup. When an administrator subsequently views the DHCPv6 lease status page within the LuCI web interface, the injected malicious code executes in their browser. This client-side code execution can lead to various compromises within the administrative session, including session hijacking, credential theft, or unauthorized actions within the LuCI interface.
