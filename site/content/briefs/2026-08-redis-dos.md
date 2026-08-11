@@ -3,6 +3,7 @@ title: Redis Vulnerability Enables Denial of Service and Information Disclosure
 slug: 2026-08-redis-dos
 description: A vulnerability in Redis allows an attacker located in an adjacent network to trigger a Denial of Service condition and perform unauthorized information disclosure.
 date: "2026-08-11T11:35:23Z"
+lastmod: "2026-08-11T11:39:43Z"
 type: advisory
 types:
   - advisory
@@ -19,8 +20,12 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: Ein Angreifer aus einem angrenzenden Netzwerk kann eine Schwachstelle in Redis ausnutzen, um einen Denial of Service Angriff durchzuführen und Informationen offenzulegen.
     confidence_band: high
+cves:
+  - id: CVE-2026-72568
+    cvss: 7.1
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2745
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-72568
 action_plan:
   priority: elevated
   owners:
@@ -37,6 +42,14 @@ action_plan:
       owner: IT Operations
       addresses: Redis
       evidence: Security advisory reports vulnerability requiring remediation.
+updates:
+  - at: "2026-08-11T11:39:43Z"
+    level: L2
+    summary: added CVE-2026-72568
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-72568
 ---
 
 The German Federal Office for Information Security (BSI) has reported a vulnerability in Redis that impacts availability and data confidentiality. The vulnerability allows an attacker positioned within an adjacent network to execute a Denial of Service (DoS) attack against the Redis service, potentially causing service instability or total unavailability. Additionally, the flaw enables the unauthorized disclosure of information held within the Redis instance. As of the report date, specific patch availability or version numbers were not explicitly detailed, requiring administrators to monitor official Redis project channels for security updates. This vulnerability is critical for environments where Redis instances are exposed to adjacent networks without strict segmentation or access control.
