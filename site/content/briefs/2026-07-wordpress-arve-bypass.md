@@ -3,6 +3,7 @@ title: Authentication Bypass in Advanced Responsive Video Embedder WordPress Plu
 slug: 2026-07-wordpress-arve-bypass
 description: A critical authentication bypass vulnerability, CVE-2026-18072, affects version 10.8.7 of the Advanced Responsive Video Embedder for Rumble, Odysee, YouTube, Vimeo, Kick … plugin for WordPress, allowing unauthenticated attackers to gain full administrative control by supplying a hardcoded token via the `_wplogin` or `_wpm` URL parameter.
 date: "2026-07-29T05:21:46Z"
+lastmod: "2026-08-11T06:48:07Z"
 type: advisory
 types:
   - advisory
@@ -12,8 +13,18 @@ tags:
   - wordpress
   - authentication-bypass
   - web-vulnerability
+vendors:
+  - BdThemes
+  - WordPress
 products:
   - Advanced Responsive Video Embedder for Rumble, Odysee, YouTube, Vimeo, Kick … plugin (10.8.7)
+  - Element Pack Addons for Elementor (bdthemes-element-pack-lite)
+  - Live Copy Paste for Elementor (live-copy-paste)
+  - Pixel Gallery Addons for Elementor (pixel-gallery)
+  - Prime Slider Addons for Elementor (bdthemes-prime-slider-lite)
+  - Smart Admin Assistant (smart-admin-assistant)
+  - Ultimate Post Kit Addons for Elementor (ultimate-post-kit)
+  - Ultimate Store Kit (ultimate-store-kit)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -33,11 +44,14 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: unauthenticated attackers can supply the known token to be authenticated as an arbitrarily selected existing administrator account, gaining full administrative control over the affected WordPress site.
     confidence_band: high
-cves:
-  - id: CVE-2026-18072
-    cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18072
+  - https://thehackernews.com/2026/08/bdthemes-supply-chain-attack-poisons.html
+iocs:
+  - type: domain
+    value: ia-cdn.com
+ioc_counts:
+  domain: 1
 rules:
   - title: Detects CVE-2026-18072 Exploitation - Authentication Bypass Attempt
     description: Detects attempts to exploit CVE-2026-18072 by looking for the `_wplogin` or `_wpm` parameters in HTTP requests, which are used to trigger the hardcoded backdoor in the Advanced Responsive Video Embedder WordPress plugin.
@@ -51,6 +65,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-08-11T06:48:07Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/08/bdthemes-supply-chain-attack-poisons.html
 ---
 
 CVE-2026-18072 identifies a critical authentication bypass vulnerability in version 10.8.7 of the Advanced Responsive Video Embedder for Rumble, Odysee, YouTube, Vimeo, Kick … plugin for WordPress. This flaw arises from a hardcoded backdoor within the `_arve_uc_init()` function, which is registered on WordPress's `init` hook with priority 1, ensuring it executes before standard authentication checks. Unauthenticated attackers can exploit this by supplying a specific, hardcoded SHA-256 token via the `_wplogin` or `_wpm` URL parameter. The function compares the provided token against the static hash embedded directly in the plugin's source code, completely bypassing nonce verification, capability checks, and password validation. This allows attackers to authenticate as any existing administrator account, thereby achieving full administrative control over the affected WordPress site. The presence of this backdoor suggests it may have been maliciously introduced by an attacker who gained commit access to the plugin developers' account.
