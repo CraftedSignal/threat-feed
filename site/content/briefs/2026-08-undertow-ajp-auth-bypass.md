@@ -3,6 +3,7 @@ title: Undertow AJP Authentication Bypass via CVE-2026-15554
 slug: 2026-08-undertow-ajp-auth-bypass
 description: The Undertow AJP listener incorrectly trusts ssl_cert and is_ssl attributes within the AJP protocol without validating a shared secret, allowing unauthenticated attackers to bypass CLIENT-CERT authentication.
 date: "2026-08-11T09:39:50Z"
+lastmod: "2026-08-11T09:50:14Z"
 type: advisory
 types:
   - advisory
@@ -23,11 +24,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: This enables an unauthenticated attacker with direct TCP access to port 8009 to bypass CLIENT-CERT authentication by injecting a forged X.509 certificate via the AJP protocol.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: A remote attacker can cause Out of Memory on websockets endpoint without authentication.
+    confidence_band: high
 cves:
   - id: CVE-2026-15554
     cvss: 7.4
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15554
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-15565
 action_plan:
   priority: elevated
   owners:
@@ -44,6 +52,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-15554
       evidence: NVD vulnerability record
+updates:
+  - at: "2026-08-11T09:50:14Z"
+    level: L1
+    summary: added coverage for Undertow
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-15565
 ---
 
 CVE-2026-15554 is a critical authentication bypass vulnerability affecting the AJP (Apache Jserv Protocol) listener within Red Hat's Undertow web server. The flaw arises because the listener honors the 'ssl_cert' and 'is_ssl' attributes provided within an incoming AJP request packet without requiring a pre-shared secret or cryptographic validation. 
