@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T09:58:04Z"
+lastmod: "2026-08-11T09:58:13Z"
 type: threat
 types:
   - threat
@@ -19,6 +19,7 @@ cpes:
   - cpe:2.3:a:microsoft:windows_admin_center:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:teams:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:planetary_computer:-:*:*:*:pro:*:*:*
+  - cpe:2.3:a:microsoft:azure_confidential_ledger:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:sharepoint_online:-:*:*:*:*:*:*:*
 tags:
   - roundup
@@ -52,6 +53,9 @@ cves:
   - id: CVE-2026-63508
     cvss: 10
     epss: 0.00442
+  - id: CVE-2026-68823
+    cvss: 9.1
+    epss: 0.005
   - id: CVE-2026-70332
     cvss: 9.6
     epss: 0.00481
@@ -68,15 +72,8 @@ cves:
     epss: 0.00317
   - id: CVE-2026-68097
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68312
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130
 updates:
-  - at: "2026-08-11T09:52:12Z"
-    level: L2
-    summary: added CVE-2026-64578
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68097
   - at: "2026-08-11T09:54:46Z"
     level: L2
     summary: added CVE-2026-49163 +1
@@ -105,9 +102,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68312
+  - at: "2026-08-11T09:58:13Z"
+    level: L2
+    summary: added CVE-2026-68823
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130
 ---
 
-This roundup covers 32 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, ksmbd.
+This roundup covers 33 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, ksmbd.
 
 ## Summary
 
@@ -115,7 +119,7 @@ This roundup covers 32 Microsoft security vulnerabilities. None are reported as 
 |-----|------|---------|---------|
 | CVE-2026-50481 | 9.9 | Azure Active Directory | CVE-2026-50481 is a critical vulnerability in Microsoft Azure Active Directory involving the modification of assumed-immutable data (MAID). An authorized attacker can exploit this flaw to escalate privileges within the environment over a network, potentially leading to unauthorized administrative access. |
 | CVE-2026-50515 | 9.9 | Azure Service Bus | CVE-2026-50515 is a critical deserialization of untrusted data vulnerability in Azure Service Bus that permits an authenticated attacker with low privileges to achieve remote code execution. Detection efforts should focus on monitoring anomalous serialized data payloads sent to service bus endpoints and unexpected process execution spawned by the Azure Service Bus service account. |
-| CVE-2026-56161 | 0.0 | Azure Logic Apps | CVE-2026-56161 describes an improper access control vulnerability in Microsoft Azure Logic Apps. An authenticated attacker can exploit this vulnerability to disclose sensitive information over a network. The vulnerability carries a CVSS 3.1 base score of 9.6, indicating a critical risk. |
+| CVE-2026-56161 | 9.6 | Azure Logic Apps | CVE-2026-56161 describes an improper access control vulnerability in Microsoft Azure Logic Apps. An authenticated attacker can exploit this vulnerability to disclose sensitive information over a network. The vulnerability carries a CVSS 3.1 base score of 9.6, indicating a critical risk. |
 | CVE-2026-59115 | 9.9 | Microsoft Entra Provisioning Service | CVE-2026-59115 is a critical path traversal vulnerability in the Microsoft Entra Provisioning Service (SyncFabric). An authorized attacker can leverage this vulnerability by using a specific input string ('.../...//') to elevate their privileges over a network. The vulnerability has a CVSS base score of 9.9, indicating a significant risk to the integrity, confidentiality, and availability of the affected cloud service. |
 | CVE-2026-59118 | 9.3 | Power Apps | CVE-2026-59118 is an improper authorization vulnerability in Microsoft Power Apps that allows an unauthorized attacker to perform a privilege escalation over a network. The vulnerability carries a CVSS 3.1 base score of 9.3, indicating a critical severity impact on confidentiality and integrity, necessitating restricted access controls within the affected cloud service. |
 | CVE-2026-62830 | 9.9 | Azure SRE Agent | A vulnerability in the Azure SRE Agent stemming from missing authorization (CWE-862) allows an already authorized network attacker to perform privilege escalation. The vulnerability is rated critical with a CVSS 3.1 score of 9.9, as it enables full scope impact across confidentiality, integrity, and availability within the cloud environment. |
@@ -145,6 +149,7 @@ This roundup covers 32 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68187 | 0.0 | n/a | CVE-2026-68187 describes an unsigned loop counter wrap vulnerability within the transfer_args_to_stack() function in Microsoft software, potentially allowing for memory corruption or unstable execution states. |
 | CVE-2026-68152 | 0.0 | AMT | CVE-2026-68152 addresses a use-after-free vulnerability within the AMT delayed works component in Microsoft products, which could potentially lead to system instability or arbitrary code execution. |
 | CVE-2026-68189 | 0.0 | Windows | CVE-2026-68189 refers to a vulnerability within the Bluetooth hci_sync component in Microsoft Windows. The issue involves a lack of protection during UUID list traversal, which may lead to memory safety issues or instability during Bluetooth stack operations. |
+| CVE-2026-68312 | 0.0 | Windows | CVE-2026-68312 describes a memory leak vulnerability in the CIFS (Common Internet File System) implementation within the Windows kernel. The issue specifically occurs in the deferred close drain paths when a kmalloc memory allocation fails, leading to a cifsFileInfo object leak, which could potentially be leveraged for denial-of-service conditions. |
 
 
 ## CVE-2026-50481
@@ -432,3 +437,12 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68189
+
+## CVE-2026-68312
+
+CVE-2026-68312 describes a memory leak vulnerability in the CIFS (Common Internet File System) implementation within the Windows kernel. The issue specifically occurs in the deferred close drain paths when a kmalloc memory allocation fails, leading to a cifsFileInfo object leak, which could potentially be leveraged for denial-of-service conditions.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68312
