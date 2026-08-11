@@ -3,6 +3,7 @@ title: Symlink Traversal Vulnerability in go-git
 slug: 2026-08-go-git-symlink-traversal
 description: A symlink traversal vulnerability in the go-git library (CVE-2026-71556) enables unauthorized write access outside of the intended worktree directory when processing malicious symbolic links.
 date: "2026-08-07T21:31:15Z"
+lastmod: "2026-08-11T09:54:24Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,7 @@ vendors:
 products:
   - go-git v5
   - go-git v6
+  - go-git
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -23,9 +25,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-71556
     cvss: 7.1
+    epss: 0.00292
 references:
   - https://github.com/advisories/GHSA-hc8v-wwc9-vgxm
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71556
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-71556
 action_plan:
   priority: elevated
   owners:
@@ -36,6 +40,14 @@ action_plan:
       owner: Security Engineering
       due: 72h
       evidence: Source notes patched versions exist
+updates:
+  - at: "2026-08-11T09:54:24Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-71556
 ---
 
 The go-git library is susceptible to a symlink traversal vulnerability (CVE-2026-71556) affecting versions v5.19.1 and earlier, as well as v6.0.0-alpha.4 and earlier. The vulnerability exists within the worktree filesystem wrapper, which failed to correctly sanitize symbolic links during file operations. While the library previously implemented checks against path strings containing parent-directory components or control characters, it did not account for symbolic links already present in the worktree. An attacker who can influence the content of a Git repository or directory being processed can introduce a symbolic link that points to sensitive locations, such as the .git metadata directory. When the library performs file operations through this path, it follows the symlink, resulting in an escape from the intended directory. This could lead to the modification or truncation of sensitive repository configuration files. Applications that rely on memory-based storage or go-billy/memfs are not affected.
