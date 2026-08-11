@@ -3,7 +3,7 @@ title: Linux Kernel MPLS NULL Pointer Dereference Vulnerability
 slug: 2026-08-linux-mpls-null-deref
 description: A NULL pointer dereference vulnerability in the Linux kernel's MPLS subsystem, specifically affecting configurations where CONFIG_INET is disabled, can lead to a denial-of-service condition.
 date: "2026-08-09T09:34:56Z"
-lastmod: "2026-08-11T10:43:22Z"
+lastmod: "2026-08-11T10:45:26Z"
 type: advisory
 types:
   - advisory
@@ -138,14 +138,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-37884
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-37920
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-37852
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-37959
 updates:
-  - at: "2026-08-11T10:42:32Z"
-    level: L1
-    summary: added coverage for Linux Kernel
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21629
   - at: "2026-08-11T10:42:38Z"
     level: L1
     summary: added coverage for Linux Kernel
@@ -174,6 +168,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-37852
+  - at: "2026-08-11T10:45:26Z"
+    level: L1
+    summary: added coverage for Linux kernel
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-37959
 ---
 
 CVE-2026-64569 describes a vulnerability in the Linux kernel's Multiprotocol Label Switching (MPLS) subsystem. The issue resides in the mpls_valid_fib_dump_req function, which handles validation for FIB dump requests. Research indicates that when the kernel is compiled with CONFIG_INET=n, the function attempts to dereference a NULL pointer, causing a kernel panic and subsequent denial-of-service (DoS) condition. This vulnerability is specific to custom kernel configurations where networking support is stripped of the standard INET protocol suite while retaining MPLS functionality. Defending against this requires kernel updates to address the improper validation logic within the network stack.
