@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T09:58:13Z"
+lastmod: "2026-08-11T10:01:02Z"
 type: threat
 types:
   - threat
@@ -21,6 +21,10 @@ cpes:
   - cpe:2.3:a:microsoft:planetary_computer:-:*:*:*:pro:*:*:*
   - cpe:2.3:a:microsoft:azure_confidential_ledger:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:sharepoint_online:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:azure_sql_managed_instance:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:dynamics_365_business_central:2022:release_wave_2:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:dynamics_365_business_central:2023:release_wave_1:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:dynamics_365_business_central:2023:release_wave_2:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -53,6 +57,9 @@ cves:
   - id: CVE-2026-63508
     cvss: 10
     epss: 0.00442
+  - id: CVE-2026-65667
+    cvss: 10
+    epss: 0.00442
   - id: CVE-2026-68823
     cvss: 9.1
     epss: 0.005
@@ -62,6 +69,12 @@ cves:
   - id: CVE-2026-49163
     cvss: 8.8
     epss: 0.00621
+  - id: CVE-2026-62836
+    cvss: 8.7
+    epss: 0.00359
+  - id: CVE-2026-54876
+    cvss: 7.5
+    epss: 0.00261
   - id: CVE-2026-44605
     cvss: 5.5
     epss: 0.00135
@@ -70,17 +83,13 @@ cves:
   - id: CVE-2026-64578
     cvss: 8.2
     epss: 0.00317
+  - id: CVE-2024-21380
+    cvss: 8
+    epss: 0.01725
   - id: CVE-2026-68097
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176
 updates:
-  - at: "2026-08-11T09:54:46Z"
-    level: L2
-    summary: added CVE-2026-49163 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68388
   - at: "2026-08-11T09:55:20Z"
     level: L2
     summary: added CVE-2026-63508 +1
@@ -109,9 +118,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130
+  - at: "2026-08-11T10:01:02Z"
+    level: L2
+    summary: added CVE-2024-21380 +3
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176
 ---
 
-This roundup covers 33 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, ksmbd.
+This roundup covers 34 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, ksmbd.
 
 ## Summary
 
@@ -127,7 +143,7 @@ This roundup covers 33 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-62896 | 9.6 | Microsoft Teams | Microsoft Teams contains an improper authentication vulnerability that allows an authenticated attacker to perform privilege escalation over a network. This flaw represents a critical security risk due to the potential for unauthorized access elevation within the application environment. |
 | CVE-2026-63508 | 10.0 | Microsoft Planetary Computer Pro (GeoCatalog) | Microsoft Planetary Computer Pro (GeoCatalog) contains a vulnerability due to missing authentication for a critical function. This allows an unauthorized attacker to perform privilege escalation over a network. The vulnerability is classified as critical and has a CVSS base score of 10.0. |
 | CVE-2026-65667 | 0.0 | Microsoft Teams | CVE-2026-65667 is a critical security vulnerability in Microsoft Teams involving missing authorization (CWE-862). This flaw allows a remote, unauthenticated attacker to elevate privileges over a network, potentially leading to unauthorized access to sensitive information and system integrity compromises. |
-| CVE-2026-68823 | 0.0 | Azure Confidential Ledger | CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1. |
+| CVE-2026-68823 | 9.1 | Azure Confidential Ledger | CVE-2026-68823 involves an exposed dangerous method or function in the Azure Confidential Ledger service, which allows an authorized attacker to achieve remote code execution over a network. The vulnerability is classified as CWE-749 and carries a critical CVSS base score of 9.1. |
 | CVE-2026-70332 | 9.6 | SharePoint Online | CVE-2026-70332 is a Server-Side Request Forgery (SSRF) vulnerability in Microsoft SharePoint Online. An unauthenticated attacker can exploit this flaw to perform spoofing over a network, potentially leading to unauthorized information disclosure, interaction with internal services, or further lateral movement within the cloud environment. |
 | CVE-2026-49163 | 8.8 | Application Insights Profiler | Application Insights Profiler is vulnerable to a path traversal flaw (CWE-22) that allows an authorized attacker to elevate their privileges over a network. This vulnerability indicates improper limitation of a pathname to a restricted directory. |
 | CVE-2026-62836 | 0.0 | Azure SQL Managed Instance | CVE-2026-62836 identifies a vulnerability in Azure SQL Managed Instance due to improper restriction of communication channels to intended endpoints. This flaw allows an unauthenticated, remote attacker to escalate privileges over a network connection by exploiting the misconfigured communication path. |
@@ -150,6 +166,7 @@ This roundup covers 33 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68152 | 0.0 | AMT | CVE-2026-68152 addresses a use-after-free vulnerability within the AMT delayed works component in Microsoft products, which could potentially lead to system instability or arbitrary code execution. |
 | CVE-2026-68189 | 0.0 | Windows | CVE-2026-68189 refers to a vulnerability within the Bluetooth hci_sync component in Microsoft Windows. The issue involves a lack of protection during UUID list traversal, which may lead to memory safety issues or instability during Bluetooth stack operations. |
 | CVE-2026-68312 | 0.0 | Windows | CVE-2026-68312 describes a memory leak vulnerability in the CIFS (Common Internet File System) implementation within the Windows kernel. The issue specifically occurs in the deferred close drain paths when a kmalloc memory allocation fails, leading to a cifsFileInfo object leak, which could potentially be leveraged for denial-of-service conditions. |
+| CVE-2026-68130 | 0.0 | ksmbd | CVE-2026-68130 identifies a security vulnerability in the ksmbd component within Microsoft Windows Server. The flaw involves the premature destruction of the previous session before NTLM authentication is fully completed, which could lead to authentication bypass or session handling errors. Security teams should ensure that the provided update is applied to affected server environments to enforce proper session lifecycle management during the authentication handshake. |
 
 
 ## CVE-2026-50481
@@ -446,3 +463,12 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68312
+
+## CVE-2026-68130
+
+CVE-2026-68130 identifies a security vulnerability in the ksmbd component within Microsoft Windows Server. The flaw involves the premature destruction of the previous session before NTLM authentication is fully completed, which could lead to authentication bypass or session handling errors. Security teams should ensure that the provided update is applied to affected server environments to enforce proper session lifecycle management during the authentication handshake.
+
+Affected products:
+- ksmbd
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130
