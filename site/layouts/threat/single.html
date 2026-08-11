@@ -58,6 +58,8 @@
       {{ end }}
     </header>
 
+    {{ partial "brief-cve-search-index.html" . }}
+
     {{/* Two-column on lg+. Main: prose body, detection coverage,
          IOC table - the long-running analysis. Sidebar: every
          analyst-facing reference card (CVEs, MITRE ATT&CK, threat

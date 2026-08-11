@@ -10,7 +10,7 @@ types:
 severities:
   - critical
 cpes:
-  - cpe:2.3:a:flowiseai:flowise:*:*:*:*:*:*:*:*
+  - "cpe:2.3:a:flowiseai:flowise:*:*:*:*:*:*:*:*"
 tags:
   - rce
   - injection
