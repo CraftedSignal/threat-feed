@@ -3,6 +3,7 @@ title: Kimwolf v7 Botnet Evolution and Android IoT Targeting
 slug: 2026-08-kimwolf-v7
 description: Kimwolf v7 is an evolved Android/IoT botnet that leverages unauthenticated ADB access, Ethereum Name Service (ENS) resolution, and HTTP/2 browser fingerprinting to perform resilient DDoS operations.
 date: "2026-08-11T10:25:58Z"
+lastmod: "2026-08-11T20:45:54Z"
 type: advisory
 types:
   - advisory
@@ -51,6 +52,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://unit42.paloaltonetworks.com/kimwolf-v7-botnet-malware/
+  - https://thehackernews.com/2026/08/kimwolf-v7-android-botnet-makes-http2.html
 iocs:
   - type: domain
     value: eth.rpcuniverse.com
@@ -81,6 +83,14 @@ action_plan:
       owner: IT Operations
       addresses: Unauthenticated ADB access
       evidence: Malware spreads by misusing ADB on local networks
+updates:
+  - at: "2026-08-11T20:45:54Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/08/kimwolf-v7-android-botnet-makes-http2.html
 ---
 
 Kimwolf v7 is the latest iteration of the Kimwolf (or AISURU) botnet, which specifically targets Android-based IoT devices such as TV boxes and set-top boxes. First identified in February 2026, this variant represents a significant hardening of the botnet's command-and-control (C2) and offensive capabilities. Kimwolf v7 utilizes the nghttp2 library to construct full browser fingerprints within HTTP/2 DDoS floods, making the traffic harder to distinguish from legitimate user activity.
