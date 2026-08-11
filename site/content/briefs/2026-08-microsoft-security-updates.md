@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:11:09Z"
+lastmod: "2026-08-11T10:13:41Z"
 type: threat
 types:
   - threat
@@ -109,19 +109,13 @@ cves:
   - id: CVE-2026-68312
   - id: CVE-2026-68130
   - id: CVE-2026-68176
+  - id: CVE-2026-68318
   - id: CVE-2026-68118
   - id: CVE-2026-68406
   - id: CVE-2026-68151
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343
 updates:
-  - at: "2026-08-11T10:03:56Z"
-    level: L2
-    summary: added CVE-2026-64573 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68175
   - at: "2026-08-11T10:04:04Z"
     level: L2
     summary: added CVE-2025-2308 +1
@@ -150,9 +144,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151
+  - at: "2026-08-11T10:13:41Z"
+    level: L2
+    summary: added CVE-2026-68318
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343
 ---
 
-This roundup covers 45 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
+This roundup covers 46 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, ims-pcu, iomap, ksmbd, pds_core.
 
 ## Summary
 
@@ -175,7 +176,7 @@ This roundup covers 45 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-62918 | 0.0 | Microsoft Teams | CVE-2026-62918 is a vulnerability in Microsoft Teams involving improper verification of cryptographic signatures. This flaw allows an unauthorized remote attacker to perform spoofing attacks over a network, potentially leading to unauthorized data manipulation or masquerading within the platform. |
 | CVE-2026-65668 | 8.8 | Microsoft Purview eDiscovery | Microsoft Purview eDiscovery contains an improper access control vulnerability that allows an authenticated attacker to perform a privilege escalation attack over the network. Detection should focus on monitoring unauthorized account role modifications or unexpected administrative actions within the Purview compliance console. |
 | CVE-2026-68480 | 0.0 | Windows | CVE-2026-68480 relates to a vulnerability in the x86 Safe-RET implementation regarding interrupt injection, which could allow a local attacker to potentially bypass security protections or escalate privileges. Security updates for affected versions of the Windows operating system address the robustness of the return mechanism against these specific interrupt vectors. |
-| CVE-2026-64564 | 0.0 | Windows | CVE-2026-64564 involves a vulnerability in the SCTP (Stream Control Transmission Protocol) implementation within Microsoft Windows. The issue occurs during DEL-IP processing, where the ASCONF (Address Configuration Change Chunk) packet handling incorrectly attempts to free its own transport, potentially leading to a use-after-free or memory management error. |
+| CVE-2026-64564 | 9.8 | Windows | CVE-2026-64564 involves a vulnerability in the SCTP (Stream Control Transmission Protocol) implementation within Microsoft Windows. The issue occurs during DEL-IP processing, where the ASCONF (Address Configuration Change Chunk) packet handling incorrectly attempts to free its own transport, potentially leading to a use-after-free or memory management error. |
 | CVE-2026-64590 | 0.0 | dma-buf/udmabuf | CVE-2026-64590 identifies an issue within the dma-buf/udmabuf component where a redundant CPU synchronization triggers a cacheline EEXIST warning. This update addresses the underlying logic to ensure proper synchronization handling. |
 | CVE-2026-54876 | 7.5 | Windows | CVE-2026-54876 describes a client-side memory leak vulnerability within the OCSP (Online Certificate Status Protocol) response checking mechanism in Microsoft Windows products. |
 | CVE-2026-44605 | 5.5 | Rpm | CVE-2026-44605 describes a heap-based buffer overflow vulnerability located in the ndb slot table parsing logic within Rpm. This vulnerability could potentially allow for arbitrary code execution or memory corruption when processing malformed slot tables. |
@@ -203,6 +204,7 @@ This roundup covers 45 Microsoft security vulnerabilities. None are reported as 
 | CVE-2026-68099 | 0.0 | ksmbd | CVE-2026-68099 is a vulnerability in the ksmbd component within Microsoft Windows, where an integer overflow check in check_add_overflow() fails to correctly restore DACL size, potentially leading to the processing of malformed ACLs. This flaw could be exploited to cause memory corruption or denial of service conditions by submitting specially crafted SMB packets. |
 | CVE-2026-68354 | 0.0 | Windows | CVE-2026-68354 refers to a vulnerability within the Windows firewire network driver stack involving improper handling of fragmented datagram reassembly, which may allow for potential exploitation during network packet processing. |
 | CVE-2026-68326 | 0.0 | Windows | CVE-2026-68326 is a vulnerability within the mwifiex Wi-Fi driver, specifically involving improper bounds checking of uAP association event Information Elements (IEs) against the event buffer. This flaw could potentially allow for memory corruption or other impacts depending on how the driver processes malformed association packets. |
+| CVE-2026-68151 | 0.0 | Windows | CVE-2026-68151 identifies a vulnerability within the binfmt_elf_fdpic loader, which incorrectly handles multiple PT_INTERP segments in an ELF file. By only honoring the first PT_INTERP, the implementation may lead to inconsistencies in how executable files are parsed and executed, potentially impacting system security and loader integrity. |
 
 
 ## CVE-2026-50481
@@ -607,3 +609,12 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68326
+
+## CVE-2026-68151
+
+CVE-2026-68151 identifies a vulnerability within the binfmt_elf_fdpic loader, which incorrectly handles multiple PT_INTERP segments in an ELF file. By only honoring the first PT_INTERP, the implementation may lead to inconsistencies in how executable files are parsed and executed, potentially impacting system security and loader integrity.
+
+Affected products:
+- Windows
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151
