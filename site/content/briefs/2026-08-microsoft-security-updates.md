@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-11T10:39:49Z"
+lastmod: "2026-08-11T10:40:17Z"
 type: threat
 types:
   - threat
@@ -11,6 +11,7 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:microsoft:azure_active_directory:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:planetary_computer:-:*:*:*:pro:*:*:*
   - cpe:2.3:a:microsoft:azure_confidential_ledger:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:azure_sql_managed_instance:-:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:dynamics_365_business_central:2022:release_wave_2:*:*:*:*:*:*
@@ -24,6 +25,9 @@ cves:
   - id: CVE-2026-50481
     cvss: 9.9
     epss: 0.00456
+  - id: CVE-2026-63508
+    cvss: 10
+    epss: 0.00442
   - id: CVE-2026-68823
     cvss: 9.1
     epss: 0.005
@@ -35,6 +39,8 @@ cves:
   - id: CVE-2026-54876
     cvss: 7.5
     epss: 0.00261
+  - id: CVE-2026-64573
+    epss: 0.00156
   - id: CVE-2024-21380
     cvss: 8
     epss: 0.01725
@@ -51,15 +57,8 @@ cves:
   - id: CVE-2026-68184
   - id: CVE-2026-68327
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64523
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64388
 updates:
-  - at: "2026-08-11T10:19:11Z"
-    level: L2
-    summary: added CVE-2026-68132 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68348
   - at: "2026-08-11T10:32:21Z"
     level: L2
     summary: added CVE-2026-68354
@@ -88,9 +87,16 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64523
+  - at: "2026-08-11T10:40:17Z"
+    level: L2
+    summary: added CVE-2026-63508 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64388
 ---
 
-This roundup covers 61 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, pds_core, wanxl.
+This roundup covers 62 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect AMT, Application Insights Profiler, Azure Active Directory, Azure Confidential Ledger, Azure Logic Apps, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Bluetooth, Dynamics Business Central, HDF5, Microsoft 365 Admin Center, Microsoft Entra Provisioning Service, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft Teams, Power Apps, Rpm, SharePoint Online, Windows, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, net/handshake, pds_core, wanxl.
 
 ## Summary
 
@@ -120,7 +126,7 @@ This roundup covers 61 Microsoft security vulnerabilities. None are reported as 
 | [CVE-2026-64573](#cve-2026-64573) | Bluetooth | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64573) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Bluetooth. |
 | [CVE-2026-64565](#cve-2026-64565) | ims-pcu | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64565) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ims-pcu. |
 | [CVE-2026-64578](#cve-2026-64578) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
-| [CVE-2024-21380](#cve-2024-21380) | Dynamics Business Central | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21380) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Dynamics Business Central. |
+| [CVE-2024-21380](#cve-2024-21380) | Dynamics Business Central | High | 8.0 | 1.73% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21380) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Dynamics Business Central. |
 | [CVE-2025-2308](#cve-2025-2308) | HDF5 | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2308) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting HDF5. |
 | [CVE-2025-2309](#cve-2025-2309) | HDF5 | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2309) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting HDF5. |
 | [CVE-2026-68097](#cve-2026-68097) | ksmbd | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68097) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting ksmbd. |
@@ -157,6 +163,7 @@ This roundup covers 61 Microsoft security vulnerabilities. None are reported as 
 | [CVE-2026-68195](#cve-2026-68195) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68195) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
 | [CVE-2026-68419](#cve-2026-68419) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68419) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
 | [CVE-2026-68171](#cve-2026-68171) | Windows | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68171) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting Windows. |
+| [CVE-2026-64523](#cve-2026-64523) | net/handshake | n/a | n/a | n/a | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64523) (authoritative) | Included because it is a Microsoft patch-cycle CVE affecting net/handshake. |
 
 
 ## CVE-2026-50481
@@ -233,6 +240,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62896
 
 
 
+
 Related in this roundup: [CVE-2026-65667](#cve-2026-65667), [CVE-2026-62918](#cve-2026-62918).
 
 ## CVE-2026-63508
@@ -252,6 +260,7 @@ Affected products:
 - Microsoft Teams
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65667
+
 
 
 
@@ -304,6 +313,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62918
 
 
 
+
 Related in this roundup: [CVE-2026-62896](#cve-2026-62896), [CVE-2026-65667](#cve-2026-65667).
 
 ## CVE-2026-65668
@@ -326,6 +336,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68480
 
 
 
+
 Related in this roundup: [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-64564
@@ -336,6 +347,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64564
+
 
 
 
@@ -358,6 +370,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-54876
+
 
 
 
@@ -401,6 +414,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64578
 
 
 
+
 Related in this roundup: [CVE-2026-68097](#cve-2026-68097), [CVE-2026-68130](#cve-2026-68130), [CVE-2026-68099](#cve-2026-68099), [CVE-2026-68098](#cve-2026-68098).
 
 ## CVE-2024-21380
@@ -424,6 +438,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2308
 
 
 
+
 Related in this roundup: [CVE-2025-2309](#cve-2025-2309).
 
 ## CVE-2025-2309
@@ -434,6 +449,7 @@ Affected products:
 - HDF5
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-2309
+
 
 
 
@@ -450,6 +466,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68097
 
 
 
+
 Related in this roundup: [CVE-2026-64578](#cve-2026-64578), [CVE-2026-68130](#cve-2026-68130), [CVE-2026-68099](#cve-2026-68099), [CVE-2026-68098](#cve-2026-68098).
 
 ## CVE-2026-68388
@@ -460,6 +477,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68388
+
 
 
 
@@ -491,6 +509,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68189
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68312
@@ -501,6 +520,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68312
+
 
 
 
@@ -517,6 +537,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68130
 
 
 
+
 Related in this roundup: [CVE-2026-64578](#cve-2026-64578), [CVE-2026-68097](#cve-2026-68097), [CVE-2026-68099](#cve-2026-68099), [CVE-2026-68098](#cve-2026-68098).
 
 ## CVE-2026-68176
@@ -527,6 +548,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68176
+
 
 
 
@@ -561,6 +583,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68118
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68175
@@ -571,6 +594,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68175
+
 
 
 
@@ -587,6 +611,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68328
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68406
@@ -597,6 +622,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68406
+
 
 
 
@@ -613,6 +639,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68317
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68099
@@ -623,6 +650,7 @@ Affected products:
 - ksmbd
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68099
+
 
 
 
@@ -639,6 +667,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68354
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68326
@@ -649,6 +678,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68326
+
 
 
 
@@ -665,6 +695,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68151
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68343
@@ -678,6 +709,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68343
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68184
@@ -688,6 +720,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68184
+
 
 
 
@@ -722,6 +755,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68322
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68214
@@ -732,6 +766,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68214
+
 
 
 
@@ -757,6 +792,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68188
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68132
@@ -767,6 +803,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68132
+
 
 
 
@@ -783,6 +820,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68304
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68098
@@ -793,6 +831,7 @@ Affected products:
 - ksmbd
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68098
+
 
 
 
@@ -809,6 +848,7 @@ Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68348
 
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68195
@@ -819,6 +859,7 @@ Affected products:
 - Windows
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68195
+
 
 
 
@@ -834,6 +875,7 @@ Affected products:
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68419
 
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68171](#cve-2026-68171).
 
 ## CVE-2026-68171
@@ -845,4 +887,14 @@ Affected products:
 
 Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68171
 
+
 Related in this roundup: [CVE-2026-68480](#cve-2026-68480), [CVE-2026-64564](#cve-2026-64564), [CVE-2026-54876](#cve-2026-54876), [CVE-2026-68388](#cve-2026-68388), [CVE-2026-68189](#cve-2026-68189), [CVE-2026-68312](#cve-2026-68312), [CVE-2026-68176](#cve-2026-68176), [CVE-2026-68118](#cve-2026-68118), [CVE-2026-68175](#cve-2026-68175), [CVE-2026-68328](#cve-2026-68328), [CVE-2026-68406](#cve-2026-68406), [CVE-2026-68317](#cve-2026-68317), [CVE-2026-68354](#cve-2026-68354), [CVE-2026-68326](#cve-2026-68326), [CVE-2026-68151](#cve-2026-68151), [CVE-2026-68343](#cve-2026-68343), [CVE-2026-68184](#cve-2026-68184), [CVE-2026-68322](#cve-2026-68322), [CVE-2026-68214](#cve-2026-68214), [CVE-2026-68188](#cve-2026-68188), [CVE-2026-68132](#cve-2026-68132), [CVE-2026-68304](#cve-2026-68304), [CVE-2026-68348](#cve-2026-68348), [CVE-2026-68195](#cve-2026-68195), [CVE-2026-68419](#cve-2026-68419).
+
+## CVE-2026-64523
+
+CVE-2026-64523 is a vulnerability in the Microsoft net/handshake component involving the handling of long-lived file references during submission processes, which has been identified and addressed by Microsoft via the Security Update Guide.
+
+Affected products:
+- net/handshake
+
+Source: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64523
