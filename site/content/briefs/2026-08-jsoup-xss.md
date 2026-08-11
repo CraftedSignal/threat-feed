@@ -3,6 +3,7 @@ title: Cross-Site Scripting Vulnerability in jsoup Library
 slug: 2026-08-jsoup-xss
 description: A vulnerability in the jsoup library allows a remote attacker to execute arbitrary scripts in the context of a user's browser via Cross-Site Scripting (XSS).
 date: "2026-08-07T21:21:30Z"
+lastmod: "2026-08-11T09:54:10Z"
 type: advisory
 types:
   - advisory
@@ -23,8 +24,13 @@ mitre_ttps:
     technique_name: Drive-by Compromise
     evidence: A vulnerability in the jsoup library allows a remote, anonymous attacker to perform a cross-site scripting (XSS) attack.
     confidence_band: high
+cves:
+  - id: CVE-2026-71497
+    cvss: 4.7
+    epss: 0.0019
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2698
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-71497
 action_plan:
   priority: elevated
   owners:
@@ -41,6 +47,14 @@ action_plan:
       owner: AppSec
       addresses: XSS exploitation
       evidence: Standard remediation for library-based XSS vulnerabilities.
+updates:
+  - at: "2026-08-11T09:54:10Z"
+    level: L2
+    summary: added CVE-2026-71497
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-71497
 ---
 
 The jsoup library, a popular Java library for working with real-world HTML, contains a vulnerability that facilitates Cross-Site Scripting (XSS). This flaw permits a remote, anonymous attacker to inject and execute malicious scripts within a victim's browser session. The vulnerability generally occurs when the library is utilized to parse or sanitize untrusted HTML input without sufficient security constraints. By manipulating the input processed by jsoup, an attacker can bypass intended sanitization filters, causing the library to output malicious JavaScript that is then rendered by the end-user's browser. Organizations that integrate jsoup into web applications to process or display user-supplied content are at risk of this injection vector.
