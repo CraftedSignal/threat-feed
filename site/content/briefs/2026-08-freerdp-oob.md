@@ -3,7 +3,7 @@ title: Out-of-Bounds Memory Corruption in FreeRDP
 slug: 2026-08-freerdp-oob
 description: FreeRDP versions before 3.30.0 are vulnerable to memory corruption in the kerberos_DecryptMessage function, allowing a malicious peer to perform out-of-bounds read and write operations via crafted GSS Wrap tokens during authentication.
 date: "2026-08-11T14:03:03Z"
-lastmod: "2026-08-11T14:03:11Z"
+lastmod: "2026-08-12T09:41:40Z"
 type: advisory
 types:
   - advisory
@@ -24,9 +24,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-72745
     cvss: 7.5
+  - id: CVE-2026-72746
+    cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72745
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72746
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2776
 updates:
   - at: "2026-08-11T14:03:11Z"
     level: L2
@@ -35,6 +38,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-72746
+  - at: "2026-08-12T09:41:40Z"
+    level: L2
+    summary: added CVE-2026-72746
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2776
 ---
 
 FreeRDP versions prior to 3.30.0 contain a critical memory safety vulnerability in the `kerberos_DecryptMessage` function located within `winpr/libwinpr/sspi/Kerberos/kerberos.c`. The vulnerability arises from improper validation of the 16-bit EC (extra count) field within a GSS Wrap token as defined in RFC 4121. While the implementation validates the RRC field and the total buffer length, it fails to perform bounds checking on the EC field before using it in pointer arithmetic to calculate encrypted regions within the buffer.
