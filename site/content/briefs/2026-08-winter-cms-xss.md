@@ -3,6 +3,7 @@ title: Stored XSS in Winter CMS and October CMS Backend
 slug: 2026-08-winter-cms-xss
 description: Authenticated backend users can perform stored cross-site scripting (XSS) by injecting malicious content into custom CSS settings in Winter CMS and October CMS.
 date: "2026-08-12T16:49:14Z"
+lastmod: "2026-08-12T16:49:19Z"
 type: advisory
 types:
   - advisory
@@ -28,9 +29,13 @@ cves:
   - id: CVE-2025-61674
     cvss: 6.1
     epss: 0.0019
+  - id: CVE-2025-61676
+    cvss: 6.1
+    epss: 0.0019
 references:
   - https://github.com/advisories/GHSA-vgp4-2fc4-qff2
   - https://github.com/wintercms/winter/commit/d28f0b9474af79cfaa80eeb9d691f7a7c4469720
+  - https://github.com/advisories/GHSA-v7cf-8gh9-gxmj
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +52,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-32258
       evidence: Winter CMS maintainers recommend that the backend.manage_editor permission only be granted to trusted administrators and developers.
+updates:
+  - at: "2026-08-12T16:49:19Z"
+    level: L2
+    summary: added CVE-2025-61676
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-v7cf-8gh9-gxmj
 ---
 
 Winter CMS and October CMS contain a stored cross-site scripting (XSS) vulnerability allowing authenticated users with high-level administrative permissions to inject malicious CSS. The issue resides in the backend settings for Markup Styles and Backend Styles. When these styles are compiled via the LESS CSS parser, the resulting output is not properly sanitized before being rendered on subsequent backend pages. This allows an attacker with 'backend.manage_editor' or 'backend.manage_branding' permissions to execute arbitrary JavaScript in the context of other administrative sessions. This vulnerability is tracked as CVE-2026-32258 in Winter CMS and CVE-2025-61674 in October CMS. The fix involves implementing the `strip_tags()` function on the output of the `renderCss()` method.
