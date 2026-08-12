@@ -3,11 +3,12 @@ title: Denial of Service Vulnerability in GStreamer gst-plugins-good
 slug: 2026-08-gstreamer-dos
 description: A heap memory exhaustion vulnerability in the GStreamer gst-plugins-good package allows unauthenticated attackers to crash services via unbounded reassembly buffer growth.
 date: "2026-08-06T11:23:04Z"
+lastmod: "2026-08-12T20:59:00Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - high
 tags:
   - denial-of-service
   - memory-exhaustion
@@ -16,6 +17,7 @@ vendors:
   - GStreamer
 products:
   - gst-plugins-good
+  - gst-plugins-good (< 1.28.6)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -28,6 +30,7 @@ cves:
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18649
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73433
 action_plan:
   priority: elevated
   owners:
@@ -39,6 +42,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-18649
       evidence: Source explicitly links the vulnerability to unpatched rtph264depay and rtph265depay elements
+updates:
+  - at: "2026-08-12T20:59:00Z"
+    level: L2
+    summary: added coverage for gst-plugins-good (< 1.28.6)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73433
 ---
 
 CVE-2026-18649 describes a critical denial of service vulnerability in the GStreamer gst-plugins-good package. The flaw resides within the rtph264depay and rtph265depay elements, which are responsible for depayloading H.264 and H.265 video streams respectively. These elements fail to implement a maximum size limit on the reassembly buffer when processing fragmented RTP packets. By intentionally sending a continuous stream of RTP fragments that lacks a proper end-of-fragment marker, an unauthenticated remote attacker can force the application to allocate memory continuously. This behavior leads to heap memory exhaustion and the eventual termination of the GStreamer-based process. This vulnerability affects any application or multimedia framework utilizing these specific GStreamer elements for RTP stream handling, potentially causing service outages in streaming infrastructure or media processing pipelines.
