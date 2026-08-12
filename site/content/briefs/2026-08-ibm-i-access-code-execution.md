@@ -3,7 +3,7 @@ title: Arbitrary Code Execution in IBM i Access Client Solutions
 slug: 2026-08-ibm-i-access-code-execution
 description: IBM i Access Client Solutions versions 1.1.2.0 through 1.1.9.13 contain a local arbitrary code execution vulnerability on Windows due to insecure file permissions on a configuration file.
 date: "2026-08-12T22:52:22Z"
-lastmod: "2026-08-12T22:52:31Z"
+lastmod: "2026-08-12T22:52:58Z"
 type: advisory
 types:
   - advisory
@@ -33,6 +33,12 @@ mitre_ttps:
     technique_name: User Execution
     evidence: IBM i Access Client Solutions 1.1.2.0 through 1.1.9.13 is vulnerable to zip slip path traversal exploit when importing a configuration.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: IBM i Access Client Solutions 1.1.2.0 through 1.1.9.13 could allow a local attacker to execute arbitrary code due to improper neutralization of special elements used in an OS command.
+    confidence_band: high
 cves:
   - id: CVE-2026-13094
     cvss: 7.8
@@ -40,6 +46,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-13094
   - https://www.ibm.com/support/pages/node/7282954
   - https://nvd.nist.gov/vuln/detail/CVE-2026-13105
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-16695
 action_plan:
   priority: elevated
   owners:
@@ -64,6 +71,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-13105
+  - at: "2026-08-12T22:52:58Z"
+    level: L2
+    summary: added coverage for i Access Client Solutions
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-16695
 ---
 
 IBM i Access Client Solutions (ACS) versions 1.1.2.0 through 1.1.9.13 are vulnerable to arbitrary code execution on Windows systems when installed for all users. The vulnerability stems from insecure write permissions applied to a configuration file during installation. A local attacker with authenticated access can modify this file to inject malicious code or arguments, which are subsequently executed with the privileges of the user running the application. This vulnerability is assigned CVE-2026-13094 and carries a CVSS score of 7.8 (High). Impacted organizations should apply the updates provided by IBM to remediate the insecure configuration file permissions.
