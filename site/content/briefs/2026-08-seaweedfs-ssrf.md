@@ -3,6 +3,7 @@ title: Unauthenticated SSRF in SeaweedFS VolumeServer.FetchAndWriteNeedle
 slug: 2026-08-seaweedfs-ssrf
 description: SeaweedFS versions prior to 4.24 are vulnerable to unauthenticated SSRF via the VolumeServer.FetchAndWriteNeedle RPC, allowing attackers to access internal services and cloud metadata endpoints.
 date: "2026-08-11T17:48:34Z"
+lastmod: "2026-08-12T22:48:58Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - SeaweedFS
 products:
   - SeaweedFS (< 4.24)
+  - SeaweedFS
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -25,12 +27,32 @@ mitre_ttps:
     technique_name: Active Scanning
     evidence: This allows for the exfiltration of instance IAM credentials and can be used to reach otherwise-unexposed internal services.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The S3 API gateway and the Iceberg REST catalog gateway construct their routers with mux.NewRouter().SkipClean(true).
+    confidence_band: med
 cves:
   - id: CVE-2026-73080
     cvss: 9.3
 references:
   - https://github.com/advisories/GHSA-87fv-vqqr-m4jr
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73080
+  - https://github.com/advisories/GHSA-w62w-66v9-vvgv
+  - https://github.com/seaweedfs/seaweedfs/pull/9687
+rules:
+  - title: Detect SeaweedFS S3 Path Traversal Attempt
+    description: Detects exploitation attempts against CVE-2026-54917 by identifying path traversal sequences in the requested URI path of the SeaweedFS gateway.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1059.003
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +69,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-73080
       evidence: Restrict volume server gRPC ports to trusted hosts via firewall / network policy.
+updates:
+  - at: "2026-08-12T22:48:58Z"
+    level: L2
+    summary: 'added detection rule: Detect SeaweedFS S3 Path Traversal Attempt'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-w62w-66v9-vvgv
 ---
 
 SeaweedFS versions prior to 4.24 contain an unauthenticated Server-Side Request Forgery (SSRF) vulnerability within the VolumeServer.FetchAndWriteNeedle RPC endpoint. This endpoint, intended to fetch and write data into a needle, performs no authentication and lacks validation of the requested target host. An attacker with network access to the gRPC port can coerce the volume server to issue requests to arbitrary targets, including loopback addresses, RFC 1918 private IP ranges, and cloud metadata services (e.g., 169.254.169.254).
