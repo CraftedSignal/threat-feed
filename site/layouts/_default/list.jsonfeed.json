@@ -41,6 +41,8 @@
       "home_page_url"  .Site.Home.Permalink
       "feed_url"       $feedURL
       "description"    (or .Description .Site.Params.description)
+      "icon"           ("apple-touch-icon.png" | absURL)
+      "favicon"        ("favicon-32x32.png" | absURL)
       "language"       .Language.Lang
       "items"          $items -}}
 {{- if $paginator.HasNext -}}
