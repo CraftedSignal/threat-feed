@@ -3,12 +3,15 @@ title: Critical SQL Injection and Privilege Escalation Vulnerability in Metabase
 slug: 2026-08-metabase-sql-injection
 description: An unauthenticated remote attacker can exploit a vulnerability in Metabase to perform SQL injection and escalate privileges.
 date: "2026-08-10T13:25:57Z"
-lastmod: "2026-08-11T23:42:57Z"
+lastmod: "2026-08-12T14:21:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=7C492E92-0EFE-5F07-BC01-DA140EBDFA70&utm_source=rss&utm_medium=rss
 tags:
   - sql-injection
   - privilege-escalation
@@ -18,6 +21,7 @@ vendors:
 products:
   - Metabase
   - Metabase (>= 1.58)
+  - Metabase (>= 58.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -40,6 +44,7 @@ references:
   - https://www.wiz.io/blog/inside-the-metabase-sqli-exploited-in-the-wild
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2738
   - https://www.cve.org/CVERecord?id=CVE-2026-72898
+  - https://sploitus.com/exploit?id=7C492E92-0EFE-5F07-BC01-DA140EBDFA70&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -78,6 +83,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-72898
+  - at: "2026-08-12T14:21:00Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=7C492E92-0EFE-5F07-BC01-DA140EBDFA70&utm_source=rss&utm_medium=rss
 ---
 
 Metabase contains a critical security vulnerability that allows an unauthenticated remote attacker to execute SQL injection attacks and achieve privilege escalation within the application. This flaw poses a significant risk to data confidentiality and integrity, as successful exploitation provides unauthorized access to database contents and administrative functions. Defenders should prioritize patching or restricting access to the Metabase instance until remediation is applied.
