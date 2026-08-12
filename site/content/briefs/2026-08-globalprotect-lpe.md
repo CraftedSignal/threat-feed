@@ -3,6 +3,7 @@ title: Local Privilege Escalation in Palo Alto Networks GlobalProtect
 slug: 2026-08-globalprotect-lpe
 description: A local privilege escalation vulnerability (CVE-2026-0299) in the Palo Alto Networks GlobalProtect app allows authenticated local users to escalate to SYSTEM or root privileges via untrusted search path exploitation.
 date: "2026-08-12T16:48:11Z"
+lastmod: "2026-08-12T16:48:24Z"
 type: threat
 types:
   - threat
@@ -19,6 +20,14 @@ products:
   - GlobalProtect App 6.3
   - GlobalProtect App 6.2
   - GlobalProtect App 6.0
+  - GlobalProtect App
+affected_os:
+  - Windows
+  - macOS
+  - Linux
+  - Android
+  - iOS
+  - Chrome OS
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -26,8 +35,15 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: Local privilege escalation vulnerabilities in the Palo Alto Networks GlobalProtect™ app enable a local user to escalate their privileges to NT AUTHORITY\SYSTEM on Windows, and root on macOS and Linux.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1211
+    technique_name: Exploitation for Defense Evasion
+    evidence: A buffer overflow vulnerability exists in the Palo Alto Networks GlobalProtect app that enables a man-in-the-middle (MitM) attacker or a rogue gateway to disrupt system processes and potentially execute arbitrary code
+    confidence_band: high
 references:
   - https://security.paloaltonetworks.com/CVE-2026-0299
+  - https://security.paloaltonetworks.com/CVE-2026-0297
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +63,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Vulnerability allows arbitrary command execution
+updates:
+  - at: "2026-08-12T16:48:24Z"
+    level: L1
+    summary: added coverage for GlobalProtect App
+    sources:
+      - palo-alto-networks
+    source_urls:
+      - https://security.paloaltonetworks.com/CVE-2026-0297
 ---
 
 Palo Alto Networks has disclosed a local privilege escalation (LPE) vulnerability, identified as CVE-2026-0299, affecting the GlobalProtect application across Windows, macOS, and Linux platforms. The vulnerability is rooted in an untrusted search path issue (CWE-426), which permits a low-privileged local user to manipulate the environment or file system in a way that causes the application to execute arbitrary code with elevated privileges - NT AUTHORITY\SYSTEM on Windows and root on macOS and Linux.
