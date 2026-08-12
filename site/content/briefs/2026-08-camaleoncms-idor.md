@@ -3,6 +3,7 @@ title: Privilege Escalation via IDOR in CamaleonCMS
 slug: 2026-08-camaleoncms-idor
 description: CamaleonCMS versions 2.9.2 and earlier are vulnerable to privilege escalation via an IDOR parameter confusion flaw in the UsersController, allowing authenticated attackers to overwrite arbitrary user credentials.
 date: "2026-08-11T18:36:28Z"
+lastmod: "2026-08-12T20:58:37Z"
 type: advisory
 types:
   - advisory
@@ -19,11 +20,18 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: CamaleonCMS version 2.9.2 and earlier contains a privilege escalation vulnerability via insecure direct object reference.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Attackers can manipulate plugin configuration parameters at runtime... enabling account takeover when chained with stored cross-site scripting.
+    confidence_band: high
 cves:
   - id: CVE-2026-56721
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-56721
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73326
 rules:
   - title: Detects CVE-2026-56721 Exploitation - Mismatched Parameters in UsersController
     description: Detects exploitation of CVE-2026-56721 where a PATCH request contains distinct 'id' and 'user_id' parameters targeting the update_ajax endpoint.
@@ -57,6 +65,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-56721
       evidence: NVD vulnerability details
+updates:
+  - at: "2026-08-12T20:58:37Z"
+    level: L2
+    summary: added coverage for CamaleonCMS
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73326
 ---
 
 CamaleonCMS versions 2.9.2 and earlier contain a critical privilege escalation vulnerability (CVE-2026-56721) stemming from an Insecure Direct Object Reference (IDOR) flaw within the UsersController. The vulnerability resides in a parameter confusion discrepancy between the authorization filter, which checks the 'id' parameter, and the action body, which processes the 'user_id' parameter. An authenticated low-privileged attacker can exploit this by crafting a PATCH request to the 'update_ajax' endpoint. By setting the 'id' parameter to their own identifier to satisfy the authorization filter, and concurrently setting the 'user_id' parameter to an administrator or target user's identifier, the application logic incorrectly loads and mutates the victim's account. Successful exploitation allows for the modification of any user's credentials, facilitating a full site takeover. Defenders should prioritize patching or implementing request validation logic to ensure parameter consistency.
