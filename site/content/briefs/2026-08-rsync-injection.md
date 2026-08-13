@@ -3,6 +3,7 @@ title: Multiple Command and Argument Injection Vulnerabilities in rsync
 slug: 2026-08-rsync-injection
 description: Versions of rsync prior to 3.5.0 contain multiple command and argument injection flaws that allow attackers to execute arbitrary code via malicious hostnames, environment variables, and shell command injections.
 date: "2026-08-13T15:38:06Z"
+lastmod: "2026-08-13T15:38:16Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,8 @@ tags:
   - vulnerability
   - command-injection
   - rsync
+  - file-transfer
+  - cve-2026-53793
 vendors:
   - Samba
 products:
@@ -29,11 +32,18 @@ mitre_ttps:
     technique_name: Indirect Command Execution
     evidence: The vulnerability is triggered through several code paths, including the RSYNC_CONNECT_PROG environment variable, daemon hooks, the rsync-ssl wrapper, and remote-shell command newline injection.
     confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1083
+    technique_name: File and Directory Discovery
+    evidence: Attackers can exploit improper handling of the /./ notation or forge delta-basis transfers referencing xname paths that cross the /./ boundary to gain unauthorized read or write access to files outside the module's subtree.
+    confidence_band: high
 cves:
   - id: CVE-2026-53790
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-53790
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-53793
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +53,14 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: CVE-2026-53790 patch requirement
+updates:
+  - at: "2026-08-13T15:38:16Z"
+    level: L2
+    summary: added coverage for rsync
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-53793
 ---
 
 The rsync utility, in versions prior to 3.5.0, is affected by multiple command and argument injection vulnerabilities. These flaws reside in several code paths including the RSYNC_CONNECT_PROG environment variable, daemon hooks, the rsync-ssl wrapper, and remote-shell command newline injection. The vulnerability stems from insufficient sanitization of user-supplied inputs, specifically hostnames and hostspecs passed to the utility. An attacker providing crafted input containing shell metacharacters or newline characters can achieve command injection, leading to execution of arbitrary code with the privileges of the user running the rsync process. This affects any system leveraging rsync for file synchronization or as a backend for transfer services. Defenders should prioritize updating rsync to version 3.5.0 or later to mitigate the risk of arbitrary command execution across Linux, macOS, and Windows environments.
