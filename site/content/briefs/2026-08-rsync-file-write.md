@@ -3,7 +3,7 @@ title: Arbitrary File Write Vulnerability in rsync
 slug: 2026-08-rsync-file-write
 description: Rsync versions prior to 3.5.0 contain an arbitrary file write vulnerability that allows attackers to bypass path confinement by providing absolute paths to specific command-line options.
 date: "2026-08-13T15:38:24Z"
-lastmod: "2026-08-13T15:39:44Z"
+lastmod: "2026-08-13T15:39:53Z"
 type: advisory
 types:
   - advisory
@@ -32,6 +32,12 @@ mitre_ttps:
     technique_name: Archive Collected Data
     evidence: Attackers can exploit the failure to validate server TLS certificates against a trusted CA or verify certificate hostname matching to decrypt or tamper with rsync session content without detection by the client.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: An out-of-bounds write vulnerability in the read_args() function that allows a malicious sender to corrupt adjacent heap memory by sending a crafted argument list.
+    confidence_band: high
 cves:
   - id: CVE-2026-53795
     cvss: 8.1
@@ -48,6 +54,9 @@ references:
   - https://www.vulncheck.com/advisories/rsync-tls-certificate-validation-bypass-via-ssl-openssl-mode
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70455
   - https://github.com/RsyncProject/rsync/security/advisories/GHSA-rjvj-qgqg-cvx9
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70456
+  - https://github.com/RsyncProject/rsync/security/advisories/GHSA-78jc-79jv-v6rw
+  - https://www.vulncheck.com/advisories/rsync-heap-out-of-bounds-write-via-read-args
 action_plan:
   priority: elevated
   owners:
@@ -86,6 +95,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-70455
+  - at: "2026-08-13T15:39:53Z"
+    level: L2
+    summary: added coverage for rsync
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70456
 ---
 
 Rsync versions prior to 3.5.0 are vulnerable to an arbitrary file write vulnerability (CVE-2026-53795) caused by improper handling of absolute paths. When an attacker provides absolute paths via the --temp-dir or --link-dest command-line options, the application fails to correctly apply rename-confinement logic. This failure permits the rsync process to write files to locations outside the intended destination directory, provided those locations are writable by the user executing the rsync process. This vulnerability poses a significant risk to systems that process untrusted rsync inputs or automated synchronization tasks, as it could be leveraged to overwrite sensitive configuration files or inject malicious binaries, potentially leading to privilege escalation or system compromise.
