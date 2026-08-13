@@ -3,6 +3,7 @@ title: WordPress Authenticated Remote Code Execution Vulnerability
 slug: 2026-08-wordpress-rce
 description: A remote authenticated attacker can exploit a vulnerability in WordPress to execute arbitrary code, requiring immediate focus on monitoring administrative actions and plugin modifications.
 date: "2026-08-13T12:41:08Z"
+lastmod: "2026-08-13T14:18:46Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - WordPress
 products:
   - WordPress
+  - WordPress (< 7.0.4)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -25,8 +27,11 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: A vulnerability in WordPress allows a remote, authenticated attacker to execute arbitrary code.
     confidence_band: high
+cves:
+  - id: CVE-2026-65640
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2822
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1018/
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +48,14 @@ action_plan:
       owner: IT Operations
       addresses: Authenticated RCE vector
       evidence: Mitigation of unauthorized authenticated access
+updates:
+  - at: "2026-08-13T14:18:46Z"
+    level: L2
+    summary: added CVE-2026-65640; wordpress version < 7.0.4
+    sources:
+      - anssi
+    source_urls:
+      - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1018/
 ---
 
 The German Federal Office for Information Security (BSI) has reported a high-severity vulnerability affecting WordPress. This flaw allows a remote, authenticated attacker to achieve arbitrary code execution on the target server. Because exploitation requires prior authentication, the primary attack vector likely involves compromising low-privileged administrator or editor accounts to elevate privileges and gain code execution capabilities. Organizations using WordPress should audit existing user accounts, restrict access to administrative interfaces, and review logs for suspicious file modifications or unauthorized plugin installations.
