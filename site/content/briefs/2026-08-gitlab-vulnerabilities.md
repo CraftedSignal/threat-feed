@@ -1,67 +1,37 @@
 ---
-title: Multiple Vulnerabilities in GitLab
+title: Multiple Vulnerabilities in GitLab Enterprise and Community Edition
 slug: 2026-08-gitlab-vulnerabilities
-description: GitLab contains multiple security vulnerabilities that allow attackers to perform cross-site scripting, bypass security constraints, escalate privileges, disclose sensitive information, or trigger denial-of-service conditions.
-date: "2026-08-13T12:52:31Z"
+description: GitLab has released updates for multiple vulnerabilities in Enterprise and Community Edition versions 12.0 through 19.2.2, including CVE-2026-15216 and CVE-2026-15217, which risk privilege escalation, unauthorized data access, XSS, and service disruption.
+date: "2026-08-13T17:56:12Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-tags:
-  - vulnerability
-  - webserver
-  - gitlab
 vendors:
   - GitLab
 products:
-  - GitLab
-mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1505
-    technique_name: Server Software Component
-    evidence: An attacker can exploit several vulnerabilities in GitLab to conduct cross-site scripting attacks.
-    confidence_band: high
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-    evidence: An attacker can exploit several vulnerabilities in GitLab to perform... privilege escalation.
-    confidence_band: high
-  - tactic_id: TA0040
-    tactic_name: Impact
-    technique_id: T1498
-    technique_name: Network Denial of Service
-    evidence: An attacker can exploit several vulnerabilities in GitLab to... induce a denial-of-service condition.
-    confidence_band: high
+  - GitLab Enterprise Edition (12.0-19.2.2)
+  - GitLab Community Edition (12.0-19.2.2)
+cves:
+  - id: CVE-2026-15216
+    cvss: 8.7
+    epss: 0.0026
+  - id: CVE-2026-15217
+    cvss: 8.7
+    epss: 0.0026
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2805
-action_plan:
-  priority: elevated
-  owners:
-    - IT Operations
-  immediate_actions:
-    - action: Patch all GitLab instances to the latest vendor-supplied version
-      owner: IT Operations
-      due: 24h
-      evidence: BSI security advisory recommendation
-  mitigation_plan:
-    - priority: immediate
-      action: Apply GitLab security updates
-      owner: IT Operations
-      addresses: Multiple vulnerabilities in GitLab
-      evidence: BSI WID-SEC-2026-2805
+  - https://www.ncsc.nl/alerts/meerdere-kwetsbaarheden-in-gitlab-enterprise-en-community-edition
 ---
 
-The German Federal Office for Information Security (BSI) has released a security advisory concerning multiple vulnerabilities within GitLab. These security flaws allow remote attackers to compromise the integrity, confidentiality, and availability of the GitLab environment. The reported vulnerabilities span several impact vectors, including cross-site scripting (XSS), bypass of established security controls, unauthorized privilege escalation, and sensitive information disclosure. Additionally, the flaws may be leveraged by an attacker to manipulate data or induce a denial-of-service (DoS) state, rendering the application unavailable. Given the sensitive nature of source code management platforms and the potential for lateral movement and supply chain compromise, defenders should prioritize patching and monitoring for irregular access patterns.
+The National Cyber Security Centre (NCSC-NL) has issued an alert regarding multiple vulnerabilities affecting GitLab Enterprise Edition (EE) and Community Edition (CE). These vulnerabilities impact versions 12.0 through 19.2.2. Specifically, CVE-2026-15216 and CVE-2026-15217 have been assigned CVSS scores of 8.7. The flaws allow unauthorized users to gain elevated access or modify system settings that should otherwise be restricted. Furthermore, the vulnerabilities include vectors for Cross-Site Scripting (XSS) via the application dashboard and potential Denial-of-Service (DoS) conditions that could disrupt platform availability. Given that GitLab manages critical source code repositories and automated deployment pipelines, these vulnerabilities pose a high risk for data exfiltration, integrity loss, and supply chain compromise if exploited. Administrators must update to the latest patched versions to mitigate these risks.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities can lead to full compromise of the GitLab application, unauthorized access to source code repositories, modification of project configurations, and the disruption of development operations. Organizations relying on GitLab for CI/CD pipelines are particularly at risk, as attackers could leverage privilege escalation to inject malicious code into build processes.
+Successful exploitation of these vulnerabilities can lead to unauthorized access to sensitive project data, arbitrary configuration changes, and the execution of malicious scripts in the context of user sessions. These outcomes represent significant risks for data breaches, loss of project control, and the potential disruption of CI/CD pipelines which may impact downstream development and production environments.
 
 ## Recommendation
 
-* Review the official GitLab security advisory and apply the necessary security updates to all GitLab instances immediately.
-* Audit logs for suspicious administrative activity or access to repositories not typically accessed by specific user accounts.
-* Implement stricter access control policies to minimize the potential impact of successful privilege escalation.
+* Update all instances of GitLab Enterprise Edition and Community Edition to the latest secure version specified in the GitLab 19.2.2 Patch Release immediately.
+* Review access logs and audit trails for unauthorized changes to project settings or unusual user privilege modifications.
+* Monitor internal web application firewalls or proxy logs for suspicious patterns targeting the dashboard or administrative endpoints.
