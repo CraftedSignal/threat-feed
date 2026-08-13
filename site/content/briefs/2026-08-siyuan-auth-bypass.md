@@ -1,66 +1,56 @@
 ---
-title: Information Disclosure Vulnerability in SiYuan
+title: Authorization Bypass in SiYuan Development Branch
 slug: 2026-08-siyuan-auth-bypass
-description: SiYuan versions before 3.7.4 are vulnerable to unauthorized information disclosure via the renderAttributeView component, allowing unauthenticated attackers to access restricted database content.
-date: "2026-08-12T22:52:07Z"
+description: The SiYuan development branch contains an authorization bypass vulnerability in the /api/av/getAttributeViewSearchTarget endpoint, allowing unauthenticated users to access restricted database content.
+date: "2026-08-13T12:54:56Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-tags:
-  - vulnerability
-  - information-disclosure
-  - authorization-bypass
 vendors:
-  - siyuan-note
+  - SiYuan
 products:
-  - siyuan
+  - SiYuan (Development Branch)
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: SiYuan versions before v3.7.4 fail to properly filter related-database content in renderAttributeView, allowing anonymous readers to access Relation and Rollup cell contents
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1082
+    technique_name: System Information Discovery
+    evidence: Given a database identifier taken from a published page and a keyword, an anonymous reader can query the endpoint to retrieve matching database row content.
     confidence_band: high
 cves:
-  - id: CVE-2026-72798
+  - id: CVE-2026-73608
     cvss: 8.6
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72798
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-mfrj-v65r-979c
-  - https://www.vulncheck.com/advisories/siyuan-before-information-disclosure-via-renderattributeview
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73608
 action_plan:
   priority: elevated
   owners:
     - IT Operations
   immediate_actions:
-    - action: Patch SiYuan to version 3.7.4
+    - action: Inventory all SiYuan instances to ensure no development branches are deployed.
       owner: IT Operations
-      due: 24h
-      evidence: Vendor security advisory and NVD entry mandate update to 3.7.4
+      due: 48h
+      evidence: The vulnerability is isolated to the development branch.
+  mitigation_plan:
+    - priority: immediate
+      action: Upgrade or replace instances running development branches with stable version v3.7.4 or later.
+      owner: IT Operations
+      addresses: CVE-2026-73608
+      evidence: Patched in v3.7.4
 ---
 
-SiYuan versions prior to 3.7.4 contain a critical security vulnerability (CVE-2026-72798) involving improper authorization checks within the renderAttributeView component. This flaw allows anonymous, unauthenticated users to access sensitive information contained in Relation and Rollup cells that are supposed to be hidden or password-protected.
+A missing authorization check has been identified in the SiYuan development branch at the /api/av/getAttributeViewSearchTarget endpoint (introduced by commit 9b8e8956f). The vulnerability allows anonymous users to query database content on published pages by providing a database identifier and a keyword. Because the endpoint registers only with 'CheckAuth' but lacks essential 'CheckReadonly', 'publish-access', or 'encrypted-notebook' gating, it effectively bypasses row-level security and filtering mechanisms designed to protect sensitive data.
 
-An attacker can exploit this by requesting published databases that have relationships with restricted databases, forcing the application to disclose content that should remain inaccessible. Additionally, the vulnerability allows for the bypass of row-level filtering if the first column of the database is a non-block type. This exposes organizations relying on SiYuan for internal documentation or data management to potential data breaches if their instances are internet-facing. Defenders should prioritize updating to version 3.7.4 or higher to remediate this issue.
-
-## Attack Chain
-
-1. Attacker identifies an internet-exposed instance of SiYuan running a version prior to 3.7.4.
-2. Attacker discovers or enumerates a publicly accessible (published) database within the SiYuan instance.
-3. Attacker identifies relationships (links or rollups) between the published database and a target sensitive or password-protected database.
-4. Attacker crafts a request targeting the renderAttributeView component to retrieve attribute views of the published database.
-5. The application fails to validate authorization for the related sensitive database entries during the rendering process.
-6. The backend processes the request and returns the sensitive content from the restricted database in the response.
-7. Attacker parses the response to exfiltrate Relation or Rollup cell data.
+While the base score for this vulnerability is 8.6, it is important to note that this flaw is restricted to the development branch and does not affect stable releases such as v3.7.3 or the current master branch. The issue was patched in v3.7.4. Defenders should ensure no development branches are deployed in production environments, as these versions may expose internal APIs to external exposure that are not gated for public access.
 
 ## Impact
 
-Successful exploitation allows unauthenticated attackers to view sensitive, password-protected, or hidden data stored within SiYuan databases. This could lead to the unauthorized exposure of proprietary information, PII, or internal organizational documentation. The vulnerability is considered high-risk due to the ease of reachability and lack of authentication required for exploitation.
+Successful exploitation allows an unauthenticated, remote attacker to exfiltrate database content that should otherwise be withheld by the application's native publish-access filters. This results in unauthorized disclosure of sensitive data managed within SiYuan database views.
 
 ## Recommendation
 
-* Upgrade all instances of SiYuan to version 3.7.4 or later immediately.
-* Restrict access to SiYuan instances by placing them behind a VPN or an authenticated reverse proxy to limit exposure to unauthenticated external requests.
-* Audit logs for suspicious access patterns to the renderAttributeView endpoint or unusual spikes in data retrieval requests.
+- Ensure that only stable, production-ready versions (v3.7.3 or v3.7.4) of SiYuan are deployed in your environment.
+- Audit infrastructure to identify and decommission any instances running development branch builds of SiYuan.
+- Monitor webserver logs for unauthorized access patterns or unexpected requests to the /api/av/getAttributeViewSearchTarget endpoint.
