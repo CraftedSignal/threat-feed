@@ -3,18 +3,19 @@ title: Authenticated Remote Code Execution in CyberPanel
 slug: 2026-08-cyberpanel-rce
 description: CyberPanel version 2.4.3 contains an authenticated remote code execution vulnerability in its remote backup feature that allows an attacker to inject an SSH public key into the root user's authorized_keys file.
 date: "2026-08-10T21:37:02Z"
-lastmod: "2026-08-11T11:35:37Z"
+lastmod: "2026-08-13T18:56:20Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 vendors:
   - CyberPanel
 products:
   - CyberPanel (2.4.3)
   - CyberPanel (<= 2.4.3)
   - CyberPanel
+  - CyberPanel (< 3.0.0)
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -28,6 +29,18 @@ mitre_ttps:
     technique_name: External Remote Services
     evidence: CyberPanel 2.4.3... contains an authenticated remote code execution vulnerability in the remote backup feature that allows authenticated attackers to gain root-level SSH access.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: CyberPanel before 3.0.0 contains a hard-coded JWT secret vulnerability in the WebTerminal FastAPI SSH service that allows unauthenticated remote attackers to forge valid authentication tokens.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Attackers can... authenticate to the terminal service without any valid credentials and receive a root shell.
+    confidence_band: high
 cves:
   - id: CVE-2026-71965
     cvss: 8.8
@@ -37,6 +50,21 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71965
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71966
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2743
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67614
+  - https://www.vulncheck.com/advisories/cyberpanel-hard-coded-jwt-secret-authentication-bypass-via-webterminal
+  - https://github.com/usmannasir/cyberpanel/issues/1858
+rules:
+  - title: Detect CyberPanel WebTerminal Authentication Attempts
+    description: Detects external network connections to the CyberPanel WebTerminal service on port 8888 which may indicate attempted exploitation of CVE-2026-67614.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - network_connection
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -68,6 +96,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2743
+  - at: "2026-08-13T18:56:20Z"
+    level: L2
+    summary: 'added detection rule: Detect CyberPanel WebTerminal Authentication Attempts'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-67614
 ---
 
 CyberPanel version 2.4.3 is vulnerable to an authenticated remote code execution flaw within its remote backup management functionality. The vulnerability arises from an insecure implementation of SSH public key retrieval, where the application fails to validate the source of remote server configurations. An authenticated attacker can supply a malicious remote server address to the backup service, which then retrieves an attacker-controlled public key and writes it directly to the '/root/.ssh/authorized_keys' file. This provides the attacker with persistent root-level SSH access to the underlying host system. This vulnerability was addressed in commit eca0c3c. Defenders should prioritize auditing CyberPanel configurations and ensuring updates to versions beyond 2.4.3 are applied to mitigate the risk of unauthorized persistence.
