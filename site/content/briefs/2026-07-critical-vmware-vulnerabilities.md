@@ -3,7 +3,7 @@ title: Critical Vulnerabilities in VMware vCenter and ESX Products
 slug: 2026-07-critical-vmware-vulnerabilities
 description: Multiple critical vulnerabilities, including CVE-2026-59309 and CVE-2026-59310 with CVSS 9.8, affect VMware vCenter and ESX/ESXi products, enabling unauthorized access without credentials, arbitrary code execution, virtualization escape, information disclosure, and defense evasion, which could lead to full system compromise and data breaches.
 date: "2026-07-29T14:55:03Z"
-lastmod: "2026-07-30T13:40:27Z"
+lastmod: "2026-08-13T09:10:01Z"
 type: advisory
 types:
   - advisory
@@ -71,16 +71,24 @@ mitre_ttps:
 cves:
   - id: CVE-2026-59309
     cvss: 9.8
+    epss: 0.00744
   - id: CVE-2026-59310
     cvss: 9.8
+    epss: 0.0114
   - id: CVE-2026-41703
     cvss: 7.6
+    epss: 0.00556
+  - id: CVE-2026-41709
+    cvss: 2.7
+    epss: 0.00382
   - id: CVE-2026-47876
     cvss: 9.3
+    epss: 0.00281
 references:
   - https://www.ncsc.nl/alerts/kritieke-kwetsbaarheden-in-vmware-vcenter-en-esx-producten-update-onmiddellijk
   - https://thehackernews.com/2026/07/three-critical-vmware-flaws-allow-auth.html
   - https://www.rapid7.com/blog/post/etr-critical-vmware-vcenter-vulnerabilities-allow-authentication-bypass-and-remote-code-execution-cve-2026-59309-cve-2026-59310
+  - https://www.securityweek.com/critical-vmware-vcenter-vulnerability-in-attackers-crosshairs/
 updates:
   - at: "2026-07-29T15:45:39Z"
     level: L2
@@ -96,6 +104,13 @@ updates:
       - rapid7
     source_urls:
       - https://www.rapid7.com/blog/post/etr-critical-vmware-vcenter-vulnerabilities-allow-authentication-bypass-and-remote-code-execution-cve-2026-59309-cve-2026-59310
+  - at: "2026-08-13T09:10:01Z"
+    level: L2
+    summary: added CVE-2026-41709
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/critical-vmware-vcenter-vulnerability-in-attackers-crosshairs/
 ---
 
 The National Cyber Security Centre (NCSC) has issued an alert regarding multiple critical vulnerabilities affecting VMware vCenter and ESX/ESXi products. Among these are CVE-2026-59309 and CVE-2026-59310, both carrying a CVSS score of 9.8, indicating severe impact with a moderate chance of exploitation and a high potential for damage. These vulnerabilities allow for unauthorized access without proper login credentials, arbitrary code execution via the Syslog server, and a virtualization escape where a local administrator on a virtual machine can execute code on the underlying physical server. Additional flaws include information disclosure (CVE-2026-41703) and a logging bypass (CVE-2026-41709) that hinders detection of malicious actions. Organizations using VMware vCenter and ESX for managing and running virtual machines are strongly advised to install available updates immediately to mitigate risks.
