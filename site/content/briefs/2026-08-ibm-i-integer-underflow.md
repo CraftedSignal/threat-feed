@@ -3,7 +3,7 @@ title: Integer Underflow Vulnerability in IBM i
 slug: 2026-08-ibm-i-integer-underflow
 description: IBM i versions 7.3 through 7.6 are vulnerable to an integer underflow flaw (CVE-2026-17485) that could allow a remote, unauthenticated attacker to cause a denial of service or perform an out-of-bounds read to access sensitive information.
 date: "2026-08-12T22:53:16Z"
-lastmod: "2026-08-13T22:05:43Z"
+lastmod: "2026-08-13T22:06:09Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,7 @@ vendors:
 products:
   - i
   - i (7.3, 7.4, 7.5, 7.6)
+  - i (7.4, 7.5, 7.6)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -27,6 +28,12 @@ mitre_ttps:
     technique_name: Steal or Forge Kerberos Tickets
     evidence: IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to access server resources with the privileges of an authenticated user due to improper authentication during NTLM session negotiation.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: A remote attacker could send specially crafted SQL statements, which could allow the attacker to view, add, modify, or delete information in the back-end database.
+    confidence_band: high
 cves:
   - id: CVE-2026-17485
     cvss: 8.2
@@ -35,6 +42,8 @@ references:
   - https://www.ibm.com/support/pages/node/7282695
   - https://nvd.nist.gov/vuln/detail/CVE-2026-16867
   - https://www.ibm.com/support/pages/node/7283573
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-16961
+  - https://www.ibm.com/support/pages/node/7283298
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +62,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-16867
+  - at: "2026-08-13T22:06:09Z"
+    level: L2
+    summary: added coverage for i (7.4, 7.5, 7.6)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-16961
 ---
 
 IBM has disclosed a critical integer underflow vulnerability (CVE-2026-17485) affecting IBM i operating system versions 7.3, 7.4, 7.5, and 7.6. This vulnerability arises from an integer underflow condition, categorized as CWE-125 (Out-of-bounds Read). The flaw allows a remote, unauthenticated attacker with network access to the target system to trigger a denial of service (DoS) condition or gain unauthorized access to sensitive information. Given the CVSS v3.1 base score of 8.2 and the potential for unauthenticated remote exploitation, this poses a significant risk to organizations running these versions of IBM i. Defenders should prioritize applying the security updates provided by IBM to mitigate the risk of service disruption and data exposure.
