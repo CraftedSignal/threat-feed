@@ -3,6 +3,7 @@ title: Path Traversal Vulnerability in rsync make_path() Function
 slug: 2026-08-rsync-path-traversal
 description: A path traversal vulnerability in rsync versions prior to 3.5.0 allows a malicious sender to perform arbitrary file writes outside the intended destination directory via crafted relative paths.
 date: "2026-08-13T15:37:59Z"
+lastmod: "2026-08-13T16:56:18Z"
 type: advisory
 types:
   - advisory
@@ -10,12 +11,21 @@ severities:
   - high
 products:
   - rsync
+affected_os:
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1592
     technique_name: Gather Victim Host Information
     evidence: A path traversal vulnerability exists in rsync versions prior to 3.5.0, specifically within the make_path() function during operations using the --relative mode.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: A time-of-check to time-of-use (TOCTOU) race condition vulnerability in the rrsync restricted shell wrapper that allows authenticated clients to escape enforced directory restrictions
     confidence_band: high
 cves:
   - id: CVE-2026-53785
@@ -32,6 +42,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-53785
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-08-13T16:56:18Z"
+    level: L2
+    summary: added coverage for rsync
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-53783
 ---
 
 A path traversal vulnerability exists in rsync versions prior to 3.5.0, specifically impacting the make_path() function during operations utilizing the --relative mode. The vulnerability arises because the software fails to properly validate that file paths created during a synchronization task remain within the intended destination directory tree. By crafting malicious relative paths containing symlink components, a remote sender can trick the receiver's rsync process into following symlinks that point outside the restricted boundary. This flaw enables an attacker to write files to arbitrary locations on the receiving system's filesystem. This vulnerability represents a significant security risk for automated backup systems or file synchronization services that accept incoming rsync connections from untrusted or compromised sources.
