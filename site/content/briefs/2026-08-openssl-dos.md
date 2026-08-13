@@ -3,6 +3,7 @@ title: OpenSSL Denial of Service Vulnerability
 slug: 2026-08-openssl-dos
 description: A vulnerability in OpenSSL allows a remote, unauthenticated attacker to trigger a Denial of Service condition by sending malicious traffic to affected systems.
 date: "2026-08-06T21:19:19Z"
+lastmod: "2026-08-13T22:01:55Z"
 type: advisory
 types:
   - advisory
@@ -23,8 +24,12 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: Ein entfernter, anonymer Angreifer kann eine Schwachstelle in OpenSSL ausnutzen, um einen Denial of Service Angriff durchzuführen.
     confidence_band: high
+cves:
+  - id: CVE-2026-14456
+    cvss: 7.5
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2668
+  - https://seclists.org/oss-sec/2026/q3/489
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +51,14 @@ action_plan:
       owner: SOC
       addresses: OpenSSL
       evidence: DoS vulnerability nature
+updates:
+  - at: "2026-08-13T22:01:55Z"
+    level: L2
+    summary: added CVE-2026-14456
+    sources:
+      - oss-security
+    source_urls:
+      - https://seclists.org/oss-sec/2026/q3/489
 ---
 
 The BSI (Bundesamt für Sicherheit in der Informationstechnik) has issued an advisory regarding a vulnerability in OpenSSL that permits a remote, unauthenticated attacker to execute a Denial of Service (DoS) attack. This vulnerability impacts systems leveraging OpenSSL for cryptographic operations, potentially causing the service to crash or become unresponsive when processing specially crafted requests. As OpenSSL is a foundational library across Linux, Windows, and macOS environments, this flaw poses a risk to any application or service that utilizes the affected versions for TLS/SSL communication. Organizations relying on OpenSSL are advised to monitor official project channels for patch releases.
