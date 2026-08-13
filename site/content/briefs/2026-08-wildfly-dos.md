@@ -1,56 +1,62 @@
 ---
-title: Remote Denial of Service in Wildfly via CSIv2 GSS Token Handling
+title: Denial of Service Vulnerability in Red Hat WildFly and JBoss EAP
 slug: 2026-08-wildfly-dos
-description: An unauthenticated remote attacker can trigger a denial-of-service condition in Wildfly by sending a maliciously crafted GSS token that forces an uncontrolled memory allocation.
-date: "2026-08-11T09:50:34Z"
+description: A vulnerability in Red Hat WildFly and JBoss Enterprise Application Platform allows a remote, unauthenticated attacker to trigger a denial-of-service condition.
+date: "2026-08-13T12:52:38Z"
 type: advisory
 types:
   - advisory
 severities:
   - low
+cpes:
+  - cpe:2.3:o:samsung:exynos_980_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:samsung:exynos_850_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:samsung:exynos_1080_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:samsung:exynos_1280_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:samsung:exynos_1380_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:samsung:exynos_1330_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:samsung:exynos_1480_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:samsung:exynos_w920_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:samsung:exynos_w930_firmware:-:*:*:*:*:*:*:*
 vendors:
-  - JBoss
+  - Red Hat
 products:
-  - Wildfly
+  - WildFly
+  - JBoss Enterprise Application Platform
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1498
     technique_name: Network Denial of Service
-    evidence: A remote unauthenticated attacker can trigger OutOfMemoryError as CSIv2Util's GSS token decoder reads an attacker-controlled length field without bounds checking.
+    evidence: Anonymer Angreifer kann eine Schwachstelle in Red Hat WildFly und Red Hat JBoss Enterprise Application Platform ausnutzen, um einen Denial of Service Angriff durchzuführen.
     confidence_band: high
 cves:
-  - id: CVE-2026-15567
-    cvss: 7.5
+  - id: CVE-2024-27365
+    cvss: 4.4
+    epss: 0.00174
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-15567
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2802
+  - https://nvd.nist.gov/vuln/detail/CVE-2024-27365
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - SOC
-  immediate_actions:
-    - action: Patch Wildfly to remediate CVE-2026-15567
-      owner: IT Operations
-      due: 72h
-      evidence: CVE-2026-15567 is a remote unauthenticated DoS vulnerability.
   mitigation_plan:
     - priority: immediate
-      action: Restrict access to the CSIv2 interface via network ACLs
+      action: Patch Red Hat WildFly and JBoss EAP instances
       owner: IT Operations
-      addresses: CVE-2026-15567
-      evidence: Vulnerability allows unauthenticated remote exploitation.
+      addresses: CVE-2024-27365
+      evidence: Vendor advisory confirms vulnerability and necessity of updates.
 ---
 
-Wildfly contains a vulnerability (CVE-2026-15567) within the CSIv2Util component, which is responsible for handling Common Secure Interoperability version 2 (CSIv2) communications. An unauthenticated remote attacker can exploit this flaw by sending a specially crafted GSS token to the service. The vulnerability exists because the token decoder reads an attacker-controlled length field from the incoming packet without performing adequate bounds checking. This unchecked length is subsequently used to allocate a byte array in memory. If an attacker specifies a sufficiently large value, the application will attempt to allocate excessive memory, resulting in an OutOfMemoryError and causing the application to crash or become unresponsive. This vulnerability poses a significant risk to the availability of Wildfly-based services exposed to untrusted networks.
+A vulnerability has been identified in Red Hat WildFly and Red Hat JBoss Enterprise Application Platform (EAP) that allows a remote, unauthenticated attacker to cause a denial-of-service (DoS) condition. The vulnerability, tracked as CVE-2024-27365, impacts the availability of the application server by enabling an attacker to overwhelm system resources or trigger an application crash. Because these servers are typically internet-facing components of an enterprise architecture, this vulnerability poses a risk to service uptime. Defenders should prioritize patching or applying vendor-recommended configurations to limit exposure of management interfaces and application endpoints to untrusted networks.
 
 ## Impact
 
-The successful exploitation of CVE-2026-15567 results in a denial-of-service condition, rendering the target Wildfly instance unavailable. This vulnerability affects any system running vulnerable versions of Wildfly that expose the CSIv2 interface to unauthenticated users. The primary damage is service disruption, which may impact business operations for sectors relying on Wildfly for enterprise middleware and Java EE application hosting.
+Successful exploitation results in the disruption of service for Red Hat WildFly or JBoss EAP instances. This can impact mission-critical business applications, internal services, and customer-facing portals that rely on these platforms.
 
 ## Recommendation
 
-- Monitor for service stability issues and application crashes that coincide with high volumes of traffic directed at the CSIv2 interface of Wildfly instances.
-- Patch Wildfly to the latest version provided by the vendor to remediate CVE-2026-15567.
-- Implement network-level access controls to restrict exposure of the CSIv2 management and communication interfaces to trusted management subnets only.
-- Review application server logs for recurrent OutOfMemoryError exceptions following incoming connection attempts.
+* Apply the security patches provided by Red Hat for all affected JBoss EAP and WildFly deployments.
+* Audit network perimeter defenses to ensure that management interfaces of application servers are not exposed to the public internet.
+* Monitor application server logs for frequent crash events or unexpected service restarts that may indicate exploitation attempts.
