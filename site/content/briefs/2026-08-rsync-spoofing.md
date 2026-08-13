@@ -3,7 +3,7 @@ title: CVE-2026-53791 - IP Address Spoofing in rsync Daemon
 slug: 2026-08-rsync-spoofing
 description: The rsync daemon before version 3.5.0 contains a vulnerability where unauthenticated attackers can inject a forged PROXY protocol header to bypass IP-based access control restrictions.
 date: "2026-08-13T15:37:26Z"
-lastmod: "2026-08-13T15:39:17Z"
+lastmod: "2026-08-13T15:40:22Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +22,7 @@ products:
   - rsync
   - rsync (< 3.5.0)
   - rsync (3.1.0 to 3.4.x)
+  - rsync (3.1.0-3.4.x)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -41,6 +42,12 @@ mitre_ttps:
     technique_name: 'Impair Defenses: Disable or Modify System Firewall'
     evidence: When a DNS lookup for a hostname-based deny rule fails, the daemon skips the rule rather than defaulting to a deny decision.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The auth users parser uses comma-only tokenization when splitting the user list, which fails to correctly handle entries of the form @Group Name where the group name contains a space.
+    confidence_band: high
 cves:
   - id: CVE-2026-53791
     cvss: 9.1
@@ -48,6 +55,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-53791
   - https://nvd.nist.gov/vuln/detail/CVE-2026-53802
   - https://nvd.nist.gov/vuln/detail/CVE-2026-70452
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70463
 action_plan:
   priority: elevated
   owners:
@@ -79,6 +87,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-70452
+  - at: "2026-08-13T15:40:22Z"
+    level: L2
+    summary: added coverage for rsync (3.1.0-3.4.x)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70463
 ---
 
 The rsync daemon (rsyncd), a popular file synchronization utility, is vulnerable to an IP address spoofing flaw in versions prior to 3.5.0. An unauthenticated remote attacker capable of establishing a direct connection to the rsync service can exploit the daemon's handling of the PROXY protocol. By injecting a crafted PROXY protocol header, an attacker can substitute the true source IP address with a spoofed IP address. 
