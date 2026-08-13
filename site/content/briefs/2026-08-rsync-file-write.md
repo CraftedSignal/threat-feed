@@ -3,7 +3,7 @@ title: Arbitrary File Write Vulnerability in rsync
 slug: 2026-08-rsync-file-write
 description: Rsync versions prior to 3.5.0 contain an arbitrary file write vulnerability that allows attackers to bypass path confinement by providing absolute paths to specific command-line options.
 date: "2026-08-13T15:38:24Z"
-lastmod: "2026-08-13T15:39:36Z"
+lastmod: "2026-08-13T15:39:44Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +46,8 @@ references:
   - https://github.com/RsyncProject/rsync/security/advisories/GHSA-3c3x-ww2w-5r5p
   - https://github.com/RsyncProject/rsync/releases/tag/v3.5.0
   - https://www.vulncheck.com/advisories/rsync-tls-certificate-validation-bypass-via-ssl-openssl-mode
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70455
+  - https://github.com/RsyncProject/rsync/security/advisories/GHSA-rjvj-qgqg-cvx9
 action_plan:
   priority: elevated
   owners:
@@ -77,6 +79,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-70454
+  - at: "2026-08-13T15:39:44Z"
+    level: L1
+    summary: added coverage for rsync
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70455
 ---
 
 Rsync versions prior to 3.5.0 are vulnerable to an arbitrary file write vulnerability (CVE-2026-53795) caused by improper handling of absolute paths. When an attacker provides absolute paths via the --temp-dir or --link-dest command-line options, the application fails to correctly apply rename-confinement logic. This failure permits the rsync process to write files to locations outside the intended destination directory, provided those locations are writable by the user executing the rsync process. This vulnerability poses a significant risk to systems that process untrusted rsync inputs or automated synchronization tasks, as it could be leveraged to overwrite sensitive configuration files or inject malicious binaries, potentially leading to privilege escalation or system compromise.
