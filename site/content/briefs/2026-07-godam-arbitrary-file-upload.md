@@ -3,11 +3,15 @@ title: GoDAM WordPress Plugin Arbitrary File Upload Vulnerability (CVE-2026-1428
 slug: 2026-07-godam-arbitrary-file-upload
 description: An arbitrary file upload vulnerability exists in the GoDAM WordPress plugin versions up to and including 1.12.2 due to insufficient file type validation in the `save_video_file()` function, allowing unauthenticated attackers to upload arbitrary files to the server and potentially achieve remote code execution.
 date: "2026-07-23T10:18:58Z"
+lastmod: "2026-08-13T01:27:32Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=B0EC0543-F295-5C86-8B68-5190D2D6898D&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - arbitrary-file-upload
@@ -34,8 +38,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-14282
     cvss: 9.8
+    epss: 0.00671
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14282
+  - https://sploitus.com/exploit?id=B0EC0543-F295-5C86-8B68-5190D2D6898D&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-14282 Exploitation - GoDAM Plugin Arbitrary File Upload
     description: Detects CVE-2026-14282 exploitation - arbitrary file upload attempts to the GoDAM WordPress plugin via admin-ajax.php with executable file extensions, indicative of remote code execution attempts.
@@ -50,6 +56,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-08-13T01:27:32Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=B0EC0543-F295-5C86-8B68-5190D2D6898D&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-14282 details a critical arbitrary file upload vulnerability affecting the GoDAM - Organize WordPress Media Library & File Manager with Unlimited Folders for Images, Videos & more plugin for WordPress, specifically in versions up to and including 1.12.2. The vulnerability stems from insufficient file type validation within the `save_video_file()` function. This function, which is hooked into WPForms' `wpforms_process_before_filter`, erroneously trusts the attacker-supplied `multipart/form-data` `Content-Type` header. Critically, it bypasses WordPress's standard `wp_handle_upload()` security mechanisms by directly using `$wp_filesystem->move()` to save the raw uploaded file, while `wp_unique_filename()` preserves the original, potentially malicious, filename. This flaw enables unauthenticated attackers to upload arbitrary files, such as PHP web shells, directly to the web-served directories of the compromised site, leading to potential remote code execution and full system compromise.
