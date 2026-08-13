@@ -3,6 +3,7 @@ title: Authorization Bypass in File Browser via Recursive Operations
 slug: 2026-08-file-browser-access-bypass
 description: File Browser versions prior to 2.63.22 contain an authorization bypass vulnerability allowing authenticated users to manipulate restricted files via recursive copy, rename, and delete operations.
 date: "2026-08-13T12:55:18Z"
+lastmod: "2026-08-13T12:55:42Z"
 type: advisory
 types:
   - advisory
@@ -12,10 +13,14 @@ tags:
   - vulnerability
   - access-control-bypass
   - cve
+  - file-deletion
+  - path-traversal
 vendors:
   - File Browser
+  - FileBrowser
 products:
   - File Browser (< 2.63.22)
+  - filebrowser (< 2.63.19)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -44,6 +49,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-73612
       evidence: NVD vulnerability details
+updates:
+  - at: "2026-08-13T12:55:42Z"
+    level: L1
+    summary: added coverage for filebrowser (< 2.63.19)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73613
 ---
 
 File Browser versions prior to 2.63.22 are affected by an authorization bypass vulnerability stemming from a flaw in how the application validates access rules during recursive file operations. Authenticated users with limited permissions to a parent directory can circumvent access control rules to perform unauthorized actions on descendant files or directories. The vulnerability manifests during copy, rename, and delete operations, where the system fails to verify that the target files or destination paths adhere to the organization's defined access constraints. This allows a low-privileged user to impact the confidentiality and integrity of restricted files by initiating recursive commands from a parent folder for which they have valid access. This issue is tracked as CVE-2026-73612 and carries a CVSS base score of 8.1.
