@@ -3,6 +3,7 @@ title: Hardcoded Authentication Token in IBM Storage Scale GUI
 slug: 2026-08-ibm-storage-scale-hardcoded-token
 description: IBM Storage Scale versions 5.2.3.0 through 5.2.3.8 and 6.0.0.0 through 6.0.1.0 contain a hardcoded token used for inter-node communication and REST API authentication, allowing potential unauthenticated access to the GUI.
 date: "2026-08-13T22:05:19Z"
+lastmod: "2026-08-13T22:08:47Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
 products:
   - Storage Scale 5.2.3.0 through 5.2.3.8
   - Storage Scale 6.0.0.0 through 6.0.1.0
+  - Storage Scale
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -24,12 +26,19 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: IBM Storage Scale GUI contains a hardcoded token in the source code, which was used for inter-node cluster communication and REST API authentication between GUI.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: The admin password is logged into the GUI log of IBM Storage Scale Systems Deploy and Upgrade from GUI.
+    confidence_band: high
 cves:
   - id: CVE-2026-13460
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-13460
   - https://www.ibm.com/support/pages/node/7283308
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19483
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +55,14 @@ action_plan:
       owner: Network Engineering
       addresses: CVE-2026-13460
       evidence: Hardcoded credentials allow unauthenticated access via the GUI.
+updates:
+  - at: "2026-08-13T22:08:47Z"
+    level: L2
+    summary: added coverage for Storage Scale
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-19483
 ---
 
 IBM has disclosed a security vulnerability (CVE-2026-13460) affecting the GUI component of IBM Storage Scale. The vulnerability arises from a hardcoded token embedded within the source code, which is utilized for inter-node cluster communication and REST API authentication between GUI instances. An unauthenticated, network-adjacent attacker could potentially leverage this hardcoded credential to bypass authentication mechanisms, gain unauthorized access to the management interface, or intercept/manipulate cluster communication. The vulnerability affects Storage Scale versions 5.2.3.0 through 5.2.3.8 and 6.0.0.0 through 6.0.1.0. Given the high CVSS score of 7.5, organizations deploying these versions of IBM Storage Scale should prioritize the application of vendor-provided patches to mitigate the risk of unauthorized administrative access or cluster compromise.
