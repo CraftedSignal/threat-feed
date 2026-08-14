@@ -1,74 +1,56 @@
 ---
-title: OpenSSL Denial of Service Vulnerability
+title: Remote Denial of Service Vulnerability in OpenSSL
 slug: 2026-08-openssl-dos
-description: A vulnerability in OpenSSL allows a remote, unauthenticated attacker to trigger a Denial of Service condition by sending malicious traffic to affected systems.
-date: "2026-08-06T21:19:19Z"
-lastmod: "2026-08-13T22:01:55Z"
+description: A vulnerability (CVE-2026-14456) in OpenSSL versions 3.5.x, 3.6.x, and 4.0.x allows remote attackers to trigger a denial of service condition.
+date: "2026-08-14T14:05:29Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - low
 tags:
+  - denial-of-service
   - vulnerability
-  - dos
   - openssl
 vendors:
   - OpenSSL
 products:
-  - OpenSSL
-mitre_ttps:
-  - tactic_id: TA0040
-    tactic_name: Impact
-    technique_id: T1498
-    technique_name: Network Denial of Service
-    evidence: Ein entfernter, anonymer Angreifer kann eine Schwachstelle in OpenSSL ausnutzen, um einen Denial of Service Angriff durchzuführen.
-    confidence_band: high
+  - OpenSSL 3.5
+  - OpenSSL 3.6
+  - OpenSSL 4.0
 cves:
   - id: CVE-2026-14456
     cvss: 7.5
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2668
-  - https://seclists.org/oss-sec/2026/q3/489
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1026/
+  - https://openssl-library.org/news/secadv/20260813.txt
+  - https://www.cve.org/CVERecord?id=CVE-2026-14456
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - Detection Engineering
+    - Security Operations
   immediate_actions:
-    - action: Inventory all systems running OpenSSL to prepare for emergency patching
+    - action: Inventory affected systems using identified version ranges
       owner: IT Operations
       due: 48h
-      evidence: General security advisory guidance
-  enrichment_needed:
-    - item: Affected version range and CVE identifier
-      owner: CTI
-      reason: Necessary to narrow scope of remediation and identify specific vulnerable installations
-      evidence: Source provides no versioning data
+      evidence: Source explicitly lists affected version branches
   mitigation_plan:
-    - priority: short_term
-      action: Monitor for unexpected service crashes in SSL-terminating proxies
-      owner: SOC
-      addresses: OpenSSL
-      evidence: DoS vulnerability nature
-updates:
-  - at: "2026-08-13T22:01:55Z"
-    level: L2
-    summary: added CVE-2026-14456
-    sources:
-      - oss-security
-    source_urls:
-      - https://seclists.org/oss-sec/2026/q3/489
+    - priority: immediate
+      action: Monitor for and apply vendor patches immediately upon release
+      owner: IT Operations
+      addresses: CVE-2026-14456
+      evidence: Source identifies vulnerability and indicates patches forthcoming
 ---
 
-The BSI (Bundesamt für Sicherheit in der Informationstechnik) has issued an advisory regarding a vulnerability in OpenSSL that permits a remote, unauthenticated attacker to execute a Denial of Service (DoS) attack. This vulnerability impacts systems leveraging OpenSSL for cryptographic operations, potentially causing the service to crash or become unresponsive when processing specially crafted requests. As OpenSSL is a foundational library across Linux, Windows, and macOS environments, this flaw poses a risk to any application or service that utilizes the affected versions for TLS/SSL communication. Organizations relying on OpenSSL are advised to monitor official project channels for patch releases.
+The French National Cybersecurity Agency (ANSSI) has published an advisory regarding a denial of service (DoS) vulnerability identified in the OpenSSL cryptographic library. The vulnerability, tracked as CVE-2026-14456, impacts OpenSSL versions 3.5.x (prior to 3.5.8), 3.6.x (prior to 3.6.4), and 4.0.x (prior to 4.0.2). The vulnerability allows a remote, unauthenticated attacker to cause the application to crash or become unresponsive, effectively creating a denial of service. As of the time of the advisory, the vendor had not yet released patches for the affected versions. Organizations utilizing OpenSSL for network-facing services or encrypted communications are advised to monitor the official OpenSSL security advisories for the release of updates.
 
 ## Impact
 
-Successful exploitation of this vulnerability results in service unavailability. This impacts any server, appliance, or application utilizing the vulnerable OpenSSL library for encrypted network communication. While no specific victim count or sector targeting is cited, the ubiquity of OpenSSL makes the potential attack surface significant for all critical infrastructure and enterprise IT environments.
+Successful exploitation results in a remote denial of service condition. This could lead to the unavailability of critical services that rely on OpenSSL for TLS/SSL termination, such as web servers, VPN concentrators, and application proxies. Impacted sectors include any organization relying on the OpenSSL library across varied operating systems and architectures.
 
 ## Recommendation
 
-- Identify all instances of OpenSSL within the environment using asset inventory tools or software composition analysis (SCA).
-- Prioritize the deployment of vendor patches once they become available.
-- Implement network-level filtering to block anomalous or malformed traffic patterns reaching services that terminate TLS connections via OpenSSL, although specific signature-based detection for this DoS vector is currently unavailable.
+* Monitor the official OpenSSL security advisory page for the release of patches for CVE-2026-14456.
+* Audit software inventories to identify applications or services bundling the vulnerable versions of OpenSSL (3.5.x < 3.5.8, 3.6.x < 3.6.4, 4.0.2 < 4.0.2).
+* Where possible, implement network-level access controls to restrict traffic to critical services using OpenSSL to trusted source IP addresses until patches are applied.
