@@ -3,7 +3,7 @@ title: NoSQL Injection Vulnerability in Budibase MongoDB Integration
 slug: 2026-08-budibase-nosql-injection
 description: Budibase versions prior to 3.40.0 are vulnerable to NoSQL injection in the MongoDB datasource due to improper handling of user-supplied parameters, allowing unauthorized data access and potential server-side execution.
 date: "2026-08-13T12:56:46Z"
-lastmod: "2026-08-14T00:06:56Z"
+lastmod: "2026-08-14T14:06:15Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +43,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-73617
     cvss: 7.1
+  - id: CVE-2026-72855
+    cvss: 8.5
+  - id: CVE-2026-72856
+    cvss: 8.1
+  - id: CVE-2026-72857
+    cvss: 7.7
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73617
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72855
@@ -52,6 +58,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72857
   - https://github.com/Budibase/budibase/security/advisories/GHSA-6mpp-gfg5-x2vv
   - https://www.vulncheck.com/advisories/budibase-before-credential-exposure-via-string-fields
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2849
 action_plan:
   priority: elevated
   owners:
@@ -90,6 +97,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-72857
+  - at: "2026-08-14T14:06:15Z"
+    level: L2
+    summary: added CVE-2026-72855 +2
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2849
 ---
 
 Budibase versions prior to 3.40.0 contain a critical NoSQL injection vulnerability within the MongoDB datasource integration. The vulnerability stems from the application's processing of user-supplied parameters using Handlebars with the 'noEscaping: true' setting enabled, combined with a lack of robust operator filtering. 
