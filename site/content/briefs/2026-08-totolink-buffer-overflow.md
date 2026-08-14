@@ -3,6 +3,7 @@ title: Remote Stack-based Buffer Overflow in TOTOLINK A800R
 slug: 2026-08-totolink-buffer-overflow
 description: An authenticated remote attacker can trigger a stack-based buffer overflow in the TOTOLINK A800R router via the setIpQosRules function, potentially leading to arbitrary code execution.
 date: "2026-08-14T08:06:33Z"
+lastmod: "2026-08-14T10:07:35Z"
 type: threat
 types:
   - threat
@@ -13,16 +14,27 @@ tags:
   - remote-code-execution
   - cve-2026-19811
   - router-vulnerability
+  - cve-2026-19812
+  - buffer-overflow
+  - router
+  - rce
 vendors:
   - TOTOLINK
 products:
   - A800R (4.1.2cu.5137_B20200730)
+  - A800R
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
     evidence: The attack can be executed remotely.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1210
+    technique_name: Exploitation of Remote Services
+    evidence: The attack is possible to be carried out remotely.
     confidence_band: high
 cves:
   - id: CVE-2026-19811
@@ -31,6 +43,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19811
   - https://github.com/panda666-888/vuls/blob/main/totolink/a800r/setIpQosRules.md
   - https://vuldb.com/cve/CVE-2026-19811
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19812
+  - https://vuldb.com/cve/CVE-2026-19812
+  - https://github.com/panda666-888/vuls/blob/main/totolink/a800r/UploadCustomModule.md
 rules:
   - title: Detects CVE-2026-19811 Exploitation - Buffer Overflow Attempt in setIpQosRules
     description: Detects potentially malicious HTTP POST requests to the setIpQosRules function where the Comment argument contains an unusually long string, indicative of a buffer overflow attempt.
@@ -64,6 +79,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-19811
       evidence: Vulnerability is remotely exploitable via the web management interface.
+updates:
+  - at: "2026-08-14T10:07:35Z"
+    level: L2
+    summary: added coverage for A800R
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-19812
 ---
 
 A critical security vulnerability has been identified in the TOTOLINK A800R router, specifically affecting firmware version 4.1.2cu.5137_B20200730. The flaw resides within the firewall.so component, specifically in the setIpQosRules function invoked by the /cgi-bin/cstecgi.cgi script. An attacker can exploit this via a stack-based buffer overflow by manipulating the 'Comment' argument. The vulnerability is remotely exploitable by an authenticated user and has been assigned CVE-2026-19811. Public exploit code is currently available, increasing the risk of active exploitation against vulnerable network devices. Given the nature of the device as an edge gateway, successful exploitation could provide an attacker with persistent access to the network.
