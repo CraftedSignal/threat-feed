@@ -3,6 +3,7 @@ title: 'CVE-2026-72829: Privilege Escalation in Grav API Plugin'
 slug: 2026-08-grav-api-bypass
 description: The Grav API plugin before version 1.0.13 contains a privilege escalation vulnerability where API keys with restricted 'api.users.write' scope can bypass authorization checks to grant themselves super-admin privileges.
 date: "2026-08-14T14:11:37Z"
+lastmod: "2026-08-14T16:12:08Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +25,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72829
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72833
 action_plan:
   priority: immediate_escalation
   owners:
@@ -39,6 +41,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-72829
       evidence: Vulnerability allows elevation via api.users.write scope
+updates:
+  - at: "2026-08-14T16:12:08Z"
+    level: L2
+    summary: added coverage for Grav API plugin
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72833
 ---
 
 The Grav API plugin (getgrav/grav-plugin-api) versions prior to 1.0.13 are susceptible to an API-key scope-cap bypass vulnerability located within the UsersController's create() and update() methods. The vulnerability stems from an insecure authorization check where the application enforces scope caps for 'api.users.write' but fails to validate super-privilege grants against the key's defined scopes. Instead, the application performs a direct 'isSuperAdmin()' check that inspects the 'access.api.super' attribute. By leveraging an API key with 'api.users.write' scope, an attacker can modify user records to assign super-admin privileges or group memberships that grant such access. This allows for the elevation of a limited API account to a full super-administrator, resulting in complete administrative control over the Grav instance.
