@@ -1,68 +1,75 @@
 ---
-title: Arbitrary Static Method Execution in Grav CMS
+title: Remote Code Execution in Grav CMS Flex Objects Plugin
 slug: 2026-08-grav-cms-rce
-description: Grav CMS versions 2.0.7 through 2.0.10 allow authenticated users with page-editing permissions to trigger arbitrary public static method calls via malicious blueprint directives, leading to unauthorized file read and write operations.
-date: "2026-08-03T16:06:15Z"
+description: Authenticated users can achieve remote code execution in Grav CMS versions prior to 2.0.13 by exploiting improper input validation in the Flex Objects plugin to upload and execute arbitrary PHP files.
+date: "2026-08-14T14:12:10Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-tags:
-  - cms
-  - rce
-  - file-read
-  - web-application
 vendors:
-  - Grav
+  - getgrav
 products:
-  - Grav CMS (2.0.7 - 2.0.10)
+  - Grav CMS (< 2.0.13)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: An account with only page-editing rights can plant a directive in a page's form-field frontmatter that invokes an arbitrary public static PHP method.
+    evidence: Grav CMS before 2.0.13 contains a remote code execution vulnerability in the Flex Objects plugin settings validation that allows authenticated users to execute arbitrary code.
     confidence_band: high
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
-    evidence: This allows reading of any server-readable file and arbitrary creation/copying of files and directories under the web-server account.
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Attackers can bypass routine name validation by using array notation instead of string notation, call the unZip routine with a malicious archive, and write PHP files to the web root for execution.
     confidence_band: high
 cves:
-  - id: CVE-2026-69088
-    cvss: 8.1
+  - id: CVE-2026-72819
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69088
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72819
+  - https://github.com/getgrav/grav/security/advisories/GHSA-r94f-hx44-8jqf
+  - https://www.vulncheck.com/advisories/grav-cms-before-remote-code-execution-via-zip-upload
 action_plan:
   priority: immediate_escalation
   owners:
     - IT Operations
+    - SOC
   immediate_actions:
-    - action: Patch Grav CMS to version 2.0.11
+    - action: Patch Grav CMS to version 2.0.13
       owner: IT Operations
       due: 24h
-      evidence: Fixed in 2.0.11.
+      evidence: Source states versions before 2.0.13 are affected.
   mitigation_plan:
     - priority: immediate
-      action: Audit user permissions for admin.pages access
+      action: Restrict access to administrative interfaces
       owner: IT Operations
-      addresses: CVE-2026-69088
-      evidence: An account with only page-editing rights (admin.pages) can plant a directive.
+      addresses: CVE-2026-72819
+      evidence: Exploitation requires authenticated access.
 ---
 
-Grav CMS versions 2.0.7 through 2.0.10 are vulnerable to an arbitrary static method execution flaw (CVE-2026-69088). The vulnerability stems from insufficient input validation in the `Blueprint::isSafeDynamicCall()` function. While the application implements a denylist for dangerous callables, this protection is bypassed when a fully-qualified static method call (using the `Class::method` syntax) is utilized, as the validation check fails to evaluate strings containing the double-colon delimiter.
+Grav CMS versions prior to 2.0.13 contain a critical vulnerability in the Flex Objects plugin (CVE-2026-72819) that facilitates remote code execution. The vulnerability stems from insufficient validation of plugin settings during the handling of ZIP archive uploads. Authenticated attackers can bypass security checks by manipulating input parameters, specifically by utilizing array notation instead of the expected string notation. This technique allows an attacker to manipulate the underlying routine name validation, successfully invoking the unZip routine with a crafted, malicious archive. By doing so, the attacker can extract arbitrary PHP files directly into the web root, which can subsequently be executed by the web server. This vulnerability allows for full code execution in the context of the web application user, posing a significant risk to the integrity and confidentiality of the host environment. Defenders should prioritize patching to version 2.0.13 or later.
 
-An attacker with administrative page-editing access (`admin.pages`) can inject a malicious directive into the form-field frontmatter of a page. When the application parses this blueprint, it executes the specified static method. By leveraging existing gadget methods within the PHP environment, an attacker can read arbitrary files accessible to the web server user or perform file/directory creation and modification. This effectively elevates privileges for a low-privileged editor to perform sensitive system operations. The issue is resolved in Grav CMS version 2.0.11.
+## Attack Chain
+
+1. Attacker gains authenticated access to the Grav CMS administrative interface or another area allowing interaction with the Flex Objects plugin.
+2. Attacker prepares a ZIP archive containing a web shell or malicious PHP script intended for execution on the server.
+3. Attacker initiates an upload process via the Flex Objects plugin, intercepting the request to modify input parameters.
+4. Attacker replaces standard string-based input with array notation in the request to bypass the plugin's routine name validation filters.
+5. The server-side validation logic fails to correctly parse the array notation, incorrectly validating the input and proceeding to the internal unZip routine.
+6. The unZip routine processes the attacker-supplied malicious archive and extracts the contained PHP files into a directory accessible within the web root.
+7. Attacker navigates to the location of the newly extracted PHP file in the web browser to trigger server-side execution.
+8. Successful execution of the payload grants the attacker code execution, potentially leading to full system compromise.
 
 ## Impact
 
-Successful exploitation allows an attacker to read any file on the server readable by the web server process and perform unauthorized file and directory operations. This can lead to the exfiltration of sensitive configuration files, source code, or internal data, as well as the modification of the web root to achieve persistent code execution. This vulnerability is particularly critical in multi-user environments where page-editing permissions are delegated to non-administrative users.
+Successful exploitation of CVE-2026-72819 results in complete remote code execution on the server hosting the Grav CMS installation. This level of access typically leads to total compromise of the application, including the ability to read or modify sensitive data, install further persistent backdoors, and move laterally within the network. The scope of impact is confined to organizations utilizing vulnerable versions of Grav CMS prior to 2.0.13.
 
 ## Recommendation
 
-1. Upgrade all instances of Grav CMS to version 2.0.11 or later immediately to patch CVE-2026-69088.
-2. Review system logs for unexpected modification of configuration files or directory structures within the web root.
-3. Audit administrative user accounts to ensure that page-editing privileges are granted only to trusted personnel.
-4. Restrict file system permissions for the web server user to the minimum necessary to function, specifically limiting write access to only required directories, to mitigate the impact of arbitrary file operations.
+* Immediately update all instances of Grav CMS to version 2.0.13 or later to remediate CVE-2026-72819.
+* Audit web server logs for suspicious POST requests targeting Flex Objects plugin endpoints that contain array notation (e.g., brackets like `[]` or nested array structures) in the request parameters.
+* Restrict access to administrative and plugin-upload functionality to trusted internal IP ranges or VPN-only access to prevent exploitation by external, authenticated attackers.
+* Monitor the web directory for the creation of unexpected `.php` files, particularly those uploaded through the web interface, as indicated by file access or modification logs.
