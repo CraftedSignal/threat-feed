@@ -1,18 +1,19 @@
 ---
-title: Stack-Based Buffer Overflow in Tenda G0
+title: Remote Buffer Overflow Vulnerability in Tenda G0
 slug: 2026-08-tenda-g0-overflow
-description: Tenda G0 devices with firmware versions up to 20260625 are susceptible to remote code execution via a stack-based buffer overflow in the httpd web management interface.
-date: "2026-08-14T06:06:38Z"
-type: advisory
+description: Tenda G0 devices contain a remote buffer overflow vulnerability in the httpd management interface that allows for potential arbitrary code execution or denial of service.
+date: "2026-08-14T06:06:48Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 tags:
   - remote-code-execution
   - buffer-overflow
-  - iot
-  - networking
+  - router
+  - cve-2026-19792
 vendors:
   - Tenda
 products:
@@ -20,25 +21,26 @@ products:
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: Executing a manipulation of the argument staticRouteNet can lead to stack-based buffer overflow.
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The attack is possible to be carried out remotely.
     confidence_band: high
 cves:
-  - id: CVE-2026-19791
+  - id: CVE-2026-19792
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-19791
-  - https://github.com/lipenghai/iot_bug/blob/main/Tenda/G0/2.md
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19792
+  - https://github.com/lipenghai/iot_bug/blob/main/Tenda/G0/3.md
+  - https://vuldb.com/vuln/389758
 rules:
-  - title: Detect CVE-2026-19791 Exploitation - POST to /goform/module with anomalous staticRouteNet
-    description: Detects potential exploitation attempts of CVE-2026-19791 by identifying unusually long or malicious payloads in the staticRouteNet parameter sent to the /goform/module endpoint.
+  - title: Detects CVE-2026-19792 Exploitation - Buffer Overflow in Tenda G0
+    description: Detects potential exploitation of the setPortMapping function in Tenda G0 devices by monitoring POST requests with suspicious input parameters.
     platform: sigma
     severity: high
     tactics:
       - initial_access
     techniques:
-      - T1203
+      - T1190
     data_sources:
       - webserver
 rules_count: 1
@@ -46,49 +48,42 @@ action_plan:
   priority: elevated
   owners:
     - SOC
-    - IT Operations
+    - Network Security
   immediate_actions:
-    - action: Isolate Tenda G0 management interfaces from internet-facing networks
-      owner: IT Operations
+    - action: Restrict access to web management interface on Tenda G0
+      owner: Network Security
       due: 24h
-      evidence: Attack is documented as remote
-  hunt_leads:
-    - lead: Search logs for POST requests to /goform/module with 'staticRouteNet' parameter
-      technique_id: T1203
-      data_needed:
-        - Web access logs
-      priority: high
-      confidence: high
-      disposition: hunt_now
-      evidence: Vulnerability involves this specific endpoint and parameter
+      evidence: Public exploit code is available for this high-severity vulnerability.
   mitigation_plan:
     - priority: immediate
-      action: Restrict access to web management interface via ACL
-      owner: IT Operations
-      addresses: CVE-2026-19791
-      evidence: Vulnerability requires access to the httpd interface
+      action: Isolate device management interfaces from the public internet
+      owner: Network Security
+      addresses: CVE-2026-19792
+      evidence: Source reporting identifies remote code execution potential.
 ---
 
-A critical stack-based buffer overflow vulnerability (CVE-2026-19791) has been identified in Tenda G0 networking hardware running firmware versions through 20260625. The flaw exists within the 'addStaticRoute' function located in the '/goform/module' file of the device's httpd web management interface. By sending a specially crafted 'staticRouteNet' argument to this endpoint, a remote, authenticated attacker can trigger the overflow, potentially leading to arbitrary code execution or device instability. Publicly available exploit material increases the risk of exploitation for organizations using these devices in internet-facing configurations.
+A critical buffer overflow vulnerability has been identified in the Tenda G0 router, specifically within the httpd web management interface. The flaw resides in the setPortMapping function found in the /goform/module file. An attacker can trigger this vulnerability by sending a maliciously crafted HTTP request with excessively large input values in the portMappingServer, porMappingtInternal, or portMappingExternal parameters. 
+
+This issue is rated as high severity due to the potential for unauthenticated or authenticated remote code execution or a complete denial of service of the network device. The vulnerability affects all Tenda G0 firmware versions up to 20260625. Publicly available exploit code exists for this vulnerability, increasing the risk of active exploitation against vulnerable devices exposed to the internet. Defenders should prioritize isolating management interfaces of these devices from public access.
 
 ## Attack Chain
 
-1. Attacker performs network reconnaissance to identify internet-facing Tenda G0 devices via common administrative interface ports (80/443).
-2. Attacker gains access to the administrative login portal of the target device.
-3. Attacker authenticates to the web management interface using valid or default credentials.
-4. Attacker constructs a malicious HTTP POST request targeting the /goform/module endpoint.
-5. Attacker injects an oversized string into the 'staticRouteNet' parameter.
-6. The 'addStaticRoute' function fails to bounds-check the input, causing memory corruption on the stack.
-7. The process crashes or is redirected to attacker-controlled shellcode.
-8. Attacker gains arbitrary code execution on the underlying device operating system.
+1. Attacker performs reconnaissance to identify exposed Tenda G0 management interfaces via scanners.
+2. Attacker establishes a session or interacts with the /goform/module endpoint on the web management interface.
+3. Attacker crafts an HTTP POST request targeting the setPortMapping function.
+4. Attacker injects a payload into the portMappingServer, porMappingtInternal, or portMappingExternal parameters.
+5. The target application fails to perform proper bounds checking on the input, causing a buffer overflow.
+6. The attacker overwrites the instruction pointer to redirect execution flow.
+7. Attacker executes arbitrary code on the underlying device firmware.
+8. Final objective achieved, resulting in system compromise or persistent device disruption.
 
 ## Impact
 
-Successful exploitation allows remote attackers to execute arbitrary code with the privileges of the web server process, potentially resulting in full device compromise, configuration manipulation, or use of the device as a pivot point for further lateral movement within the internal network.
+Successful exploitation of CVE-2026-19792 allows a remote attacker to achieve arbitrary code execution on affected Tenda G0 routers. This could lead to full device compromise, allowing for traffic interception, lateral movement into the local network, or permanent denial of service. The vulnerability is exploitable remotely, making any device with an exposed web management interface a target.
 
 ## Recommendation
 
-- Ensure all Tenda G0 devices are isolated from direct internet exposure to prevent unauthorized access to the web management interface.
-- Implement strict access control lists (ACLs) to limit access to the administrative interface to known management subnets.
-- Monitor web server logs for anomalous POST requests directed at '/goform/module' that contain unusually large or malformed 'staticRouteNet' values.
-- Patch affected devices to a firmware version post-dating 20260625 as soon as an update becomes available from the vendor.
+- Implement immediate network-level access control to restrict access to the web management interface of Tenda G0 devices to known, trusted management segments only.
+- Disable remote access to the web management interface from the WAN side if not strictly required.
+- Monitor network traffic for HTTP POST requests directed at /goform/module containing unusual string lengths or shellcode patterns in the specified parameters.
+- Ensure firmware is updated to versions released after 20260625 if a vendor patch becomes available.
