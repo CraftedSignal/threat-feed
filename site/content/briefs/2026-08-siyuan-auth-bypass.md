@@ -1,56 +1,161 @@
 ---
-title: Authorization Bypass in SiYuan Development Branch
+title: Authentication Bypass in SiYuan Publish API
 slug: 2026-08-siyuan-auth-bypass
-description: The SiYuan development branch contains an authorization bypass vulnerability in the /api/av/getAttributeViewSearchTarget endpoint, allowing unauthenticated users to access restricted database content.
-date: "2026-08-13T12:54:56Z"
+description: SiYuan versions prior to 3.7.4 contain an authentication bypass vulnerability allowing unauthenticated remote attackers to retrieve decrypted content from encrypted notebooks.
+date: "2026-08-12T20:54:23Z"
+lastmod: "2026-08-14T14:10:59Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
+tags:
+  - access-control
+  - web-vulnerability
+  - authentication-bypass
+  - information-disclosure
+  - api-security
 vendors:
   - SiYuan
 products:
-  - SiYuan (Development Branch)
+  - SiYuan
+  - SiYuan (< 3.7.4)
+  - SiYuan (<= 3.7.2)
 mitre_ttps:
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1082
-    technique_name: System Information Discovery
-    evidence: Given a database identifier taken from a published page and a keyword, an anonymous reader can query the endpoint to retrieve matching database row content.
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: Anonymous readers can enumerate and retrieve fully decrypted document content from unlocked encrypted notebooks through the publish API without authentication or key material.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: SiYuan versions before v3.7.4 fail to mask sensitive configuration fields in the /api/system/getConf endpoint, allowing anonymous or publish-reader users to obtain the session-cookie signing key.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Attackers can forge and tamper with session cookies to impersonate users, and on instances without access-auth codes configured, escalate to administrator privileges.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1187
+    technique_name: Forced Authentication
+    evidence: Attackers can retrieve the CookieKey value and forge valid session cookies to impersonate users or gain administrative access.
+    confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: Attackers can request published blocks containing embed queries to read content from password-protected, hidden, or forbidden documents without authorization.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: Attackers can call these endpoints without supplying a password to read protected document content and the complete reference topology.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1204
+    technique_name: User Execution
+    evidence: Attackers can distribute malicious SiYuan documents or packages with crafted template columns that execute arbitrary SQL on a victim's kernel when the package is imported and rendered.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The application utilizes the queryBlocks function, which improperly handles raw SQL via string substitution, enabling arbitrary SQL execution.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The flaw is reachable by an anonymous or RoleReader user on the publish surface.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1505.004
+    technique_name: 'Server Software Component: SQL Injection'
+    evidence: An attacker can execute arbitrary SQL, enabling cross-notebook read and write.
     confidence_band: high
 cves:
-  - id: CVE-2026-73608
+  - id: CVE-2026-72789
     cvss: 8.6
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73608
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72789
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72793
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72794
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72795
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72801
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72804
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72807
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72809
 action_plan:
   priority: elevated
   owners:
     - IT Operations
+    - Detection Engineering
   immediate_actions:
-    - action: Inventory all SiYuan instances to ensure no development branches are deployed.
+    - action: Upgrade SiYuan to version 3.7.4
       owner: IT Operations
       due: 48h
-      evidence: The vulnerability is isolated to the development branch.
+      evidence: CVE-2026-72789 fix identified in v3.7.4
   mitigation_plan:
     - priority: immediate
-      action: Upgrade or replace instances running development branches with stable version v3.7.4 or later.
+      action: Disable publish API
       owner: IT Operations
-      addresses: CVE-2026-73608
-      evidence: Patched in v3.7.4
+      addresses: CVE-2026-72789
+      evidence: Vulnerability exists within the publish API
+updates:
+  - at: "2026-08-12T20:56:13Z"
+    level: L2
+    summary: added coverage for SiYuan
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72801
+  - at: "2026-08-12T20:56:35Z"
+    level: L2
+    summary: added coverage for SiYuan (< 3.7.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72804
+  - at: "2026-08-12T20:56:57Z"
+    level: L2
+    summary: added coverage for SiYuan
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72807
+  - at: "2026-08-12T20:58:29Z"
+    level: L2
+    summary: added coverage for SiYuan
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72809
+  - at: "2026-08-14T14:10:59Z"
+    level: L2
+    summary: added coverage for SiYuan (<= 3.7.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72811
 ---
 
-A missing authorization check has been identified in the SiYuan development branch at the /api/av/getAttributeViewSearchTarget endpoint (introduced by commit 9b8e8956f). The vulnerability allows anonymous users to query database content on published pages by providing a database identifier and a keyword. Because the endpoint registers only with 'CheckAuth' but lacks essential 'CheckReadonly', 'publish-access', or 'encrypted-notebook' gating, it effectively bypasses row-level security and filtering mechanisms designed to protect sensitive data.
-
-While the base score for this vulnerability is 8.6, it is important to note that this flaw is restricted to the development branch and does not affect stable releases such as v3.7.3 or the current master branch. The issue was patched in v3.7.4. Defenders should ensure no development branches are deployed in production environments, as these versions may expose internal APIs to external exposure that are not gated for public access.
+SiYuan versions before 3.7.4 contain a critical authentication bypass vulnerability (CVE-2026-72789) within the application's publish API. The defect stems from an improper access control validation logic where encrypted notebooks are incorrectly treated as publicly accessible by default. When a user has unlocked an encrypted notebook, the application fails to verify the requestor's authorization, enabling anonymous remote users to enumerate and exfiltrate decrypted document content. This flaw allows attackers to bypass intended security boundaries without possessing the necessary encryption keys. Defenders should prioritize updating to v3.7.4 or later to remediate this improper authorization, which significantly exposes sensitive notebook data to unauthorized disclosure.
 
 ## Impact
 
-Successful exploitation allows an unauthenticated, remote attacker to exfiltrate database content that should otherwise be withheld by the application's native publish-access filters. This results in unauthorized disclosure of sensitive data managed within SiYuan database views.
+Successful exploitation results in the unauthorized disclosure of sensitive, encrypted document content. Any notebook that has been unlocked by a user becomes vulnerable to retrieval by unauthenticated parties through the publish API. This impacts all SiYuan deployments currently running versions earlier than 3.7.4 that utilize the notebook publishing feature.
 
 ## Recommendation
 
-- Ensure that only stable, production-ready versions (v3.7.3 or v3.7.4) of SiYuan are deployed in your environment.
-- Audit infrastructure to identify and decommission any instances running development branch builds of SiYuan.
-- Monitor webserver logs for unauthorized access patterns or unexpected requests to the /api/av/getAttributeViewSearchTarget endpoint.
+* Update all SiYuan instances to version 3.7.4 or later immediately to patch the access control flaw.
+* Audit webserver access logs for high volumes of unexpected GET requests to the publish API endpoints from unauthorized IP addresses.
+* Disable the publish API feature temporarily if an immediate update to v3.7.4 is not feasible.
