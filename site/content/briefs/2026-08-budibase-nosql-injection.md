@@ -3,15 +3,21 @@ title: NoSQL Injection Vulnerability in Budibase MongoDB Integration
 slug: 2026-08-budibase-nosql-injection
 description: Budibase versions prior to 3.40.0 are vulnerable to NoSQL injection in the MongoDB datasource due to improper handling of user-supplied parameters, allowing unauthorized data access and potential server-side execution.
 date: "2026-08-13T12:56:46Z"
+lastmod: "2026-08-14T00:06:42Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - ssrf
+  - web-vulnerability
+  - budibase
 vendors:
   - Budibase
 products:
   - Budibase
+  - Budibase (before 3.40.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -24,6 +30,9 @@ cves:
     cvss: 7.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73617
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72855
+  - https://github.com/Budibase/budibase/security/advisories/GHSA-xg5g-26x8-cvf4
+  - https://www.vulncheck.com/advisories/budibase-before-dns-rebinding-ssrf-via-openapi-and-rest
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +49,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-73617
       evidence: NoSQL injection allows modification or deletion of collection data
+updates:
+  - at: "2026-08-14T00:06:42Z"
+    level: L2
+    summary: added coverage for Budibase (before 3.40.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72855
 ---
 
 Budibase versions prior to 3.40.0 contain a critical NoSQL injection vulnerability within the MongoDB datasource integration. The vulnerability stems from the application's processing of user-supplied parameters using Handlebars with the 'noEscaping: true' setting enabled, combined with a lack of robust operator filtering. 
