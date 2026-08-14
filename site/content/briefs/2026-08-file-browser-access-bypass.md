@@ -3,7 +3,7 @@ title: Authorization Bypass in File Browser via Recursive Operations
 slug: 2026-08-file-browser-access-bypass
 description: File Browser versions prior to 2.63.22 contain an authorization bypass vulnerability allowing authenticated users to manipulate restricted files via recursive copy, rename, and delete operations.
 date: "2026-08-13T12:55:18Z"
-lastmod: "2026-08-14T00:05:40Z"
+lastmod: "2026-08-14T09:15:52Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +43,18 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72839
   - https://github.com/filebrowser/filebrowser/security/advisories/GHSA-6759-996p-gpj6
   - https://www.vulncheck.com/advisories/filebrowser-through-privilege-escalation-via-signup
+rules:
+  - title: Detect CVE-2026-72839 - Unauthenticated Account Creation Attempt
+    description: Detects potential exploitation attempts of CVE-2026-72839 by monitoring for POST requests to the user signup endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -74,6 +86,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-72839
+  - at: "2026-08-14T09:15:52Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-72839 - Unauthenticated Account Creation Attempt'
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-72839&utm_source=rss&utm_medium=rss
 ---
 
 File Browser versions prior to 2.63.22 are affected by an authorization bypass vulnerability stemming from a flaw in how the application validates access rules during recursive file operations. Authenticated users with limited permissions to a parent directory can circumvent access control rules to perform unauthorized actions on descendant files or directories. The vulnerability manifests during copy, rename, and delete operations, where the system fails to verify that the target files or destination paths adhere to the organization's defined access constraints. This allows a low-privileged user to impact the confidentiality and integrity of restricted files by initiating recursive commands from a parent folder for which they have valid access. This issue is tracked as CVE-2026-73612 and carries a CVSS base score of 8.1.
