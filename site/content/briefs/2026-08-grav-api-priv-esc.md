@@ -3,15 +3,20 @@ title: Privilege Escalation via Improper API Scope Validation in Grav Plugin
 slug: 2026-08-grav-api-priv-esc
 description: The grav-plugin-api plugin for Grav fails to validate API key scope hierarchy, allowing low-privileged users to mint unrestricted administrative keys via the createApiKey endpoint.
 date: "2026-08-14T14:11:31Z"
+lastmod: "2026-08-14T16:12:01Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+tags:
+  - privilege-escalation
+  - web-vulnerability
 vendors:
   - Grav
 products:
   - grav-plugin-api
+  - Grav Plugin API
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -24,6 +29,15 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72826
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72828
+updates:
+  - at: "2026-08-14T16:12:01Z"
+    level: L2
+    summary: added coverage for Grav Plugin API
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72828
 ---
 
 The Grav CMS plugin 'grav-plugin-api' (prior to version 1.0.13) contains a critical vulnerability regarding the creation of API keys. The 'createApiKey' function fails to enforce a security constraint that requires newly generated key scopes to be a subset of the caller's own permissions. Because the 'requireApiKeyPermission' function only checks for baseline 'api.access' permissions, an authenticated user possessing a low-privileged API key can send a specially crafted request to 'createApiKey'. By manipulating the request body to submit an empty scopes array, the attacker can successfully mint a new API key with elevated, unrestricted access. This administrative-level key can then be used to modify Grav configuration files or deploy malicious assets, leading to Remote Code Execution (RCE) on the underlying server. Organizations using Grav CMS with the API plugin enabled are at high risk of full platform compromise if they allow external API key generation.
