@@ -3,15 +3,19 @@ title: Path Traversal Vulnerability in Budibase
 slug: 2026-08-budibase-traversal
 description: Budibase versions before 3.40.0 are vulnerable to path traversal via maliciously crafted S3 object keys, allowing authenticated builders to perform arbitrary file writes during workspace export.
 date: "2026-08-14T00:06:06Z"
+lastmod: "2026-08-14T00:06:18Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
   - webserver
   - path-traversal
   - cve-2026-72850
+  - web-vulnerability
+  - sqli
+  - remote-code-execution
 vendors:
   - Budibase
 products:
@@ -23,6 +27,12 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The vulnerability allows an attacker to write arbitrary files to any path writable by the Budibase process, leading to remote code execution.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Attackers can POST attacker-controlled JSON to the webhook trigger endpoint to inject SQL payloads.
+    confidence_band: high
 cves:
   - id: CVE-2026-72850
     cvss: 9.1
@@ -30,6 +40,21 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72850
   - https://github.com/Budibase/budibase/security/advisories/GHSA-pxwc-66g3-5f27
   - https://www.vulncheck.com/advisories/budibase-before-arbitrary-file-write-via-path-traversal
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72851
+  - https://github.com/Budibase/budibase/security/advisories/GHSA-x7h8-ww3q-xv7c
+  - https://www.vulncheck.com/advisories/budibase-before-sql-injection-via-unauthenticated-webhook
+rules:
+  - title: Detects CVE-2026-72851 Exploitation - SQL Injection in Budibase Webhooks
+    description: Detects potential exploitation of CVE-2026-72851 by monitoring for POST requests to webhook endpoints containing common SQL injection payloads.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -40,6 +65,14 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: Vendor patch availability for CVE-2026-72850
+updates:
+  - at: "2026-08-14T00:06:18Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-72851 Exploitation - SQL Injection in Budibase Webhooks'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72851
 ---
 
 Budibase versions prior to 3.40.0 contain a critical path traversal vulnerability (CVE-2026-72850) affecting the handling of S3 object keys. The flaw originates in the application's failure to sanitize filenames provided during file uploads within the builder interface. When an authenticated user with builder privileges uploads a file containing directory traversal sequences (e.g., ../), these sequences are incorrectly preserved.
