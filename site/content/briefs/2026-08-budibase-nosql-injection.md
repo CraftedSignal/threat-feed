@@ -3,7 +3,7 @@ title: NoSQL Injection Vulnerability in Budibase MongoDB Integration
 slug: 2026-08-budibase-nosql-injection
 description: Budibase versions prior to 3.40.0 are vulnerable to NoSQL injection in the MongoDB datasource due to improper handling of user-supplied parameters, allowing unauthorized data access and potential server-side execution.
 date: "2026-08-13T12:56:46Z"
-lastmod: "2026-08-14T14:06:15Z"
+lastmod: "2026-08-14T14:12:57Z"
 type: advisory
 types:
   - advisory
@@ -16,11 +16,15 @@ tags:
   - web-application
   - privilege-escalation
   - auth-bypass
+  - web-application-vulnerability
+  - authorization-bypass
+  - cloud-security
 vendors:
   - Budibase
 products:
   - Budibase
   - Budibase (before 3.40.0)
+  - Budibase (3.39.4 to 3.39.x)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -59,6 +63,19 @@ references:
   - https://github.com/Budibase/budibase/security/advisories/GHSA-6mpp-gfg5-x2vv
   - https://www.vulncheck.com/advisories/budibase-before-credential-exposure-via-string-fields
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2849
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72859
+rules:
+  - title: Detect Potential Exploitation of CVE-2026-72859
+    description: Detects unauthorized attempts to access the S3 attachment upload endpoint by users with low privileges, as characterized by POST requests to the attachment route.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -104,6 +121,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2849
+  - at: "2026-08-14T14:12:57Z"
+    level: L2
+    summary: 'added detection rule: Detect Potential Exploitation of CVE-2026-72859'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72859
 ---
 
 Budibase versions prior to 3.40.0 contain a critical NoSQL injection vulnerability within the MongoDB datasource integration. The vulnerability stems from the application's processing of user-supplied parameters using Handlebars with the 'noEscaping: true' setting enabled, combined with a lack of robust operator filtering. 
