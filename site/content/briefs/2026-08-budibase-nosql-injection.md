@@ -3,7 +3,7 @@ title: NoSQL Injection Vulnerability in Budibase MongoDB Integration
 slug: 2026-08-budibase-nosql-injection
 description: Budibase versions prior to 3.40.0 are vulnerable to NoSQL injection in the MongoDB datasource due to improper handling of user-supplied parameters, allowing unauthorized data access and potential server-side execution.
 date: "2026-08-13T12:56:46Z"
-lastmod: "2026-08-14T00:06:48Z"
+lastmod: "2026-08-14T00:06:56Z"
 type: advisory
 types:
   - advisory
@@ -34,6 +34,12 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: any authenticated user — including a lowest-privilege BASIC app user — can reassign the tenant account-holder (top-privilege admin) email to an attacker-controlled address.
     confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: Attackers with table read permissions can retrieve datasource configurations through the read API to obtain live backend database credentials and service account keys.
+    confidence_band: high
 cves:
   - id: CVE-2026-73617
     cvss: 7.1
@@ -43,6 +49,9 @@ references:
   - https://github.com/Budibase/budibase/security/advisories/GHSA-xg5g-26x8-cvf4
   - https://www.vulncheck.com/advisories/budibase-before-dns-rebinding-ssrf-via-openapi-and-rest
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72856
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72857
+  - https://github.com/Budibase/budibase/security/advisories/GHSA-6mpp-gfg5-x2vv
+  - https://www.vulncheck.com/advisories/budibase-before-credential-exposure-via-string-fields
 action_plan:
   priority: elevated
   owners:
@@ -74,6 +83,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-72856
+  - at: "2026-08-14T00:06:56Z"
+    level: L2
+    summary: added coverage for budibase
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72857
 ---
 
 Budibase versions prior to 3.40.0 contain a critical NoSQL injection vulnerability within the MongoDB datasource integration. The vulnerability stems from the application's processing of user-supplied parameters using Handlebars with the 'noEscaping: true' setting enabled, combined with a lack of robust operator filtering. 
