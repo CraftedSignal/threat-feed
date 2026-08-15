@@ -3,7 +3,7 @@ title: Microsoft Security Updates — August 2026
 slug: 2026-08-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in August 2026.
 date: "2026-08-01T01:41:40Z"
-lastmod: "2026-08-15T02:07:09Z"
+lastmod: "2026-08-15T02:07:13Z"
 type: threat
 types:
   - threat
@@ -33,12 +33,45 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:x64:*
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:visual_studio_2022:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:visual_studio_2026:*:*:*:*:*:*:*:*
   - cpe:2.3:a:microsoft:.net:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x64:*
+  - cpe:2.3:a:microsoft:365_apps:-:*:*:*:enterprise:*:x86:*
+  - cpe:2.3:a:microsoft:microsoft_365:-:*:*:*:*:macos:*:*
+  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:office_2019:-:*:*:*:*:*:x86:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x64:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:-:x86:*
+  - cpe:2.3:a:microsoft:office_2021:-:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x64:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:-:x86:*
+  - cpe:2.3:a:microsoft:office_2024:-:*:*:*:ltsc:macos:-:*
+  - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x64:*
+  - cpe:2.3:a:microsoft:word:2016:*:*:*:*:*:x86:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:-:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_1:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_10:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_11:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_12:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_13:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_14:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_15:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_16:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_17:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_18:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_19:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_2:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_20:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_21:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_22:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_3:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_4:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_5:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:exchange_server:2016:cumulative_update_6:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -61,6 +94,12 @@ cves:
   - id: CVE-2026-54984
     cvss: 7.8
     epss: 0.00418
+  - id: CVE-2026-59132
+    cvss: 7.5
+    epss: 0.0131
+  - id: CVE-2026-61923
+    cvss: 7.8
+    epss: 0.00311
   - id: CVE-2026-61939
     cvss: 7
     epss: 0.00246
@@ -82,6 +121,12 @@ cves:
   - id: CVE-2026-65672
     cvss: 7.8
     epss: 0.00264
+  - id: CVE-2026-70318
+    cvss: 5.5
+    epss: 0.0036
+  - id: CVE-2026-62911
+    cvss: 8
+    epss: 0.00717
   - id: CVE-2026-62738
     cvss: 5.5
     epss: 0.00387
@@ -89,15 +134,8 @@ cves:
     cvss: 8.8
     epss: 0.00716
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50523
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69414
 updates:
-  - at: "2026-08-11T18:40:19Z"
-    level: L2
-    summary: added CVE-2026-62842
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-62897
   - at: "2026-08-11T23:42:55Z"
     level: L2
     summary: added CVE-2026-59125 +4
@@ -126,6 +164,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50523
+  - at: "2026-08-15T02:07:13Z"
+    level: L2
+    summary: added CVE-2026-59132 +3
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69414
 ---
 
 This roundup covers 462 Microsoft security vulnerabilities. CVSS base scores range from 7.8 to 9.1. None are reported as actively exploited at the time of release. The issues affect .NET, .NET Core, AMT, Access, Active Directory Certificate Services, Active Directory Domain Services, Application Information Services, Application Insights Profiler, Azure Active Directory, Azure Attestation, Azure Confidential Ledger, Azure CycleCloud, Azure Kubernetes Service, Azure Logic Apps, Azure Monitor Agent, Azure SQL Database, Azure SQL Managed Instance, Azure SRE Agent, Azure Service Bus, Azure Storage Explorer, Bluetooth, COM, Capability Access Management Service, Defender for Endpoint, Desktop Window Manager, Dynamics 365, Dynamics Business Central, Edge, Entra Connect, Excel, Exchange Server, GitHub Copilot, HDF5, High Performance Computing, High Performance Computing Pack, Hyper-V, Local Security Authority Server, Microsoft .NET Framework, Microsoft 365 Admin Center, Microsoft Entra, Microsoft Entra Provisioning Service, Microsoft Malware Protection Engine, Microsoft Planetary Computer Pro, Microsoft Purview eDiscovery, Microsoft QUIC, Microsoft Teams, Office, Office Access, Office Word, OneDrive, Outlook, Power Apps, Power BI, PowerPoint, PowerShell, PowerShell Core, Reliable Multicast Transport Driver, Remote Desktop Client, Remote Desktop Services, Remote Registry Service, Routing and Remote Access Service, Rpm, SMB Client, SharePoint, SharePoint Online, SharePoint Server, Teams, Virtual Hard Disk, Visual Studio Code, Visual Studio Code CoPilot Chat Extension, Windows, Windows Ancillary Function Driver for WinSock, Windows Autopilot, Windows Backup Engine, Windows Bind Filter Driver, Windows Cloud Files Mini Filter Driver, Windows Common Log File System Driver, Windows Container Isolation FS Filter Driver, Windows Cross Device Service, Windows DHCP Client, Windows DHCP Server, Windows DNS, Windows DNS Server, Windows DWM Core Library, Windows Deployment Services, Windows Device Association Service, Windows Display Enhancement Service, Windows Encrypting File System, Windows Event Logging Service, Windows GDI+, Windows Graphics Kernel, Windows HTTP Protocol Stack, Windows HTTP.sys, Windows Hello, Windows Imaging Component, Windows Installer, Windows Kerberos, Windows Kernel, Windows Key Guard, Windows LDAP, Windows License Manager, Windows MIDI Service, Windows MIDI Service Module, Windows Management Instrumentation, Windows Management Services, Windows Message Queuing, Windows Modern Device Management, Windows NTFS, Windows Narrator, Windows Network Connection Broker, Windows Network File System, Windows Package Manager, Windows Program Compatibility Assistant Service, Windows Projected File System, Windows Push Notifications, Windows Remote Access API, Windows Remote Access Connection Manager, Windows Remote Desktop Services, Windows SMB Client, Windows SMB Server, Windows Search Component, Windows Secure Socket Tunneling Protocol, Windows Sensor Data Service, Windows Storage, Windows Storage Port Driver, Windows Telephony Service, Windows Universal Disk Format File System Driver, Windows User Profile Service, Windows Work Folder Service, Windows iSCSI Target Service, Winlogon, Word, dma-buf/udmabuf, firmware, ims-pcu, iomap, ksmbd, mctp, net/handshake, pds_core, wanxl.
