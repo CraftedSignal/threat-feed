@@ -1,87 +1,82 @@
 ---
-title: Account Takeover Vulnerability in TrueBooker WordPress Plugin
+title: Account Takeover in TrueBooker WordPress Plugin via Unauthenticated AJAX
 slug: 2026-08-truebooker-ato
-description: An unauthenticated account takeover vulnerability (CVE-2026-14364) in the TrueBooker plugin allows attackers to reset arbitrary user passwords due to missing identity validation.
-date: "2026-08-07T05:30:43Z"
-lastmod: "2026-08-07T05:30:47Z"
+description: The TrueBooker WordPress plugin contains an unauthenticated account takeover vulnerability (CVE-2026-16142) allowing attackers to modify arbitrary user email addresses and facilitate account hijacking.
+date: "2026-08-15T10:17:59Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
-tags:
-  - wordpress
-  - plugin
-  - vulnerability
-  - account-takeover
 vendors:
-  - themetechmount
+  - WordPress
 products:
-  - TrueBooker – Appointment Booking and Scheduler System (1.2.3)
-  - TrueBooker – Appointment Booking and Scheduler System (<= 1.2.3)
+  - TrueBooker (<= 1.2.6)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1556
-    technique_name: Modify Authentication Process
-    evidence: The TrueBooker – Appointment Booking and Scheduler System plugin for WordPress is vulnerable to account takeover via improper password reset validation.
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: This makes it possible for unauthenticated attackers to change any WordPress user account email address.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078.002
+    technique_name: 'Valid Accounts: Domain Accounts'
+    evidence: An attacker can then use the native WordPress password reset flow... and take over the account.
     confidence_band: high
 cves:
-  - id: CVE-2026-14364
-    cvss: 9.8
-  - id: CVE-2026-14365
+  - id: CVE-2026-16142
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-14364
-  - https://www.wordfence.com/threat-intel/vulnerabilities/id/f441477e-35b8-42ae-b71c-3fdba126021b?source=cve
-  - https://plugins.trac.wordpress.org/changeset/3595807/truebooker-appointment-booking
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-14365
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-16142
+rules:
+  - title: Detects CVE-2026-16142 Exploitation - Unauthenticated Email Modification
+    description: Detects potential exploitation of CVE-2026-16142 by identifying unauthenticated AJAX requests to the TrueBooker update handler.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
     - IT Operations
     - Security Operations
   immediate_actions:
-    - action: Update TrueBooker plugin to a version above 1.2.3.
+    - action: Update TrueBooker plugin to latest version
       owner: IT Operations
       due: 24h
-      evidence: Plugin version 1.2.3 and below are vulnerable.
+      evidence: CVE-2026-16142 mitigation requires patching the vulnerable version.
   mitigation_plan:
     - priority: immediate
-      action: Identify and disable vulnerable TrueBooker plugin until patched.
+      action: Disable TrueBooker plugin if update not possible
       owner: IT Operations
-      addresses: CVE-2026-14364
-      evidence: Account takeover vulnerability.
-updates:
-  - at: "2026-08-07T05:30:47Z"
-    level: L2
-    summary: added CVE-2026-14365
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-14365
+      addresses: CVE-2026-16142
+      evidence: Source confirms vulnerability in versions <= 1.2.6.
 ---
 
-The TrueBooker - Appointment Booking and Scheduler System plugin for WordPress (versions 1.2.3 and below) contains a critical security flaw categorized as CWE-640: Weak Password Recovery Mechanism for Forgotten Password. The vulnerability stems from the plugin's failure to properly validate a user's identity during the password reset workflow. Because the identity check is absent, an unauthenticated attacker can supply a target user's identifier - such as an administrator account - to the password reset endpoint, triggering a password change or reset without authorization. This allows for full account takeover and subsequent persistent access to the WordPress environment. Given the critical CVSS 3.1 score of 9.8, this vulnerability poses a severe risk to any organization utilizing the plugin for scheduling services.
+The TrueBooker plugin for WordPress (versions 1.2.6 and earlier) is susceptible to an unauthenticated account takeover vulnerability, designated as CVE-2026-16142. The flaw exists within the 'add_front_user_update()' AJAX handler, which fails to verify the authentication status or the ownership of the account being modified. Because the handler trusts user-supplied input for the 'truebooker_wp_user_id' parameter and passes it directly to the 'wp_update_user()' function, unauthenticated attackers can overwrite the email address associated with any user account, including administrative accounts. By redirecting a target account's email to an attacker-controlled address, the threat actor can leverage the native WordPress password reset functionality to seize control of the account. This vulnerability poses a severe risk to WordPress installations utilizing this plugin.
 
 ## Attack Chain
 
-1. Attacker performs reconnaissance to identify sites running the TrueBooker plugin.
-2. Attacker probes the WordPress application to locate the password reset endpoint provided by the TrueBooker plugin.
-3. Attacker identifies a target user's username or email address (e.g., an administrator).
-4. Attacker submits a forged password reset request to the vulnerable endpoint.
-5. The plugin fails to perform server-side verification of the requestor's identity, accepting the reset request.
-6. The plugin updates the password or facilitates a reset for the targeted account.
-7. Attacker logs in to the application as the compromised user.
-8. Attacker gains full administrative control, potentially deploying further backdoors or exfiltrating sensitive appointment data.
+1. Attacker identifies a WordPress installation running the vulnerable TrueBooker plugin version 1.2.6 or earlier.
+2. Attacker crafts a malicious AJAX request targeting the 'add_front_user_update()' action.
+3. Attacker specifies the 'truebooker_wp_user_id' parameter corresponding to the target administrator account ID.
+4. Attacker provides an arbitrary, attacker-controlled email address in the request parameters.
+5. The vulnerable plugin accepts the request without authentication checks and executes 'wp_update_user()' using the provided inputs.
+6. The target administrator's email address is successfully updated in the WordPress database to the attacker's email address.
+7. Attacker initiates a standard password reset request for the target account via the legitimate WordPress '/wp-login.php?action=lostpassword' endpoint.
+8. Attacker intercepts the reset token delivered to their controlled email and completes the password reset, successfully achieving full account takeover.
 
 ## Impact
 
-Successful exploitation leads to a total account takeover, granting attackers administrative access to the WordPress site. Potential consequences include unauthorized access to customer appointment data, modification of site content, installation of web shells for persistent access, and the potential for lateral movement within the hosting infrastructure.
+Successful exploitation allows unauthenticated attackers to gain full administrative control over the affected WordPress site. This leads to complete data exfiltration, defacement, the potential for further server-side command execution via administrative privileges, and the compromise of all user data stored within the application.
 
 ## Recommendation
 
-* Update the TrueBooker - Appointment Booking and Scheduler System plugin to the latest version immediately to remediate CVE-2026-14364.
-* Monitor web server logs for suspicious or high-frequency POST requests targeting password reset endpoints associated with the plugin (look for unusual source IPs or volume).
-* Conduct an audit of WordPress administrator accounts for suspicious activity or recent unauthorized password changes.
-* Disable the plugin temporarily if an immediate update is not feasible.
+Prioritize the update of the TrueBooker plugin to the latest patched version. If updates are unavailable, disable the plugin immediately. Monitor web server logs for suspicious POST requests to 'admin-ajax.php' containing the 'truebooker_wp_user_id' parameter.
