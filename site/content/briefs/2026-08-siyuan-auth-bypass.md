@@ -3,7 +3,7 @@ title: Authentication Bypass in SiYuan Publish API
 slug: 2026-08-siyuan-auth-bypass
 description: SiYuan versions prior to 3.7.4 contain an authentication bypass vulnerability allowing unauthenticated remote attackers to retrieve decrypted content from encrypted notebooks.
 date: "2026-08-12T20:54:23Z"
-lastmod: "2026-08-15T22:20:47Z"
+lastmod: "2026-08-15T22:20:53Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,10 @@ products:
   - SiYuan
   - SiYuan (< 3.7.4)
   - SiYuan (<= 3.7.2)
+affected_os:
+  - Windows
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -113,6 +117,7 @@ references:
   - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-fqpw-c3pj-w8g9
   - https://www.vulncheck.com/advisories/siyuan-before-remote-code-execution-via-pdf-annotations
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73042
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73043
 action_plan:
   priority: elevated
   owners:
@@ -130,13 +135,6 @@ action_plan:
       addresses: CVE-2026-72789
       evidence: Vulnerability exists within the publish API
 updates:
-  - at: "2026-08-12T20:56:57Z"
-    level: L2
-    summary: added coverage for SiYuan
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-72807
   - at: "2026-08-12T20:58:29Z"
     level: L2
     summary: added coverage for SiYuan
@@ -165,6 +163,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-73042
+  - at: "2026-08-15T22:20:53Z"
+    level: L2
+    summary: added coverage for SiYuan
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73043
 ---
 
 SiYuan versions before 3.7.4 contain a critical authentication bypass vulnerability (CVE-2026-72789) within the application's publish API. The defect stems from an improper access control validation logic where encrypted notebooks are incorrectly treated as publicly accessible by default. When a user has unlocked an encrypted notebook, the application fails to verify the requestor's authorization, enabling anonymous remote users to enumerate and exfiltrate decrypted document content. This flaw allows attackers to bypass intended security boundaries without possessing the necessary encryption keys. Defenders should prioritize updating to v3.7.4 or later to remediate this improper authorization, which significantly exposes sensitive notebook data to unauthorized disclosure.
