@@ -3,7 +3,7 @@ title: Authentication Bypass in SiYuan Publish API
 slug: 2026-08-siyuan-auth-bypass
 description: SiYuan versions prior to 3.7.4 contain an authentication bypass vulnerability allowing unauthenticated remote attackers to retrieve decrypted content from encrypted notebooks.
 date: "2026-08-12T20:54:23Z"
-lastmod: "2026-08-15T22:20:39Z"
+lastmod: "2026-08-15T22:20:47Z"
 type: advisory
 types:
   - advisory
@@ -91,6 +91,12 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: Attackers can inject malicious markup into annotation fields that execute as script in the PDF renderer with full Node.js access when a user opens an annotated PDF.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Attackers can inject markup through field descriptions or names that close containing elements and execute arbitrary code via event handlers, reaching Node built-ins due to Electron's insecure configuration.
+    confidence_band: high
 cves:
   - id: CVE-2026-72789
     cvss: 8.6
@@ -106,6 +112,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73041
   - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-fqpw-c3pj-w8g9
   - https://www.vulncheck.com/advisories/siyuan-before-remote-code-execution-via-pdf-annotations
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73042
 action_plan:
   priority: elevated
   owners:
@@ -123,13 +130,6 @@ action_plan:
       addresses: CVE-2026-72789
       evidence: Vulnerability exists within the publish API
 updates:
-  - at: "2026-08-12T20:56:35Z"
-    level: L2
-    summary: added coverage for SiYuan (< 3.7.4)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-72804
   - at: "2026-08-12T20:56:57Z"
     level: L2
     summary: added coverage for SiYuan
@@ -158,6 +158,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-73041
+  - at: "2026-08-15T22:20:47Z"
+    level: L2
+    summary: added coverage for SiYuan (< 3.7.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73042
 ---
 
 SiYuan versions before 3.7.4 contain a critical authentication bypass vulnerability (CVE-2026-72789) within the application's publish API. The defect stems from an improper access control validation logic where encrypted notebooks are incorrectly treated as publicly accessible by default. When a user has unlocked an encrypted notebook, the application fails to verify the requestor's authorization, enabling anonymous remote users to enumerate and exfiltrate decrypted document content. This flaw allows attackers to bypass intended security boundaries without possessing the necessary encryption keys. Defenders should prioritize updating to v3.7.4 or later to remediate this improper authorization, which significantly exposes sensitive notebook data to unauthorized disclosure.
