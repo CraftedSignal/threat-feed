@@ -3,11 +3,15 @@ title: Command Injection in Zyxel WAX650S export-cgi
 slug: 2026-08-zyxel-export-cgi-rce
 description: An authenticated administrator can exploit a command injection vulnerability in the export-cgi program of Zyxel WAX650S firmware versions through 7.10(ABRM.4)C0 to execute arbitrary OS commands.
 date: "2026-08-04T03:43:32Z"
+lastmod: "2026-08-16T18:43:37Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=D8F7FACB-F5F9-558A-A08D-F0A42337381F&utm_source=rss&utm_medium=rss
 tags:
   - cve
   - command-injection
@@ -17,6 +21,7 @@ vendors:
   - Zyxel
 products:
   - WAX650S firmware
+  - WAX650S
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -27,9 +32,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-6837
     cvss: 7.2
+    epss: 0.0095
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6837
   - https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-command-injection-and-improper-authentication-vulnerabilities-in-certain-aps-fwa7-and-security-routers-08-04-2026
+  - https://sploitus.com/exploit?id=D8F7FACB-F5F9-558A-A08D-F0A42337381F&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Potential CVE-2026-6837 Exploitation Attempt
     description: Detects HTTP requests to the export-cgi program potentially containing shell metacharacters indicating command injection.
@@ -51,6 +58,14 @@ action_plan:
       owner: IT Operations
       due: 72h
       evidence: Vendor advisory confirms vulnerability in firmware <= 7.10(ABRM.4)C0.
+updates:
+  - at: "2026-08-16T18:43:37Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=D8F7FACB-F5F9-558A-A08D-F0A42337381F&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-6837 describes a post-authentication command injection vulnerability affecting the 'export-cgi' CGI program within Zyxel WAX650S access point firmware. The vulnerability exists in all firmware versions up to and including 7.10(ABRM.4)C0. An attacker who has already obtained legitimate administrative credentials for the web management interface can leverage this flaw to inject and execute arbitrary commands at the operating system level. Because this vulnerability requires existing administrative access, the primary risk involves privilege escalation or persistence for an attacker who has successfully performed initial credential compromise. Organizations utilizing these devices should prioritize upgrading to patched firmware versions and auditing active administrative sessions.
