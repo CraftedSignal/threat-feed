@@ -3,7 +3,7 @@ title: Access-Modifier Bypass in Scriban
 slug: 2026-08-scriban-bypass
 description: Scriban versions prior to 7.2.2 contain an access-modifier bypass in TypedObjectAccessor that allows unauthorized modification of private, internal, or init-only CLR object properties via template injection.
 date: "2026-08-16T14:25:30Z"
-lastmod: "2026-08-16T14:26:11Z"
+lastmod: "2026-08-16T14:26:18Z"
 type: advisory
 types:
   - advisory
@@ -58,6 +58,9 @@ references:
   - https://github.com/scriban/scriban/security/advisories/GHSA-6q7j-xr26-3h2c
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74783
   - https://www.vulncheck.com/advisories/scriban-through-parser-recursion-denial-of-service
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74787
+  - https://github.com/scriban/scriban/security/advisories/GHSA-xcx6-vp38-8hr5
+  - https://www.vulncheck.com/advisories/scriban-before-uncontrolled-recursion-via-object-to-json
 action_plan:
   priority: immediate_escalation
   owners:
@@ -96,6 +99,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-74783
+  - at: "2026-08-16T14:26:18Z"
+    level: L1
+    summary: added coverage for Scriban
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-74787
 ---
 
 Scriban, a popular .NET template engine, contains a critical access-modifier bypass vulnerability (CVE-2026-73061) affecting the TypedObjectAccessor component. This flaw occurs in versions prior to 7.2.2 and enables template code to circumvent standard setter-visibility checks. By exploiting this, an attacker can write to CLR object properties that should be protected by private, internal, or init-only modifiers.
