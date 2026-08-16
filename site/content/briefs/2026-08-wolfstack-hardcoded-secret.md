@@ -3,11 +3,15 @@ title: Hard-coded Authentication Secret in WolfStack
 slug: 2026-08-wolfstack-hardcoded-secret
 description: WolfStack versions prior to 25.9.2 contain a hard-coded authentication secret that allows unauthenticated remote attackers to bypass authentication and achieve root-level command execution within containerized workloads.
 date: "2026-08-12T22:52:00Z"
+lastmod: "2026-08-16T07:36:46Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=7B95F7DC-5EEC-5081-A56F-274EE031C041&utm_source=rss&utm_medium=rss
 vendors:
   - WolfStack
 products:
@@ -28,8 +32,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-73519
     cvss: 9.8
+    epss: 0.00617
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73519
+  - https://sploitus.com/exploit?id=7B95F7DC-5EEC-5081-A56F-274EE031C041&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-73519 Exploitation - Unauthorized WolfStack API Access
     description: Detects exploitation attempts against CVE-2026-73519 by identifying incoming requests containing the 'X-WolfStack-Secret' header used to bypass authentication.
@@ -59,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-73519
       evidence: Attackers can reach an affected node's management port
+updates:
+  - at: "2026-08-16T07:36:46Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=7B95F7DC-5EEC-5081-A56F-274EE031C041&utm_source=rss&utm_medium=rss
 ---
 
 WolfStack versions prior to 25.9.2 contain a critical security flaw identified as CVE-2026-73519. The vulnerability stems from a hard-coded cluster-authentication secret, defined as a constant within the source code file 'src/auth/mod.rs' and included in every build. This implementation flaw allows any remote, unauthenticated attacker to bypass the 'require_auth()' authentication gate. By providing the known secret value in the 'X-WolfStack-Secret' HTTP header, an attacker can gain unauthorized access to the node's management port. Once authenticated, an attacker can enumerate running Docker and LXC containers on the target host and execute arbitrary commands with root privileges inside these containers via the '/api/containers/{runtime}/{id}/exec' endpoint. Given the critical severity (CVSS 9.8) and the ease of exploitation, immediate patching is required for all production deployments.
