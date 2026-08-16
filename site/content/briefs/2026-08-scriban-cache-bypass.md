@@ -3,7 +3,7 @@ title: Authorization Bypass in Scriban via Stale Template Cache
 slug: 2026-08-scriban-cache-bypass
 description: Scriban versions before 7.0.0 fail to clear the CachedTemplates dictionary during TemplateContext.Reset(), potentially allowing unauthorized access to template content across reused contexts.
 date: "2026-08-16T14:26:38Z"
-lastmod: "2026-08-16T14:26:46Z"
+lastmod: "2026-08-16T14:26:55Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +12,7 @@ severities:
 products:
   - Scriban
   - Scriban (6.6.0)
+  - Scriban (< 6.6.0)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -27,6 +28,7 @@ references:
   - https://github.com/scriban/scriban/security/advisories/GHSA-x6m9-38vm-2xhf
   - https://www.vulncheck.com/advisories/scriban-before-authorization-bypass-via-stale-include-cache
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74792
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74795
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +53,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-74792
+  - at: "2026-08-16T14:26:55Z"
+    level: L1
+    summary: added coverage for Scriban (< 6.6.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-74795
 ---
 
 Scriban, a popular templating engine for .NET, contains a vulnerability (CVE-2026-74791) in versions prior to 7.0.0. The issue stems from the failure to properly clear the `CachedTemplates` dictionary when the `TemplateContext.Reset()` method is invoked. This flaw allows cached templates to persist across different rendering contexts. In applications where `ITemplateLoader` implementations are request-dependent, this behavior can be leveraged by an attacker to access template content that was intended for a different, potentially more privileged user or request context. Because the template is retrieved from the stale cache, the `TemplateLoader.Load()` method is not re-triggered, bypassing intended authorization checks that would typically occur during the loading phase. This vulnerability poses a significant risk of unauthorized information disclosure in multi-tenant or request-heavy applications.
