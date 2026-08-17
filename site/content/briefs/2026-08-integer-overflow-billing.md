@@ -3,7 +3,7 @@ title: Integer Overflow in New-API Billing Settlement
 slug: 2026-08-integer-overflow-billing
 description: A critical integer overflow vulnerability in QuantumNous new-api allows authenticated users to inflate their account balance by injecting extreme quantity multipliers that result in negative settlement charges.
 date: "2026-08-17T18:45:57Z"
-lastmod: "2026-08-17T18:46:06Z"
+lastmod: "2026-08-17T18:47:05Z"
 type: threat
 types:
   - threat
@@ -16,6 +16,9 @@ tags:
   - privilege-escalation
   - information-disclosure
   - cve-2026-64859
+  - denial-of-service
+  - web-application
+  - cve-2026-64868
 vendors:
   - QuantumNous
 products:
@@ -47,6 +50,17 @@ references:
   - https://github.com/advisories/GHSA-8r8v-xf7q-rcpr
   - https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.18
   - https://github.com/advisories/GHSA-6x2c-phff-wx57
+  - https://github.com/advisories/GHSA-v828-m3pf-vq9q
+rules:
+  - title: Detect Excessive POST Request Bodies to Payment Webhooks
+    description: Detects potential CVE-2026-64868 exploitation by monitoring for large POST request bodies sent to New API payment webhook endpoints, which may indicate a DoS attempt.
+    platform: sigma
+    severity: high
+    tactics:
+      - impact
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -75,6 +89,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-6x2c-phff-wx57
+  - at: "2026-08-17T18:47:05Z"
+    level: L1
+    summary: 'added detection rule: Detect Excessive POST Request Bodies to Payment Webhooks'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-v828-m3pf-vq9q
 ---
 
 The vulnerability CVE-2026-71479 affects the billing settlement logic in QuantumNous new-api versions 1.0.0-rc.17 and earlier. It stems from the application's failure to validate user-controlled quantity parameters, such as image counts or duration multipliers, before performing mathematical operations. By providing an extremely large numeric input that exceeds standard signed integer limits, an attacker triggers an overflow during type conversion (e.g., float64 to int64). This causes the settlement logic to calculate a massive negative cost for the transaction. Because the application treats this negative charge as a credit, the user's account balance is inflated instantly. This flaw is particularly dangerous for deployments with enabled self-registration or free sign-up bonuses, as it allows unauthenticated or low-privilege actors to gain and inflate seed balances, leading to the exhaustion of operator-prepaid upstream service funds.
