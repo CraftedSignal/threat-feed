@@ -3,6 +3,7 @@ title: Stack Buffer Overflow in COVESA Open1722
 slug: 2026-08-open1722-overflow
 description: COVESA Open1722 versions through 0.9.2 are vulnerable to a stack-based buffer overflow in the avtp_to_can function that allows unauthenticated remote attackers to achieve arbitrary code execution via crafted UDP datagrams.
 date: "2026-08-17T18:50:28Z"
+lastmod: "2026-08-17T18:50:36Z"
 type: advisory
 types:
   - advisory
@@ -17,12 +18,19 @@ vendors:
   - COVESA
 products:
   - Open1722 (0.9.2)
+  - Open1722
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1212
     technique_name: Exploitation for Credential Access
     evidence: The avtp_to_can() function increments its write index without bounding it against the caller-supplied array size, and because the listener accepts datagrams from any sender matching a hardcoded unauthenticated stream ID transmitted in plaintext, attackers can corrupt adjacent stack memory to achieve arbitrary code execution.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1592
+    technique_name: Gather Victim Host Information
+    evidence: The attacker causes the system to transmit process stack memory onto the CAN bus to facilitate information gathering.
     confidence_band: high
 cves:
   - id: CVE-2026-73522
@@ -45,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-73522
       evidence: NVD vulnerability entry
+updates:
+  - at: "2026-08-17T18:50:36Z"
+    level: L2
+    summary: added coverage for Open1722
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73523
 ---
 
 COVESA Open1722 versions up to 0.9.2 contain a critical stack-based buffer overflow vulnerability in the avtp_to_can() function. The vulnerability is triggered when the software processes a crafted UDP datagram containing more than 15 ACF-CAN messages. The implementation incorrectly increments the write index for a fixed 15-slot stack array without performing bounds checking against the caller-supplied array size. 
