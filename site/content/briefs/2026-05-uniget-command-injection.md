@@ -3,11 +3,13 @@ title: Uniget Command Injection Vulnerability via Malicious Metadata
 slug: 2026-05-uniget-command-injection
 description: Uniget is vulnerable to command injection because the `check` field is loaded directly from untrusted JSON metadata without validation, allowing an attacker to execute arbitrary shell commands on the victim's system when performing common uniget operations.
 date: "2026-05-13T15:36:49Z"
+lastmod: "2026-08-17T18:46:17Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
 tags:
   - command-injection
   - vulnerability
@@ -21,12 +23,17 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2026-45152
+    cvss: 7.8
+    epss: 0.00715
 references:
   - https://github.com/advisories/GHSA-qqq4-5773-pmw5
   - CVE-2026-45152
+  - https://github.com/advisories/GHSA-fhgh-wq4q-r37x
 rules:
-  - title: Detect CVE-2026-45152 Exploitation - Uniget Command Injection via Bash Execution
-    description: Detects CVE-2026-45152 exploitation - execution of bash with -c parameter and commands originating from the uniget metadata cache directory indicating a command injection attempt.
+  - title: Detect CVE-2026-45152 Exploitation — Uniget Command Injection via Bash Execution
+    description: Detects CVE-2026-45152 exploitation — execution of bash with -c parameter and commands originating from the uniget metadata cache directory indicating a command injection attempt.
     platform: sigma
     severity: high
     tactics:
@@ -36,7 +43,7 @@ rules:
     data_sources:
       - process_creation
       - linux
-  - title: Detect CVE-2026-45152 Attempt - Uniget Metadata Cache Modification
+  - title: Detect CVE-2026-45152 Attempt — Uniget Metadata Cache Modification
     description: Detects attempts to create or modify Uniget metadata cache files, potentially indicating malicious activity associated with CVE-2026-45152 exploitation.
     platform: sigma
     severity: medium
@@ -48,6 +55,14 @@ rules:
       - file_event
       - linux
 rules_count: 2
+updates:
+  - at: "2026-08-17T18:46:17Z"
+    level: L2
+    summary: poc_available; added CVE-2026-45152
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-fhgh-wq4q-r37x
 ---
 
 Uniget is vulnerable to a command injection vulnerability (CVE-2026-45152) stemming from the unsafe execution of the `check` field within metadata files. This occurs because the `check` field, used for version checks, is executed via `/bin/bash -c` without proper sanitization or validation. An attacker can inject arbitrary shell commands by crafting malicious metadata. Common uniget operations such as `describe`, `install`, `update`, or `inspect` will trigger the vulnerability. This vulnerability affects uniget versions prior to 0.27.1, and successful exploitation leads to arbitrary code execution with the privileges of the user running uniget.
