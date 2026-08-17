@@ -3,7 +3,7 @@ title: Arbitrary Code Execution in openssl_encrypt Library
 slug: 2026-08-openssl-encrypt-rce
 description: The openssl_encrypt library before version 1.4.0 contains a vulnerability in its Whirlpool hash implementation that allows arbitrary code execution via untrusted shared object loading.
 date: "2026-08-17T12:46:09Z"
-lastmod: "2026-08-17T12:47:31Z"
+lastmod: "2026-08-17T12:48:32Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,7 @@ tags:
   - totp
   - brute-force
   - cve-2026-74894
+  - cwe-338
 vendors:
   - jahlives
 products:
@@ -63,6 +64,12 @@ mitre_ttps:
     technique_name: User Execution
     evidence: Attackers can execute malicious plugins with unrestricted access to the filesystem, network, subprocess execution, and all Python modules.
     confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1005
+    technique_name: Data from Local System
+    evidence: Attackers who know the password can recover the Mersenne Twister state from approximately 624 outputs and predict pixel locations containing hidden data for extraction.
+    confidence_band: high
 cves:
   - id: CVE-2026-74872
     cvss: 9.8
@@ -97,6 +104,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74900
   - https://github.com/jahlives/openssl_encrypt/security/advisories/GHSA-p3gq-pcg9-qvfv
   - https://www.vulncheck.com/advisories/openssl-encrypt-before-weak-shared-secret-via-pqc-simulation-mode
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74874
+  - https://github.com/jahlives/openssl_encrypt/security/advisories/GHSA-vfgx-5q85-58q3
+  - https://www.vulncheck.com/advisories/openssl-encrypt-before-weak-prng-steganography-pixel-selection
 rules:
   - title: Detect Creation of Suspicious Shared Objects in Site-Packages
     description: Detects the creation of files matching the malicious Whirlpool pattern in Python site-packages directories, indicative of CVE-2026-74872 exploitation.
@@ -130,13 +140,6 @@ action_plan:
       disposition: hunt_now
       evidence: CVE-2026-74872 description
 updates:
-  - at: "2026-08-17T12:46:52Z"
-    level: L2
-    summary: added coverage for openssl_encrypt
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-74889
   - at: "2026-08-17T12:47:00Z"
     level: L2
     summary: added coverage for openssl_encrypt
@@ -165,6 +168,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-74900
+  - at: "2026-08-17T12:48:32Z"
+    level: L2
+    summary: added coverage for openssl_encrypt
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-74874
 ---
 
 The openssl_encrypt Python package, specifically versions prior to 1.4.0, contains an arbitrary code execution vulnerability (CVE-2026-74872) located within its Whirlpool hash implementation. The library attempts to load shared object (.so) modules using overly broad glob patterns without performing any integrity or authenticity checks. An attacker capable of writing files to the Python site-packages directory can place a malicious shared object file that matches the pattern 'whirlpool*py313*.so'. When the openssl_encrypt library is imported or the specific hash function is invoked, the Python interpreter loads the malicious .so file, resulting in native code execution under the context of the running process. This issue is categorized as CWE-426: Untrusted Search Path.
