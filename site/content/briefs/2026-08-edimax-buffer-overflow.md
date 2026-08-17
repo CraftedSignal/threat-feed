@@ -3,6 +3,7 @@ title: Stack-based Buffer Overflow in Edimax EW-7478APC
 slug: 2026-08-edimax-buffer-overflow
 description: Edimax EW-7478APC version 1.04 is vulnerable to a stack-based buffer overflow in the formWanTcpipSetup function, allowing for remote code execution via the pppUserName parameter.
 date: "2026-08-17T00:42:27Z"
+lastmod: "2026-08-17T00:42:39Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,9 @@ tags:
   - remote-code-execution
   - buffer-overflow
   - router
+  - cve-2026-19961
+  - vulnerability
+  - network-device
 vendors:
   - Edimax
 products:
@@ -29,6 +33,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19959
   - https://vuldb.com/vuln/391136
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19961
+  - https://vuldb.com/vuln/391138
 rules:
   - title: Detect Exploitation of CVE-2026-19959 - Web Request to formWanTcpipSetup
     description: Detects HTTP requests to the vulnerable formWanTcpipSetup endpoint on Edimax devices.
@@ -40,7 +46,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-19961 Exploitation Attempt - Remote Buffer Overflow
+    description: Detects exploitation attempts against CVE-2026-19961 by monitoring HTTP requests to the /goform/formWlSiteSurvey endpoint with excessively long selSSID parameters.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +83,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-19959
       evidence: No vendor patch available
+updates:
+  - at: "2026-08-17T00:42:39Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-19961 Exploitation Attempt - Remote Buffer Overflow'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-19961
 ---
 
 A stack-based buffer overflow vulnerability has been identified in the Edimax EW-7478APC router, specifically within firmware version 1.04. The vulnerability resides in the formWanTcpipSetup function, accessible via the /goform/formWanTcpipSetup endpoint. An authenticated remote attacker can trigger this overflow by sending a specially crafted input to the pppUserName parameter. This flaw allows for the execution of arbitrary code on the affected device or can result in a denial-of-service condition. Publicly available exploit code exists, increasing the risk of exploitation. The vendor has not provided a patch or response to the disclosure. Defenders should note that this vulnerability requires authenticated access, but its remote nature and the availability of exploit material pose a significant risk to internal network segments where these devices are deployed.
