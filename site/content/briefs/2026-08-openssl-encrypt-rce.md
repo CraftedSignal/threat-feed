@@ -3,7 +3,7 @@ title: Arbitrary Code Execution in openssl_encrypt Library
 slug: 2026-08-openssl-encrypt-rce
 description: The openssl_encrypt library before version 1.4.0 contains a vulnerability in its Whirlpool hash implementation that allows arbitrary code execution via untrusted shared object loading.
 date: "2026-08-17T12:46:09Z"
-lastmod: "2026-08-17T12:46:24Z"
+lastmod: "2026-08-17T12:46:32Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,9 @@ tags:
   - library-vulnerability
   - cryptography
   - cve-2026-74876
+  - authentication-bypass
+  - totp
+  - brute-force
 vendors:
   - jahlives
 products:
@@ -41,6 +44,12 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: Attackers can call from_dict() followed by to_identity() without signature verification to encrypt data using attacker-controlled public keys, leaking secrets.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1110.001
+    technique_name: 'Brute Force: Password Guessing'
+    evidence: Attackers can distribute authentication attempts across multiple server instances or retry immediately after a restart to bypass rate limiting protections.
+    confidence_band: high
 cves:
   - id: CVE-2026-74872
     cvss: 9.8
@@ -54,6 +63,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74876
   - https://github.com/jahlives/openssl_encrypt/security/advisories/GHSA-8h88-gxp3-j7pg
   - https://www.vulncheck.com/advisories/openssl-encrypt-before-unverified-key-bundle-encryption
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74878
+  - https://github.com/jahlives/openssl_encrypt/security/advisories/GHSA-h45m-mgcp-q388
+  - https://www.vulncheck.com/advisories/openssl-encrypt-before-totp-rate-limiter-bypass
 rules:
   - title: Detect Creation of Suspicious Shared Objects in Site-Packages
     description: Detects the creation of files matching the malicious Whirlpool pattern in Python site-packages directories, indicative of CVE-2026-74872 exploitation.
@@ -101,6 +113,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-74876
+  - at: "2026-08-17T12:46:32Z"
+    level: L2
+    summary: added coverage for openssl_encrypt
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-74878
 ---
 
 The openssl_encrypt Python package, specifically versions prior to 1.4.0, contains an arbitrary code execution vulnerability (CVE-2026-74872) located within its Whirlpool hash implementation. The library attempts to load shared object (.so) modules using overly broad glob patterns without performing any integrity or authenticity checks. An attacker capable of writing files to the Python site-packages directory can place a malicious shared object file that matches the pattern 'whirlpool*py313*.so'. When the openssl_encrypt library is imported or the specific hash function is invoked, the Python interpreter loads the malicious .so file, resulting in native code execution under the context of the running process. This issue is categorized as CWE-426: Untrusted Search Path.
