@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-08-11T07:48:24Z"
+lastmod: "2026-08-17T11:47:09Z"
 type: advisory
 types:
   - advisory
@@ -101,6 +101,10 @@ references:
   - https://www.malware-traffic-analysis.net/2026/07/31/index.html
   - https://www.microsoft.com/en-us/security/blog/2026/08/05/macos-clickfix-campaign-learned-hide/
   - https://thehackernews.com/2026/08/hackers-breach-polish-power-plant.html
+  - https://www.malware-traffic-analysis.net/2026/08/12/index.html
+  - https://www.securityweek.com/amnesiastealer-macos-malware-steals-data-controls-browser-sessions/
+  - https://www.reddit.com/r/blueteamsec/comments/1vpaaqu/amnesiastealer_macos_infostealer_that_hijacks/
+  - https://thehackernews.com/2026/08/amnesiastealer-hijacks-chromium.html
 iocs:
   - type: domain
     value: justwatch.com
@@ -132,18 +136,13 @@ iocs:
     value: fileoceanhammer.com
   - type: domain
     value: filemarblegarden.com
+  - type: domain
+    value: debug.allllowef.space
 ioc_counts:
-  domain: 10
+  domain: 11
   ip: 1
   url: 4
 updates:
-  - at: "2026-07-24T16:21:05Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/07/bluenoroff-zoom-phishing-kit-profiles.html
   - at: "2026-07-30T15:23:47Z"
     level: L1
     summary: new product
@@ -172,6 +171,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/08/hackers-breach-polish-power-plant.html
+  - at: "2026-08-17T11:47:09Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/08/amnesiastealer-hijacks-chromium.html
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
