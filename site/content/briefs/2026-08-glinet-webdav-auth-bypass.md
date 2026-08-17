@@ -3,7 +3,7 @@ title: Authorization Bypass in GL.iNet WebDAV Service
 slug: 2026-08-glinet-webdav-auth-bypass
 description: Multiple GL.iNet router models running firmware versions up to 4.8.x contain an authorization bypass vulnerability in the WebDAV service, allowing remote unauthenticated attackers to manipulate file operations.
 date: "2026-08-17T04:43:39Z"
-lastmod: "2026-08-17T04:43:47Z"
+lastmod: "2026-08-17T06:43:56Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,9 @@ tags:
   - remote-code-execution
   - network-security
   - firmware-vulnerability
+  - vulnerability
+  - rce
+  - network-infrastructure
 vendors:
   - GL.iNet
 products:
@@ -53,6 +56,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19979
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19980
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19983
 rules:
   - title: Detect CVE-2026-19979 Exploitation - WebDAV COPY/MOVE Methods
     description: Detects unauthorized usage of WebDAV COPY or MOVE methods, which are indicators of potential exploitation of the authorization bypass vulnerability.
@@ -93,6 +97,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-19980
+  - at: "2026-08-17T06:43:56Z"
+    level: L2
+    summary: added coverage for A1300 +7 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-19983
 ---
 
 GL.iNet has confirmed an authorization bypass vulnerability identified as CVE-2026-19979 affecting numerous router models, including the A1300, AX1800, AXT1800, BE series, E5800, MT series, and X series. The issue resides within the WebDAV service component of the device firmware. Specifically, the flaw exists in the processing of the COPY and MOVE functions, which are improperly validated. This vulnerability allows a remote, unauthenticated attacker to manipulate these functions to circumvent existing access controls. By exploiting this flaw, an attacker can perform unauthorized file operations on the router's file system. Given the remote accessibility of the WebDAV interface, organizations and individual users should treat this as a significant security risk. Affected devices running firmware versions up to 4.8.x are susceptible.
