@@ -3,6 +3,7 @@ title: Integer Overflow in New-API Billing Settlement
 slug: 2026-08-integer-overflow-billing
 description: A critical integer overflow vulnerability in QuantumNous new-api allows authenticated users to inflate their account balance by injecting extreme quantity multipliers that result in negative settlement charges.
 date: "2026-08-17T18:45:57Z"
+lastmod: "2026-08-17T18:46:06Z"
 type: threat
 types:
   - threat
@@ -11,10 +12,15 @@ severities:
 actors:
   - QuantumNous
 exploited: true
+tags:
+  - privilege-escalation
+  - information-disclosure
+  - cve-2026-64859
 vendors:
   - QuantumNous
 products:
   - new-api (<= 1.0.0-rc.17)
+  - new-api
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -28,12 +34,19 @@ mitre_ttps:
     technique_name: Create Account
     evidence: With self-registration on by default and any of these enabled, an attacker can register to obtain seed balance for free.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1528
+    technique_name: Steal Application Access Token
+    evidence: The admin user list and user lookup APIs can return the access_token field for users, including the root user.
+    confidence_band: high
 cves:
   - id: CVE-2026-71479
     cvss: 9.1
 references:
   - https://github.com/advisories/GHSA-8r8v-xf7q-rcpr
   - https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.18
+  - https://github.com/advisories/GHSA-6x2c-phff-wx57
 action_plan:
   priority: immediate_escalation
   owners:
@@ -54,6 +67,14 @@ action_plan:
       owner: IT Operations
       addresses: Preconditions for unauthenticated exploitation.
       evidence: Self-registration is the primary vector for seed balance creation.
+updates:
+  - at: "2026-08-17T18:46:06Z"
+    level: L2
+    summary: added coverage for new-api
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6x2c-phff-wx57
 ---
 
 The vulnerability CVE-2026-71479 affects the billing settlement logic in QuantumNous new-api versions 1.0.0-rc.17 and earlier. It stems from the application's failure to validate user-controlled quantity parameters, such as image counts or duration multipliers, before performing mathematical operations. By providing an extremely large numeric input that exceeds standard signed integer limits, an attacker triggers an overflow during type conversion (e.g., float64 to int64). This causes the settlement logic to calculate a massive negative cost for the transaction. Because the application treats this negative charge as a credit, the user's account balance is inflated instantly. This flaw is particularly dangerous for deployments with enabled self-registration or free sign-up bonuses, as it allows unauthenticated or low-privilege actors to gain and inflate seed balances, leading to the exhaustion of operator-prepaid upstream service funds.
