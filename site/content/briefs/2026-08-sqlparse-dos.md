@@ -3,6 +3,7 @@ title: SQLParse CPU Denial of Service via Algorithmic Complexity
 slug: 2026-08-sqlparse-dos
 description: A complexity vulnerability in sqlparse <= 0.5.5 allows attackers to trigger CPU exhaustion through deeply nested SQL structures, achieving significant amplification and causing denial of service in downstream applications.
 date: "2026-08-17T18:46:25Z"
+lastmod: "2026-08-17T18:46:40Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,8 @@ tags:
   - algorithmic-complexity
   - sqlparse
   - cve-2026-54284
+  - denial-of-service
+  - vulnerability
 products:
   - sqlparse (<= 0.5.5)
 mitre_ttps:
@@ -27,6 +30,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-pwgv-4x5q-6m9f
   - https://github.com/andialbrecht/sqlparse/blob/0.5.5/sqlparse/sql.py#L162
+  - https://github.com/advisories/GHSA-f2ff-p2ww-7p4p
+  - https://github.com/andialbrecht/sqlparse/blob/f80af6a4007f11ada847218df8c29dc859238290/sqlparse/engine/grouping.py#L332
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +48,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-54284
       evidence: The parser locks workers for up to 10 seconds; timeouts will prevent worker pool exhaustion.
+updates:
+  - at: "2026-08-17T18:46:40Z"
+    level: L1
+    summary: added coverage for sqlparse (<= 0.5.5)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-f2ff-p2ww-7p4p
 ---
 
 The Python library `sqlparse` (version 0.5.5 and earlier) is vulnerable to an algorithmic complexity denial-of-service (DoS) attack. The vulnerability exists within `TokenList.__init__`, which performs an eager, recursive flattening of the SQL subtree (via `str(self)`) during the construction of every token group. 
