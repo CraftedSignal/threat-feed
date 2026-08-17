@@ -3,11 +3,17 @@ title: Denial of Service Vulnerability in Nmap
 slug: 2026-08-nmap-dos
 description: A vulnerability in the Nmap network scanning tool allows a remote, anonymous attacker to trigger a Denial of Service condition by sending specially crafted packets.
 date: "2026-08-12T10:17:43Z"
+lastmod: "2026-08-17T14:54:07Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+cpes:
+  - cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://www.exploit-db.com/exploits/52647
 tags:
   - denial-of-service
   - vulnerability
@@ -23,8 +29,13 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: Ein entfernter, anonymer Angreifer kann eine Schwachstelle in nmap ausnutzen, um einen Denial of Service Angriff durchzuführen.
     confidence_band: high
+cves:
+  - id: CVE-2026-58058
+    cvss: 6.5
+    epss: 0.00278
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2787
+  - https://www.exploit-db.com/exploits/52647
 action_plan:
   priority: elevated
   owners:
@@ -41,6 +52,14 @@ action_plan:
       owner: Security Operations
       addresses: Nmap vulnerability
       evidence: Operational resilience planning.
+updates:
+  - at: "2026-08-17T14:54:07Z"
+    level: L2
+    summary: poc_available; added CVE-2026-58058
+    sources:
+      - exploit-db
+    source_urls:
+      - https://www.exploit-db.com/exploits/52647
 ---
 
 The BSI has released an advisory regarding a Denial of Service (DoS) vulnerability affecting the Nmap network scanning tool. The flaw allows a remote, unauthenticated attacker to cause the application to crash or become unresponsive. This is likely triggered by processing malformed packets or unexpected network traffic during the scanning process. Given that Nmap is frequently used by security professionals and automated infrastructure, an exploit against a listening service or a system performing scans could lead to significant operational disruption in monitoring capabilities. Defenders should prioritize updating Nmap versions across all managed environments and identify internal systems utilizing the tool in persistent scanning configurations.
