@@ -1,259 +1,83 @@
 ---
-title: Authentication Bypass in SiYuan Publish API
+title: Brute-Force Vulnerability in SiYuan Kernel API Authentication
 slug: 2026-08-siyuan-auth-bypass
-description: SiYuan versions prior to 3.7.4 contain an authentication bypass vulnerability allowing unauthenticated remote attackers to retrieve decrypted content from encrypted notebooks.
-date: "2026-08-12T20:54:23Z"
-lastmod: "2026-08-17T12:46:01Z"
+description: SiYuan kernel versions prior to 3.7.4 contain a flaw in the CheckAuth() middleware that permits unlimited authentication attempts against API tokens, enabling attackers to gain administrative access.
+date: "2026-08-16T14:25:22Z"
+lastmod: "2026-08-17T12:47:53Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
 tags:
-  - access-control
-  - web-vulnerability
   - authentication-bypass
-  - information-disclosure
-  - api-security
-  - remote-code-execution
-  - vulnerability
-  - pdf-processing
-  - credential-access
+  - credential-brute-force
   - web-application
+  - vulnerability
+  - path-traversal
 vendors:
   - SiYuan
 products:
-  - SiYuan
-  - SiYuan (< 3.7.4)
-  - SiYuan (<= 3.7.2)
-affected_os:
-  - Windows
-  - Linux
-  - macOS
+  - SiYuan kernel
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1592
-    technique_name: Gather Victim Org Information
-    evidence: Anonymous readers can enumerate and retrieve fully decrypted document content from unlocked encrypted notebooks through the publish API without authentication or key material.
-    confidence_band: high
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1552
-    technique_name: Unsecured Credentials
-    evidence: SiYuan versions before v3.7.4 fail to mask sensitive configuration fields in the /api/system/getConf endpoint, allowing anonymous or publish-reader users to obtain the session-cookie signing key.
-    confidence_band: high
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-    evidence: Attackers can forge and tamper with session cookies to impersonate users, and on instances without access-auth codes configured, escalate to administrator privileges.
-    confidence_band: high
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1187
-    technique_name: Forced Authentication
-    evidence: Attackers can retrieve the CookieKey value and forge valid session cookies to impersonate users or gain administrative access.
-    confidence_band: high
-  - tactic_id: TA0009
-    tactic_name: Collection
-    technique_id: T1592
-    technique_name: Gather Victim Org Information
-    evidence: Attackers can request published blocks containing embed queries to read content from password-protected, hidden, or forbidden documents without authorization.
-    confidence_band: high
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1592
-    technique_name: Gather Victim Org Information
-    evidence: Attackers can call these endpoints without supplying a password to read protected document content and the complete reference topology.
-    confidence_band: high
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1204
-    technique_name: User Execution
-    evidence: Attackers can distribute malicious SiYuan documents or packages with crafted template columns that execute arbitrary SQL on a victim's kernel when the package is imported and rendered.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
-    evidence: The application utilizes the queryBlocks function, which improperly handles raw SQL via string substitution, enabling arbitrary SQL execution.
-    confidence_band: high
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: The flaw is reachable by an anonymous or RoleReader user on the publish surface.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1505.004
-    technique_name: 'Server Software Component: SQL Injection'
-    evidence: An attacker can execute arbitrary SQL, enabling cross-notebook read and write.
-    confidence_band: high
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: Attackers can inject malicious markup into annotation fields that execute as script in the PDF renderer with full Node.js access when a user opens an annotated PDF.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: Attackers can inject markup through field descriptions or names that close containing elements and execute arbitrary code via event handlers, reaching Node built-ins due to Electron's insecure configuration.
-    confidence_band: high
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1110
     technique_name: Brute Force
-    evidence: This allows unauthenticated remote attackers to brute-force the admin access code with unlimited automated requests and obtain full RoleAdministrator access to the kernel.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.007
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
-    evidence: Attackers can inject event-handler attributes by including quotation marks in the color value, executing arbitrary JavaScript when viewing databases
-    confidence_band: high
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1592
-    technique_name: Gather Victim Host Information
-    evidence: Attackers can access /debug/pprof/heap and related endpoints to extract in-memory secrets including AccessAuthCode and AI provider API keys.
+    evidence: An unauthenticated remote attacker can perform unlimited automated guesses of the API token.
     confidence_band: high
 cves:
-  - id: CVE-2026-72789
-    cvss: 8.6
+  - id: CVE-2026-73056
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72789
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72793
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72794
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72795
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72801
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72804
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72807
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72809
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73041
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-fqpw-c3pj-w8g9
-  - https://www.vulncheck.com/advisories/siyuan-before-remote-code-execution-via-pdf-annotations
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73042
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73043
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73046
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73050
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73052
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-g3jx-227v-x2x4
-  - https://www.vulncheck.com/advisories/siyuan-before-stored-xss-via-attribute-view-field-names
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73053
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73045
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-74799
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-9cqq-p2hw-mj3f
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-74800
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-mjf3-jwmf-r6wf
-rules:
-  - title: Detect SiYuan Brute-Force Attempts via CheckAuth
-    description: Detects potential brute-force activity against SiYuan /api/ endpoints by monitoring for an excessive volume of 401 Unauthorized responses
-    platform: sigma
-    severity: high
-    tactics:
-      - credential_access
-    techniques:
-      - T1110.001
-    data_sources:
-      - webserver
-  - title: Detect CVE-2026-73045 Exploitation - Brute Force on authFilePublishAccess
-    description: Detects potential brute-force activity against the SiYuan authFilePublishAccess endpoint by monitoring for high-frequency POST requests.
-    platform: sigma
-    severity: medium
-    tactics:
-      - credential_access
-    techniques:
-      - T1110.001
-    data_sources:
-      - webserver
-  - title: Detect Unauthenticated Access to SiYuan Debug Endpoints
-    description: Detects unauthorized HTTP requests to SiYuan debug endpoints associated with CVE-2026-74799
-    platform: sigma
-    severity: high
-    tactics:
-      - reconnaissance
-    techniques:
-      - T1592
-    data_sources:
-      - webserver
-  - title: Detect Potential CVE-2026-74800 Exploitation - Malicious Asset Upload
-    description: Detects potential exploitation of CVE-2026-74800 by monitoring for HTML file uploads to the SiYuan asset management path.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-      - T1505
-    data_sources:
-      - webserver
-rules_count: 4
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73056
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74798
+  - https://github.com/advisories/GHSA-7hm9-v7vf-7g4w
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - IT Operations
-    - Detection Engineering
+    - SOC
   immediate_actions:
-    - action: Upgrade SiYuan to version 3.7.4
+    - action: Patch SiYuan kernel to 3.7.4 or higher
       owner: IT Operations
-      due: 48h
-      evidence: CVE-2026-72789 fix identified in v3.7.4
+      due: 24h
+      evidence: CVE-2026-73056
+  hunt_leads:
+    - lead: High-frequency authentication attempts to API endpoints
+      technique_id: T1110.001
+      data_needed:
+        - Web server logs
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: The middleware fails to apply CAPTCHA or account lockout protections to API token authentication requests.
   mitigation_plan:
     - priority: immediate
-      action: Disable publish API
-      owner: IT Operations
-      addresses: CVE-2026-72789
-      evidence: Vulnerability exists within the publish API
+      action: Restrict access to SiYuan API endpoints to trusted IP ranges
+      owner: Network Security
+      addresses: CVE-2026-73056
+      evidence: Unauthenticated remote attacker can perform unlimited automated guesses
 updates:
-  - at: "2026-08-15T22:21:22Z"
+  - at: "2026-08-17T12:47:53Z"
     level: L2
-    summary: added coverage for SiYuan
+    summary: added coverage for SiYuan kernel
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-73052
-  - at: "2026-08-15T22:21:29Z"
-    level: L2
-    summary: added coverage for SiYuan (< 3.7.4)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-73053
-  - at: "2026-08-15T22:21:37Z"
-    level: L1
-    summary: 'added detection rule: Detect CVE-2026-73045 Exploitation - Brute Force on authFilePublishAccess'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-73045
-  - at: "2026-08-17T12:45:46Z"
-    level: L2
-    summary: 'added detection rule: Detect Unauthenticated Access to SiYuan Debug Endpoints'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-74799
-  - at: "2026-08-17T12:46:01Z"
-    level: L2
-    summary: 'added detection rule: Detect Potential CVE-2026-74800 Exploitation - Malicious Asset Upload'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-74800
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-74798
 ---
 
-SiYuan versions before 3.7.4 contain a critical authentication bypass vulnerability (CVE-2026-72789) within the application's publish API. The defect stems from an improper access control validation logic where encrypted notebooks are incorrectly treated as publicly accessible by default. When a user has unlocked an encrypted notebook, the application fails to verify the requestor's authorization, enabling anonymous remote users to enumerate and exfiltrate decrypted document content. This flaw allows attackers to bypass intended security boundaries without possessing the necessary encryption keys. Defenders should prioritize updating to v3.7.4 or later to remediate this improper authorization, which significantly exposes sensitive notebook data to unauthorized disclosure.
+SiYuan kernel versions before 3.7.4 are susceptible to an authentication bypass vulnerability within the CheckAuth() middleware. The vulnerability arises because the middleware, which processes authentication for the API, fails to integrate with the application's global protection mechanisms such as CAPTCHA challenges or account lockout policies (NeedCaptcha/WrongAuthCount). This oversight allows an unauthenticated remote attacker to perform rapid, automated brute-force guessing of the API token (Conf.Api.Token) via either an Authorization header or a URL query parameter. 
+
+Successful exploitation grants the attacker RoleAdministrator privileges, which provides full control over the application, including the ability to execute arbitrary SQL queries and perform file system operations. This is particularly critical in environments where administrators have configured weak or short custom tokens. Organizations using SiYuan must prioritize updating to version 3.7.4 or higher to enforce proper authentication throttling.
 
 ## Impact
 
-Successful exploitation results in the unauthorized disclosure of sensitive, encrypted document content. Any notebook that has been unlocked by a user becomes vulnerable to retrieval by unauthenticated parties through the publish API. This impacts all SiYuan deployments currently running versions earlier than 3.7.4 that utilize the notebook publishing feature.
+Successful exploitation results in full administrative takeover of the SiYuan application instance. This allows attackers to perform unauthorized data exfiltration via SQL queries, modify or delete sensitive data, and manipulate the underlying server file system, potentially leading to persistent backdoors or full system compromise.
 
 ## Recommendation
 
-* Update all SiYuan instances to version 3.7.4 or later immediately to patch the access control flaw.
-* Audit webserver access logs for high volumes of unexpected GET requests to the publish API endpoints from unauthorized IP addresses.
-* Disable the publish API feature temporarily if an immediate update to v3.7.4 is not feasible.
+- Upgrade all SiYuan kernel instances to version 3.7.4 or later immediately.
+- Audit current API token configurations to ensure they meet strong entropy requirements if immediate patching is not possible.
+- Monitor web application logs for high-frequency POST or GET requests to the SiYuan API endpoints containing token-related parameters or headers originating from a single IP address.
