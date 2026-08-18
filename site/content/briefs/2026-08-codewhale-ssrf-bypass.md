@@ -3,6 +3,7 @@ title: SSRF Bypass in CodeWhale via DNS Pinning TOCTOU
 slug: 2026-08-codewhale-ssrf-bypass
 description: CodeWhale versions before 0.8.64 contain a time-of-check-time-of-use vulnerability in DNS pinning logic, allowing attackers to bypass SSRF mitigations and access internal resources.
 date: "2026-08-18T16:55:56Z"
+lastmod: "2026-08-18T16:56:24Z"
 type: advisory
 types:
   - advisory
@@ -12,12 +13,25 @@ vendors:
   - Hmbown
 products:
   - CodeWhale
+  - CodeWhale (0.8.64)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1562.001
     technique_name: 'Impair Defenses: Disable or Modify System Firewall'
     evidence: Attackers can manipulate DNS responses to fail initial resolution checks and succeed on secondary requests, allowing requests to internal IP addresses and bypassing SSRF mitigations.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: A malicious .codewhale/config.toml file in a cloned repository can specify paths outside the workspace that are read and injected into the AI system prompt for exfiltration.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1048
+    technique_name: Exfiltration Over Alternative Protocol
+    evidence: The contents of these files are subsequently injected into the AI system prompt, providing a mechanism for an attacker to exfiltrate sensitive data.
     confidence_band: high
 cves:
   - id: CVE-2026-75856
@@ -26,6 +40,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75856
   - https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-6v2g-fpxh-pmmh
   - https://www.vulncheck.com/advisories/codewhale-before-ssrf-bypass-via-dns-pinning-toctou
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75859
+  - https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-62f5-cp2p-vq95
+  - https://www.vulncheck.com/advisories/codewhale-before-arbitrary-file-read-via-instructions
 action_plan:
   priority: elevated
   owners:
@@ -36,6 +53,14 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Vendor advisory indicates fix in version 0.8.64.
+updates:
+  - at: "2026-08-18T16:56:24Z"
+    level: L2
+    summary: added coverage for CodeWhale (0.8.64)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75859
 ---
 
 CodeWhale versions before 0.8.64 are susceptible to a server-side request forgery (SSRF) bypass vulnerability (CVE-2026-75856). The flaw resides in the product's DNS pinning logic, which fails to correctly implement protection against time-of-check-time-of-use (TOCTOU) attacks. In a standard secure configuration, an application validates a hostname's resolution to ensure it does not map to an internal, sensitive, or restricted IP address before proceeding with the request. 
