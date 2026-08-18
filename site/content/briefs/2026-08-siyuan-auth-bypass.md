@@ -3,7 +3,7 @@ title: Authentication Bypass in SiYuan Publish API
 slug: 2026-08-siyuan-auth-bypass
 description: SiYuan versions prior to 3.7.4 contain an authentication bypass vulnerability allowing unauthenticated remote attackers to retrieve decrypted content from encrypted notebooks.
 date: "2026-08-12T20:54:23Z"
-lastmod: "2026-08-17T12:48:17Z"
+lastmod: "2026-08-18T12:52:30Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,9 @@ tags:
   - pdf-processing
   - credential-access
   - web-application
+  - xss
+  - rce
+  - application-security
 vendors:
   - SiYuan
 products:
@@ -121,6 +124,12 @@ mitre_ttps:
     technique_name: Gather Victim Host Information
     evidence: Attackers can access /debug/pprof/heap and related endpoints to extract in-memory secrets including AccessAuthCode and AI provider API keys.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+    evidence: Attackers can craft a malicious filename containing script payloads that execute with full OS command access when a user drags, drops, or pastes the file into the editor.
+    confidence_band: high
 cves:
   - id: CVE-2026-72789
     cvss: 8.6
@@ -150,6 +159,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74800
   - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-mjf3-jwmf-r6wf
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74868
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74902
+  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-jf56-jrhq-j2qp
+  - https://www.vulncheck.com/advisories/siyuan-before-xss-to-rce-via-malicious-filename-upload
 rules:
   - title: Detect SiYuan Brute-Force Attempts via CheckAuth
     description: Detects potential brute-force activity against SiYuan /api/ endpoints by monitoring for an excessive volume of 401 Unauthorized responses
@@ -220,13 +232,6 @@ action_plan:
       addresses: CVE-2026-72789
       evidence: Vulnerability exists within the publish API
 updates:
-  - at: "2026-08-15T22:21:29Z"
-    level: L2
-    summary: added coverage for SiYuan (< 3.7.4)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-73053
   - at: "2026-08-15T22:21:37Z"
     level: L1
     summary: 'added detection rule: Detect CVE-2026-73045 Exploitation - Brute Force on authFilePublishAccess'
@@ -255,6 +260,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-74868
+  - at: "2026-08-18T12:52:30Z"
+    level: L2
+    summary: added coverage for SiYuan (< 3.7.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-74902
 ---
 
 SiYuan versions before 3.7.4 contain a critical authentication bypass vulnerability (CVE-2026-72789) within the application's publish API. The defect stems from an improper access control validation logic where encrypted notebooks are incorrectly treated as publicly accessible by default. When a user has unlocked an encrypted notebook, the application fails to verify the requestor's authorization, enabling anonymous remote users to enumerate and exfiltrate decrypted document content. This flaw allows attackers to bypass intended security boundaries without possessing the necessary encryption keys. Defenders should prioritize updating to v3.7.4 or later to remediate this improper authorization, which significantly exposes sensitive notebook data to unauthorized disclosure.
