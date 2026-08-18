@@ -3,7 +3,7 @@ title: Authorization Bypass in Lemur Leading to Unauthorized Certificate Revocat
 slug: 2026-08-lemur-cert-revocation
 description: An authorization bypass vulnerability in Lemur allows authenticated users to revoke arbitrary certificates by creating duplicate certificate records and bypassing ownership and endpoint-attached safeguards.
 date: "2026-08-18T20:56:29Z"
-lastmod: "2026-08-18T20:56:38Z"
+lastmod: "2026-08-18T20:56:45Z"
 type: advisory
 types:
   - advisory
@@ -32,6 +32,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: The attacker exploits the application logic to manipulate backend tasks to perform unauthorized actions on infrastructure.
     confidence_band: med
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: The built-in SFTP destination plugin (sftp-destination) stores its password and privateKeyPass options in cleartext in the destinations.options column.
+    confidence_band: high
 cves:
   - id: CVE-2026-71417
     cvss: 7.3
@@ -41,6 +47,7 @@ references:
   - https://github.com/advisories/GHSA-cfh6-pv5c-38jv
   - https://github.com/Netflix/lemur/blob/master/lemur/certificates/schemas.py
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71308
+  - https://github.com/advisories/GHSA-6c8m-q6g9-vrw3
 action_plan:
   priority: immediate_escalation
   owners:
@@ -59,6 +66,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-cfh6-pv5c-38jv
+  - at: "2026-08-18T20:56:45Z"
+    level: L2
+    summary: added coverage for Lemur
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6c8m-q6g9-vrw3
 ---
 
 Lemur (<= 1.9.2) contains a critical authorization bypass vulnerability, identified as CVE-2026-71417, which permits any authenticated user with non-read-only permissions to revoke production certificates. The vulnerability stems from an insecure certificate upload workflow that allows users to supply external identifiers (like `body` or `external_id`) without validating `AuthorityPermission`. 
