@@ -3,6 +3,7 @@ title: OS Command Injection Vulnerability in MONAI
 slug: 2026-08-monai-command-injection
 description: The MONAI library contains a command injection vulnerability where unsanitized configuration values in YAML files are passed to shell execution, allowing arbitrary code execution.
 date: "2026-08-18T20:57:29Z"
+lastmod: "2026-08-18T20:57:37Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +25,14 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: 'Since this string is passed to subprocess with shell=True, shell metacharacters (e.g., Windows: & / Linux: ;) are interpreted.'
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The PoC demonstrates using pickle.loads() to trigger os.system execution.
+    confidence_band: high
+references:
+  - https://github.com/advisories/GHSA-qxq5-qhx6-94qw
 rules:
   - title: Detect Python Spawning Shell Commands via subprocess
     description: Detects Python processes spawning shells or executing commands that contain shell metacharacters, a common indicator of command injection attempts.
@@ -53,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CWE-78 (OS Command Injection)
       evidence: This library concatenates user-controlled values ... without quoting or validation.
+updates:
+  - at: "2026-08-18T20:57:37Z"
+    level: L2
+    summary: added coverage for MONAI (< 1.6.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-qxq5-qhx6-94qw
 ---
 
 MONAI versions prior to 1.6.0 are susceptible to OS command injection due to insecure handling of user-controlled configuration parameters within YAML files. Specifically, parameters such as 'dataset_name_or_id' or various CLI arguments are concatenated into strings and processed by the `subprocess` module with `shell=True`. Because this input is not properly quoted or validated, an attacker can inject shell metacharacters - such as '&' on Windows or ';' on Linux - to escape the intended command context and execute arbitrary system instructions. This vulnerability (CWE-78) is triggered whenever a victim loads a malicious YAML configuration file into a training or validation pipeline. Defenders should prioritize updating the MONAI package to version 1.6.0 or later to mitigate the risk of remote code execution on systems running medical imaging training tasks.
