@@ -3,7 +3,7 @@ title: SSRF Bypass in CodeWhale via DNS Pinning TOCTOU
 slug: 2026-08-codewhale-ssrf-bypass
 description: CodeWhale versions before 0.8.64 contain a time-of-check-time-of-use vulnerability in DNS pinning logic, allowing attackers to bypass SSRF mitigations and access internal resources.
 date: "2026-08-18T16:55:56Z"
-lastmod: "2026-08-18T16:56:40Z"
+lastmod: "2026-08-18T16:56:51Z"
 type: advisory
 types:
   - advisory
@@ -13,11 +13,14 @@ tags:
   - vulnerability
   - argument-injection
   - code-execution
+  - remote-code-execution
+  - credential-theft
 vendors:
   - Hmbown
 products:
   - CodeWhale
   - CodeWhale (0.8.64)
+  - CodeWhale (0.8.x)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -43,6 +46,12 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: CodeWhale versions before 0.8.64 contain an argument injection vulnerability in the git_blame tool that allows attackers to read arbitrary files by injecting git options into the unvalidated rev parameter.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Attackers can craft malicious JavaScript code executed by the tool to read process.env and leak API keys, cloud credentials, and authentication tokens.
+    confidence_band: high
 cves:
   - id: CVE-2026-75856
     cvss: 8.6
@@ -56,6 +65,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75912
   - https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-c6mw-8xh8-gpq6
   - https://www.vulncheck.com/advisories/codewhale-before-argument-injection-via-git-blame
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75915
+  - https://github.com/Hmbown/CodeWhale/security/advisories/GHSA-h539-c7r8-3xq4
+  - https://www.vulncheck.com/advisories/codewhale-before-environment-variable-leak-via-js-execution
 action_plan:
   priority: elevated
   owners:
@@ -81,6 +93,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-75912
+  - at: "2026-08-18T16:56:51Z"
+    level: L2
+    summary: added coverage for CodeWhale (0.8.x)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75915
 ---
 
 CodeWhale versions before 0.8.64 are susceptible to a server-side request forgery (SSRF) bypass vulnerability (CVE-2026-75856). The flaw resides in the product's DNS pinning logic, which fails to correctly implement protection against time-of-check-time-of-use (TOCTOU) attacks. In a standard secure configuration, an application validates a hostname's resolution to ensure it does not map to an internal, sensitive, or restricted IP address before proceeding with the request. 
