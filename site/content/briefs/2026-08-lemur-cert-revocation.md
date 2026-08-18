@@ -3,6 +3,7 @@ title: Authorization Bypass in Lemur Leading to Unauthorized Certificate Revocat
 slug: 2026-08-lemur-cert-revocation
 description: An authorization bypass vulnerability in Lemur allows authenticated users to revoke arbitrary certificates by creating duplicate certificate records and bypassing ownership and endpoint-attached safeguards.
 date: "2026-08-18T20:56:29Z"
+lastmod: "2026-08-18T20:56:38Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Netflix
 products:
   - lemur
+  - Lemur (>= 0.5.0, <= 1.9.2)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -24,12 +26,21 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: Iterating over GET /certificates yields fleet-wide revocation (mass DoS of TLS endpoints).
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The attacker exploits the application logic to manipulate backend tasks to perform unauthorized actions on infrastructure.
+    confidence_band: med
 cves:
   - id: CVE-2026-71417
     cvss: 7.3
 references:
   - https://github.com/advisories/GHSA-pxmc-2ffp-8j67
   - https://github.com/Netflix/lemur
+  - https://github.com/advisories/GHSA-cfh6-pv5c-38jv
+  - https://github.com/Netflix/lemur/blob/master/lemur/certificates/schemas.py
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-71308
 action_plan:
   priority: immediate_escalation
   owners:
@@ -40,6 +51,14 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: Source advisory recommends update to patch CVE-2026-71417.
+updates:
+  - at: "2026-08-18T20:56:38Z"
+    level: L2
+    summary: added coverage for Lemur (>= 0.5.0, <= 1.9.2)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-cfh6-pv5c-38jv
 ---
 
 Lemur (<= 1.9.2) contains a critical authorization bypass vulnerability, identified as CVE-2026-71417, which permits any authenticated user with non-read-only permissions to revoke production certificates. The vulnerability stems from an insecure certificate upload workflow that allows users to supply external identifiers (like `body` or `external_id`) without validating `AuthorityPermission`. 
