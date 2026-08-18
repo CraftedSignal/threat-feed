@@ -3,16 +3,22 @@ title: Argument Injection Vulnerability in CodeWhale git_show Tool
 slug: 2026-08-codewhale-argument-injection
 description: An argument injection vulnerability (CVE-2026-75913) in the CodeWhale git_show tool allows attackers to perform arbitrary file writes under the user's privilege level by manipulating the 'rev' parameter.
 date: "2026-08-18T16:55:25Z"
+lastmod: "2026-08-18T16:56:30Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - remote-code-execution
+  - configuration-vulnerability
+  - developer-tools
 vendors:
   - CodeWhale
 products:
   - codewhale (>= 0.8.41, < 0.8.64)
   - codewhale-tui (>= 0.8.41, < 0.8.64)
+  - CodeWhale (< 0.8.64)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -25,6 +31,7 @@ cves:
     cvss: 9.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75913
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75911
 rules:
   - title: Detect CVE-2026-75913 - Potential Argument Injection in git via CodeWhale
     description: Detects the use of the --output flag in git commands spawned by CodeWhale, indicating a potential attempt to exploit CVE-2026-75913 for arbitrary file write.
@@ -54,6 +61,14 @@ action_plan:
       owner: Detection Engineering
       addresses: CVE-2026-75913
       evidence: The git_show tool... is vulnerable to argument injection
+updates:
+  - at: "2026-08-18T16:56:30Z"
+    level: L2
+    summary: added coverage for CodeWhale (< 0.8.64)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75911
 ---
 
 CodeWhale and codewhale-tui versions 0.8.41 through 0.8.63 contain an argument injection vulnerability within the `git_show` tool, assigned as CVE-2026-75913. The vulnerability stems from the tool failing to properly validate the `rev` parameter before passing it to the `git show` command line. By supplying an input starting with `--output=`, an attacker can inject malicious flags into the git execution process. Because the tool is registered for auto-approval and marketed as a read-only utility, it is often trusted by users and automated workflows. An attacker can leverage this trust, potentially in combination with prompt injection within a malicious repository, to cause the `git` binary to overwrite sensitive files such as `~/.ssh/authorized_keys`, `~/.bashrc`, or `~/.gitconfig` with attacker-controlled content. This flaw allows for lateral movement, persistence, or credential harvesting at the privilege level of the user executing the tool. The issue is resolved in version 0.8.64 by implementing input validation for the `rev` parameter.
