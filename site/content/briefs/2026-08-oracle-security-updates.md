@@ -3,7 +3,7 @@ title: Oracle Security Updates - August 2026
 slug: 2026-08-oracle-security-updates
 description: Roundup of Oracle security advisories published in August 2026.
 date: "2026-08-18T22:56:20Z"
-lastmod: "2026-08-18T22:58:53Z"
+lastmod: "2026-08-18T22:58:55Z"
 type: threat
 types:
   - threat
@@ -38,6 +38,8 @@ cves:
     cvss: 9.8
   - id: CVE-2026-60728
     cvss: 9.1
+  - id: CVE-2026-60730
+    cvss: 9.9
   - id: CVE-2026-60737
     cvss: 9.1
   - id: CVE-2026-60754
@@ -50,6 +52,8 @@ cves:
     cvss: 9.8
   - id: CVE-2026-60861
     cvss: 9.6
+  - id: CVE-2026-60916
+    cvss: 9.9
   - id: CVE-2026-60921
     cvss: 9.8
   - id: CVE-2026-60947
@@ -61,15 +65,8 @@ cves:
   - id: CVE-2026-60995
     cvss: 9.9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-61003
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-61008
 updates:
-  - at: "2026-08-18T22:57:32Z"
-    level: L2
-    summary: added CVE-2026-60858
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60977
   - at: "2026-08-18T22:58:44Z"
     level: L2
     summary: added CVE-2026-60737 +2
@@ -98,9 +95,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-61003
+  - at: "2026-08-18T22:58:55Z"
+    level: L2
+    summary: added CVE-2026-60730 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-61008
 ---
 
-This roundup covers 28 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 9.9. None are reported as actively exploited at the time of release. The issues affect Hospitality Simphony, Hyperion Calculation Manager, Identity Manager, Oracle E-Business Suite, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle Web Services Manager, PeopleSoft Enterprise PeopleTools, Siebel CRM, WebCenter Content, WebCenter Enterprise Capture, WebCenter Portal, WebLogic Server.
+This roundup covers 29 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 9.9. None are reported as actively exploited at the time of release. The issues affect Hospitality Simphony, Hyperion Calculation Manager, Identity Manager, Managed File Transfer, Oracle E-Business Suite, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle Web Services Manager, PeopleSoft Enterprise PeopleTools, Siebel CRM, WebCenter Content, WebCenter Enterprise Capture, WebCenter Portal, WebLogic Server.
 
 ## Summary
 
@@ -128,12 +132,13 @@ This roundup covers 28 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-60946](#cve-2026-60946) | WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60946) (authoritative) |
 | [CVE-2026-60947](#cve-2026-60947) | n/a | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60947) (authoritative) |
 | [CVE-2026-60958](#cve-2026-60958) | WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60958) (authoritative) |
-| [CVE-2026-60970](#cve-2026-60970) | WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60970) (authoritative) |
+| [CVE-2026-60970](#cve-2026-60970) | WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60970) (authoritative) |
 | [CVE-2026-60971](#cve-2026-60971) | WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60971) (authoritative) |
 | [CVE-2026-60977](#cve-2026-60977) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60977) (authoritative) |
 | [CVE-2026-60990](#cve-2026-60990) | Oracle Identity Manager Connector (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60990) (authoritative) |
 | [CVE-2026-60995](#cve-2026-60995) | Oracle Identity Manager Connector (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60995) (authoritative) |
 | [CVE-2026-61001](#cve-2026-61001) | Oracle Web Services Manager (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61001) (authoritative) |
+| [CVE-2026-61003](#cve-2026-61003) | Managed File Transfer (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61003) (authoritative) |
 
 
 ## CVE-2026-60591
@@ -153,6 +158,7 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60672
+
 
 
 
@@ -215,6 +221,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60696
 
 
 
+
 Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60698](#cve-2026-60698), [CVE-2026-60702](#cve-2026-60702), [CVE-2026-60977](#cve-2026-60977).
 
 ## CVE-2026-60698
@@ -225,6 +232,7 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60698
+
 
 
 
@@ -284,6 +292,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60702
 
 
 
+
 Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60696](#cve-2026-60696), [CVE-2026-60698](#cve-2026-60698), [CVE-2026-60977](#cve-2026-60977).
 
 ## CVE-2026-60720
@@ -316,6 +325,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60720
 
 
 
+
 Related in this roundup: [CVE-2026-60721](#cve-2026-60721).
 
 ## CVE-2026-60721
@@ -326,6 +336,7 @@ Affected products:
 - Oracle Identity Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60721
+
 
 
 
@@ -382,6 +393,7 @@ Affected products:
 - Oracle Web Services Manager (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60737
+
 
 Related in this roundup: [CVE-2026-61001](#cve-2026-61001).
 
@@ -454,6 +466,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60916
 
 
 
+
 Related in this roundup: [CVE-2026-60921](#cve-2026-60921), [CVE-2026-60946](#cve-2026-60946), [CVE-2026-60958](#cve-2026-60958), [CVE-2026-60970](#cve-2026-60970), [CVE-2026-60971](#cve-2026-60971).
 
 ## CVE-2026-60921
@@ -474,6 +487,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60921
 
 
 
+
 Related in this roundup: [CVE-2026-60916](#cve-2026-60916), [CVE-2026-60946](#cve-2026-60946), [CVE-2026-60958](#cve-2026-60958), [CVE-2026-60970](#cve-2026-60970), [CVE-2026-60971](#cve-2026-60971).
 
 ## CVE-2026-60946
@@ -484,6 +498,7 @@ Affected products:
 - WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60946
+
 
 
 
@@ -516,6 +531,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60958
 
 
 
+
 Related in this roundup: [CVE-2026-60916](#cve-2026-60916), [CVE-2026-60921](#cve-2026-60921), [CVE-2026-60946](#cve-2026-60946), [CVE-2026-60970](#cve-2026-60970), [CVE-2026-60971](#cve-2026-60971).
 
 ## CVE-2026-60970
@@ -526,6 +542,7 @@ Affected products:
 - WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60970
+
 
 
 
@@ -547,6 +564,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60971
 
 
 
+
 Related in this roundup: [CVE-2026-60916](#cve-2026-60916), [CVE-2026-60921](#cve-2026-60921), [CVE-2026-60946](#cve-2026-60946), [CVE-2026-60958](#cve-2026-60958), [CVE-2026-60970](#cve-2026-60970).
 
 ## CVE-2026-60977
@@ -557,6 +575,7 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60977
+
 
 
 
@@ -573,6 +592,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60990
 
 
+
 Related in this roundup: [CVE-2026-60995](#cve-2026-60995).
 
 ## CVE-2026-60995
@@ -583,6 +603,7 @@ Affected products:
 - Oracle Identity Manager Connector (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60995
+
 
 
 Related in this roundup: [CVE-2026-60990](#cve-2026-60990).
@@ -596,4 +617,14 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61001
 
+
 Related in this roundup: [CVE-2026-60737](#cve-2026-60737).
+
+## CVE-2026-61003
+
+A critical vulnerability exists in the Oracle Managed File Transfer component of Oracle Fusion Middleware, allowing a low-privileged, network-adjacent attacker to achieve full takeover of the MFT Runtime Server via T3 or IIOP protocols. The flaw supports scope change, meaning exploitation can potentially lead to the compromise of additional products within the environment, warranting immediate patching.
+
+Affected products:
+- Managed File Transfer (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61003
