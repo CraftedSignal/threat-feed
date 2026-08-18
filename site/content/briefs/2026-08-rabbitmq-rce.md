@@ -3,6 +3,7 @@ title: Arbitrary Class Loading in RabbitMQ Java Client via JSON-RPC
 slug: 2026-08-rabbitmq-rce
 description: The RabbitMQ Java client library is vulnerable to arbitrary class loading and static initializer execution via unvalidated input in the JSON-RPC ProcedureDescription, which can lead to remote code execution.
 date: "2026-08-18T20:58:07Z"
+lastmod: "2026-08-18T20:58:15Z"
 type: advisory
 types:
   - advisory
@@ -24,10 +25,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The library uses Class.forName on class names received from untrusted AMQP messages without validation... causing the victim's client to load the specified class and execute its static initializers.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: A malicious AMQP server sends a LongString field with declared length 0x7FFFFFFE, causing OutOfMemoryError before readFully attempts to read data.
+    confidence_band: high
 cves:
   - id: CVE-2026-63337
 references:
   - https://github.com/advisories/GHSA-6g32-pxv4-2wfj
+  - https://github.com/advisories/GHSA-68mj-5wr7-6fgg
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69219
 action_plan:
   priority: elevated
   owners:
@@ -44,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-63337
       evidence: Source advisory recommends upgrading to 5.33.0
+updates:
+  - at: "2026-08-18T20:58:15Z"
+    level: L1
+    summary: added coverage for amqp-client
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-68mj-5wr7-6fgg
 ---
 
 The RabbitMQ Java client (amqp-client), specifically the `com.rabbitmq.tools.jsonrpc` component, is susceptible to an arbitrary class loading vulnerability tracked as CVE-2026-63337. The vulnerability exists due to the use of `Class.forName()` on class names provided within the `javaReturnType` field of JSON-RPC `system.describe` responses received via AMQP. The client fails to implement an allowlist or validation for these class names, and performs the lookup with the `initialize=true` flag.
