@@ -3,12 +3,15 @@ title: Multiple Vulnerabilities in PostgreSQL
 slug: 2026-08-postgresql-vulns
 description: PostgreSQL has released patches for multiple high-severity vulnerabilities across several versions that could allow remote attackers to achieve arbitrary code execution, perform SQL injection, or conduct denial-of-service attacks.
 date: "2026-08-14T14:05:46Z"
-lastmod: "2026-08-14T14:06:27Z"
+lastmod: "2026-08-18T13:58:06Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=0EC9A618-6649-5865-974D-61A43F5636D2&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - database
@@ -23,24 +26,21 @@ products:
   - PostgreSQL 18
   - PostgreSQL
 cves:
-  - id: CVE-2026-14669
-    cvss: 8.8
   - id: CVE-2026-14671
     cvss: 8.8
-  - id: CVE-2026-14673
-    cvss: 3.8
-  - id: CVE-2026-14676
+    epss: 0.00405
+  - id: CVE-2026-14662
     cvss: 8.8
-  - id: CVE-2026-14680
+    epss: 0.00655
+  - id: CVE-2026-14672
+    cvss: 5.3
+    epss: 0.00394
+  - id: CVE-2026-15742
     cvss: 8.8
-  - id: CVE-2026-14678
-    cvss: 4.3
-  - id: CVE-2026-14679
-    cvss: 8.2
-  - id: CVE-2026-14681
-    cvss: 4.2
-  - id: CVE-2026-16238
+    epss: 0.00479
+  - id: CVE-2026-16239
     cvss: 8.8
+    epss: 0.0059
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1024/
   - https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/
@@ -73,6 +73,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-6470
   - https://www.cve.org/CVERecord?id=CVE-2026-6471
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2844
+  - https://sploitus.com/exploit?id=0EC9A618-6649-5865-974D-61A43F5636D2&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -97,6 +98,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2844
+  - at: "2026-08-18T13:58:06Z"
+    level: L2
+    summary: poc_available; added CVE-2026-14662 +3
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=0EC9A618-6649-5865-974D-61A43F5636D2&utm_source=rss&utm_medium=rss
 ---
 
 On August 13, 2026, the PostgreSQL Global Development Group released updates addressing a significant number of vulnerabilities affecting multiple versions of the database management system. These vulnerabilities, tracked under various CVE identifiers, range in impact from SQL injection and data confidentiality breaches to remote code execution (RCE) and denial-of-service (DoS) conditions. The affected software branches include versions 14, 15, 16, 17, and 18. Given the critical nature of database infrastructure and the potential for unauthorized code execution or data exfiltration, administrators are urged to verify their current PostgreSQL version and apply the vendor-provided patches immediately. This update cycle serves as a critical maintenance release to remediate security flaws discovered during routine auditing and vulnerability assessment processes.
