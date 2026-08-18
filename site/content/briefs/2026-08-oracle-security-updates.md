@@ -3,7 +3,7 @@ title: Oracle Security Updates - August 2026
 slug: 2026-08-oracle-security-updates
 description: Roundup of Oracle security advisories published in August 2026.
 date: "2026-08-18T22:56:20Z"
-lastmod: "2026-08-18T23:01:12Z"
+lastmod: "2026-08-18T23:02:01Z"
 type: threat
 types:
   - threat
@@ -103,16 +103,11 @@ cves:
   - id: CVE-2026-62588
     product: Siebel CRM (25.12-26.6)
     cvss: 9.9
+  - id: CVE-2026-62617
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62592
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62635
 updates:
-  - at: "2026-08-18T22:59:49Z"
-    level: L2
-    summary: added CVE-2026-62463
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-62544
   - at: "2026-08-18T23:01:04Z"
     level: L2
     summary: added CVE-2026-61001 +2
@@ -141,9 +136,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62592
+  - at: "2026-08-18T23:02:01Z"
+    level: L2
+    summary: added CVE-2026-62617
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62635
 ---
 
-This roundup covers 53 Oracle security vulnerabilities. CVSS base scores range from 9.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect Hospitality Simphony, Hyperion Calculation Manager, Hyperion Infrastructure Technology, Identity Manager, Internet Directory, JD Edwards EnterpriseOne Tools, Managed File Transfer, Oracle E-Business Suite, Oracle Hyperion Infrastructure Technology, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle Internet Directory, Oracle Web Services Manager, PeopleSoft Enterprise PeopleTools, Siebel CRM, Siebel CRM Cloud Applications, WebCenter Content, WebCenter Enterprise Capture, WebCenter Portal, WebCenter Sites, WebLogic Server.
+This roundup covers 71 Oracle security vulnerabilities. CVSS base scores range from 9.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect Fusion Middleware, Hospitality Simphony, Hyperion Calculation Manager, Hyperion Infrastructure Technology, Identity Manager, Internet Directory, JD Edwards EnterpriseOne Tools, Managed File Transfer, Oracle E-Business Suite, Oracle Fusion Middleware, Oracle Hyperion Infrastructure Technology, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle Internet Directory, Oracle Reports Developer, Oracle Web Services Manager, PeopleSoft Enterprise PeopleTools, Siebel CRM, Siebel CRM Cloud Applications, WebCenter Content, WebCenter Enterprise Capture, WebCenter Portal, WebCenter Sites, WebLogic Server.
 
 ## Summary
 
@@ -180,10 +182,10 @@ This roundup covers 53 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-61003](#cve-2026-61003) | Managed File Transfer (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61003) (authoritative) |
 | [CVE-2026-61008](#cve-2026-61008) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61008) (authoritative) |
 | [CVE-2026-61018](#cve-2026-61018) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61018) (authoritative) |
-| [CVE-2026-61021](#cve-2026-61021) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61021) (authoritative) |
+| [CVE-2026-61021](#cve-2026-61021) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61021) (authoritative) |
 | [CVE-2026-61029](#cve-2026-61029) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61029) (authoritative) |
 | [CVE-2026-61034](#cve-2026-61034) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61034) (authoritative) |
-| [CVE-2026-61066](#cve-2026-61066) | Oracle Identity Manager (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61066) (authoritative) |
+| [CVE-2026-61066](#cve-2026-61066) | Oracle Identity Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61066) (authoritative) |
 | [CVE-2026-61206](#cve-2026-61206) | Hyperion Calculation Manager (11.2.25.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61206) (authoritative) |
 | [CVE-2026-61241](#cve-2026-61241) | Internet Directory (12.2.1.4.0, 14.1.2.1.0) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61241) (authoritative) |
 | [CVE-2026-61248](#cve-2026-61248) | Oracle Internet Directory (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61248) (authoritative) |
@@ -202,6 +204,24 @@ This roundup covers 53 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-62582](#cve-2026-62582) | Hyperion Calculation Manager (11.2.25.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62582) (authoritative) |
 | [CVE-2026-62585](#cve-2026-62585) | Siebel CRM (25.12-26.6) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62585) (authoritative) |
 | [CVE-2026-62588](#cve-2026-62588) | Siebel CRM (25.12-26.6) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62588) (authoritative) |
+| [CVE-2026-62592](#cve-2026-62592) | Siebel CRM (25.12-26.6) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62592) (authoritative) |
+| [CVE-2026-62608](#cve-2026-62608) | Oracle Fusion Middleware (12.2.1.19.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62608) (authoritative) |
+| [CVE-2026-62609](#cve-2026-62609) | Oracle Reports Developer (12.2.1.19.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62609) (authoritative) |
+| [CVE-2026-62610](#cve-2026-62610) | Oracle Fusion Middleware (12.2.1.19.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62610) (authoritative) |
+| [CVE-2026-62611](#cve-2026-62611) | Oracle Reports Developer (12.2.1.19.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62611) (authoritative) |
+| [CVE-2026-62613](#cve-2026-62613) | Oracle Reports Developer (12.2.1.19.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62613) (authoritative) |
+| [CVE-2026-62614](#cve-2026-62614) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62614) (authoritative) |
+| [CVE-2026-62617](#cve-2026-62617) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62617) (authoritative) |
+| [CVE-2026-62618](#cve-2026-62618) | Oracle Reports Developer (12.2.1.19.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62618) (authoritative) |
+| [CVE-2026-62621](#cve-2026-62621) | Oracle Fusion Middleware (12.2.1.19.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62621) (authoritative) |
+| [CVE-2026-62622](#cve-2026-62622) | Oracle Fusion Middleware (12.2.1.19.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62622) (authoritative) |
+| [CVE-2026-62624](#cve-2026-62624) | Oracle Fusion Middleware |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62624) (authoritative) |
+| [CVE-2026-62626](#cve-2026-62626) | Fusion Middleware (12.2.1.19.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62626) (authoritative) |
+| [CVE-2026-62629](#cve-2026-62629) | Oracle Reports Developer (14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62629) (authoritative) |
+| [CVE-2026-62630](#cve-2026-62630) | Oracle Reports Developer (14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62630) (authoritative) |
+| [CVE-2026-62632](#cve-2026-62632) | Oracle Reports Developer (14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62632) (authoritative) |
+| [CVE-2026-62633](#cve-2026-62633) | Oracle Reports Developer (14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62633) (authoritative) |
+| [CVE-2026-62634](#cve-2026-62634) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62634) (authoritative) |
 
 
 ## CVE-2026-60591
@@ -221,6 +241,24 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60672
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -333,6 +371,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60696
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60698](#cve-2026-60698), [CVE-2026-60702](#cve-2026-60702), [CVE-2026-60977](#cve-2026-60977).
 
 ## CVE-2026-60698
@@ -343,6 +399,24 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60698
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -452,6 +526,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60702
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60696](#cve-2026-60696), [CVE-2026-60698](#cve-2026-60698), [CVE-2026-60977](#cve-2026-60977).
 
 ## CVE-2026-60720
@@ -509,6 +601,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60720
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60721](#cve-2026-60721), [CVE-2026-61066](#cve-2026-61066).
 
 ## CVE-2026-60721
@@ -519,6 +629,24 @@ Affected products:
 - Oracle Identity Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60721
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -626,6 +754,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60737
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-61001](#cve-2026-61001).
 
 ## CVE-2026-60754
@@ -648,7 +794,25 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60754
 
 
 
-Related in this roundup: [CVE-2026-61318](#cve-2026-61318), [CVE-2026-62585](#cve-2026-62585), [CVE-2026-62588](#cve-2026-62588).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-61318](#cve-2026-61318), [CVE-2026-62585](#cve-2026-62585), [CVE-2026-62588](#cve-2026-62588), [CVE-2026-62592](#cve-2026-62592).
 
 ## CVE-2026-60782
 
@@ -694,6 +858,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60858
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-61206](#cve-2026-61206), [CVE-2026-62582](#cve-2026-62582).
 
 ## CVE-2026-60861
@@ -719,6 +901,24 @@ Affected products:
 - WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60916
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -799,6 +999,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60921
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60916](#cve-2026-60916), [CVE-2026-60946](#cve-2026-60946), [CVE-2026-60958](#cve-2026-60958), [CVE-2026-60970](#cve-2026-60970), [CVE-2026-60971](#cve-2026-60971).
 
 ## CVE-2026-60946
@@ -809,6 +1027,24 @@ Affected products:
 - WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60946
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -891,6 +1127,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60958
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60916](#cve-2026-60916), [CVE-2026-60921](#cve-2026-60921), [CVE-2026-60946](#cve-2026-60946), [CVE-2026-60970](#cve-2026-60970), [CVE-2026-60971](#cve-2026-60971).
 
 ## CVE-2026-60970
@@ -901,6 +1155,24 @@ Affected products:
 - WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60970
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -972,6 +1244,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60971
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60916](#cve-2026-60916), [CVE-2026-60921](#cve-2026-60921), [CVE-2026-60946](#cve-2026-60946), [CVE-2026-60958](#cve-2026-60958), [CVE-2026-60970](#cve-2026-60970).
 
 ## CVE-2026-60977
@@ -982,6 +1272,24 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60977
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1048,6 +1356,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60990
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60995](#cve-2026-60995).
 
 ## CVE-2026-60995
@@ -1085,6 +1411,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60995
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60990](#cve-2026-60990).
 
 ## CVE-2026-61001
@@ -1095,6 +1439,24 @@ Affected products:
 - Oracle Web Services Manager (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1163,6 +1525,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61008
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-61018](#cve-2026-61018), [CVE-2026-61021](#cve-2026-61021), [CVE-2026-61029](#cve-2026-61029), [CVE-2026-61034](#cve-2026-61034).
 
 ## CVE-2026-61018
@@ -1173,6 +1553,24 @@ Affected products:
 - WebCenter Sites (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61018
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1228,6 +1626,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61021
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-61008](#cve-2026-61008), [CVE-2026-61018](#cve-2026-61018), [CVE-2026-61029](#cve-2026-61029), [CVE-2026-61034](#cve-2026-61034).
 
 ## CVE-2026-61029
@@ -1238,6 +1654,24 @@ Affected products:
 - WebCenter Sites (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61029
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1289,6 +1723,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61034
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-61008](#cve-2026-61008), [CVE-2026-61018](#cve-2026-61018), [CVE-2026-61021](#cve-2026-61021), [CVE-2026-61029](#cve-2026-61029).
 
 ## CVE-2026-61066
@@ -1299,6 +1751,24 @@ Affected products:
 - Oracle Identity Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61066
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1346,6 +1816,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61206
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60858](#cve-2026-60858), [CVE-2026-62582](#cve-2026-62582).
 
 ## CVE-2026-61241
@@ -1356,6 +1844,24 @@ Affected products:
 - Internet Directory (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61241
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1405,6 +1911,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61258
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-61241](#cve-2026-61241).
 
 ## CVE-2026-61272
@@ -1424,6 +1948,24 @@ Affected products:
 - Siebel CRM Cloud Applications (22.3-26.6)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61317
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1457,7 +1999,25 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61318
 
 
 
-Related in this roundup: [CVE-2026-60754](#cve-2026-60754), [CVE-2026-62585](#cve-2026-62585), [CVE-2026-62588](#cve-2026-62588).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-60754](#cve-2026-60754), [CVE-2026-62585](#cve-2026-62585), [CVE-2026-62588](#cve-2026-62588), [CVE-2026-62592](#cve-2026-62592).
 
 ## CVE-2026-62452
 
@@ -1467,6 +2027,24 @@ Affected products:
 - Siebel CRM Cloud Applications (22.3-26.6)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62452
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1495,6 +2073,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62457
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-62539](#cve-2026-62539), [CVE-2026-62541](#cve-2026-62541), [CVE-2026-62543](#cve-2026-62543).
 
 ## CVE-2026-62463
@@ -1509,6 +2105,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62463
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-62544](#cve-2026-62544).
 
 ## CVE-2026-62512
@@ -1519,6 +2133,24 @@ Affected products:
 - Siebel CRM Cloud Applications (22.3-26.6)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62512
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1544,6 +2176,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62539
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-62457](#cve-2026-62457), [CVE-2026-62541](#cve-2026-62541), [CVE-2026-62543](#cve-2026-62543).
 
 ## CVE-2026-62541
@@ -1554,6 +2204,24 @@ Affected products:
 - Hyperion Infrastructure Technology (11.2.25.0.000)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62541
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1575,6 +2243,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62543
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-62457](#cve-2026-62457), [CVE-2026-62539](#cve-2026-62539), [CVE-2026-62541](#cve-2026-62541).
 
 ## CVE-2026-62544
@@ -1585,6 +2271,24 @@ Affected products:
 - Oracle Hyperion Infrastructure Technology (11.2.25.0.000)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62544
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1602,6 +2306,24 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62582
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60858](#cve-2026-60858), [CVE-2026-61206](#cve-2026-61206).
 
 ## CVE-2026-62585
@@ -1614,7 +2336,25 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62585
 
 
-Related in this roundup: [CVE-2026-60754](#cve-2026-60754), [CVE-2026-61318](#cve-2026-61318), [CVE-2026-62588](#cve-2026-62588).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-60754](#cve-2026-60754), [CVE-2026-61318](#cve-2026-61318), [CVE-2026-62588](#cve-2026-62588), [CVE-2026-62592](#cve-2026-62592).
 
 ## CVE-2026-62588
 
@@ -1625,4 +2365,329 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62588
 
-Related in this roundup: [CVE-2026-60754](#cve-2026-60754), [CVE-2026-61318](#cve-2026-61318), [CVE-2026-62585](#cve-2026-62585).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-60754](#cve-2026-60754), [CVE-2026-61318](#cve-2026-61318), [CVE-2026-62585](#cve-2026-62585), [CVE-2026-62592](#cve-2026-62592).
+
+## CVE-2026-62592
+
+CVE-2026-62592 is a critical vulnerability in the Open Integration component of Oracle Siebel CRM, affecting versions 25.12 through 26.6. The flaw allows an unauthenticated, network-adjacent attacker to perform a complete takeover of the Siebel CRM Integration product via crafted HTTP requests, resulting in full impact to confidentiality, integrity, and availability.
+
+Affected products:
+- Siebel CRM (25.12-26.6)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62592
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-60754](#cve-2026-60754), [CVE-2026-61318](#cve-2026-61318), [CVE-2026-62585](#cve-2026-62585), [CVE-2026-62588](#cve-2026-62588).
+
+## CVE-2026-62608
+
+CVE-2026-62608 is a critical vulnerability in the Oracle Reports Developer component of Oracle Fusion Middleware. A low-privileged attacker with network access can exploit this flaw via CORBA to achieve a full takeover of the application. The vulnerability allows for scope change, potentially impacting additional products, with a CVSS 3.1 base score of 9.9.
+
+Affected products:
+- Oracle Fusion Middleware (12.2.1.19.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62608
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-62610](#cve-2026-62610), [CVE-2026-62621](#cve-2026-62621), [CVE-2026-62622](#cve-2026-62622), [CVE-2026-62624](#cve-2026-62624).
+
+## CVE-2026-62609
+
+CVE-2026-62609 is a critical vulnerability in the Security and Authentication component of Oracle Reports Developer (part of Oracle Fusion Middleware). The vulnerability is remotely exploitable without authentication via TCP, allowing an attacker to achieve full takeover of the affected product with significant impacts on confidentiality, integrity, and availability.
+
+Affected products:
+- Oracle Reports Developer (12.2.1.19.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62609
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-62611](#cve-2026-62611), [CVE-2026-62613](#cve-2026-62613), [CVE-2026-62618](#cve-2026-62618), [CVE-2026-62629](#cve-2026-62629), [CVE-2026-62630](#cve-2026-62630), [CVE-2026-62632](#cve-2026-62632), [CVE-2026-62633](#cve-2026-62633).
+
+## CVE-2026-62610
+
+CVE-2026-62610 is a critical vulnerability in the Security and Authentication component of Oracle Reports Developer within Oracle Fusion Middleware version 12.2.1.19.0. The flaw is remotely exploitable by an unauthenticated attacker over HTTP, allowing for unauthorized access to, or modification/deletion of, critical data. The vulnerability possesses a CVSS 3.1 base score of 9.1.
+
+Affected products:
+- Oracle Fusion Middleware (12.2.1.19.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62610
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-62608](#cve-2026-62608), [CVE-2026-62621](#cve-2026-62621), [CVE-2026-62622](#cve-2026-62622), [CVE-2026-62624](#cve-2026-62624).
+
+## CVE-2026-62611
+
+CVE-2026-62611 is a critical vulnerability in the Security and Authentication component of Oracle Reports Developer within Oracle Fusion Middleware. The vulnerability allows an unauthenticated, remote attacker to gain full control of the application via the IIOP protocol. Due to the lack of required authentication and low complexity of the exploit, this vulnerability poses a severe risk of complete system compromise.
+
+Affected products:
+- Oracle Reports Developer (12.2.1.19.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62611
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-62609](#cve-2026-62609), [CVE-2026-62613](#cve-2026-62613), [CVE-2026-62618](#cve-2026-62618), [CVE-2026-62629](#cve-2026-62629), [CVE-2026-62630](#cve-2026-62630), [CVE-2026-62632](#cve-2026-62632), [CVE-2026-62633](#cve-2026-62633).
+
+## CVE-2026-62613
+
+CVE-2026-62613 is a vulnerability in the Security and Authentication component of Oracle Reports Developer within Oracle Fusion Middleware version 12.2.1.19.0. The vulnerability is network-adjacent (accessible via the physical communication segment), allowing an unauthenticated attacker to compromise the product and access or modify critical data. The vulnerability involves a scope change and carries a CVSS 3.1 base score of 9.3.
+
+Affected products:
+- Oracle Reports Developer (12.2.1.19.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62613
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-62609](#cve-2026-62609), [CVE-2026-62611](#cve-2026-62611), [CVE-2026-62618](#cve-2026-62618), [CVE-2026-62629](#cve-2026-62629), [CVE-2026-62630](#cve-2026-62630), [CVE-2026-62632](#cve-2026-62632), [CVE-2026-62633](#cve-2026-62633).
+
+## CVE-2026-62614
+
+Oracle Reports Developer in Oracle Fusion Middleware version 12.2.1.19.0 contains a critical, easily exploitable vulnerability in the Security and Authentication component. An unauthenticated attacker can leverage network access via HTTP to achieve full compromise (takeover) of the application. The vulnerability carries a CVSS base score of 9.8.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62614
+
+## CVE-2026-62617
+
+CVE-2026-62617 is a critical vulnerability in the Oracle Reports Developer component of Oracle Fusion Middleware version 12.2.1.19.0. An unauthenticated attacker can exploit this flaw via network access over UDP to gain full control of the affected product, leading to total compromise of confidentiality, integrity, and availability.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62617
+
+## CVE-2026-62618
+
+CVE-2026-62618 is a critical vulnerability in Oracle Reports Developer (part of Oracle Fusion Middleware) that allows unauthenticated, network-based attackers to compromise the system via HTTP. The vulnerability has a high CVSS score of 9.3 and exhibits a scope change, meaning successful exploitation can lead to unauthorized access, modification, or deletion of critical data across the target application and potentially impacted secondary products.
+
+Affected products:
+- Oracle Reports Developer (12.2.1.19.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62618
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-62609](#cve-2026-62609), [CVE-2026-62611](#cve-2026-62611), [CVE-2026-62613](#cve-2026-62613), [CVE-2026-62629](#cve-2026-62629), [CVE-2026-62630](#cve-2026-62630), [CVE-2026-62632](#cve-2026-62632), [CVE-2026-62633](#cve-2026-62633).
+
+## CVE-2026-62621
+
+CVE-2026-62621 is a critical vulnerability in the Security and Authentication component of Oracle Reports Developer, part of Oracle Fusion Middleware version 12.2.1.19.0. An unauthenticated attacker can exploit this flaw via network access over TCP to achieve a complete takeover of the affected product. The vulnerability carries a CVSS 3.1 base score of 9.8, indicating severe impacts to confidentiality, integrity, and availability.
+
+Affected products:
+- Oracle Fusion Middleware (12.2.1.19.0)
+- Oracle Reports Developer (12.2.1.19.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62621
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-62608](#cve-2026-62608), [CVE-2026-62610](#cve-2026-62610), [CVE-2026-62622](#cve-2026-62622), [CVE-2026-62624](#cve-2026-62624).
+
+## CVE-2026-62622
+
+CVE-2026-62622 is a critical vulnerability in the Oracle Reports Developer component of Oracle Fusion Middleware version 12.2.1.19.0. The vulnerability is easily exploitable by an unauthenticated attacker over a network via the IIOP protocol. Successful exploitation allows for a full takeover of the Oracle Reports Developer instance, resulting in complete compromise of confidentiality, integrity, and availability.
+
+Affected products:
+- Oracle Fusion Middleware (12.2.1.19.0)
+- Oracle Reports Developer (12.2.1.19.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62622
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-62608](#cve-2026-62608), [CVE-2026-62610](#cve-2026-62610), [CVE-2026-62621](#cve-2026-62621), [CVE-2026-62624](#cve-2026-62624).
+
+## CVE-2026-62624
+
+CVE-2026-62624 is a critical vulnerability in the Security and Authentication component of Oracle Reports Developer (within Oracle Fusion Middleware) that allows an unauthenticated, network-adjacent attacker to achieve full system takeover via IIOP. The vulnerability is easily exploitable and carries a CVSS base score of 9.8, necessitating immediate patching of the affected 12.2.1.19.0 version.
+
+Affected products:
+- Oracle Fusion Middleware
+- Oracle Reports Developer (12.2.1.19.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62624
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-62608](#cve-2026-62608), [CVE-2026-62610](#cve-2026-62610), [CVE-2026-62621](#cve-2026-62621), [CVE-2026-62622](#cve-2026-62622).
+
+## CVE-2026-62626
+
+CVE-2026-62626 is a critical vulnerability in the Security and Authentication component of Oracle Reports Developer within Oracle Fusion Middleware version 12.2.1.19.0. The flaw allows unauthenticated remote attackers to achieve full system takeover via HTTP requests, resulting in high impact across confidentiality, integrity, and availability.
+
+Affected products:
+- Fusion Middleware (12.2.1.19.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62626
+
+## CVE-2026-62629
+
+CVE-2026-62629 is a critical vulnerability in Oracle Reports Developer (Oracle Fusion Middleware) that allows an unauthenticated attacker to exploit the application via HTTP. The vulnerability enables unauthorized read/write access to data and can trigger a denial-of-service (DoS) condition, impacting system availability and data integrity.
+
+Affected products:
+- Oracle Reports Developer (14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62629
+
+
+
+
+
+Related in this roundup: [CVE-2026-62609](#cve-2026-62609), [CVE-2026-62611](#cve-2026-62611), [CVE-2026-62613](#cve-2026-62613), [CVE-2026-62618](#cve-2026-62618), [CVE-2026-62630](#cve-2026-62630), [CVE-2026-62632](#cve-2026-62632), [CVE-2026-62633](#cve-2026-62633).
+
+## CVE-2026-62630
+
+CVE-2026-62630 describes a critical, easily exploitable vulnerability in the Security and Authentication component of Oracle Reports Developer within Oracle Fusion Middleware version 14.1.2.0.0. The flaw allows an unauthenticated, network-adjacent attacker to achieve full system takeover via TCP, resulting in high impact to confidentiality, integrity, and availability.
+
+Affected products:
+- Oracle Reports Developer (14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62630
+
+
+
+
+Related in this roundup: [CVE-2026-62609](#cve-2026-62609), [CVE-2026-62611](#cve-2026-62611), [CVE-2026-62613](#cve-2026-62613), [CVE-2026-62618](#cve-2026-62618), [CVE-2026-62629](#cve-2026-62629), [CVE-2026-62632](#cve-2026-62632), [CVE-2026-62633](#cve-2026-62633).
+
+## CVE-2026-62632
+
+CVE-2026-62632 is a critical vulnerability within the Security and Authentication component of Oracle Reports Developer, part of Oracle Fusion Middleware. An unauthenticated attacker can exploit this flaw over HTTP to gain full control of the application, resulting in a complete compromise of confidentiality, integrity, and availability. Given the CVSS score of 9.8 and the lack of required authentication, this vulnerability represents a severe RCE risk to exposed instances.
+
+Affected products:
+- Oracle Reports Developer (14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62632
+
+
+
+Related in this roundup: [CVE-2026-62609](#cve-2026-62609), [CVE-2026-62611](#cve-2026-62611), [CVE-2026-62613](#cve-2026-62613), [CVE-2026-62618](#cve-2026-62618), [CVE-2026-62629](#cve-2026-62629), [CVE-2026-62630](#cve-2026-62630), [CVE-2026-62633](#cve-2026-62633).
+
+## CVE-2026-62633
+
+A critical vulnerability exists in the Oracle Reports Developer component of Oracle Fusion Middleware version 14.1.2.0.0. The vulnerability allows an unauthenticated attacker with network access to execute an exploit via HTTP, potentially leading to a full takeover of the application. The flaw carries a CVSS 3.1 base score of 9.8, indicating significant impact on confidentiality, integrity, and availability.
+
+Affected products:
+- Oracle Reports Developer (14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62633
+
+
+Related in this roundup: [CVE-2026-62609](#cve-2026-62609), [CVE-2026-62611](#cve-2026-62611), [CVE-2026-62613](#cve-2026-62613), [CVE-2026-62618](#cve-2026-62618), [CVE-2026-62629](#cve-2026-62629), [CVE-2026-62630](#cve-2026-62630), [CVE-2026-62632](#cve-2026-62632).
+
+## CVE-2026-62634
+
+CVE-2026-62634 is a critical vulnerability in the Security and Authentication component of Oracle Reports Developer within Oracle Fusion Middleware version 14.1.2.0.0. The vulnerability allows an unauthenticated attacker with network access to the CORBA interface to achieve full system takeover, with a CVSS base score of 9.8 representing complete impact on confidentiality, integrity, and availability.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62634
