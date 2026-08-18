@@ -3,7 +3,7 @@ title: Oracle Security Updates - August 2026
 slug: 2026-08-oracle-security-updates
 description: Roundup of Oracle security advisories published in August 2026.
 date: "2026-08-18T22:56:20Z"
-lastmod: "2026-08-18T22:56:31Z"
+lastmod: "2026-08-18T22:56:34Z"
 type: threat
 types:
   - threat
@@ -27,20 +27,16 @@ cves:
     product: WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
     cvss: 9.8
   - id: CVE-2026-60702
+    product: WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+    cvss: 9.9
+  - id: CVE-2026-60720
     cvss: 9.9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-60702
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60720
 updates:
-  - at: "2026-08-18T22:56:21Z"
-    level: L1
-    summary: posted roundup
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60591
   - at: "2026-08-18T22:56:23Z"
     level: L2
-    summary: added CVE-2026-60672 +3
+    summary: added CVE-2026-60672 +4
     sources:
       - nvd
     source_urls:
@@ -48,9 +44,10 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60696
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60698
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60702
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60720
 ---
 
-This roundup covers 4 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 9.8. None are reported as actively exploited at the time of release. The issues affect Hospitality Simphony, WebLogic Server.
+This roundup covers 5 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 9.9. None are reported as actively exploited at the time of release. The issues affect Hospitality Simphony, WebLogic Server.
 
 ## Summary
 
@@ -60,6 +57,7 @@ This roundup covers 4 Oracle security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-60672](#cve-2026-60672) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60672) (authoritative) |
 | [CVE-2026-60696](#cve-2026-60696) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60696) (authoritative) |
 | [CVE-2026-60698](#cve-2026-60698) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60698) (authoritative) |
+| [CVE-2026-60702](#cve-2026-60702) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60702) (authoritative) |
 
 
 ## CVE-2026-60591
@@ -81,7 +79,8 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60672
 
 
-Related in this roundup: [CVE-2026-60696](#cve-2026-60696), [CVE-2026-60698](#cve-2026-60698).
+
+Related in this roundup: [CVE-2026-60696](#cve-2026-60696), [CVE-2026-60698](#cve-2026-60698), [CVE-2026-60702](#cve-2026-60702).
 
 ## CVE-2026-60696
 
@@ -93,7 +92,8 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60696
 
 
-Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60698](#cve-2026-60698).
+
+Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60698](#cve-2026-60698), [CVE-2026-60702](#cve-2026-60702).
 
 ## CVE-2026-60698
 
@@ -104,4 +104,16 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60698
 
-Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60696](#cve-2026-60696).
+
+Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60696](#cve-2026-60696), [CVE-2026-60702](#cve-2026-60702).
+
+## CVE-2026-60702
+
+CVE-2026-60702 is a critical vulnerability in Oracle WebLogic Server (Core component) that allows a low-privileged attacker with network access via T3 or IIOP protocols to perform a full takeover of the server. The vulnerability has a CVSS base score of 9.9 and involves a scope change, potentially impacting other integrated products in the Fusion Middleware environment.
+
+Affected products:
+- WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60702
+
+Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60696](#cve-2026-60696), [CVE-2026-60698](#cve-2026-60698).
