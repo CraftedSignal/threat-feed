@@ -3,16 +3,22 @@ title: SQL Injection in SourceCodester Class and Exam Timetabling System
 slug: 2026-08-sourcecodester-sqli
 description: SourceCodester Class and Exam Timetabling System 1.0 contains an unauthenticated SQL injection vulnerability in edit_teacher.php that allows remote attackers to compromise database integrity.
 date: "2026-08-15T18:20:05Z"
+lastmod: "2026-08-18T00:51:50Z"
 type: threat
 types:
   - threat
 severities:
   - high
 exploited: true
+tags:
+  - web-application-vulnerability
+  - sql-injection
+  - cve-2026-75079
 vendors:
   - SourceCodester
 products:
   - Class and Exam Timetabling System
+  - Class and Exam Timetabling System (1.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -23,6 +29,9 @@ mitre_ttps:
 cves:
   - id: CVE-2026-19899
     cvss: 7.3
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75079
+  - https://vuldb.com/vuln/391307
 rules:
   - title: Detect CVE-2026-19899 Exploitation - SQL Injection in edit_teacher.php
     description: Detects exploitation attempts against the ID parameter in edit_teacher.php by looking for common SQL injection keywords and special characters.
@@ -34,7 +43,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-75079 Exploitation - SQL Injection in edit_subject2.php
+    description: Detects exploitation attempts against CVE-2026-75079 by monitoring for common SQL injection patterns in the ID parameter of edit_subject2.php requests
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +70,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-19899
       evidence: SQL injection vulnerability allows remote unauthenticated access.
+updates:
+  - at: "2026-08-18T00:51:50Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-75079 Exploitation - SQL Injection in edit_subject2.php'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75079
 ---
 
 SourceCodester Class and Exam Timetabling System version 1.0 is affected by a critical SQL injection vulnerability. The flaw exists within the edit_teacher.php file, where the ID parameter fails to properly neutralize user-supplied input before using it in database queries. This vulnerability allows an unauthenticated, remote attacker to manipulate SQL commands, potentially leading to unauthorized data access, modification, or deletion within the underlying database. The vulnerability has been publicly disclosed with functional exploit code, increasing the risk of active exploitation. Organizations utilizing this software are at risk of complete database compromise if the application is exposed to the internet.
