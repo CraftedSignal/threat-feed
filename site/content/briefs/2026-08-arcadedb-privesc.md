@@ -3,7 +3,7 @@ title: Authentication Bypass and Privilege Escalation in ArcadeDB
 slug: 2026-08-arcadedb-privesc
 description: ArcadeDB versions before 26.8.1 contain a vulnerability in the gRPC transaction executor that allows authenticated readers to execute arbitrary JavaScript, leading to server-wide privilege escalation.
 date: "2026-08-18T12:51:42Z"
-lastmod: "2026-08-18T12:53:47Z"
+lastmod: "2026-08-18T12:53:57Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,9 @@ tags:
   - arbitrary-file-read
   - sandbox-bypass
   - cve-2026-75840
+  - webserver
+  - ssrf
+  - cve-2026-75844
 vendors:
   - ArcadeData
 products:
@@ -56,6 +59,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75840
   - https://github.com/ArcadeData/arcadedb/security/advisories/GHSA-wx28-2265-f788
   - https://www.vulncheck.com/advisories/arcadedb-before-arbitrary-file-read-via-unescaped-regex
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75844
+  - https://github.com/ArcadeData/arcadedb/security/advisories/GHSA-4w2m-77c8-83mw
+  - https://www.vulncheck.com/advisories/arcadedb-before-ssrf-via-import-database-validator-bypass
 rules:
   - title: Detect ArcadeDB Unauthorized MongoDB Protocol Access Attempt
     description: Detects potential exploitation of CVE-2026-75852 by monitoring for unauthenticated MongoDB wire-protocol traffic targeted at ArcadeDB instances
@@ -90,6 +96,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-75840
+  - at: "2026-08-18T12:53:57Z"
+    level: L2
+    summary: added coverage for arcadedb
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75844
 ---
 
 ArcadeDB versions prior to 26.8.1 contain a critical security vulnerability (CVE-2026-75843) stemming from improper privilege management within the gRPC transaction executor thread. The issue occurs specifically during the 'beginTransaction' method, where the application fails to bind the authenticated principal to the executor thread. 
