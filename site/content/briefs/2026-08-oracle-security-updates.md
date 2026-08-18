@@ -3,7 +3,7 @@ title: Oracle Security Updates - August 2026
 slug: 2026-08-oracle-security-updates
 description: Roundup of Oracle security advisories published in August 2026.
 date: "2026-08-18T22:56:20Z"
-lastmod: "2026-08-18T22:59:25Z"
+lastmod: "2026-08-18T22:59:31Z"
 type: threat
 types:
   - threat
@@ -74,23 +74,25 @@ cves:
     cvss: 9.1
   - id: CVE-2026-61018
     cvss: 9.8
+  - id: CVE-2026-61258
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-61317
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62452
 updates:
-  - at: "2026-08-18T22:59:03Z"
+  - at: "2026-08-18T22:59:09Z"
     level: L2
-    summary: added CVE-2026-60905 +4
+    summary: added CVE-2026-60946 +4
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-61029
       - https://nvd.nist.gov/vuln/detail/CVE-2026-61066
       - https://nvd.nist.gov/vuln/detail/CVE-2026-61248
       - https://nvd.nist.gov/vuln/detail/CVE-2026-61258
       - https://nvd.nist.gov/vuln/detail/CVE-2026-61317
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62452
 ---
 
-This roundup covers 40 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 9.9. None are reported as actively exploited at the time of release. The issues affect Hospitality Simphony, Hyperion Calculation Manager, Identity Manager, Internet Directory, JD Edwards EnterpriseOne Tools, Managed File Transfer, Oracle E-Business Suite, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle Internet Directory, Oracle Web Services Manager, PeopleSoft Enterprise PeopleTools, Siebel CRM, WebCenter Content, WebCenter Enterprise Capture, WebCenter Portal, WebCenter Sites, WebLogic Server.
+This roundup covers 42 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 9.9. None are reported as actively exploited at the time of release. The issues affect Hospitality Simphony, Hyperion Calculation Manager, Identity Manager, Internet Directory, JD Edwards EnterpriseOne Tools, Managed File Transfer, Oracle E-Business Suite, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle Internet Directory, Oracle Web Services Manager, PeopleSoft Enterprise PeopleTools, Siebel CRM, Siebel CRM Cloud Applications, WebCenter Content, WebCenter Enterprise Capture, WebCenter Portal, WebCenter Sites, WebLogic Server.
 
 ## Summary
 
@@ -125,7 +127,7 @@ This roundup covers 40 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-60995](#cve-2026-60995) | Oracle Identity Manager Connector (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60995) (authoritative) |
 | [CVE-2026-61001](#cve-2026-61001) | Oracle Web Services Manager (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61001) (authoritative) |
 | [CVE-2026-61003](#cve-2026-61003) | Managed File Transfer (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61003) (authoritative) |
-| [CVE-2026-61008](#cve-2026-61008) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61008) (authoritative) |
+| [CVE-2026-61008](#cve-2026-61008) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61008) (authoritative) |
 | [CVE-2026-61018](#cve-2026-61018) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61018) (authoritative) |
 | [CVE-2026-61021](#cve-2026-61021) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61021) (authoritative) |
 | [CVE-2026-61029](#cve-2026-61029) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61029) (authoritative) |
@@ -136,6 +138,8 @@ This roundup covers 40 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-61248](#cve-2026-61248) | Oracle Internet Directory (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61248) (authoritative) |
 | [CVE-2026-61258](#cve-2026-61258) | Internet Directory (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61258) (authoritative) |
 | [CVE-2026-61272](#cve-2026-61272) | JD Edwards EnterpriseOne Tools (9.2.0.0-9.2.26.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61272) (authoritative) |
+| [CVE-2026-61317](#cve-2026-61317) | Siebel CRM Cloud Applications (22.3-26.6) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61317) (authoritative) |
+| [CVE-2026-61318](#cve-2026-61318) | Siebel CRM (22.3-26.6) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-61318) (authoritative) |
 
 
 ## CVE-2026-60591
@@ -155,6 +159,8 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60672
+
+
 
 
 
@@ -241,6 +247,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60696
 
 
 
+
+
 Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60698](#cve-2026-60698), [CVE-2026-60702](#cve-2026-60702), [CVE-2026-60977](#cve-2026-60977).
 
 ## CVE-2026-60698
@@ -251,6 +259,8 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60698
+
+
 
 
 
@@ -334,6 +344,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60702
 
 
 
+
+
 Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60696](#cve-2026-60696), [CVE-2026-60698](#cve-2026-60698), [CVE-2026-60977](#cve-2026-60977).
 
 ## CVE-2026-60720
@@ -378,6 +390,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60720
 
 
 
+
+
 Related in this roundup: [CVE-2026-60721](#cve-2026-60721), [CVE-2026-61066](#cve-2026-61066).
 
 ## CVE-2026-60721
@@ -388,6 +402,8 @@ Affected products:
 - Oracle Identity Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60721
+
+
 
 
 
@@ -469,6 +485,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60737
 
 
 
+
+
 Related in this roundup: [CVE-2026-61001](#cve-2026-61001).
 
 ## CVE-2026-60754
@@ -479,6 +497,8 @@ Affected products:
 - Siebel CRM (17.0-26.6)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60754
+
+Related in this roundup: [CVE-2026-61318](#cve-2026-61318).
 
 ## CVE-2026-60782
 
@@ -511,6 +531,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60858
 
 
 
+
+
 Related in this roundup: [CVE-2026-61206](#cve-2026-61206).
 
 ## CVE-2026-60861
@@ -536,6 +558,8 @@ Affected products:
 - WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60916
+
+
 
 
 
@@ -590,6 +614,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60921
 
 
 
+
+
 Related in this roundup: [CVE-2026-60916](#cve-2026-60916), [CVE-2026-60946](#cve-2026-60946), [CVE-2026-60958](#cve-2026-60958), [CVE-2026-60970](#cve-2026-60970), [CVE-2026-60971](#cve-2026-60971).
 
 ## CVE-2026-60946
@@ -600,6 +626,8 @@ Affected products:
 - WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60946
+
+
 
 
 
@@ -656,6 +684,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60958
 
 
 
+
+
 Related in this roundup: [CVE-2026-60916](#cve-2026-60916), [CVE-2026-60921](#cve-2026-60921), [CVE-2026-60946](#cve-2026-60946), [CVE-2026-60970](#cve-2026-60970), [CVE-2026-60971](#cve-2026-60971).
 
 ## CVE-2026-60970
@@ -666,6 +696,8 @@ Affected products:
 - WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60970
+
+
 
 
 
@@ -711,6 +743,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60971
 
 
 
+
+
 Related in this roundup: [CVE-2026-60916](#cve-2026-60916), [CVE-2026-60921](#cve-2026-60921), [CVE-2026-60946](#cve-2026-60946), [CVE-2026-60958](#cve-2026-60958), [CVE-2026-60970](#cve-2026-60970).
 
 ## CVE-2026-60977
@@ -721,6 +755,8 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60977
+
+
 
 
 
@@ -761,6 +797,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60990
 
 
 
+
+
 Related in this roundup: [CVE-2026-60995](#cve-2026-60995).
 
 ## CVE-2026-60995
@@ -785,6 +823,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60995
 
 
 
+
+
 Related in this roundup: [CVE-2026-60990](#cve-2026-60990).
 
 ## CVE-2026-61001
@@ -795,6 +835,8 @@ Affected products:
 - Oracle Web Services Manager (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61001
+
+
 
 
 
@@ -837,6 +879,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61008
 
 
 
+
+
 Related in this roundup: [CVE-2026-61018](#cve-2026-61018), [CVE-2026-61021](#cve-2026-61021), [CVE-2026-61029](#cve-2026-61029), [CVE-2026-61034](#cve-2026-61034).
 
 ## CVE-2026-61018
@@ -847,6 +891,8 @@ Affected products:
 - WebCenter Sites (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61018
+
+
 
 
 
@@ -876,6 +922,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61021
 
 
 
+
+
 Related in this roundup: [CVE-2026-61008](#cve-2026-61008), [CVE-2026-61018](#cve-2026-61018), [CVE-2026-61029](#cve-2026-61029), [CVE-2026-61034](#cve-2026-61034).
 
 ## CVE-2026-61029
@@ -886,6 +934,8 @@ Affected products:
 - WebCenter Sites (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61029
+
+
 
 
 
@@ -911,6 +961,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61034
 
 
 
+
+
 Related in this roundup: [CVE-2026-61008](#cve-2026-61008), [CVE-2026-61018](#cve-2026-61018), [CVE-2026-61021](#cve-2026-61021), [CVE-2026-61029](#cve-2026-61029).
 
 ## CVE-2026-61066
@@ -921,6 +973,8 @@ Affected products:
 - Oracle Identity Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61066
+
+
 
 
 
@@ -942,6 +996,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61206
 
 
 
+
+
 Related in this roundup: [CVE-2026-60858](#cve-2026-60858).
 
 ## CVE-2026-61241
@@ -952,6 +1008,8 @@ Affected products:
 - Internet Directory (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61241
+
+
 
 
 Related in this roundup: [CVE-2026-61258](#cve-2026-61258).
@@ -975,6 +1033,8 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61258
 
 
+
+
 Related in this roundup: [CVE-2026-61241](#cve-2026-61241).
 
 ## CVE-2026-61272
@@ -985,3 +1045,23 @@ Affected products:
 - JD Edwards EnterpriseOne Tools (9.2.0.0-9.2.26.4)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61272
+
+## CVE-2026-61317
+
+CVE-2026-61317 is a critical vulnerability in the Oracle Siebel Cloud Manager component of Siebel CRM Cloud Applications (versions 22.3-26.6). A low-privileged attacker with network access can exploit this via HTTP to achieve full system takeover. The vulnerability carries a CVSS 3.1 base score of 9.9 and involves a scope change, allowing impacts to propagate to other products.
+
+Affected products:
+- Siebel CRM Cloud Applications (22.3-26.6)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61317
+
+## CVE-2026-61318
+
+CVE-2026-61318 is a critical vulnerability in Oracle Siebel CRM Cloud Applications, specifically within the Siebel Cloud Manager component. The flaw allows an unauthenticated, network-adjacent attacker to achieve full system takeover via HTTP requests. With a CVSS 3.1 base score of 9.8, this vulnerability poses a severe risk to confidentiality, integrity, and availability.
+
+Affected products:
+- Siebel CRM (22.3-26.6)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-61318
+
+Related in this roundup: [CVE-2026-60754](#cve-2026-60754).
