@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-08-17T11:47:09Z"
+lastmod: "2026-08-18T20:50:59Z"
 type: advisory
 types:
   - advisory
@@ -105,6 +105,7 @@ references:
   - https://www.securityweek.com/amnesiastealer-macos-malware-steals-data-controls-browser-sessions/
   - https://www.reddit.com/r/blueteamsec/comments/1vpaaqu/amnesiastealer_macos_infostealer_that_hijacks/
   - https://thehackernews.com/2026/08/amnesiastealer-hijacks-chromium.html
+  - https://www.huntress.com/blog/mac-crypto-draining-malware
 iocs:
   - type: domain
     value: justwatch.com
@@ -138,18 +139,13 @@ iocs:
     value: filemarblegarden.com
   - type: domain
     value: debug.allllowef.space
+  - type: ip
+    value: 193.29.224.151
 ioc_counts:
   domain: 11
-  ip: 1
+  ip: 2
   url: 4
 updates:
-  - at: "2026-07-30T15:23:47Z"
-    level: L1
-    summary: new product
-    sources:
-      - mandiant
-    source_urls:
-      - https://cloud.google.com/blog/topics/threat-intelligence/mitigation-guidance-for-supply-chain-compromise/
   - at: "2026-08-01T19:48:02Z"
     level: L1
     summary: new IOCs
@@ -178,6 +174,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/08/amnesiastealer-hijacks-chromium.html
+  - at: "2026-08-18T20:50:59Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - huntress
+    source_urls:
+      - https://www.huntress.com/blog/mac-crypto-draining-malware
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
