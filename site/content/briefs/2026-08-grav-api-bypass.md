@@ -3,7 +3,7 @@ title: Authentication Scope Bypass in Grav API Plugin Leading to RCE
 slug: 2026-08-grav-api-bypass
 description: An API key scope-cap bypass in the Grav API plugin allows attackers with restricted keys to execute server-side templates via Server-Side Template Injection.
 date: "2026-08-14T14:11:25Z"
-lastmod: "2026-08-18T12:53:21Z"
+lastmod: "2026-08-18T12:53:30Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,7 @@ vendors:
 products:
   - grav-plugin-api (< 1.0.13)
   - grav-plugin-api (< 1.0.15)
+  - grav-plugin-api
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -34,6 +35,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: Attackers can submit crafted header and content parameters to execute server-side template injection payloads that are evaluated at render time.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: An authenticated user can supply path traversal sequences in the suffix parameter to write attacker-controlled page content to arbitrary filesystem locations.
+    confidence_band: high
 cves:
   - id: CVE-2026-72824
     cvss: 9.8
@@ -41,6 +48,20 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72824
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75829
   - https://github.com/getgrav/grav/security/advisories/GHSA-w94c-jmg4-w4c9
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75830
+rules:
+  - title: Detect CVE-2026-75830 Exploitation - Path Traversal in grav-plugin-api
+    description: Detects exploitation attempts against CVE-2026-75830 where a user provides directory traversal sequences in the suffix parameter of the batch copy API endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+      - persistence
+    techniques:
+      - T1059
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -65,6 +86,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-75829
+  - at: "2026-08-18T12:53:30Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-75830 Exploitation - Path Traversal in grav-plugin-api'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75830
 ---
 
 The Grav API plugin (getgrav/grav-plugin-api) version 1.0.13 and earlier contains a critical authorization vulnerability within the PagesController::guardTwigContent() method. The vulnerability stems from the plugin's failure to validate API key scopes when performing Twig-toggle checks. Specifically, the system utilizes a bare isSuperAdmin() gate instead of consulting the associated api_key_scopes.
