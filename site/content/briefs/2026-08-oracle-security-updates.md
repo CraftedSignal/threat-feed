@@ -3,7 +3,7 @@ title: Oracle Security Updates - August 2026
 slug: 2026-08-oracle-security-updates
 description: Roundup of Oracle security advisories published in August 2026.
 date: "2026-08-18T22:56:20Z"
-lastmod: "2026-08-18T22:56:21Z"
+lastmod: "2026-08-18T22:56:23Z"
 type: threat
 types:
   - threat
@@ -16,6 +16,11 @@ vendors:
 cves:
   - id: CVE-2026-60591
     product: Hospitality Simphony (19.8-19.8.5, 19.9-19.9.3, 19.10-19.10.1)
+    cvss: 9.1
+  - id: CVE-2026-60672
+    cvss: 9.8
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60672
 updates:
   - at: "2026-08-18T22:56:21Z"
     level: L1
@@ -24,6 +29,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60591
+  - at: "2026-08-18T22:56:23Z"
+    level: L2
+    summary: added CVE-2026-60672
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60672
 ---
 
 This roundup covers 1 Oracle security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Hospitality Simphony.
