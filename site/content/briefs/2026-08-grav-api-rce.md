@@ -3,6 +3,7 @@ title: Remote Code Execution in Grav API Plugin via Privilege Escalation
 slug: 2026-08-grav-api-rce
 description: The Grav API plugin before version 1.0.13 fails to enforce API key scope restrictions in ConfigController, enabling remote code execution via injected scheduler commands.
 date: "2026-08-14T14:11:46Z"
+lastmod: "2026-08-18T12:53:39Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +30,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: Attackers with a scoped api.config.write key can inject arbitrary commands into scheduler.custom_jobs that execute via Symfony Process.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Any authenticated caller with api.access can therefore invoke a privileged menubar action directly, bypassing the intended authorization.
+    confidence_band: high
 cves:
   - id: CVE-2026-72830
     cvss: 9.8
@@ -36,6 +43,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72830
   - https://github.com/getgrav/grav/security/advisories/GHSA-2x29-3mjq-2pvx
   - https://www.vulncheck.com/advisories/grav-api-plugin-before-rce-via-configcontroller-scope-bypass
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75836
 rules:
   - title: Detects CVE-2026-72830 Exploitation - API Configuration Injection
     description: Detects attempts to modify scheduler configuration via the Grav API ConfigController with potential command injection indicators
@@ -49,6 +57,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-08-18T12:53:39Z"
+    level: L2
+    summary: added coverage for Grav API plugin
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75836
 ---
 
 Grav API plugin versions before 1.0.13 are susceptible to a privilege management vulnerability (CWE-269) located in the ConfigController component. The plugin fails to adequately enforce scope restrictions for API keys, specifically regarding the 'api.config.write' permission. An attacker possessing a restricted API key with this scope can bypass intended access controls to modify the site's scheduler configuration. By manipulating the 'scheduler.custom_jobs' parameter, an attacker can inject arbitrary shell commands. These commands are subsequently executed by the underlying Symfony Process component, resulting in remote code execution (RCE) on the host server. This vulnerability is highly critical due to the potential for unauthenticated or low-privilege access to lead to full system compromise. Users of the Grav API plugin must upgrade to version 1.0.13 or later immediately to remediate this flaw.
