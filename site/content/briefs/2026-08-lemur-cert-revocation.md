@@ -3,7 +3,7 @@ title: Authorization Bypass in Lemur Leading to Unauthorized Certificate Revocat
 slug: 2026-08-lemur-cert-revocation
 description: An authorization bypass vulnerability in Lemur allows authenticated users to revoke arbitrary certificates by creating duplicate certificate records and bypassing ownership and endpoint-attached safeguards.
 date: "2026-08-18T20:56:29Z"
-lastmod: "2026-08-18T20:56:54Z"
+lastmod: "2026-08-18T20:57:00Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,9 @@ tags:
   - authorization-bypass
   - cve-2026-71417
   - cloud
+  - ssrf
+  - vulnerability
+  - cve-2026-70666
 vendors:
   - Netflix
 products:
@@ -45,6 +48,12 @@ mitre_ttps:
     technique_name: Server Software Component
     evidence: The update endpoint accepts and stores arbitrary options, including a modified acme_url, without invoking the allowlist check.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The attacker exploits the PUT authority update path to redirect the ACME client to malicious infrastructure.
+    confidence_band: high
 cves:
   - id: CVE-2026-71417
     cvss: 7.3
@@ -57,6 +66,7 @@ references:
   - https://github.com/advisories/GHSA-6c8m-q6g9-vrw3
   - https://github.com/advisories/GHSA-v5rc-cpwc-cfpr
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71303
+  - https://github.com/advisories/GHSA-xpmj-wjcp-6pww
 rules:
   - title: Detect Exploitation of CVE-2026-71303 - SSRF via Lemur Authority Update
     description: Detects PUT requests to the Lemur authority update API that contain potential SSRF targets in the acme_url option
@@ -101,6 +111,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-v5rc-cpwc-cfpr
+  - at: "2026-08-18T20:57:00Z"
+    level: L2
+    summary: added coverage for Lemur (<= 1.9.2)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-xpmj-wjcp-6pww
 ---
 
 Lemur (<= 1.9.2) contains a critical authorization bypass vulnerability, identified as CVE-2026-71417, which permits any authenticated user with non-read-only permissions to revoke production certificates. The vulnerability stems from an insecure certificate upload workflow that allows users to supply external identifiers (like `body` or `external_id`) without validating `AuthorityPermission`. 
