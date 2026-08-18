@@ -3,7 +3,7 @@ title: Oracle Security Updates - August 2026
 slug: 2026-08-oracle-security-updates
 description: Roundup of Oracle security advisories published in August 2026.
 date: "2026-08-18T22:56:20Z"
-lastmod: "2026-08-18T22:57:07Z"
+lastmod: "2026-08-18T22:57:14Z"
 type: threat
 types:
   - threat
@@ -34,31 +34,33 @@ cves:
     cvss: 9.9
   - id: CVE-2026-60727
     cvss: 9.8
+  - id: CVE-2026-60821
+    cvss: 9.8
   - id: CVE-2026-60861
     cvss: 9.6
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-60905
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60921
 updates:
-  - at: "2026-08-18T22:56:29Z"
+  - at: "2026-08-18T22:56:31Z"
     level: L2
-    summary: added CVE-2026-60698, CVE-2026-60702, CVE-2026-60720
+    summary: added CVE-2026-60702, CVE-2026-60720
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-60698
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60702
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60720
   - at: "2026-08-18T22:57:02Z"
     level: L2
-    summary: added CVE-2026-60727, CVE-2026-60861
+    summary: added CVE-2026-60727, CVE-2026-60821, CVE-2026-60861
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60858
       - https://nvd.nist.gov/vuln/detail/CVE-2026-60905
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60921
 ---
 
-This roundup covers 16 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 9.9. None are reported as actively exploited at the time of release. The issues affect Hospitality Simphony, Hyperion Calculation Manager, Identity Manager, Oracle E-Business Suite, Oracle Identity Manager, Oracle Web Services Manager, PeopleSoft Enterprise PeopleTools, Siebel CRM, WebCenter Portal, WebLogic Server.
+This roundup covers 18 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 9.9. None are reported as actively exploited at the time of release. The issues affect Hospitality Simphony, Hyperion Calculation Manager, Identity Manager, Oracle E-Business Suite, Oracle Identity Manager, Oracle Web Services Manager, PeopleSoft Enterprise PeopleTools, Siebel CRM, WebCenter Content, WebCenter Enterprise Capture, WebCenter Portal, WebLogic Server.
 
 ## Summary
 
@@ -79,7 +81,9 @@ This roundup covers 16 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-60782](#cve-2026-60782) | Oracle E-Business Suite (12.2.3-12.2.15) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60782) (authoritative) |
 | [CVE-2026-60821](#cve-2026-60821) | PeopleSoft Enterprise PeopleTools (8.61-8.63) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60821) (authoritative) |
 | [CVE-2026-60858](#cve-2026-60858) | Hyperion Calculation Manager (11.2.25.0.000) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60858) (authoritative) |
-| [CVE-2026-60861](#cve-2026-60861) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60861) (authoritative) |
+| [CVE-2026-60861](#cve-2026-60861) | n/a | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60861) (authoritative) |
+| [CVE-2026-60905](#cve-2026-60905) | WebCenter Content (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60905) (authoritative) |
+| [CVE-2026-60916](#cve-2026-60916) | WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60916) (authoritative) |
 
 
 ## CVE-2026-60591
@@ -99,6 +103,8 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60672
+
+
 
 
 
@@ -137,6 +143,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60696
 
 
 
+
+
 Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60698](#cve-2026-60698), [CVE-2026-60702](#cve-2026-60702).
 
 ## CVE-2026-60698
@@ -147,6 +155,8 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60698
+
+
 
 
 
@@ -182,6 +192,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60702
 
 
 
+
+
 Related in this roundup: [CVE-2026-60672](#cve-2026-60672), [CVE-2026-60696](#cve-2026-60696), [CVE-2026-60698](#cve-2026-60698).
 
 ## CVE-2026-60720
@@ -202,6 +214,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60720
 
 
 
+
+
 Related in this roundup: [CVE-2026-60721](#cve-2026-60721).
 
 ## CVE-2026-60721
@@ -212,6 +226,8 @@ Affected products:
 - Oracle Identity Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60721
+
+
 
 
 
@@ -298,3 +314,21 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60858
 CVE-2026-60861 is a critical vulnerability in the Messaging Enabler component of Oracle Fusion Middleware's Service Delivery Platform. An attacker with low privileges and network access via Oracle Net can exploit this vulnerability to achieve unauthorized access to, creation of, deletion of, or modification of critical data. Due to a change in scope, a successful exploit can impact additional products beyond the Service Delivery Platform itself.
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60861
+
+## CVE-2026-60905
+
+CVE-2026-60905 is a high-severity vulnerability in the Oracle WebCenter Content component of Oracle Fusion Middleware. The flaw allows an unauthenticated, network-adjacent attacker to compromise the system via HTTP, provided they can induce human interaction. Successful exploitation permits unauthorized access, modification, or deletion of critical data, as well as the ability to cause a partial denial of service. The vulnerability involves a scope change, meaning impacts may extend to other products within the environment.
+
+Affected products:
+- WebCenter Content (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60905
+
+## CVE-2026-60916
+
+CVE-2026-60916 is a critical vulnerability in the Oracle WebCenter Enterprise Capture component of Oracle Fusion Middleware. The vulnerability is remotely exploitable without authentication via HTTP, allowing an attacker to impact confidentiality, integrity, and availability. Successful exploitation can lead to unauthorized access, modification, or deletion of critical data, as well as a partial denial-of-service, with potential for scope change affecting additional products.
+
+Affected products:
+- WebCenter Enterprise Capture (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60916
