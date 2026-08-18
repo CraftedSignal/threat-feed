@@ -3,6 +3,7 @@ title: MLflow Tracking Server Unauthenticated Full-Read SSRF via Webhook Deliver
 slug: 2026-08-mlflow-ssrf
 description: MLflow Tracking Server versions prior to 3.15.0 are vulnerable to an unauthenticated full-read SSRF attack because the webhook delivery mechanism follows unvalidated HTTP redirects, allowing attackers to exfiltrate internal data or interact with local services.
 date: "2026-08-18T00:46:13Z"
+lastmod: "2026-08-18T00:46:22Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,7 @@ vendors:
   - MLflow
 products:
   - MLflow Tracking Server
+  - MLflow (< 3.15.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -23,12 +25,20 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The default MLflow Tracking Server exposes the model-registry webhooks API unauthenticated, including a synchronous POST /api/2.0/mlflow/webhooks/{id}/test endpoint.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: An authenticated user who can create registered models can read arbitrary files from any other user's artifact directory, bypassing the experiment-level READ permission gate.
+    confidence_band: high
 cves:
   - id: CVE-2026-64849
     cvss: 9.3
 references:
   - https://github.com/advisories/GHSA-7gwp-5pfp-969j
   - https://github.com/mlflow/mlflow/pull/24258
+  - https://github.com/advisories/GHSA-gqch-g4w5-7qcw
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69148
 rules:
   - title: Detects CVE-2026-64849 Exploitation - SSRF Attempt via MLflow /test endpoint
     description: Detects attempts to access internal metadata services or local ports via the MLflow webhook /test endpoint.
@@ -51,6 +61,14 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: CVE-2026-64849 fixed in 3.15.0.
+updates:
+  - at: "2026-08-18T00:46:22Z"
+    level: L2
+    summary: added coverage for MLflow (< 3.15.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-gqch-g4w5-7qcw
 ---
 
 MLflow Tracking Server (v3.13.0 and earlier) contains an SSRF vulnerability (CVE-2026-64849) in its webhook delivery mechanism. While the application implements a validation function (`_validate_webhook_url`) intended to restrict connections to public IP addresses, the implementation fails to pin the resolved IP address, and the HTTP client follows redirects without re-validating the final destination. An unauthenticated attacker can create a webhook pointing to a controlled HTTPS endpoint that issues a 302 redirect to internal network resources, such as the AWS Instance Metadata Service (169.254.169.254) or loopback addresses. Because the synchronous `/api/2.0/mlflow/webhooks/{id}/test` endpoint reflects the response status and body back to the caller, this allows for unauthenticated full-read exfiltration of sensitive internal data or blind POST interactions with management interfaces on the local network.
