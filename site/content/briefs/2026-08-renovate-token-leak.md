@@ -3,6 +3,7 @@ title: Information Disclosure in Renovate via Azure DevOps Pipeline Logs
 slug: 2026-08-renovate-token-leak
 description: Renovate versions 19.180.0 through 23.25.0 insecurely log Git authorization headers when interacting with Azure DevOps, potentially exposing sensitive bot credentials in pipeline logs.
 date: "2026-08-19T14:33:06Z"
+lastmod: "2026-08-19T14:33:16Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,14 @@ vendors:
 products:
   - Renovate (19.180.0-23.25.0)
   - Azure DevOps
+  - Renovate
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Attackers can manipulate registryAliases keys with unquoted shell metacharacters to inject commands executed during helm repo add operations.
+    confidence_band: high
 cves:
   - id: CVE-2020-37267
     cvss: 7.5
@@ -21,6 +30,17 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2020-37267
   - https://github.com/renovatebot/renovate/security/advisories/GHSA-36rh-ggpr-j3gj
   - https://www.vulncheck.com/advisories/renovate-before-token-leakage-via-logs
+  - https://nvd.nist.gov/vuln/detail/CVE-2024-58376
+  - https://github.com/renovatebot/renovate/security/advisories/GHSA-rqgv-292v-5qgr
+  - https://www.vulncheck.com/advisories/renovate-before-command-injection-via-helmv3
+updates:
+  - at: "2026-08-19T14:33:16Z"
+    level: L2
+    summary: added coverage for Renovate
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2024-58376
 ---
 
 Renovate versions 19.180.0 through 23.25.0 contain a vulnerability (CVE-2020-37267) related to sensitive information exposure within execution logs. When the application is configured to interact with Azure DevOps, it utilizes the 'git http.extraheader=AUTHORIZATION' parameter to authenticate repository operations. The application fails to redact this header before writing to server or pipeline logs. Consequently, any actor with read access to the CI/CD pipeline logs or persistent build artifacts can retrieve the authorization tokens used by the Renovate bot. This facilitates unauthorized access to the repositories or services authenticated by the bot's credentials. The issue was addressed in version 23.25.1. Organizations utilizing Renovate with Azure DevOps should audit log storage for exposed tokens and perform credential revocation and rotation if exposure is suspected.
