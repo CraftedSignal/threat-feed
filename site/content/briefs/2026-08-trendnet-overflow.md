@@ -3,11 +3,17 @@ title: Remote Stack-based Buffer Overflow in TRENDnet TV-IP751WIC
 slug: 2026-08-trendnet-overflow
 description: A critical stack-based buffer overflow vulnerability (CVE-2026-75877) in the TRENDnet TV-IP751WIC alphapd component allows remote attackers to execute arbitrary code via multiple affected functions.
 date: "2026-08-18T21:00:12Z"
+lastmod: "2026-08-19T22:38:43Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+tags:
+  - vulnerability
+  - cve
+  - iot
+  - rce
 vendors:
   - TRENDnet
 products:
@@ -28,6 +34,20 @@ mitre_ttps:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75877
   - https://vuldb.com/vuln/391571
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76584
+  - https://vuldb.com/vuln/393043
+rules:
+  - title: Detect CVE-2026-76584 Exploitation Attempt - HTTP Request to set_time.cgi
+    description: Detects potential exploitation attempts of CVE-2026-76584 by monitoring for HTTP requests to the vulnerable set_time.cgi endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +73,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-75877
       evidence: Vulnerability is exploitable via remote manipulation of administrative functions.
+updates:
+  - at: "2026-08-19T22:38:43Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-76584 Exploitation Attempt - HTTP Request to set_time.cgi'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76584
 ---
 
 A critical stack-based buffer overflow vulnerability has been identified in the TRENDnet TV-IP751WIC network camera, specifically within the 'alphapd' web server component. The vulnerability, tracked as CVE-2026-75877, affects firmware version 11.03.03. The issue stems from improper boundary management within several administrative and configuration functions, including SystemNetworkChanged, SystemDDNSChanged, SystemEmailChanged, SystemFTPChanged, and websCheckRealm. 
