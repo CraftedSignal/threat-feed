@@ -3,7 +3,7 @@ title: Authentication Bypass in SiYuan Publish API
 slug: 2026-08-siyuan-auth-bypass
 description: SiYuan versions prior to 3.7.4 contain an authentication bypass vulnerability allowing unauthenticated remote attackers to retrieve decrypted content from encrypted notebooks.
 date: "2026-08-12T20:54:23Z"
-lastmod: "2026-08-18T12:52:55Z"
+lastmod: "2026-08-19T14:33:34Z"
 type: advisory
 types:
   - advisory
@@ -24,12 +24,14 @@ tags:
   - rce
   - application-security
   - ssrf
+  - electron
 vendors:
   - SiYuan
 products:
   - SiYuan
   - SiYuan (< 3.7.4)
   - SiYuan (<= 3.7.2)
+  - SiYuan (<= 3.7.3)
 affected_os:
   - Windows
   - Linux
@@ -181,6 +183,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74906
   - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-48p5-pffc-5r9p
   - https://www.vulncheck.com/advisories/siyuan-before-incorrect-authorization-via-publish-access
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75916
 rules:
   - title: Detect SiYuan Brute-Force Attempts via CheckAuth
     description: Detects potential brute-force activity against SiYuan /api/ endpoints by monitoring for an excessive volume of 401 Unauthorized responses
@@ -259,13 +262,6 @@ action_plan:
       addresses: CVE-2026-72789
       evidence: Vulnerability exists within the publish API
 updates:
-  - at: "2026-08-17T12:48:17Z"
-    level: L2
-    summary: 'added detection rule: Detect Excessive 401 Unauthorized Responses to SiYuan Publish Service'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-74868
   - at: "2026-08-18T12:52:30Z"
     level: L2
     summary: added coverage for SiYuan (< 3.7.4)
@@ -294,6 +290,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-74906
+  - at: "2026-08-19T14:33:34Z"
+    level: L2
+    summary: added coverage for SiYuan (<= 3.7.3)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75916
 ---
 
 SiYuan versions before 3.7.4 contain a critical authentication bypass vulnerability (CVE-2026-72789) within the application's publish API. The defect stems from an improper access control validation logic where encrypted notebooks are incorrectly treated as publicly accessible by default. When a user has unlocked an encrypted notebook, the application fails to verify the requestor's authorization, enabling anonymous remote users to enumerate and exfiltrate decrypted document content. This flaw allows attackers to bypass intended security boundaries without possessing the necessary encryption keys. Defenders should prioritize updating to v3.7.4 or later to remediate this improper authorization, which significantly exposes sensitive notebook data to unauthorized disclosure.
