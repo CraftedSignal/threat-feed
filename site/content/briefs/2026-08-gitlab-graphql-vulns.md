@@ -3,11 +3,15 @@ title: Critical Vulnerabilities in GitLab GraphQL Implementation
 slug: 2026-08-gitlab-graphql-vulns
 description: GitLab Community and Enterprise editions are vulnerable to two GraphQL-related flaws (CVE-2026-19478 and CVE-2026-19650) that could allow unauthorized data modification or deletion.
 date: "2026-08-18T13:57:53Z"
+lastmod: "2026-08-19T07:18:51Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=34EBC1C3-C9A5-54B4-960E-1852818021A0&utm_source=rss&utm_medium=rss
 vendors:
   - GitLab
 products:
@@ -21,6 +25,7 @@ cves:
 references:
   - https://www.ncsc.nl/alerts/ernstige-kwetsbaarheden-in-gitlab-producten-ontdekt-update-nu
   - https://advisories.ncsc.nl/2026/ncsc-2026-0303.html
+  - https://sploitus.com/exploit?id=34EBC1C3-C9A5-54B4-960E-1852818021A0&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Potential GraphQL Exploitation Attempts in GitLab
     description: Detects potentially unauthorized access or manipulation attempts via GraphQL endpoints, which may be associated with CVE-2026-19478 or CVE-2026-19650.
@@ -49,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-19478, CVE-2026-19650
       evidence: NCSC-NL advisory and GitLab version requirements
+updates:
+  - at: "2026-08-19T07:18:51Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=34EBC1C3-C9A5-54B4-960E-1852818021A0&utm_source=rss&utm_medium=rss
 ---
 
 The National Cyber Security Centre of the Netherlands (NCSC-NL) has issued an alert regarding two critical vulnerabilities within the GraphQL components of GitLab Community Edition (CE) and Enterprise Edition (EE). These vulnerabilities, identified as CVE-2026-19478 and CVE-2026-19650, impact versions prior to 19.2.4, 19.1.6, 19.0.8, and 18.11.11.
