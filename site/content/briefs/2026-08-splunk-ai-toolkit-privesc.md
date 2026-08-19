@@ -3,15 +3,20 @@ title: Privilege Escalation in Splunk AI Toolkit via Agent Run History
 slug: 2026-08-splunk-ai-toolkit-privesc
 description: A privilege escalation vulnerability in Splunk AI Toolkit versions prior to 6.0.0 allows non-privileged users to execute searches with system-level permissions by exploiting an insecure session token replacement mechanism in the Agent Run History handler.
 date: "2026-08-19T22:44:37Z"
+lastmod: "2026-08-19T22:44:54Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - vulnerability
+  - remote-code-execution
 vendors:
   - Splunk
 products:
   - AI Toolkit (< 6.0.0)
+  - AI Toolkit
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -19,12 +24,20 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: a user who does not hold the admin or power Splunk roles could run searches with system-level privileges
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: a user that holds a role with the schedule_search capability could cause a scheduled search to load and deserialize a model file through the apply search command.
+    confidence_band: high
 cves:
   - id: CVE-2026-76391
     cvss: 8.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76391
   - https://help.splunk.com/en/splunk-enterprise/apply-machine-learning/use-ai-toolkit/6.0.0/ai-toolkit-connections-containers-and-agents/ai-toolkit-agent-launchpad
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76396
+  - https://help.splunk.com/en/splunk-enterprise/apply-machine-learning/use-ai-toolkit/5.7.3/troubleshooting-the-ai-toolkit/troubleshoot-the-ai-toolkit
 action_plan:
   priority: elevated
   owners:
@@ -35,6 +48,14 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: CVE-2026-76391 remediation requires version 6.0.0
+updates:
+  - at: "2026-08-19T22:44:54Z"
+    level: L2
+    summary: added coverage for AI Toolkit
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76396
 ---
 
 Splunk AI Toolkit versions below 6.0.0 contain a privilege escalation vulnerability (CVE-2026-76391) that allows users without administrative or power user roles to execute searches with system-level privileges. The issue stems from the Agent Run History handler, which incorrectly replaces the user's session key with a system authentication token before initiating search operations. This flaw permits unauthorized users to access restricted data, modify system integrity, and manage search jobs belonging to other users. Defenders should identify instances of the AI Toolkit within their environment and upgrade to version 6.0.0 or higher to remediate the insecure authentication handling.
