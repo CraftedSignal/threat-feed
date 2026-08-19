@@ -3,6 +3,7 @@ title: Path Traversal Vulnerability in Joomla com_joomlaupdate
 slug: 2026-08-joomla-path-traversal
 description: Joomla version 6.1.1 contains a path traversal vulnerability in the com_joomlaupdate extension allowing a Super User to be manipulated into extracting malicious ZIP files, leading to arbitrary file write and remote code execution.
 date: "2026-08-12T18:55:14Z"
+lastmod: "2026-08-19T16:32:10Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Joomla
 products:
   - Joomla (6.1.1)
+  - Joomla
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -26,9 +28,9 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-73327
-    cvss: 7.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73327
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2926
 action_plan:
   priority: elevated
   owners:
@@ -45,6 +47,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-73327
       evidence: Source document identifies arbitrary file writes
+updates:
+  - at: "2026-08-19T16:32:10Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2926
 ---
 
 Joomla 6.1.1 is vulnerable to a path traversal flaw within its `com_joomlaupdate` extension. This vulnerability is triggered when a privileged Super User is induced into uploading and extracting a crafted ZIP archive containing filenames with directory traversal sequences (e.g., "../") or absolute path references. The underlying `extract.php` routine fails to properly validate the target destination of these files, allowing them to be written outside the intended root directory. By targeting web-accessible directories, an attacker can plant malicious PHP files, facilitating persistent remote code execution on the affected Joomla server. This vulnerability, tracked as CVE-2026-73327, presents a significant risk to site integrity and administrative control. Defenders should prioritize identifying unauthorized file writes within the web root and monitoring the Joomla update process for anomalous activity.
