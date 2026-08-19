@@ -1,61 +1,65 @@
 ---
-title: Stored XSS in TranslatePress Plugin via URL-Encoded Gettext Markers
+title: Unauthenticated Stored XSS in TranslatePress Plugin
 slug: 2026-08-translatepress-xss
-description: The TranslatePress plugin for WordPress is vulnerable to Stored Cross-Site Scripting due to insufficient input sanitization of URL-encoded gettext markers, allowing unauthenticated attackers to inject persistent malicious scripts.
-date: "2026-08-06T09:22:26Z"
+description: The TranslatePress plugin for WordPress is vulnerable to unauthenticated stored cross-site scripting due to improper handling of translation markers, allowing attackers to inject malicious HTML into post content.
+date: "2026-08-19T10:14:30Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-tags:
-  - xss
-  - wordpress
-  - plugin-vulnerability
 vendors:
-  - WordPress
+  - TranslatePress
 products:
-  - TranslatePress – Translate Multilingual sites with AI Translation (<= 3.2.6)
+  - TranslatePress – Translate Multilingual sites with AI Translation
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.
+    evidence: The TranslatePress plugin for WordPress is vulnerable to unauthenticated Stored Cross-Site Scripting in versions up to and including 3.2.5.
     confidence_band: high
 cves:
-  - id: CVE-2026-18510
+  - id: CVE-2026-75981
     cvss: 7.2
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-18510
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75981
 action_plan:
   priority: elevated
   owners:
-    - SOC
     - IT Operations
+    - Web Security Team
   immediate_actions:
-    - action: Audit and update the TranslatePress plugin to a version > 3.2.6
+    - action: Update TranslatePress plugin to version > 3.2.5
       owner: IT Operations
       due: 24h
-      evidence: CVE-2026-18510
+      evidence: Plugin version 3.2.5 and below are confirmed vulnerable.
   mitigation_plan:
     - priority: immediate
-      action: Review WAF logs for percent-encoded script injection attempts in comment fields
-      owner: SOC
-      addresses: CVE-2026-18510
-      evidence: NVD vulnerability entry
+      action: Review site content for malicious markers
+      owner: Web Security Team
+      addresses: Stored XSS via TranslatePress markers
+      evidence: Attackers use '#!trpst#' and '#!trpen#' markers to inject HTML.
 ---
 
-The TranslatePress - Translate Multilingual sites with AI Translation plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) in versions up to and including 3.2.6. The vulnerability stems from inadequate input sanitization and output escaping when processing URL-encoded gettext markers within comment content. 
+The TranslatePress plugin for WordPress (versions 3.2.5 and below) contains a critical security flaw that enables unauthenticated stored cross-site scripting (XSS). The vulnerability exists within the 'translate_page' function in 'includes/class-translation-render.php', which performs an unconditional replacement of the custom gettext markers '#!trpst#' and '#!trpen#' with the HTML brackets '<' and '>'. Because these markers are treated as plain text by standard WordPress sanitization filters like 'wp_kses', they pass through unchanged into the database. When a visitor views a post or comment in a language targeted by the plugin, the rendering engine replaces the markers with HTML tags, allowing an attacker to inject arbitrary HTML, including event handlers like 'onerror'. Because the plugin's 'remove_tags_from_output' function only targets '&lt;script>' and '&lt;style>' tags, attackers can successfully execute JavaScript using alternative tags such as '&lt;img>'. This vulnerability poses a significant risk to site visitors, potentially leading to session theft or administrative account compromise if a privileged user views the injected content.
 
-Because the malicious payload utilizes percent-encoded characters, it successfully circumvents the WordPress `wp_kses` filtering mechanism, which typically validates tags and attributes. While WordPress's comment moderation feature may introduce a minor delay for unauthenticated users, it does not prevent the persistent injection of the script. Once successfully injected into a comment, the script executes within the context of any user who views the compromised page. This poses a significant risk for administrative account compromise or session hijacking, as the script triggers automatically upon page load.
+## Attack Chain
+
+1. Attacker identifies a WordPress site utilizing the vulnerable TranslatePress plugin (version <= 3.2.5).
+2. Attacker crafts a malicious payload using the plugin's specific markers, such as '#!trpst#img src=x onerror=alert(1)#!trpen#'.
+3. Attacker submits the payload via a vector that accepts user-supplied content, such as a post comment or a custom form field.
+4. The WordPress site stores the payload in the database because 'wp_kses' does not recognize the markers as HTML.
+5. The attacker waits for an unsuspecting victim or site administrator to load the page with the TranslatePress plugin enabled.
+6. The TranslatePress 'translate_page()' function processes the stored comment and substitutes the markers with real HTML brackets.
+7. The browser renders the resulting &lt;img> tag, and the 'onerror' event handler executes the malicious JavaScript payload in the victim's session.
 
 ## Impact
 
-Successful exploitation allows unauthenticated attackers to execute arbitrary JavaScript in the context of victims viewing affected pages. This can lead to session hijacking, unauthorized actions performed on behalf of authenticated users, or the redirection of visitors to malicious sites. The vulnerability affects all sites running TranslatePress versions 3.2.6 and earlier.
+Successful exploitation allows for the execution of arbitrary JavaScript in the context of the victim's browser session. This can lead to the theft of session cookies, redirection of users to malicious domains, or unauthorized actions performed on behalf of the logged-in user. Given that WordPress sites often attract administrative users to comment threads or post editing interfaces, the risk of credential or session hijacking is high.
 
 ## Recommendation
 
-* Immediately update the TranslatePress plugin to the latest available version beyond 3.2.6.
-* If updating is not possible, disable the comment feature or utilize a Web Application Firewall (WAF) to block requests containing anomalous URL-encoded patterns commonly associated with XSS payloads targeting gettext markers.
-* Deploy webserver logging to monitor for anomalous POST requests containing encoded script tags in comment submission parameters.
+* Immediately update the TranslatePress plugin to the latest version, which contains the patch for this vulnerability.
+* Audit existing comments and posts on the site for the presence of the '#!trpst#' or '#!trpen#' substrings as an indicator of potential past exploitation.
+* Implement a strong Content Security Policy (CSP) to restrict the execution of unauthorized scripts and mitigate the impact of potential XSS vulnerabilities.
