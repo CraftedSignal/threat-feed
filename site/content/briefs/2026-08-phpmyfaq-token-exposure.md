@@ -3,11 +3,15 @@ title: Information Exposure in phpMyFAQ Password Reset Mechanism
 slug: 2026-08-phpmyfaq-token-exposure
 description: Versions of phpMyFAQ prior to 4.1.7 store password reset tokens in a publicly accessible file when user tracking is enabled, allowing unauthenticated attackers to hijack accounts.
 date: "2026-08-19T14:33:45Z"
+lastmod: "2026-08-19T14:33:58Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - sql-injection
+  - web-vulnerability
 vendors:
   - thorsten
 products:
@@ -19,12 +23,21 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: Unauthenticated attackers can read the tracking file at content/core/data/trackingDDMMYYYY to extract reset tokens.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Authenticated users with glossary add or edit permissions can craft a payload with a dangling backslash to escape the closing quote and inject arbitrary SQL commands.
+    confidence_band: high
 cves:
   - id: CVE-2026-75918
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75918
   - https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-j5w2-cwwj-xj7x
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76205
+  - https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-79h3-6hxj-g98h
+  - https://www.vulncheck.com/advisories/phpmyfaq-before-sql-injection-via-glossary
 rules:
   - title: Detect Unauthorized Access to phpMyFAQ Tracking Files
     description: Detects potential exploitation of CVE-2026-75918 by identifying unauthenticated attempts to access password reset tokens stored in the tracking directory.
@@ -36,7 +49,17 @@ rules:
       - T1552.001
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-76205 Exploitation - SQL Injection in Glossary Endpoints
+    description: Detects exploitation of CVE-2026-76205 by looking for patterns indicative of SQL injection involving backslash escaping within glossary update/create requests.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -62,6 +85,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-75918
       evidence: Tracking file generation is the source of the exposure
+updates:
+  - at: "2026-08-19T14:33:58Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-76205 Exploitation - SQL Injection in Glossary Endpoints'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76205
 ---
 
 phpMyFAQ versions prior to 4.1.7 contain a security vulnerability (CVE-2026-75918) that results in the exposure of sensitive authentication data. When the user tracking feature is enabled within the application, the system logs password reset tokens into a tracking file stored at a predictable and publicly accessible location: content/core/data/trackingDDMMYYYY. This flaw allows an unauthenticated, remote attacker to download these files, extract valid reset tokens, and subsequently replay them against the application's password reset API. Successful exploitation permits the attacker to bypass authentication and take full control over targeted user accounts. The vulnerability is highly critical due to the ease of access to the token files and the lack of authentication required to perform the initial information gathering.
