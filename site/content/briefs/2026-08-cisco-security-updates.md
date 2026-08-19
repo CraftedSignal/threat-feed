@@ -3,7 +3,7 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-19T18:37:46Z"
+lastmod: "2026-08-19T18:37:52Z"
 type: threat
 types:
   - threat
@@ -67,21 +67,19 @@ cves:
   - id: CVE-2026-20028
     cvss: 5
     epss: 0.00252
+  - id: CVE-2026-20308
+    cvss: 4.3
+    epss: 0.00319
   - id: CVE-2026-20232
     cvss: 5.4
+  - id: CVE-2026-20320
+    cvss: 7.5
   - id: CVE-2026-20030
     product: Crosswork
     cvss: 10
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20231
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20315
 updates:
-  - at: "2026-08-19T16:34:54Z"
-    level: L2
-    summary: added CVE-2026-20124 +2
-    sources:
-      - cisco-psirt
-    source_urls:
-      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ie1k-NgXUFF52?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Industrial%20Ethernet%201000%20Series%20Switches%20Stored%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
   - at: "2026-08-19T16:34:58Z"
     level: L2
     summary: added CVE-2026-20272
@@ -110,15 +108,22 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20231
+  - at: "2026-08-19T18:37:52Z"
+    level: L2
+    summary: added CVE-2026-20308 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-20315
 ---
 
-This roundup covers 34 Cisco security vulnerabilities. CVSS base scores range from 4.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adaptive Security Appliance, BroadWorks, Catalyst SD-WAN, Catalyst SD-WAN Manager, ClamAV, Crosswork, IOS Software, IOS XE Software, Industrial Ethernet 1000 Series Switches, Integrated Management Controller, Packaged Contact Center Enterprise, RoomOS, Terminal Services Agent, Unified Intelligence Center.
+This roundup covers 35 Cisco security vulnerabilities. CVSS base scores range from 4.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adaptive Security Appliance, BroadWorks, Catalyst SD-WAN, Catalyst SD-WAN Manager, ClamAV, Crosswork, IOS Software, IOS XE Software, Industrial Ethernet 1000 Series Switches, Integrated Management Controller, Packaged Contact Center Enterprise, RoomOS, Secure Workload, Terminal Services Agent, Unified Intelligence Center.
 
 ## Summary
 
 | CVE | Product | Severity | CVSS | EPSS | KEV | Source |
 |-----|---------|----------|------|------|-----|--------|
-| [CVE-2026-20267](#cve-2026-20267) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20267) (authoritative) |
+| [CVE-2026-20267](#cve-2026-20267) | IOS XE Software | Critical | 9.0 | 0.24% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20267) (authoritative) |
 | [CVE-2026-20272](#cve-2026-20272) | IOS XE Software | Critical | 9.8 | 0.36% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20272) (authoritative) |
 | [CVE-2026-20310](#cve-2026-20310) | Catalyst SD-WAN |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20310) (authoritative) |
 | [CVE-2026-20124](#cve-2026-20124) | IOS XE Software | High | 7.7 | 0.34% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20124) (authoritative) |
@@ -126,7 +131,7 @@ This roundup covers 34 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-20263](#cve-2026-20263) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20263) (authoritative) |
 | [CVE-2026-20268](#cve-2026-20268) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20268) (authoritative) |
 | [CVE-2026-20269](#cve-2026-20269) | IOS XE Software | High | 8.6 | 0.27% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20269) (authoritative) |
-| [CVE-2026-20271](#cve-2026-20271) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20271) (authoritative) |
+| [CVE-2026-20271](#cve-2026-20271) | IOS XE Software | High | 8.6 | 0.27% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20271) (authoritative) |
 | [CVE-2026-20273](#cve-2026-20273) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20273) (authoritative) |
 | [CVE-2026-20301](#cve-2026-20301) | IOS Software | High | 8.6 | 0.33% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20301) (authoritative) |
 | [CVE-2026-20312](#cve-2026-20312) | Catalyst SD-WAN |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20312) (authoritative) |
@@ -152,6 +157,7 @@ This roundup covers 34 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-20302](#cve-2026-20302) | RoomOS |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-bof-vTMANZgu?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Stack%20Overflow%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20320](#cve-2026-20320) | BroadWorks |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-bworks-xxe-uwUd7CEt?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20BroadWorks%20Out-of-Band%20Blind%20XML%20External%20Entity%20Injection%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20030](#cve-2026-20030) | Crosswork | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20030) (authoritative) |
+| [CVE-2026-20231](#cve-2026-20231) | Secure Workload |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20231) (authoritative) |
 
 
 ## CVE-2026-20267
@@ -162,6 +168,7 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20267
+
 
 
 
@@ -188,6 +195,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20272
 
 
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20310
@@ -198,6 +206,7 @@ Affected products:
 - Catalyst SD-WAN
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20310
+
 
 
 
@@ -224,6 +233,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20124
 
 
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20200
@@ -234,6 +244,7 @@ Affected products:
 - Integrated Management Controller
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20200
+
 
 
 
@@ -260,6 +271,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20263
 
 
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20268
@@ -270,6 +282,7 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20268
+
 
 
 
@@ -296,6 +309,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20269
 
 
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20271
@@ -314,6 +328,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20271
 
 
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20273
@@ -324,6 +339,7 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20273
+
 
 
 
@@ -360,6 +376,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20312
 
 
 
+
 Related in this roundup: [CVE-2026-20310](#cve-2026-20310), [CVE-2026-20313](#cve-2026-20313).
 
 ## CVE-2026-20313
@@ -370,6 +387,7 @@ Affected products:
 - Catalyst SD-WAN
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20313
+
 
 
 
@@ -396,6 +414,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20198
@@ -414,6 +433,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20200](#cve-2026-20200).
 
 ## CVE-2026-20289
@@ -424,6 +444,7 @@ Affected products:
 - RoomOS
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1
+
 
 
 
@@ -463,6 +484,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311).
 
 ## CVE-2026-20337
@@ -473,6 +495,7 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20337
+
 
 
 
@@ -499,6 +522,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20338
 
 
 
+
 Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
 
 ## CVE-2026-20339
@@ -509,6 +533,7 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20339
+
 
 
 
@@ -535,6 +560,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20345
 
 
 
+
 Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
 
 ## CVE-2026-20346
@@ -545,6 +571,7 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20346
+
 
 
 
@@ -571,6 +598,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20347
 
 
 
+
 Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20348](#cve-2026-20348).
 
 ## CVE-2026-20348
@@ -581,6 +609,7 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20348
+
 
 
 
@@ -609,6 +638,7 @@ Affected products:
 - Industrial Ethernet 1000 Series Switches
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ie1k-NgXUFF52?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Industrial%20Ethernet%201000%20Series%20Switches%20Stored%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
+
 
 
 
@@ -646,6 +676,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20232](#cve-2026-20232).
 
 ## CVE-2026-20302
@@ -656,6 +687,7 @@ Affected products:
 - RoomOS
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-bof-vTMANZgu?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Stack%20Overflow%20Vulnerability%26vs_k=1
+
 
 
 
@@ -678,3 +710,12 @@ Affected products:
 - Crosswork
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20030
+
+## CVE-2026-20231
+
+CVE-2026-20231 identifies a vulnerability in Cisco Secure Workload related to the improper neutralization of special elements, categorized under CWE-74. This vulnerability was internally discovered during a security review and addressed via a software hardening release. The vulnerability carries a high CVSS base score of 9.9.
+
+Affected products:
+- Secure Workload
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20231
