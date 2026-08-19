@@ -3,7 +3,7 @@ title: Stack-based Buffer Overflow in TRENDnet TEW-755AP Access Points
 slug: 2026-08-trendnet-tew-755ap-overflow
 description: A critical stack-based buffer overflow vulnerability in the /sbin/mycli binary of TRENDnet TEW-755AP access points allows remote unauthenticated attackers to execute arbitrary code via the 'ssid' argument.
 date: "2026-08-19T22:39:10Z"
-lastmod: "2026-08-19T22:39:22Z"
+lastmod: "2026-08-19T22:45:19Z"
 type: threat
 types:
   - threat
@@ -18,6 +18,9 @@ tags:
   - vulnerability
   - network-security
   - cve-2026-76590
+  - cve-2026-76591
+  - command-injection
+  - network-device
 vendors:
   - TRENDnet
 products:
@@ -35,6 +38,12 @@ mitre_ttps:
     technique_name: Exploitation of Remote Services
     evidence: The manipulation of the argument ssid results in stack-based buffer overflow.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Unix Shell'
+    evidence: Performing a manipulation results in command injection.
+    confidence_band: high
 cves:
   - id: CVE-2026-76589
     cvss: 9.9
@@ -43,6 +52,8 @@ references:
   - https://vuldb.com/vuln/393085
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76590
   - https://vuldb.com/vuln/393087
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76591
+  - https://vuldb.com/vuln/393088
 rules:
   - title: Detect CVE-2026-76590 Exploitation Attempt
     description: Detects potential exploitation attempts against CVE-2026-76590 targeting the wan.cgi endpoint with oversized PPPoE password parameters.
@@ -54,7 +65,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-76591 Exploitation Attempt
+    description: Detects exploitation attempts against TRENDnet TEW-755AP by monitoring for shell metacharacters in requests to the email.cgi endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -79,6 +100,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76590
+  - at: "2026-08-19T22:45:19Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-76591 Exploitation Attempt'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76591
 ---
 
 A critical security vulnerability has been identified in the TRENDnet TEW-755AP wireless access point, affecting all firmware versions up to 20260702. The flaw resides within the function FUN_401000 of the /sbin/mycli binary, which fails to properly validate the length of the 'ssid' input argument. By providing an overly long string as the SSID, an attacker can trigger a stack-based buffer overflow. This vulnerability allows for remote execution of arbitrary code with the privileges of the mycli process. Given the availability of public proof-of-concept exploit code, the risk of active exploitation against vulnerable network infrastructure is high. Organizations utilizing these devices should prioritize patching or network isolation to mitigate potential remote compromise.
