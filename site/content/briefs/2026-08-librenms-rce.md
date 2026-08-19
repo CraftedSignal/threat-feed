@@ -3,15 +3,21 @@ title: Remote Code Execution in LibreNMS Signal Alert Transport Module
 slug: 2026-08-librenms-rce
 description: An authenticated administrator can execute arbitrary code on LibreNMS servers by injecting commands into the Signal Alert Transport configuration fields, triggering unsafe system exec calls.
 date: "2026-08-18T20:58:00Z"
+lastmod: "2026-08-19T02:55:50Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - xss
+  - web-vulnerability
+  - librenms
 vendors:
   - LibreNMS
 products:
   - LibreNMS (21.6.0 - 26.4.x)
+  - LibreNMS (< 26.7.0)
 affected_os:
   - Linux
 mitre_ttps:
@@ -20,6 +26,18 @@ mitre_ttps:
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
     evidence: The vulnerability is caused by an unsafe exec call in deliverAlert function of LibreNMS/Alert/Transport/Signal.php.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An authenticated administrator can configure a malicious URL for the Oxidized integration, allowing the attacker to inject arbitrary HTML and JavaScript into the device showconfig page.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1505
+    technique_name: Server Software Component
+    evidence: The Oxidized integration URL (oxidized.url) is admin-configurable. LibreNMS fetches device info and version history from that URL and renders JSON fields into HTML without htmlspecialchars().
     confidence_band: high
 references:
   - https://github.com/advisories/GHSA-c9fv-cgmm-2wg7
@@ -39,6 +57,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-55182
       evidence: PoC demonstrates injection via Alert Transport fields.
+updates:
+  - at: "2026-08-19T02:55:50Z"
+    level: L2
+    summary: added coverage for LibreNMS (< 26.7.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-7gww-x7fh-jf9j
 ---
 
 LibreNMS versions 21.6.0 through 26.4.x are vulnerable to a remote code execution (RCE) vulnerability (CVE-2026-55182) within the Signal Alert Transport module. The vulnerability stems from insufficient sanitization of user-provided input in the `deliverAlert` function located in `LibreNMS/Alert/Transport/Signal.php`. An authenticated administrative user can manipulate the 'Path' and 'Recipient' fields in the Alert Transport configuration to perform command injection. These inputs are passed to an unsafe `exec` call, which is further exacerbated by the `scripts/composer_wrapper.php` script that accepts and executes these malicious arguments. By chaining these weaknesses, an attacker with existing administrative access can execute arbitrary commands on the underlying host server, leading to potential full system compromise.
