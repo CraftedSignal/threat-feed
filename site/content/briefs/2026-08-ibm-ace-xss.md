@@ -3,6 +3,7 @@ title: Cross-Site Scripting Vulnerability in IBM App Connect Enterprise
 slug: 2026-08-ibm-ace-xss
 description: IBM App Connect Enterprise contains a vulnerability, identified as CVE-2024-44280, that allows a remote, anonymous attacker to execute Cross-Site Scripting (XSS) attacks within the context of the affected application.
 date: "2026-08-19T10:32:18Z"
+lastmod: "2026-08-19T16:32:49Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ cpes:
 tags:
   - xss
   - web-vulnerability
+  - vulnerability
+  - remote-code-execution
+  - ibm
+  - security-advisory
 vendors:
   - IBM
 products:
@@ -31,6 +36,7 @@ cves:
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2910
   - https://nvd.nist.gov/vuln/detail/CVE-2024-44280
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2919
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-44280
       evidence: Restricting network exposure reduces the risk of remote anonymous exploitation
+updates:
+  - at: "2026-08-19T16:32:49Z"
+    level: L2
+    summary: added coverage for App Connect Enterprise
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2919
 ---
 
 IBM App Connect Enterprise is affected by a security vulnerability that permits a remote, anonymous attacker to perform a Cross-Site Scripting (XSS) attack. By exploiting this flaw, an attacker could potentially inject and execute arbitrary scripts in the browser session of an authenticated user interacting with the affected interface. This could lead to session hijacking, unauthorized actions performed on behalf of the user, or the redirection of users to malicious content. Organizations utilizing IBM App Connect Enterprise are advised to review vendor security documentation for patch availability and mitigation guidance to protect their web-based administrative consoles from this class of injection vulnerability.
