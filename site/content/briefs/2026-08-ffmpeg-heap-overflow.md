@@ -3,16 +3,20 @@ title: Heap-based Buffer Overflow in FFmpeg hvcC Box Writer
 slug: 2026-08-ffmpeg-heap-overflow
 description: FFmpeg versions prior to commit acf5d7c contain a heap-based buffer overflow in the hvcC box writer that can be triggered during HEVC file muxing, potentially leading to arbitrary code execution.
 date: "2026-08-19T18:38:30Z"
-lastmod: "2026-08-19T18:38:38Z"
+lastmod: "2026-08-19T18:38:46Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - vulnerability
+  - memory-corruption
 vendors:
   - FFmpeg
 products:
   - FFmpeg
+  - FFmpeg (< 1cdeb3c)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -30,6 +34,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75142
   - https://code.ffmpeg.org/FFmpeg/FFmpeg/commit/9d786e4b5e9b8482651928574de33772aeee7be1
   - https://www.vulncheck.com/advisories/ffmpeg-stack-buffer-overflow-in-mpeg-ps-muxer-via-mpegenc-c
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75144
+  - https://code.ffmpeg.org/FFmpeg/FFmpeg/commit/1cdeb3c4e7f1f8566d846b9b451e01c376398818
+  - https://www.vulncheck.com/advisories/ffmpeg-heap-buffer-overflow-in-vc-2-dirac-rtp-packetizer
 action_plan:
   priority: elevated
   owners:
@@ -54,6 +61,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-75142
+  - at: "2026-08-19T18:38:46Z"
+    level: L2
+    summary: added coverage for FFmpeg (< 1cdeb3c)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75144
 ---
 
 A heap-based buffer overflow vulnerability (CVE-2026-75141) exists in the FFmpeg media processing library, specifically within the hvcC (HEVC configuration record) box writer. The vulnerability is triggered when processing an HEVC file that contains an excessive number of Network Abstraction Layer (NAL) units of a single type, exceeding the capacity of the internal count field. This integer overflow results in a heap-based buffer overflow during the muxing process. An attacker can leverage this flaw by providing a specially crafted HEVC file to an application that utilizes affected versions of FFmpeg. Successful exploitation could allow for arbitrary code execution or cause an application crash. Given FFmpeg's ubiquity in media transcoding pipelines, software players, and web-based processing services, this vulnerability poses a significant risk to any environment that processes untrusted video input.
