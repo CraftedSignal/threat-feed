@@ -3,6 +3,7 @@ title: SQL Injection in Simple Online Food Ordering System
 slug: 2026-08-simple-online-food-sql-injection
 description: SourceCodester Simple Online Food Ordering System 1.0 is vulnerable to unauthenticated SQL injection via the admin login endpoint, allowing remote attackers to execute arbitrary SQL commands.
 date: "2026-08-19T04:58:49Z"
+lastmod: "2026-08-19T04:59:03Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,9 @@ tags:
   - cve-2026-76048
   - sql-injection
   - web-application
+  - web-vulnerability
+  - sqli
+  - vulnerability-management
 vendors:
   - SourceCodester
 products:
@@ -29,6 +33,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76048
   - https://vuldb.com/vuln/391949
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76050
+  - https://vuldb.com/vuln/391951
 rules:
   - title: Detects CVE-2026-76048 Exploitation - SQL Injection in Simple Online Food Ordering System
     description: Detects attempted SQL injection via the Username parameter in the login action of /admin/ajax.php
@@ -40,7 +46,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-76050 Exploitation - SQL Injection in Simple Online Food Ordering System
+    description: Detects exploitation attempts against the SQL injection vulnerability in SourceCodester Simple Online Food Ordering System via the 'ID' parameter in the delete_menu action.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -57,6 +73,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-76048
       evidence: Vulnerability allows unauthenticated remote code execution
+updates:
+  - at: "2026-08-19T04:59:03Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-76050 Exploitation - SQL Injection in Simple Online Food Ordering System'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76050
 ---
 
 SourceCodester Simple Online Food Ordering System version 1.0 contains a critical SQL injection vulnerability identified as CVE-2026-76048. The vulnerability resides in the /admin/ajax.php file, specifically within the handling of the 'Username' parameter when the 'action' argument is set to 'login'. This flaw allows an unauthenticated remote attacker to inject malicious SQL commands, which are executed directly against the underlying database. Successful exploitation may lead to unauthorized data access, modification, or potential administrative bypass within the application. Given that functional exploit code has been published and is publicly available, organizations utilizing this software are at immediate risk of exploitation.
