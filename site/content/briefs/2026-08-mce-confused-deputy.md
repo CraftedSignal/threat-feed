@@ -3,17 +3,20 @@ title: Red Hat Multicluster Engine Confused Deputy Vulnerability
 slug: 2026-08-mce-confused-deputy
 description: An authenticated tenant can exploit CVE-2026-73266 in the Red Hat Multicluster Engine clusterclaims-controller to perform a cross-tenant cluster join, enabling the unauthorized injection of workloads and policies.
 date: "2026-08-13T18:56:27Z"
+lastmod: "2026-08-19T18:38:23Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
   - cve-2026-73266
   - kubernetes
   - privilege-escalation
   - multitenancy
   - cloud-native
+  - vulnerability
+  - cve-2026-66794
 vendors:
   - Red Hat
 products:
@@ -25,6 +28,12 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: An authenticated tenant can exploit this vulnerability... to force a cluster to join a ManagedClusterSet belonging to another tenant.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: By manipulating URL path segments, the attacker can proxy requests to arbitrary services across any managed cluster.
+    confidence_band: high
 cves:
   - id: CVE-2026-73266
     cvss: 7.1
@@ -32,6 +41,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73266
   - https://access.redhat.com/security/cve/CVE-2026-73266
   - https://bugzilla.redhat.com/show_bug.cgi?id=2514217
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-66794
 action_plan:
   priority: elevated
   owners:
@@ -48,6 +58,14 @@ action_plan:
       owner: Security Engineering
       addresses: CVE-2026-73266
       evidence: Vulnerability root cause (CWE-441)
+updates:
+  - at: "2026-08-19T18:38:23Z"
+    level: L2
+    summary: added coverage for Multicluster Engine for Kubernetes
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-66794
 ---
 
 A security flaw (CVE-2026-73266) exists within the clusterclaims-controller component of Red Hat Multicluster Engine (MCE) for Kubernetes. This vulnerability, categorized as a 'Confused Deputy' (CWE-441), allows an authenticated tenant within a multi-tenant environment to manipulate ClusterClaim labels. By improperly influencing the controller's logic, an attacker can force a cluster to join a ManagedClusterSet belonging to a different tenant. This unauthorized association breaks tenant isolation boundaries, providing the attacker the ability to push malicious policies or workloads into another tenant's environment. The vulnerability has a CVSS 3.1 score of 7.1, highlighting the potential for significant cross-tenant privilege escalation and impact on cluster integrity.
