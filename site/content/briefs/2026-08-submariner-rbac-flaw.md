@@ -3,6 +3,7 @@ title: Excessive RBAC Permissions in Submariner-Operator
 slug: 2026-08-submariner-rbac-flaw
 description: A critical RBAC vulnerability in the submariner-operator component allows a compromised Kubernetes cluster to overwrite endpoint configurations, enabling inter-cluster traffic interception.
 date: "2026-08-18T18:55:26Z"
+lastmod: "2026-08-19T20:38:32Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,8 @@ tags:
   - cloud
   - privilege-escalation
   - rbac
+  - rhacm
+  - cve
 vendors:
   - Red Hat
 products:
@@ -31,6 +34,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66780
   - https://access.redhat.com/security/cve/CVE-2026-66780
   - https://bugzilla.redhat.com/show_bug.cgi?id=2507524
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70496
+  - https://access.redhat.com/security/cve/CVE-2026-70496
+  - https://bugzilla.redhat.com/show_bug.cgi?id=2511032
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +53,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-66780
       evidence: Red Hat security advisory
+updates:
+  - at: "2026-08-19T20:38:32Z"
+    level: L2
+    summary: added coverage for Red Hat Advanced Cluster Management for Kubernetes 2
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70496
 ---
 
 A critical vulnerability (CVE-2026-66780) exists within the submariner-operator component of Red Hat Advanced Cluster Management for Kubernetes 2. The issue stems from the `submariner-k8s-broker-cluster` Role, which is automatically assigned to joined clusters in a cluster mesh architecture. This role contains excessive permissions that violate the principle of least privilege. Specifically, an attacker who gains control over a single member cluster within the mesh can leverage these elevated permissions to modify shared network configuration objects. By overwriting endpoint information for other clusters in the broker, the attacker can redirect inter-cluster traffic through their compromised node. This facilitates large-scale Man-in-the-Middle (MITM) attacks against internal services communicating across the mesh. Given the potential for complete traffic interception within a multi-cluster Kubernetes environment, this vulnerability poses a severe risk to data confidentiality and integrity.
