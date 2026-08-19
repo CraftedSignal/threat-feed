@@ -3,6 +3,7 @@ title: Account Takeover Vulnerability in Keycloak Legacy Account-Linking Endpoin
 slug: 2026-08-keycloak-account-linking-flaw
 description: Keycloak suffers from a vulnerability in its legacy client-initiated account-linking endpoint where predictable hashes allow attackers to forge linking URLs, facilitating unauthorized account takeover.
 date: "2026-08-18T23:08:54Z"
+lastmod: "2026-08-19T16:34:43Z"
 type: advisory
 types:
   - advisory
@@ -19,8 +20,12 @@ mitre_ttps:
     technique_name: Browser Session Hijacking
     evidence: By tricking a user into authenticating, an attacker-controlled client can forge a valid linking URL to connect the victim's account to an attacker's external identity.
     confidence_band: high
+cves:
+  - id: CVE-2026-15571
+    cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15571
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2915
 action_plan:
   priority: elevated
   owners:
@@ -36,6 +41,14 @@ action_plan:
       owner: CTI
       reason: Monitor for exploit code publication
       evidence: NVD vulnerability entry
+updates:
+  - at: "2026-08-19T16:34:43Z"
+    level: L2
+    summary: added CVE-2026-15571
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2915
 ---
 
 A security vulnerability (CVE-2026-15571) exists in the legacy client-initiated account-linking endpoint of Keycloak, an open-source identity and access management solution. The vulnerability stems from an insecure protection mechanism that relies on a hash which can be predicted by an attacker operating a malicious OpenID Connect (OIDC) client.
