@@ -3,7 +3,7 @@ title: Remote Stack-based Buffer Overflow in TRENDnet TV-IP751WIC
 slug: 2026-08-trendnet-overflow
 description: A critical stack-based buffer overflow vulnerability (CVE-2026-75877) in the TRENDnet TV-IP751WIC alphapd component allows remote attackers to execute arbitrary code via multiple affected functions.
 date: "2026-08-18T21:00:12Z"
-lastmod: "2026-08-19T22:38:43Z"
+lastmod: "2026-08-19T22:40:25Z"
 type: advisory
 types:
   - advisory
@@ -31,6 +31,12 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: Executing a manipulation can lead to stack-based buffer overflow.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The manipulation leads to command injection.
+    confidence_band: high
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75877
   - https://vuldb.com/vuln/391571
@@ -47,7 +53,18 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-76583 Exploitation - Command Injection via set_time.cgi
+    description: Detects exploitation attempts targeting CVE-2026-76583 where shell metacharacters are passed to the set_time.cgi endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1059
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -81,6 +98,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76584
+  - at: "2026-08-19T22:40:25Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-76583 Exploitation - Command Injection via set_time.cgi'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76583
 ---
 
 A critical stack-based buffer overflow vulnerability has been identified in the TRENDnet TV-IP751WIC network camera, specifically within the 'alphapd' web server component. The vulnerability, tracked as CVE-2026-75877, affects firmware version 11.03.03. The issue stems from improper boundary management within several administrative and configuration functions, including SystemNetworkChanged, SystemDDNSChanged, SystemEmailChanged, SystemFTPChanged, and websCheckRealm. 
