@@ -3,11 +3,15 @@ title: 'CVE-2026-19598: Authorization Bypass in Pods Plugin for WordPress'
 slug: 2026-08-pods-privilege-escalation
 description: The Pods plugin for WordPress contains an authorization bypass in its AJAX router that allows unauthenticated attackers to escalate privileges or take over administrative accounts.
 date: "2026-08-15T18:19:56Z"
+lastmod: "2026-08-19T04:16:54Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=76664995-C080-59C6-A771-147DEC084BFD&utm_source=rss&utm_medium=rss
 vendors:
   - WordPress
 products:
@@ -28,8 +32,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-19598
     cvss: 9.8
+    epss: 0.00427
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19598
+  - https://sploitus.com/exploit?id=76664995-C080-59C6-A771-147DEC084BFD&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -56,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-19598
       evidence: Official CVE entry
+updates:
+  - at: "2026-08-19T04:16:54Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=76664995-C080-59C6-A771-147DEC084BFD&utm_source=rss&utm_medium=rss
 ---
 
 The Pods - Custom Content Types and Fields plugin for WordPress is vulnerable to a critical privilege escalation and authorization bypass (CVE-2026-19598) affecting all versions up to and including 3.3.9. The vulnerability originates in the pods_admin AJAX router, which handles security checks such as nonce verification, authentication, and capability gates. Due to a design flaw in the meta-box-loader compatibility path, the plugin calls pods_error() upon failing security checks. Critically, instead of terminating the request, the function logs the error and returns false, allowing the execution flow to continue unchecked. An unauthenticated attacker can exploit this behavior to perform unauthorized administrative actions, including changing user passwords or escalating privileges to Administrator, ultimately leading to complete site takeover.
