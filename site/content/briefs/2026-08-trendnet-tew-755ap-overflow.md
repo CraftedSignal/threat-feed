@@ -3,6 +3,7 @@ title: Stack-based Buffer Overflow in TRENDnet TEW-755AP Access Points
 slug: 2026-08-trendnet-tew-755ap-overflow
 description: A critical stack-based buffer overflow vulnerability in the /sbin/mycli binary of TRENDnet TEW-755AP access points allows remote unauthenticated attackers to execute arbitrary code via the 'ssid' argument.
 date: "2026-08-19T22:39:10Z"
+lastmod: "2026-08-19T22:39:22Z"
 type: threat
 types:
   - threat
@@ -14,6 +15,9 @@ tags:
   - buffer-overflow
   - iot
   - networking
+  - vulnerability
+  - network-security
+  - cve-2026-76590
 vendors:
   - TRENDnet
 products:
@@ -37,6 +41,20 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76589
   - https://vuldb.com/vuln/393085
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76590
+  - https://vuldb.com/vuln/393087
+rules:
+  - title: Detect CVE-2026-76590 Exploitation Attempt
+    description: Detects potential exploitation attempts against CVE-2026-76590 targeting the wan.cgi endpoint with oversized PPPoE password parameters.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +71,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-76589
       evidence: Vulnerability affects TEW-755AP firmware up to 20260702.
+updates:
+  - at: "2026-08-19T22:39:22Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-76590 Exploitation Attempt'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76590
 ---
 
 A critical security vulnerability has been identified in the TRENDnet TEW-755AP wireless access point, affecting all firmware versions up to 20260702. The flaw resides within the function FUN_401000 of the /sbin/mycli binary, which fails to properly validate the length of the 'ssid' input argument. By providing an overly long string as the SSID, an attacker can trigger a stack-based buffer overflow. This vulnerability allows for remote execution of arbitrary code with the privileges of the mycli process. Given the availability of public proof-of-concept exploit code, the risk of active exploitation against vulnerable network infrastructure is high. Organizations utilizing these devices should prioritize patching or network isolation to mitigate potential remote compromise.
