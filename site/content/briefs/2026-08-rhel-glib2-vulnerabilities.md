@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in Red Hat Enterprise Linux glib2
 slug: 2026-08-rhel-glib2-vulnerabilities
 description: Multiple vulnerabilities in the glib2 library for Red Hat Enterprise Linux, identified as CVE-2024-52532 and CVE-2024-52533, allow remote attackers to perform denial-of-service attacks or achieve information disclosure.
 date: "2026-08-17T12:41:29Z"
+lastmod: "2026-08-19T16:32:43Z"
 type: advisory
 types:
   - advisory
@@ -19,12 +20,20 @@ tags:
   - linux
   - rhel
   - glib2
+  - privilege-escalation
 vendors:
   - Red Hat
 products:
   - Enterprise Linux
 affected_os:
   - RHEL
+mitre_ttps:
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: A vulnerability in the 'attr' utility within Red Hat Enterprise Linux allows a local attacker to perform privilege escalation.
+    confidence_band: high
 cves:
   - id: CVE-2024-52532
     cvss: 7.5
@@ -34,6 +43,7 @@ cves:
     epss: 0.01263
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2866
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2920
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +53,14 @@ action_plan:
       owner: IT Operations
       due: 72h
       evidence: Source advisory recommends updating glib2 component.
+updates:
+  - at: "2026-08-19T16:32:43Z"
+    level: L1
+    summary: added coverage for Enterprise Linux
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2920
 ---
 
 Red Hat has identified multiple security vulnerabilities affecting the glib2 component within Red Hat Enterprise Linux (RHEL). These vulnerabilities, tracked as CVE-2024-52532 and CVE-2024-52533, present risks related to system availability and confidentiality. The flaws originate within the core library, which handles various utility functions for applications. An unauthenticated attacker could potentially leverage these weaknesses to crash affected services, resulting in a denial-of-service (DoS) condition, or potentially intercept sensitive data managed by vulnerable applications through unauthorized information disclosure. Organizations running RHEL are advised to review the official Red Hat security advisories for specific package version updates and apply necessary patches to mitigate the impact of these glib2-related issues.
