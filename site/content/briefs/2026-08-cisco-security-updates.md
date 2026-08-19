@@ -3,7 +3,7 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-19T16:34:54Z"
+lastmod: "2026-08-19T16:34:58Z"
 type: threat
 types:
   - threat
@@ -35,6 +35,9 @@ tags:
 vendors:
   - Cisco
 cves:
+  - id: CVE-2026-20272
+    cvss: 9.8
+    epss: 0.00364
   - id: CVE-2026-20124
     cvss: 7.7
     epss: 0.00345
@@ -51,15 +54,8 @@ cves:
     cvss: 6.5
     epss: 0.00134
 references:
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ie1k-NgXUFF52?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Industrial%20Ethernet%201000%20Series%20Switches%20Stored%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ucce-pcce-ssrf-TghHxD?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Packaged%20Contact%20Center%20Enterprise%20and%20Cisco%20Unified%20Contact%20Center%20Enterprise%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1
 updates:
-  - at: "2026-08-07T17:34:21Z"
-    level: L2
-    summary: added CVE-2026-20294
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20338
   - at: "2026-08-10T14:31:33Z"
     level: L2
     summary: added CVE-2026-20337 +1; clamav version 1.5.4; OS windows; OS macos; OS linux
@@ -88,9 +84,16 @@ updates:
       - cisco-psirt
     source_urls:
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ie1k-NgXUFF52?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Industrial%20Ethernet%201000%20Series%20Switches%20Stored%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
+  - at: "2026-08-19T16:34:58Z"
+    level: L2
+    summary: added CVE-2026-20272
+    sources:
+      - cisco-psirt
+    source_urls:
+      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ucce-pcce-ssrf-TghHxD?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Packaged%20Contact%20Center%20Enterprise%20and%20Cisco%20Unified%20Contact%20Center%20Enterprise%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1
 ---
 
-This roundup covers 27 Cisco security vulnerabilities. CVSS base scores range from 5.7 to 7.7. None are reported as actively exploited at the time of release. The issues affect Adaptive Security Appliance, Catalyst SD-WAN, Catalyst SD-WAN Manager, ClamAV, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS, Terminal Services Agent.
+This roundup covers 28 Cisco security vulnerabilities. CVSS base scores range from 4.8 to 8.6. None are reported as actively exploited at the time of release. The issues affect Adaptive Security Appliance, Catalyst SD-WAN, Catalyst SD-WAN Manager, ClamAV, IOS Software, IOS XE Software, Industrial Ethernet 1000 Series Switches, Integrated Management Controller, RoomOS, Terminal Services Agent.
 
 ## Summary
 
@@ -99,30 +102,31 @@ This roundup covers 27 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-20267](#cve-2026-20267) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20267) (authoritative) |
 | [CVE-2026-20272](#cve-2026-20272) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20272) (authoritative) |
 | [CVE-2026-20310](#cve-2026-20310) | Catalyst SD-WAN |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20310) (authoritative) |
-| [CVE-2026-20124](#cve-2026-20124) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20124) (authoritative) |
+| [CVE-2026-20124](#cve-2026-20124) | IOS XE Software | High | 7.7 | 0.34% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20124) (authoritative) |
 | [CVE-2026-20200](#cve-2026-20200) | Integrated Management Controller |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20200) (authoritative) |
 | [CVE-2026-20263](#cve-2026-20263) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20263) (authoritative) |
 | [CVE-2026-20268](#cve-2026-20268) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20268) (authoritative) |
-| [CVE-2026-20269](#cve-2026-20269) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20269) (authoritative) |
+| [CVE-2026-20269](#cve-2026-20269) | IOS XE Software | High | 8.6 | 0.27% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20269) (authoritative) |
 | [CVE-2026-20271](#cve-2026-20271) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20271) (authoritative) |
 | [CVE-2026-20273](#cve-2026-20273) | IOS XE Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20273) (authoritative) |
-| [CVE-2026-20301](#cve-2026-20301) | IOS Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20301) (authoritative) |
+| [CVE-2026-20301](#cve-2026-20301) | IOS Software | High | 8.6 | 0.33% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20301) (authoritative) |
 | [CVE-2026-20312](#cve-2026-20312) | Catalyst SD-WAN |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20312) (authoritative) |
-| [CVE-2026-20313](#cve-2026-20313) | Catalyst SD-WAN | High | 7.7 | 0.25% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20313) (authoritative) |
+| [CVE-2026-20313](#cve-2026-20313) | Catalyst SD-WAN |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20313) (authoritative) |
 | [CVE-2026-20311](#cve-2026-20311) | IOS XE Software |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
-| [CVE-2026-20198](#cve-2026-20198) | Integrated Management Controller |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Integrated%20Management%20Controller%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1) (authoritative) |
-| [CVE-2026-20289](#cve-2026-20289) | RoomOS | Medium | 5.7 | 0.19% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1) (authoritative) |
-| [CVE-2026-20294](#cve-2026-20294) | Catalyst SD-WAN Manager |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20Information%20Disclosure%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20198](#cve-2026-20198) | Integrated Management Controller | Medium | 4.8 | 0.21% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Integrated%20Management%20Controller%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20289](#cve-2026-20289) | RoomOS |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-roomos-infodisc-qBXjfmWm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20RoomOS%20Logging%20Subsystem%20Information%20Disclosure%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20294](#cve-2026-20294) | Catalyst SD-WAN Manager | Medium | 6.5 | 0.13% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-infodis-SPuJBDCe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20Information%20Disclosure%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20028](#cve-2026-20028) | Terminal Services Agent |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ts-agent-fw-bypass-MYBTMrev?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Terminal%20Services%20Agent%20Firewall%20Rules%20Bypass%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20308](#cve-2026-20308) | IOS XE Software |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
-| [CVE-2026-20337](#cve-2026-20337) | ClamAV | High | 7.5 | 0.36% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20337) (authoritative) |
-| [CVE-2026-20338](#cve-2026-20338) | ClamAV | High | 7.5 | 0.33% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20338) (authoritative) |
-| [CVE-2026-20339](#cve-2026-20339) | ClamAV | High | 7.5 | 0.33% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20339) (authoritative) |
+| [CVE-2026-20337](#cve-2026-20337) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20337) (authoritative) |
+| [CVE-2026-20338](#cve-2026-20338) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20338) (authoritative) |
+| [CVE-2026-20339](#cve-2026-20339) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20339) (authoritative) |
 | [CVE-2026-20345](#cve-2026-20345) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20345) (authoritative) |
 | [CVE-2026-20346](#cve-2026-20346) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20346) (authoritative) |
 | [CVE-2026-20347](#cve-2026-20347) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20347) (authoritative) |
 | [CVE-2026-20348](#cve-2026-20348) | ClamAV |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20348) (authoritative) |
 | [CVE-2026-20349](#cve-2026-20349) | Adaptive Security Appliance |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-vpn-dos-dzv4mQFF?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20232](#cve-2026-20232) | Industrial Ethernet 1000 Series Switches |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ie1k-NgXUFF52?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Industrial%20Ethernet%201000%20Series%20Switches%20Stored%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1) (authoritative) |
 
 
 ## CVE-2026-20267
@@ -133,6 +137,7 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20267
+
 
 Related in this roundup: [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
@@ -145,6 +150,7 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20272
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20310
@@ -155,6 +161,7 @@ Affected products:
 - Catalyst SD-WAN
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20310
+
 
 Related in this roundup: [CVE-2026-20312](#cve-2026-20312), [CVE-2026-20313](#cve-2026-20313).
 
@@ -167,6 +174,7 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20124
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20200
@@ -177,6 +185,7 @@ Affected products:
 - Integrated Management Controller
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20200
+
 
 Related in this roundup: [CVE-2026-20198](#cve-2026-20198).
 
@@ -189,6 +198,7 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20263
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20268
@@ -199,6 +209,7 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20268
+
 
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
@@ -211,6 +222,7 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20269
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20271
@@ -222,6 +234,7 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20271
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20273
@@ -232,6 +245,7 @@ Affected products:
 - IOS XE Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20273
+
 
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20311](#cve-2026-20311), [CVE-2026-20308](#cve-2026-20308).
 
@@ -254,6 +268,7 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20312
 
+
 Related in this roundup: [CVE-2026-20310](#cve-2026-20310), [CVE-2026-20313](#cve-2026-20313).
 
 ## CVE-2026-20313
@@ -264,6 +279,7 @@ Affected products:
 - Catalyst SD-WAN
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20313
+
 
 Related in this roundup: [CVE-2026-20310](#cve-2026-20310), [CVE-2026-20312](#cve-2026-20312).
 
@@ -276,6 +292,7 @@ Affected products:
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-xe-webui-dos-PtAODAWW?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20308](#cve-2026-20308).
 
 ## CVE-2026-20198
@@ -286,6 +303,7 @@ Affected products:
 - Integrated Management Controller
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cimc-xss-7EhBFxBp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Integrated%20Management%20Controller%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
+
 
 Related in this roundup: [CVE-2026-20200](#cve-2026-20200).
 
@@ -325,6 +343,7 @@ Affected products:
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-webui-dos-qdc7qx3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XE%20Software%20Web-Based%20Management%20Interface%20Denial%20of%20Service%20Vulnerability%26vs_k=1
 
+
 Related in this roundup: [CVE-2026-20267](#cve-2026-20267), [CVE-2026-20272](#cve-2026-20272), [CVE-2026-20124](#cve-2026-20124), [CVE-2026-20263](#cve-2026-20263), [CVE-2026-20268](#cve-2026-20268), [CVE-2026-20269](#cve-2026-20269), [CVE-2026-20271](#cve-2026-20271), [CVE-2026-20273](#cve-2026-20273), [CVE-2026-20311](#cve-2026-20311).
 
 ## CVE-2026-20337
@@ -335,6 +354,7 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20337
+
 
 Related in this roundup: [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
 
@@ -347,6 +367,7 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20338
 
+
 Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
 
 ## CVE-2026-20339
@@ -357,6 +378,7 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20339
+
 
 Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
 
@@ -369,6 +391,7 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20345
 
+
 Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
 
 ## CVE-2026-20346
@@ -379,6 +402,7 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20346
+
 
 Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20347](#cve-2026-20347), [CVE-2026-20348](#cve-2026-20348).
 
@@ -391,6 +415,7 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20347
 
+
 Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20348](#cve-2026-20348).
 
 ## CVE-2026-20348
@@ -401,6 +426,7 @@ Affected products:
 - ClamAV
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20348
+
 
 Related in this roundup: [CVE-2026-20337](#cve-2026-20337), [CVE-2026-20338](#cve-2026-20338), [CVE-2026-20339](#cve-2026-20339), [CVE-2026-20345](#cve-2026-20345), [CVE-2026-20346](#cve-2026-20346), [CVE-2026-20347](#cve-2026-20347).
 
@@ -413,3 +439,12 @@ Affected products:
 - Secure Firewall Threat Defense
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-vpn-dos-dzv4mQFF?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+
+## CVE-2026-20232
+
+Cisco Industrial Ethernet 1000 Series Switches contain a stored cross-site scripting (XSS) vulnerability in the web-based management interface. The flaw arises from improper input validation, allowing an authenticated remote attacker to inject arbitrary scripts that execute in the context of other users viewing the affected interface pages.
+
+Affected products:
+- Industrial Ethernet 1000 Series Switches
+
+Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ie1k-NgXUFF52?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Industrial%20Ethernet%201000%20Series%20Switches%20Stored%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
