@@ -3,11 +3,15 @@ title: Critical Vulnerabilities in Spring Tools IDE Extensions
 slug: 2026-07-spring-tools-vulnerabilities
 description: Multiple vulnerabilities in Spring Tools for Eclipse and VSCode/Cursor/Theia allow for remote code execution, unauthorized service access, credential exposure, and cross-site scripting.
 date: "2026-07-30T15:30:50Z"
+lastmod: "2026-08-19T12:36:05Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=0D49B6FD-25E2-5EF6-85A7-1E2D3014BD5A&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - ide
@@ -44,6 +48,15 @@ references:
   - https://spring.io/security/cve-2026-59326/
   - https://spring.io/security/cve-2026-59327/
   - https://spring.io/security/cve-2026-59328/
+  - https://sploitus.com/exploit?id=0D49B6FD-25E2-5EF6-85A7-1E2D3014BD5A&utm_source=rss&utm_medium=rss
+updates:
+  - at: "2026-08-19T12:36:05Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=0D49B6FD-25E2-5EF6-85A7-1E2D3014BD5A&utm_source=rss&utm_medium=rss
 ---
 
 VMware has released a security advisory (AV26-759) detailing six vulnerabilities affecting Spring Tools for Eclipse (versions <= 5.2.0) and Spring Tools for VSCode, Cursor, and Theia (versions <= 2.2.0). The vulnerabilities range from critical Remote Code Execution (RCE) flaws to information disclosure and Cross-Site Scripting (XSS). 
