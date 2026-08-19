@@ -3,6 +3,7 @@ title: Hard-Coded JWT Signing Secret in Cudy WR3000 Firmware
 slug: 2026-08-cudy-jwt-secret
 description: Cudy WR3000 routers running firmware prior to 2.5.24 contain a hard-coded HMAC secret in the Mosquitto MQTT broker plugin, enabling unauthenticated attackers to forge JWT tokens and gain unauthorized mesh interface access.
 date: "2026-08-19T16:38:15Z"
+lastmod: "2026-08-19T16:38:48Z"
 type: advisory
 types:
   - advisory
@@ -19,11 +20,24 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: Cudy WR3000 2.0 running firmware before 2.5.24 contains a hard-coded JWT HMAC signing secret vulnerability in the Mosquitto MQTT broker's authentication plugin that allows unauthenticated attackers to forge valid JWT tokens by extracting the secret from the firmware image.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The sync_command binary forwards unsanitized input directly to a shell execution sink in command.lua, enabling attackers with access to the MQTT broker to exploit the default-enabled command execution path to achieve full root-level system compromise.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Allows authenticated attackers to execute arbitrary OS commands with root privileges.
+    confidence_band: high
 cves:
   - id: CVE-2026-71960
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71960
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-71961
 action_plan:
   priority: immediate_escalation
   owners:
@@ -40,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-71960
       evidence: Vulnerability allows unauthenticated attackers to forge valid JWT tokens
+updates:
+  - at: "2026-08-19T16:38:48Z"
+    level: L2
+    summary: added coverage for WR3000
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-71961
 ---
 
 Cudy WR3000 2.0 routers running firmware versions prior to 2.5.24 contain a critical security vulnerability involving a hard-coded HMAC signing secret located within the Mosquitto MQTT broker authentication plugin. Because this secret is static across device deployments and embedded directly within the firmware image, an attacker who obtains the firmware can extract the key. With the secret in possession, an attacker can sign arbitrary JSON Web Tokens (JWT). By presenting these forged tokens to the MQTT broker, an attacker can bypass authentication mechanisms entirely. This allows for unauthorized access to the device's mesh networking interface, potentially leading to full control over device routing, interception of traffic, or modification of mesh network configurations. Given the ease of extraction and the severity of the access granted, this vulnerability presents a high risk for local network compromises.
