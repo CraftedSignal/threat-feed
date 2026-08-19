@@ -1,14 +1,13 @@
 ---
 title: Remote Stack-Based Buffer Overflow in UTT HiPER 1200GW
 slug: 2026-08-utt-hiper-overflow
-description: A critical stack-based buffer overflow vulnerability in UTT HiPER 1200GW allows remote attackers to achieve code execution via a malformed 'timestart' parameter in the '/goform/ConfigAdvideo' function.
-date: "2026-08-05T06:04:53Z"
-lastmod: "2026-08-09T07:43:39Z"
+description: A stack-based buffer overflow vulnerability in the UTT HiPER 1200GW router allows remote attackers to trigger memory corruption via a malicious 'timestart' parameter, with proof-of-concept exploits publicly available.
+date: "2026-08-19T04:58:24Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
   - remote-code-execution
   - buffer-overflow
@@ -17,40 +16,24 @@ vendors:
   - UTT
 products:
   - HiPER 1200GW
-  - HiPER 1200GW (<= 2.5.3-170306)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: The attack can be launched remotely.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
-    evidence: The manipulation of the argument timestart results in stack-based buffer overflow.
+    evidence: The attack may be performed from remote.
     confidence_band: high
 cves:
-  - id: CVE-2026-18898
-    cvss: 8.8
-    epss: 0.00471
-  - id: CVE-2026-19341
-    cvss: 8.8
+  - id: CVE-2026-76003
+    cvss: 9.9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-18898
-  - https://github.com/7wkajk/CVE-VUL/blob/main/103.md
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-19341
-iocs:
-  - type: url
-    value: https://github.com/7wkajk/CVE-VUL/blob/main/103.md
-ioc_counts:
-  url: 1
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76003
+  - https://github.com/7wkajk/CVE-VUL/blob/main/105.md
 rules:
-  - title: Detect CVE-2026-18898 Exploitation Attempt - ConfigAdvideo Buffer Overflow
-    description: Detects potential exploitation attempts of CVE-2026-18898 by monitoring for the specific URI and parameter combination associated with the stack-based buffer overflow.
+  - title: Detect CVE-2026-76003 Exploitation - UTT HiPER Buffer Overflow
+    description: Detects exploitation attempts against the UTT HiPER 1200GW /goform/formGroupConfig endpoint, specifically targeting long timestart parameter values
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
       - initial_access
     techniques:
@@ -59,51 +42,52 @@ rules:
       - webserver
 rules_count: 1
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - SOC
     - IT Operations
   immediate_actions:
-    - action: Review perimeter firewall logs for inbound requests to /goform/ConfigAdvideo targeting HiPER 1200GW devices.
-      owner: SOC
+    - action: Patch or isolate UTT HiPER 1200GW devices
+      owner: IT Operations
       due: 24h
-      evidence: Source confirms remote exploitation capability.
+      evidence: CVE-2026-76003 high severity impact
+  hunt_leads:
+    - lead: Search logs for long 'timestart' strings targeting /goform/formGroupConfig
+      technique_id: T1190
+      data_needed:
+        - Web server access logs
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Source description of overflow mechanism
   mitigation_plan:
     - priority: immediate
-      action: Restrict access to the device management interface to authorized local subnets only.
+      action: Restrict web management interface to trusted IPs
       owner: IT Operations
-      addresses: CVE-2026-18898
-      evidence: Exploit is public, rendering remote management high-risk.
-updates:
-  - at: "2026-08-09T07:43:39Z"
-    level: L2
-    summary: added CVE-2026-19341; hiper 1200gw version <= 2.5.3-170306
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-19341
+      addresses: CVE-2026-76003
+      evidence: Remote exploitability confirmed in source
 ---
 
-A security flaw (CVE-2026-18898) has been identified in UTT HiPER 1200GW routers running firmware up to v2.5.3-170306. The vulnerability resides in the `strcpy` implementation within the `/goform/ConfigAdvideo` web handler. An attacker can trigger a stack-based buffer overflow by sending a specially crafted HTTP request containing an oversized `timestart` argument. Because this endpoint is reachable remotely, it facilitates unauthenticated or low-privilege exploitation. Public exploit code for this vulnerability is currently available on GitHub. Given that the vendor has not released a patch or official response, these devices remain at high risk of compromise. Defenders should prioritize isolating affected network hardware or restricting access to administrative interfaces.
+A critical stack-based buffer overflow vulnerability (CVE-2026-76003) exists in UTT HiPER 1200GW routers running firmware versions up to 2.5.3-170306. The vulnerability resides in the `strcpy` function used within the `/goform/formGroupConfig` endpoint. A remote, authenticated or potentially unauthenticated attacker can exploit this by sending a crafted HTTP request containing an excessively long value for the 'timestart' argument. This manipulation triggers a buffer overflow, which can lead to denial-of-service or remote code execution. Given the public availability of exploit code, organizations deploying these devices in perimeter or internal roles face an immediate risk of compromise.
 
 ## Attack Chain
 
-1. Attacker performs network reconnaissance to identify exposed UTT HiPER 1200GW web administrative interfaces.
-2. Attacker crafts a malicious HTTP GET or POST request targeting the `/goform/ConfigAdvideo` URI.
-3. Attacker injects a payload of excessive length into the `timestart` parameter of the request.
-4. The web service receives the request and passes the `timestart` value to the vulnerable `strcpy` function.
-5. The `strcpy` function fails to validate the input length, resulting in a buffer overflow on the process stack.
-6. The overflow overwrites the return pointer on the stack with the attacker-controlled payload address.
-7. The process executes the attacker's shellcode upon returning from the function call.
-8. Final objective achieved: unauthorized remote code execution on the router, facilitating persistence or further network pivoting.
+1. Attacker performs reconnaissance to identify UTT HiPER 1200GW web management interfaces reachable over the network.
+2. Attacker crafts an HTTP POST or GET request directed at the `/goform/formGroupConfig` endpoint.
+3. The request includes a payload within the 'timestart' parameter designed to exceed the allocated stack buffer.
+4. The web server process triggers the `strcpy` function, which fails to perform bounds checking on the 'timestart' input.
+5. The overflow overwrites adjacent memory on the stack, including the saved return pointer of the current function.
+6. The process execution flow is redirected to an attacker-controlled address contained within the overflowed payload.
+7. The attacker executes arbitrary shellcode or malicious commands within the context of the device's web server process.
+8. The final objective is full device compromise, allowing for persistent access, traffic interception, or participation in botnet activity.
 
 ## Impact
 
-Successful exploitation allows remote attackers to gain full code execution on the vulnerable router. This could lead to a complete compromise of the network perimeter, enabling the attacker to perform traffic interception, internal network reconnaissance, and persistence within the environment. Public availability of exploit code significantly increases the likelihood of opportunistic attacks targeting this hardware.
+Successful exploitation allows for complete compromise of the affected router, resulting in remote code execution with the privileges of the web management interface. This places the network infrastructure at risk of unauthorized access, traffic monitoring, and denial-of-service. Impact is high due to the potential for attackers to pivot into the internal network through the compromised gateway.
 
 ## Recommendation
 
-* Immediately restrict network access to the web-based administrative interface of UTT HiPER 1200GW routers to trusted management subnets.
-* Monitor network traffic for HTTP requests targeting the URI `/goform/ConfigAdvideo` with exceptionally long `timestart` arguments.
-* If firmware updates remain unavailable, consider replacing affected hardware that sits at the network edge.
-* Block inbound traffic attempting to reach administrative endpoints on the HiPER 1200GW devices from the public internet.
+* Prioritize the patching of all UTT HiPER 1200GW devices to the latest available firmware version that addresses CVE-2026-76003.
+* Restrict access to the web management interface of all networking equipment to trusted internal management subnets only.
+* Deploy the webserver detection rule provided below to identify exploitation attempts targeting the identified vulnerable endpoint.
+* Monitor network perimeter logs for anomalous HTTP requests directed at the `/goform/formGroupConfig` path.
