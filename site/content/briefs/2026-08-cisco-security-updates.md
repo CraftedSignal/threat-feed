@@ -3,57 +3,56 @@ title: Cisco Security Updates - August 2026
 slug: 2026-08-cisco-security-updates
 description: Roundup of Cisco security advisories published in August 2026.
 date: "2026-08-05T17:20:12Z"
-lastmod: "2026-08-11T23:42:53Z"
+lastmod: "2026-08-19T16:34:54Z"
 type: threat
 types:
   - threat
 severities:
   - high
+cpes:
+  - cpe:2.3:o:cisco:ios_xe:16.6.2:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.3:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.4:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.4a:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.4s:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.5:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.5a:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.5b:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.6:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.7:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.7a:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.8:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.9:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.6.10:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.7.1:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.7.1a:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.7.1b:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.7.2:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.7.3:*:*:*:*:*:*:*
+  - cpe:2.3:o:cisco:ios_xe:16.7.4:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
   - Cisco
 cves:
-  - id: CVE-2026-20271
-    cvss: 8.6
-    epss: 0.00252
-  - id: CVE-2026-20312
-    cvss: 8.8
-    epss: 0.00187
-  - id: CVE-2026-20313
+  - id: CVE-2026-20124
     cvss: 7.7
-    epss: 0.00248
+    epss: 0.00345
+  - id: CVE-2026-20269
+    cvss: 8.6
+    epss: 0.00267
+  - id: CVE-2026-20301
+    cvss: 8.6
+    epss: 0.00327
   - id: CVE-2026-20198
     cvss: 4.8
     epss: 0.00207
-  - id: CVE-2026-20289
-    cvss: 5.7
-    epss: 0.00188
   - id: CVE-2026-20294
     cvss: 6.5
     epss: 0.00134
-  - id: CVE-2026-20308
-    cvss: 4.3
-    epss: 0.00319
-  - id: CVE-2026-20337
-    cvss: 7.5
-    epss: 0.00362
-  - id: CVE-2026-20338
-    cvss: 7.5
-    epss: 0.00327
-  - id: CVE-2026-20339
-    cvss: 7.5
-    epss: 0.00327
 references:
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-vpn-dos-dzv4mQFF?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ie1k-NgXUFF52?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Industrial%20Ethernet%201000%20Series%20Switches%20Stored%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
 updates:
-  - at: "2026-08-07T17:34:18Z"
-    level: L2
-    summary: added CVE-2026-20028 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20337
   - at: "2026-08-07T17:34:21Z"
     level: L2
     summary: added CVE-2026-20294
@@ -82,6 +81,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-20349
+  - at: "2026-08-19T16:34:54Z"
+    level: L2
+    summary: added CVE-2026-20124 +2
+    sources:
+      - cisco-psirt
+    source_urls:
+      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ie1k-NgXUFF52?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Industrial%20Ethernet%201000%20Series%20Switches%20Stored%20Cross-Site%20Scripting%20Vulnerability%26vs_k=1
 ---
 
 This roundup covers 27 Cisco security vulnerabilities. CVSS base scores range from 5.7 to 7.7. None are reported as actively exploited at the time of release. The issues affect Adaptive Security Appliance, Catalyst SD-WAN, Catalyst SD-WAN Manager, ClamAV, IOS Software, IOS XE Software, Integrated Management Controller, RoomOS, Terminal Services Agent.
