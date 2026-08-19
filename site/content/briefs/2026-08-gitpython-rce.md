@@ -3,11 +3,19 @@ title: Remote Code Execution in GitPython via Repo.init
 slug: 2026-08-gitpython-rce
 description: GitPython versions before 3.1.58 are vulnerable to RCE via improper validation of arguments in the Repo.init method, allowing attackers to inject malicious git hooks.
 date: "2026-08-19T14:34:37Z"
+lastmod: "2026-08-19T14:34:46Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - vulnerability
+  - argument-injection
+  - gitpython
+  - cve-2026-76219
+vendors:
+  - gitpython-developers
 products:
   - GitPython
 mitre_ttps:
@@ -24,6 +32,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76218
   - https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-9rj7-rf2p-w77r
   - https://www.vulncheck.com/advisories/gitpython-before-remote-code-execution-via-repo-init
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76219
+  - https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-4gmw-gg2m-w46p
+  - https://www.vulncheck.com/advisories/gitpython-before-arbitrary-file-overwrite-via-read-tree
 action_plan:
   priority: immediate_escalation
   owners:
@@ -40,6 +51,14 @@ action_plan:
       owner: Security Engineering
       addresses: CVE-2026-76218
       evidence: Attackers can supply a template parameter pointing to a directory with malicious git hooks
+updates:
+  - at: "2026-08-19T14:34:46Z"
+    level: L2
+    summary: added coverage for GitPython
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76219
 ---
 
 GitPython versions before 3.1.58 contain a remote code execution (RCE) vulnerability within the `Repo.init` method. The flaw is categorized as an argument injection vulnerability (CWE-88), where the library fails to properly neutralize arguments passed to the underlying Git command. An attacker can provide a `template` parameter that points to a user-controlled directory containing malicious git hooks. When the application or user performs subsequent git operations on the initialized repository, the attacker-provided hooks are executed with the privileges of the process running the GitPython library. This vulnerability poses a high risk to applications that expose repository initialization functionality to untrusted inputs or users.
