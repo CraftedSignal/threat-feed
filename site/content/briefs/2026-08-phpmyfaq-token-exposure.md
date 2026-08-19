@@ -3,7 +3,7 @@ title: Information Exposure in phpMyFAQ Password Reset Mechanism
 slug: 2026-08-phpmyfaq-token-exposure
 description: Versions of phpMyFAQ prior to 4.1.7 store password reset tokens in a publicly accessible file when user tracking is enabled, allowing unauthenticated attackers to hijack accounts.
 date: "2026-08-19T14:33:45Z"
-lastmod: "2026-08-19T14:34:05Z"
+lastmod: "2026-08-19T14:34:22Z"
 type: advisory
 types:
   - advisory
@@ -38,6 +38,12 @@ mitre_ttps:
     technique_name: Use Alternate Authentication Material
     evidence: Attackers with valid credentials can obtain a remember-me cookie, skip the 2FA challenge, and replay the cookie to gain full authenticated access without second-factor verification.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1555
+    technique_name: Credentials from Web Browsers
+    evidence: At login the anti-replay comparison is skipped by its own null guard, allowing an attacker who captures a successful WebAuthn assertion to replay it indefinitely.
+    confidence_band: high
 cves:
   - id: CVE-2026-75918
     cvss: 8.8
@@ -49,6 +55,9 @@ references:
   - https://www.vulncheck.com/advisories/phpmyfaq-before-sql-injection-via-glossary
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76207
   - https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-hvj7-4fmg-53cr
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76214
+  - https://github.com/thorsten/phpMyFAQ/security/advisories/GHSA-f534-wv9g-wx2w
+  - https://www.vulncheck.com/advisories/phpmyfaq-before-webauthn-replay-attack-via-challenge
 rules:
   - title: Detect Unauthorized Access to phpMyFAQ Tracking Files
     description: Detects potential exploitation of CVE-2026-75918 by identifying unauthenticated attempts to access password reset tokens stored in the tracking directory.
@@ -111,6 +120,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76207
+  - at: "2026-08-19T14:34:22Z"
+    level: L2
+    summary: added coverage for phpMyFAQ
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76214
 ---
 
 phpMyFAQ versions prior to 4.1.7 contain a security vulnerability (CVE-2026-75918) that results in the exposure of sensitive authentication data. When the user tracking feature is enabled within the application, the system logs password reset tokens into a tracking file stored at a predictable and publicly accessible location: content/core/data/trackingDDMMYYYY. This flaw allows an unauthenticated, remote attacker to download these files, extract valid reset tokens, and subsequently replay them against the application's password reset API. Successful exploitation permits the attacker to bypass authentication and take full control over targeted user accounts. The vulnerability is highly critical due to the ease of access to the token files and the lack of authentication required to perform the initial information gathering.
