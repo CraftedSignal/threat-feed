@@ -1,43 +1,38 @@
 ---
-title: Unauthenticated Remote Code Execution in Splunk SOAR via Automation Broker
+title: Arbitrary Code Execution in Splunk SOAR via Path Traversal
 slug: 2026-08-splunk-soar-rce
-description: Splunk SOAR versions prior to 8.6.0 are vulnerable to remote code execution because the Automation Broker fails to validate client-supplied source IP headers, allowing unauthenticated attackers to spoof local requests.
-date: "2026-08-19T22:43:03Z"
-lastmod: "2026-08-19T22:43:19Z"
+description: Splunk SOAR versions prior to 8.6.0 are vulnerable to authenticated remote code execution due to improper path validation and insufficient role-based access control on the REST API.
+date: "2026-08-19T22:43:10Z"
+lastmod: "2026-08-20T13:11:33Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - rce
   - vulnerability
+  - rce
   - splunk
 vendors:
   - Splunk
 products:
-  - Splunk SOAR
+  - SOAR (8.5.0)
+  - SOAR
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: An unauthenticated user could spoof the source IP address in a crafted request to an Automation Broker notification endpoint and execute arbitrary code on the Splunk SOAR host.
-    confidence_band: high
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1552
-    technique_name: Unsecured Credentials
-    evidence: An unauthenticated user who can observe or alter network traffic between Splunk SOAR and a configured CyberArk Representational State Transfer (REST) server could access or modify all relevant data exchanged through that credential manager.
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The vulnerability allows an authenticated user to submit a crafted file path to the REST API and execute arbitrary code.
     confidence_band: high
 cves:
-  - id: CVE-2026-76356
-    cvss: 8.1
+  - id: CVE-2026-76357
+    cvss: 7.6
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-76356
-  - https://help.splunk.com/en/splunk-soar/splunk-automation-broker/about-splunk-soar-automation-broker/about-splunk-soar-automation-broker
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-76362
-  - https://help.splunk.com/en/splunk-soar/soar-cloud/administer-soar-cloud/configure-administration-settings-in-splunk-soar-cloud/manage-your-organizations-credentials-with-a-password-vault
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76357
+  - https://help.splunk.com/en/splunk-soar/soar-on-premises/administer-soar-on-premises/8.5.0/manage-your-splunk-soar-on-premises-users-and-accounts/manage-roles-and-permissions-in-splunk-soar-on-premises
+  - https://help.splunk.com/en/splunk-soar/soar-on-premises/administer-soar-on-premises/8.5.0/introduction-to-splunk-soar-on-premises/splunk-soar-on-premises-security-information
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2933
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,31 +42,31 @@ action_plan:
     - action: Patch Splunk SOAR to version 8.6.0
       owner: IT Operations
       due: 24h
-      evidence: CVE-2026-76356 remediation guidance
+      evidence: CVE-2026-76357 remediation requirement
   mitigation_plan:
     - priority: immediate
-      action: Implement WAF/firewall rules to restrict access to Automation Broker endpoint
-      owner: Network Security
-      addresses: CVE-2026-76356
-      evidence: Vulnerability requires unauthenticated network access
+      action: Audit all user account roles and privileges within Splunk SOAR
+      owner: SOC
+      addresses: CVE-2026-76357
+      evidence: Vulnerability relies on lack of role-based access control
 updates:
-  - at: "2026-08-19T22:43:19Z"
-    level: L2
-    summary: added coverage for Splunk SOAR
+  - at: "2026-08-20T13:11:33Z"
+    level: L1
+    summary: new product
     sources:
-      - nvd
+      - bsi
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-76362
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2933
 ---
 
-Splunk SOAR versions below 8.6.0 contain a critical vulnerability in the Automation Broker notification endpoint. The vulnerability arises because the Automation Broker improperly trusts client-supplied source IP address headers to verify the origin of a request. An unauthenticated attacker can craft an HTTP request that spoofs the source IP to appear as though it originates from the local host, bypassing intended access controls. Successful exploitation enables the execution of arbitrary code on the underlying host, which can lead to full system compromise, data exfiltration, and service disruption. Defenders should prioritize patching Splunk SOAR instances to version 8.6.0 or later to mitigate this risk.
+Splunk SOAR versions below 8.6.0 contain a critical vulnerability identified as CVE-2026-76357, which allows authenticated users without assigned roles to achieve arbitrary code execution. The vulnerability is rooted in the REST API's failure to enforce role-based access controls for specific requests and a lack of input validation regarding file path parameters. An attacker can submit a crafted file path to the API, bypassing directory restrictions to execute arbitrary code on the underlying host. This vulnerability poses a significant risk to organizational environments relying on Splunk SOAR for security orchestration and response, as it enables unauthorized system-level operations by low-privileged authenticated accounts. Defenders should prioritize patching all Splunk SOAR instances to version 8.6.0 or higher.
 
 ## Impact
 
-Successful exploitation of CVE-2026-76356 allows an unauthenticated, remote attacker to execute arbitrary code on the Splunk SOAR host. This results in complete compromise of the SOAR platform, potential access to highly sensitive security data stored within the SOAR environment, and the ability to pivot to other integrated security tools or managed internal systems.
+Successful exploitation allows an authenticated attacker to execute arbitrary code with the privileges of the Splunk SOAR service account. This could lead to full compromise of the SOAR platform, lateral movement within the network, and the potential exfiltration or manipulation of sensitive security orchestration data. Organizations using Splunk SOAR for automated incident response are at high risk if default or low-privileged accounts are compromised.
 
 ## Recommendation
 
-- Upgrade all Splunk SOAR instances to version 8.6.0 or higher immediately.
-- Until patching is possible, restrict network access to the Automation Broker notification endpoint to only authorized, trusted IP ranges at the network perimeter or application firewall level.
-- Review web server access logs for requests to the Automation Broker endpoint originating from unexpected or external IP addresses that attempt to manipulate header fields.
+- Upgrade Splunk SOAR (On-premises) to version 8.6.0 or higher immediately.
+- Review user accounts and role assignments within the Splunk SOAR platform to ensure the principle of least privilege is applied, specifically limiting access to REST API endpoints.
+- Audit access logs for the SOAR REST API to identify anomalous requests involving directory traversal patterns (e.g., ../, .., or absolute file paths) originating from unprivileged or newly created service accounts.
