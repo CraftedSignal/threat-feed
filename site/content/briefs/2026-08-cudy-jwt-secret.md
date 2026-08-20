@@ -3,12 +3,15 @@ title: Hard-Coded JWT Signing Secret in Cudy WR3000 Firmware
 slug: 2026-08-cudy-jwt-secret
 description: Cudy WR3000 routers running firmware prior to 2.5.24 contain a hard-coded HMAC secret in the Mosquitto MQTT broker plugin, enabling unauthenticated attackers to forge JWT tokens and gain unauthorized mesh interface access.
 date: "2026-08-19T16:38:15Z"
-lastmod: "2026-08-19T16:38:48Z"
+lastmod: "2026-08-20T17:19:44Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=28FEF878-7AE8-5CC3-9535-1CF08252260B&utm_source=rss&utm_medium=rss
 vendors:
   - Cudy
 products:
@@ -35,9 +38,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-71960
     cvss: 9.1
+  - id: CVE-2026-71961
+    cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71960
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71961
+  - https://sploitus.com/exploit?id=28FEF878-7AE8-5CC3-9535-1CF08252260B&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -62,6 +68,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-71961
+  - at: "2026-08-20T17:19:44Z"
+    level: L2
+    summary: poc_available; added CVE-2026-71961
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=28FEF878-7AE8-5CC3-9535-1CF08252260B&utm_source=rss&utm_medium=rss
 ---
 
 Cudy WR3000 2.0 routers running firmware versions prior to 2.5.24 contain a critical security vulnerability involving a hard-coded HMAC signing secret located within the Mosquitto MQTT broker authentication plugin. Because this secret is static across device deployments and embedded directly within the firmware image, an attacker who obtains the firmware can extract the key. With the secret in possession, an attacker can sign arbitrary JSON Web Tokens (JWT). By presenting these forged tokens to the MQTT broker, an attacker can bypass authentication mechanisms entirely. This allows for unauthorized access to the device's mesh networking interface, potentially leading to full control over device routing, interception of traffic, or modification of mesh network configurations. Given the ease of extraction and the severity of the access granted, this vulnerability presents a high risk for local network compromises.
