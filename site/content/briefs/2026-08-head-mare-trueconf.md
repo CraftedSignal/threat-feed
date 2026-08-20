@@ -3,6 +3,7 @@ title: Head Mare APT Exploiting TrueConf Server Vulnerabilities to Deploy Phanto
 slug: 2026-08-head-mare-trueconf
 description: The Head Mare APT group is exploiting a chain of vulnerabilities in TrueConf Server to achieve remote code execution as SYSTEM and distribute backdoored installer packages to victims.
 date: "2026-08-11T17:45:55Z"
+lastmod: "2026-08-20T19:12:07Z"
 type: threat
 types:
   - threat
@@ -10,6 +11,9 @@ severities:
   - high
 actors:
   - Head Mare
+cpes:
+  - cpe:2.3:a:trueconf:trueconf_server:*:*:*:*:*:windows:*:*
+  - cpe:2.3:a:trueconf:trueconf_server:*:*:*:*:*:linux_kernel:*:*
 vendors:
   - TrueConf
 products:
@@ -35,9 +39,15 @@ mitre_ttps:
     technique_name: Web Protocols
     evidence: The attackers used an account on Microsoft OneDrive cloud storage as their command-and-control (C2) server.
     confidence_band: high
+cves:
+  - id: CVE-2026-72529
+    cvss: 9.8
+  - id: CVE-2026-72530
+    cvss: 9
 references:
   - https://securelist.com/tr/head-mare-targets-trueconf-server-with-phantomcore/120988/
   - https://trueconf.com/blog/update/trueconf-server-security-updates-june-2026
+  - https://www.cisa.gov/news-events/alerts/2026/08/20/cisa-adds-two-known-exploited-vulnerabilities-catalog
 rules:
   - title: Detect Suspicious PHP Web Shell Creation in TrueConf
     description: Detects the creation or modification of the 'locale.php' file within the TrueConf web directory, indicative of web shell placement.
@@ -76,6 +86,14 @@ action_plan:
       owner: IT Operations
       addresses: Supply chain attack vectors.
       evidence: The malicious distributions we detected do not have a valid digital signature.
+updates:
+  - at: "2026-08-20T19:12:07Z"
+    level: L2
+    summary: added CVE-2026-72529 +1
+    sources:
+      - cisa
+    source_urls:
+      - https://www.cisa.gov/news-events/alerts/2026/08/20/cisa-adds-two-known-exploited-vulnerabilities-catalog
 ---
 
 Since July 2026, the Head Mare APT group has been observed exploiting a chain of vulnerabilities in TrueConf Server (versions 5.3.x, 5.4.x, and 5.5.x) to compromise enterprise conferencing infrastructure. The attackers leverage unauthorized access via TCP port 4307 to trigger remote code execution within an isolated environment, subsequently escalating privileges to NT AUTHORITY\SYSTEM. Once local system access is achieved, the threat actors deploy a PHP web shell ('locale.php') to maintain persistence, conduct infrastructure reconnaissance, and perform supply chain attacks by replacing legitimate TrueConf client installers with versions containing the PhantomCore backdoor. The group further deploys a modular backdoor, PhantomGraph, which uses Microsoft OneDrive for command-and-control communications and establishes persistence through malicious Windows services and registry modifications. This campaign targets critical infrastructure sectors, including energy, manufacturing, and IT, across Russia.
