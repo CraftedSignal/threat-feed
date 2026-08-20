@@ -1,55 +1,56 @@
 ---
-title: Cross-Tenant IDOR in Laravel Backpack CRUD Write Operations
+title: Arbitrary File Deletion in Backpack for Laravel
 slug: 2026-08-laravel-backpack-idor
-description: Laravel Backpack CRUD fails to enforce query scopes on update, delete, and reorder operations, enabling authenticated users to perform unauthorized actions on records belonging to other tenants or users via CVE-2026-54180.
-date: "2026-08-20T19:13:41Z"
+description: An insecure direct object reference vulnerability in the HasUploadFields trait of Backpack for Laravel allows authenticated users to delete arbitrary files on the configured storage disk via manipulated request parameters.
+date: "2026-08-20T19:13:48Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 vendors:
-  - Laravel Backpack
+  - Backpack for Laravel
 products:
-  - Backpack CRUD
+  - Backpack CRUD (5.x, 6.x < 6.8.12, 7.x < 7.0.35)
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation of Vulnerability
-    evidence: The CRUD panel Update, Delete, and Reorder operations bypassed scopes, fetching records directly from the unscoped model query.
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1565.002
+    technique_name: Data Destruction
+    evidence: An attacker... can supply arbitrary disk-relative paths in clear_<attr>[] to delete files that were never associated with the record they are editing.
     confidence_band: high
 references:
-  - https://github.com/advisories/GHSA-vgmv-8xjc-6rch
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-54180
+  - https://github.com/advisories/GHSA-8xjm-wqrp-2f25
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-54178
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - IT Operations
-    - Application Security
+    - Security Engineering
   immediate_actions:
-    - action: Patch Laravel Backpack CRUD to v6.8.14 or v7.0.38
+    - action: Upgrade backpack/crud to patched versions (6.8.12 or 7.0.35)
       owner: IT Operations
-      due: 48h
-      evidence: Source advisory recommends immediate patch for CVE-2026-54180
+      due: 24h
+      evidence: Fixed in 6.8.12 and 7.0.35
   mitigation_plan:
     - priority: immediate
-      action: Implement custom Gate or Policy checks in CrudController methods
-      owner: Application Security
-      addresses: CVE-2026-54180
-      evidence: Workaround provided by advisory
+      action: Migrate legacy upload patterns to Uploader API
+      owner: Security Engineering
+      addresses: CVE-2026-54178
+      evidence: Deployments still using the uploadMultipleFilesToDisk mutator pattern should migrate to the Uploader API
 ---
 
-Laravel Backpack CRUD, a widely used package for the Laravel framework, contains a significant access control vulnerability (CVE-2026-54180) affecting its CRUD panel operations. Specifically, while the package correctly applies query scopes defined through `addClause()` and `addBaseClause()` - commonly used for multi-tenancy or row-level ownership enforcement - during list and read operations, it fails to apply these same scopes during **Update**, **Delete**, and **Reorder** operations.
+Backpack for Laravel contains a high-severity insecure direct object reference (IDOR) vulnerability, tracked as CVE-2026-54178, affecting the `HasUploadFields::uploadMultipleFilesToDisk` method. This method, utilized primarily in v5.x implementations and supported in subsequent versions for backward compatibility, processes file deletion requests from the `clear_<attribute>[]` input parameter without verifying that the requested file paths are associated with the record currently being modified. 
 
-This disparity results in an Insecure Direct Object Reference (IDOR) vulnerability. Authenticated users who possess or can predict the primary key of a target record can bypass intended access controls to modify, delete, or reorder data they are not authorized to access. This is particularly critical for applications that rely on `addBaseClause()` to isolate user or tenant data. The vulnerability was reported by Vishal Shukla and affects versions 6.x prior to 6.8.14 and 7.x prior to 7.0.38.
+An authenticated user with sufficient permissions to update CRUD models can supply arbitrary, disk-relative paths within this request parameter, forcing the application to delete files that were never associated with their account or the specific record. This vulnerability bypasses authorization logic, allowing for widespread file deletion, which can result in significant service disruption or data loss. The issue is resolved by implementing file path intersection logic, which ensures only existing model-associated files are targeted for deletion. Users are encouraged to migrate to the modern Uploader API to mitigate this risk.
 
 ## Impact
 
-The vulnerability allows unauthorized manipulation of application data across tenant or user boundaries. Successful exploitation permits low-privilege authenticated users to delete or corrupt records belonging to other users or organizations. The impact is highest in multi-tenant SaaS environments where strict data isolation is a primary security requirement.
+Successful exploitation allows a low-privilege attacker (e.g., a content editor) to delete any file residing on the application's configured storage disk. This impacts the integrity and availability of shared assets, application attachments, and operational files. There is no associated confidentiality impact, as the vulnerability does not permit the reading of file contents. Affected environments include all 5.x releases, 6.x versions prior to 6.8.12, and 7.x versions prior to 7.0.35.
 
 ## Recommendation
 
-* Upgrade to Backpack CRUD version 6.8.14 or 7.0.38 immediately to restore scope enforcement on write operations.
-* For environments unable to patch, implement explicit Laravel `Gate` or `Policy` checks within the `update()`, `destroy()`, and `reorder()` methods of all affected `CrudController` classes to verify user ownership of the target record.
-* Audit logs for anomalous CRUD operations occurring against records outside of the expected user session scope.
+- Upgrade the `backpack/crud` package to version 6.8.12, 7.0.35, or higher to apply the security fix.
+- Migrate all legacy `uploadMultipleFilesToDisk` model mutator patterns to the new Uploader API (`MultipleFiles` class) as defined in the Backpack documentation.
+- Audit storage disk access logs for anomalous, high-frequency deletion requests originating from administrative endpoints.
+- Restrict administrative access to CRUD operations to trusted users only to minimize the risk of malicious file deletion.
