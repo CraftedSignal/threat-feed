@@ -3,7 +3,7 @@ title: Insufficient Session Expiration in Frauscher Sensortechnik FDS 102
 slug: 2026-08-fds-session-expiration
 description: CVE-2026-14950 is an insufficient session expiration vulnerability in Frauscher Sensortechnik FDS 102 that allows an attacker with a valid session identifier to maintain access beyond the intended expiration time.
 date: "2026-08-20T11:11:47Z"
-lastmod: "2026-08-20T11:12:17Z"
+lastmod: "2026-08-20T11:12:29Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,9 @@ tags:
   - session-hijacking
   - information-disclosure
   - cwe-532
+  - cve-2026-14952
+  - industrial-control-systems
+  - rails
 vendors:
   - Frauscher Sensortechnik
 products:
@@ -57,6 +60,18 @@ mitre_ttps:
     technique_name: Browser Session Hijacking
     evidence: A low privileged remote attacker can hijack an active administrative session without needing to know the administrator password by extracting live plaintext session identifiers.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An unauthenticated remote attacker can retrieve sensible files from the FDS Web server... directly over HTTP without a valid session.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: These files disclose detailed railway signaling and track layout information that should not be available to unauthenticated users.
+    confidence_band: high
 cves:
   - id: CVE-2026-14950
     cvss: 9.8
@@ -66,6 +81,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14946
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14947
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14948
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-14952
 rules:
   - title: Detect CVE-2026-14946 Exploitation - Unauthorized File Upload and Access
     description: Detects exploitation of CVE-2026-14946 by monitoring for HTTP requests to .php files within the /uploads/ directory.
@@ -88,7 +104,18 @@ rules:
       - T1552.002
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detect CVE-2026-14952 Exploitation - Unauthorized Access to FDS Backup
+    description: Detects attempts to download sensitive files directly from the FDS 102 web server without authentication or via unauthorized paths.
+    platform: sigma
+    severity: high
+    tactics:
+      - discovery
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: elevated
   owners:
@@ -120,6 +147,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-14948
+  - at: "2026-08-20T11:12:29Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-14952 Exploitation - Unauthorized Access to FDS Backup'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-14952
 ---
 
 CVE-2026-14950 identifies an insufficient session expiration flaw (CWE-613) within the web interface of the Frauscher Sensortechnik FDS 102 system, affecting versions 2.1.0 through 2.13.3. This vulnerability enables an unauthenticated attacker who has obtained a valid session identifier - potentially through interception, theft, or by leveraging an unattended machine - to continue using the session indefinitely, even after the system's expiration policy should have terminated it. This persistence mechanism allows unauthorized users to maintain an active, authenticated state, effectively bypassing standard session timeout security controls. Defenders should prioritize patching affected FDS 102 units and implement strict monitoring for anomalous session activity or unauthorized session token reuse.
