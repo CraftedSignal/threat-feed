@@ -3,11 +3,15 @@ title: Docker `PUT /containers/{id}/archive` Vulnerability Allows Host Root Code
 slug: 2026-05-docker-archive-rce
 description: A vulnerability exists in Docker where a malicious container image can execute arbitrary code with host root privileges by exploiting the decompression of compressed archives uploaded via the `PUT /containers/{id}/archive` endpoint, tracked as CVE-2026-41567.
 date: "2026-05-18T17:47:42Z"
+lastmod: "2026-08-21T12:36:07Z"
 type: threat
 types:
   - threat
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=8D3466F1-84C1-5B91-9BB5-ACEC8212C746&utm_source=rss&utm_medium=rss
 tags:
   - docker
   - container
@@ -26,9 +30,14 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1611
     technique_name: Escape to Host
+cves:
+  - id: CVE-2026-41567
+    cvss: 7.2
+    epss: 0.00161
 references:
   - https://github.com/advisories/GHSA-x86f-5xw2-fm2r
   - CVE-2026-41567
+  - https://sploitus.com/exploit?id=8D3466F1-84C1-5B91-9BB5-ACEC8212C746&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Docker Archive Extraction from Container
     description: Detects processes running within a Docker container attempting to execute archive extraction tools, potentially indicating CVE-2026-41567 exploitation.
@@ -55,6 +64,14 @@ rules:
       - process_creation
       - linux
 rules_count: 2
+updates:
+  - at: "2026-08-21T12:36:07Z"
+    level: L2
+    summary: poc_available; added CVE-2026-41567
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=8D3466F1-84C1-5B91-9BB5-ACEC8212C746&utm_source=rss&utm_medium=rss
 ---
 
 A vulnerability, identified as CVE-2026-41567, exists in Docker related to the handling of compressed archives uploaded via the `PUT /containers/{id}/archive` endpoint. When a user uploads a compressed archive into a container, a malicious image can execute arbitrary code with daemon (host root) privileges. The vulnerability stems from the Docker daemon incorrectly resolving decompression binaries from the container's filesystem instead of the host's when handling `PUT /containers/{id}/archive` requests with compressed archives. This allows a container image containing a trojanized decompression binary (e.g., xz or gzip) to achieve code execution as the daemon process whenever a compressed archive is uploaded to that container. This issue affects Docker versions up to 28.5.2, moby/moby versions up to 28.5.2, and go/github.com/moby/moby/v2 versions prior to 2.0.0-beta.14.
