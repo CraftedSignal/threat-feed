@@ -1,70 +1,55 @@
 ---
-title: Use-After-Free Vulnerability in llama-server
+title: Use-After-Free Vulnerability in llama.cpp RPC Server
 slug: 2026-08-llama-cpp-uaf
-description: A use-after-free vulnerability in llama-server allows for potential remote code execution via a TOCTOU race condition in tokenization endpoints when using the --sleep-idle-seconds configuration.
-date: "2026-08-06T23:30:34Z"
-lastmod: "2026-08-07T01:30:08Z"
+description: An unauthenticated use-after-free vulnerability in the llama.cpp RPC server's GRAPH_RECOMPUTE handler allows remote attackers to achieve arbitrary read/write access and remote code execution.
+date: "2026-08-21T17:25:19Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 vendors:
-  - llama.cpp
+  - ggerganov
 products:
-  - llama-server
-  - llama-server (b7492 through b9060)
+  - llama.cpp
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1212
-    technique_name: Exploitation for Credential Access
-    evidence: The vulnerability arises from a time-of-check-time-of-use (TOCTOU) race condition where worker threads access the vocabulary after it has been freed by the main thread.
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: Attackers can send RPC requests to trigger re-execution of stored graphs with dangling pointers, enabling full remote code execution.
     confidence_band: med
 cves:
-  - id: CVE-2026-43632
-    cvss: 8.1
-  - id: CVE-2026-43631
+  - id: CVE-2026-39909
     cvss: 8.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-43632
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-43631
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-39909
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - IT Operations
-    - Detection Engineering
+    - Security Operations
   immediate_actions:
-    - action: Upgrade llama-server to build > b9060
+    - action: Upgrade llama.cpp to version b8585 or later
       owner: IT Operations
-      due: 48h
-      evidence: CVE-2026-43632 requires patching for remediation.
+      due: 24h
+      evidence: CVE-2026-39909 patch requirement
   mitigation_plan:
     - priority: immediate
-      action: Remove --sleep-idle-seconds flag from server launch arguments
+      action: Restrict network access to RPC server ports
       owner: IT Operations
-      addresses: CVE-2026-43632
-      evidence: The vulnerability triggers when --sleep-idle-seconds is configured.
-updates:
-  - at: "2026-08-07T01:30:08Z"
-    level: L2
-    summary: added CVE-2026-43631; llama-server version b7492 through b9060
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-43631
+      addresses: CVE-2026-39909
+      evidence: Network-based exploitation vector
 ---
 
-CVE-2026-43632 is a use-after-free vulnerability affecting llama-server builds b7492 through b9060. The vulnerability resides in the handling of six specific tokenization-related endpoints: /tokenize, /detokenize, /infill, /apply-template, /rerank, and /anthropic/count_tokens. These endpoints bypass the standard task queue and access the 'ctx_server.vocab' memory structure directly from HTTP worker threads.
-
-The issue stems from a time-of-check-time-of-use (TOCTOU) race condition. When the application is configured with the '--sleep-idle-seconds' flag, the main thread can destroy and free the vocabulary memory after the synchronization lock is released but before the HTTP worker thread has finished utilizing the reference. This leads to memory corruption, service crashes, or potential remote code execution if an attacker can reliably trigger the race condition while the server is transitioning into an idle state.
+The llama.cpp RPC server, used for distributed model inference, contains a critical use-after-free vulnerability (CVE-2026-39909) affecting all versions prior to b8585. An unauthenticated remote attacker can exploit this vulnerability by interacting with the RPC interface specifically via the GRAPH_RECOMPUTE handler. The flaw arises from improper memory management during the handling of computation graphs. By storing a specific graph structure, forcing the server to free associated buffers, and subsequently reclaiming that freed memory with attacker-supplied content, an attacker can leave the server with dangling pointers. Subsequent requests to re-execute the graph trigger these pointers, leading to arbitrary memory read and write operations. This capability provides a pathway for remote code execution, posing a significant risk to systems exposing the llama.cpp RPC server to untrusted networks.
 
 ## Impact
 
-Successful exploitation of this vulnerability leads to denial-of-service via application crashes or potential remote code execution on the server hosting the llama-server instance. Given the prevalence of local LLM deployment, this represents a significant risk for organizations using llama-server as a backend component for AI-integrated services or private infrastructure, particularly when exposed to untrusted network traffic.
+Successful exploitation allows an unauthenticated remote attacker to gain arbitrary read and write access to the memory space of the llama.cpp process. This effectively results in remote code execution on the underlying host. The impact is significant for organizations deploying large language model inference clusters where the RPC server is reachable from broader network segments, as it provides a direct entry point for system compromise without requiring user interaction or authentication.
 
 ## Recommendation
 
-* Update llama.cpp to a build version later than b9060 to mitigate CVE-2026-43632.
-* Monitor access logs for sustained, high-frequency requests to the identified tokenization endpoints, as these may indicate attempts to win the race condition.
-* Disable the '--sleep-idle-seconds' configuration flag in production environments until a patched build is deployed to eliminate the triggering condition for the race.
+1. Upgrade all instances of llama.cpp to version b8585 or later immediately to patch CVE-2026-39909.
+2. Restrict network access to the llama.cpp RPC server interface via firewall or network segmentation to ensure it is not reachable from untrusted or public networks.
+3. Implement egress filtering for servers running llama.cpp to limit the potential for post-exploitation data exfiltration or secondary payload delivery if an initial compromise occurs.
