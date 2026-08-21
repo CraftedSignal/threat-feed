@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in n8n Workflow Automation
 slug: 2026-08-n8n-vulnerabilities
 description: Multiple vulnerabilities in n8n allow a remote, authenticated attacker to achieve remote code execution, bypass security controls, perform SSRF, and manipulate sensitive data.
 date: "2026-08-20T13:11:16Z"
+lastmod: "2026-08-21T01:14:52Z"
 type: advisory
 types:
   - advisory
@@ -14,8 +15,12 @@ tags:
   - workflow-automation
 vendors:
   - n8n GmbH
+  - n8n
 products:
   - n8n
+  - n8n (< 1.123.69)
+  - n8n (< 2.33.4)
+  - n8n (< 2.34.1)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -31,6 +36,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2936
+  - https://cyber.gc.ca/en/alerts-advisories/n8n-security-advisory-av26-836
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: n8n vulnerabilities
       evidence: BSI vulnerability disclosure.
+updates:
+  - at: "2026-08-21T01:14:52Z"
+    level: L2
+    summary: n8n version < 2.34.1
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/n8n-security-advisory-av26-836
 ---
 
 The BSI has reported multiple vulnerabilities affecting n8n, a workflow automation platform. These vulnerabilities can be exploited by a remote, authenticated attacker to gain unauthorized control over the instance. The potential impact of successful exploitation includes arbitrary code execution (RCE), the circumvention of security controls, Server-Side Request Forgery (SSRF), unauthorized information disclosure, and data manipulation. The severity of these issues is classified as high, as they provide an attacker who has achieved initial authentication with the ability to escalate privileges or move laterally within the infrastructure by leveraging the automation capabilities inherent to the n8n application. Defenders should prioritize auditing authenticated user activity and inspecting application-level outgoing network traffic.
