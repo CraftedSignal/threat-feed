@@ -3,7 +3,7 @@ title: Critical Vulnerabilities in Synacor Zimbra Collaboration
 slug: 2026-08-zimbra-vulnerabilities
 description: Synacor Zimbra Collaboration versions prior to 10.1.20 are vulnerable to multiple flaws, including actively exploited RCE (CVE-2026-73570), SSRF, and XSS, posing a high risk of unauthorized system access.
 date: "2026-08-19T16:32:03Z"
-lastmod: "2026-08-21T04:31:37Z"
+lastmod: "2026-08-21T19:08:27Z"
 type: threat
 types:
   - threat
@@ -17,6 +17,7 @@ vendors:
   - Synacor
 products:
   - Zimbra Collaboration
+  - Zimbra Collaboration Suite (ZCS)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -46,6 +47,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=E916591B-C14B-5306-94C6-AD54D4C16C1D&utm_source=rss&utm_medium=rss
+  - at: "2026-08-21T19:08:27Z"
+    level: L1
+    summary: new product
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-73570
 ---
 
 Security researchers and the French national cybersecurity agency (ANSSI) have disclosed multiple vulnerabilities affecting Synacor Zimbra Collaboration versions prior to 10.1.20. These flaws include remote code execution (RCE), server-side request forgery (SSRF), and cross-site scripting (XSS). Notably, the vulnerability tracked as CVE-2026-73570 is currently being actively exploited in the wild, according to ENISA. Organizations running legacy or unpatched instances of Zimbra Collaboration are at significant risk of total system compromise, data exfiltration, or lateral movement via the exploited services. Patching to version 10.1.20 or later is the only remediation path provided by the vendor.
