@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-08-18T20:55:49Z"
+lastmod: "2026-08-21T23:35:58Z"
 type: threat
 types:
   - threat
@@ -544,11 +544,15 @@ iocs:
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=ed7ed937-727c-4371-9d4d-4502c16433b2
   - type: url
     value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=e7cab978-cf1e-42fe-9f4d-4a920708b9db
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=59a43842-d0d8-41db-ab38-2cd125d91db2
+  - type: url
+    value: http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/blog?uuid=769179b7-db54-45e8-b3ba-9d7c94951e5d
 ioc_counts:
   domain: 42
   hash_md5: 55
   ip: 5
-  url: 74
+  url: 76
 rules:
   - title: Detect Qilin Ransomware Hashes
     description: Detects known Qilin ransomware samples by their MD5 hashes, indicative of malware presence on the system.
@@ -576,13 +580,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-08-10T17:31:19Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-08-11T01:34:04Z"
     level: L1
     summary: new IOCs
@@ -605,6 +602,13 @@ updates:
     source_urls:
       - https://www.ransomware.live/group/qilin
   - at: "2026-08-18T20:55:49Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-08-21T23:35:58Z"
     level: L1
     summary: new IOCs
     sources:
