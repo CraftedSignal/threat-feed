@@ -3,11 +3,15 @@ title: Critical Authentication Bypass in Red Hat Build of Keycloak
 slug: 2026-08-keycloak-auth-bypass
 description: A critical vulnerability (CVE-2026-18963) in the keycloak-services component allows unauthenticated attackers to hijack user accounts by bypassing password reset verification requirements.
 date: "2026-08-18T18:55:19Z"
+lastmod: "2026-08-21T00:29:26Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=A76D2FC5-1440-568B-81C2-B0213465485E&utm_source=rss&utm_medium=rss
 tags:
   - authentication-bypass
   - identity-management
@@ -27,10 +31,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-18963
     cvss: 9.1
+    epss: 0.00391
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18963
   - https://access.redhat.com/security/cve/CVE-2026-18963
   - https://bugzilla.redhat.com/show_bug.cgi?id=2511595
+  - https://sploitus.com/exploit?id=A76D2FC5-1440-568B-81C2-B0213465485E&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -41,6 +47,14 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: CVE-2026-18963 requires urgent patching to mitigate critical authentication bypass risk.
+updates:
+  - at: "2026-08-21T00:29:26Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=A76D2FC5-1440-568B-81C2-B0213465485E&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-18963 is a critical vulnerability affecting the keycloak-services component within Red Hat Build of Keycloak and the Red Hat JBoss Enterprise Application Platform (EAP) Expansion Pack. This vulnerability stems from a flaw in the identity and access management engine's reset-credentials flow. An unauthenticated attacker can exploit this weakness to initiate a password reset process for any user in the system. Crucially, the exploit circumvents the requirement for an email-based verification link, allowing the attacker to directly set a new password for the target account. Given its nature as an identity provider, successful exploitation grants the attacker full unauthorized access to target accounts, potentially leading to widespread lateral movement or data exfiltration within an organization's authentication infrastructure.
