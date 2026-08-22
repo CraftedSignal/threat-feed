@@ -3,6 +3,7 @@ title: Remote Code Execution in NLTK AllowlistUnpickler
 slug: 2026-08-nltk-rce
 description: NLTK versions prior to 3.10.3 are vulnerable to remote code execution due to improper validation of dotted names during the unpickling of transition-parser models.
 date: "2026-08-22T15:31:03Z"
+lastmod: "2026-08-22T15:31:12Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,12 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: Attackers can craft untrusted transition-parser models that execute arbitrary commands when TransitionParser.parse loads the model through allowlisted_pickle_load.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1005
+    technique_name: Data from Local System
+    evidence: NLTK versions before 3.10.2 contain a symlink-based sandbox bypass in FramenetCorpusReader that allows attackers to read arbitrary XML files outside the corpus root.
+    confidence_band: high
 cves:
   - id: CVE-2026-71513
     cvss: 8.8
@@ -24,6 +31,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71513
   - https://github.com/nltk/nltk/commit/c3e37113742a1ebeeb4f2ca58941f320f98805ea
   - https://www.vulncheck.com/advisories/nltk-through-remote-code-execution-via-allowlistunpickler-dotted-name-bypass
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62384
+  - https://github.com/nltk/nltk/security/advisories/GHSA-f833-7jw8-xwrv
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +49,14 @@ action_plan:
       owner: Engineering
       addresses: CVE-2026-71513
       evidence: Source explicitly warns against loading untrusted transition-parser models
+updates:
+  - at: "2026-08-22T15:31:12Z"
+    level: L2
+    summary: added coverage for nltk
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62384
 ---
 
 NLTK (Natural Language Toolkit) versions before 3.10.3 contain a remote code execution vulnerability in the AllowlistUnpickler component. The vulnerability, tracked as CVE-2026-71513, stems from insufficient validation logic; while the component validates the pickle module string, it fails to validate the global name. This oversight allows an attacker to resolve dotted names via attribute traversal, successfully bypassing the allowlist. 
