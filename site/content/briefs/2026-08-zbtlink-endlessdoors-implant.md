@@ -3,11 +3,15 @@ title: Zbtlink Router Firmware Contains Embedded ENDLESSDOORS Implant
 slug: 2026-08-zbtlink-endlessdoors-implant
 description: Zbtlink router firmware ships with the ENDLESSDOORS remote-control implant, which runs as root, masquerades as a kernel process, and enables unauthenticated remote command execution.
 date: "2026-08-05T13:16:19Z"
+lastmod: "2026-08-22T05:42:51Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=595891B8-C311-5C6A-9220-0544676F9FDF&utm_source=rss&utm_medium=rss
 tags:
   - supply-chain
   - firmware
@@ -16,8 +20,29 @@ tags:
   - network-security
 vendors:
   - Zbtlink
+  - Wiflyer
 products:
   - Router Firmware
+  - CPE2801
+  - WE1026-5G-WD
+  - WE1326
+  - WE2007
+  - WE2008-DSIM
+  - WE2416
+  - WE3326
+  - WE5927
+  - WE5931
+  - WE5931AC
+  - WE826-T3-DSIM
+  - WG108
+  - WG209
+  - WG259
+  - WG1602
+  - WG1608-DSIM
+  - WG2105
+  - WG2107
+  - WG3526
+  - ZBT-Z8102AX-2SIM
 affected_os:
   - OpenWrt
 mitre_ttps:
@@ -42,8 +67,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-66747
     cvss: 9.8
+    epss: 0.00579
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66747
+  - https://sploitus.com/exploit?id=595891B8-C311-5C6A-9220-0544676F9FDF&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -60,6 +87,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-66747
       evidence: Source document identifies these ports as the C2 communication channel.
+updates:
+  - at: "2026-08-22T05:42:51Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=595891B8-C311-5C6A-9220-0544676F9FDF&utm_source=rss&utm_medium=rss
 ---
 
 Zbtlink router firmware across its entire product line contains an embedded remote-control implant identified as ENDLESSDOORS. This implant is derived from the open-source tool 'rctl' and is integrated as a persistent OpenWrt package (librctl.so). The malware masquerades as a legitimate system process, running as root under the name 'kworker' to mimic kernel worker threads and evade detection by basic process monitors. 
