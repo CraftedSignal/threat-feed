@@ -3,7 +3,7 @@ title: August 2026 Microsoft Security Update Analysis
 slug: 2026-08-august-patch-tuesday
 description: Microsoft's August 2026 security release addresses 415 vulnerabilities, including a zero-day (CVE-2026-68820) exploited in the wild that enables local privilege escalation in the Windows Ancillary Function Driver for WinSock.
 date: "2026-08-12T05:46:15Z"
-lastmod: "2026-08-22T01:14:19Z"
+lastmod: "2026-08-22T07:14:26Z"
 type: threat
 types:
   - threat
@@ -56,6 +56,7 @@ products:
   - Windows Container Isolation FS Filter Driver
   - Microsoft QUIC
   - Office
+  - Microsoft Office
 affected_os:
   - Windows
 mitre_ttps:
@@ -85,6 +86,13 @@ references:
   - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-august-2026/
 updates:
   - at: "2026-08-22T01:14:19Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-august-2026/
+  - at: "2026-08-22T07:14:26Z"
     level: L1
     summary: new product
     sources:
