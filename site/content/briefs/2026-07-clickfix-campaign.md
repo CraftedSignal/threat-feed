@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-08-18T20:50:59Z"
+lastmod: "2026-08-22T01:12:10Z"
 type: advisory
 types:
   - advisory
@@ -106,6 +106,9 @@ references:
   - https://www.reddit.com/r/blueteamsec/comments/1vpaaqu/amnesiastealer_macos_infostealer_that_hijacks/
   - https://thehackernews.com/2026/08/amnesiastealer-hijacks-chromium.html
   - https://www.huntress.com/blog/mac-crypto-draining-malware
+  - https://thehackernews.com/2026/08/microsoft-links-30-rotating-domains-to.html
+  - https://thehackernews.com/2026/08/stopandprotect-uses-nearly-2000-hacked.html
+  - https://www.malware-traffic-analysis.net/2026/08/21/index.html
 iocs:
   - type: domain
     value: justwatch.com
@@ -141,18 +144,21 @@ iocs:
     value: debug.allllowef.space
   - type: ip
     value: 193.29.224.151
+  - type: domain
+    value: rowanportico.global
+  - type: url
+    value: https://rowanportico.global/identity/realm-xml.js
+  - type: url
+    value: https://rowanportico.global/identity/role-template?xPM7XYCZ
+  - type: url
+    value: https://rowanportico.global/identity/secure-theme.js?18cddb5baf41fce0
+  - type: url
+    value: http://lagoonandledger.com/crol
 ioc_counts:
-  domain: 11
+  domain: 12
   ip: 2
-  url: 4
+  url: 8
 updates:
-  - at: "2026-08-01T19:48:02Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - malware-traffic-analysis
-    source_urls:
-      - https://www.malware-traffic-analysis.net/2026/07/31/index.html
   - at: "2026-08-05T21:15:08Z"
     level: L1
     summary: new IOCs
@@ -181,6 +187,13 @@ updates:
       - huntress
     source_urls:
       - https://www.huntress.com/blog/mac-crypto-draining-malware
+  - at: "2026-08-22T01:12:10Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - malware-traffic-analysis
+    source_urls:
+      - https://www.malware-traffic-analysis.net/2026/08/21/index.html
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
