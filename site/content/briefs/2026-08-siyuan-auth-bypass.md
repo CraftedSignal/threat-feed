@@ -1,333 +1,146 @@
 ---
-title: Authentication Bypass in SiYuan Publish API
+title: Information Disclosure Vulnerability in SiYuan
 slug: 2026-08-siyuan-auth-bypass
-description: SiYuan versions prior to 3.7.4 contain an authentication bypass vulnerability allowing unauthenticated remote attackers to retrieve decrypted content from encrypted notebooks.
-date: "2026-08-12T20:54:23Z"
-lastmod: "2026-08-21T11:23:21Z"
+description: SiYuan versions before 3.7.4 are vulnerable to unauthorized information disclosure via the renderAttributeView component, allowing unauthenticated attackers to access restricted database content.
+date: "2026-08-12T22:52:07Z"
+lastmod: "2026-08-22T13:30:57Z"
 type: advisory
 types:
   - advisory
 severities:
-  - critical
+  - high
 tags:
-  - access-control
-  - web-vulnerability
-  - authentication-bypass
-  - information-disclosure
-  - api-security
-  - remote-code-execution
   - vulnerability
-  - pdf-processing
-  - credential-access
-  - web-application
-  - xss
-  - rce
-  - application-security
-  - ssrf
-  - electron
+  - information-disclosure
+  - authorization-bypass
+  - privilege-escalation
+  - command-injection
+  - windows
   - path-traversal
-  - cve
+  - file-deletion
 vendors:
-  - SiYuan
+  - siyuan-note
 products:
-  - SiYuan
+  - siyuan
   - SiYuan (< 3.7.4)
-  - SiYuan (<= 3.7.2)
-  - SiYuan (<= 3.7.3)
 affected_os:
   - Windows
-  - Linux
-  - macOS
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1592
-    technique_name: Gather Victim Org Information
-    evidence: Anonymous readers can enumerate and retrieve fully decrypted document content from unlocked encrypted notebooks through the publish API without authentication or key material.
-    confidence_band: high
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1552
-    technique_name: Unsecured Credentials
-    evidence: SiYuan versions before v3.7.4 fail to mask sensitive configuration fields in the /api/system/getConf endpoint, allowing anonymous or publish-reader users to obtain the session-cookie signing key.
-    confidence_band: high
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-    evidence: Attackers can forge and tamper with session cookies to impersonate users, and on instances without access-auth codes configured, escalate to administrator privileges.
-    confidence_band: high
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1187
-    technique_name: Forced Authentication
-    evidence: Attackers can retrieve the CookieKey value and forge valid session cookies to impersonate users or gain administrative access.
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: SiYuan versions before v3.7.4 fail to properly filter related-database content in renderAttributeView, allowing anonymous readers to access Relation and Rollup cell contents
     confidence_band: high
   - tactic_id: TA0009
     tactic_name: Collection
     technique_id: T1592
     technique_name: Gather Victim Org Information
-    evidence: Attackers can request published blocks containing embed queries to read content from password-protected, hidden, or forbidden documents without authorization.
-    confidence_band: high
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1592
-    technique_name: Gather Victim Org Information
-    evidence: Attackers can call these endpoints without supplying a password to read protected document content and the complete reference topology.
-    confidence_band: high
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1204
-    technique_name: User Execution
-    evidence: Attackers can distribute malicious SiYuan documents or packages with crafted template columns that execute arbitrary SQL on a victim's kernel when the package is imported and rendered.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
-    evidence: The application utilizes the queryBlocks function, which improperly handles raw SQL via string substitution, enabling arbitrary SQL execution.
-    confidence_band: high
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: The flaw is reachable by an anonymous or RoleReader user on the publish surface.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1505.004
-    technique_name: 'Server Software Component: SQL Injection'
-    evidence: An attacker can execute arbitrary SQL, enabling cross-notebook read and write.
-    confidence_band: high
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: Attackers can inject malicious markup into annotation fields that execute as script in the PDF renderer with full Node.js access when a user opens an annotated PDF.
+    evidence: Attackers can establish a WebSocket connection to the publish surface and passively receive real-time content events including password-protected and forbidden documents without authentication.
     confidence_band: high
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: Attackers can inject markup through field descriptions or names that close containing elements and execute arbitrary code via event handlers, reaching Node built-ins due to Electron's insecure configuration.
+    evidence: Attackers can inject malicious payloads through the setAttrViewColWidth API that break out of style attributes and inject event handlers on every table cell, executing arbitrary code in the Electron renderer with Node integration enabled.
     confidence_band: high
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1110
-    technique_name: Brute Force
-    evidence: This allows unauthenticated remote attackers to brute-force the admin access code with unlimited automated requests and obtain full RoleAdministrator access to the kernel.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.007
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
-    evidence: Attackers can inject event-handler attributes by including quotation marks in the color value, executing arbitrary JavaScript when viewing databases
-    confidence_band: high
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1592
-    technique_name: Gather Victim Host Information
-    evidence: Attackers can access /debug/pprof/heap and related endpoints to extract in-memory secrets including AccessAuthCode and AI provider API keys.
-    confidence_band: high
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1189
-    technique_name: Drive-by Compromise
-    evidence: Attackers can craft a malicious filename containing script payloads that execute with full OS command access when a user drags, drops, or pastes the file into the editor.
-    confidence_band: high
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1592
-    technique_name: Gather Victim Org Information
-    evidence: allowing anonymous publish-mode readers to disclose private block content-derived text, structural metadata, and existence information for arbitrary block IDs across the workspace.
-    confidence_band: high
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1595.002
-    technique_name: 'Active Scanning: Vulnerability Scanning'
-    evidence: This is a full-read SSRF that can be used to steal instance credentials, reach internal services, and port-scan internal infrastructure.
-    confidence_band: high
-  - tactic_id: TA0003
-    tactic_name: Persistence
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: Attackers with admin access can write arbitrary files to any location via install operations
+    evidence: Attackers can... trigger the Microsoft Defender exclusion flow to execute arbitrary commands with administrator privileges.
     confidence_band: high
 cves:
-  - id: CVE-2026-72789
+  - id: CVE-2026-72798
     cvss: 8.6
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72789
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72793
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72794
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72795
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72801
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72804
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72807
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72809
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73041
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-fqpw-c3pj-w8g9
-  - https://www.vulncheck.com/advisories/siyuan-before-remote-code-execution-via-pdf-annotations
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73042
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73043
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73046
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73050
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73052
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-g3jx-227v-x2x4
-  - https://www.vulncheck.com/advisories/siyuan-before-stored-xss-via-attribute-view-field-names
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73053
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73045
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-74799
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-9cqq-p2hw-mj3f
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-74800
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-mjf3-jwmf-r6wf
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-74868
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-74902
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-jf56-jrhq-j2qp
-  - https://www.vulncheck.com/advisories/siyuan-before-xss-to-rce-via-malicious-filename-upload
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-74904
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-4vpg-gwqq-w44c
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-74905
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-74906
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-48p5-pffc-5r9p
-  - https://www.vulncheck.com/advisories/siyuan-before-incorrect-authorization-via-publish-access
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-75916
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-77086
-  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-wr4w-7vjm-mmx3
-  - https://www.vulncheck.com/advisories/siyuan-before-path-traversal-via-packagename
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72798
+  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-mfrj-v65r-979c
+  - https://www.vulncheck.com/advisories/siyuan-before-information-disclosure-via-renderattributeview
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72810
+  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-mw8r-mw84-88v2
+  - https://www.vulncheck.com/advisories/siyuan-before-publish-boundary-bypass-via-websocket
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73044
+  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-rj55-w3xr-gj62
+  - https://www.vulncheck.com/advisories/siyuan-before-stored-cross-site-scripting-via-column-width
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74801
+  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-vmp7-pm7g-ghcc
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-60084
+  - https://github.com/siyuan-note/siyuan/security/advisories/GHSA-w938-w7m4-qrj8
+  - https://www.vulncheck.com/advisories/siyuan-before-arbitrary-file-deletion-via-removetemplate
 rules:
-  - title: Detect SiYuan Brute-Force Attempts via CheckAuth
-    description: Detects potential brute-force activity against SiYuan /api/ endpoints by monitoring for an excessive volume of 401 Unauthorized responses
+  - title: Detects CVE-2026-74801 Exploitation - Suspicious Elevator.exe Arguments
+    description: Detects exploitation of CVE-2026-74801 by monitoring the command line of elevator.exe for shell metacharacters indicative of command injection.
     platform: sigma
     severity: high
     tactics:
-      - credential_access
+      - privilege_escalation
     techniques:
-      - T1110.001
+      - T1059.003
     data_sources:
-      - webserver
-  - title: Detect CVE-2026-73045 Exploitation - Brute Force on authFilePublishAccess
-    description: Detects potential brute-force activity against the SiYuan authFilePublishAccess endpoint by monitoring for high-frequency POST requests.
-    platform: sigma
-    severity: medium
-    tactics:
-      - credential_access
-    techniques:
-      - T1110.001
-    data_sources:
-      - webserver
-  - title: Detect Unauthenticated Access to SiYuan Debug Endpoints
-    description: Detects unauthorized HTTP requests to SiYuan debug endpoints associated with CVE-2026-74799
-    platform: sigma
-    severity: high
-    tactics:
-      - reconnaissance
-    techniques:
-      - T1592
-    data_sources:
-      - webserver
-  - title: Detect Potential CVE-2026-74800 Exploitation - Malicious Asset Upload
-    description: Detects potential exploitation of CVE-2026-74800 by monitoring for HTML file uploads to the SiYuan asset management path.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-      - T1505
-    data_sources:
-      - webserver
-  - title: Detect Excessive 401 Unauthorized Responses to SiYuan Publish Service
-    description: Detects potential brute-force activity against the SiYuan Publish Service by monitoring for high frequencies of 401 Unauthorized responses on TCP port 6808.
-    platform: sigma
-    severity: high
-    tactics:
-      - credential_access
-    techniques:
-      - T1110.001
-    data_sources:
-      - webserver
-  - title: Detect Potential Exploitation of CVE-2026-74904 - SiYuan Unauthorized Block Access
-    description: Detects unauthorized access attempts to SiYuan block API endpoints associated with CVE-2026-74904.
-    platform: sigma
-    severity: high
-    tactics:
-      - reconnaissance
-    data_sources:
-      - webserver
-  - title: Detects CVE-2026-77086 Exploitation - Path Traversal in Bazaar Endpoints
-    description: Detects attempts to use path traversal sequences in the packageName parameter during Bazaar install or uninstall operations.
-    platform: sigma
-    severity: high
-    tactics:
-      - persistence
-    techniques:
-      - T1059
-    data_sources:
-      - webserver
-rules_count: 7
+      - process_creation
+      - windows
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - Detection Engineering
   immediate_actions:
-    - action: Upgrade SiYuan to version 3.7.4
+    - action: Patch SiYuan to version 3.7.4
       owner: IT Operations
-      due: 48h
-      evidence: CVE-2026-72789 fix identified in v3.7.4
-  mitigation_plan:
-    - priority: immediate
-      action: Disable publish API
-      owner: IT Operations
-      addresses: CVE-2026-72789
-      evidence: Vulnerability exists within the publish API
+      due: 24h
+      evidence: Vendor security advisory and NVD entry mandate update to 3.7.4
 updates:
-  - at: "2026-08-18T12:52:39Z"
-    level: L2
-    summary: 'added detection rule: Detect Potential Exploitation of CVE-2026-74904 - SiYuan Unauthorized Block Access'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-74904
-  - at: "2026-08-18T12:52:48Z"
-    level: L2
-    summary: added coverage for SiYuan (< 3.7.4)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-74905
-  - at: "2026-08-18T12:52:55Z"
+  - at: "2026-08-14T14:12:03Z"
     level: L2
     summary: added coverage for SiYuan
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-74906
-  - at: "2026-08-19T14:33:34Z"
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72810
+  - at: "2026-08-15T22:20:59Z"
     level: L2
-    summary: added coverage for SiYuan (<= 3.7.3)
+    summary: added coverage for SiYuan (< 3.7.4)
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-75916
-  - at: "2026-08-21T11:23:21Z"
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73044
+  - at: "2026-08-17T12:48:04Z"
     level: L2
-    summary: 'added detection rule: Detects CVE-2026-77086 Exploitation - Path Traversal in Bazaar Endpoints'
+    summary: 'added detection rule: Detects CVE-2026-74801 Exploitation - Suspicious Elevator.exe Arguments'
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-77086
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-74801
+  - at: "2026-08-22T13:30:57Z"
+    level: L2
+    summary: added coverage for SiYuan
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-60084
 ---
 
-SiYuan versions before 3.7.4 contain a critical authentication bypass vulnerability (CVE-2026-72789) within the application's publish API. The defect stems from an improper access control validation logic where encrypted notebooks are incorrectly treated as publicly accessible by default. When a user has unlocked an encrypted notebook, the application fails to verify the requestor's authorization, enabling anonymous remote users to enumerate and exfiltrate decrypted document content. This flaw allows attackers to bypass intended security boundaries without possessing the necessary encryption keys. Defenders should prioritize updating to v3.7.4 or later to remediate this improper authorization, which significantly exposes sensitive notebook data to unauthorized disclosure.
+SiYuan versions prior to 3.7.4 contain a critical security vulnerability (CVE-2026-72798) involving improper authorization checks within the renderAttributeView component. This flaw allows anonymous, unauthenticated users to access sensitive information contained in Relation and Rollup cells that are supposed to be hidden or password-protected.
+
+An attacker can exploit this by requesting published databases that have relationships with restricted databases, forcing the application to disclose content that should remain inaccessible. Additionally, the vulnerability allows for the bypass of row-level filtering if the first column of the database is a non-block type. This exposes organizations relying on SiYuan for internal documentation or data management to potential data breaches if their instances are internet-facing. Defenders should prioritize updating to version 3.7.4 or higher to remediate this issue.
+
+## Attack Chain
+
+1. Attacker identifies an internet-exposed instance of SiYuan running a version prior to 3.7.4.
+2. Attacker discovers or enumerates a publicly accessible (published) database within the SiYuan instance.
+3. Attacker identifies relationships (links or rollups) between the published database and a target sensitive or password-protected database.
+4. Attacker crafts a request targeting the renderAttributeView component to retrieve attribute views of the published database.
+5. The application fails to validate authorization for the related sensitive database entries during the rendering process.
+6. The backend processes the request and returns the sensitive content from the restricted database in the response.
+7. Attacker parses the response to exfiltrate Relation or Rollup cell data.
 
 ## Impact
 
-Successful exploitation results in the unauthorized disclosure of sensitive, encrypted document content. Any notebook that has been unlocked by a user becomes vulnerable to retrieval by unauthenticated parties through the publish API. This impacts all SiYuan deployments currently running versions earlier than 3.7.4 that utilize the notebook publishing feature.
+Successful exploitation allows unauthenticated attackers to view sensitive, password-protected, or hidden data stored within SiYuan databases. This could lead to the unauthorized exposure of proprietary information, PII, or internal organizational documentation. The vulnerability is considered high-risk due to the ease of reachability and lack of authentication required for exploitation.
 
 ## Recommendation
 
-* Update all SiYuan instances to version 3.7.4 or later immediately to patch the access control flaw.
-* Audit webserver access logs for high volumes of unexpected GET requests to the publish API endpoints from unauthorized IP addresses.
-* Disable the publish API feature temporarily if an immediate update to v3.7.4 is not feasible.
+* Upgrade all instances of SiYuan to version 3.7.4 or later immediately.
+* Restrict access to SiYuan instances by placing them behind a VPN or an authenticated reverse proxy to limit exposure to unauthenticated external requests.
+* Audit logs for suspicious access patterns to the renderAttributeView endpoint or unusual spikes in data retrieval requests.
