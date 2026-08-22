@@ -3,19 +3,31 @@ title: 'CVE-2026-58003: Cross-Site Request Forgery in WWBN AVideo'
 slug: 2026-08-wwbn-avideo-csrf
 description: WWBN AVideo versions through commit 9c39d8c8 contain a CSRF vulnerability in the releaseVideoNow.json.php endpoint that allows unauthenticated attackers to force administrative users to publish embargoed videos.
 date: "2026-08-22T13:30:38Z"
+lastmod: "2026-08-22T13:30:46Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - web-application
   - csrf
   - cve-2026-58003
+  - web-application-vulnerability
+  - authorization-bypass
+  - cve-2026-59256
 vendors:
   - WWBN
 products:
   - AVideo (<= commit 9c39d8c8)
+  - AVideo (<= 9c39d8c8)
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Attackers can retrieve a token from the Gallery endpoint and use it to bypass authorization checks in other subsystems like view/hls.php to access restricted video content.
+    confidence_band: high
 cves:
   - id: CVE-2026-58003
     cvss: 7.1
@@ -23,6 +35,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-58003
   - https://github.com/WWBN/AVideo/security/advisories/GHSA-q8cg-7x7q-c4g2
   - https://www.vulncheck.com/advisories/wwbn-avideo-cross-site-request-forgery-via-releasevideonow-json-php
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-59256
+  - https://github.com/WWBN/AVideo/security/advisories/GHSA-wq57-wxcr-rx6v
+  - https://www.vulncheck.com/advisories/wwbn-avideo-unbound-token-authorization-bypass-via-gallery
 rules:
   - title: Detect CVE-2026-58003 Exploitation Attempt - Suspicious GET request to releaseVideoNow.json.php
     description: Detects potential CSRF exploitation attempts targeting the releaseVideoNow.json.php endpoint via GET requests.
@@ -58,6 +73,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-58003
       evidence: Vulnerability allows exploitation via GET request.
+updates:
+  - at: "2026-08-22T13:30:46Z"
+    level: L2
+    summary: added coverage for AVideo (<= 9c39d8c8)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-59256
 ---
 
 WWBN AVideo, an open-source video platform, contains a cross-site request forgery (CSRF) vulnerability tracked as CVE-2026-58003, affecting all versions through commit 9c39d8c8. The vulnerability resides in the 'releaseVideoNow.json.php' endpoint, which fails to implement necessary authenticity checks and erroneously accepts GET requests for state-changing operations. 
