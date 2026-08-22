@@ -3,6 +3,7 @@ title: Arbitrary Code Execution in JSONata
 slug: 2026-08-jsonata-rce
 description: The JSONata library contains a critical vulnerability (CVE-2026-77415) allowing unauthenticated attackers to achieve arbitrary code execution via maliciously crafted JSONata expressions.
 date: "2026-08-22T01:16:22Z"
+lastmod: "2026-08-22T01:16:31Z"
 type: advisory
 types:
   - advisory
@@ -12,9 +13,11 @@ tags:
   - remote-code-execution
   - cve-2026-77415
   - software-vulnerability
+  - nodejs
 products:
   - jsonata (>= 2.0.0, < 2.2.1)
   - jsonata (< 1.8.8)
+  - jsonata (2.0.0 to 2.2.0)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -29,6 +32,8 @@ references:
   - https://github.com/jsonata-js/jsonata/pull/799
   - https://github.com/jsonata-js/jsonata/pull/800
   - https://github.com/jsonata-js/jsonata/pull/802
+  - https://github.com/advisories/GHSA-2943-5xfg-gq5f
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-77414
 action_plan:
   priority: immediate_escalation
   owners:
@@ -45,6 +50,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-77415
       evidence: Vulnerability analysis
+updates:
+  - at: "2026-08-22T01:16:31Z"
+    level: L2
+    summary: added coverage for jsonata (2.0.0 to 2.2.0) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-2943-5xfg-gq5f
 ---
 
 JSONata versions prior to 2.2.1 and 1.8.8 are vulnerable to arbitrary code execution due to flaws in how the library processes and executes transformation expressions. An attacker can chain three specific vulnerabilities to escape the sandboxed environment: the ability to overwrite the internal `$clone` function, the ability to destruct internal JSONata lambdas, and an unsafe implementation of `forEach` within the `applyProcedure` function. By manipulating these primitives, an attacker can prototype-pollute the execution context and access Node.js built-in modules, such as `child_process`. This allows the execution of arbitrary system commands on the host running the JSONata engine. This vulnerability, tracked as CVE-2026-77415, poses a significant risk to applications that process untrusted user-supplied JSONata expressions.
