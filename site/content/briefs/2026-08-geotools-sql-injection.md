@@ -1,8 +1,8 @@
 ---
-title: Critical SQL Injection Vulnerability in GeoTools Library
+title: Unauthenticated SQL Injection in GeoTools PostGIS DataStore
 slug: 2026-08-geotools-sql-injection
-description: A critical SQL injection vulnerability in the GeoTools Java library allows unauthenticated remote attackers to execute arbitrary database commands, leading to potential data exfiltration or full server compromise.
-date: "2026-08-18T13:58:00Z"
+description: A critical unauthenticated SQL injection vulnerability (CVE-2026-76904) in the GeoTools library allows remote attackers to execute arbitrary SQL via the jsonArrayContains filter function.
+date: "2026-08-22T01:16:54Z"
 type: advisory
 types:
   - advisory
@@ -10,9 +10,10 @@ severities:
   - critical
 tags:
   - sql-injection
-  - java
-  - geotools
-  - critical-patch
+  - vulnerability
+  - application-security
+vendors:
+  - OSGeo
 products:
   - GeoTools
 mitre_ttps:
@@ -20,38 +21,43 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: De kwetsbaarheid maakt het mogelijk dat een aanvaller via SQL-injectie schadelijke code kan uitvoeren in de database die door GeoTools wordt gebruikt.
+    evidence: An SQL Injection Vulnerability has been found when executing OGC Filters with PostGIS DataStore implementation
     confidence_band: high
+cves:
+  - id: CVE-2026-76904
+    cvss: 9.8
 references:
-  - https://www.ncsc.nl/alerts/kritieke-sql-injectie-in-geotools-open-source-java-bibliotheek-update-onmiddellijk
-  - https://advisories.ncsc.nl/2026/ncsc-2026-0304.html
+  - https://github.com/advisories/GHSA-mqjf-5f49-2fjh
+  - https://osgeo-org.atlassian.net/browse/GEOT-7958
+  - https://osgeo-org.atlassian.net/browse/GEOT-7959
+  - https://osgeo-org.atlassian.net/browse/GEOT-7589
+  - https://github.com/geotools/geotools/pull/5829
 action_plan:
   priority: immediate_escalation
   owners:
-    - SOC
     - IT Operations
+    - Application Security
   immediate_actions:
-    - action: Inventory all applications utilizing GeoTools library.
+    - action: Upgrade gt-jdbc-postgis to versions 35.1, 33.5, or 34.4
       owner: IT Operations
       due: 24h
-      evidence: Source states GeoTools is a library used in systems that manage geographic information.
+      evidence: Vendor patch recommendation for CVE-2026-76904
   mitigation_plan:
     - priority: immediate
-      action: Upgrade GeoTools to 33.6, 34.5, or 35.1.
-      owner: IT Operations
-      addresses: GeoTools SQL injection vulnerability
-      evidence: NCSC advises to install the updates provided by the supplier.
+      action: Limit database service account permissions for GeoTools application
+      owner: Database Administration
+      addresses: CVE-2026-76904
+      evidence: Recommended mitigation by OSGeo
 ---
 
-The open-source GeoTools Java library, widely used for geospatial data processing and visualization, contains a critical SQL injection vulnerability (CVSS 9.8). This vulnerability allows unauthenticated attackers to supply malicious input that is executed as part of database queries performed by the library. Depending on the database service permissions, this could result in unauthorized data access, modification, or deletion. In scenarios where the database service runs with elevated privileges, it may lead to full system compromise. The vulnerability is currently being actively scanned by malicious actors, though large-scale exploitation has not yet been reported. Patches are available in versions 33.6, 34.5, and 35.1. Defenders should prioritize auditing systems that utilize GeoTools and apply the recommended version updates immediately.
+GeoTools, a popular Java library for geospatial data, contains a critical SQL injection vulnerability (CVE-2026-76904) within its PostGIS DataStore implementation. The flaw resides in the jsonArrayContains filter function, which fails to properly sanitize the input value parameter when generating SQL queries for databases running PostGIS 12 or later. By providing malicious input to this function, an unauthenticated attacker can inject arbitrary SQL commands into the backend database. This vulnerability affects multiple versions of the gt-jdbc-postgis package, specifically versions 35.0, 34.0 through 34.4, and 30.5 through 33.5. Impacted organizations are advised to upgrade to the patched versions (35.1, 33.5, or 34.4) immediately. If upgrading is not immediately feasible, the attack surface can be limited by ensuring the database connection pool used by the GeoTools application is configured with the principle of least privilege, specifically restricting write and administrative permissions.
 
 ## Impact
 
-Successful exploitation allows attackers to gain unauthorized access to sensitive geospatial data. The potential for server-wide compromise poses significant risks, including data breaches, loss of data integrity, and prolonged service disruption. The threat is elevated due to active scanning activity in the wild.
+Successful exploitation allows remote, unauthenticated attackers to execute arbitrary SQL expressions against the underlying database. This potentially results in complete data exfiltration, unauthorized modification of geospatial datasets, and database-level compromise. The vulnerability is highly severe due to its unauthenticated nature and the direct access to database operations.
 
 ## Recommendation
 
-* Update all instances of GeoTools to versions 33.6, 34.5, or 35.1 immediately to remediate the vulnerability.
-* Audit application inventory to identify systems running vulnerable versions of GeoTools.
-* Review database service permissions; ensure the database account used by the GeoTools-dependent application follows the principle of least privilege to mitigate the impact of potential command execution.
-* Monitor application logs for abnormal database query patterns, such as unexpected SQL syntax characters (e.g., ;, --, OR 1=1) originating from external user inputs.
+- Upgrade the gt-jdbc-postgis library to versions 35.1, 33.5, or 34.4 immediately to resolve CVE-2026-76904.
+- Review database connection pool configurations and restrict the service account privileges assigned to GeoTools to the minimum required subset of data (SELECT only where possible).
+- Enable detailed logging for database queries in the application layer to monitor for anomalous SQL syntax or unexpected execution patterns that may indicate exploitation attempts.
