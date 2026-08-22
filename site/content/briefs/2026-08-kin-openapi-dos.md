@@ -3,6 +3,7 @@ title: Uncontrolled Resource Consumption in kin-openapi deepObject Decoder
 slug: 2026-08-kin-openapi-dos
 description: An unauthenticated remote attacker can cause a denial-of-service via memory exhaustion by supplying a large integer index in a 'deepObject' style query parameter.
 date: "2026-08-22T01:17:17Z"
+lastmod: "2026-08-22T01:17:25Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - getkin
 products:
   - kin-openapi (v0.124.0 - v0.141.0)
+  - kin-openapi
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -24,6 +26,17 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: An unauthenticated client can force multi-gigabyte heap allocation with a single, tiny HTTP request, reliably triggering an OOM kill.
     confidence_band: high
+references:
+  - https://github.com/advisories/GHSA-mmfr-pmjx-hw9w
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76905
+updates:
+  - at: "2026-08-22T01:17:25Z"
+    level: L1
+    summary: added coverage for kin-openapi
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-mmfr-pmjx-hw9w
 ---
 
 The `openapi3filter` component within `kin-openapi` (versions `v0.124.0` through `v0.141.0`) is vulnerable to uncontrolled resource consumption. When the library processes query parameters serialized with `style: deepObject`, it attempts to reconstruct arrays from bracketed indices (e.g., `param[items][50000000]=x`). The decoder materializes the full array based on the highest index provided by the client before any schema validation occurs. Consequently, a small, 24-byte HTTP request can force the application to allocate gigabytes of memory, leading to an OOM (Out of Memory) crash. Because validation logic like `maxItems` runs after this materialization process, it cannot prevent the initial memory exhaustion. This vulnerability affects any service using `kin-openapi` for request validation that exposes an OpenAPI operation with a `deepObject` array parameter.
