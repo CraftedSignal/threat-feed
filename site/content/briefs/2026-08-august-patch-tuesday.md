@@ -3,12 +3,44 @@ title: August 2026 Microsoft Security Update Analysis
 slug: 2026-08-august-patch-tuesday
 description: Microsoft's August 2026 security release addresses 415 vulnerabilities, including a zero-day (CVE-2026-68820) exploited in the wild that enables local privilege escalation in the Windows Ancillary Function Driver for WinSock.
 date: "2026-08-12T05:46:15Z"
+lastmod: "2026-08-22T01:14:19Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+cpes:
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
 tags:
   - vulnerability-management
   - patch-tuesday
@@ -23,6 +55,7 @@ products:
   - Windows Kernel
   - Windows Container Isolation FS Filter Driver
   - Microsoft QUIC
+  - Office
 affected_os:
   - Windows
 mitre_ttps:
@@ -35,16 +68,29 @@ mitre_ttps:
 cves:
   - id: CVE-2026-68820
     cvss: 7
+    epss: 0.00332
   - id: CVE-2026-62832
     cvss: 7.8
+    epss: 0.02365
   - id: CVE-2026-62737
     cvss: 7.8
+    epss: 0.00333
   - id: CVE-2026-72971
     cvss: 5.5
+    epss: 0.00357
   - id: CVE-2026-62815
     cvss: 9.8
+    epss: 0.00916
 references:
   - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-august-2026/
+updates:
+  - at: "2026-08-22T01:14:19Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-august-2026/
 ---
 
 Microsoft's August 2026 Patch Tuesday release addresses 415 unique vulnerabilities across multiple product families, with a focus on Windows OS and associated services. The most significant threat is the actively exploited zero-day, CVE-2026-68820, a use-after-free vulnerability in the Windows Ancillary Function Driver for WinSock that permits local attackers to escalate privileges to SYSTEM. Defenders should prioritize patching this vulnerability due to documented in-the-wild exploitation.
