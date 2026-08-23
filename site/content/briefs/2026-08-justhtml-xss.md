@@ -3,7 +3,7 @@ title: Multiple Sanitization Bypass Vulnerabilities in justhtml Library
 slug: 2026-08-justhtml-xss
 description: The justhtml library before version 1.15.0 contains multiple vulnerabilities in URL sanitization, HTML serialization, and Markdown passthrough that allow attackers to inject malicious HTML and JavaScript.
 date: "2026-08-23T15:37:25Z"
-lastmod: "2026-08-23T15:37:38Z"
+lastmod: "2026-08-23T17:37:31Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,7 @@ vendors:
 products:
   - justhtml (1.15.0)
   - justhtml (<= 1.11.0)
+  - justhtml
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,12 +32,19 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: enable attackers to inject malicious HTML and JavaScript via crafted inputs
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.007
+    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    evidence: The issues... can allow active/dangerous content (e.g., script or style) to survive sanitization.
+    confidence_band: high
 cves:
   - id: CVE-2026-5388
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5388
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8445
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-7808
 action_plan:
   priority: elevated
   owners:
@@ -61,6 +69,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-8445
+  - at: "2026-08-23T17:37:31Z"
+    level: L2
+    summary: added coverage for justhtml
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-7808
 ---
 
 The justhtml library, specifically versions prior to 1.15.0, contains critical security flaws within its URL sanitization helpers (clean_url_value and clean_url_in_js_string), HTML serialization logic, and Markdown passthrough functionality. These vulnerabilities enable attackers to bypass sanitization filters and inject active HTML and JavaScript content.
