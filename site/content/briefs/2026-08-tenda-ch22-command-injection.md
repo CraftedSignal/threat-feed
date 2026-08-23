@@ -3,6 +3,7 @@ title: Remote Command Injection in Tenda CH22 Firmware
 slug: 2026-08-tenda-ch22-command-injection
 description: Tenda CH22 router firmware version 1.0.0.1 is vulnerable to unauthenticated remote command injection via the /goform/editFileName endpoint, allowing potential full system compromise.
 date: "2026-08-23T05:35:21Z"
+lastmod: "2026-08-23T23:39:14Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,7 @@ vendors:
   - Tenda
 products:
   - CH22
+  - CH22 (1.0.0.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,12 +31,20 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The manipulation of the argument editNameMit results in command injection.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: The manipulation of the argument cmdinput leads to command injection.
+    confidence_band: high
 cves:
   - id: CVE-2026-78063
     cvss: 7.4
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-78063
   - https://vuldb.com/cve/CVE-2026-78063
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-78141
+  - https://vuldb.com/vuln/394524
 rules:
   - title: Detect CVE-2026-78063 Exploitation - Command Injection in Tenda CH22
     description: Detects exploitation attempts against CVE-2026-78063 where shell metacharacters are injected into the editNameMit parameter.
@@ -46,7 +56,18 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-78141 Exploitation - Command Injection via /goform/exeCommand
+    description: Detects attempts to exploit CVE-2026-78141 by identifying shell metacharacters in the cmdinput parameter sent to the /goform/exeCommand endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1203
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -72,6 +93,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-78063
       evidence: Source identified version 1.0.0.1 as vulnerable
+updates:
+  - at: "2026-08-23T23:39:14Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-78141 Exploitation - Command Injection via /goform/exeCommand'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-78141
 ---
 
 A critical command injection vulnerability exists in Tenda CH22 firmware version 1.0.0.1, specifically within the function 'formeditFileName' located in the file '/goform/editFileName'. The vulnerability is triggered by the improper sanitization of the 'editNameMit' parameter, allowing an attacker to inject and execute arbitrary system commands. This flaw is remotely exploitable and proof-of-concept exploit code has been publicly released, increasing the risk of exploitation by threat actors. Given the nature of the device as a network routing component, successful exploitation provides an attacker with a persistent foothold, potential for traffic interception, and capability for lateral movement within the local network. 
