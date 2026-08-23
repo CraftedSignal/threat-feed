@@ -3,7 +3,7 @@ title: Multiple Sanitization Bypass Vulnerabilities in justhtml Library
 slug: 2026-08-justhtml-xss
 description: The justhtml library before version 1.15.0 contains multiple vulnerabilities in URL sanitization, HTML serialization, and Markdown passthrough that allow attackers to inject malicious HTML and JavaScript.
 date: "2026-08-23T15:37:25Z"
-lastmod: "2026-08-23T17:37:31Z"
+lastmod: "2026-08-23T17:37:37Z"
 type: advisory
 types:
   - advisory
@@ -45,6 +45,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5388
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8445
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7808
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-4671
 action_plan:
   priority: elevated
   owners:
@@ -76,6 +77,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-7808
+  - at: "2026-08-23T17:37:37Z"
+    level: L1
+    summary: added coverage for justhtml
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-4671
 ---
 
 The justhtml library, specifically versions prior to 1.15.0, contains critical security flaws within its URL sanitization helpers (clean_url_value and clean_url_in_js_string), HTML serialization logic, and Markdown passthrough functionality. These vulnerabilities enable attackers to bypass sanitization filters and inject active HTML and JavaScript content.
