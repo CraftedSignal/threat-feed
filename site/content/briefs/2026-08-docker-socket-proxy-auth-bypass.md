@@ -3,11 +3,15 @@ title: Insufficient Access Control in docker-socket-proxy
 slug: 2026-08-docker-socket-proxy-auth-bypass
 description: An access control vulnerability in docker-socket-proxy (CVE-2026-78122) allows unauthenticated adjacent attackers to bypass restrictions and exfiltrate container filesystems via unauthorized API requests.
 date: "2026-08-22T23:33:32Z"
+lastmod: "2026-08-23T03:52:39Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=2DDF171A-EC6F-5014-AC4E-DBE83BFEDB8A&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - container-security
@@ -29,6 +33,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-78122
   - https://www.vulncheck.com/advisories/docker-socket-proxy-through-insufficient-access-control-granularity-exposes-container-filesystems
+  - https://sploitus.com/exploit?id=2DDF171A-EC6F-5014-AC4E-DBE83BFEDB8A&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-78122 Exploitation Attempt
     description: Detects unauthorized GET requests to sensitive Docker container endpoints that should be gated by the proxy
@@ -57,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-78122
       evidence: Source advisory
+updates:
+  - at: "2026-08-23T03:52:39Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=2DDF171A-EC6F-5014-AC4E-DBE83BFEDB8A&utm_source=rss&utm_medium=rss
 ---
 
 Tecnativa docker-socket-proxy version 0.5.0 and earlier contains an access control vulnerability identified as CVE-2026-78122. The vulnerability arises when the 'CONTAINERS' environment variable is enabled, intended to gate access to specific Docker API endpoints. Due to insufficient granularity in the HAPROXY configuration, the proxy fails to properly restrict read-only endpoints in the /containers namespace. An unauthenticated attacker positioned on the adjacent network can issue GET requests to sensitive endpoints, including /containers/{id}/archive and /containers/{id}/export. Successful exploitation allows the attacker to download entire container filesystems as tar archives, read container logs, and inspect process information via /top. This vulnerability poses a significant risk to environments relying on the proxy to isolate the Docker socket from unauthorized network entities.
