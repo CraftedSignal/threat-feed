@@ -3,7 +3,7 @@ title: Critical OS Command Injection in DrayTek VigorSwitch
 slug: 2026-08-draytek-cmd-injection
 description: Multiple DrayTek VigorSwitch models contain a pre-authentication command injection vulnerability (CVE-2026-71921) in the setget.cgi interface that allows unauthenticated remote attackers to execute arbitrary commands as root.
 date: "2026-08-24T20:02:56Z"
-lastmod: "2026-08-24T20:03:06Z"
+lastmod: "2026-08-24T20:04:30Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,8 @@ tags:
   - network-infrastructure
   - cve
   - network-security
+  - network
+  - hardware
 vendors:
   - DrayTek
   - DrayTek Corporation
@@ -58,6 +60,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71921
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71933
   - https://www.vulncheck.com/advisories/draytek-vigorswitch-multiple-models-missing-authorization-in-syslog-functions
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-71936
+  - https://www.vulncheck.com/advisories/draytek-vigorswitch-multiple-models-buffer-overflow-via-sysreboot
 rules:
   - title: Detects CVE-2026-71921 Exploitation - OS Command Injection in setget.cgi
     description: Detects exploitation attempts against the DrayTek VigorSwitch setget.cgi interface where the 'pass' parameter contains common shell metacharacters.
@@ -80,6 +84,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-71933
+  - at: "2026-08-24T20:04:30Z"
+    level: L2
+    summary: added coverage for VigorSwitch G2540xs +10 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-71936
 ---
 
 DrayTek has disclosed a critical command injection vulnerability, identified as CVE-2026-71921, affecting multiple models within the VigorSwitch series. The vulnerability is located in the setget.cgi interface, which fails to properly sanitize the 'pass' parameter before passing it to an underlying system process. An unauthenticated remote attacker can exploit this flaw by sending a crafted HTTP request containing shell metacharacters, leading to arbitrary command execution with root-level privileges on the affected networking equipment. Given that these devices often operate at the perimeter or core of internal networks, successful exploitation grants the attacker persistent control over the network infrastructure. Defenders should prioritize updating firmware for all affected VigorSwitch units listed below.
