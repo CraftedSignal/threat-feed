@@ -3,7 +3,7 @@ title: AWS EC2 Network ACL Deletion Defense Evasion
 slug: 2026-08-aws-ec2-acl-deletion
 description: Adversaries may delete AWS EC2 Network Access Control Lists (ACLs) or their ingress/egress entries to disable network-level security controls and facilitate unauthorized access or data exfiltration.
 date: "2026-08-24T09:46:04Z"
-lastmod: "2026-08-24T09:49:27Z"
+lastmod: "2026-08-24T09:50:43Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,7 @@ tags:
   - ebs
   - encryption
   - impact
+  - persistence
 vendors:
   - Amazon
 products:
@@ -53,12 +54,31 @@ mitre_ttps:
     technique_name: Modify Cloud Compute Infrastructure
     evidence: Disabling this setting introduces significant risk as all future volumes created in that region will be unencrypted by default, potentially exposing sensitive data at rest.
     confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1133
+    technique_name: External Remote Services
+    evidence: Threat actors may abuse this to establish persistence, exfiltrate data, or pivot in an AWS environment.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562.007
+    technique_name: Disable or Modify Cloud Firewall
+    evidence: Modifications to a security group configuration could expose critical assets to unauthorized access.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1578.005
+    technique_name: Modify Cloud Compute Configurations
+    evidence: Modifying configurations may allow unauthorized access.
+    confidence_band: high
 references:
   - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceAttribute.html
   - https://hackingthe.cloud/aws/exploitation/local_ec2_priv_esc_through_user_data
   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
   - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/disable-ebs-encryption-by-default.html
   - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableEbsEncryptionByDefault.html
+  - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-security-groups.html
 rules:
   - title: Detect AWS EC2 Network ACL Deletion
     description: Detects successful deletion of an EC2 Network ACL or ACL entry, excluding activity from known infrastructure-as-code tools.
@@ -97,7 +117,18 @@ rules:
     data_sources:
       - cloudtrail
       - aws
-rules_count: 3
+  - title: Detect Unauthorized AWS EC2 Security Group Changes
+    description: Detects unauthorized modifications to AWS EC2 security groups using CloudTrail logs, excluding known automated configuration management tools.
+    platform: sigma
+    severity: low
+    tactics:
+      - defense_evasion
+      - persistence
+    techniques:
+      - T1562.007
+    data_sources:
+      - cloud
+rules_count: 4
 action_plan:
   priority: elevated
   owners:
@@ -132,6 +163,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_ec2_disable_ebs_encryption.toml
+  - at: "2026-08-24T09:50:43Z"
+    level: L1
+    summary: 'added detection rule: Detect Unauthorized AWS EC2 Security Group Changes'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_ec2_security_group_configuration_change_detection.toml
 ---
 
 Adversaries targeting AWS environments may attempt to impair security defenses by modifying or deleting Network Access Control Lists (ACLs) within a Virtual Private Cloud (VPC). By removing these firewall layers, attackers can bypass traffic filtering, enable lateral movement, or facilitate the exfiltration of sensitive data. This activity typically manifests as API calls within AWS CloudTrail, specifically targeting the `DeleteNetworkAcl` or `DeleteNetworkAclEntry` actions. Because Network ACLs are critical for subnet security, unauthorized deletions are significant indicators of potential defense evasion. Organizations must distinguish these malicious modifications from legitimate infrastructure-as-code (IaC) updates, such as those performed by Terraform, Pulumi, or Ansible, which may legitimately manage network configurations in automated environments.
