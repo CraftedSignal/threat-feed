@@ -3,16 +3,19 @@ title: Abuse of S3 Bucket Lifecycle Expiration for Defense Evasion
 slug: 2026-08-s3-lifecycle-evasion
 description: Adversaries can abuse Amazon S3 lifecycle expiration configurations to automate the deletion of logs and forensic evidence, hindering incident investigation and response.
 date: "2026-08-24T09:46:24Z"
+lastmod: "2026-08-24T09:47:31Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
 tags:
   - cloud
   - aws
   - defense-evasion
   - cloud-security
+  - exfiltration
+  - persistence
 vendors:
   - Amazon
 products:
@@ -36,6 +39,27 @@ mitre_ttps:
     technique_name: Lifecycle-Triggered Deletion
     evidence: Adversaries can abuse them by configuring auto-deletion of logs, forensic evidence, or sensitive objects to cover their tracks.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1537
+    technique_name: Transfer Data to Cloud Account
+    evidence: Adversaries may exploit this to backdoor a bucket and exfiltrate sensitive data by granting permissions to another AWS account they control.
+    confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1530
+    technique_name: Data from Cloud Storage
+    evidence: Adversaries may exploit this to backdoor a bucket and exfiltrate sensitive data by granting permissions to another AWS account they control.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1098
+    technique_name: Account Manipulation
+    evidence: This behavior may indicate an adversary backdooring a bucket for data exfiltration or cross-account persistence.
+    confidence_band: high
+references:
+  - https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.s3-backdoor-bucket-policy/
+  - https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html
 rules:
   - title: AWS S3 Bucket Expiration Lifecycle Configuration Added
     description: Detects the addition of an expiration lifecycle configuration to an Amazon S3 bucket, which can be used to automate the deletion of logs or forensic evidence.
@@ -66,6 +90,14 @@ action_plan:
       owner: IT Operations
       addresses: Prevention of unauthorized log deletion via lifecycle rules.
       evidence: Recommended in the investigation guide provided in the source.
+updates:
+  - at: "2026-08-24T09:47:31Z"
+    level: L1
+    summary: added coverage for Amazon S3
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/exfiltration_s3_bucket_policy_added_for_external_account_access.toml
 ---
 
 Adversaries with sufficient IAM permissions in an AWS environment can modify Amazon S3 bucket lifecycle configurations to automate the deletion of stored objects. By invoking the `PutBucketLifecycle` or `PutBucketLifecycleConfiguration` APIs, an attacker can set an expiration policy that deletes logs, forensic artifacts, or sensitive data after a defined period. This technique is used to maintain operational secrecy and prevent detection teams from performing effective post-incident analysis. This activity is often silent and can be difficult to detect if monitoring focuses only on explicit `DeleteObject` calls rather than configuration management events. Security teams should monitor CloudTrail logs for unexpected lifecycle changes, particularly on buckets containing security-critical data, and validate these changes against known infrastructure-as-code deployments.
