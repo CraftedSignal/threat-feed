@@ -3,11 +3,15 @@ title: Multiple Vulnerabilities in Microsoft Exchange Server
 slug: 2026-08-microsoft-exchange-vulnerabilities
 description: Microsoft Exchange Server contains multiple vulnerabilities that can be exploited by an authenticated remote attacker to achieve privilege escalation, arbitrary code execution, security control bypass, data manipulation, and denial-of-service.
 date: "2026-08-12T10:18:05Z"
+lastmod: "2026-08-24T05:03:45Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=2F59AB5D-61B6-5E6D-AAC3-53061A216151&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - microsoft-exchange
@@ -38,8 +42,13 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: The vulnerabilities can be exploited to cause a denial-of-service condition.
     confidence_band: high
+cves:
+  - id: CVE-2026-15502
+    cvss: 6.3
+    epss: 0.00196
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2784
+  - https://sploitus.com/exploit?id=2F59AB5D-61B6-5E6D-AAC3-53061A216151&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -56,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: Multiple vulnerabilities in Exchange Server
       evidence: BSI advisory WID-SEC-2026-2784
+updates:
+  - at: "2026-08-24T05:03:45Z"
+    level: L2
+    summary: poc_available; added CVE-2026-15502
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=2F59AB5D-61B6-5E6D-AAC3-53061A216151&utm_source=rss&utm_medium=rss
 ---
 
 The German Federal Office for Information Security (BSI) has reported multiple security vulnerabilities affecting Microsoft Exchange Server. These flaws are exploitable by an authenticated, remote attacker. Successful exploitation of these vulnerabilities allows for a wide range of malicious outcomes, including the escalation of privileges to SYSTEM level, the execution of arbitrary code, the bypassing of established security controls, and the manipulation or unauthorized disclosure of sensitive data. Furthermore, these vulnerabilities can be leveraged to facilitate spoofing attacks or to induce a denial-of-service (DoS) condition on the affected mail server. Given that Exchange servers often reside in sensitive network segments and process high volumes of internal and external communications, organizations should prioritize patching to prevent unauthorized privilege escalation and subsequent domain-wide compromise.
