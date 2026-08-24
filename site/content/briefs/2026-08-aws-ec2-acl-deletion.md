@@ -3,7 +3,7 @@ title: AWS EC2 Network ACL Deletion Defense Evasion
 slug: 2026-08-aws-ec2-acl-deletion
 description: Adversaries may delete AWS EC2 Network Access Control Lists (ACLs) or their ingress/egress entries to disable network-level security controls and facilitate unauthorized access or data exfiltration.
 date: "2026-08-24T09:46:04Z"
-lastmod: "2026-08-24T09:50:43Z"
+lastmod: "2026-08-24T09:51:20Z"
 type: advisory
 types:
   - advisory
@@ -72,6 +72,12 @@ mitre_ttps:
     technique_name: Modify Cloud Compute Configurations
     evidence: Modifying configurations may allow unauthorized access.
     confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1578
+    technique_name: Modify Cloud Compute Infrastructure
+    evidence: Adversaries may exploit route tables to reroute traffic for data exfiltration or to establish persistence by creating unauthorized routes.
+    confidence_band: high
 references:
   - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceAttribute.html
   - https://hackingthe.cloud/aws/exploitation/local_ec2_priv_esc_through_user_data
@@ -79,6 +85,9 @@ references:
   - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/disable-ebs-encryption-by-default.html
   - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableEbsEncryptionByDefault.html
   - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-security-groups.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_route_table_created.toml
+  - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html
+  - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRouteTable
 rules:
   - title: Detect AWS EC2 Network ACL Deletion
     description: Detects successful deletion of an EC2 Network ACL or ACL entry, excluding activity from known infrastructure-as-code tools.
@@ -128,7 +137,18 @@ rules:
       - T1562.007
     data_sources:
       - cloud
-rules_count: 4
+  - title: AWS EC2 Route Table Creation
+    description: Detects the creation of EC2 route tables or routes, which may indicate malicious persistence or traffic interception.
+    platform: sigma
+    severity: low
+    tactics:
+      - persistence
+    techniques:
+      - T1578.005
+    data_sources:
+      - cloud
+      - aws
+rules_count: 5
 action_plan:
   priority: elevated
   owners:
@@ -170,6 +190,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_ec2_security_group_configuration_change_detection.toml
+  - at: "2026-08-24T09:51:20Z"
+    level: L1
+    summary: 'added detection rule: AWS EC2 Route Table Creation'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_route_table_created.toml
 ---
 
 Adversaries targeting AWS environments may attempt to impair security defenses by modifying or deleting Network Access Control Lists (ACLs) within a Virtual Private Cloud (VPC). By removing these firewall layers, attackers can bypass traffic filtering, enable lateral movement, or facilitate the exfiltration of sensitive data. This activity typically manifests as API calls within AWS CloudTrail, specifically targeting the `DeleteNetworkAcl` or `DeleteNetworkAclEntry` actions. Because Network ACLs are critical for subnet security, unauthorized deletions are significant indicators of potential defense evasion. Organizations must distinguish these malicious modifications from legitimate infrastructure-as-code (IaC) updates, such as those performed by Terraform, Pulumi, or Ansible, which may legitimately manage network configurations in automated environments.
