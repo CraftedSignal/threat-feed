@@ -1,17 +1,17 @@
 ---
-title: Detection of Unauthorized Kubernetes Secret Access via Suspicious User Agents
+title: Kubernetes Secret Access by Node or Pod Identities
 slug: 2026-08-k8s-secret-access
-description: This brief details a detection strategy for identifying unauthorized Kubernetes Secret retrieval via non-standard HTTP clients and scripting runtimes commonly used in credential exfiltration.
-date: "2026-08-24T15:47:22Z"
+description: Attackers are exploiting compromised pod service accounts and node identities to perform unauthorized 'get' or 'list' operations on the Kubernetes Secrets API to harvest sensitive credentials.
+date: "2026-08-24T15:47:32Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - medium
 tags:
   - credential-access
   - kubernetes
-  - cloud-security
+  - cloud
 vendors:
   - Kubernetes
 products:
@@ -21,20 +21,23 @@ mitre_ttps:
     tactic_name: Credential Access
     technique_id: T1552
     technique_name: Unsecured Credentials
-    evidence: The rule matches Kubernetes audit events for secret get/list where user_agent.original matches a small allowlist of suspicious patterns.
+    evidence: Attackers who stole a pod service-account token or node credentials sweep Secret objects for tokens, registry credentials, TLS keys, or application configuration.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/kubernetes/credential_access_kubernetes_secret_read_by_node_or_pod_service_account.toml
+  - https://attack.mitre.org/techniques/T1552/007/
+  - https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens
 rules:
-  - title: Detect Kubernetes Secret Access via Suspicious User Agents
-    description: Detects read access to Kubernetes Secrets (get/list) using suspicious User-Agent strings indicative of scripting runtimes or offensive security tooling.
+  - title: Detect Unauthorized Kubernetes Secret Read
+    description: Detects potential credential access by monitoring kubelet or pod service account identities performing 'get' or 'list' operations on the Secrets API resource.
     platform: sigma
-    severity: high
+    severity: medium
     tactics:
       - credential_access
     techniques:
       - T1552.007
     data_sources:
       - webserver
-      - kubernetes
 rules_count: 1
 action_plan:
   priority: elevated
@@ -42,29 +45,28 @@ action_plan:
     - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Deploy the detection rule and establish a baseline of known automation User-Agents.
+    - action: Deploy detection rules for unauthorized secret reads.
       owner: Detection Engineering
       due: 48h
-      evidence: Required for reducing false positives in production environments.
+      evidence: Source detection logic.
   mitigation_plan:
-    - priority: medium_term
-      action: Tighten RBAC policies to restrict 'get' and 'list' permissions on secrets to specific, audited service accounts.
+    - priority: short_term
+      action: Review and restrict RBAC permissions for pod service accounts and nodes.
       owner: IT Operations
       addresses: T1552.007
-      evidence: Best practice for securing Kubernetes Secrets management.
+      evidence: Security recommendation in source.
 ---
 
-This threat detection intelligence focuses on identifying credential access attempts targeting Kubernetes Secrets. Attackers frequently utilize minimal HTTP tooling, generic scripting runtimes, and offensive security-oriented binaries to interact with the Kubernetes API to exfiltrate sensitive configuration data, service account tokens, and TLS bundles. The detection logic centers on monitoring Kubernetes API server audit logs for successful 'get' or 'list' operations on 'secrets' resources, filtered by User-Agent strings. Legitimate in-cluster automation is typically characterized by stable, purpose-specific User-Agent strings (e.g., official client-go variants), whereas attacker-leaning activity is characterized by generic fingerprints such as 'curl', 'python', 'node', or distribution-tagged strings associated with platforms like Kali Linux. Distinguishing this activity requires baselining internal CI/CD pipelines and service account behavior.
+Kubernetes environments face significant risk from credential access techniques where compromised pod service accounts or node identities (kubelet) are used to query the Kubernetes API for sensitive secrets. Because these identities are meant to operate with predictable, limited API access, direct enumeration of 'Secrets' objects is highly anomalous. Attackers utilize these stolen tokens or node credentials to sweep the cluster for registry credentials, TLS certificates, private keys, and application configuration. This behavior is particularly dangerous as it enables lateral movement and privilege escalation. While some legitimate in-cluster controllers perform these actions, unauthorized use by service accounts or nodes - especially those originating from non-local IP addresses - indicates malicious intent to access protected material. Defensive teams must monitor Kubernetes API server audit logs to detect these unauthorized read operations.
 
 ## Impact
 
-Successful exfiltration of Kubernetes Secrets can lead to full cluster compromise. Secrets frequently contain critical credentials including database passwords, API keys, cloud provider IAM service account tokens, and TLS certificates. If compromised, an attacker can leverage these to escalate privileges, persist in the environment, move laterally to cloud infrastructure, or gain unauthorized access to backend services and external third-party systems managed by the cluster.
+Successful exploitation allows attackers to bypass security boundaries and exfiltrate sensitive data stored within Kubernetes Secrets. This can lead to full cluster compromise, unauthorized access to external services through exposed registry credentials, and the potential for persistent backdoors. The scope of impact includes any workload, infrastructure component, or secret managed within the cluster namespace.
 
 ## Recommendation
 
-Prioritized actions for detection and response:
-
-- Deploy the provided Sigma rule (or equivalent SIEM detection) to monitor Kubernetes audit logs for suspicious User-Agent strings during secret access.
-- Establish a baseline for all known, authorized in-cluster automation (CI/CD controllers, GitOps agents) to reduce false positives during rule tuning.
-- Investigate any hits by validating the 'user.name' against organizational identity providers and reviewing the 'source.ip' for unexpected origin points.
-- Upon confirmation of unauthorized access, immediately rotate the exposed credentials, revoke the associated identity tokens, and audit the scope of RBAC roles assigned to the compromised principal.
+* Deploy the Sigma rules provided in this brief to detect unauthorized 'get' or 'list' requests on the Secrets API from nodes and service accounts.
+* Establish a baseline for legitimate service account activity to identify anomalous user agents, namespace access, or resource requests.
+* Implement least-privilege RBAC policies, ensuring that service accounts and node identities only have access to the specific secrets required for their function.
+* Monitor Kubernetes audit logs for `authorization_k8s_io/decision` field values that indicate denied access attempts, as these serve as early warning signs of discovery activity.
+* Rotate credentials and revoke tokens immediately upon detecting unauthorized secret enumeration.
