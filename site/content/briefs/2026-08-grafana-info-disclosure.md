@@ -3,6 +3,7 @@ title: Grafana Improper Access Control Information Disclosure Vulnerability
 slug: 2026-08-grafana-info-disclosure
 description: An authenticated, remote attacker can exploit a flaw in Grafana to perform unauthorized information disclosure due to improper access control.
 date: "2026-08-18T14:51:34Z"
+lastmod: "2026-08-24T05:02:39Z"
 type: advisory
 types:
   - advisory
@@ -13,16 +14,29 @@ cpes:
 tags:
   - informational
   - product-news
+  - directory-traversal
+  - grafana
+  - vulnerability
+  - web-application
 vendors:
   - Grafana Labs
 products:
   - Grafana
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The availability of a working exploit significantly elevates the risk for unpatched systems.
+    confidence_band: high
 cves:
   - id: CVE-2024-9264
     cvss: 9.9
     epss: 0.94644
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2873
+  - https://sploitus.com/exploit?id=655BA3C6-4B9A-564E-B5A3-CE0B925EE9F7
+  - https://nvd.nist.gov/vuln/detail/CVE-2025-31800
 action_plan:
   priority: monitor_or_close
   owners:
@@ -33,6 +47,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-9264
       evidence: Source advisory recommends update to remediate information disclosure flaw.
+updates:
+  - at: "2026-08-24T05:02:39Z"
+    level: L1
+    summary: added coverage for Grafana
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=655BA3C6-4B9A-564E-B5A3-CE0B925EE9F7&utm_source=rss&utm_medium=rss
 ---
 
 The German Federal Office for Information Security (BSI) has reported a vulnerability in Grafana that allows a remote, authenticated attacker to disclose sensitive information. The flaw, tracked as CVE-2024-9264, stems from improper access control mechanisms within the application. This vulnerability enables an attacker who already possesses valid authentication credentials to access data or system information that they are not authorized to view. Because this requires an authenticated session, the primary threat involves users or compromised accounts escalating their access to read data outside their intended scope. Defenders should review access logs and internal permissions for Grafana installations to identify potential exploitation patterns or unusual data access requests by existing users.
