@@ -3,7 +3,7 @@ title: AWS EC2 Network ACL Deletion Defense Evasion
 slug: 2026-08-aws-ec2-acl-deletion
 description: Adversaries may delete AWS EC2 Network Access Control Lists (ACLs) or their ingress/egress entries to disable network-level security controls and facilitate unauthorized access or data exfiltration.
 date: "2026-08-24T09:46:04Z"
-lastmod: "2026-08-24T09:46:59Z"
+lastmod: "2026-08-24T09:49:27Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,9 @@ tags:
   - aws
   - discovery
   - credential-access
+  - ebs
+  - encryption
+  - impact
 vendors:
   - Amazon
 products:
@@ -38,9 +41,24 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: The userData field can contain sensitive information, such as hardcoded credentials or configuration scripts, that adversaries may exploit for further attacks.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1565
+    technique_name: Data Manipulation
+    evidence: Adversaries may disable encryption to weaken data protection before exfiltrating or tampering with EBS volumes or snapshots.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1578
+    technique_name: Modify Cloud Compute Infrastructure
+    evidence: Disabling this setting introduces significant risk as all future volumes created in that region will be unencrypted by default, potentially exposing sensitive data at rest.
+    confidence_band: high
 references:
   - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceAttribute.html
   - https://hackingthe.cloud/aws/exploitation/local_ec2_priv_esc_through_user_data
+  - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
+  - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/disable-ebs-encryption-by-default.html
+  - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableEbsEncryptionByDefault.html
 rules:
   - title: Detect AWS EC2 Network ACL Deletion
     description: Detects successful deletion of an EC2 Network ACL or ACL entry, excluding activity from known infrastructure-as-code tools.
@@ -66,7 +84,20 @@ rules:
     data_sources:
       - cloud
       - aws
-rules_count: 2
+  - title: Detect AWS EBS Encryption Disabled
+    description: Detects when the Amazon EBS encryption by default setting is disabled in an AWS region via CloudTrail.
+    platform: sigma
+    severity: medium
+    tactics:
+      - defense-evasion
+      - impact
+    techniques:
+      - T1565.001
+      - T1578.005
+    data_sources:
+      - cloudtrail
+      - aws
+rules_count: 3
 action_plan:
   priority: elevated
   owners:
@@ -94,6 +125,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_ec2_userdata_request_for_ec2_instance.toml
+  - at: "2026-08-24T09:49:27Z"
+    level: L1
+    summary: 'added detection rule: Detect AWS EBS Encryption Disabled'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_ec2_disable_ebs_encryption.toml
 ---
 
 Adversaries targeting AWS environments may attempt to impair security defenses by modifying or deleting Network Access Control Lists (ACLs) within a Virtual Private Cloud (VPC). By removing these firewall layers, attackers can bypass traffic filtering, enable lateral movement, or facilitate the exfiltration of sensitive data. This activity typically manifests as API calls within AWS CloudTrail, specifically targeting the `DeleteNetworkAcl` or `DeleteNetworkAclEntry` actions. Because Network ACLs are critical for subnet security, unauthorized deletions are significant indicators of potential defense evasion. Organizations must distinguish these malicious modifications from legitimate infrastructure-as-code (IaC) updates, such as those performed by Terraform, Pulumi, or Ansible, which may legitimately manage network configurations in automated environments.
