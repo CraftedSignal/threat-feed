@@ -3,7 +3,7 @@ title: Active Exploitation of Oracle HTTP Server and WebLogic Server Proxy Plug-
 slug: 2026-08-oracle-kev-addition
 description: CISA has added CVE-2026-21962 to the Known Exploited Vulnerabilities (KEV) Catalog due to confirmed in-the-wild exploitation of an improper access control vulnerability in Oracle HTTP and WebLogic proxy components.
 date: "2026-08-24T19:53:12Z"
-lastmod: "2026-08-24T21:46:32Z"
+lastmod: "2026-08-24T21:55:14Z"
 type: threat
 types:
   - threat
@@ -17,6 +17,7 @@ cpes:
   - cpe:2.3:a:oracle:weblogic_server_proxy_plug-in:12.2.1.4.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:weblogic_server_proxy_plug-in:14.1.1.0.0:*:*:*:*:*:*:*
   - cpe:2.3:a:oracle:weblogic_server_proxy_plug-in:14.1.2.0.0:*:*:*:*:*:*:*
+has_poc: true
 vendors:
   - Oracle
 products:
@@ -24,6 +25,7 @@ products:
   - Oracle Weblogic Server
   - HTTP Server
   - Weblogic Server Proxy Plug-in
+  - Oracle Weblogic Server Proxy Plug-in
 cves:
   - id: CVE-2026-21962
     cvss: 10
@@ -32,6 +34,7 @@ references:
   - https://www.cisa.gov/news-events/alerts/2026/08/24/cisa-adds-one-known-exploited-vulnerability-catalog
   - https://www.cve.org/CVERecord?id=CVE-2026-21962
   - https://edit.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk
+  - https://cyber.gc.ca/en/alerts-advisories/oracle-security-advisory-january-2026-quarterly-rollup-av26-042
 action_plan:
   priority: immediate_escalation
   owners:
@@ -50,6 +53,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-21962
+  - at: "2026-08-24T21:55:14Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/oracle-security-advisory-january-2026-quarterly-rollup-av26-042
 ---
 
 CISA has formally added CVE-2026-21962 to its Known Exploited Vulnerabilities (KEV) Catalog, citing active exploitation. The vulnerability affects Oracle HTTP Server and the Oracle WebLogic Server Proxy Plug-in. It is classified as an improper access control vulnerability. Successful exploitation of this vulnerability in proxy components can allow attackers to bypass security restrictions, potentially leading to unauthorized access to downstream application resources or total control of the affected asset. Given the critical position of proxy and load-balancing components in enterprise architectures, this vulnerability represents a significant risk for lateral movement and unauthorized information disclosure. Organizations are advised to prioritize patching according to Binding Operational Directive (BOD) 26-04 requirements.
