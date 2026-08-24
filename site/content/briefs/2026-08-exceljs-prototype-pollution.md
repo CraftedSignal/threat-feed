@@ -3,6 +3,7 @@ title: Prototype Pollution Vulnerability in exceljs-hardened
 slug: 2026-08-exceljs-prototype-pollution
 description: The exceljs-hardened library before version 5.0.0 is vulnerable to prototype pollution, allowing unauthenticated remote attackers to inject malicious properties into Object.prototype via crafted cell note data.
 date: "2026-08-24T01:40:00Z"
+lastmod: "2026-08-24T01:40:48Z"
 type: advisory
 types:
   - advisory
@@ -10,12 +11,19 @@ severities:
   - high
 products:
   - exceljs-hardened
+  - exceljs-hardened (< 5.0.0)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1203
     technique_name: Exploitation for Client Execution
     evidence: Attackers can assign parsed JSON with a malicious __proto__ property to cell notes, modifying Object.prototype and affecting all plain objects created in the process.
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: Attackers can upload highly compressed workbooks that expand to gigabytes in memory, exhausting available resources and causing denial of service.
     confidence_band: high
 cves:
   - id: CVE-2026-78207
@@ -24,6 +32,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-78207
   - https://github.com/mateocallec/exceljs-hardened/security/advisories/GHSA-qwr4-7h29-chpf
   - https://www.vulncheck.com/advisories/exceljs-through-prototype-pollution-via-deepmerge-reached-from-note-serialization
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-78206
+  - https://github.com/mateocallec/exceljs-hardened/security/advisories/GHSA-7cvf-3r55-r39q
+  - https://www.vulncheck.com/advisories/exceljs-through-uncontrolled-resource-consumption-via-unbounded-xlsx-decompression
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +51,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-78207
       evidence: Source advisory recommends version 5.0.0.
+updates:
+  - at: "2026-08-24T01:40:48Z"
+    level: L1
+    summary: added coverage for exceljs-hardened (< 5.0.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-78206
 ---
 
 The exceljs-hardened library, a hardened fork of the popular exceljs Node.js package, contains a critical prototype pollution vulnerability (CVE-2026-78207) in its `deepMerge` helper function. The vulnerability exists because the function fails to sanitize or reject sensitive keys such as `__proto__`, `constructor`, or `prototype` during the merging of JSON objects representing Excel cell notes. An attacker capable of influencing the input parsed by the library can leverage this flaw to pollute the global `Object.prototype`. Once the prototype is polluted, the attacker can modify the behavior of all plain objects within the JavaScript application's process. This can lead to various outcomes depending on the application logic, including remote code execution (RCE) if the application relies on polluted properties for security-sensitive checks, or service disruption. The issue impacts all versions prior to 5.0.0.
