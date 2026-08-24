@@ -3,6 +3,7 @@ title: SSRF and Credential Leakage in AWX Notification Backends
 slug: 2026-08-awx-ssrf
 description: CVE-2026-71366 allows authenticated AWX notification administrators to perform SSRF and exfiltrate credentials by leveraging insufficient validation of notification template targets.
 date: "2026-08-24T18:03:56Z"
+lastmod: "2026-08-24T20:03:15Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,10 @@ tags:
   - web-vulnerability
   - ssrf
   - credential-leakage
+  - path-traversal
+  - arbitrary-file-write
+  - remote-code-execution
+  - cve-2026-71364
 vendors:
   - Ansible
 products:
@@ -29,11 +34,18 @@ mitre_ttps:
     technique_name: Transfer Data to Cloud Account
     evidence: the webhook notification backend follows HTTP redirects and resends configured Basic Authentication credentials to redirect targets regardless of host change, allowing an attacker to exfiltrate notification credentials
     confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1098.004
+    technique_name: SSH Authorized Keys
+    evidence: An attacker who controls the archive content ... can achieve arbitrary file writes as the user performing the extraction, potentially leading to remote code execution through mechanisms such as ... SSH authorized keys.
+    confidence_band: high
 cves:
   - id: CVE-2026-71366
     cvss: 7.7
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71366
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-71364
 action_plan:
   priority: elevated
   owners:
@@ -50,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-71366
       evidence: The vulnerability arises because notification template URLs are not validated against restricted IP ranges
+updates:
+  - at: "2026-08-24T20:03:15Z"
+    level: L2
+    summary: added coverage for AWX
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-71364
 ---
 
 CVE-2026-71366 describes a critical server-side request forgery (SSRF) vulnerability impacting multiple notification backends within AWX, including Webhook, Mattermost, Rocket.Chat, and Grafana. The vulnerability exists because the application fails to validate user-supplied notification template URLs against private, loopback, or reserved IP ranges. 
