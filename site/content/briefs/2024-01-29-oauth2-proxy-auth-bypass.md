@@ -3,16 +3,21 @@ title: OAuth2 Proxy Authentication Bypass via X-Forwarded-Uri Header Spoofing
 slug: 2024-01-29-oauth2-proxy-auth-bypass
 description: OAuth2 Proxy is vulnerable to an authentication bypass when configured with `--reverse-proxy` and `--skip_auth_routes` or `--skip_auth_regex`; by spoofing the `X-Forwarded-Uri` header, an attacker can bypass authentication and access protected routes without a valid session.
 date: "2024-01-29T12:00:00Z"
+lastmod: "2026-08-24T20:03:09Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:oauth2_proxy_project:oauth2_proxy:*:*:*:*:*:*:*:*
 tags:
   - oauth2-proxy
   - authentication-bypass
   - reverse-proxy
   - header-spoofing
+vendors:
+  - OAuth2 Proxy
 products:
   - OAuth2 Proxy
 mitre_ttps:
@@ -20,8 +25,15 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-40575
+    cvss: 9.1
+    epss: 0.00477
+  - id: CVE-2026-76835
+    cvss: 9.1
 references:
   - https://github.com/advisories/GHSA-7x63-xv5r-3p2x
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76835
 rules:
   - title: Detect X-Forwarded-Uri Header Present in Request to OAuth2 Proxy
     description: Detects requests to OAuth2 Proxy that contain the X-Forwarded-Uri header, which could indicate an attempt to exploit the authentication bypass vulnerability (CVE-2026-40575).
@@ -44,6 +56,14 @@ rules:
       - network_connection
       - linux
 rules_count: 2
+updates:
+  - at: "2026-08-24T20:03:09Z"
+    level: L2
+    summary: added CVE-2026-40575 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76835
 ---
 
 OAuth2 Proxy versions before 7.15.2 are susceptible to an authentication bypass vulnerability (CVE-2026-40575) when configured with both the `--reverse-proxy` flag and either `--skip_auth_routes` or `--skip_auth_regex`. This configuration flaw allows an attacker to spoof the `X-Forwarded-Uri` header, tricking OAuth2 Proxy into evaluating authentication and skip-auth rules against an attacker-controlled path rather than the actual request URI. The vulnerability exists because OAuth2 Proxy trusts client-supplied `X-Forwarded-Uri` headers. Version 7.15.2 introduces the `--trusted-proxy-ip` flag to mitigate this issue by allowing administrators to specify trusted reverse proxy IPs. However, upgrading alone is insufficient; the `--trusted-proxy-ip` flag must be configured, and additional mitigation steps are recommended to properly secure deployments.
