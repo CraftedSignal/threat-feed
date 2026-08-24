@@ -3,6 +3,7 @@ title: Active Exploitation of Oracle HTTP Server and WebLogic Server Proxy Plug-
 slug: 2026-08-oracle-kev-addition
 description: CISA has added CVE-2026-21962 to the Known Exploited Vulnerabilities (KEV) Catalog due to confirmed in-the-wild exploitation of an improper access control vulnerability in Oracle HTTP and WebLogic proxy components.
 date: "2026-08-24T19:53:12Z"
+lastmod: "2026-08-24T21:46:32Z"
 type: threat
 types:
   - threat
@@ -21,6 +22,8 @@ vendors:
 products:
   - Oracle HTTP Server
   - Oracle Weblogic Server
+  - HTTP Server
+  - Weblogic Server Proxy Plug-in
 cves:
   - id: CVE-2026-21962
     cvss: 10
@@ -39,6 +42,14 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: CISA KEV Catalog addition requirement per BOD 26-04
+updates:
+  - at: "2026-08-24T21:46:32Z"
+    level: L1
+    summary: new product
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-21962
 ---
 
 CISA has formally added CVE-2026-21962 to its Known Exploited Vulnerabilities (KEV) Catalog, citing active exploitation. The vulnerability affects Oracle HTTP Server and the Oracle WebLogic Server Proxy Plug-in. It is classified as an improper access control vulnerability. Successful exploitation of this vulnerability in proxy components can allow attackers to bypass security restrictions, potentially leading to unauthorized access to downstream application resources or total control of the affected asset. Given the critical position of proxy and load-balancing components in enterprise architectures, this vulnerability represents a significant risk for lateral movement and unauthorized information disclosure. Organizations are advised to prioritize patching according to Binding Operational Directive (BOD) 26-04 requirements.
