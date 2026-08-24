@@ -3,7 +3,7 @@ title: Prototype Pollution Vulnerability in exceljs-hardened
 slug: 2026-08-exceljs-prototype-pollution
 description: The exceljs-hardened library before version 5.0.0 is vulnerable to prototype pollution, allowing unauthenticated remote attackers to inject malicious properties into Object.prototype via crafted cell note data.
 date: "2026-08-24T01:40:00Z"
-lastmod: "2026-08-24T01:40:54Z"
+lastmod: "2026-08-24T01:41:01Z"
 type: advisory
 types:
   - advisory
@@ -36,6 +36,12 @@ mitre_ttps:
     technique_name: Data from Local System
     evidence: Attackers can supply arbitrary file paths to read any file accessible to the Node.js process and embed it in the generated workbook.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1204
+    technique_name: User Execution
+    evidence: Attackers who can influence exported cell values can inject formulas that execute when the CSV file is opened in a spreadsheet application.
+    confidence_band: high
 cves:
   - id: CVE-2026-78207
     cvss: 9.4
@@ -49,6 +55,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-78208
   - https://github.com/mateocallec/exceljs-hardened/security/advisories/GHSA-m8mg-8574-gm3m
   - https://www.vulncheck.com/advisories/exceljs-through-path-traversal-via-unvalidated-addimage-filename
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-78209
+  - https://github.com/mateocallec/exceljs-hardened/security/advisories/GHSA-9wxc-4rhw-hfrw
+  - https://www.vulncheck.com/advisories/exceljs-through-csv-formula-injection-via-unescaped-cell-values
 action_plan:
   priority: elevated
   owners:
@@ -80,6 +89,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-78208
+  - at: "2026-08-24T01:41:01Z"
+    level: L2
+    summary: added coverage for exceljs-hardened
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-78209
 ---
 
 The exceljs-hardened library, a hardened fork of the popular exceljs Node.js package, contains a critical prototype pollution vulnerability (CVE-2026-78207) in its `deepMerge` helper function. The vulnerability exists because the function fails to sanitize or reject sensitive keys such as `__proto__`, `constructor`, or `prototype` during the merging of JSON objects representing Excel cell notes. An attacker capable of influencing the input parsed by the library can leverage this flaw to pollute the global `Object.prototype`. Once the prototype is polluted, the attacker can modify the behavior of all plain objects within the JavaScript application's process. This can lead to various outcomes depending on the application logic, including remote code execution (RCE) if the application relies on polluted properties for security-sensitive checks, or service disruption. The issue impacts all versions prior to 5.0.0.
