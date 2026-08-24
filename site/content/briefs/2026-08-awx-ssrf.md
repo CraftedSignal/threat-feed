@@ -1,20 +1,19 @@
 ---
-title: SSRF Vulnerability in AWX Webhook Callback Mechanism (CVE-2026-71365)
+title: SSRF and Credential Leakage in AWX Notification Backends
 slug: 2026-08-awx-ssrf
-description: An SSRF vulnerability in the AWX webhook status callback mechanism allows attackers with template-level administrative access to exfiltrate Git Personal Access Tokens via forged webhook payloads.
-date: "2026-08-18T16:55:49Z"
+description: CVE-2026-71366 allows authenticated AWX notification administrators to perform SSRF and exfiltrate credentials by leveraging insufficient validation of notification template targets.
+date: "2026-08-24T18:03:56Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - webserver
+  - web-vulnerability
   - ssrf
-  - credential-theft
-  - vulnerability
+  - credential-leakage
 vendors:
-  - Red Hat
+  - Ansible
 products:
   - AWX
 mitre_ttps:
@@ -22,33 +21,48 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: A user with admin role on a webhook-enabled job template can read the template's webhook signing key, forge a signed GitHub webhook payload with an arbitrary statuses_url
+    evidence: The webhook, Mattermost, Rocket.Chat, and Grafana notification backends use notification template URLs as direct HTTP request targets without validating the target address against private, loopback, or reserved IP ranges.
     confidence_band: high
   - tactic_id: TA0010
     tactic_name: Exfiltration
-    technique_id: T1530
-    technique_name: Data from Cloud Storage
-    evidence: The status update request includes the configured Git Personal Access Token (PAT) in the Authorization header, resulting in credential leakage
+    technique_id: T1537
+    technique_name: Transfer Data to Cloud Account
+    evidence: the webhook notification backend follows HTTP redirects and resends configured Basic Authentication credentials to redirect targets regardless of host change, allowing an attacker to exfiltrate notification credentials
     confidence_band: high
 cves:
-  - id: CVE-2026-71365
+  - id: CVE-2026-71366
     cvss: 7.7
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71365
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-71366
+action_plan:
+  priority: elevated
+  owners:
+    - SOC
+    - IT Operations
+  immediate_actions:
+    - action: Audit notification templates for internal or loopback IP targets
+      owner: IT Operations
+      due: 24h
+      evidence: Organization notification administrator can create notification templates pointing to internal or loopback addresses
+  mitigation_plan:
+    - priority: immediate
+      action: Configure egress network policy to restrict AWX control node traffic to known/required notification endpoints
+      owner: IT Operations
+      addresses: CVE-2026-71366
+      evidence: The vulnerability arises because notification template URLs are not validated against restricted IP ranges
 ---
 
-CVE-2026-71365 is a critical server-side request forgery (SSRF) vulnerability identified in the AWX automation platform. The flaw exists within the webhook status callback mechanism, specifically when processing incoming GitHub pull request webhooks. AWX extracts the status callback URL from the payload without performing validation against expected Git provider domains. 
+CVE-2026-71366 describes a critical server-side request forgery (SSRF) vulnerability impacting multiple notification backends within AWX, including Webhook, Mattermost, Rocket.Chat, and Grafana. The vulnerability exists because the application fails to validate user-supplied notification template URLs against private, loopback, or reserved IP ranges. 
 
-An attacker who possesses administrative rights on a job template configured for webhooks can access the template's webhook signing key. This access allows the attacker to forge a signed GitHub webhook payload containing a malicious 'statuses_url'. When AWX processes this forged payload, it sends an authenticated HTTP POST request to the attacker-defined URL. Because the request includes the configured Git Personal Access Token (PAT) within the Authorization header, this vulnerability enables the silent exfiltration of credentials to external or internal attacker-controlled endpoints. 
+An attacker with notification administrator privileges can exploit this to force the AWX control node to perform HTTP requests against sensitive internal infrastructure or local services typically unreachable from the internet. The risk is compounded by secondary issues in the webhook backend, which follows HTTP redirects while improperly propagating configured Basic Authentication credentials to external, attacker-controlled hosts. Similarly, the Grafana backend exposes API keys in the Authorization header during these unauthorized requests. This issue enables both unauthorized internal network probing and the exfiltration of sensitive service credentials.
 
 ## Impact
 
-The impact of this vulnerability is significant, as it facilitates the unauthorized exfiltration of Git Personal Access Tokens used for integration with version control systems. Organizations utilizing AWX for automated job templates are at risk of losing service account credentials, which could lead to further unauthorized access, code repository tampering, or lateral movement within the development pipeline.
+Successful exploitation allows an authenticated administrator to bypass network access controls to probe internal services and exfiltrate authentication tokens, potentially leading to privilege escalation or lateral movement within the network.
 
 ## Recommendation
 
-- Audit all AWX job templates configured for webhooks to identify and restrict administrative access.
-- Implement egress filtering at the network level to prevent AWX server instances from initiating connections to unauthorized or untrusted external domains.
-- Review access logs and audit trails for job templates to identify potentially unauthorized webhook configuration changes.
-- Monitor AWX server outbound traffic logs for unexpected POST requests directed toward non-Git provider infrastructure.
-- Patch AWX to the latest version provided by Red Hat that addresses CVE-2026-71365.
+* Audit existing notification templates in AWX to identify URLs targeting internal network segments or loopback addresses.
+* Implement strict egress filtering on the AWX control node to prevent unauthorized connections to internal resources.
+* Rotate any credentials or API keys that have been configured in AWX notification templates, as these may have been exposed through the identified redirect and header leakage mechanisms.
+* Apply vendor-supplied security patches for AWX to remediate the lack of URL validation.
