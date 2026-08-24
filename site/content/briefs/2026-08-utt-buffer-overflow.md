@@ -3,6 +3,7 @@ title: Stack-Based Buffer Overflow in UTT HiPER 1250GW
 slug: 2026-08-utt-buffer-overflow
 description: A critical stack-based buffer overflow vulnerability in the UTT HiPER 1250GW HTTP handler allows remote authenticated attackers to execute arbitrary code via a crafted 'pvid' parameter.
 date: "2026-08-19T04:58:35Z"
+lastmod: "2026-08-24T03:40:46Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +30,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76004
   - https://vuldb.com/vuln/391920
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-78169
+  - https://vuldb.com/vuln/394558
 rules:
   - title: Detects CVE-2026-76004 Exploitation Attempt - Large PVID Argument
     description: Detects exploitation attempts by monitoring for POST requests to the vulnerable management endpoint with an excessively long 'pvid' parameter.
@@ -40,7 +43,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-78169 Exploitation Attempt
+    description: Detects potential exploitation attempts of CVE-2026-78169 by monitoring POST requests to /goform/aspRemoteApConfTempSend with unusually long Profile parameters.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -60,6 +73,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: CVE-2026-76004 target URI.
+updates:
+  - at: "2026-08-24T03:40:46Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-78169 Exploitation Attempt'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-78169
 ---
 
 A critical stack-based buffer overflow vulnerability, tracked as CVE-2026-76004, has been identified in UTT HiPER 1250GW routers running firmware versions up to 3.2.7-210907-180535. The vulnerability resides in the HTTP Handler component, specifically within the `strcpy` function of the `/goform/aspApBasicConfigUrcp` file. By submitting a malicious payload via the `pvid` argument, an authenticated remote attacker can cause a stack-based buffer overflow. This vulnerability has been disclosed publicly, and exploit code is available, increasing the risk of exploitation. Successful exploitation may allow an attacker to gain arbitrary code execution, leading to full system compromise of the network device.
