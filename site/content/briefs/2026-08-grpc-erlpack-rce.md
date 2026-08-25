@@ -3,17 +3,24 @@ title: Critical RCE and DoS Vulnerability in Elixir gRPC Package
 slug: 2026-08-grpc-erlpack-rce
 description: The GRPC.Codec.Erlpack decoder in the Elixir gRPC package is vulnerable to unauthenticated remote code execution and node-level denial of service due to insecure deserialization of untrusted gRPC payloads.
 date: "2026-08-25T18:48:23Z"
-lastmod: "2026-08-25T18:49:12Z"
+lastmod: "2026-08-25T18:49:20Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+tags:
+  - denial-of-service
+  - elixir
+  - erlang
+  - grpc
+  - memory-exhaustion
 vendors:
   - elixir-grpc
 products:
   - grpc
   - grpc (>= 0.4.0, < 1.0.0)
+  - grpc (>= 0.3.1, < 1.0.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -37,6 +44,8 @@ references:
   - https://github.com/advisories/GHSA-6ccx-9c9f-327w
   - https://github.com/elixir-grpc/grpc/commit/beae6800fc8baf126f3fe7107d86a50e105275ba
   - CVE-2026-53430
+  - https://github.com/advisories/GHSA-q8gf-9rvj-gmgj
+  - https://github.com/elixir-grpc/grpc/commit/49e18c3ec6bb9afe2f712caad3dbab5c56a68a00
 action_plan:
   priority: immediate_escalation
   owners:
@@ -61,6 +70,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-6ccx-9c9f-327w
+  - at: "2026-08-25T18:49:20Z"
+    level: L1
+    summary: added coverage for grpc (>= 0.3.1, < 1.0.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-q8gf-9rvj-gmgj
 ---
 
 The `grpc` package for Elixir (versions 0.4.0 through 0.9.x) contains a critical vulnerability in `GRPC.Codec.Erlpack.decode/2` that allows for unauthenticated remote code execution (RCE) and denial of service (DoS). The vulnerability stems from the use of `:erlang.binary_to_term/1` on raw gRPC message bodies without the mandatory `:safe` option. This function is used to deserialize data provided via the `application/grpc+erlpack` content type.
