@@ -3,6 +3,7 @@ title: Arbitrary File Write Vulnerability in PraisonAI Agents
 slug: 2026-08-praisonaiagents-path-traversal
 description: The FileMemory component in praisonaiagents versions 1.6.52 and earlier fails to sanitize user-supplied identifiers, enabling path traversal attacks that result in arbitrary JSON file creation or overwriting.
 date: "2026-08-25T16:02:43Z"
+lastmod: "2026-08-25T16:03:03Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,9 @@ tags:
   - vulnerability
   - path-traversal
   - python
+  - ssrf
+  - praisonaiagents
+  - cloud-security
 vendors:
   - PraisonAI
 products:
@@ -23,12 +27,20 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The vulnerability allows for arbitrary file write which can be leveraged to write system-level scripts or configuration files.
     confidence_band: med
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: The validator's dependency on initial resolution allows for the injection of malicious URLs that pivot into the internal network.
+    confidence_band: med
 cves:
   - id: CVE-2026-55527
     cvss: 7.1
 references:
   - https://github.com/advisories/GHSA-gxmw-5f7x-6g22
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55527
+  - https://github.com/advisories/GHSA-vg6p-v9vm-6fgj
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-55524
 action_plan:
   priority: immediate_escalation
   owners:
@@ -45,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-55527
       evidence: Standard hardening for file write vulnerabilities
+updates:
+  - at: "2026-08-25T16:03:03Z"
+    level: L2
+    summary: added coverage for praisonaiagents
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-vg6p-v9vm-6fgj
 ---
 
 PraisonAI Agents (up to version 1.6.52) contains a critical path traversal vulnerability within the `FileMemory` component, located in `praisonaiagents/memory/file_memory.py`. The `__init__` method accepts a `user_id` parameter that is directly joined to a base directory without validation or normalization. An attacker able to influence this parameter - through direct API calls, agent configurations, or submitted job manifests - can inject path traversal sequences such as `../`. This allows the application to write files to arbitrary locations on the host filesystem that the process has permissions to access. The vulnerability persists in the `main` branch and is distinct from previously reported issues, posing a significant risk for file manipulation, system configuration corruption, or denial-of-service attacks.
