@@ -3,16 +3,21 @@ title: PraisonAI SSRF Vulnerability via Unvalidated Webhook URL
 slug: 2024-01-praisonai-ssrf
 description: PraisonAI versions prior to 4.5.128 are vulnerable to Server-Side Request Forgery (SSRF) due to a lack of URL validation on the webhook_url parameter in the /api/v1/runs endpoint, allowing unauthenticated attackers to send arbitrary POST requests from the server.
 date: "2026-04-09T22:16:35Z"
+lastmod: "2026-08-25T16:02:50Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:praison:praisonai:*:*:*:*:*:*:*:*
 tags:
   - ssrf
   - praisonai
   - cve-2026-40114
   - web-application
+vendors:
+  - PraisonAI
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,8 +34,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-40114
     cvss: 7.2
+    epss: 0.0028
+  - id: CVE-2026-55537
+    cvss: 7.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-40114
+  - https://github.com/advisories/GHSA-rg5q-pp8p-f7jm
 rules:
   - title: Detect Suspicious Webhook URL in PraisonAI Runs Endpoint
     description: Detects suspicious webhook URLs in requests to the /api/v1/runs endpoint of PraisonAI, indicating potential SSRF exploitation attempts.
@@ -55,6 +64,14 @@ rules:
       - network_connection
       - linux
 rules_count: 2
+updates:
+  - at: "2026-08-25T16:02:50Z"
+    level: L2
+    summary: added CVE-2026-55537
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-rg5q-pp8p-f7jm
 ---
 
 PraisonAI, a multi-agent teams system, is susceptible to a Server-Side Request Forgery (SSRF) vulnerability affecting versions prior to 4.5.128. The vulnerability resides in the `/api/v1/runs` endpoint, which accepts a `webhook_url` parameter in the request body without proper validation. This allows an unauthenticated attacker to specify an arbitrary URL, causing the PraisonAI server to send an HTTP POST request to that URL upon job completion. This flaw enables attackers to target internal services, cloud metadata endpoints, and other network-adjacent resources, potentially leading to information disclosure, privilege escalation, or denial-of-service. Organizations using affected versions of PraisonAI should upgrade to version 4.5.128 or later to mitigate this risk.
