@@ -3,7 +3,7 @@ title: Remote Code Execution in Adminer via PDO DSN Injection
 slug: 2026-08-adminer-rce
 description: Adminer versions prior to 5.4.3 are vulnerable to unauthenticated remote code execution via DSN injection, allowing attackers to write arbitrary PHP files to the web root.
 date: "2026-08-25T04:05:07Z"
-lastmod: "2026-08-25T04:05:42Z"
+lastmod: "2026-08-25T04:05:50Z"
 type: advisory
 types:
   - advisory
@@ -44,6 +44,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34968
   - https://github.com/vrana/adminer/security/advisories/GHSA-6pg3-chwq-wgqc
   - https://www.vulncheck.com/advisories/adminer-before-arbitrary-file-deletion-via-sqlite-drop
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-56702
+  - https://github.com/vrana/adminer/security/advisories/GHSA-vcvj-rwwm-x6g5
+  - https://www.vulncheck.com/advisories/adminer-before-unrestricted-file-upload-via-adminerfileupload
 rules:
   - title: Detect CVE-2026-56705 Exploitation - Adminer DSN Injection
     description: Detects exploitation attempts against Adminer by searching for semicolon-injected DSN parameters in HTTP requests.
@@ -99,6 +102,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-34968
+  - at: "2026-08-25T04:05:50Z"
+    level: L2
+    summary: added coverage for Adminer (< 5.4.3)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-56702
 ---
 
 Adminer versions prior to 5.4.3 contain a critical vulnerability (CVE-2026-56705) due to the failure to properly sanitize the server field during the construction of a PHP Data Objects (PDO) Data Source Name (DSN) string. This flaw enables unauthenticated remote attackers to perform DSN injection by providing malicious input containing semicolons. By injecting specific ODBC parameters, such as 'TraceFile' and 'TraceOn', an attacker can force the application to write arbitrary content to a file on the server. If this file is placed within the web root, the attacker can execute the written PHP code, leading to full system compromise. This vulnerability represents a high-risk vector for organizations running instances of Adminer exposed to the internet.
