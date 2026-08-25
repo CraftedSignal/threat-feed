@@ -3,18 +3,34 @@ title: Adobe Security Updates — August 2026
 slug: 2026-08-adobe-security-updates
 description: Roundup of Adobe security advisories published in August 2026.
 date: "2026-08-03T23:42:20Z"
-lastmod: "2026-08-11T21:50:36Z"
+lastmod: "2026-08-25T18:51:13Z"
 type: threat
 types:
   - threat
 severities:
   - high
 cpes:
-  - cpe:2.3:a:adobe:campaign:*:*:*:*:classic:*:*:*
-  - cpe:2.3:a:adobe:campaign:7.4.3:9394:*:*:classic:*:*:*
-  - cpe:2.3:a:adobe:campaign:7.4.3:9396:*:*:classic:*:*:*
-  - cpe:2.3:a:adobe:campaign:7.4.3:9397:*:*:classic:*:*:*
-  - cpe:2.3:a:adobe:campaign:7.4.3:9398:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:-:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update1:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update10:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update11:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update12:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update13:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update14:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update15:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update16:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update17:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update18:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update19:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update2:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update20:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update21:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update22:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update3:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update4:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update5:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update6:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:lightroom:*:*:*:*:classic:*:*:*
 tags:
   - roundup
 vendors:
@@ -23,63 +39,41 @@ cves:
   - id: CVE-2026-48362
     product: ColdFusion 2025 (<= 2025.0.11)
     cvss: 10
-  - id: CVE-2026-71384
-    cvss: 9.6
-  - id: CVE-2026-21273
-    product: ColdFusion 2025 (<= 2025.0.11)
-    cvss: 8.7
-  - id: CVE-2026-21279
-    cvss: 8.2
-  - id: CVE-2026-25652
-    cvss: 7.8
-  - id: CVE-2026-34635
-    cvss: 8.4
-  - id: CVE-2026-48385
-    cvss: 7.7
-  - id: CVE-2026-48386
-    product: ColdFusion 2025 (<= 2025.0.11)
-    cvss: 7.5
-  - id: CVE-2026-48439
-    cvss: 7.5
-  - id: CVE-2026-48442
-    cvss: 7.1
-  - id: CVE-2026-27302
-    cvss: 10
+    epss: 0.04312
   - id: CVE-2026-71362
     cvss: 9.1
-  - id: CVE-2026-71398
-    cvss: 10
-  - id: CVE-2026-47940
-    cvss: 7.8
-  - id: CVE-2026-48397
-    cvss: 8.6
-  - id: CVE-2026-48405
-    cvss: 7.8
+    epss: 0.25136
   - id: CVE-2026-48410
     cvss: 7.8
-  - id: CVE-2026-48317
-    cvss: 9.6
-    epss: 0.00486
-  - id: CVE-2026-48331
+    epss: 0.00158
+  - id: CVE-2026-48415
+    cvss: 7.6
+    epss: 0.00349
+  - id: CVE-2026-76193
     cvss: 10
-    epss: 0.00473
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-48447
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76193
 updates:
-  - at: "2026-08-11T21:50:08Z"
+  - at: "2026-08-11T21:50:11Z"
     level: L2
-    summary: added CVE-2026-48397 +4
+    summary: added CVE-2026-48397 +3
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48397
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48405
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48408
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48415
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48447
+  - at: "2026-08-25T18:51:13Z"
+    level: L2
+    summary: added CVE-2026-48415 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76193
 ---
 
-This roundup covers 24 Adobe security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Campaign Classic, Adobe Commerce, ColdFusion, ColdFusion 2025, Content Credentials Rust SDK, Lightroom Classic.
+This roundup covers 25 Adobe security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Campaign Classic, Adobe Commerce, ColdFusion, ColdFusion 2025, Content Credentials Rust SDK, Lightroom Classic.
 
 ## Summary
 
@@ -100,7 +94,7 @@ This roundup covers 24 Adobe security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-71362](#cve-2026-71362) | n/a | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71362) (authoritative) |
 | [CVE-2026-71398](#cve-2026-71398) | Adobe Campaign Classic (<= 7.4.3 build 9399) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71398) (authoritative) |
 | [CVE-2026-47940](#cve-2026-47940) | n/a | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-47940) (authoritative) |
-| [CVE-2026-48397](#cve-2026-48397) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48397) (authoritative) |
+| [CVE-2026-48397](#cve-2026-48397) | n/a | High | 8.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48397) (authoritative) |
 | [CVE-2026-48405](#cve-2026-48405) | n/a | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48405) (authoritative) |
 | [CVE-2026-48406](#cve-2026-48406) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48406) (authoritative) |
 | [CVE-2026-48407](#cve-2026-48407) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48407) (authoritative) |
@@ -109,6 +103,7 @@ This roundup covers 24 Adobe security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-48413](#cve-2026-48413) | Adobe Commerce (<= 2026-07-31) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48413) (authoritative) |
 | [CVE-2026-48415](#cve-2026-48415) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48415) (authoritative) |
 | [CVE-2026-48416](#cve-2026-48416) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48416) (authoritative) |
+| [CVE-2026-48447](#cve-2026-48447) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48447) (authoritative) |
 
 
 ## CVE-2026-48362
@@ -120,6 +115,7 @@ Affected products:
 - ColdFusion 2023 (<= 2023.0.22)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48362
+
 
 
 
@@ -159,6 +155,7 @@ Affected products:
 - ColdFusion 2023 (<= 2023.0.22)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-21273
+
 
 
 
@@ -237,6 +234,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48386
 
 
 
+
 Related in this roundup: [CVE-2026-48362](#cve-2026-48362), [CVE-2026-21273](#cve-2026-21273).
 
 ## CVE-2026-48439
@@ -249,6 +247,7 @@ Affected products:
 - Content Credentials JS SDK (<= @contentauth/c2pa@0.14.2)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48439
+
 
 
 
@@ -295,6 +294,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48442
 
 
 
+
 Related in this roundup: [CVE-2026-48439](#cve-2026-48439).
 
 ## CVE-2026-27302
@@ -305,6 +305,7 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.3 build 9399)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-27302
+
 
 
 
@@ -332,6 +333,7 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.3 build 9399)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-71398
+
 
 
 
@@ -412,3 +414,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48415
 CVE-2026-48416 is an incorrect authorization vulnerability in Adobe Commerce and Magento Open Source that allows remote, unauthenticated attackers to bypass security measures and gain unauthorized read access to sensitive data. The vulnerability does not require user interaction and is exploitable over the network.
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48416
+
+## CVE-2026-48447
+
+Adobe Lightroom Classic is vulnerable to an incorrect authorization flaw (CWE-863) that can be exploited to achieve arbitrary code execution. The vulnerability is triggered when a user opens a maliciously crafted file. Successful exploitation requires user interaction and specific conditions beyond the attacker's control.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48447
