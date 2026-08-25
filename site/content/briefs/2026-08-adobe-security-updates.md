@@ -3,7 +3,7 @@ title: Adobe Security Updates — August 2026
 slug: 2026-08-adobe-security-updates
 description: Roundup of Adobe security advisories published in August 2026.
 date: "2026-08-03T23:42:20Z"
-lastmod: "2026-08-25T18:53:05Z"
+lastmod: "2026-08-25T18:53:09Z"
 type: threat
 types:
   - threat
@@ -88,16 +88,11 @@ cves:
     cvss: 10
   - id: CVE-2026-76195
     cvss: 10
+  - id: CVE-2026-48419
+    cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-48420
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48421
 updates:
-  - at: "2026-08-25T18:51:13Z"
-    level: L2
-    summary: added CVE-2026-48415 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-76193
   - at: "2026-08-25T18:52:55Z"
     level: L2
     summary: added CVE-2026-25652 +2
@@ -126,16 +121,23 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48420
+  - at: "2026-08-25T18:53:09Z"
+    level: L2
+    summary: added CVE-2026-48419
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48421
 ---
 
-This roundup covers 31 Adobe security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Campaign Classic, Adobe Commerce, Adobe Substance 3D Sampler, ColdFusion, ColdFusion 2025, Content Credentials Rust SDK, Lightroom Classic, Substance 3D Sampler.
+This roundup covers 32 Adobe security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Campaign Classic, Adobe Commerce, Adobe Substance 3D Sampler, ColdFusion, ColdFusion 2025, Content Credentials Rust SDK, Lightroom Classic, Substance 3D Sampler.
 
 ## Summary
 
 | CVE | Product | Severity | CVSS | EPSS | KEV | Source |
 |-----|---------|----------|------|------|-----|--------|
 | [CVE-2026-48362](#cve-2026-48362) | ColdFusion 2025 (<= 2025.0.11) | Critical | 10.0 | 4.31% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48362) (authoritative) |
-| [CVE-2026-71384](#cve-2026-71384) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71384) (authoritative) |
+| [CVE-2026-71384](#cve-2026-71384) | n/a | Critical | 9.6 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71384) (authoritative) |
 | [CVE-2026-21273](#cve-2026-21273) | ColdFusion 2025 (<= 2025.0.11) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-21273) (authoritative) |
 | [CVE-2026-21279](#cve-2026-21279) | n/a | High | 8.2 | 0.47% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-21279) (authoritative) |
 | [CVE-2026-25652](#cve-2026-25652) | n/a | High | 7.8 | 0.14% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-25652) (authoritative) |
@@ -143,7 +145,7 @@ This roundup covers 31 Adobe security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-48385](#cve-2026-48385) | ColdFusion (<= 2025.0.11) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48385) (authoritative) |
 | [CVE-2026-48386](#cve-2026-48386) | ColdFusion 2025 (<= 2025.0.11) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48386) (authoritative) |
 | [CVE-2026-48439](#cve-2026-48439) | Content Credentials Rust SDK (<= c2pa-v0.90.5) | High | 7.5 | 0.51% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48439) (authoritative) |
-| [CVE-2026-48440](#cve-2026-48440) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48440) (authoritative) |
+| [CVE-2026-48440](#cve-2026-48440) | n/a | High | 8.1 | 0.55% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48440) (authoritative) |
 | [CVE-2026-48442](#cve-2026-48442) | Content Credentials Rust SDK (<= c2pa-v0.90.5) | High | 7.1 | 0.24% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48442) (authoritative) |
 | [CVE-2026-27302](#cve-2026-27302) | Adobe Campaign Classic (<= 7.4.3 build 9399) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-27302) (authoritative) |
 | [CVE-2026-71362](#cve-2026-71362) | n/a | Critical | 9.1 | 25.14% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71362) (authoritative) |
@@ -165,6 +167,7 @@ This roundup covers 31 Adobe security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-48417](#cve-2026-48417) | Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48417) (authoritative) |
 | [CVE-2026-48418](#cve-2026-48418) | Adobe Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48418) (authoritative) |
 | [CVE-2026-48419](#cve-2026-48419) | Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48419) (authoritative) |
+| [CVE-2026-48420](#cve-2026-48420) | Adobe Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48420) (authoritative) |
 
 
 ## CVE-2026-48362
@@ -176,6 +179,7 @@ Affected products:
 - ColdFusion 2023 (<= 2023.0.22)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48362
+
 
 
 
@@ -222,6 +226,7 @@ Affected products:
 - ColdFusion 2023 (<= 2023.0.22)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-21273
+
 
 
 
@@ -314,6 +319,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48386
 
 
 
+
 Related in this roundup: [CVE-2026-48362](#cve-2026-48362), [CVE-2026-21273](#cve-2026-21273).
 
 ## CVE-2026-48439
@@ -326,6 +332,7 @@ Affected products:
 - Content Credentials JS SDK (<= @contentauth/c2pa@0.14.2)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48439
+
 
 
 
@@ -386,6 +393,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48442
 
 
 
+
 Related in this roundup: [CVE-2026-48439](#cve-2026-48439).
 
 ## CVE-2026-27302
@@ -396,6 +404,7 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.3 build 9399)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-27302
+
 
 
 
@@ -430,6 +439,7 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.3 build 9399)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-71398
+
 
 
 
@@ -538,6 +548,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76193
 
 
 
+
 Related in this roundup: [CVE-2026-27302](#cve-2026-27302), [CVE-2026-71398](#cve-2026-71398), [CVE-2026-76195](#cve-2026-76195), [CVE-2026-76197](#cve-2026-76197).
 
 ## CVE-2026-76195
@@ -548,6 +559,7 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.4 build 9400)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76195
+
 
 
 
@@ -567,6 +579,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76197
 
 
 
+
 Related in this roundup: [CVE-2026-27302](#cve-2026-27302), [CVE-2026-71398](#cve-2026-71398), [CVE-2026-76193](#cve-2026-76193), [CVE-2026-76195](#cve-2026-76195).
 
 ## CVE-2026-48417
@@ -577,6 +590,7 @@ Affected products:
 - Substance 3D Sampler (<= 6.0.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48417
+
 
 Related in this roundup: [CVE-2026-48419](#cve-2026-48419).
 
@@ -589,6 +603,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48418
 
+Related in this roundup: [CVE-2026-48420](#cve-2026-48420).
+
 ## CVE-2026-48419
 
 Adobe Substance 3D Sampler is vulnerable to an out-of-bounds write flaw, identified as CVE-2026-48419. This vulnerability allows an attacker to execute arbitrary code in the context of the current user if the user is tricked into opening a specially crafted, malicious file. Successful exploitation requires user interaction.
@@ -598,4 +614,16 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48419
 
+
 Related in this roundup: [CVE-2026-48417](#cve-2026-48417).
+
+## CVE-2026-48420
+
+Adobe Substance 3D Sampler versions 6.0.1 and earlier are vulnerable to an out-of-bounds write vulnerability. A remote attacker could exploit this by tricking a user into opening a maliciously crafted file, leading to arbitrary code execution in the context of the current user.
+
+Affected products:
+- Adobe Substance 3D Sampler (<= 6.0.1)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48420
+
+Related in this roundup: [CVE-2026-48418](#cve-2026-48418).
