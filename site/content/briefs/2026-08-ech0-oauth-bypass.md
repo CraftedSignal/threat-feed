@@ -3,20 +3,30 @@ title: OAuth Redirect URI Validation Bypass in Ech0
 slug: 2026-08-ech0-oauth-bypass
 description: Ech0 versions 4.5.6 and earlier contain an OAuth redirect URI validation flaw that permits attackers to intercept authorization codes, enabling full account compromise.
 date: "2026-08-25T14:08:30Z"
+lastmod: "2026-08-25T14:08:47Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 vendors:
   - Ech0
 products:
   - Ech0 (<= 4.5.6)
+  - Ech0 (4.3.4)
+mitre_ttps:
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Ech0 version 4.3.4 and earlier fails to reliably enforce scoped access token (least-privilege) restrictions on several privileged admin routes.
+    confidence_band: high
 cves:
   - id: CVE-2026-79662
     cvss: 8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-79662
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-79667
 action_plan:
   priority: immediate_escalation
   owners:
@@ -33,6 +43,14 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-79662
       evidence: Attacker can trade exchange code for victim access tokens at the public POST /api/auth/exchange endpoint
+updates:
+  - at: "2026-08-25T14:08:47Z"
+    level: L2
+    summary: added coverage for Ech0 (4.3.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-79667
 ---
 
 Ech0 versions up to 4.5.6 contain a critical OAuth redirect URI validation vulnerability located in the parseAndValidateClientRedirect function within internal/service/auth/auth.go. The vulnerability arises because the application only performs allowlist validation on the scheme and host components of a user-supplied redirect_uri, failing to account for path, query, and fragment parameters. 
