@@ -3,7 +3,7 @@ title: Adobe Security Updates — August 2026
 slug: 2026-08-adobe-security-updates
 description: Roundup of Adobe security advisories published in August 2026.
 date: "2026-08-03T23:42:20Z"
-lastmod: "2026-08-25T18:53:28Z"
+lastmod: "2026-08-25T18:53:35Z"
 type: threat
 types:
   - threat
@@ -74,6 +74,9 @@ cves:
   - id: CVE-2026-71398
     cvss: 10
     epss: 0.00794
+  - id: CVE-2026-48407
+    cvss: 7.8
+    epss: 0.00158
   - id: CVE-2026-48408
     cvss: 7.8
     epss: 0.00158
@@ -96,15 +99,8 @@ cves:
   - id: CVE-2026-48421
     cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-48430
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48433
 updates:
-  - at: "2026-08-25T18:53:02Z"
-    level: L2
-    summary: added CVE-2026-48416 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-48419
   - at: "2026-08-25T18:53:05Z"
     level: L2
     summary: added CVE-2026-48440 +1
@@ -114,16 +110,17 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48420
   - at: "2026-08-25T18:53:09Z"
     level: L2
-    summary: added CVE-2026-27302, CVE-2026-48419, CVE-2026-48421
+    summary: added CVE-2026-27302 +3
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48421
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48426
       - https://nvd.nist.gov/vuln/detail/CVE-2026-48430
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48433
 ---
 
-This roundup covers 37 Adobe security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Campaign Classic, Adobe Commerce, Adobe Substance 3D Designer, Adobe Substance 3D Sampler, ColdFusion, ColdFusion 2025, Content Credentials Rust SDK, Lightroom Classic, Substance 3D Sampler.
+This roundup covers 39 Adobe security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Campaign Classic, Adobe Commerce, Adobe Substance 3D Designer, Adobe Substance 3D Sampler, ColdFusion, ColdFusion 2025, Content Credentials Rust SDK, Lightroom Classic, Substance 3D Sampler.
 
 ## Summary
 
@@ -140,7 +137,7 @@ This roundup covers 37 Adobe security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-48439](#cve-2026-48439) | Content Credentials Rust SDK (<= c2pa-v0.90.5) | High | 7.5 | 0.51% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48439) (authoritative) |
 | [CVE-2026-48440](#cve-2026-48440) | n/a | High | 8.1 | 0.55% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48440) (authoritative) |
 | [CVE-2026-48442](#cve-2026-48442) | Content Credentials Rust SDK (<= c2pa-v0.90.5) | High | 7.1 | 0.24% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48442) (authoritative) |
-| [CVE-2026-27302](#cve-2026-27302) | Adobe Campaign Classic (<= 7.4.3 build 9399) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-27302) (authoritative) |
+| [CVE-2026-27302](#cve-2026-27302) | Adobe Campaign Classic (<= 7.4.3 build 9399) | Critical | 10.0 | 0.71% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-27302) (authoritative) |
 | [CVE-2026-71362](#cve-2026-71362) | n/a | Critical | 9.1 | 25.14% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71362) (authoritative) |
 | [CVE-2026-71398](#cve-2026-71398) | Adobe Campaign Classic (<= 7.4.3 build 9399) | Critical | 10.0 | 0.79% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71398) (authoritative) |
 | [CVE-2026-47940](#cve-2026-47940) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-47940) (authoritative) |
@@ -166,6 +163,8 @@ This roundup covers 37 Adobe security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-48426](#cve-2026-48426) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48426) (authoritative) |
 | [CVE-2026-48427](#cve-2026-48427) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48427) (authoritative) |
 | [CVE-2026-48428](#cve-2026-48428) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48428) (authoritative) |
+| [CVE-2026-48430](#cve-2026-48430) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48430) (authoritative) |
+| [CVE-2026-48432](#cve-2026-48432) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48432) (authoritative) |
 
 
 ## CVE-2026-48362
@@ -177,6 +176,8 @@ Affected products:
 - ColdFusion 2023 (<= 2023.0.22)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48362
+
+
 
 
 
@@ -229,6 +230,8 @@ Affected products:
 - ColdFusion 2023 (<= 2023.0.22)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-21273
+
+
 
 
 
@@ -333,6 +336,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48386
 
 
 
+
+
 Related in this roundup: [CVE-2026-48362](#cve-2026-48362), [CVE-2026-21273](#cve-2026-21273).
 
 ## CVE-2026-48439
@@ -345,6 +350,8 @@ Affected products:
 - Content Credentials JS SDK (<= @contentauth/c2pa@0.14.2)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48439
+
+
 
 
 
@@ -417,6 +424,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48442
 
 
 
+
+
 Related in this roundup: [CVE-2026-48439](#cve-2026-48439).
 
 ## CVE-2026-27302
@@ -427,6 +436,8 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.3 build 9399)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-27302
+
+
 
 
 
@@ -467,6 +478,8 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.3 build 9399)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-71398
+
+
 
 
 
@@ -587,6 +600,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76193
 
 
 
+
+
 Related in this roundup: [CVE-2026-27302](#cve-2026-27302), [CVE-2026-71398](#cve-2026-71398), [CVE-2026-76195](#cve-2026-76195), [CVE-2026-76197](#cve-2026-76197).
 
 ## CVE-2026-76195
@@ -597,6 +612,8 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.4 build 9400)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76195
+
+
 
 
 
@@ -628,6 +645,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76197
 
 
 
+
+
 Related in this roundup: [CVE-2026-27302](#cve-2026-27302), [CVE-2026-71398](#cve-2026-71398), [CVE-2026-76193](#cve-2026-76193), [CVE-2026-76195](#cve-2026-76195).
 
 ## CVE-2026-48417
@@ -638,6 +657,8 @@ Affected products:
 - Substance 3D Sampler (<= 6.0.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48417
+
+
 
 
 
@@ -661,6 +682,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48418
 
 
 
+
+
 Related in this roundup: [CVE-2026-48420](#cve-2026-48420), [CVE-2026-48424](#cve-2026-48424).
 
 ## CVE-2026-48419
@@ -671,6 +694,8 @@ Affected products:
 - Substance 3D Sampler (<= 6.0.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48419
+
+
 
 
 
@@ -694,6 +719,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48420
 
 
 
+
+
 Related in this roundup: [CVE-2026-48418](#cve-2026-48418), [CVE-2026-48424](#cve-2026-48424).
 
 ## CVE-2026-48421
@@ -704,6 +731,8 @@ Affected products:
 - Substance 3D Sampler (<= 6.0.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48421
+
+
 
 
 
@@ -723,6 +752,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48424
 
 
 
+
+
 Related in this roundup: [CVE-2026-48418](#cve-2026-48418), [CVE-2026-48420](#cve-2026-48420).
 
 ## CVE-2026-48426
@@ -735,7 +766,9 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48426
 
 
-Related in this roundup: [CVE-2026-48427](#cve-2026-48427), [CVE-2026-48428](#cve-2026-48428).
+
+
+Related in this roundup: [CVE-2026-48427](#cve-2026-48427), [CVE-2026-48428](#cve-2026-48428), [CVE-2026-48430](#cve-2026-48430), [CVE-2026-48432](#cve-2026-48432).
 
 ## CVE-2026-48427
 
@@ -747,7 +780,9 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48427
 
 
-Related in this roundup: [CVE-2026-48426](#cve-2026-48426), [CVE-2026-48428](#cve-2026-48428).
+
+
+Related in this roundup: [CVE-2026-48426](#cve-2026-48426), [CVE-2026-48428](#cve-2026-48428), [CVE-2026-48430](#cve-2026-48430), [CVE-2026-48432](#cve-2026-48432).
 
 ## CVE-2026-48428
 
@@ -758,4 +793,29 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48428
 
-Related in this roundup: [CVE-2026-48426](#cve-2026-48426), [CVE-2026-48427](#cve-2026-48427).
+
+
+Related in this roundup: [CVE-2026-48426](#cve-2026-48426), [CVE-2026-48427](#cve-2026-48427), [CVE-2026-48430](#cve-2026-48430), [CVE-2026-48432](#cve-2026-48432).
+
+## CVE-2026-48430
+
+Adobe Substance 3D Designer versions 16.0.4 and earlier are vulnerable to a heap-based buffer overflow that can be triggered by enticing a user to open a specially crafted malicious file. Successful exploitation allows for arbitrary code execution within the context of the current user.
+
+Affected products:
+- Adobe Substance 3D Designer (<= 16.0.4)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48430
+
+
+Related in this roundup: [CVE-2026-48426](#cve-2026-48426), [CVE-2026-48427](#cve-2026-48427), [CVE-2026-48428](#cve-2026-48428), [CVE-2026-48432](#cve-2026-48432).
+
+## CVE-2026-48432
+
+Adobe Substance 3D Designer is susceptible to a heap-based buffer overflow vulnerability that can be triggered when a user opens a specially crafted malicious file. Successful exploitation of this flaw allows an attacker to execute arbitrary code within the security context of the current user.
+
+Affected products:
+- Adobe Substance 3D Designer (<= 16.0.4)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48432
+
+Related in this roundup: [CVE-2026-48426](#cve-2026-48426), [CVE-2026-48427](#cve-2026-48427), [CVE-2026-48428](#cve-2026-48428), [CVE-2026-48430](#cve-2026-48430).
