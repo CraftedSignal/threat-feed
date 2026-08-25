@@ -3,7 +3,7 @@ title: Remote Code Execution in NLTK AllowlistUnpickler
 slug: 2026-08-nltk-rce
 description: NLTK versions prior to 3.10.3 are vulnerable to remote code execution due to improper validation of dotted names during the unpickling of transition-parser models.
 date: "2026-08-22T15:31:03Z"
-lastmod: "2026-08-22T15:31:19Z"
+lastmod: "2026-08-25T04:07:14Z"
 type: advisory
 types:
   - advisory
@@ -33,6 +33,12 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Attackers can bypass path traversal and pickle deserialization protections by exploiting the disabled security controls that are only active when manually enabled.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1204
+    technique_name: User Execution
+    evidence: Attackers can exploit bare-name binary resolution on Windows via the current working directory or on Unix-like systems via relative PATH entries to execute their binary instead of the legitimate Graphviz tool.
+    confidence_band: high
 cves:
   - id: CVE-2026-71513
     cvss: 8.8
@@ -45,6 +51,20 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62388
   - https://github.com/nltk/nltk/security/advisories/GHSA-p3m8-78j2-g5p3
   - https://www.vulncheck.com/advisories/nltk-before-insecure-default-configuration-pathsec
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-78680
+rules:
+  - title: Detect CVE-2026-78680 - Unexpected Execution of dot Binary
+    description: Detects execution of the dot binary from suspicious or user-writable directories, potentially indicating an attempt to hijack the NLTK Graphviz dependency.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1204.002
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -76,6 +96,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62388
+  - at: "2026-08-25T04:07:14Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-78680 - Unexpected Execution of dot Binary'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-78680
 ---
 
 NLTK (Natural Language Toolkit) versions before 3.10.3 contain a remote code execution vulnerability in the AllowlistUnpickler component. The vulnerability, tracked as CVE-2026-71513, stems from insufficient validation logic; while the component validates the pickle module string, it fails to validate the global name. This oversight allows an attacker to resolve dotted names via attribute traversal, successfully bypassing the allowlist. 
