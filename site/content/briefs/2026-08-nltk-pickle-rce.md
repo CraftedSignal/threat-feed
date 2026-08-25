@@ -3,7 +3,7 @@ title: Remote Code Execution in NLTK via Unsafe Pickle Deserialization
 slug: 2026-08-nltk-pickle-rce
 description: The NLTK library versions up to 3.9.4 are vulnerable to arbitrary code execution when processing crafted model files due to unsafe pickle deserialization in the TransitionParser.parse() method.
 date: "2026-08-25T04:05:30Z"
-lastmod: "2026-08-25T14:08:17Z"
+lastmod: "2026-08-25T18:09:51Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,7 @@ tags:
 products:
   - NLTK (3.9.4)
   - nltk
+  - NLTK (< 3.10.3)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -50,6 +51,12 @@ mitre_ttps:
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
     evidence: The vulnerability allows attackers to craft malicious pickle payloads to execute arbitrary commands.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The vulnerability allows attackers to inject dangerous JVM flags like -agentpath or -javaagent to achieve arbitrary code execution.
     confidence_band: high
 cves:
   - id: CVE-2026-78683
@@ -100,6 +107,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-79657
+  - at: "2026-08-25T18:09:51Z"
+    level: L2
+    summary: added coverage for NLTK (< 3.10.3)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-79675
 ---
 
 NLTK (Natural Language Toolkit) versions prior to 3.10.0 contain a critical vulnerability in the TransitionParser.parse() method, located within the nltk/parse/transitionparser.py file. This vulnerability arises because the library uses an insecure default setting for the pickle_load() function, specifically setting restricted=False. By default, this utilizes the standard WarningUnpickler which fails to restrict class resolution during the deserialization process.
