@@ -3,11 +3,15 @@ title: SQL Injection Vulnerability in Total Donations WordPress Plugin
 slug: 2026-08-total-donations-sqli
 description: The Total Donations plugin for WordPress versions up to 2.0.5 is vulnerable to unauthenticated SQL injection, allowing attackers to extract sensitive database information.
 date: "2026-08-25T10:07:20Z"
+lastmod: "2026-08-25T16:17:55Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-78568&utm_source=rss&utm_medium=rss
 vendors:
   - KlbTheme
 products:
@@ -26,6 +30,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-78568
   - https://patchstack.com/database/wordpress/plugin/totaldonations/vulnerability/wordpress-total-donations-plugin-2-0-5-sql-injection-vulnerability
   - https://www.wordfence.com/threat-intel/vulnerabilities/id/0c3ecf70-544f-49c1-a943-86df89685b58
+  - https://sploitus.com/exploit?id=CVE-2026-78568&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-78568 Exploitation - SQL Injection in Total Donations Plugin
     description: Detects potential SQL injection attempts targeting the Total Donations WordPress plugin by identifying common SQL control characters in parameters.
@@ -54,6 +59,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-78568
       evidence: NVD/Wordfence advisory
+updates:
+  - at: "2026-08-25T16:17:55Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-78568&utm_source=rss&utm_medium=rss
 ---
 
 The Total Donations plugin for WordPress (up to and including version 2.0.5) contains a critical SQL injection vulnerability identified as CVE-2026-78568. The flaw exists due to insufficient input validation and a lack of parameterized queries when handling user-supplied parameters. This security deficiency allows unauthenticated remote attackers to append arbitrary SQL commands to existing database queries. Successful exploitation permits an attacker to perform unauthorized operations on the backend database, such as exfiltrating sensitive data, modifying application content, or disrupting service availability. Given the plugin's function, it is likely to be targeted for the extraction of donor or administrative information.
