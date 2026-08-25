@@ -3,11 +3,15 @@ title: Authentication Bypass in IE-SR-2TX-WL-4G via SMS Retry Mechanism
 slug: 2026-08-sms-auth-bypass
 description: An authentication bypass vulnerability in IE-SR-2TX-WL-4G devices allows unauthenticated attackers to disable SMS password protection by triggering a fail-retry counter, leading to unauthorized command execution.
 date: "2026-08-25T12:08:01Z"
+lastmod: "2026-08-25T16:17:50Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-63587&utm_source=rss&utm_medium=rss
 vendors:
   - IE-SR
 products:
@@ -30,6 +34,7 @@ cves:
     cvss: 8.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-63587
+  - https://sploitus.com/exploit?id=CVE-2026-63587&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-63587
       evidence: An unauthenticated remote attacker who is able to send SMS messages to the device can deliberately trigger this.
+updates:
+  - at: "2026-08-25T16:17:50Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-63587&utm_source=rss&utm_medium=rss
 ---
 
 The IE-SR-2TX-WL-4G gateway contains a critical authentication vulnerability regarding its SMS control function. When the 'Enable Password Authorization' feature is active, the device tracks failed authentication attempts. A flaw in the design causes the device to automatically disable the requirement for a password after five consecutive failed attempts. An unauthenticated attacker capable of sending SMS messages to the device can exploit this by submitting five invalid password commands. Once the counter reaches the threshold, the device drops the authentication requirement for all subsequent SMS commands, granting the attacker the ability to tamper with configurations, leak device information, or cause a full denial of service. This vulnerability is significant as it provides remote, unauthenticated access to the gateway via the cellular network interface.
