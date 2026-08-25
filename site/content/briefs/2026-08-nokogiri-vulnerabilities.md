@@ -3,6 +3,7 @@ title: Vulnerabilities in Nokogiri Vendored libxml2 and libxslt Libraries
 slug: 2026-08-nokogiri-vulnerabilities
 description: Nokogiri versions prior to 1.13.2 bundle vulnerable libxml2 2.9.12 and libxslt 1.1.34 libraries, exposing applications to denial of service, memory disclosure, and potential code execution.
 date: "2026-08-25T18:09:35Z"
+lastmod: "2026-08-25T18:10:00Z"
 type: advisory
 types:
   - advisory
@@ -35,10 +36,17 @@ cpes:
   - cpe:2.3:o:apple:mac_os_x:10.15.7:security_update_2022-003:*:*:*:*:*:*
   - cpe:2.3:o:apple:macos:*:*:*:*:*:*:*:*
   - cpe:2.3:o:apple:tvos:*:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - memory-corruption
+  - libxslt
+  - nokogiri
 vendors:
   - Nokogiri
 products:
   - Nokogiri
+  - Nokogiri (< 1.18.4)
+  - libxslt (< 1.1.43)
 cves:
   - id: CVE-2021-30560
     cvss: 8.8
@@ -52,6 +60,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2022-51000
   - https://nvd.nist.gov/vuln/detail/CVE-2021-30560
   - https://nvd.nist.gov/vuln/detail/CVE-2022-23308
+  - https://nvd.nist.gov/vuln/detail/CVE-2025-71406
+  - https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-mrxw-mxhj-p664
+  - https://www.vulncheck.com/advisories/nokogiri-before-use-after-free-via-libxslt
 action_plan:
   priority: elevated
   owners:
@@ -68,6 +79,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2022-51000
       evidence: Source states Nokogiri 1.13.2 upgrades vendored libxml2 to 2.9.13 and libxslt to 1.1.35
+updates:
+  - at: "2026-08-25T18:10:00Z"
+    level: L2
+    summary: added coverage for Nokogiri (< 1.18.4) +1 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2025-71406
 ---
 
 Nokogiri versions prior to 1.13.2 (CRuby with packaged libraries) bundle vulnerable versions of libxml2 (2.9.12) and libxslt (1.1.34). These bundled libraries introduce critical security risks to Ruby applications relying on Nokogiri for XML/XSL processing. CVE-2021-30560 in libxslt enables denial-of-service attacks when processing untrusted XSL stylesheets. More severely, CVE-2022-23308 in libxml2 allows for denial-of-service, memory disclosure, or arbitrary code execution if an application parses untrusted XML documents with the DTDVALID option set to true and NOENT set to false. Because these libraries are vendored directly within the Nokogiri gem, simply updating system-level libraries is insufficient; the gem itself must be updated to version 1.13.2 or later to include the patched libxml2 (2.9.13) and libxslt (1.1.35) binaries.
