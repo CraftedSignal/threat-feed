@@ -3,12 +3,15 @@ title: OAuth Redirect URI Validation Bypass in Ech0
 slug: 2026-08-ech0-oauth-bypass
 description: Ech0 versions 4.5.6 and earlier contain an OAuth redirect URI validation flaw that permits attackers to intercept authorization codes, enabling full account compromise.
 date: "2026-08-25T14:08:30Z"
-lastmod: "2026-08-25T14:08:47Z"
+lastmod: "2026-08-25T16:16:49Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-79662&utm_source=rss&utm_medium=rss
 vendors:
   - Ech0
 products:
@@ -24,9 +27,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-79662
     cvss: 8
+  - id: CVE-2026-79667
+    cvss: 7.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-79662
   - https://nvd.nist.gov/vuln/detail/CVE-2026-79667
+  - https://sploitus.com/exploit?id=CVE-2026-79662&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -51,6 +57,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-79667
+  - at: "2026-08-25T16:16:49Z"
+    level: L2
+    summary: poc_available; added CVE-2026-79667
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-79662&utm_source=rss&utm_medium=rss
 ---
 
 Ech0 versions up to 4.5.6 contain a critical OAuth redirect URI validation vulnerability located in the parseAndValidateClientRedirect function within internal/service/auth/auth.go. The vulnerability arises because the application only performs allowlist validation on the scheme and host components of a user-supplied redirect_uri, failing to account for path, query, and fragment parameters. 
