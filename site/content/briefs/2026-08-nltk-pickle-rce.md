@@ -3,16 +3,20 @@ title: Remote Code Execution in NLTK via Unsafe Pickle Deserialization
 slug: 2026-08-nltk-pickle-rce
 description: The NLTK library versions up to 3.9.4 are vulnerable to arbitrary code execution when processing crafted model files due to unsafe pickle deserialization in the TransitionParser.parse() method.
 date: "2026-08-25T04:05:30Z"
-lastmod: "2026-08-25T04:07:30Z"
+lastmod: "2026-08-25T14:08:17Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
   - denial-of-service
   - xml-vulnerability
   - cve-2026-78681
+  - deserialization
+  - rce
+  - nltk
+  - python
 products:
   - NLTK (3.9.4)
   - nltk
@@ -41,6 +45,12 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: An attacker can supply a validated public URL that the proxy forwards to an internal loopback-only service, allowing... installation of attacker-chosen package content.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The vulnerability allows attackers to craft malicious pickle payloads to execute arbitrary commands.
+    confidence_band: high
 cves:
   - id: CVE-2026-78683
     cvss: 9.6
@@ -49,6 +59,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-78681
   - https://github.com/nltk/nltk/security/advisories/GHSA-97qj-x29f-37w7
   - https://nvd.nist.gov/vuln/detail/CVE-2026-78682
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-79657
+  - https://github.com/nltk/nltk/security/advisories/GHSA-x99w-6fgc-pmfw
+  - https://www.vulncheck.com/advisories/nltk-before-3.10.3-remote-code-execution-via-unsafe-pickle-deserialization
 action_plan:
   priority: elevated
   owners:
@@ -80,6 +93,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-78682
+  - at: "2026-08-25T14:08:17Z"
+    level: L2
+    summary: added coverage for NLTK
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-79657
 ---
 
 NLTK (Natural Language Toolkit) versions prior to 3.10.0 contain a critical vulnerability in the TransitionParser.parse() method, located within the nltk/parse/transitionparser.py file. This vulnerability arises because the library uses an insecure default setting for the pickle_load() function, specifically setting restricted=False. By default, this utilizes the standard WarningUnpickler which fails to restrict class resolution during the deserialization process.
