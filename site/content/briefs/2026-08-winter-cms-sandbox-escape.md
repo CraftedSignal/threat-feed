@@ -3,6 +3,7 @@ title: Winter CMS Twig Sandbox Escape Vulnerability
 slug: 2026-08-winter-cms-sandbox-escape
 description: Authenticated backend users with template-editing privileges can bypass the Winter CMS Twig sandbox to execute arbitrary PHP or SQL, stemming from an incomplete fix for CVE-2024-54149.
 date: "2026-08-20T19:12:33Z"
+lastmod: "2026-08-25T18:10:10Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ vendors:
   - Winter CMS
 products:
   - Winter CMS (1.2)
+  - Winter CMS (< 1.2.13)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -34,6 +36,7 @@ cves:
 references:
   - https://github.com/advisories/GHSA-8cfw-pcwh-v63w
   - https://github.com/wintercms/winter/commit/725bbcda232466f7f71381c271c6916573d576e6
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-79774
 action_plan:
   priority: elevated
   owners:
@@ -50,6 +53,14 @@ action_plan:
       owner: System Administration
       addresses: cms.manage_pages, cms.manage_layouts, cms.manage_partials
       evidence: Advisory recommends restricting permissions as interim mitigation
+updates:
+  - at: "2026-08-25T18:10:10Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-79774
 ---
 
 Winter CMS contains a sandbox escape vulnerability within its Twig template security policy, resulting from an incomplete fix for CVE-2024-54149. This vulnerability allows authenticated backend users possessing specific CMS template-editing permissions (cms.manage_pages, cms.manage_layouts, or cms.manage_partials) to escape the Twig "safe mode" sandbox. The flaw exists because the existing security blocklist in System\Twig\SecurityPolicy failed to account for recursive method forwarding in Eloquent models and query builders. By leveraging methods like saveQuietly, increment, or getConnection, an attacker can manipulate database records, execute arbitrary SQL, or achieve remote code execution by injecting PHP into CMS templates. The issue is addressed in Winter CMS v1.2.13.
