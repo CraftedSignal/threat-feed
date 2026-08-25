@@ -3,11 +3,15 @@ title: Authorization Bypass Vulnerability in Ech0
 slug: 2026-08-ech0-auth-bypass
 description: Ech0 versions prior to 4.5.1 are vulnerable to an authorization bypass in the RequireScopes middleware, allowing non-admin users to access sensitive administrative functions.
 date: "2026-08-25T14:08:38Z"
+lastmod: "2026-08-25T16:16:43Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-79665&utm_source=rss&utm_medium=rss
 tags:
   - authorization-bypass
   - web-application
@@ -30,6 +34,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-79665
   - https://github.com/lin-snow/Ech0/security/advisories/GHSA-hmmq-qh6g-6wgh
   - https://www.vulncheck.com/advisories/ech0-before-authorization-bypass-via-session-tokens
+  - https://sploitus.com/exploit?id=CVE-2026-79665&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-79665 - Unauthorized Access to Ech0 Admin Endpoints
     description: Detects unauthorized access attempts to administrative endpoints by users lacking the required scope or privilege level.
@@ -52,6 +57,14 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Ech0 before 4.5.1 contains an authorization bypass vulnerability
+updates:
+  - at: "2026-08-25T16:16:43Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-79665&utm_source=rss&utm_medium=rss
 ---
 
 Ech0 versions prior to 4.5.1 contain a critical authorization bypass vulnerability (CVE-2026-79665) stemming from insufficient validation of session tokens within the application's 'RequireScopes' middleware. This flaw effectively permits authenticated, non-privileged users to circumvent intended access controls and interact with administrative endpoints. 
