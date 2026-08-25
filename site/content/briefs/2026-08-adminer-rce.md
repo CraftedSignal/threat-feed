@@ -3,6 +3,7 @@ title: Remote Code Execution in Adminer via PDO DSN Injection
 slug: 2026-08-adminer-rce
 description: Adminer versions prior to 5.4.3 are vulnerable to unauthenticated remote code execution via DSN injection, allowing attackers to write arbitrary PHP files to the web root.
 date: "2026-08-25T04:05:07Z"
+lastmod: "2026-08-25T04:05:42Z"
 type: advisory
 types:
   - advisory
@@ -12,8 +13,14 @@ tags:
   - web-vulnerability
   - rce
   - cve-2026-56705
+  - vulnerability
+  - web-application
+  - cve-2026-34968
+vendors:
+  - Vrana
 products:
   - Adminer
+  - Adminer (< 5.4.3)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -34,6 +41,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-56705
   - https://github.com/vrana/adminer/security/advisories/GHSA-r4x9-5m63-3vxw
   - https://www.vulncheck.com/advisories/adminer-before-remote-code-execution-via-mssql-pdo-dsn-injection
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-34968
+  - https://github.com/vrana/adminer/security/advisories/GHSA-6pg3-chwq-wgqc
+  - https://www.vulncheck.com/advisories/adminer-before-arbitrary-file-deletion-via-sqlite-drop
 rules:
   - title: Detect CVE-2026-56705 Exploitation - Adminer DSN Injection
     description: Detects exploitation attempts against Adminer by searching for semicolon-injected DSN parameters in HTTP requests.
@@ -45,7 +55,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-34968 Exploitation Attempt
+    description: Detects potential exploitation attempts of CVE-2026-34968 by searching for path traversal sequences in the db[] parameter during Adminer database drop operations.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -71,6 +91,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-56705
       evidence: Unauthenticated remote access is required for exploitation.
+updates:
+  - at: "2026-08-25T04:05:42Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-34968 Exploitation Attempt'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-34968
 ---
 
 Adminer versions prior to 5.4.3 contain a critical vulnerability (CVE-2026-56705) due to the failure to properly sanitize the server field during the construction of a PHP Data Objects (PDO) Data Source Name (DSN) string. This flaw enables unauthenticated remote attackers to perform DSN injection by providing malicious input containing semicolons. By injecting specific ODBC parameters, such as 'TraceFile' and 'TraceOn', an attacker can force the application to write arbitrary content to a file on the server. If this file is placed within the web root, the attacker can execute the written PHP code, leading to full system compromise. This vulnerability represents a high-risk vector for organizations running instances of Adminer exposed to the internet.
