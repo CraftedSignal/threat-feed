@@ -3,13 +3,19 @@ title: Remote Code Execution in NLTK via Unsafe Pickle Deserialization
 slug: 2026-08-nltk-pickle-rce
 description: The NLTK library versions up to 3.9.4 are vulnerable to arbitrary code execution when processing crafted model files due to unsafe pickle deserialization in the TransitionParser.parse() method.
 date: "2026-08-25T04:05:30Z"
+lastmod: "2026-08-25T04:07:21Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+tags:
+  - denial-of-service
+  - xml-vulnerability
+  - cve-2026-78681
 products:
   - NLTK (3.9.4)
+  - nltk
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -17,11 +23,19 @@ mitre_ttps:
     technique_name: Python
     evidence: When an application loads an attacker-crafted model file, embedded pickle gadget chains execute arbitrary Python code with the privileges of the user running the application.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: Attackers can craft XML payloads with nested entity declarations that expand from hundreds of bytes to megabytes in memory, causing denial of service.
+    confidence_band: high
 cves:
   - id: CVE-2026-78683
     cvss: 9.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-78683
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-78681
+  - https://github.com/nltk/nltk/security/advisories/GHSA-97qj-x29f-37w7
 action_plan:
   priority: elevated
   owners:
@@ -38,6 +52,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-78683
       evidence: The TransitionParser.parse() method calls pickle_load() with the default restricted=False
+updates:
+  - at: "2026-08-25T04:07:21Z"
+    level: L1
+    summary: added coverage for nltk
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-78681
 ---
 
 NLTK (Natural Language Toolkit) versions prior to 3.10.0 contain a critical vulnerability in the TransitionParser.parse() method, located within the nltk/parse/transitionparser.py file. This vulnerability arises because the library uses an insecure default setting for the pickle_load() function, specifically setting restricted=False. By default, this utilizes the standard WarningUnpickler which fails to restrict class resolution during the deserialization process.
