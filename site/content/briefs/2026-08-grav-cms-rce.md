@@ -3,7 +3,7 @@ title: Remote Code Execution in Grav CMS Flex Objects Plugin
 slug: 2026-08-grav-cms-rce
 description: Authenticated users can achieve remote code execution in Grav CMS versions prior to 2.0.13 by exploiting improper input validation in the Flex Objects plugin to upload and execute arbitrary PHP files.
 date: "2026-08-14T14:12:10Z"
-lastmod: "2026-08-25T04:06:19Z"
+lastmod: "2026-08-25T04:06:50Z"
 type: advisory
 types:
   - advisory
@@ -55,6 +55,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: Attackers ... can invoke the error_log function through a data directive to append PHP payloads to web-accessible files, achieving remote code execution.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Attackers with page-edit permission can use config.get() or config.toArray() in Twig templates to retrieve sensitive values like system.cache.redis.password.
+    confidence_band: high
 cves:
   - id: CVE-2026-72819
     cvss: 8.8
@@ -77,6 +83,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-56709
   - https://github.com/getgrav/grav/security/advisories/GHSA-69vf-mjxw-x79j
   - https://www.vulncheck.com/advisories/grav-before-host-header-injection-via-sendinvitationemail
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76846
+  - https://github.com/getgrav/grav/security/advisories/GHSA-xjw5-q542-3vmr
+  - https://www.vulncheck.com/advisories/grav-before-information-disclosure-via-twig-sandbox
 rules:
   - title: Detect CVE-2026-72827 Exploitation Attempt
     description: Detects potential SSTI attempts in Grav CMS email parameters by identifying Twig syntax in HTTP POST form submissions.
@@ -116,13 +125,6 @@ action_plan:
       addresses: CVE-2026-72819
       evidence: Exploitation requires authenticated access.
 updates:
-  - at: "2026-08-14T14:12:24Z"
-    level: L2
-    summary: 'added detection rule: Detect CVE-2026-72827 Exploitation Attempt'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-72827
   - at: "2026-08-18T12:51:34Z"
     level: L2
     summary: added coverage for Grav (< 2.0.14)
@@ -151,6 +153,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-56709
+  - at: "2026-08-25T04:06:50Z"
+    level: L2
+    summary: added coverage for Grav
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76846
 ---
 
 Grav CMS versions prior to 2.0.13 contain a critical vulnerability in the Flex Objects plugin (CVE-2026-72819) that facilitates remote code execution. The vulnerability stems from insufficient validation of plugin settings during the handling of ZIP archive uploads. Authenticated attackers can bypass security checks by manipulating input parameters, specifically by utilizing array notation instead of the expected string notation. This technique allows an attacker to manipulate the underlying routine name validation, successfully invoking the unZip routine with a crafted, malicious archive. By doing so, the attacker can extract arbitrary PHP files directly into the web root, which can subsequently be executed by the web server. This vulnerability allows for full code execution in the context of the web application user, posing a significant risk to the integrity and confidentiality of the host environment. Defenders should prioritize patching to version 2.0.13 or later.
