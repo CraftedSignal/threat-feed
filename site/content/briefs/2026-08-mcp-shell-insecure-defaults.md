@@ -3,11 +3,13 @@ title: mcp-shell Insecure Configuration and Allowlist Bypass
 slug: 2026-08-mcp-shell-insecure-defaults
 description: mcp-shell versions prior to 0.6.0 suffer from default-disabled security settings and insecure allowlists, enabling unauthenticated arbitrary command execution via connected LLM agents.
 date: "2026-08-25T16:02:06Z"
+lastmod: "2026-08-25T16:02:20Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
 tags:
   - vulnerability
   - rce
@@ -17,6 +19,8 @@ vendors:
   - sonirico
 products:
   - mcp-shell
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -33,6 +37,7 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-f5pj-2738-996m
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55580
+  - https://github.com/advisories/GHSA-74hp-mggr-hv58
 action_plan:
   priority: immediate_escalation
   owners:
@@ -49,6 +54,14 @@ action_plan:
       owner: Security Engineering
       addresses: CVE-2026-55580
       evidence: Source explicitly identifies bash and python as bypass vectors.
+updates:
+  - at: "2026-08-25T16:02:20Z"
+    level: L2
+    summary: poc_available; OS linux
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-74hp-mggr-hv58
 ---
 
 mcp-shell, a tool designed to provide shell execution capabilities to Large Language Models (LLMs) via the Model Context Protocol (MCP), contains two critical configuration flaws that negate its security controls. First, the application ships with security features disabled by default in `config.go`. Unless an operator explicitly defines the `MCP_SHELL_SEC_CONFIG_FILE` environment variable, the `validateCommand` function short-circuits and allows all incoming commands without restriction. Second, the default `security.yaml` configuration included in the Docker image provides an insecure allowlist containing shell interpreters such as `/bin/bash` and `/usr/bin/python3`. 
