@@ -3,11 +3,15 @@ title: Path Traversal in Crater Invoice Self-Update API
 slug: 2026-08-crater-invoice-path-traversal
 description: Crater Invoice versions through 6.0.6 contain a path traversal vulnerability in the self-update API that allows authenticated attackers to achieve remote code execution by uploading crafted ZIP archives.
 date: "2026-08-25T14:08:52Z"
+lastmod: "2026-08-25T16:16:24Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-57863&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - path-traversal
@@ -34,6 +38,7 @@ cves:
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-57863
+  - https://sploitus.com/exploit?id=CVE-2026-57863&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -50,6 +55,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-57863
       evidence: Source advisory
+updates:
+  - at: "2026-08-25T16:16:24Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-57863&utm_source=rss&utm_medium=rss
 ---
 
 Crater Invoice through version 6.0.6 is susceptible to a path traversal vulnerability within its self-update API. The vulnerability stems from improper validation of filenames within ZIP archives processed by the application's unzip endpoint. An authenticated user with 'company owner' privileges can submit a ZIP file containing entries with directory traversal sequences (such as '../').
