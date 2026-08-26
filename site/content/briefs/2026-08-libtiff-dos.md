@@ -3,11 +3,14 @@ title: Multiple Denial of Service Vulnerabilities in libTIFF
 slug: 2026-08-libtiff-dos
 description: Multiple vulnerabilities in the libTIFF library allow a local attacker to trigger a Denial of Service condition through the processing of maliciously crafted TIFF files.
 date: "2026-08-20T13:11:09Z"
+lastmod: "2026-08-26T14:04:17Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+cpes:
+  - cpe:2.3:a:libtiff:libtiff:4.5.0:-:*:*:*:*:*:*
 vendors:
   - LibTIFF
 products:
@@ -19,8 +22,13 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: Ein lokaler Angreifer kann mehrere Schwachstellen in libTIFF ausnutzen, um einen Denial of Service Angriff durchzuführen.
     confidence_band: high
+cves:
+  - id: CVE-2023-26966
+    cvss: 5.5
+    epss: 0.00417
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0482
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3018
 action_plan:
   priority: monitor_or_close
   owners:
@@ -31,6 +39,14 @@ action_plan:
       owner: IT Operations
       addresses: libtiff
       evidence: General vulnerability notice from BSI
+updates:
+  - at: "2026-08-26T14:04:17Z"
+    level: L2
+    summary: added CVE-2023-26966
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3018
 ---
 
 The libTIFF library, a widely used toolset for reading and writing Tag Image File Format (TIFF) files, is affected by multiple vulnerabilities that could allow a local attacker to cause a Denial of Service (DoS). These issues generally stem from flaws in the way the library parses complex or malformed image structures, leading to memory corruption, infinite loops, or crashes in applications that rely on the library for image processing. Because libTIFF is a core dependency for many imaging applications, graphics suites, and web browsers across Windows, Linux, and macOS environments, this impact can range from the crash of a single user-space application to the exhaustion of system resources depending on how the application handles the library execution. Defenders should monitor for software updates provided by distribution maintainers and application vendors who package the libTIFF library.
