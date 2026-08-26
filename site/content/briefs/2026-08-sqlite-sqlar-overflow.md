@@ -3,6 +3,7 @@ title: Heap Buffer Overflow in SQLite SQLAR Extension (CVE-2026-39113)
 slug: 2026-08-sqlite-sqlar-overflow
 description: A heap buffer overflow in the SQLite SQLAR extension (CVE-2026-39113) occurs when an attacker triggers sqlar_uncompress with a 64-bit size value that gets truncated during memory allocation, leading to heap corruption and potential denial of service.
 date: "2026-08-21T12:36:14Z"
+lastmod: "2026-08-26T14:00:44Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - SQLite
 products:
   - SQLite (custom builds 2026-03-11 to 2026-04-01)
+  - SQLite
 affected_os:
   - Ubuntu 24.04
 mitre_ttps:
@@ -26,10 +28,13 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: AddressSanitizer observed a heap-buffer-overflow followed by process termination, establishing native heap corruption and denial of service.
     confidence_band: high
+cves:
+  - id: CVE-2026-39113
 references:
   - https://sploitus.com/exploit?id=A820751A-E413-589A-97E0-4BAD8D4D0CB3
   - https://github.com/sqlite/sqlite/commit/169f68ed88b34cb68f720191c64c058f2ccec508
   - https://github.com/sqlite/sqlite/commit/34e139d3a306fcc0eeaf29de69783a311d48356b
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3030
 action_plan:
   priority: monitor_or_close
   owners:
@@ -46,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-39113
       evidence: The corrected code is present in official SQLite 3.53.0.
+updates:
+  - at: "2026-08-26T14:00:44Z"
+    level: L2
+    summary: added CVE-2026-39113
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3030
 ---
 
 CVE-2026-39113 is a memory-safety vulnerability in the optional SQLAR extension (`ext/misc/sqlar.c`) of the SQLite library. The issue stems from a type-mismatch introduced in a March 2026 commit, where a 64-bit size value (`sz`) is retrieved using `sqlite3_value_int64()` but passed to `sqlite3_malloc()` (which expects a 32-bit `int` on many platforms) for buffer allocation. Meanwhile, the zlib `uncompress()` function retains the full 64-bit size, causing the library to allocate an insufficient buffer and perform an out-of-bounds heap write during decompression.
