@@ -3,7 +3,7 @@ title: Shai-Hulud Campaign Activity
 slug: 2026-07-shai-hulud-campaign
 description: Tracking brief for the Shai-Hulud campaign; individual sightings are folded in as reported.
 date: "2026-07-09T13:04:28Z"
-lastmod: "2026-08-07T03:17:11Z"
+lastmod: "2026-08-26T20:20:40Z"
 type: advisory
 types:
   - advisory
@@ -55,6 +55,7 @@ vendors:
   - Claude
   - ServiceTitan
   - Oven
+  - Python Software Foundation
 products:
   - jscrambler 8.14.0
   - npm
@@ -158,6 +159,7 @@ products:
   - one-api
   - Claude Code
   - Bun (1.3.13)
+  - pantheon-agents (>= 0.6.1, <= 0.6.2)
 affected_os:
   - Windows
   - macOS
@@ -175,6 +177,7 @@ references:
   - https://www.sonatype.com/blog/mini-shai-hulud-npm-attack-more-than-2200-components-impacted
   - https://unit42.paloaltonetworks.com/ai-token-jacking/
   - https://unit42.paloaltonetworks.com/chaindrop-npm-worm-analysis/
+  - https://github.com/advisories/GHSA-93qj-5q5v-3c2h
 iocs:
   - type: hash_sha256
     value: a742de963f14a92d24ebcbc7b44ac867e23a20d31d1b0094a13a4f83287f4e60
@@ -221,13 +224,6 @@ ioc_counts:
   hash_sha256: 5
   ip: 7
 updates:
-  - at: "2026-08-05T01:58:47Z"
-    level: L1
-    summary: new product
-    sources:
-      - microsoft-threat-intel
-    source_urls:
-      - https://www.microsoft.com/en-us/security/blog/2026/08/04/chaindrop-supply-chain-compromise-anatomy-self-propagating-worm/
   - at: "2026-08-05T09:15:27Z"
     level: L1
     summary: new IOCs
@@ -256,6 +252,13 @@ updates:
       - unit42
     source_urls:
       - https://unit42.paloaltonetworks.com/chaindrop-npm-worm-analysis/
+  - at: "2026-08-26T20:20:40Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-93qj-5q5v-3c2h
 ---
 
 This brief tracks activity attributed to the Shai-Hulud campaign. Sightings and
