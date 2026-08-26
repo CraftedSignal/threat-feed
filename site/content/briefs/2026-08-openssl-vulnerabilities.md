@@ -3,11 +3,14 @@ title: Multiple Vulnerabilities in OpenSSL
 slug: 2026-08-openssl-vulnerabilities
 description: Multiple vulnerabilities across several OpenSSL branches allow remote attackers to cause denial of service or bypass security policies.
 date: "2026-08-26T13:58:54Z"
+lastmod: "2026-08-26T14:06:06Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+vendors:
+  - OpenSSL
 products:
   - OpenSSL 1.0.2
   - OpenSSL 1.1.1
@@ -16,6 +19,7 @@ products:
   - OpenSSL 3.5
   - OpenSSL 3.6
   - OpenSSL 4.0
+  - OpenSSL
 cves:
   - id: CVE-2026-14457
     cvss: 7.5
@@ -26,6 +30,9 @@ cves:
   - id: CVE-2026-63072
     cvss: 7.5
   - id: CVE-2026-63073
+  - id: CVE-2026-63074
+    cvss: 5.9
+  - id: CVE-2026-75803
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1079/
   - https://openssl-library.org/news/secadv/20260825.txt
@@ -38,6 +45,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-63075
   - https://www.cve.org/CVERecord?id=CVE-2026-63076
   - https://www.cve.org/CVERecord?id=CVE-2026-75803
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3005
 action_plan:
   priority: elevated
   owners:
@@ -49,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-14457, CVE-2026-18798, CVE-2026-54874, CVE-2026-63072, CVE-2026-63073, CVE-2026-63074, CVE-2026-63075, CVE-2026-63076, CVE-2026-75803
       evidence: OpenSSL security advisory dated 2026-08-25
+updates:
+  - at: "2026-08-26T14:06:06Z"
+    level: L2
+    summary: added CVE-2026-63074 +1
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3005
 ---
 
 The OpenSSL project has released a security advisory addressing multiple vulnerabilities affecting several legacy and current versions of the OpenSSL cryptographic library. These vulnerabilities allow remote attackers to trigger denial of service (DoS) conditions or bypass established security policies. Affected branches include 1.0.2, 1.1.1, 3.0, 3.4, 3.5, 3.6, and 4.0. Given the ubiquity of OpenSSL in enterprise infrastructure, including web servers, load balancers, VPNs, and application runtimes, these vulnerabilities present a significant risk. Defenders should prioritize auditing systems for the specific vulnerable versions and applying the updates outlined in the OpenSSL security advisory dated August 25, 2026.
