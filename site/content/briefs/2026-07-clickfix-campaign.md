@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-08-22T01:12:10Z"
+lastmod: "2026-08-26T00:48:44Z"
 type: advisory
 types:
   - advisory
@@ -40,6 +40,7 @@ vendors:
   - WAGO
   - Siemens
   - Moxa
+  - Dropbox
 products:
   - open source packages
   - GitHub repositories
@@ -84,6 +85,8 @@ products:
   - S7-300
   - S7-1200
   - S7-1500
+  - Google Docs
+  - DocSend
 affected_os:
   - Windows
   - macOS
@@ -109,6 +112,7 @@ references:
   - https://thehackernews.com/2026/08/microsoft-links-30-rotating-domains-to.html
   - https://thehackernews.com/2026/08/stopandprotect-uses-nearly-2000-hacked.html
   - https://www.malware-traffic-analysis.net/2026/08/21/index.html
+  - https://www.huntress.com/blog/defcon-phishing-google-doc-malware
 iocs:
   - type: domain
     value: justwatch.com
@@ -159,13 +163,6 @@ ioc_counts:
   ip: 2
   url: 8
 updates:
-  - at: "2026-08-05T21:15:08Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - microsoft-threat-intel
-    source_urls:
-      - https://www.microsoft.com/en-us/security/blog/2026/08/05/macos-clickfix-campaign-learned-hide/
   - at: "2026-08-11T07:48:24Z"
     level: L1
     summary: new IOCs
@@ -194,6 +191,13 @@ updates:
       - malware-traffic-analysis
     source_urls:
       - https://www.malware-traffic-analysis.net/2026/08/21/index.html
+  - at: "2026-08-26T00:48:44Z"
+    level: L1
+    summary: new product
+    sources:
+      - huntress
+    source_urls:
+      - https://www.huntress.com/blog/defcon-phishing-google-doc-malware
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
