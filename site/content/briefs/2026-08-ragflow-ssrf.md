@@ -3,11 +3,15 @@ title: SSRF Vulnerability in RAGFlow Agent Workflow
 slug: 2026-08-ragflow-ssrf
 description: RAGFlow before 0.26.3 contains a server-side request forgery (SSRF) vulnerability in the 'Invoke' component that allows attackers to access sensitive internal network resources and cloud metadata.
 date: "2026-08-18T16:55:42Z"
+lastmod: "2026-08-27T01:36:12Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=0F12A135-B7F3-53D1-A985-FBC0FB786B9F&utm_source=rss&utm_medium=rss
 tags:
   - ssrf
   - vulnerability
@@ -32,8 +36,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-75898
     cvss: 8.5
+    epss: 0.00297
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75898
+  - https://sploitus.com/exploit?id=0F12A135-B7F3-53D1-A985-FBC0FB786B9F&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -50,6 +56,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-75898
       evidence: Mitigation for SSRF against internal resources
+updates:
+  - at: "2026-08-27T01:36:12Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=0F12A135-B7F3-53D1-A985-FBC0FB786B9F&utm_source=rss&utm_medium=rss
 ---
 
 RAGFlow before version 0.26.3 is susceptible to a server-side request forgery (SSRF) vulnerability located in the agent workflow "Invoke" component (agent/component/invoke.py). The vulnerability stems from improper validation of user-controlled URLs before they are passed to request methods (requests.get, requests.post, or requests.put). Unlike other components in the system such as the crawler or file-upload paths, the Invoke component fails to utilize the shared assert_url_is_safe validator or pin the resolved address. An attacker capable of creating or triggering an agent workflow can coerce the server to perform requests against loopback interfaces, link-local addresses, and RFC 1918 internal networks. This includes the ability to exfiltrate data from cloud instance metadata services (e.g., AWS IMDS), as the response body from the forged request is returned directly to the user as the component output.
