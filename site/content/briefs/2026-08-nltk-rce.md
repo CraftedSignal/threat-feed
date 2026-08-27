@@ -3,7 +3,7 @@ title: Remote Code Execution in NLTK AllowlistUnpickler
 slug: 2026-08-nltk-rce
 description: NLTK versions prior to 3.10.3 are vulnerable to remote code execution due to improper validation of dotted names during the unpickling of transition-parser models.
 date: "2026-08-22T15:31:03Z"
-lastmod: "2026-08-25T04:07:14Z"
+lastmod: "2026-08-27T19:14:07Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,7 @@ vendors:
 products:
   - nltk
   - NLTK (3.10.0)
+  - NLTK (3.10.3)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -52,6 +53,7 @@ references:
   - https://github.com/nltk/nltk/security/advisories/GHSA-p3m8-78j2-g5p3
   - https://www.vulncheck.com/advisories/nltk-before-insecure-default-configuration-pathsec
   - https://nvd.nist.gov/vuln/detail/CVE-2026-78680
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81726
 rules:
   - title: Detect CVE-2026-78680 - Unexpected Execution of dot Binary
     description: Detects execution of the dot binary from suspicious or user-writable directories, potentially indicating an attempt to hijack the NLTK Graphviz dependency.
@@ -103,6 +105,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-78680
+  - at: "2026-08-27T19:14:07Z"
+    level: L2
+    summary: added coverage for NLTK (3.10.3)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81726
 ---
 
 NLTK (Natural Language Toolkit) versions before 3.10.3 contain a remote code execution vulnerability in the AllowlistUnpickler component. The vulnerability, tracked as CVE-2026-71513, stems from insufficient validation logic; while the component validates the pickle module string, it fails to validate the global name. This oversight allows an attacker to resolve dotted names via attribute traversal, successfully bypassing the allowlist. 
