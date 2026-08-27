@@ -3,7 +3,7 @@ title: Dolibarr Members REST API Improper Authorization Vulnerability
 slug: 2026-08-dolibarr-api-auth
 description: An improper authorization vulnerability (CVE-2026-71504) in Dolibarr prior to version 24.0.0 allows authenticated users to overwrite the credentials of any account via the Members REST API.
 date: "2026-08-24T20:06:34Z"
-lastmod: "2026-08-27T21:10:34Z"
+lastmod: "2026-08-27T21:10:41Z"
 type: advisory
 types:
   - advisory
@@ -16,11 +16,15 @@ tags:
   - cve-2026-71504
   - sqli
   - web-vulnerability
+  - cve-2026-81730
+  - path-traversal
+  - web-application-vulnerability
 vendors:
   - Dolibarr
 products:
   - Dolibarr (24.0.0)
   - Dolibarr
+  - Dolibarr (9.0.0-23.0.4)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -42,6 +46,7 @@ references:
   - https://github.com/Dolibarr/dolibarr/releases/tag/24.0.0
   - https://www.vulncheck.com/advisories/dolibarr-members-rest-api-improper-authorization-via-password-reset
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81728
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81730
 rules:
   - title: Detects CVE-2026-71504 Exploitation - Password Overwrite via Members API
     description: Detects potential exploitation of CVE-2026-71504 by identifying POST requests to the Members REST API that involve password fields or credentials updates.
@@ -88,6 +93,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-81728
+  - at: "2026-08-27T21:10:41Z"
+    level: L2
+    summary: added coverage for Dolibarr (9.0.0-23.0.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81730
 ---
 
 Dolibarr versions prior to 24.0.0 are vulnerable to an improper authorization flaw (CVE-2026-71504) within the Members REST API. This vulnerability stems from a mass assignment issue that allows attackers possessing standard member-creation privileges to modify sensitive user account attributes. Specifically, an authenticated attacker can submit a crafted request to the API containing an arbitrary user identifier and a new password. The application fails to verify if the requester possesses the necessary permissions to change passwords, allowing the attacker to overwrite the credentials of any account, including the system administrator. This flaw facilitates full account takeover and enables the attacker to lock out legitimate users, presenting a significant risk to organizational identity management and data integrity.
