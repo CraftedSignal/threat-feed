@@ -3,6 +3,7 @@ title: Authentication Bypass in AVideo via Parameter Manipulation
 slug: 2026-08-avideo-auth-bypass
 description: An authentication bypass vulnerability in AVideo (CVE-2026-59808) allows attackers with upload access to hijack administrative sessions via improper video ownership verification.
 date: "2026-08-22T15:30:44Z"
+lastmod: "2026-08-27T19:10:41Z"
 type: advisory
 types:
   - advisory
@@ -12,10 +13,13 @@ tags:
   - authentication-bypass
   - privilege-escalation
   - web-application
+  - ssrf
+  - vulnerability
 vendors:
   - AVideo
 products:
   - AVideo
+  - AVideo (< 24.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,11 +33,24 @@ mitre_ttps:
     technique_name: 'Use Alternate Authentication Material: Pass the Hash'
     evidence: Attackers with upload permission can retrieve an administrator's video_id_hash... then use that hash in an unauthenticated request to gain administrative session access.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Unauthenticated attackers can bypass SSRF protections via the LiveLinks proxy endpoint to reach internal services.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1048
+    technique_name: Exfiltration Over Alternative Protocol
+    evidence: enabling unauthorized access to internal network resources and cloud metadata services.
+    confidence_band: high
 cves:
   - id: CVE-2026-59808
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-59808
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81678
 action_plan:
   priority: elevated
   owners:
@@ -50,6 +67,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-59808
       evidence: Source describes auth bypass via hash manipulation
+updates:
+  - at: "2026-08-27T19:10:41Z"
+    level: L2
+    summary: added coverage for AVideo (< 24.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81678
 ---
 
 AVideo through commit 9c39d8c8 contains a critical authentication bypass vulnerability due to flawed validation logic within the `deduplicateByEncoderQueueId()` and `useVideoHashOrLogin()` functions. The software fails to perform proper ownership verification when the `videos_id` parameter is omitted during an upload process, causing the system to return a `video_id_hash` belonging to any video, including those owned by administrators. Because the `useVideoHashOrLogin()` function treats this hash as a valid credential for passwordless login, an attacker can leverage a captured hash to authenticate as the video owner. This flaw allows an attacker with low-privileged upload access to escalate privileges to the administrator level, enabling full system configuration control. This vulnerability highlights the risks of implicit trust in video identifier hashes for session management.
