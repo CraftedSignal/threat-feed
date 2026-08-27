@@ -3,15 +3,21 @@ title: NLTK TweetTokenizer Regular Expression Denial of Service
 slug: 2026-08-nltk-redos
 description: The NLTK library's TweetTokenizer is vulnerable to a ReDoS attack due to an unbounded regular expression, allowing unauthenticated attackers to trigger CPU exhaustion.
 date: "2026-08-20T23:26:38Z"
+lastmod: "2026-08-27T19:14:13Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - high
+tags:
+  - vulnerability
+  - file-system
+  - python
 vendors:
   - NLTK Project
 products:
   - NLTK (< 3.10.1)
+  - NLTK (< 3.10.3)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -19,11 +25,18 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: The URLS regular expression... leads to exponential backtracking... allows an unauthenticated attacker to cause significant CPU exhaustion.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: The vulnerability allows attackers to overwrite files outside the install root through pre-existing hardlinks, potentially leading to privilege escalation.
+    confidence_band: high
 cves:
   - id: CVE-2026-72818
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72818
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81727
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +53,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-72818
       evidence: Mitigation of ReDoS CPU exhaustion
+updates:
+  - at: "2026-08-27T19:14:13Z"
+    level: L2
+    summary: added coverage for NLTK (< 3.10.3)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81727
 ---
 
 The NLTK library (versions prior to 3.10.1) contains a Regular Expression Denial of Service (ReDoS) vulnerability in the 'nltk/tokenize/casual.py' module. The 'URLS' regular expression, used by 'TweetTokenizer.WORD_RE' and 'casual_tokenize', features an unbounded domain-label repetition pattern '[a-z0-9]+(?:[.\-][a-z0-9]+)*'. Because the regex engine attempts to process crafted input strings by exploring all possible partition paths before eventually failing at the missing trailing top-level domain, an attacker can consume significant CPU cycles. A few kilobytes of specially formatted input can stall a single-threaded process for minutes. Since 'TweetTokenizer' is commonly used to process untrusted social-media input, any application exposing this functionality to the internet is susceptible to unauthenticated denial-of-service attacks. The vulnerability is remediated in NLTK version 3.10.1, which introduces bounds to the label repetition.
