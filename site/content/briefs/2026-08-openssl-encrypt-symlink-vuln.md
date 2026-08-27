@@ -3,7 +3,7 @@ title: Arbitrary Code Execution in openssl-encrypt via Symlink Following
 slug: 2026-08-openssl-encrypt-symlink-vuln
 description: The openssl-encrypt Python package before version 1.4.9 is vulnerable to a symlink-following flaw in its verify-usb functionality, allowing attackers with physical access to removable drives to achieve arbitrary code execution via crafted __pycache__ files.
 date: "2026-08-27T19:11:13Z"
-lastmod: "2026-08-27T19:11:21Z"
+lastmod: "2026-08-27T19:11:28Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +16,7 @@ tags:
 products:
   - openssl-encrypt
   - openssl_encrypt (< 1.4.9)
+  - openssl_encrypt (<= 1.4.8, 1.5.x)
 affected_os:
   - windows
   - linux
@@ -33,12 +34,19 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: Attackers on the network path can intercept cleartext credentials including client_id, passwords, and JWTs to achieve full keyserver account takeover.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: A ~50-byte crafted FLAC file declaring ~100 million samples causes a multi-gigabyte memory allocation, leading to out-of-memory denial of service.
+    confidence_band: high
 cves:
   - id: CVE-2026-81690
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81690
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81691
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81692
 action_plan:
   priority: elevated
   owners:
@@ -63,6 +71,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-81691
+  - at: "2026-08-27T19:11:28Z"
+    level: L1
+    summary: added coverage for openssl_encrypt (<= 1.4.8, 1.5.x)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81692
 ---
 
 The openssl-encrypt Python package (versions prior to 1.4.9) contains a critical symlink-following vulnerability in its verify-usb utility. The flaw arises from inconsistent handling of symbolic links during the directory scan process compared to the file verification stage. Specifically, the utility uses rglob() to enumerate drive contents, which treats symlinks as standard directories. Meanwhile, the verification logic uses O_NOFOLLOW, which only protects the final path component.
