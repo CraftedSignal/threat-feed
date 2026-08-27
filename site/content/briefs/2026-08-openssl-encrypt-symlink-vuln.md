@@ -3,7 +3,7 @@ title: Arbitrary Code Execution in openssl-encrypt via Symlink Following
 slug: 2026-08-openssl-encrypt-symlink-vuln
 description: The openssl-encrypt Python package before version 1.4.9 is vulnerable to a symlink-following flaw in its verify-usb functionality, allowing attackers with physical access to removable drives to achieve arbitrary code execution via crafted __pycache__ files.
 date: "2026-08-27T19:11:13Z"
-lastmod: "2026-08-27T19:13:34Z"
+lastmod: "2026-08-27T19:13:48Z"
 type: advisory
 types:
   - advisory
@@ -49,6 +49,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81691
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81692
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81714
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81719
 action_plan:
   priority: elevated
   owners:
@@ -87,6 +88,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-81714
+  - at: "2026-08-27T19:13:48Z"
+    level: L2
+    summary: added coverage for openssl_encrypt (< 1.4.9)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81719
 ---
 
 The openssl-encrypt Python package (versions prior to 1.4.9) contains a critical symlink-following vulnerability in its verify-usb utility. The flaw arises from inconsistent handling of symbolic links during the directory scan process compared to the file verification stage. Specifically, the utility uses rglob() to enumerate drive contents, which treats symlinks as standard directories. Meanwhile, the verification logic uses O_NOFOLLOW, which only protects the final path component.
