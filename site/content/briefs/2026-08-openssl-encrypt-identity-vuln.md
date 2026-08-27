@@ -3,7 +3,7 @@ title: CVE-2026-81702 Key Substitution in openssl_encrypt
 slug: 2026-08-openssl-encrypt-identity-vuln
 description: The openssl_encrypt library before 1.4.9 is vulnerable to key substitution attacks due to improper fingerprint validation when loading identities from local identity.json files.
 date: "2026-08-27T19:09:25Z"
-lastmod: "2026-08-27T19:13:40Z"
+lastmod: "2026-08-27T21:09:56Z"
 type: threat
 types:
   - threat
@@ -17,6 +17,8 @@ tags:
   - cve-2026-81689
   - vulnerability
   - cryptography
+  - denial-of-service
+  - cve-2026-81699
 vendors:
   - OpenSSL
   - openssl_encrypt
@@ -43,6 +45,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81689
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81705
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81718
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81699
 action_plan:
   priority: elevated
   owners:
@@ -60,13 +63,6 @@ action_plan:
       addresses: CVE-2026-81702
       evidence: Source describes local file manipulation as the exploitation vector.
 updates:
-  - at: "2026-08-27T19:10:54Z"
-    level: L2
-    summary: added coverage for openssl-encrypt (<= 1.4.8)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-81683
   - at: "2026-08-27T19:11:00Z"
     level: L2
     summary: added coverage for openssl_encrypt (< 1.4.9)
@@ -95,6 +91,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-81718
+  - at: "2026-08-27T21:09:56Z"
+    level: L1
+    summary: added coverage for openssl_encrypt (< 1.4.9)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81699
 ---
 
 The openssl_encrypt library, specifically versions prior to 1.4.9, contains a critical vulnerability (CVE-2026-81702) in its identity management mechanism. When the library loads identity configurations from the 'identity.json' file, it fails to perform necessary re-derivation and validation of identity fingerprints. This design flaw allows an attacker with local file write access to substitute legitimate public keys with attacker-controlled keys within the identity store. Because the fingerprint validation is skipped or improperly performed, the library continues to associate the manipulated identity store with the original, expected fingerprint. This enables silent key substitution where systems perform encryption using attacker-provided keys while signature verification routines falsely report successful validation, creating significant risks for data interception, spoofing, and man-in-the-middle scenarios within applications relying on this library.
