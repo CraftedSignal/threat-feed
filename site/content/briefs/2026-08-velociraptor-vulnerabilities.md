@@ -3,15 +3,25 @@ title: Multiple Vulnerabilities in Rapid7 Velociraptor
 slug: 2026-08-velociraptor-vulnerabilities
 description: Rapid7 Velociraptor is affected by multiple vulnerabilities allowing an authenticated remote attacker to perform arbitrary file manipulation, security bypass, remote code execution, and privilege escalation.
 date: "2026-08-24T15:55:50Z"
+lastmod: "2026-08-28T13:27:53Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:rapid7:velociraptor:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MAUZY0X00-VELOCIRAPTOR_CVE-2025-6264_POC&utm_source=rss&utm_medium=rss
 vendors:
   - Rapid7
 products:
   - Velociraptor
+affected_os:
+  - Windows
+  - macOS
+  - Linux
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -25,8 +35,13 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: The advisory states vulnerabilities allow for privilege escalation.
     confidence_band: high
+cves:
+  - id: CVE-2025-6264
+    cvss: 5.5
+    epss: 0.00996
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2974
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MAUZY0X00-VELOCIRAPTOR_CVE-2025-6264_POC&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +58,14 @@ action_plan:
       owner: IT Operations
       addresses: Velociraptor vulnerabilities
       evidence: BSI Security Advisory
+updates:
+  - at: "2026-08-28T13:27:53Z"
+    level: L2
+    summary: poc_available; added CVE-2025-6264; OS windows; OS macos; OS linux
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MAUZY0X00-VELOCIRAPTOR_CVE-2025-6264_POC&utm_source=rss&utm_medium=rss
 ---
 
 Rapid7 Velociraptor, an endpoint visibility and incident response tool, is affected by multiple vulnerabilities that enable an authenticated remote attacker to compromise system integrity and security posture. The vulnerabilities, as reported by the BSI, allow for arbitrary file manipulation, bypass of established security controls, remote code execution (RCE), and privilege escalation. 
