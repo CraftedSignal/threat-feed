@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in SvelteKit
 slug: 2026-08-sveltekit-dos
 description: SvelteKit versions 2.49.0 through 2.53.2 are susceptible to a denial-of-service attack due to a deserialization expansion issue in the experimental remote functions feature.
 date: "2026-08-28T13:15:13Z"
+lastmod: "2026-08-28T13:15:22Z"
 type: advisory
 types:
   - advisory
@@ -12,11 +13,13 @@ vendors:
   - Svelte
 products:
   - SvelteKit (2.49.0-2.53.2)
+  - SvelteKit (2.49.0 - 2.52.1)
 cves:
   - id: CVE-2026-82259
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82259
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82260
 action_plan:
   priority: elevated
   owners:
@@ -27,6 +30,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82259
       evidence: SvelteKit versions from 2.49.0 through 2.53.2 (fixed in 2.53.3) contain a deserialization expansion issue
+updates:
+  - at: "2026-08-28T13:15:22Z"
+    level: L1
+    summary: added coverage for SvelteKit (2.49.0 - 2.52.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82260
 ---
 
 SvelteKit versions 2.49.0 through 2.53.2 contain a critical deserialization expansion vulnerability within the experimental form remote function feature, identified as CVE-2026-82259. When the experimental.remoteFunctions configuration is enabled, the framework fails to properly validate the length of the files array or the size of individual files during form processing. An unauthenticated attacker can exploit this lack of validation by submitting specially crafted inputs that trigger recursive expansion. This process causes significant resource exhaustion on the host server, leading to a denial-of-service (DoS) condition. This vulnerability is specific to environments where the experimental remote function capabilities have been explicitly enabled. Defenders should prioritize updating to SvelteKit version 2.53.3 or later to remediate the vulnerability.
