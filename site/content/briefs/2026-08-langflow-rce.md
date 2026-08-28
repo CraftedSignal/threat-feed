@@ -1,63 +1,61 @@
 ---
-title: Remote Code Execution Vulnerability in Langflow
+title: Remote Code Execution in IBM Langflow OSS via A2A Endpoint
 slug: 2026-08-langflow-rce
-description: A vulnerability in Langflow allows a remote, authenticated attacker to execute arbitrary code, necessitating strict monitoring of service-level process execution and authentication logs.
-date: "2026-08-05T15:17:41Z"
+description: IBM Langflow OSS versions 1.0.0 through 1.11.1 contain an unauthenticated remote code execution vulnerability in the A2A public endpoint.
+date: "2026-08-28T23:34:49Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
+cpes:
+  - cpe:2.3:a:ibm:langflow:*:*:*:*:oss:*:*:*
 tags:
+  - remote-code-execution
   - vulnerability
-  - rce
-  - authentication
+  - webserver
 vendors:
-  - Langflow
+  - IBM
 products:
-  - Langflow
+  - Langflow OSS (1.0.0 - 1.11.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1078
-    technique_name: Valid Accounts
-    evidence: A remote, authenticated attacker can exploit a vulnerability in Langflow.
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote attacker to execute arbitrary code due to improper enforcement of security restrictions on the A2A public endpoint.
     confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: The vulnerability allows an attacker to execute arbitrary code.
-    confidence_band: high
+cves:
+  - id: CVE-2026-19286
+    cvss: 9.8
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2648
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19286
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - SOC
     - IT Operations
   immediate_actions:
-    - action: Review access logs for Langflow instances to ensure no unauthorized accounts exist.
-      owner: SOC
+    - action: Inventory all IBM Langflow OSS deployments and assess version status.
+      owner: IT Operations
       due: 24h
-      evidence: Source advisory notes the attacker must be authenticated.
+      evidence: CVE-2026-19286 severity 9.8
   mitigation_plan:
     - priority: immediate
-      action: Review vendor security bulletins and apply available patches for Langflow.
+      action: Upgrade to the latest version of Langflow OSS or restrict network access to the A2A endpoint.
       owner: IT Operations
-      addresses: RCE vulnerability in Langflow
-      evidence: Source advisory WID-SEC-2026-2648
+      addresses: CVE-2026-19286
+      evidence: Vulnerability requires security restriction enforcement
 ---
 
-The German Federal Office for Information Security (BSI) has released a security advisory regarding a remote code execution (RCE) vulnerability in Langflow. The vulnerability can be exploited by an attacker who has successfully authenticated to the Langflow platform. Once authenticated, the attacker can leverage the flaw to execute arbitrary commands on the underlying system hosting the Langflow instance. Given that Langflow is frequently used to manage LLM workflows and integrate with various internal data sources, this vulnerability poses a significant risk for lateral movement and unauthorized data access. Defenders should prioritize auditing authentication logs to detect unauthorized access to Langflow accounts and implement egress filtering for servers running the Langflow service.
+IBM Langflow OSS versions 1.0.0 through 1.11.1 are susceptible to a critical remote code execution (RCE) vulnerability identified as CVE-2026-19286. The issue arises from the improper enforcement of security restrictions on the A2A public endpoint. This flaw allows unauthenticated remote attackers to bypass authorization controls and execute arbitrary code on the underlying host. Given the nature of Langflow as a workflow automation and LLM orchestration tool, successful exploitation could grant an attacker full control over the application server, potentially allowing for data exfiltration, lateral movement, and the deployment of additional malicious payloads.
 
 ## Impact
 
-Successful exploitation results in full remote code execution under the privileges of the Langflow service user. This allows attackers to potentially access sensitive LLM workflow data, perform internal reconnaissance, or move laterally into other parts of the network. The scope of impact is dependent on the level of integration between the Langflow instance and the broader organizational infrastructure.
+Successful exploitation of CVE-2026-19286 leads to full server compromise. Given the application's frequent deployment in cloud and containerized environments for AI/ML pipeline management, this vulnerability poses a severe risk to intellectual property and sensitive credentials stored within the workflow environment.
 
 ## Recommendation
 
-- Audit authentication logs for Langflow to detect credential abuse or unauthorized account access.
-- Implement process monitoring for the service account running Langflow to detect anomalous subprocess spawning (e.g., shell execution).
-- Restrict network egress from servers hosting Langflow to prevent reverse shell callbacks or exfiltration.
-- Review and harden authentication mechanisms for all Langflow deployments.
+- Upgrade to a version of Langflow OSS beyond 1.11.1 that addresses CVE-2026-19286.
+- Implement strict network access control lists (ACLs) to limit exposure of the A2A endpoint to known, trusted management segments.
+- Monitor web application logs for unexpected POST requests directed at the /api/a2a or similar A2A-prefixed endpoints originating from external or unauthorized IP addresses.
