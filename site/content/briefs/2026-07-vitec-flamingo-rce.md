@@ -3,12 +3,17 @@ title: Unauthenticated OS Command Injection in Vitec Flamingo
 slug: 2026-07-vitec-flamingo-rce
 description: Vitec Flamingo version 4.12.2 contains an unauthenticated OS command injection vulnerability (CVE-2026-60121) in the `admin/ajax/ping.php` endpoint, allowing remote attackers to execute arbitrary commands with root privileges via a double-evaluation flaw in shell argument handling through the `host` POST parameter.
 date: "2026-07-13T14:17:52Z"
-lastmod: "2026-07-13T14:18:20Z"
+lastmod: "2026-08-28T17:16:32Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:vitec:flamingo:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HORKIMHAB-CVE-2026-60121-CVE-2026-61498&utm_source=rss&utm_medium=rss
 tags:
   - os-command-injection
   - rce
@@ -34,11 +39,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-60121
     cvss: 9.8
+    epss: 0.02336
   - id: CVE-2026-61498
     cvss: 9.8
+    epss: 0.04089
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-60121
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61498
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HORKIMHAB-CVE-2026-60121-CVE-2026-61498&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-60121 Exploitation - Flamingo RCE
     description: Detects CVE-2026-60121 exploitation - HTTP POST requests to admin/ajax/ping.php with shell metacharacters in parameters, indicating OS command injection attempt.
@@ -63,6 +71,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-61498
+  - at: "2026-08-28T17:16:32Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HORKIMHAB-CVE-2026-60121-CVE-2026-61498&utm_source=rss&utm_medium=rss
 ---
 
 A critical unauthenticated OS command injection vulnerability, tracked as CVE-2026-60121, has been identified in Vitec Flamingo version 4.12.2. This flaw exists within the `admin/ajax/ping.php` endpoint and stems from a double-evaluation issue in the handling of shell arguments. Remote attackers can exploit this by manipulating the `host` POST parameter with crafted shell metacharacters. Although `escapeshellarg()` is initially applied, an internal system wrapper retrieves the *decoded* value from `argv` and uses it in a subsequent `shell_exec()` call without proper escaping, leading to arbitrary command execution with root privileges through passwordless sudo. This allows for complete system compromise without prior authentication, posing a severe risk to organizations using vulnerable Vitec Flamingo instances.
