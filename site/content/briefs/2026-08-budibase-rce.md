@@ -3,7 +3,7 @@ title: Remote Code Execution via Malicious Plugin Upload in Budibase
 slug: 2026-08-budibase-rce
 description: Authenticated administrators can exploit an insecure plugin handling mechanism in Budibase versions prior to 3.41.3 to achieve remote code execution via malicious JavaScript tarball uploads.
 date: "2026-08-28T13:13:17Z"
-lastmod: "2026-08-28T13:14:12Z"
+lastmod: "2026-08-28T13:14:22Z"
 type: advisory
 types:
   - advisory
@@ -63,6 +63,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82239
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82240
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82242
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82245
 rules:
   - title: Detect Exploitation of CVE-2026-82242 - Authorization Bypass in Budibase
     description: Detects potential exploitation attempts of CVE-2026-82242 by monitoring POST requests to the /api/resources/duplicate endpoint which may indicate unauthorized resource injection.
@@ -113,6 +114,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-82242
+  - at: "2026-08-28T13:14:22Z"
+    level: L2
+    summary: added coverage for Budibase
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82245
 ---
 
 Budibase versions prior to 3.41.3 contain a critical remote code execution (RCE) vulnerability related to how the application handles plugin uploads. An authenticated user with administrator privileges can upload a specifically crafted plugin tarball containing malicious JavaScript code. The application's backend improperly handles these plugin files by invoking the JavaScript contents through the eval() function within the primary Node.js process. Because this process lacks sandboxing, the arbitrary code runs with the full privileges of the Budibase service. This vulnerability poses a severe risk to internal infrastructure, as attackers can leverage the execution context to exfiltrate sensitive environment variables, access database credentials, and potentially gain further persistence within the server environment.
