@@ -3,6 +3,7 @@ title: Broken Access Control in Snipe-IT Asset Maintenance API
 slug: 2026-08-snipe-it-auth-bypass
 description: An authenticated user in a multi-company Snipe-IT deployment can exploit an authorization flaw in the asset maintenance update API to re-parent records to assets owned by other companies, breaking tenant isolation.
 date: "2026-08-28T21:17:48Z"
+lastmod: "2026-08-28T21:18:06Z"
 type: advisory
 types:
   - advisory
@@ -14,16 +15,26 @@ tags:
   - web-application
   - privilege-escalation
   - multi-tenant
+  - web-application-vulnerability
+  - path-traversal
+  - cve-2026-55474
 vendors:
   - Snipe-IT
 products:
   - Snipe-IT (<= 8.6.1)
+  - Snipe-IT (< 8.5.0)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
     evidence: 'The update method loads the maintenance, checks access to the existing $maintenance->asset, then calls: $maintenance->fill($request->all()); $maintenance->save();'
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1083
+    technique_name: File and Directory Discovery
+    evidence: The filename parameter from the HTTP route is concatenated directly into a filesystem path with no sanitization, allowing an authenticated attacker to traverse outside the intended directory and read arbitrary files.
     confidence_band: high
 cves:
   - id: CVE-2026-55516
@@ -32,6 +43,20 @@ cves:
 references:
   - https://github.com/advisories/GHSA-575r-357h-fhch
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55516
+  - https://github.com/advisories/GHSA-c6f4-wj38-m3g3
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-55474
+rules:
+  - title: Detects CVE-2026-55474 Exploitation - Path Traversal in displaySig
+    description: Detects HTTP requests to the displaySig endpoint containing directory traversal patterns in the filename parameter.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1083
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -48,6 +73,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-55516
       evidence: Affected endpoint documentation
+updates:
+  - at: "2026-08-28T21:18:06Z"
+    level: L1
+    summary: 'added detection rule: Detects CVE-2026-55474 Exploitation - Path Traversal in displaySig'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-c6f4-wj38-m3g3
 ---
 
 Snipe-IT version 8.6.1 and earlier is vulnerable to a broken access control flaw identified as CVE-2026-55516. The vulnerability exists within the API endpoints used to update maintenance records, specifically `PATCH /api/v1/maintenances/{maintenance_id}` and `PUT /api/v1/maintenances/{maintenance_id}`. 
