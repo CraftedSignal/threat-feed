@@ -3,7 +3,7 @@ title: Broken Access Control in Snipe-IT Asset Maintenance API
 slug: 2026-08-snipe-it-auth-bypass
 description: An authenticated user in a multi-company Snipe-IT deployment can exploit an authorization flaw in the asset maintenance update API to re-parent records to assets owned by other companies, breaking tenant isolation.
 date: "2026-08-28T21:17:48Z"
-lastmod: "2026-08-28T21:18:06Z"
+lastmod: "2026-08-28T21:18:14Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,7 @@ tags:
   - web-application-vulnerability
   - path-traversal
   - cve-2026-55474
+  - authorization-bypass
 vendors:
   - Snipe-IT
 products:
@@ -45,6 +46,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55516
   - https://github.com/advisories/GHSA-c6f4-wj38-m3g3
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55474
+  - https://github.com/advisories/GHSA-vgx7-c78r-69w9
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-55460
 rules:
   - title: Detects CVE-2026-55474 Exploitation - Path Traversal in displaySig
     description: Detects HTTP requests to the displaySig endpoint containing directory traversal patterns in the filename parameter.
@@ -56,7 +59,17 @@ rules:
       - T1083
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-55460 Exploitation - Unauthorized Bulk User Deletion
+    description: Detects unauthorized attempts to invoke the bulk user deletion functionality by non-privileged users via the /users/bulksave endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege-escalation
+    techniques:
+      - T1068
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -81,6 +94,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-c6f4-wj38-m3g3
+  - at: "2026-08-28T21:18:14Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-55460 Exploitation - Unauthorized Bulk User Deletion'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-vgx7-c78r-69w9
 ---
 
 Snipe-IT version 8.6.1 and earlier is vulnerable to a broken access control flaw identified as CVE-2026-55516. The vulnerability exists within the API endpoints used to update maintenance records, specifically `PATCH /api/v1/maintenances/{maintenance_id}` and `PUT /api/v1/maintenances/{maintenance_id}`. 
