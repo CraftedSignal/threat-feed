@@ -3,11 +3,15 @@ title: Arbitrary Code Execution in SpeechBrain via Insecure YAML Deserialization
 slug: 2026-08-speechbrain-rce
 description: SpeechBrain versions prior to 1.1.1 are vulnerable to arbitrary code execution when the Checkpointer component parses maliciously crafted CKPT.yaml files using PyYAML's unsafe loader.
 date: "2026-08-27T21:10:08Z"
+lastmod: "2026-08-28T13:27:47Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=1D83D313-D087-58D2-B743-0E81FFCD6980&utm_source=rss&utm_medium=rss
 vendors:
   - SpeechBrain
 products:
@@ -24,6 +28,7 @@ cves:
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10036
+  - https://sploitus.com/exploit?id=1D83D313-D087-58D2-B743-0E81FFCD6980&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -40,6 +45,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-10036
       evidence: The attack requires writing a crafted CKPT.yaml file to a scanned directory.
+updates:
+  - at: "2026-08-28T13:27:47Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=1D83D313-D087-58D2-B743-0E81FFCD6980&utm_source=rss&utm_medium=rss
 ---
 
 SpeechBrain versions prior to 1.1.1 contain an arbitrary code execution vulnerability (CVE-2026-10036) stemming from the use of PyYAML's unsafe loader within the `Checkpointer.recover_if_possible()` method. When the library attempts to discover checkpoints, it iterates over available files and parses `CKPT.yaml` metadata. By placing a crafted YAML file containing malicious Python object construction tags, such as `!!python/object/apply`, into a directory monitored by the checkpointer, an attacker can force the application to instantiate arbitrary objects and execute code. The vulnerability is triggered during the candidate enumeration process, meaning the malicious payload is executed even if the checkpoint is not ultimately selected for recovery. This impact is significant for applications using SpeechBrain to process untrusted model checkpoints or operating in shared environments where checkpoint directories are accessible to attackers.
