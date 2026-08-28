@@ -3,6 +3,7 @@ title: 9router Authentication Bypass and SSRF via Host Header Spoofing
 slug: 2026-08-9router-auth-bypass
 description: An authentication bypass in 9router 0.4.80 and earlier allows remote attackers to spoof the 'Host' header, gaining unauthorized access to API proxy endpoints, enabling quota theft via AI relay and server-side request forgery (SSRF).
 date: "2026-08-28T21:15:37Z"
+lastmod: "2026-08-28T21:15:48Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,14 @@ tags:
   - authentication-bypass
   - ssrf
   - api-security
+  - web-vulnerability
+  - authorization-bypass
+  - llm-proxy
 vendors:
   - 9router
 products:
   - 9router (<= 0.4.80)
+  - 9router (< 0.5.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -38,6 +43,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-86m2-fcxq-5q7c
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55641
+  - https://github.com/advisories/GHSA-8gmq-j984-vp4r
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-55638
 rules:
   - title: Detect Suspicious Host Header Spoofing Attempting 9router Bypass
     description: Detects HTTP requests to potential 9router endpoints where the Host header is 'localhost' or '127.0.0.1' but originates from an external network source.
@@ -49,7 +56,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-55638 Exploitation - Unauthorized LLM Proxy Access via /codex
+    description: Detects exploitation attempts against CVE-2026-55638 by monitoring for POST requests to the /codex/ endpoint which bypasses intended authorization gates.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -77,6 +94,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-55641
       evidence: Source documentation of binding exposure
+updates:
+  - at: "2026-08-28T21:15:48Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-55638 Exploitation - Unauthorized LLM Proxy Access via /codex'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-8gmq-j984-vp4r
 ---
 
 9router versions 0.4.80 and earlier contain a critical authentication bypass vulnerability (CVE-2026-55641) located in the application's request guard logic. The `isLocalRequest` function determines if a request should be exempt from API authentication by inspecting the client-controlled `Host` header rather than the actual socket peer address. Because 9router defaults to binding to `0.0.0.0` (all interfaces) while misleadingly reporting the service as bound to "localhost," remote attackers can reach the service and spoof `Host: localhost` to be treated as local users. 
