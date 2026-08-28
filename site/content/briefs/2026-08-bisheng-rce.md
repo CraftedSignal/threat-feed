@@ -3,6 +3,7 @@ title: Remote Code Execution in BISHENG Workflow API
 slug: 2026-08-bisheng-rce
 description: Authenticated users can achieve remote code execution in BISHENG versions prior to 2.6.0 by submitting crafted Python payloads to the /api/v1/workflow/run_once endpoint.
 date: "2026-08-28T21:38:31Z"
+lastmod: "2026-08-28T21:39:18Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,15 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:bisheng:bisheng:*:*:*:*:*:*:*:*
+tags:
+  - ssrf
+  - web-vulnerability
+  - cve-2026-82285
 vendors:
   - BISHENG
 products:
   - BISHENG (< 2.6.0)
+  - bisheng (<= 2.6.0-fix2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -27,11 +33,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Attackers can submit crafted Code node definitions to the POST /api/v1/workflow/run_once endpoint, which executes them with exec() without sandboxing.
     confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1595
+    technique_name: Active Scanning
+    evidence: Unauthenticated attackers can supply arbitrary URLs to enumerate internal network services and cloud metadata endpoints.
+    confidence_band: high
 cves:
   - id: CVE-2026-82278
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82278
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82285
 rules:
   - title: Detects CVE-2026-82278 Exploitation - Remote Code Execution via Workflow API
     description: Detects attempts to execute arbitrary code by POSTing to the workflow run_once endpoint.
@@ -44,7 +57,19 @@ rules:
       - T1059.006
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-82285 Exploitation - SSRF via /api/v1/workflow/report/callback
+    description: Detects exploitation attempts against CVE-2026-82285 by monitoring for POST requests to the vulnerable callback endpoint containing suspicious URL patterns or metadata IP addresses.
+    platform: sigma
+    severity: high
+    tactics:
+      - discovery
+      - initial_access
+    techniques:
+      - T1190
+      - T1595
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -70,6 +95,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82278
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-08-28T21:39:18Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-82285 Exploitation - SSRF via /api/v1/workflow/report/callback'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82285
 ---
 
 BISHENG versions prior to 2.6.0 contain a critical remote code execution vulnerability (CVE-2026-82278) located within the workflow run_once endpoint. An authenticated attacker can exploit this vulnerability by submitting a maliciously crafted Code node definition to the POST /api/v1/workflow/run_once endpoint. The application processes this payload using the Python exec() function without adequate sandboxing or input validation. Successful exploitation grants the attacker the ability to execute arbitrary Python code within the context of the application, leading to unauthorized access to the underlying filesystem, sensitive stored credentials, and internal network resources. Defenders should prioritize patching to version 2.6.0 or later to remediate the lack of process isolation.
