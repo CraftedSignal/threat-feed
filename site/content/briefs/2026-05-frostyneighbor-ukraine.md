@@ -3,7 +3,7 @@ title: FrostyNeighbor Targets Ukraine with Updated PicassoLoader Chain
 slug: 2026-05-frostyneighbor-ukraine
 description: The FrostyNeighbor threat actor is targeting Ukrainian governmental organizations with spearphishing emails containing malicious PDFs that deliver a JavaScript dropper (PicassoLoader) and ultimately a Cobalt Strike beacon.
 date: "2026-05-15T07:00:16Z"
-lastmod: "2026-07-23T14:07:56Z"
+lastmod: "2026-08-28T11:26:10Z"
 type: threat
 types:
   - threat
@@ -35,8 +35,9 @@ cpes:
   - cpe:2.3:a:mdaemon:email_server:*:*:*:*:*:*:*:*
   - cpe:2.3:a:roundcube:webmail:*:*:*:*:*:*:*:*
   - cpe:2.3:o:debian:debian_linux:10.0:*:*:*:*:*:*:*
-  - cpe:2.3:a:ruoyi:ruoyi:*:*:*:*:*:*:*:*
 has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOELP03-CVE-2025-49113&utm_source=rss&utm_medium=rss
 tags:
   - frostyneighbor
   - cyberespionage
@@ -62,6 +63,7 @@ products:
   - Zimbra webmail
   - MDaemon Email Server
   - Kerio Webmail
+  - Roundcube Webmail (< 1.5.10, 1.6.11)
 affected_os:
   - Windows
 mitre_ttps:
@@ -80,23 +82,24 @@ mitre_ttps:
 cves:
   - id: CVE-2025-27915
     cvss: 5.4
-    epss: 0.04344
+    epss: 0.03918
   - id: CVE-2025-3929
     cvss: 6.1
-    epss: 0.00517
+    epss: 0.00593
   - id: CVE-2023-43770
     cvss: 6.1
     epss: 0.58483
   - id: CVE-2026-8496
     cvss: 6.1
-    epss: 0.00283
-  - id: CVE-2024-42900
-    cvss: 6.1
-    epss: 0.00341
+    epss: 0.00431
+  - id: CVE-2024-42009
+    cvss: 9.3
+    epss: 0.81537
 references:
   - https://www.welivesecurity.com/en/eset-research/frostyneighbor-fresh-mischief-digital-shenanigans/
   - https://cyber.gc.ca/en/alerts-advisories/vulnerability-impacting-roundcube-webmail-cve-2025-49113
   - https://www.proofpoint.com/us/blog/threat-insight/ta458-roundpress-exploits
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOELP03-CVE-2025-49113&utm_source=rss&utm_medium=rss
 iocs:
   - type: domain
     value: book-happy.needbinding[.]icu
@@ -173,6 +176,13 @@ updates:
       - proofpoint
     source_urls:
       - https://www.proofpoint.com/us/blog/threat-insight/ta458-roundpress-exploits
+  - at: "2026-08-28T11:26:10Z"
+    level: L2
+    summary: added CVE-2024-42009
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOELP03-CVE-2025-49113&utm_source=rss&utm_medium=rss
 ---
 
 ESET researchers have identified new activity from FrostyNeighbor (aka Ghostwriter, UNC1151, UAC-0057, TA445, PUSHCHA, Storm-0257) targeting governmental organizations in Ukraine starting in March 2026. FrostyNeighbor, believed to be aligned with Belarus' interests, has been active since at least 2016, primarily targeting countries neighboring Belarus. The group employs spearphishing, disinformation campaigns, and credential harvesting to compromise various entities. This recent campaign utilizes malicious PDFs delivered via spearphishing emails, exploiting server-side validation to deliver a malicious payload only to victims with Ukrainian IP addresses. The group continually updates its toolset and compromise chains to evade detection, with a focus on Ukraine, Poland, and Lithuania. The attack culminates in the deployment of a Cobalt Strike beacon for persistent access and control.
