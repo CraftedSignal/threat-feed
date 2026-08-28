@@ -1,75 +1,83 @@
 ---
-title: Principal-Type Confusion Vulnerability in Vikunja
+title: Vikunja Improper Authorization via ProjectView Deletion
 slug: 2026-08-vikunja-auth-bypass
-description: Vikunja versions up to 2.4.0 are vulnerable to authorization bypass via principal-type confusion, allowing attackers with a valid link-share JWT to manipulate team rosters and bot users.
-date: "2026-08-19T14:34:30Z"
+description: An improper authorization vulnerability in Vikunja allows authenticated users to destroy task organization data in other projects by supplying a target view ID within a crafted API request.
+date: "2026-08-28T21:18:53Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - web-vulnerability
   - authorization-bypass
-  - cve-2026-76216
+  - web-application
+  - data-destruction
 vendors:
   - Vikunja
 products:
-  - Vikunja (2.4.0 and earlier)
+  - Vikunja (all versions prior to patch)
 mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-    evidence: Vikunja through 2.4.0 contains a principal-type confusion vulnerability where LinkSharing principals with id N are treated as user principals with users.id == N at three permission checks lacking type guards.
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: Attacker registers a local account on the target Vikunja instance.
     confidence_band: high
-cves:
-  - id: CVE-2026-76216
-    cvss: 7.5
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1648
+    technique_name: Serverless Execution
+    evidence: The first scoped SQL statement fails silently because V does not belong to P_A.
+    confidence_band: med
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-76216
-  - https://github.com/go-vikunja/vikunja/security/advisories/GHSA-32r8-5843-4qw2
-  - https://www.vulncheck.com/advisories/vikunja-through-principal-type-confusion-via-linksharing
+  - https://github.com/advisories/GHSA-gg93-x632-9ccv
 action_plan:
-  priority: immediate_escalation
+  priority: elevated
   owners:
     - IT Operations
-    - Security Team
+    - Security Engineering
   immediate_actions:
-    - action: Patch Vikunja instance to 2.4.1 or later to remediate CVE-2026-76216.
+    - action: Upgrade Vikunja to the patched version.
       owner: IT Operations
       due: 24h
-      evidence: Source explicitly identifies version <= 2.4.0 as affected.
+      evidence: Source provides patching guidance via GHSA.
+  hunt_leads:
+    - lead: Search web server access logs for DELETE requests to /projects/*/views/* where the project ID does not match the user context.
+      technique_id: T1648
+      data_needed:
+        - webserver access logs
+      priority: medium
+      confidence: high
+      disposition: hunt_now
+      evidence: The attack chain relies on specific API paths.
   mitigation_plan:
     - priority: immediate
-      action: Monitor API logs for suspicious team/user modification requests.
-      owner: Security Team
-      addresses: CVE-2026-76216
-      evidence: Source notes attacker can remove victims from teams or delete bot users.
+      action: Upgrade to patched Vikunja version.
+      owner: IT Operations
+      addresses: CWE-639
+      evidence: Advisory confirms fix availability.
 ---
 
-Vikunja versions through 2.4.0 contain a critical principal-type confusion vulnerability (CVE-2026-76216) stemming from missing type guards in internal permission checks. The vulnerability occurs because the application treats 'LinkSharing' principals with ID N identically to 'user' principals with users.id == N. Because the application uses an autoincrementing ID system, an attacker possessing a valid link-share JWT can exploit ID collisions to bypass authorization boundaries. 
-
-By successfully exploiting this confusion, an unauthorized actor can perform privileged administrative actions, including removing victims from teams, enumerating and deleting bot users, or exfiltrating sensitive team roster information. This vulnerability is classified under CWE-639 (Authorization Bypass Through User-Controlled Key) and represents a significant risk to teams relying on Vikunja for sensitive task and project management. Defenders should prioritize patching to version 2.4.1 or later to implement the missing type guard logic.
+Vikunja contains an authorization bypass vulnerability (CWE-639) within the `ProjectView.Delete` method, which fails to properly validate that a requested view ID belongs to the project ID specified in the API path. Although the initial permission check correctly verifies that the user is an administrator of the provided project, the subsequent cascading delete operations on the `task_buckets` and `task_positions` tables are performed using only the view ID. Because the application does not verify the relationship between the project and the view during these cascading operations, an authenticated attacker can supply their own project ID while targeting a view ID belonging to a victim project. This results in the silent destruction of all Kanban bucket assignments and task orderings for the victim view, with no programmatic recovery path other than restoring from backups. The issue originates in `pkg/models/project_view.go` and affects all versions prior to the patch.
 
 ## Attack Chain
 
-1. The attacker obtains or generates a valid link-share JWT for a shared Vikunja resource.
-2. The attacker identifies the target user's ID or the ID of a target bot user within the application's autoincrement sequence.
-3. The attacker crafts a request to the Vikunja API, injecting their link-share JWT.
-4. The request hits one of the three vulnerable permission check endpoints lacking type validation.
-5. The backend application erroneously maps the attacker's 'LinkSharing' principal ID to the target 'user' principal ID due to the lack of type guards.
-6. The application performs authorization logic assuming the attacker is the authenticated user associated with the collided ID.
-7. The attacker executes unauthorized operations, such as deleting a bot user or accessing the team roster.
-8. The final objective is achieved: unauthorized modification of team configurations or exfiltration of roster data.
+1. Attacker registers a local account on the target Vikunja instance (no special privileges required).
+2. Attacker creates a new project via `PUT /api/v1/projects`, granting themselves Admin access to the new project ID (`P_A`).
+3. Attacker identifies a victim Kanban view ID (`V`) by enumerating projects or observing API traffic.
+4. Attacker constructs a malicious `DELETE` request: `DELETE /api/v1/projects/P_A/views/V`.
+5. The application's `CanDelete` method validates the user is an admin of `P_A` and permits the request.
+6. The `ProjectView.Delete` method executes the first scoped SQL statement, which fails silently because `V` does not belong to `P_A`.
+7. The function proceeds to execute subsequent unscoped SQL `DELETE` statements on the `task_buckets` and `task_positions` tables using `V`.
+8. All Kanban organization data for the victim view `V` is permanently deleted from the database.
 
 ## Impact
 
-Successful exploitation allows for unauthorized modification of team structures and data exfiltration. Attackers can specifically remove legitimate team members, delete automation bot users, and access private team rosters. This results in the disruption of project management workflows and potential disclosure of sensitive project data for all organizations utilizing vulnerable versions of Vikunja.
+Successful exploitation results in the permanent loss of all task-to-bucket mappings and custom task ordering for the targeted Kanban view. This causes significant operational disruption for teams relying on Kanban boards, requiring manual reconfiguration or restoration from database backups. The vulnerability is highly accessible as it requires only standard user registration.
 
 ## Recommendation
 
-* Patch all instances of Vikunja to version 2.4.1 or later immediately to address CVE-2026-76216.
-* Audit application access logs for unusual patterns of API requests originating from JWT-authenticated sessions that involve administrative endpoints (e.g., team membership or user deletion).
-* Review all team rosters for unauthorized modifications or missing bot users that may indicate past exploitation.
-* Implement strict rate limiting on API endpoints to mitigate attempts to brute-force or guess sequential user/principal IDs.
+1. Upgrade Vikunja immediately to the version containing the security patch that enforces project-view relationship validation within the `ProjectView.Delete` model method.
+2. Implement strict input validation to verify that `view_id` maps to the `project_id` provided in the API request before any database modification occurs.
+3. Ensure database backups are performed regularly and tested for restoration to mitigate the impact of data destruction vulnerabilities.
+4. Review audit logs for `DELETE` operations on the `project_views` endpoint that target views not associated with the authenticated user's project ownership.
