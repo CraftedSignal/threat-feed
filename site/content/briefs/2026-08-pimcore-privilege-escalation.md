@@ -3,6 +3,7 @@ title: Pimcore Studio API Privilege Escalation via Class Definition Endpoint
 slug: 2026-08-pimcore-privilege-escalation
 description: An insufficient permission check in the Pimcore studio-backend-bundle allows authenticated users with standard object-editing privileges to create class definitions, leading to unauthorized schema modification and server-side file creation.
 date: "2026-08-28T21:14:22Z"
+lastmod: "2026-08-28T21:14:34Z"
 type: advisory
 types:
   - advisory
@@ -18,12 +19,25 @@ vendors:
   - Pimcore
 products:
   - studio-backend-bundle (< 2025.4.6, 2026.1.0 - 2026.1.5)
+  - studio-backend-bundle (< 2025.4.6, >= 2026.1.0 < 2026.1.6)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
     evidence: The Studio API class definition creation endpoint is guarded by the objects permission instead of the classes permission, allowing any standard editor-level user to create class definitions without admin privileges.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The vulnerability arises because the 'key' field in columnFilters is concatenated into SQL queries using manual backtick wrapping without adequate sanitization.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1537
+    technique_name: Transfer Data to Cloud Account
+    evidence: An authenticated attacker can break out of the backtick quoting to inject malicious SQL commands, enabling the exfiltration of sensitive database data.
     confidence_band: high
 cves:
   - id: CVE-2026-55212
@@ -32,6 +46,7 @@ cves:
 references:
   - https://github.com/advisories/GHSA-f97c-ph8j-8vff
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55212
+  - https://github.com/advisories/GHSA-79cw-hfcc-7mw9
 rules:
   - title: Detect CVE-2026-55212 Exploitation - Unauthorized Class Definition Creation
     description: Detects potential exploitation of CVE-2026-55212 by monitoring POST requests to the vulnerable Studio API endpoint.
@@ -43,7 +58,17 @@ rules:
       - T1068
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-55208 Exploitation - Pimcore SQL Injection Attempt
+    description: Detects exploitation attempts against Pimcore studio-backend-bundle via SQL injection payloads containing backticks and SQL keywords in the columnFilters key parameter.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -69,6 +94,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-55212
       evidence: Vendor advisory fix
+updates:
+  - at: "2026-08-28T21:14:34Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-55208 Exploitation - Pimcore SQL Injection Attempt'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-79cw-hfcc-7mw9
 ---
 
 Pimcore Studio API, specifically the `pimcore/studio-backend-bundle`, contains a security flaw where the class definition creation endpoint is protected by the `objects` permission rather than the intended `classes` permission. This vulnerability, tracked as CVE-2026-55212, allows standard authenticated users with content editing rights to perform administrative actions. 
