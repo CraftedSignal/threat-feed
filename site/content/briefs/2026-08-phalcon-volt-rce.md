@@ -3,6 +3,7 @@ title: Phalcon Volt Compiler SSTI to RCE via join Filter
 slug: 2026-08-phalcon-volt-rce
 description: The Phalcon Volt template compiler fails to escape arguments in the join filter, allowing unauthenticated attackers to perform server-side template injection leading to remote code execution (CVE-2026-59989).
 date: "2026-08-22T01:16:48Z"
+lastmod: "2026-08-28T21:19:29Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - Phalcon
 products:
   - cphalcon (<= 5.15.0)
+  - cphalcon (<= 5.14.0)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -24,6 +26,9 @@ cves:
 references:
   - https://github.com/advisories/GHSA-hrwp-4hh9-c8r8
   - https://nvd.nist.gov/vuln/detail/CVE-2026-59989
+  - https://github.com/advisories/GHSA-8jqh-95g6-7jpj
+  - https://github.com/phalcon/cphalcon/issues/17090
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-54736
 action_plan:
   priority: immediate_escalation
   owners:
@@ -40,6 +45,14 @@ action_plan:
       owner: Development
       addresses: CVE-2026-59989
       evidence: PoC demonstrates injection via join filter arguments
+updates:
+  - at: "2026-08-28T21:19:29Z"
+    level: L2
+    summary: added coverage for cphalcon (<= 5.14.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-8jqh-95g6-7jpj
 ---
 
 The Volt template compiler in Phalcon (cphalcon <= 5.15.0) contains a critical vulnerability (CVE-2026-59989) in the implementation of the `join` filter. During the compilation of Volt templates into PHP, the compiler performs direct string concatenation of raw template arguments into the generated PHP code without any escaping or neutralization. Specifically, the separator literal and the array argument are spliced verbatim into the generated `join('…', …)` call.
