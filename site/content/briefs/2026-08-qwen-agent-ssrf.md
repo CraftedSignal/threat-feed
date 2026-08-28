@@ -3,6 +3,7 @@ title: SSRF Vulnerability in Qwen-Agent Document Parsing
 slug: 2026-08-qwen-agent-ssrf
 description: Qwen-Agent version 0.0.34 and earlier contains a server-side request forgery (SSRF) vulnerability that allows unauthenticated attackers to force the server to perform arbitrary internal HTTP requests and exfiltrate metadata service content.
 date: "2026-08-28T21:38:01Z"
+lastmod: "2026-08-28T21:38:24Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - ssrf
   - vulnerability
   - cloud
+  - path-traversal
+  - arbitrary-file-read
+  - web-application-vulnerability
 vendors:
   - Alibaba
 products:
@@ -25,11 +29,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Attackers can reach the unauthenticated Gradio interface to make the server issue HTTP requests to arbitrary internal addresses including metadata services and read retrieved content through parsed document output.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1083
+    technique_name: File and Directory Discovery
+    evidence: Attackers can supply absolute file paths to the unauthenticated Gradio interface to read arbitrary files accessible by the server process.
+    confidence_band: high
 cves:
   - id: CVE-2026-82268
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82268
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82275
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82268
       evidence: Source identifies vulnerability in versions <= 0.0.34.
+updates:
+  - at: "2026-08-28T21:38:24Z"
+    level: L2
+    summary: added coverage for Qwen-Agent (<= 0.0.34)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82275
 ---
 
 Qwen-Agent, an open-source agent framework, contains a server-side request forgery (SSRF) vulnerability identified as CVE-2026-82268 affecting versions through 0.0.34. The flaw exists within the document parsing functionality, which fails to adequately validate or restrict caller-supplied paths. Specifically, the application processes these paths as URLs without enforcing scheme restrictions or host validation. An unauthenticated attacker can exploit this behavior by manipulating the document parsing input to interact with the server's local environment, including internal Gradio interfaces or cloud-provider metadata services. This enables the attacker to force the server to issue arbitrary HTTP requests and potentially read returned data, which is subsequently surfaced through the application's document parsing output. This vulnerability presents a high risk for environments where Qwen-Agent is deployed with access to internal network resources or sensitive cloud service endpoints.
