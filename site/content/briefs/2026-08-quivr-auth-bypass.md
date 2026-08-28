@@ -3,6 +3,7 @@ title: Authorization Bypass in Quivr Prompt Management
 slug: 2026-08-quivr-auth-bypass
 description: An authorization flaw in Quivr versions 0.0.322 and earlier allows authenticated users to modify or overwrite arbitrary prompts via unvalidated API endpoints.
 date: "2026-08-28T21:38:45Z"
+lastmod: "2026-08-28T21:39:10Z"
 type: advisory
 types:
   - advisory
@@ -21,11 +22,18 @@ mitre_ttps:
     technique_name: Create Account
     evidence: The ability to modify system prompts allows an attacker to maintain persistent control over AI behavior within the shared environment.
     confidence_band: med
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: Authenticated attackers can read other users' conversation histories including private knowledge base content.
+    confidence_band: high
 cves:
   - id: CVE-2026-82280
     cvss: 7.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82280
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82284
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82280
       evidence: Source documentation identifies versions through 0.0.322 as affected.
+updates:
+  - at: "2026-08-28T21:39:10Z"
+    level: L2
+    summary: added coverage for Quivr (<= 0.0.322)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82284
 ---
 
 Quivr versions up to and including 0.0.322 contain a critical authorization vulnerability (CVE-2026-82280) within its prompt management endpoints. The application fails to perform adequate ownership validation when processing requests to modify prompts. This allows any authenticated user, including those with only read-only access to shared 'brains', to discover valid prompt identifiers and subsequently issue unauthorized requests to overwrite them. By successfully altering these system prompts, an attacker can modify the behavior of the AI model for all users who interact with the affected shared environment. This vulnerability poses a significant risk to the integrity of AI-driven workflows and could be leveraged to perform prompt injection at scale or disrupt service delivery across an entire organizational brain.
