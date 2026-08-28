@@ -3,7 +3,7 @@ title: Remote Code Execution via Malicious Plugin Upload in Budibase
 slug: 2026-08-budibase-rce
 description: Authenticated administrators can exploit an insecure plugin handling mechanism in Budibase versions prior to 3.41.3 to achieve remote code execution via malicious JavaScript tarball uploads.
 date: "2026-08-28T13:13:17Z"
-lastmod: "2026-08-28T13:13:55Z"
+lastmod: "2026-08-28T13:14:12Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +43,18 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: An authenticated app-scoped builder to grant builder access to unrelated apps.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Budibase versions prior to 3.41.3 are vulnerable to a missing authorization flaw in the POST /api/resources/duplicate endpoint.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1048
+    technique_name: Exfiltration Over Alternative Protocol
+    evidence: Attackers can inject resources by specifying an arbitrary destination workspace ID in the request body, then trigger injected automations with outgoing webhooks to exfiltrate data from victim applications.
+    confidence_band: high
 cves:
   - id: CVE-2026-82244
     cvss: 9.1
@@ -50,6 +62,19 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82244
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82239
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82240
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82242
+rules:
+  - title: Detect Exploitation of CVE-2026-82242 - Authorization Bypass in Budibase
+    description: Detects potential exploitation attempts of CVE-2026-82242 by monitoring POST requests to the /api/resources/duplicate endpoint which may indicate unauthorized resource injection.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -81,6 +106,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-82240
+  - at: "2026-08-28T13:14:12Z"
+    level: L2
+    summary: 'added detection rule: Detect Exploitation of CVE-2026-82242 - Authorization Bypass in Budibase'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82242
 ---
 
 Budibase versions prior to 3.41.3 contain a critical remote code execution (RCE) vulnerability related to how the application handles plugin uploads. An authenticated user with administrator privileges can upload a specifically crafted plugin tarball containing malicious JavaScript code. The application's backend improperly handles these plugin files by invoking the JavaScript contents through the eval() function within the primary Node.js process. Because this process lacks sandboxing, the arbitrary code runs with the full privileges of the Budibase service. This vulnerability poses a severe risk to internal infrastructure, as attackers can leverage the execution context to exfiltrate sensitive environment variables, access database credentials, and potentially gain further persistence within the server environment.
