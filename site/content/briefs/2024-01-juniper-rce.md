@@ -3,11 +3,37 @@ title: Juniper Networks J-Web Remote Code Execution Vulnerability Exploitation
 slug: 2024-01-juniper-rce
 description: Exploitation attempts targeting Juniper Networks J-Web interface via the webauth_operation.php endpoint to achieve remote code execution.
 date: "2024-01-03T15:00:00Z"
+lastmod: "2026-08-28T19:17:56Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:o:juniper:junos:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:-:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r1:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r1-s1:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r2:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r2-s1:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r2-s2:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r3:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r3-s1:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r3-s2:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r3-s3:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r3-s4:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r3-s5:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r3-s6:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r3-s7:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:20.4:r3-s8:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:21.1:r1:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:21.1:r1-s1:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:21.1:r2:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:21.1:r2-s1:*:*:*:*:*:*
+  - cpe:2.3:o:juniper:junos:21.1:r2-s2:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XNEHRU-CVE-2023-36845-JUNIPER-VULNERABILITY&utm_source=rss&utm_medium=rss
 tags:
   - juniper
   - rce
@@ -16,12 +42,7 @@ tags:
   - cve-2023-36846
   - cve-2023-36847
 vendors:
-  - Juniper Networks
-products:
-  - Junos OS
-  - J-Web
-  - SRX Series
-  - EX Series
+  - Juniper
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -39,6 +60,19 @@ mitre_ttps:
     tactic_name: Command and Control
     technique_id: T1105
     technique_name: Remote Access Software
+cves:
+  - id: CVE-2023-36844
+    cvss: 5.3
+    epss: 0.91357
+  - id: CVE-2023-36845
+    cvss: 9.8
+    epss: 0.94265
+  - id: CVE-2023-36846
+    cvss: 5.3
+    epss: 0.95101
+  - id: CVE-2023-36847
+    cvss: 5.3
+    epss: 0.85769
 references:
   - https://supportportal.juniper.net/s/article/2023-08-Out-of-Cycle-Security-Bulletin-Junos-OS-SRX-Series-and-EX-Series-Multiple-vulnerabilities-in-J-Web-can-be-combined-to-allow-a-preAuth-Remote-Code-Execution?language=en_US
   - https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2023/CVE-2023-36844.yaml
@@ -46,6 +80,7 @@ references:
   - https://github.com/watchtowrlabs/juniper-rce_cve-2023-36844
   - https://labs.watchtowr.com/cve-2023-36844-and-friends-rce-in-juniper-firewalls/
   - https://vulncheck.com/blog/juniper-cve-2023-36845
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XNEHRU-CVE-2023-36845-JUNIPER-VULNERABILITY&utm_source=rss&utm_medium=rss
 rules:
   - title: Juniper J-Web RCE via webauth_operation.php
     description: Detects attempts to exploit the Juniper J-Web RCE vulnerability by monitoring requests to the webauth_operation.php endpoint with a PHPRC parameter.
@@ -82,6 +117,14 @@ rules:
       - webserver
       - linux
 rules_count: 3
+updates:
+  - at: "2026-08-28T19:17:56Z"
+    level: L2
+    summary: poc_available; added CVE-2023-36844 +3
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XNEHRU-CVE-2023-36845-JUNIPER-VULNERABILITY&utm_source=rss&utm_medium=rss
 ---
 
 Juniper Networks devices, specifically those using the J-Web interface, are susceptible to remote code execution vulnerabilities. These vulnerabilities, including CVE-2023-36844, CVE-2023-36845, CVE-2023-36846, and CVE-2023-36847, allow attackers to execute arbitrary code on affected systems. The primary attack vector involves sending malicious requests to the `/webauth_operation.php` endpoint with manipulated `PHPRC` parameters. Successful exploitation grants the attacker unauthorized access, potentially leading to data theft, network compromise, and complete system control. Exploitation attempts have been observed targeting vulnerable Juniper SRX and EX series devices. Publicly available exploit code exists, increasing the likelihood of widespread exploitation.
