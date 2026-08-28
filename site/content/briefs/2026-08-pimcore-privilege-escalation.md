@@ -3,7 +3,7 @@ title: Pimcore Studio API Privilege Escalation via Class Definition Endpoint
 slug: 2026-08-pimcore-privilege-escalation
 description: An insufficient permission check in the Pimcore studio-backend-bundle allows authenticated users with standard object-editing privileges to create class definitions, leading to unauthorized schema modification and server-side file creation.
 date: "2026-08-28T21:14:22Z"
-lastmod: "2026-08-28T21:14:34Z"
+lastmod: "2026-08-28T21:14:44Z"
 type: advisory
 types:
   - advisory
@@ -15,11 +15,16 @@ tags:
   - privilege-escalation
   - cms
   - vulnerability
+  - account-takeover
+  - cve-2026-55207
+  - web-application-vulnerability
 vendors:
   - Pimcore
 products:
   - studio-backend-bundle (< 2025.4.6, 2026.1.0 - 2026.1.5)
   - studio-backend-bundle (< 2025.4.6, >= 2026.1.0 < 2026.1.6)
+  - studio-backend-bundle (< 2025.4.6)
+  - studio-backend-bundle (>= 2026.1.0, < 2026.1.6)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -39,6 +44,12 @@ mitre_ttps:
     technique_name: Transfer Data to Cloud Account
     evidence: An authenticated attacker can break out of the backtick quoting to inject malicious SQL commands, enabling the exfiltration of sensitive database data.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: The attacker uses the intercepted token to authenticate via the studio API, bypassing standard 2FA.
+    confidence_band: high
 cves:
   - id: CVE-2026-55212
     cvss: 7.1
@@ -47,6 +58,8 @@ references:
   - https://github.com/advisories/GHSA-f97c-ph8j-8vff
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55212
   - https://github.com/advisories/GHSA-79cw-hfcc-7mw9
+  - https://github.com/advisories/GHSA-h854-c3m3-mh5v
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-55207
 rules:
   - title: Detect CVE-2026-55212 Exploitation - Unauthorized Class Definition Creation
     description: Detects potential exploitation of CVE-2026-55212 by monitoring POST requests to the vulnerable Studio API endpoint.
@@ -68,7 +81,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detect CVE-2026-55207 Exploitation - Suspicious ResetPasswordUrl Injection
+    description: Detects exploitation attempts where the resetPasswordUrl parameter in the request body points to a domain other than the primary system domain.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: immediate_escalation
   owners:
@@ -102,6 +125,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-79cw-hfcc-7mw9
+  - at: "2026-08-28T21:14:44Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-55207 Exploitation - Suspicious ResetPasswordUrl Injection'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-h854-c3m3-mh5v
 ---
 
 Pimcore Studio API, specifically the `pimcore/studio-backend-bundle`, contains a security flaw where the class definition creation endpoint is protected by the `objects` permission rather than the intended `classes` permission. This vulnerability, tracked as CVE-2026-55212, allows standard authenticated users with content editing rights to perform administrative actions. 
