@@ -3,18 +3,22 @@ title: Active Exploitation of PaperCut MF and NG
 slug: 2026-08-papercut-vulnerabilities
 description: PaperCut MF and NG are impacted by two actively exploited vulnerabilities, CVE-2026-82078 and CVE-2026-81578, which allow unauthenticated remote attackers to achieve arbitrary code execution and full system control.
 date: "2026-08-28T14:28:32Z"
-lastmod: "2026-08-28T15:10:17Z"
+lastmod: "2026-08-29T03:07:00Z"
 type: threat
 types:
   - threat
 severities:
   - high
 exploited: true
+has_poc: true
 vendors:
   - PaperCut
 products:
   - PaperCut MF
   - PaperCut NG
+  - PaperCut Hive
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -34,6 +38,9 @@ cves:
 references:
   - https://www.ncsc.nl/alerts/kwetsbaarheden-in-papercut-mf-en-ng-met-actief-misbruik-update-onmiddellijk
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1095/
+  - https://cyber.gc.ca/en/alerts-advisories/papercut-security-advisory-av26-858
+  - https://therecord.media/papercut-warns-of-hackers-using-printer-management-vulnerabilities
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/initial_access_papercut_suspicious_child_process.toml
 action_plan:
   priority: immediate_escalation
   owners:
@@ -68,6 +75,13 @@ updates:
       - anssi
     source_urls:
       - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1095/
+  - at: "2026-08-29T03:07:00Z"
+    level: L2
+    summary: poc_available; OS windows
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/initial_access_papercut_suspicious_child_process.toml
 ---
 
 The Netherlands National Cyber Security Centre (NCSC-NL) has issued an urgent alert regarding the active exploitation of two critical vulnerabilities within PaperCut MF and PaperCut NG print management software. Identified as CVE-2026-82078 and CVE-2026-81578, these flaws enable unauthenticated remote attackers to compromise the print management environment. By bypassing authentication mechanisms, adversaries can gain full control over the application, leading to arbitrary code execution. This level of access provides a significant foothold within an organization's network, increasing the risk of lateral movement, data theft, and operational disruption. Given that exploitation is currently observed in the wild, the NCSC strongly advises organizations to verify their version status against the vendor's security bulletin and apply the provided patches immediately.
