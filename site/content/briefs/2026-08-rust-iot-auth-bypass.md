@@ -3,6 +3,7 @@ title: Authentication Bypass in rust-iot-platform
 slug: 2026-08-rust-iot-auth-bypass
 description: The rust-iot-platform project is vulnerable to an authentication bypass due to missing security guards in REST API handlers, enabling unauthenticated remote attackers to perform full CRUD operations on user accounts.
 date: "2026-08-29T15:39:36Z"
+lastmod: "2026-08-29T15:40:02Z"
 type: advisory
 types:
   - advisory
@@ -19,11 +20,18 @@ mitre_ttps:
     technique_name: Active Scanning
     evidence: Unauthenticated attackers can create, update, list, retrieve, and delete user accounts by directly accessing unprotected endpoints without providing valid credentials.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Attackers can read API responses from user retrieval and listing routes to obtain plaintext credentials for all accounts.
+    confidence_band: high
 cves:
   - id: CVE-2026-82452
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82452
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82453
 action_plan:
   priority: immediate_escalation
   owners:
@@ -43,6 +51,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Source notes that CRUD operations on accounts are possible via unprotected endpoints
+updates:
+  - at: "2026-08-29T15:40:02Z"
+    level: L2
+    summary: added coverage for rust-iot-platform (<= 5df942ab)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82453
 ---
 
 The rust-iot-platform project, through commit 5df942ab, contains a critical authentication bypass vulnerability (CVE-2026-82452). This flaw originates from the absence of authentication guard logic within the handler signatures for the majority of the REST API routes. Consequently, the application fails to verify the identity of the requester before processing sensitive requests. 
