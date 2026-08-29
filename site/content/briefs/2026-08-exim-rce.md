@@ -3,6 +3,7 @@ title: Critical Remote Code Execution Vulnerability in Exim MTA
 slug: 2026-08-exim-rce
 description: Exim is affected by a critical vulnerability (CVE-2024-39929) that allows a remote, unauthenticated attacker to execute arbitrary code via a logic error in header field processing.
 date: "2026-08-14T14:08:20Z"
+lastmod: "2026-08-29T16:46:40Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:exim:exim:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RXERIUM-CVE-2024-39929&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - remote-code-execution
@@ -32,6 +36,7 @@ cves:
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1505
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39929
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RXERIUM-CVE-2024-39929&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -48,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-39929
       evidence: Remote unauthenticated exploitation vector.
+updates:
+  - at: "2026-08-29T16:46:40Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RXERIUM-CVE-2024-39929&utm_source=rss&utm_medium=rss
 ---
 
 The BSI has released a security advisory regarding a critical vulnerability affecting the Exim mail transfer agent (MTA). This vulnerability allows a remote, unauthenticated attacker to achieve remote code execution (RCE) on target systems. The flaw stems from a logic error encountered during the processing of specific header fields within incoming email traffic. 
