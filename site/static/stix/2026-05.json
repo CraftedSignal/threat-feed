@@ -1,13 +1,13 @@
 {
   "type": "bundle",
-  "id": "bundle--c2923e36-aff5-5967-ab17-0be6183e356d",
+  "id": "bundle--f8374eb2-63e4-5520-9a25-522ba6200ee1",
   "objects": [
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-      "created": "2026-08-29T15:41:08Z",
-      "modified": "2026-08-29T15:41:08Z",
+      "created": "2026-08-29T16:47:32Z",
+      "modified": "2026-08-29T16:47:32Z",
       "name": "Drive-by Compromise",
       "external_references": [
         {
@@ -21,8 +21,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--dd8b7dea-a578-53e1-997b-2456cc667cb7",
-      "created": "2026-08-29T15:41:08Z",
-      "modified": "2026-08-29T15:41:08Z",
+      "created": "2026-08-29T16:47:32Z",
+      "modified": "2026-08-29T16:47:32Z",
       "relationship_type": "uses",
       "source_ref": "report--5871b4ed-957d-5da1-a0bc-e540e3fff66d",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
@@ -37,8 +37,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--f6876533-d476-57be-8ec7-22ffcadc01c8",
-      "created": "2026-08-29T15:41:08Z",
-      "modified": "2026-08-29T15:41:08Z",
+      "created": "2026-08-29T16:47:32Z",
+      "modified": "2026-08-29T16:47:32Z",
       "name": "CVE-2026-10192",
       "external_references": [
         {
@@ -52,8 +52,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--910d3ff8-8320-5444-bdab-110c81cec09e",
-      "created": "2026-08-29T15:41:08Z",
-      "modified": "2026-08-29T15:41:08Z",
+      "created": "2026-08-29T16:47:32Z",
+      "modified": "2026-08-29T16:47:32Z",
       "relationship_type": "has",
       "source_ref": "software--6f090700-e967-57a8-aaba-b275162658e9",
       "target_ref": "vulnerability--f6876533-d476-57be-8ec7-22ffcadc01c8"
@@ -62,8 +62,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--5871b4ed-957d-5da1-a0bc-e540e3fff66d",
-      "created": "2026-08-29T15:41:08Z",
-      "modified": "2026-08-29T15:41:08Z",
+      "created": "2026-08-29T16:47:32Z",
+      "modified": "2026-08-29T16:47:32Z",
       "name": "CVE-2026-10192 - Tenda W12 Stack-Based Buffer Overflow in set_local_time_0",
       "description": "## Overview\n\nA stack-based buffer overflow vulnerability, CVE-2026-10192, has been identified in Tenda W12 router version 3.0.0.7(4763). The vulnerability resides in the `set_local_time_0` function within the `/bin/httpd` binary, responsible for handling time synchronization. A remote attacker can exploit this flaw by crafting a malicious `Time` argument in a request to this function, leading to arbitrary code execution due to the buffer overflow. This exploit is publicly available, increasing the risk of widespread exploitation. Successful exploitation allows an attacker to gain complete control of the device, potentially leading to data theft, device hijacking, or integration into a botnet.\n\n## Attack Chain\n\n1.  The attacker identifies a Tenda W12 router running firmware version 3.0.0.7(4763) accessible over the network.\n2.  The attacker sends a crafted HTTP request targeting the `/bin/httpd` service.\n3.  The HTTP request is designed to call the `set_local_time_0` function.\n4.  The request includes a malicious `Time` argument that exceeds the buffer size allocated for it.\n5.  The `set_local_time_0` function attempts to copy the overly long `Time` argument into the buffer, triggering a stack-based buffer overflow.\n6.  The overflow overwrites adjacent memory on the stack, potentially including the return address.\n7.  The attacker manipulates the return address to point to malicious code injected into the device's memory.\n8.  Upon function return, control is transferred to the attacker's injected code, allowing arbitrary command execution.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10192 can grant a remote attacker complete control over the Tenda W12 router. This could lead to unauthorized access to sensitive information, modification of router settings, or the use of the router as a node in a botnet for distributed denial-of-service (DDoS) attacks or other malicious activities. Given the availability of a public exploit, the risk of widespread exploitation is significant, potentially affecting a large number of home and small business networks.\n\n## Recommendation\n\n*   Apply available patches or firmware updates from Tenda to address CVE-2026-10192.\n*   Monitor network traffic for suspicious HTTP requests targeting the `/bin/httpd` service with unusually long `Time` arguments, using the provided Sigma rule.\n*   Implement network segmentation to limit the impact of a successful exploit on other devices on the network.\n*   Consider deploying a web application firewall (WAF) to filter malicious requests targeting the `set_local_time_0` function.\n*   Disable remote management access to the router if not required.\n",
       "published": "2026-05-31T17:18:27Z",
