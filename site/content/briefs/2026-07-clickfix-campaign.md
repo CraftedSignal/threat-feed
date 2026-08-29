@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-08-26T00:48:44Z"
+lastmod: "2026-08-29T09:10:33Z"
 type: advisory
 types:
   - advisory
@@ -113,6 +113,7 @@ references:
   - https://thehackernews.com/2026/08/stopandprotect-uses-nearly-2000-hacked.html
   - https://www.malware-traffic-analysis.net/2026/08/21/index.html
   - https://www.huntress.com/blog/defcon-phishing-google-doc-malware
+  - https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/
 iocs:
   - type: domain
     value: justwatch.com
@@ -158,18 +159,16 @@ iocs:
     value: https://rowanportico.global/identity/secure-theme.js?18cddb5baf41fce0
   - type: url
     value: http://lagoonandledger.com/crol
+  - type: domain
+    value: gitnow.dev
+  - type: hash_sha256
+    value: 18c2090e8a0ae0568af9b87e59eaf8270f23d2909600ed9db91a9444fd8b278f
 ioc_counts:
-  domain: 12
+  domain: 13
+  hash_sha256: 1
   ip: 2
   url: 8
 updates:
-  - at: "2026-08-11T07:48:24Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/08/hackers-breach-polish-power-plant.html
   - at: "2026-08-17T11:47:09Z"
     level: L1
     summary: new IOCs
@@ -198,6 +197,13 @@ updates:
       - huntress
     source_urls:
       - https://www.huntress.com/blog/defcon-phishing-google-doc-malware
+  - at: "2026-08-29T09:10:33Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
