@@ -1,13 +1,13 @@
 {
   "type": "bundle",
-  "id": "bundle--a9af90c3-8f2d-54a0-b73b-55aab8a1a80f",
+  "id": "bundle--a7f580e7-9bcc-517c-9334-9efabba1215e",
   "objects": [
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -21,8 +21,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--5f1c588b-7ab6-5619-973d-9da726623829",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--458f18f0-9119-57c5-bba4-06763f3fe630",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -31,16 +31,16 @@
       "type": "threat-actor",
       "spec_version": "2.1",
       "id": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Unattributed"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--253641d0-1b60-5b2b-9511-aaf5119d6094",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--458f18f0-9119-57c5-bba4-06763f3fe630",
       "target_ref": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a"
@@ -55,8 +55,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--d911974c-910a-5cd6-946a-2788af0eeea3",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-10187",
       "external_references": [
         {
@@ -70,8 +70,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--6bc11485-3a60-5aa0-a83d-187debc7939c",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--1de4eadd-08af-507f-8417-e9cd9265a1ab",
       "target_ref": "vulnerability--d911974c-910a-5cd6-946a-2788af0eeea3"
@@ -80,8 +80,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--458f18f0-9119-57c5-bba4-06763f3fe630",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Totolink N300RH Stack-Based Buffer Overflow Vulnerability (CVE-2026-10187)",
       "description": "## Overview\n\nA stack-based buffer overflow vulnerability has been identified in Totolink N300RH router, version 6.1c.1353_B20190305. The vulnerability resides in the `setWiFiBasicConfig` function within the `wireless.so` file, a component of the device's web management interface. Publicly available exploits demonstrate that a remote attacker can leverage this vulnerability by manipulating the `KeyStr` argument passed to the vulnerable function, resulting in arbitrary code execution on the device. The affected version was released in March 2019, suggesting that many devices are potentially vulnerable due to lack of updates. This poses a significant risk, as successful exploitation could allow attackers to gain full control of the router, compromise connected devices, and intercept network traffic.\n\n## Attack Chain\n\n1.  The attacker identifies a vulnerable Totolink N300RH router running firmware version 6.1c.1353_B20190305.\n2.  The attacker sends a crafted HTTP request to the router's web management interface.\n3.  The HTTP request targets the `setWiFiBasicConfig` function.\n4.  The request includes a malicious payload in the `KeyStr` argument, designed to overflow the stack buffer.\n5.  The `wireless.so` library processes the request without proper bounds checking on the `KeyStr` argument.\n6.  The buffer overflow overwrites critical memory regions, including the return address.\n7.  Upon returning from the function, execution jumps to the attacker-controlled address, allowing for arbitrary code execution.\n8.  The attacker gains a shell on the router and can perform malicious actions.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10187 can lead to full compromise of the Totolink N300RH router. Attackers can leverage this access to intercept network traffic, modify DNS settings, create backdoors, and potentially compromise other devices on the network. Due to the high CVSS score (9.8), the impact is considered critical, allowing for complete control over the affected device. Given the nature of routers as network gateways, this vulnerability can serve as an entry point for wider attacks on home or small business networks.\n\n## Recommendation\n\n*   Deploy the Sigma rule `Detect CVE-2026-10187 Exploitation Attempt via Long KeyStr` to identify suspicious HTTP requests targeting the `setWiFiBasicConfig` function with abnormally long `KeyStr` arguments.\n*   Block or investigate any traffic to the `setWiFiBasicConfig` endpoint originating from unexpected IP addresses, based on observed network connections.\n*   Monitor webserver logs for POST requests to the `setWiFiBasicConfig` endpoint, based on webserver log source.\n",
       "published": "2026-05-31T15:18:40Z",
@@ -136,8 +136,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -151,8 +151,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--0c1fbd2e-d706-589a-83f7-9b93a6f79677",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--649a22d4-75c0-5a10-9a35-ce12a7961850",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -167,8 +167,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--6fb153cf-e371-5f9b-93ad-d8e1195d02c2",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-49490",
       "external_references": [
         {
@@ -182,8 +182,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--a6398661-04e9-5257-b694-f9e9cf4ffda6",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--d7271537-70d7-5fa7-8566-0e7328eb8123",
       "target_ref": "vulnerability--6fb153cf-e371-5f9b-93ad-d8e1195d02c2"
@@ -192,8 +192,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--649a22d4-75c0-5a10-9a35-ce12a7961850",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "OpenCATS SQL Injection Vulnerability in DataGrid Filter Handling (CVE-2026-49490)",
       "description": "## Overview\n\nOpenCATS version 0.9.1a is vulnerable to SQL injection in its DataGrid filter handling. This vulnerability, identified as CVE-2026-49490, allows authenticated attackers to inject arbitrary SQL code via crafted filters. Specifically, the vulnerability lies in the handling of filters targeting the \"Tags\" column within the Candidates DataGrid. The application fails to properly sanitize user-supplied input used in filter requests, allowing attackers to bypass column filterable restrictions and manipulate these requests to execute arbitrary SQL queries against the underlying database. Successful exploitation could lead to unauthorized data access, modification, or even complete compromise of the database.\n\n## Attack Chain\n\n1. An authenticated attacker logs into the OpenCATS application.\n2. The attacker navigates to the Candidates DataGrid.\n3. The attacker crafts a malicious filter request targeting the \"Tags\" column. This request contains SQL injection payloads designed to bypass input validation.\n4. The attacker sends the crafted filter request to the server.\n5. The OpenCATS application processes the filter request without proper sanitization of the \"Tags\" column filter value.\n6. The application incorporates the malicious SQL payload into a database query.\n7. The database executes the attacker-controlled SQL query.\n8. The attacker gains unauthorized access to sensitive data or modifies existing data within the database.\n\n## Impact\n\nSuccessful exploitation of this SQL injection vulnerability (CVE-2026-49490) in OpenCATS version 0.9.1a can lead to significant data breaches, data manipulation, and potential compromise of the entire database. An attacker could gain access to sensitive candidate information, modify existing records, or even drop tables. The impact is high, potentially affecting all organizations using vulnerable versions of OpenCATS, although specific victim numbers and sectors are not available from the provided source.\n\n## Recommendation\n\n*   Upgrade OpenCATS to a version that patches CVE-2026-49490.\n*   Deploy the Sigma rule `Detect OpenCATS SQL Injection Attempt` to your SIEM to monitor for malicious filter requests.\n*   Implement strict input validation and sanitization measures within the OpenCATS application, specifically focusing on DataGrid filter handling to prevent similar SQL injection vulnerabilities.\n*   Enable logging of database queries to assist in detecting and investigating potential SQL injection attacks.\n",
       "published": "2026-05-31T13:17:52Z",
@@ -227,8 +227,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Exploit Public Fasing Application",
       "external_references": [
         {
@@ -242,8 +242,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--678da66f-4fb9-59a9-b994-d6fa1589b4d0",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--46a00f42-296b-5d30-8b9c-62aa2dfe9264",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -258,8 +258,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--21f677a5-0560-5456-b3d7-c263d01c7c32",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-10157",
       "external_references": [
         {
@@ -273,8 +273,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--7d80d615-e0fe-5c90-a6c7-90d225aa87cb",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--24a18de9-fe03-5f23-9898-8f84a81a5526",
       "target_ref": "vulnerability--21f677a5-0560-5456-b3d7-c263d01c7c32"
@@ -283,8 +283,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--46a00f42-296b-5d30-8b9c-62aa2dfe9264",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Open5GS NGAP PathSwitchRequest Message Handler Improper Authentication Vulnerability (CVE-2026-10157)",
       "description": "## Overview\n\nA vulnerability, identified as CVE-2026-10157, has been discovered in Open5GS versions up to 2.7.6. This flaw resides within the NGAP PathSwitchRequest Message Handler located in the `src/amf/ngap-handler.c` file. Successful exploitation of this vulnerability allows remote attackers to bypass authentication mechanisms, potentially gaining unauthorized access or control. The exploit is publicly available, increasing the risk of exploitation. It is recommended to apply the patch identified by commit hash `a188e36b1741ffc2252133f59b1bda4f14d3cb5c` to mitigate this vulnerability. This vulnerability impacts organizations using Open5GS for their 5G core network infrastructure.\n\n## Attack Chain\n\n1. The attacker identifies an Open5GS instance running a vulnerable version (\u003c= 2.7.6).\n2. The attacker crafts a malicious NGAP PathSwitchRequest message.\n3. The attacker sends the crafted message to the AMF (Access and Mobility Management Function) component of Open5GS.\n4. The vulnerable `ngap-handler.c` file processes the message without proper authentication checks.\n5. Due to the missing or inadequate authentication, the attacker bypasses intended security controls.\n6. The AMF proceeds to process the request as if it were legitimate.\n7. The attacker gains unauthorized access to network resources or functions.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10157 allows a remote attacker to bypass authentication, potentially leading to unauthorized access to sensitive network functions and data. This could result in service disruption, data breaches, or other malicious activities depending on the privileges gained. While the number of potential victims is unknown, any organization using unpatched Open5GS instances is at risk.\n\n## Recommendation\n\n*   Apply the patch identified by commit hash `a188e36b1741ffc2252133f59b1bda4f14d3cb5c` to remediate the vulnerability (reference: overview).\n*   Monitor network traffic for suspicious NGAP PathSwitchRequest messages originating from untrusted sources (reference: rules).\n*   Implement rate limiting and anomaly detection mechanisms on the AMF component to detect and prevent potentially malicious requests (reference: rules).\n",
       "published": "2026-05-31T02:17:56Z",
@@ -311,8 +311,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--429a6830-d83b-5acb-a98c-8015a8ae6a71",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Exploitation of Memory Corruption",
       "external_references": [
         {
@@ -326,8 +326,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--01691ca0-2856-570c-9176-5bd9d0aa1b2a",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--8929884e-5c3e-5ef1-aa24-54c486c31a1c",
       "target_ref": "attack-pattern--429a6830-d83b-5acb-a98c-8015a8ae6a71"
@@ -342,8 +342,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--dc077746-ff42-5919-b6ca-7017159c70a0",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-10162",
       "external_references": [
         {
@@ -357,8 +357,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--8d64ec0f-5947-54ad-acc3-9ac2f054ce88",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--e04b2fc2-532f-5cbc-91be-5d5172edb45b",
       "target_ref": "vulnerability--dc077746-ff42-5919-b6ca-7017159c70a0"
@@ -367,8 +367,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--8929884e-5c3e-5ef1-aa24-54c486c31a1c",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "TRENDnet TEW-432BRP Stack-Based Buffer Overflow Vulnerability (CVE-2026-10162)",
       "description": "## Overview\n\nA stack-based buffer overflow vulnerability, identified as CVE-2026-10162, has been discovered in TRENDnet TEW-432BRP router, version 3.10B20. This flaw resides within the `formSetPassword` function of the `/goform/formSetPassword` file. An unauthenticated, remote attacker can exploit this vulnerability by crafting a malicious HTTP request containing an overly long `webpage` argument. Successful exploitation allows the attacker to overwrite parts of the stack, leading to arbitrary code execution on the device. The vendor has stated that the product has been end-of-life (EOL) since 2009 and will not be providing a patch, which increases the risk for users who are still operating this device. The exploit has been published, increasing the likelihood of exploitation.\n\n## Attack Chain\n\n1.  The attacker identifies a TRENDnet TEW-432BRP router version 3.10B20 exposed to the internet.\n2.  The attacker crafts a malicious HTTP POST request targeting the `/goform/formSetPassword` endpoint.\n3.  The crafted request includes the `webpage` parameter with a value exceeding the expected buffer size.\n4.  The router's web server processes the request and passes the `webpage` parameter to the `formSetPassword` function without proper bounds checking.\n5.  The `formSetPassword` function copies the oversized `webpage` argument onto the stack, overflowing the allocated buffer.\n6.  The overflow overwrites adjacent memory on the stack, including the return address of the function.\n7.  The function returns, but instead of returning to the caller, it jumps to an address controlled by the attacker.\n8.  The attacker injects shellcode into the overflowed buffer and redirects execution to this shellcode, gaining remote code execution on the device.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker to execute arbitrary code on the TRENDnet TEW-432BRP router. This can lead to a complete compromise of the device, including unauthorized access to network resources, modification of router settings, and potential use of the device as a botnet node. Given the age of the affected device and its end-of-life status, impacted users are unlikely to receive patches and remain vulnerable until the device is replaced or removed from service.\n\n## Recommendation\n\n*   Deploy the Sigma rule `Detect CVE-2026-10162 Exploitation Attempt` to detect attempts to exploit this vulnerability based on the URI and method.\n*   Implement the Sigma rule `Detect CVE-2026-10162 Stack Buffer Overflow in TRENDnet Router` to detect overly long values for the webpage parameter.\n*   Given the EOL status of TRENDnet TEW-432BRP 3.10B20, replace affected devices immediately.\n*   If device replacement is not possible, isolate the device from the network and restrict access to prevent potential exploitation.\n",
       "published": "2026-05-31T03:20:53Z",
@@ -394,8 +394,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -409,8 +409,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--13cac0ca-a26d-5ee0-8011-3482b05ae3e9",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--1427a776-d219-5450-9c31-507e32aedd93",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -425,8 +425,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--4e38dfdf-a768-5590-b128-371c9ac0d9f7",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-10167",
       "external_references": [
         {
@@ -440,8 +440,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--5a840ab4-d41d-5fbf-991f-2fb1a8bae0dd",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--13015339-2070-58e7-85a5-402b5d0753cd",
       "target_ref": "vulnerability--4e38dfdf-a768-5590-b128-371c9ac0d9f7"
@@ -450,8 +450,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--1427a776-d219-5450-9c31-507e32aedd93",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-10167 Improper Authentication in OUSL-GROUP-BrinaryBrains School Student Management System",
       "description": "## Overview\n\nCVE-2026-10167 identifies an improper authentication vulnerability within the OUSL-GROUP-BrinaryBrains School Student Management System, affecting versions up to 1e70e5ad1125b86dca4ee086eb6bb121f17708b6. This vulnerability resides in the `sign_auth_cookie` function of the `application/controllers/Login.php` file, specifically within the `MY_Controller` component. A remote attacker can exploit this flaw by manipulating the `role` argument, leading to unauthorized access. The exploit is publicly available, increasing the risk of active exploitation. The vendor employs rolling releases, making specific affected versions difficult to pinpoint. The project has been notified of the vulnerability but has yet to respond.\n\n## Attack Chain\n\n1.  Attacker identifies the `sign_auth_cookie` function within `application/controllers/Login.php`.\n2.  Attacker crafts a malicious HTTP request targeting the vulnerable function.\n3.  The HTTP request includes a manipulated `role` argument designed to bypass authentication checks.\n4.  The server-side application processes the crafted request without proper validation of the `role` parameter.\n5.  The application's authentication logic incorrectly grants access based on the attacker-supplied `role`.\n6.  The attacker gains unauthorized access to the system with elevated privileges.\n7.  Attacker performs actions they are not authorized to do.\n8.  Attacker potentially exfiltrates sensitive student data or modifies system settings.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10167 allows unauthorized remote attackers to bypass authentication and gain elevated privileges within the OUSL-GROUP-BrinaryBrains School Student Management System. This can lead to sensitive data breaches, modification of student records, and disruption of school operations. The lack of a vendor response increases the urgency for defenders to implement mitigating controls. Given the public availability of the exploit, attacks are likely to occur.\n\n## Recommendation\n\n*   Monitor web server logs for requests targeting `application/controllers/Login.php` with suspicious manipulation of the `role` parameter. Deploy the Sigma rule `Detect Suspicious Role Parameter Manipulation` to identify potential exploitation attempts.\n*   Implement input validation and sanitization on the `role` parameter within the `sign_auth_cookie` function to prevent malicious manipulation.\n*   Apply rate limiting to the authentication endpoint to mitigate brute-force attempts to exploit the vulnerability.\n*   Consider deploying a web application firewall (WAF) rule to block requests that match the exploit pattern.\n",
       "published": "2026-05-31T05:17:54Z",
@@ -477,16 +477,16 @@
       "type": "threat-actor",
       "spec_version": "2.1",
       "id": "threat-actor--e5546c86-d8e8-5294-847e-cedb99887b0d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Unspecified"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--193abe5e-b545-5d2c-9d16-d5592c3fe249",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--bd71f3e5-2c4b-5643-a155-a9d88f220432",
       "target_ref": "threat-actor--e5546c86-d8e8-5294-847e-cedb99887b0d"
@@ -495,8 +495,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--4733696e-e2c9-5863-9380-b5198a234226",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-42790",
       "external_references": [
         {
@@ -510,8 +510,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--bd71f3e5-2c4b-5643-a155-a9d88f220432",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-42790 nameConstraints DNS bypass via subject CommonName fallback in public_key hostname verification",
       "description": "## Overview\n\nCVE-2026-42790 is a security vulnerability affecting Microsoft products. The vulnerability stems from a flaw in public key hostname verification where name constraints DNS bypass can occur due to a fallback to the subject's CommonName. This could potentially allow an attacker to bypass intended security restrictions. The specific products affected and the exact mechanisms of exploitation are not detailed in the initial advisory. Defenders should monitor for unusual certificate validation behavior and apply relevant patches from Microsoft as they become available.\n\n## Attack Chain\n\nDue to the limited information available, a detailed attack chain cannot be provided. However, a general outline based on the vulnerability description is:\n\n1.  Attacker obtains a certificate that bypasses name constraints due to CommonName fallback.\n2.  Attacker uses the crafted certificate in a TLS handshake.\n3.  The vulnerable Microsoft product attempts to verify the hostname.\n4.  Due to the vulnerability, the hostname verification falls back to the CommonName.\n5.  The CommonName is improperly validated, allowing the bypass.\n6.  The attacker successfully establishes a connection impersonating a legitimate service.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-42790 could lead to a bypass of security restrictions, potentially allowing an attacker to impersonate legitimate services or perform man-in-the-middle attacks. The specific impact depends on the affected Microsoft product and how it utilizes certificate validation.\n\n## Recommendation\n\n*   Monitor network traffic for TLS connections using certificates with unusual CommonName attributes (reference vulnerability description).\n*   Deploy the Sigma rules below to your SIEM to detect potential exploitation attempts.\n*   Follow Microsoft's security update guide for CVE-2026-42790 and apply patches as soon as they are released.\n",
       "published": "2026-05-31T07:26:38Z",
@@ -537,8 +537,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--3f3594df-f5ca-5846-9b56-4f595b709027",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-42015",
       "external_references": [
         {
@@ -552,8 +552,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--e6a49674-d9a4-54bd-be90-60a8c858e2e0",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-42015 GnuTLS Memory Corruption Vulnerability in PKCS#12 Handling",
       "description": "## Overview\n\nCVE-2026-42015 is a critical security vulnerability affecting GnuTLS, a widely used library for secure communication. The vulnerability stems from an off-by-one error in the handling of PKCS#12 bags, which can lead to memory corruption. This flaw could be exploited by attackers to potentially execute arbitrary code or cause a denial-of-service condition. While the specific version of GnuTLS affected isn't provided, the vulnerability's presence in PKCS#12 bag handling implies a broad scope across versions that support this functionality. Defenders need to prioritize patching GnuTLS to mitigate this vulnerability.\n\n## Attack Chain\n\n1.  Attacker crafts a malicious PKCS#12 file with a specially crafted bag.\n2.  The application using GnuTLS attempts to parse the malicious PKCS#12 file.\n3.  GnuTLS processes the PKCS#12 bag.\n4.  Due to the off-by-one error, GnuTLS writes data beyond the allocated buffer.\n5.  Memory corruption occurs, potentially overwriting critical data structures.\n6.  The attacker leverages the memory corruption to gain control of program execution.\n7.  Arbitrary code is executed in the context of the vulnerable application.\n8.  Attacker achieves complete system compromise or causes a denial-of-service.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-42015 can lead to arbitrary code execution, potentially allowing attackers to gain complete control over affected systems. The memory corruption can also lead to denial-of-service conditions, disrupting critical services. Given the widespread use of GnuTLS in various applications and systems, the impact could be significant, potentially affecting numerous organizations and users.\n\n## Recommendation\n\n*   Apply the security updates provided by Microsoft to address CVE-2026-42015 as soon as they are available (reference: CVE-2026-42015).\n*   Deploy the Sigma rule provided below to detect potential exploitation attempts targeting CVE-2026-42015 (reference: Sigma rule).\n*   Monitor systems for any unusual activity related to PKCS#12 file processing.\n*   Consider implementing additional security measures, such as address space layout randomization (ASLR) and data execution prevention (DEP), to further mitigate the impact of memory corruption vulnerabilities.\n",
       "published": "2026-05-31T07:27:07Z",
@@ -582,8 +582,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -597,8 +597,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--8e33626a-f3f6-5f78-8f75-03c4ea017363",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--ee43017e-8b13-5c43-aa08-21cdb9a30d6d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -607,16 +607,16 @@
       "type": "threat-actor",
       "spec_version": "2.1",
       "id": "threat-actor--e5546c86-d8e8-5294-847e-cedb99887b0d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Unspecified"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--017ba6e2-f779-5a3e-b88e-481307c3c1d9",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--ee43017e-8b13-5c43-aa08-21cdb9a30d6d",
       "target_ref": "threat-actor--e5546c86-d8e8-5294-847e-cedb99887b0d"
@@ -631,8 +631,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--70384b8f-2a13-5455-924f-d5f2d7f81739",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-44839",
       "external_references": [
         {
@@ -646,8 +646,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--4b7f34db-7860-5eee-8505-e4e6febf1adf",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--f3896e1e-80e3-5195-bc14-3249b2e7ad30",
       "target_ref": "vulnerability--70384b8f-2a13-5455-924f-d5f2d7f81739"
@@ -656,8 +656,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--ee43017e-8b13-5c43-aa08-21cdb9a30d6d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-44839: RabbitMQ Management UI XSS via Unsanitized vhost Names",
       "description": "## Overview\n\nCVE-2026-44839 describes a cross-site scripting (XSS) vulnerability affecting the RabbitMQ management UI. The vulnerability stems from the improper sanitization of virtual host (vhost) names. An attacker could potentially inject malicious JavaScript code into a vhost name. When an administrator or user interacts with the management UI and views the affected vhost, the injected JavaScript code could be executed in their browser. This could lead to session hijacking, defacement of the management UI, or other malicious activities within the context of the user's session. Exploitation would require the attacker to have the ability to create or modify vhost names.\n\n## Attack Chain\n\n1.  Attacker gains access to a RabbitMQ account with privileges to create or modify vhosts.\n2.  Attacker crafts a malicious vhost name containing JavaScript code, such as `\u0026lt;script\u003ealert(\"XSS\");\u0026lt;/script\u003e`.\n3.  Attacker creates or modifies an existing vhost with the crafted, malicious name through the RabbitMQ management UI or API.\n4.  A user, typically an administrator, logs into the RabbitMQ management UI.\n5.  The management UI displays the list of vhosts, including the attacker's maliciously named vhost.\n6.  The unsanitized vhost name is rendered in the user's browser, executing the embedded JavaScript code.\n7.  The injected script executes in the context of the user's browser session, potentially stealing cookies or performing other actions on behalf of the user.\n8.  Attacker uses stolen session cookies to impersonate the administrator or other privileged user.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-44839 allows an attacker to execute arbitrary JavaScript code within the RabbitMQ management UI in the context of a user's browser. This can lead to account compromise through session hijacking, potentially granting the attacker full administrative control over the RabbitMQ server. The impact ranges from data exfiltration to denial of service, depending on the privileges of the compromised account and the attacker's objectives. The number of affected users depends on the RabbitMQ deployment size.\n\n## Recommendation\n\n*   Upgrade RabbitMQ to a patched version that includes proper sanitization of vhost names to prevent XSS attacks (refer to vendor advisory).\n*   Implement input validation and output encoding on the RabbitMQ management UI to sanitize vhost names (and other user-controlled inputs).\n*   Deploy the Sigma rule \"Detect Suspicious RabbitMQ vhost Creation with Script Tags\" to identify attempts to inject malicious code via vhost names.\n*   Regularly review and audit RabbitMQ user privileges to minimize the impact of potential account compromise.\n",
       "published": "2026-05-31T07:27:23Z",
@@ -685,8 +685,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Command and Scripting Interpreter: JavaScript",
       "external_references": [
         {
@@ -700,8 +700,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--748d2a82-49f1-55d9-8d10-7449ac25790e",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--0ef0c680-6ed9-5f0c-b2b9-8c8119d50a16",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
@@ -710,8 +710,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--aa4a3022-19bc-57a4-b7ca-78b6316d10ac",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Stage Capabilities",
       "external_references": [
         {
@@ -725,8 +725,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--2374d319-1462-5dcb-bff2-b850f29999f9",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--0ef0c680-6ed9-5f0c-b2b9-8c8119d50a16",
       "target_ref": "attack-pattern--aa4a3022-19bc-57a4-b7ca-78b6316d10ac"
@@ -759,8 +759,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--597d50ee-3c7c-5fb2-83e2-2d46ed764aa1",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-21717",
       "external_references": [
         {
@@ -774,8 +774,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--d01efe2b-be9c-581f-b3fb-bce4fd5b9da2",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--2c56dfca-26f7-542e-bb9b-a337929d66ec",
       "target_ref": "vulnerability--597d50ee-3c7c-5fb2-83e2-2d46ed764aa1"
@@ -784,8 +784,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--f2f25ec1-3c98-5d21-a675-0708eee3def2",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--289b747e-1a48-5f88-85f1-3cb29ff6e125",
       "target_ref": "vulnerability--597d50ee-3c7c-5fb2-83e2-2d46ed764aa1"
@@ -794,8 +794,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--3681af78-7b47-5218-845a-94ee0cb2e490",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--e70978cd-7300-54a0-92c9-df68fbbf03f6",
       "target_ref": "vulnerability--597d50ee-3c7c-5fb2-83e2-2d46ed764aa1"
@@ -804,8 +804,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--a4165202-5a12-5f8d-b07b-e4ce886b1618",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--0e9f844c-dc8e-520e-ad94-6658b1126283",
       "target_ref": "vulnerability--597d50ee-3c7c-5fb2-83e2-2d46ed764aa1"
@@ -814,8 +814,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--0ef0c680-6ed9-5f0c-b2b9-8c8119d50a16",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-21717 Node.js V8 Hash Collision Vulnerability",
       "description": "## Overview\n\nCVE-2026-21717 is a vulnerability affecting Node.js versions 20.x, 22.x, 24.x, and 25.x. The flaw resides in the V8 JavaScript engine's string hashing mechanism. When Node.js parses JSON, V8 internalizes short strings into a hash table. This vulnerability occurs because the hashing algorithm treats integer-like strings specially, hashing them to their numeric value. An attacker can exploit this by crafting JSON input containing a large number of distinct strings that happen to hash to the same value due to this predictable hashing behavior. This causes excessive hash collisions within V8's internal string table, resulting in a significant performance degradation of the Node.js process, potentially leading to denial of service.\n\n## Attack Chain\n\n1. The attacker identifies a Node.js application that uses `JSON.parse()` to process user-supplied input.\n2. The attacker crafts a JSON payload containing a large number of strings.\n3. The crafted strings are chosen to be integer-like strings (e.g., \"100\", \"200\", \"300\").\n4. When the Node.js application calls `JSON.parse()` on the malicious payload, the V8 engine attempts to internalize these strings into its string table.\n5. Due to the flawed hashing algorithm, these strings produce a large number of hash collisions.\n6. The excessive hash collisions cause the V8 engine to spend excessive time resolving these collisions.\n7. This increased processing time degrades the performance of the Node.js process, increasing CPU usage and response times.\n8. The Node.js application becomes unresponsive, effectively causing a denial-of-service condition.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-21717 leads to a denial-of-service condition, potentially impacting all users of the affected Node.js application. The vulnerability affects Node.js versions 20.x, 22.x, 24.x, and 25.x, making a wide range of applications potentially vulnerable. There is no information about number of victims or sectors targeted from the provided source.\n\n## Recommendation\n\n*   Apply available patches or upgrade to a fixed version of Node.js to remediate CVE-2026-21717.\n*   Deploy the Sigma rule `Detect High Number of JSON Parse Operations` to identify potential exploitation attempts by monitoring the number of `JSON.parse()` calls in a given timeframe.\n*   Rate limit requests to endpoints that handle JSON data to mitigate the impact of potential hash collision attacks.\n",
       "published": "2026-05-31T07:41:03Z",
@@ -849,8 +849,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Exploitation for Privilege Escalation",
       "external_references": [
         {
@@ -864,8 +864,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--f51ac9a8-6ecd-563c-9d7f-0a1f2bb38455",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--8f3a9ca1-041e-51fa-b7b6-ac7f98cf8ec4",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -879,8 +879,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--2465663b-5b1f-51a1-b7ad-969105cd1243",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-21711",
       "external_references": [
         {
@@ -894,8 +894,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c5935aa3-9310-5eec-befb-e7f279455fba",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--eb1a1bd3-0ca0-5bef-bba6-f3dcd0de59ab",
       "target_ref": "vulnerability--2465663b-5b1f-51a1-b7ad-969105cd1243"
@@ -904,8 +904,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--8f3a9ca1-041e-51fa-b7b6-ac7f98cf8ec4",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Node.js Permission Model Bypass via Unix Domain Sockets (CVE-2026-21711)",
       "description": "## Overview\n\nCVE-2026-21711 is a vulnerability in Node.js version 25.x related to the experimental permission model. Specifically, it involves a bypass of network restrictions when using Unix Domain Sockets (UDS). The vulnerability occurs because the permission model's network enforcement mechanisms do not properly apply to UDS server operations. This means that code running with the `--permission` flag, but specifically without `--allow-net` (intended to restrict network access), can still create and expose local Inter-Process Communication (IPC) endpoints through UDS. This enables unauthorized communication with other processes on the same host, effectively circumventing the intended network isolation. This flaw is significant for environments relying on the Node.js permission model to isolate applications and prevent them from accessing network resources.\n\n## Attack Chain\n\n1.  An attacker deploys a Node.js application using Node.js 25.x with the `--permission` flag and intentionally omits the `--allow-net` flag to restrict network access.\n2.  The application leverages the `net` module or a similar mechanism to create a Unix Domain Socket server. This operation should, in theory, be blocked by the permission model due to the missing `--allow-net` flag, but due to the vulnerability, the UDS server is created successfully.\n3.  The attacker specifies a path for the UDS that allows other processes on the system to connect to it.\n4.  A separate, possibly malicious, process on the same host connects to the created UDS. This process could be under the attacker's control or a compromised service.\n5.  The attacker's application and the connecting process establish a communication channel over the UDS.\n6.  The attacker uses this channel to send commands, data, or other instructions between the two processes, bypassing the intended network restrictions.\n7.  The receiving process executes the commands or processes the data received, potentially leading to privilege escalation, data leakage, or other malicious activities.\n8.  The attacker achieves their objective, such as gaining unauthorized access to system resources or compromising the integrity of the receiving process.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-21711 can lead to a bypass of intended network isolation in Node.js applications. This may allow unauthorized processes to communicate with and potentially control isolated applications, leading to privilege escalation, data leakage, or other forms of compromise. The vulnerability affects Node.js 25.x processes utilizing the permission model. The number of affected installations is unknown, but the impact is potentially significant for environments relying on the permission model to restrict network access and isolate applications.\n\n## Recommendation\n\n*   Upgrade to a patched version of Node.js that addresses CVE-2026-21711 once available.\n*   Deploy the Sigma rules provided below to detect potential exploitation attempts within your environment, focusing on process creation events when the `--permission` flag is enabled.\n*   Monitor Node.js processes for suspicious UDS creation and connection activity using the `network_connection` log source.\n*   Review and harden the permission configurations of Node.js applications to prevent unintended access to sensitive resources.\n",
       "published": "2026-05-31T07:41:19Z",
@@ -934,8 +934,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -949,8 +949,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--5301a99a-4ff2-5d21-ba8c-4bccbbfcd101",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--e40032c0-2b27-56b7-80af-4e0fa3d35f7f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -971,8 +971,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--6c91d00d-3ce9-565d-bf9d-f8f7c160e65c",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2025-23167",
       "external_references": [
         {
@@ -986,8 +986,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--9169325a-e5a7-5fe7-8db4-bbc26954b575",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--4620ec71-1dbd-5e84-8a48-6cd5352ee3b2",
       "target_ref": "vulnerability--6c91d00d-3ce9-565d-bf9d-f8f7c160e65c"
@@ -996,8 +996,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--55046183-9ef7-5a42-943f-a848f124c6a8",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--0693f1ca-a1ac-5a88-ac6c-4502cab281eb",
       "target_ref": "vulnerability--6c91d00d-3ce9-565d-bf9d-f8f7c160e65c"
@@ -1006,8 +1006,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--e40032c0-2b27-56b7-80af-4e0fa3d35f7f",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2025-23167 Node.js HTTP Request Smuggling via llhttp",
       "description": "## Overview\n\nCVE-2025-23167 is a request smuggling vulnerability affecting Node.js version 20.x. The vulnerability stems from the `llhttp` HTTP parser accepting `\\r\\n\\rX` as a valid HTTP/1 header terminator, instead of requiring the correct `\\r\\n\\r\\n` sequence. This inconsistency allows attackers to craft malicious HTTP requests that are interpreted differently by the Node.js server and any intermediary proxies. This discrepancy can be exploited to bypass security controls implemented at the proxy level and inject unauthorized requests into the application. The issue is resolved by upgrading the `llhttp` library to version 9, which enforces strict header termination. This vulnerability poses a significant risk to applications using Node.js 20.x without the patched `llhttp` library, potentially leading to unauthorized access or data manipulation.\n\n## Attack Chain\n\n1.  The attacker crafts an HTTP/1 request with a malformed header termination sequence, using `\\r\\n\\rX` instead of `\\r\\n\\r\\n`.\n2.  The attacker sends the malicious HTTP request through a proxy server.\n3.  The proxy server, expecting a properly formed request, forwards a portion of the malicious request to the backend Node.js server.\n4.  The Node.js server, running a vulnerable version of `llhttp`, incorrectly parses the malformed header and processes the request, leaving the remaining part of the malicious request unprocessed.\n5.  The attacker crafts a second, unauthorized request and appends it to the unprocessed portion of the first malicious request.\n6.  The Node.js server processes the remaining data as a new, independent request, effectively smuggling the unauthorized request.\n7.  The smuggled request bypasses the proxy's access controls, as the proxy only sees the initial, seemingly legitimate request.\n8.  The attacker gains unauthorized access to resources or functionality on the Node.js server, potentially leading to data breaches or service disruption.\n\n## Impact\n\nThis vulnerability affects Node.js 20.x users prior to the `llhttp` v9 upgrade. Successful exploitation allows attackers to bypass proxy-based access controls and submit unauthorized requests. The impact of successful request smuggling can include unauthorized access to sensitive data, modification of application data, or execution of arbitrary code on the server. The number of potential victims is significant given the widespread adoption of Node.js for web application development.\n\n## Recommendation\n\n*   Upgrade `llhttp` to version 9 or later in Node.js 20.x to resolve CVE-2025-23167.\n*   Deploy the Sigma rule \"Detect CVE-2025-23167 Node.js HTTP Smuggling Attempt\" to identify requests with malformed header termination.\n*   Monitor web server logs for HTTP requests containing `\\r\\n\\rX` in the header section to detect potential exploitation attempts.\n",
       "published": "2026-05-31T07:53:45Z",
@@ -1035,8 +1035,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -1050,8 +1050,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--35dea6e7-4496-5a80-9223-954a5601d725",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--502ab533-cce6-5142-9aac-d630b2196892",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -1060,16 +1060,16 @@
       "type": "threat-actor",
       "spec_version": "2.1",
       "id": "threat-actor--e5546c86-d8e8-5294-847e-cedb99887b0d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Unspecified"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--69405299-49a5-51bc-867a-f1f25128c803",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--502ab533-cce6-5142-9aac-d630b2196892",
       "target_ref": "threat-actor--e5546c86-d8e8-5294-847e-cedb99887b0d"
@@ -1084,8 +1084,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--68e71200-0640-557c-9948-b9407c21a45c",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-10178",
       "external_references": [
         {
@@ -1099,8 +1099,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--2b71e579-e4df-586e-bf83-97ef8f55af29",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--093bfc51-dac3-5b20-91cf-b4518a898092",
       "target_ref": "vulnerability--68e71200-0640-557c-9948-b9407c21a45c"
@@ -1109,8 +1109,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--502ab533-cce6-5142-9aac-d630b2196892",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "code-projects Online Music Site 1.0 SQL Injection Vulnerability (CVE-2026-10178)",
       "description": "## Overview\n\nA SQL injection vulnerability, identified as CVE-2026-10178, has been discovered in code-projects Online Music Site version 1.0. The vulnerability resides within the `/Administrator/PHP/AdminEditAlbum.php` file and can be exploited remotely by manipulating the `ID` argument. The vulnerability allows for arbitrary SQL queries to be executed, potentially leading to data breaches or unauthorized access. Public exploits are available, increasing the risk of active exploitation. This vulnerability poses a significant threat to organizations using the affected software, potentially compromising sensitive data.\n\n## Attack Chain\n\n1.  Attacker identifies the `/Administrator/PHP/AdminEditAlbum.php` endpoint of the Online Music Site 1.0 application.\n2.  Attacker crafts a malicious HTTP request targeting the `/Administrator/PHP/AdminEditAlbum.php` endpoint.\n3.  The attacker injects SQL code into the `ID` parameter of the HTTP request.\n4.  The application's backend script, `AdminEditAlbum.php`, processes the request without proper sanitization.\n5.  The injected SQL code is executed against the application's database.\n6.  The attacker gains unauthorized access to database contents.\n7.  The attacker exfiltrates sensitive data from the database.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10178 allows remote attackers to execute arbitrary SQL commands on the underlying database of Online Music Site 1.0. This can lead to the disclosure of sensitive information, modification of data, or even complete compromise of the database server. If the database contains user credentials or other sensitive information, the attacker may be able to gain unauthorized access to other systems or services.\n\n## Recommendation\n\n*   Apply appropriate input validation and sanitization techniques to prevent SQL injection attacks.\n*   Deploy the Sigma rule `Detect SQL Injection Attempt in code-projects Online Music Site (CVE-2026-10178)` to your SIEM to identify potential exploitation attempts.\n*   Review and harden database access controls to limit the impact of successful SQL injection attacks.\n*   Monitor web server logs for suspicious activity targeting the `/Administrator/PHP/AdminEditAlbum.php` endpoint (see the Sigma rule for example patterns).\n",
       "published": "2026-05-31T11:17:26Z",
@@ -1137,8 +1137,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -1152,8 +1152,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--b5f3fb35-b2fc-5b81-92d7-47206a06872d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--ba391df1-a2d5-5bb4-b2f3-02a04c14ea2f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -1168,8 +1168,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--e3a35668-a067-54f7-83d1-8c3248a633a8",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-49489",
       "external_references": [
         {
@@ -1183,8 +1183,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--31daf051-554a-5055-82aa-bcd6407f1176",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--a24f8a64-5ecc-50ab-bb37-400556c9914e",
       "target_ref": "vulnerability--e3a35668-a067-54f7-83d1-8c3248a633a8"
@@ -1193,8 +1193,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--ba391df1-a2d5-5bb4-b2f3-02a04c14ea2f",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "OpenCATS SQL Injection Vulnerability in DataGrid Component (CVE-2026-49489)",
       "description": "## Overview\n\nOpenCATS through 0.9.7.4 is vulnerable to SQL injection in the DataGrid component. This vulnerability, identified as CVE-2026-49489, allows authenticated users to inject malicious SQL code into the `sortDirection` parameter. The vulnerable endpoint is `ajax/getDataGridPager.php`. Successful exploitation allows attackers to perform time-based blind SQL injection attacks, potentially leading to the extraction of sensitive database contents. This vulnerability poses a significant risk to organizations using OpenCATS as an attacker can potentially access confidential information.\n\n## Attack Chain\n\n1. An attacker authenticates to the OpenCATS application.\n2. The attacker navigates to a page utilizing the DataGrid component.\n3. The application makes an AJAX request to `ajax/getDataGridPager.php`.\n4. The attacker intercepts the request and injects malicious SQL code into the `sortDirection` parameter.\n5. The server-side application processes the crafted request without proper sanitization.\n6. The injected SQL code is executed against the database.\n7. The attacker leverages time-based blind SQL injection techniques to infer information about the database structure and contents.\n8. Sensitive data, such as user credentials or confidential business information, is extracted.\n\n## Impact\n\nSuccessful exploitation of this vulnerability can lead to the complete compromise of the OpenCATS database. Attackers can gain unauthorized access to sensitive information, including user credentials, financial data, and other confidential business information. The impact of this vulnerability is significant, as it could lead to data breaches, financial losses, and reputational damage. The CVSS v3.1 base score is 8.5, highlighting the high severity of this vulnerability.\n\n## Recommendation\n\n*   Apply the patch or upgrade to a version of OpenCATS that addresses CVE-2026-49489 to remediate the SQL injection vulnerability.\n*   Deploy the Sigma rule \"Detect OpenCATS SQL Injection Attempt in sortDirection Parameter\" to identify exploitation attempts.\n*   Monitor web server logs for requests to `ajax/getDataGridPager.php` containing suspicious characters or SQL syntax in the `sortDirection` parameter.\n*   Implement input validation and sanitization on the `sortDirection` parameter to prevent SQL injection attacks.\n",
       "published": "2026-05-31T13:17:40Z",
@@ -1236,8 +1236,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "Drive-by Compromise",
       "external_references": [
         {
@@ -1251,8 +1251,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--dd8b7dea-a578-53e1-997b-2456cc667cb7",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "uses",
       "source_ref": "report--5871b4ed-957d-5da1-a0bc-e540e3fff66d",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
@@ -1267,8 +1267,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--f6876533-d476-57be-8ec7-22ffcadc01c8",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-10192",
       "external_references": [
         {
@@ -1282,8 +1282,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--910d3ff8-8320-5444-bdab-110c81cec09e",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "relationship_type": "has",
       "source_ref": "software--6f090700-e967-57a8-aaba-b275162658e9",
       "target_ref": "vulnerability--f6876533-d476-57be-8ec7-22ffcadc01c8"
@@ -1292,8 +1292,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--5871b4ed-957d-5da1-a0bc-e540e3fff66d",
-      "created": "2026-08-28T23:36:45Z",
-      "modified": "2026-08-28T23:36:45Z",
+      "created": "2026-08-29T01:36:33Z",
+      "modified": "2026-08-29T01:36:33Z",
       "name": "CVE-2026-10192 - Tenda W12 Stack-Based Buffer Overflow in set_local_time_0",
       "description": "## Overview\n\nA stack-based buffer overflow vulnerability, CVE-2026-10192, has been identified in Tenda W12 router version 3.0.0.7(4763). The vulnerability resides in the `set_local_time_0` function within the `/bin/httpd` binary, responsible for handling time synchronization. A remote attacker can exploit this flaw by crafting a malicious `Time` argument in a request to this function, leading to arbitrary code execution due to the buffer overflow. This exploit is publicly available, increasing the risk of widespread exploitation. Successful exploitation allows an attacker to gain complete control of the device, potentially leading to data theft, device hijacking, or integration into a botnet.\n\n## Attack Chain\n\n1.  The attacker identifies a Tenda W12 router running firmware version 3.0.0.7(4763) accessible over the network.\n2.  The attacker sends a crafted HTTP request targeting the `/bin/httpd` service.\n3.  The HTTP request is designed to call the `set_local_time_0` function.\n4.  The request includes a malicious `Time` argument that exceeds the buffer size allocated for it.\n5.  The `set_local_time_0` function attempts to copy the overly long `Time` argument into the buffer, triggering a stack-based buffer overflow.\n6.  The overflow overwrites adjacent memory on the stack, potentially including the return address.\n7.  The attacker manipulates the return address to point to malicious code injected into the device's memory.\n8.  Upon function return, control is transferred to the attacker's injected code, allowing arbitrary command execution.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10192 can grant a remote attacker complete control over the Tenda W12 router. This could lead to unauthorized access to sensitive information, modification of router settings, or the use of the router as a node in a botnet for distributed denial-of-service (DDoS) attacks or other malicious activities. Given the availability of a public exploit, the risk of widespread exploitation is significant, potentially affecting a large number of home and small business networks.\n\n## Recommendation\n\n*   Apply available patches or firmware updates from Tenda to address CVE-2026-10192.\n*   Monitor network traffic for suspicious HTTP requests targeting the `/bin/httpd` service with unusually long `Time` arguments, using the provided Sigma rule.\n*   Implement network segmentation to limit the impact of a successful exploit on other devices on the network.\n*   Consider deploying a web application firewall (WAF) to filter malicious requests targeting the `set_local_time_0` function.\n*   Disable remote management access to the router if not required.\n",
       "published": "2026-05-31T17:18:27Z",
