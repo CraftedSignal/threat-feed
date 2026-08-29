@@ -3,6 +3,7 @@ title: Path Traversal Vulnerability in gpt-crawler via outputFileName Parameter
 slug: 2026-08-gpt-crawler-traversal
 description: CVE-2026-82286 is a path traversal vulnerability in gpt-crawler (<= 1.5.1) allowing unauthenticated attackers to perform arbitrary file writes through the /crawl endpoint.
 date: "2026-08-28T21:39:26Z"
+lastmod: "2026-08-29T02:36:27Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:builder:gpt-crawler:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=DC54923F-50AC-5F34-830F-42BEF1989C4E&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - cve
@@ -18,6 +22,7 @@ vendors:
   - Builder.io
 products:
   - gpt-crawler (<= 1.5.1)
+  - gpt-crawler
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,6 +35,7 @@ cves:
     cvss: 8.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82286
+  - https://sploitus.com/exploit?id=DC54923F-50AC-5F34-830F-42BEF1989C4E&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-82286 Exploitation - Path Traversal in gpt-crawler
     description: Detects attempts to exploit CVE-2026-82286 by monitoring POST requests to /crawl where the outputFileName parameter contains traversal patterns.
@@ -67,6 +73,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82286
       evidence: Vulnerability allows unauthenticated access
+updates:
+  - at: "2026-08-29T02:36:27Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=DC54923F-50AC-5F34-830F-42BEF1989C4E&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-82286 is an arbitrary file write vulnerability affecting gpt-crawler versions up to and including 1.5.1. The flaw exists within the POST /crawl endpoint, which fails to adequately sanitize the 'outputFileName' parameter. An unauthenticated attacker can exploit this lack of validation by supplying crafted input containing path traversal sequences (e.g., ../) or absolute filesystem paths. 
