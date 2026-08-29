@@ -1,13 +1,13 @@
 {
   "type": "bundle",
-  "id": "bundle--3b56d0e0-90d4-5c2e-9519-5d514fb2e1eb",
+  "id": "bundle--519bb5e2-85cf-5e3b-a35a-c56642aee439",
   "objects": [
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -21,8 +21,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--5f1c588b-7ab6-5619-973d-9da726623829",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "relationship_type": "uses",
       "source_ref": "report--458f18f0-9119-57c5-bba4-06763f3fe630",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -31,16 +31,16 @@
       "type": "threat-actor",
       "spec_version": "2.1",
       "id": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "name": "Unattributed"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--253641d0-1b60-5b2b-9511-aaf5119d6094",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--458f18f0-9119-57c5-bba4-06763f3fe630",
       "target_ref": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a"
@@ -55,8 +55,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--d911974c-910a-5cd6-946a-2788af0eeea3",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "name": "CVE-2026-10187",
       "external_references": [
         {
@@ -70,8 +70,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--6bc11485-3a60-5aa0-a83d-187debc7939c",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "relationship_type": "has",
       "source_ref": "software--1de4eadd-08af-507f-8417-e9cd9265a1ab",
       "target_ref": "vulnerability--d911974c-910a-5cd6-946a-2788af0eeea3"
@@ -80,8 +80,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--458f18f0-9119-57c5-bba4-06763f3fe630",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "name": "Totolink N300RH Stack-Based Buffer Overflow Vulnerability (CVE-2026-10187)",
       "description": "## Overview\n\nA stack-based buffer overflow vulnerability has been identified in Totolink N300RH router, version 6.1c.1353_B20190305. The vulnerability resides in the `setWiFiBasicConfig` function within the `wireless.so` file, a component of the device's web management interface. Publicly available exploits demonstrate that a remote attacker can leverage this vulnerability by manipulating the `KeyStr` argument passed to the vulnerable function, resulting in arbitrary code execution on the device. The affected version was released in March 2019, suggesting that many devices are potentially vulnerable due to lack of updates. This poses a significant risk, as successful exploitation could allow attackers to gain full control of the router, compromise connected devices, and intercept network traffic.\n\n## Attack Chain\n\n1.  The attacker identifies a vulnerable Totolink N300RH router running firmware version 6.1c.1353_B20190305.\n2.  The attacker sends a crafted HTTP request to the router's web management interface.\n3.  The HTTP request targets the `setWiFiBasicConfig` function.\n4.  The request includes a malicious payload in the `KeyStr` argument, designed to overflow the stack buffer.\n5.  The `wireless.so` library processes the request without proper bounds checking on the `KeyStr` argument.\n6.  The buffer overflow overwrites critical memory regions, including the return address.\n7.  Upon returning from the function, execution jumps to the attacker-controlled address, allowing for arbitrary code execution.\n8.  The attacker gains a shell on the router and can perform malicious actions.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10187 can lead to full compromise of the Totolink N300RH router. Attackers can leverage this access to intercept network traffic, modify DNS settings, create backdoors, and potentially compromise other devices on the network. Due to the high CVSS score (9.8), the impact is considered critical, allowing for complete control over the affected device. Given the nature of routers as network gateways, this vulnerability can serve as an entry point for wider attacks on home or small business networks.\n\n## Recommendation\n\n*   Deploy the Sigma rule `Detect CVE-2026-10187 Exploitation Attempt via Long KeyStr` to identify suspicious HTTP requests targeting the `setWiFiBasicConfig` function with abnormally long `KeyStr` arguments.\n*   Block or investigate any traffic to the `setWiFiBasicConfig` endpoint originating from unexpected IP addresses, based on observed network connections.\n*   Monitor webserver logs for POST requests to the `setWiFiBasicConfig` endpoint, based on webserver log source.\n",
       "published": "2026-05-31T15:18:40Z",
@@ -136,8 +136,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "name": "Drive-by Compromise",
       "external_references": [
         {
@@ -151,8 +151,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--dd8b7dea-a578-53e1-997b-2456cc667cb7",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "relationship_type": "uses",
       "source_ref": "report--5871b4ed-957d-5da1-a0bc-e540e3fff66d",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
@@ -167,8 +167,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--f6876533-d476-57be-8ec7-22ffcadc01c8",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "name": "CVE-2026-10192",
       "external_references": [
         {
@@ -182,8 +182,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--910d3ff8-8320-5444-bdab-110c81cec09e",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "relationship_type": "has",
       "source_ref": "software--6f090700-e967-57a8-aaba-b275162658e9",
       "target_ref": "vulnerability--f6876533-d476-57be-8ec7-22ffcadc01c8"
@@ -192,8 +192,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--5871b4ed-957d-5da1-a0bc-e540e3fff66d",
-      "created": "2026-08-29T13:39:48Z",
-      "modified": "2026-08-29T13:39:48Z",
+      "created": "2026-08-29T13:46:05Z",
+      "modified": "2026-08-29T13:46:05Z",
       "name": "CVE-2026-10192 - Tenda W12 Stack-Based Buffer Overflow in set_local_time_0",
       "description": "## Overview\n\nA stack-based buffer overflow vulnerability, CVE-2026-10192, has been identified in Tenda W12 router version 3.0.0.7(4763). The vulnerability resides in the `set_local_time_0` function within the `/bin/httpd` binary, responsible for handling time synchronization. A remote attacker can exploit this flaw by crafting a malicious `Time` argument in a request to this function, leading to arbitrary code execution due to the buffer overflow. This exploit is publicly available, increasing the risk of widespread exploitation. Successful exploitation allows an attacker to gain complete control of the device, potentially leading to data theft, device hijacking, or integration into a botnet.\n\n## Attack Chain\n\n1.  The attacker identifies a Tenda W12 router running firmware version 3.0.0.7(4763) accessible over the network.\n2.  The attacker sends a crafted HTTP request targeting the `/bin/httpd` service.\n3.  The HTTP request is designed to call the `set_local_time_0` function.\n4.  The request includes a malicious `Time` argument that exceeds the buffer size allocated for it.\n5.  The `set_local_time_0` function attempts to copy the overly long `Time` argument into the buffer, triggering a stack-based buffer overflow.\n6.  The overflow overwrites adjacent memory on the stack, potentially including the return address.\n7.  The attacker manipulates the return address to point to malicious code injected into the device's memory.\n8.  Upon function return, control is transferred to the attacker's injected code, allowing arbitrary command execution.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10192 can grant a remote attacker complete control over the Tenda W12 router. This could lead to unauthorized access to sensitive information, modification of router settings, or the use of the router as a node in a botnet for distributed denial-of-service (DDoS) attacks or other malicious activities. Given the availability of a public exploit, the risk of widespread exploitation is significant, potentially affecting a large number of home and small business networks.\n\n## Recommendation\n\n*   Apply available patches or firmware updates from Tenda to address CVE-2026-10192.\n*   Monitor network traffic for suspicious HTTP requests targeting the `/bin/httpd` service with unusually long `Time` arguments, using the provided Sigma rule.\n*   Implement network segmentation to limit the impact of a successful exploit on other devices on the network.\n*   Consider deploying a web application firewall (WAF) to filter malicious requests targeting the `set_local_time_0` function.\n*   Disable remote management access to the router if not required.\n",
       "published": "2026-05-31T17:18:27Z",
