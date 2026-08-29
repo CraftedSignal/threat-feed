@@ -3,21 +3,33 @@ title: Windows Binary Execution from Archive-Related Paths
 slug: 2024-01-03-binary-exec-from-archive
 description: Detects the execution of a binary from archive-related paths within a user's Temp directory, potentially indicating attempts to bypass Mark-of-the-Web (MOTW) or exploit vulnerabilities like CVE-2025-0411.
 date: "2024-01-03T15:00:00Z"
+lastmod: "2026-08-29T13:45:03Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:netapp:active_iq_unified_manager:-:*:*:*:*:windows:*:*
+  - cpe:2.3:a:7-zip:7-zip:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ISHWARDEEPP-CVE-2025-0411-MOTW-POC&utm_source=rss&utm_medium=rss
 tags:
   - binary-execution
   - archive-bypass
   - motw-bypass
 vendors:
   - Splunk
+  - Microsoft
+  - 7-Zip
 products:
   - Splunk Enterprise
   - Splunk Enterprise Security
   - Splunk Cloud
+affected_os:
+  - Windows 10
+  - Windows 11
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -26,10 +38,11 @@ mitre_ttps:
 cves:
   - id: CVE-2025-0411
     cvss: 7
-    epss: 0.52406
+    epss: 0.67071
 references:
   - https://redcanary.com/threat-detection-report/threats/scarlet-goldfinch/
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_binary_execution_from_an_archive.yml
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ISHWARDEEPP-CVE-2025-0411-MOTW-POC&utm_source=rss&utm_medium=rss
 rules:
   - title: Binary Executed from Archive-Related Temp Path
     description: Detects the execution of a binary from archive-related paths within the user's Temp directory.
@@ -54,6 +67,14 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-08-29T13:45:03Z"
+    level: L2
+    summary: poc_available; OS windows 11; OS windows 10
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ISHWARDEEPP-CVE-2025-0411-MOTW-POC&utm_source=rss&utm_medium=rss
 ---
 
 This detection identifies suspicious execution patterns where Windows binaries are launched from archive-related paths within a user's temporary directory. This technique is often employed by attackers to circumvent security mechanisms like Mark-of-the-Web (MOTW), as seen in instances such as CVE-2025-0411. The detection focuses on binaries executed by trusted processes like `explorer.exe`, `winrar.exe`, and `7zFM.exe`. The targeted process paths include the user's Temp directory and archive markers like RAR, 7z, or ZIP. This behavior allows attackers to execute malicious code without triggering standard security alerts, making it crucial for defenders to monitor for this anomaly.
