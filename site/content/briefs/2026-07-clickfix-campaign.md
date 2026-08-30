@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-08-29T09:10:33Z"
+lastmod: "2026-08-30T09:07:29Z"
 type: advisory
 types:
   - advisory
@@ -114,6 +114,7 @@ references:
   - https://www.malware-traffic-analysis.net/2026/08/21/index.html
   - https://www.huntress.com/blog/defcon-phishing-google-doc-malware
   - https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/
+  - https://thehackernews.com/2026/08/terminalfix-uses-fake-cloudflare.html
 iocs:
   - type: domain
     value: justwatch.com
@@ -163,19 +164,16 @@ iocs:
     value: gitnow.dev
   - type: hash_sha256
     value: 18c2090e8a0ae0568af9b87e59eaf8270f23d2909600ed9db91a9444fd8b278f
+  - type: domain
+    value: bestsocialmedianewspapper.com
+  - type: domain
+    value: offlineupdater.com
 ioc_counts:
-  domain: 13
+  domain: 15
   hash_sha256: 1
   ip: 2
   url: 8
 updates:
-  - at: "2026-08-17T11:47:09Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/08/amnesiastealer-hijacks-chromium.html
   - at: "2026-08-18T20:50:59Z"
     level: L1
     summary: new IOCs
@@ -204,6 +202,13 @@ updates:
       - microsoft-threat-intel
     source_urls:
       - https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/
+  - at: "2026-08-30T09:07:29Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/08/terminalfix-uses-fake-cloudflare.html
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
