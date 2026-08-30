@@ -3,7 +3,7 @@ title: SSRF Vulnerability in SiYuan via DNS Rebinding
 slug: 2026-08-siyuan-ssrf
 description: SiYuan versions prior to 3.8.1 are vulnerable to server-side request forgery through a DNS rebinding attack, enabling unauthorized access to cloud metadata services and internal network resources.
 date: "2026-08-28T15:13:11Z"
-lastmod: "2026-08-30T17:11:45Z"
+lastmod: "2026-08-30T17:11:51Z"
 type: advisory
 types:
   - advisory
@@ -47,6 +47,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82234
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82653
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82654
 action_plan:
   priority: elevated
   owners:
@@ -71,6 +72,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-82653
+  - at: "2026-08-30T17:11:51Z"
+    level: L2
+    summary: added coverage for SiYuan (< 3.8.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82654
 ---
 
 SiYuan versions before 3.8.1 are susceptible to a critical server-side request forgery (SSRF) vulnerability identified as CVE-2026-82234. The flaw exists within the 'http_request' and 'web_fetch' agent tools, which perform DNS resolution checks only at the time of the request guard. Because the application fails to validate the IP address resolved during the subsequent connection phase, it becomes vulnerable to DNS rebinding attacks. An attacker can supply a domain that resolves to a benign public IP address during the initial guard check and then switches to a private, restricted, or cloud metadata IP address (e.g., 169.254.169.254) during the actual connection. This allows remote attackers to bypass security filters and interact with internal network services or exfiltrate sensitive environment metadata that would otherwise be protected from external access. This vulnerability poses a significant risk to cloud-hosted deployments of SiYuan.
