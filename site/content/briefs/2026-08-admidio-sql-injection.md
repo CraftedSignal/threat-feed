@@ -3,6 +3,7 @@ title: Unauthenticated Blind SQL Injection in Admidio
 slug: 2026-08-admidio-sql-injection
 description: Admidio versions prior to 5.0.12 contain a blind SQL injection vulnerability in the relation_type_list parameter, allowing unauthenticated attackers to exfiltrate database contents.
 date: "2026-08-30T17:11:58Z"
+lastmod: "2026-08-30T17:12:08Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - web-application
   - sql-injection
   - cve
+  - information-disclosure
+  - authorization-bypass
 vendors:
   - Admidio
 products:
@@ -31,11 +34,18 @@ mitre_ttps:
     technique_name: Server Software Component
     evidence: Attackers can bypass authentication by providing a dummy UUID in role_list and inject SQL through relation_type_list to extract database contents including password hashes and user credentials.
     confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: Unauthenticated attackers can retrieve forum topics and announcements by sending GET requests to rss/forum.php or rss/announcements.php.
+    confidence_band: high
 cves:
   - id: CVE-2026-82655
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82655
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82657
 rules:
   - title: Detects CVE-2026-82655 Exploitation - SQL Injection in Admidio
     description: Detects exploitation attempts targeting the relation_type_list parameter in lists_show.php using common SQL injection syntax.
@@ -48,7 +58,17 @@ rules:
       - T1505
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-82657 Exploitation - Unauthorized RSS Feed Access
+    description: Detects unauthorized access attempts to Admidio RSS feed endpoints which typically require authentication.
+    platform: sigma
+    severity: high
+    tactics:
+      - discovery
+    techniques:
+      - T1592
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -64,6 +84,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82655
       evidence: NVD vulnerability details.
+updates:
+  - at: "2026-08-30T17:12:08Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-82657 Exploitation - Unauthorized RSS Feed Access'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82657
 ---
 
 Admidio versions prior to 5.0.12 contain a blind SQL injection vulnerability in the relation_type_list parameter of the lists_show.php file. This vulnerability allows unauthenticated attackers to execute arbitrary SQL queries against the underlying database. By supplying a dummy UUID in the role_list parameter, an attacker can bypass standard authentication checks and manipulate the relation_type_list parameter to perform time-based or boolean-based SQL injection. This vector provides a mechanism for unauthorized actors to exfiltrate sensitive data, including user credentials and password hashes stored in the application database.
