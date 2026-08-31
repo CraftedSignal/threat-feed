@@ -3,7 +3,7 @@ title: Active Exploitation of PaperCut MF and NG
 slug: 2026-08-papercut-vulnerabilities
 description: PaperCut MF and NG are impacted by two actively exploited vulnerabilities, CVE-2026-82078 and CVE-2026-81578, which allow unauthenticated remote attackers to achieve arbitrary code execution and full system control.
 date: "2026-08-28T14:28:32Z"
-lastmod: "2026-08-29T03:07:00Z"
+lastmod: "2026-08-31T17:52:18Z"
 type: threat
 types:
   - threat
@@ -17,6 +17,7 @@ products:
   - PaperCut MF
   - PaperCut NG
   - PaperCut Hive
+  - NG/MF
 affected_os:
   - Windows
 mitre_ttps:
@@ -33,14 +34,19 @@ mitre_ttps:
     evidence: en zelf code uit te voeren.
     confidence_band: high
 cves:
-  - id: CVE-2026-81578
   - id: CVE-2026-82078
+    epss: 0.00462
+  - id: CVE-2026-81578
+    epss: 0.00393
 references:
   - https://www.ncsc.nl/alerts/kwetsbaarheden-in-papercut-mf-en-ng-met-actief-misbruik-update-onmiddellijk
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1095/
   - https://cyber.gc.ca/en/alerts-advisories/papercut-security-advisory-av26-858
   - https://therecord.media/papercut-warns-of-hackers-using-printer-management-vulnerabilities
   - https://github.com/elastic/detection-rules/blob/main/rules/windows/initial_access_papercut_suspicious_child_process.toml
+  - https://www.reddit.com/r/blueteamsec/comments/1w1w0jb/urgent_security_advisory_papercut_ngmf_security/
+  - https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog
+  - https://www.cve.org/CVERecord?id=CVE-2026-81578
 action_plan:
   priority: immediate_escalation
   owners:
@@ -82,6 +88,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/windows/initial_access_papercut_suspicious_child_process.toml
+  - at: "2026-08-31T17:52:18Z"
+    level: L1
+    summary: new product
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-81578
 ---
 
 The Netherlands National Cyber Security Centre (NCSC-NL) has issued an urgent alert regarding the active exploitation of two critical vulnerabilities within PaperCut MF and PaperCut NG print management software. Identified as CVE-2026-82078 and CVE-2026-81578, these flaws enable unauthenticated remote attackers to compromise the print management environment. By bypassing authentication mechanisms, adversaries can gain full control over the application, leading to arbitrary code execution. This level of access provides a significant foothold within an organization's network, increasing the risk of lateral movement, data theft, and operational disruption. Given that exploitation is currently observed in the wild, the NCSC strongly advises organizations to verify their version status against the vendor's security bulletin and apply the provided patches immediately.
