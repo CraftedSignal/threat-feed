@@ -3,7 +3,7 @@ title: Windows Binary Execution from Archive-Related Paths
 slug: 2024-01-03-binary-exec-from-archive
 description: Detects the execution of a binary from archive-related paths within a user's Temp directory, potentially indicating attempts to bypass Mark-of-the-Web (MOTW) or exploit vulnerabilities like CVE-2025-0411.
 date: "2024-01-03T15:00:00Z"
-lastmod: "2026-08-29T13:45:03Z"
+lastmod: "2026-08-31T01:18:47Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,9 @@ tags:
   - binary-execution
   - archive-bypass
   - motw-bypass
+  - privilege-escalation
+  - windows
+  - cve
 vendors:
   - Splunk
   - Microsoft
@@ -27,6 +30,10 @@ products:
   - Splunk Enterprise
   - Splunk Enterprise Security
   - Splunk Cloud
+  - Windows 10 (10.0.17763.9020)
+  - Windows 10 (10.0.19044.7548)
+  - Windows 10 (10.0.19045.7548)
+  - Windows 11 (10.0.26100.8875)
 affected_os:
   - Windows 10
   - Windows 11
@@ -35,6 +42,18 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1204
     technique_name: User Execution
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1547
+    technique_name: Boot or Logon Autostart Execution
+    evidence: InstallService trusts plugin names and DLL paths from HKLM registry state, which can be modified by a low-privileged user.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: By creating specific registry keys, an attacker can force the InstallService to load an arbitrary attacker-controlled DLL.
+    confidence_band: high
 cves:
   - id: CVE-2025-0411
     cvss: 7
@@ -43,6 +62,7 @@ references:
   - https://redcanary.com/threat-detection-report/threats/scarlet-goldfinch/
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_binary_execution_from_an_archive.yml
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ISHWARDEEPP-CVE-2025-0411-MOTW-POC&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RAT5AK-CVE-2026-50343-INSTALLSERVICE-EOP
 rules:
   - title: Binary Executed from Archive-Related Temp Path
     description: Detects the execution of a binary from archive-related paths within the user's Temp directory.
@@ -66,7 +86,18 @@ rules:
     data_sources:
       - process_creation
       - windows
-rules_count: 2
+  - title: Detect Suspicious InstallService State Registry Modification
+    description: Detects modifications to the InstallService registry state keys used for DLL side-loading, potentially associated with CVE-2026-50343 exploitation.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege-escalation
+    techniques:
+      - T1547.001
+    data_sources:
+      - registry_set
+      - windows
+rules_count: 3
 updates:
   - at: "2026-08-29T13:45:03Z"
     level: L2
@@ -75,6 +106,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ISHWARDEEPP-CVE-2025-0411-MOTW-POC&utm_source=rss&utm_medium=rss
+  - at: "2026-08-31T01:18:47Z"
+    level: L2
+    summary: 'added detection rule: Detect Suspicious InstallService State Registry Modification'
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RAT5AK-CVE-2026-50343-INSTALLSERVICE-EOP&utm_source=rss&utm_medium=rss
 ---
 
 This detection identifies suspicious execution patterns where Windows binaries are launched from archive-related paths within a user's temporary directory. This technique is often employed by attackers to circumvent security mechanisms like Mark-of-the-Web (MOTW), as seen in instances such as CVE-2025-0411. The detection focuses on binaries executed by trusted processes like `explorer.exe`, `winrar.exe`, and `7zFM.exe`. The targeted process paths include the user's Temp directory and archive markers like RAR, 7z, or ZIP. This behavior allows attackers to execute malicious code without triggering standard security alerts, making it crucial for defenders to monitor for this anomaly.
