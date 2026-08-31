@@ -3,6 +3,7 @@ title: Nodemailer SSRF and Arbitrary File Read Vulnerability
 slug: 2026-08-nodemailer-ssrf-file-read
 description: Nodemailer versions before 9.0.1 fail to enforce security flags when processing message-level raw options, allowing authenticated attackers to perform SSRF and read arbitrary files.
 date: "2026-08-31T11:17:45Z"
+lastmod: "2026-08-31T11:59:00Z"
 type: advisory
 types:
   - advisory
@@ -14,8 +15,13 @@ tags:
   - vulnerability
   - ssrf
   - file-access
+  - smtp-injection
+  - nodemailer
+vendors:
+  - Nodemailer
 products:
   - nodemailer (< 9.0.1)
+  - Nodemailer (< 8.0.4)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,11 +35,18 @@ mitre_ttps:
     technique_name: Exfiltration Over Alternative Protocol
     evidence: The resulting data or response is then exfiltrated to an attacker-controlled recipient via the outgoing email.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The library fails to sanitize this input for carriage return and line feed characters before concatenating it into the SMTP command stream, allowing injection of arbitrary SMTP commands.
+    confidence_band: high
 cves:
   - id: CVE-2026-82659
     cvss: 7.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82659
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82854
 action_plan:
   priority: elevated
   owners:
@@ -44,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82659
       evidence: Nodemailer versions prior to 9.0.1 fail to properly apply 'disableFileAccess' and 'disableUrlAccess' security flags.
+updates:
+  - at: "2026-08-31T11:59:00Z"
+    level: L2
+    summary: added coverage for Nodemailer (< 8.0.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82854
 ---
 
 Nodemailer versions prior to 9.0.1 contain a security oversight where the 'disableFileAccess' and 'disableUrlAccess' flags are not properly applied when processing message-level 'raw' options. This flaw allows an authenticated attacker to provide malicious path or href properties within the email structure. By exploiting this, an attacker can coerce the server into performing server-side request forgery (SSRF) to interact with internal resources or to read arbitrary files from the filesystem. The contents of these files or the response from the internal requests are then exfiltrated to an attacker-controlled recipient via the outgoing email message. This vulnerability poses a significant risk to applications using Nodemailer to process user-supplied email content or templates, as it bypasses intended security sandbox restrictions.
