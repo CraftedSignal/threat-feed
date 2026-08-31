@@ -1,18 +1,19 @@
 ---
-title: ValleyRAT Backdoor Distributed via Masqueraded Adware Installers
+title: ValleyRAT Backdoor Distributed via Signed Adware
 slug: 2026-08-valleyrat-adware
-description: Threat actors are distributing the ValleyRAT backdoor by masquerading it as legitimate software and adware, utilizing DLL sideloading and registry-based defense evasion.
-date: "2026-08-31T11:55:05Z"
-type: advisory
+description: The threat actor Silver Fox is distributing the ValleyRAT backdoor disguised as a signed QN Wallpaper adware application to leverage user-applied antivirus exclusions.
+date: "2026-08-31T12:55:01Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+actors:
+  - Silver Fox
 tags:
   - backdoor
   - malware
   - dll-sideloading
-  - defense-evasion
 affected_os:
   - Windows
 mitre_ttps:
@@ -20,28 +21,36 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1574.002
     technique_name: DLL Side-Loading
-    evidence: In this case, however, the attackers use it to carry out DLL sideloading, a technique that allows malicious code to run under the guise of a signed process by way of a malicious DLL.
+    evidence: The disguise relies on DLL sideloading.
     confidence_band: high
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1547.001
-    technique_name: Registry Run Keys / Startup Folder
-    evidence: Regardless of the file name, the installer deploys a modified Chinese desktop wallpaper management tool called QN Wallpaper... and adds it to the registry's autorun entries.
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1112
+    technique_name: Modify Registry
+    evidence: The installer unpacks a modified copy of QN Wallpaper and runs its signed executable... The installer switches off Windows Defender through the DisableAntiSpyware registry key.
     confidence_band: high
 references:
-  - https://securelist.com/valleyrat-backdoor-adware/121175/
+  - https://thehackernews.com/2026/08/valleyrat-backdoor-hides-in-signed.html
 iocs:
   - type: hash_md5
     value: c24e99f9437feacaa63766a3cde3fe3d
   - type: hash_md5
     value: 07ddbbe2c71c45577a7a4fbcdba0df91
   - type: hash_md5
-    value: 48826d5ca845979d2e6ebd66dc1aae90
+    value: 8a626d844943da3456b044f38deae3a2
+  - type: ip
+    value: 103.45.66.18
+  - type: ip
+    value: 192.253.225.173
+  - type: domain
+    value: qnwallpaper.keansoft.cn
 ioc_counts:
+  domain: 1
   hash_md5: 3
+  ip: 2
 rules:
-  - title: Detect ValleyRAT DLL Sideloading via libcef.dll
-    description: Detects the loading of a suspicious libcef.dll file from within the QNWallpaper directory, a known indicator of ValleyRAT sideloading.
+  - title: Detect DLL Sideloading via Libcef.dll
+    description: Detects potentially malicious libcef.dll loaded by a process that is typically unrelated to Chromium or standard application paths, often used in sideloading
     platform: sigma
     severity: high
     tactics:
@@ -51,45 +60,56 @@ rules:
     data_sources:
       - image_load
       - windows
-rules_count: 1
+  - title: Detect DisableAntiSpyware Registry Modification
+    description: Detects attempts to disable Windows Defender via the DisableAntiSpyware registry key
+    platform: sigma
+    severity: critical
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1562.001
+    data_sources:
+      - registry_set
+      - windows
+rules_count: 2
 action_plan:
-  priority: immediate_escalation
+  priority: elevated
   owners:
     - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Block MD5 hashes listed in IOC table
+    - action: Block identified C2 IP addresses at perimeter firewall
       owner: SOC
       due: 24h
-      evidence: Confirmed malicious installer and backdoor components
-  mitigation_plan:
-    - priority: immediate
-      action: Remove unauthorized QN Wallpaper installations
-      owner: IT Operations
-      addresses: T1574.002
-      evidence: Malicious software identified as QN Wallpaper wrapper
+  hunt_leads:
+    - lead: Search for files named libcef.dll outside of standard browser paths
+      technique_id: T1574.002
+      priority: high
+      disposition: hunt_now
 ---
 
-Threat actors are actively distributing the ValleyRAT backdoor by masquerading as potentially unwanted programs and legitimate adware. The delivery mechanism utilizes malicious installers that appear to deploy common applications like Google Chrome or DingTalk, but actually deploy a modified version of the QN Wallpaper management utility. The infection chain relies on DLL sideloading, where a malicious version of 'libcef.dll' is used to execute the ValleyRAT payload when the legitimate QN Wallpaper executable is launched. To facilitate persistence and hinder detection, the installer modifies registry keys to disable Windows Defender and establishes autorun entries. The campaign is notable for its abuse of signed software distribution models and the deliberate attempt to leverage the trust users place in adware exclusions to prevent security tooling from flagging the malicious activity.
+The threat actor known as Silver Fox has been observed deploying the ValleyRAT backdoor (also identified as Winos 4.0) by embedding it within a modified, signed version of the QN Wallpaper adware application. By leveraging a legitimately signed executable, the attackers trick users into trusting the application and adding the installation directory to antivirus exclusion lists. This activity enables the malware to operate with reduced interference from endpoint security controls. 
+
+The delivery relies on DLL sideloading, where a malicious 'libcef.dll' is planted alongside the legitimate 'QnWallpaper.exe'. Upon execution, the backdoor gains full control over the compromised machine, enabling sensitive data exfiltration - including keystrokes, clipboard contents, and screenshots - as well as the deployment of additional malicious modules. The infection process also attempts to disable Windows Defender and utilizes defensive measures that trigger a system crash if a user attempts to terminate the malicious process. This technique represents a sustained effort by Silver Fox to abuse trust in signed applications for persistent access.
 
 ## Attack Chain
 
-1. The user executes a malicious installer (e.g., FS_SETUP_DD_173.exe) disguised as a legitimate application.
-2. The installer modifies the Windows registry to disable Windows Defender via the 'DisableAntiSpyware' key.
-3. The installer unpacks the QN Wallpaper suite, including a malicious 'libcef.dll' and encrypted backdoor component 'PeLoader', into 'C:\Program Files\QNWallpaper\5.4.0.1662\' plus a random suffix.
-4. The installer sets autorun registry keys to ensure persistence of the QN Wallpaper application across reboots.
-5. The installer launches 'QnWallpaper.exe', triggering the side-loading of the malicious 'libcef.dll'.
-6. The 'libcef.dll' library executes its malicious code via 'DllMain' or a latent 'RunDLL' export upon initialization.
-7. The backdoor initiates communication with its command-and-control infrastructure to establish persistent remote access.
+1. The user executes the malicious installer, which unpacks the legitimate signed 'QnWallpaper.exe' and the malicious 'libcef.dll' into a common directory.
+2. The installer modifies the Windows Registry to set 'DisableAntiSpyware' to 1, attempting to neutralize native security protections.
+3. The installer creates a persistent entry in the system autorun registry keys to ensure execution upon boot.
+4. The installer checks for current process privileges; if non-administrative, it relaunches itself using 'runas' to obtain elevated system access.
+5. The signed 'QnWallpaper.exe' process initiates, which inadvertently loads the malicious 'libcef.dll' present in its working directory (DLL Sideloading).
+6. The ValleyRAT payload initiates, connects to C2 infrastructure, and monitors for active termination attempts, triggering a system crash if the process is closed.
+7. The backdoor enables remote control, allowing the attacker to perform keystroke logging, clipboard harvesting, and data exfiltration.
 
 ## Impact
 
-Successful execution results in the deployment of the ValleyRAT backdoor, providing attackers with remote access and control over the compromised system. This allows for potential exfiltration of sensitive information, further malware installation, and long-term persistence in corporate or personal environments.
+The campaign leverages trusted software to gain persistent, elevated access to victim systems. Successfully compromised machines are fully controlled by the threat actor, allowing for the collection of sensitive PII, passwords, and proprietary data. While the specific impact per organization varies, ValleyRAT has been detected in over 1,500 unique environments throughout 2026, primarily affecting users in China and India.
 
 ## Recommendation
 
-* Deploy the provided Sigma rules to detect DLL sideloading from non-standard application paths.
-* Monitor for registry modifications targeting 'DisableAntiSpyware' and 'Run' keys using EDR or Sysmon.
-* Implement blocklists for the known malicious file hashes in the IOC table across all endpoints.
-* Restrict the ability of non-administrative users to modify registry keys associated with security features.
-* Audit 'C:\Program Files\QNWallpaper\' and similar paths for files with suspicious hashes or unexpected DLL files.
+Prioritize the implementation of the following detections and defensive controls:
+- Deploy the Sigma rules below to monitor for suspicious DLL loads by signed processes and unauthorized registry modifications.
+- Audit existing antivirus and EDR exclusion lists to identify and remove entries pointing to 'C:\Program Files\QNWallpaper\' or other suspicious adware locations.
+- Restrict the ability of users to add security product exclusions, enforcing these policies via Group Policy or centralized management consoles.
+- Block communication to the identified C2 IP addresses (103.45.66.18, 192.253.225.173) at the perimeter firewall.
