@@ -3,6 +3,7 @@ title: SQL Injection in Online Medicine Delivery System
 slug: 2026-08-online-medicine-delivery-sql-injection
 description: Online Medicine Delivery System 1.0 contains a SQL injection vulnerability in the login interface, allowing remote unauthenticated attackers to bypass authentication or access database contents.
 date: "2026-08-31T05:14:38Z"
+lastmod: "2026-08-31T05:14:53Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +30,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82610
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82613
 rules:
   - title: Detects CVE-2026-82610 Exploitation - SQL Injection in /rider/login.php
     description: Detects potential SQL injection attempts against the Online Medicine Delivery System login interface by searching for common SQL syntax characters in the emp_email parameter.
@@ -40,7 +42,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-82613 Exploitation - SQL Injection in Product Search Interface
+    description: Detects exploitation attempts against the Online Medicine Delivery System by identifying common SQL injection patterns in the Search parameter of the product search interface.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -57,6 +69,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82610
       evidence: NVD vulnerability entry
+updates:
+  - at: "2026-08-31T05:14:53Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-82613 Exploitation - SQL Injection in Product Search Interface'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82613
 ---
 
 A SQL injection vulnerability exists in the Online Medicine Delivery System version 1.0, specifically within the Employee::employeeAuthentication function located in the /rider/login.php file. The vulnerability is triggered by the improper sanitization of the emp_email argument during the authentication process. An unauthenticated attacker can supply crafted SQL statements via the emp_email parameter to manipulate database queries. Given that a public exploit exists for this vulnerability, the risk of exploitation by opportunistic threat actors is elevated. Successful exploitation allows for unauthorized authentication bypass, potential data exfiltration, or modification of administrative records within the backend database. Defenders should monitor web access logs for anomalous character sequences within the specified login parameter.
