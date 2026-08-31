@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in vLLM
 slug: 2026-08-vllm-dos
 description: An authenticated remote attacker can exploit a vulnerability in vLLM to trigger a Denial of Service condition, likely through resource exhaustion.
 date: "2026-08-24T15:55:42Z"
+lastmod: "2026-08-31T11:58:30Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ tags:
   - denial-of-service
   - vllm
   - cve-2024-53676
+  - availability
 vendors:
   - vLLM
 products:
@@ -31,6 +33,7 @@ cves:
     epss: 0.51625
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2975
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3083
 action_plan:
   priority: monitor_or_close
   owners:
@@ -46,6 +49,14 @@ action_plan:
       action: Upgrade vLLM to a version containing the patch for CVE-2024-53676.
       owner: IT Operations
       addresses: CVE-2024-53676
+updates:
+  - at: "2026-08-31T11:58:30Z"
+    level: L1
+    summary: added coverage for vLLM
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3083
 ---
 
 A vulnerability has been identified in the vLLM library that allows an authenticated remote attacker to perform a Denial of Service (DoS) attack. The vulnerability, tracked as CVE-2024-53676, enables an attacker with valid authentication to submit crafted input payloads that lead to service interruption or resource exhaustion. Because vLLM is frequently deployed in inference environments where high concurrency and memory usage are standard, successful exploitation can result in the loss of availability for downstream AI-driven applications. Organizations should review their authentication and input validation policies for vLLM endpoints, particularly those exposed to multi-tenant or external user access.
