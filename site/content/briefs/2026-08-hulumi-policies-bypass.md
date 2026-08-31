@@ -3,13 +3,18 @@ title: Evidence Validation Bypass in @hulumi/policies
 slug: 2026-08-hulumi-policies-bypass
 description: An evidence validation flaw in @hulumi/policies versions prior to 1.3.2 allows attackers to suppress security violations by submitting valid, but unrelated, evidence from other resources.
 date: "2026-08-31T11:16:33Z"
+lastmod: "2026-08-31T11:17:13Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 cpes:
   - cpe:2.3:a:hulumi:policies:*:*:*:*:*:*:*:*
+tags:
+  - authorization-bypass
+  - cve-2026-82860
+  - iam
 vendors:
   - Hulumi
 products:
@@ -19,6 +24,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82855
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82860
 action_plan:
   priority: elevated
   owners:
@@ -35,6 +41,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82855
       evidence: NVD vulnerability entry.
+updates:
+  - at: "2026-08-31T11:17:13Z"
+    level: L2
+    summary: added coverage for @hulumi/policies (< 1.3.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82860
 ---
 
 The @hulumi/policies package contains a critical evidence validation bypass vulnerability affecting its Cloudflare and deployment-governance validators. In versions prior to 1.3.2, the logic responsible for verifying security compliance fails to strictly enforce the association between the submitted evidence and the specific resource being evaluated. Consequently, an attacker can submit compliant evidence obtained from a legitimate, different resource - such as a separate Cloudflare zone, hostname, origin, or repository - to satisfy the validation checks for a target resource that would otherwise trigger a violation. This vulnerability effectively allows for the bypassing of security guardrails within a shared stack, potentially permitting the deployment or configuration of non-compliant resources. The flaw stems from a lack of scoping in the validation mechanism, making the guardrails susceptible to input manipulation where legitimate data is repurposed to bypass compliance controls.
