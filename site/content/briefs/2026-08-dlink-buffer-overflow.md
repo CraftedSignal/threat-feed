@@ -3,6 +3,7 @@ title: Remote Stack-Based Buffer Overflow in D-Link DIR-825M
 slug: 2026-08-dlink-buffer-overflow
 description: A critical stack-based buffer overflow vulnerability in D-Link DIR-825M firmware allows unauthenticated remote attackers to achieve code execution via the /boafrm/formDiskFormat endpoint.
 date: "2026-08-31T01:12:58Z"
+lastmod: "2026-08-31T01:13:06Z"
 type: advisory
 types:
   - advisory
@@ -25,11 +26,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The attack can be executed remotely.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1211
+    technique_name: Exploitation for Defense Evasion
+    evidence: This manipulation of the argument fota_url causes stack-based buffer overflow.
+    confidence_band: high
 cves:
   - id: CVE-2026-82592
     cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82592
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82593
 rules:
   - title: Detects CVE-2026-82592 Exploitation - Malicious POST to Disk Formatting Endpoint
     description: Detects exploitation attempts against CVE-2026-82592 by monitoring for POST requests to the /boafrm/formDiskFormat endpoint with potentially malicious partition parameters.
@@ -65,6 +73,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82592
       evidence: Public exploit available.
+updates:
+  - at: "2026-08-31T01:13:06Z"
+    level: L2
+    summary: added coverage for DIR-825M (1.1.8)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82593
 ---
 
 D-Link DIR-825M firmware version 1.1.8 contains a critical stack-based buffer overflow vulnerability identified as CVE-2026-82592. The vulnerability is located within the sub_46725C function of the Disk Formatting Handler component, specifically triggered through the /boafrm/formDiskFormat endpoint. By sending a maliciously crafted HTTP request containing an overly long 'partition' argument, an unauthenticated remote attacker can corrupt the stack, potentially leading to arbitrary code execution on the affected router. The exploit is currently public, significantly increasing the risk of exploitation by threat actors targeting small office/home office (SOHO) network infrastructure.
