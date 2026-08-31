@@ -3,6 +3,7 @@ title: C-MOR Video Surveillance Directory Traversal Vulnerability
 slug: 2026-08-c-mor-traversal
 description: C-MOR Video Surveillance versions up to 6.0104 are vulnerable to an unauthenticated directory traversal attack in the show-movies.pml component, allowing remote attackers to read arbitrary files.
 date: "2026-08-31T14:04:31Z"
+lastmod: "2026-08-31T14:04:44Z"
 type: threat
 types:
   - threat
@@ -14,8 +15,11 @@ tags:
   - directory-traversal
   - cve-2026-51134
   - surveillance
+  - web-application-vulnerability
+  - xss
 vendors:
   - za-internet GmbH
+  - za-internet
 products:
   - C-MOR Video Surveillance (<= 6.0104)
 mitre_ttps:
@@ -25,8 +29,16 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: The directory traversal vulnerability allows access to arbitrary system files via specially crafted HTTP requests.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+    evidence: The vulnerability can be triggered by enticing an authenticated user to click on the following crafted URLs.
+    confidence_band: high
 references:
   - https://www.exploit-db.com/exploits/52666
+  - https://www.exploit-db.com/exploits/52665
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-51133
 rules:
   - title: Detects CVE-2026-51134 Exploitation - Directory Traversal in C-MOR
     description: Detects attempts to exploit CVE-2026-51134 by identifying directory traversal sequences in the 'cam' parameter of requests to show-movies.pml.
@@ -38,7 +50,17 @@ rules:
       - T1059.003
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect XSS Attempt via C-MOR Parameters
+    description: Detects potential XSS attempts targeting C-MOR Video Surveillance by monitoring for script-related payloads in the size and anyparam parameters.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1189
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -55,6 +77,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-51134
       evidence: The vulnerability allows unauthenticated access; network segregation reduces exposure.
+updates:
+  - at: "2026-08-31T14:04:44Z"
+    level: L2
+    summary: 'added detection rule: Detect XSS Attempt via C-MOR Parameters'
+    sources:
+      - exploit-db
+    source_urls:
+      - https://www.exploit-db.com/exploits/52665
 ---
 
 C-MOR Video Surveillance (versions <= 6.0104) by za-internet GmbH contains a directory traversal vulnerability that allows unauthenticated remote attackers to read arbitrary files from the underlying system. The vulnerability exists within the show-movies.pml component, which fails to properly sanitize the 'cam' input parameter. By supplying specially crafted HTTP requests containing traversal sequences (e.g., '../'), an attacker can escape the intended web application directory and access sensitive system files. This vulnerability, tracked as CVE-2026-51134, is documented with a public proof-of-concept exploit. Given the nature of video surveillance systems, unauthorized access to system files could lead to the exposure of credentials, configuration data, or other sensitive information, facilitating further system compromise.
