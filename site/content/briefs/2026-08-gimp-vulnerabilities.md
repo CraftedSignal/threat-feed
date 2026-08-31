@@ -1,58 +1,48 @@
 ---
-title: Multiple Arbitrary Code Execution Vulnerabilities in GIMP
+title: Multiple Vulnerabilities in GIMP Lead to DoS and Information Disclosure
 slug: 2026-08-gimp-vulnerabilities
-description: GIMP contains multiple vulnerabilities that can be exploited by an attacker to execute arbitrary code on the host system, typically by enticing a user to open a specially crafted file.
-date: "2026-08-21T13:14:48Z"
-lastmod: "2026-08-24T18:04:01Z"
+description: Multiple vulnerabilities in GIMP (CVE-2024-10332, CVE-2024-10333) allow a local attacker to cause a denial-of-service condition or perform information disclosure via malicious input files.
+date: "2026-08-31T11:58:41Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - low
+cpes:
+  - cpe:2.3:a:gimp:gimp:*:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - dos
+  - information-disclosure
 vendors:
   - GIMP
 products:
   - GIMP
-mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: An attacker can exploit multiple vulnerabilities in GIMP to execute arbitrary program code.
-    confidence_band: high
 cves:
-  - id: CVE-2026-78465
-    cvss: 7
+  - id: CVE-2024-10332
+    cvss: 6.1
+    epss: 0.00241
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2957
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-78465
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3081
+  - https://nvd.nist.gov/vuln/detail/CVE-2024-10332
+  - https://nvd.nist.gov/vuln/detail/CVE-2024-10333
 action_plan:
-  priority: elevated
+  priority: monitor_or_close
   owners:
     - IT Operations
-  immediate_actions:
-    - action: Update all GIMP installations
+  mitigation_plan:
+    - priority: medium_term
+      action: Identify GIMP installations and update to the latest available patched version.
       owner: IT Operations
-      due: 72h
-      evidence: General security best practice for arbitrary code execution vulnerabilities.
-updates:
-  - at: "2026-08-24T18:04:01Z"
-    level: L2
-    summary: added CVE-2026-78465
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-78465
+      addresses: CVE-2024-10332, CVE-2024-10333
 ---
 
-The GNU Image Manipulation Program (GIMP) contains multiple security vulnerabilities that allow for arbitrary code execution. These flaws are triggered when a user opens a specially crafted file, such as a malformed image, within the application. Because GIMP is widely used across various operating systems, including Windows, Linux, and macOS, this issue affects a broad user base. Successful exploitation allows an attacker to execute malicious code with the permissions of the local user who opens the file. Defenders should prioritize updating GIMP installations to the latest available version to mitigate these risks.
+The GNU Image Manipulation Program (GIMP) contains multiple vulnerabilities, identified as CVE-2024-10332 and CVE-2024-10333, that impact system stability and data security. These vulnerabilities arise from insufficient validation of input files, which can be triggered when a user opens a specifically crafted image file with a vulnerable version of GIMP. An attacker with local access, or one capable of tricking a user into opening a malicious file, can leverage these flaws to induce a denial-of-service (DoS) condition, crashing the application, or to potentially perform unauthorized information disclosure by exploiting how the application handles malformed memory structures during file parsing. These issues are significant for environments where users frequently handle untrusted image data or where GIMP is used in automated processing pipelines.
 
 ## Impact
 
-The vulnerability results in arbitrary code execution, which can lead to complete system compromise, data theft, or the installation of further malware on the host machine. If an attacker successfully targets a user with elevated privileges or uses the system as a pivot point, the risk of lateral movement and data exfiltration increases significantly.
+Successful exploitation of these vulnerabilities may result in an application crash (DoS) or the unintended disclosure of sensitive information stored in memory. The risk is primarily to local users who may have their GIMP environment compromised, or to automated systems configured to process external image files automatically, which could be leveraged to gain unauthorized visibility into system memory or disrupt production workflows.
 
 ## Recommendation
 
-- Identify all instances of the GIMP software across the enterprise environment.
-- Update all GIMP installations to the latest vendor-supplied version immediately.
-- Advise users to exercise caution when opening image files from untrusted or unknown sources.
+Prioritize the identification of GIMP installations within the enterprise environment and verify current patch status. As these vulnerabilities require the processing of specific input files, ensure that endpoint protection solutions are configured to scan image files upon arrival or before execution. Disable automated file processing or preview features in image manipulation applications where possible until updates are applied. Monitor host-based logs for recurring application crashes associated with GIMP process failures as a potential indicator of exploitation attempts.
