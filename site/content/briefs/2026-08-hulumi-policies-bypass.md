@@ -1,62 +1,56 @@
 ---
-title: Evidence Validation Bypass in @hulumi/policies
+title: Security Policy Bypass in @hulumi/policies via Parent Spoofing
 slug: 2026-08-hulumi-policies-bypass
-description: An evidence validation flaw in @hulumi/policies versions prior to 1.3.2 allows attackers to suppress security violations by submitting valid, but unrelated, evidence from other resources.
-date: "2026-08-31T11:16:33Z"
-lastmod: "2026-08-31T11:17:13Z"
+description: The @hulumi/policies package before version 1.3.2 is vulnerable to a parent spoofing attack that allows unauthorized actors to bypass security policy enforcement during bucket configuration validation.
+date: "2026-08-31T11:17:59Z"
 type: advisory
 types:
   - advisory
 severities:
-  - critical
+  - high
 cpes:
   - cpe:2.3:a:hulumi:policies:*:*:*:*:*:*:*:*
 tags:
-  - authorization-bypass
-  - cve-2026-82860
-  - iam
+  - supply-chain
+  - vulnerability
+  - cloud-security
 vendors:
-  - Hulumi
+  - hulumi
 products:
-  - '@hulumi/policies (< 1.3.2)'
+  - policies (< 1.3.2)
+mitre_ttps:
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1565.002
+    technique_name: Data Manipulation
+    evidence: Attackers can bypass security policy checks by providing falsified evidence, causing the validator to miss unsafe bucket configurations.
+    confidence_band: high
 cves:
-  - id: CVE-2026-82855
-    cvss: 9.8
+  - id: CVE-2026-82861
+    cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-82855
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-82860
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82861
 action_plan:
   priority: elevated
   owners:
-    - IT Operations
+    - DevOps
     - Security Engineering
-  immediate_actions:
-    - action: Upgrade @hulumi/policies to version 1.3.2 or later in all build environments and policy engines.
-      owner: IT Operations
-      due: 48h
-      evidence: Source states versions before 1.3.2 contain the vulnerability.
   mitigation_plan:
     - priority: immediate
-      action: Upgrade @hulumi/policies to version 1.3.2.
-      owner: IT Operations
-      addresses: CVE-2026-82855
-      evidence: NVD vulnerability entry.
-updates:
-  - at: "2026-08-31T11:17:13Z"
-    level: L2
-    summary: added coverage for @hulumi/policies (< 1.3.2)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-82860
+      action: Upgrade @hulumi/policies to version 1.3.2 or later
+      owner: DevOps
+      addresses: CVE-2026-82861
+      evidence: Source states versions before 1.3.2 are vulnerable.
 ---
 
-The @hulumi/policies package contains a critical evidence validation bypass vulnerability affecting its Cloudflare and deployment-governance validators. In versions prior to 1.3.2, the logic responsible for verifying security compliance fails to strictly enforce the association between the submitted evidence and the specific resource being evaluated. Consequently, an attacker can submit compliant evidence obtained from a legitimate, different resource - such as a separate Cloudflare zone, hostname, origin, or repository - to satisfy the validation checks for a target resource that would otherwise trigger a violation. This vulnerability effectively allows for the bypassing of security guardrails within a shared stack, potentially permitting the deployment or configuration of non-compliant resources. The flaw stems from a lack of scoping in the validation mechanism, making the guardrails susceptible to input manipulation where legitimate data is repurposed to bypass compliance controls.
+The @hulumi/policies library, used to enforce security configurations for cloud storage buckets, contains a critical flaw identified as CVE-2026-82861. In versions prior to 1.3.2, the library is susceptible to a parent spoofing vulnerability. This flaw allows an attacker to submit falsified SecureBucket parent evidence during the policy evaluation process. By manipulating this evidence, an attacker can deceive the validation logic into accepting unsafe bucket configurations that would otherwise be rejected by security policies. This vulnerability effectively undermines the integrity of automated security governance for cloud storage assets, potentially exposing sensitive data through misconfigured, publicly accessible, or unencrypted storage buckets. Organizations relying on this library for automated cloud security posture management must update to version 1.3.2 or later to restore policy integrity.
 
 ## Impact
 
-The vulnerability carries a CVSS v3.1 base score of 9.8, indicating the potential for high-impact security misconfigurations. Successful exploitation allows an attacker to bypass critical security guardrails, facilitating the deployment of unauthorized or non-compliant infrastructure and services. This impacts organizations relying on automated governance and policy enforcement within their Cloudflare and deployment pipelines, as the integrity of these validation checks is compromised.
+Successful exploitation allows attackers to bypass security enforcement mechanisms, potentially leading to the deployment or maintenance of insecurely configured storage buckets. This creates opportunities for unauthorized data access, exfiltration, or modification depending on the nature of the bucket misconfigurations that the policy engine fails to catch.
 
 ## Recommendation
 
-Prioritize the upgrade of the @hulumi/policies package to version 1.3.2 or later across all deployment pipelines and governance engines. If an immediate upgrade is not feasible, implement manual auditing of security policy violations for sensitive stacks, as automated alerts may be suppressed by malicious evidence submission. Monitor CI/CD logs for submissions involving cross-resource evidence references, as these are indicators of potential exploitation attempts.
+- Upgrade the @hulumi/policies package to version 1.3.2 or later in all application and build-pipeline dependencies.
+- Audit existing infrastructure-as-code (IaC) templates and deployment logs that utilize @hulumi/policies for evidence of potential bypasses or misconfigured bucket permissions.
+- Review cloud bucket access logs for anomalies in storage configurations that were marked as compliant by the policy engine during the vulnerable period.
