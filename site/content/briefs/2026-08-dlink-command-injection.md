@@ -1,9 +1,8 @@
 ---
-title: Remote Command Injection in D-Link DWR-M961
+title: Remote Command Injection in D-Link NAS ISO Image Handler
 slug: 2026-08-dlink-command-injection
-description: D-Link DWR-M961 devices with hardware version C1 and firmware versions prior to 1.1.5_C1_202607071108 are vulnerable to unauthenticated command injection via the fota_url parameter.
-date: "2026-08-08T17:40:26Z"
-lastmod: "2026-08-08T19:41:28Z"
+description: A critical command injection vulnerability (CVE-2026-82689) in D-Link NAS devices allows unauthenticated remote attackers to execute arbitrary OS commands via the /cgi-bin/isomount_mgr.cgi script.
+date: "2026-08-31T13:58:09Z"
 type: advisory
 types:
   - advisory
@@ -11,115 +10,78 @@ severities:
   - critical
 tags:
   - vulnerability
-  - remote-code-execution
-  - network-security
+  - cve
+  - rce
+  - network-appliance
 vendors:
   - D-Link
 products:
-  - DWR-M961
-  - DWR-M961 (< 1.1.5_C1_202607071108)
-  - DWR-M961 (version 1.1.2_C1_202602110044)
-  - DWR-M961 (hardware version C1, software version 1.1.2_C1_202602110044)
+  - DNS-320L (<= 20260717)
+  - DNS-327L (<= 20260717)
+  - DNS-340L (<= 20260717)
+  - DNS-345 (<= 20260717)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: A remote attacker can inject arbitrary malicious commands into the fota_url field, resulting in command execution with root privileges.
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: The manipulation of the argument upIsoRootPath results in os command injection.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: The attack can be executed remotely.
     confidence_band: high
 cves:
-  - id: CVE-2026-71944
-    cvss: 9.8
-  - id: CVE-2026-71945
-    cvss: 9.8
-  - id: CVE-2026-71946
-    cvss: 9.8
-  - id: CVE-2026-71947
-    cvss: 9.8
-  - id: CVE-2026-71948
-    cvss: 9.8
-  - id: CVE-2026-71949
-    cvss: 9.8
-  - id: CVE-2026-71950
-    cvss: 9.8
-  - id: CVE-2026-71951
-    cvss: 9.8
-  - id: CVE-2026-71952
-    cvss: 9.8
-  - id: CVE-2026-71954
-    cvss: 9.8
-  - id: CVE-2026-71953
-    cvss: 9.8
-  - id: CVE-2026-71955
-    cvss: 9.8
-  - id: CVE-2026-71958
-    cvss: 9.8
+  - id: CVE-2026-82689
+    cvss: 9.9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71944
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71945
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71946
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71947
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71948
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71949
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71950
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71951
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71952
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71953
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71954
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71955
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71956
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71957
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71958
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82689
 rules:
-  - title: Detects CVE-2026-71944 Exploitation - Potential Command Injection in D-Link DWR-M961
-    description: Detects potential command injection attempts targeting the FOTA upgrade interface of D-Link DWR-M961 devices by monitoring for shell metacharacters in the fota_url parameter.
+  - title: Detects CVE-2026-82689 Exploitation - Remote Command Injection in D-Link NAS
+    description: Detects HTTP requests to /cgi-bin/isomount_mgr.cgi with shell metacharacters in the upIsoRootPath parameter, indicative of command injection exploitation.
     platform: sigma
     severity: critical
     tactics:
+      - execution
       - initial_access
     techniques:
-      - T1190
+      - T1203
     data_sources:
       - webserver
 rules_count: 1
-updates:
-  - at: "2026-08-08T17:43:17Z"
-    level: L2
-    summary: added CVE-2026-71952, CVE-2026-71954
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-71954
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-71955
-  - at: "2026-08-08T19:40:53Z"
-    level: L2
-    summary: added CVE-2026-71953 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-71956
-  - at: "2026-08-08T19:41:10Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-71957
-  - at: "2026-08-08T19:41:28Z"
-    level: L2
-    summary: added CVE-2026-71958
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-71958
+action_plan:
+  priority: immediate_escalation
+  owners:
+    - SOC
+    - IT Operations
+  immediate_actions:
+    - action: Restrict access to the NAS management interface from external networks.
+      owner: IT Operations
+      due: 24h
+      evidence: The attack can be executed remotely.
+    - action: Deploy the Sigma detection rule to web application firewalls or SIEM.
+      owner: Detection Engineering
+      due: 24h
+      evidence: Exploitation is active and publicly available.
+  mitigation_plan:
+    - priority: immediate
+      action: Update NAS firmware to versions beyond 20260717 if patches are provided by D-Link.
+      owner: IT Operations
+      addresses: CVE-2026-82689
+      evidence: Vulnerability affects versions up to 20260717.
 ---
 
-D-Link DWR-M961 routers, specifically hardware version C1, contain a critical command injection vulnerability identified as CVE-2026-71944. The vulnerability exists within the firmware upgrade interface located at /boafrm/formLtefotaUpgradeQuectel. An unauthenticated remote attacker can exploit this flaw by sending a crafted HTTP request containing malicious commands in the fota_url parameter. Successful exploitation allows the attacker to execute arbitrary code with root privileges on the affected device, potentially leading to a complete compromise of the router. This vulnerability highlights the risks associated with improper input validation in router administrative interfaces. Defenders should prioritize patching, as this device class is a common target for botnet recruitment and persistent unauthorized access.
+D-Link NAS devices, including models DNS-320L, DNS-327L, DNS-340L, and DNS-345, contain a critical OS command injection vulnerability identified as CVE-2026-82689. The flaw exists within the ISO Image Handler component, specifically within the /cgi-bin/isomount_mgr.cgi script. An unauthenticated, remote attacker can trigger this vulnerability by sending a crafted request containing malicious shell metacharacters in the 'upIsoRootPath' argument. Because this flaw allows for arbitrary command execution with high privileges on the affected NAS storage appliances, it presents a significant risk to data integrity and network security. The vulnerability affects all firmware versions up to 20260717. Publicly available exploit code increases the urgency for defenders to isolate these devices from the internet or apply necessary updates, if available, from the vendor.
 
 ## Impact
 
-The vulnerability carries a CVSS 3.1 base score of 9.8, indicating high severity and ease of exploitation. An attacker who successfully triggers this vulnerability gains full administrative control over the DWR-M961 device. Potential impacts include device bricking, participation in DDoS botnets, man-in-the-middle attacks on local network traffic, and establishment of persistent backdoors within the organization's network perimeter.
+The vulnerability carries a CVSS v3.1 base score of 9.9, reflecting its potential for full system compromise. If exploited, an attacker can gain remote control over the NAS device, enabling unauthorized access to stored files, installation of persistent backdoors, or utilization of the device as a pivot point within the local network. Organizations using these D-Link NAS models for critical data storage are at high risk of data exfiltration and potential ransomware deployment.
 
 ## Recommendation
 
-Prioritize updating the firmware of all D-Link DWR-M961 (C1 hardware) devices to version 1.1.5_C1_202607071108 or later immediately. Ensure these devices are not exposed to the public internet by placing them behind a firewall or using a VPN for remote management.
+- Immediately restrict access to the web management interface of all affected D-Link NAS devices to trusted, internal IP ranges only.
+- Disable the ISO Image Handler functionality if not required for business operations.
+- Monitor web server access logs for requests targeting /cgi-bin/isomount_mgr.cgi containing shell metacharacters such as semicolon, pipe, or backtick in the 'upIsoRootPath' parameter.
+- Verify if firmware updates are available for your specific D-Link model at the official vendor support portal to address the 20260717 version limitation.
