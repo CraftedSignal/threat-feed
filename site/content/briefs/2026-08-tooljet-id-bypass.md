@@ -3,17 +3,21 @@ title: ToolJet Multi-Tenancy Broken Access Control
 slug: 2026-08-tooljet-id-bypass
 description: ToolJet versions prior to 3.16.208 are vulnerable to broken access control, allowing authenticated builder-role users to perform unauthorized database operations across tenant boundaries.
 date: "2026-08-31T11:17:20Z"
+lastmod: "2026-08-31T11:17:29Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 cpes:
   - cpe:2.3:a:tooljet:tooljet:*:*:*:*:*:*:*:*
 tags:
   - webserver
   - broken-access-control
   - vulnerability
+  - web-application-vulnerability
+  - authorization-bypass
+  - privilege-escalation
 vendors:
   - ToolJet
 products:
@@ -25,11 +29,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: ToolJet before v3.16.208 fails to validate organizationId ownership in database write and destroy routes, allowing any builder-role user to create, alter, or drop tables in other organizations' databases.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: A workspace admin can create, view, and delete database tables in another workspace by replacing the organizationId parameter in table-management API requests.
+    confidence_band: high
 cves:
   - id: CVE-2026-82870
     cvss: 9.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82870
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82872
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82870
       evidence: NVD vulnerability remediation
+updates:
+  - at: "2026-08-31T11:17:29Z"
+    level: L2
+    summary: added coverage for ToolJet (< 3.16.208)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82872
 ---
 
 ToolJet versions before 3.16.208 contain a critical vulnerability in its multi-tenancy implementation related to the validation of organization ownership. The application fails to properly verify the 'organizationId' during database write and destroy operations. This oversight allows a user assigned the 'builder' role within one organization to interact with, modify, or destroy database tables belonging to different organizations hosted on the same instance. This vulnerability poses a severe risk to data integrity and availability in shared multi-tenant deployments, as it permits unauthorized schema manipulation, arbitrary data insertion, and permanent deletion of tenant data across organization boundaries. Defenders should prioritize patching instances to version 3.16.208 or later to enforce tenant isolation.
