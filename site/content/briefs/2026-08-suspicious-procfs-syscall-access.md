@@ -3,6 +3,7 @@ title: Suspicious Access to Linux procfs Syscall Interface
 slug: 2026-08-suspicious-procfs-syscall-access
 description: Detection logic for identifying unauthorized attempts to read the Linux /proc/<pid>/syscall interface, a technique used for process discovery and preparation for process injection.
 date: "2026-08-26T13:55:04Z"
+lastmod: "2026-08-31T17:53:08Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,8 @@ tags:
   - discovery
   - linux
   - procfs
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
@@ -19,6 +22,8 @@ mitre_ttps:
     technique_name: Process Discovery
     evidence: The /proc/<pid>/syscall interface exposes the current syscall arguments, stack pointer, and instruction pointer, which can support process discovery and preparation for process injection.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/linux/discovery_suspicious_proc_pid_syscall_read.toml
 rules:
   - title: Detect Suspicious Reading of procfs Syscall File
     description: Detects command lines that reference another process or thread's procfs syscall file, which exposes internal execution state for discovery or injection preparation.
@@ -41,6 +46,14 @@ action_plan:
       owner: Detection Engineering
       due: 72h
       evidence: Source documentation for rule 6327bdae-4dc4-4e2e-b29d-3fd100af522c
+updates:
+  - at: "2026-08-31T17:53:08Z"
+    level: L1
+    summary: OS linux
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/linux/discovery_suspicious_proc_pid_syscall_read.toml
 ---
 
 This brief addresses the security risk posed by unauthorized access to the procfs syscall interface on Linux systems. The /proc/&lt;pid>/syscall file provides information about the system call currently being executed by a process, including arguments, the stack pointer, and the instruction pointer. Adversaries frequently abuse this interface to perform process discovery or to gather necessary state information for sophisticated process injection techniques. 
