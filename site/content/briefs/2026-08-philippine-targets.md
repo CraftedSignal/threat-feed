@@ -3,6 +3,7 @@ title: Chinese-Speaking Operator Targets Philippine Nuclear and Naval Infrastruc
 slug: 2026-08-philippine-targets
 description: A suspected Chinese-speaking operator is targeting Philippine governmental and defense entities by exploiting ownCloud and LiteSpeed Cache vulnerabilities to exfiltrate personnel data and deploy loaders.
 date: "2026-08-26T14:16:37Z"
+lastmod: "2026-08-31T17:06:24Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +12,9 @@ severities:
 cpes:
   - cpe:2.3:a:owncloud:owncloud_server:*:*:*:*:*:*:*:*
   - cpe:2.3:a:litespeedtech:litespeed_cache:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ARCH1M3D-CVE-2024-28000&utm_source=rss&utm_medium=rss
 tags:
   - espionage
   - web-exploitation
@@ -20,7 +24,7 @@ vendors:
   - LiteSpeed
   - ZKTeco
 products:
-  - ownCloud
+  - ownCloud (< 10.13.1)
   - LiteSpeed Cache
   - BioTime
 mitre_ttps:
@@ -45,13 +49,15 @@ mitre_ttps:
 cves:
   - id: CVE-2023-49105
     cvss: 9.8
-    epss: 0.11074
+    epss: 0.43205
   - id: CVE-2024-28000
     cvss: 9.8
     epss: 0.68266
 references:
   - https://hunt.io/blog/chinese-speaking-operator-philippine-nuclear-naval-contractor
   - https://www.reddit.com/r/blueteamsec/comments/1vyy37m/philippine_nuclear_agency_and_naval_contractor/
+  - https://www.cve.org/CVERecord?id=CVE-2023-49105
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ARCH1M3D-CVE-2024-28000&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2023-49105 WebDAV Enumeration
     description: 'Detects PROPFIND requests with Depth: 1 headers indicative of ownCloud WebDAV reconnaissance.'
@@ -86,10 +92,18 @@ action_plan:
       evidence: Source explicitly identified these as detection-relevant points.
   mitigation_plan:
     - priority: immediate
-      action: Patch ownCloud (CVE-2023-49105) and LiteSpeed Cache (CVE-2024-28000).
+      action: Patch ownCloud to 10.13.1 or later
       owner: IT Operations
       addresses: CVE-2023-49105, CVE-2024-28000
       evidence: Source identifies these as the primary entry vectors.
+updates:
+  - at: "2026-08-31T17:06:24Z"
+    level: L2
+    summary: poc_available; owncloud version < 10.13.1
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ARCH1M3D-CVE-2024-28000&utm_source=rss&utm_medium=rss
 ---
 
 Security researchers have identified a suspected Chinese-speaking threat actor targeting Philippine governmental organizations and naval contractors. The adversary is leveraging known vulnerabilities in public-facing web applications to gain initial access, facilitate data exfiltration, and establish persistence. Specific targets included the Philippine nuclear research body and a defense-affiliated naval contractor. The campaign exhibits sophisticated tradecraft, including the use of randomized sleep intervals to evade volumetric network detection and the deployment of an EtherHiding loader mechanism that retrieves malicious payloads directly from Ethereum smart contracts. The operator successfully exfiltrated a 192 MB SQL dump containing ZKTeco BioTime attendance and personnel data. The targeting suggests a strategic interest in Philippine science, research, and defense sectors.
