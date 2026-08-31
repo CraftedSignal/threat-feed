@@ -1,13 +1,19 @@
 ---
-title: SQL Injection in code-projects Online Shopping System
+title: SQL Injection Vulnerability in Online Shopping System
 slug: 2026-08-online-shopping-sql-injection
-description: An unauthenticated remote SQL injection vulnerability in the login component of code-projects Online Shopping System 1.0 allows attackers to manipulate the database via the email argument.
-date: "2026-08-16T00:21:41Z"
+description: The Online Shopping System 1.0 contains an unauthenticated SQL injection vulnerability in the search functionality of /action.php, allowing remote attackers to execute arbitrary database queries.
+date: "2026-08-31T15:58:20Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:code-projects:online_shopping_system:1.0:*:*:*:*:*:*:*
+tags:
+  - sqli
+  - vulnerability
+  - web-application
 vendors:
   - code-projects
 products:
@@ -17,18 +23,16 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: The manipulation of the argument email results in sql injection. The attack may be performed from remote.
+    evidence: It is possible to initiate the attack remotely.
     confidence_band: high
 cves:
-  - id: CVE-2026-19919
+  - id: CVE-2026-82701
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-19919
-  - https://vuldb.com/vuln/390169
-  - https://github.com/zzzxc643/CVE1/blob/main/online-shopping-system/vul1.md
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82701
 rules:
-  - title: Detects CVE-2026-19919 Exploitation - SQL Injection in Login
-    description: Detects exploitation attempts against CVE-2026-19919 by monitoring POST requests to /login.php for common SQL injection characters in the email parameter.
+  - title: Detects CVE-2026-82701 Exploitation - SQL Injection via action.php
+    description: Detects potential SQL injection attempts targeting the keyword parameter in the action.php search functionality.
     platform: sigma
     severity: high
     tactics:
@@ -42,38 +46,37 @@ action_plan:
   priority: elevated
   owners:
     - SOC
-    - IT Operations
+    - Detection Engineering
   immediate_actions:
-    - action: Review web logs for indicators of SQL injection targeting /login.php
-      owner: SOC
+    - action: Deploy the provided Sigma rule to detect SQL injection attempts targeting /action.php
+      owner: Detection Engineering
       due: 24h
-      evidence: Public exploit exists for this vulnerability.
+      evidence: Source reporting of CVE-2026-82701
+  hunt_leads:
+    - lead: Search web logs for 403 or 500 status codes accompanying high counts of SQL syntax characters in /action.php requests
+      technique_id: T1190
+      data_needed:
+        - Web server logs (cs-uri-stem, cs-uri-query, sc-status)
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: Vulnerability allows remote SQLi via keyword parameter
   mitigation_plan:
     - priority: immediate
-      action: Implement WAF blocking for common SQLi patterns targeting the /login.php endpoint
+      action: Restrict external access to /action.php if possible
       owner: IT Operations
-      addresses: CVE-2026-19919
-      evidence: Source confirms remote SQL injection vulnerability.
+      addresses: CVE-2026-82701
+      evidence: Public disclosure of exploit
 ---
 
-A SQL injection vulnerability has been identified in the Login component of the code-projects Online Shopping System version 1.0. The vulnerability resides in the /login.php file, where the email parameter fails to properly sanitize user-supplied input before processing it in a database query. This flaw allows a remote, unauthenticated attacker to inject malicious SQL commands, potentially leading to unauthorized data access, modification, or bypass of authentication mechanisms. A public exploit is available, making this a significant risk for organizations deploying this software.
-
-## Attack Chain
-
-1. Attacker performs reconnaissance to identify the target web application using the code-projects Online Shopping System 1.0.
-2. Attacker navigates to the /login.php endpoint of the identified target.
-3. Attacker crafts a malicious HTTP POST request targeting the 'email' parameter.
-4. Attacker inserts SQL metacharacters (e.g., single quotes, OR clauses) into the email argument string.
-5. The server-side /login.php script executes the unsanitized input as part of a database query.
-6. The database executes the injected command, returning unauthorized results or altering state.
-7. Attacker extracts data or bypasses authentication based on the successful database injection.
+A critical SQL injection vulnerability has been identified in the code-projects Online Shopping System version 1.0. The vulnerability resides within the Search Functionality component, specifically in the /action.php file. Attackers can exploit this by manipulating the 'keyword' argument, which lacks sufficient input sanitization before being processed by the underlying database engine. This flaw allows for remote, unauthenticated execution of arbitrary SQL commands, potentially leading to unauthorized data extraction, modification, or deletion. The vulnerability has been publicly disclosed, increasing the risk of exploitation by automated scanners and opportunistic threat actors. Organizations utilizing this software should restrict access to the application or implement robust input validation and parameterized queries to mitigate the risk until a vendor patch is released.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows unauthenticated remote attackers to compromise the backend database. This may result in the exfiltration of sensitive user information, credentials, or administrative access to the online shopping application. Given the severity of SQL injection, the entire integrity and confidentiality of the application's data layer are at risk.
+Successful exploitation of this SQL injection vulnerability allows an unauthenticated remote attacker to gain unauthorized access to the application's database. Potential impacts include full database compromise, exfiltration of sensitive user or transaction data, and in some configurations, the ability to modify application data or gain elevated privileges. Given the nature of an Online Shopping System, the stored data likely includes PII and payment-related information, making this a high-risk security flaw.
 
 ## Recommendation
 
-- Monitor web application logs for suspicious characters (such as single quotes, double quotes, semicolons, or SQL keywords like UNION, SELECT, OR) appearing in the 'email' parameter of /login.php requests.
-- Patch the vulnerable application immediately if an update is available from the vendor, or implement a Web Application Firewall (WAF) rule to drop POST requests containing common SQL injection signatures directed at /login.php.
-- Audit current environment deployments for instances of Online Shopping System 1.0 and restrict access to the login endpoint until remediation is applied.
+* Monitor web application logs for HTTP POST/GET requests to /action.php containing common SQL injection payloads such as 'UNION SELECT', 'OR 1=1', or characters like quotes and comment markers.
+* Implement strict input validation or use parameterized SQL queries for the 'keyword' parameter in all search functions.
+* Block or restrict public access to the vulnerable /action.php endpoint if it is not business-critical, or until the vulnerability is remediated.
