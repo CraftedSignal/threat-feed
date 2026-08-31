@@ -3,7 +3,7 @@ title: XWiki Unauthenticated XAR Import via REST API
 slug: 2026-05-xwiki-xar-import
 description: An unauthenticated attacker can create or update documents in the target XWiki instance by exploiting the XAR import functionality through the `/wikis/{wikiName}` REST endpoint due to missing authentication and authorization checks, as detailed in CVE-2026-33137.
 date: "2026-05-26T18:59:47Z"
-lastmod: "2026-08-27T00:35:46Z"
+lastmod: "2026-08-31T17:05:25Z"
 type: advisory
 types:
   - advisory
@@ -22,11 +22,24 @@ vendors:
   - XWiki
 products:
   - xwiki-platform-rest-server
+  - XWiki Platform (< 15.10.11, 16.4.1, 5.3)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public Fasing Application
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: RCE in XWiki up to 15.10.10 via Groovy code injection enabling reverse shell.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.007
+    technique_name: 'Command and Scripting Interpreter: JavaScript/Groovy'
+    evidence: XWiki esegue codice Groovy tramite il parametro URL.
+    confidence_band: high
 cves:
   - id: CVE-2026-33137
     epss: 0.00594
@@ -35,6 +48,8 @@ references:
   - https://jira.xwiki.org/browse/XWIKI-23953
   - https://github.com/xwiki/xwiki-platform/commit/4b7b95b79256374d487e9ece1dc48f527966990f
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-PORTBUSTER1337-CVE-2026-33137&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BISHBEN-XWIKI-15.10.8-REVERSE-SHELL-CVE-2025-24893
+  - https://github.com/a1baradi/Exploit/blob/main/CVE-2025-24893.py
 rules:
   - title: Detect XWiki Unauthenticated XAR Import via REST API
     description: Detects CVE-2026-33137 exploitation — Unauthenticated XAR import via the /wikis/{wikiName} REST endpoint in XWiki.
@@ -56,7 +71,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detects CVE-2025-24893 Exploitation - Groovy Code Injection Attempt
+    description: Detects exploitation attempts against XWiki via Groovy code injection patterns in URL parameters
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 3
 updates:
   - at: "2026-08-27T00:35:46Z"
     level: L2
@@ -65,6 +90,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-PORTBUSTER1337-CVE-2026-33137&utm_source=rss&utm_medium=rss
+  - at: "2026-08-31T17:05:25Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2025-24893 Exploitation - Groovy Code Injection Attempt'
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BISHBEN-XWIKI-15.10.8-REVERSE-SHELL-CVE-2025-24893&utm_source=rss&utm_medium=rss
 ---
 
 XWiki is susceptible to an unauthenticated XAR import vulnerability, identified as CVE-2026-33137, affecting versions 15.10.6 before 16.10.17, 17.0.0-rc-1 before 17.4.9, 17.5.0 before 17.10.3, and 18.0.0-rc-1 before 18.1.0-rc-1. The vulnerability resides in the `/wikis/{wikiName}` REST endpoint, which allows for the execution of XAR imports without proper authentication or authorization checks. This flaw allows an attacker to create or modify documents within the target wiki instance, potentially leading to arbitrary code execution or data manipulation. Defenders should prioritize patching vulnerable XWiki installations or implementing HTTP proxy rules to mitigate this risk.
