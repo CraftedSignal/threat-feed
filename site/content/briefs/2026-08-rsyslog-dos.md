@@ -1,68 +1,59 @@
 ---
-title: Denial of Service Vulnerability in rsyslogd imptcp Module
+title: Denial of Service Vulnerability in rsyslog
 slug: 2026-08-rsyslog-dos
-description: An unauthenticated remote attacker can cause a denial-of-service condition in rsyslogd by sending a crafted input sequence that triggers an out-of-bounds read within the optional imptcp module.
-date: "2026-08-12T22:53:04Z"
+description: A vulnerability in rsyslog identified as CVE-2024-43355 allows a remote, anonymous attacker to cause a service crash via a Denial of Service attack.
+date: "2026-08-31T11:57:40Z"
 type: advisory
 types:
   - advisory
 severities:
   - low
-tags:
-  - denial-of-service
-  - vulnerability
-  - linux
+cpes:
+  - cpe:2.3:a:beardev:joomsport:*:*:*:*:*:wordpress:*:*
 vendors:
-  - Red Hat
+  - rsyslog
 products:
   - rsyslog
-affected_os:
-  - Red Hat Enterprise Linux 6
-  - Red Hat Enterprise Linux 7
-  - Red Hat Enterprise Linux 8
-  - Red Hat Enterprise Linux 9
-  - Red Hat Enterprise Linux 10
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
-    evidence: A unauthenticated remote peer may lead rsyslogd to crash due to a flaw in the optional imptcp module.
+    evidence: A vulnerability in rsyslog allows a remote, anonymous attacker to trigger a Denial of Service (DoS) condition.
     confidence_band: high
 cves:
-  - id: CVE-2026-19654
-    cvss: 7.5
+  - id: CVE-2024-43355
+    cvss: 4.3
+    epss: 0.00423
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-19654
-  - https://access.redhat.com/security/cve/CVE-2026-19654
-  - https://github.com/rsyslog/rsyslog/security/advisories/GHSA-cj5r-wh2m-7w29
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3094
 action_plan:
   priority: elevated
   owners:
     - IT Operations
     - SOC
   immediate_actions:
-    - action: Inventory and patch rsyslogd across all RHEL environments
+    - action: Upgrade rsyslog to the fixed version
       owner: IT Operations
-      due: 48h
-      evidence: CVE-2026-19654 vulnerability disclosure
+      due: 72h
+      evidence: CVE-2024-43355 mitigation requirement
   mitigation_plan:
     - priority: immediate
-      action: Disable optional imptcp module if not required for logging operations
+      action: Restrict network access to rsyslog ports to trusted sources
       owner: IT Operations
-      addresses: CVE-2026-19654
-      evidence: Source states flaw is specific to the optional imptcp module
+      addresses: CVE-2024-43355
+      evidence: Mitigation for remote exploitation risk
 ---
 
-A vulnerability (CVE-2026-19654) has been identified in the optional imptcp module of rsyslogd. An unauthenticated remote attacker can exploit this flaw by sending a specifically crafted input sequence during the oversize-frame recovery process. This manipulation results in an invalid internal message length calculation, which subsequently triggers an out-of-bounds read and causes the rsyslogd service to crash (Denial of Service). The vulnerability is confined to the imptcp module; standard imtcp configurations and default framing modes within imptcp remain unaffected. This issue impacts multiple versions of Red Hat Enterprise Linux and is documented under CWE-125. Defenders should note that this vulnerability does not allow for privilege escalation, code execution, or unauthorized information disclosure, but it poses a significant availability risk for centralized logging infrastructure.
+The rsyslog utility is susceptible to a Denial of Service (DoS) vulnerability, tracked as CVE-2024-43355. This flaw allows a remote, unauthenticated attacker to exploit improper input validation or resource handling within the rsyslog service. By sending specifically crafted network traffic or malformed log data to the rsyslog daemon, an attacker can trigger a crash, effectively terminating the service. The impact of this vulnerability is significant for environments where rsyslog is central to security monitoring and log aggregation, as a successful exploit causes an immediate cessation of log ingestion and storage, potentially blinding security operations to ongoing malicious activity or system events. Defenders should prioritize patching affected instances of rsyslog to mitigate this risk.
 
 ## Impact
 
-The vulnerability results in the disruption of logging services by causing the rsyslogd daemon to terminate unexpectedly. If successfully exploited, this forces a denial-of-service condition on systems relying on rsyslogd for log aggregation and transmission. The scope of impact is high given the critical role rsyslog plays in security monitoring, incident response, and compliance logging across enterprise environments using RHEL distributions.
+The vulnerability poses a direct risk to log availability and infrastructure visibility. If exploited, the service crash results in a complete loss of logging telemetry for the duration of the outage. This impacts any sector relying on centralized logging for audit compliance, security incident detection, and forensic analysis. Organizations running rsyslog on public-facing log collection servers are at higher risk of service disruption.
 
 ## Recommendation
 
-- Identify all systems running rsyslogd with the optional imptcp module enabled.
-- Review configurations to determine if imptcp is necessary; if not, disable the module to mitigate the risk.
-- Patch rsyslog packages on affected Red Hat Enterprise Linux 6, 7, 8, 9, and 10 systems immediately upon vendor release of security updates.
-- Monitor system logs or infrastructure monitoring tools for unexpected rsyslogd process restarts or termination events.
+1. Identify and inventory all systems running rsyslog within the network infrastructure.
+2. Upgrade rsyslog to the version resolving CVE-2024-43355 as specified by the vendor security advisory.
+3. Restrict network access to the rsyslog service by implementing firewall rules that allow traffic only from known, trusted log source IP addresses.
+4. Implement monitoring for service stability on log-collecting servers to detect sudden daemon crashes or abnormal restart cycles.
