@@ -3,6 +3,7 @@ title: SQL Injection in CubeCart 6.7.4
 slug: 2026-08-cubecart-sqli
 description: An authenticated SQL injection vulnerability in CubeCart 6.7.4 allows administrative users to execute arbitrary SQL commands due to improper sanitization of the download_expire parameter.
 date: "2026-08-31T14:04:53Z"
+lastmod: "2026-08-31T14:05:05Z"
 type: threat
 types:
   - threat
@@ -13,10 +14,13 @@ tags:
   - webapps
   - sqli
   - cube-cart
+  - xss
+  - injection
 vendors:
   - CubeCart
 products:
   - CubeCart (6.7.4)
+  - CubeCart (<= 6.7.4)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -24,10 +28,24 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The vulnerability allows the injection of malicious comma-separated SQL syntax to manipulate database queries.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: A Stored Cross-Site Scripting (XSS) vulnerability exists in the product management panel of CubeCart 6.7.4, where product descriptions bypass global input filters and sanitization controls.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    evidence: When clients or other administrators view the affected product page on either the public storefront or the administration panel, the payload executes within their active session.
+    confidence_band: high
 references:
   - https://www.exploit-db.com/exploits/52664
   - https://github.com/cubecart/v6/security/advisories/GHSA-hvmw-v8gc-4c29
   - https://nvd.nist.gov/vuln/detail/CVE-2026-54647
+  - https://www.exploit-db.com/exploits/52662
+  - https://github.com/cubecart/v6/security/advisories/GHSA-43f6-gfcf-wj9c
 rules:
   - title: Detects CVE-2026-54647 Exploitation - SQL Injection via download_expire
     description: Detects potential SQL injection attempts against the CubeCart administrative settings endpoint by monitoring for SQL control characters in the download_expire parameter.
@@ -63,6 +81,14 @@ action_plan:
       evidence: Vendor advisory confirms patch availability.
   gaps:
     - Telemetry coverage for POST body content in webserver logs.
+updates:
+  - at: "2026-08-31T14:05:05Z"
+    level: L1
+    summary: added coverage for CubeCart (<= 6.7.4)
+    sources:
+      - exploit-db
+    source_urls:
+      - https://www.exploit-db.com/exploits/52662
 ---
 
 CubeCart version 6.7.4 is affected by an authenticated SQL injection vulnerability, identified as CVE-2026-54647. The vulnerability exists within the administrative settings interface, specifically in the file `admin/sources/settings.index.inc.php`. The application fails to properly sanitize the `download_expire` parameter when processing POST requests to save administrative settings. Because the application uses an unsafe concatenation method to build database queries, an authenticated administrative user can inject SQL syntax by including commas and other SQL control characters in the payload. This vulnerability allows an attacker to manipulate the `UPDATE` SQL statements executed by the application, potentially leading to unauthorized modification of database settings or other database-level actions.
