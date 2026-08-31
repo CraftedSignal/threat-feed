@@ -3,24 +3,47 @@ title: Windows Server Update Service (WSUS) Privilege Escalation via CVE-2026-26
 slug: 2026-04-wsus-privesc
 description: CVE-2026-26174 is a race condition vulnerability in Windows Server Update Service that allows an authorized attacker to elevate privileges locally.
 date: "2026-04-14T18:23:14Z"
+lastmod: "2026-08-31T17:58:18Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
 tags:
   - cve-2026-26174
   - privilege-escalation
   - windows
   - wsus
+vendors:
+  - Microsoft
+products:
+  - Windows Server Update Service
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-cves:
-  - id: CVE-2026-26174
-    cvss: 7
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-26174
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26174
@@ -48,6 +71,14 @@ rules:
       - file_event
       - windows
 rules_count: 2
+updates:
+  - at: "2026-08-31T17:58:18Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26174
 ---
 
 CVE-2026-26174 describes a race condition vulnerability within the Windows Server Update Service (WSUS). Disclosed on April 14, 2026, this flaw allows a locally authenticated attacker with limited privileges to elevate their privileges to SYSTEM. The vulnerability stems from improper synchronization when WSUS handles concurrent requests, leading to a race condition that can be exploited to overwrite critical system files or manipulate system processes. Successful exploitation could grant an attacker full control over the affected system, potentially enabling lateral movement within the network, data exfiltration, or deployment of malware. Due to the critical role of WSUS in managing updates across an enterprise, this vulnerability poses a significant risk to organizations relying on WSUS for patch management.
