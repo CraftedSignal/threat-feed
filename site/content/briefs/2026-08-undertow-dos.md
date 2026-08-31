@@ -1,56 +1,62 @@
 ---
-title: Denial of Service Vulnerability in Undertow WebSocket Implementation
+title: 'CVE-2026-81624: Resource Exhaustion in Undertow WebSocket Implementation'
 slug: 2026-08-undertow-dos
-description: A vulnerability in the Undertow web server's permessage-deflate extension allows remote attackers to trigger a Denial of Service through excessive memory consumption via exponential buffer allocation.
-date: "2026-08-27T19:09:50Z"
+description: A vulnerability in the Undertow web server used in JBoss EAP and WildFly allows remote attackers to trigger denial of service through WebSocket resource exhaustion due to unconfigurable limits.
+date: "2026-08-31T11:17:38Z"
 type: advisory
 types:
   - advisory
 severities:
   - low
+cpes:
+  - cpe:2.3:a:redhat:jboss_enterprise_application_platform:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:wildfly:wildfly:*:*:*:*:*:*:*:*
+tags:
+  - denial-of-service
+  - webserver
+  - java
 vendors:
   - Red Hat
 products:
+  - JBoss EAP
+  - WildFly
   - Undertow
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
-    evidence: This could lead to excessive memory consumption due to the PerMessageDeflateFunction.largerBuffer() method using exponential doubling, resulting in a Denial of Service (DoS) for the affected application.
+    evidence: This allows a remote attacker to send large amounts of data or maintain connections indefinitely, potentially crashing the server by exhausting its memory or other resources.
     confidence_band: high
 cves:
-  - id: CVE-2026-5680
+  - id: CVE-2026-81624
     cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-5680
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81624
 action_plan:
   priority: elevated
   owners:
+    - SOC
     - IT Operations
-    - Detection Engineering
   immediate_actions:
-    - action: Update Undertow library to latest security release for CVE-2026-5680
+    - action: Inventory JBoss EAP and WildFly instances in the environment.
       owner: IT Operations
-      due: 72h
-      evidence: NVD vulnerability entry requires software patch for resolution.
+      due: 48h
+      evidence: Undertow is a flexible performant web server used in JBoss EAP and WildFly.
   mitigation_plan:
-    - priority: immediate
-      action: Disable permessage-deflate extension in WebSocket configuration
+    - priority: medium_term
+      action: Disable WebSocket endpoints in JBoss EAP/WildFly configurations for non-critical services.
       owner: IT Operations
-      addresses: CVE-2026-5680
-      evidence: Source identifies permessage-deflate as the primary exploitation vector.
+      addresses: CVE-2026-81624
+      evidence: Specifically, certain configuration limits like message buffer sizes and session timeouts cannot be adjusted and default to being unlimited.
 ---
 
-CVE-2026-5680 is a high-severity vulnerability identified in the Undertow web server. The flaw exists within the implementation of the WebSocket permessage-deflate extension, which is responsible for compressing messages to improve network performance. An unauthenticated remote attacker can exploit this by sending specially crafted WebSocket messages that force the `PerMessageDeflateFunction.largerBuffer()` method to perform recursive, exponential memory allocation. This behavior leads to rapid memory exhaustion on the server, resulting in a Denial of Service (DoS) for the affected application. Because the exhaustion occurs at the application level through standard protocol features, it is particularly difficult to distinguish from legitimate high-traffic volume without specific inspection of WebSocket frame metadata and compression negotiation parameters.
+CVE-2026-81624 is a resource exhaustion vulnerability affecting the Undertow web server, a core component of JBoss EAP and WildFly. The flaw arises because the implementation fails to enforce configurable limits on WebSocket message buffer sizes and session timeouts, defaulting these settings to be effectively unlimited. A remote, unauthenticated attacker can exploit this by opening and maintaining an excessive number of WebSocket connections or by flooding the server with large data payloads. By keeping these connections alive indefinitely or consuming available memory through buffer saturation, an attacker can trigger a denial of service (DoS), rendering the server unresponsive to legitimate requests. Given its role in enterprise application servers, this vulnerability represents a significant risk for organizations relying on Java-based middleware to handle high-concurrency traffic.
 
 ## Impact
 
-Successful exploitation results in an application-level Denial of Service, causing the affected service to crash or become unresponsive to legitimate user requests. This vulnerability impacts any system utilizing Undertow with WebSocket support enabled where the permessage-deflate extension is active. Given the common usage of Undertow within various Java-based application frameworks, the potential for service disruption is significant for enterprise environments relying on these components for real-time communication.
+Successful exploitation results in denial of service, potentially causing system crashes and service unavailability for applications hosted on JBoss EAP or WildFly. This impacts availability of web-based services and administrative interfaces, forcing a restart of the application server to restore functionality.
 
 ## Recommendation
 
-Prioritized, concrete actions for detection engineering teams:
-- Patch the Undertow library to the vendor-provided security update that addresses CVE-2026-5680.
-- Monitor web server application logs for spikes in memory usage or frequent service restarts associated with WebSocket endpoints.
-- Evaluate current WebSocket configuration and disable the permessage-deflate extension if it is not strictly required for application functionality until patching is complete.
+Prioritize auditing your infrastructure to identify JBoss EAP and WildFly instances exposing WebSocket endpoints to the internet. Since specific patch or configuration guidance is pending, monitor application server logs for abnormal patterns of WebSocket connection persistence or high memory consumption. Disable WebSocket functionality for services where it is not business-critical to minimize the attack surface.
