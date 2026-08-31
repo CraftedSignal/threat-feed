@@ -3,11 +3,12 @@ title: Missing Authorization in Kirby CMS REST API Chunked Upload Handler
 slug: 2026-08-kirby-unauth-chunk-upload
 description: Authenticated users without file upload permissions can exploit a missing authorization check in Kirby CMS to exhaust server storage via incomplete chunked file uploads, leading to denial-of-service.
 date: "2026-08-31T23:58:20Z"
+lastmod: "2026-08-31T23:58:31Z"
 type: threat
 types:
   - threat
 severities:
-  - medium
+  - high
 exploited: true
 cpes:
   - cpe:2.3:a:kirby:cms:*:*:*:*:*:*:*:*
@@ -15,16 +16,41 @@ tags:
   - web-application
   - denial-of-service
   - api-security
+  - web-application-vulnerability
+  - path-traversal
+  - cms
 vendors:
   - Kirby
 products:
   - Kirby CMS (>= 5.0.0, < 5.5.2)
+  - Kirby CMS (< 4.9.5, 5.0.0-5.5.1)
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1006
+    technique_name: Path Traversal
+    evidence: In affected releases, Kirby did not prevent path traversal in the filenames that were searched within the parent directory.
+    confidence_band: high
 cves:
   - id: CVE-2026-71415
 references:
   - https://github.com/advisories/GHSA-67mx-6wf2-92xp
   - https://github.com/getkirby/kirby/releases/tag/5.5.2
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71415
+  - https://github.com/advisories/GHSA-9vx2-j98c-p72w
+  - https://github.com/getkirby/kirby/releases/tag/4.9.5
+rules:
+  - title: Detect CVE-2026-75594 Exploitation - Path Traversal via Encoded Slashes
+    description: Detects potential path traversal attempts targeting the Kirby media handler by identifying encoded slashes and directory traversal sequences in the URI.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1006
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -41,6 +67,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-71415
       evidence: 'Source states: The problem has been patched in Kirby 5.5.2.'
+updates:
+  - at: "2026-08-31T23:58:31Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-75594 Exploitation - Path Traversal via Encoded Slashes'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9vx2-j98c-p72w
 ---
 
 Kirby CMS versions 5.0.0 through 5.5.1 are vulnerable to a missing authorization flaw (CVE-2026-71415) within the REST API chunked file upload handler. An authenticated user, even one explicitly denied 'files.create', 'files.replace', or 'user/users.update' permissions, can initiate a chunked upload process. The application fails to validate these permissions before writing incoming file chunks to a temporary directory on the server.
