@@ -1,46 +1,38 @@
 ---
-title: Remote Command Injection in D-Link NAS ISO Image Handler
+title: Remote Command Injection in D-Link NAS Devices
 slug: 2026-08-dlink-command-injection
-description: A critical command injection vulnerability (CVE-2026-82689) in D-Link NAS devices allows unauthenticated remote attackers to execute arbitrary OS commands via the /cgi-bin/isomount_mgr.cgi script.
-date: "2026-08-31T13:58:09Z"
-type: advisory
+description: A critical command injection vulnerability in D-Link DNS-327L and DNS-340L devices allows unauthenticated remote code execution via manipulation of the f_dev parameter.
+date: "2026-08-31T13:58:19Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 tags:
   - vulnerability
-  - cve
   - rce
-  - network-appliance
+  - network-storage
 vendors:
   - D-Link
 products:
-  - DNS-320L (<= 20260717)
   - DNS-327L (<= 20260717)
   - DNS-340L (<= 20260717)
-  - DNS-345 (<= 20260717)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1203
     technique_name: Exploitation for Client Execution
-    evidence: The manipulation of the argument upIsoRootPath results in os command injection.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: The attack can be executed remotely.
+    evidence: The attack is possible to be carried out remotely.
     confidence_band: high
 cves:
-  - id: CVE-2026-82689
-    cvss: 9.9
+  - id: CVE-2026-82690
+    cvss: 9.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-82689
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82690
 rules:
-  - title: Detects CVE-2026-82689 Exploitation - Remote Command Injection in D-Link NAS
-    description: Detects HTTP requests to /cgi-bin/isomount_mgr.cgi with shell metacharacters in the upIsoRootPath parameter, indicative of command injection exploitation.
+  - title: Detects CVE-2026-82690 Exploitation - Command Injection in ve_mgr.cgi
+    description: Detects exploitation attempts against D-Link NAS by identifying shell metacharacters in the f_dev parameter sent to the ve_mgr.cgi script.
     platform: sigma
     severity: critical
     tactics:
@@ -57,31 +49,29 @@ action_plan:
     - SOC
     - IT Operations
   immediate_actions:
-    - action: Restrict access to the NAS management interface from external networks.
-      owner: IT Operations
+    - action: Restrict network access to vulnerable NAS devices and monitor logs for CVE-2026-82690 exploitation patterns.
+      owner: SOC
       due: 24h
-      evidence: The attack can be executed remotely.
-    - action: Deploy the Sigma detection rule to web application firewalls or SIEM.
-      owner: Detection Engineering
-      due: 24h
-      evidence: Exploitation is active and publicly available.
+      evidence: Public exploit available for remote code execution.
   mitigation_plan:
     - priority: immediate
-      action: Update NAS firmware to versions beyond 20260717 if patches are provided by D-Link.
+      action: Remove affected NAS devices from internet-facing networks immediately.
       owner: IT Operations
-      addresses: CVE-2026-82689
-      evidence: Vulnerability affects versions up to 20260717.
+      addresses: CVE-2026-82690
+      evidence: High CVSS score and remote exploitability.
 ---
 
-D-Link NAS devices, including models DNS-320L, DNS-327L, DNS-340L, and DNS-345, contain a critical OS command injection vulnerability identified as CVE-2026-82689. The flaw exists within the ISO Image Handler component, specifically within the /cgi-bin/isomount_mgr.cgi script. An unauthenticated, remote attacker can trigger this vulnerability by sending a crafted request containing malicious shell metacharacters in the 'upIsoRootPath' argument. Because this flaw allows for arbitrary command execution with high privileges on the affected NAS storage appliances, it presents a significant risk to data integrity and network security. The vulnerability affects all firmware versions up to 20260717. Publicly available exploit code increases the urgency for defenders to isolate these devices from the internet or apply necessary updates, if available, from the vendor.
+A critical security vulnerability has been identified in D-Link DNS-327L and DNS-340L network-attached storage (NAS) devices. The flaw resides in the /cgi-bin/ve_mgr.cgi script, which fails to properly sanitize user-supplied input. By injecting malicious payloads into the f_dev parameter, an unauthenticated attacker can achieve remote code execution (RCE) with the privileges of the web server. This vulnerability is remotely exploitable and proof-of-concept exploit code has been publicly released, increasing the risk of active exploitation. Organizations using these specific NAS models are at high risk of unauthorized system access and potential data exfiltration or device compromise. The vulnerability affects all firmware versions up to and including the 20260717 release.
 
 ## Impact
 
-The vulnerability carries a CVSS v3.1 base score of 9.9, reflecting its potential for full system compromise. If exploited, an attacker can gain remote control over the NAS device, enabling unauthorized access to stored files, installation of persistent backdoors, or utilization of the device as a pivot point within the local network. Organizations using these D-Link NAS models for critical data storage are at high risk of data exfiltration and potential ransomware deployment.
+Successful exploitation of this vulnerability allows for full, unauthenticated remote command execution on affected D-Link NAS devices. This could lead to a complete compromise of the device, unauthorized access to stored data, lateral movement into internal networks, or the deployment of persistent malware. Given the public availability of exploit code, the likelihood of targeted attacks against exposed storage appliances is significant.
 
 ## Recommendation
 
-- Immediately restrict access to the web management interface of all affected D-Link NAS devices to trusted, internal IP ranges only.
-- Disable the ISO Image Handler functionality if not required for business operations.
-- Monitor web server access logs for requests targeting /cgi-bin/isomount_mgr.cgi containing shell metacharacters such as semicolon, pipe, or backtick in the 'upIsoRootPath' parameter.
-- Verify if firmware updates are available for your specific D-Link model at the official vendor support portal to address the 20260717 version limitation.
+Immediate mitigation is required for all internet-facing D-Link DNS-327L and DNS-340L devices. 
+
+- Ensure that NAS devices are not exposed directly to the internet; place them behind a firewall or VPN.
+- Review web server access logs for anomalous HTTP requests targeting /cgi-bin/ve_mgr.cgi, specifically looking for shell metacharacters in the f_dev argument.
+- Monitor for unauthorized outbound network traffic originating from these storage devices, which may indicate post-exploitation activity.
+- Apply the latest firmware patches provided by D-Link if a version newer than 20260717 is available.
