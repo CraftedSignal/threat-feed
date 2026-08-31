@@ -3,7 +3,7 @@ title: SQL Injection in CubeCart 6.7.4
 slug: 2026-08-cubecart-sqli
 description: An authenticated SQL injection vulnerability in CubeCart 6.7.4 allows administrative users to execute arbitrary SQL commands due to improper sanitization of the download_expire parameter.
 date: "2026-08-31T14:04:53Z"
-lastmod: "2026-08-31T14:05:05Z"
+lastmod: "2026-08-31T14:05:17Z"
 type: threat
 types:
   - threat
@@ -16,6 +16,7 @@ tags:
   - cube-cart
   - xss
   - injection
+  - cve-2026-54644
 vendors:
   - CubeCart
 products:
@@ -46,6 +47,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-54647
   - https://www.exploit-db.com/exploits/52662
   - https://github.com/cubecart/v6/security/advisories/GHSA-43f6-gfcf-wj9c
+  - https://www.exploit-db.com/exploits/52661
+  - https://github.com/cubecart/v6/security/advisories/GHSA-v55x-fh73-29vq
 rules:
   - title: Detects CVE-2026-54647 Exploitation - SQL Injection via download_expire
     description: Detects potential SQL injection attempts against the CubeCart administrative settings endpoint by monitoring for SQL control characters in the download_expire parameter.
@@ -57,7 +60,17 @@ rules:
       - T1059.003
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-54644 Exploitation - XSS Attempt via Anchor Tags
+    description: Detects attempts to inject malicious JavaScript via anchor tag attributes in web application requests, indicative of CVE-2026-54644 exploitation.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1059.007
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -89,6 +102,13 @@ updates:
       - exploit-db
     source_urls:
       - https://www.exploit-db.com/exploits/52662
+  - at: "2026-08-31T14:05:17Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-54644 Exploitation - XSS Attempt via Anchor Tags'
+    sources:
+      - exploit-db
+    source_urls:
+      - https://www.exploit-db.com/exploits/52661
 ---
 
 CubeCart version 6.7.4 is affected by an authenticated SQL injection vulnerability, identified as CVE-2026-54647. The vulnerability exists within the administrative settings interface, specifically in the file `admin/sources/settings.index.inc.php`. The application fails to properly sanitize the `download_expire` parameter when processing POST requests to save administrative settings. Because the application uses an unsafe concatenation method to build database queries, an authenticated administrative user can inject SQL syntax by including commas and other SQL control characters in the payload. This vulnerability allows an attacker to manipulate the `UPDATE` SQL statements executed by the application, potentially leading to unauthorized modification of database settings or other database-level actions.
