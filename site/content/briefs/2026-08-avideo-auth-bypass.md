@@ -3,7 +3,7 @@ title: Authentication Bypass in AVideo via Parameter Manipulation
 slug: 2026-08-avideo-auth-bypass
 description: An authentication bypass vulnerability in AVideo (CVE-2026-59808) allows attackers with upload access to hijack administrative sessions via improper video ownership verification.
 date: "2026-08-22T15:30:44Z"
-lastmod: "2026-08-30T17:11:31Z"
+lastmod: "2026-09-01T13:06:00Z"
 type: advisory
 types:
   - advisory
@@ -53,6 +53,18 @@ mitre_ttps:
     technique_name: 'Unsecured Credentials: Credentials in Files'
     evidence: The endpoint discloses stream keys and URLs for third-party platforms.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: Attackers can navigate a victim's browser to a malicious URL with API parameters to delete videos, deactivate accounts, or modify playlists without user interaction.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1505.001
+    technique_name: Server Software Component
+    evidence: AVideo contains a cross-site request forgery vulnerability in plugin/API/set.json.php that allows attackers to perform state-changing actions.
+    confidence_band: med
 cves:
   - id: CVE-2026-59808
     cvss: 8.8
@@ -60,6 +72,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-59808
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81678
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82645
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-83595
 rules:
   - title: Detect CVE-2026-82645 Exploitation Attempt - Unauthorized Access to GetLiveKey
     description: Detects unauthorized attempts to access the getLiveKey.json.php endpoint by monitoring for anomalous requests that bypass standard authentication flows, specifically targeting the restream credential extraction endpoint.
@@ -104,6 +117,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-82645
+  - at: "2026-09-01T13:06:00Z"
+    level: L1
+    summary: added coverage for AVideo
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-83595
 ---
 
 AVideo through commit 9c39d8c8 contains a critical authentication bypass vulnerability due to flawed validation logic within the `deduplicateByEncoderQueueId()` and `useVideoHashOrLogin()` functions. The software fails to perform proper ownership verification when the `videos_id` parameter is omitted during an upload process, causing the system to return a `video_id_hash` belonging to any video, including those owned by administrators. Because the `useVideoHashOrLogin()` function treats this hash as a valid credential for passwordless login, an attacker can leverage a captured hash to authenticate as the video owner. This flaw allows an attacker with low-privileged upload access to escalate privileges to the administrator level, enabling full system configuration control. This vulnerability highlights the risks of implicit trust in video identifier hashes for session management.
