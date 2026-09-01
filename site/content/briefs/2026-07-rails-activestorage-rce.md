@@ -3,7 +3,7 @@ title: Remote Code Execution and Arbitrary File Read in Ruby on Rails Active Sto
 slug: 2026-07-rails-activestorage-rce
 description: A vulnerability (CVE-2026-66066) in Ruby on Rails Active Storage allows unauthenticated attackers to achieve arbitrary file read and remote code execution during the variant processing phase.
 date: "2026-07-30T15:25:56Z"
-lastmod: "2026-08-03T14:08:38Z"
+lastmod: "2026-09-01T08:03:46Z"
 type: advisory
 types:
   - advisory
@@ -26,10 +26,10 @@ products:
   - libvips (< 8.13)
   - ruby-vips (< 2.2.1)
   - Active Storage (7.2.3.2, 8.0.5.1, 8.1.3.1)
-  - Rails Active Storage
+  - Rails Active Storage (< 7.2.3.2)
 cves:
   - id: CVE-2026-66066
-    epss: 0.01701
+    epss: 0.27861
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0948/
   - https://discuss.rubyonrails.org/t/cve-2026-66066-possible-arbitrary-file-read-and-remote-code-execution-in-active-storage-variant-processing/91432
@@ -37,6 +37,7 @@ references:
   - https://www.rapid7.com/blog/post/etr-kindarails2shell-cve-2026-66066-critical-arbitrary-file-read-and-possible-remote-code-execution-in-ruby-on-rails
   - https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability/
   - https://sploitus.com/exploit?id=04CDB004-ADE7-5A64-924D-DAFA4290F817&utm_source=rss&utm_medium=rss
+  - https://thehackernews.com/2026/09/attackers-exploit-critical-langflow-and.html
 iocs:
   - type: url
     value: https://sploitus.com/exploit?id=04CDB004-ADE7-5A64-924D-DAFA4290F817
@@ -64,6 +65,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=04CDB004-ADE7-5A64-924D-DAFA4290F817&utm_source=rss&utm_medium=rss
+  - at: "2026-09-01T08:03:46Z"
+    level: L2
+    summary: rails active storage version < 7.2.3.2
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/09/attackers-exploit-critical-langflow-and.html
 ---
 
 A critical vulnerability, tracked as CVE-2026-66066, has been identified in the Ruby on Rails Active Storage component. The flaw arises from improper handling of image variants during the processing phase. An attacker can exploit this weakness to perform arbitrary file reads or achieve remote code execution (RCE) on the underlying server hosting the application. This vulnerability is particularly dangerous as it targets the file processing pipeline, which is a common feature in web applications handling user-uploaded content. Impacted versions include Active Storage 8.0.x versions prior to 8.0.5.1, 8.1.x versions prior to 8.1.3.1, and versions prior to 7.2.3.2. Organizations utilizing these affected versions of Rails are encouraged to update immediately to the patched releases provided by the Ruby on Rails security team to prevent potential exploitation.
