@@ -3,6 +3,7 @@ title: Browserslist Unbounded Memory Growth via Cache Exhaustion
 slug: 2026-09-browserslist-oom
 description: The Browserslist package is vulnerable to a volumetric denial-of-service attack due to a missing cache eviction policy in its internal query result storage, leading to unbounded heap growth and potential OOM crashes in long-running processes.
 date: "2026-09-01T18:00:21Z"
+lastmod: "2026-09-01T18:00:44Z"
 type: advisory
 types:
   - advisory
@@ -15,8 +16,18 @@ tags:
   - memory-exhaustion
   - javascript
   - nodejs
+  - vulnerability
+  - prototype-pollution
+  - supply-chain
 products:
   - browserslist (<= 4.28.6)
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    evidence: The Browserslist library is vulnerable to prototype pollution and a denial-of-service (DoS) condition caused by insufficient validation of the 'browserslist-stats.json' file or 'opts.stats' input.
+    confidence_band: high
 cves:
   - id: CVE-2026-73089
     cvss: 7.5
@@ -24,6 +35,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-c83g-rgw3-j3cx
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73089
+  - https://github.com/advisories/GHSA-73wf-gq98-2v4g
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-73088
 action_plan:
   priority: elevated
   owners:
@@ -35,6 +48,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-73089
       evidence: Source provides fix logic using Map and CACHE_MAX_ENTRIES limit.
+updates:
+  - at: "2026-09-01T18:00:44Z"
+    level: L1
+    summary: added coverage for browserslist (<= 4.28.6)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-73wf-gq98-2v4g
 ---
 
 The Browserslist package (up to and including v4.28.6) contains a memory management vulnerability in its internal query and parse caches. The application maintains two objects, `cache` and `parseCache`, which store results indexed by query keys generated via `JSON.stringify()`. These caches lack size constraints, time-to-live (TTL) policies, or eviction mechanisms, and are not cleared by the `browserslist.clearCaches()` function. 
