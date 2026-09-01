@@ -1,17 +1,18 @@
 ---
-title: Detection of PowerShell Web Request Commands via ScriptBlock Logging
+title: Detection of Suspicious Web Request Execution via PowerShell and CLI
 slug: 2026-09-web-request-cmdlets
-description: This brief documents the usage of PowerShell cmdlets and command-line tools for web-based data retrieval, often leveraged by attackers for stage-two payload delivery or data exfiltration.
-date: "2026-09-01T12:19:06Z"
+description: This brief documents detection logic for identifying potential malicious file downloads and C2 communication using native Windows command-line tools and PowerShell cmdlets.
+date: "2026-09-01T12:25:22Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
 tags:
+  - detection-engineering
+  - windows
   - execution
-  - powershell
-  - reconnaissance
+  - living-off-the-land
 affected_os:
   - Windows
 mitre_ttps:
@@ -19,15 +20,16 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets.
+    evidence: Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases) via CommandLine.
     confidence_band: high
 references:
-  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/powershell/powershell_script/posh_ps_web_request_cmd_and_cmdlets.yml
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_susp_web_request_cmd_and_cmdlets.yml
   - https://4sysops.com/archives/use-powershell-to-download-a-file-with-http-https-and-ftp/
   - https://blog.jourdant.me/post/3-ways-to-download-files-with-powershell
+  - https://learn.microsoft.com/en-us/powershell/module/bitstransfer/add-bitsfile?view=windowsserver2019-ps
 rules:
-  - title: Usage Of Web Request Commands And Cmdlets - ScriptBlock
-    description: Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets via PowerShell scriptblock logs
+  - title: Detect Usage of Web Request Commands and Cmdlets
+    description: Detects the use of various web request commands with command-line tools and Windows PowerShell cmdlets via CommandLine.
     platform: sigma
     severity: medium
     tactics:
@@ -35,7 +37,7 @@ rules:
     techniques:
       - T1059.001
     data_sources:
-      - ps_script
+      - process_creation
       - windows
 rules_count: 1
 action_plan:
@@ -43,30 +45,27 @@ action_plan:
   owners:
     - Detection Engineering
   immediate_actions:
-    - action: Enable PowerShell Script Block Logging (Event 4104) on critical assets.
-      owner: IT Operations
-      due: 72h
-      evidence: Log source requirements specified in rule metadata.
+    - action: Deploy the Sigma rule to the SIEM environment
+      owner: Detection Engineering
+      due: 48h
+      evidence: Source provides detection logic for widespread TTP.
   hunt_leads:
-    - lead: Search for high-frequency usage of iwr/Invoke-WebRequest from non-administrative service accounts.
+    - lead: Search for historical execution of Invoke-WebRequest or curl in process logs
       technique_id: T1059.001
       data_needed:
-        - Event ID 4104
+        - CommandLine
       priority: medium
       confidence: medium
-      disposition: convert_to_detection
-      evidence: Source documents these as primary vectors for web requests.
+      disposition: hunt_now
+      evidence: Adversaries commonly use these tools for initial payload staging.
 ---
 
-Attackers frequently utilize built-in Windows PowerShell cmdlets and command-line utilities to perform web requests, facilitating the download of malicious payloads or the exfiltration of sensitive data. Because these utilities are native to the Windows environment, they are often used as living-off-the-land techniques to blend in with legitimate administrative activity. PowerShell ScriptBlock logging provides visibility into the execution of these commands even when aliases are used. Monitoring for specific commands such as Invoke-WebRequest, Invoke-RestMethod, BitsTransfer, and third-party tools like curl and wget allows security operations teams to detect suspicious external network interactions initiated by PowerShell.
+Attackers frequently leverage built-in Windows utilities and PowerShell cmdlets to download secondary payloads, fetch malicious configurations, or establish command-and-control (C2) channels. These tools are often preferred because they are natively present in the operating system, allowing attackers to perform network requests while blending in with legitimate administrative activity. Common utilities include `curl`, `wget`, and various PowerShell cmdlets such as `Invoke-WebRequest` and `Start-BitsTransfer`. Monitoring the execution of these commands is essential for detecting the initial stage of payload delivery or subsequent exfiltration attempts. This brief provides a detection capability for these patterns, focusing on command-line arguments that indicate external data retrieval.
 
 ## Impact
 
-Successful abuse of these cmdlets can lead to unauthorized code execution, the introduction of secondary malware, and the exfiltration of internal data to attacker-controlled infrastructure. These techniques are common in both initial stage deployment and post-exploitation command-and-control communication.
+Successful abuse of these techniques enables attackers to transition from initial access to full payload execution, facilitate lateral movement, or exfiltrate sensitive data. If these activities are not detected, adversaries may maintain persistence and perform data theft undetected for extended periods.
 
 ## Recommendation
 
-1. Enable PowerShell ScriptBlock Logging (Event ID 4104) across all Windows endpoints to capture full script content.
-2. Deploy the provided Sigma rule to your SIEM to monitor for suspicious web request activity.
-3. Establish a baseline for legitimate administrative scripts that utilize these cmdlets and add them to the filter block to reduce false positives.
-4. Integrate the identified cmdlets and command aliases into your threat hunting program to investigate anomalous external network connections originating from non-browser processes.
+Deploy the provided Sigma rule to your SIEM to monitor for the use of web request-related command-line arguments. Prioritize alerts from servers and endpoints that do not typically require external connectivity or the use of automated download utilities.
