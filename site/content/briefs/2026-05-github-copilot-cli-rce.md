@@ -3,11 +3,17 @@ title: 'GitHub Copilot CLI: Nested Bare Repository RCE via Git Configuration'
 slug: 2026-05-github-copilot-cli-rce
 description: GitHub Copilot CLI versions prior to 1.0.43 are vulnerable to arbitrary code execution via a malicious bare git repository nested within a project directory, exploiting git's automatic bare repository discovery and the `core.fsmonitor` configuration setting.
 date: "2026-05-11T16:17:45Z"
+lastmod: "2026-09-01T00:08:33Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:github:copilot-cli:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GRASSPLATYPUS-CVE-2026-45033-CLASS&utm_source=rss&utm_medium=rss
 tags:
   - git
   - rce
@@ -17,14 +23,20 @@ vendors:
   - GitHub
 products:
   - Copilot CLI (<= 1.0.42)
+  - Github Copilot-cli (< 1.0.43)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2026-45033
+    cvss: 7.8
+    epss: 0.0035
 references:
   - https://github.com/advisories/GHSA-9ccr-r5hg-74gf
   - CVE-2026-45033
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GRASSPLATYPUS-CVE-2026-45033-CLASS&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Suspicious Git Configuration Modification
     description: Detects modification of git configuration to set suspicious commands, which could indicate an attempt to exploit CVE-2026-45033.
@@ -49,6 +61,14 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-09-01T00:08:33Z"
+    level: L2
+    summary: poc_available; added CVE-2026-45033
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GRASSPLATYPUS-CVE-2026-45033-CLASS&utm_source=rss&utm_medium=rss
 ---
 
 A security vulnerability exists in GitHub Copilot CLI versions prior to 1.0.43 that allows for arbitrary code execution. The vulnerability stems from how Git handles bare repositories nested within a project directory. An attacker can create a malicious bare Git repository with a specially crafted configuration. When GitHub Copilot CLI performs Git operations, it may inadvertently discover and read the configuration of the malicious bare repository, leading to the execution of arbitrary commands defined within settings like `core.fsmonitor`. This poses a significant risk, as the execution occurs without user consent or awareness. This vulnerability was addressed in version 1.0.43 by setting `safe.bareRepository=explicit` through environment variables.
