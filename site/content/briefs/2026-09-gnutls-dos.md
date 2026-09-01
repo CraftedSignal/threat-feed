@@ -3,6 +3,7 @@ title: GnuTLS Denial of Service Vulnerability
 slug: 2026-09-gnutls-dos
 description: A vulnerability in the GnuTLS library allows remote, unauthenticated attackers to trigger a denial of service condition in applications leveraging the library via CVE-2024-0553.
 date: "2026-09-01T12:00:31Z"
+lastmod: "2026-09-01T12:04:26Z"
 type: advisory
 types:
   - advisory
@@ -13,14 +14,29 @@ cpes:
   - cpe:2.3:o:fedoraproject:fedora:39:*:*:*:*:*:*:*
   - cpe:2.3:o:redhat:enterprise_linux:8.0:*:*:*:*:*:*:*
   - cpe:2.3:o:redhat:enterprise_linux:9.0:*:*:*:*:*:*:*
+tags:
+  - denial-of-service
+  - vulnerability
+  - transport-security
+vendors:
+  - GnuTLS
 products:
   - GnuTLS (vulnerable versions)
+  - GnuTLS
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: Ein entfernter, anonymer Angreifer kann mehrere Schwachstellen in GnuTLS ausnutzen, um einen Denial of Service Angriff durchzuführen.
+    confidence_band: high
 cves:
   - id: CVE-2024-0553
     cvss: 7.5
     epss: 0.01614
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0302
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3122
 action_plan:
   priority: elevated
   owners:
@@ -39,6 +55,14 @@ action_plan:
       evidence: Standard patching lifecycle for library vulnerabilities.
   gaps:
     - Lack of specific version numbers in the source metadata.
+updates:
+  - at: "2026-09-01T12:04:26Z"
+    level: L1
+    summary: added coverage for GnuTLS
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3122
 ---
 
 The GnuTLS library, a widely used implementation of the TLS protocol, contains a vulnerability identified as CVE-2024-0553. This flaw permits a remote, unauthenticated attacker to induce a denial of service (DoS) state in applications that depend on the affected versions of the GnuTLS library. Because GnuTLS is a foundational cryptographic component used by numerous client and server-side applications across Linux, macOS, and Windows environments, the potential for service disruption is broad. Defenders should prioritize auditing the GnuTLS versions bundled with critical network services, mail servers, and internal applications to ensure patching or mitigation once vendor-specific updates are available. The vulnerability emphasizes the risk posed by weaknesses in low-level cryptographic libraries which can be exploited to crash processes or exhaust system resources without requiring prior authentication.
